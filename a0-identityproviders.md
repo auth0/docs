@@ -37,7 +37,7 @@ What if you need to query the user's calendar, or his pictures or his birthday? 
 
 This identity provider allows you to get much more information about the user. The tradeoff is that when configuring this connection you will have to register your instance of Auth0 with Google and then you have to supply a _clientid_ and a _client secret_.
 
-> Auth0 is a multi-tenant service. When you register to Auth0 you get your own namespace (@{User.namespace}.auth0.com). This is the application you need to register with Google.
+> Auth0 is a multi-tenant service. When you register to Auth0 you get your own namespace (@{account.namespace}). This is the application you need to register with Google.
 
 ####1. Register the Auth0 with Google
 You need to use Google's API console for this. 
@@ -49,7 +49,7 @@ Once the clientid an client secrets are creted in Google. Paste them into Auth0 
 ####3. Edit the callback URL
 Make sure the callback address in Google is configured to
 
-        https://@{namespace}.auth0.com/login/callback
+        https://@{account.namespace}/login/callback
         
 You are done! 
 
