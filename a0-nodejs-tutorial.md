@@ -1,7 +1,7 @@
 ---
 title: Auth0 and Node
 ---
-# Hello Using Auth0 with node.js
+# Using Auth0 with node.js
 
 Integrating Auth0 with node is straight forward. At the end of this tutorial you will have a working web site, capable of authenticating users with an external identity provider (no more passwords in your app!).
 
@@ -37,9 +37,10 @@ Create a new file __setup-passport.js__ with the following code:
             Auth0Strategy = require('passport-auth0');
         
         var strategy = new Auth0Strategy({
-            namespace:        @{namespace},
-            clientID:         @{clientId},
-            clientSecret:     @{clientSecret},
+            
+            namespace:        @{account.namespace},
+            clientID:         @{account.clientId},
+            clientSecret:     @{account.clientSecret},
             callbackURL:      '/callback'
           },
           function(accessToken, refreshToken, profile, done) {
@@ -66,6 +67,7 @@ Create a new file __setup-passport.js__ with the following code:
 
 The __clientId__, __clientSecret__ and __namespace__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
 
+__Client Secret:__ @{account.clientSecret}
 
 #####3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
