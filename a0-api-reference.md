@@ -61,7 +61,7 @@ A GET against the ``connections`` resource returns a list of connection objects:
 	* google-oauth2
 	* office365
 
-> With __office365__ the following properties are added to the connection object:
+> With __office365__ and __google-apps__ the following properties are added to the connection object:
 
 >		provisioning_ticket: TICKET
 >		provisioning_ticket_url: PROVISIONING URL
@@ -168,29 +168,49 @@ A GET against `connections`` with an ID specified in the path will just return t
 		{
 			"client_id": MSFT ACCOUNT CLIENT ID,
 			"client_secret":MSFT ACCOUNT CLIENT SECRET,
-			"basic":true,
-			"signin":true,
-			"offline_access":true,
-			"birthday":true,
-			"calendars":true,
-			"calendars_update":true,
-			"contacts_birthday":true,
-			"contacts_create":true,
-			"contacts_calendar":true,
-			"contacts_photos":true,
-			"contacts_skydrive":true,
-			"emails":true,
-			"events_create":true,
-			"messenger":true,
-			"phone_numbers":true,
-			"photos":true,
-			"postal_addresses":true,
-			"share":true,
-			"skydrive":true,
-			"skydrive_update":true,
-			"work_profile":true,
-			"applications":true,
-			"applications_create":true,
+			"basic":true/false,
+			"signin":true/false,
+			"offline_access":true/false,
+			"birthday":true/false,
+			"calendars":true/false,
+			"calendars_update":true/false,
+			"contacts_birthday":true/false,
+			"contacts_create":true/false,
+			"contacts_calendar":true/false,
+			"contacts_photos":true/false,
+			"contacts_skydrive":true/false,
+			"emails":true/false,
+			"events_create":true/false,
+			"messenger":true/false,
+			"phone_numbers":true/false,
+			"photos":true/false,
+			"postal_addresses":true/false,
+			"share":true/false,
+			"skydrive":true/false,
+			"skydrive_update":true/false,
+			"work_profile":true/false,
+			"applications":true/false,
+			"applications_create":true/false,
 			"scope":["wl.basic","wl.signin","wl.offline_access","wl.birthday","wl.calendars","wl.calendars_update","wl.contacts_birthday","wl.contacts_create","wl.contacts_calendar","wl.contacts_photos","wl.contacts_skydrive","wl.emails","wl.events_create","wl.messenger","wl.phone_numbers","wl.photos","wl.postal_addresses","wl.share","wl.skydrive","wl.skydrive_update","wl.work_profile","wl.applications","wl.applications_create"]
 		}
+> In this example, all possible scopes are shown.
+
+#### Google Apps
+
+		{
+			"client_id": GOOG APPS CLIENT_ID,
+			"client_secret": GOOG APPS CLIENT_SECRET,
+			"tenant_domain": CONNECTION DOMAIN IN GOOG APPS,
+			"email":true/false,
+			"profile":true/false,
+			"ext_groups":true/false,
+			"ext_is_admin":true/false,
+			"ext_is_suspended":true/false,
+			"ext_agreed_terms":true/false,
+			"user_provisioning":true/false,
+			"groups_provisioning":true/false,
+			"nicknames_provisioning":true/false,
+			"scope":["https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/userinfo.profile","https://apps-apis.google.com/a/feeds/user/","https://apps-apis.google.com/a/feeds/groups/","https://apps-apis.google.com/a/feeds/alias/"]
+		}
+
 > In this example, all possible scopes are shown.
