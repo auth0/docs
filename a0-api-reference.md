@@ -54,12 +54,12 @@ A GET against the ``connections`` resource returns a list of connection objects:
 * `status` defines whether the connection is active (1) or not (0)
 
 * `strategy` defines what type of identity provider is associated with this connection. Auth0 supports the following strategies:
-	* facebook
+	* office365
 	* windowslive
 	* google-apps
 	* google-openid
 	* google-oauth2
-	* office365
+	* facebook
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
 
@@ -214,3 +214,83 @@ A GET against `connections`` with an ID specified in the path will just return t
 		}
 
 > In this example, all possible scopes are shown.
+
+#### Facebook
+
+		{
+			"app_id": FB APP ID,
+			"app_secret": FB APP SECRET,
+			"email":true,
+			"user_about_me":true/false,
+			"user_likes":true/false,
+			"user_activities":true/false,
+			"user_birthday":true/false,
+			"user_checkins":true/false,
+			"user_education_history":true/false,
+			"user_events":true/false,
+			"user_groups":true/false,
+			"user_hometown":true/false,
+			"user_interests":true/false,
+			"user_location":true/false,
+			"user_notes":true/false,
+			"user_photos":true/false,
+			"user_questions":true/false,
+			"user_relationships":true/false,
+			"user_relationship_details":true/false,
+			"user_religion_politics":true/false,
+			"user_status":true/false,
+			"user_subscription":true/false,
+			"user_videos":true/false,
+			"user_website":true/false,
+			"user_work_history":true/false,
+			"friends_about_me":true/false,
+			"friends_likes":true/false,
+			"friends_activities":true/false,
+			"friends_birthday":true/false,
+			"friends_checkins":true/false,
+			"friends_education_history":true/false,
+			"friends_events":true/false,
+			"friends_groups":true/false,
+			"friends_hometown":true/false,
+			"friends_interests":true/false,
+			"friends_location":true/false,
+			"friends_notes":true/false,
+			"friends_photos":true/false,
+			"friends_questions":true/false,
+			"friends_relationships":true/false,
+			"friends_relationship_details":true/false,
+			"friends_religion_politics":true/false,
+			"friends_status":true/false,
+			"friends_subscription":true/false,
+			"friends_videos":true/false,
+			"friends_website":true/false,
+			"friends_work_history":true/false,
+			"publish_actions":true/false,
+			"user_actions_music":true/false,
+			"user_actions_news":true/false,
+			"user_actions_video":true/false,
+			"user_games_activity":true/false,
+			"friends_actions_music":true/false,
+			"friends_actions_news":true/false,
+			"friends_actions_video":true/false,
+			"friends_games_activity":true/false,
+			"read_friendlists":true/false,
+			"read_insights":true/false,
+			"read_mailbox":true/false,
+			"read_requests":true/false,
+			"read_stream":true/false,
+			"xmpp_login":true/false,
+			"ads_management":true/false,
+			"create_event":true/false,
+			"manage_friendlists":true/false,
+			"manage_notifications":true/false,
+			"user_online_presence":true/false,
+			"friends_online_presence":true/false,
+			"publish_checkins":true/false,
+			"publish_stream":true/false,
+			"rsvp_event":true/false,
+			"scope":"email,user_about_me,user_likes,user_activities,user_birthday,user_checkins,user_education_history,user_events,user_groups,user_hometown,user_interests,user_location,user_notes,user_photos,user_questions,user_relationships,user_relationship_details,user_religion_politics,user_status,user_subscription,user_videos,user_website,user_work_history,friends_about_me,friends_likes,friends_activities,friends_birthday,friends_checkins,friends_education_history,friends_events,friends_groups,friends_hometown,friends_interests,friends_location,friends_notes,friends_photos,friends_questions,friends_relationships,friends_relationship_details,friends_religion_politics,friends_status,friends_subscription,friends_videos,friends_website,friends_work_history,publish_actions,user_actions_music,user_actions_news,user_actions_video,user_games_activity,friends_actions_music,friends_actions_news,friends_actions_video,friends_games_activity,read_friendlists,read_insights,read_mailbox,read_requests,read_stream,xmpp_login,ads_management,create_event,manage_friendlists,manage_notifications,user_online_presence,friends_online_presence,publish_checkins,publish_stream,rsvp_event"}
+		}
+
+> In this example, all possible scopes are shown.
+
