@@ -31,6 +31,8 @@ Here's what you do for integrating Auth0 in your app with __passport__:
 
 #####2. Initialize passport-auth0
 
+    namespace:        '@{account.namespace}',
+
 Create a new file __setup-passport.js__ with the following code:
 
         var passport = require('passport'),
@@ -66,8 +68,6 @@ Create a new file __setup-passport.js__ with the following code:
 > TIP: you typically would put this file under a 'lib' folder
 
 The __clientId__, __clientSecret__ and __namespace__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
-
-__Client Secret:__ @{account.clientSecret}
 
 #####3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
