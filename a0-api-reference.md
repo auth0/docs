@@ -32,11 +32,11 @@ The response body of this POST will be a JSON object with the following content:
 	/api/connections
 	/api/connections/{connection_id}
 
-####GET
-A GET against the ``connections`` resource returns a list of connection objects:
+#### Querying Connections
+A GET operation against the ``connections`` resource returns a list of connection objects:
 
 	{
-		"_id":ID,
+		"_id": ID,
 		"client_id": @{account.clientId}
 		"name": YOUR CONNECTION NAME,
 		"options": { ... },
@@ -70,11 +70,13 @@ A GET against the ``connections`` resource returns a list of connection objects:
 
 * `options` is an object with properties that are dependent on the strategy selected. 
 
-A GET against `connections`` with an ID specified in the path will just return the matching connection object.
+A GET against `connections` with an ID specified in the path will just return the matching connection object.
 
-### Options
+##### Options
 
-#### Office 365
+The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information you enter on the [connections](https://app.auth0.com/#/connections) screen.
+
+###### Office 365
 
 	{
 		"client_id": OFFICE 365 CLIENT ID,
@@ -115,7 +117,7 @@ A GET against `connections`` with an ID specified in the path will just return t
 		"thumbprints":[TH_1, TH_2, TH_3]
 	}
 
-#### Google OAuth2
+###### Google OAuth2
 
 	{
 		"client_id": GOOG CLIENT ID,
@@ -151,7 +153,7 @@ A GET against `connections`` with an ID specified in the path will just return t
 		"scope":["https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/userinfo.profile"]
 	}	
 
-#### Google OpenId
+###### Google OpenId
 
 	{
 		"email":true,
@@ -163,7 +165,7 @@ A GET against `connections`` with an ID specified in the path will just return t
 
 > These properties all always true
 
-#### Microsoft Account
+###### Microsoft Account
 
 	{
 		"client_id": MSFT ACCOUNT CLIENT ID,
@@ -195,7 +197,7 @@ A GET against `connections`` with an ID specified in the path will just return t
 	}
 > In this example, all possible scopes are shown.
 
-#### Google Apps
+###### Google Apps
 
 	{
 		"client_id": GOOG APPS CLIENT_ID,
@@ -215,7 +217,7 @@ A GET against `connections`` with an ID specified in the path will just return t
 
 > In this example, all possible scopes are shown.
 
-#### Facebook
+###### Facebook
 
 	{
 		"app_id": FB APP ID,
@@ -293,4 +295,40 @@ A GET against `connections`` with an ID specified in the path will just return t
 	}
 
 > In this example, all possible scopes are shown.
+
+#### Deleting connections
+A DELETE operation against the `connections` resource will eliminate the connection definition permanently. The parameter for this operation is the ID.
+
+If the operation is successful, you will get a confirmation object in the response body:
+
+	{
+		"removed":1
+	}
+
+>Notice that batch operations are not supported yet.
+
+#### Creating a new Connection
+
+To create a new connection, POST a connection object the the `connections` resource:
+
+	http://@{account.namespace}/connections
+
+The body of the request will in essence be a `connection` object. For example, this will create a new connection to Google Apps, initially inactive (notice the status=0):
+
+    var connection = {
+      "name": A NAME FOR THIS CONNECTION
+      "status": 0,
+      "options":
+      {
+        "client_id": GOOG APPS CLIENT ID,
+        "client_secret": GOOG APPS CLIENT SECRET,
+        "tenant_domain": GOOG APP DOMAIN,
+        "ext_groups":true //Optional
+      },
+      "strategy": "google-apps"
+    };
+
+Once again, the `options` object is dependent on the strategy specified.
+
+If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.). 
 
