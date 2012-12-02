@@ -311,7 +311,7 @@ If the operation is successful, you will get a confirmation object in the respon
 
 To create a new connection, POST a connection object the the `connections` resource:
 
-	http://@{account.namespace}/connections
+	https://@{account.namespace}/connections
 
 The body of the request will in essence be a `connection` object. For example, this will create a new connection to Google Apps, initially inactive (notice the status=0):
 
@@ -332,3 +332,10 @@ Once again, the `options` object is dependent on the strategy specified.
 
 If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.). 
 
+#### Updating a Connection
+
+For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the entity `id`. 
+
+#### Other resources
+
+* A [very simple](a0-apiclient-node) (and unoptimized) client library for Node.js apps.
