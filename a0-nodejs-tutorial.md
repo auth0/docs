@@ -5,7 +5,7 @@ title: Auth0 and Node
 
 Integrating Auth0 with node is straight forward. At the end of this tutorial you will have a working web site, capable of authenticating users with an external identity provider (no more passwords in your app!).
 
-A complete video of this tutorial can be seen [here](http://a0-nodejs-tutorial-video).
+A complete video of this tutorial can be seen [here](a0-nodejs-tutorial-video).
 
 ##Before you start
 
