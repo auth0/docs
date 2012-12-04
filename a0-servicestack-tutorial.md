@@ -64,6 +64,15 @@ Add a new class to your project and copy this code:
 	        public override object Authenticate(IServiceBase authService, IAuthSession session, Auth request)
 	        {
 	            var tokens = Init(authService, ref session, request);
+	            var error = authService.RequestContext.Get<IHttpRequest>().QueryString["error"];
+	            if (!string.IsNullOrEmpty(error))
+	            {
+	                var error_description = authService.RequestContext.Get<IHttpRequest>().QueryString["error_description"];
+
+	                return authService.Redirect(session.ReferrerUrl
+	                                                    .AddHashParam("error", error)
+	                                                    .AddHashParam("error_description", error_description));
+	            }
 
 	            var code = authService.RequestContext.Get<IHttpRequest>().QueryString["code"];
 	            var isPreAuthCallback = !string.IsNullOrWhiteSpace(code);
@@ -192,7 +201,7 @@ Did you keep your settings page open? Make sure the __callback address__ in Auth
 
 Open a browser an navigate to the login URL. Typically this would be.
 
-	http://yourapp/api/auth0/{connection-name}
+	http://yourapp/api/auth0?connection={connection-name}
 
 > The connection name is the one you wrote when the connection was created.
 
