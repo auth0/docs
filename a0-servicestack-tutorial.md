@@ -186,9 +186,9 @@ Typically you will have an `AppHost.cs` file where you can add plugins. Add the 
 
 #####3. Add Configuration Settings
 
-	<add key="oauth.auth0.AppId" value="YOUR_CLIENT_ID" />
-	<add key="oauth.auth0.AppSecret" value="YOUR_CLIENT_SECRET" />
-	<add key="oauth.auth0.OAuthServerUrl" value="https://YOURNAMESPACE.auth0.com"/>
+	<add key="oauth.auth0.AppId" value="@{account.clientId}" />
+	<add key="oauth.auth0.AppSecret" value="@{account.clientSecret}" />
+	<add key="oauth.auth0.OAuthServerUrl" value="@{account.namespace}"/>
 
 
 #####4. Setup the callback URL in Auth0
