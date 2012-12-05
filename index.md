@@ -32,5 +32,5 @@ We suggest you should start with any of the above first. That should give you a 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
 - [Check our discussion list](http://auth0/forums)
-- [Check StackOverflow](http://www.stackopverflow.com)
+- [Check StackOverflow](http://www.stackoverflow.com)
 - [Contact us!](mailto://support@auth0.com)

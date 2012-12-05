@@ -5,9 +5,9 @@
 	https://@{account.namespace}/api
 
 ### Authentication
-API calls should include a token in the query string for authentication. 
+API calls should include a token in the query string for authentication. For example:
 
-	https://@{account.namespace}/api/RESOURCE/?access_token=TOKEN
+	https://@{account.namespace}/api/connections/?access_token=TOKEN
 
 A token can be obtained by POSTing:
 
@@ -27,7 +27,7 @@ The response body of this POST will be a JSON object with the following content:
 		'token_type':'bearer'
 	}
 
-###Resources
+### Resources
 
 	/api/connections
 	/api/connections/{connection_id}
@@ -195,7 +195,7 @@ The `options` object returned in the `connection` will be different for each str
 		"applications_create":true/false,
 		"scope":["wl.basic","wl.signin","wl.offline_access","wl.birthday","wl.calendars","wl.calendars_update","wl.contacts_birthday","wl.contacts_create","wl.contacts_calendar","wl.contacts_photos","wl.contacts_skydrive","wl.emails","wl.events_create","wl.messenger","wl.phone_numbers","wl.photos","wl.postal_addresses","wl.share","wl.skydrive","wl.skydrive_update","wl.work_profile","wl.applications","wl.applications_create"]
 	}
-> In this example, all possible scopes are shown.
+> In this example, all possible scopes are shown. That would be the result of checking all options on the configuration screen.
 
 ###### Google Apps
 
@@ -317,7 +317,7 @@ The body of the request will in essence be a `connection` object. For example, t
 
     var connection = {
       "name": A NAME FOR THIS CONNECTION
-      "status": 0,
+      "status": 1,
       "options":
       {
         "client_id": GOOG APPS CLIENT ID,
@@ -334,7 +334,9 @@ If successful, the response body will contain a complete `connection` object. Th
 
 #### Updating a Connection
 
-For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the entity `id`. 
+For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the entity `id`. You will need to submit the entire entity as you'd intent to be.
+
+If successful, you will get  
 
 #### Other resources
 

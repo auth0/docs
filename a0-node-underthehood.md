@@ -23,10 +23,10 @@ and then:
         
 Ours is just a helper to automate URL handling and other parameters that Auth0 needs. Auth0 endpoints are:
 
-        authorizationURL: 'https://' + {@namespace | 'YOUR NAMESPACE'} + '/authorize',
-        tokenURL:         'https://' + {@namespace | 'YOUR NAMESPACE'} + '/oauth/token',
-        userInfoURL:      'https://' + {@namespace | 'YOUR NAMESPACE'} + '/userinfo',
-        apiUrl:           'https://' + {@namespace | 'YOUR NAMESPACE'} + '/api'
+        authorizationURL: 'https://' + @{account.namespace || 'SOME NAMESPACE'} + '/authorize',
+        tokenURL:         'https://' + @{account.namespace || 'YOUR NAMESPACE'} + '/oauth/token',
+        userInfoURL:      'https://' + @{account.namespace || 'YOUR NAMESPACE'} + '/userinfo',
+        apiUrl:           'https://' + @{account.namespace || 'YOUR NAMESPACE'} + '/api'
         
 Also, because you can have many connections to different identity providers (e.g. Google, Microsoft Account, Facebook, ADFS, etc), you can optionally pass a 'connection' parameter in the request. This instructs Auth0 where to redirect the user to for actual authentication.
 
@@ -52,10 +52,10 @@ The Auth0 strategy also includes a helper function for querying Auth0 of all you
         });
     };
 
-This is a simple example of using the Auth0 API. This is espacially convenient if you want to display a list of available login options on your website and have your users choose from that list.
+This is a simple example of using the [Auth0 API](a0-api-reference). This is especially convenient if you want to display a list of available login options on your website and have your users choose from that list.
 
-Notice that this samples are using the _Authoriztion Code grant flow_ in OAuth2. You can read all about it [here](http://tools.ietf.org/html/rfc6749#section-4.1). 
+Notice that this samples are using the _Authorization Code grant flow_ in OAuth2. You can read all about it [here](http://tools.ietf.org/html/rfc6749#section-4.1). 
 
 In this flow, the "client" (your server) is requesting the access token from Auth0 using it's own credentials (the __clientId__ and __clientSecret__) _and_ the authorization code obtained when the user authenticated. 
 
-There are other flows supported in Auth0 (and OAuth2) that are used for differetn clients. For node.js apps, this is probably the one you will be dealing with the most.
+There are other flows supported in Auth0 (and OAuth2) that are used for different clients. For node.js apps, this is probably the one you will be dealing with the most.
