@@ -27,6 +27,10 @@ The response body of this POST will be a JSON object with the following content:
 		'token_type':'bearer'
 	}
 
+Here's a simple example using `curl`:
+
+	curl https://@{account.namespace}/oauth/token --data "client_id=@{account.clientId}&client_secret=@{account.clientSecret}&type=web_server&grant_type=client_credentials"
+
 ### Resources
 
 	/api/connections
@@ -71,6 +75,14 @@ A GET operation against the ``connections`` resource returns a list of connectio
 * `options` is an object with properties that are dependent on the strategy selected. 
 
 A GET against `connections` with an ID specified in the path will just return the matching connection object.
+
+---
+
+Here are two `curl` sample scripts to get connections:
+
+	curl https://@{account.namespace}/api/connections/?access_token=YOUR ACCESS TOKEN 
+
+	curl https://@{account.namespace}/api/connections/A CONNECTION ID?access_token=YOUR ACCESS TOKEN
 
 ##### Options
 

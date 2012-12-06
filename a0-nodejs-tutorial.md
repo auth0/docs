@@ -22,48 +22,44 @@ Here's what you do for integrating Auth0 in your app with __passport__:
 
 #####1. Install the Auth0 strategy
 
-        npm install passport-auth0
+	npm install passport-auth0
 
 > __TIP__: Don't have an app to play with? You can create one very easily with express:
->>       npm install express -g
->>       express 
+>>	npm install express -g
+>>	express 
 > That will create a simple "hello world" express website.
 
 #####2. Initialize passport-auth0
 
-    namespace:        '@{account.namespace}',
-
 Create a new file __setup-passport.js__ with the following code:
 
-        var passport = require('passport'),
-            Auth0Strategy = require('passport-auth0');
-        
-        var strategy = new Auth0Strategy({
-            
-            namespace:        '@{account.namespace}',
-            clientID:         '@{account.clientId}',
-            clientSecret:     '@{account.clientSecret}',
-            callbackURL:      '/callback'
-          },
-          function(accessToken, refreshToken, profile, done) {
-            //Some tracing info
-            console.log('profile is', profile);
-            return done(null, profile);
-          }
-        );
-        
-        passport.use(strategy);
-        
-        // This is not a best practice, but we want to keep things simple for now
-        passport.serializeUser(function(user, done) {
-          done(null, user); 
-        });
-        
-        passport.deserializeUser(function(user, done) {
-          done(null, user);
-        });
-        
-        module.exports = strategy; 
+	var passport = require('passport'),
+		Auth0Strategy = require('passport-auth0');
+
+	var strategy = new Auth0Strategy({  
+	  namespace:        '@{account.namespace}',
+	  clientID:         '@{account.clientId}',
+	  clientSecret:     '@{account.clientSecret}',
+	  callbackURL:      '/callback'
+	},
+	function(accessToken, refreshToken, profile, done) {
+	  //Some tracing info
+	  console.log('profile is', profile);
+	  return done(null, profile);
+	});
+
+	passport.use(strategy);
+
+	// This is not a best practice, but we want to keep things simple for now
+	passport.serializeUser(function(user, done) {
+		done(null, user); 
+	});
+
+	passport.deserializeUser(function(user, done) {
+		done(null, user);
+	});
+
+	module.exports = strategy; 
 
 > TIP: you typically would put this file under a 'lib' folder
 
@@ -72,49 +68,49 @@ The __clientId__, __clientSecret__ and __namespace__ are available on the [setti
 #####3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
 
-        var passport = require('passport');
-        var strategy = require('setup-passport');
+	var passport = require('passport');
+	var strategy = require('setup-passport');
 
 and then in the __app.configure__ function:
 
-        app.configure(function(){
-            ...
-            app.use(passport.initialize());
-            app.use(passport.session());
-            ...
-            app.use(app.router);
-        });
+	app.configure(function(){
+	  ...
+	  app.use(passport.initialize());
+	  app.use(passport.session());
+	  ...
+	  app.use(app.router);
+	});
 
 The last bit of code you will need are the handlers for the passport callbacks:
 
-        //Callback handler
-        app.get('/callback', 
-          passport.authenticate('auth0', { failureRedirect: '/authfailure' }), 
-          function(req, res) {
-            if (!req.user) {
-              throw new Error('user null');
-            }
-            res.redirect("/");
-          }
-        );
-        
-        //Authentication error handler
-        app.get('/authfailure', function (req, res) {
-          res.send('Authentication failed');
-        });
-        
-        //Logout
-        app.get('/logout', function(req, res){
-          req.logout();
-          res.redirect('/');
-        });
-        
-        //Login
-        app.get('/login', 
-          passport.authenticate('auth0', { connection: 'MyNewConnection' }), 
-          function (req, res) {
-            res.redirect("/");
-        });
+	//Callback handler
+	app.get('/callback', 
+	passport.authenticate('auth0', { failureRedirect: '/authfailure' }), 
+	function(req, res) {
+	  if (!req.user) {
+		throw new Error('user null');
+	  }
+	  res.redirect("/");
+	}
+	);
+
+	//Authentication error handler
+	app.get('/authfailure', function (req, res) {
+		res.send('Authentication failed');
+	});
+
+	//Logout
+	app.get('/logout', function(req, res){
+		req.logout();
+		res.redirect('/');
+	});
+
+	//Login
+	app.get('/login', 
+		passport.authenticate('auth0', { connection: 'MyNewConnection' }), 
+		function (req, res) {
+		res.redirect("/");
+	});
 
 > Notice the 'connection' parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a "MyNewConnection" connection.  
 
