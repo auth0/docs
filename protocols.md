@@ -1,7 +1,3 @@
----
-title: Auth0 Protocols
----
-
 # Protocols supported by Auth0 
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth2) and in enterprise deployments (e.g. SAML, WS-Federation). In most cases you won't need to go this deep to use Auth0.
@@ -54,4 +50,12 @@ Your web site will then call Auth0 again with a request to obtain an "Access Tok
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret`. 
 
     https://@{account.namespace}/oauth/token
+
+The body of the request should be `application/x-www-form-urlencoded` and would look like:
+
+	grant_type=authorization_code&code=SOME_CODE
+     &redirect_uri=CALLBACK
+
+> Notice the `grant_type` that must be `authorization_code` 
+
 
