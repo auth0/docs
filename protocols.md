@@ -49,7 +49,7 @@ Upon successful authentication, the user will eventually return to your web site
 
 `CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1. 
 
-Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with the Auth0 [API](a0-api-reference). 
+Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with the Auth0 [API](api-reference). 
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret`. 
 

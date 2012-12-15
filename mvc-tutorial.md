@@ -8,7 +8,7 @@ Integrating Auth0 with ASP.NET MVC4 is simple. MVC4 ships with out-of-the-box su
 ##Before you start
 
 1. You will need Visual Studio 2012 and MVC4
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "MyNewConnection". If you don't have one, this [tutorial](a0-createconnection) shows how to create one.
+2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "MyNewConnection". If you don't have one, this [tutorial](createconnection) shows how to create one.
 
 ##Integrating Auth0 with MVC4
 

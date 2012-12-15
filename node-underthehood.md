@@ -3,7 +3,7 @@
 ---
 # Node.js with Auth0 under the hood
 
-As we mentioned in the [tutorial page](http://markdownr.cloudapp.net/a0-nodejs-tutorial), the easiest way of using Auth0 from a node app is through the excellent [passport module](http://passportjs.org). 
+As we mentioned in the [tutorial page](nodejs-tutorial), the easiest way of using Auth0 from a node app is through the excellent [passport module](http://passportjs.org). 
 
 We've built a simple strategy for passport to make things easier.
 
@@ -52,7 +52,7 @@ The Auth0 strategy also includes a helper function for querying Auth0 of all you
         });
     };
 
-This is a simple example of using the [Auth0 API](a0-api-reference). This is especially convenient if you want to display a list of available login options on your website and have your users choose from that list.
+This is a simple example of using the [Auth0 API](api-reference). This is especially convenient if you want to display a list of available login options on your website and have your users choose from that list.
 
 Notice that this samples are using the _Authorization Code grant flow_ in OAuth2. You can read all about it [here](http://tools.ietf.org/html/rfc6749#section-4.1). 
 

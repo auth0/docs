@@ -352,4 +352,4 @@ If successful, you will get
 
 #### Other resources
 
-* A [very simple](a0-apiclient-node) (and unoptimized) client library for Node.js apps.
+* A [very simple](apiclient-node) (and unoptimized) client library for Node.js apps.

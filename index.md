@@ -12,20 +12,20 @@ The introductory tutorials will take a just a few minutes to complete. And the g
 
 We have tutorials for all the popular platforms:
 
-- [Node.js](a0-nodejs-tutorial)
-- [iOS](a0-ios-tutorial)
-- [Android](a0-android-tutorial)
-- [Windows Store Apps (Windows 8 RT)](a0-win8-tutorial)
-- [ASP.NET MVC](a0-mvc-tutorial)
-- [ASP.NET WebForms](a0-webforms-tutorial)
-- [Ruby](a0-ruby-tutorial)
-- [Azure Mobile Services](a0-azuremobileservices-tutorial)
+- [Node.js](nodejs-tutorial)
+- [iOS](ios-tutorial)
+- [Android](android-tutorial)
+- [Windows Store Apps (Windows 8 RT)](win8-tutorial)
+- [ASP.NET MVC](mvc-tutorial)
+- [ASP.NET WebForms](webforms-tutorial)
+- [Ruby](ruby-tutorial)
+- [Azure Mobile Services](azuremobileservices-tutorial)
 
 We suggest you should start with any of the above first. That should give you a good idea of how Auth0 works. After that, you can read more about more advanced concepts:
 
-- [Supported Identity Providers](a0-identityproviders)
-- [Connecting with different identity providers](a0-connecting-with-idp)
-- [Using the Auth0 API](a0-api-reference)
+- [Supported Identity Providers](identityproviders)
+- [Connecting with different identity providers](connecting-with-idp)
+- [Using the Auth0 API](api-reference)
 
 ## Other resources
 
