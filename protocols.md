@@ -29,7 +29,7 @@ The `redirect_uri` __must__ match what is defined in your [settings](https://app
 
 ---
 
-##### 2. Authentication
+#### 2. Authentication
 
 Auth0 will initiate the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could very well be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
 
@@ -37,7 +37,7 @@ Auth0 will initiate the authentication against the identity provider configured 
 
 The visible part of this process is that the user is redirected to the identity provider site.
 
-##### 3. Getting the Access Token
+#### 3. Getting the Access Token
 
 Upon successful authentication, the user will eventually return to your web site with a URL that will look like:
 
@@ -58,4 +58,10 @@ The body of the request should be `application/x-www-form-urlencoded` and would 
 
 > Notice the `grant_type` that must be `authorization_code` 
 
+If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
+
+	{
+       "access_token":"2YotnFZFEjr1zCsicMWpAA",
+       "token_type":"bearer",
+    }
 
