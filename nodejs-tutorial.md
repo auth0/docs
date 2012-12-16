@@ -37,9 +37,9 @@ Create a new file __setup-passport.js__ with the following code:
 		Auth0Strategy = require('passport-auth0');
 
 	var strategy = new Auth0Strategy({  
-	  namespace:        '@{account.namespace}',
-	  clientID:         '@{account.clientId}',
-	  clientSecret:     '@{account.clientSecret}',
+	  namespace:        '@@{account.namespace}',
+	  clientID:         '@@{account.clientId}',
+	  clientSecret:     '@@{account.clientSecret}',
 	  callbackURL:      '/callback'
 	},
 	function(accessToken, refreshToken, profile, done) {

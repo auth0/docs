@@ -7,15 +7,15 @@ layout: doc.nosidebar
 ### Scripted setup
 The script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue email, upn, given name and surname attributes for the user. 
 
-    (new-object Net.WebClient -property {Encoding = [Text.Encoding]::UTF8}).DownloadString("https://docs.auth0.com/scripts/adfs.ps1") | iex
-    AddRelyingParty "urn:auth0:@{account.clientId}" "https://@{account.namespace}/login/callback"
+    (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://docs.auth0.com/scripts/adfs.ps1") | iex
+    AddRelyingParty "urn:auth0:@@{account.clientId}" "https://@@{account.namespace}/login/callback"
 
 #### What the script does?
 
 Create the Relying Party on ADFS
 
-    $realm = "urn:auth0:@{account.clientId}";
-    $webAppEndpoint = "https://@{account.namespace}/login/callback";
+    $realm = "urn:auth0:@@{account.clientId}";
+    $webAppEndpoint = "https://@@{account.namespace}/login/callback";
     
     Add-PSSnapin Microsoft.Adfs.Powershell
     Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
@@ -53,7 +53,7 @@ If you don't feel confortable executing the script, you can follow the manual st
 
 ![](img/adfs-importmanual.png)
 
-5- Enter an arbitrary name (like "@{account.appName}") and click `Next`
+5- Enter an arbitrary name (like "@@{account.appName}") and click `Next`
 
 6- Leave the default selection (ADFS 2.0 profile) and click `Next`
 
@@ -61,13 +61,13 @@ If you don't feel confortable executing the script, you can follow the manual st
 
 8- Check `Enable support for the WS-Federation...`, enter the following value in the textbox and click `Next`
 
-    https://@{account.namespace}/login/callback
+    https://@@{account.namespace}/login/callback
 
 ![](img/adfs-url.png)
 
 9- Add a relying party identifier with the following value and click `Add` and then `Next`
 
-    urn:auth0:@{account.clientId}
+    urn:auth0:@@{account.clientId}
 
 
 ![](img/adfs-identifier.png)
