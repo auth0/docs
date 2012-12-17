@@ -5,14 +5,14 @@ layout: doc.nosidebar
 # ADFS
 
 ### Scripted setup
-The script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue email, upn, given name and surname attributes for the user. 
+The script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: email, upn, given name and surname for the authenticated user. 
 
     (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://docs.auth0.com/scripts/adfs.ps1") | iex
     AddRelyingParty "urn:auth0:@@{account.clientId}" "https://@@{account.namespace}/login/callback"
 
-#### What the script does?
+#### What does the the script do?
 
-Create the Relying Party on ADFS
+#####1. Creates the Relying Party on ADFS
 
     $realm = "urn:auth0:@@{account.clientId}";
     $webAppEndpoint = "https://@@{account.namespace}/login/callback";
@@ -21,7 +21,7 @@ Create the Relying Party on ADFS
     Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
     $rp = Get-ADFSRelyingPartyTrust -Name $realm
 
-Create the rules to output the most common Active Directory attribute (email, UPN, given name, surname)
+#####2. Creates the rules to output the most common Active Directory attributes (email, UPN, given name, surname)
 
     $rules = @'
     @RuleName = "Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)" 
@@ -41,53 +41,53 @@ Create the rules to output the most common Active Directory attribute (email, UP
 
 ### Manual setup
 
-If you don't feel confortable executing the script, you can follow the manual steps.
+If you don't feel comfortable executing the script, you can follow these manual steps.
 
-1- Open the ADFS Management Console
+1. Open the ADFS Management Console
 
-2- Click on `Add Relying Party Trust`
+2. Click on `Add Relying Party Trust`
 
-3- Click `Start` on the first step
+3. Click `Start` on the first step
 
-4- Select `Enter data about the relying party manually` and click `Next`
+4. Select `Enter data about the relying party manually` and click `Next`
 
 ![](img/adfs-importmanual.png)
 
-5- Enter an arbitrary name (like "@@{account.appName}") and click `Next`
+5. Enter an arbitrary name (e.g. "@@{account.appName}") and click `Next`
 
-6- Leave the default selection (ADFS 2.0 profile) and click `Next`
+6. Leave the default selection (ADFS 2.0 profile) and click `Next`
 
-7- Leave the default (no encryption certificate) and click `Next`
+7. Leave the default (no encryption certificate) and click `Next`
 
-8- Check `Enable support for the WS-Federation...`, enter the following value in the textbox and click `Next`
+8. Check `Enable support for the WS-Federation...`, enter the following value in the textbox and click `Next`
 
     https://@@{account.namespace}/login/callback
 
 ![](img/adfs-url.png)
 
-9- Add a relying party identifier with the following value and click `Add` and then `Next`
+9. Add a relying party identifier with the following value and click `Add` and then `Next`
 
     urn:auth0:@@{account.clientId}
 
 
 ![](img/adfs-identifier.png)
 
-10- Leave the default option (Permite all users...) and click `Next`
+10. Leave the default option (Permite all users...) and click `Next`
 
-11- Click `Next` and then `Close`. The UI will show a new window to edit the Claim Rules
+11. Click `Next` and then `Close`. The UI will show a new window to edit the Claim Rules
 
-12- Click on `Add Rule...`
+12. Click on `Add Rule...`
 
-13- Leave the default option (Send LDAP Attributes as Claims)
+13. Leave the default option (Send LDAP Attributes as Claims)
 
 ![](img/adfs-sendldap.png)
 
-14- Give the rule n arbitrary name like
+14. Give the rule an arbitrary name like
 
     Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)
 
-15- Select the following mappings and click `Finish`
+15. Select the following mappings and click `Finish`
 
 ![](img/adfs-claimrules.png)
 
-
+Running the scripts is definitely easier.
