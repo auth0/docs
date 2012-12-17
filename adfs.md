@@ -43,51 +43,51 @@ The script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/
 
 If you don't feel comfortable executing the script, you can follow these manual steps.
 
-1. Open the ADFS Management Console
+1- Open the ADFS Management Console
 
-2. Click on `Add Relying Party Trust`
+2- Click on `Add Relying Party Trust`
 
-3. Click `Start` on the first step
+3- Click `Start` on the first step
 
-4. Select `Enter data about the relying party manually` and click `Next`
+4- Select `Enter data about the relying party manually` and click `Next`
 
 ![](img/adfs-importmanual.png)
 
-5. Enter an arbitrary name (e.g. "@@{account.appName}") and click `Next`
+5- Enter an arbitrary name (e.g. "@@{account.appName}") and click `Next`
 
-6. Leave the default selection (ADFS 2.0 profile) and click `Next`
+6- Leave the default selection (ADFS 2.0 profile) and click `Next`
 
-7. Leave the default (no encryption certificate) and click `Next`
+7- Leave the default (no encryption certificate) and click `Next`
 
-8. Check `Enable support for the WS-Federation...`, enter the following value in the textbox and click `Next`
+8- Check `Enable support for the WS-Federation...`, enter the following value in the textbox and click `Next`
 
     https://@@{account.namespace}/login/callback
 
 ![](img/adfs-url.png)
-
-9. Add a relying party identifier with the following value and click `Add` and then `Next`
+ 
+9- Add a relying party identifier with the following value and click `Add` and then `Next`
 
     urn:auth0:@@{account.clientId}
 
 
 ![](img/adfs-identifier.png)
 
-10. Leave the default option (Permite all users...) and click `Next`
+10- Leave the default option (Permite all users...) and click `Next`
 
-11. Click `Next` and then `Close`. The UI will show a new window to edit the Claim Rules
+11- Click `Next` and then `Close`. The UI will show a new window to edit the Claim Rules
 
-12. Click on `Add Rule...`
+12- Click on `Add Rule...`
 
-13. Leave the default option (Send LDAP Attributes as Claims)
+13- Leave the default option (Send LDAP Attributes as Claims)
 
 ![](img/adfs-sendldap.png)
 
-14. Give the rule an arbitrary name like
+14- Give the rule an arbitrary name like
 
     Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)
 
-15. Select the following mappings and click `Finish`
+15- Select the following mappings and click `Finish`
 
 ![](img/adfs-claimrules.png)
 
-Running the scripts is definitely easier.
+Yes, running the scripts is definitely easier.
