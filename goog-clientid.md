@@ -27,6 +27,6 @@ These URLs and information don't need to point to Auth0. It is information for y
 
 ##4. Get your ClientId and ClientSecret
 
-Once the application is registered, enter your new `ClientId` and `ClientSecret` into Auth0's connection settings.
+Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
 
 ![](img/goog-apiconsole-4.png)
