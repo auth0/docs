@@ -19,7 +19,7 @@ These URLs and information don't need to point to Auth0. It is information for y
 
 ##3. Setup your callback URL into Auth0:
 
-	http://@@{account.namespace}/login/callback
+	http://@@account.namespace@@/login/callback
 
 ![](img/goog-apiconsole-3.png)
 

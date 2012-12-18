@@ -23,10 +23,10 @@ and then:
         
 Ours is just a helper to automate URL handling and other parameters that Auth0 needs. Auth0 endpoints are:
 
-    authorizationURL: 'https://' + @@{account.namespace || 'SOME NAMESPACE'} + '/authorize',
-    tokenURL:         'https://' + @@{account.namespace || 'YOUR NAMESPACE'} + '/oauth/token',
-    userInfoURL:      'https://' + @@{account.namespace || 'YOUR NAMESPACE'} + '/userinfo',
-    apiUrl:           'https://' + @@{account.namespace || 'YOUR NAMESPACE'} + '/api'
+    authorizationURL: 'https://' + @@account.namespace || 'SOME NAMESPACE'@@ + '/authorize',
+    tokenURL:         'https://' + @@account.namespace || 'YOUR NAMESPACE'@@ + '/oauth/token',
+    userInfoURL:      'https://' + @@account.namespace || 'YOUR NAMESPACE'@@ + '/userinfo',
+    apiUrl:           'https://' + @@account.namespace || 'YOUR NAMESPACE'@@ + '/api'
         
 Also, because you can have many connections to different identity providers (e.g. Google, Microsoft Account, Facebook, ADFS, etc), you can optionally pass a 'connection' parameter in the request. This instructs Auth0 where to redirect the user to for actual authentication.
 

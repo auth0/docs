@@ -2,23 +2,23 @@
 
 ### API endpoint
 
-	https://@@{account.namespace}/api
+	https://@@account.namespace@@/api
 
 ### Authentication
 API calls should include a token in the query string for authentication. For example:
 
-	https://@@{account.namespace}/api/connections/?access_token=TOKEN
+	https://@@account.namespace@@/api/connections/?access_token=TOKEN
 
 A token can be obtained by POSTing:
 
-    'client_id':     @@{account.clientID},
-    'client_secret': @@{account.clientSecret},
+    'client_id':     @@account.clientID@@,
+    'client_secret': @@account.clientSecret@@,
     'type':          'web_server',
     'grant_type':    'client_credentials'
 
 to the OAuth token endpoint:
 
-	https://@@{account.namespace}/oauth/token
+	https://@@account.namespace@@/oauth/token
 
 The response body of this POST will be a JSON object with the following content:
 
@@ -29,7 +29,7 @@ The response body of this POST will be a JSON object with the following content:
 
 Here's a simple example using `curl`:
 
-	curl https://@@{account.namespace}/oauth/token --data "client_id=@@{account.clientId}&client_secret=@@{account.clientSecret}&type=web_server&grant_type=client_credentials"
+	curl https://@@account.namespace@@/oauth/token --data "client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials"
 
 ### Resources
 
@@ -41,17 +41,17 @@ A GET operation against the ``connections`` resource returns a list of connectio
 
 	{
 		"_id": ID,
-		"client_id": @@{account.clientId}
+		"client_id": @@account.clientId@@
 		"name": YOUR CONNECTION NAME,
 		"options": { ... },
 		"status":1,
 		"strategy": STRATEGY,
-		"tenant": @@{account.tenant}
+		"tenant": @@account.tenant@@
 	}
 
 * `_id`: is a unique identifier for this connection
 
-* `client_id` is your client_id (@@{account.clientId}, used to obtain the authentication token)
+* `client_id` is your client_id (@@account.clientId@@, used to obtain the authentication token)
 
 * `name` is the name you gave to the connection
 
@@ -80,9 +80,9 @@ A GET against `connections` with an ID specified in the path will just return th
 
 Here are two `curl` sample scripts to get connections:
 
-	curl https://@@{account.namespace}/api/connections/?access_token=YOUR ACCESS TOKEN 
+	curl https://@@account.namespace@@/api/connections/?access_token=YOUR ACCESS TOKEN 
 
-	curl https://@@{account.namespace}/api/connections/A CONNECTION ID?access_token=YOUR ACCESS TOKEN
+	curl https://@@account.namespace@@/api/connections/A CONNECTION ID?access_token=YOUR ACCESS TOKEN
 
 ##### Options
 
@@ -125,7 +125,7 @@ The `options` object returned in the `connection` will be different for each str
 		"ext_assigned_plans":true/false,
 		"ext_dir_sync_enabled":false,
 		"ext_last_sync":false,
-		"appDomain": @@{account.namespace},
+		"appDomain": @@account.namespace@@,
 		"thumbprints":[TH_1, TH_2, TH_3]
 	}
 
@@ -323,7 +323,7 @@ If the operation is successful, you will get a confirmation object in the respon
 
 To create a new connection, POST a connection object the the `connections` resource:
 
-	https://@@{account.namespace}/connections
+	https://@@account.namespace@@/connections
 
 The body of the request will in essence be a `connection` object. For example, this will create a new connection to Google Apps, initially inactive (notice the status=0):
 

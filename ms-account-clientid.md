@@ -17,4 +17,4 @@ Once the app is created, the `ClientId` and `ClientSecret` will be available. En
 
 This is also a good time to setup your callback URL into Auth0. That information should go into the `redirect domain` textbox.
 
-	http://@@{account.namespace}/login/callback
+	http://@@account.namespace@@/login/callback

@@ -19,7 +19,7 @@ This protocol is best suited for web sites that need:
 
 Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
             
-    http://@@{account.namespace}.auth0.com/authorize/?client_id=@@{account.clientId}&response_type=code&redirect_uri=CALLBACK&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+    http://@@account.namespace@@.auth0.com/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=CALLBACK&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
     
  `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, you will get an error.
 
@@ -49,7 +49,7 @@ Your web site will then call Auth0 again with a request to obtain an "Access Tok
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret`. 
 
-    https://@@{account.namespace}/oauth/token
+    https://@@account.namespace@@/oauth/token
 
 The body of the request should be `application/x-www-form-urlencoded` and would look like:
 
