@@ -17,25 +17,25 @@ This protocol is best suited for web sites that need:
 
 #### 1. Initiaton
 
-Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to an Authorization server (Auth0).  The URL for this is typically:
+Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
             
     http://@@{account.namespace}.auth0.com/authorize/?client_id=@@{account.clientId}&response_type=code&redirect_uri=CALLBACK&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
     
  `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, you will get an error.
 
-> A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates a [CSRF attack](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
+> A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-The `redirect_uri` __must__ match what is defined in your [settings](https://app.auth0.com/#/settings) page.
+The `redirect_uri` __must__ match what is defined in your [settings](https://app.auth0.com/#/settings) page. `http://localhost` is a valid URL.
 
 ---
 
 #### 2. Authentication
 
-Auth0 will initiate the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could very well be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
-
- > This is process is known as __protocol transition__.
+Auth0 will start the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
 
 The visible part of this process is that the user is redirected to the identity provider site.
+
+---
 
 #### 3. Getting the Access Token
 
@@ -56,9 +56,11 @@ The body of the request should be `application/x-www-form-urlencoded` and would 
 	grant_type=authorization_code&code=SOME_CODE
      &redirect_uri=CALLBACK
 
-> Notice the `grant_type` that must be `authorization_code` 
+> Notice the `grant_type` that __must__ be `authorization_code` 
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
+
+#####Sample Access Token Response:
 
 	{
        "access_token":"2YotnFZFEjr1zCsicMWpAA",
