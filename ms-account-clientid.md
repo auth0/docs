@@ -1,7 +1,3 @@
----
-	Title: Getting Microsoft Account ClientId and ClientSecret
----
-
 # Obtaining a ClientId and Client Secret in Microsoft Account
 
 To configure Microsoft Account OAuth connections you need to create an application within Microsoft Account portal (formerly known as Live Connect Developer Center). 
