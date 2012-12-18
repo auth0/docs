@@ -5,13 +5,13 @@ To configure Google OAuth connections (Google Apps and Google) you need to regis
 ##1. Log in into API Console
 Go to the [API Console](https://code.google.com/apis/console#access), and click on the __Create an OAuth2 client ID__ button:
 
-![](img/goog-portal-1.png)
+![](img/goog-apiconsole-1.png)
 
 ---
 
 ##2. Complete information about your instance of Auth0
 
-![](img/goog-portal-2.png)
+![](img/goog-apiconsole-2.png)
 
 These URLs and information don't need to point to Auth0. It is information for your reference.
 
@@ -21,7 +21,7 @@ These URLs and information don't need to point to Auth0. It is information for y
 
 	http://@@{account.namespace}/login/callback
 
-![](img/goog-portal-3.png)
+![](img/goog-apiconsole-3.png)
 
 ---
 
@@ -29,4 +29,4 @@ These URLs and information don't need to point to Auth0. It is information for y
 
 Once the application is registered, enter your new `ClientId` and `ClientSecret` into Auth0's connection settings.
 
-![](img/goog-portal-4.png)
+![](img/goog-apiconsole-4.png)
