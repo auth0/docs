@@ -13,6 +13,8 @@ Log into [the portal](http://msdn.microsoft.com/en-us/live/ff519582), then selec
 
 ![](img/ma-portal-2.png)
 
+Once created the `ClientId` and `ClientSecret` will be available. Enter this information into your connection settings. 
+
 This is also a good time to setup your callback URL into Auth0:
 
-	http://@@{account.namespace}/login
+	http://@@{account.namespace}/login/callback
