@@ -29,7 +29,7 @@ Once the default template unfolds, use NuGet to install the Auth0Client:
         {
             public static void RegisterAuth()
             {
-                OAuthWebSecurity.RegisterClient(new Auth0Client(@@{account.clientId;}, @@{account.clientSecret}, @@{account.namespace}, "MyNewConnection"), "Auth0", null);
+                OAuthWebSecurity.RegisterClient(new Auth0Client(@@account.clientId@@, @@account.clientSecret@@}, @@account.namespace@@, "MyNewConnection"), "Auth0", null);
 
                 ...
 

@@ -17,4 +17,4 @@ Once created the `ClientId` and `ClientSecret` will be available. Enter this inf
 
 This is also a good time to setup your callback URL into Auth0:
 
-	http://@@{account.namespace}/login/callback
+	http://@@account.namespace@@/login/callback
