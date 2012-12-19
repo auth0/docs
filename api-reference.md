@@ -39,7 +39,7 @@ A GET operation against the ``connections`` resource returns a list of connectio
 	{
 		"_id": ID,
 		"client_id": @@account.clientId@@
-		"name": YOUR CONNECTION NAME,
+		"name": YOUR-CONNECTION-NAME,
 		"options": { ... },
 		"status":1,
 		"strategy": STRATEGY,
@@ -53,6 +53,8 @@ A GET operation against the ``connections`` resource returns a list of connectio
 | `name`	 | The name you gave to the connection 											  |
 | `status`	 | Defines whether the connection is active (1) or not (0)      				  |
 | `strategy` | The type of identity provider associated with this connection 				  |
+| `tenant`   | The name you defined when you subscribed to Auth0 (@account.tenant)            |
+| `options`  | An object with properties that are dependent on the strategy selected          | 
 
 Auth0 supports the  following strategies:
 
@@ -64,14 +66,8 @@ Auth0 supports the  following strategies:
 - facebook
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
->
->	`provisioning_ticket`: TICKET
->	`provisioning_ticket_url`: PROVISIONING URL
-
-| Parameter | Description                                                           |
-|===========|=======================================================================|
-| `tenant`  | The name you defined when you subscribed to Auth0 (@account.tenant)   |
-| `options` | An object with properties that are dependent on the strategy selected | 
+> `provisioning_ticket`: TICKET
+> `provisioning_ticket_url`: PROVISIONING-URL
 
 A GET against `connections` with an ID specified in the path will just return the matching connection object.
 
@@ -79,9 +75,9 @@ A GET against `connections` with an ID specified in the path will just return th
 
 Here are two `curl` sample scripts to get connections:
 
-	curl https://@@account.namespace@@/api/connections/?access_token=YOUR ACCESS TOKEN 
+	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN} 
 
-	curl https://@@account.namespace@@/api/connections/A CONNECTION ID?access_token=YOUR ACCESS TOKEN
+	curl https://@@account.namespace@@/api/connections/A-CONNECTION-ID?access_token=YOUR-ACCESS-TOKEN
 
 ##### Options
 
@@ -90,9 +86,9 @@ The `options` object returned in the `connection` will be different for each str
 ###### Office 365
 
 	{
-		"client_id": OFFICE 365 CLIENT ID,
-		"client_secret": OFFICE 365 CLIENT SECRET,
-		"tenant_domain": CONNECTION DOMAIN ON OFFICE 365,
+		"client_id": OFFICE-365-CLIENT-ID,
+		"client_secret": OFFICE-365-CLIENT-SECRET,
+		"tenant_domain": CONNECTION-DOMAIN-ON-OFFICE-365,
 		"sso":true/false,
 		"directory_reader":true/false,
 		"directory_writer":true/false,
@@ -131,8 +127,8 @@ The `options` object returned in the `connection` will be different for each str
 ###### Google OAuth2
 
 	{
-		"client_id": GOOG CLIENT ID,
-		"client_secret": GOOG CLIENT SECRET,
+		"client_id": GOOG-CLIENT-ID,
+		"client_secret": GOOG-CLIENT-SECRET,
 		"email":true/false,
 		"profile":true/false,
 		"contacts":true/false,
@@ -179,8 +175,8 @@ The `options` object returned in the `connection` will be different for each str
 ###### Microsoft Account
 
 	{
-		"client_id": MSFT ACCOUNT CLIENT ID,
-		"client_secret":MSFT ACCOUNT CLIENT SECRET,
+		"client_id": MSFT-ACCOUNT-CLIENT-ID,
+		"client_secret":MSFT-ACCOUNT-CLIENT-SECRET,
 		"basic":true/false,
 		"signin":true/false,
 		"offline_access":true/false,
@@ -211,9 +207,9 @@ The `options` object returned in the `connection` will be different for each str
 ###### Google Apps
 
 	{
-		"client_id": GOOG APPS CLIENT_ID,
-		"client_secret": GOOG APPS CLIENT_SECRET,
-		"tenant_domain": CONNECTION DOMAIN IN GOOG APPS,
+		"client_id": GOOG-APPS-CLIENT-ID,
+		"client_secret": GOOG-APPS-CLIENT-SECRET,
+		"tenant_domain": CONNECTION-DOMAIN-IN-GOOG-APPS,
 		"email":true/false,
 		"profile":true/false,
 		"ext_groups":true/false,
@@ -231,8 +227,8 @@ The `options` object returned in the `connection` will be different for each str
 ###### Facebook
 
 	{
-		"app_id": FB APP ID,
-		"app_secret": FB APP SECRET,
+		"app_id": FB-APP-ID,
+		"app_secret": FB-APP-SECRET,
 		"email":true,
 		"user_about_me":true/false,
 		"user_likes":true/false,
@@ -327,13 +323,13 @@ To create a new connection, POST a connection object the the `connections` resou
 The body of the request will in essence be a `connection` object. For example, this will create a new connection to Google Apps, initially inactive (notice the status=0):
 
     var connection = {
-      "name": A NAME FOR THIS CONNECTION
+      "name": A-NAME-FOR-THIS-CONNECTION
       "status": 1,
       "options":
       {
-        "client_id": GOOG APPS CLIENT ID,
-        "client_secret": GOOG APPS CLIENT SECRET,
-        "tenant_domain": GOOG APP DOMAIN,
+        "client_id": GOOG-APPS-CLIENT-ID,
+        "client_secret": GOOG-APPS-CLIENT-SECRET,
+        "tenant_domain": GOOG-APP-DOMAIN,
         "ext_groups":true //Optional
       },
       "strategy": "google-apps"
@@ -345,9 +341,7 @@ If successful, the response body will contain a complete `connection` object. Th
 
 #### Updating a Connection
 
-For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the entity `id`. You will need to submit the entire entity as you'd intent to be.
-
-If successful, you will get  
+For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the entity `id`. You will need to submit the entire entity as you intend it to be.
 
 #### Other resources
 
