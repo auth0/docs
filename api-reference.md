@@ -65,8 +65,8 @@ Auth0 supports the  following strategies:
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
 >
->	provisioning_ticket: TICKET
->	provisioning_ticket_url: PROVISIONING URL
+>	`provisioning_ticket`: TICKET
+>	`provisioning_ticket_url`: PROVISIONING URL
 
 | Parameter | Description                                                           |
 |===========|=======================================================================|
