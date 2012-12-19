@@ -55,6 +55,7 @@ A GET operation against the ``connections`` resource returns a list of connectio
 | `strategy` | The type of identity provider associated with this connection 				  |
 
 Auth0 supports the  following strategies:
+
 - office365
 - windowslive
 - google-apps
@@ -63,10 +64,9 @@ Auth0 supports the  following strategies:
 - facebook
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
->   |Parameter	             |                      |
->   |========================|======================|
->	|provisioning_ticket     | TICKET               |
->	|provisioning_ticket_url | PROVISIONING URL     |
+>
+>	provisioning_ticket: TICKET
+>	provisioning_ticket_url: PROVISIONING URL
 
 | Parameter | Description                                                           |
 |===========|=======================================================================|
