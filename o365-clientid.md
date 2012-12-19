@@ -21,6 +21,6 @@ Complete your app information. For the __App Redirect URL__ use:
 
 ##3. Generate the ClientId and ClientSecret
 
-Once the app is created, the `ClientId` and `ClientSecret` will be available. Enter this information into your connection settings. 
+Copy the `ClientId` and `ClientSecret` into your connection settings. This is your last chance to copy the `ClientSecret` in Office 365! It is not shown anywhere else once you close this window.
 
 ![](img/o365-portal-4.png)

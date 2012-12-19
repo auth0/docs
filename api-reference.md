@@ -52,7 +52,7 @@ A GET operation against the ``connections`` resource returns a list of connectio
 | `client_id`| Your client_id (@@account.clientId@@), used to obtain the authentication token |
 | `name`	 | The name you gave to the connection 											  |
 | `status`	 | Defines whether the connection is active (1) or not (0)      				  |
-| `strategy` | The type of identity provider associated with this connection 				  |
+| `strategy` | The type of identity provider associated with this connection. See below for supported strategies 				  |
 | `tenant`   | The name you defined when you subscribed to Auth0 (@account.tenant)            |
 | `options`  | An object with properties that are dependent on the strategy selected          | 
 
@@ -77,7 +77,7 @@ Here are two `curl` sample scripts to get connections:
 
 	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN} 
 
-	curl https://@@account.namespace@@/api/connections/A-CONNECTION-ID?access_token=YOUR-ACCESS-TOKEN
+	curl https://@@account.namespace@@/api/connections/{YOUR CONNECTION ID}?access_token={YOUR ACCESS TOKEN}
 
 ##### Options
 
