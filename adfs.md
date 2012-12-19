@@ -10,7 +10,7 @@ The script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/
     (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://docs.auth0.com/scripts/adfs.ps1") | iex
     AddRelyingParty "urn:auth0:@@account.clientId@@" "https://@@account.namespace@@/login/callback"
 
-#### What does the the script do?
+#### What does the script do?
 
 #####1. Creates the Relying Party on ADFS
 

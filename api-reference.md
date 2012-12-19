@@ -11,14 +11,11 @@ API calls should include a token in the query string for authentication. For exa
 
 A token can be obtained by POSTing:
 
-    'client_id':     @@account.clientID@@,
-    'client_secret': @@account.clientSecret@@,
-    'type':          'web_server',
-    'grant_type':    'client_credentials'
+	POST https://@@account.namespace@@/oauth/token
+	
+	Content-type: application/x-www-form-urlencoded
 
-to the OAuth token endpoint:
-
-	https://@@account.namespace@@/oauth/token
+	client_id=@@account.clientID@@&client_secret'=@@account.clientSecret@@&type=web_server&grant_type=client_credentials
 
 The response body of this POST will be a JSON object with the following content:
 
@@ -49,30 +46,26 @@ A GET operation against the ``connections`` resource returns a list of connectio
 		"tenant": @@account.tenant@@
 	}
 
-* `_id`: is a unique identifier for this connection
-
-* `client_id` is your client_id (@@account.clientId@@, used to obtain the authentication token)
-
-* `name` is the name you gave to the connection
-
-* `status` defines whether the connection is active (1) or not (0)
-
-* `strategy` defines what type of identity provider is associated with this connection. Auth0 supports the following strategies:
+|`_id`|A unique identifier for this connection|
+|`client_id`|Your client_id (@@account.clientId@@, used to obtain the authentication token)|
+|`name`|The name you gave to the connection|
+|`status`|Defines whether the connection is active (1) or not (0)|
+|`strategy`|The type of identity provider associated with this connection. Auth0 supports the  following strategies:
 	* office365
 	* windowslive
 	* google-apps
 	* google-openid
 	* google-oauth2
-	* facebook
+	* facebook|
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
 
 >	provisioning_ticket: TICKET
 >	provisioning_ticket_url: PROVISIONING URL
 
-* `tenant` is the name you defined when you subscribed to Auth0 (@account.tenant).
-
-* `options` is an object with properties that are dependent on the strategy selected. 
+|Propert|Description|
+|`tenant`|The name you defined when you subscribed to Auth0 (@account.tenant)|
+|`options`|An object with properties that are dependent on the strategy selected| 
 
 A GET against `connections` with an ID specified in the path will just return the matching connection object.
 

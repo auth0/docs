@@ -25,8 +25,8 @@ Here's what you do for integrating Auth0 in your app with __passport__:
 	npm install passport-auth0
 
 > __TIP__: Don't have an app to play with? You can create one very easily with express:
->>	npm install express -g
->>	express 
+>	npm install express -g
+>	express 
 > That will create a simple "hello world" express website.
 
 #####2. Initialize passport-auth0
@@ -61,7 +61,7 @@ Create a new file __setup-passport.js__ with the following code:
 
 	module.exports = strategy; 
 
-> TIP: you typically would put this file under a 'lib' folder
+> __TIP__: you typically would put this file under a 'lib' folder
 
 The __clientId__, __clientSecret__ and __namespace__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
 
@@ -112,7 +112,7 @@ The last bit of code you will need are the handlers for the passport callbacks:
 		res.redirect("/");
 	});
 
-> Notice the 'connection' parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a "MyNewConnection" connection.  
+> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a _MyNewConnection_ connection.  
 
 You are almost done! 
 
