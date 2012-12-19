@@ -139,8 +139,8 @@ Example of use:
 	var Auth0Client = require('./auth0Client');
 
 	var tenant = A TENANT;
-	var clientId = YOUR CLIENT ID;
-	var clientSecret = YOUR CLIENT SECRET;
+	var clientId = @@account.clientId@@;
+	var clientSecret = @@acount.clientSecret@@;
 
 	var client = new Auth0Client(tenant, clientId, clientSecret);
 
