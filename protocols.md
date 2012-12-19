@@ -62,11 +62,11 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "token_type":"bearer",
     }
 
-## OAuth _Implicit Flow_
+## OAuth for Native Clients and JavaScript in the browser
 
 This protocol is best suited for mobile native apps and javascript running in a browser that need to access an API that expects an Access Token.
 
-> The full spec of this flow is [here](http://tools.ietf.org/html/rfc6749#section-4.2).
+> The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2) and it is refered to as the __Implicit Flow__.
 
 #### 1. Initiation
 
