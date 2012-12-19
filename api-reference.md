@@ -46,26 +46,27 @@ A GET operation against the ``connections`` resource returns a list of connectio
 		"tenant": @@account.tenant@@
 	}
 
-| Parameter  | Description																	 |
-|============|===============================================================================|
-| `_id`      | A unique identifier for this connection                                       |
-| `client_id`| Your client_id (@@account.clientId@@, used to obtain the authentication token)|
-| `name`	 | The name you gave to the connection 											 |
-| `status`	 | Defines whether the connection is active (1) or not (0)      				 |
-| `strategy` | The type of identity provider associated with this connection 				 |
+| Parameter  | Description																	  |
+|============|================================================================================|
+| `_id`      | A unique identifier for this connection                                        |
+| `client_id`| Your client_id (@@account.clientId@@), used to obtain the authentication token |
+| `name`	 | The name you gave to the connection 											  |
+| `status`	 | Defines whether the connection is active (1) or not (0)      				  |
+| `strategy` | The type of identity provider associated with this connection 				  |
 
 Auth0 supports the  following strategies:
-	* office365
-	* windowslive
-	* google-apps
-	* google-openid
-	* google-oauth2
-	* facebook
+- office365
+- windowslive
+- google-apps
+- google-openid
+- google-oauth2
+- facebook
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
-
->	provisioning_ticket: TICKET
->	provisioning_ticket_url: PROVISIONING URL
+>   |Parameter	             |                      |
+>   |========================|======================|
+>	|provisioning_ticket     | TICKET               |
+>	|provisioning_ticket_url | PROVISIONING URL     |
 
 | Parameter | Description                                                           |
 |===========|=======================================================================|
