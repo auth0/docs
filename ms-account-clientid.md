@@ -13,8 +13,8 @@ Log into [the Developer Center](http://msdn.microsoft.com/en-us/live/ff519582), 
 
 ![](img/ma-portal-2.png)
 
-Once the app is created, the `ClientId` and `ClientSecret` will be available. Enter this information into your connection settings. 
+After the app is created, copy the `ClientId` and `ClientSecret` and enter them into your connection settings. 
 
-This is also a good time to setup your callback URL into Auth0. That information should go into the `redirect domain` textbox.
+Also, make sure you setup the callback URL for the app. That information should go into the `redirect domain` textbox and for your setup is:
 
 	http://@@account.namespace@@/login/callback

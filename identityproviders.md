@@ -4,7 +4,7 @@
 
 # Identity Providers 
 
-Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc.
+Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc. 
 
 ![](http://markdownr.blob.core.windows.net/images/2142124826.png)
 
@@ -21,7 +21,7 @@ Once you add a Google OpenId connection, you are ready to go. The authentication
 
 1. A user initiates login in the app
 2. User is redirected to Auth0 
-3. User's immediately redirected to Google for authentication. 
+3. User is immediately redirected to Google for authentication 
 4. User enters username and password 
 5. User consents to disclosing information (name, e-mail) to Auth0
 6. A postback happens against the app callback URL
