@@ -6,7 +6,7 @@
 
 Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc. 
 
-![](http://markdownr.blob.core.windows.net/images/2142124826.png)
+![](img/idp-logical.png)
 
 Auth0 sits in between your app and the system that authenticate your users. 
 
@@ -71,3 +71,12 @@ Once you get a `clientId` and `clientSecret` eneter them into the connection's s
 > Why does Office365 need a `clientId` and `clientSecret` if it uses WS-Federation? Because querying Windows Azure Active Directory uses OAuth authentication. 
 
 ### Active Directory Federation Services
+ADFS is frequently used in companies that have deployed Active Directory. To add a an ADFS connection you just need the enter the public address of the ADFS server. 
+
+![](img/adfs-connection.png)
+
+Auth0 will automatically download the __WS-FederationMetadata__ from the endpoint:
+
+	https://{YOUR ADFS SERVER}/FederationMetadata/2007-06/FederationMetadata.xml
+
+Auth0 will also generate a PowerShell script to automate the configuration of the ADFS server to recognize Auth0 as a __Relying Party__. 
