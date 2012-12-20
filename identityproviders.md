@@ -4,8 +4,6 @@ Auth0 is an "identity hub" that supports a number of authentication providers us
 
 ![](img/auth0-idp.png)
 
-![](img/auth0-idp-2.png)
-
 Auth0 sits in between your app and the system that authenticate your users. 
 
 > The relationship between Auth0 and each of these authentication providers is called a 'connection'
