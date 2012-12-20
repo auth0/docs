@@ -79,11 +79,13 @@ Auth0 will automatically download the __WS-FederationMetadata__ from the endpoin
 
 	https://{YOUR ADFS SERVER}/FederationMetadata/2007-06/FederationMetadata.xml
 
-Auth0 will also generate a PowerShell script to automate the configuration of the ADFS server to recognize Auth0 as a __Relying Party__, and issue a standard set of claims:
+Auth0 will also generate a PowerShell script to automate the configuration of the ADFS server to recognize Auth0 as a __Relying Party__, and to issue a standard set of claims:
 
-|Claim                            					               |Description|
-|==================================================================|===========|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress| e-mail    | 
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name        | User name | |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier| A unique identifier|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname   | Given name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname     | User lastname|
+
+|Claim                            					                 | Description 		   |
+|====================================================================|=====================|
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress  | e-mail    		   | 
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name          | User's name 		   |
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier| A unique identifier |
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname     | Given name    	   |
+|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname       | User's lastname 	   |
