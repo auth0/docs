@@ -32,7 +32,7 @@ Once you add a Google OpenId connection, you are ready to go. The authentication
 
 > There's no user interaction between steps 2 and 3 . Steps 4 and 5 are specific to Google and might not happen necessarily if the process is repeated (e.g. the user selects 'remember me' in Google)
 
-The biggest disadvatnage is that you only get a very basic profile from the user: names (in various forms and segments: name, last name, given name, etc.), and an e-mail.
+The biggest disadvantage is that you only get a very basic profile from the user: names (in various forms and segments: name, last name, given name, etc.), and an e-mail.
 
 ---
 
