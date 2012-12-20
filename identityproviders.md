@@ -1,7 +1,3 @@
----
-	Title: Identity Providers
----
-
 # Identity Providers 
 
 Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc. 
