@@ -26,7 +26,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <H2>Connect to Auth0</H2>
             <br />
             <label for="clientID">Client ID: </label>
-            <input type="text" id="clientID" value="dFMDILdljMEiP9l5r62SRMPo5ogJH25v" />
+            <input type="text" id="clientID" value="@@account.clientId@@" />
             <br/>
             <label for="callbackURL">Callback URL: </label>
             <input type="text" id="callbackURL" value="http://localhost/client" />
@@ -99,10 +99,10 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 
 Compile the App and run it. Assuming your connection (__MyNewConnection__ in this turorial) is configured to use Google you will see the standard login screen:
 
-![]("img/win8-step2.png") 
+![](img/win8-step2.png) 
 
 After after authentication the returned token will appear on the debug area:
 
-![]("img/win8-step3.png") 
+![](img/win8-step3.png) 
 
 Congratulations! 
