@@ -24,7 +24,6 @@ We have tutorials for all the popular platforms:
 We suggest you should start with any of the above first. That should give you a good idea of how Auth0 works. After that, you can read more about more advanced concepts:
 
 - [Supported Identity Providers](identityproviders)
-- [Connecting with different identity providers](connecting-with-idp)
 - [Using the Auth0 API](api-reference)
 
 ## Other resources
