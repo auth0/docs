@@ -16,7 +16,7 @@ The sample uses the `implicit flow` protocol. See the [protocols](protocols) doc
 
 ##Integrating Auth0 with a WinRT JavaScript App
 
-####1. Add a oAuthAuth0.html file
+####1. Add an oAuthAuth0.html file
 
 Under the __html__ folder add a new file named __oAuthAuth0.html__ with the following content:
 
@@ -146,7 +146,7 @@ Under the __js__ folder, create new file named __oAuthAuth0.js__ with the follow
 
 ## Testing the app:
 
-Compile the App and run it. Select Auth0 and login. If successful, you should see the issued `Access token` on the screen:
+Compile the App and run it. Select Auth0 and login. If successful, you should see the issued `Access token` on the screen. It is useful to setup a couple breakpoints on the `launchAuth0DesktopAuth` function to see how things work.
 
 ![](img/win8-response.png) 
 
