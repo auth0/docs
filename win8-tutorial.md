@@ -76,12 +76,23 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	            Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startURI, endURI)
 	            .done(function (result) {
 
+	                if (result.responseStatus === Windows.Security.Authentication.Web.WebAuthenticationStatus.errorHttp) {
+	                    log("Error returned: " + result.responseErrorDetail);
+	                    return;
+	                }
+
 	                log("Status returned by WebAuth broker: " + result.responseStatus);
 	                log("Token: " + result.responseData);
 
-	                if (result.responseStatus === Windows.Security.Authentication.Web.WebAuthenticationStatus.errorHttp) {
-	                    log("Error returned: " + result.responseErrorDetail);
-	                }
+	                // Quick and dirty parsing of the access_token
+	                var access_token = result.responseData.split("#")[1].split("&")[0];
+	                WinJS.xhr({ url: "https://@@account.namespace@@/userinfo/?" + access_token, responseType: "json" })
+	                            .done(function complete(result) {
+	                                log("User Profile: " + result.responseText);
+	                            },
+	                                  function (err) {
+	                                      log("Error in getting user profile: " + err.responseData);
+	                                  });
 
 	            }, function (err) {
 	                log(" Error Message: " + err.message);
@@ -101,7 +112,7 @@ Compile the App and run it. Assuming your connection (__MyNewConnection__ in thi
 
 ![](img/win8-step2.png) 
 
-After authentication the returned token will appear on the debug area:
+After authentication the returned token will appear on the debug area together with the user profile (notice the chained call to the https://@@account.namespace@@/userinfo endpoint):
 
 ![](img/win8-step3.png) 
 
