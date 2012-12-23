@@ -17,9 +17,6 @@ We have tutorials for all the popular platforms:
 - [Android](android-tutorial)
 - [Windows Store Apps (Windows 8 RT)](win8-tutorial)
 - [ASP.NET MVC](mvc-tutorial)
-- [ASP.NET WebForms](webforms-tutorial)
-- [Ruby](ruby-tutorial)
-- [Azure Mobile Services](azuremobileservices-tutorial)
 
 We suggest you should start with any of the above first. That should give you a good idea of how Auth0 works. After that, you can read more about more advanced concepts:
 

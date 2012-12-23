@@ -120,7 +120,7 @@ You are almost done!
 
 Did you keep your settings page open? Make sure the __callback address__ in Auth0 is configured with the app's callback URL:
 
-![](http://markdownr.blob.core.windows.net/images/9043628631.png)
+![](img/settings-callback.png)
 
 ## Testing the app:
 
