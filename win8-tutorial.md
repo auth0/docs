@@ -29,7 +29,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <input type="text" id="clientID" value="@@account.clientId@@" />
             <br/>
             <label for="callbackURL">Callback URL: </label>
-            <input type="text" id="callbackURL" value="http://localhost/client" />
+            <input type="text" id="callbackURL" value="https://localhost/client" />
             <br/>
             <label for="connection">Connection: </label>
             <input type="text" id="connection" value="MyNewConnection" />
@@ -101,7 +101,7 @@ Compile the App and run it. Assuming your connection (__MyNewConnection__ in thi
 
 ![](img/win8-step2.png) 
 
-After after authentication the returned token will appear on the debug area:
+After authentication the returned token will appear on the debug area:
 
 ![](img/win8-step3.png) 
 

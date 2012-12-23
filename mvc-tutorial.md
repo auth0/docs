@@ -36,15 +36,14 @@ Once the default template unfolds, use NuGet to install the Auth0Client:
             }
         }
 
-> Notice the 'connection' parameter passed in the constructor of Auth0Client? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a "MyNewConnection" connection.  
+> Notice the `connection` parameter passed in the constructor of Auth0Client? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a "MyNewConnection" connection.  
 
 
 ####3. Setup the callback URL in Auth0
 
 Make sure the __callback address__ in Auth0 is configured with the app's callback URL. In this case it will be something like http://localhost:PORT
 
-
-![](http://markdownr.blob.core.windows.net/images/9043628631.png)
+![](img/settings-callback.png)
  
 ## Testing the app:
 

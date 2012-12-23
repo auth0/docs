@@ -58,4 +58,4 @@ Notice that this samples are using the _Authorization Code grant flow_ in OAuth2
 
 In this flow, the "client" (your server) is requesting the access token from Auth0 using it's own credentials (the __clientId__ and __clientSecret__) _and_ the authorization code obtained when the user authenticated. 
 
-There are other flows supported in Auth0 (and OAuth2) that are used for different clients. For node.js apps, this is probably the one you will be dealing with the most frequently with.
+There are [other flows](protocols) supported in Auth0 (and OAuth2) that are used for different clients. For node.js apps, this is probably the one you will be dealing with the most frequently with.
