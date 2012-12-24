@@ -104,7 +104,7 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	    }
 	})();
 
-> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](https://app.auth0.com/#/settings).  
+> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
 
 ## Testing the app:
 
@@ -112,7 +112,7 @@ Compile the App and run it. Assuming your connection (__MyNewConnection__ in thi
 
 ![](img/win8-step2.png) 
 
-After authentication the returned token will appear on the debug area together with the user profile (notice the chained call to the https://@@account.namespace@@/userinfo endpoint):
+After authentication the returned token will appear on the debug area together with the user profile (notice the chained call to the __https://@@account.namespace@@/userinfo__ endpoint):
 
 ![](img/win8-step3.png) 
 
