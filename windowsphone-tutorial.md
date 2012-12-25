@@ -95,7 +95,6 @@ Open the __MAinPage.xaml.cs__ file and replace the class definition with this on
         {
             this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
             this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
-
             var auth0Endpoint = string.Format(Auth0Authorize, ClientId, RedirectUri, Connection);
             this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
         }
