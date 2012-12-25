@@ -106,10 +106,10 @@ Open the __MAinPage.xaml.cs__ file and replace the class definition with this on
 
 Compile the App and run it. Assuming your connection (__MyNewConnection__ in this turorial) is configured to use Google you will see the standard login screen:
 
-![](img/win8-step3.png) 
+![](img/wp8-step3.png) 
 
 After authentication the user profile will be displayed on the screen:
 
-![](img/win8-step4.png) 
+![](img/wp8-step4.png) 
 
 Congratulations! 
