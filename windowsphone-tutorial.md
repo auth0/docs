@@ -101,7 +101,6 @@ Open the __MAinPage.xaml.cs__ file and replace the class definition with this on
         }
     }
 
-
 > Remember that the 'callBackUrl' must be defined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
 
 ## Testing the app:
