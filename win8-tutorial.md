@@ -95,7 +95,7 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	                                  });
 
 	            }, function (err) {
-	                log(" Error Message: " + err.message);
+	                log("Error Message: " + err.message);
 	            });
 	    }
 
