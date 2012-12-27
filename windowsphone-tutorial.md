@@ -69,7 +69,7 @@ Open the __MAinPage.xaml.cs__ file and replace the class definition with this on
                 e.Cancel = true;
 
                 //Quick and Dirty access_token parsing
-                this.AccessToken = url.Fragment.Substring(1).Split('&')[0];
+                this.AccessToken = e.Uri.Fragment.Substring(1).Split('&')[0];
 
                 this.UserInfo.Visibility = System.Windows.Visibility.Visible;
                 this.LoginBrowser.Visibility = System.Windows.Visibility.Collapsed;
@@ -112,4 +112,28 @@ After authentication the user profile will be displayed on the screen:
 
 ![](img/wp8-step4.png) 
 
-Congratulations! 
+Congratulations!
+
+## Adding more flexibility
+This tutorial works with a specific connection (__MyNewConnection_). What if you have more than one connection and you want to dynamically offer these options? Auth0 makes it very easy. Redirect the user to the login URL:
+
+     https://@@account.namespace@@/login/?client=@@account.clientId@@&response_type=token
+
+In the code above, replace the Auth0Authorize URL to:
+
+    private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client={0}&response_type=token";
+
+Then the `Login_Click` event handler to:
+
+    private void Login_Click(object sender, RoutedEventArgs e)
+    {
+        this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
+        this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
+        var auth0Endpoint = string.Format(Auth0Authorize, ClientId);
+        this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
+    }
+
+Run the app again, you will see:
+
+![](img/wp8-step5.png) 
+
