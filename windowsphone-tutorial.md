@@ -115,11 +115,11 @@ After authentication the user profile will be displayed on the screen:
 Congratulations!
 
 ## Adding more flexibility
-This tutorial works with a specific connection (__MyNewConnection_). What if you have more than one connection and you want to dynamically offer these options? Auth0 makes it very easy. Redirect the user to the login URL:
+This tutorial works with a specific connection (__MyNewConnection__). What if you have more than one connection and you want to dynamically offer these options? Auth0 makes it very easy. Redirect the user to the login URL:
 
      https://@@account.namespace@@/login/?client=@@account.clientId@@&response_type=token
 
-In the code above, replace the Auth0Authorize URL to:
+In the code above, replace the `Auth0Authorize` URL to:
 
     private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client={0}&response_type=token";
 
