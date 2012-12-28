@@ -47,7 +47,7 @@ Open the __MainPage.xaml.cs__ file and replace the class definition with this on
         private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client_id={0}&redirect_uri={1}&response_type=token&connection={2}";
 
         private const string RedirectUri = @"https://localhost/client";
-        private const string ClientId = @"@@account.clientId";
+        private const string ClientId = @"@@account.clientId@@";
         private const string Connection = @"MyNewConnection";
 
         // Constructor

@@ -26,7 +26,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <H2>Connect to Auth0</H2>
             <br />
             <label for="clientID">Client ID: </label>
-            <input type="text" id="clientID" value="@@account.clientId@@" />
+            <input type="text" id="clientId" value="@@account.clientId@@" />
             <br/>
             <label for="callbackURL">Callback URL: </label>
             <input type="text" id="callbackURL" value="https://localhost/client" />
@@ -59,21 +59,21 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 
 	    function startAuthentication() {
 
-	        var auth0URL = "https://@@account.namespace@@/authorize";
+	        var auth0Url = "https://@@account.namespace@@/authorize";
 
-	        var clientID = document.getElementById("clientID").value;
+	        var clientId = document.getElementById("clientId").value;
 	        var connection = document.getElementById("connection").value;
-	        var callbackURL = document.getElementById("callbackURL").value;
+	        var callbackUrl = document.getElementById("callbackURL").value;
 
-	        auth0URL += "?client_id=" + clientID + "&redirect_uri=" + callbackURL + "&response_type=token&" + "connection=" + connection;
+	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackURL + "&response_type=token&" + "connection=" + connection;
 
-	        var startURI = new Windows.Foundation.Uri(auth0URL);
-	        var endURI = new Windows.Foundation.Uri(callbackURL);
+	        var startUri = new Windows.Foundation.Uri(auth0Url);
+	        var endUri = new Windows.Foundation.Uri(callbackUrl);
 
-	        log("Navigating to: " + auth0URL);
+	        log("Navigating to: " + auth0Url);
 
 	        Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync(
-	            Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startURI, endURI)
+	            Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startUri, endUri)
 	            .done(function (result) {
 
 	                if (result.responseStatus === Windows.Security.Authentication.Web.WebAuthenticationStatus.errorHttp) {
@@ -117,3 +117,15 @@ After authentication the returned token will appear on the debug area together w
 ![](img/win8-step3.png) 
 
 Congratulations! 
+
+## Adding more flexibility
+This tutorial works with a specific connection (__MyNewConnection__). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
+
+In the `StartAuthenticationMethod` replace the StartUri to:
+
+	https://@@account.namespace@@/login/?client=" + clientId + "&response_type=token";
+
+Once you start the login process you will see the Login Widget displayed:
+
+![](img/win8-step4.png)
+
