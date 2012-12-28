@@ -25,34 +25,29 @@ Open Visual Studio and create new Windows Phone app:
 ####2. Add UI controls
 Open the __MainPage.xaml__ file and replace the entire `<Grid>` definition with this one:
 
-	<Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Connect to Auth0" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="Login" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-        <Button x:Name="Login" Grid.Row="1" Content="Login" Click="Login_Click" />
-        <Grid x:Name="ContentPanel" Grid.Row="2">
-            <phone:WebBrowser x:Name="LoginBrowser" Grid.Row="0" Grid.RowSpan="2" IsEnabled="true" IsScriptEnabled="True" />
+        <TextBlock Text="Connect to Auth0" Grid.Row="0" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+        <Grid x:Name="ContentPanel" Grid.Row="1">
+            <phone:WebBrowser x:Name="LoginBrowser" Grid.Row="0" Grid.RowSpan="2" IsEnabled="true" IsScriptEnabled="True"/>
             <TextBlock x:Name="UserInfo" Grid.Row="1" Grid.RowSpan="2" Visibility="Collapsed" TextWrapping="Wrap"/>
         </Grid>
     </Grid>
 
 ####2. Add code to initiate Authentication and retrieve User Profile
-Open the __MAinPage.xaml.cs__ file and replace the class definition with this one:
+Open the __MainPage.xaml.cs__ file and replace the class definition with this one:
 
-	public partial class MainPage : PhoneApplicationPage
+    public partial class MainPage : PhoneApplicationPage
     {
         private string AccessToken;
         private const string Auth0UserInfo = @"https://@@account.namespace@@/userinfo/?{0}";
         private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client_id={0}&redirect_uri={1}&response_type=token&connection={2}";
 
         private const string RedirectUri = @"https://localhost/client";
-        private const string ClientId = @"@@account.clientId@@";
+        private const string ClientId = @"@@account.clientId";
         private const string Connection = @"MyNewConnection";
 
         // Constructor
@@ -60,6 +55,26 @@ Open the __MAinPage.xaml.cs__ file and replace the class definition with this on
         {
             InitializeComponent();
             this.LoginBrowser.Navigating += LoginBrowser_Navigating;
+            this.LoginBrowser.Loaded += LoginBrowser_Loaded;
+            this.UserInfo.Tap += UserInfo_Tap;
+        }
+
+        void UserInfo_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Login();
+        }
+
+        void LoginBrowser_Loaded(object sender, RoutedEventArgs e)
+        {
+            Login();
+        }
+
+        void Login()
+        {
+            this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
+            this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
+            var auth0Endpoint = string.Format(Auth0Authorize, ClientId, RedirectUri, Connection);
+            this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
         }
 
         void LoginBrowser_Navigating(object sender, NavigatingEventArgs e)
@@ -90,21 +105,13 @@ Open the __MAinPage.xaml.cs__ file and replace the class definition with this on
         {
             this.UserInfo.Text = e.Result;
         }
-
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
-            this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
-            var auth0Endpoint = string.Format(Auth0Authorize, ClientId, RedirectUri, Connection);
-            this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
-        }
     }
 
 > Remember that the 'callBackUrl' must be defined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
 
 ## Testing the app:
 
-Compile the App and run it. Assuming your connection (__MyNewConnection__ in this turorial) is configured to use Google you will see the standard login screen:
+Compile the App and run it. Assuming your connection (__MyNewConnection__ in this tutorial) is configured to use Google you will see the standard login screen:
 
 ![](img/wp8-step3.png) 
 
@@ -123,9 +130,9 @@ In the code above, replace the `Auth0Authorize` URL to:
 
     private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client={0}&response_type=token";
 
-Then the `Login_Click` event handler to:
+Then change the `Login` method to:
 
-    private void Login_Click(object sender, RoutedEventArgs e)
+    private void Login()
     {
         this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
         this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
@@ -133,7 +140,6 @@ Then the `Login_Click` event handler to:
         this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
     }
 
-Run the app again, you will see:
+Run the app again, you will see [Auth0 Login Widget](widget) with available connections:
 
 ![](img/wp8-step5.png) 
-
