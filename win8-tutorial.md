@@ -29,7 +29,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <input type="text" id="clientId" value="@@account.clientId@@" />
             <br/>
             <label for="callbackURL">Callback URL: </label>
-            <input type="text" id="callbackURL" value="https://localhost/client" />
+            <input type="text" id="callbackUrl" value="https://localhost/client" />
             <br/>
             <label for="connection">Connection: </label>
             <input type="text" id="connection" value="MyNewConnection" />
@@ -63,9 +63,9 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 
 	        var clientId = document.getElementById("clientId").value;
 	        var connection = document.getElementById("connection").value;
-	        var callbackUrl = document.getElementById("callbackURL").value;
+	        var callbackUrl = document.getElementById("callbackUrl").value;
 
-	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackURL + "&response_type=token&" + "connection=" + connection;
+	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&" + "connection=" + connection;
 
 	        var startUri = new Windows.Foundation.Uri(auth0Url);
 	        var endUri = new Windows.Foundation.Uri(callbackUrl);
