@@ -37,7 +37,7 @@ Open the __MainPage.xaml__ file and replace the entire `<Grid>` definition with 
         </Grid>
     </Grid>
 
-####2. Add code to initiate Authentication and retrieve User Profile
+####3. Add code to initiate Authentication and retrieve User Profile
 Open the __MainPage.xaml.cs__ file and replace the class definition with this one:
 
     public partial class MainPage : PhoneApplicationPage
