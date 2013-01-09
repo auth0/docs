@@ -8,7 +8,7 @@ Integrating Auth0 with ASP.NET MVC4 is simple. MVC4 ships with out-of-the-box su
 ##Before you start
 
 1. You will need Visual Studio 2012 and MVC4
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "MyNewConnection". If you don't have one, this [tutorial](createconnection) shows how to create one.
+2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "my-new-connection". If you don't have one, this [tutorial](createconnection) shows how to create one.
 
 ##Integrating Auth0 with MVC4
 
@@ -29,14 +29,14 @@ Once the default template unfolds, use NuGet to install the Auth0Client:
         {
             public static void RegisterAuth()
             {
-                OAuthWebSecurity.RegisterClient(new Auth0Client(@@account.clientId@@, @@account.clientSecret@@}, @@account.namespace@@, "MyNewConnection"), "Auth0", null);
+                OAuthWebSecurity.RegisterClient(new Auth0Client(@@account.clientId@@, @@account.clientSecret@@}, @@account.namespace@@, "my-new-connection"), "Auth0", null);
 
                 ...
 
             }
         }
 
-> Notice the `connection` parameter passed in the constructor of Auth0Client? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a "MyNewConnection" connection.  
+> Notice the `connection` parameter passed in the constructor of Auth0Client? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a "my-new-connection" connection.  
 
 
 ####3. Setup the callback URL in Auth0

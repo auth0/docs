@@ -13,7 +13,7 @@ The sample works by intercepting the final redirect to the __CALLBACK URL__ and 
 ##Before you start
 
 1. You will XCode 4.5.2
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "MyNewConnection". If you don't have one, this [tutorial](createconnection) shows how to create one.
+2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "my-new-connection". If you don't have one, this [tutorial](createconnection) shows how to create one.
 
 ##Integrating Auth0 with iOS
 

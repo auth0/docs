@@ -69,7 +69,6 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
     urn:auth0:@@account.clientId@@
 
-
 ![](img/adfs-identifier.png)
 
 10- Leave the default option (Permite all users...) and click `Next`

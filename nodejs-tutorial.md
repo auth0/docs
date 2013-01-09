@@ -10,7 +10,7 @@ A complete video of this tutorial can be seen [here](nodejs-tutorial-video).
 ##Before you start
 
 1. We assume you have node.js installed and you are familiar with it.
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "MyNewConnection". If you don't have one, this [tutorial](createconnection) shows how to create one.
+2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "my_new_connection". If you don't have one, this [tutorial](createconnection) shows how to create one.
 
 ##Integrating Auth0 with a Node app
 
@@ -107,12 +107,12 @@ The last bit of code you will need are the handlers for the passport callbacks:
 
 	//Login
 	app.get('/login', 
-		passport.authenticate('auth0', { connection: 'MyNewConnection' }), 
+		passport.authenticate('auth0', { connection: 'my-new-connection' }), 
 		function (req, res) {
 		res.redirect("/");
 	});
 
-> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a _MyNewConnection_ connection.  
+> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a _my-new-connection_ connection.  
 
 You are almost done! 
 

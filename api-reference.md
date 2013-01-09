@@ -32,6 +32,7 @@ Here's a simple example using `curl`:
 
 	/api/connections
 	/api/connections/{connection_id}
+	/api/users
 
 #### Querying Connections
 A GET operation against the ``connections`` resource returns a list of connection objects:
@@ -58,12 +59,15 @@ A GET operation against the ``connections`` resource returns a list of connectio
 
 Auth0 supports the  following strategies:
 
-- office365
-- windowslive
-- google-apps
-- google-openid
-- google-oauth2
-- facebook
+|Strategy           | Used when users are in                                        |   
+|===================|===============================================================|
+|office365          |Office 365 and Windows Azure Active Directory                  |
+|adfs               |On-Premises Active Directory or any WS-Federation server       |
+|google-apps        |Google apps                                                    |
+|===================|===============================================================|
+|windowslive        |Microsoft Account (formerly LiveID)                            |
+|google-openid      |Google (through OpenID protocol)                               |
+|google-oauth2      |Google (through the OAuth2 protocol)	                        |
 
 > With __office365__ and __google-apps__ the following properties are added to the connection object:
 > `provisioning_ticket`: TICKET
@@ -312,7 +316,7 @@ If the operation is successful, you will get a confirmation object in the respon
 		"removed":1
 	}
 
->Notice that batch operations are not supported yet.
+> Notice that batch operations are not supported yet.
 
 #### Creating a new Connection
 

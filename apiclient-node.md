@@ -145,7 +145,7 @@ Example of use:
 	var client = new Auth0Client(tenant, clientId, clientSecret);
 
 	var connection = {
-	    "name":"MyGoogleAppConnection",
+	    "name":"my-google-apps-connection",
 	    "options":
 	    {
 	      "client_id":"A CLIENT ID",

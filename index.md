@@ -17,16 +17,16 @@ We have tutorials for all the popular platforms:
 - [Android](android-tutorial)
 - [Windows Store Apps (Windows 8 RT)](win8-tutorial)
 - [ASP.NET MVC](mvc-tutorial)
+- [Calling Auth0 API](api-tutorial)
 
 We suggest you should start with any of the above first. That should give you a good idea of how Auth0 works. After that, you can read more about more advanced concepts:
 
 - [Supported Identity Providers](identityproviders)
-- [Using the Auth0 API](api-reference)
+- [Supported Protocols](protocols)
+- [Auth0 API Reference](api-reference)
 
 ## Other resources
 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
-- [Check our discussion list](http://auth0/forums)
-- [Check StackOverflow](http://www.stackoverflow.com)
 - [Contact us!](mailto://support@auth0.com)

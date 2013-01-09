@@ -1,6 +1,3 @@
----
-    Title: "Node under the hood"
----
 # Node.js with Auth0 under the hood
 
 As we mentioned in the [tutorial page](nodejs-tutorial), the easiest way of using Auth0 from a node app is through the excellent [passport module](http://passportjs.org). 
@@ -23,10 +20,11 @@ and then:
         
 Ours is just a helper to automate URL handling and other parameters that Auth0 needs. Auth0 endpoints are:
 
-    authorizationURL: 'https://' + @@account.namespace || 'SOME NAMESPACE'@@ + '/authorize',
-    tokenURL:         'https://' + @@account.namespace || 'YOUR NAMESPACE'@@ + '/oauth/token',
-    userInfoURL:      'https://' + @@account.namespace || 'YOUR NAMESPACE'@@ + '/userinfo',
-    apiUrl:           'https://' + @@account.namespace || 'YOUR NAMESPACE'@@ + '/api'
+
+    authorizationURL: 'https://' + @@account.namespace@@ + '/authorize',
+    tokenURL:         'https://' + @@account.namespace@@ + '/oauth/token',
+    userInfoURL:      'https://' + @@account.namespace@@ + '/userinfo',
+    apiUrl:           'https://' + @@account.namespace@@ + '/api'
         
 Also, because you can have many connections to different identity providers (e.g. Google, Microsoft Account, Facebook, ADFS, etc), you can optionally pass a 'connection' parameter in the request. This instructs Auth0 where to redirect the user to for actual authentication.
 
