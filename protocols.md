@@ -19,13 +19,13 @@ This protocol is best suited for web sites that need:
 
 Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
             
-    https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=CALLBACK&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+    https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
     
  `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, you will get an error.
 
 > A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-The `redirect_uri` __must__ match what is defined in your [settings](https://app.auth0.com/#/settings) page. `http://localhost` is a valid URL.
+The `redirect_uri` __must__ match what is defined in your [settings](https://app.auth0.com/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simlutaneously.
 
 ---
 
@@ -76,9 +76,9 @@ This protocol is best suited for mobile native apps and javascript running in a 
 
 The client requests authorization to Auth0 endpoint:
 
-	https://@@account.namespace@@.auth0.com/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=CALLBACK&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+	https://@@account.namespace@@.auth0.com/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
-The `redirect_uri` __must__ match what is defined in your [settings](https://app.auth0.com/#/settings) page. `http://localhost` is a valid URL.
+The `redirect_uri` __must__ match one of the addresses defined in your [settings](https://app.auth0.com/#/settings) page. 
 
 #### 2. Authentication
 
