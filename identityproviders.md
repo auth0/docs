@@ -77,7 +77,6 @@ Auth0 will also generate a PowerShell script to automate the configuration of th
 >Even though this connection is named "ADFS", it would actually work with any WS-Federation compliant server. The PowerShell is ADFS specific though.
 
 ---
----
 
 ##Social Identity Providers
 
