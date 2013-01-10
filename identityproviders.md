@@ -13,7 +13,9 @@ Auth0 abstracts the handshake between the identity providers and your app, so yo
 Auth0 is a multi-tenant service. When you register in Auth0 you get your own namespace (@@account.namespace@@). Many of these identity providers require registration and you will need to configure a `return url`. This will always be:
 
 	https://@@account.namespace@@/login/callback
+
 ---
+
 ##Enterprise Identity Providers
 
 ### Google Apps
