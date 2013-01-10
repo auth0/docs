@@ -13,9 +13,11 @@ Log into [the Seller Dashboard](https://sellerdashboard.microsoft.com), then sel
 
 ![](img/o365-portal-2.png)
 
-Complete your app information. For the __App Redirect URL__ you __must__ use this URL: 
+Complete the form with your app information:
 
-	http://@@account.namespace@@/login/callback
+* **Friendly Client ID Name**: @@account.appName@@
+* **App Domain**: @@account.namespace@@
+* **App Redirect URL**: https://@account.namespace@@/login/callback
 
 ![](img/o365-portal-3.png)
 
