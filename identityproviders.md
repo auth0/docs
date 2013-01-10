@@ -13,7 +13,7 @@ Auth0 abstracts the handshake between the identity providers and your app, so yo
 Auth0 is a multi-tenant service. When you register in Auth0 you get your own namespace (@@account.namespace@@). Many of these identity providers require registration and you will need to configure a `return url`. This will always be:
 
 	https://@@account.namespace@@/login/callback
-
+---
 ##Enterprise Identity Providers
 
 ### Google Apps
@@ -72,7 +72,10 @@ Auth0 will also generate a PowerShell script to automate the configuration of th
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname     | Given name    	   |
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname       | User's lastname 	   |
 
->Even though this connection is named "ADFS", it would actually work with any WS-Federation compliant server. The PowerShell is ADFS specific.
+>Even though this connection is named "ADFS", it would actually work with any WS-Federation compliant server. The PowerShell is ADFS specific though.
+
+---
+---
 
 ##Social Identity Providers
 
