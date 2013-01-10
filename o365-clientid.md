@@ -16,7 +16,7 @@ Log into [the Seller Dashboard](https://sellerdashboard.microsoft.com), then sel
 Complete the form with your app information:
 
 * **Friendly Client ID Name**: @@account.appName@@
-* **App Domain**: @@tenant@@.auth0.com
+* **App Domain**: @@account.tenant@@.auth0.com
 * **App Redirect URL**: https://@@account.namespace@@/login/callback
 
 ![](img/o365-portal-3.png)
