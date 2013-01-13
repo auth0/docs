@@ -9,7 +9,7 @@ The sample uses the `implicit flow` protocol. See the [protocols](protocols) doc
 ##Before you start
 
 1. You will need Visual Studio 2012
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "my-new-connection". If you don't have one, this [tutorial](createconnection) shows how to create one.
+2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with a WinRT JavaScript App
 
@@ -32,7 +32,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <input type="text" id="callbackUrl" value="https://localhost/client" />
             <br/>
             <label for="connection">Connection: </label>
-            <input type="text" id="connection" value="my-new-connection" />
+            <input type="text" id="connection" value="google-openid" />
             <br/>
             <br/><button class="action" id="start">Start</button>
             <br /><br />
@@ -108,7 +108,7 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 
 ## Testing the app:
 
-Compile the App and run it. Assuming your connection (__my-new-connection__ in this turorial) is configured to use Google you will see the standard login screen:
+Compile the App and run it. Assuming your connection (__google-openid__ in this tutorial) is enabled, you should see the standard login screen:
 
 ![](img/win8-step2.png) 
 
@@ -119,7 +119,7 @@ After authentication the returned token will appear on the debug area together w
 Congratulations! 
 
 ## Adding more flexibility
-This tutorial works with a specific connection (__my-new-connection__). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
+This tutorial works with a specific connection (__google-openid__). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
 
 In the `StartAuthenticationMethod` replace the StartUri to:
 

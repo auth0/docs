@@ -1,6 +1,3 @@
----
-title: Auth0 and Node
----
 # Using Auth0 with node.js
 
 Integrating Auth0 with node is straight forward. At the end of this tutorial you will have a working web site, capable of authenticating users with an external identity provider (no more passwords in your app!).
@@ -10,7 +7,7 @@ A complete video of this tutorial can be seen [here](nodejs-tutorial-video).
 ##Before you start
 
 1. We assume you have node.js installed and you are familiar with it.
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) named "my_new_connection". If you don't have one, this [tutorial](createconnection) shows how to create one.
+2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with a Node app
 
@@ -107,20 +104,22 @@ The last bit of code you will need are the handlers for the passport callbacks:
 
 	//Login
 	app.get('/login', 
-		passport.authenticate('auth0', { connection: 'my-new-connection' }), 
+		passport.authenticate('auth0', { connection: 'google-openid' }), 
 		function (req, res) {
 		res.redirect("/");
 	});
 
-> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you created a _my-new-connection_ connection.  
+> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you enabled the _google-openid_ connection.  
 
 You are almost done! 
 
 #####4. Setup the callback URL in Auth0
 
-Did you keep your settings page open? Make sure the __callback address__ in Auth0 is configured with the app's callback URL:
+Did you keep your settings page open? Make sure the __App Callback URLs__ in Auth0 is configured with your app's callback URL:
 
 ![](img/settings-callback.png)
+
+> Notice that Auth0 supports many callbacks. Just use ',' as the delimiter.
 
 ## Testing the app:
 

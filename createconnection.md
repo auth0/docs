@@ -1,13 +1,33 @@
-# Creating a new Connection in Auth0
+# Adding and Enabling Connections in Auth0
 
-Connections represent a relationship between Auth0 and an identity provider. Follow these steps to create a new connection. This tutorial will use the simplest identity provider (Google OpenId) that requires no further configuration. 
+Connections represent a relationship between Auth0 and an identity provider. Auth0 supports common Enterprise Identity Providers. It also supports popular Social Identity Providers out of the box.
 
-> For all supported identity providers see [here](identityproviders)  
+> For all supported identity providers see [here](identityproviders)
+
+## Adding new Enterprise Connections
+
+###1. Login into Auth0
+Login and select the __Enterprise__ option under the __Connections__ tab. Click on the __Add Connection__ button:
+
+![](img/connection-add.png)
+
+###2. Choose the authentication type
+Each Identity Provider will require a different set of parameters. The [Identity Providers](identityproviders) section describes in detail each of these.
+
+
+
+
+## Enabling Social Connections
+
+Enterprise 
+Follow these steps to create a new connection. This tutorial will use the simplest identity provider (Google OpenId) that requires no further configuration. 
+
+  
 
 ##1. Login into Auth0
 Login and select the __Connections__ tab. Click on the __Add Connection__ button:
 
-![](img/connection-add.png)
+
 
 ##2. Select the Google OpenId 
 Name your connection and select Google OpenId as the identity provider:
