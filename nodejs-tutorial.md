@@ -2,8 +2,6 @@
 
 Integrating Auth0 with node is straight forward. At the end of this tutorial you will have a working web site, capable of authenticating users with an external identity provider (no more passwords in your app!).
 
-A complete video of this tutorial can be seen [here](nodejs-tutorial-video).
-
 ##Before you start
 
 1. We assume you have node.js installed and you are familiar with it.
@@ -34,7 +32,7 @@ Create a new file __setup-passport.js__ with the following code:
 		Auth0Strategy = require('passport-auth0');
 
 	var strategy = new Auth0Strategy({  
-	  namespace:        '@@account.namespace@@',
+	  domain:        	'@@account.namespace@@',
 	  clientID:         '@@account.clientId@@',
 	  clientSecret:     '@@account.clientSecret@@',
 	  callbackURL:      '/callback'
@@ -60,7 +58,7 @@ Create a new file __setup-passport.js__ with the following code:
 
 > __TIP__: you typically would put this file under a 'lib' folder
 
-The __clientId__, __clientSecret__ and __namespace__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
+The __clientId__, __clientSecret__ and __domain__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
 
 #####3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
@@ -109,7 +107,7 @@ The last bit of code you will need are the handlers for the passport callbacks:
 		res.redirect("/");
 	});
 
-> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you enabled the _google-openid_ connection.  
+> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you enabled the __google-openid__ connection.  
 
 You are almost done! 
 
