@@ -18,7 +18,7 @@ To initialize the client, you will need the __clientID__, the __clientSecret__ a
 
 ## Operations
 
-### client.getConnections(callback)
+###1.client.getConnections(callback)
 
 Returns a list of all the connections in your application:
 
@@ -26,7 +26,7 @@ Returns a list of all the connections in your application:
     //.....
   });
 
-### client.createConnection(callback)
+###2.client.createConnection(callback)
 
 Let's say one of your customers wants to use its own directory to authenticate to your app. You will have to create a **connection** in Auth0 for this customer and if you want to automate that for N customers, you will want to use the API. Typically, you will ask the customer domain name and depending on the directory you are connecting to, some additional information.
 
@@ -64,8 +64,7 @@ Let's say one of your customers wants to use its own directory to authenticate t
 
 Because this example uses Office 365, the returned connection object will have a ```provisioning_ticket_url``` field to which you have to redirect the client in order to complete the authorization process.
 
-
-### client.getUsers({[connection: connection], [per_page: 10]}, callback)
+###3.client.getUsers({[connection: connection], [per_page: 10]}, callback)
 
 This method returns a list of users.
 
@@ -86,11 +85,11 @@ Although you can do a simple GET to that link to fetch the next page, you can us
     });
   });
 
-### client.getSocialUsers({[per_page: 10]}, callback)
+###4.client.getSocialUsers({[per_page: 10]}, callback)
 
 The same than ```getUsers``` but this method returns users for all social connections as a group. That is, it will return a list of all the users that have logged in to your app and authenticated with any of the supported social identity providers. 
 
-### client.getConnection(name, callback)
+###5.client.getConnection(name, callback)
 
   client.getConnection('my-connection', function (err, connection){
     //.....
