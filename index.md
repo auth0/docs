@@ -1,3 +1,7 @@
+---
+title: Auth0 | Getting started with Auth0
+url: /
+---
 # Getting started with Auth0
 
 ## First things first
