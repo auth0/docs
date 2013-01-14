@@ -79,6 +79,17 @@ This is especially useful if you want to automate provisioning and on-boarding o
 
 Because this example uses Office 365, the returned connection object will have a ```provisioning_ticket_url``` field to which you have to redirect the client in order to complete the authorization process.
 
+### Deleting a Connection
+Use this operation to eliminate a specific connection:
+
+	client.deleteConnection(connection, function (err, result) {
+		//.....
+	});
+
+If successful, ```result``` will be an object with the ```id``` of the connection that was successfuly removed.  
+
+	{ removed: '50e7c5605022d20560000007' }
+
 ### Getting Users
 
 	client.getUsers({[connection: connection], [per_page: 10]}, callback)
