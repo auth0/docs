@@ -1,3 +1,7 @@
+---
+title: Auth0 | API Reference
+url: /api-reference
+---
 # Auth0 API Reference
 
 ### API endpoint
@@ -71,12 +75,11 @@ Auth0 supports the  following strategies:
 |office365          |Office 365 and Windows Azure Active Directory                  |
 |adfs               |On-Premises Active Directory or any WS-Federation server       |
 |google-apps        |Google apps                                                    |
-|===================|===============================================================|
 |windowslive        |Microsoft Account (formerly LiveID)                            |
 |google-openid      |Google (through OpenID protocol)                               |
 |google-oauth2      |Google (through the OAuth2 protocol)	                        |
 
-> With __office365__ and __google-apps__ the following properties are added to the connection object:
+> With __office365__, __google-apps__ and __adfs__ the following properties are added to the connection object:
 > `provisioning_ticket`: TICKET
 > `provisioning_ticket_url`: PROVISIONING-URL
 
@@ -93,6 +96,52 @@ Here are two `curl` sample scripts to get connections:
 ##### Options
 
 The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information you enter on the [connections](https://app.auth0.com/#/connections) screen.
+
+###### ADFS
+
+  	{
+  		tenant_domain: A-DOMAIN,
+    	adfs_server: YOUR-FEDERATION-METADATA-ENDPOINT,
+    	thumbprints: 
+      	[ '9b250aad7e4950604072ffaa60cde7795f23b52a',
+          'f97702a42c893a0fb1bc6dad21c79fb720473a85',
+          '9b250aad7e4950604072ffaa60cde7795f23b52a',
+          'f97702a42c893a0fb1bc6dad21c79fb720473a85',
+          '9b250aad7e4950604072ffaa60cde7795f23b52a',
+          'f97702a42c893a0fb1bc6dad21c79fb720473a85',
+          '9b250aad7e4950604072ffaa60cde7795f23b52a' ],
+     	signInEndpoint: ADFS-LOGIN-PAGE 
+    }
+
+|Parameter       | Description																 										  	    |
+|================|==========================================================================================================================|
+|`tenant_domain` | The domain name of the company (e.g.: if the users emails are john@mycompany.com, then mycompany.com would be the domain)|
+|`adfs_server`   | This would be something like: the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml 				|
+|`signInEndpoint`| The URL of the ADFS server where Auth0 will redirect users for login. (https://the-adfs-server.company.com/adfs/ls/)		|
+
+---
+
+###### Google Apps
+
+	{
+		client_id: GOOG-CLIENT-ID,
+		client_secret: GOOG-CLIENT-SECRET,
+		tenant_domain: 'company.com',
+		email: true/false,
+		profile: true/false,
+		ext_groups: true/false,
+		ext_is_admin: true/false,
+		ext_is_suspended: true/false,
+		ext_agreed_terms: true/false,
+		api_enable_users: true/false,
+		scope: 
+		[ 'https://www.googleapis.com/auth/userinfo.email',
+		'https://www.googleapis.com/auth/userinfo.profile' ] 
+	}
+
+> In this example, all possible scopes are shown.
+
+---
 
 ###### Office 365
 
@@ -213,106 +262,8 @@ The `options` object returned in the `connection` will be different for each str
 		"applications_create":true/false,
 		"scope":["wl.basic","wl.signin","wl.offline_access","wl.birthday","wl.calendars","wl.calendars_update","wl.contacts_birthday","wl.contacts_create","wl.contacts_calendar","wl.contacts_photos","wl.contacts_skydrive","wl.emails","wl.events_create","wl.messenger","wl.phone_numbers","wl.photos","wl.postal_addresses","wl.share","wl.skydrive","wl.skydrive_update","wl.work_profile","wl.applications","wl.applications_create"]
 	}
+
 > In this example, all possible scopes are shown. That would be the result of checking all options on the configuration screen.
-
-###### Google Apps
-
-	{
-		"client_id": GOOG-APPS-CLIENT-ID,
-		"client_secret": GOOG-APPS-CLIENT-SECRET,
-		"tenant_domain": CONNECTION-DOMAIN-IN-GOOG-APPS,
-		"email":true/false,
-		"profile":true/false,
-		"ext_groups":true/false,
-		"ext_is_admin":true/false,
-		"ext_is_suspended":true/false,
-		"ext_agreed_terms":true/false,
-		"user_provisioning":true/false,
-		"groups_provisioning":true/false,
-		"nicknames_provisioning":true/false,
-		"scope":["https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/userinfo.profile","https://apps-apis.google.com/a/feeds/user/","https://apps-apis.google.com/a/feeds/groups/","https://apps-apis.google.com/a/feeds/alias/"]
-	}
-
-> In this example, all possible scopes are shown.
-
-###### Facebook
-
-	{
-		"app_id": FB-APP-ID,
-		"app_secret": FB-APP-SECRET,
-		"email":true,
-		"user_about_me":true/false,
-		"user_likes":true/false,
-		"user_activities":true/false,
-		"user_birthday":true/false,
-		"user_checkins":true/false,
-		"user_education_history":true/false,
-		"user_events":true/false,
-		"user_groups":true/false,
-		"user_hometown":true/false,
-		"user_interests":true/false,
-		"user_location":true/false,
-		"user_notes":true/false,
-		"user_photos":true/false,
-		"user_questions":true/false,
-		"user_relationships":true/false,
-		"user_relationship_details":true/false,
-		"user_religion_politics":true/false,
-		"user_status":true/false,
-		"user_subscription":true/false,
-		"user_videos":true/false,
-		"user_website":true/false,
-		"user_work_history":true/false,
-		"friends_about_me":true/false,
-		"friends_likes":true/false,
-		"friends_activities":true/false,
-		"friends_birthday":true/false,
-		"friends_checkins":true/false,
-		"friends_education_history":true/false,
-		"friends_events":true/false,
-		"friends_groups":true/false,
-		"friends_hometown":true/false,
-		"friends_interests":true/false,
-		"friends_location":true/false,
-		"friends_notes":true/false,
-		"friends_photos":true/false,
-		"friends_questions":true/false,
-		"friends_relationships":true/false,
-		"friends_relationship_details":true/false,
-		"friends_religion_politics":true/false,
-		"friends_status":true/false,
-		"friends_subscription":true/false,
-		"friends_videos":true/false,
-		"friends_website":true/false,
-		"friends_work_history":true/false,
-		"publish_actions":true/false,
-		"user_actions_music":true/false,
-		"user_actions_news":true/false,
-		"user_actions_video":true/false,
-		"user_games_activity":true/false,
-		"friends_actions_music":true/false,
-		"friends_actions_news":true/false,
-		"friends_actions_video":true/false,
-		"friends_games_activity":true/false,
-		"read_friendlists":true/false,
-		"read_insights":true/false,
-		"read_mailbox":true/false,
-		"read_requests":true/false,
-		"read_stream":true/false,
-		"xmpp_login":true/false,
-		"ads_management":true/false,
-		"create_event":true/false,
-		"manage_friendlists":true/false,
-		"manage_notifications":true/false,
-		"user_online_presence":true/false,
-		"friends_online_presence":true/false,
-		"publish_checkins":true/false,
-		"publish_stream":true/false,
-		"rsvp_event":true/false,
-		"scope":"email,user_about_me,user_likes,user_activities,user_birthday,user_checkins,user_education_history,user_events,user_groups,user_hometown,user_interests,user_location,user_notes,user_photos,user_questions,user_relationships,user_relationship_details,user_religion_politics,user_status,user_subscription,user_videos,user_website,user_work_history,friends_about_me,friends_likes,friends_activities,friends_birthday,friends_checkins,friends_education_history,friends_events,friends_groups,friends_hometown,friends_interests,friends_location,friends_notes,friends_photos,friends_questions,friends_relationships,friends_relationship_details,friends_religion_politics,friends_status,friends_subscription,friends_videos,friends_website,friends_work_history,publish_actions,user_actions_music,user_actions_news,user_actions_video,user_games_activity,friends_actions_music,friends_actions_news,friends_actions_video,friends_games_activity,read_friendlists,read_insights,read_mailbox,read_requests,read_stream,xmpp_login,ads_management,create_event,manage_friendlists,manage_notifications,user_online_presence,friends_online_presence,publish_checkins,publish_stream,rsvp_event"}
-	}
-
-> In this example, all possible scopes are shown.
 
 #### Deleting connections
 A DELETE operation against the `connections` resource will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
