@@ -22,13 +22,15 @@ Once the default template unfolds, use NuGet to install the Auth0Client, running
 > [__Auth0Client__](https://nuget.org/packages/Auth0Client) is a helper class that plugs into DotNetOpenAuth. Most of the heavylifting is actually done by the __OAuth2Client__ though. Our helper just makes sure you are using the right endpoints and sending the right parameters to Auth0.
 >
 
-####2. Register Auth0Client in the Auth
+####2. Register Auth0Client in the AuthConfig
+
+Open the AuthConfig.cs file (under `App_Start` folder), and look for the ```RegisterAuth``` method:
 
     public static class AuthConfig
     {
         public static void RegisterAuth()
         {
-            OAuthWebSecurity.RegisterClient(new Auth0Client(@@account.clientId@@, @@account.clientSecret@@}, @@account.namespace@@, "google-openid"), "Auth0", null);
+            OAuthWebSecurity.RegisterClient(new Auth0Client("@@account.clientId@@", "@@account.clientSecret@@", "@@account.namespace@@", "google-openid"), "Auth0", null);
 
             ...
 

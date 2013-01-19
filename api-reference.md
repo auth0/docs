@@ -5,7 +5,7 @@
 	https://@@account.namespace@@/api
 
 ### Authentication
-API calls should include a token in the query string for authentication. For example:
+Each request to the API should include an access token, either in the query string or in an ```Authorization``` header.
 
 	https://@@account.namespace@@/api/connections/?access_token=TOKEN
 
@@ -17,7 +17,7 @@ A token can be obtained by POSTing this request to the token endpoint:
 
 	client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials
 
-The response body of this POST will be a JSON object with the following content:
+The response body of this POST will be this JSON object:
 
 	{
 		'access_token': TOKEN
@@ -28,33 +28,40 @@ Here's a simple example using `curl`:
 
 	curl https://@@account.namespace@@/oauth/token --data "client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials"
 
-### Resources
+### Headers
+The only accepted header is ```Authorization``` that can be used to send the access_token instead of using the query string. All content is returned in JSON.
 
-	/api/connections
-	/api/connections/{connection_id}
-	/api/users
+### Connections
 
-#### Querying Connections
-A GET operation against the ``connections`` resource returns a list of connection objects:
+|Verb	 |URL 													 		 |
+|========|===============================================================|
+|`GET`	 |https://@@account.namespace@@/api/connections 				 |
+|`GET`	 |https://@@account.namespace@@/api/connections/{connectionName} |
+|`POST`	 |https://@@account.namespace@@/api/connections 				 |
+|`DELETE`|https://@@account.namespace@@/api/connections/{connectionName} |
 
-	{
-		"_id": ID,
-		"client_id": @@account.clientId@@
-		"name": YOUR-CONNECTION-NAME,
-		"options": { ... },
-		"status":1,
-		"strategy": STRATEGY,
-		"tenant": @@account.tenant@@
-	}
+#### List Connections
+
+Returns a list of all defined connections in Auth0. A connection object will look like this:
+
+	{ 
+		"client_id": "@@account.clientId@@",
+	    "name": YOUR-CONNECTION-NAME,
+	    "options": 
+     	{ 
+     		...
+       	},
+    	status: 0,
+    	strategy: STRATEGY
+    }
+
 
 | Parameter  | Description																	  |
 |============|================================================================================|
-| `_id`      | A unique identifier for this connection                                        |
-| `client_id`| Your client_id (@@account.clientId@@), used to obtain the authentication token |
-| `name`	 | The name you gave to the connection 											  |
-| `status`	 | Defines whether the connection is active (1) or not (0)      				  |
+| `client_id`| Your client_id (@@account.clientId@@), used to obtain the authentication token.|
+| `name`	 | The unique name you gave to the connection. 									  |
+| `status`	 | Defines whether the connection is active `1` or not `0`.      				  |
 | `strategy` | The type of identity provider associated with this connection. See below for supported strategies 				  |
-| `tenant`   | The name you defined when you subscribed to Auth0 (@account.tenant)            |
 | `options`  | An object with properties that are dependent on the strategy selected          | 
 
 Auth0 supports the  following strategies:
@@ -73,7 +80,7 @@ Auth0 supports the  following strategies:
 > `provisioning_ticket`: TICKET
 > `provisioning_ticket_url`: PROVISIONING-URL
 
-A GET against `connections` with an ID specified in the path will just return the matching connection object.
+A GET against `connections` with an name specified in the path will just return the matching connection object.
 
 ---
 
@@ -81,7 +88,7 @@ Here are two `curl` sample scripts to get connections:
 
 	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN} 
 
-	curl https://@@account.namespace@@/api/connections/{YOUR CONNECTION ID}?access_token={YOUR ACCESS TOKEN}
+	curl https://@@account.namespace@@/api/connections/{YOUR-CONNECTION-NAME}?access_token={YOUR ACCESS TOKEN}
 
 ##### Options
 
@@ -174,7 +181,7 @@ The `options` object returned in the `connection` will be different for each str
 		"nick_name":true
 	}
 
-> These properties all always true
+> In a Google OpenID connection, these properties all always true
 
 ###### Microsoft Account
 
@@ -308,12 +315,12 @@ The `options` object returned in the `connection` will be different for each str
 > In this example, all possible scopes are shown.
 
 #### Deleting connections
-A DELETE operation against the `connections` resource will eliminate the connection definition permanently. The parameter for this operation is the ID.
+A DELETE operation against the `connections` resource will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
 
 If the operation is successful, you will get a confirmation object in the response body:
 
 	{
-		"removed":1
+		"removed": {id}
 	}
 
 > Notice that batch operations are not supported yet.
@@ -345,8 +352,8 @@ If successful, the response body will contain a complete `connection` object. Th
 
 #### Updating a Connection
 
-For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the entity `id`. You will need to submit the entire entity as you intend it to be.
+For updates, you need to use the PUT operation. PUTs also work on a specific `connection` and therefore they need the connection `name`. You will need to submit the entire entity as you intend it to be.
 
 #### Other resources
 
-* A [very simple](apiclient-node) (and unoptimized) client library for Node.js apps.
+* [Auth0 node module](node-auth0client). A simple client library for Node.js apps.
