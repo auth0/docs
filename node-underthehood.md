@@ -26,6 +26,6 @@ Ours is just a helper to automate URL handling and other parameters that Auth0 n
     userInfoURL:      'https://' + @@account.namespace@@ + '/userinfo',
     apiUrl:           'https://' + @@account.namespace@@ + '/api'
         
-Also, because you can have many connections to different identity providers (e.g. Google, Microsoft Account, Facebook, ADFS, etc), you can optionally 'connection' parameter in the request. This instructs Auth0 where to redirect the user to for actual authentication.
+Also, because you can have many connections to different identity providers (e.g. Google, Microsoft Account, Facebook, ADFS, etc), you can use the `connection` parameter in the request. This instructs Auth0 where to redirect the user to for actual authentication.
 
-These are the basics of login in to your node.js app through Auth0. You might also want to check the [API](api-reference) for more interesting operations. There's a simple [node module](node-auth0client) we put together for you.
+These are the basics of login in to your node.js app through Auth0. You might also want to check the [API](api-reference) for more interesting operations. There's a simple [node module](node-auth0client) we put together for you that encapsulates access to the API.
