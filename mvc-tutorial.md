@@ -5,7 +5,7 @@ Integrating Auth0 with ASP.NET MVC4 is simple. MVC4 ships with out-of-the-box su
 ##Before you start
 
 1. You will need Visual Studio 2012 and MVC4
-2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with MVC4
 
@@ -30,7 +30,7 @@ Open the AuthConfig.cs file (under `App_Start` folder), and look for the ```Regi
     {
         public static void RegisterAuth()
         {
-            OAuthWebSecurity.RegisterClient(new Auth0Client("@@account.clientId@@", "@@account.clientSecret@@", "@@account.namespace@@", "google-openid"), "Auth0", null);
+            OAuthWebSecurity.RegisterClient(new Auth0Client("@@account.clientId@@", "@@account.clientSecret@@", "@@account.namespace@@", "google-oauth2"), "Auth0", null);
 
             ...
 

@@ -13,7 +13,7 @@ The sample works by intercepting the final redirect to the __CALLBACK URL__ and 
 ##Before you start
 
 1. You will XCode 4.5.2
-2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with iOS
 
@@ -332,7 +332,7 @@ Using the library is straight forward:
         }
     }];
 
-> Remember that the `returnUrl` parameter must also be efined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
+> Remember that the `returnUrl` parameter must also be defined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
 
 Congratulations!
 

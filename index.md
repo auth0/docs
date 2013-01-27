@@ -29,4 +29,4 @@ We suggest you should start with any of the above first. That should give you a 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
 - [Contact us!](mailto://support@auth0.com)
-- [Samples on various platforms](https://github.com/auth0)
+- [Visit GitHub for samples on various platforms](https://github.com/auth0)

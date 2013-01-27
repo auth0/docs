@@ -79,13 +79,12 @@ Auth0 supports the following strategies:
 |adfs               |On Premises Active Directory or any WS-Federation server.      |
 |google-apps        |Google Apps.                                                   |
 |windowslive        |Microsoft Account (formerly LiveID).                           |
-|google-openid      |Google (through OpenID protocol).                              |
 |google-oauth2      |Google (through the OAuth2 protocol).                          |
 
 > With __office365__, __google-apps__ and __adfs__ the following properties are added to the connection object:
  `provisioning_ticket`: TICKET
  `provisioning_ticket_url`: PROVISIONING-URL
-  The `provisioning_ticket_url` is meant to be sent to the identity provider administrator and containes information on how to complete configuration in their side.
+  The `provisioning_ticket_url` is meant to be sent to the identity provider administrator and contains information on how to complete configuration in their side.
 
 A GET against `connections` with a name specified in the path will just return the matching connection object.
 
@@ -191,18 +190,6 @@ The `options` object returned in the `connection` will be different for each str
 		webmaster_tools: true/false,
 		scope: [] 
 	}	
-
-######Google OpenId
-
-	{
-		"email":true,
-		"family_name":true,
-		"name":true,
-		"given_name":true,
-		"nick_name":true
-	}
-
-> In a Google OpenID connection, these properties all always true
 
 ######Microsoft Account
 

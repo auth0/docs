@@ -1,6 +1,6 @@
 # Obtaining a ClientId and Client Secret for Google
 
-To configure Google OAuth connections (Google Apps and Google) you need to register Auth0 with Google on the API Console.
+To configure Google OAuth connections (Google Apps and Google) you will need to register Auth0 with Google on the API Console.
 
 ##1. Log in into API Console
 Go to the [API Console](https://code.google.com/apis/console#access), and click on the __Create an OAuth2 client ID__ button:

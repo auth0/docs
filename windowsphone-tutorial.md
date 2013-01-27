@@ -13,7 +13,7 @@ The sample works by intercepting the redirect to the __CALLBACK URL__ and parsin
 ##Before you start
 
 1. You will need Visual Studio 2012 with [Windows Phone 8 SDK development tools](http://go.microsoft.com/fwlink/?LinkId=265772)
-2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with a Windows Phone 8 App
 
@@ -48,7 +48,7 @@ Open the __MainPage.xaml.cs__ file and replace the class definition with this on
 
         private const string RedirectUri = @"https://localhost/client";
         private const string ClientId = @"@@account.clientId@@";
-        private const string Connection = @"google-openid";
+        private const string Connection = @"google-oauth2";
 
         // Constructor
         public MainPage()
@@ -111,7 +111,7 @@ Open the __MainPage.xaml.cs__ file and replace the class definition with this on
 
 ## Testing the app:
 
-Compile the App and run it. Assuming your connection (__google-openid__ in this tutorial) is enabled, you should see the standard login screen:
+Compile the App and run it. Assuming your connection (__google-oauth2 in this tutorial) is enabled, you should see the standard login screen:
 
 ![](img/wp8-step3.png) 
 
@@ -122,7 +122,7 @@ After authentication the user profile will be displayed on the screen:
 Congratulations!
 
 ## Adding more flexibility
-This tutorial works with a specific connection (__google-openid__). What if you have more than one connection and you want to dynamically offer these options? Auth0 makes it very easy. Redirect the user to the login URL:
+This tutorial works with a specific connection (__google-oauth2__). What if you have more than one connection and you want to dynamically offer these options? Auth0 makes it very easy. Redirect the user to the login URL:
 
      https://@@account.namespace@@/login/?client=@@account.clientId@@&response_type=token
 

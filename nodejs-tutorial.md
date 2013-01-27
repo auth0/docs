@@ -5,7 +5,7 @@ Integrating Auth0 with node is straight forward. At the end of this tutorial you
 ##Before you start
 
 1. We assume you have node.js installed and you are familiar with it.
-2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with a Node app
 

@@ -9,7 +9,7 @@ The sample uses the `implicit flow` protocol. See the [protocols](protocols) doc
 ##Before you start
 
 1. You will need Visual Studio 2012
-2. We also assume you have Google OpenID enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
 ##Integrating Auth0 with a WinRT JavaScript App
 
@@ -32,7 +32,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <input type="text" id="callbackUrl" value="https://localhost/client" />
             <br/>
             <label for="connection">Connection: </label>
-            <input type="text" id="connection" value="google-openid" />
+            <input type="text" id="connection" value="google-oauth2" />
             <br/>
             <br/><button class="action" id="start">Start</button>
             <br /><br />
@@ -119,7 +119,7 @@ After authentication the returned token will appear on the debug area together w
 Congratulations! 
 
 ## Adding more flexibility
-This tutorial works with a specific connection (__google-openid__). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
+This tutorial works with a specific connection (__google-oauth2). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
 
 In the `StartAuthenticationMethod` replace the StartUri to:
 
