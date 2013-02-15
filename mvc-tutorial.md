@@ -50,6 +50,33 @@ Make sure the __callback address__ in Auth0 is configured with the app's callbac
  
 ## Testing the app:
 
-Open a browser, navigate to the website and press the login button. You should see in the right panel "Google".
+Open a browser, navigate to the website and press the login button. You should see "Google" in the right panel.
 
 Congratulations! 
+
+####4. Widget
+
+This step is optional. We have a beautiful widget that you can integrate in your application and replace the default from Asp.Net MVC.
+
+Open the ```views\shared\_LoginPartial.cshtml``` and change its content to something as follows:
+
+    @if (Request.IsAuthenticated) {
+    <text>
+        Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    </text>
+    } else {
+        <ul>
+            <li><a href="javascript:window.Auth0.signIn({onestep: true})">login</a></li>
+        </ul>
+        <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@"></script>
+    }
+
+> Notice that we have changed the ```else``` code block to use our auth0 widget.
+
+Next time, when you press the login button, you should see something like this:
+
+![](img/widget-in-aspnet.png)
