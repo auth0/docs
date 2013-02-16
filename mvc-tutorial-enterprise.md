@@ -14,22 +14,17 @@ The true power of Auth0 is that it open new possibilities to integrate your appl
 We will start by creating a route that will enable us to associate new companies to your application. Create a new controller named ProvisioningController with the following code:
 
 
-    using System.Web.Mvc;
-
-    namespace Auth0Example3.Controllers
+    public class ProvisioningController : Controller
     {
-        public class ProvisioningController : Controller
-        {
-            private readonly Auth0.Client auth0Client = new Auth0.Client(
-                        "@@account.clientId@@",
-                        "@@account.clientSecret@@",
-                        "@@account.namespace@@");
+        private readonly Auth0.Client auth0Client = new Auth0.Client(
+                    "@@account.clientId@@",
+                    "@@account.clientSecret@@",
+                    "@@account.namespace@@");
 
-            [HttpPost]
-            public ActionResult Index(Auth0.ProvisioningTicket ticket)
-            {
-                return Json(auth0Client.CreateConnection(ticket));
-            }
+        [HttpPost]
+        public ActionResult Index(Auth0.ProvisioningTicket ticket)
+        {
+            return Json(auth0Client.CreateConnection(ticket));
         }
     }
 
