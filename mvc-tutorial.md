@@ -84,3 +84,5 @@ Open the ```views\shared\_LoginPartial.cshtml``` and change its content to somet
 Next time, when you press the login button, you should see something like this:
 
 ![](img/widget-in-aspnet.png)
+
+The widget has more options and configurations grab code snippets and test it [here](https://app.auth0.com/#/sdk/widget).
