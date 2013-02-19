@@ -161,7 +161,7 @@ We have a beautiful widget that you can integrate on any web application. We wil
     <!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml">
         <head>
-            <script src="https://sdk.auth0.com/auth0.js#client=KzMP6RmlctuKAxYbjfrXNAddktX8eq8c"></script>
+            <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@"></script>
         </head>
         <body>
             <h2>Welcome</h2>
