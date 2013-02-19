@@ -135,7 +135,7 @@ In the previous step we serialized the user profile in a cookie. Now we can crea
 
 ####5. Create a HomeController
 
-Create a new ```HomeController.cs``` whit two routes route:
+Create a new ```HomeController.cs``` whit two routes:
 
     [Auth0ReadUser]
     public ActionResult Index()
