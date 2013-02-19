@@ -1,4 +1,4 @@
-# Using Auth0 with ASP.NET MVC 4
+# Using Auth0 with ASP.NET MVC 3
 
 Integrating Auth0 with ASP.NET MVC3 is really simple.
 
