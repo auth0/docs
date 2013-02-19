@@ -62,6 +62,17 @@ Congratulations!
 
 This step is optional. We have a beautiful widget that you can integrate in your application and replace the default from Asp.Net MVC.
 
+Create a new route in the ```AccountController.cs``` file:
+
+    //
+    // POST: /Account/Auth0Login
+
+    [AllowAnonymous]
+    public ActionResult Auth0Login(string connection)
+    {
+        return new ExternalLoginResult(connection, Url.Action("ExternalLoginCallback"));
+    }
+
 Open the ```views\shared\_LoginPartial.cshtml``` and change its content to something as follows:
 
     @if (Request.IsAuthenticated) {
@@ -76,7 +87,7 @@ Open the ```views\shared\_LoginPartial.cshtml``` and change its content to somet
         <ul>
             <li><a href="javascript:window.Auth0.signIn({onestep: true})">login</a></li>
         </ul>
-        <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@"></script>
+        <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
     }
 
 > Notice that we have changed the ```else``` code block to use our auth0 widget.
