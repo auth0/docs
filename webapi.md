@@ -4,7 +4,9 @@ Integrating Auth0 with a Single Page Application and a Web API backend consists 
 
 ##Before you start
 
-1. You will need Visual Studio 2012 and MVC4
+1. You will need Visual Studio 2012 and MVC4 
+
+> You can also browse and download the sample on GitHub: <https://github.com/auth0/auth0-webapi-js-sample>
 
 ##Integrating Auth0 with MVC4
 
@@ -139,3 +141,7 @@ If you want to get all the claims from the user (not just the id), you should sp
 > Notice that this will increase the size of the token, and it might break browser URL lenght.
 
 You are done! Congratulations! 
+
+## Download the sample
+
+Browse the sample on GitHub: <https://github.com/auth0/auth0-webapi-js-sample>
