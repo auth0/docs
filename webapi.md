@@ -47,8 +47,9 @@ Now, you have to call the login widget by using the JavaScript API `window.Auth0
 
     <button onclick="window.Auth0.signIn({onestep: true})">Login</button>
 
-Once a user has logged in using the widget, Auth0 will callback your application and send the `access_token` and `id_token` through the URL hash, like this `http://@@account.callback@@#access_token=...&id_token=...`. 
-You can use the `access_token` to make an AJAX call to Auth0 backend to get all the user information.
+Once a user has logged in using the widget, Auth0 will callback your application and send the `access_token` and `id_token` through the URL hash, like this `@@account.callback@@#access_token=...&id_token=...`. 
+
+You can use the `access_token` to make an AJAX call to Auth0 backend to get all the user information, like the following code illustrates.
 
         var access_token = /access_token=([^&]*)/g.exec(window.location.hash);
         if (access_token) {
@@ -78,9 +79,11 @@ Add the following on the `Register` method of `WebApiConfig.cs`:
 
     config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
     {
-        Audience = "@@account.clientId@@",
-        SymmetricKey = "@@account.clientSecret@@"
+        Audience = "@@account.clientId@@",  // client id
+        SymmetricKey = "@@account.clientSecret@@"   // client secret
     });
+
+> You should put the client id and secret on Web.config
 
 And finally, protect your Web API with the `[Authorize]` attribute
 
@@ -120,12 +123,19 @@ The last step would be to call the API from your JavaScript application. To do s
 
 Open a browser, navigate to the website and press the login button. You should see Auth0 widget with a Google button, which is the default connection. 
 
-Once you are logged in, you can try calling the API. You can get the user id on the API by doing:
+Once you are logged in, you can try calling the API with and without the Authorization header to make sure things are properly configured. 
+
+
+#### Extra tips...
+
+You can get the user id on the Web API side by doing:
 
       ClaimsPrincipal.Current.Claims.SingleOrDefault(c => c.Type == "sub").Value
 
-If you want to get all the claims from the user in the `id_token` (not just the id), you should send in the scope parameter `openid profile` (instead of just `openid`). Notice that this will increase the size of the token, and it might break browser URL lenght.
+If you want to get all the claims from the user (not just the id), you should specify `openid profile` (instead of just `openid`) in the scope parameter, like shown in this snippet
 
     <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&amp;scope=openid%20profile&amp;response_type=token"></script>
+
+> Notice that this will increase the size of the token, and it might break browser URL lenght.
 
 You are done! Congratulations! 
