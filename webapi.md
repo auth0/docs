@@ -1,6 +1,6 @@
 # Using Auth0 with ASP.NET Web API and Single Page Apps
 
-Integrating Auth0 with ASP.NET MVC3 is really simple.
+Integrating Auth0 with a Single Page Application and a Web API backend consists of very simple and straightforward instructions.
 
 ##Before you start
 
