@@ -31,7 +31,7 @@ You can customize this functionality to change the DBMS engine or the way user i
 There are few configuration variables to setup:
 
 -  ```SQL_CONNECTION_STRING```: this is the connection string to sql server.
--  ```WSFED_CALLBACKS_URLS```: Valid callbacks urls, use https://@@account.namespace@@/login/callback 
+-  ```WSFED_CALLBACKS_URLS```: Valid callbacks urls, use __https://@@account.namespace@@/login/callback__
 -  ```WSFED_ISSUER```: The issuer of the WS-Federation tokens. Use the name of your company.
 -  ```SITE_NAME```: The title to display in the login page. You can use the name of your company.
 
@@ -39,7 +39,7 @@ If you deploy to IISNode or Windows Azure Websites, just copy ```web.config-samp
 
 If you deploy to heroku, use [```heroku config:set```](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application)
 
-####4. Customize logo and 
+####4. Customize logo and login form
 
 
 The application comes with a nice login page as shown here:
