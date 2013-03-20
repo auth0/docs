@@ -17,7 +17,7 @@ If you are deploying to Windows we recommend you using IIS and [IISNode](https:/
 
 ####1. Download the package
 
-Download and unzip the application from [here](https://github.com/auth0/sql-fs/archive/master.zip).
+Download and unzip the application from [here](https://github.com/auth0/sql-federation-server/archive/master.zip).
 
 ####2. Validate users
 
