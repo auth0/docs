@@ -21,9 +21,9 @@ Download and unzip the application from [here](https://github.com/auth0/sql-fede
 
 ####2. Validate users
 
-The application comes with an script that validate user names and hashed passwords from a table in sql server. 
+The application comes with an script that validate user names and passwords from a table in sql server. 
 
-You can customize this functionality to change the DBMS engine or the way user information is stored by simple editing the file ```users.js```.
+Copy ```users.js-sample``` into ```users.js``` and customize this functionality.
 
 
 ####3. Configure the application
@@ -31,9 +31,13 @@ You can customize this functionality to change the DBMS engine or the way user i
 There are few configuration variables to setup:
 
 -  ```SQL_CONNECTION_STRING```: this is the connection string to sql server.
--  ```WSFED_CALLBACKS_URLS```: Valid callbacks urls, use __https://@@account.namespace@@/login/callback__
 -  ```WSFED_ISSUER```: The issuer of the WS-Federation tokens. Use the name of your company.
 -  ```SITE_NAME```: The title to display in the login page. You can use the name of your company.
+
+You will need also an environment variable for each authorized realm as follows:
+
+	env: 	"REALM-urn:auth0:@@account.clientId@@" 
+    value:	"https://@@account.namespace@@/login/callback"
 
 If you deploy to IISNode or Windows Azure Websites, just copy ```web.config-sample``` as ```web.config``` and change the settings there.
 
