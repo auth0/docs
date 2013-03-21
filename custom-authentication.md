@@ -36,8 +36,8 @@ There are few configuration variables to setup:
 
 You will need also an environment variable for each authorized realm as follows:
 
-	env: 	"REALM-urn:auth0:@@account.clientId@@" 
-    value:	"https://@@account.namespace@@/login/callback"
+    env:   "REALM-urn:auth0:@@account.clientId@@" 
+    value: "https://@@account.namespace@@/login/callback"
 
 If you deploy to IISNode or Windows Azure Websites, just copy ```web.config-sample``` as ```web.config``` and change the settings there.
 
