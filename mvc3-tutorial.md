@@ -1,195 +1,75 @@
 # Using Auth0 with ASP.NET MVC 3
 
-Integrating Auth0 with ASP.NET MVC3 is really simple.
+This tutorial explains how to integrate Auth0 with an ASP.NET MVC 3 web application.
 
 ##Before you start
 
-1. You will need Visual Studio 2012 and MVC4
-2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+You will need Visual Studio 2010 or 2012 and ASP.NET MVC.
+For this tutorial, we will assume the standard template MVC3 template. 
+(created through Select **File -> New project -> MVC 3 Web Application -> Intranet Application**), but nothing prevents you to use this in any other ASP.NET application (WebForms, MVC1, MVC2, etc).
 
 ##Integrating Auth0 with MVC3
 
-####1. Create a simple MVC website and install Auth0 client
+####1. Install Auth0-MVC NuGet package
 
-For this example, we will use the standard template MVC3 template. Select __"FILE -> New project -> MVC 3 Web Application -> Empty"__
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
 
-Once the default template unfolds, use NuGet to install the **Auth0**, running the command:
+	Install-Package Auth0-MVC
 
-	Install-Package Auth0
+> This package creates an ASP.NET Http Handler (`LoginCallback.ashx`) that will be responsible for the token exchange (based on OpenID Connect / OAuth) and setting a cookie that will be used for subsequent requests. It will also register a module based on the WIF `SessionAuthenticationModule` that will be responsible for serializing/deserializing the session cookie.
 
-####2. Setup the callback URL in Auth0
+####2. Setting up the callback URL in Auth0
 
-Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to this:
+Run your web application and go to [Auth0 Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to your application URL:
 
 ```
-http://localhost:port/Auth/Callback
+http://localhost:port/LoginCallback.ashx
 ```
 
 ![](img/settings-callback.png)
 
-####3. Create an authentication controller
+####3. Filling Web.Config with your Auth0 settings
 
-Create a new controller named ```AuthController.cs``` with the following code:
+The NuGet package also created four settings on `<appSettings>`. Replace those with the following settings:
 
-    public class AuthController : Controller
-    {
-        private readonly Auth0.Client client = new Auth0.Client(
-                                "@@account.clientId@@",
-                                "@@account.clientSecret@@",
-                                "@@account.namespace@@");
+    <add key="auth0:ClientId" value="@@account.clientId@@" />
+    <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
+    <add key="auth0:Domain" value="@@account.namespace@@" />
+    <add key="auth0:CallbackUrl" value="@@account.callback@@" />
 
-        public ActionResult Callback(string code)
-        {
-            var token = client.ExchangeAuthorizationCodePerAccessToken(
-                            code, 
-                            "http://localhost:{PORT}");
+####4. Triggering login manually or integrating the Auth0 widget
 
-            var user = client.GetUserInfo(token);
+Open the `_LogOnPartial.cshtml` view and change the markup after the `else` (users that were not authenticated yet).
 
-            AppendCookie(user);
-
-            return Redirect("/");
-        }
-
-        private void AppendCookie(Auth0.UserProfile user)
-        {
-            var jsonWriter = new JsonFx.Json.JsonWriter();
-            var json = jsonWriter.Write(user);
-
-            var authTicket = new FormsAuthenticationTicket(
-                2, user.Name,
-                DateTime.Now,
-                DateTime.Now.AddMinutes(FormsAuthentication.Timeout.TotalMinutes),
-                false,
-                json);
-
-            var authCookie = new HttpCookie(
-                FormsAuthentication.FormsCookieName,
-                FormsAuthentication.Encrypt(authTicket)
-                ) {HttpOnly = true};
-
-            Response.AppendCookie(authCookie);
-        }
+    @if(Request.IsAuthenticated) {
+        <text>Welcome <strong>@User.Identity.Name</strong>!
+        [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+    }
+    else {
+        <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&scope=openid"></script>
+        <a href="javascript: window.Auth0.signIn()">Log On</a>
     }
 
-> This controller will exchange the Authorization Code for an Access Token. Then the access token is used to retrive the user profile from Auth0 and the profile is stored in a FormsAuthentication cookie.  
+> Notice we are injecting a JavaScript that will create a global variable `window.Auth0`. This is used to invoke the widget programatically. Alternatively, you could have used a regular link and redirect the users straight to the desired connection. For example, this link `https://@@account.namespace@@/authorize?response_type=code&scope=openid`
+`&client_id=@@account.clientId@@`
+`&redirect_uri=@@account.callback@@`
+`&connection=google-oauth2` would redirect the user straight to the Google login page. Using this mechanism, you have full control of the user experience.
 
-####4. Deserialize the cookie with an MVC Filter
+####3. Accessing user information
 
-In the previous step we serialized the user profile in a cookie. Now we can create a new Filter attribute to deserialize the cookie and create the profile. Create a new class named ```Auth0ReadUser.cs``` with the following chunk of code:
+Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
 
-
-    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
-    public class UserDeserializer : AuthorizeAttribute
+    public ActionResult Index() 
     {
-        protected override bool AuthorizeCore(System.Web.HttpContextBase httpContext)
-        {
-            var isAuthenticated = base.AuthorizeCore(httpContext);
-            if (isAuthenticated)
-            {
-                var cookieName = FormsAuthentication.FormsCookieName;
-                if (!httpContext.User.Identity.IsAuthenticated ||
-                    httpContext.Request.Cookies == null || 
-                    httpContext.Request.Cookies[cookieName] == null)
-                {
-                    return true;
-                }
-
-                var authCookie = httpContext.Request.Cookies[cookieName];
-                var authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-
-                if (authTicket == null) return false;
-
-                var jsonValue = authTicket.UserData;
-
-                var jsonReader = new JsonFx.Json.JsonReader();
-
-                var identity = jsonReader.Read<Identity>(jsonValue);
-                
-                httpContext.User = new UserProfile(identity);
-            }
-            return true;
-        }
-
-        public class UserProfile : IPrincipal
-        {
-            public UserProfile(Identity identity)
-            {
-                Identity = identity;
-            }
-            public bool IsInRole(string role)
-            {
-                return  false;
-            }
-            public IIdentity Identity { get; private set; }
-        }
-
-        public class Identity : Auth0.UserProfile, IIdentity
-        {
-            string IIdentity.Name { get { return Name; } }
-            public string AuthenticationType { get { return "Auth0";  } }
-            public bool IsAuthenticated { get { return true; } }
-        }
+        var claims = (User.Identity as IClaimsIdentity).Claims
+        string email = claims.SingleOrDefault(c => c.ClaimType == "email");
     }
+    
+**Congratulations!**
 
+#### Other useful information
 
-####5. Create a HomeController
+* To clear the cookie generated on login, use the `ClaimsCookie.ClaimsCookieModule.Instance.SignOut()` method.
 
-Create a new ```HomeController.cs``` whit two routes:
+* If you want to flow the identity of the user logged in to a WCF service ([Read more about this](/wcf-tutorial.md)) or an API, you have to use the `scope=openid` parameter on the login (as shown in the example above). When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken]() that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. . Notice that by default it will only include the user id as part of the claism. If you want to get the full claim set for the user, use `scope=openid%20profile`.
 
-    [Auth0ReadUser]
-    public ActionResult Index()
-    {
-        return HttpContext.User.Identity is Auth0.UserProfile ? 
-            View("Index_Logged", (Auth0.UserProfile)HttpContext.User.Identity) : 
-            View();
-    }
-
-    public ActionResult Logoff()
-    {
-        FormsAuthentication.SignOut();
-        return RedirectToAction("Index");
-    }
-
-
-> The index will show a page for the anonymous user and a different one when the user is logged in.
-
-####6. Integrate the widget
-
-We have a beautiful widget that you can integrate on any web application. We will setup this on a new view named ```Index.cshtml```:
-
-    <!DOCTYPE html>
-    <html xmlns="http://www.w3.org/1999/xhtml">
-        <head>
-            <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@"></script>
-        </head>
-        <body>
-            <h2>Welcome</h2>
-            <button onclick="window.Auth0.signIn({onestep: true})">Login</button>
-        </body>
-    </html>
-
-####7. Create a success page
-
-Create a new view named ```Index_Logged.cshtml``` with the following code:
-
-    @model Auth0.UserProfile
-    <!DOCTYPE html>
-    <html>
-        <head>
-        </head>
-        <body>
-            <h2>Hello!</h2>
-            hello <strong>@Model.Name</strong>  you have logged in as <strong>@Model.Identities.First().Provider</strong>
-            <br />
-            <a href="/Home/Logoff">logout</a> 
-        </body>
-    </html> 
-
-#### Testing the app:
-
-Open a browser, navigate to the website and press the login button. You should see Auth0 widget with a google button. 
-
-Once you are logged in, you should see welcome message.
-
-Congratulations! 
