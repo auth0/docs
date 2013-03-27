@@ -19,29 +19,20 @@ If you are deploying to Windows we recommend you using IIS and [IISNode](https:/
 
 Download and unzip the application from [here](https://github.com/auth0/sql-federation-server/archive/master.zip).
 
-####2. Validate users
+####2. Initialize the configuration
+
+Open a shell console, access the uncompressed folder and execute this command:
+
+	node_modules/bin/connector-setup
+
+You will be guide through a series of steps. When prompted for the ticket you should use this ```@@ticket@@```.
+
+####3. Validate users
 
 The application comes with an script that validate user names and passwords from a table in sql server. 
 
 Copy ```users.js-sample``` into ```users.js``` and customize this functionality.
 
-
-####3. Configure the application
-
-There are few configuration variables to setup:
-
--  ```SQL_CONNECTION_STRING```: this is the connection string to sql server.
--  ```WSFED_ISSUER```: The issuer of the WS-Federation tokens. Use the name of your company.
--  ```SITE_NAME```: The title to display in the login page. You can use the name of your company.
-
-You will need also an environment variable for each authorized realm as follows:
-
-    env:   "REALM-urn:auth0:@@account.clientId@@" 
-    value: "https://@@account.namespace@@/login/callback"
-
-If you deploy to IISNode or Windows Azure Websites, just copy ```web.config-sample``` as ```web.config``` and change the settings there.
-
-If you deploy to heroku, use [```heroku config:set```](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application)
 
 ####4. Customize logo and login form
 
@@ -54,15 +45,7 @@ You can customize the logo and style by changing these files: ```views/login.ejs
 
 Usually you will also add links for things like __retrieving lost password__.
 
-####5. Generate a certificate
-
-You need to generate a x509 certificate in order to sign authentication requests. Use openssl as follows:
-
-	openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 -subj "/CN=yourcompany.com" -keyout cert.key  -out cert.pem
-
-And copy the ```cert.key``` and ```cert.pem``` to the certs folder.
-
-####6. Deploy
+####5. Deploy
 
 #####IISNode
 
