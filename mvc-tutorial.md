@@ -1,13 +1,10 @@
 # Using Auth0 with ASP.NET MVC 4
 
-Integrating Auth0 with ASP.NET MVC4 is simple. MVC4 ships with out-of-the-box support for external identity providers using the [DotnetOpenAuth library](http://www.dotnetopenauth.net/). Auth0 plugs into this infrastructure.
+This tutorial is specific to the new ASP.NET MVC4 identity mechanism based on [OAuth providers feature](http://www.asp.net/mvc/overview/getting-started/using-oauth-providers-with-mvc). 
 
-##Before you start
+> **IMPORTANT**: Make sure to understand [how this new mechanism work](http://weblogs.asp.net/jgalloway/archive/2012/08/29/simplemembership-membership-providers-universal-providers-and-the-new-asp-net-4-5-web-forms-and-asp-net-mvc-4-templates.aspx) before moving forward. If this approach does not fit to you, follow the [generic ASP.NET tutorial](aspnet-tutorial).
 
-1. You will need Visual Studio 2012 and MVC4
-2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
-
-##Integrating Auth0 with MVC4
+## Tutorial
 
 ####1. Create a simple MVC website and install Auth0 client
 

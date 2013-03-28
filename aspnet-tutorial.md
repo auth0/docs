@@ -2,11 +2,7 @@
 
 This tutorial explains how to integrate Auth0 with an ASP.NET application (any kind: WebForms, MVC 1, 2, 3 or 4 and even Web API).
 
-## Before you start
-
-You will need Visual Studio 2010 or 2012.
-
-## Integrating Auth0 with ASP.NET
+## Tutorial
 
 #### 1. Install Auth0-MVC NuGet package
 
@@ -83,32 +79,4 @@ If you want to flow the identity of the user logged in to a web site, to a WCF s
 
 #### Manage environments: Dev, Test, Production
 
-We recommend creating one application per environment in Auth0. You can create new applications under the same domain from [Auth0 Settings](https://app.auth0.com/#/settings).
-
-![](img/environments.png)
-
-Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depening on the Build Configuration you use. For instance
-
-`Web.config`
-```
-<add key="auth0:ClientId" value="YOUR_DEV_CLIENT_ID" />
-<add key="auth0:ClientSecret" value="YOUR_DEV_CLIENT_SECRET" />
-<add key="auth0:CallbackUrl" value="http://localhost:port/LoginCallback.ashx" />
-```
-
-`Web.Release.config`
-```
-<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <appSettings>
-    <add key="auth0:ClientId" value="YOUR_PROD_CLIENT_ID" xdt:Transform="Replace" />
-    <add key="auth0:ClientSecret" value="YOUR_PROD_CLIENT_SECRET" xdt:Transform="Replace" />
-    <add key="auth0:CallbackUrl" value="http://mysite.com/LoginCallback.ashx" xdt:Transform="Replace" />
-  </appSettings>
-</configuration>
-```
-
-Then, whenever you have to reference the ClientID, Secret or callback, you use this syntax:
-
-```
-<script src="https://sdk.auth0.com/auth0.js#client=@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]&scope=openid"></script>
-```
+We recommend creating one application per environment in Auth0 and have different client ids and secret per environment. [Read more about this](azure-tutorial).

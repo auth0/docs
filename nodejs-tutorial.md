@@ -7,7 +7,7 @@ Integrating Auth0 with node is straight forward. At the end of this tutorial you
 1. We assume you have node.js installed and you are familiar with it.
 2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 
-##Integrating Auth0 with a Node app
+## Tutorial
 
 If you are building a node based app, you are very likely using [__passportjs__](http://passportjs.org/), the well known middleware for authentication. We've built a [strategy for passport](https://github.com/qraftlabs/passport-auth0) that makes integration even simpler. There's not really much magic there, just boilerplate code.
 

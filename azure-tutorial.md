@@ -41,7 +41,7 @@ Each application has a different `Client Id` and `Client Secret` and can be conf
   <appSettings>
     <add key="auth0:ClientId" value="YOUR_PROD_CLIENT_ID" xdt:Transform="Replace" />
     <add key="auth0:ClientSecret" value="YOUR_PROD_CLIENT_SECRET" xdt:Transform="Replace" />
-    <add key="auth0:CallbackUrl" value="http://mysite.com/LoginCallback.ashx" xdt:Transform="Replace" />
+    <add key="auth0:CallbackUrl" value="http://mysite.azurewebsites.net/LoginCallback.ashx" xdt:Transform="Replace" />
   </appSettings>
 </configuration>
 ```
@@ -52,6 +52,8 @@ Then, whenever you have to reference the ClientID, Secret or callback, you use t
 <script src="https://sdk.auth0.com/auth0.js#client=@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]&scope=openid"></script>
 ```
 
-> Tip: to test your web.config trasnforms you can use this [awesome tool](http://webconfigtransformationtester.apphb.com/)
+Whether you deploy to Windows Azure Web Sites or a Cloud Service the Web.config transformation will run.
+
+> **TIP**: to test your web.config transforms you can use this [awesome tool](http://webconfigtransformationtester.apphb.com/)
 
 
