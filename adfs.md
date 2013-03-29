@@ -7,7 +7,7 @@ layout: doc.nosidebar
 ### Scripted setup
 This script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user. 
 
-    (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://docs.auth0.com/scripts/adfs.ps1") | iex
+    (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://raw.github.com/auth0/adfs-auth0/master/adfs.ps1") | iex
     AddRelyingParty "urn:auth0:@@account.clientId@@" "https://@@account.namespace@@/login/callback"
 
 Copy & Paste the script above on Windows PowerShell. 

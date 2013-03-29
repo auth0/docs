@@ -4,9 +4,9 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (any k
 
 ## Tutorial
 
-#### 1. Install Auth0-MVC NuGet package
+#### 1. Install Auth0-ASPNET NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
 ```
 Install-Package Auth0-ASPNET
@@ -49,6 +49,10 @@ Open your master page (or wherever you have the Log On link) and use the followi
 `&redirect_uri=@@account.callback@@`
 `&connection=google-oauth2` would redirect the user straight to the Google login page. Using this mechanism, you have full control of the user experience.
 
+The widget is a modal dialog shown on top of your web page:
+
+![](img/signin.png)
+
 #### 3. Accessing user information
 
 Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
@@ -58,6 +62,8 @@ Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` w
         var claims = (User.Identity as IClaimsIdentity).Claims
         string email = claims.SingleOrDefault(c => c.ClaimType == "email");
     }
+
+The user profile is normalized regardless of where the user came from. For more information about the user profile [read this](user-profile).
     
 **Congratulations!**
 
