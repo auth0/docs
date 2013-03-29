@@ -95,3 +95,27 @@ This is an example profile from **Office 365 (Windows Azure Active Directory)**:
   "user_id": "office365|10030000838D23AF@MicrosoftOnline.com"
 }
 ```
+
+This is an example profile from **ADFS (Active Directory Federation Services)**:
+
+```
+{
+  "_id": "e18a49250818e718dfd411869cf8822f",
+  "email": "john@fabrikam.com",
+  "family_name": "Fabrikam",
+  "given_name": "John",
+  "identities": [
+    {
+      "user_id": "john@fabrikam.com",
+      "provider": "adfs",
+      "connection": "auth10.com",
+      "isSocial": false
+    }
+  ],
+  "issuer": "https://adfs.fabrikam.com",
+  "name": "John Fabrikam",
+  "nickname": "john",
+  "picture": "https://secure.gravatar.com/avatar/5426f6b9d63ad92d60e6fe9fdf83aa21?s=480&r=pg&d=https%3A%2F%2Fssl.gstatic.com%2Fs2%2Fprofiles%2Fimages%2Fsilhouette80.png",
+  "user_id": "adfs|john@fabrikam.com"
+}
+```
