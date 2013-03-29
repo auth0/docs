@@ -63,7 +63,7 @@ Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` w
         string email = claims.SingleOrDefault(c => c.ClaimType == "email");
     }
 
-The user profile is normalized regardless of where the user came from. For more information about the user profile [read this](user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
     
 **Congratulations!**
 
