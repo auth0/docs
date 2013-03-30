@@ -25,7 +25,7 @@ Enter the following URL on the "Website with Facebook Login" section and click *
 
 ---
 
-##4. Get your ClientId and ClientSecret
+##4. Set the App ID and Secret in Auth0
 
 Once the application is registered, enter your new `App ID` and `App Secret` into the Facebook connection settings in Auth0.
 
