@@ -30,3 +30,5 @@ Enter the following URL on the "Website with Facebook Login" section and click *
 Once the application is registered, enter your new `App ID` and `App Secret` into the Facebook connection settings in Auth0.
 
 ![](img/facebook-4.png)
+
+**That's it!** You can try it with the tester now.
