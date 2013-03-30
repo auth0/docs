@@ -23,6 +23,8 @@ Enter the following URL on the "Website with Facebook Login" section and click *
 
 ![](img/facebook-3.png)
 
+And copy the App ID and App Secret to the clipboard.
+
 ---
 
 ##4. Set the App ID and Secret in Auth0
