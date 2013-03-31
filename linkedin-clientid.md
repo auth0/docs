@@ -1,4 +1,4 @@
-# Obtaining a ClientId and Client Secret for LinkedId
+# Obtaining an API Key and Secret Key for LinkedId
 
 To configure LinkedIn OAuth2 connections you will need to register Auth0 with LinkedIn on their [developer portal](http://developer.linkedin.com/).
 
@@ -31,9 +31,9 @@ Create a new application and complete the form:
 
 ---
 
-##4. Get your ClientId and ClientSecret
+##4. Get your API Key and Key Secret
 
-Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
+Once the application is registered, enter your new `API Key` and `Key Secret` into the connection settings in Auth0.
 
 ![](img/linkedin-devportal-5.png)
 
