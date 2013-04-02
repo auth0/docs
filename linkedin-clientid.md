@@ -23,7 +23,7 @@ Create a new application and complete the form:
 
 ##3. Setup your callback URL into Auth0:
 
-	http://@@account.namespace@@/login/callback
+	https://@@account.namespace@@/login/callback
 
 ![](img/linkedin-devportal-4.png)
 
