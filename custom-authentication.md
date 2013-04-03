@@ -58,7 +58,7 @@ Open a shell console, access the uncompressed folder and execute this command:
 
 	node server.js
 
-You will be guide through a series of steps. When prompted for the ticket url you should paste this ```https://@@account.namespace@@/p/custom/@@ticket@@```.
+When prompted for the ticket url you should paste this ```https://@@account.namespace@@/p/custom/@@ticket@@```.
 
 
 ####2. Let's try to login!
