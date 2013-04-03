@@ -6,46 +6,53 @@ layout: doc.nosidebar
 
 We will guide you to a series of steps to deploy a customized authentication provider.
 
-##Where to deploy?
+__Note:__ you will se a check mark in every step once finished.
 
-This component can be deployed on-premises or to the cloud. It is an standard node.js web application that can be easily deployed to [Azure](http://windows.azure.com), [Heroku](http://heroku.com), [Nodejitsu](http://jit.su) or simply within the boundaries of your company in both Windows or Linux Server.
+##Prerequisites
 
-If you are deploying to Windows we recommend you using IIS and [IISNode](https://github.com/tjanczuk/iisnode).
+In order to install your custom authorization provider you need to install [node.js 0.8.x](http://nodejs.org/dist/v0.8.22/).
 
 ##Guide
 
 
 ####1. Download the package
 
-Download and unzip the application from [here](https://github.com/auth0/sql-federation-server/archive/master.zip).
-
-####2. Initialize the configuration
+Download and unzip the application from [here](https://github.com/auth0/custom-connector/archive/master.zip).
 
 Open a shell console, access the uncompressed folder and execute this command:
 
-	node_modules/bin/connector-setup
+	node server.js
 
 You will be guide through a series of steps. When prompted for the ticket you should use this ```@@ticket@@```.
 
-####3. Validate users
 
-The application comes with an script that validate user names and passwords from a table in sql server. 
+####2. Let's try to login!
 
-Copy ```users.js-sample``` into ```users.js``` and customize this functionality.
+Now that you have a running authentication server running, let's try to login with a fake user. 
 
+Go to __@@account.appName@@__ and login with 
 
-####4. Customize logo and login form
+-  domain: __@@connectionDomain@@__ 
+-  username: __test__ 
+-  password: __123__
 
+Finally logout from __@@account.appName@@__ and continue to the next step. 
 
-The application comes with a nice login page as shown here:
+####3. Validate real users
 
-![](img/custom-provider-screenshot.png)
+The application comes with an script that validate user names and passwords from an in memory collection.
 
-You can customize the logo and style by changing these files: ```views/login.ejs```, ```public/site.css``` and ```public/imgs/logo.png```.
+Copy one of our examples in the example folder and create your custom logic.
 
-Usually you will also add links for things like __retrieving lost password__.
+When you feel ready to try it, restart the server and try to login in __@@account.appName@@__ again. 
 
-####5. Deploy
+####4. Deploy your application
+
+In the last step you will deploy your application. You have many options, you can deploy it on premises and/or to a platform as a service cloud provider.
+
+If you deploy on premises and you want only intranet users to log to __@@account.appName@@__ you don't need to make it public.
+
+Make sure you edit the ```SERVER_URL``` configuration setting in the ```config.json``` file.
 
 #####IISNode
 
@@ -58,3 +65,38 @@ Follow <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/creat
 #####Heroku
 
 Follow [this tutorial](https://devcenter.heroku.com/articles/nodejs).
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+var prevStep = 0, checkIntervalLapse = 5000;
+var checkStep = function () {
+	$.ajax({
+		url:   '/ticket/step?ticket=@@ticket@@',
+		cache: false
+	}).done(function (data) {
+
+		var currentStep = data.currentStep;
+		if (prevStep == currentStep) return setTimeout(checkStep, checkIntervalLapse);
+
+		for (var i = 1; i < currentStep; i++) {
+			$('h4:contains(' + i + '.)')
+				.addClass('step-finished')
+				.prepend('<img src="/img/check.png">');
+		};
+
+		$('.current-step').removeClass('current-step');
+		
+		$('h4:contains(' + currentStep + '.)').addClass('current-step');
+
+		if (currentStep === 3 && $('#logmeout3').length === 0) {
+			$('<iframe id="logmeout3" style="visibility: hidden;" src="http://localhost:4000/logout"></iframe>')
+				.appendTo('body');
+		}
+
+		prevStep = currentStep;
+		setTimeout(checkStep, checkIntervalLapse);
+	});
+};
+$(checkStep);
+</script>
