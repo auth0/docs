@@ -4,20 +4,55 @@ layout: doc.nosidebar
 ---
 # Custom Authentication
 
-We will guide you to a series of steps to deploy a customized authentication provider.
+To plug in a custom authentication to Auth0 you have to run a piece of software. This guide will walk you through the steps to download, run, deploy and customize such piece.
 
-__Note:__ you will se a check mark in every step once finished.
+> Note: to make the installation easier, this tutorial will provide real time feedback every time you complete a step. You should see a green check besides the headings for every step accomplished. This tutorial is intended to be used by a developer.
 
 ##Prerequisites
 
-In order to install your custom authorization provider you need to install [node.js 0.8.x](http://nodejs.org/dist/v0.8.22/).
+In order to install your custom authorization provider you need to install node.js.
 
-##Guide
+<div class="installers">
+  <ul>
+    <li>
+      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22-x86.msi" target="_blank">
+        <img src="/img/node-windows.png" alt="">
+        Windows Installer
+        <small>node-v0.8.22-x86.msi</small>
+      </a>
+    </li>
+    <li>
+      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.pkg" target="_blank">
+        <img src="/img/node-mac.png" alt="">
+        Macintosh Installer
+        <small>node-v0.8.22.pkg</small>
+      </a>
+    </li>
+    <li id="source">
+      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.tar.gz" target="_blank">
+        <img src="/img/node-linux.png" alt="">
+        Linux
+        <small>node-v0.8.22.tar.gz</small>
+      </a>
+    </li>
+  </ul>
+</div>
 
+Once node.js has been installed, download and unzip the source code for the connector
 
-####1. Download the package
+<div class="installers">
+  <ul>
+    <li>
+      <a href="https://github.com/auth0/custom-connector/archive/master.zip" target="_blank">
+        <img src="/img/package.png" alt="">
+        Auth0 Connector (zip)
+        <small>source code zip file</small>
+      </a>
+    </li>
+  </ul>
+</div>
 
-Download and unzip the application from [here](https://github.com/auth0/custom-connector/archive/master.zip).
+####1. Run the connector
 
 Open a shell console, access the uncompressed folder and execute this command:
 
