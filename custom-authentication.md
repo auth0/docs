@@ -4,7 +4,7 @@ layout: doc.nosidebar
 ---
 # Custom Authentication
 
-To plug in a custom authentication to Auth0 you have to run a piece of software. This guide will walk you through the steps to download, run, deploy and customize such piece.
+To plug in a custom authentication you have to run a piece of software. This guide will walk you through the steps to download, run, deploy and customize such piece.
 
 > Note: to make the installation easier, this tutorial will provide real time feedback every time you complete a step. You should see a green check besides the headings for every step accomplished. This tutorial is intended to be used by a developer.
 
@@ -54,12 +54,15 @@ Once node.js has been installed, download and unzip the source code for the conn
 
 ####1. Run the connector
 
-Open a shell console, access the uncompressed folder and execute this command:
+Open a shell console, access the uncompressed folder and execute the following command:
 
-	node server.js
+	> node server.js
 
-When prompted for the ticket url you should paste this ```https://@@account.namespace@@/p/custom/@@ticket@@```.
+When prompted for the ticket url you should paste the following:
 
+	```https://@@account.namespace@@/p/custom/@@ticket@@```
+
+> After entering the ticket the connector will exchange trust information (like URLs, endpoints, etc.) with the server and.
 
 ####2. Let's try to login!
 
