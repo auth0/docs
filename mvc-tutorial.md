@@ -6,7 +6,7 @@ This tutorial is specific to the new ASP.NET MVC4 identity mechanism based on [O
 
 ## Tutorial
 
-####1. Create a simple MVC website and install Auth0 client
+###1. Create a simple MVC website and install Auth0 client
 
 For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> MVC 4 Web Application -> Internet Application"__
 
@@ -19,7 +19,7 @@ Once the default template unfolds, use NuGet to install the **DotNetOpenAuth-Aut
 > [DotNetOpenAuth-Auth0](https://nuget.org/packages/DotNetOpenAuth-Auth0) is a helper class that plugs into DotNetOpenAuth. Most of the heavylifting is actually done by the __OAuth2Client__ though. Our helper just makes sure you are using the right endpoints and sending the right parameters to Auth0.
 >
 
-####2. Register Auth0Client in the AuthConfig
+###2. Register Auth0Client in the AuthConfig
 
 Open the AuthConfig.cs file (under `App_Start` folder), and look for the ```RegisterAuth``` method:
 
@@ -39,7 +39,7 @@ Open the AuthConfig.cs file (under `App_Start` folder), and look for the ```Regi
 > This will query the Auth0 HTTP Api and list all the social providers you have enabled. Then it will register in DotNetOpenAuth a client per each provider. 
 
 
-####3. Setup the callback URL in Auth0
+###3. Setup the callback URL in Auth0
 
 Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to this:
 
@@ -55,7 +55,7 @@ Open a browser, navigate to the website and press the login button. You should s
 
 Congratulations! 
 
-####4. Widget
+###4. Widget
 
 This step is optional. We have a beautiful widget that you can integrate in your application and replace the default from Asp.Net MVC.
 

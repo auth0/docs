@@ -9,11 +9,11 @@ The true power of Auth0 is that it open new possibilities to integrate your appl
 
 ##Integrating Auth0 with MVC4
 
-####1. Enable an enterprise provider 
+###1. Enable an enterprise provider 
 
 Go to [Enterprise Connections](https://app.auth0.com/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial. 
 
-####2. Create a new provisioning route
+###2. Create a new provisioning route
 
 We will start by creating a route that will enable us to associate new companies to your application. Create a new controller named ProvisioningController with the following code:
 
@@ -38,7 +38,7 @@ We will start by creating a route that will enable us to associate new companies
 > This is a very simple route for the purpose of the example. It is more likely that you will have a full process for company sign up and you will request some additional data than the one that Auth0 need. Explore the different overloads of ```Client.CreateConnection``` method.
 >
 
-####3. Add the provisioning widget
+###3. Add the provisioning widget
 
 In the previous article we added the login widget to simplify the social and enterprise sign on. Auth0 also provides a very simple provisioning widget for enterprise providers. Modify your ```_LoginPartial.cshtml``` to add the **sign up my company** link:
 
@@ -60,11 +60,11 @@ In the previous article we added the login widget to simplify the social and ent
         <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
     }
 
-####4. Handle success delegation
+###4. Handle success delegation
 
 After an administrator of the domain follows the provisioning link, he will be redirected to the same callback we use for login. In this case we want to add the new connection to our list of oauth providers and render a page for the end user that the process has finished
 
-#####4.a Modify the ```ExternalLoginCallback``` method in ```AccountController.cs```` as follows:
+####4.a Modify the ```ExternalLoginCallback``` method in ```AccountController.cs```` as follows:
 
     [AllowAnonymous]
     public ActionResult ExternalLoginCallback(string returnUrl, bool granted, string domain, string connection)
@@ -84,7 +84,7 @@ After an administrator of the domain follows the provisioning link, he will be r
 
         //.... same code you have before next  
 
-#####4.b Create a view named ```Domain_Granted``` in ```Views\Account```:
+####4.b Create a view named ```Domain_Granted``` in ```Views\Account```:
 
     @model dynamic
     @{
@@ -98,7 +98,7 @@ After an administrator of the domain follows the provisioning link, he will be r
     </p>
 
 
-####5. Create a custom route for enterprise login
+###5. Create a custom route for enterprise login
 
 This step is optional. So far enterprise users can login by entering their work email address in the login widget. In this step we will add a friendly url to this example application to allow enterprise users to directly login to the application  ```http://ourproduct.com/e/bigcompany.com```.
 

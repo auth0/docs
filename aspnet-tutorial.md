@@ -4,7 +4,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (any k
 
 ## Tutorial
 
-#### 1. Install Auth0-ASPNET NuGet package
+### 1. Install Auth0-ASPNET NuGet package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
@@ -14,7 +14,7 @@ Install-Package Auth0-ASPNET
 
 > This package creates an ASP.NET Http Handler (`LoginCallback.ashx`) that will be responsible for the token exchange (based on OpenID Connect / OAuth) and setting a cookie that will be used for subsequent requests. It will also register a module based on the WIF `SessionAuthenticationModule` that will be responsible for serializing/deserializing the session cookie.
 
-#### 2. Setting up the callback URL in Auth0
+### 2. Setting up the callback URL in Auth0
 
 Run your web application and go to [Auth0 Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to your application URL:
 
@@ -24,7 +24,7 @@ http://localhost:port/LoginCallback.ashx
 
 ![](img/settings-callback-aspnet.png)
 
-#### 3. Filling Web.Config with your Auth0 settings
+### 3. Filling Web.Config with your Auth0 settings
 
 The NuGet package also created four settings on `<appSettings>`. Replace those with the following settings:
 
@@ -35,7 +35,7 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 <add key="auth0:CallbackUrl" value="@@account.callback@@" />
 ```
 
-#### 4. Triggering login manually or integrating the Auth0 widget
+### 4. Triggering login manually or integrating the Auth0 widget
 
 Open your master page (or wherever you have the Log On link) and use the following to open the login widget.
 
@@ -53,7 +53,7 @@ The widget is a modal dialog shown on top of your web page:
 
 ![](img/signin.png)
 
-#### 3. Accessing user information
+### 3. Accessing user information
 
 Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
 

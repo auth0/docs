@@ -15,7 +15,7 @@ If you are building a node based app, you are very likely using [__passportjs__]
 
 Here's what you do for integrating Auth0 in your app with __passport__:
 
-#####1. Install the Auth0 strategy
+###1. Install the Auth0 strategy
 
 	npm install passport-auth0
 
@@ -60,7 +60,7 @@ Create a new file __setup-passport.js__ with the following code:
 
 The __clientId__, __clientSecret__ and __domain__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
 
-#####3. Initialize passport in your app
+###3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
 
 	var passport = require('passport');
@@ -111,7 +111,7 @@ The last bit of code you will need are the handlers for the passport callbacks:
 
 You are almost done! 
 
-#####4. Setup the callback URL in Auth0
+###4. Setup the callback URL in Auth0
 
 Did you keep your settings page open? Make sure the __App Callback URLs__ in Auth0 is configured with your app's callback URL:
 

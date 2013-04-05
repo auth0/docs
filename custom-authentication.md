@@ -60,55 +60,78 @@ Open a shell console, access the uncompressed folder and execute the following c
 
 When prompted for the ticket url you should paste the following:
 
-	```https://@@account.namespace@@/p/custom/@@ticket@@```
+	https://@@account.namespace@@/p/custom/@@ticket@@
 
 > After entering the ticket the connector will exchange trust information (like URLs, endpoints, etc.) with the server and.
 
 ####2. Let's try to login!
 
-Now that you have a running authentication server running, let's try to login with a fake user. 
+Now that you have a running authentication server, let's try to login with a test user.
 
-Go to __@@account.appName@@__ and login with 
+<a href="https://app.auth0.com/tester?connection=@@connectionDomain@@" class="btn btn-mid"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
--  domain: __@@connectionDomain@@__ 
--  username: __test__ 
--  password: __123__
+-  Test User: __test__ 
+-  Test Password: __123__
 
-Finally logout from __@@account.appName@@__ and continue to the next step. 
+> By default, the connector will only allow one user to login: a __test__ user that is fixed in code. This is so you can try that everything works fine before changing it to use a real user repository (like a SQL database).
 
-####3. Validate real users
+**Congratulations!** The connector is now setup.
 
-The application comes with an script that validate user names and passwords from an in memory collection.
+----
 
-Copy one of our examples in the example folder and create your custom logic.
+## Next Steps
 
-When you feel ready to try it, restart the server and try to login in __@@account.appName@@__ again. 
+Read the following sections to learn how to customize the logic to authenticate users and how to deploy it.
 
-####4. Deploy your application
+### Plug your own authentication
 
-In the last step you will deploy your application. You have many options, you can deploy it on premises and/or to a platform as a service cloud provider.
+To change the authentication logic, you will have to edit `users.js`
 
-If you deploy on premises and you want only intranet users to log to __@@account.appName@@__ you don't need to make it public.
+	exports.getProfile = function (name, password, callback) {
+	  // lookup a user
+	  // validate password
+	  // return user with profile
+	  
+	  return callback(null, { id: 123, username: 'test', displayName: 'test user', ... });
+	};
 
-Make sure you edit the ```SERVER_URL``` configuration setting in the ```config.json``` file.
+We implemented some examples providers that you can use as an example:
 
-#####IISNode
+- [SQL Server database](https://github.com/auth0/custom-connector/tree/master/examples/FromSqlServer)
+- [MongoDB database](https://github.com/auth0/custom-connector/tree/master/examples/FromMongoDb)
+- [Any .NET code](https://github.com/auth0/custom-connector/tree/master/examples/From.Net)
 
-Create a web application in your IIS pointing to the application folder.
+### Customize the login page
 
-#####Azure Websites
+The login page can be customized by editing the [views/login.ejs](https://github.com/auth0/custom-connector/blob/master/views/login.ejs) file.
 
-Follow <a href="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/?fb=es-es">this tutorial</a>.
+### Deploy it
 
-#####Heroku
+The connector can be deployed on your own network or in the cloud. It runs on Windows and Linux, although co depends on which technology you are using to store users. For instance, there is a way to connect to SQL Server through the native driver on Windows but not on Linux (which would use ODBX).
 
-Follow [this tutorial](https://devcenter.heroku.com/articles/nodejs).
+Once you have the final URL of the service, update the `SERVER_URL` configuration setting to the new address in the `config.json` file and restart the server.
+
+#### On-Premise Deployment
+
+* [Windows (IIS / IISNode)](https://github.com/tjanczuk/iisnode)
+* [Linux](http://howtonode.org/deploying-node-upstart-monit)
+
+#### Cloud Deployment
+
+For your reference, here is a tutorial on how to deploy the application to a cloud provider.
+
+* [Windows Azure Web Sites](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/) 
+* [Heroku](https://devcenter.heroku.com/articles/nodejs)
+
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
 <script type="text/javascript">
 var prevStep = 0, checkIntervalLapse = 5000;
 var checkStep = function () {
+	if ('@@ticket@@' === 'YOUR_TICKET')
+		return;
+
 	$.ajax({
 		url:   '/ticket/step?ticket=@@ticket@@',
 		cache: false

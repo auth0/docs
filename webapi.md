@@ -10,7 +10,7 @@ Integrating Auth0 with a Single Page Application and a Web API backend consists 
 
 ##Integrating Auth0 with MVC4
 
-####1. Create a simple MVC4 website
+###1. Create a simple MVC4 website
 
 For this example, we will use the empty MVC4 Empty Template. Select __"FILE -> New project -> ASP.NET MVC 4 Web Application -> Empty"__
 
@@ -29,7 +29,7 @@ You can also create a `HomeController` with an `Index` method and the `Index.csh
 
 > A regular HTML file will also work.
 
-####2. Setup the callback URL in Auth0
+###2. Setup the callback URL in Auth0
 
 Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to whatever URL was assigned by Visual Studio:
 
@@ -39,7 +39,7 @@ http://localhost:some_random_port
 
 ![](img/settings-callback.png)
 
-####3. Integrate the Login widget
+###3. Integrate the Login widget
 
 On the html or `Index.cshtml` page that you added in the previous step, you can add the following code that instantiates the widget:
 
@@ -71,7 +71,7 @@ You can use the `access_token` to make an AJAX call to Auth0 backend to get all 
             });
         }
 
-####4. Securing the Web API
+###4. Securing the Web API
 
 Auth0 will also give you a JSON Web Token which has been signed with your client secret. You should send this token in the `Authorizaton` header of your AJAX calls and validate it on the Web API. To do that, we created a simple package that will provide the JSON Web Token validation. Execute the following on the Nuget Package Manager Console
 
@@ -97,7 +97,7 @@ And finally, protect your Web API with the `[Authorize]` attribute
         ...
     }
 
-####5. Calling the secure API
+###5. Calling the secure API
 
 The last step would be to call the API from your JavaScript application. To do so, you have to grab the `id_token` from the URL hash and send it to your API as part of the Authorization header (something like `Authorization: Bearer ...id_token...`). Here is some code to do that:
 
@@ -121,7 +121,7 @@ The last step would be to call the API from your JavaScript application. To do s
         }
     });
 
-#### Testing the app:
+### Testing the app:
 
 Open a browser, navigate to the website and press the login button. You should see Auth0 widget with a Google button, which is the default connection. 
 

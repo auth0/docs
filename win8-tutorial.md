@@ -13,12 +13,12 @@ The sample uses the `implicit flow` protocol. See the [protocols](protocols) doc
 
 ##Integrating Auth0 with a WinRT JavaScript App
 
-####1. Create a new Application
+###1. Create a new Application
 Open Visual Studio and create new blank JavaScript Windows Store app:
 
 ![](img/win8-step1.png)
 
-####2. Add UI controls
+###2. Add UI controls
 Open the __default.html__ file and paste the following content inside the `<body>` element:
 
 	<div data-win-control="Input">
@@ -46,7 +46,7 @@ Add reference to the JavaScript code in the __default.html__, include the follow
 
     <script src="/js/auth0.js"></script>
 
-####2. Add code to invoke the WebAuthenticationBroker
+###3. Add code to invoke the WebAuthenticationBroker
 Under the __js__ folder, create new file named __auth0.js__ with the following content:
 
 	(function () {

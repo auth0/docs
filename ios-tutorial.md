@@ -19,7 +19,7 @@ The sample works by intercepting the final redirect to the __CALLBACK URL__ and 
 
 To simplify integration we have included an `Auth0Client` class that encapsulates all interactions. `Auth0Client` relies on `Auth0WebViewController` for displaying the `UIWebView`.
 
-####1. The `Auth0Client` class
+###1. The `Auth0Client` class
 
 #####Auth0Client.h
 	#import <Foundation/Foundation.h>
@@ -317,7 +317,7 @@ To simplify integration we have included an `Auth0Client` class that encapsulate
 	@end
 
 
-####2. Using the library
+###2. Using the library
 
 Using the library is straight forward:
 

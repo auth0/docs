@@ -17,12 +17,12 @@ The sample works by intercepting the redirect to the __CALLBACK URL__ and parsin
 
 ##Integrating Auth0 with a Windows Phone 8 App
 
-####1. Create a new Application
+###1. Create a new Application
 Open Visual Studio and create new Windows Phone app:
 
 ![](img/wp8-step1.png)
 
-####2. Add UI controls
+###2. Add UI controls
 Open the __MainPage.xaml__ file and replace the entire `<Grid>` definition with this one:
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -37,7 +37,7 @@ Open the __MainPage.xaml__ file and replace the entire `<Grid>` definition with 
         </Grid>
     </Grid>
 
-####3. Add code to initiate Authentication and retrieve User Profile
+###3. Add code to initiate Authentication and retrieve User Profile
 Open the __MainPage.xaml.cs__ file and replace the class definition with this one:
 
     public partial class MainPage : PhoneApplicationPage

@@ -14,7 +14,7 @@ Integrating Auth0 with ServiceStack is straight forward. At the end of this tuto
 
 ServiceStack has its own authentication mechanism based on sessions. We will provide you with a provider to plug on ServiceStack
 
-#####1. Create the ServiceStack OAuthProvider
+####1. Create the ServiceStack OAuthProvider
 
 Add a new class to your project and copy this code:
 
@@ -175,7 +175,7 @@ Add a new class to your project and copy this code:
 
 TODO: put this on nuget
 
-#####2. Instantiate the Auth0Provider
+###2. Instantiate the Auth0Provider
 
 Typically you will have an `AppHost.cs` file where you can add plugins. Add the following code:
 
@@ -184,14 +184,14 @@ Typically you will have an `AppHost.cs` file where you can add plugins. Add the 
                     new Auth0.Auth0Provider(appSettings, appSettings.GetString("oauth.auth0.OAuthServerUrl"))
 				}));
 
-#####3. Add Configuration Settings
+###3. Add Configuration Settings
 
 	<add key="oauth.auth0.AppId" value="@@account.clientId@@" />
 	<add key="oauth.auth0.AppSecret" value="@@account.clientSecret@@" />
 	<add key="oauth.auth0.OAuthServerUrl" value="https://@@account.namespace@@"/>
 
 
-#####4. Setup the callback URL in Auth0
+###4. Setup the callback URL in Auth0
 
 Did you keep your settings page open? Make sure the __callback address__ in Auth0 is configured with the app's callback URL. For ServiceStack this would be:
 
