@@ -52,7 +52,7 @@ Once node.js has been installed, download and unzip the source code for the conn
   </ul>
 </div>
 
-####1. Run the connector
+##1. Run the connector
 
 Open a shell console, access the uncompressed folder and execute the following command:
 
@@ -64,7 +64,7 @@ When prompted for the ticket url you should paste the following:
 
 > After entering the ticket the connector will exchange trust information (like URLs, endpoints, etc.) with the server and.
 
-####2. Let's try to login!
+##2. Let's try to login!
 
 Now that you have a running authentication server, let's try to login with a test user.
 
@@ -141,14 +141,14 @@ var checkStep = function () {
 		if (prevStep == currentStep) return setTimeout(checkStep, checkIntervalLapse);
 
 		for (var i = 1; i < currentStep; i++) {
-			$('h4:contains(' + i + '.)')
+			$('h2:contains(' + i + '.)')
 				.addClass('step-finished')
 				.prepend('<img src="/img/check.png">');
 		};
 
 		$('.current-step').removeClass('current-step');
 		
-		$('h4:contains(' + currentStep + '.)').addClass('current-step');
+		$('h2:contains(' + currentStep + '.)').addClass('current-step');
 
 		if (currentStep === 3 && $('#logmeout3').length === 0) {
 			$('<iframe id="logmeout3" style="visibility: hidden;" src="http://localhost:4000/logout"></iframe>')
