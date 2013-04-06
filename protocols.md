@@ -15,7 +15,7 @@ This protocol is best suited for web sites that need:
 
 ![](img/protocols-oauth-code.png)
 
-#### 1. Initiation
+### 1. Initiation
 
 Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
             
@@ -29,7 +29,7 @@ The `redirect_uri` __must__ match what is defined in your [settings](https://app
 
 ---
 
-#### 2. Authentication
+### 2. Authentication
 
 Auth0 will start the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
 
@@ -37,7 +37,7 @@ The visible part of this process is that the user is redirected to the identity 
 
 ---
 
-#### 3. Getting the Access Token
+### 3. Getting the Access Token
 
 Upon successful authentication, the user will eventually return to your web site with a URL that will look like:
 
@@ -72,7 +72,7 @@ This protocol is best suited for mobile native apps and javascript running in a 
 
 ![](img/protocols-oauth-implicit.png)
 
-#### 1. Initiation
+### 1. Initiation
 
 The client requests authorization to Auth0 endpoint:
 
@@ -80,11 +80,11 @@ The client requests authorization to Auth0 endpoint:
 
 The `redirect_uri` __must__ match one of the addresses defined in your [settings](https://app.auth0.com/#/settings) page. 
 
-#### 2. Authentication
+### 2. Authentication
 
 Like described before, Auth0 will redirect the user to the identity provider defined in the `connection` property.
 
-#### 3. Getting the Access Token
+### 3. Getting the Access Token
 
 Upon successful authentication, Auth0 will return a redirection response with the following URL structure:
 

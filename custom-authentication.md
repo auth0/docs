@@ -45,7 +45,7 @@ Once node.js has been installed, download and unzip the source code for the conn
     <li>
       <a href="https://github.com/auth0/custom-connector/archive/master.zip" target="_blank">
         <img src="/img/package.png" alt="">
-        Auth0 Connector (zip)
+        Auth0 Custom Connector (zip)
         <small>source code zip file</small>
       </a>
     </li>
@@ -62,7 +62,7 @@ When prompted for the ticket url you should paste the following:
 
 	https://@@account.namespace@@/p/custom/@@ticket@@
 
-> After entering the ticket the connector will exchange trust information (like URLs, endpoints, etc.) with the server and.
+> After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server.
 
 ##2. Let's try to login!
 
@@ -75,7 +75,7 @@ Now that you have a running authentication server, let's try to login with a tes
 
 > By default, the connector will only allow one user to login: a __test__ user that is fixed in code. This is so you can try that everything works fine before changing it to use a real user repository (like a SQL database).
 
-**Congratulations!** The connector is now setup.
+**Congratulations!** If you get a green check on this step, it means the configuration of the connector is done.
 
 ----
 
@@ -107,7 +107,7 @@ The login page can be customized by editing the [views/login.ejs](https://github
 
 ### Deploy it
 
-The connector can be deployed on your own network or in the cloud. It runs on Windows and Linux, although co depends on which technology you are using to store users. For instance, there is a way to connect to SQL Server through the native driver on Windows but not on Linux (which would use ODBX).
+The connector can be deployed on your own network or in the cloud. It runs on Windows and Linux, although co depends on which technology you are using to store users. For instance, there is a way to connect to SQL Server through the native driver on Windows but not on Linux (which would use ODBC).
 
 Once you have the final URL of the service, update the `SERVER_URL` configuration setting to the new address in the `config.json` file and restart the server.
 
@@ -123,6 +123,11 @@ For your reference, here is a tutorial on how to deploy the application to a clo
 * [Windows Azure Web Sites](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/) 
 * [Heroku](https://devcenter.heroku.com/articles/nodejs)
 
+### Production considerations
+
+To avoid man in the middle attacks, this server has to be configured to use TLS/SSL. If you are running under IIS, configure the [web site to use SSL](http://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis). If you are hosting on Linux, change the [server.js](https://github.com/auth0/ad-ldap-connector/blob/master/server.js) to use an [https server in node.js](http://nodejs.org/api/https.html#https_https_createserver_options_requestlistener).
+
+Finally, if you are looking for a highly available setup, this server can run behind a Network Load Balancer.
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
