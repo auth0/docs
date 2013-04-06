@@ -94,6 +94,8 @@ Restart the server and try to login again
 
 **Congratulations!** If you get a green check on this step, it means the configuration of the connector is done.
 
+----
+
 ## Next Steps
 
 Read the following sections to learn how to customize the login page and how to deploy it.
@@ -104,11 +106,11 @@ The login page can be customized by editing the [views/login.ejs](https://github
 
 ### Deploy it
 
-The connector can be deployed on your own network or in the cloud. It runs on Windows and Linux, although co depends on which technology you are using to store users. For instance, there is a way to connect to SQL Server through the native driver on Windows but not on Linux (which would use ODBX).
+The connector can be deployed on Windows and Linux.
 
-Once you have the final URL of the service, update the `SERVER_URL` configuration setting to the new address in the `config.json` file and restart the server.
+Once you have the final URL of the service (not localhost), update the `SERVER_URL` configuration setting to the new address in the `config.json` file and restart the server.
 
-#### On-Premise Deployment
+#### Deployment options
 
 * [Windows (IIS / IISNode)](https://github.com/tjanczuk/iisnode)
 * [Linux](http://howtonode.org/deploying-node-upstart-monit)
