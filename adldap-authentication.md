@@ -1,5 +1,5 @@
 ---
-title: Custom Authentication
+title: Active Directory / LDAP Authentication
 layout: doc.nosidebar
 ---
 # AD and LDAP Authentication
@@ -83,9 +83,9 @@ Let's connect to AD or LDAP directories.
 
 In order to do so, open the ```config.json``` file and edit the following variables:
 
--  `LDAP_URL`: the url for the ldap server (e.g.: `ldap://myldap.com/DC=mycompany,DC=com`)
+-  `LDAP_URL`: the url for the ldap server (e.g.: `ldap://myldap.com:389`)
 -  `LDAP_BASE`: the base to query (e.g.: `DC=mycompany,DC=com`)
-- `LDAP_BIND_USER`: a service account used for authentication and quering
+- `LDAP_BIND_USER`: a service account used for authentication and quering (currently this accepts the fully qualified name for the user, like CN=Foo,CN=Users,DC=fabrikam,DC=com)
 - `LDAP_BIND_PASSWORD`: the password of the service account
 
 Restart the server and try to login again
