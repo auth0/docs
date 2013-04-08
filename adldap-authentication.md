@@ -70,7 +70,7 @@ When prompted for the ticket url you should paste the following:
 
 Now that you have a running authentication server, let's try to login with a test user.
 
-<a href="https://app.auth0.com/tester?ticket=@@ticket@@" class="btn btn-mid"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
+<a href="https://app.auth0.com/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
 -  Test User: __test__ 
 -  Test Password: __123__
@@ -90,7 +90,7 @@ In order to do so, open the ```config.json``` file and edit the following variab
 
 Restart the server and try to login again
 
-<a href="https://app.auth0.com/tester?ticket=@@ticket@@" class="btn btn-mid"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
+<a href="https://app.auth0.com/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
 **Congratulations!** If you get a green check on this step, it means the configuration of the connector is done.
 
