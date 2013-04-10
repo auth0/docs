@@ -1,3 +1,10 @@
+<style type="text/css">
+img {
+  width: 60%;
+  border: 2px solid #eee;
+}
+
+</style>
 # Obtaining a ClientId and Client Secret for a Windows Azure Active Directory
 
 To allow users to login using a Windows Azure Active Directory account you have to register your application through the Windows Azure portal. If you don't have a Windows Azure account, you can signup for one, free, here <http://www.windowsazure.com/en-us/pricing/free-trial>.
