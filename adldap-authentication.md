@@ -88,7 +88,7 @@ In order to do so, open the ```config.json``` file and edit the following variab
 - `LDAP_BIND_USER`: a service account used for authentication and quering (currently this accepts the fully qualified name for the user, like CN=Foo,CN=Users,DC=fabrikam,DC=com)
 - `LDAP_BIND_PASSWORD`: the password of the service account
 
-Restart the server and try to login again
+Restart the server (`CTRL+C` to stop it) and try to login again.
 
 <a href="https://app.auth0.com/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
@@ -99,6 +99,19 @@ Restart the server and try to login again
 ## Next Steps
 
 Read the following sections to learn how to customize the login page and how to deploy it.
+
+### Active Directory and Windows Integrated Authentication
+
+By default, the connector will use forms-based authentication to your LDAP directory. However, if you are deploying this on your network and you use Active Directory, it is possible to configure Windows Integrated Authentication, so the user who is joined to the AD domain does not have to enter credentials at all. This only works if the connector is deployed to a Windows machine. 
+
+To configure Windows Authentication
+
+* Install iisnode [[x86](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x86.msi) | [x64](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x64.msi)
+* Create a WebSite pointing to the folder running the site and enable only Anonymous Authentication
+* Create a Virtual Directory pointing to the **wa** folder and enable only Windows Authentication
+* Set the `integrated` variable in `config.json` to true
+
+You can try the app now and get integrated Windows Authentication.
 
 ### Customize the login page
 
@@ -120,6 +133,18 @@ Once you have the final URL of the service (not localhost), update the `SERVER_U
 To avoid man in the middle attacks, this server has to be configured to use TLS/SSL. If you are running under IIS, configure the [web site to use SSL](http://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis). If you are hosting on Linux, change the [server.js](https://github.com/auth0/ad-ldap-connector/blob/master/server.js) to use an [https server in node.js](http://nodejs.org/api/https.html#https_https_createserver_options_requestlistener).
 
 Finally, if you are looking for a highly available setup, this server can run behind a Network Load Balancer.
+
+#### Troubleshooting
+
+**Error binding to LDAP**
+
+If you see this error in the console:
+
+  Error binding to LDAP dn:
+   code: 49
+   message: 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1
+
+It means that the user was not valid. Try using the distinguished name of the user on the `LDAP_USER_BIND` property (e.g.: `CN=John Foo,CN=Users,DC=fabrikam,DC=com`).
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 
