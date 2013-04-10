@@ -63,3 +63,5 @@ Make sure to copy the value of the secret before leaving this screen.
 Finally, copy and paste the Client ID and the Key in Auth0.
 
 ![](img/waad-10.png)
+
+**Congratulations!** You are now ready to accept Windows Azure AD users.
