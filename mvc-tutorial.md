@@ -55,9 +55,9 @@ Open a browser, navigate to the website and press the login button. You should s
 
 Congratulations! 
 
-###4. Widget
+###4. Client-side integration and auth0 widget
 
-This step is optional. We have a beautiful widget that you can integrate in your application and replace the default from Asp.Net MVC.
+__This step is optional.__ We have a beautiful widget that you can integrate in your application and replace the default from Asp.Net MVC.
 
 Create a new route in the ```AccountController.cs``` file:
 
@@ -92,6 +92,8 @@ Open the ```views\shared\_LoginPartial.cshtml``` and change its content to somet
 Next time, when you press the login button, you should see something like this:
 
 ![](img/widget-in-aspnet.png)
+
+> **IMPORTANT**: please make sure you have the ```&authorize_url=/Account/Auth0Login``` part in the script tag.
 
 The widget has more options and configurations grab code snippets and test it [here](https://app.auth0.com/#/sdk/widget).
 
