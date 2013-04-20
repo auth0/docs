@@ -1,6 +1,8 @@
-# User Profile normalized by Auth0
+# Auth0 Normalized User Profile
 
-Not all the identity providers will release the same amount of information about the user using the same attributes. Auth0 normalizes the profile of the user regardless of the identity provider the user is coming from. These are the attributes that will be generated:
+Not all the identity providers will supply the same amount of information about the user. They might even choose differetn properties to convey the same meaning (e.g. `last_name` vs `family_name`). Auth0 normalizes the profile of the user regardless of the identity provider the user is authenticating with. This of course greatly simplifies the development experience, as you just need to be concerend with one schema. 
+
+These are the attributes that Auth0 will provide:
 
 * `user_id`: A unique identifier of the user per identity provider, same for all apps (e.g.: google-oauth2|103547991597142817347). **ALWAYS GENERATED**
 * `name`: The full name of the user (e.g.: John Foo). **ALWAYS GENERATED**
@@ -10,13 +12,13 @@ Not all the identity providers will release the same amount of information about
 * `given_name`: First name of the user (if available).
 * `family_name`: Last name of the user (if available).
 
-Another thing you will find in the user profile is an array of identities. This is used when the user associates one account with a new one (e.g.: Google and Facebook different accounts, same persona).
+Another piece of infomration added to the user profile is an array of identities. This is used when the user associates one account with a new one (e.g.: Google and Facebook different accounts, same person).
 
-* `access_token`: inside the identities array you will find one record per identity provider the user has associated. If the identity provider is OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information from the user (e.g: Facebook friends, Google contacts, etc.)
+* `access_token`: inside the identities array you will find one record per identity provider the user has associated. If the identity provider is OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information from the user (e.g: Facebook friends, Google contacts, LinkedIn contacts, etc.)
 
 > **NOTE:** Auth0 will pass through the rest of the attributes it couldn't map.
 
-This is an example user profile from a user that logged in through **Google**:
+This is a sample user profile from a user that logged in through **Google**:
 
 ```
 {
@@ -42,7 +44,7 @@ This is an example user profile from a user that logged in through **Google**:
 }
 ```
 
-This is an example profile from **Windows LiveID (Microsoft Accounts)**:
+This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
 
 ```
 {
@@ -71,7 +73,7 @@ This is an example profile from **Windows LiveID (Microsoft Accounts)**:
 }
 ```
 
-This is an example profile from **Office 365 (Windows Azure Active Directory)**:
+This is a sample profile from **Office 365 (Windows Azure Active Directory)**:
 
 ```
 {
@@ -96,7 +98,7 @@ This is an example profile from **Office 365 (Windows Azure Active Directory)**:
 }
 ```
 
-This is an example profile from **ADFS (Active Directory Federation Services)**:
+This is a sample profile from **ADFS (Active Directory Federation Services)**:
 
 ```
 {
