@@ -1,12 +1,12 @@
 # Using Auth0 with ASP.NET Web API and Single Page Apps
 
-Integrating Auth0 with a Single Page Application and a Web API backend consists of very simple and straightforward instructions.
+Integrating Auth0 with a Single Page Application (SPA) and a Web API backend is very simple and straightforward.
 
 ##Before you start
 
 1. You will need Visual Studio 2012 and MVC4 
 
-> You can also browse and download the sample on GitHub: <https://github.com/auth0/auth0-webapi-js-sample>
+> You can also browse and download the [sample code on GitHub](https://github.com/auth0/auth0-webapi-js-sample)
 
 ##Integrating Auth0 with MVC4
 
@@ -14,7 +14,7 @@ Integrating Auth0 with a Single Page Application and a Web API backend consists 
 
 For this example, we will use the empty MVC4 Empty Template. Select __"FILE -> New project -> ASP.NET MVC 4 Web Application -> Empty"__
 
-Once the default template unfolds, you can create a new Controller that derives from `ApiController`.
+Once the default template unfolds, create a new Controller that derives from `ApiController`.
 
     public class CustomersController : ApiController
     {
@@ -27,11 +27,11 @@ Once the default template unfolds, you can create a new Controller that derives 
 
 You can also create a `HomeController` with an `Index` method and the `Index.cshtml` view that will be the shell for your JavaScript Single Page App. 
 
-> A regular HTML file will also work.
+> A regular HTML file would also work.
 
 ###2. Setup the callback URL in Auth0
 
-Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to whatever URL was assigned by Visual Studio:
+Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to the URL assigned by Visual Studio:
 
 ```
 http://localhost:some_random_port
@@ -49,9 +49,9 @@ Now, you have to call the login widget by using the JavaScript API `window.Auth0
 
     <button onclick="window.Auth0.signIn({onestep: true})">Login</button>
 
-Once a user has logged in using the widget, Auth0 will callback your application and send the `access_token` and `id_token` through the URL hash, like this `@@account.callback@@#access_token=...&id_token=...`. 
+Once a user has logged in using the widget, Auth0 will callback your application and send the `access_token` and `id_token` through the URL hash. This URL will look like this: `@@account.callback@@#access_token=...&id_token=...`. 
 
-You can use the `access_token` to make an AJAX call to Auth0 backend to get all the user information, like the following code illustrates.
+You can use the returned `access_token` to make an AJAX call to Auth0 backend. For example, this code below will return the logged user information:
 
         var access_token = /access_token=([^&]*)/g.exec(window.location.hash);
         if (access_token) {
@@ -71,13 +71,17 @@ You can use the `access_token` to make an AJAX call to Auth0 backend to get all 
             });
         }
 
+> See the [User Profile](user-profile) document for details on the object returned.
+
 ###4. Securing the Web API
 
-Auth0 will also give you a JSON Web Token which has been signed with your client secret. You should send this token in the `Authorizaton` header of your AJAX calls and validate it on the Web API. To do that, we created a simple package that will provide the JSON Web Token validation. Execute the following on the Nuget Package Manager Console
+Auth0 will also give you a JSON Web Token which has been signed with your client secret. You should send this token in the `Authorizaton` header of your AJAX calls and validate it on the Web API. To accomplish this, we created a simple nuget package that will provide the JSON Web Token validation. 
+
+####Run the following command on the Nuget Package Manager Console:
 
     Install-Package WebApi.JsonWebToken
 
-Add the following on the `Register` method of `WebApiConfig.cs`:
+####Add the following code snippet on the `Register` method of `WebApiConfig.cs`:
 
     config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
     {
@@ -85,9 +89,9 @@ Add the following on the `Register` method of `WebApiConfig.cs`:
         SymmetricKey = "@@account.clientSecret@@"   // client secret
     });
 
-> You should put the client id and secret on Web.config
+> It would be advisable to put these properties in your all config (Web.config)
 
-And finally, protect your Web API with the `[Authorize]` attribute
+####Protect your Web API with the `[Authorize]` attribute
 
     public class CustomersController : ApiController
     {
@@ -97,9 +101,9 @@ And finally, protect your Web API with the `[Authorize]` attribute
         ...
     }
 
-###5. Calling the secure API
+###5. Calling the secured API
 
-The last step would be to call the API from your JavaScript application. To do so, you have to grab the `id_token` from the URL hash and send it to your API as part of the Authorization header (something like `Authorization: Bearer ...id_token...`). Here is some code to do that:
+The last step would be to call the API from your JavaScript application. To do so, you have to extract the `id_token` from the URL hash, and send it to your API as part of the Authorization header (e.g. `Authorization: Bearer ...id_token...`). Here is some code to do that:
 
     var id_token = /id_token=([^&]*)/g.exec(window.location.hash);
     $.ajax({
@@ -121,24 +125,24 @@ The last step would be to call the API from your JavaScript application. To do s
         }
     });
 
-### Testing the app:
+###6. Testing the app:
 
 Open a browser, navigate to the website and press the login button. You should see Auth0 widget with a Google button, which is the default connection. 
 
 Once you are logged in, you can try calling the API with and without the Authorization header to make sure things are properly configured. 
 
 
-#### Extra tips...
+### Some extra tips...
 
 You can get the user id on the Web API side by doing:
 
       ClaimsPrincipal.Current.Claims.SingleOrDefault(c => c.Type == "sub").Value
 
-If you want to get all the claims from the user (not just the id), you should specify `openid profile` (instead of just `openid`) in the scope parameter, like shown in this snippet
+If you want to get all the claims from the user (not just the id), you should specify `openid profile` (instead of just `openid`) in the scope parameter:
 
     <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&amp;scope=openid%20profile&amp;response_type=token"></script>
 
-> Notice that this will increase the size of the token, and it might break browser URL lenght.
+> Notice that this will add more user attributes to the token, and consequently increase the size of it. Some browsers have limits on URL lengths.
 
 You are done! Congratulations! 
 

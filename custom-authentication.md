@@ -10,7 +10,7 @@ Custom authentication with Auth0 usually involves deploying and running a piece 
 
 ##Prerequisites
 
-In order to install your custom authorization provider you need to install node.js.
+In order to install the __Auth0 Custom Authentication Connector__ you need to first install node.js.
 
 <div class="installers">
   <ul>
@@ -58,11 +58,11 @@ Open a shell console, access the uncompressed folder and execute the following c
 
 	> node server.js
 
-When prompted for the ticket url you should paste the following:
+When prompted for the ticket url, paste the following:
 
 	https://@@account.namespace@@/p/custom/@@ticket@@
 
-> After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server.
+> After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server to complete the setup on Auth0. 
 
 ##2. Let's try to login!
 
@@ -109,7 +109,7 @@ The login page can be customized by editing the [views/login.ejs](https://github
 
 The connector can be deployed on your own network or in the cloud. It runs on Windows and Linux. Choosing one or the other usually will depend on which technology you are using to store users. For instance, connecting to a Microsoft SQL Server database, typically depends on native drivers that work on Windows but not on Linux.
 
-Once you have the final URL of the service, update the `SERVER_URL` configuration setting to the new address in the `config.json` file and restart the server.
+Once you have the final URL of the service, update the `SERVER_URL` configuration setting in the `config.json` file with the new address, then restart the server.
 
 #### On-Premises Deployment
 
@@ -131,7 +131,7 @@ To avoid man in the middle attacks, this server has to be configured to use TLS/
 
 If you are hosting on Linux, change the [server.js](https://github.com/auth0/ad-ldap-connector/blob/master/server.js) to use an [https server in node.js](http://nodejs.org/api/https.html#https_https_createserver_options_requestlistener).
 
-Finally, if you are looking for a highly available setup, this server can run behind a Network Load Balancer.
+Finally, if you are looking for a highly available setup, you can simply install multiple instances of this server behind a Network Load Balancer.
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 

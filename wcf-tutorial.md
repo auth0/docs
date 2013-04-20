@@ -43,7 +43,7 @@ And make sure to add the `<serviceAuthorization>`
 
 ###3. Accessing user information
 
-Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
+Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
 
     public class Service1 : IService1
     {
