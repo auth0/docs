@@ -65,7 +65,7 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	        var connection = document.getElementById("connection").value;
 	        var callbackUrl = document.getElementById("callbackUrl").value;
 
-	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&" + "connection=" + connection;
+	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=openid&" + "connection=" + connection;
 
 	        var startUri = new Windows.Foundation.Uri(auth0Url);
 	        var endUri = new Windows.Foundation.Uri(callbackUrl);
@@ -93,7 +93,10 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	                                  function (err) {
 	                                      log("Error in getting user profile: " + err.responseData);
 	                                  });
-
+	                
+	                // quick and dirty parsing of id_token
+	                var id_token = result.responseData.split("#")[1].split("&")[1].split("=")[1]; // get jwt
+	                // use jwt to call your APIs
 	            }, function (err) {
 	                log("Error Message: " + err.message);
 	            });
@@ -105,6 +108,8 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	})();
 
 > Remember that the 'callBackUrl' must be defined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
+
+> Also note that we are using `scope=openid` on the URL. This will return not only the access_token but also an id_token, which is a JWT, that can be used to call and authenticate users with an API
 
 ## Testing the app:
 
