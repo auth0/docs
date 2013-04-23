@@ -55,6 +55,6 @@ Auth0Client *client = [Auth0Client auth0ClientWithWidget:tenant clientId:"@@acco
 }];
 ```
 
-> Remember that the `returnUrl` parameter must also be defined in your Auth0 [settings](https://app.auth0.com/#/settings). This sample uses __https://localhost/client__
+> Remember that the `returnUrl` parameter must also be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/client__
 
 Congratulations!

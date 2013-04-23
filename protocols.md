@@ -25,7 +25,7 @@ Someone using a browser hits a protected resource in your web app (a page that r
 
 > A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-The `redirect_uri` __must__ match what is defined in your [settings](https://app.auth0.com/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
+The `redirect_uri` __must__ match what is defined in your [settings](@@uiURL@@/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
 
 ---
 
@@ -78,7 +78,7 @@ The client requests authorization to Auth0 endpoint:
 
 	https://@@account.namespace@@.auth0.com/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
-The `redirect_uri` __must__ match one of the addresses defined in your [settings](https://app.auth0.com/#/settings) page. 
+The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page. 
 
 ### 2. Authentication
 

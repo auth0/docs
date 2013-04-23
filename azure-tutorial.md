@@ -22,7 +22,7 @@ Blog post explaining how to integrate with a Windows Azure Mobile Services backe
 
 There is one consideration that you might want to take into account when deploying to Windows Azure (or any other environment).
 
-We recommend creating one application per environment in Auth0. You can create new applications under the same domain from [Auth0 Settings](https://app.auth0.com/#/settings).
+We recommend creating one application per environment in Auth0. You can create new applications under the same domain from [Auth0 Settings](@@uiURL@@/#/settings).
 
 ![](img/environments.png)
 

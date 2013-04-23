@@ -31,7 +31,7 @@ You can also create a `HomeController` with an `Index` method and the `Index.csh
 
 ###2. Setup the callback URL in Auth0
 
-Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to the URL assigned by Visual Studio:
+Go to [Settings](@@uiURL@@/#/settings) and make sure to set the callback URL to the URL assigned by Visual Studio:
 
 ```
 http://localhost:some_random_port

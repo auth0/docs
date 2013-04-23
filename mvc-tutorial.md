@@ -41,7 +41,7 @@ Open the AuthConfig.cs file (under `App_Start` folder), and look for the ```Regi
 
 ###3. Setup the callback URL in Auth0
 
-Go to [Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to this:
+Go to [Settings](@@uiURL@@/#/settings) and make sure to set the callback URL to this:
 
 ```
 http://localhost:port/Account/ExternalLoginCallback
@@ -95,6 +95,6 @@ Next time, when you press the login button, you should see something like this:
 
 > **IMPORTANT**: please make sure you have the ```&authorize_url=/Account/Auth0Login``` part in the script tag.
 
-The widget has more options and configurations grab code snippets and test it [here](https://app.auth0.com/#/sdk/widget).
+The widget has more options and configurations grab code snippets and test it [here](@@uiURL@@/#/sdk/widget).
 
 > The great power of Auth0 is in Enterprise connections, please follow the [next tutorial](/mvc-tutorial-enterprise).

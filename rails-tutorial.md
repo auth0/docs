@@ -16,7 +16,7 @@ gem install auth0
 
 ### 2. Setting up the callback URL in Auth0
 
-Run your web application and go to [Auth0 Settings](https://app.auth0.com/#/settings) and make sure to set the callback URL to your application URL:
+Run your web application and go to [Auth0 Settings](@@uiURL@@/#/settings) and make sure to set the callback URL to your application URL:
 
 ```
 http://localhost:port/auth/auth0/callback

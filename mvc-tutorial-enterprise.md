@@ -11,7 +11,7 @@ The true power of Auth0 is that it open new possibilities to integrate your appl
 
 ###1. Enable an enterprise provider 
 
-Go to [Enterprise Connections](https://app.auth0.com/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial. 
+Go to [Enterprise Connections](@@uiURL@@/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial. 
 
 ###2. Create a new provisioning route
 

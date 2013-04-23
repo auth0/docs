@@ -96,7 +96,7 @@ Here are two `curl` sample scripts to get a specific connection or all of them:
 
 #####Options
 
-The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information you enter on the [connections](https://app.auth0.com/#/connections) screen.
+The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information you enter on the [connections](@@uiURL@@/#/connections) screen.
 
 ######ADFS
 

@@ -8,7 +8,7 @@ Integrating Auth0 with ServiceStack is straight forward. At the end of this tuto
 ##Before you start
 
 1. We assume you have [ServiceStack](http://www.servicestack.net/) installed and you are familiar with it.
-2. We also assume you have a [connection](https://app.auth0.com/#/connections) either enabled or created. If you don't have one, this [tutorial](enable-simple-connection) shows how to enable Google OAuth2, one of the simplest connections possible.
+2. We also assume you have a [connection](@@uiURL@@/#/connections) either enabled or created. If you don't have one, this [tutorial](enable-simple-connection) shows how to enable Google OAuth2, one of the simplest connections possible.
 
 ##Integrating Auth0 with a ServiceStack app
 

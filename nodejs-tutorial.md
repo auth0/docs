@@ -58,7 +58,7 @@ Create a new file __setup-passport.js__ with the following code:
 
 > __TIP__: you typically would put this file under a 'lib' folder
 
-The __clientId__, __clientSecret__ and __domain__ are available on the [settings](https://app.auth0.com/#/settings) page. Keep this page open. We will need one last thing later on.
+The __clientId__, __clientSecret__ and __domain__ are available on the [settings](@@uiURL@@/#/settings) page. Keep this page open. We will need one last thing later on.
 
 ###3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
