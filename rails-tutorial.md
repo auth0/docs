@@ -65,7 +65,7 @@ You can authorize through a specific connection in Auth0 using `/auth/auth0?conn
 Alternatively, you can use the __Auth0 Login Widget__ to display all available authentication options:
 
 ```
-<script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&scope=openid"></script>
+<script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&scope=openid"></script>
 <a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
 ```
 

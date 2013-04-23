@@ -76,7 +76,7 @@ This protocol is best suited for mobile native apps and javascript running in a 
 
 The client requests authorization to Auth0 endpoint:
 
-	https://@@account.namespace@@.auth0.com/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+	https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
 The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page. 
 

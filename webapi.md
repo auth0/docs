@@ -43,7 +43,7 @@ http://localhost:some_random_port
 
 On the html or `Index.cshtml` page that you added in the previous step, you can add the following code that instantiates the widget:
 
-    <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&amp;scope=openid&amp;response_type=token"></script>
+    <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&amp;scope=openid&amp;response_type=token"></script>
 
 Now, you have to call the login widget by using the JavaScript API `window.Auth0.signIn`. Here is an example using a `<button>`:
 
@@ -56,7 +56,7 @@ You can use the returned `access_token` to make an AJAX call to Auth0 backend. F
         var access_token = /access_token=([^&]*)/g.exec(window.location.hash);
         if (access_token) {
             $.ajax({
-                url: 'https://api.auth0.com/userinfo?access_token=' + access_token[1],
+                url: 'https://@@account.namespace@@/userinfo?access_token=' + access_token[1],
                 dataType: 'json',
                 success: function (data, status, jqHXR) {
                     // data will be a JSON containing all the user properties
@@ -140,7 +140,7 @@ You can get the user id on the Web API side by doing:
 
 If you want to get all the claims from the user (not just the id), you should specify `openid profile` (instead of just `openid`) in the scope parameter:
 
-    <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&amp;scope=openid%20profile&amp;response_type=token"></script>
+    <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&amp;scope=openid%20profile&amp;response_type=token"></script>
 
 > Notice that this will add more user attributes to the token, and consequently increase the size of it. Some browsers have limits on URL lengths.
 

@@ -57,7 +57,7 @@ In the previous article we added the login widget to simplify the social and ent
             <li><a href="javascript:window.Auth0.signIn({onestep: true})">login</a></li>
             <li><a href="javascript:window.Auth0.showProvisioning('/Provisioning')">sign up my company</a></li>
         </ul>
-        <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
+        <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
     }
 
 ###4. Handle success delegation

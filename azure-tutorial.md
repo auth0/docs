@@ -49,7 +49,7 @@ Each application has a different `Client Id` and `Client Secret` and can be conf
 Then, whenever you have to reference the ClientID, Secret or callback, you use this syntax:
 
 ```
-<script src="https://sdk.auth0.com/auth0.js#client=@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]&scope=openid"></script>
+<script src="@@sdkURL@@/auth0.js#client=@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]&scope=openid"></script>
 ```
 
 Whether you deploy to Windows Azure Web Sites or a Cloud Service the Web.config transformation will run.

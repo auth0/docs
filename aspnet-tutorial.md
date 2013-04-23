@@ -40,7 +40,7 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 Open your master page (or wherever you have the Log On link) and use the following to open the login widget.
 
 ```
-<script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&scope=openid"></script>
+<script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&scope=openid"></script>
 <a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
 ```
 

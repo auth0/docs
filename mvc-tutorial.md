@@ -84,7 +84,7 @@ Open the ```views\shared\_LoginPartial.cshtml``` and change its content to somet
         <ul>
             <li><a href="javascript:window.Auth0.signIn({onestep: true})">login</a></li>
         </ul>
-        <script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
+        <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
     }
 
 > Notice that we have changed the ```else``` code block to use our auth0 widget.
