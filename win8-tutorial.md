@@ -128,7 +128,7 @@ This tutorial works with a specific connection (__google-oauth2). What if you ha
 
 In the `StartAuthenticationMethod` replace the StartUri to:
 
-	https://@@account.namespace@@/login/?client=" + clientId + "&response_type=token";
+	https://@@account.namespace@@/login/?client=" + clientId + "&response_type=token&scope=openid";
 
 Once you start the login process you will see the Login Widget displayed:
 
