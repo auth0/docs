@@ -94,12 +94,13 @@ If you want to send extra parameters when triggering a login, the way to do it i
 
 Common parameters are:
 
+* `response_type`: this could be `code` or `token`. Usually `code` is used in web apps (server-side) and `token` on mobile, native or single page apps. See [protocols](/protocols) section for more information about one or the other.
 * `state`: arbitrary state value that will be mantained across redirects (useful for XSRF)
 * `scope`: there are two possible values for scope today
     * `scope=openid`: it will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
     * `scope=openid%20profile`: If you want the whole user profile to be part of the id_token, specify
-* `nonce`: 
 * `redirect_uri`: by setting this value you can choose what callback url to use if you have multiple registered. Useful when you have multiple environments and a single application in Auth0.
+* `authorize_url`: if specified, it will start the login transaction at that url. This is useful if you want to do something on the server, before redirecting to Auth0. For instance, this is used when integrating with ASP.NET MVC4 which uses DotNetOpenAuth and generates a propietary "state" parameter that can only be generated on the server side.
 * `any other thing`: will be passed through.
 
 ## Using the API instead of the widget
@@ -112,10 +113,11 @@ Here is an example:
     for (var i in client.strategies) {
       for (var j in client.strategies[i].connections) {
         var connection = client.strategies[i].connections[j];
-        $('ul').append($('<li>').append($('<span>').text('connection.name: ' + connection.name))
-                                  .append($('<br>'))
-                                  .append($('<span>').text('connection.url: ' + connection.url))
-                                  .append($('<br>'))
-                                  .append($('<span>').text('connection.domain: ' + connection.domain)));
+        
+        var link = $('<a>')
+                        .text(connection.name)
+                        .attr('href', connection.url);
+        
+        $('ul.login-list').append($('<li>').append(link));
       }
     }
