@@ -29,7 +29,7 @@ http://localhost:port/auth/auth0/callback
 Add the `auth0.rb` file under the `config/initializers` folder with the following settings:
 
 	Rails.application.config.middleware.use OmniAuth::Builder do
-	  provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@'
+	  provider :auth0, ENV['@@account.clientId@@'], ENV['@@account.clientSecret@@'], ENV['@@account.namespace@@']
 	end
 
 ### 4. Initialize the auth0 strategy in your app
