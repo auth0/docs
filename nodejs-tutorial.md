@@ -2,16 +2,11 @@
 
 Integrating Auth0 with node is straight forward. At the end of this tutorial you will have a working web site, capable of authenticating users with an external identity provider (no more passwords in your app!).
 
-##Before you start
-
-1. We assume you have node.js installed and you are familiar with it.
-2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
-
-## Tutorial
-
 If you are building a node based app, you are very likely using [__passportjs__](http://passportjs.org/), the well known middleware for authentication. We've built a [strategy for passport](https://github.com/qraftlabs/passport-auth0) that makes integration even simpler. There's not really much magic there, just boilerplate code.
 
 > 'Strategies' are in essence __passport__ plugins. 
+
+## Tutorial 
 
 Here's what you do for integrating Auth0 in your app with __passport__:
 
@@ -24,7 +19,7 @@ Here's what you do for integrating Auth0 in your app with __passport__:
 >   express 
 > That will create a simple "hello world" express website.
 
-#####2. Initialize passport-auth0
+###2. Initialize passport-auth0
 
 Create a new file __setup-passport.js__ with the following code:
 
@@ -63,7 +58,7 @@ The __clientId__, __clientSecret__ and __domain__ are available on the [settings
 In the startup file (e.g. _server.js_ or _app.js_) add:
 
     var passport = require('passport');
-    var strategy = require('setup-passport');
+    var strategy = require('./setup-passport');
 
 and then in the __app.configure__ function:
 
@@ -100,14 +95,22 @@ The last bit of code you will need are the handlers for the passport callbacks:
 
     //Login
     app.get('/login', 
-      passport.authenticate('auth0', { connection: 'google-openid' }), 
+      passport.authenticate('auth0'), 
       function (req, res) {
-      res.redirect("/");
-    });
+        res.redirect("/");
+      });
 
 > Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you enabled the __google-openid__ connection.  
 
-You are almost done! 
+If you want to show some information about the user in the home page:
+
+    app.get('/', function (req, res) {
+      res.render('home', {
+        user: user
+      });
+    });
+
+check [passport.js profile](http://passportjs.org/guide/profile/) to see what attributes you can use. 
 
 ###4. Setup the callback URL in Auth0
 
@@ -117,11 +120,30 @@ Did you keep your settings page open? Make sure the __App Callback URLs__ in Aut
 
 > Notice that Auth0 supports many callbacks. Just use ',' as the delimiter.
 
-## Testing the app:
+#### Testing the app:
 
 Open a browser an navigate to the login URL (e.g. http://localhost:3000/login)
 
-Congratulations! 
+### 5. Triggering login manually or integrating the Auth0 Login Widget
+
+You can authorize through a specific connection in Auth0 using `/login?connection=<connection>`. For example, this would always have users authenticate through Google:
+
+    <a class="btn" href="/login?connection=google-oauth2">Google-Oauth2</a>
+
+Alternatively, you can use the __Auth0 Login Widget__ to display all available authentication options:
+
+```
+<script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&scope=openid"></script>
+<a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
+```
+
+> Notice we are adding a JavaScript element that will create a global variable `window.Auth0`. This is used to invoke the widget programatically. Either way, you have full control of the user experience.
+
+The widget is a modal dialog shown on top of your web page:
+
+![](img/signin.png)
+
+The widget can be customized, read more about how to do it [here](login-widget).
 
 ##Suggested follow up tutorials
 

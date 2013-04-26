@@ -95,6 +95,6 @@ Next time, when you press the login button, you should see something like this:
 
 > **IMPORTANT**: please make sure you have the ```&authorize_url=/Account/Auth0Login``` part in the script tag.
 
-The widget has more options and configurations grab code snippets and test it [here](@@uiURL@@/#/sdk/widget).
+The widget can be customized, read more about how to do it [here](login-widget).
 
 > The great power of Auth0 is in Enterprise connections, please follow the [next tutorial](/mvc-tutorial-enterprise).

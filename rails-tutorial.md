@@ -75,6 +75,8 @@ The widget is a modal dialog shown on top of your web page:
 
 ![](img/signin.png)
 
+The widget has more options and configurations grab code snippets and test it [here](@@uiURL@@/#/sdk/widget).
+
 ### 6. Accessing user information
 
 Once the user successfully authenticates and returns to the application, you can retrieve his/her profile attributes through the `session[:userinfo]` stored in `CallbackController`
