@@ -116,6 +116,8 @@ check [passport.js profile](http://passportjs.org/guide/profile/) to see what at
 
 Did you keep your settings page open? Make sure the __App Callback URLs__ in Auth0 is configured with your app's callback URL:
 
+    http://localhost:port/callback
+
 ![](img/settings-callback.png)
 
 > Notice that Auth0 supports many callbacks. Just use ',' as the delimiter.
