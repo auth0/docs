@@ -2,6 +2,11 @@
 
 Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc. 
 
+Auth0 supports:
+
+1. Enterprise: __Active Directory__, __ADFS__, __LDAP__, __Google Apps__, __Office365__, __SQL__
+2. Social: __Facebook__, __LinkedIn__, __Twitter__, __Microsoft Account__, __Google__, __PayPal__, __GitHub__ 
+
 ![](img/auth0-idp.png)
 
 Auth0 sits in between your app and the system that authenticate your users. 
