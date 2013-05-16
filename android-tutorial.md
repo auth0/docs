@@ -1,6 +1,6 @@
 # Using Auth0 with Android
 
-Integrating Auth0 with Android based apps relies on the common method of instantiating a [WebView]() inside the native app to drive all interactions with the authentication providers, and then extracting security tokens once they become available. 
+Integrating Auth0 with Android based apps relies on the common method of instantiating a [WebView](http://developer.android.com/reference/android/webkit/WebView.html) inside the native app to drive all interactions with the authentication providers, and then extracting security tokens once they become available. 
 
 Because we are using the `implicit flow`, the access token is sent as an URL fragment in the final redirect:
 
@@ -12,7 +12,7 @@ This sample works by intercepting the final redirect to the defined callback add
 
 ##Before you start
 
-1. You will need an Android development environment.
+1. You will need an Android development environment (Eclipse or Android Studio).
 2. We also assume you have some connection enabled in your Auth0 account. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
 3. [Get the sample](https://github.com/auth0/Auth0-Android-Sample).
 
@@ -51,7 +51,7 @@ authActivity.putExtra(AuthenticationActivity.AUTHENTICATION_SETUP, setup);
 startActivityForResult(authActivity, AuthenticationActivity.AUTH_REQUEST_COMPLETE);
 ```
 
-`AuthenticationActivity` is an [Android Activity]() and responses are handled with the standard `onActivityResult` method. If authentication is successful, `resultCode` will be equal to `RESULT_OK`, and an object of type `AuthenticationActivityResult` will be available. It contains two properties: `access_token` and `JsonWebToken`:
+`AuthenticationActivity` is an [Android Activity](http://developer.android.com/reference/android/app/Activity.html) and responses are handled with the standard `onActivityResult` method. If authentication is successful, `resultCode` will be equal to `RESULT_OK`, and an object of type `AuthenticationActivityResult` will be available. It contains two properties: `access_token` and `JsonWebToken`:
 
 ```java
  @Override
