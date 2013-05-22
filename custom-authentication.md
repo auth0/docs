@@ -70,7 +70,7 @@ Now that you have a running authentication server, let's try to login with a tes
 
 <a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
--  Test User: __test__ 
+-  Test User: __foo@bar.com__ 
 -  Test Password: __123__
 
 > By default, the connector will only allow one user to login: a __test__ user that is hard coded in the app. This is so you can verify that everything works fine before changing it to use a real user repository (like a SQL database).
