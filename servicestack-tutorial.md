@@ -1,6 +1,9 @@
 ---
 title: Auth0 and ServiceStack
 ---
+
+	This doc is work in progress. Stay tuned.
+
 # Using Auth0 with ServiceStack
 
 Integrating Auth0 with ServiceStack is straight forward. At the end of this tutorial you will have a working web site, capable of authenticating users with an external identity provider.
