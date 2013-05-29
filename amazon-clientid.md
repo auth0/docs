@@ -11,7 +11,7 @@ Log in into [Amazon](http://login.amazon.com) and select __App Console__:
 
 ##2. Register a new application
 
-Click on the "Register New Application" button and complete the form:
+Click on the __Register New Application__ button and complete the form:
 
 ![](img/amazon-register-app.png)
 
