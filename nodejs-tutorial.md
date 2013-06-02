@@ -6,7 +6,10 @@ If you are building a node based app, you are very likely using [__passportjs__]
 
 > 'Strategies' are in essence __passport__ plugins. 
 
-## Tutorial 
+##Before you start
+
+1. We assume you are familiar with [nodejs](http://nodejs.org/) and [Express](http://expressjs.com/).
+2. We also assume you have at least one [connection](@@uiURL@@/#/connections) either enabled or created. If you don't have one, this [tutorial](enable-simple-connection) shows how to enable Google OAuth2, one of the simplest connections possible.
 
 Here's what you do for integrating Auth0 in your app with __passport__:
 
@@ -100,8 +103,6 @@ The last bit of code you will need are the handlers for the passport callbacks:
         res.redirect("/");
       });
 
-> Notice the `connection` parameter passed in the login? This is used by Auth0 to determine which identity provider to use. This process is also known as the _"home realm discovery"_. The example above assumes you enabled the __google-openid__ connection.  
-
 If you want to show some information about the user in the home page:
 
     app.get('/', function (req, res) {
@@ -110,7 +111,7 @@ If you want to show some information about the user in the home page:
       });
     });
 
-check [passport.js profile](http://passportjs.org/guide/profile/) to see what attributes you can use. 
+> Check [passport.js profile](http://passportjs.org/guide/profile/) to see what attributes you can use. Also, Auth0 normalizes the user profile to simplify integration with multiple identity providers. Learn more about it [here](user-profile).
 
 ###4. Setup the callback URL in Auth0
 
