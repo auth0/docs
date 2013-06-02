@@ -87,9 +87,9 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 ![](img/adfs-sendldap.png)
 
-14- Give the rule an arbitrary name. For example:
+14- Give the rule an arbitrary name that describes what it does. For example:
 
-    Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)
+    Map ActiveDirectory attributes (mail -> Mail, displayName -> Name, userPrincipalName -> NameID, givenName -> GiveName, sn -> Surname)
 
 15- Select the following mappings and click `Finish`
 
