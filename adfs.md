@@ -77,7 +77,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 ![](img/adfs-identifier.png)
 
-10- Leave the default option (Permite all users...) and click `Next`
+10- Leave the default option (Permit all users...) and click `Next`
 
 11- Click `Next` and then `Close`. The UI will show a new window to edit the Claim Rules
 
@@ -87,9 +87,9 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 ![](img/adfs-sendldap.png)
 
-14- Give the rule an arbitrary name like
+14- Give the rule an arbitrary name. For example
 
-    Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)
+    Map ActiveDirectory attributes (mail -> Mail, displayName -> Name, userPrincipalName -> NameID, givenName -> GiveName, sn -> Surname)
 
 15- Select the following mappings and click `Finish`
 
