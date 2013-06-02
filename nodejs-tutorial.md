@@ -15,7 +15,7 @@ Here's what you do for integrating Auth0 in your app with __passport__:
 
 ###1. Install the Auth0 strategy
 
-    npm install passport-auth0
+    npm install passport passport-auth0 --save
 
 > __TIP__: Don't have an app to play with? You can create one very easily with express:
 >   npm install express -g
