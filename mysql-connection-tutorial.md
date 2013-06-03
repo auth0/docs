@@ -2,7 +2,7 @@
 
 Often times, applications rely on user databases for authentication. ASP.NET Membership is an example of a commonly used one.
 
-Auth0 allows you to easily connect with these repositories, reuse them as identity providers, preserving using credentials, but also adding all the other awesome features Auth0 has.\
+Auth0 allows you to easily connect with these repositories, reuse them as identity providers, preserving their existing credentials, but also adding all the other awesome features Auth0 has.
 
 In this tutorial we will guide you through a series of steps to plug your users database to Auth0.
 
@@ -61,11 +61,11 @@ This script assumes you have a `MyUsers` table with all these columns. You can o
 
 ## Configuration
 
-At the bottom of the editor you will find a way of storing paramters securely. This is convenient for storing the credentials used to connect to the database:
+At the bottom of the editor you will find a way of storing parameters securely. This is convenient for storing the credentials used to connect to the database:
 
 ![](/img/db-connection-create.png)
 
-In the script you would refer to these paramaters as: ```configuration.PARAMETER```. For example, you could write:
+In the script you would refer to these parameters as: ```configuration.PARAMETER_NAME```. For example, you could write:
 
 	function login (username, password, callback) {
 	  var connection = mysql({
@@ -75,7 +75,7 @@ In the script you would refer to these paramaters as: ```configuration.PARAMETER
 	    database : 'mydb'
 	  });
 
-## Debugging and throubleshoting
+## Debugging and troubleshooting
 
 You can test the script using the ```try``` button. If the result is okay you will see a green border and the resulting profile:
 
@@ -91,13 +91,13 @@ JavaScript's `console.log` is supported, so you can output more details:
 
 ## Auth0 Login Widget
 
-After you have enabled the database connection, Auth0's widget will automatically change the apperance to allow users to enter `username` and `password`. These will be inputs to your script.
+After you have enabled the database connection, Auth0's widget will automatically change the appearance to allow users to enter `username` and `password`. These will be inputs to your script.
 
 ![](/img/db-connection-widget.png)
 
 ## How it works
 
-The script run in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
+The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
 
 -  [mysql](https://github.com/felixge/node-mysql)
 -  [sqlserver](https://github.com/pekim/tedious)
@@ -106,3 +106,5 @@ The script run in a JavaScript sandbox where you can use the full power of the l
 -  [Buffer](http://nodejs.org/api/buffer.html)
 -  [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/)
 -  [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
+
+> Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection) 
