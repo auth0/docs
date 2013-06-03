@@ -82,4 +82,16 @@ After you have enabled the database connection, Auth0's widget will automaticall
 
 ![](/img/db-connection-widget.png)
 
+##How it works
 
+The script run in a JavaScript sandbox where you can make use of the full power of the language and some libraries. The current API supports:
+
+-  [mysql](https://github.com/felixge/node-mysql)
+-  [sqlserver](https://github.com/pekim/tedious)
+-  [request](https://github.com/mikeal/request)
+-  [crypto](http://nodejs.org/api/crypto.html)
+-  [Buffer](http://nodejs.org/api/buffer.html)
+-  [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/)
+-  [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
+
+Don't hesitate to contact us through intercom, mail or twitter if you need help with your scripts or need something else in the API.
