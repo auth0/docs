@@ -1,24 +1,38 @@
 # Integrating a Web App with Auth0
 
-Auth0 implements the [OpenID Connect / OAuth2 Login](http://openid.net/specs/openid-connect-basic-1_0.html) protocol. This is the protocol used by companies like [Google](https://developers.google.com/accounts/docs/OAuth2Login), [Facebook](http://developers.facebook.com/docs/facebook-login/login-flow-for-web-no-jssdk/) and [Microsoft](http://msdn.microsoft.com/en-us/library/live/hh243647.aspx) among others so there are plenty of libraries implementing it on various platforms.
+Auth0 supports the [OpenID Connect / OAuth2 Login](http://openid.net/specs/openid-connect-basic-1_0.html) protocol. This is the protocol used by companies like [Google](https://developers.google.com/accounts/docs/OAuth2Login), [Facebook](http://developers.facebook.com/docs/facebook-login/login-flow-for-web-no-jssdk/) and [Microsoft](http://msdn.microsoft.com/en-us/library/live/hh243647.aspx) among others so there are plenty of libraries implementing it on various platforms.
 
 The steps are quite simple though:
 
 1. Redirect the user to:
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=@@account.callback@@state=VALUE_THAT_SURVIVES_REDIRECTS&scope=openid</code></pre>
+  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
+          response_type=code
+          &client_id=@@account.clientId@@
+          &redirect_uri=@@account.callback@@
+          &state=VALUE_THAT_SURVIVES_REDIRECTS
+          &scope=openid</code></pre>
+  
+  > You can optionally use the [Login Widget](login-widget) to trigger the login. Or you can do it manually and send a `connection` parameter that will redirect the user straight to the desired connection.
 
 2. After the user authenticates, your app will be called to this endpoint with a `GET`
 
-  <pre style="word-wrap:break-word"><code>GET @@account.callback@@?code=AUTHORIZATION_CODE&state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
+  <pre style="word-wrap:break-word"><code>GET @@account.callback@@?
+        code=AUTHORIZATION_CODE
+        &state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
 
-It is a good practice to check that the `state` value received and sent are the same. 
+  > It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against XSRF attacks.
 
 3. Your app will have to send the `code` to the Auth0 server through a POST
 
     <pre style="word-wrap:break-word"><code>POST https://@@account.namespace@@/oauth/token
     Content-type: application/x-www-form-urlencoded
-    client_id=@@account.clientId@@&redirect_uri=@@account.callback@@&client_secret=@@account.clientSecret@@&code=AUTHORIZATION_CODE&grant_type=authorization_code</code></pre> 
+
+    client_id=@@account.clientId@@
+    &redirect_uri=@@account.callback@@
+    &client_secret=@@account.clientSecret@@
+    &code=AUTHORIZATION_CODE
+    &grant_type=authorization_code</code></pre> 
 
 4. The response of the server will look like this
 
@@ -28,13 +42,13 @@ It is a good practice to check that the `state` value received and sent are the 
      "token_type":"bearer",
   }</code></pre>
 
-The `access_token` can then be used to call Auth0's API. `id_token` is a Json Web Token, also commonly used to authenticate API calls. Because it is signed, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services. 
+  > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user. The `id_token` is a [Json Web Token](http://tools.ietf.org/html/draft-jones-json-web-token-08), also commonly used to authenticate API calls. Because it is signed with the app secret, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services or your own Web API. 
 
 5. Finally, you can get the user profile by calling
 
   <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/userinfo/?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 
-6. The `userinfo` endpoint will return something like this
+  The `userinfo` endpoint will return something like this
 
   <pre><code>{
     "_id": "4f2c8414310f59ce5f6aac652170ad43", // internal Auth0 id, don't use
