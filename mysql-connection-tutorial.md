@@ -63,7 +63,7 @@ This script assumes you have a `MyUsers` table with all these columns. You can o
 
 At the bottom of the editor you will find a way of storing parameters securely. This is convenient for storing the credentials used to connect to the database:
 
-![](/img/db-connection-create.png)
+![](/img/db-connection-configurate.png)
 
 In the script you would refer to these parameters as: ```configuration.PARAMETER_NAME```. For example, you could write:
 
@@ -83,7 +83,7 @@ You can test the script using the ```try``` button. If the result is okay you wi
 
 If the script failed for some reason, you will see a red border and the errors that occurred:
 
-![](/img/db-connection-create.png)
+![](/img/db-connection-try-fail.png)
 
 JavaScript's `console.log` is supported, so you can output more details:
 
