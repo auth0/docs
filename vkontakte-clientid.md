@@ -2,21 +2,22 @@
 
 To configure an vKontakte connection you will need to register your Auth0 instance as a vKontakte application.
 
-##1. Login
-Log in into [vKontakte](http://vk.vom) and goto the [developers](http://vk.com/dev) section.
-
-##2. Create a new Application
-Create a new __Application__:
+##1. Create a new Application in vKontakte:
+Log in into vKontakte and [create a new app](http://vk.com/editapp?act=create):
 
 ![](img/vkontakte-create-app.png)
+
+You will be required to confirm the request with an SMS message:
+
+![](img/vkontakte-validate-create-app.png)
 
 ---
 
 ##2. Register a new application
 
-Click on the __Register New Application__ button and complete the form:
+Complete the form:
 
-![](img/amazon-register-app.png)
+![](img/vkontakte-register-app.png)
 
 The callback address for your app should be:
 
@@ -28,6 +29,5 @@ The callback address for your app should be:
 
 Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
 
-![](img/amazon-add-connection.png)
-
+![](img/vkontakte-add-connection.png)
 
