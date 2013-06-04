@@ -1,4 +1,4 @@
-# Integrating a Mobile or JavaScript App with Auth0
+# Integrating a Mobile or a JavaScript App with Auth0
 
 Auth0 supports the [OAuth implicit flow](http://tools.ietf.org/html/rfc6749#section-4.2), which is typically used in situations where you can't store the `clientSecret` safely. Javascript running in a browser and mobile devices are two common examples.
 
@@ -17,7 +17,7 @@ It is a good practice to check that the `state` value received and sent are the 
  
 The `access_token` can then be used to call Auth0's API. `id_token` is a Json Web Token, also commonly used to authenticate API calls. Because it is signed, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services. 
 
-> If you are calling a third party API from JavaScript on a browser, and the API is hosted on a different domain your web site is, considering using CORS.
+> If you are calling a third party API from JavaScript on a browser, and the API is hosted on a different domain your web site is, consider using CORS.
 
 3. Finally, you can get the user profile by calling
 
