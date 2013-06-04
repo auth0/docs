@@ -1,4 +1,4 @@
-# Obtaining a ClientId and Client Secret for vKontakte
+# Obtaining an Application ID and Secure Key for vKontakte
 
 To configure an vKontakte connection you will need to register your Auth0 instance as a vKontakte application.
 
@@ -25,9 +25,9 @@ The callback address for your app should be:
 
 ---
 
-##3. Get your ClientId and ClientSecret
+##3. Get your Application ID and Secure Key
 
-Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
+Once the application is registered, enter your new `Application ID` and `Secure Key` into the connection settings in Auth0.
 
 ![](img/vkontakte-add-connection.png)
 
