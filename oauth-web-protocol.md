@@ -12,6 +12,8 @@ The steps are quite simple though:
 
   <pre style="word-wrap:break-word"><code>GET @@account.callback@@?code=AUTHORIZATION_CODE&state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
 
+It is a good practice to check that the `state` value received and sent are the same. 
+
 3. Your app will have to send the `code` to the Auth0 server through a POST
 
     <pre style="word-wrap:break-word"><code>POST https://@@account.namespace@@/oauth/token
@@ -25,6 +27,8 @@ The steps are quite simple though:
      "id_token": "......Json Web Token......"
      "token_type":"bearer",
   }</code></pre>
+
+The `access_token` can then be used to call Auth0's API. `id_token` is a Json Web Token, also commonly used to authenticate API calls. Because it is signed, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services. 
 
 5. Finally, you can get the user profile by calling
 

@@ -55,7 +55,7 @@ The following code will be generated from for you in the editor below:
 	  });
 	}
 
-As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first users with a `Nickname = username`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `username`, `displayName`, `emails`. 
+As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first user with a `Nickname == username`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `username`, `displayName`, `emails`. 
 
 This script assumes you have a `MyUsers` table with all these columns. You can of course tweak this script in order to adjust it to your own requirements.
 
