@@ -63,9 +63,12 @@ In the startup file (e.g. _server.js_ or _app.js_) add:
     var passport = require('passport');
     var strategy = require('./setup-passport');
 
-and then in the __app.configure__ function:
+and then in the __app.configure__ function make sure to have the `cookieParser` and `session` middlewares and then add the `passport` middlewares:
 
     app.configure(function(){
+      ...
+      app.use(express.cookieParser());
+      app.use(express.session({ secret: 'shhhhhhhhh' }));
       ...
       app.use(passport.initialize());
       app.use(passport.session());
@@ -107,7 +110,7 @@ If you want to show some information about the user in the home page:
 
     app.get('/', function (req, res) {
       res.render('home', {
-        user: user
+        user: req.user
       });
     });
 
@@ -115,21 +118,19 @@ If you want to show some information about the user in the home page:
 
 ###4. Setup the callback URL in Auth0
 
-Did you keep your settings page open? Make sure the __App Callback URLs__ in Auth0 is configured with your app's callback URL:
+Make sure the __App Callback URL__ in Auth0 is configured with your app's callback URL:
 
     http://localhost:port/callback
 
-![](img/settings-callback.png)
-
-> Notice that Auth0 supports many callbacks. Just use ',' as the delimiter.
+> Notice that Auth0 supports defining multiple callbacks by using ',' as the delimiter.
 
 #### Testing the app:
 
-Open a browser an navigate to the login URL (e.g. http://localhost:3000/login)
+Open a browser an navigate to the login URL (e.g. http://localhost:port/login)
 
 ### 5. Triggering login manually or integrating the Auth0 Login Widget
 
-You can authorize through a specific connection in Auth0 using `/login?connection=<connection>`. For example, this would always have users authenticate through Google:
+You can authorize through a specific connection in Auth0 using `/login?connection=<connection_name>`. For example, this would always have users authenticate through Google:
 
     <a class="btn" href="/login?connection=google-oauth2">Google-Oauth2</a>
 
