@@ -12,11 +12,12 @@ The introductory tutorials will take a just a few minutes to complete. And the g
 
 We have tutorials for all the popular platforms:
 
-- [Node.js](nodejs-tutorial)
-- [iOS](ios-tutorial)
+- [Node.js](nodejs-tutorial) / [Ruby](rails-tutorial)
+- [iOS](ios-tutorial) / [Android](android-tutorial)
 - [Windows Store Apps (Windows 8 RT - JavaScript)](win8-tutorial)
-- [ASP.NET MVC](mvc-tutorial)
+- [ASP.NET MVC](aspnet-tutorial)
 - [ServiceStack](servicestack-tutorial)
+- [Web API Single-Page Apps](webapi)
 
 We suggest you should start with any of the above first. That should give you a good idea of how Auth0 works. After that, you can read more about more advanced concepts:
 
@@ -28,5 +29,6 @@ We suggest you should start with any of the above first. That should give you a 
 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
-- [Contact us!](mailto://support@auth0.com)
+- [Chat with us!](http://chat.auth0.com)
+- [Contact us!](mailto:support@auth0.com)
 - [Visit GitHub for samples on various platforms](https://github.com/auth0)
