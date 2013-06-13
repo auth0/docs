@@ -106,11 +106,12 @@ By default, the connector will use forms-based authentication to your LDAP direc
 
 To configure Windows Authentication:
 
-* Install iisnode [x86](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x86.msi) | [x64](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x64.msi).
-* Create a WebSite pointing to the folder running the site and only enable Anonymous Authentication.
-* Create a Virtual Directory pointing to the project folder and only enable Windows Authentication.
+* Install iisnode [x86](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x86.msi) | [x64](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x64.msi) and the [rewrite module](http://www.iis.net/download/URLRewrite)
+* Create a WebSite pointing to the folder running the site, disable Anonymous Authentication and enable __Windows Authentication__ only.
+* Update the `config.json` file with the new `SERVER_URL`
+* Everytime you change something in the config.json file, open a browser to /test-iss to test the configuration
 
-Try the connection again and you should be able to login with your Windows credentials.
+<a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test login again!</span></a>
 
 ### Customize the login page
 
