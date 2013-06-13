@@ -106,10 +106,9 @@ By default, the connector will use forms-based authentication to your LDAP direc
 
 To configure Windows Authentication:
 
-* Install iisnode [[x86](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x86.msi) | [x64](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x64.msi).
+* Install iisnode [x86](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x86.msi) | [x64](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x64.msi).
 * Create a WebSite pointing to the folder running the site and only enable Anonymous Authentication.
-* Create a Virtual Directory pointing to the **wa** folder and only enable Windows Authentication.
-* Set the `integrated` variable in `config.json` to true.
+* Create a Virtual Directory pointing to the project folder and only enable Windows Authentication.
 
 Try the connection again and you should be able to login with your Windows credentials.
 
