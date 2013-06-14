@@ -44,8 +44,12 @@ If you want to customize the widget texts, you have to invoke it with these prop
         separatorText: "o",
         showIcon: true,
         icon: "https://myapp.com/logo.png",
+        showSignup: true,
         signupText: "Registrarme!", 
-        forgotText: "Olvidé mi contraseña"
+        signupLink: "https://myapp.com/signup", 
+        showForgot: true,
+        forgotText: "Olvidé mi contraseña",
+        forgotLink: "https://myapp.com/forgot"
     });
 
 Those properties will show this widget:
