@@ -8,8 +8,7 @@ We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthP
 
 ##Before you start
 
-1. We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
-2. We also assume you have at least one [connection](@@uiURL@@/#/connections) either enabled or created. If you don't have one, this [tutorial](enable-simple-connection) shows how to enable Google OAuth2, one of the simplest connections possible.
+We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
 
 ###1. Create a simple MVC3 website and install ServiceStack through NuGet
 
@@ -21,7 +20,7 @@ Once the default template unfolds, use NuGet to install the **ServiceStack.Host.
 
 ![](img/install-servicestack-nuget.png)
 
-Add the following line to your `Global.asax` file:
+Add the following line to your `Global.asax` file (this is required for ServiceStack):
 
 ```
 routes.IgnoreRoute("api/{*pathInfo}"); 
@@ -182,7 +181,7 @@ Add this snippet at the end of the `content` div:
 
 Did you keep your [settings](@@uiURL@@/#/Settings) page open? Make sure the __callback address__ in Auth0 is configured with the app's callback URL. For ServiceStack this would be:
 
-	http://{your-app}/api/auth0/
+	http://{your-app}/api/auth/auth0/
 
 > In development, {your-app} would be something like `http://localhost:1234`
 
