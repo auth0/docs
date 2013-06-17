@@ -29,7 +29,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <input type="text" id="clientId" value="@@account.clientId@@" />
             <br/>
             <label for="callbackURL">Callback URL: </label>
-            <input type="text" id="callbackUrl" value="https://localhost/client" />
+            <input type="text" id="callbackUrl" value="https://localhost/win8" />
             <br/>
             <label for="connection">Connection: </label>
             <input type="text" id="connection" value="google-oauth2" />
@@ -107,7 +107,7 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
 	    }
 	})();
 
-> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/client__
+> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/win8__
 
 > Also note that we are using `scope=openid` on the URL. This will return not only the access_token but also an id_token, which is a JWT, that can be used to call and authenticate users with an API. This JWT will only have the user id, but if you want the whole user profile, you should use `scope=openid%20profile`.
 
