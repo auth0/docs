@@ -44,7 +44,7 @@ Keep Auth0 open. You will later need information from the dashboard to test your
 
 Open the `MainPage.xaml` file and drop a `Button` control from the Toolbox:
 
-![](https://puu.sh/3dpG0.png)
+![](https://puu.sh/3iwYD.png)
 
 ###3. Add an Auth0Client class
 
