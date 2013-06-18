@@ -11,7 +11,7 @@ layout: doc.nosidebar.tutorial
 
 2. Once authenticated, call Auth0 API to retrieve user's information. 
 
-> The tutorial will take 15 min.
+> The tutorial will take 15 minutes approximately.
 
 ## Before you start
 
@@ -20,17 +20,17 @@ This tutorial assumes you are familar with C# & Visual Studio 2012.
 ## Create an Auth0 Account
 
 1. Open an account with [Auth0](https://www.auth0.com)
-2. You can login with a Google or a Microsoft Account:
+2. You can login with a Google, Github or a Microsoft Account:
 
-![](http://puu.sh/3dmCI.png)
+![](https://puu.sh/3dmCI.png)
 
 3. After login, enter a name for your account. This will uniquely identify you in Auth0.
 
-![](http://puu.sh/3dmFE.png)
+![](https://puu.sh/3dmFE.png)
 
 4. Choose the type of application you are building. Select __Windows 8__:
 
-![](http://puu.sh/3drhv.png)
+![](https://puu.sh/3drhv.png)
 
 Keep Auth0 open. You will later need information from the dashboard to test your app.
 
@@ -38,19 +38,19 @@ Keep Auth0 open. You will later need information from the dashboard to test your
 
 ###1. Open Visual Studio 2012 and create a new blank Windows Store App:
 
-![](http://puu.sh/3doIO.png)
+![](https://puu.sh/3doIO.png)
 
 ###2. Add a basic UI to the app
 
-Open the `MainPage.xaml` file and drop a `Button` and a `TextBlock` control from the Toolbox:
+Open the `MainPage.xaml` file and drop a `Button` control from the Toolbox:
 
-![](http://puu.sh/3dpG0.png)
+![](https://puu.sh/3dpG0.png)
 
 ###3. Add an Auth0Client class
 
 This class will encapsulate all access to Auth0. Add a new class named `Auth0Client` to the project:
 
-![](http://puu.sh/3dpIT.png)
+![](https://puu.sh/3dpIT.png)
 
 Make the class public, and add the following properties and a constructor:
 
@@ -141,13 +141,13 @@ client.LoginAsync()
 
 Replace __{YOUR TENANT NAME}__ with the name you used when you created the account with Auth0. And __{YOUR CLIENT ID}__ with the `clientId` value you can get from your settings page:
 
-![](http://puu.sh/3dqSy.png)
+![](https://puu.sh/3dqSy.png)
 
 ###5. Compile and test the application:
 
 When you run the application you will see the Login Screen with the __Auth0 Login Widget__:
 
-![](http://puu.sh/3drsI.png)
+![](https://puu.sh/3drsI.png)
 
 It will show "Google" as an option to authenticate. Place a breakpoint in the `var token=ts.Result` line and complete authentication. If everything is successful, you will see the `access_token`.
 
@@ -155,13 +155,12 @@ It will show "Google" as an option to authenticate. Place a breakpoint in the `v
 
 Go back to [Auth0](https://app.auth0.com) and select __Connections__, __Social__:
 
-![](http://puu.sh/3drDu.png)
+![](https://puu.sh/3drDu.png)
 
 Enable any of the providers available by clicking on the `Disabled` button.
 
 Run the app again and you will see the providers you just enabled on the login screen:
 
-![](http://puu.sh/3drIj.png) 
-
+![](https://puu.sh/3drIj.png) 
 
 Congratulations!!
