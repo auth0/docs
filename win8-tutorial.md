@@ -21,7 +21,7 @@ Open Visual Studio and create new blank JavaScript Windows Store app:
 ###2. Add UI controls
 Open the __default.html__ file and paste the following content inside the `<body>` element:
 
-	<div data-win-control="Input">
+  <div data-win-control="Input">
         <div class="item" id="auth0Input">
             <H2>Connect to Auth0</H2>
             <br />
@@ -29,7 +29,7 @@ Open the __default.html__ file and paste the following content inside the `<body
             <input type="text" id="clientId" value="@@account.clientId@@" />
             <br/>
             <label for="callbackURL">Callback URL: </label>
-            <input type="text" id="callbackUrl" value="https://localhost/win8" />
+            <input type="text" id="callbackUrl" value="http://localhost/win8" />
             <br/>
             <label for="connection">Connection: </label>
             <input type="text" id="connection" value="google-oauth2" />
@@ -39,7 +39,7 @@ Open the __default.html__ file and paste the following content inside the `<body
         </div>
     </div>
     <div data-win-control="Output">
-		<textarea id="auth0DebugArea" rows="15" cols="150"></textarea>
+    <textarea id="auth0DebugArea" rows="15" cols="150"></textarea>
     </div>
 
 Add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element: 
@@ -49,65 +49,65 @@ Add reference to the JavaScript code in the __default.html__, include the follow
 ###3. Add code to invoke the WebAuthenticationBroker
 Under the __js__ folder, create new file named __auth0.js__ with the following content:
 
-	(function () {
-	    "use strict";
-	    var page = WinJS.UI.Pages.define("/default.html", {
-	        ready: function (element, options) {
-	            document.getElementById("start").addEventListener("click", startAuthentication, false);
-	        }
-	    });
+  (function () {
+      "use strict";
+      var page = WinJS.UI.Pages.define("/default.html", {
+          ready: function (element, options) {
+              document.getElementById("start").addEventListener("click", startAuthentication, false);
+          }
+      });
 
-	    function startAuthentication() {
+      function startAuthentication() {
 
-	        var auth0Url = "https://@@account.namespace@@/authorize";
+          var auth0Url = "https://@@account.namespace@@/authorize";
 
-	        var clientId = document.getElementById("clientId").value;
-	        var connection = document.getElementById("connection").value;
-	        var callbackUrl = document.getElementById("callbackUrl").value;
+          var clientId = document.getElementById("clientId").value;
+          var connection = document.getElementById("connection").value;
+          var callbackUrl = document.getElementById("callbackUrl").value;
 
-	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=openid&" + "connection=" + connection;
+          auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=openid&" + "connection=" + connection;
 
-	        var startUri = new Windows.Foundation.Uri(auth0Url);
-	        var endUri = new Windows.Foundation.Uri(callbackUrl);
+          var startUri = new Windows.Foundation.Uri(auth0Url);
+          var endUri = new Windows.Foundation.Uri(callbackUrl);
 
-	        log("Navigating to: " + auth0Url);
+          log("Navigating to: " + auth0Url);
 
-	        Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync(
-	            Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startUri, endUri)
-	            .done(function (result) {
+          Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync(
+              Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startUri, endUri)
+              .done(function (result) {
 
-	                if (result.responseStatus === Windows.Security.Authentication.Web.WebAuthenticationStatus.errorHttp) {
-	                    log("Error returned: " + result.responseErrorDetail);
-	                    return;
-	                }
+                  if (result.responseStatus === Windows.Security.Authentication.Web.WebAuthenticationStatus.errorHttp) {
+                      log("Error returned: " + result.responseErrorDetail);
+                      return;
+                  }
 
-	                log("Status returned by WebAuth broker: " + result.responseStatus);
-	                log("Token: " + result.responseData);
+                  log("Status returned by WebAuth broker: " + result.responseStatus);
+                  log("Token: " + result.responseData);
 
-	                // Quick and dirty parsing of the access_token
-	                var access_token = result.responseData.split("#")[1].split("&")[0];
-	                WinJS.xhr({ url: "https://@@account.namespace@@/userinfo/?" + access_token, responseType: "json" })
-	                            .done(function complete(result) {
-	                                log("User Profile: " + result.responseText);
-	                            },
-	                                  function (err) {
-	                                      log("Error in getting user profile: " + err.responseData);
-	                                  });
-	                
-	                // quick and dirty parsing of id_token
-	                var id_token = result.responseData.split("#")[1].split("&")[1].split("=")[1]; // get jwt
-	                // use jwt to call your APIs
-	            }, function (err) {
-	                log("Error Message: " + err.message);
-	            });
-	    }
+                  // Quick and dirty parsing of the access_token
+                  var access_token = result.responseData.split("#")[1].split("&")[0];
+                  WinJS.xhr({ url: "https://@@account.namespace@@/userinfo/?" + access_token, responseType: "json" })
+                              .done(function complete(result) {
+                                  log("User Profile: " + result.responseText);
+                              },
+                                    function (err) {
+                                        log("Error in getting user profile: " + err.responseData);
+                                    });
+                  
+                  // quick and dirty parsing of id_token
+                  var id_token = result.responseData.split("#")[1].split("&")[1].split("=")[1]; // get jwt
+                  // use jwt to call your APIs
+              }, function (err) {
+                  log("Error Message: " + err.message);
+              });
+      }
 
-	    function log(msg) {
-	        document.getElementById("auth0DebugArea").value += msg + "\r\n";
-	    }
-	})();
+      function log(msg) {
+          document.getElementById("auth0DebugArea").value += msg + "\r\n";
+      }
+  })();
 
-> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/win8__
+> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __http://localhost/win8__
 
 > Also note that we are using `scope=openid` on the URL. This will return not only the access_token but also an id_token, which is a JWT, that can be used to call and authenticate users with an API. This JWT will only have the user id, but if you want the whole user profile, you should use `scope=openid%20profile`.
 
@@ -128,7 +128,7 @@ This tutorial works with a specific connection (__google-oauth2). What if you ha
 
 In the `StartAuthenticationMethod` replace the StartUri to:
 
-	https://@@account.namespace@@/login/?client=" + clientId + "&response_type=token&scope=openid";
+  https://@@account.namespace@@/login/?client=" + clientId + "&response_type=token&scope=openid";
 
 Once you start the login process you will see the Login Widget displayed:
 
