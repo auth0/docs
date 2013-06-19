@@ -21,6 +21,7 @@ Open Visual Studio and create new blank JavaScript Windows Store app:
 ###2. Add UI controls
 Open the __default.html__ file and paste the following content inside the `<body>` element:
 
+```html
   <div data-win-control="Input">
         <div class="item" id="auth0Input">
             <H2>Connect to Auth0</H2>
@@ -41,14 +42,18 @@ Open the __default.html__ file and paste the following content inside the `<body
     <div data-win-control="Output">
     <textarea id="auth0DebugArea" rows="15" cols="150"></textarea>
     </div>
+```
 
 Add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element: 
 
+```html
     <script src="/js/auth0.js"></script>
+```
 
 ###3. Add code to invoke the WebAuthenticationBroker
 Under the __js__ folder, create new file named __auth0.js__ with the following content:
 
+```js
   (function () {
       "use strict";
       var page = WinJS.UI.Pages.define("/default.html", {
@@ -106,14 +111,15 @@ Under the __js__ folder, create new file named __auth0.js__ with the following c
           document.getElementById("auth0DebugArea").value += msg + "\r\n";
       }
   })();
+```
 
 > Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __http://localhost/win8__
 
-> Also note that we are using `scope=openid` on the URL. This will return not only the access_token but also an id_token, which is a JWT, that can be used to call and authenticate users with an API. This JWT will only have the user id, but if you want the whole user profile, you should use `scope=openid%20profile`.
+> Also note that we are using `scope=openid` on the URL. This will return not only the `access_token` but also an `id_token`, which is a JWT, that can be used to call and authenticate users with an API. This JWT will only have the user id, but if you want the whole user profile, you should use `scope=openid%20profile`.
 
 ## Testing the app:
 
-Compile the App and run it. Assuming your connection (__google-openid__ in this tutorial) is enabled, you should see the standard login screen:
+Compile the App and run it. Assuming your connection (__google-oauth2__ in this tutorial) is enabled, you should see the standard login screen:
 
 ![](img/win8-step2.png) 
 
@@ -124,7 +130,7 @@ After authentication the returned token will appear on the debug area together w
 Congratulations! 
 
 ## Adding more flexibility
-This tutorial works with a specific connection (__google-oauth2). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
+This tutorial works with a specific connection (__google-oauth2__). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
 
 In the `StartAuthenticationMethod` replace the StartUri to:
 
