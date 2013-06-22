@@ -94,6 +94,7 @@ Common parameters are:
     * `scope=openid%20profile`: If you want the entire user profile to be part of the `id_token`.
 * `redirect_uri`: by setting this value you can choose what callback url to use if you have multiple registered. Useful when you have multiple environments (e.g. Dev & Test), and a single application in Auth0.
 * `authorize_url`: if specified, it will start the login transaction at that url. This is useful if you want to do something on the server, before redirecting to Auth0. For instance, this is used when integrating with ASP.NET MVC4 which uses DotNetOpenAuth and generates a proprietary "state" parameter that can only be generated on the server side.
+* `protocol`: this could be `oauth2` (default), `samlp` or `wsfed`.
 * `any other thing`: will be passed through.
 
 ## Using the API instead of the widget
