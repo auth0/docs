@@ -129,4 +129,33 @@ Run the app again and you will see the providers you just enabled on the login s
 
 ![](img/windowsstore-javascript-step6.2.png)
 
+###7. Getting user attributes
+
+Open the `default.html` file and paste the following content after the `<button>` element:
+
+```html
+
+<div data-win-control="Output">
+  <textarea id="auth0DebugArea" rows="15" cols="150"></textarea>
+</div>
+```
+
+Open the `auth0Client.js` file and replace `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` to the following code:
+
+```javascript
+
+var access_token = result.responseData.split("#")[1].split("&")[0];
+WinJS.xhr({ url: "https://{YOUR_TENANT_NAME}.auth0.com/userinfo/?" + access_token, responseType: "json" })
+    .done(function complete(result) {
+        log("User Profile: " + result.responseText);
+    },
+          function (err) {
+              log("Error in getting user profile: " + err.responseData);
+          });
+```
+
+Run the app again and you will see the user info after login:
+
+![](img/windowsstore-javascript-step7.png)
+
 Congratulations!!

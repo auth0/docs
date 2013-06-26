@@ -161,6 +161,54 @@ Enable any of the providers available by clicking on the `Disabled` button.
 
 Run the app again and you will see the providers you just enabled on the login screen:
 
-![](https://puu.sh/3drIj.png) 
+![](https://puu.sh/3drIj.png)
+
+###7. Getting user attributes
+
+Open the `MainPage.xaml` file and drop a `TextBox` control from the Toolbox after the `Button`, name it `UserInfo`, clean `Text` and set `IsReadOnly` to `true`:
+
+![](img/windowsstore-step7.1.png)
+
+Open the `Auth0Client.cs` file and add the __GetUserInfoAsync__ method:
+
+```cs
+
+public async Task<string> GetUserInfoAsync()
+{
+    var userInfoUrl = string.Format("https://{0}.auth0.com/userinfo?access_token={1}", this.Tenant, this.AccessToken);
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(userInfoUrl);
+
+    string result = null;
+    using (WebResponse response = await request.GetResponseAsync())
+    using (Stream responseStream = response.GetResponseStream())
+    using (StreamReader reader = new StreamReader(responseStream))
+    {
+        result = reader.ReadToEnd();
+    }
+
+    return result;
+}
+```
+
+Before compiling add the following using statement:
+
+```
+using System.IO;
+using System.Net;
+```
+
+Go to the Button_Click event handler and replace `var token = ts.Result;` to the following code:
+
+```cs
+
+client.GetUserInfoAsync().ContinueWith(task => 
+    {
+        this.UserInfo.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.UserInfo.Text = task.Result);
+    });
+```
+
+Run the app again and you will see the user info after login:
+
+![](img/windowsstore-step7.png)
 
 Congratulations!!
