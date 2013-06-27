@@ -15,7 +15,7 @@ layout: doc.nosidebar.tutorial
 
 ## Before you start
 
-This tutorial assumes you are familiar with C# & Visual Studio 2012.
+This tutorial assumes you are familiar with JavaScript & Visual Studio 2012.
 
 ## Create an Auth0 Account
 
