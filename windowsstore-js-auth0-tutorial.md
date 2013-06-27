@@ -11,7 +11,7 @@ layout: doc.nosidebar.tutorial
 
 2. Once authenticated, call Auth0 API to retrieve user's information. 
 
-> The tutorial will take 10 minutes approximately.
+> The tutorial will take 10 minutes approximately. You are just 10 minutes away from the (W) token :). You shouldn't, but if you need help: http://chat.auth0.com
 
 ## Before you start
 
@@ -158,4 +158,4 @@ Run the app again and you will see the user info after login:
 
 ![](img/windowsstore-javascript-step7.png)
 
-Congratulations!!
+## Congratulations!! Go get your token!
