@@ -77,3 +77,5 @@ protected void onActivityResult(int requestCode, int resultCode, Intent authActi
 > Remember that the `returnUrl` parameter must also be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/client__
 
 Congratulations!
+
+> __HEADS UP__ Are you an Android ninja? Help us to build an awesome [Android SDK](https://github.com/auth0/Auth0-Android) and we will give you a PRO license for free. Checkout the issues in the GitHub project and provide feeback and/or pull requests.
