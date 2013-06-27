@@ -11,7 +11,7 @@ layout: doc.nosidebar.tutorial
 
 2. Once authenticated, call Auth0 API to retrieve user's information. 
 
-> The tutorial will take 15 minutes approximately.
+> The tutorial will take 10 minutes approximately.
 
 ## Before you start
 
@@ -19,12 +19,12 @@ This tutorial assumes you are familiar with C# & Visual Studio 2012.
 
 ## Create an Auth0 Account
 
-1. Open an account with [Auth0](https://www.auth0.com)
+1. Open an account with [Auth0](https://developers.auth0.com)
 2. You can login with a Google, Github or a Microsoft Account:
 
 ![](https://puu.sh/3dmCI.png)
 
-3. After login, enter a name for your account. This will uniquely identify you in Auth0.
+3. After login, enter a name for your account. This will uniquely identify you in Auth0. We will refer to this as {YOUR_TENANT_NAME} later in the tutorial.
 
 ![](https://puu.sh/3dmFE.png)
 
@@ -140,7 +140,7 @@ Open the `default.html` file and paste the following content after the `<button>
 </div>
 ```
 
-Open the `auth0Client.js` file and replace `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` to the following code:
+Open the `auth0Client.js` file and replace `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` with the following code:
 
 ```javascript
 
