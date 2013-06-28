@@ -140,7 +140,7 @@ Open the `default.html` file and paste the following content after the `<button>
 </div>
 ```
 
-Open the `auth0Client.js` file and replace `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` with the following code:
+Open the `auth0Client.js` file, replace `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` with the following code:
 
 ```javascript
 
@@ -152,6 +152,15 @@ WinJS.xhr({ url: "https://{YOUR_TENANT_NAME}.auth0.com/userinfo/?" + access_toke
           function (err) {
               log("Error in getting user profile: " + err.responseData);
           });
+```
+
+And add the following `function`:
+
+```javascript
+
+function log(msg) {
+    document.getElementById("auth0DebugArea").value += msg + "\r\n";
+}
 ```
 
 Run the app again and you will see the user info after login:
