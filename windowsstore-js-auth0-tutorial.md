@@ -145,7 +145,7 @@ Open the `auth0Client.js` file and replace `var access_token = result.responseDa
 ```javascript
 
 var access_token = result.responseData.split("#")[1].split("&")[0];
-WinJS.xhr({ url: "https://{YOUR_TENANT_NAME}.auth0.com/userinfo/?" + access_token, responseType: "json" })
+WinJS.xhr({ url: "https://{YOUR_TENANT_NAME}.auth0.com/userinfo/?access_token=" + access_token, responseType: "json" })
     .done(function complete(result) {
         log("User Profile: " + result.responseText);
     },
