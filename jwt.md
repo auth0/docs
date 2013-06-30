@@ -23,17 +23,17 @@ The minimum information will be:
 {
  	iss: "https://@@account.namespace@@",
     sub: "eugenio.pace@someidp.com|123-456-789",
-    aud: "@@account.clientID@@",
+    aud: "@@account.clientId@@",
     exp: 425657675322,
     iat: 2434657683435
 }	
 ```
 
-`iss`: the __issuer__ which corresponds to your instance of Auth0.
-`sub`: the __subject__, the unique id of the logged in user.
-`aud`: the __audience__, always set to your application __Client ID__ in Auth0.
-`exp`: the __expiration__, set to 10 hours.
-`iat`: the __issued at timestamp__.
+* `iss`: the __issuer__ which corresponds to your instance of Auth0.
+* `sub`: the __subject__, the unique id of the logged in user.
+* `aud`: the __audience__, always set to your application __Client ID__ in Auth0.
+* `exp`: the __expiration__, set to 10 hours.
+* `iat`: the __issued at timestamp__.
 
 If the `scope` in the authorization request is set to `scope=openid profile`, then all the properties of the [user profile](user-profile) are added to the Body.
 
@@ -50,9 +50,9 @@ function sign(input, key, method) {
 ```
 Where:
 
-* `input` is the combined `Header` and `Body`, _JSON.stringified_ and base64 encoded.
-* `key` is your account `clientSecret` for this application.
-* `method` is the `sha256`.
+* `input` is the combined `Header` and `Body`, _JSON.stringified_ and base64 encoded, concatenated with a ".".
+* `key` is your account `clientSecret`, for the application.
+* `method` is always [`sha256`](https://en.wikipedia.org/wiki/SHA-2).
 
 ---
 
@@ -61,7 +61,7 @@ Windows Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAM
 
 	uid: "eugenio.pace@someidp.com|123-456-789"
 
-`uid` is mapped to the `user_id` (whichs the `sub` property in the standard JWT). On the server side of WAMS, this claim is mapped to `user.userId` and can be used to drive authorization:
+`uid` is mapped to the `user_id` (which is the `sub` property in the standard JWT). On the server side of WAMS, this claim is mapped to `user.userId` and can be used to drive authorization:
 
 ```javascript
 function read(query, user, request) {
