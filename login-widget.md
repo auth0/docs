@@ -2,7 +2,7 @@
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your your app. You won't have to worry about:
 
-* Having a professional looking login dialog that shows well on any resolution and device.
+* Having a professional looking login dialog that displays well on any resolution and device.
 * Finding the right icons for popular social providers.
 * Remembering what was the identity provider the user chose the last time.
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
@@ -35,7 +35,7 @@ To invoke the widget, use the `signIn` method
 
 The Widget can be customized through the parameters sent to the `signIn` method.
 
-For example:
+For example (with labels in Spanish):
 
     window.Auth0.signIn({
         onestep: true,

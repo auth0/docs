@@ -14,7 +14,7 @@ We have tutorials for all the popular platforms:
 
 - [Node.js](nodejs-tutorial) / [Ruby](rails-tutorial)
 - [iOS](ios-tutorial) / [Android](android-tutorial)
-- [Windows Store Apps (Windows 8 RT - JavaScript)](win8-tutorial)
+- Windows Store Apps: [Win 8 - JavaScript](windowsstore-js-auth0-tutorial) / [Win8 - C#](windowsstore-auth0-tutorial)
 - [ASP.NET MVC](aspnet-tutorial)
 - [ServiceStack](servicestack-tutorial)
 - [Web API Single-Page Apps](webapi)

@@ -5,7 +5,7 @@ Integrating Auth0 with Android based apps relies on the common method of instant
 ##Before you start
 
 1. You will need an Android development environment ([Eclipse with ADT](http://developer.android.com/sdk/installing/studio.html#download) or [Android Studio](http://developer.android.com/sdk/installing/studio.html)).
-2. Download  the [zip](https://github.com/auth0/Auth0-Android/archive/master.zip) or [clone from github](https://github.com/auth0/Auth0-Android)
+2. Download the [zip](https://github.com/auth0/Auth0-Android/archive/master.zip) or [clone from github](https://github.com/auth0/Auth0-Android)
 
 ##Open the project and update your settings
 
@@ -84,7 +84,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent authActi
 
 Congratulations!
 
-> If you want to consume a __Windows Azure Mobile Services__ (WAMS) backend, you should create a Windows Azure Mobile application on Auth0 (New App button). When you do that, Auth0 will sign the JsonWebToken with the `masterkey` and you will be able to call their services. Notice, that you can delete the Android app on Auth0 and use the WAMS instead nd change the `client_id` paramter.
+> If you want to connect with a __Windows Azure Mobile Services__ (WAMS) backend, you should create a Windows Azure Mobile application on Auth0 (New App button). When you do that, Auth0 will sign the JsonWebToken with WAMS' `masterkey`, and you will be able to call their endpoints. Notice, that you can delete the Android app on Auth0 and use the WAMS instead and change the `client_id` parameter.
 
 Are you an Android ninja?
 

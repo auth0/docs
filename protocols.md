@@ -27,6 +27,8 @@ Someone using a browser hits a protected resource in your web app (a page that r
 
 The `redirect_uri` __must__ match what is defined in your [settings](@@uiURL@@/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
 
+> Optionally, you can specify a `scope` parameter. The only supported values today are: `openid` and `openid profile`. If you do add a `scope` parameter (with the supported values), Auth0 will return a [JsonWebToken](jwt) in addition to the `access_token` in step #3 (below). 
+
 ---
 
 ### 2. Authentication
@@ -64,6 +66,8 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "token_type":"bearer",
     }
 
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt).
+
 ## OAuth for Native Clients and JavaScript in the browser
 
 This protocol is best suited for mobile native apps and javascript running in a browser that need to access an API that expects an Access Token.
@@ -80,6 +84,8 @@ The client requests authorization to Auth0 endpoint:
 
 The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page. 
 
+> Optionally, you can specify a `scope` parameter. The only supported values today are: `openid` and `openid profile`. If you do add a `scope` parameter (with the supported values), Auth0 will return a [JsonWebToken](jwt) in addition to the `access_token` in step #3 (below).
+
 ### 2. Authentication
 
 Like described before, Auth0 will redirect the user to the identity provider defined in the `connection` property.
@@ -89,5 +95,9 @@ Like described before, Auth0 will redirect the user to the identity provider def
 Upon successful authentication, Auth0 will return a redirection response with the following URL structure:
 
 	https://CALLBACK#access_token=ACCESS_TOKEN
+
+Optionally (if `scope=openid` is added in the authorization request):
+
+	https://CALLBACK#access_token=ACCESS_TOKEN&id_token=JSON_WEB_TOKEN
 
 Clients typically extract the URI fragment with the __Access Token__ and follow the redirection. The client code will then interact with other endpoints using the token in the fragment.

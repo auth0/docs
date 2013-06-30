@@ -207,7 +207,7 @@ client.GetUserInfoAsync().ContinueWith(task =>
     });
 ```
 
-Run the app again and you will see the user info after login:
+Run the app again, and you will see the user info after login:
 
 ![](img/windowsstore-step7.png)
 

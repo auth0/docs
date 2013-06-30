@@ -143,7 +143,6 @@ Open the `default.html` file and paste the following content after the `<button>
 Open the `auth0Client.js` file, replace `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` with the following code:
 
 ```javascript
-
 var access_token = result.responseData.split("#")[1].split("&")[0];
 WinJS.xhr({ url: "https://{YOUR_TENANT_NAME}.auth0.com/userinfo/?" + access_token, responseType: "json" })
     .done(function complete(result) {
@@ -157,7 +156,6 @@ WinJS.xhr({ url: "https://{YOUR_TENANT_NAME}.auth0.com/userinfo/?" + access_toke
 And add the following `function`:
 
 ```javascript
-
 function log(msg) {
     document.getElementById("auth0DebugArea").value += msg + "\r\n";
 }
