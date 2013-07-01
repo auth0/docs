@@ -7,13 +7,15 @@ When using the `scope=openid`, Auth0 will generate both an `access_token` and a 
 1. It contains properties about the logged in user, your Auth0 account and the app.
 2. It is digitally signed to prevent tampering.
 
+> Want to learn more about JWT? Take a look at the draft spec [here](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). JWT adoption is increasing with the support of companies like Google, Microsoft, etc.
+
 A JWT consists of 3 segments:
 
 ###1. Header
 ```javascript
 {
 	typ: 'JWT',
-	alg: 'HS256' | 'HS384' | 'HS512'	
+	alg: 'HS256'	
 }
 ```
 ###2. Body
@@ -22,18 +24,18 @@ The minimum information will be:
 ```javascript
 {
  	iss: "https://@@account.namespace@@",
-    sub: "eugenio.pace@someidp.com|123-456-789",
+    sub: "{connection}|{user_id}",
     aud: "@@account.clientId@@",
-    exp: 425657675322,
-    iat: 2434657683435
+    exp: 1372674336,
+    iat: 1372638336
 }	
 ```
 
-* `iss`: the __issuer__ which corresponds to your instance of Auth0.
-* `sub`: the __subject__, the unique id of the logged in user.
-* `aud`: the __audience__, always set to your application __Client ID__ in Auth0.
-* `exp`: the __expiration__, set to 10 hours.
-* `iat`: the __issued at timestamp__.
+* `iss` the __issuer__ which corresponds to your instance of Auth0.
+* `sub` the __subject__, is a string formed by the `connection` used to authenticate the user (e.g. google-oauth2, linkedin, etc). and the unique id of the logged in user in that identity provider.
+* `aud` the __audience__, always set to your application __Client ID__ in Auth0.
+* `exp` the __expiration__, set to 10 hours.
+* `iat` the __issued at timestamp__.
 
 If the `scope` in the authorization request is set to `scope=openid profile`, then all the properties of the [user profile](user-profile) are added to the Body.
 
@@ -59,7 +61,7 @@ Where:
 ##When using Windows Azure Mobile Services
 Windows Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAMS compatible JWT have an additional property in the body:
 
-	uid: "eugenio.pace@someidp.com|123-456-789"
+	uid: "{connection}|{user_id}"
 
 `uid` is mapped to the `user_id` (which is the `sub` property in the standard JWT). On the server side of WAMS, this claim is mapped to `user.userId` and can be used to drive authorization:
 
