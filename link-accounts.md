@@ -5,7 +5,7 @@ Let's say a user logged in with Google and now she wants to associate her Twitte
 **Using Auth0 Login Widget**
 
 ```
-<script src="@@sdkURL@@/auth0.js#access_token=....LOGGED_IN_USER_ACCESS_TOKEN...&client=@@account.clientId@@&scope=openid"></script>
+<script src="@@sdkURL@@/auth0.js#access_token=...LOGGED_IN_USER_ACCESS_TOKEN...&client=@@account.clientId@@&scope=openid"></script>
 <a href="javascript: window.Auth0.signIn({onestep: true, title: 'Link with another account'})">Add account</a>
 ```
 
