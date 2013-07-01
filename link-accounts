@@ -1,3 +1,5 @@
+# Link accounts
+
 Let's say a user logged in with Google and now she wants to associate her Twitter account to login to the application as the same person, or another user logged in with an Active Directory account and wants to be recognized as the same user when logging in with his Microsoft Account (LiveID). You can allow your users to link accounts from different providers, very easily, as shown below.
 
 **Using Auth0 Login Widget**
