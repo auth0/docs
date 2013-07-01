@@ -32,4 +32,6 @@ As an example, in ASP.NET we add the access_token as a claim that can be accesse
 
 To unlink a specific account, perform a POST request to the following url:
 
-`https://@@account.namespace@@/unlink?&client_id=@@account.clientId@@&access_token=...LINKED_USER_ACCESS_TOKEN...`
+`https://@@account.namespace@@/unlink?`
+`&client_id=@@account.clientId@@`
+`&access_token=...LINKED_USER_ACCESS_TOKEN...`
