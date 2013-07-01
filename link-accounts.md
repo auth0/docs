@@ -11,7 +11,7 @@ Let's say a user logged in with Google and now she wants to associate her Twitte
 
 > Notice the `access_token` fragment of the URL. This is the access_token Auth0 will generate when a user logs in. It identifies a logged in user univocally.
 
-** or manually triggering a redirect to... **
+**or manually triggering a redirect to...**
 
 `https://@@account.namespace@@/authorize?response_type=code&scope=openid`
 `&client_id=@@account.clientId@@`
@@ -30,7 +30,7 @@ As an example, in ASP.NET we add the access_token as a claim that can be accesse
 
 ### Unlink
 
-To unlink a specific identity, perform a post request to the following url:
+To unlink a specific account, perform a POST request to the following url:
 
 `https://@@account.namespace@@/unlink?`
 `&client_id=@@account.clientId@@`
