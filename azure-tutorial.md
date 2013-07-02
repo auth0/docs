@@ -4,11 +4,8 @@ From an Auth0 integration perspective, the code is the same, regardless you are 
 
 To integrate applications supported by the Windows Azure platform, consider these tutorials:
 
-* [Any ASP.NET application](aspnet-tutorial) **[Recommended]** <br />
-Simple non-intrusive integration with any version of ASP.NET, including MVC 4.
-
-* [ASP.NET MVC4 application](mvc-tutorial) <br />
-This tutorial shows how to integrate Auth0 the new [OAuth Providers feature](http://www.asp.net/mvc/overview/getting-started/using-oauth-providers-with-mvc) on ASP.NET MVC4 applications. Make sure to understand [how this new mechanism work](http://weblogs.asp.net/jgalloway/archive/2012/08/29/simplemembership-membership-providers-universal-providers-and-the-new-asp-net-4-5-web-forms-and-asp-net-mvc-4-templates.aspx).
+* [ASP.NET application](aspnet-tutorial) <br />
+Simple non-intrusive integration with any version of ASP.NET.
 
 * [Node.js application](nodejs-tutorial) <br />
 Integration using [passport](http://passportjs.org/).
