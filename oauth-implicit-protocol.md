@@ -7,7 +7,7 @@ The steps are quite simple though:
 1. Redirect the user to:
 
   <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
-        response_type=token%20id_token
+        response_type=token
         &client_id=@@account.clientId@@
         &redirect_uri=@@account.callback@@
         &state=VALUE_THAT_SURVIVES_REDIRECTS
