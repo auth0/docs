@@ -17,7 +17,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your your app. You 
 3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection. 
 4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection. 
 
-> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. There is an enterprise connection whose domain is "**fabrikam.com**". In that situation, the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) hwere that domain is registered. If the user is already logged in, there will be Single Sign On.
+> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. There is an enterprise connection whose domain is "**fabrikam.com**". In that situation, the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in, there will be Single Sign On.
 
 ## Including the Login Widget on your page
 
