@@ -1,6 +1,6 @@
 # Auth0 Normalized User Profile
 
-Not all the identity providers will supply the same amount of information about the user. They might even choose differetn properties to convey the same meaning (e.g. `last_name` vs `family_name`). Auth0 normalizes the profile of the user regardless of the identity provider the user is authenticating with. This of course greatly simplifies the development experience, as you just need to be concerend with one schema. 
+Not all the identity providers will supply the same amount of information about the user. They might even choose different properties to convey the same meaning (e.g. `last_name` vs `family_name`). Auth0 normalizes the profile of the user regardless of the identity provider the user is authenticating with. This of course greatly simplifies the development experience, as you just need to be concerend with one schema. 
 
 These are the attributes that Auth0 will provide:
 
