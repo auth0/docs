@@ -56,26 +56,9 @@ Update the callback routes in the `routes.rb` under `config` folder:
 	match "auth/auth0/callback" => "callback#store"
 	match "auth/failure" => "callback#failure"
 
-### 5. Triggering login manually or integrating the Auth0 Login Widget
+### 5. Triggering login manually or integrating the Auth0 widget
 
-You can authorize through a specific connection in Auth0 using `/auth/auth0?connection=<connection>`. For example, this would always have users authenticate through Google:
-
-	<a class="btn" href="/auth/auth0?connection=google-oauth2">Google-Oauth2</a>
-
-Alternatively, you can use the __Auth0 Login Widget__ to display all available authentication options:
-
-```
-<script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&scope=openid"></script>
-<a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
-```
-
-> Notice we are adding a JavaScript element that will create a global variable `window.Auth0`. This is used to invoke the widget programatically. Either way, you have full control of the user experience.
-
-The widget is a modal dialog shown on top of your web page:
-
-![](img/signin.png)
-
-The widget has more options and configurations grab code snippets and test it [here](@@uiURL@@/#/sdk/widget).
+@@sdk@@
 
 ### 6. Accessing user information
 

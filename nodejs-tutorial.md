@@ -128,26 +128,9 @@ Make sure the __App Callback URL__ in Auth0 is configured with your app's callba
 
 Open a browser an navigate to the login URL (e.g. http://localhost:port/login)
 
-### 5. Triggering login manually or integrating the Auth0 Login Widget
+### 5. Triggering login manually or integrating the Auth0 widget
 
-You can authorize through a specific connection in Auth0 using `/login?connection=<connection_name>`. For example, this would always have users authenticate through Google:
-
-    <a class="btn" href="/login?connection=google-oauth2">Google-Oauth2</a>
-
-Alternatively, you can use the __Auth0 Login Widget__ to display all available authentication options:
-
-```
-<script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&scope=openid"></script>
-<a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
-```
-
-> Notice we are adding a JavaScript element that will create a global variable `window.Auth0`. This is used to invoke the widget programatically. Either way, you have full control of the user experience.
-
-The widget is a modal dialog shown on top of your web page:
-
-![](img/signin.png)
-
-The widget can be customized, read more about how to do it [here](login-widget).
+@@sdk@@
 
 ##Suggested follow up tutorials
 

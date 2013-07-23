@@ -37,23 +37,9 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 
 ### 4. Triggering login manually or integrating the Auth0 widget
 
-Open your master page (or wherever you have the Log On link) and use the following to open the login widget.
+@@sdk@@
 
-```
-<script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&scope=openid"></script>
-<a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
-```
-
-> Notice we are injecting a JavaScript that will create a global variable `window.Auth0`. This is used to invoke the widget programatically. Alternatively, you could have used a regular link and redirect the users straight to the desired connection. For example, this link `https://@@account.namespace@@/authorize?response_type=code&scope=openid`
-`&client_id=@@account.clientId@@`
-`&redirect_uri=@@account.callback@@`
-`&connection=google-oauth2` would redirect the user straight to the Google login page. Using this mechanism, you have full control of the user experience.
-
-The widget is a modal dialog shown on top of your web page:
-
-![](img/signin.png)
-
-### 3. Accessing user information
+### 5. Accessing user information
 
 Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
 
