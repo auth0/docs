@@ -1,16 +1,22 @@
 # Rules
 
-Rules are bits of code written in JavaScript that are executed every time a user authenticates to an application. It's that simple and yet very powerful. You could:
+Rules are code snippets written in JavaScript that are executed as part of the authentication pipeline in Auth0. This happens every time a user authenticates to an application. __Rules__ enable very powerful customizations and extensions to be added to Auth0. 
 
-* Bring information from your own databases and add it to the user.
+Here are a few examples. You could:
+
+* Bring information from your own databases and add it to the user profile object.
 * Create authorization rules based on complex logic (anything that can be written with node.js).
-* Normalize attributes from different providers.
+* Normalize attributes from different providers besides to what we provide out of the box.
 * Reuse information from existing databases or APIs in migration scenarios.
-* Whatever you can imagine (like keep a whitelist of users in a dropbox file and deny access based on email ;)
+* Keep a white-list of users in a dropbox file and deny access based on email.
 
-## Hello World Example
+__Auth0 Rules__ are implemented in JavaScript. Which means you don't have to learn an esoteric DSL. They run in their own sandbox to protect the core of Auth0's runtime. Even if you make a mistake and your code ends up in a tight loop for example, everything else will work just fine.
 
-This rule will add a `hello` attribute to all users authenticating trough any provider.
+Notice you can chain rules together to keep functionality modular and easy to understand. __Rules__ can be turned on and off individually.
+
+## The simplest example: a _Hello World_
+
+This rule will add a `hello` attribute to all users authenticating through any provider.
 
     function (user, context, callback) {
       user.hello = 'world';
@@ -18,26 +24,24 @@ This rule will add a `hello` attribute to all users authenticating trough any pr
       callback(null, user, context)
     }
 
-> **HINT**: You can try the rule while editing and you can see the output and any `console.log` used. Useful for debugging ![](img/rules.png)
+> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](img/rules.png)
 
-The rule takes the following arguments:
+A __Rule__ takes the following arguments:
 
 * `user`: the user object as it comes from the identity provider.
-* `context`: an object containing contextual information.
+* `context`: an object containing contextual information of the current authentication transaction. It has the following properties:
   * `clientID`: the client id of the application the user is logging in to.
-  * `clientName`: the name of the application (set on the dashboard).
-  * `connection`: the name of the connection (e.g.: `twitter` or `some-google-apps-domain`)
-  * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints
+  * `clientName`: the name of the application (as defined on the dashboard).
+  * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
+  * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment.
 
 > It is important to call the `callback` function which takes the `user` and `context` modified, otherwise the script will timeout (this is because of the async nature of node.js).
 
 ## Other examples
 
-Here are some other rules that can be used as examples.
+Here are some other common rules:
 
-### Add roles to the user
-
-Let's say you write this (simple) **rule**:
+### Adding roles to a user
 
     function (user, context, callback) {
       user.roles = [];
@@ -50,16 +54,16 @@ Let's say you write this (simple) **rule**:
       callback(null, user, context);
     }
 
-When the user authenticates using Google, the rule will be executed with the following input:
+All authenticated users will get a __guest__ role, but `johnfoo@gmail.com` will also be an __admin__. 
 
-`user` object:
+John's `user` object ath the beginning of the rule pipeline will be:
 
-      {
-        email: "johnfoo@gmail.com",
-        family_name: "Foo",
-        user_id: "google-oauth2|103547991597142817347"
-        ... other props ...
-      }
+    {
+      email: "johnfoo@gmail.com",
+      family_name: "Foo",
+      user_id: "google-oauth2|103547991597142817347"
+      ... other props ...
+    }
 
 `context` object:
 
@@ -94,13 +98,13 @@ Apart from adding and removing properties from the user, you can return an "acce
     }
 
 
-This will cause a redirect to your callback url with an `error` querystring with the message you set here. E.g.: `https://yourapp.com/callback?error=Only%20admins%20can%20use%20this`
+This will cause a redirect to your callback url with an `error` querystring parameter with the message you set. e.g.: `https://yourapp.com/callback?error=Only%20admins%20can%20use%20this`
 
 > **HINT**: For prototypes and small apps, you could put a file in a cloud storage (e.g. Dropbox), get a share link, make a request from the rule and use the response to let the user enter the app or add some attribute to entitle certain access.
 
-### Enrich user information from a database
+### Lookup user information from a database and add new properties
 
-Here is another example where we bring roles for a user from a SQL Server database. We use roles as an example, but you can add virtually anything (arrays, complex types, etc.)
+This __Rule__ will query SQL Server database and retrieve all roles associated with a user. Because `user` is a Json object you can add anything, with any structure (e.g. arrays, complex types, etc.)
 
     function (user, context, callback) {
       getRoles(user.email, function(err, roles) {
@@ -138,7 +142,7 @@ Here is another example where we bring roles for a user from a SQL Server databa
       }
     }
     
-> **HINT**: Make sure when you call an external endpoint to open your firewall/ports to our IP address which you can find it in the rules editor
+> **HINT**: Make sure when you call an external endpoint to open your firewall/ports to our IP address which you can find it in the rules editor. This happens when you query SQL Azure for example.
 
 ## Query a Web Service
 
@@ -188,7 +192,7 @@ For more information about this, read [SAML Configuration](saml-configuration).
 
 ## Available Modules
 
-The script runs in a JavaScript sandbox for security reasons. You can use the full power of the language (ECMAScript 5) and selected libraries. The current sandbox supports:
+The script runs in a JavaScript sandbox for security reasons. You can use the full power of the language (ECMAScript 5) and a few selected libraries. The current sandbox supports:
 
 * [async](https://github.com/caolan/async)
 * [request](https://github.com/mikeal/request)
@@ -203,4 +207,4 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
 * [Buffer](http://nodejs.org/api/buffer.html)
 
-> Do you need support for other libraries? Contact us [support@auth0.com](mailto:support@auth0.com)
+> Looking for something not listed here? Write us to [support@auth0.com](mailto:support@auth0.com)
