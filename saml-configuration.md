@@ -1,6 +1,6 @@
 # SAML
 
-Auth0 supports SAML protocol (used by apps like Salesforce, Box, etc.) and WS-Federation applications (used by apps like SharePoint, CRM, etc.). 
+Auth0 supports SAML protocol (used by apps like Salesforce, Box, etc.), WS-Federation protocol (used by apps like SharePoint, CRM, etc.) and the OAuth2/OpenID Connect protocol (used by custom developed applications). This document explains how to customize the SAML Assertions and the SAML and WS-Fed protocol parameters.
 
 By default, Auth0 will generate a SAML Assertion following certain conventions. However, you can customize everything by creating a [rule](rules) like this:
 
