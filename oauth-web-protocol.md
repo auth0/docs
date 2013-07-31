@@ -4,7 +4,15 @@ Auth0 supports the [OpenID Connect / OAuth2 Login](http://openid.net/specs/openi
 
 The steps are quite simple though:
 
-1. Redirect the user to:
+1. Setting up the callback URL in Auth0
+
+  <div class="setup-callback">
+  <p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
+
+  <pre><code>@@account.callback@@</pre></code>
+  </div>
+
+2. Triggering login manually or integrating the Auth0 widget
 
   <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
           response_type=code
@@ -13,9 +21,9 @@ The steps are quite simple though:
           &state=VALUE_THAT_SURVIVES_REDIRECTS
           &scope=openid</code></pre>
   
-  > You can optionally use the [Login Widget](login-widget) to trigger the login. Or you can do it manually and send a `connection` parameter that will redirect the user straight to the desired connection.
+@@sdk@@
 
-2. After the user authenticates, your app will be called to this endpoint with a `GET`
+3. After the user authenticates, your app will be called to this endpoint with a `GET`
 
   <pre style="word-wrap:break-word"><code>GET @@account.callback@@?
         code=AUTHORIZATION_CODE
@@ -23,7 +31,7 @@ The steps are quite simple though:
 
   > It is a good practice to check that the `state` value received and sent are the same. It can serve as a protection against XSRF attacks.
 
-3. Your app will have to send the `code` to the Auth0 server through a POST
+4. Your app will have to send the `code` to the Auth0 server through a POST
 
     <pre style="word-wrap:break-word"><code>POST https://@@account.namespace@@/oauth/token
     Content-type: application/x-www-form-urlencoded
@@ -34,7 +42,7 @@ The steps are quite simple though:
     &code=AUTHORIZATION_CODE
     &grant_type=authorization_code</code></pre> 
 
-4. The response of the server will look like this
+5. The response of the server will look like this
 
   <pre style="word-wrap:break-word"><code>{
      "access_token":"2YotnF..........1zCsicMWpAA",
@@ -44,7 +52,7 @@ The steps are quite simple though:
 
   > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user. The `id_token` is a [Json Web Token](http://tools.ietf.org/html/draft-jones-json-web-token-08), also commonly used to authenticate API calls. Because it is signed with the app secret, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services or your own Web API. 
 
-5. Finally, you can get the user profile by calling
+6. Finally, you can get the user profile by calling
 
   <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/userinfo/?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 

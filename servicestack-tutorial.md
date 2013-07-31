@@ -74,6 +74,14 @@ private void ConfigureAuth(Funq.Container container)
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
+### 3. Setting up the callback URL in Auth0
+
+<div class="setup-callback">
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <strong>Application Settings</strong> section on Auth0 Admin app (make sure to change the port).</p>
+
+<pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
+</div>
+
 ###4. Enter configuration settings
 
 Open your `web.config` file and change the three Auth0's parameters under `<appSettings>`:
@@ -84,7 +92,6 @@ Open your `web.config` file and change the three Auth0's parameters under `<appS
 <add key="oauth.auth0.OAuthServerUrl" value="https://@@account.namespace@@" />
 ```
 
-> These values can be obtained from the [Settings section](@@uiURL@@/#/Settings) on Auth0's Dashboard.
 
 ###5. Add backend code to test the app
 
@@ -132,19 +139,13 @@ public class HelloService : ServiceBase<Hello>
 ```
 > Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
 
-###6. Add UI code to Login and invoke the `HelloService`  
+### 6. Triggering login manually or integrating the Auth0 widget
 
-Open `default.htm` and:
+@@sdk@@
 
-####1. Add the following `script` tag (this is __Auth0 Login Widget__):
+### 7. Add UI code to Login and invoke the `HelloService`  
 
-```
-<script src="https://sdk.auth0.com/auth0.js#client=@@account.clientId@@&scope=openid"></script>
-```
-
-####2. Call `Hello` API
-
-Add the following statement in the `jQuery.ready` body:
+Open `default.htm` and add the following statement in the `jQuery.ready` body:
 
 ```js
 // get user info from hello endpoint
@@ -153,23 +154,7 @@ $.getJSON('/api/hello', function (data) {
           });
 ```
 
-####3. Add Login buttons
-
-Locate the `div` with `id=todoapp`. Add these two buttons under `content` div:
-
-```html
-<div>	
-	<button class="btn" onclick="window.Auth0.signIn({onestep: true})">Log On (using Widget)</button> - or -
-    <button class="btn" onclick="window.location='/api/auth/auth0/?connection=google-oauth2'">Log On (straight with Google)</button>
-</div> 
-```
-
-> Notice that the second button uses a `connection` parameter in the query string. This should be equal to the connection name you defined in Auth0. In this example, we are using `google-oauth2`, which is typically enabled by default. You can replace this with anything you want.  
-The first button, uses the __Auth0 Login Widget__, and will display all available connections for the user to pick up from.
-
-####4. Add a section to display the `UserInfo`
-
-Add this snippet at the end of the `content` div: 
+Add a section to display the `UserInfo`:
 
 ```html
 <div>User Info: 
@@ -177,20 +162,8 @@ Add this snippet at the end of the `content` div:
 </div>
 ```
 
-###7. Setup the callback URL in Auth0
-
-Did you keep your [settings](@@uiURL@@/#/Settings) page open? Make sure the __callback address__ in Auth0 is configured with the app's callback URL. For ServiceStack this would be:
-
-	http://{your-app}/api/auth/auth0/
-
-> In development, {your-app} would be something like `http://localhost:1234`
-
 ###8. Run the app
-
-Run the app, you should see the `default.htm` page with the two buttons. Clicking on `Logon (Using Widget)` will display:
-
-![](img/login-widget-servicestack.png)
 
 After successful authentication, the `UserProfile` will be displayed on the page.
 
-You are done. Congratulations! 
+**Congratulations!**

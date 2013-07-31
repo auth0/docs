@@ -12,17 +12,15 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 Install-Package Auth0-ASPNET
 ```
 
-> This package creates an ASP.NET Http Handler (`LoginCallback.ashx`) that will be responsible for the token exchange (based on OpenID Connect / OAuth) and setting a cookie that will be used for subsequent requests. It will also register a module based on the WIF `SessionAuthenticationModule` that will be responsible for serializing/deserializing the session cookie.
+> This package creates an ASP.NET Http Handler (`http://localhost:PORT/LoginCallback.ashx`) that will be responsible for the token exchange (based on OpenID Connect / OAuth) and setting a cookie that will be used for subsequent requests. It will also register a module based on the WIF `SessionAuthenticationModule` that will be responsible for serializing/deserializing the session cookie.
 
 ### 2. Setting up the callback URL in Auth0
 
-Run your web application and go to [Auth0 Settings](@@uiURL@@/#/settings) and make sure to set the callback URL to your application URL:
+<div class="setup-callback">
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
 
-```
-http://localhost:port/LoginCallback.ashx
-```
-
-![](img/settings-callback-aspnet.png)
+<pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
+</div>
 
 ### 3. Filling Web.Config with your Auth0 settings
 

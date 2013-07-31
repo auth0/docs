@@ -8,9 +8,6 @@ If you are building a node based app, you are very likely using [__passportjs__]
 
 ##Before you start
 
-1. We assume you are familiar with [nodejs](http://nodejs.org/) and [Express](http://expressjs.com/).
-2. We also assume you have at least one [connection](@@uiURL@@/#/connections) either enabled or created. If you don't have one, this [tutorial](enable-simple-connection) shows how to enable Google OAuth2, one of the simplest connections possible.
-
 Here's what you do for integrating Auth0 in your app with __passport__:
 
 ###1. Install the Auth0 strategy
@@ -52,8 +49,6 @@ Create a new file __setup-passport.js__ with the following code:
 
 > __TIP__: you typically would put this file under a 'lib' folder
 
-The __clientId__, __clientSecret__ and __domain__ are available on the [settings](@@uiURL@@/#/settings) page. Keep this page open. We will need one last thing later on.
-
 ###3. Initialize passport in your app
 In the startup file (e.g. _server.js_ or _app.js_) add:
 
@@ -75,9 +70,9 @@ and then in the __app.configure__ function make sure to have the `cookieParser` 
 
 The last bit of code you will need are the handlers for the passport callbacks:
 
-    //Callback handler
+    // Auth0 callback handler
     app.get('/callback', 
-      passport.authenticate('auth0', { failureRedirect: '/authfailure' }), 
+      passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), 
       function(req, res) {
         if (!req.user) {
           throw new Error('user null');
@@ -85,52 +80,28 @@ The last bit of code you will need are the handlers for the passport callbacks:
         res.redirect("/");
       });
 
-    //Authentication error handler
-    app.get('/authfailure', function (req, res) {
-      res.send('Authentication failed');
-    });
+### 4. Setting up the callback URL in Auth0
 
-    //Logout
-    app.get('/logout', function(req, res){
-      req.logout();
-      res.redirect('/');
-    });
+  <div class="setup-callback">
+  <p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
 
-    //Login
-    app.get('/login', 
-      passport.authenticate('auth0'), 
-      function (req, res) {
-        res.redirect("/");
-      });
-
-If you want to show some information about the user in the home page:
-
-    app.get('/', function (req, res) {
-      res.render('home', {
-        user: req.user
-      });
-    });
-
-> Check [passport.js profile](http://passportjs.org/guide/profile/) to see what attributes you can use. Also, Auth0 normalizes the user profile to simplify integration with multiple identity providers. Learn more about it [here](user-profile).
-
-###4. Setup the callback URL in Auth0
-
-Make sure the __App Callback URL__ in Auth0 is configured with your app's callback URL:
-
-    http://localhost:port/callback
-
-> Notice that Auth0 supports defining multiple callbacks by using ',' as the delimiter.
-
-#### Testing the app:
-
-Open a browser an navigate to the login URL (e.g. http://localhost:port/login)
+  <pre><code>http://localhost:PORT/callback</pre></code>
+  </div>
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
 @@sdk@@
 
-##Suggested follow up tutorials
+### 6. Accessing user information
 
-You have your basic node.js app running. If you want to get a deeper understanding of how this works, go ahead and read our [node.js under the hood](node-underthehood) tutorial.
+Once the user succesfuly authenticated to the application, a `user` will be generated which can be accessed through the `req.user` property.
 
-Also, it is always a good thing to be familiar with the underlying [protocols](protocols).
+    app.get('/', function (req, res) {
+      res.render('home', {
+        user: JSON.stringify(req.user, 0, 2)
+      });
+    });
+
+The user profile is normalized regardless of where the user came from. For more information about the normalized user profile [read this](user-profile).
+  
+**Congratulations!**
