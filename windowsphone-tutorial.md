@@ -107,11 +107,11 @@ Open the __MainPage.xaml.cs__ file and replace the class definition with this on
         }
     }
 
-> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/client__
+__
 
 ## Testing the app:
 
-Compile the App and run it. Assuming your connection (__google-oauth2 in this tutorial) is enabled, you should see the standard login screen:
+Compile the App and run it. You should see the standard login screen:
 
 ![](img/wp8-step3.png) 
 
@@ -140,6 +140,3 @@ Then change the `Login` method to:
         this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
     }
 
-Run the app again, you will see [Auth0 Login Widget](widget) with available connections:
-
-![](img/wp8-step5.png) 

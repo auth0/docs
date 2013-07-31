@@ -21,7 +21,7 @@ static final String Connection = "google-oauth2";  //change to "paypal", "linked
 
 The sample shows two buttons for Login. The one labeled __Login__, will initiate the login process with the connection specified in the constant `Connection` (google-oauth2 in this sample). The button labeled __Login With Widget__ will display the __Auth0 Login Widget__ and allow you to choose any configured Identity Provider.
 
-![](https://dl.dropboxusercontent.com/u/21665105/android.png)
+![](img/android.png)
 
 ##Using the library
 
@@ -58,7 +58,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent authActi
                 // result have two properties `accessToken` and `JsonWebToken`. You can use the `accessToken` to call the Auth0 API and retrieve the profile of the user that just logged in
                 // the `JsonWebToken` is a signed JSON that can be sent to your APIs
                 
-                String userInfoUrl = String.format("https://api.auth0.com/userinfo?access_token=%s", result.accessToken);
+                String userInfoUrl = String.format("https://@@account.namespace@@/userinfo?access_token=%s", result.accessToken);
                 new AsyncTask<String, Void, JSONObject>() {
                     @Override
                         protected JSONObject doInBackground(String... url) {

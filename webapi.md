@@ -29,29 +29,20 @@ You can also create a `HomeController` with an `Index` method and the `Index.csh
 
 > A regular HTML file would also work.
 
-###2. Setup the callback URL in Auth0
+### 2. Setting up the callback URL in Auth0
 
-Go to [Settings](@@uiURL@@/#/settings) and make sure to set the callback URL to the URL assigned by Visual Studio:
+<div class="setup-callback">
+<p>After authenticating the user on Auth0, we will do a redirect to a URL on your web site. For security purposes, you have to register the callback URL of your website on the <strong>Application Settings</strong> section on Auth0 Admin app. For this type of application, the URL might look like this: </p>
 
-```
-http://localhost:some_random_port
-```
+<pre><code>http://localhost:some_random_port</pre></code>
+</div>
 
-![](img/settings-callback.png)
 
-###3. Integrate the Login widget
+### 3. Triggering login manually or integrating the Auth0 widget
 
-On the html or `Index.cshtml` page that you added in the previous step, you can add the following code that instantiates the widget:
+@@sdk@@
 
-    <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&amp;scope=openid&amp;response_type=token"></script>
-
-Now, you have to call the login widget by using the JavaScript API `window.Auth0.signIn`. Here is an example using a `<button>`:
-
-    <button onclick="window.Auth0.signIn({onestep: true})">Login</button>
-
-Once a user has logged in using the widget, Auth0 will callback your application and send the `access_token` and `id_token` through the URL hash. This URL will look like this: `@@account.callback@@#access_token=...&id_token=...`. 
-
-You can use the returned `access_token` to make an AJAX call to Auth0 backend. For example, this code below will return the logged user information:
+You can use the returned `access_token` to make an AJAX call to Auth0 API. For example, this code below will return the logged user information:
 
         var access_token = /access_token=([^&]*)/g.exec(window.location.hash);
         if (access_token) {
