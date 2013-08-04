@@ -4,77 +4,92 @@ This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or
 
 ## Tutorial
 
-### 1. Install Xamarin.Auth0Client component
+### Install Xamarin.Auth0Client component
 
-  a. With the project loaded in Xamarin Studio, right-click on the `Components` folder in the `Solution Explorer` and select `Get More Components`.
-  b. Search and double-click on `Xamarin.Auth0Client` component.
-  c. From the component page, select the `Add to Project` button to download the component and add it to the current project.
+In order to include Xamarin.Auth0Client component, please perform the following steps:
+
+  1. With the project loaded in Xamarin Studio (or Visual Studio), right-click on the `Components` folder in the `Solution Explorer` and select `Get More Components`.
+  2. Search and double-click on `Xamarin.Auth0Client` component.
+  3. From the component page, select the `Add to Project` button to download the component and add it to the current project.
 
 For more information, please visit the <a target="_blank" href="http://docs.xamarin.com/guides/cross-platform/application_fundamentals/components_walkthrough">Xamarin documentation page</a>.
 
-### 2. Setting up the callback URL in Auth0
+### Login using Auth0 Login Widget
 
-<div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
+Xamarin.Auth0Client helps you authenticate users with any [Auth0 supported identity provider](https://docs.auth0.com/identityproviders), via the OpenId Connect protocol (built on top of OAuth2). The library is cross-platform, so once you learn it on iOS, you're all set on Android.
 
-<pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
-</div>
+#### Create and configure an Auth0Client
 
-### 3. Filling Web.Config with your Auth0 settings
-
-The NuGet package also created four settings on `<appSettings>`. Replace those with the following settings:
-
-```
-<add key="auth0:ClientId" value="@@account.clientId@@" />
-<add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
-<add key="auth0:Domain" value="@@account.namespace@@" />
-<add key="auth0:CallbackUrl" value="@@account.callback@@" />
+```csharp
+using Auth0.SDK;
+// ...
+var auth0 = new Auth0Client(
+  "Login", 
+  "@@account.tenant@@", 
+  "@@account.clientId@@");
 ```
 
-### 4. Triggering login manually or integrating the Auth0 widget
+#### Authenticate the user
 
-@@sdk@@
+`Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 
-### 5. Accessing user information
+Before we present the UI, we need to start listening to the `Completed` event which fires when the user successfully authenticates or cancels. You can find out if the authentication succeeded by testing the `IsAuthenticated` property of `eventArgs`:
 
-Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
+```csharp
+auth.Completed += (sender, eventArgs) => {
+  // We presented the UI, so it's up to us to dimiss it on iOS (ignore this line on Android)
+  DismissViewController (true, null);
 
-    public ActionResult Index() 
-    {
-        var claims = (User.Identity as IClaimsIdentity).Claims
-        string email = claims.SingleOrDefault(c => c.ClaimType == "email");
-    }
+	if (eventArgs.IsAuthenticated) {
+		// Use eventArgs.Account to do wonderful things
+	} else {
+		// The user cancelled
+	}
+};
+```
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
-    
+> All the information gathered from a successful authentication is available in `eventArgs.Account`.
+
+Now we're ready to present the login UI from `ViewDidAppear` on __iOS__:
+
+```csharp
+PresentViewController (auth.GetUI (), true, null);
+```
+
+or from `OnCreate` on __Android__:
+
+```csharp
+StartActivity (auth.GetUI (this), 42);
+```
+
+> The `GetUI` method returns `UINavigationControllers` on __iOS__, and `Intents` on __Android__.
+
+
+![](http://puu.sh/3RUxd.jpg)
+
+If you add the `connection` parameter to the constructor, then Auth0 will redirect the user to the specified `connection`:
+
+```csharp
+using Auth0.SDK;
+// ...
+var auth = new Auth0Client (
+  "Login", 
+  "@@account.tenant@@", 
+  "@@account.clientId@@",
+  "google-oauth2");
+```
+
+#### Retrieve authentication properties
+
+Upon successful authentication, the `Complete` event will fire. `Auth0Client` will set the `eventArgs.Account.Username` property to that obtained from the Identity Provider. You will also get from eventArgs.Account property:
+
+* `Properties["access_token"]`: is a regular OAuth Access Token that can be used to call [Auth0 API](https://docs.auth0.com/api-reference).
+* `Properties["id_token"]`: is a Json Web Token (JWT) and it is signed by Auth0.
+* `GetProfile()`: an extension method which returns a `Newtonsoft.Json.Linq.JOBject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) which contains all of the user attributes.
+
+### Login using your own UI
+
+_Coming soon._
+
+
 **Congratulations!**
-
-----
-
-### More information...
-
-#### Authorization
-
-You can use the usual authorization techniques since the `LoginCallback.ashx` handler and the Http Module will generate an `IPrincipal` on each request. This means you can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`
-
-#### Log out
-
-To clear the cookie generated on login, use the `ClaimsCookie.ClaimsCookieModule.Instance.SignOut()` method.
-
-#### Link accounts
-
-To allow users to link accounts from different providers, read [Link Accounts](link-accounts).
-
-You will need the `access_token` of the logged in user. You can get it from:
-
-```
-<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>
-```
-
-#### Flow the identity to a WCF service
-
-If you want to flow the identity of the user logged in to a web site, to a WCF service or an API, you have to use the `scope=openid` parameter on the login (as shown in the example above). When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. . Notice that by default it will only include the user id as part of the claims. If you want to get the full claim set for the user, use `scope=openid%20profile`. [Read more about this](/wcf-tutorial).
-
-#### Manage environments: Dev, Test, Production
-
-We recommend creating one application per environment in Auth0 and have different client ids and secret per environment. [Read more about this](azure-tutorial).
