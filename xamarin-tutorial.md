@@ -25,20 +25,19 @@ There are two options to fire a login:
 using Auth0.SDK;
 
 var auth0 = new Auth0Client(
-  "Login", 
-  "@@account.tenant@@", 
-  "@@account.clientId@@");
+	"Login", 
+	"@@account.tenant@@", 
+	"@@account.clientId@@");
 
 // attach to Completed event
 auth.Completed += (sender, eventArgs) => {
-  
-  // We presented the UI, so it's up to us to dimiss it on iOS (ignore this line on Android)
-  DismissViewController (true, null);
-
+	// We presented the UI, so it's up to us to dimiss it on iOS (ignore this line on Android)
+	DismissViewController (true, null);
+	
 	if (eventArgs.IsAuthenticated) {
-	   // Use **eventArgs.Account** to do wonderful things
+		// Use **eventArgs.Account** to do wonderful things
 	} else {
-	   // The user cancelled
+	// The user cancelled
 	}
 };
 
@@ -64,10 +63,10 @@ You have to add the `connection` parameter to the constructor and the user will 
 using Auth0.SDK;
 // ...
 var auth = new Auth0Client (
-  "Login", 
-  "@@account.tenant@@", 
-  "@@account.clientId@@",
-  "google-oauth2"); // connection name here
+	"Login", 
+	"@@account.tenant@@", 
+	"@@account.clientId@@",
+	"google-oauth2"); // connection name here
 ```
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
@@ -79,6 +78,10 @@ Upon successful authentication, the `Complete` event will fire. `Auth0Client` wi
 * `eventArgs.Account.GetProfile()`: an extension method which returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all of the user attributes.
 * `eventArgs.Account.Properties["id_token"]`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
 * `eventArgs.Account.Properties["access_token"]`: the `access_token` can be used to [link accounts](link-accounts).
+
+## Download the samples
+
+Browse the samples on GitHub from [here](https://github.com/auth0/Xamarin.Auth0Client/tree/master/samples).
 
 
 **Congratulations!**
