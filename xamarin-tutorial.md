@@ -16,10 +16,10 @@ For more information, please visit the <a target="_blank" href="http://docs.xama
 
 ### 2. Setting up the callback URL in Auth0
 
-Go to the [Application Settings](@@sdkURL@@/#/applications/@@account.clientId@@/settings) section on Auth0 Admin app and make sure that __App Callbacks URLs__ has the following value:
+Go to the [Application Settings](@@uiURL@@/#/applications/@@account.clientId@@/settings) section on Auth0 Admin app and make sure that __App Callbacks URLs__ has the following value:
 
 ```
-https://@@@account.namespace@/mobile
+https://@@account.namespace@@/mobile
 ```
 
 ### 3. Triggering the login manually or integrating the Auth0 widget
