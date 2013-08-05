@@ -53,7 +53,7 @@ StartActivityForResult(intent, 42);
 
 > `Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 
-![](http://puu.sh/3UoK1.png)
+![](http://puu.sh/3UqNG.png)
 
 ### Want to do your own UI?
 
