@@ -14,7 +14,15 @@ In order to include `Xamarin.Auth0Client` component, please perform the followin
 
 For more information, please visit the <a target="_blank" href="http://docs.xamarin.com/guides/cross-platform/application_fundamentals/components_walkthrough">Xamarin documentation page</a>.
 
-### 2. Triggering the login manually or integrating the Auth0 widget
+### 2. Setting up the callback URL in Auth0
+
+Go to the [Application Settings](@@sdkURL@@/#/applications/@@account.clientId@@/settings) section on Auth0 Admin app and make sure that __App Callbacks URLs__ has the following value:
+
+```
+https://@@@account.namespace@/mobile
+```
+
+### 3. Triggering the login manually or integrating the Auth0 widget
 
 There are two options to fire a login: 
 
@@ -71,7 +79,7 @@ var auth = new Auth0Client (
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
 
-### 3. Accessing user information
+### 4. Accessing user information
 
 Upon successful authentication, the `Complete` event will fire. `Auth0Client` will set the `eventArgs.Account.Username` property to that obtained from the Identity Provider. You will also get from eventArgs.Account property:
 
