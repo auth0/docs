@@ -8,7 +8,11 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your your app. You 
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
-##Anatomy of the Auth0 Login Widget
+## Playground
+
+@@sdk@@
+
+## Anatomy of the Auth0 Login Widget
 
 ![](img/widget-numbered.png)
 
@@ -120,7 +124,8 @@ Here is an example:
 
 * Can I customize the colors and structure of the widget?
 
-    Not currently. But if there is enough interest, we might implement that in the future. In the meantime you can use the JavaScript object model as shown above.
+    Yes. You can customize it by passing a `css` parameter to the script pointing to a URL with your CSS (hosted on HTTPS). Or you can use the JavaScript API and use your own UI. 
+    Here are a couple of fiddles to play around: <a href="http://jsfiddle.net/auth0/FSCrV/" target="_blank">css customization</a> and <a href="http://jsfiddle.net/auth0/2t9HG/" target="_blank">JavaScript API</a>
 
 * Can I remove the "Powered by Auth0"?
 
