@@ -16,11 +16,11 @@ For more information, please visit the <a target="_blank" href="http://docs.xama
 
 ### 2. Setting up the callback URL in Auth0
 
-Go to the [Application Settings](@@uiURL@@/#/applications/@@account.clientId@@/settings) section on Auth0 Admin app and make sure that __App Callbacks URLs__ has the following value:
+<div class="setup-callback">
+<p>Go to the <b>Application Settings</b> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
-```
-https://@@account.namespace@@/mobile
-```
+<pre><code>https://@@account.namespace@@/mobile</pre></code>
+</div>
 
 ### 3. Integration
 There are three options to do the integration: 
