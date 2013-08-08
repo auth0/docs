@@ -23,10 +23,11 @@ https://@@account.namespace@@/mobile
 ```
 
 ### 3. Integration
-There are two options to do the integration: 
+There are three options to do the integration: 
 
 1. Using the [Auth0 Login Widget](@@base_url@@/login-widget) inside a Web View (this is the simplest with only a few lines of code required).
-2. Creating your own UI (more work, but higher control the UI and overall experience)
+2. Creating your own UI (more work, but higher control the UI and overall experience).
+3. Using specific user name and password.
 
 #### Option 1: Authentication using Login Widget
 
