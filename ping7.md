@@ -2,7 +2,6 @@
 title: PingFederate
 layout: doc.nosidebar
 ---
-
 # Configuring PingFederate 7 as an Identity Provider
 
 Most options are the default values. You will just need to press __Next__ in most screens. If metadata import fails for some reason, keep these values at hand. Tehse are the most important configuration parameters:
