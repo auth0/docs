@@ -15,7 +15,7 @@ Most options are the default values. You will just need to press __Next__ in mos
 
 ##1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://@@account.namespace@@/samlp/mex). This will be used in [step 5](ping7#5) to import information about your partner (@@account.tenant@@).
+Download the metadata file from [here](https://@@account.namespace@@/samlp/mex). This will be used in [step 5](ping7#5) to import information about your partner.
 
 ##2. Create a new __SP Connection__
 
@@ -33,7 +33,7 @@ Select __Browser SSO__ as the __Connection Options__:
 
 ![](http://puu.sh/3ZKUx.png)
 
-Upload the [__metadata file__](https://@@account.namespace@@/samlp/mex) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner (@@account.tenant@@):
+Upload the [__metadata file__](https://@@account.namespace@@/samlp/mex) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
 
 ![](http://puu.sh/3ZL2v.png)
 
