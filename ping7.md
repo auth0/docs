@@ -103,5 +103,3 @@ In any case, make sure your click the button __Save__ at the bottom of the scree
 You are done! You should see the new connection on the __Main__ screen:
 
 ![](http://puu.sh/3ZWk7.png)
-
----
