@@ -5,7 +5,7 @@ Auth0 is an "identity hub" that supports a number of authentication providers us
 Auth0 supports:
 
 1. Enterprise: __Active Directory__, __ADFS__, __LDAP__, __Google Apps__, __Office365__, __SQL__
-2. Social: __Amazon__, __Facebook__, __LinkedIn__, __Twitter__, __Microsoft Account__, __Google__, __PayPal__, __GitHub__, __vKontakte__, __37Signals__.
+2. Social: __Amazon__, __Facebook__, __LinkedIn__, __Twitter__, __Microsoft Account__, __Google__, __PayPal__, __GitHub__, __vKontakte__, __37Signals__, __Box__.
 
 ![](img/auth0-idp.png)
 
