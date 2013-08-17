@@ -1,8 +1,8 @@
-# Protocols supported by Auth0 
+# Identity Protocols supported by Auth0 
 
-Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth2) and in enterprise deployments (e.g. SAML, WS-Federation). In most cases you won't need to go this deep to use Auth0.
+Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](saml-configuration), WS-Federation). In most cases you won't need to go this deep to use Auth0.
 
->This article is meant as an introduction. See the references section below for more information. 
+> This article is meant as an introduction. See the references section below for more information. 
 
 ## OAuth Server Side
 
@@ -101,3 +101,73 @@ Optionally (if `scope=openid` is added in the authorization request):
 	https://CALLBACK#access_token=ACCESS_TOKEN&id_token=JSON_WEB_TOKEN
 
 Clients typically extract the URI fragment with the __Access Token__ and follow the redirection. The client code will then interact with other endpoints using the token in the fragment.
+
+
+## OAuth Resource Owner Password Credentials Grant
+
+This endpoint is used by clients to obtain an access token (and an options [JsonWebToken](jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
+
+### 1. Login Request
+
+It receives a `client_id`, `client_secret`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
+
+    POST /oauth/ro HTTP/1.1
+	Host: {auth0_domain}.auth0.com
+	Content-Type: application/x-www-form-urlencoded
+	
+	grant_type=password&username=johndoe&password=abcdef&client_id=...&client_secret=...&connection=...
+
+Currently, Auth0 implements the following connections:
+
+* google-oauth2
+* google-apps
+* database connections
+
+As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token* which is a Json Web Token ([JWT](jwt)).
+
+#### Sample Request
+
+	curl --data "grant_type=password&username=johndoe&password=abcdef&client_id=...&client_secret=...&connection=...&scope=openid" https://{auth0_domain}.auth0.com/oauth/ro
+
+### Login Response
+In response to a login request, Auth0 will return either an HTTP 200, if login succeeded, or an HTTP error status code, if login failed.
+
+A successful response contains the *access_token* (that can be exchanged for the userinfo), and the *id_token* (if 'openid' was specified in `scope` parameter).
+
+A failure response will contain error and error_description fields.
+	
+#### Sample Successful Response
+
+	HTTP/1.1 200 OK
+	Server: GFE/1.3
+	Content-Type: application/json
+
+	{
+		"access_token": "3WAvWLgMCHkUvoM6",
+		"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2xvZ2luLmF1dGgwLmNvbTozMDAwLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8c2ViYXN0aWFub3NAZ21haWwuY29tIiwiYXVkIjoia3d0TzhWRFNKZnpDU010YXBldlQ2YW0xTHRScjFGQ28iLCJleHAiOjEzNzUzMTE4ODQsImlhdCI6MTM3NTI3NTg4NH0.IPLi1Prr_q8xohD6QQ2CbbvCXqn_8HR__batWdv-O8o",
+		"token_type": "bearer"
+	}
+
+#### Sample Response with incorrect Username/Password
+
+	HTTP/1.1 401 Unauthorized
+	Server: GFE/1.3
+	Content-Type: application/json
+	
+	{
+	  "error": "Unauthorized",
+	  "error_description": "BadAuthentication"
+	}
+	
+#### Sample Response for an unsupported connection
+
+	HTTP/1.1 400 BadRequest
+	Server: GFE/1.3
+	Content-Type: application/json
+	
+	{
+	  "error": "invalid_request",
+	  "error_description": "specified strategy does not support requested operation (windowslive)"
+	}
+
+
