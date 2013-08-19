@@ -1,14 +1,14 @@
 # Using Auth0 with WPF or Winforms
 
-This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsWPF` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
+This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
 
 ## Tutorial
 
-### 1. Install Auth0.WinformsWPF NuGet package
+### 1. Install Auth0.WinformsOrWPF NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WinformsWPF package, running the command:
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WinformsOrWPF package, running the command:
 
-<pre><code>Install-Package Auth0.WinformsWPF</pre></code>
+<pre><code>Install-Package Auth0.WinformsOrWPF</pre></code>
 
 ### 2. Setting up the callback URL in Auth0
 
@@ -50,6 +50,8 @@ auth0.LoginAsync (this)
 ```
 
 ![](img/wpf-winforms-step1.png)
+
+> For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync (this)`
 
 #### Option 2: Authentication with your own UI
 
