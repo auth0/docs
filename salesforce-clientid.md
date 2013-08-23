@@ -22,7 +22,7 @@ Complete the basic information about your app (Connected App Name, API Name and 
 
 ##3. Get your Client Id and Client Secret
 
-Once the application is registered, enter your new `Consumer Key` as `Client Id` and `Consumer Secret` as `Client Secret` into the connection settings in Auth0.
+Once the application is registered, enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
 
 ![](img/salesforce-register-3.png)
 
