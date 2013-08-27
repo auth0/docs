@@ -1,136 +1,88 @@
-# Using Auth0 with Windows 8 in C#
+# Using Auth0 with Windows App Store
 
-The key to Win8 integration is the [Windows.Security.Authentication.Web.WebAuthenticationBroker](http://msdn.microsoft.com/en-US/library/windows/apps/windows.security.authentication.web.webauthenticationbroker) class.
+This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.Windows8.Cs` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
 
-This class automates the popular method of instantiating a web browser in native apps to perform all interactions with the authentication providers, and then extracting security tokens once they become available (usually through a POST or after a redirect).
+## Tutorial
 
-The sample uses the `implicit flow` protocol. See the [protocols](protocols) document for more details.
+### 1. Install Auth0.Windows8.Cs NuGet package
 
-##Before you start
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Cs package, running the command:
 
-1. You will need Visual Studio 2012 
-2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+<pre><code>Install-Package Auth0.Windows8.Cs</pre></code>
 
-##Integrating Auth0 with a WinRT C# App
+### 2. Setting up the callback URL in Auth0
 
-###1. Create a new Application
-Open Visual Studio and create new blank C# Windows Store app:
+<div class="setup-callback">
+<p>Go to the <b>Application Settings</b> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
-![](img/win8-step1.png)
+<pre><code>https://@@account.namespace@@/mobile</pre></code>
+</div>
 
-###2. Add UI controls
-Open the __default.html__ file and paste the following content inside the `<body>` element:
+### 3. Integration
+There are three options to do the integration: 
 
-	<div data-win-control="Input">
-        <div class="item" id="auth0Input">
-            <H2>Connect to Auth0</H2>
-            <br />
-            <label for="clientID">Client ID: </label>
-            <input type="text" id="clientId" value="@@account.clientId@@" />
-            <br/>
-            <label for="callbackURL">Callback URL: </label>
-            <input type="text" id="callbackUrl" value="https://localhost/client" />
-            <br/>
-            <label for="connection">Connection: </label>
-            <input type="text" id="connection" value="google-oauth2" />
-            <br/>
-            <br/><button class="action" id="start">Start</button>
-            <br /><br />
-        </div>
-    </div>
-    <div data-win-control="Output">
-		<textarea id="auth0DebugArea" rows="15" cols="150"></textarea>
-    </div>
+1. Using the [Auth0 Login Widget](login-widget) inside a Web View (this is the simplest with only a few lines of code required).
+2. Creating your own UI (more work, but higher control the UI and overall experience).
+3. Using specific user name and password.
 
-Add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element: 
+#### Option 1: Authentication using Login Widget
 
-    <script src="/js/auth0.js"></script>
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project: 
 
-###3. Add code to invoke the WebAuthenticationBroker
-Under the __js__ folder, create new file named __auth0.js__ with the following content:
+```csharp
+using Auth0.SDK;
 
-	(function () {
-	    "use strict";
-	    var page = WinJS.UI.Pages.define("/default.html", {
-	        ready: function (element, options) {
-	            document.getElementById("start").addEventListener("click", startAuthentication, false);
-	        }
-	    });
+var auth0 = new Auth0Client(
+	"@@account.tenant@@",
+	"@@account.clientId@@",
+	"@@account.clientSecret@@");
 
-	    function startAuthentication() {
+auth0.LoginAsync (this)
+	 .ContinueWith(t => { 
+	 /* 
+	    Use t.Result to do wonderful things, e.g.: 
+	      - get user email => t.Result.Profile["email"].ToString()
+	      - get facebook/google/twitter/etc access token => t.Result.Profile["identities"][0]["access_token"]
+	      - get Windows Azure AD groups => t.Result.Profile["groups"]
+	      - etc.
+	*/ },
+	TaskScheduler.FromCurrentSynchronizationContext());
+```
 
-	        var auth0Url = "https://@@account.namespace@@/authorize";
+![](img/win8-cs-step1.png)
 
-	        var clientId = document.getElementById("clientId").value;
-	        var connection = document.getElementById("connection").value;
-	        var callbackUrl = document.getElementById("callbackUrl").value;
+#### Option 2: Authentication with your own UI
 
-	        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=openid&" + "connection=" + connection;
+If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
 
-	        var startUri = new Windows.Foundation.Uri(auth0Url);
-	        var endUri = new Windows.Foundation.Uri(callbackUrl);
+```csharp
+auth0.LoginAsync (this, "auth0waadtests.onmicrosoft.com") // connection name here
+	 .ContinueWith(t => { /* Use t.Result to do wonderful things */ });
+```
 
-	        log("Navigating to: " + auth0Url);
+> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
 
-	        Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync(
-	            Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startUri, endUri)
-	            .done(function (result) {
+#### Option 3: Authentication with specific user name and password (only for providers that support this)
 
-	                if (result.responseStatus === Windows.Security.Authentication.Web.WebAuthenticationStatus.errorHttp) {
-	                    log("Error returned: " + result.responseErrorDetail);
-	                    return;
-	                }
+```csharp
+auth0.LoginAsync (
+	"my-db-connection", 	// connection name here
+	"username", 			// user name
+	"password")				// password
+	 .ContinueWith(t => 
+	 { 
+	 	/* Use t.Result to do wonderful things */ 
+ 	 });
+```
 
-	                log("Status returned by WebAuth broker: " + result.responseStatus);
-	                log("Token: " + result.responseData);
+## Accessing user information
 
-	                // Quick and dirty parsing of the access_token
-	                var access_token = result.responseData.split("#")[1].split("&")[0];
-	                WinJS.xhr({ url: "https://@@account.namespace@@/userinfo/?" + access_token, responseType: "json" })
-	                            .done(function complete(result) {
-	                                log("User Profile: " + result.responseText);
-	                            },
-	                                  function (err) {
-	                                      log("Error in getting user profile: " + err.responseData);
-	                                  });
-	                
-	                // quick and dirty parsing of id_token
-	                var id_token = result.responseData.split("#")[1].split("&")[1].split("=")[1]; // get jwt
-	                // use jwt to call your APIs
-	            }, function (err) {
-	                log("Error Message: " + err.message);
-	            });
-	    }
+The `Auth0User` has the following properties:
 
-	    function log(msg) {
-	        document.getElementById("auth0DebugArea").value += msg + "\r\n";
-	    }
-	})();
+* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
+* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
 
-> Remember that the 'callBackUrl' must be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/client__
+> If you want to use __Windows Azure Mobile Services__ (WAMS) you should create a WAMS app in Auth0 and set the Master Key that you can get on the Windows Azure portal. Then you have change your WPF or Winforms app to use the client id and secret of the WAMS app just created and set the callback of the WAMS app to be `https://@@account.tenant@@.auth0.com/mobile`. Finally, you have to set the `MobileServiceAuthenticationToken` property of the `MobileServiceUser` with the `IdToken` property of `Auth0User`.
 
-> Also note that we are using `scope=openid` on the URL. This will return not only the access_token but also an id_token, which is a JWT, that can be used to call and authenticate users with an API. This JWT will only have the user id, but if you want the whole user profile, you should use `scope=openid%20profile`.
-
-## Testing the app:
-
-Compile the App and run it. Assuming your connection (__google-openid__ in this tutorial) is enabled, you should see the standard login screen:
-
-![](img/win8-step2.png) 
-
-After authentication the returned token will appear on the debug area together with the user profile (notice the chained call to the __https://@@account.namespace@@/userinfo__ endpoint):
-
-![](img/win8-step3.png) 
-
-Congratulations! 
-
-## Adding more flexibility
-This tutorial works with a specific connection (__google-oauth2). What if you have more than one connection, and you'd want to dynamically offer these connections as login options to your users? Auth0 makes it very easy with the Login Widget. 
-
-In the `StartAuthenticationMethod` replace the StartUri to:
-
-	https://@@account.namespace@@/login/?client=" + clientId + "&response_type=token&scope=openid";
-
-Once you start the login process you will see the Login Widget displayed:
-
-![](img/win8-step4.png)
-
+**Congratulations!**
