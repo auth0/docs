@@ -10,7 +10,7 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 
 <pre><code>Install-Package Auth0.Windows8.Js</pre></code>
 
-And add reference to the JavaScript code in the __default.html__, include the following line in the <head> element: 
+And add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element: 
 
 ```html
 <script src="/js/auth0.js"></script>
@@ -44,7 +44,13 @@ var auth0 = new Auth0Client(
 
 auth0.Login(function (err, result) {
   if (err) return err;
-  var profile = result;
+  /* 
+  Use result to do wonderful things, e.g.: 
+    - get user email => result.Profile.email
+    - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
+    - get Windows Azure AD groups => result.Profile.groups
+    - etc.
+  */
 });
 ```
 
@@ -57,7 +63,13 @@ If you know which identity provider you want to use, you can add a `connection` 
 ```javascript
 auth0.Login("auth0waadtests.onmicrosoft.com", function (err, result) {
   if (err) return err;
-  var profile = result;
+  /* 
+  Use result to do wonderful things, e.g.: 
+    - get user email => result.Profile.email
+    - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
+    - get Windows Azure AD groups => result.Profile.groups
+    - etc.
+  */
 });
 ```
 
@@ -72,8 +84,24 @@ auth0.Login(
   "password", 
   function (err, result) {
     if (err) return err;
-    var profile = result;
+    /* 
+    Use result to do wonderful things, e.g.: 
+      - get user email => result.Profile.email
+      - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
+      - get Windows Azure AD groups => result.Profile.groups
+      - etc.
+    */
   });
 ```
+
+## Accessing user information
+
+The `Auth0User` has the following properties:
+
+* `Profile`: returns a JSON object containing all available user attributes (e.g.: `user.Profile.email`).
+* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
+
+> If you want to use __Windows Azure Mobile Services__ (WAMS) you should create a WAMS app in Auth0 and set the Master Key that you can get on the Windows Azure portal. Then you have change your Windows Store App to use the client id and secret of the WAMS app just created and set the callback of the WAMS app to be `https://@@account.tenant@@.auth0.com/mobile`. Finally, you have to set the `MobileServiceAuthenticationToken` property of the `MobileServiceUser` with the `IdToken` property of `Auth0User`.
 
 **Congratulations!**
