@@ -28,7 +28,6 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 <add key="auth0:ClientId" value="@@account.clientId@@" />
 <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
 <add key="auth0:Domain" value="@@account.namespace@@" />
-<add key="auth0:CallbackUrl" value="@@account.callback@@" />
 ```
 
 ### 4. Triggering login manually or integrating the Auth0 widget
