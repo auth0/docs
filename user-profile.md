@@ -22,7 +22,6 @@ This is a sample user profile from a user that logged in through **Google**:
 
 ```
 {
-  "_id": "4f2c8414310f59ce5f6aac652170ad43", // internal Auth0 id, don't use
   "email": "johnfoo@gmail.com",
   "family_name": "Foo",
   "gender": "male",
@@ -48,7 +47,6 @@ This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
 
 ```
 {
-  "_id": "a70f45374536d51d5ffeced583d01412",
   "email": "bobdoe@outlook.com",
   "emails": [
     "bobdoe@outlook.com",
@@ -77,7 +75,6 @@ This is a sample profile from **Office 365 (Windows Azure Active Directory)**:
 
 ```
 {
-  "_id": "b59da56c19e1a6401c04357d37b8d020",
   "email": "jeff@foo.onmicrosoft.com",
   "family_name": "Jeff",
   "given_name": "Beth",
@@ -102,7 +99,6 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 
 ```
 {
-  "_id": "e18a49250818e718dfd411869cf8822f",
   "email": "john@fabrikam.com",
   "family_name": "Fabrikam",
   "given_name": "John",
