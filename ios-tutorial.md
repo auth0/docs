@@ -1,60 +1,96 @@
 # Using Auth0 with iOS
 
-Integrating Auth0 with iOS based apps relies on the common method of instantiating a [UIWebView](http://developer.apple.com/library/ios/#documentation/uikit/reference/UIWebView_Class/Reference/Reference.html) inside the native app to drive all interactions with the authentication providers, and then extracting security tokens once they become available. 
+This tutorial explains how to integrate Auth0 with a iOS App. `iAuth0Client` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
 
-Because we are using the `implicit flow`, the access token is sent as an URL fragment in the final redirect:
+## Tutorial
 
-	@@account.callback@@#access_token=123456789098765432&id_token=324314355465564534314...
+### 1. Install iAuth0Client static library
 
-This sample works by intercepting the final redirect to the defined callback address (`@@account.callback@@`) and parsing the URL to extract the tokens.
+Clone the `Auth0.iPhone` source code:
 
-> The `access_token` is a regular OAuth Access Token. `id_token` is a Json Web Token (JWT) and it is signed by Auth0. If you have the __Windows Azure Mobile Services__ (WAMS) add-on enabled, Auth0 will sign the JWT with WAMS `masterkey`.
+<pre><code>git clone git@github.com:auth0/Auth0.iPhone.git</pre></code>
 
-##Before you start
+Reference the static library to your project:
 
-1. You will need XCode 4.5.2
-2. We also assume you have some connection enabled in your Auth0 account. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
-3. [Get the sample](https://github.com/auth0/Auth0-iOS-Sample).
+	1. Go to your project 
+	2. Right-click in the Frameworks folder and select ___Add Files to "Your Project Name"___
+	3. Go to the Auth0.iPhone, select the iAuth0Client folder, ensure that your project target is selected and press __Add__
 
-> The easiest way is to run `git clone https://github.com/auth0/Auth0-iOS-Sample.git` on your terminal.
+### 2. Setting up the callback URL in Auth0
 
-##Open the project and update your settings
+<div class="setup-callback">
+<p>Go to the <b>Application Settings</b> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
-Open the project with XCode and open the file `auth0ViewController.m`. Replace these constants with:
+<pre><code>https://@@account.namespace@@/mobile</pre></code>
+</div>
 
-```objc
-NSString * const tenant = @"@@account.tenant@@";
-NSString * const clientId = @"@@account.clientId@@";
-NSString * const returnUrl = @"@@account.callback@@";
-NSString * const connection = @"google-oauth2"; //change to "paypal", "linkedin", etc
-```
-##Run the sample
+### 3. Integration
+There are three options to do the integration: 
 
-The sample shows two buttons that will display the __Auth0 Login Control__. Tapping on `Login` will initiate the login process against the specific `connection` specified in the constant.
+1. Using the [Auth0 Login Widget](login-widget) inside a Web View (this is the simplest with only a few lines of code required).
+2. Creating your own UI (more work, but higher control the UI and overall experience).
+3. Using specific user name and password.
 
-Tapping on `Login with Widget` will display the __Auth0 Login Widget__:
+#### Option 1: Authentication using Login Widget
 
-![](img/ios-tutorial.png)
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
-##Using the library
+```objective-c
+#import "Auth0Client.h"
 
-All functionality is encapsulated in the `Auth0Client` library. Calling it requires just a couple lines of code:
+Auth0Client *client = [Auth0Client auth0Client:@"youraccount.auth0.com" 
+								   clientId:@"Your Client ID" 
+								   clientSecret:@"Your Client Secret"];
 
-```objc
-Auth0Client *client = [Auth0Client auth0ClientWithWidget:tenant clientId:"@@account.clientId@@" returnUrl:YOUR_CALLBACK];
-
-[client showInViewController:self allowsClose:NO withCompletionHandler:^(BOOL authenticated) {
+[client loginAsync:self withCompletionHandler:^(BOOL authenticated) {
     if (!authenticated) {
         NSLog(@"Error authenticating");
     }
-    else{
-        self.accessTokenView.text = [client.accessToken copy];
-        jwtToken = [client.jwtToken copy];
-        self.jwtTokenView.text = jwtToken;
+    else{            
+        // * Use client.auth0User to do wonderful things, e.g.:
+		// - get user email => [client.auth0User.Profile objectForKey:@"email"]
+		// - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
+		// - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
+		// - etc.
     }
 }];
 ```
 
-> Remember that the `returnUrl` parameter must also be defined in your Auth0 [settings](@@uiURL@@/#/settings). This sample uses __https://localhost/client__
+![](img/win8-cs-step1.png)
 
-Congratulations!
+#### Option 2: Authentication with your own UI
+
+If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
+
+```objective-c
+[client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(BOOL authenticated) 
+{ 
+	/* Use client.auth0User. to do wonderful things */ 
+}];
+```
+
+> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
+
+#### Option 3: Authentication with specific user name and password (only for providers that support this)
+
+```objective-c
+[client loginAsync:self connection:@"my-db-connection" 
+						username:@"username"
+						password:@"password"
+						withCompletionHandler:^(BOOL authenticated) 
+{ 
+	/* Use client.auth0User. to do wonderful things */ 
+}];
+```
+
+## Accessing user information
+
+The `auth0User` has the following properties:
+
+* `Profile`: returns a `NSDictionary` object containing all available user attributes (e.g.: `[client.auth0User.Profile objectForKey:@"email"]`).
+* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
+
+> If you want to use __Windows Azure Mobile Services__ (WAMS) you should create a WAMS app in Auth0 and set the Master Key that you can get on the Windows Azure portal. Then you have change your iOS App to use the client id and secret of the WAMS app just created and set the callback of the WAMS app to be `https://@@account.tenant@@.auth0.com/mobile`. Finally, you have to set the `MobileServiceAuthenticationToken` property of the `MobileServiceUser` with the `IdToken` property of `auth0User`.
+
+**Congratulations!**
