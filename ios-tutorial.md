@@ -6,15 +6,15 @@ This tutorial explains how to integrate Auth0 with a iOS App. `iAuth0Client` hel
 
 ### 1. Install iAuth0Client static library
 
-Clone the `Auth0.iPhone` source code:
+Clone the `Auth0.iOS` source code:
 
-<pre><code>git clone git@github.com:auth0/Auth0.iPhone.git</pre></code>
+<pre><code>git clone git@github.com:auth0/Auth0.iOS.git</pre></code>
 
 Reference the static library to your project:
 
 1. Go to your project 
-2. Right-click in the Frameworks folder and select ___Add Files to "Your Project Name"___
-3. Go to the Auth0.iPhone, select the iAuth0Client folder, ensure that your project target is selected and press __Add__
+2. Right-click on the `Frameworks` folder and select ___Add Files to "Your Project Name"___
+3. Go to the `Auth0.iOS`, select the `iAuth0Client` folder, ensure that your project target is selected and press __Add__
 
 ### 2. Setting up the callback URL in Auth0
 
@@ -38,9 +38,9 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 ```objective-c
 #import "Auth0Client.h"
 
-Auth0Client *client = [Auth0Client auth0Client:@"youraccount.auth0.com" 
-								   clientId:@"Your Client ID" 
-								   clientSecret:@"Your Client Secret"];
+Auth0Client *client = [Auth0Client auth0Client:@"@@account.tenant@@" 
+								   clientId:@"@@account.clientId@@" 
+								   clientSecret:@"@@account.clientSecret@@"];
 
 [client loginAsync:self withCompletionHandler:^(BOOL authenticated) {
     if (!authenticated) {
@@ -65,7 +65,7 @@ If you know which identity provider you want to use, you can add a `connection` 
 ```objective-c
 [client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(BOOL authenticated) 
 { 
-	/* Use client.auth0User. to do wonderful things */ 
+	/* Use client.auth0User to do wonderful things */ 
 }];
 ```
 
@@ -79,7 +79,7 @@ If you know which identity provider you want to use, you can add a `connection` 
 						password:@"password"
 						withCompletionHandler:^(BOOL authenticated) 
 { 
-	/* Use client.auth0User. to do wonderful things */ 
+	/* Use client.auth0User to do wonderful things */ 
 }];
 ```
 
