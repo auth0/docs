@@ -12,9 +12,9 @@ Clone the `Auth0.iPhone` source code:
 
 Reference the static library to your project:
 
-	1. Go to your project 
-	2. Right-click in the Frameworks folder and select ___Add Files to "Your Project Name"___
-	3. Go to the Auth0.iPhone, select the iAuth0Client folder, ensure that your project target is selected and press __Add__
+1. Go to your project 
+2. Right-click in the Frameworks folder and select ___Add Files to "Your Project Name"___
+3. Go to the Auth0.iPhone, select the iAuth0Client folder, ensure that your project target is selected and press __Add__
 
 ### 2. Setting up the callback URL in Auth0
 
@@ -56,7 +56,7 @@ Auth0Client *client = [Auth0Client auth0Client:@"youraccount.auth0.com"
 }];
 ```
 
-![](img/win8-cs-step1.png)
+![](img/iOS-step1.png)
 
 #### Option 2: Authentication with your own UI
 
