@@ -1,142 +1,87 @@
 # Using Auth0 with a native Windows Phone 8 app
 
-This tutorial relies on the common method of instantiating a web browser in a native app to drive all interactions with the authentication providers, and then extracting security tokens once they become available. 
+This tutorial explains how to integrate Auth0 with a Windows Phone app. `Auth0.WindowsPhone` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
 
-Because we are using the `implicit flow`, the access token is sent as an URL fragment in the final redirect:
+## Tutorial
 
-	https://YOUR_CALLBACK_URL#access_token=123456789098765432
+### 1. Install Auth0.WindowsPhone NuGet package
 
-The sample works by intercepting the redirect to the __CALLBACK URL__ and parsing the URL.
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Js package, running the command:
 
-> This same tutorial will not work on previous versions of Windows Phone because of bug in the Silverlight WebBrowser control that strips out URL fragments.
+<pre><code>Install-Package Auth0.WindowsPhone</pre></code>
 
-##Before you start
+### 2. Setting up the callback URL in Auth0
 
-1. You will need Visual Studio 2012 with [Windows Phone 8 SDK development tools](http://go.microsoft.com/fwlink/?LinkId=265772)
-2. We also assume you have Google OAuth2 connection enabled. If you haven't done so, this [tutorial](enable-simple-connection) shows how to do it.
+<div class="setup-callback">
+<p>Go to the <b>Application Settings</b> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
-##Integrating Auth0 with a Windows Phone 8 App
+<pre><code>https://@@account.namespace@@/mobile</pre></code>
+</div>
 
-###1. Create a new Application
-Open Visual Studio and create new Windows Phone app:
+### 3. Integration
+There are three options to do the integration: 
 
-![](img/wp8-step1.png)
+1. Using the [Auth0 Login Widget](login-widget) inside a Web View (this is the simplest with only a few lines of code required).
+2. Creating your own UI (more work, but higher control the UI and overall experience).
+3. Using specific user name and password.
 
-###2. Add UI controls
-Open the __MainPage.xaml__ file and replace the entire `<Grid>` definition with this one:
+#### Option 1: Authentication using Login Widget
 
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <TextBlock Text="Connect to Auth0" Grid.Row="0" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-        <Grid x:Name="ContentPanel" Grid.Row="1">
-            <phone:WebBrowser x:Name="LoginBrowser" Grid.Row="0" Grid.RowSpan="2" IsEnabled="true" IsScriptEnabled="True"/>
-            <TextBlock x:Name="UserInfo" Grid.Row="1" Grid.RowSpan="2" Visibility="Collapsed" TextWrapping="Wrap"/>
-        </Grid>
-    </Grid>
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project: 
 
-###3. Add code to initiate Authentication and retrieve User Profile
-Open the __MainPage.xaml.cs__ file and replace the class definition with this one:
+```csharp
+using Auth0.SDK;
 
-    public partial class MainPage : PhoneApplicationPage
-    {
-        private string AccessToken;
-        private const string Auth0UserInfo = @"https://@@account.namespace@@/userinfo/?{0}";
-        private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client_id={0}&redirect_uri={1}&response_type=token&connection={2}";
+var auth0 = new Auth0Client(
+    "@@account.tenant@@",
+    "@@account.clientId@@",
+    "@@account.clientSecret@@");
 
-        private const string RedirectUri = @"https://localhost/client";
-        private const string ClientId = @"@@account.clientId@@";
-        private const string Connection = @"google-oauth2";
+auth0.LoginAsync (this)
+     .ContinueWith(t => { 
+     /* 
+        Use t.Result to do wonderful things, e.g.: 
+          - get user email => t.Result.Profile["email"].ToString()
+          - get facebook/google/twitter/etc access token => t.Result.Profile["identities"][0]["access_token"]
+          - get Windows Azure AD groups => t.Result.Profile["groups"]
+          - etc.
+    */ });
+```
 
-        // Constructor
-        public MainPage()
-        {
-            InitializeComponent();
-            this.LoginBrowser.Navigating += LoginBrowser_Navigating;
-            this.LoginBrowser.Loaded += LoginBrowser_Loaded;
-            this.UserInfo.Tap += UserInfo_Tap;
-        }
+![](img/windows-phone-tutorial.png)
 
-        void UserInfo_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            Login();
-        }
+#### Option 2: Authentication with your own UI
 
-        void LoginBrowser_Loaded(object sender, RoutedEventArgs e)
-        {
-            Login();
-        }
+If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
 
-        void Login()
-        {
-            this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
-            this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
-            var auth0Endpoint = string.Format(Auth0Authorize, ClientId, RedirectUri, Connection);
-            this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
-        }
+```csharp
+auth0.LoginAsync (this, "auth0waadtests.onmicrosoft.com") // connection name here
+     .ContinueWith(t => { /* Use t.Result to do wonderful things */ });
+```
 
-        void LoginBrowser_Navigating(object sender, NavigatingEventArgs e)
-        {
-            if (e.Uri.ToString().StartsWith(RedirectUri))
-            {
-                e.Cancel = true;
+> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
 
-                //Quick and Dirty access_token parsing
-                this.AccessToken = e.Uri.Fragment.Substring(1).Split('&')[0];
+#### Option 3: Authentication with specific user name and password (only for providers that support this)
 
-                this.UserInfo.Visibility = System.Windows.Visibility.Visible;
-                this.LoginBrowser.Visibility = System.Windows.Visibility.Collapsed;
+```csharp
+auth0.LoginAsync (
+    "my-db-connection",     // connection name here
+    "username",             // user name
+    "password")             // password
+     .ContinueWith(t => 
+     { 
+        /* Use t.Result to do wonderful things */ 
+     });
+```
 
-                GetUserInfo();
-            }
-        }
+## Accessing user information
 
-        //Start downloading User profile
-        private void GetUserInfo()
-        {
-            WebClient c = new WebClient();
-            c.DownloadStringCompleted += c_DownloadStringCompleted;
-            c.DownloadStringAsync(new Uri(string.Format(Auth0UserInfo, this.AccessToken)));
-        }
+The `Auth0User` has the following properties:
 
-        void c_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-        {
-            this.UserInfo.Text = e.Result;
-        }
-    }
+* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
+* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
 
-__
+> If you want to use __Windows Azure Mobile Services__ (WAMS) you should create a WAMS app in Auth0 and set the Master Key that you can get on the Windows Azure portal. Then you have change your Windows Phone app to use the client id and secret of the WAMS app just created and set the callback of the WAMS app to be `https://@@account.tenant@@.auth0.com/mobile`. Finally, you have to set the `MobileServiceAuthenticationToken` property of the `MobileServiceUser` with the `IdToken` property of `Auth0User`.
 
-## Testing the app:
-
-Compile the App and run it. You should see the standard login screen:
-
-![](img/wp8-step3.png) 
-
-After authentication the user profile will be displayed on the screen:
-
-![](img/wp8-step4.png) 
-
-Congratulations!
-
-## Adding more flexibility
-This tutorial works with a specific connection (__google-oauth2__). What if you have more than one connection and you want to dynamically offer these options? Auth0 makes it very easy. Redirect the user to the login URL:
-
-     https://@@account.namespace@@/login/?client=@@account.clientId@@&response_type=token
-
-In the code above, replace the `Auth0Authorize` URL to:
-
-    private const string Auth0Authorize = @"https://@@account.namespace@@/authorize/?client={0}&response_type=token";
-
-Then change the `Login` method to:
-
-    private void Login()
-    {
-        this.UserInfo.Visibility = System.Windows.Visibility.Collapsed;
-        this.LoginBrowser.Visibility = System.Windows.Visibility.Visible;
-        var auth0Endpoint = string.Format(Auth0Authorize, ClientId);
-        this.LoginBrowser.Navigate(new Uri(auth0Endpoint));
-    }
-
+**Congratulations!**
