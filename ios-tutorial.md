@@ -6,15 +6,11 @@ This tutorial explains how to integrate Auth0 with a iOS App. `iAuth0Client` hel
 
 ### 1. Install iAuth0Client static library
 
-Clone the `Auth0.iOS` source code:
-
-<pre><code>git clone git@github.com:auth0/Auth0.iOS.git</pre></code>
-
-Reference the static library to your project:
-
-1. Go to your project 
-2. Right-click on the `Frameworks` folder and select ___Add Files to "Your Project Name"___
-3. Go to the `Auth0.iOS`, select the `iAuth0Client` folder, ensure that your project target is selected and press __Add__
+1. Go to [Auth0.iOS repository in Github](https://github.com/auth0/Auth0.iOS) and click on __Download ZIP__
+2. Decompress it and reference the `iAuth0Client` static library to your project:
+	* Go to your project in XCode
+	* Right-click on the `Frameworks` folder and select ___Add Files to "Your Project Name"___
+	* Select the `iAuth0Client` folder, ensure that your project target is selected and press __Add__
 
 ### 2. Setting up the callback URL in Auth0
 
