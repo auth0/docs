@@ -62,6 +62,47 @@ Will display the following:
 
 ![](img/widget-customized.png)
 
+### Customizing 'sign up' messages
+
+    window.Auth0.signIn({
+        onestep: true,
+        separatorText: "o",
+        showIcon: true,
+        icon: "https://myapp.com/logo.png",
+        // ... other properties ... 
+        signupTitle: "Registrarse",
+        signupButtonText: "Crear Usuario",
+        signupEmailPlaceholder: "Correo",
+        signupPasswordPlaceholder: "Contraseña",
+        signupCancelButtonText: "Cancelar"
+    });
+
+Will display the following:
+
+![](img/widget-customized-signup.png)
+
+### Customizing 'change password' messages
+
+    window.Auth0.signIn({
+        onestep: true,
+        separatorText: "o",
+        showIcon: true,
+        icon: "https://myapp.com/logo.png",
+        // ... other properties ... 
+        resetTitle: "Cambiar Contraseña",
+        resetButtonText: "Enviar",
+        resetEmailPlaceholder: "Correo",
+        resetPasswordPlaceholder: "Nueva Contraseña",
+        resetRepeatPasswordPlaceholder: "Confirmar Nueva Contraseña",
+        resetCancelButtonText: "Cancelar",
+        resetSuccessText: "Se ha enviado un correo electrónico para confirmar el cambio de contraseña.",
+        resetEnterSamePasswordText: "Por favor, ingrese la misma contraseña"
+    });
+
+Will display the following:
+
+![](img/widget-customized-reset.png)
+
 ## Customizing error messages
 
 You can customize the error messages that will be displayed on certain situations:
@@ -70,9 +111,11 @@ You can customize the error messages that will be displayed on certain situation
         onestep: true,
         title: "Contoso",
         // ... other properties ... 
-        // wrongEmailPasswordErrorText and serverErrorText are used only if you have a Database connection
+        // wrongEmailPasswordErrorText, signupServerErrorText, resetServerErrorText and serverErrorText are used only if you have a Database connection
         wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass',
         serverErrorText: 'There was an error processing the sign in.',
+        signupServerErrorText: 'There was an unhandled error processing the sign up.',
+        resetServerErrorText: 'There was an unhandled error processing the change password.',
         // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
         strategyDomainInvalid: 'The domain {domain} has not been setup.',
         // strategyEmailInvalid is shown if the email is not valid
