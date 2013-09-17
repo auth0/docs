@@ -114,15 +114,16 @@ You can customize the error messages that will be displayed on certain situation
         onestep: true,
         title: "Contoso",
         // ... other properties ... 
-        // wrongEmailPasswordErrorText, signupServerErrorText, resetServerErrorText and serverErrorText are used only if you have a Database connection
-        wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass',
+        // wrongEmailPasswordErrorText, serverErrorText, signupEnterpriseEmailWarningText, signupServerErrorText and resetServerErrorText are used only if you have a Database connection
+        wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
         serverErrorText: 'There was an error processing the sign in.',
+        signupEnterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.',
         signupServerErrorText: 'There was an unhandled error processing the sign up.',
         resetServerErrorText: 'There was an unhandled error processing the change password.',
         // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
         strategyDomainInvalid: 'The domain {domain} has not been setup.',
         // strategyEmailInvalid is shown if the email is not valid
-        strategyEmailInvalid: 'The email is invalid'
+        strategyEmailInvalid: 'The email is invalid.'
     });
 
 These errors will be shown on the widget header:
