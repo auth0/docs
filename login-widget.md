@@ -71,6 +71,8 @@ Will display the following:
         icon: "https://myapp.com/logo.png",
         // ... other properties ... 
         signupTitle: "Registrarse",
+        signupHeaderText: "Por favor, ingrese su correo y contraseña",
+        signupFooterText: "Al hacer clic en \"Crear Usuario\", usted está aceptando nuestros términos y condiciones.",
         signupButtonText: "Crear Usuario",
         signupEmailPlaceholder: "Correo",
         signupPasswordPlaceholder: "Contraseña",
@@ -90,6 +92,7 @@ Will display the following:
         icon: "https://myapp.com/logo.png",
         // ... other properties ... 
         resetTitle: "Cambiar Contraseña",
+        resetHeaderText: "Por favor, ingrese su correo y una nueva contraseña. Se le enviará un correo para confirmar el cambio de la misma.",
         resetButtonText: "Enviar",
         resetEmailPlaceholder: "Correo",
         resetPasswordPlaceholder: "Nueva Contraseña",
