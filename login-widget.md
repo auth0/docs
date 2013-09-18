@@ -1,6 +1,6 @@
 # Auth0 Login Widget
 
-The __Auth0 Login Widget__ makes it easy to integrate SSO in your your app. You won't have to worry about:
+The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:
 
 * Having a professional looking login dialog that displays well on any resolution and device.
 * Finding the right icons for popular social providers.
@@ -16,12 +16,12 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your your app. You 
 
 ![](img/widget-numbered.png)
 
-1. The __title__ of the widget. Optionally you can show a 24x24 icon.
+1. The __title__ of the widget. You can optionally show a 24x24 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
 3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection. 
 4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection. 
 
-> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. There is an enterprise connection whose domain is "**fabrikam.com**". In that situation, the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in, there will be Single Sign On.
+> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection with an associated domain "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
 
 ## Including the Login Widget on your page
 
@@ -39,7 +39,7 @@ To invoke the widget, use the `signIn` method
 
 The Widget can be customized through the parameters sent to the `signIn` method.
 
-For example (with labels in Spanish):
+This example shows how to display the labels in Spanish:
 
     window.Auth0.signIn({
         onestep: true,
@@ -58,11 +58,16 @@ For example (with labels in Spanish):
         forgotLink: "https://myapp.com/forgot"
     });
 
-Will display the following:
+
+Resulting in:
 
 ![](img/widget-customized.png)
 
-### Customizing 'sign up' messages
+## Customizing the Login Widget for Database Connections
+
+When using a database connections, the **Login Widget** has support for account creation (sign-up) and password recovery:
+
+### Customizing **sign-up** messages
 
     window.Auth0.signIn({
         onestep: true,
@@ -83,7 +88,7 @@ Will display the following:
 
 ![](img/widget-customized-signup.png)
 
-### Customizing 'change password' messages
+### Customizing **change-password** messages
 
     window.Auth0.signIn({
         onestep: true,
@@ -108,7 +113,7 @@ Will display the following:
 
 ## Customizing error messages
 
-You can customize the error messages that will be displayed on certain situations:
+You can also customize the error messages that will be displayed on certain situations:
 
     window.Auth0.signIn({
         onestep: true,
