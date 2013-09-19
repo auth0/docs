@@ -65,7 +65,7 @@ Resulting in:
 
 ## Customizing the Login Widget for Database Connections
 
-When using a database connections, the **Login Widget** has support for account creation (sign-up) and password recovery:
+When using a database connections, the **Login Widget** has support for account creation (sign-up) and password changes:
 
 ### Customizing **sign-up** messages
 
