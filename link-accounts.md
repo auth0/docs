@@ -18,6 +18,40 @@ Auth0 supports the association of different accounts. Applications often support
 `&redirect_uri=@@account.callback@@`
 `&access_token=...LOGGED_IN_USER_ACCESS_TOKEN...`
 
+All linked identities will show up in the `User Profile` like in this example:
+
+```
+{
+  "clientID": "FnMZ8gwv39....ZAeKc",
+  "email": "your@mail.com",
+  "family_name": "Pace",
+  "given_name": "Eugenio",
+  "identities": [
+    {
+      "access_token": "ya29.AHES6.......iNkgkE_ryDsTE",
+      "provider": "google-oauth2",
+      "user_id": "12345678901234567890",
+      "connection": "google-oauth2",
+      "isSocial": true
+    },
+    {
+      "access_token": "EwAwAq1DBAAUGCC....qJQloRoZbmCAAA",
+      "provider": "windowslive",
+      "user_id": "9876543210987654321",
+      "connection": "windowslive",
+      "isSocial": true
+    }
+  ],
+  "locale": "en",
+  "name": "Eugenio Pace",
+  "nickname": "eugeniop",
+  "user_id": "google-oauth2|12345678901234567890"
+}
+
+```
+
+> Notice that the primary `user_id` is referring to the first identity the user authenticated with (Google in the example). 
+
 ### How to obtain the access_token of the user logged in?
 
 The SDKs should make this very easy. The SDK for your platform will make it available in the most natural way for said platform. As an example, if you are using ASP.NET, the `access_token` is available as a claim:
@@ -38,5 +72,16 @@ The details of these exchanges are available in the [protocols section](protocol
 To unlink a specific account, POST request to the following url:
 
 `https://@@account.namespace@@/unlink?`
-`&client_id=@@account.clientId@@`
-`&access_token=...LINKED_USER_ACCESS_TOKEN...`
+
+Body should be:
+
+```
+{
+	clientID: @@account.clientId@@,
+    access_token: LOGGED_IN_USER_ACCESS_TOKEN, // Primary identity access_token
+    user_id: LINKED_USER_ID // (provider|id)
+}
+```
+
+Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowlive|9876543210987654321'`.
+
