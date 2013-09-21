@@ -1,17 +1,17 @@
-# Link accounts
+# Linking Accounts
 
-Let's say a user logged in with Google and now she wants to associate her Twitter account to login to the application as the same person, or another user logged in with an Active Directory account and wants to be recognized as the same user when logging in with his Microsoft Account (LiveID). You can allow your users to link accounts from different providers, very easily, as shown below.
+Auth0 supports the association of different accounts. Applications often support multiple identity providers. Through linking, a user can authenticate with one identity provider and later on with another, but appear to the app as being the same. 
 
-**Using Auth0 Login Widget**
+**Linking through Auth0 Login Widget**
 
 ```
 <script src="@@sdkURL@@/auth0.js#access_token=...LOGGED_IN_USER_ACCESS_TOKEN...&client=@@account.clientId@@&scope=openid"></script>
 <a href="javascript: window.Auth0.signIn({onestep: true, title: 'Link with another account'})">Add account</a>
 ```
 
-> Notice the `access_token` fragment of the URL. This is the access_token Auth0 will generate when a user logs in. It identifies a logged in user univocally.
+> Notice the `access_token` fragment of the URL that is normally not present. This is the `access_token` Auth0 will generate when a user logs in. It identifies a logged in user univocally in Auth0.
 
-**or manually triggering a redirect to...**
+**Manually initiating the authentication transaction**
 
 `https://@@account.namespace@@/authorize?response_type=code&scope=openid`
 `&client_id=@@account.clientId@@`
@@ -20,17 +20,22 @@ Let's say a user logged in with Google and now she wants to associate her Twitte
 
 ### How to obtain the access_token of the user logged in?
 
-The SDKs should make this easy for you, but essentially, after the user logs in and comes back to your app with a `code` in the querystring, that code is exchanged with the `access_token`. 
-
-As an example, in ASP.NET we add the access_token as a claim that can be accessed like this:
+The SDKs should make this very easy. The SDK for your platform will make it available in the most natural way for said platform. As an example, if you are using ASP.NET, the `access_token` is available as a claim:
 
 ```
 <%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>
 ```
 
-### Unlink
+If you are rolling up your own implementation, it will be available through the standard OAuth2 flow: 
 
-To unlink a specific account, perform a POST request to the following url:
+1- User logs in and returns to the app with a `code`
+2- The app exchanges the `code` for the `access_token`
+
+The details of these exchanges are available in the [protocols section](protocols).
+
+### Unlinking Accounts
+
+To unlink a specific account, POST request to the following url:
 
 `https://@@account.namespace@@/unlink?`
 `&client_id=@@account.clientId@@`
