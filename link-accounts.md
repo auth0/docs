@@ -50,7 +50,7 @@ All linked identities will show up in the `User Profile` like in this example:
 
 ```
 
-> Notice that the primary `user_id` is referring to the first identity the user authenticated with (Google in the example). 
+> Notice that the primary `user_id` is referring to the first identity the user authenticated with (Google in the example). Also, all user properties will continue to be those of the primary identity. There's no merging of user profiles with associated identities.
 
 ### How to obtain the access_token of the user logged in?
 
