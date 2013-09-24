@@ -13,7 +13,7 @@ The introductory tutorials will take a just a few minutes to complete. And the g
 We have tutorials for all the popular platforms:
 
 - [Node.js](nodejs-tutorial) / [Ruby](rails-tutorial)
-- [iOS](ios-tutorial) / [Android](android-tutorial) / [Windows Phone](windowsphone-tutorial) / [Xamarin](xamarin)
+- [iOS](ios-tutorial) / [Android](android-tutorial) / [Windows Phone](windowsphone-tutorial) / [Xamarin](xamarin-tutorial)
 - Windows Store Apps: [Windows 8 - JavaScript](win8-tutorial) / [Windows 8 - C#](win8-cs-tutorial)
 - [ASP.NET MVC](aspnet-tutorial)
 - [ServiceStack](servicestack-tutorial)
