@@ -123,6 +123,8 @@ Currently, Auth0 implements the following connections:
 * google-apps
 * database connections
 
+> Note: For Google authentication we are relaying on an endpoint that is marked as deprecated, so use it at your own risk. The user might get a warning saying that someone has logged in from another IP address and will have to complete a captcha challenge allowing the login to happen.
+
 As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token* which is a Json Web Token ([JWT](jwt)).
 
 #### Sample Request
