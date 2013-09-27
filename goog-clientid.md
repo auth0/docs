@@ -30,3 +30,10 @@ These URLs and information don't need to point to Auth0. It is information for y
 Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
 
 ![](img/goog-apiconsole-4.png)
+
+
+##5. Enable Admin SDK Service
+
+If you are planning to connect Google Apps enterprise domains, you need to enable the __Admin SDK__ service as follows:
+
+![](img/goog-apiconsole-5.png)
