@@ -105,7 +105,7 @@ Clients typically extract the URI fragment with the __Access Token__ and follow 
 
 ## OAuth Resource Owner Password Credentials Grant
 
-This endpoint is used by clients to obtain an access token (and an options [JsonWebToken](jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
+This endpoint is used by clients to obtain an access token (and optionally a [JsonWebToken](jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
 
 ### 1. Login Request
 
