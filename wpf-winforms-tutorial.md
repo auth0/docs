@@ -33,7 +33,7 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 using Auth0.Windows;
 
 var auth0 = new Auth0Client(
-	"@@account.tenant@@",
+	"@@account.namespace@@",
 	"@@account.clientId@@",
 	"@@account.clientSecret@@");
 
