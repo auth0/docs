@@ -16,15 +16,13 @@ The instructions below will guide you into where these values need to be entered
 
 ###1. Open the SAML Service Provider Dialog 
 
-Provide an appropriate name for the Auth0 connection:
-
-![](img/siteminder-users.png)
-
-We suggest using:
+Provide an appropriate name for this Service Provider. We suggest using:
 
 * __Name:__ `@@account.tenant@@`
 
-###2. Defining NameID
+![](img/siteminder-users.png)
+
+###2. Defining NameIdentifier
 
 You can define many ways of generating a `NameIdentifier` for users authenticating with SiteMinder. Typically you will map this value to one of the user properties in the User Directory as `uid` in the example blow:
 
@@ -47,9 +45,11 @@ The __Assertion Consumer Service URL__ is the location where SiteMinder will POS
 * __Assertion Consumer Service:__ `https://@@account.namespace@@/login/callback`
 * __HTTP-Post__: `checked`
 
+![](img/siteminder-sso.png)
+
 ###5. Configure additional user properties to send in the token
 
-Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in step 2 as a unique handle of the user. These attributes will be treated as reference information:
+Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in [step 2](siteminder#2) as a unique handle of the user. These attributes will be treated as reference information:
 
 ![](img/siteminder-attributes.png)
 
