@@ -14,11 +14,14 @@ Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
 
 Complete the form:
 
-![](img/yandex-register-app.png)
+![](img/yandex-create-app.png)
 
 The callback address for your app should be:
 
 	https://@@account.namespace@@/login/callback
+
+
+Notice that `scopes` in Yandex are defined in this screen. Select what kind of information you are requesting for your app.
 
 ---
 
