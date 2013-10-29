@@ -58,7 +58,7 @@ You can use the usual authorization techniques since the `LoginCallback.ashx` ha
 
 #### Log out
 
-To clear the cookie generated on login, use the `ClaimsCookie.ClaimsCookieModule.Instance.SignOut()` method.
+To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method.
 
 #### Link accounts
 
