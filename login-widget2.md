@@ -172,30 +172,37 @@ You can send extra parameters when starting a login by adding attributes in the 
 
 If you don't want to use the widget, you can still make use of the API with a simple JavaScript call. Here is an example:
 
-    var client = widget.getClient();
-
-    // trigger login with google
-    $('.login-google').click(function () {
-        client.login({
-            connection: 'google-oauth2'
+    <script src="@@sdk2URL@@/auth0.min.js"></script>
+    <script type="text/javascript">
+        var auth0 = new Auth0({
+            domain:       '@@account.namespace@@',
+            clientID:     '@@account.clientId@@', 
+            callbackURL:  '@@account.callback@@'
         });
-    });
 
-    // trigger login with an enterprise connection
-    $('.login-contoso').click(function () {
-        client.login({
-            connection: 'contoso.com'
+        // trigger login with google
+        $('.login-google').click(function () {
+            auth0.login({
+                connection: 'google-oauth2'
+            });
         });
-    });
 
-    // trigger login with a db connection
-    $('.login-dbconn').click(function () {
-        client.login({
-            connection: 'Username-Password-Authentication',
-            username: 'jdoe',
-            password: 'shhhhh'
+        // trigger login with an enterprise connection
+        $('.login-contoso').click(function () {
+            auth0.login({
+                connection: 'contoso.com'
+            });
         });
-    });
+
+        // trigger login with a db connection
+        $('.login-dbconn').click(function () {
+            auth0.login({
+                connection: 'Username-Password-Authentication',
+                username:   $('.username').val(),
+                password:   $('.password').val()
+            });
+        });
+    </script>
 
 For more information, please visit <a target="_blank" href="https://github.com/auth0/auth0.js">our project on GitHub</a>.
 
