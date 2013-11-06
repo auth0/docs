@@ -1,4 +1,4 @@
-# Auth0 Login Widget 2 (beta)
+# Auth0 Login Widget 2
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:
 
