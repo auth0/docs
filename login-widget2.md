@@ -13,23 +13,6 @@ Add the script tag to your page to get started with __Auth0 Login Widget__.
 
     <script src="@@widget_url@@"></script>
 
-## Invoking the Widget
-
-To invoke the widget, create an instance of `Auth0Widget`:
-
-    var widget = new Auth0Widget({
-        domain:                 '@@account.namespace@@',
-        clientID:               '@@account.clientId@@', 
-        callbackURL:            '@@account.callback@@',
-        callbackOnLocationHash: true // If is TRUE, Auth0 will redirect to your callbackURL with a hash containing an access_token and the jwt. (Default: false).
-    });
-
-and then, use the `show` method:
-
-    widget.show();
-    // or
-    widget.show(options, callback);
-
 ## Playground
 
 @@sdk2@@
