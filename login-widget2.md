@@ -8,9 +8,51 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
+## Including the Login Widget on your page
+Add the script tag to your page to get started with __Auth0 Login Widget__.
+
+    <script src="@@sdk2URL@@/auth0-widget.min.js"></script>
+
+## Invoking the Widget
+
+To invoke the widget, create an instance of `Auth0Widget`:
+
+    var widget = new Auth0Widget({
+        domain:                 '@@account.namespace@@',
+        clientID:               '@@account.clientId@@', 
+        callbackURL:            '@@account.callback@@',
+        callbackOnLocationHash: true // If is TRUE, Auth0 will redirect to your callbackURL with a hash containing an access_token and the jwt. (Default: false).
+    });
+
+and then, use the `show` method:
+
+    widget.show();
+    // or
+    widget.show(options, callback);
+
 ## Playground
 
 @@sdk2@@
+
+## Single Page Applications
+
+You can handle the authorization process client-side as follows:
+
+    <script type="text/javascript">
+        var widget = new Auth0Widget({
+            domain:                 '@@account.namespace@@',
+            clientID:               '@@account.clientId@@', 
+            callbackURL:            '@@account.callback@@',
+            callbackOnLocationHash: true
+        });
+
+        widget.parseHash(window.location.hash, function (profile, id_token, access_token, state) {
+            alert('hello ' + profile.name);
+            // use id_token to call your rest api
+        });
+    </script>
+
+If `callbackOnLocationHash: true` was specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `@@account.callback@@#access_token=...&id_token=...`
 
 ## Anatomy of the Auth0 Login Widget
 
@@ -23,27 +65,6 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 
 > **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection with an associated domain "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
 
-## Including the Login Widget on your page
-Add the script tag to your page to get started with __Auth0 Login Widget__.
-
-    <script src="@@sdk2URL@@/auth0-widget.min.js"></script>
-
-## Invoking the Widget
-
-To invoke the widget, create an instance of `Auth0Widget`:
-
-    var widget = new Auth0Widget({
-        domain:       '@@account.namespace@@',
-        clientID:     '@@account.clientId@@', 
-        callbackURL:  '@@account.callback@@'
-    });
-
-and then, use the `show` method:
-
-    widget.show();
-    // or
-    widget.show(options, callback);
-
 ## Customizing the Widget
 
 The Widget can be customized through the `options` parameter sent to the `show` method.
@@ -54,7 +75,6 @@ The Widget can be customized through the `options` parameter sent to the `show` 
 * __container__: The id of the DIV where the widget will be contained.
 * __icon__: Icon url. _Recommended: 32x32_.
 * __showIcon__: Show/Hide widget icon. _Default: false_.
-* __extraParameters__: JSON object to send extra parameters when starting a login.
 * __resources__: JSON object that contains your customized text labels.
 
 This example shows how to work with only specified connections and display the labels in Spanish:
@@ -85,6 +105,15 @@ Resulting in:
 ![](img/widget-customized.png)
 
 Is there an option that you think would be useful? Just <a target="_blank" href="https://github.com/auth0/auth0-widget.js/issues">open an issue on GitHub</a> and we'll look into adding it.
+
+## Sending extra login parameters
+
+You can send extra parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`.
+
+    widget.show({
+        // ... other options ... 
+        state: 'foo'
+    });
 
 ## Customizing the Login Widget for Database Connections
 
@@ -156,62 +185,3 @@ You can also customize the error messages that will be displayed on certain situ
 These errors will be shown on the widget header:
 
 ![](img/widget-error.png)
-
-## Sending extra parameters
-
-You can send extra parameters when starting a login by adding attributes in the `extraParameters` option. The example below adds a `state` parameter with a value equal to `foo`.
-
-    widget.show({
-        // ... other options ... 
-        extraParameters: {
-            state: "foo"
-        }
-    });
-
-## Using the API instead of the widget
-
-If you don't want to use the widget, you can still make use of the API with a simple JavaScript call. Here is an example:
-
-    <script src="@@sdk2URL@@/auth0.min.js"></script>
-    <script type="text/javascript">
-        var auth0 = new Auth0({
-            domain:       '@@account.namespace@@',
-            clientID:     '@@account.clientId@@', 
-            callbackURL:  '@@account.callback@@'
-        });
-
-        // trigger login with google
-        $('.login-google').click(function () {
-            auth0.login({
-                connection: 'google-oauth2'
-            });
-        });
-
-        // trigger login with an enterprise connection
-        $('.login-contoso').click(function () {
-            auth0.login({
-                connection: 'contoso.com'
-            });
-        });
-
-        // trigger login with a db connection
-        $('.login-dbconn').click(function () {
-            auth0.login({
-                connection: 'Username-Password-Authentication',
-                username:   $('.username').val(),
-                password:   $('.password').val()
-            });
-        });
-    </script>
-
-For more information, please visit <a target="_blank" href="https://github.com/auth0/auth0.js">our project on GitHub</a>.
-
-## FAQs
-
-* Is it possible to embed the widget in an HTML element instead of using a modal dialog?
-
-    Yes. You can embed it on a `div` specifying the div `id` from `options.container`.
-
-* What happens if the user enters an email corresponding to a domain that has not been provisioned before? 
-
-    An error message will be displayed (The domain has not been setup yet).
