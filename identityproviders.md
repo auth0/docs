@@ -11,6 +11,7 @@ Out of the box, Auth0 supports:
 	* __Google Apps__
 	* __Office365__
 	* __SQL__
+	* __PingFederate__
 	* Any __SAML-P__ or __WS-Federation__ system
 
 2. Social: 
@@ -23,6 +24,7 @@ Out of the box, Auth0 supports:
 	* __PayPal__
 	* __GitHub__
 	* __vKontakte__
+	* __Yandex__
 	* __37Signals__
 	* __Box__
 	* __Salesforce__
