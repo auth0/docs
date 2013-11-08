@@ -1,4 +1,4 @@
-# Auth0 Login Widget 2
+# Auth0 Login Widget v2
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:
 
@@ -47,30 +47,26 @@ The Widget can be customized through the `options` parameter sent to the `show` 
 * __container__: The id of the DIV where the widget will be contained.
 * __icon__: Icon url. _Recommended: 32x32_.
 * __showIcon__: Show/Hide widget icon. _Default: false_.
-* __resources__: JSON object that contains your customized text labels.
 
 This example shows how to work with only specified connections and display the labels in Spanish:
+    
+    var widget = new Auth0Widget({
+        domain:         '@@account.namespace@@',
+        clientID:       '@@account.clientId@@', 
+        callbackURL:    '@@account.callback@@',
+        dict:           'es'
+    });
 
     widget.show({
-        connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication'],
-        resources: {
-            title: "Contoso",
-            loadingTitle: "Espere por favor...",
-            signInButtonText: "Ingresar", 
-            emailPlaceholder: "Correo", 
-            passwordPlaceholder: "Contraseña",
-            separatorText: "o",
-            showIcon: true,
-            icon: "https://myapp.com/logo.png",
-            signupText: "Registrarme!", 
-            forgotText: "Olvidé mi contraseña"
-        },
-        icon: 'https://contoso.com/logo-32.png',
-        showIcon: true
+        connections:    ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication'],
+        icon:           'https://contoso.com/logo-32.png',
+        showIcon:       true
     },
     funcion () {
       // The Auth0 Widget is now loaded.
     });
+
+> `dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a target="_new" href="https://github.com/auth0/auth0-widget.js/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
 
 Resulting in:
 
@@ -98,70 +94,35 @@ You can send extra parameters when starting a login by adding them to the option
 
 > **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection with an associated domain "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
 
-## Customizing the Login Widget for Database Connections
+## Customize the look and feel
 
-When using a database connections, the **Login Widget** has support for account creation (sign-up) and password changes:
-
-### Customizing **sign-up** messages
-
-    widget.show({
-        // ... other options ... 
-        resources: {
-            // ... other resources ... 
-            signupTitle: "Registrarse",
-            signupHeaderText: "Por favor, ingrese su correo y contraseña",
-            signupFooterText: "Al hacer clic en \"Crear Usuario\", usted está aceptando nuestros términos y condiciones.",
-            signupButtonText: "Crear Usuario",
-            signupEmailPlaceholder: "Correo",
-            signupPasswordPlaceholder: "Contraseña",
-            signupCancelButtonText: "Cancelar"
-        }
-    });
-
-Will display the following:
-
-![](img/widget-customized-signup.png)
-
-### Customizing **change-password** messages
-
-    widget.show({
-        // ... other options ... 
-        resources: {
-            // ... other resources ... 
-            resetTitle: "Cambiar Contraseña",
-            resetHeaderText: "Por favor, ingrese su correo y una nueva contraseña. Se le enviará un correo para confirmar el cambio de la misma.",
-            resetButtonText: "Enviar",
-            resetEmailPlaceholder: "Correo",
-            resetPasswordPlaceholder: "Nueva Contraseña",
-            resetRepeatPasswordPlaceholder: "Confirmar Nueva Contraseña",
-            resetCancelButtonText: "Cancelar",
-            resetSuccessText: "Se ha enviado un correo electrónico para confirmar el cambio de contraseña.",
-            resetEnterSamePasswordText: "Por favor, ingrese la misma contraseña"
-        }
-    });
-
-Will display the following:
-
-![](img/widget-customized-reset.png)
+You can apply your own style to the elements. All classes and ids are prefixed with `a0-` to avoid conflicts with your own stylesheets.
 
 ## Customizing error messages
 
 You can also customize the error messages that will be displayed on certain situations:
 
-    widget.show({
-        // ... other options ... 
-        resources: {
-            // ... other resources ... 
-            // wrongEmailPasswordErrorText, serverErrorText, signupEnterpriseEmailWarningText, signupServerErrorText and resetServerErrorText are used only if you have a Database connection
-            wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
-            serverErrorText: 'There was an error processing the sign in.',
-            signupEnterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.',
-            signupServerErrorText: 'There was an unhandled error processing the sign up.',
-            resetServerErrorText: 'There was an unhandled error processing the change password.',
-            // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
-            strategyDomainInvalid: 'The domain {domain} has not been setup.',
+    var widget = new Auth0Widget({
+        // ... other parameters ... 
+        dict: {
+            loadingTitle:   'loading...',
+            close:          'close',
+            signin: {
+                wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
+                serverErrorText: 'There was an error processing the sign in.',
+                strategyEmailInvalid: 'The email is invalid.',
+                strategyDomainInvalid: 'The domain {domain} has not been setup.'
+            },
+            signup: {
+                serverErrorText: 'There was an error processing the sign up.',
+                enterpriseEmailWarningText: 'This domain {domain} has been configured for Single Sign On and you can\'t create an account. Try signing in instead.'
+            },
+            reset: {
+                serverErrorText: 'There was an error processing the reset password.'
+            }
+            // wrongEmailPasswordErrorText, serverErrorText, enterpriseEmailWarningText are used only if you have a Database connection
             // strategyEmailInvalid is shown if the email is not valid
-            strategyEmailInvalid: 'The email is invalid.'
+            // strategyDomainInvalid is shown if the email does not have a matching enterprise connection
         }
     });
 

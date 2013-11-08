@@ -32,7 +32,7 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 
 ### 4. Triggering login manually or integrating the Auth0 widget
 
-@@sdk@@
+@@sdk2@@
 
 ### 5. Accessing user information
 
@@ -72,7 +72,7 @@ You will need the `access_token` of the logged in user. You can get it from:
 
 #### Flow the identity to a WCF service
 
-If you want to flow the identity of the user logged in to a web site, to a WCF service or an API, you have to use the `scope=openid` parameter on the login (as shown in the example above). When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. . Notice that by default it will only include the user id as part of the claims. If you want to get the full claim set for the user, use `scope=openid%20profile`. [Read more about this](/wcf-tutorial).
+If you want to flow the identity of the user logged in to a web site, to a WCF service or an API, you have to use the `callbackOnLocationHash: true` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/wcf-tutorial).
 
 #### Manage environments: Dev, Test, Production
 

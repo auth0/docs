@@ -56,7 +56,7 @@ Update the callback routes in the `routes.rb` under `config` folder:
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
-@@sdk@@
+@@sdk2@@
 
 ### 6. Accessing user information
 

@@ -40,29 +40,16 @@ You can also create a `HomeController` with an `Index` method and the `Index.csh
 
 ### 3. Triggering login manually or integrating the Auth0 widget
 
-@@sdk@@
+@@sdk2WithCallbackOnHash@@
 
-You can use the returned `access_token` to make an AJAX call to Auth0 API. For example, this code below will return the logged user information:
+You can parse the information returned on the callback URL hash to get the `profile` (logged user information), `id_token`, `access_token` and `state` parameters:
 
-        var access_token = /access_token=([^&]*)/g.exec(window.location.hash);
-        if (access_token) {
-            $.ajax({
-                url: 'https://@@account.namespace@@/userinfo?access_token=' + access_token[1],
-                dataType: 'json',
-                success: function (data, status, jqHXR) {
-                    // data will be a JSON containing all the user properties
-                },
-                error: function (resp) {
-                    if (resp.status == 401) {
-                        // 'Unauthorized'
-                    } else {
-                        // error
-                    }
-                }
-            });
-        }
+    widget.parseHash(window.location.hash, function (profile, id_token, access_token, state) {
+        // profile will be a JSON containing all the user properties (e.g.: profile.name)
+        // use id_token to call your rest api
+    });
 
-> See the [User Profile](user-profile) document for details on the object returned.
+> See the [User Profile](user-profile) document for details of the profile object returned.
 
 ###4. Securing the Web API
 
@@ -94,26 +81,26 @@ Auth0 will also give you a JSON Web Token which has been signed with your client
 
 ###5. Calling the secured API
 
-The last step would be to call the API from your JavaScript application. To do so, you have to extract the `id_token` from the URL hash, and send it to your API as part of the Authorization header (e.g. `Authorization: Bearer ...id_token...`). Here is some code to do that:
+The last step would be to call the API from your JavaScript application. To do so, you have to extract the `id_token` from the callback URL hash, and send it to your API as part of the Authorization header (e.g. `Authorization: Bearer ...id_token...`). Here is some code to do that:
 
-    var id_token = /id_token=([^&]*)/g.exec(window.location.hash);
-    $.ajax({
-        url: '/api/customers',
-        dataType: 'json',
-        beforeSend: function (request) {
-            if (id_token) request.setRequestHeader("Authorization", "Bearer " + id_token[1]);
-        },
-        success: function (data, status, jqHXR) {
-            // data has API response
-        },
-        error: function (resp) {
-            if (resp.status == 401) {
-                // the token was invalid, not authorized
-            } else {
-                // server error
+    widget.parseHash(window.location.hash, function (profile, id_token, access_token, state) {
+        $.ajax({
+            url: '/api/customers',
+            dataType: 'json',
+            beforeSend: function (request) {
+                if (id_token) request.setRequestHeader("Authorization", "Bearer " + id_token);
+            },
+            success: function (data, status, jqHXR) {
+                // data has API response
+            },
+            error: function (resp) {
+                if (resp.status == 401) {
+                    // the token was invalid, not authorized
+                } else {
+                    // server error
+                }     
             }
-            
-        }
+        });
     });
 
 ###6. Testing the app:
@@ -128,12 +115,6 @@ Once you are logged in, you can try calling the API with and without the Authori
 You can get the user id on the Web API side by doing:
 
       ClaimsPrincipal.Current.Claims.SingleOrDefault(c => c.Type == "sub").Value
-
-If you want to get all the claims from the user (not just the id), you should specify `openid profile` (instead of just `openid`) in the scope parameter:
-
-    <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&amp;scope=openid%20profile&amp;response_type=token"></script>
-
-> Notice that this will add more user attributes to the token, and consequently increase the size of it. Some browsers have limits on URL lengths.
 
 You are done! Congratulations! 
 

@@ -1,3 +1,5 @@
+> __IMPORTANT:__ We are deprecating this version of the widget. Please use the [new version](/login-widget2).
+
 # Auth0 Login Widget
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:

@@ -27,12 +27,10 @@ Open the AuthConfig.cs file (under `App_Start` folder), and look for the ```Regi
     {
         public static void RegisterAuth()
         {
-            
             Auth0.OpenAuthClient.RegisterAllSocialProviders(
                     "@@account.clientId@@",
                     "@@account.clientSecret@@",
                     "@@account.namespace@@"); 
-
         }
     }
 
@@ -61,9 +59,7 @@ __This step is optional.__ We have a beautiful widget that you can integrate in 
 
 Create a new route in the ```AccountController.cs``` file:
 
-    //
     // POST: /Account/Auth0Login
-
     [AllowAnonymous]
     public ActionResult Auth0Login(string connection)
     {
@@ -82,9 +78,17 @@ Open the ```views\shared\_LoginPartial.cshtml``` and change its content to somet
     </text>
     } else {
         <ul>
-            <li><a href="javascript:window.Auth0.signIn({onestep: true})">login</a></li>
+            <li><a href="javascript:widget.show({ authorize_url: '/Account/Auth0Login' })">login</a></li>
         </ul>
-        <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
+
+        <script src="@@widget_url@@"></script>
+        <script type="text/javascript">
+            var widget = new Auth0Widget({
+                domain:         '@@account.namespace@@',
+                clientID:       '@@account.clientId@@', 
+                callbackURL:    '@@account.callback@@'
+            });
+        </script>
     }
 
 > Notice that we have changed the ```else``` code block to use our auth0 widget.
@@ -93,8 +97,8 @@ Next time, when you press the login button, you should see something like this:
 
 ![](img/widget-in-aspnet.png)
 
-> **IMPORTANT**: please make sure you have the ```&authorize_url=/Account/Auth0Login``` part in the script tag.
+> **IMPORTANT**: please make sure you have the `authorize_url: "/Account/Auth0Login"` in the show() method.
 
-The widget can be customized, read more about how to do it [here](login-widget).
+The widget can be customized, read more about how to do it [here](login-widget2).
 
 > The great power of Auth0 is in Enterprise connections, please follow the [next tutorial](/mvc-tutorial-enterprise).

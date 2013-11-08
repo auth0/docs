@@ -90,7 +90,7 @@ The last bit of code you will need are the handlers for the passport callbacks:
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
-@@sdk@@
+@@sdk2@@
 
 ### 6. Accessing user information
 

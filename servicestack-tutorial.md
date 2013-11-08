@@ -141,7 +141,7 @@ public class HelloService : ServiceBase<Hello>
 
 ### 6. Triggering login manually or integrating the Auth0 widget
 
-@@sdk@@
+@@sdk2@@
 
 ### 7. Add UI code to Login and invoke the `HelloService`  
 
@@ -150,8 +150,8 @@ Open `default.htm` and add the following statement in the `jQuery.ready` body:
 ```js
 // get user info from hello endpoint
 $.getJSON('/api/hello', function (data) {
-                $('#userInfo').text(JSON.stringify(data.userInfo, 1, 2));
-          });
+    $('#userInfo').text(JSON.stringify(data.userInfo, 1, 2));
+});
 ```
 
 Add a section to display the `UserInfo`:
