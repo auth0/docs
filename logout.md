@@ -12,3 +12,11 @@ If you specifcy a `returnTo` parameter, we will redirect to the url specified af
     https://@@account.namespace@@/logout?returnTo=http://somewhere
 
 > The returnTo parameter won't work for social providers, since there is no way to specify that.
+
+Facebook has some special requirements to trigger a logout. You will have to build the logout URL as described below:
+
+    https://@@account.namespace@@/logout?
+          returnTo=url_encode(@@account.namespace@@/logout?returnTo=http://yoursite)
+          &access_token=[facebook access_token]
+
+> Make sure to properly encode the returnTo parameter
