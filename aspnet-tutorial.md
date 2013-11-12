@@ -36,12 +36,11 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 
 ### 5. Accessing user information
 
-Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` property or `Thread.CurrentPrincipal`
+Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
     public ActionResult Index() 
     {
-        var claims = (User.Identity as IClaimsIdentity).Claims
-        string email = claims.SingleOrDefault(c => c.ClaimType == "email");
+    	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
     }
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
