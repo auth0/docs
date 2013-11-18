@@ -1,16 +1,16 @@
 # Using Auth0 with iOS
 
-This tutorial explains how to integrate Auth0 with a iOS App. `iAuth0Client` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
+This tutorial explains how to integrate Auth0 with a iOS App. `Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
 
 ## Tutorial
 
 ### 1. Install iAuth0Client static library
 
 1. Go to [Auth0.iOS repository in Github](https://github.com/auth0/Auth0.iOS) and click on __Download ZIP__
-2. Decompress it and reference the `iAuth0Client` static library to your project:
+2. Decompress it and reference the `Auth0Client` static library to your project:
 	* Go to your project in XCode
 	* Right-click on the `Frameworks` folder and select ___Add Files to "Your Project Name"___
-	* Select the `iAuth0Client` folder, ensure that your project target is selected and press __Add__
+	* Select the `Auth0Client` folder, ensure that your project target is selected and press __Add__
 
 ### 2. Setting up the callback URL in Auth0
 
@@ -79,12 +79,16 @@ If you know which identity provider you want to use, you can add a `connection` 
 }];
 ```
 
+> Optionally you can specify the `scope` parameter. There are two possible values for scope today:
+* scope:@"openid" (default) - It will return, not only the access_token, but also an id_token which is a Json Web Token (JWT). The JWT will only contain the user id.
+* scope:@"openid%20profile": If you want the entire user profile to be part of the id_token.
+
 ## Accessing user information
 
 The `auth0User` has the following properties:
 
 * `Profile`: returns a `NSDictionary` object containing all available user attributes (e.g.: `[client.auth0User.Profile objectForKey:@"email"]`).
-* `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
+* `IdToken`: is a Json Web Token (JWT) containing the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
 * `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
 
 > If you want to use __Windows Azure Mobile Services__ (WAMS) you should create a WAMS app in Auth0 and set the Master Key that you can get on the Windows Azure portal. Then you have change your iOS App to use the client id and secret of the WAMS app just created and set the callback of the WAMS app to be `https://@@account.tenant@@.auth0.com/mobile`. Finally, you have to set the `MobileServiceAuthenticationToken` property of the `MobileServiceUser` with the `IdToken` property of `auth0User`.
