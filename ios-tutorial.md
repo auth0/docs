@@ -4,7 +4,7 @@ This tutorial explains how to integrate Auth0 with a iOS App. `Auth0Client` help
 
 ## Tutorial
 
-### 1. Install iAuth0Client static library
+### 1. Install Auth0Client static library
 
 1. Go to [Auth0.iOS repository in Github](https://github.com/auth0/Auth0.iOS) and click on __Download ZIP__
 2. Decompress it and reference the `Auth0Client` static library to your project:
@@ -79,9 +79,12 @@ If you know which identity provider you want to use, you can add a `connection` 
 }];
 ```
 
-> Optionally you can specify the `scope` parameter. There are two possible values for scope today:
-* scope:@"openid" (default) - It will return, not only the access_token, but also an id_token which is a Json Web Token (JWT). The JWT will only contain the user id.
-* scope:@"openid%20profile": If you want the entire user profile to be part of the id_token.
+#### Scope
+
+Optionally you can specify the `scope` parameter. There are two possible values for scope today:
+
+* __scope:@"openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
+* __scope:@"openid%20profile"__ - If you want the entire user profile to be part of the `id_token`.
 
 ## Accessing user information
 
