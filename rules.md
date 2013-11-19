@@ -1,10 +1,10 @@
 # Rules
 
-Rules are code snippets written in JavaScript that are executed as part of the authentication pipeline in Auth0. This happens every time a user authenticates to an application. __Rules__ enable very powerful customizations and extensions to be easily added to Auth0. 
+Rules are code snippets written in JavaScript that are executed as part of the authentication pipeline in Auth0. This happens every time a user authenticates to an application. __Rules__ enable very powerful customizations and extensions to be easily added to Auth0.
 
 ![](img/rules-pipeline.png)
 
-An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes the request to an Identity Provider through a configured connection (__Step 2__). The user authenticates successfuly (__Step3__), the `user` object that represents the logged in user is the passed through the rules pipeline and returned to the app (__Step 4__). 
+An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes the request to an Identity Provider through a configured connection (__Step 2__). The user authenticates successfuly (__Step3__), the `user` object that represents the logged in user is the passed through the rules pipeline and returned to the app (__Step 4__).
 
 Here are a few examples. You could:
 
@@ -13,6 +13,7 @@ Here are a few examples. You could:
 * Normalize attributes from different providers besides to what we provide out of the box.
 * Reuse information from existing databases or APIs in migration scenarios.
 * Keep a white-list of users in a file and deny access based on email.
+* Have counters or other persisted information.
 
 __Auth0 Rules__ are implemented in JavaScript. Which means you don't have to learn an esoteric DSL. They run in their own sandbox to protect the core of Auth0's runtime. Even if you make a mistake and your code ends up in a tight loop for example, everything else will work just fine.
 
@@ -51,14 +52,14 @@ Here are some other common rules:
       user.roles = [];
       // only johnfoo is admin
       if (user.email === 'johnfoo@gmail.com') user.roles.push('admin');
-          
+
       // all users are guest
       user.roles.push('guest');
-          
+
       callback(null, user, context);
     }
 
-All authenticated users will get a __guest__ role, but `johnfoo@gmail.com` will also be an __admin__. 
+All authenticated users will get a __guest__ role, but `johnfoo@gmail.com` will also be an __admin__.
 
 John's `user` object at the beginning of the rules pipeline will be:
 
@@ -83,9 +84,9 @@ After the rule executes, the output and what the application will receive is the
       email: "johnfoo@gmail.com",
       family_name: "Foo",
       user_id: "google-oauth2|103547991597142817347",
-  
+
       ... other props ...
-    
+
       roles: ["guest", "admin"]  // NEW PROPERTY ADDED BY THE RULE
     }
 
@@ -97,7 +98,7 @@ In addition to adding and removing properties from the user object, you can retu
       if (user.roles.indexOf('admin') === -1) {
         return callback(new UnauthorizedError('Only admins can use this'));
       }
-    
+
       callback(null, user, context);
     }
 
@@ -113,40 +114,62 @@ This __Rule__ will query SQL Server database and retrieve all roles associated w
     function (user, context, callback) {
       getRoles(user.email, function(err, roles) {
         if (err) return callback(err);
-    
+
         user.roles = roles;
-    
+
         callback(null, user, context);
       });
-      
+
       // Queries a table by e-mail and returns associated 'Roles'
       function getRoles(email, done) {
         var connection = sqlserver.connect(connection_info);
-     
-        var query = "SELECT Email, Role " + 
+
+        var query = "SELECT Email, Role " +
                     "FROM dbo.Role WHERE Email = @email";
-     
+
         connection.on('connect', function (err) {
           if (err) return done(new Error(err));
-          
+
           var request = new sqlserver.Request(query, function (err, rowCount, rows) {
             if (err) return done(new Error(err));
-    
+
             var roles = rows.map(function (row) {
               return row[1].value;
             });
-    
+
             done(null, roles);
           });
-     
+
           request.addParameter('email', sqlserver.Types.VarChar, email);
-     
+
           connection.execSql(request);
         });
       }
     }
-    
+
 > **HINT**: Make sure when you call an external endpoint to open your firewall/ports to our IP address which you can find it in the rules editor. This happens when you query SQL Azure for example.
+
+### Persistent properties
+
+Make any property persistent using the `persistent` property. In the following rule, we query a an external api during the first login and we persist that property:
+
+    function (user, context, callback) {
+      if (user.someDataFromWebService) {
+        //if the profile already have the attribute
+        //return inmediately
+        return callback(null, user, context);
+      }
+
+      queryWebService(user.user_id, function (err, someData) {
+        //add the attribute to the current profile
+        user.someData = someData;
+
+        //make it persistent
+        user.persistent.someData = someData;
+
+        return callback(null, user, context);
+      });
+    }
 
 ## Query a Web Service
 
@@ -155,9 +178,9 @@ You can query a SOAP Web Service using `request`, parse the response and add pro
     function (user, context, callback) {
       getRoles(user.email, function(err, roles) {
         if (err) return callback(err);
-    
+
         user.roles = roles;
-    
+
         callback(null, user, context);
       });
 
@@ -165,16 +188,16 @@ You can query a SOAP Web Service using `request`, parse the response and add pro
         request.post({
           url:  'https://somedomain.com/RoleService.svc',
           body: '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body><GetRolesForCurrentUser xmlns="http://tempuri.org"/></s:Body></s:Envelope>',
-          headers: { 'Content-Type': 'text/xml; charset=utf-8', 
-                  'SOAPAction': http://tempuri.org/RoleService/GetRolesForCurrentUser' }   
+          headers: { 'Content-Type': 'text/xml; charset=utf-8',
+                  'SOAPAction': http://tempuri.org/RoleService/GetRolesForCurrentUser' }
         }, function (err, response, body) {
           if (err) return callback(err);
-          
+
           var parser = new xmldom.DOMParser();
           var doc = parser.parseFromString(body);
           var roles = xpath.select("//*[local-name(.)='string']", doc).map(function(node) { return node.textContent; });
           return callback(null, roles);
-        }); 
+        });
       }
     }
 
