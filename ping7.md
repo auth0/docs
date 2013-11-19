@@ -6,7 +6,7 @@ layout: doc.nosidebar
 
 Most options are the default values. You will just need to press __Next__ in most screens. If metadata import fails for some reason, keep these values at hand. These are the most important configuration parameters:
 
-* __EntityID:__ `urn:auth0:@@account.tenant@@`
+* __EntityID:__ `urn:auth0:@@account.tenant@@:@@connectionName@@`
 * __Assertion Consumer Service URL:__ `https://@@account.namespace@@/login/callback`
 * __Logout URL:__ `https://@@account.namespace@@/logout`
 * __HTTP-Redirect__ binding for SAML Request
@@ -15,7 +15,7 @@ Most options are the default values. You will just need to press __Next__ in mos
 
 ###1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://@@account.namespace@@/samlp/metadata). This will be used in [step 3](ping7#3) and it is used to automatically import information about your partner.
+Download the metadata file from [here](https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@). This will be used in [step 3](ping7#3) and it is used to automatically import information about your partner.
 
 ###2. Create a new __SP Connection__
 
@@ -33,7 +33,7 @@ Select __Browser SSO__ as the __Connection Options__:
 
 ![](img/ping-3.png)
 
-Upload the [__metadata file__](https://@@account.namespace@@/samlp/metadata) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
+Upload the [__metadata file__](https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
 
 ![](img/ping-4.png)
 
