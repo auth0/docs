@@ -1,5 +1,7 @@
 # Using Auth0 in Ruby APIs
 
+@@includes.apinote@@
+
 Install the following gem
 
     sudo gem install jwt

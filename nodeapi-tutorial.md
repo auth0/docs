@@ -1,5 +1,7 @@
 # Using Auth0 in Node.js APIs
 
+@@includes.apinote@@
+
 Install the following package which will provide an express middleware that validates a JSON Web Token.
 
 	 npm install express-jwt

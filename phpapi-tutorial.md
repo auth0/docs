@@ -1,5 +1,7 @@
 # Using Auth0 in PHP APIs
 
+@@includes.apinote@@
+
 Install the following package from composer
 
     firebase/php-jwt
