@@ -38,7 +38,7 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 ```javascript
 
 var auth0 = new Auth0Client(
-  "@@account.tenant@@",
+  "@@account.namespace@@",
   "@@account.clientId@@",
   "@@account.clientSecret@@");
 
@@ -61,7 +61,7 @@ auth0.Login(function (err, result) {
 If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
 
 ```javascript
-auth0.Login("auth0waadtests.onmicrosoft.com", function (err, result) {
+auth0.Login({ connection: "auth0waadtests.onmicrosoft.com" }, function (err, result) {
   if (err) return err;
   /* 
   Use result to do wonderful things, e.g.: 
@@ -78,10 +78,11 @@ auth0.Login("auth0waadtests.onmicrosoft.com", function (err, result) {
 #### Option 3: Authentication with specific user name and password (only for providers that support this)
 
 ```javascript
-auth0.Login(
-  "my-db-connection",
-  "username",
-  "password", 
+auth0.Login({
+    connection: "my-db-connection",
+    username: "username",
+    password: "password"
+  },
   function (err, result) {
     if (err) return err;
     /* 
@@ -93,6 +94,13 @@ auth0.Login(
     */
   });
 ```
+
+#### Scope
+
+Optionally you can specify the `scope` parameter. There are two possible values for scope today:
+
+* __scope: "openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
+* __scope: "openid profile"__ - If you want the entire user profile to be part of the `id_token`.
 
 ## Accessing user information
 
