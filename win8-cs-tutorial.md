@@ -33,11 +33,11 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 using Auth0.SDK;
 
 var auth0 = new Auth0Client(
-	"@@account.tenant@@",
+	"@@account.namespace@@",
 	"@@account.clientId@@",
 	"@@account.clientSecret@@");
 
-auth0.LoginAsync (this)
+auth0.LoginAsync()
 	 .ContinueWith(t => { 
 	 /* 
 	    Use t.Result to do wonderful things, e.g.: 
@@ -56,7 +56,7 @@ auth0.LoginAsync (this)
 If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
 
 ```csharp
-auth0.LoginAsync (this, "auth0waadtests.onmicrosoft.com") // connection name here
+auth0.LoginAsync("auth0waadtests.onmicrosoft.com") // connection name here
 	 .ContinueWith(t => { /* Use t.Result to do wonderful things */ });
 ```
 
@@ -65,7 +65,7 @@ auth0.LoginAsync (this, "auth0waadtests.onmicrosoft.com") // connection name her
 #### Option 3: Authentication with specific user name and password (only for providers that support this)
 
 ```csharp
-auth0.LoginAsync (
+auth0.LoginAsync(
 	"my-db-connection", 	// connection name here
 	"username", 			// user name
 	"password")				// password
@@ -74,6 +74,13 @@ auth0.LoginAsync (
 	 	/* Use t.Result to do wonderful things */ 
  	 });
 ```
+
+#### Scope
+
+Optionally you can specify the `scope` parameter. There are two possible values for scope today:
+
+* __scope: "openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
+* __scope: "openid profile"__ - If you want the entire user profile to be part of the `id_token`.
 
 ## Accessing user information
 
