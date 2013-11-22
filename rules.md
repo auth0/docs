@@ -151,20 +151,20 @@ This __Rule__ will query SQL Server database and retrieve all roles associated w
 
 ### Persistent properties
 
-Make any property persistent using the `persistent` property. In the following rule, we query a an external api during the first login and we persist that property:
+You can make any property persistent using the (surprise!) `persistent` property. The example below checks for presence of a property, and if not there, it queries an external API during the first login:
 
     function (user, context, callback) {
-      if (user.someDataFromWebService) {
-        //if the profile already have the attribute
-        //return inmediately
+      if (user.someData) {
+        //If the profile already has the 'someData' attribute
+        //return immediately
         return callback(null, user, context);
       }
 
       queryWebService(user.user_id, function (err, someData) {
-        //add the attribute to the current profile
+        //Add the attribute to the current profile returned to the app
         user.someData = someData;
 
-        //make it persistent
+        //Make it persistent for next time user logs in
         user.persistent.someData = someData;
 
         return callback(null, user, context);
