@@ -34,7 +34,7 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 ```objective-c
 #import "Auth0Client.h"
 
-Auth0Client *client = [Auth0Client auth0Client:@"@@account.tenant@@" 
+Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@" 
 								   clientId:@"@@account.clientId@@" 
 								   clientSecret:@"@@account.clientSecret@@"];
 
