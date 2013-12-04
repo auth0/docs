@@ -12,3 +12,5 @@ These are the paramters to configure on the SAML Identity Provider:
 * Binding for the SAML Response (received from IdP): **HTTP-Post**
 * NameID format: **unspecified**
 * The SAML assertion, the SAML response, or both can be signed.
+
+> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the post-back URL: `https://@@account.namespace@@/login/callback?connection={YOUR_CONNECTION_NAME}`
