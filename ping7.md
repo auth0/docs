@@ -12,7 +12,7 @@ Most options are the default values. You will just need to press __Next__ in mos
 * __HTTP-Redirect__ binding for SAML Request
 * __HTTP-POST__ binding for SAML Response
 
-> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://@@account.namespace@@/login/callback?connection={YOUR_CONNECTION_NAME}`
+> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://@@account.namespace@@/login/callback?connection=@@connectionName@@`
 
 ###1. Download Auth0 Metadata File
 
