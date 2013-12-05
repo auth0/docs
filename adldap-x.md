@@ -15,13 +15,6 @@ In order to install the __Auth0 AD/LDAP Connector__  you need to first install n
 <div class="installers">
   <ul>
     <li>
-      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22-x86.msi" target="_blank">
-        <img src="/img/node-windows.png" alt="">
-        Windows Installer
-        <small>node-v0.8.22-x86.msi</small>
-      </a>
-    </li>
-    <li>
       <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.pkg" target="_blank">
         <img src="/img/node-mac.png" alt="">
         Macintosh Installer
@@ -54,10 +47,6 @@ Once node.js has been installed, download and unzip the source code for the __Au
 
 ##1. Run the connector
 
-> NOTE: If you are running on Mac or Linux, before moving forward, delete the `node_modules` folder and reinstall the modules with this command `rm -rf node_modules/passport-windowsauth && npm install`
-
-Open a shell console, access the uncompressed folder and execute this command:
-
 	> node server.js
 
 When prompted for the ticket url, paste the following:
@@ -72,7 +61,7 @@ Now that you have a running authentication server, let's try to login with a tes
 
 <a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
--  Test User: __test__ 
+-  Test User: __test__
 -  Test Password: __123__
 
 > By default, the connector will only allow one user to login: a __test__ user that is fixed in code. This is so you can try that everything works fine before changing it to use LDAP / AD.
@@ -100,37 +89,17 @@ To connect to AD or any LDAP directory:
 
 Read the following sections to learn how to customize the login page and how to deploy it.
 
-### Active Directory and Windows Integrated Authentication
-
-By default, the connector will use forms-based authentication to your LDAP directory. However, if you are deploying this on your network and you use Active Directory, it is possible to configure Windows Integrated Authentication, so the user who is joined to the AD domain does not have to enter credentials at all. This only works if the connector is deployed to a Windows based machine. 
-
-To configure Windows Authentication:
-
-* Install iisnode [x86](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x86.msi) | [x64](https://github.com/downloads/WindowsAzure/iisnode/iisnode-full-iis7-v0.2.2-x64.msi) and the [rewrite module](http://www.iis.net/download/URLRewrite)
-* Create a WebSite pointing to the folder running the site, disable Anonymous Authentication and enable __Windows Authentication__ only.
-* Update the `config.json` file with the new `SERVER_URL`
-* Everytime you change something in the config.json file, open a browser to /test-iss to test the configuration
-
-<a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test login again!</span></a>
-
-### Customize the login page
-
-The login page can be customized by editing the [views/login.ejs](https://github.com/auth0/custom-connector/blob/master/views/login.ejs) file.
-
 ### Deploy it
 
 The connector can be deployed on Windows and Linux.
 
 Once you have the final URL of the service (not localhost), update the `SERVER_URL` configuration setting localted in the `config.json` file with the new address and restart the server.
 
-#### Deployment options
-
-* [Windows (IIS / IISNode)](https://github.com/tjanczuk/iisnode)
 * [Linux](http://howtonode.org/deploying-node-upstart-monit)
 
 ### Production considerations
 
-To avoid man in the middle attacks, we strongly recommend that you configure the server to use TLS/SSL. If you are running under IIS, configure the [web site to use SSL](http://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis). If you are hosting on Linux, change the [server.js](https://github.com/auth0/ad-ldap-connector/blob/master/server.js) to use an [https server in node.js](http://nodejs.org/api/https.html#https_https_createserver_options_requestlistener).
+To avoid man in the middle attacks, we strongly recommend that you configure the server to use TLS/SSL. If you are hosting on Linux, change the [server.js](https://github.com/auth0/ad-ldap-connector/blob/master/server.js) to use an [https server in node.js](http://nodejs.org/api/https.html#https_https_createserver_options_requestlistener).
 
 Finally, if you are looking for a highly available setup, you can simply install multiple instances of this server behind a Network Load Balancer.
 
@@ -169,7 +138,7 @@ var checkStep = function () {
   		};
 
   		$('.current-step').removeClass('current-step');
-  		
+
   		$('h2:contains(' + currentStep + '.)').addClass('current-step');
 
   		if (currentStep === 3 && $('#logmeout3').length === 0) {
