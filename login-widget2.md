@@ -39,14 +39,17 @@ If `callbackOnLocationHash: true` was specified, Auth0 will send the response ba
 
 ## Customizing the Widget
 
-The Widget can be customized through the `options` parameter sent to the `show` method.
+The Widget can be customized through the `options` parameter sent to the `signin` method.
 
 ### Options
 
-* __connections__: Array of enabled connections that will be used for the widget. _Default: all enabled connections_.
+* __connections__: Array of enabled connections that will be used for the widget. Default: all enabled connections.
 * __container__: The id of the DIV where the widget will be contained.
-* __icon__: Icon url. _Recommended: 32x32_.
-* __showIcon__: Show/Hide widget icon. _Default: false_.
+* __icon__: Icon url. Recommended: 32x32.
+* __showIcon__: Show/Hide widget icon. Default: false.
+* __userPwdConnectionName__: Specify which Database/AD-LDAP connection should be used with the Email/Password fields. Default: the first Database connection found (if it exists) or the first AD-LDAP connection found.
+
+> Is there an option that you think would be useful? Just <a target="_blank" href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
 
 This example shows how to work with only specified connections and display the labels in Spanish:
     
@@ -57,7 +60,7 @@ This example shows how to work with only specified connections and display the l
         dict:           'es'
     });
 
-    widget.show({
+    widget.signin({
         connections:    ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication'],
         icon:           'https://contoso.com/logo-32.png',
         showIcon:       true
@@ -66,22 +69,30 @@ This example shows how to work with only specified connections and display the l
       // The Auth0 Widget is now loaded.
     });
 
-> `dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a target="_new" href="https://github.com/auth0/auth0-widget.js/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
+> `dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a target="_new" href="https://github.com/auth0/widget/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
 
 Resulting in:
 
 ![](img/widget-customized.png)
 
-Is there an option that you think would be useful? Just <a target="_blank" href="https://github.com/auth0/auth0-widget.js/issues">open an issue on GitHub</a> and we'll look into adding it.
-
 ## Sending extra login parameters
 
 You can send extra parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`.
 
-    widget.show({
+    widget.signin({
         // ... other options ... 
         state: 'foo'
     });
+
+The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope` and `state`.
+
+## Signup and Reset
+
+It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
+
+    widget.signup(/* [same as the .signin method] */);
+    // or
+    widget.reset(/* [same as the .signin method] */);
 
 ## Anatomy of the Auth0 Login Widget
 
