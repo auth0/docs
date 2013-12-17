@@ -33,6 +33,10 @@ You can handle the authorization process client-side as follows:
             alert('hello ' + profile.name);
             // use id_token to call your rest api
         });
+
+        function showLoginWidget() {
+            widget.signin();
+        }
     </script>
 
 If `callbackOnLocationHash: true` was specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `@@account.callback@@#access_token=...&id_token=...`
