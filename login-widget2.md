@@ -71,7 +71,7 @@ This example shows how to work with only specified connections and display the l
         icon:           'https://contoso.com/logo-32.png',
         showIcon:       true
     },
-    funcion () {
+    function () {
       // The Auth0 Widget is now loaded.
     });
 
