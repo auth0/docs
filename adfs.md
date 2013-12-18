@@ -73,7 +73,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
  
 9- Add a relying party identifier with the following value and click `Add` and then `Next`
 
-    urn:auth0:@@account.clientId@@
+    urn:auth0:@@account.tenant@@
 
 ![](img/adfs-identifier.png)
 
