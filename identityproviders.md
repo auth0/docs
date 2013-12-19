@@ -31,7 +31,7 @@ Out of the box, Auth0 supports:
 	* __Fitbit__
 
 
-Auth0 sits in between your app and the system that authenticate your users (any of the above). Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](user-profile) that simpifies user management.
+Auth0 sits in between your app and the system that authenticates your users (any of the above.) Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](user-profile) that simpifies user management.
 
 > The relationship between Auth0 and each of these authentication providers is called a 'connection'
 
