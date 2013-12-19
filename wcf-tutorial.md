@@ -76,7 +76,7 @@ Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF reque
 
     // create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
     var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "@@account.namespace@@");
-    var result = auth0.GetDelegationToken(token, "@@account.clientSecret@@");
+    var result = auth0.GetDelegationToken(token, "@@account.clientClient@@");
         
     // attach token to WCF request
     client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(token));
