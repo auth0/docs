@@ -28,7 +28,6 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 <add key="auth0:ClientId" value="@@account.clientId@@" />
 <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
 <add key="auth0:Domain" value="@@account.namespace@@" />
-<add key="auth0:AppCallback" value="@@account.callback@@" />
 ```
 
 ### 4. Triggering login manually or integrating the Auth0 widget
@@ -45,7 +44,24 @@ Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` w
     }
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
-    
+
+### 6. Configure authentication with Auth0
+
+Edit `App_Start\Startup.Auth.cs`:
+
+	public void ConfigureAuth(IAppBuilder app)
+	{
+	    // ...
+
+	    app.UseAuth0Authentication(
+	        clientId:       System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
+	        clientSecret:   System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
+	        domain:         System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]);
+	}
+
+The nuget provides a simple controller (Auth0AccountController) to process the authentication response from Auth0. If you want to use your own controller, you need to set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
+
+
 **Congratulations!**
 
 ----
@@ -59,3 +75,7 @@ You can use the declarative `[Authorize]` or `<location path='..'>` protection o
 #### Log out
 
 To clear the cookie generated on login, use the `HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie)` method.
+
+#### Download the sample
+
+Browse the sample on <a target="_blank" href="https://github.com/auth0/auth0-aspnet-owin/tree/master/MvcSample">GitHub</a>.
