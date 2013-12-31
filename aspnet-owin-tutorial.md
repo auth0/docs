@@ -1,6 +1,6 @@
 # Using Auth0 with ASP.NET (OWIN)
 
-This tutorial explains how to integrate Auth0 with an ASP.NET application (any kind: WebForms, MVC 1, 2, 3 or 4 and even Web API) that uses the ASP.NET 4.5 Owin infrastructure.
+This tutorial explains how to integrate Auth0 with an ASP.NET application (any kind: WebForms, MVC and even Web API) that uses the ASP.NET 4.5 Owin infrastructure.
 
 ## Tutorial
 
