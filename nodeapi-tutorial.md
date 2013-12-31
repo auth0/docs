@@ -11,7 +11,7 @@ Add the following to your express application:
   	var jwt = require('express-jwt');
 
   	var authenticate = jwt({
-  	  secret: new Buffer('@@account.clientSecret@@', 'base64')
+  	  secret: new Buffer('@@account.clientSecret@@', 'base64'),
   	  audience: '@@account.clientId@@'
   	});
 
