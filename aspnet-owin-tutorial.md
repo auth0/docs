@@ -9,7 +9,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (any k
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-45** package, running the command:
 
 ```
-Install-Package Auth0-ASPNET-45
+Install-Package Auth0-ASPNET-Owin
 ```
 
 ### 2. Setting up the callback URL in Auth0
