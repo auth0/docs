@@ -30,22 +30,7 @@ The NuGet package also created four settings on `<appSettings>`. Replace those w
 <add key="auth0:Domain" value="@@account.namespace@@" />
 ```
 
-### 4. Triggering login manually or integrating the Auth0 widget
-
-@@sdk2@@
-
-### 5. Accessing user information
-
-Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
-
-    public ActionResult Index() 
-    {
-    	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
-    }
-
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
-
-### 6. Configure authentication with Auth0
+### 4. Configure authentication with Auth0
 
 Edit `App_Start\Startup.Auth.cs`:
 
@@ -60,6 +45,21 @@ Edit `App_Start\Startup.Auth.cs`:
 	}
 
 The nuget provides a simple controller (Auth0AccountController) to process the authentication response from Auth0. If you want to use your own controller, you need to set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
+
+### 5. Triggering login manually or integrating the Auth0 widget
+
+@@sdk2@@
+
+### 6. Accessing user information
+
+Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
+
+    public ActionResult Index() 
+    {
+    	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+    }
+
+The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
 
 
 **Congratulations!**
