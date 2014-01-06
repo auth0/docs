@@ -2,7 +2,7 @@
 
 @@includes.apinote@@
 
-Install the following package which will provide an express middleware that validates a JSON Web Token.
+Installing the following package will provide an Express middleware that validates a [JSON Web Token](jwt).
 
 	 npm install express-jwt
 
@@ -22,5 +22,5 @@ Add the following to your express application:
   	  ...
   	});
 
-> If you are not using express you can use the [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) package which provides the underlying token validation functionallity used by `express-jwt`.
+> If you are not using Express you can use the [jsonwebtoken package](https://github.com/auth0/node-jsonwebtoken) which provides the underlying token validation functionality used by `express-jwt`.
 

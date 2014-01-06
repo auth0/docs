@@ -1,6 +1,6 @@
 # Using Auth0 with ASP.NET (OWIN)
 
-This tutorial explains how to integrate Auth0 with an ASP.NET application (any kind: WebForms, MVC and even Web API) that uses the ASP.NET 4.5 Owin infrastructure.
+This tutorial explains how to integrate Auth0 with an ASP.NET application (of any kind: WebForms, MVC and even Web API) that uses the ASP.NET 4.5 Owin infrastructure.
 
 ## Tutorial
 
@@ -44,7 +44,7 @@ Edit `App_Start\Startup.Auth.cs`:
 	        domain:         System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]);
 	}
 
-The nuget provides a simple controller (Auth0AccountController) to process the authentication response from Auth0. If you want to use your own controller, you need to set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
+The nuget provides a simple controller (_Auth0AccountController_) to process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
@@ -52,25 +52,25 @@ The nuget provides a simple controller (Auth0AccountController) to process the a
 
 ### 6. Accessing user information
 
-Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
+Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
     public ActionResult Index() 
     {
     	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
     }
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](user-profile).
 
 
 **Congratulations!**
 
 ----
 
-### More information...
+### More information
 
 #### Authorization
 
-You can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`.
+You can use the declarative `[Authorize]`, `<location path='..'>` in `web.config` or code-based checks like `User.Identity.IsAuthenticated`.
 
 #### Log out
 

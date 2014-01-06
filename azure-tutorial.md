@@ -1,6 +1,6 @@
 # Using Auth0 with Windows Azure
 
-From an Auth0 integration perspective, the code is the same, regardless you are running on Windows Azure or your local dev environment.
+From an Auth0 integration perspective, the code is the same, regardless of where your app is running: on Windows Azure or your local dev environment.
 
 To integrate applications supported by the Windows Azure platform, consider these tutorials:
 
