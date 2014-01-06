@@ -92,6 +92,17 @@ You can send extra parameters when starting a login by adding them to the option
 
 The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope` and `state`.
 
+There are other extrar parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explictely ask for `access_type=offline`. We support sending arbitrary parameters like this:
+
+    widget.signin({
+        // ... other options ... 
+        extraParameters: {
+            access_type: 'offline'
+        }
+    });
+
+> Note: this would be analogous to trigger the login with `https://@@account.namespace@@/authorize?state=foo&access_type=offline&...`.
+
 ## Signup and Reset
 
 It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
