@@ -48,18 +48,18 @@ $access_token = $auth0->getAccessToken();
 
 ### 5. Accessing user information
 
-Once the user successfully authenticated to the application, you can retrieve his profile:
+Once the user is successfully authenticated with the application, you can retrieve his profile:
 
     $userProfile = $auth0->getUserInfo();
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](user-profile).
 
 
 **Congratulations!**
 
 ----
 
-### More information...
+### More information
 
 #### Download the sample
 
