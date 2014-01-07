@@ -42,6 +42,8 @@ $auth0 = new Auth0(array(
 $access_token = $auth0->getAccessToken();
 ```
 
+This implementation of Auth0 SDK uses PHP Sessions to store the access_token. You can change that extending the <a href="https://github.com/auth0/Auth0-PHP/blob/master/src/BaseAuth0.php" target="_new">BaseAuth0</a> abstract class.
+
 ### 4. Triggering login manually or integrating the Auth0 widget
 
 @@sdk2@@
