@@ -34,5 +34,5 @@ To validate the token on the server side, we have tutorials for several platform
 * [Ruby API](rubyapi-tutorial)
 * [PHP API](phpapi-tutorial)
 
-> If your language/platform is missing you could Google for "JWT or JSON Web Token yourplatform". Or let us know: [mailto:support@auth0.com](support@auth0.com)
+> If your language/platform is missing you could Google for "JWT or JSON Web Token yourplatform". Or let us know: [support@auth0.com](mailto:support@auth0.com)
  
