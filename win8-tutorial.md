@@ -39,8 +39,7 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 
 var auth0 = new Auth0Client(
   "@@account.namespace@@",
-  "@@account.clientId@@",
-  "@@account.clientSecret@@");
+  "@@account.clientId@@");
 
 auth0.Login(function (err, result) {
   if (err) return err;
