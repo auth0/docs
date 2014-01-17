@@ -34,8 +34,7 @@ using Auth0.SDK;
 
 var auth0 = new Auth0Client(
 	"@@account.namespace@@",
-	"@@account.clientId@@",
-	"@@account.clientSecret@@");
+	"@@account.clientId@@");
 
 auth0.LoginAsync()
 	 .ContinueWith(t => { 
