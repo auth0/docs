@@ -111,11 +111,11 @@ This endpoint is used by clients to obtain an access token (and optionally a [Js
 
 It receives a `client_id`, `client_secret`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
 
-    POST /oauth/ro HTTP/1.1
-	Host: {auth0_domain}.auth0.com
+	POST /oauth/ro HTTP/1.1
+	Host: @@account.namespace@@
 	Content-Type: application/x-www-form-urlencoded
 	
-	grant_type=password&username=johndoe&password=abcdef&client_id=...&client_secret=...&connection=...
+	grant_type=password&username=johndoe&password=abcdef&client_id=@@account.clientId@@&connection=YOUR CONNECTION
 
 Currently, Auth0 implements the following connections:
 
@@ -129,7 +129,7 @@ As optional parameter, you can include <code>scope=openid</code>. It will return
 
 #### Sample Request
 
-	curl --data "grant_type=password&username=johndoe&password=abcdef&client_id=...&client_secret=...&connection=...&scope=openid" https://{auth0_domain}.auth0.com/oauth/ro
+	curl --data "grant_type=password&username=johndoe&password=abcdef&client_id=@@account.clientId@@&connection=<YOUR CONNECTION>&scope=openid" https://@@account.namespace@@/oauth/ro
 
 ### Login Response
 In response to a login request, Auth0 will return either an HTTP 200, if login succeeded, or an HTTP error status code, if login failed.
