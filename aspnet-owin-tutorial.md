@@ -4,9 +4,9 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (of an
 
 ## Tutorial
 
-### 1. Install Auth0-ASPNET-45 NuGet package
+### 1. Install Auth0-ASPNET-Owin NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-45** package, running the command:
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
 
 ```
 Install-Package Auth0-ASPNET-Owin
@@ -15,9 +15,9 @@ Install-Package Auth0-ASPNET-Owin
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
+<p>After authenticating the user on Auth0, we will do a POST to your website. The first POST will be to the built-in OWIN route "signin-auth0". After that is successful, it will redirect again to "/Auth0Account/ExternalLoginCallback". For security purposes, you have to register this URL on the <strong>Application Settings</strong> section on Auth0 Admin app. *Do not* register the "/Auth0Account/ExternalLoginCallback" route on the dashboard.</p>
 
-<pre><code>http://localhost:PORT/signin-auth0</pre></code>
+<pre><code>http://yourdomain.com:PORT/signin-auth0</pre></code>
 </div>
 
 ### 3. Filling Web.Config with your Auth0 settings
