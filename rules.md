@@ -38,7 +38,14 @@ A __Rule__ takes the following arguments:
   * `clientID`: the client id of the application the user is logging in to.
   * `clientName`: the name of the application (as defined on the dashboard).
   * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
-  * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment.
+  * `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (Ws-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (Ws-trust user/password login used on CRM and Office365)).
+  * `request`: an object containing useful information of the request. It has the following properties:
+    * `query`: querystring of the login transaction sent by the application
+    * `body`: the body of the POST request on login transactions used on `oauth2-resource-owner` or `wstrust-usernamemixed` protocols.
+    * `userAgent`: the user-agent of the client that is trying to log in.
+    * `ip`: the originating IP address of the user trying to log in.
+  * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
+  
 
 > It is important to call the `callback` function which takes the `user` and `context` modified, otherwise the script will timeout (this is because of the async nature of node.js).
 
