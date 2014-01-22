@@ -4,7 +4,7 @@ Rules are code snippets written in JavaScript that are executed as part of the a
 
 ![](img/rules-pipeline.png)
 
-An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes the request to an Identity Provider through a configured connection (__Step 2__). The user authenticates successfuly (__Step3__), the `user` object that represents the logged in user is the passed through the rules pipeline and returned to the app (__Step 4__).
+An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes the request to an Identity Provider through a configured connection (__Step 2__). The user authenticates successfuly (__Step3__), the `user` object that represents the logged in user is the passed through the rules pipeline and returned to the app (__Step 4__). Rules run on __Step 4__.
 
 Here are a few examples. You could:
 
@@ -38,6 +38,7 @@ A __Rule__ takes the following arguments:
   * `clientID`: the client id of the application the user is logging in to.
   * `clientName`: the name of the application (as defined on the dashboard).
   * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
+  * `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
   * `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (Ws-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (Ws-trust user/password login used on CRM and Office365)).
   * `request`: an object containing useful information of the request. It has the following properties:
     * `query`: querystring of the login transaction sent by the application
