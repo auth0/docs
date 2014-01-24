@@ -84,7 +84,7 @@ You can use the declarative `[Authorize]`, `<location path='..'>` in `web.config
 
 #### Log out
 
-To clear the cookie generated on login, use the `HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie)` method.
+To clear the cookie generated on login, use the `HttpContext.GetOwinContext().Authentication.SignOut()` method.
 
 #### Download the sample
 
