@@ -9,8 +9,13 @@ This tutorial explains how to integrate Auth0 with a PHP application.
 Use <a target="_new" href="http://getcomposer.org/doc/01-basic-usage.md">Composer</a> to install Auth0 package:
 
 ```
-"require": {
-    "auth0/auth0-php": "0.6.*"
+{
+    "require": {
+        "auth0/auth0-php": "0.6.*",
+        // other dependencies
+    },
+
+    // ...
 }
 ```
 
