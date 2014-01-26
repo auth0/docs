@@ -22,6 +22,7 @@ Out of the box, Auth0 supports:
 	* __Microsoft Account__ (formerly LiveID)
 	* __Google__
 	* __PayPal__
+	* __Yahoo!__
 	* __GitHub__
 	* __vKontakte__
 	* __Yandex__
