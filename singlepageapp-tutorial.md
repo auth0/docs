@@ -12,9 +12,7 @@
 
 @@sdk2WithCallbackOnHash@@
 
-Note #1: Delete the callbackOnLocationHash option and the widget.parseHash method if you are using the ASP.NET OWIN package from NuGet. Setting those options will cause the user to come back null and will throw an exception on the server. The NuGet package automatically sets the cookie on the server-side.
-
-Note #2: Setting the cookie on the client-side using this method requires [jQuery.Cookie](https://github.com/carhartl/jquery-cookie).
+> Ignore the `callbackOnLocationHash` option and the `widget.parseHash` method if you are using the `Auth0-ASPNET-Owin` nuget package.
 
 ### 3. Validate the JsonWebToken on the server
 
@@ -30,6 +28,8 @@ This sample code sends the JSON Web Token on each call:
         }
       }
     });
+
+> Setting the cookie on the client-side using this method requires [jQuery.Cookie](https://github.com/carhartl/jquery-cookie).
 
 To validate the token on the server side, we have tutorials for several platforms and languages to get you up and running as quickly as possible:
 
