@@ -12,6 +12,10 @@
 
 @@sdk2WithCallbackOnHash@@
 
+Note #1: Delete the callbackOnLocationHash option and the widget.parseHash method if you are using the ASP.NET OWIN package from NuGet. Setting those options will cause the user to come back null and will throw an exception on the server. The NuGet package automatically sets the cookie on the server-side.
+
+Note #2: Setting the cookie on the client-side using this method requires [jQuery.Cookie](https://github.com/carhartl/jquery-cookie).
+
 ### 3. Validate the JsonWebToken on the server
 
 Auth0 returns a standard [JSON Web Token](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-12) in the browser location hash (http://yourapp#id_token=...). This token should be sent to the backend APIs to be validated in the `Authorization` header.
