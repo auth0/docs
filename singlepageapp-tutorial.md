@@ -12,7 +12,7 @@
 
 @@sdk2WithCallbackOnHash@@
 
-> Ignore the `callbackOnLocationHash` option and the `widget.parseHash` method if you are using the `Auth0-ASPNET-Owin` nuget package.
+> Ignore the `callbackOnLocationHash` option and the `widget.parseHash` method if you are using the <a target="_new" href="https://github.com/auth0/auth0-aspnet-owin">Auth0-ASPNET-Owin</a> nuget package (use `@ClaimsPrincipal.Current.FindFirst("id_token").Value` instead).
 
 ### 3. Validate the JsonWebToken on the server
 
