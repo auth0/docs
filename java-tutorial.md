@@ -129,11 +129,11 @@ In the `Auth0ServletCallback` the data to popuplate principal will be persisted 
 
 As configured previously, the user will be redirected to `/protected`. User-provided `HelloServlet`, which overrides `doGet` method, will be handling that case.
 
-### 4. Widget
+### 4. (Optional) Widget
 
 @@sdk2@@
 
-### 5. Customize your JSP login page
+### 5. (Optional) Customize your JSP login page
 
 Next step is to add a Login Page with the custom widget of the previous section. We are going to get some of the widget configuration data from the `web.xml`.
 
