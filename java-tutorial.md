@@ -19,7 +19,7 @@ mvn archetype:generate -DgroupId=com.acme \
 
 ```
 
-### Maven Dependency
+### 1. Adding the Auth0 Maven Dependency
 
 Let's start by adding the Auth0-servlet artifact to the project `pom.xml` file.
 
@@ -27,17 +27,23 @@ Let's start by adding the Auth0-servlet artifact to the project `pom.xml` file.
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>auth0-servlet</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0</version>
 </dependency>
 ```
 
-> Note: if you are not using Maven you can download the auth0-servlet.jar from the downloads section.
+> Note: if you are not using Maven you can download the jar from [here](https://github.com/auth0/auth0-java/releases).
 
-### Authentication
+### 2. Setting up the callback URL in Auth0
 
-#### Filtering Requests
+After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the **Application Settings** section on Auth0 Admin app.
 
-First, let's start configuring the `web.xml` found in your Web Application:
+```
+http://localhost:PORT/callback
+```
+
+### 3. Filtering Requests
+
+Let's start configuring the `web.xml` found in your Web Application:
 
 ```xml
 <web-app>
@@ -81,7 +87,7 @@ First, let's start configuring the `web.xml` found in your Web Application:
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RedirectCallback</servlet-name>
-        <url-pattern>/oauth2callback</url-pattern>
+        <url-pattern>/callback</url-pattern>
     </servlet-mapping>
 
     <!-- Filters -->
@@ -123,9 +129,13 @@ In the `Auth0ServletCallback` the data to popuplate principal will be persisted 
 
 As configured previously, the user will be redirected to `/protected`. User-provided `HelloServlet`, which overrides `doGet` method, will be handling that case.
 
-### Login Page
+### 4. Widget
 
-Next step is to add a Login Page, let's add [Auth0 Widget](https://docs.auth0.com/login-widget2) to a jsp page called `login.jsp`.
+@@sdk2@@
+
+### 5. Customize your JSP login page
+
+Next step is to add a Login Page with the custom widget of the previous section. We are going to get some of the widget configuration data from the `web.xml`.
 
 ```jsp
 <!DOCTYPE html>
@@ -144,8 +154,6 @@ Next step is to add a Login Page, let's add [Auth0 Widget](https://docs.auth0.co
          // Converts a relative path into a full path
          // Taken from http://stackoverflow.com/posts/5212336/revisions
         public String buildUrl(HttpServletRequest request, String relativePath) {
-
-
          String scheme      =    request.getScheme();        // http
          String serverName  =    request.getServerName();    // hostname.com
          int serverPort     =    request.getServerPort();    // 80
@@ -160,9 +168,7 @@ Next step is to add a Login Page, let's add [Auth0 Widget](https://docs.auth0.co
          }
 
          url.append(contextPath).append(relativePath);
-
          return url.toString();
-
          }
       %>
 
@@ -183,7 +189,7 @@ Next step is to add a Login Page, let's add [Auth0 Widget](https://docs.auth0.co
 
 Point your browser to `/login` and you will be seeing that login page.
 
-### Extensibility points
+### 6. Extensibility points
 
 On the first part, we explained how to get running up and fast with Auth0 in your app. But, probably, you needed some degree of customization over any of the involved parts. We will see how to customize it to better suit your needs.
 
@@ -192,6 +198,7 @@ In order to handle the callback call from Auth0, you will need to have a Servlet
 #### Auth0 Filter
 
 `Auth0 Filter` can be subclassed and the following `protected` methods meant to be overriden:
+
  * onSuccess: What should be done when the user is authenticated.
  * onReject: What should be done when the user is not authenticated.
  * loadTokens: You should override this method to provide a custom way of restoring both id and access tokens. By default, they are stored in the Session object but, for instance, they can be persisted in databases.
@@ -199,11 +206,15 @@ In order to handle the callback call from Auth0, you will need to have a Servlet
 Method signatures are as follows: 
 
 ```java
-protected void onSuccess(ServletRequest req, ServletResponse resp, FilterChain next, Tokens tokens) throws IOException, ServletException {
+protected void onSuccess(
+    ServletRequest req, ServletResponse resp, FilterChain next, Tokens tokens) 
+        throws IOException, ServletException {
 
 }
 
-protected void onReject(ServletRequest req, ServletResponse response, FilterChain next) throws IOException, ServletException {
+protected void onReject(
+    ServletRequest req, ServletResponse response, FilterChain next) 
+        throws IOException, ServletException {
         
 }
 
@@ -223,10 +234,14 @@ protected Tokens loadTokens(ServletRequest req, ServletResponse resp) {
 Method signatures are:
 
 ```java
-    protected void saveTokens(HttpServletRequest req, HttpServletResponse resp, Tokens tokens) throws ServletException, IOException {
-    }
+protected void saveTokens(
+    HttpServletRequest req, HttpServletResponse resp, Tokens tokens) 
+        throws ServletException, IOException {
+}
 
-    protected void onSuccess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    }
+protected void onSuccess(
+    HttpServletRequest req, HttpServletResponse resp)
+        throws ServletException, IOException {
+}
 ```
 
