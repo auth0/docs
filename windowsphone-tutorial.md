@@ -33,9 +33,8 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 using Auth0.SDK;
 
 var auth0 = new Auth0Client(
-    "@@account.tenant@@",
-    "@@account.clientId@@",
-    "@@account.clientSecret@@");
+    "@@account.namespace@@",
+    "@@account.clientId@@");
 
 var user = await auth0.LoginAsync();
 /*
