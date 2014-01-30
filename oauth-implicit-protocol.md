@@ -14,8 +14,8 @@ The steps are quite simple though:
         &nonce=RANDOM_VALUE
         &scope=openid</code></pre>
 
-  > In a **JavaScript app** you can optionally use the [Login Widget](login-widget) to trigger the login. Or you can do it manually and send a `connection` parameter in the querystring that will redirect the user straight to the desired connection.
-  In a **mobile/native app**, you would use a Web View or the browser. Also, you can optionally send a `connection` parameter in the querystring that will redirect the user straight to the desired connection. This is useful when you want to control the UI instead of relying on the [Login Widget](login-widget).
+  > In a **JavaScript app** you can optionally use the [Login Widget](login-widget2) to trigger the login. Or you can do it manually and send a `connection` parameter in the querystring that will redirect the user straight to the desired connection.
+  In a **mobile/native app**, you would use a Web View or the browser. Also, you can optionally send a `connection` parameter in the querystring that will redirect the user straight to the desired connection. This is useful when you want to control the UI instead of relying on the [Login Widget](login-widget2).
 
 2. After the user authenticates, your app will be called to this endpoint with a `GET`
 

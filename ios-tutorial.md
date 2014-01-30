@@ -23,7 +23,7 @@ This tutorial explains how to integrate Auth0 with a iOS App. `Auth0Client` help
 ### 3. Integration
 There are three options to do the integration: 
 
-1. Using the [Auth0 Login Widget](login-widget) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 
@@ -55,7 +55,7 @@ Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@"
 
 #### Option 2: Authentication with your own UI
 
-If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
+If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```objective-c
 [client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(BOOL authenticated) 
