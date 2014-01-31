@@ -25,7 +25,7 @@ For more information, please visit the <a target="_blank" href="http://docs.xama
 ### 3. Integration
 There are three options to do the integration: 
 
-1. Using the [Auth0 Login Widget](login-widget) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 
@@ -55,11 +55,11 @@ auth0.LoginAsync (this)
 
 > `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 
-![](https://docs.auth0.com/img/xamarin.auth0client.png)
+![](/img/xamarin.auth0client.png)
 
 #### Option 2: Authentication with your own UI
 
-If you know which identity provider you want to use, you can add a `connection` parameter to the constructor and the user will be sent straight to the specified `connection`:
+If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```csharp
 auth0.LoginAsync (this, "google-oauth2") // connection name here
