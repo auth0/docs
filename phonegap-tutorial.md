@@ -18,7 +18,7 @@ phonegap local plugin add https://github.com/auth0/phonegap-auth0.git
 <plugin name="Auth0Client" value="com.auth0.sdk" />
 ```
 	
-Alternatively, you can ignore step #1.1 and include the following element to your `www/config.xml` file:
+If you prefer using <a href="http://build.phonegap.com/" target="_new">PhoneGap Build</a>, you can ignore step #1.1 and include the following element to your `www/config.xml` file:
 
 ```xml
 <gap:plugin name="com.auth0.sdk" />
