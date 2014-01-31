@@ -19,11 +19,13 @@ Your callback URL into Auth0 is:
 
 ![](img/twitter-api-3.png)
 
+Once the application is created, go to Settings tab and make sure to check the __"Allow this application to be used to Sign in with Twitter"__ option.
+
 ---
 
-##4. Get your Consumer Key and Consumer Secret
+##3. Get your Consumer Key and Consumer Secret
 
-Once the application is registered, enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
+Go back to Details tab, and enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
 
 ![](img/twitter-api-4.png)
 
