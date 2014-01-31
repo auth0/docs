@@ -7,7 +7,9 @@ Contact [technical support](http://help.reader.aol.com/knowledgebase) and provid
 * The name of your app
 * The callback URL: 
 
-	https://@@account.namespace@@/login/callback
+```
+https://@@account.namespace@@/login/callback
+```
 
 ---
 
