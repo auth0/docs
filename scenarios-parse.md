@@ -10,7 +10,7 @@ Auth0 is also designed with great extenisbility features. In this article we sho
 
 ##How it works?
 
-![](https://docs.google.com/drawings/d/1qop1n0BJJZu_F5MH64xcjw58SrDKFbEADPHRFBeipPo/pub?w=492&amp;h=574)
+![](https://docs.google.com/drawings/d/1E8pGVnDjuLw_eh4TPw-JvOB8BHBzWUJLGG1nwCC2CxU/pub?w=831&amp;h=372)
 
 ###1. Authenticate users
 In the first step, users are authenticated. You can use any of Auth0's supported identity systems. All these are available through a single, simple to use, standards based API.
