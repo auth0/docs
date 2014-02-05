@@ -11,7 +11,8 @@ Use <a target="_new" href="http://getcomposer.org/doc/01-basic-usage.md">Compose
 ```
 {
     "require": {
-        "auth0/auth0-php": "0.6.*"
+        "auth0/auth0-php": "0.6.*",
+        "adoy/oauth2": "dev-master"
     }
 }
 ```
