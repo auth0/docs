@@ -15,6 +15,8 @@ These are the attributes that Auth0 will provide:
 Another piece of information added to the user profile is an array of identities. This is used when the user associates one account with a new one (e.g.: Google and Facebook different accounts, same person).
 
 * `access_token`: inside the identities array you will find one record per identity provider the user has associated. If the identity provider is OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information from the user (e.g: Facebook friends, Google contacts, LinkedIn contacts, etc.)
+* `access_token_secret`: **only for twitter** inside the identities array you will find one record per identity provider the user has associated. If the identity provider is OAuth 1.0a, you will find the `access_token_secret` that can be used to call the provider API and obtain more information from the user
+
 
 > **NOTE:** Auth0 will pass through the rest of the attributes it couldn't map.
 
