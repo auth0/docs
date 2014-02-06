@@ -55,18 +55,7 @@ When prompted for the ticket url, paste the following:
 
 > After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server to complete the setup on Auth0.
 
-##2. Let's try to login!
-
-Now that you have a running authentication server, let's try to login with a test user.
-
-<a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
-
--  Test User: __test__
--  Test Password: __123__
-
-> By default, the connector will only allow one user to login: a __test__ user that is fixed in code. This is so you can try that everything works fine before changing it to use LDAP / AD.
-
-##3. Connecting to AD / LDAP
+##2. Connecting to AD / LDAP
 
 To connect to AD or any LDAP directory:
 
@@ -114,41 +103,3 @@ If you see this error in the console:
    message: 80090308: LdapErr: DSID-0C0903A9, comment: AcceptSecurityContext error, data 52e, v1db1
 
 It means that the service account is not valid (this is the account that is used to connect to LDAP, not the end user account). Try using the distinguished name of the user on the `LDAP_USER_BIND` property (e.g.: `CN=John Foo,CN=Users,DC=fabrikam,DC=com`).
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-
-<script type="text/javascript">
-var prevStep = 0, checkIntervalLapse = 5000;
-var checkStep = function () {
-	 if ('@@ticket@@' === 'YOUR_TICKET')
-    return;
-
-    $.ajax({
-  		url:   '/ticket/step?ticket=@@ticket@@',
-  		cache: false
-  	}).done(function (data) {
-
-  		var currentStep = data.currentStep;
-  		if (prevStep == currentStep) return setTimeout(checkStep, checkIntervalLapse);
-
-  		for (var i = 1; i < currentStep; i++) {
-  			$('h2:contains(' + i + '.)')
-  				.addClass('step-finished')
-  				.prepend('<img src="/img/check.png">');
-  		};
-
-  		$('.current-step').removeClass('current-step');
-
-  		$('h2:contains(' + currentStep + '.)').addClass('current-step');
-
-  		if (currentStep === 3 && $('#logmeout3').length === 0) {
-  			$('<iframe id="logmeout3" style="visibility: hidden;" src="http://localhost:4000/logout"></iframe>')
-  				.appendTo('body');
-  		}
-
-  		prevStep = currentStep;
-  		setTimeout(checkStep, checkIntervalLapse);
-	 });
-};
-$(checkStep);
-</script>
