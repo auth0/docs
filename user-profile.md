@@ -6,7 +6,7 @@ These are the attributes that Auth0 will provide:
 
 * `user_id`: A unique identifier of the user per identity provider, same for all apps (e.g.: google-oauth2|103547991597142817347). **ALWAYS GENERATED**
 * `name`: The full name of the user (e.g.: John Foo). **ALWAYS GENERATED**
-* `email`: Email of the user. **ALWAYS GENERATED**
+* `email`: Email of the user.  (if available from provider. E.g. twitter won't give you one, facebook and windows live you have to ask for extra consent)
 * `nickname`: User name (if available, might not be unique across identity providers). **ALWAYS GENERATED**
 * `picture`: URL pointing to the user picture (if not available, will use [gravatar.com](http://gravatar.com) with the email). **ALWAYS GENERATED**
 * `given_name`: First name of the user (if available).
