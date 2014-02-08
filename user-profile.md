@@ -6,7 +6,7 @@ These are the attributes that Auth0 will provide:
 
 * `user_id`: A unique identifier of the user per identity provider, same for all apps (e.g.: google-oauth2|103547991597142817347). **ALWAYS GENERATED**
 * `name`: The full name of the user (e.g.: John Foo). **ALWAYS GENERATED**
-* `email`: Email of the user. **ALWAYS GENERATED**
+* `email`: Email of the user.  (if available from provider. E.g. twitter won't give you one. If using facebook or windows live, you will have to ask for extra user consent).
 * `nickname`: User name (if available, might not be unique across identity providers). **ALWAYS GENERATED**
 * `picture`: URL pointing to the user picture (if not available, will use [gravatar.com](http://gravatar.com) with the email). **ALWAYS GENERATED**
 * `given_name`: First name of the user (if available).
@@ -15,8 +15,9 @@ These are the attributes that Auth0 will provide:
 Another piece of information added to the user profile is an array of identities. This is used when the user associates one account with a new one (e.g.: Google and Facebook different accounts, same person).
 
 * `access_token`: inside the identities array you will find one record per identity provider the user has associated. If the identity provider is OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information from the user (e.g: Facebook friends, Google contacts, LinkedIn contacts, etc.)
+* `access_token_secret`: **currently only for twitter**. If the identity provider is OAuth 1.0a, an  `access_token_secret` property will be present and can be used to call the provider API and obtain more information from the user.
 
-> **NOTE:** Auth0 will pass through the rest of the attributes it couldn't map.
+> **NOTE:** Auth0 will pass-through to the app any other properties supplied by the identity provoder, that are not mapped to the standard attributes named above.
 
 This is a sample user profile from a user that logged in through **Google**:
 

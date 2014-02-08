@@ -1,16 +1,16 @@
 # Extended Authentication for Parse Apps
 
-Mobile Backend as a Service (MBaaS) platforms such as [Parse](www.parse.com) have become very popular as they allow developers to very quickly develop and deploy apps. They achieve this through higher level abstractions and through common app services such as storage, cross-device UI frameworks, and automated app lifecycle management.
+Mobile Backend as a Service (MBaaS) platforms such as [Parse](www.parse.com) have become very popular as they allow developers to very quickly develop and deploy apps. They achieve this through higher-level abstractions and through common app services such as storage, cross-device UI frameworks, and automated app lifecycle management.
 
-Most offer fairly straightforward user management capabilities, with objects in their backend that represent users, and with basic credential and access management. This works well for a large number of apps, but many other apps require integration with existing identity systems. Apps that will be used in corporate environments, will very likely need integration with systems like LDAP or Active Directory. Apps targeting consumers or individuals, would benefit from integration with social netowrks like Facebook, Twitter, LinkedIn and similar.  
+Most offer fairly straightforward user management capabilities, with objects in their backend that represent users, and with basic credential and access management. This works well for a large number of apps, but many other apps require integration with existing identity systems. Apps that will be used in corporate environments will very likely need integration with systems like LDAP or Active Directory. Apps targeting consumers or individuals, would benefit from integration with social networks like Facebook, Twitter, LinkedIn and similar.  
 
 While advanced MBaaS, like __Parse__, do not offer this out-of-the-box, they have built extensibility points in their platforms to allow integration with systems offering more elaborate authentication.
 
-Auth0 is also designed with great extenisbility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](identityproviders).
+Auth0 is also designed with great extensibility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](identityproviders).
 
 ##How it works?
 
-![](https://docs.google.com/drawings/d/1qop1n0BJJZu_F5MH64xcjw58SrDKFbEADPHRFBeipPo/pub?w=492&amp;h=574)
+![](https://docs.google.com/drawings/d/1E8pGVnDjuLw_eh4TPw-JvOB8BHBzWUJLGG1nwCC2CxU/pub?w=831&amp;h=372)
 
 ###1. Authenticate users
 In the first step, users are authenticated. You can use any of Auth0's supported identity systems. All these are available through a single, simple to use, standards based API.
@@ -89,7 +89,7 @@ function rule(user, context, callback) {
 The `Session Token` is returned to the app as part of the User Profile in the `user.parse_session_token` property.
 
 ###3. Call Parse hosted API
-Equiped with the new User Profile object (containing the `Session Token`), the app can now call Parse's API. Parse offers an API's to _become a User_ with a `Session Token`, so the call will be executed in teh context of this particular user:
+Equipped with the new User Profile object (containing the `Session Token`), the app can now call Parse's API. Parse offers an API's to _become a User_ with a `Session Token`, so the call will be executed in the context of this particular user:
 
 ```
 Parse.User.become("session-token-here").then(function (user) {
@@ -100,7 +100,3 @@ Parse.User.become("session-token-here").then(function (user) {
 ```
 
 That's it!
-
-
-
-
