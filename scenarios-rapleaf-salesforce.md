@@ -9,7 +9,7 @@ Implementing this with Auth0 is very easy. You just need 2 [Rules](https://docs.
 
 ![](https://docs.google.com/drawings/d/1PFj7JsAZiQCCQaM7pN5c0Fi8UbMvfAMGjgt-_SdTC6Q/pub?w=850&amp;h=430)
 
-###1.Augment __User Profile__ with RapLeaf:
+###1. Augment __User Profile__ with RapLeaf:
 
 The 1st step is to obtain more information about this user using his email address. __RapLeaf__ provides an API to retrieve public information about a user using the email as input that is extremely easy to use. 
 
@@ -44,7 +44,7 @@ function (user, context, callback) {
 }
 ```
 
-###2.Create a __New Lead__ in Salesforce: 
+###2. Create a __New Lead__ in Salesforce: 
 
 In this second step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
