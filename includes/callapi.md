@@ -19,11 +19,11 @@ The `JWT` is available on the response when exchanging the `code`. Typically thi
 
 ### <i class="icon icon-key" style="margin-right: 10px;font-size: 20px;"></i> Programmatic Authentication (Service Accounts)
 
-A `JWT` can be obtained authenticating with a user from a Database or AD/LDAP connection by calling the `oauth/ro` endpoint of the Authentication API, passing a username, password, connection and client_id. This can be used to obtain tokens from any system without user intervention (e.g. scripts, batch files, web backends, native apps). Look under **Authentication API - Database & Active Directory / LDAP Authentication**.
+A `JWT` can be obtained authenticating with a user from a Database or AD/LDAP connection by calling the `oauth/ro` endpoint of the Authentication API, passing a username, password, connection and client_id. This can be used to obtain tokens from any system without user intervention (e.g. scripts, batch files, web backends, native apps). Look under **SDK - Authentication API - Database & Active Directory / LDAP Authentication** (on the dashboard).
 
 ### <i class="icon icon-refresh" style="margin-right: 10px;font-size: 20px;"></i> Delegated Authentication
 
-You can exchange an existing `JWT` with a new one that will be signed with the secret of the target API. This is typically used for identity delegation (i.e. user logged in to an application with a token signed for that application, then he calls an API which is protected with a different secret). Look under **Authentication API - Delegation**.
+You can exchange an existing `JWT` with a new one that will be signed with the secret of the target API. This is typically used for identity delegation (i.e. user logged in to an application with a token signed for that application, then he calls an API which is protected with a different secret). Look under **SDK - Authentication API - Delegation** (on the dashboard).
 
 Once you get the token, you can call the API attaching the `JWT` on the `Authorization` header.
 
