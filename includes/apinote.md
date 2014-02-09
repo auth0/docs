@@ -1,4 +1,4 @@
-When consuming an API there are two things to have in mind: how to **validate the token (1)** and **where to get the token (2)**.
+When consuming an API there are two things to consider: how to **validate the token (1)** and **getting a token (2)**.
 
 ## 1. Securing the API
 
