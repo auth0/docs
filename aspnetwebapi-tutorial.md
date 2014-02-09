@@ -28,12 +28,9 @@ You can get the attributes of the user on the Web API side by doing:
 
       ClaimsPrincipal.Current.Claims.SingleOrDefault(c => c.Type == "email").Value
 
-## Consuming the secure API
+@@includes.callapi@@
 
-* If you are building a Single Page / HTML5 Application, make sure to read [Using Auth0 in Single Page Apps / HTML5](singlepageapp-tutorial) to understand how to get a token on your application and send it to the Web API.
-* If you are building a regular web site then you might want to read [Using Auth0 with ASP.NET](aspnet-tutorial).
-* If you want to call this API from a console application or a powershell script, you could create a database connection to store credentials and obtain JSON Web Tokens based on those credentials as described in [Protocols - OAuth Resource Owner Password Credentials Grant](protocols#9). 
-* If you want to call this API from a WPF/Winforms app, read [Using Auth0 with WPF or Winforms](wpf-winforms-tutorial).
+---
 
 ## Download the sample
 

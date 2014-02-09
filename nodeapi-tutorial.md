@@ -24,3 +24,4 @@ Add the following to your express application:
 
 > If you are not using Express you can use the [jsonwebtoken package](https://github.com/auth0/node-jsonwebtoken) which provides the underlying token validation functionality used by `express-jwt`.
 
+@@includes.callapi@@

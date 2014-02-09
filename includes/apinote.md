@@ -1,1 +1,5 @@
-> <i class="fa fa-question-circle"></i> This tutorial explains how to add authentication to your API using a [JSON Web Token](jwt), signed with a secret. If you are building a regular web site (not a [single page or html5 app](singlepageapp-tutorial)) and the API is on the same domain, you don't need to implement all this. We recommend that you follow any of the web apps tutorials, and simply reuse the authentication cookie from the front end. 
+When consuming an API there are two things to have in mind: how to **validate the token (1)** and **where to get the token (2)**.
+
+## 1. Securing the API
+
+On the server, follow these steps to secure the API.

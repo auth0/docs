@@ -17,3 +17,5 @@ On your protected APIs, add a check like the following:
     if ($decoded_token->aud == "@@account.clientId@@") {
       header('HTTP/1.0 401 Unauthorized');
     }
+
+@@includes.callapi@@
