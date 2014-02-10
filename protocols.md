@@ -13,7 +13,7 @@ This protocol is best suited for web sites that need:
 
 > In the literature you might find this flow refered to as __Authorization Code Grant__. The full spec of this flow is [here](http://tools.ietf.org/html/rfc6749#section-4.1).
 
-![](img/protocols-oauth-code.png)
+![](https://docs.google.com/drawings/d/1RZYKxbO5LM3fBhL8hs5-wefUkwDgPo-lOuoHWBdc0RI/pub?w=793&amp;h=437)
 
 ### 1. Initiation
 
@@ -37,19 +37,21 @@ Auth0 will start the authentication against the identity provider configured wit
 
 The visible part of this process is that the user is redirected to the identity provider site.
 
+> When using Auth0's built-in user store (created through __Connections -> Database -> New__), there's no redirection. Auth0 in this case is the identity provider.
+
 ---
 
 ### 3. Getting the Access Token
 
-Upon successful authentication, the user will eventually return to your web site with a URL that will look like:
+Upon successful authentication, the user will eventually return to your web site with a URL that will look like (steps 3 & 4 in the diagram above):
 
     http://CALLBACK/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
 
 `CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1. 
 
-Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with the Auth0 [API](api-reference). 
+Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's API. 
 
-To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret`. 
+To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret` (step 5 in the diagram).
 
 	POST https://@@account.namespace@@/oauth/token
 
@@ -62,11 +64,14 @@ If the request is successful, you will get a JSON object with an `access_token`.
 #####Sample Access Token Response:
 
 	{
-       "access_token":"2YotnFZFEjr1zCsicMWpAA",
+       "access_token":".....Access Token.....",
        "token_type":"bearer",
+       "id_token":"......JWT......"
     }
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt).
+
+Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 
 ## OAuth for Native Clients and JavaScript in the browser
 
@@ -74,7 +79,7 @@ This protocol is best suited for mobile native apps and javascript running in a 
 
 > The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2) and it is refered to as the __Implicit Flow__.
 
-![](img/protocols-oauth-implicit.png)
+![](https://docs.google.com/drawings/d/1S_p6WdsOno50aKlr08SueWL25a86l86e8CQLMyDQx_8/pub?w=752&amp;h=282)
 
 ### 1. Initiation
 
@@ -100,8 +105,9 @@ Optionally (if `scope=openid` is added in the authorization request):
 
 	https://CALLBACK#access_token=ACCESS_TOKEN&id_token=JSON_WEB_TOKEN
 
-Clients typically extract the URI fragment with the __Access Token__ and follow the redirection. The client code will then interact with other endpoints using the token in the fragment.
+Clients typically extract the URI fragment with the __Access Token__ and cancel the redirection. The client code will then interact with other endpoints using the token in the fragment.
 
+> Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it.
 
 ## OAuth Resource Owner Password Credentials Grant
 
