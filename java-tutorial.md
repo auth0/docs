@@ -174,7 +174,9 @@ Next step is to add a Login Page with the custom widget of the previous section.
       var widget = new Auth0Widget({
         domain:         '<%= application.getInitParameter("auth0.domain") %>',
         clientID:       '<%= application.getInitParameter("auth0.client_id") %>',
-        callbackURL:    '<%= buildUrl(request, "/callback") %>'
+        callbackURL:    '<%= buildUrl(request, "/callback") %>',
+        // Add your custom state here
+        state:          'foo'
       });
 
     </script>
