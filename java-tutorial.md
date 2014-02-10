@@ -27,7 +27,7 @@ Let's start by adding the Auth0-servlet artifact to the project `pom.xml` file.
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>auth0-servlet</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ```
 
