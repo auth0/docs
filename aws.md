@@ -83,7 +83,7 @@ As an example of an IAM policy:
                   "s3:PutObjectAcl"
               ],
               "Resource": [
-                  "arn:aws:s3:::YOUR_BUCKET_NAME/${SAML:sub}/*"
+                  "arn:aws:s3:::YOUR_BUCKET_NAME/${saml:sub}/*"
               ],
               "Effect": "Allow"
           }
@@ -92,7 +92,7 @@ As an example of an IAM policy:
 
 This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of a SAML token digitally signed that Auth0 exchanges with AWS on your behalf (step 3). 
 
-The `${SAML:sub}` will be automagically mapped from the authenticated user (`sub` means `subject`, that will equal to the user identifier). This means that the __original__ identity of the user can be used throughout the system: your app, S3, etc.
+The `${saml:sub}` will be automagically mapped from the authenticated user (`sub` means `subject`, that will equal to the user identifier). This means that the __original__ identity of the user can be used throughout the system: your app, S3, etc.
 
 
 ###Getting the AWS Token for an authenticated user
@@ -118,12 +118,14 @@ Notice the 2 additional parameters used for AWS:
 The Response will contain the AWS Token:
 
 ```
-{ 
-  SessionToken: 'AQoDYXdzENf//////...Pz02lt4FSCY6L+WBQ==',
-  SecretAccessKey: 'zYaN30nMf/9uV....Zx9Em7xQzcCc9/PPl',
-  Expiration: Fri Jan 10 2014 11:22:32 GMT-0300 (ART),
-  AccessKeyId: 'ASIAI5PCTTOC6APKKXLQ' 
-} 
+{
+  Credentials: {
+    SessionToken: 'AQoDYXdzENf//////...Pz02lt4FSCY6L+WBQ==',
+    SecretAccessKey: 'zYaN30nMf/9uV....Zx9Em7xQzcCc9/PPl',
+    Expiration: Fri Jan 10 2014 11:22:32 GMT-0300 (ART),
+    AccessKeyId: 'ASIAI5PCTTOC6APKKXLQ' 
+  }
+}
 ```
     
 > The Auth0 client libraries simplify calling these endpoint. Check [our GitHub repo](https://github.com/auth0/) for the latest SDKs. Here's [one for client side JavaScript](https://github.com/auth0/auth0.js#delegation-token-request).
@@ -141,10 +143,10 @@ The Response will contain the AWS Token:
   };
 
   auth0.getDelegationToken(targetClientId, options, function (err, delegationResult) {
-    uploadFileToS3(delegationResult);
+    uploadFileToS3(delegationResult.Credentials, done);
   });
 
-  function uploadFileToS3(awsToken, callback)
+  function uploadFileToS3 (awsToken, callback) {
     $('#upload').on('click', function() {
       var params = {
           Key: user.id + '/' + file.name, 
@@ -158,5 +160,5 @@ The Response will contain the AWS Token:
                             awsToken.SessionToken);
       bucket.putObject(params, callback); 
     });
-  });
+  }
 ```
