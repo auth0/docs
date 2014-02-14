@@ -9,7 +9,7 @@ Auth0 ships with AWS IAM integration out of the box that allows you to:
 
 It's straight forward to configure Auth0 for federation with AWS using SAML. 
 
-1. Add a new App  in Auth0 of type __SAML__
+1. Add a new App in Auth0 of type __SAML__
 2. Use the `https://signin.aws.amazon.com/saml` for the __Application Callback URL__
 3. Use this default __SAML configuration__:
     
