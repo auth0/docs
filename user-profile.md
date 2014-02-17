@@ -17,7 +17,7 @@ Another piece of information added to the user profile is an array of identities
 * `access_token`: inside the identities array you will find one record per identity provider the user has associated. If the identity provider is OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information from the user (e.g: Facebook friends, Google contacts, LinkedIn contacts, etc.)
 * `access_token_secret`: **currently only for twitter**. If the identity provider is OAuth 1.0a, an  `access_token_secret` property will be present and can be used to call the provider API and obtain more information from the user.
 
-> **NOTE:** Auth0 will pass-through to the app any other properties supplied by the identity provoder, that are not mapped to the standard attributes named above.
+> **NOTE:** Auth0 will pass-through to the app any other properties supplied by the identity provider, that are not mapped to the standard attributes named above.
 
 This is a sample user profile from a user that logged in through **Google**:
 
