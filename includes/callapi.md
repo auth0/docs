@@ -25,6 +25,8 @@ A `JWT` can be obtained authenticating with a user from a Database or AD/LDAP co
 
 You can exchange an existing `JWT` with a new one that will be signed with the secret of the target API. This is typically used for identity delegation (i.e. user logged in to an application with a token signed for that application, then he calls an API which is protected with a different secret). Look under **SDK - Authentication API - Delegation** (on the dashboard).
 
+> By default, all your clients will be allowed to make delegation requests. If you want to specify only some of them, please go to **API Settings - Allowed Applications / APIs** (on the dashboard).
+
 Once you get the token, you can call the API attaching the `JWT` on the `Authorization` header.
 
     Authorization: Bearer ...JWT...
