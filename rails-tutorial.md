@@ -85,26 +85,22 @@ It seems that under some configurations Ruby can't find certification authority 
 
 Download CURL's CA certs bundle to the project directory:
 
-```term
-$ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
-```
+    $ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
 
 Then add this initializer `config/initializers/fix_ssl.rb`:
 
-```ruby
-require 'open-uri'
-require 'net/https'
+    require 'open-uri'
+    require 'net/https'
 
-module Net
-  class HTTP
-    alias_method :original_use_ssl=, :use_ssl=
+    module Net
+      class HTTP
+        alias_method :original_use_ssl=, :use_ssl=
 
-    def use_ssl=(flag)
-      path = ( Rails.env == "development") ? "lib/ca-bundle.crt" : "/usr/lib/ssl/certs/ca-certificates.crt"
-      self.ca_file = Rails.root.join(path).to_s
-      self.verify_mode = OpenSSL::SSL::VERIFY_PEER
-      self.original_use_ssl = flag
+        def use_ssl=(flag)
+          path = ( Rails.env == "development") ? "lib/ca-bundle.crt" : "/usr/lib/ssl/certs/ca-certificates.crt"
+          self.ca_file = Rails.root.join(path).to_s
+          self.verify_mode = OpenSSL::SSL::VERIFY_PEER
+          self.original_use_ssl = flag
+        end
+      end
     end
-  end
-end
-```
