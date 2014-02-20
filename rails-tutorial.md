@@ -27,7 +27,7 @@ gem install auth0
 Add the `auth0.rb` file under the `config/initializers` folder with the following settings:
 
 	Rails.application.config.middleware.use OmniAuth::Builder do
-	  provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@'
+	  provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@', :callback_path => "/callback"
 	end
 
 ### 4. Initialize the auth0 strategy in your app
@@ -51,8 +51,8 @@ Open the `callback_controller.rb` under the `app/controllers` folder and impleme
 
 Update the callback routes in the `routes.rb` under `config` folder:
 
-	match "auth/auth0/callback" => "callback#store"
-	match "auth/failure" => "callback#failure"
+	get "/callback" => "callback#store"
+	get "/auth/failure" => "callback#failure"
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
