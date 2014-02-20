@@ -63,4 +63,4 @@ Now, you have to create a role that will have one or more policies associated. Y
 
 8. Copy the **Principal ARN** value. You will use this value later when calling the `/delegation` endpoint in Auth0.
 
-  ![](img/aws-api-setup-2.png) 
+  ![](img/aws-api-setup-12.png) 
