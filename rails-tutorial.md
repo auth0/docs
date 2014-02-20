@@ -78,3 +78,33 @@ The userinfo includes these: `uid`, `name`, `email`, `nickname` and `image`.
 OmniAuth will always return a hash of information after authenticating with an external provider in the Rack environment under the key `omniauth.auth`. This information is meant to be as normalized as possible, so the schema below will be filled to the greatest degree available given the provider upon authentication. For more information about the user profile [read this](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), and read [Auth0's normalized user profile](user-profile).
     
 **Congratulations!**
+
+### Troubleshooting SSL issues
+
+It seems that under some configurations Ruby can't find certification authority certificates (CA Certs).
+
+Download CURL's CA certs bundle to the project directory:
+
+```term
+$ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
+```
+
+Then add this initializer `config/initializers/fix_ssl.rb`:
+
+```ruby
+require 'open-uri'
+require 'net/https'
+
+module Net
+  class HTTP
+    alias_method :original_use_ssl=, :use_ssl=
+
+    def use_ssl=(flag)
+      path = ( Rails.env == "development") ? "lib/ca-bundle.crt" : "/usr/lib/ssl/certs/ca-certificates.crt"
+      self.ca_file = Rails.root.join(path).to_s
+      self.verify_mode = OpenSSL::SSL::VERIFY_PEER
+      self.original_use_ssl = flag
+    end
+  end
+end
+```
