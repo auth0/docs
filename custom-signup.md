@@ -24,7 +24,7 @@ Notice that `color` and `food` are custom fields and we will be storing them too
 ### 2. Add the Auth0 Widget to it
 
 ```html
-<script src="https://d19p4zemcycm7a.cloudfront.net/w2/auth0-widget-2.4.0.min.js"></script>
+<script src="https://cdn.auth0.com/w2/auth0-widget-2.4.0.min.js"></script>
 ```
 
 ```js
