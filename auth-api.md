@@ -1,1 +1,1 @@
-@@apiExplorer({isAuth: true})@@
+@@apiExplorer({isAuth: true, anchors: true})@@
