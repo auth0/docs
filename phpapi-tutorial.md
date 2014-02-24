@@ -9,7 +9,7 @@ Install the following package from composer
 On your protected APIs, add a check like the following:
 
     // validate the token
-    $token = str_replace($_SERVER['Authorization'], 'Bearer ', '')
+    $token = str_replace('Bearer ', '', $_SERVER['Authorization'])
     $secret = "@@account.clientSecret@@"
     $decoded_token = JWT::decode($token, base64_decode(strtr($secret, '-_', '+/')) );
 
