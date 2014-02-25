@@ -6,11 +6,11 @@ This example shows how you can very easily connect Auth0 to __segment.io__ and s
 
 Implementing this with Auth0 is very easy, only taking a few lines of code.
 
-![](https://docs.google.com/drawings/d/1oTFVNwjRuX8WEp7TeDLgkcTUlIYVMAtvoNbO9xfAdyw/pub?w=835&amp;h=496)
+![](https://docs.google.com/drawings/d/1oTFVNwjRuX8WEp7TeDLgkcTUlIYVMAtvoNbO9xfAdyw/pub?w=835&amp;h=496">)
 
 ###1. Recording a __SignUp__ or __Login__ event in segment.io:
 
-This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present the we assume this is a `login` event, otherwise we assume a new `signup`. 
+This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume this is a `login` event, otherwise we assume a new `signup`. 
 
 The `sendEvent` function is a simple wrapper around the __segment.io REST API__ which is trivial to call using the provided `request` module. Notice we are also sending some additional contextual information: the __IP address__ and __User Agent__ of the user.
 
