@@ -79,7 +79,7 @@ OmniAuth will always return a hash of information after authenticating with an e
     
 **Congratulations!**
 
-### Sintra
+### Sinatra
 
     require 'sinatra'
     require 'omniauth'
