@@ -100,11 +100,16 @@ After you have enabled the database connection, Auth0's widget will automaticall
 The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
 
 -  [mysql](https://github.com/felixge/node-mysql)
+-  [postgres](http://github.com/brianc/node-postgres)
 -  [sqlserver](https://github.com/pekim/tedious)
--  [request](https://github.com/mikeal/request)
--  [crypto](http://nodejs.org/api/crypto.html)
 -  [Buffer](http://nodejs.org/api/buffer.html)
+-  [request](https://github.com/mikeal/request)
 -  [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/)
+-  [crypto](http://nodejs.org/api/crypto.html)
 -  [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
+-  [xmldom](https://github.com/jindw/xmldom)
+-  [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js)
+-  [xpath](https://github.com/goto100/xpath)
+
 
 > Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection) 
