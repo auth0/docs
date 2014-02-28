@@ -1,4 +1,4 @@
-# Obtaining an Client ID and Client Secret for WordPress
+# Obtaining a Client ID and Client Secret for WordPress
 
 To configure WordPress OAuth2 connections you will need to register Auth0 with WordPress on their [developer portal](http://developer.wordpress.com/).
 
