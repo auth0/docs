@@ -1,6 +1,6 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields. The [Login Widget](login-widget2) has a `signup` mode but it does not support adding arbitrary fields, so you will have to implement your own UI for signup. Note that you can still use the Login Widget for signin thought.
+In some cases, you may want to customize the user sign up form with more fields. The [Login Widget](login-widget2) has a `signup` mode but it does not support adding arbitrary fields, so you will have to implement your own UI for signup. Note that you can still use the Login Widget for signin though.
 
 > You can find the source code of this example in [this github repository](https://github.com/auth0/custom-signup-sample).
 

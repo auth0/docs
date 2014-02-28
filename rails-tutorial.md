@@ -1,6 +1,6 @@
-# Using Auth0 with Ruby On Rails
+# Using Auth0 with Ruby
 
-This tutorial explains how to integrate Auth0 with a Ruby on Rails application.
+This tutorial explains how to integrate Auth0 with a Ruby on Rails application. If you are using Sinatra, it's very similar, look at the one file [example below](#8).
 
 ## Tutorial
 
@@ -27,7 +27,7 @@ gem install auth0
 Add the `auth0.rb` file under the `config/initializers` folder with the following settings:
 
 	Rails.application.config.middleware.use OmniAuth::Builder do
-	  provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@', :callback_path => "/callback"
+	  provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@'
 	end
 
 ### 4. Initialize the auth0 strategy in your app
@@ -78,6 +78,28 @@ The userinfo includes these: `uid`, `name`, `email`, `nickname` and `image`.
 OmniAuth will always return a hash of information after authenticating with an external provider in the Rack environment under the key `omniauth.auth`. This information is meant to be as normalized as possible, so the schema below will be filled to the greatest degree available given the provider upon authentication. For more information about the user profile [read this](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), and read [Auth0's normalized user profile](user-profile).
     
 **Congratulations!**
+
+### Sinatra
+
+    require 'sinatra'
+    require 'omniauth'
+    require 'auth0'
+
+    use Rack::Session::Cookie
+    use OmniAuth::Builder do
+      provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@'
+    end
+
+    get '/' do
+      # render the login widget form Step 5
+      erb :login 
+    end
+
+    get '/auth/auth0/callback' do
+      auth = request.env['omniauth.auth']
+      p auth.inspect
+      # auth will have the user info!
+    end
 
 ### Troubleshooting SSL issues
 
