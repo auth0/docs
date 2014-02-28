@@ -54,6 +54,7 @@ The Widget can be customized through the `options` parameter sent to the `signin
 * __showForgot__: Show/Hide the "Forgot your password?" link. Default: true.
 * __showSignup__: Show/Hide the "Sign Up" link. Default: true.
 * __userPwdConnectionName__: Specify which Database/AD-LDAP connection should be used with the Email/Password fields. Default: the first Database connection found (if it exists) or the first AD-LDAP connection found.
+* __username_style__: Instead of email, the widget will accept a username. Default: false
 
 > Is there an option that you think would be useful? Just <a target="_blank" href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
 
