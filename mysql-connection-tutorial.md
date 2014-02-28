@@ -99,6 +99,7 @@ After you have enabled the database connection, Auth0's widget will automaticall
 
 The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
 
+-  [mongo](http://mongodb.github.io/node-mongodb-native/)
 -  [mysql](https://github.com/felixge/node-mysql)
 -  [postgres](http://github.com/brianc/node-postgres)
 -  [sqlserver](https://github.com/pekim/tedious)
