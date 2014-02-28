@@ -37,11 +37,11 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@" 
 								   clientId:@"@@account.clientId@@"];
 
-[client loginAsync:self withCompletionHandler:^(BOOL authenticated) {
-    if (!authenticated) {
-        NSLog(@"Error authenticating");
+[client loginAsync:self withCompletionHandler:^(NSMutableDictionary* error) {
+    if (error) {
+        NSLog(@"Error authenticating: %@", [error objectForKey:@"error"]);
     }
-    else{            
+    else {      
         // * Use client.auth0User to do wonderful things, e.g.:
 		// - get user email => [client.auth0User.Profile objectForKey:@"email"]
 		// - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
@@ -58,7 +58,7 @@ Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@"
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```objective-c
-[client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(BOOL authenticated) 
+[client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(NSMutableDictionary* error) 
 { 
 	/* Use client.auth0User to do wonderful things */ 
 }];
@@ -72,9 +72,14 @@ If you know which identity provider you want to use, you can add a `connection` 
 [client loginAsync:self connection:@"my-db-connection" 
 						username:@"username"
 						password:@"password"
-						withCompletionHandler:^(BOOL authenticated) 
-{ 
-	/* Use client.auth0User to do wonderful things */ 
+						withCompletionHandler:^(NSMutableDictionary* error) 
+{
+	if (error) {
+		NSLog(@"Error authenticating: %@ - %@", [error objectForKey:@"error"], [error objectForKey:@"error_description"]);
+	}
+	else {
+		/* Use client.auth0User to do wonderful things */ 
+	}
 }];
 ```
 
