@@ -32,6 +32,13 @@ Out of the box, Auth0 supports:
 	* __Fitbit__
 	* __Baidu__
 	* __RenRen__
+	* __AOL__
+	* __Shopify__
+	* __WordPress__
+	* __Dwolla__
+	* __miiCard__
+	* __Yammer__
+	* __SoundCloud__
 
 
 Auth0 sits in between your app and the system that authenticates your users (any of the above.) Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](user-profile) that simpifies user management.
