@@ -8,10 +8,10 @@ Install the following NuGet package:
 
 Add the following code snippet on the `Register` method of `WebApiConfig.cs`:
 
-    var issuer = "https://" + ConfigurationManager.AppSettings["auth0:Domain"] + "/";
-    var audience = ConfigurationManager.AppSettings["auth0:ClientId"];
-    var secret = TextEncodings.Base64.Encode(TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["auth0:ClientSecret"]));
-
+    var issuer = "https://@@account.namespace@@/";
+    var audience = "@@account.clientId@@";
+    var secret = TextEncodings.Base64.Encode(TextEncodings.Base64Url.Decode("@@account.clientSecret@@"));
+    
     // Api controllers with an [Authorize] attribute will be validated with JWT
     app.UseJwtBearerAuthentication(
         new JwtBearerAuthenticationOptions
