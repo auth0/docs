@@ -6,12 +6,12 @@ Install the following NuGet package:
 
     Install-Package Microsoft.Owin.Security.Jwt
 
-Add the following code snippet on the `Register` method of `WebApiConfig.cs`:
+Edit `App_Start\Startup.Auth.cs` in order to call the `UseJwtBearerAuthentication` extension method:
 
     var issuer = "https://@@account.namespace@@/";
     var audience = "@@account.clientId@@";
     var secret = TextEncodings.Base64.Encode(TextEncodings.Base64Url.Decode("@@account.clientSecret@@"));
-    
+
     // Api controllers with an [Authorize] attribute will be validated with JWT
     app.UseJwtBearerAuthentication(
         new JwtBearerAuthenticationOptions
