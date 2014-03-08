@@ -29,6 +29,7 @@ Out of the box, Auth0 supports:
 	* __37Signals__
 	* __Box__
 	* __Salesforce__
+	* __Salesforce (sandbox)__
 	* __Fitbit__
 	* __Baidu__
 	* __RenRen__
