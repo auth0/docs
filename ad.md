@@ -39,7 +39,7 @@ On Windows, the Connector is packaged as a standard installer file (__MSI__). Ru
 
 ![](https://s3.amazonaws.com/blog.auth0.com/adldap_02.PNG)
 
-> The __AD/LDAP Connector__ in Windows is installed as a Service: ![](http://blog.auth0.com.s3.amazonaws.com/adldap_06.PNG)
+> The __AD/LDAP Connector__ in Windows is installed as a Service: ![](https://s3.amazonaws.com/blog.auth0.com/adldap_06.PNG)
 
 Once the installation is complete, you will see the following screen on a browser (notice that the browser is opening a page on the local machine).
 
