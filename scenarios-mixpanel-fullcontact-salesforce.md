@@ -55,7 +55,7 @@ function (user, context, callback) {
   var fullContactAPIKey = 'YOUR FULLCONTACT API KEY';
 
   if(user.email){
-    request('https://api.fullcontact.com/v2/person.json?email=' + user.email + '&apiKey=' + fullContactAPIKey,
+    request('https://api.fullcontact.com/v2/person.json?email=' + encodeURIComponent(user.email) + '&apiKey=' + fullContactAPIKey,
             function(e,r,b){
               if(e) return callback(e);
               if(r.statusCode===200){
