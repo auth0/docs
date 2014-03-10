@@ -71,12 +71,12 @@ Then add the filter to your `web.xml`:
         <!-- For your application this can be found on your Auth0 Application Settings -->
         <init-param>
             <param-name>jwt.secret</param-name>
-            <param-value>YOUR_CLIENT_SECRET</param-value>
+            <param-value>@@account.clientSecret@@</param-value>
         </init-param>
 
         <init-param>
             <param-name>jwt.audience</param-name>
-            <param-value>YOUR_CLIENT_ID</param-value>
+            <param-value>@@account.clientId@@</param-value>
         </init-param>
     </filter>
 
