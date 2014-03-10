@@ -72,6 +72,8 @@ If you didn't configure `Kerberos` or you are outside your intranet you will be 
 
 ![](https://s3.amazonaws.com/blog.auth0.com/adldap_08.png)
 
+> Notice the __User profile__ includes the __Groups__ a user belongs to in AD. This will include any nested groups (flattened list).
+
 ##4. High availability
 
 High availability is achieved through multiple instances of the connector running simultaneously. You need to simply install the connector on another machine. On Windows, just run the __MSI__ again. When the browser opens and requests entering the __Ticket URL__, close the window. Open File Explorer on the location the Connector is installed on (e.g. "\Program Files\ADLDAP Connector") and copy the `certs` folder and `config.json` from a previously configured connector instance here, overwriting any content that exists.
