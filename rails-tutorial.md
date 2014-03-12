@@ -55,7 +55,7 @@ Open the `callback_controller.rb` under the `app/controllers` folder and impleme
 
 Set the callback route in the `routes.rb` under `config` folder:
 
-	get "/auth/auth0/callback" => "callback#auth0"
+	get "/auth/auth0/callback" => "auth0#callback"
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
