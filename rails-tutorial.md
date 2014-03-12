@@ -6,10 +6,10 @@ This tutorial explains how to integrate Auth0 with a Ruby on Rails application. 
 
 ### 1. Install Auth0 gem
 
-Use RubyGems to install the **auth0** gem, running the command:
+Add the gem to your Gemfile:
 
 ```
-gem install auth0
+gem 'auth0'
 ```
 
 > This gem is essentially an [Omniauth Strategy](https://github.com/intridea/omniauth/wiki/Strategy-Contribution-Guide).
