@@ -27,32 +27,35 @@ gem install auth0
 Add the `auth0.rb` file under the `config/initializers` folder with the following settings:
 
 	Rails.application.config.middleware.use OmniAuth::Builder do
-	  provider :auth0, '@@account.clientId@@', '@@account.clientSecret@@', '@@account.namespace@@'
+	  provider(
+	  	:auth0,
+	  	'@@account.clientId@@',
+	  	'@@account.clientSecret@@',
+	  	'@@account.namespace@@',
+	  	callback_path: "/auth/auth0/callback"
+	  )
 	end
+
+Don't forget to change the callback_path if you're using a different route for the callback.
 
 ### 4. Initialize the auth0 strategy in your app
 
 Create the callback controller
 
-	rails generate controller callback store failure
+	rails generate controller auth0 callback
 
 Open the `callback_controller.rb` under the `app/controllers` folder and implement the methods `store` (used to store the user profile in session), and `failure` (to display error messages):
 
-	class CallbackController < ApplicationController
-		def store
-			session[:userinfo] = request.env['omniauth.auth']
-			redirect_to user_index_path
-		end
-
-		def failure
-			@error_msg = request.params['message']
+	class Auth0Controller < ApplicationController
+		def callback
+			session[:userinfo] = env['omniauth.auth']
+			redirect_to root_path
 		end
 	end
 
-Update the callback routes in the `routes.rb` under `config` folder:
+Set the callback route in the `routes.rb` under `config` folder:
 
-	get "/callback" => "callback#store"
-	get "/auth/failure" => "callback#failure"
+	get "/auth/auth0/callback" => "callback#auth0"
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
@@ -60,7 +63,7 @@ Update the callback routes in the `routes.rb` under `config` folder:
 
 ### 6. Accessing user information
 
-Once the user successfully authenticates and returns to the application, you can retrieve his/her profile attributes through the `session[:userinfo]` stored in `CallbackController`
+Once the user successfully authenticates and returns to the application, you can retrieve his/her profile attributes through the `session[:userinfo]` stored in `Auth0Controller`
 
     class UserController < ApplicationController
       def index
@@ -68,7 +71,7 @@ Once the user successfully authenticates and returns to the application, you can
       end
     end
 
-The userinfo includes these: `uid`, `name`, `email`, `nickname` and `image`.
+The userinfo includes these attributes: `uid`, `name`, `email`, `nickname` and `image`.
 
     <div class="well clearfix">
     	<h2>UID</h2>
