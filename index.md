@@ -4,7 +4,7 @@ url: /
 ---
 # Getting started with Auth0
 
-## First things first
+### First things first
 
 Hello @@account.userName@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
@@ -22,7 +22,7 @@ We suggest you should start with any of the above first. That should give you a 
 - [Supported Identity Providers](identityproviders)
 - [Standard-based Protocols](protocols)
 
-## Other resources
+### Other resources
 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
