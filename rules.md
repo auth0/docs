@@ -134,4 +134,4 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
 * [Buffer](http://nodejs.org/api/buffer.html)
 
-> Looking for something not listed here? Write us to [support@auth0.com](mailto:support@auth0.com)
+> Looking for something not listed here? Write to us at [support@auth0.com](mailto:support@auth0.com)
