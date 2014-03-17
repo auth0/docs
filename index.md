@@ -4,13 +4,11 @@ url: /
 ---
 # Getting started with Auth0
 
-### First things first
-
 Hello @@account.userName@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
 The introductory tutorials will take a just a few minutes to complete. And the good news is that most scenarios need just these! A lot of the underlying mechanics of identity management are hidden so you don't need to deal with them.
 
-We have tutorials for all the popular platforms:
+##### We have tutorials for all the popular platforms:
 
 
 <div class="row getting-started-logos clearfix">
