@@ -4,7 +4,7 @@ Rules are code snippets written in JavaScript that are executed as part of the a
 
 ![](https://docs.google.com/drawings/d/16W_hTS_u2CeDFXkD2PlfituFl7b74EQ6HE_XYn3TdD0/pub?w=891&amp;h=283)
 
-An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes the request to an Identity Provider through a configured connection (__Step 2__). The user authenticates successfuly (__Step3__), the `user` object that represents the logged in user is the passed through the rules pipeline and returned to the app (__Step 4__). Rules run on __Step 4__.
+An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes the request to an Identity Provider through a configured connection (__Step 2__). The user authenticates successfuly (__Step3__), the `user` object that represents the logged in user is passed through the rules pipeline and returned to the app (__Step 4__). Rules run on __Step 4__.
 
 Here are a few examples. You could:
 
@@ -134,4 +134,4 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
 * [Buffer](http://nodejs.org/api/buffer.html)
 
-> Looking for something not listed here? Write us to [support@auth0.com](mailto:support@auth0.com)
+> Looking for something not listed here? Write to us at [support@auth0.com](mailto:support@auth0.com)

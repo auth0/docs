@@ -123,7 +123,7 @@ It receives a `client_id`, `client_secret`, `username`, `password` and `connecti
 	
 	grant_type=password&username=johndoe&password=abcdef&client_id=@@account.clientId@@&connection=YOUR CONNECTION
 
-Currently, Auth0 implements the following connections:
+Currently, Auth0 implements the following connections for a resource owner grant:
 
 * google-oauth2
 * google-apps
