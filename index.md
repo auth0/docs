@@ -1,5 +1,5 @@
 ---
-title: Auth0 | Getting started with Auth0
+title: Getting started with Auth0
 url: /
 ---
 # Getting started with Auth0
