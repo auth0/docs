@@ -79,7 +79,7 @@ Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF reque
     var result = auth0.GetDelegationToken(token, "@@account.clientClient@@");
         
     // attach token to WCF request
-    client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(token));
+    client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(result));
 
 **Congratulations!**
 
