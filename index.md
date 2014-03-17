@@ -12,10 +12,114 @@ The introductory tutorials will take a just a few minutes to complete. And the g
 
 We have tutorials for all the popular platforms:
 
-- [Node.js](nodejs-tutorial) / [ASP.NET MVC](aspnet-tutorial) / [ASP.NET Owin](aspnet-owin-tutorial) / [Ruby](rails-tutorial) / [PHP](php-tutorial) / [Java](java-tutorial)
-- [iOS](ios-tutorial) / [Android](android-tutorial) / [Windows Phone](windowsphone-tutorial) / [Xamarin](xamarin-tutorial)
-- Windows Store Apps: [Windows 8 - JavaScript](win8-tutorial) / [Windows 8 - C#](win8-cs-tutorial)
-- [ASP.NET Web API](aspnetwebapi-tutorial) / [ServiceStack](servicestack-tutorial)
+
+<div class="row getting-started-logos clearfix">
+
+	<div class="col-sm-2">
+		<a href="/nodejs-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/node.png"></strong>
+			<span>Node.JS</span>
+		</a>
+	</div>
+
+
+	<div class="col-sm-2">
+		<a href="/aspnet-tutorial" class="logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/asp.png"></strong>
+			<span>ASP.NET MVC</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2 ">
+		<a href="/aspnet-tutorial" class="logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/asp.png"></strong>
+			<span>ASP.NET Owin</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/ruby-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/rails.png"></strong>
+			<span>Ruby</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/php-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/php.png"></strong>
+			<span>PHP</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/java-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/java.png"></strong>
+			<span>Java</span>
+		</a>
+	</div>
+</div>
+
+<div class="row getting-started-logos clearfix">
+	<div class="col-sm-2">
+		<a href="/ios-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/ios.png"></strong>
+			<span>iOS</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/android-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/android.png"></strong>
+			<span>Android</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/windowsphone-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/windows-phone.png"></strong>
+			<span>Win Phone</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/xamarin-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/xamarin.png"></strong>
+			<span>Xamarin</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/win8-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/windows-8.png"></strong>
+			<span>Win8 JS</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/win8-cs-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/windows-8.png"></strong>
+			<span>Win8 C#</span>
+		</a>
+	</div>
+</div>
+
+
+<div class="row getting-started-logos clearfix">
+
+	<div class="col-sm-2">
+		<a href="/aspnetwebapi-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/asp.png"></strong>
+			<span>ASP.NET Web API</span>
+		</a>
+	</div>
+
+	<div class="col-sm-2">
+		<a href="/servicestack-tutorial" class=" logo-tutorial">
+			<strong><img src="https://auth0.com/developers/img/logos/platforms/service-stack.png"></strong>
+			<span>ServiceStack</span>
+		</a>
+	</div>
+</div>
 
 We suggest you should start with any of the above first. That should give you a good idea of how Auth0 works. After that, you can read more about more advanced concepts:
 
@@ -26,6 +130,18 @@ We suggest you should start with any of the above first. That should give you a 
 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
-- [Chat with us!](http://chat.auth0.com)
-- [Contact us!](mailto:support@auth0.com)
-- [Visit GitHub for samples on various platforms](https://github.com/auth0)
+<div class="find-us row">
+	<div class="col-sm-4">
+		<a href="http://twitter.com/authzero" target="_blank" class="twitter"></a>
+	</div>
+
+	<div class="col-sm-4">
+		<a href="http://github.com/auth0" target="_blank" class="github"></a>
+	</div>
+
+	<div class="col-sm-4">
+		<a href="http://chat.auth0.com/" target="_blank" class="chat">
+			<p><img src="https://auth0.com/about/img/circle_chat_alt.svg"></p><span>Chat With Us</span>
+		</a>
+	</div>
+</div>
