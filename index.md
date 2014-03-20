@@ -36,7 +36,7 @@ The introductory tutorials will take a just a few minutes to complete. And the g
 	</div>
 
 	<div class="col-sm-2">
-		<a href="/ruby-tutorial" class=" logo-tutorial">
+		<a href="/rails-tutorial" class=" logo-tutorial">
 			<strong><img src="https://auth0.com/developers/img/logos/platforms/rails.png"></strong>
 			<span>Ruby</span>
 		</a>
