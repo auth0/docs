@@ -14,7 +14,7 @@ Log in into Auth0, select the __Connections__ menu option, and then __Database__
 
 ## Customize the database connection
 
-Auth0 ships with multiple templates to connect with common and widely used database systems: __MySQL__, __SQL Server__, __SQL Azure__, __MongoDb__, among others.
+Auth0 ships with multiple templates to connect with common and widely used database systems: __MySQL__, __SQL Server__, __SQL Azure__, __MongoDb__, __Couchbase__, among others.
 
 In this tutorial, we will use __MySQL__. Select __MySQL__ from one of the templates available:
 
@@ -99,18 +99,20 @@ After you have enabled the database connection, Auth0's widget will automaticall
 
 The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
 
--  [mongo](http://mongodb.github.io/node-mongodb-native/)
--  [mysql](https://github.com/felixge/node-mysql)
--  [postgres](http://github.com/brianc/node-postgres)
--  [sqlserver](https://github.com/pekim/tedious)
--  [Buffer](http://nodejs.org/api/buffer.html)
--  [request](https://github.com/mikeal/request)
--  [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/)
--  [crypto](http://nodejs.org/api/crypto.html)
--  [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
--  [xmldom](https://github.com/jindw/xmldom)
--  [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js)
--  [xpath](https://github.com/goto100/xpath)
+* [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) _(~0.7.5)_
+* [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
+* [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
+* [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
+* [mongo](http://mongodb.github.io/node-mongodb-native/) _(1.3.15)_
+* [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
+* [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
+* [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
+* [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
+* [request](https://github.com/mikeal/request) _(~2.21.0)_
+* [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
+* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
+* [xmldom](https://github.com/jindw/xmldom) _(~0.1.16)_
+* [xpath](https://github.com/goto100/xpath) _(0.0.5)_
 
 
 > Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection) 

@@ -121,17 +121,19 @@ We have an open source repository for common rules here:
 
 The script runs in a JavaScript sandbox for security reasons. You can use the full power of the language (ECMAScript 5) and a few selected libraries. The current sandbox supports:
 
-* [async](https://github.com/caolan/async)
-* [request](https://github.com/mikeal/request)
-* [sqlserver](https://github.com/pekim/tedious)
-* [mongo](https://github.com/mongodb/node-mongodb-native)
-* [mysql](https://github.com/felixge/node-mysql)
-* [crypto](http://nodejs.org/docs/v0.8.23/api/crypto.html)
-* [xmldom](https://github.com/jindw/xmldom)
-* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js)
-* [xpath](https://github.com/goto100/xpath)
-* [bcrypt](https://github.com/ncb000gt/node.bcrypt.js)
-* [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2)
-* [Buffer](http://nodejs.org/api/buffer.html)
+* [async](https://github.com/caolan/async) _(~0.1.22)_
+* [bcrypt](https://github.com/ncb000gt/node.bcrypt.js) _(~0.7.5)_
+* [Buffer](http://nodejs.org/docs/v0.10.24/api/buffer.html)
+* [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
+* [crypto](http://nodejs.org/docs/v0.10.24/api/crypto.html)
+* [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
+* [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
+* [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
+* [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
+* [request](https://github.com/mikeal/request) _(~2.27.0)_
+* [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
+* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
+* [xmldom](https://github.com/jindw/xmldom) _(~0.1.13)_
+* [xpath](https://github.com/goto100/xpath) _(0.0.5)_
 
 > Looking for something not listed here? Write to us at [support@auth0.com](mailto:support@auth0.com)
