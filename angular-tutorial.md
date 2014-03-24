@@ -17,6 +17,7 @@ The following [examples](https://github.com/auth0/auth0-angular/tree/master/exam
  * [Widget](https://github.com/auth0/auth0-angular/tree/master/examples/widget): A simple angular app doing auth with social and username/password using the Login Widget.
  * [Custom Login](https://github.com/auth0/auth0-angular/tree/master/examples/custom-login): Custom login form that uses Auth0 to authenticate.
  * [Custom Signup](https://github.com/auth0/auth0-angular/tree/master/examples/custom-signup): Custom signup plus extra fields added to the user profile on creation.
+ * [Delegation Token](https://github.com/auth0/auth0-angular/tree/master/examples/delegation-token): How to get a token for a secondary API and call it.
  * [API Authentication](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication): Call your protected API using Auth0 generated tokens in the technology you want:
     * [Java](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/java)
     * [.NET OWIN](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/aspnet-owin)
