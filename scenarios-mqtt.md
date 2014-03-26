@@ -33,7 +33,16 @@ var settings = {
   port: 9999,
 };
 
-var auth0 = new Auth0Mosca('https://eugeniop.auth0.com', '{Your AUTH0 ClientID}', '{Your Auth0 Client Secret}','Thermostats');
+//'Thermostats' is a Database connection where all devices are registered.
+var auth0 = new Auth0Mosca('https://eugeniop.auth0.com', '{Your Auth0 ClientID}', '{Your Auth0 Client Secret}','Thermostats');
+
+//Setup the Mosca server
+var server = new mosca.Server(settings);
+
+//Wire up authentication & authorization to mosca
+server.authenticate = auth0.authenticate();
+server.authorizePublish = auth0.authorizePublish();
+server.authorizeSubscribe = auth0.authorizeSubscribe();
 
 //Setup the Mosca server
 var server = new mosca.Server(settings);
@@ -41,11 +50,6 @@ server.on('ready', setup);
 
 // Fired when the mqtt server is ready
 function setup() {
-
-  server.authenticate = auth0.authenticate();
-  server.authorizePublish = auth0.authorizePublish();
-  server.authorizeSubscribe = auth0.authorizeSubscribe();
-
     console.log('Mosca server is up and running');
 }
 
@@ -56,11 +60,11 @@ server.on('clientConnected', function(client) {
 
 This creates a server listening for MQTT messages on port 9999. __mosca__ allows you to override the 3 functions used to authenticate and authorize operations. 
 
-In this sample, we are using a very simple module `Auth0Mosca` to perform these functions. Auth0 is wired up to __mosca__ in the `Setup` function.
+In this sample, we are using a very simple module `Auth0Mosca` to perform these functions. Auth0 is wired up to __mosca__ immediately, 
 
 ###The Auth0Mosca module
 
-This little module provides the 3 functions used by __mosca__:
+This little module provides the 3 functions used by __mosca__, `authenticate`, `authorizePublish` and `authorizeSubscribe`:
 
 ```
 var request = require('request');
@@ -128,19 +132,19 @@ module.exports = Auth0Mosca;
 
 ```
 
-Here we are using the [OAuth2 Resource Owner Password Credential Grant](https://docs.auth0.com/protocols#9) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a CONNECT message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it parses the Json Web Token for the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. Thats's done in the `jwt.verify` call.
+Here we are using the [OAuth2 Resource Owner Password Credential Grant](https://docs.auth0.com/protocols#9) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. Thats's done in the `jwt.verify` call.
 
 By convention, all devices connected to the broker have an account in Auth0:
 
 ![](http://puu.sh/7JNZP.png)
 
-Notice that the Device profile has also a property `topics`. This is an array with all topics this particular device is allowed to. In the screenshot above, `thermostat-1a` will be allowed publishing to topics `temperature` and `config`.
+Notice that the Device Profile also has a property `topics`. This is an array with all topics this particular device is allowed to. In the screenshot above, `thermostat-1a` will be allowed publishing (or subscribing) to topics `temperature` and `config`.
 
-The `authorizePublish` and `authorizeSubscribe` functions simply check that a particular topic is present in this list. 
+The `authorizePublish` and `authorizeSubscribe` functions simply check that a particular requested topic is present in this list. 
 
 ###The Publisher
 
-For this sample, the publisher is a simple nodejs program that uses the `mqtt` module. And adds the right credentials:
+For this sample, the publisher is a simple nodejs program that uses the `mqtt` module, and adds the right credentials:
 
 ```
 var mqtt = require('mqtt')
@@ -171,7 +175,7 @@ function sendTemperature(client){
 }
 ```
 
-Of course `username` & `password` here will have to match whatever it is stored in Auth0.
+Of course `username` & `password` here will have to match whatever is stored in Auth0.
 
 ###The subscriber
 The subscriber is very similar to the publisher:
@@ -204,10 +208,11 @@ client.on('message', function(topic, message) {
   }
 });
 ```
-##Summary
-This shows how easy it is to use Auth0 in various sceanrios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, deviceId, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example). 
 
-> Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revelead. __mosca__ supports TLS as an example. Likely a production deployment would prefer this, unless all traffic happens in a closed network.
+##Summary
+This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example). 
+
+> Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revelead. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
 
 
 
