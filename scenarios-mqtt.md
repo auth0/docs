@@ -22,7 +22,7 @@ This article shows an integration between nodejs based MQTT broker: [mosca](http
 
 ###The Broker
 
-__mosca__ is straight forward to host and can be embedded in other servers. For the purpose of this sample, we simply self-host a __mosca__ server:
+__mosca__ is straightforward to host and can be embedded in other servers. For the purpose of this sample, we simply self-host a __mosca__ server:
 
 
 ```
