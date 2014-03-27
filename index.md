@@ -29,7 +29,7 @@ The introductory tutorials will take a just a few minutes to complete. And the g
 	</div>
 
 	<div class="col-sm-2 ">
-		<a href="/aspnet-tutorial" class="logo-tutorial">
+		<a href="/aspnet-owin-tutorial" class="logo-tutorial">
 			<strong><img src="https://auth0.com/developers/img/logos/platforms/asp.png"></strong>
 			<span>ASP.NET Owin</span>
 		</a>

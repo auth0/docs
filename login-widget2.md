@@ -29,7 +29,7 @@ You can handle the authorization process client-side as follows:
             callbackOnLocationHash: true
         });
 
-        widget.parseHash(window.location.hash, function (profile, id_token, access_token, state) {
+        widget.getProfile(window.location.hash, function (err, profile, id_token, access_token, state) {
             alert('hello ' + profile.name);
             // use id_token to call your rest api
         });
@@ -53,6 +53,7 @@ The Widget can be customized through the `options` parameter sent to the `signin
 * __showIcon__: Show/Hide widget icon. Default: false.
 * __showForgot__: Show/Hide the "Forgot your password?" link. Default: true.
 * __showSignup__: Show/Hide the "Sign Up" link. Default: true.
+* __enableReturnUserExperience__: Show the account used last time the user signed in. Default: `true`.
 * __userPwdConnectionName__: Specify which Database/AD-LDAP connection should be used with the Email/Password fields. Default: the first Database connection found (if it exists) or the first AD-LDAP connection found.
 * __username_style__: Specify the format of the username. Options: `email` or `username`.
 

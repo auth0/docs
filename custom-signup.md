@@ -65,6 +65,8 @@ $('#create-user').submit(function (event) {
         'username': userData.email,
         'password': userData.password,
         'connection': 'Username-Password-Authentication'
+      }, function (err, profile, id_token, access_token) {
+        // store the profile in localstorage/cookie
       });
     },
     error: function () {
@@ -95,13 +97,3 @@ After receiving the request from the client, the JSON contained in the body of t
 
 > Bear in mind that before doing that you may need to generate an access token. Check the API section for more information.
 > In case you are using any of our bindings for Node.js, ASP.NET you may use those instead of doing the HTTP requests manually. 
-
-### 5. Add the necessary code to show the profile when logged in:
-
-```js
-widget.parseHash(window.location.hash, function (profile, id_token, access_token, state) {
-  $('#user-profile .email').text(profile.email);
-  $('#user-profile .color').text(profile.color);
-  $('#user-profile .food').text(profile.food);
-});
-```
