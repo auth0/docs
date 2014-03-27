@@ -1,6 +1,6 @@
 # Authenticating & Authorizing Devices using MQTT with Auth0
 
-[MQTT](http://en.wikipedia.org/wiki/MQ_Telemetry_Transport) is a light-weight protocol often used for devices to communicate with other systems. It is designed for the __publish/subscribe__ messaging pattern.
+[MQTT](http://en.wikipedia.org/wiki/MQ_Telemetry_Transport) is a lightweight protocol often used for devices to communicate with other systems. It is designed for the __publish/subscribe__ messaging pattern.
 
 Generally speaking there are 3 components:
 
@@ -132,7 +132,7 @@ module.exports = Auth0Mosca;
 
 ```
 
-Here we are using the [OAuth2 Resource Owner Password Credential Grant](https://docs.auth0.com/protocols#9) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. Thats's done in the `jwt.verify` call.
+Here we are using the [OAuth2 Resource Owner Password Credential Grant](https://docs.auth0.com/protocols#9) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
 
 By convention, all devices connected to the broker have an account in Auth0:
 
@@ -212,7 +212,7 @@ client.on('message', function(topic, message) {
 ##Summary
 This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example). 
 
-> Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revelead. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
+> Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
 
 
 
