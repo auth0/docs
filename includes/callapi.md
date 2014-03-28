@@ -7,7 +7,7 @@ You have two options: (a) use the same client id and secret for both your applic
 
 ### <i class="icon icon-html5" style="margin-right: 10px;font-size: 25px;"></i> Single Page Applications / HTML5 JavaScript Front End
 
-The `JWT` is available on the location hash of the browser as the `id_token` parameter. You probably want to store it in local/session storage or a cookie `auth0.getProfile(window.location.hash, ...)`. <a href="singlepageapp-tutorial" target="_new">Read more...</a>
+The `JWT` is available on the location hash of the browser as the `id_token` parameter. You probably want to store it in local/session storage or a cookie `auth0.getProfile(location.hash, ...)`. <a href="singlepageapp-tutorial" target="_new">Read more...</a>
 
 ### <i class="icon icon-mobile-phone" style="margin-right: 10px;font-size: 30px;"></i> Native Mobile Applications
 
