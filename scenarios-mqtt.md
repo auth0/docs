@@ -214,6 +214,9 @@ This shows how easy it is to use Auth0 in various scenarios. Auth0's user store 
 
 > Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
 
+###Acknowledgements
+Many thanks to [Matteo Collina](http://www.matteocollina.com/) for the review of this article, and for building the awesome __mosca__.
+
 
 
 
