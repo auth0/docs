@@ -23,7 +23,7 @@ The following sequence diagram shows the typical authentication flow of a single
 
 3. After the user authenticates, your app will be called back to this endpoint with a `GET`
 
-  <pre style="word-wrap:break-word"><code>GET YOUR_CALLBACK_URL?
+  <pre style="word-wrap:break-word"><code>GET YOUR_CALLBACK_URL#
         access_token=2YotnF..........1zCsicMWpAA
         &id_token=......Json Web Token......
         &state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
