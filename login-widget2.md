@@ -31,18 +31,15 @@ You can handle the authorization process client-side as follows:
 
         var result = widget.parseHash(location.hash);
         if (result) {
-            widget.getProfile(location.hash, function (err, profile, id_token, access_token, state) {
-                // use profile to access user properties
-                // use id_token to call your rest api
+            widget.getProfile(result.id_token, function (err, profile) {
+                // store result.id_token and profile in local storage or cookie
             });
         }
-        
-        function showLoginWidget() {
-            widget.signin();
-        }
+
+        widget.signin();
     </script>
 
-If `callbackOnLocationHash: true` was specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `@@account.callback@@#access_token=...&id_token=...`
+> When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `@@account.callback@@#access_token=...&id_token=...`.
 
 ## Customizing the Widget
 
