@@ -85,8 +85,12 @@ These 6 new lines of code do all the work for you. The important aspects:
 
 1. The `Auth0Client` class takes 2 parameters: your `namespace` and the `clientId` of the client application. 
 2. There are various overloads for the  `LoginAsync` method. In the example above all options will be presented to the user. You can use other versions of `LoginAsync` to direct login to a specific provider. For example: `LoginAsync("github")` will have users login exclusively with GitHub.
-3. The `GetDelegationToken` call exchanges the client token (just received in step #2) for another token to be used for with WAMS. 
+3. The `GetDelegationToken` call exchanges the client token (just received in step #2) for another token to be used for with WAMS.
 4. A new `MobileServiceUser` object is created with the new information.
+
+The input for the `GetDelegationToken` method, is the clientID of the WAMS API. This value is available the the WAMS `settings`:
+
+![](img/wams-tutorial-4b.png)
 
 You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect him to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.  
 
