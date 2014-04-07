@@ -35,7 +35,6 @@ Then add the following to your Python API. In this example, we are using Flask, 
       @wraps(f)
       def decorated(*args, **kwargs):
         auth = request.headers.get('Authorization', None)
-        print auth
         if not auth: 
           return authenticate({'code': 'authorization_header_missing', 'description': 'Authorization header is expected'})
 
