@@ -14,7 +14,7 @@ Edit `App_Start\Startup.Auth.cs` in order to call the `UseJwtBearerAuthenticatio
 
     var issuer = "https://@@account.namespace@@/";
     var audience = "@@account.clientId@@";
-    var secret = TextEncodings.Base64.Encode(TextEncodings.Base64Url.Decode("@@account.clientSecret@@"));
+    var secret = TextEncodings.Base64Url.Decode("@@account.clientSecret@@");
 
     // Api controllers with an [Authorize] attribute will be validated with JWT
     app.UseJwtBearerAuthentication(
