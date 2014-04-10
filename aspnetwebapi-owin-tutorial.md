@@ -6,6 +6,10 @@ Install the following NuGet package:
 
     Install-Package Microsoft.Owin.Security.Jwt
 
+Update this package (the one that comes by default with Owin is old)
+
+    Update-Package System.IdentityModel.Tokens.Jwt
+
 Edit `App_Start\Startup.Auth.cs` in order to call the `UseJwtBearerAuthentication` extension method:
 
     var issuer = "https://@@account.namespace@@/";
