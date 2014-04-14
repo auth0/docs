@@ -105,6 +105,14 @@ There are other extrar parameters that will depend on the provider. For example,
 
 > Note: this would be analogous to trigger the login with `https://@@account.namespace@@/authorize?state=foo&access_type=offline&...`.
 
+### Scope
+
+There are different values supported for scope:
+
+* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (sub claim).
+* `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
+* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
+
 ## Signup and Reset
 
 It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
