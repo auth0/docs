@@ -4,8 +4,14 @@ layout: doc.nosidebar
 ---
 # ADFS
 
+This is the data you should give to the ADFS admin:
+
+* Realm Identifier: `urn:auth0:@@account.tenant@@`
+* Endpoint: `https://@@account.namespace@@/login/callback`
+
 ### Scripted setup
-This script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user. 
+
+For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user. 
 
     (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://raw.github.com/auth0/adfs-auth0/master/adfs.ps1") | iex
     AddRelyingParty "urn:auth0:@@account.tenant@@" "https://@@account.namespace@@/login/callback"
