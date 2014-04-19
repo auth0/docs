@@ -23,3 +23,5 @@ The following [examples](https://github.com/auth0/auth0-angular/tree/master/exam
     * [.NET OWIN](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/aspnet-owin)
     * [Node.js](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/nodejs)
     * Also, but not included in examples, we support these technologies: [PHP](phpapi-tutorial), [ASP.NET WebAPI](aspnetwebapi-tutorial), [Ruby](rubyapi-tutorial) among others.
+ * [UI Router](https://github.com/auth0/auth0-angular/tree/master/examples/ui-router): Managing routes using ui-router.
+ * [Require JS](https://github.com/auth0/auth0-angular/tree/master/examples/ui-router): Using RequireJS to include dependencies.
