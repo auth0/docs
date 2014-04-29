@@ -26,7 +26,7 @@ __Save__ the configuration. You are done on the Auth0 side! You will then be pro
 
 ![](https://s3.amazonaws.com/blog.auth0.com/adldap_create_02.PNG)
 
-> We ship different versions of the Connector to install it on multiple platforms: Windows, Linux and MacOS
+> We ship different versions of the Connector to install it on multiple platforms: Windows, Linux and OS X
 
 Keep the __TICKET URL__ at hand as you will need it later.
 
