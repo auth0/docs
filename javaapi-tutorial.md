@@ -4,7 +4,7 @@
 
 Add the following Maven dependency that will be used to validate [JSON Web Tokens](jwt).
 
-```js
+```xml
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>java-jwt</artifactId>
