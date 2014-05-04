@@ -83,14 +83,6 @@ If you know which identity provider you want to use, you can add a `connection` 
 }];
 ```
 
-#### Scope
-
-Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
-
-* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (`sub` claim).
-* `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
-* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
-
 ## Accessing user information
 
 The `auth0User` has the following properties:

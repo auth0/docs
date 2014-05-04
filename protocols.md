@@ -93,7 +93,7 @@ The client requests authorization to Auth0 endpoint:
 
 The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page. 
 
-> Optionally, you can specify a `scope` parameter. The only supported values today are: `openid` and `openid profile`. If you do add a `scope` parameter (with the supported values), Auth0 will return a [JsonWebToken](jwt) in addition to the `access_token` in step #3 (below).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
 ### 2. Authentication
 
