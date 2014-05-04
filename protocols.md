@@ -27,7 +27,11 @@ Someone using a browser hits a protected resource in your web app (a page that r
 
 The `redirect_uri` __must__ match what is defined in your [settings](@@uiURL@@/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
 
-> Optionally, you can specify a `scope` parameter. The only supported values today are: `openid` and `openid profile`. If you do add a `scope` parameter (with the supported values), Auth0 will return a [JsonWebToken](jwt) in addition to the `access_token` in step #3 (below). 
+Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
+
+* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (`sub` claim).
+* `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
+* `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
 ---
 
@@ -69,7 +73,7 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "id_token":"......JWT......"
     }
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
 Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 
@@ -107,7 +111,7 @@ Optionally (if `scope=openid` is added in the authorization request):
 
 Clients typically extract the URI fragment with the __Access Token__ and cancel the redirection. The client code will then interact with other endpoints using the token in the fragment.
 
-> Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it.
+> Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it. You can define specific attributes to return in the JWT (e.g. `scope=openid email name`).
 
 ## OAuth Resource Owner Password Credentials Grant
 
@@ -132,7 +136,7 @@ Currently, Auth0 implements the following connections for a resource owner grant
 
 > Note: For Google authentication we are relying on an endpoint that is marked as deprecated, so use it at your own risk. The user might get a warning saying that someone has logged in from another IP address and will have to complete a captcha challenge allowing the login to happen.
 
-As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token* which is a Json Web Token ([JWT](jwt)).
+As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token*. This is a [JsonWebToken](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). `scope=openid profile` will return the entire user profile.
 
 #### Sample Request
 
