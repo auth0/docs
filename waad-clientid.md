@@ -34,7 +34,7 @@ Enter a friendly name for the application and select "WEB APPLICATION AND/OR WEB
 
 Proceed to the next screen and enter the following:
 
-* **SIGN_ON URL**: your application URL (completely arbitrary)
+* **SIGN-ON URL**: your application URL (completely arbitrary)
 * **APP ID URI**: https://**@@account.tenant@@**.onmicrosoft.com/yourapp
 
 > NOTE: The APP ID URI is just a logical identifier, not a real URL. It is important to use the value as specified above in APP ID URI. For instance, if the Windows Azure AD you've just created is **myorg.onmicrosoft.com**, here you would enter https://**myorg.onmicrosoft.com**/yourapp.
@@ -43,11 +43,7 @@ Proceed to the next screen and enter the following:
 
 ## 3. Configure the Application
 
-Once the application has been created, you will have to configure a couple of things. Click on **CONFIGURE** to continue.
-
-You can customize the logo here and the application URL that you entered before if needed.
-
-<img src="img/waad-7.png" style="width: 60%;  border: 2px solid #eee;" />
+Once the application has been created, you will have to configure a couple of things. Click **CONFIGURE** to continue. On this screen you can customize the logo and the application URL that you entered before if needed.
 
 Enter the following values on **KEYS** and **REPLY URL**, and click **Save**.
 
@@ -56,7 +52,7 @@ Enter the following values on **KEYS** and **REPLY URL**, and click **Save**.
 
 <img src="img/waad-8.png" style="width: 60%;  border: 2px solid #eee;" />
 
-Modify permissions so your app an read the directory:
+The last step: modify permissions so your app can read the directory and click on **SAVE** at the bottom of the screen.
 
 <img src="img/waad-8b.png" style="width: 60%;  border: 2px solid #eee;" />
 
