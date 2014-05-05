@@ -12,6 +12,8 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 Install-Package Auth0-ASPNET
 ```
 
+> This package will add a `LoginCallback.ashx` to your project, which will process the login.
+
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
@@ -57,7 +59,7 @@ You can use the usual authorization techniques since the `LoginCallback.ashx` ha
 
 #### Log out
 
-To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method.
+To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
 
 #### Link accounts
 
