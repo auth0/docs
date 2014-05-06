@@ -27,16 +27,11 @@ Create a new application and complete the form:
 
 ![](img/linkedin-devportal-4.png)
 
-> This step is optional
-
 ---
 
 ##4. Get your API Key and Key Secret
 
 Once the application is registered, enter your new `API Key` and `Key Secret` into the connection settings in Auth0.
 
-![](img/linkedin-devportal-5.png)
-
-![](img/linkedin-devportal-6.png)
 
 
