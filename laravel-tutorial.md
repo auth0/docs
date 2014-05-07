@@ -1,5 +1,5 @@
 # Laravel Auth0 Plugin
-This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps
+This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example of usage [here](https://github.com/auth0/laravel-auth0-sample)
 
 ## Tutorial
 
@@ -7,7 +7,7 @@ This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.c
 
 To install this plugin add the following dependency to your composer.json
 
-    "auth0/laravel-auth0" : "1.0.1"
+    "auth0/laravel-auth0" : "1.0.3"
 
 
 and run `composer update`
@@ -37,7 +37,7 @@ That lets you call the service method like `Auth0::getUserInfo()` or `Auth0::onL
 
 To configure the plugin, you need to publish the plugin configuration by executing the following command
 
-    php artisan config:publish Auth0/Login
+    php artisan config:publish auth0/login
 
 and then modify the config file `app/config/packages/auth0/login/config.php` using your Auth0 account information, as following.
 
