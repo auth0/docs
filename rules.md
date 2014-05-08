@@ -46,6 +46,7 @@ A __Rule__ takes the following arguments:
     * `userAgent`: the user-agent of the client that is trying to log in.
     * `ip`: the originating IP address of the user trying to log in.
   * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
+  * `stats`: an object containing specific user stats, like `stats.loginsCount`.
   
 
 > It is important to call the `callback` function which takes the `user` and `context` modified, otherwise the script will timeout (this is because of the async nature of node.js).
