@@ -68,7 +68,7 @@ Let's start configuring the `web.xml` found in your Web Application:
     </servlet>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <jsp-file>/login.jsp</jsp-file>
+        <servlet-class>com.auth0.example.LoginServlet</servlet-class>
     </servlet>
 
     <!-- Servlet Mappings -->
@@ -135,7 +135,25 @@ As configured previously, the user will be redirected to `/protected`. User-prov
 
 ### 5. (Optional) Customize your JSP login page
 
-Next step is to add a Login Page with the custom widget of the previous section. We are going to get some of the widget configuration data from the `web.xml`.
+First, we are going to create a Servlet to handle the login page:
+
+```java
+protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // import com.auth0.RequestNonceStorage;
+    RequestNonceStorage nonceStorage = new RequestNonceStorage(request);
+    if (!"/favicon.ico".equals(request.getServletPath())) {
+        // import com.auth0.NonceGenerator;
+        String nonce = nonceGenerator.generateNonce();
+        nonceStorage.setState(nonce);
+        request.setAttribute("state", nonce);
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
+    } else {
+        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+    }
+}
+```
+
+Next step is to add a Login Page (`/login.jsp`) with the custom widget of the previous section. We are going to get some of the widget configuration data from the `web.xml`.
 
 ```jsp
 <!DOCTYPE html>
@@ -184,7 +202,7 @@ Next step is to add a Login Page with the custom widget of the previous section.
         <%-- TODO Escape and encode ${param.error} properly. It can be done using jstl c:out. --%>
         <span style="color: red;">${param.error}</span>
     <% } %>
-    <button onclick="widget.signin()">Login</button>
+    <button onclick="widget.signin({state: '${state}'})">Login</button>
   </body>
 </html>
 ```
