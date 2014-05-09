@@ -21,4 +21,4 @@ Your callback URL into Auth0 is:
 
 Once the application is registered, enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
 
->Fitbit is a registered trademark and service mark of Fitbit, Inc. Auth0 is designed for use with the Fitbit platform. This product is not put out by Fitbit, and Fitbit does not service or warrant the functionality of this product.
+>Fitbit is a registered trademark and service mark of Fitbit, Inc. Auth0 is designed for use with the Fitbit platform. This product is not part out by Fitbit, and Fitbit does not service or warrant the functionality of this product.
