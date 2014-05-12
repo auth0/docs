@@ -30,7 +30,7 @@ You can handle the authorization process client-side as follows:
         });
 
         var result = widget.parseHash(location.hash);
-        if (result && result.id) {
+        if (result && result.id_token) {
             auth0.getProfile(result.id_token, function (err, profile) {
               window.location.hash = "";
               if (err) {
