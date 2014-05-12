@@ -1,4 +1,4 @@
-# Auth0 Login Widget v2
+# Auth0 Login Widget
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:
 
@@ -30,12 +30,17 @@ You can handle the authorization process client-side as follows:
         });
 
         var result = widget.parseHash(location.hash);
-        if (result) {
-            widget.getProfile(result.id_token, function (err, profile) {
-                // store result.id_token and profile in local storage or cookie
+        if (result && result.id_token) {
+            auth0.getProfile(result.id_token, function (err, profile) {
+              window.location.hash = "";
+              if (err) {
+                return alert('error fetching profile: ' + JSON.stringify(err));
+              }
+              // store result.id_token and profile in local storage or cookie
+                
             });
         }
-
+        
         widget.signin();
     </script>
 
