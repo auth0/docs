@@ -45,7 +45,10 @@ Out of the box, Auth0 supports:
 	* __SoundCloud__
 	* __Instagram__
 	* __Evernote__
-	* __Evernote (Sandbox)__
+	* __Evernote (sandbox)__
+	* __The City__
+	* __The City (sandbox)__
+	* __Planning Center__
 
 Auth0 sits in between your app and the system that authenticates your users (any of the above.) Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](user-profile) that simpifies user management.
 
