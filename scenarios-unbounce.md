@@ -1,12 +1,11 @@
-## Get Social Authentication for your Landing Pages with Unbounce
+## Get User Information with one-click social authentication on Unbounce Landing Pages
 
 ![](https://dl.dropboxusercontent.com/u/21665105/unbounce.gif)
 
+## How it works
 
-## How to do it
-
-1. Create an account in Auth0
-2. Add the following script to your unbounce landing page and change the variables `YOUR_AUTH0_CLIENT_ID`, `YOUR_AUTH0_DOMAIN`, `UNBOUNCE_PAGE_URL`.
+1. Create an account in [Auth0](https://app.auth0.com)
+2. Add the following script to your unbounce landing page, and change the variables `YOUR_AUTH0_CLIENT_ID`, `YOUR_AUTH0_DOMAIN`, `UNBOUNCE_PAGE_URL`.
 
 > Notice also that you have to create a button for each social provider and then change the IDs in the script and make sure to add jQuery as well since we use that to get the element.
 
@@ -72,4 +71,4 @@ $(function() {
 </script>
 ```
 
-> You can also use the powerful Rules pipeline to integrate with 3rd party services like FullContact, Zapier, Salesforce, and more etc. [Read more about rules here](https://github.com/auth0/rules).
+> You can also use the powerful Rules pipeline to integrate with 3rd party services like FullContact, Zapier, Salesforce, and many more. [Read more about rules here](https://github.com/auth0/rules).
