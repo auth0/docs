@@ -84,7 +84,7 @@ The details of these exchanges are available in the [protocols section](protocol
 
 To unlink a specific account, POST request to the following url:
 
-`https://@@account.namespace@@/unlink?`
+`https://@@account.namespace@@/unlink`
 
 Body should be:
 
