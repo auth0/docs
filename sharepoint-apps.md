@@ -1,18 +1,18 @@
 # Connecting Provider Hosted Apps to SharePoint Online
 
-Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an access token you can the use to cal SharePoint APIs.
+Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an access token you can the use to call SharePoint APIs.
 
 You won't need any special libraries. You can use any of the SDKs supported by Auth0.
 
 ##1. Register your app in Auth0
 
-Just register a new app in Auth0 as you would normally do: __Applications > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need in the next step.
+Just register a new app in Auth0 as you would normally do: __Applications > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need it in the next step.
 
 ##2. Create a Package for your app
 
-You need to obtain an __App ID__ and an __App Secret__ for your app. The simples way today is to use Visual Studio or the SharePoint Online tools.
+You need to obtain an __App ID__ and an __App Secret__ for your app. The simplest way today is to use Visual Studio or the SharePoint Online tools.
 
-At one point you will be asked for the app's URL. Since Auth0 is in between your app and Office 365 infrastructure, you need to use this URL for the app:
+At one point you will be asked for the app's URL. Since Auth0 is in between your app and the Office 365 infrastructure, you need to use this URL for the app:
 
 	https://@@account.namespace@@/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
 
@@ -28,9 +28,9 @@ The last step in the integration is to add a SharePoint connection in Auth0:
 
 You will need:
 
-* `Connection Name`: this is an arbitrary name. It has to match with what you entered in step 2.
+* `Connection Name`. This is an arbitrary name. It has to match with what you entered in step 2.
 * `App Id` & `App Secret`. Also need to match what you entered in step 2.
-* `Test SharePoint Site Url`. This is the SP site URL used to test the connection. (when pressing the 'Try' button here on the dashboard). This is never used at runtime because users will always follow the link to your site from within SharePoint.
+* `Test SharePoint Site Url`. This is the SP site URL used to test the connection. (e.g. when pressing the 'Try' button on the dashboard). This is never used at runtime because users will always follow the link to your site from within SharePoint.
 
 ---
 
