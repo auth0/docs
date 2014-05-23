@@ -6,7 +6,7 @@ This tutorial explains how to integrate Auth0 with a Windows Phone app. `Auth0.W
 
 ### 1. Install Auth0.WindowsPhone NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Js package, running the command:
+Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WindowsPhone package, running the command:
 
 <pre><code>Install-Package Auth0.WindowsPhone</pre></code>
 
