@@ -22,6 +22,12 @@ Add the following to your express application:
   	  ...
   	});
 
+Finally, get the user information by doing:
+
+	app.get('/api/hello', function(req, res) {
+	  res.send('Hello ' + req.user.name);
+	});
+
 > If you are not using Express you can use the [jsonwebtoken package](https://github.com/auth0/node-jsonwebtoken) which provides the underlying token validation functionality used by `express-jwt`.
 
 @@includes.callapi@@
