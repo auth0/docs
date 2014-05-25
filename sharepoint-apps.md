@@ -10,9 +10,19 @@ Just register a new app in Auth0 as you would normally do: __Applications > NEW_
 
 ##2. Create a Package for your app
 
-You need to obtain an __App ID__ and an __App Secret__ for your app. The simplest way today is to use Visual Studio or the SharePoint Online tools.
+You need to obtain a __Client ID__ and a __Client Secret__ for your app. There are many ways of registering your app depending on the expected usage. 
 
-At one point you will be asked for the app's URL. Since Auth0 is in between your app and the Office 365 infrastructure, you need to use this URL for the app:
+> [This article](http://msdn.microsoft.com/en-us/library/office/jj687469(v=office.15).aspx) explains all different ways of registering your app in SharePoint. This step in the tutorial will use the simplest form, using self-registration in a specific tenant.
+
+* Open SharePoint Online https://{your Office365 tenant}.sharepoint.com/_layouts/15/appregnew.aspx
+
+* Generate a __Client_Id__ and __ClientSecret__:
+
+![]()
+
+* Complete the information in the form:
+
+Since Auth0 is in between your app and the Office 365 infrastructure, you need to use this URL for the app:
 
 	https://@@account.namespace@@/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
 
