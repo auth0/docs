@@ -127,9 +127,15 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
 * [Buffer](http://nodejs.org/docs/v0.10.24/api/buffer.html)
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
 * [crypto](http://nodejs.org/docs/v0.10.24/api/crypto.html)
+* [ip](https://github.com/keverw/range_check) _(0.0.1)_
+* [jwt](https://github.com/auth0/node-jsonwebtoken) _(~0.1.0)_
 * [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
+  * [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
+  * [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
+  * [Long](http://mongodb.github.io/node-mongodb-native/api-bson-generated/long.html)
+  * [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
+  * [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
 * [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
-* [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
 * [querystring](http://nodejs.org/api/querystring.html) _(0.10.28)_
 * [request](https://github.com/mikeal/request) _(~2.27.0)_

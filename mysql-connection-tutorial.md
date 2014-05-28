@@ -14,7 +14,7 @@ Log in into Auth0, select the __Connections__ menu option, and then __Database__
 
 ## Customize the database connection
 
-Auth0 ships with multiple templates to connect with common and widely used database systems: __MySQL__, __SQL Server__, __SQL Azure__, __MongoDb__, __Couchbase__, among others.
+Auth0 ships with multiple templates to connect with common and widely used database systems: __MySQL__, __SQL Server__, __SQL Azure__, __MongoDb__, __Couchbase__, __Postgres__, among others.
 
 In this tutorial, we will use __MySQL__. Select __MySQL__ from one of the templates available:
 
@@ -103,9 +103,14 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
 * [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
-* [mongo](http://mongodb.github.io/node-mongodb-native/) _(1.3.15)_
+* [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
+  * [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
+  * [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
+  * [Long](http://mongodb.github.io/node-mongodb-native/api-bson-generated/long.html)
+  * [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
+  * [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
 * [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
-* [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
+	* [mysql\_pool](https://github.com/felixge/node-mysql#pool-options)
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
 * [request](https://github.com/mikeal/request) _(~2.21.0)_
