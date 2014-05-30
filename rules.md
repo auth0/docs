@@ -137,11 +137,13 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
   * [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
 * [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
+* [q](https://github.com/kriskowal/q) _(~1.0.1)_
 * [querystring](http://nodejs.org/api/querystring.html) _(0.10.28)_
 * [request](https://github.com/mikeal/request) _(~2.27.0)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 * [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
 * [xmldom](https://github.com/jindw/xmldom) _(~0.1.13)_
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_
+* [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
 
 > Looking for something not listed here? Write to us at [support@auth0.com](mailto:support@auth0.com)

@@ -113,11 +113,13 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 	* [mysql\_pool](https://github.com/felixge/node-mysql#pool-options)
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
+* [q](https://github.com/kriskowal/q) _(~1.0.1)_
 * [request](https://github.com/mikeal/request) _(~2.21.0)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 * [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
 * [xmldom](https://github.com/jindw/xmldom) _(~0.1.16)_
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_
+* [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
 
 
 > Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection) 
