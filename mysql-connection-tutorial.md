@@ -109,7 +109,7 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
   * [Long](http://mongodb.github.io/node-mongodb-native/api-bson-generated/long.html)
   * [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
   * [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
-* [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
+* [mysql](https://github.com/felixge/node-mysql) _(~2.3.2)_
 	* [mysql\_pool](https://github.com/felixge/node-mysql#pool-options)
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
