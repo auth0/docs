@@ -20,7 +20,7 @@ In this tutorial, we will use __MySQL__. Select __MySQL__ from one of the templa
 
 ![](/img/db-connection-login-script.png)
 
-The following code will be generated from for you in the editor below:
+The following code will be generated for you in the editor below:
 
 	function login (username, password, callback) {
 	  var connection = mysql({
