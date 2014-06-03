@@ -24,7 +24,7 @@ Install-Package Auth0-ASPNET
 
 ### 3. Filling Web.Config with your Auth0 settings
 
-The NuGet package also created four settings on `<appSettings>`. Replace those with the following settings:
+The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
 ```
 <add key="auth0:ClientId" value="@@account.clientId@@" />
