@@ -104,8 +104,8 @@ Auth0Mosca.prototype.authenticateWithCredentials = function(){
 
      var data = {
         client_id:   self.clientId, // {client-name}
-        username:    username,
-        password:    password,
+        username:    username.toString(),
+        password:    password.toString(),
         connection:  self.connection,
         grant_type:  "password",
         scope: 'openid profile'
