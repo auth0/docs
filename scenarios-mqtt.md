@@ -44,8 +44,6 @@ server.authenticate = auth0.authenticateWithCredentials();
 server.authorizePublish = auth0.authorizePublish();
 server.authorizeSubscribe = auth0.authorizeSubscribe();
 
-//Setup the Mosca server
-var server = new mosca.Server(settings);
 server.on('ready', setup);
 
 // Fired when the mqtt server is ready
