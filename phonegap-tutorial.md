@@ -32,9 +32,9 @@ If you prefer using <a href="http://build.phonegap.com/" target="_new">PhoneGap 
 
 1.4. Edit the `www/config.xml` file to include your Auth0 domain in the list of allowed origins:
 
-~~~xml
+```xml
 <access origin="https://@@account.namespace@@" />
-~~~
+```
 
 ### 2. Setting up the callback URL in Auth0
 
