@@ -6,15 +6,11 @@ url: /
 
 Hello @@account.userName@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
-##### We have tutorials for all the popular platforms:
-
 
 <div class="row getting-started-logos clearfix">
 	<div id="tutorial-navigator"></div>
 </div>
 
-
-### Other resources
 
 Not sure about your scenario? Have additional questions? Something doesn't work as expected?
 
