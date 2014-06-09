@@ -6,30 +6,9 @@ url: /
 
 Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
-
 <div class="row getting-started-logos clearfix">
 	<div id="tutorial-navigator"></div>
 </div>
-
-
-Not sure about your scenario? Have additional questions? Something doesn't work as expected?
-
-<div class="find-us row">
-	<div class="col-xs-4">
-		<a href="http://twitter.com/authzero" target="_blank" class="twitter"></a>
-	</div>
-
-	<div class="col-xs-4">
-		<a href="http://github.com/auth0" target="_blank" class="github"></a>
-	</div>
-
-	<div class="col-xs-4">
-		<a href="http://chat.auth0.com/" target="_blank" class="chat">
-			<p><img src="https://auth0.com/about/img/circle_chat_alt.svg"></p><span>Chat With Us</span>
-		</a>
-	</div>
-</div>
-
 
 
 <script src="https://cdn.auth0.com/tutorial-navigator/0.6.1/build.js" type="text/javascript"></script>
