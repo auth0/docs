@@ -75,6 +75,7 @@ Not sure about your scenario? Have additional questions? Something doesn't work 
     page();
 
     function rewrite(ctx, next) {
+    		if (ctx.pathname !== '/' && !ctx.hash) return next();
         ctx.path = ctx.hash.replace(/^[\#\!]/, '')
         next();
     }
