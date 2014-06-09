@@ -71,7 +71,7 @@ Not sure about your scenario? Have additional questions? Something doesn't work 
     page('/:apptype/:platform/:api?', checkstate, render);
 
     // Initialize routing
-    // page.base('/navigator');
+    page.base('/');
     page();
 
     function rewrite(ctx, next) {
