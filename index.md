@@ -20,6 +20,7 @@ We suggest you should start with any of the above first. That should give you a 
 
 - [Supported Identity Providers](identityproviders)
 - [Standard-based Protocols](protocols)
+- [Normalized Profile](user-profile)
 
 ### Other resources
 
