@@ -7,7 +7,7 @@ url: /
 Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
 <div class="row getting-started-logos clearfix">
-	<div id="tutorial-navigator"></div>
+	<div id="navigator-container"></div>
 </div>
 
 
@@ -68,7 +68,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 	    }
 
 	    function render(ctx, next) {
-	      tutorial.render('#tutorial-navigator');
+	      tutorial.render('#navigator-container');
 	    }
 
 	    /**
