@@ -103,6 +103,8 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
 * [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
+* [knex](http://knexjs.org) _(~0.6.3)_
+	* The function returned by `require('knex')` is available as `Knex`.
 * [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
   * [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
   * [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
