@@ -15,15 +15,17 @@ Go to the [Facebook Developers Apps](https://developers.facebook.com/apps), logi
 
 ---
 
-##3. Setup the callback URL:
+##3. Complete setup
+
+Copy the App ID and App Secret to the clipboard:
+
+![](img/facebook-3.png)
 
 On app **Settings > Advanced**, enter the following URL on the "Valid OAuth redirect URIs":
 
     https://@@account.namespace@@/login/callback
 
-![](img/facebook-3.png)
-
-And copy the App ID and App Secret to the clipboard.
+![](img/facebook-3b.png)
 
 ---
 
