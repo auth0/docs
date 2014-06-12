@@ -7,7 +7,7 @@ url: /
 Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
 <div class="row getting-started-logos clearfix">
-	<div id="navigator-container"></div>
+  <div id="navigator-container"></div>
 </div>
 
 
@@ -18,144 +18,152 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 </script>
 
 <script type="text/javascript">
-		(function() {
-	    var TutorialNavigator = require('tutorial-navigator');
-	    var tutorial = new TutorialNavigator();
-	    var extract = /\/(.+)-tutorial/;
-	    var compose = function(val) { return val ? '/' + val + '-tutorial' : ''};
-	    var eqlPath = function(url) {
-	      var base = page.base() || '';
-	      var path = window.location.hash || '#!/';
-	      return path === url;
-	    }
+    (function() {
+      var TutorialNavigator = require('tutorial-navigator');
+      var tutorial = new TutorialNavigator();
+      var extract = function(p) {
+        if (!~p.indexOf('-tutorial')) p += '-tutorial';
+        var parts =  /\/(.+)-tutorial/.exec(p);
+        return parts ? parts[1] : '';
+      };
+      var compose = function(val) {
+        return 'wams' === val
+          ? '/' + val
+          : (val ? "/"  + val + '-tutorial' : '');
+      }
+      var eqlPath = function(url) {
+        var base = page.base() || '';
+        var path = window.location.hash || '#!/';
+        return path === url;
+      }
 
-	    /**
-	     * Routing
-	     */
+      /**
+       * Routing
+       */
 
-	    page('*', rewrite);
-	    page('/:apptype?', checkstate, render);
-	    page('/:apptype/:platform?', checkstate, render);
-	    page('/:apptype/:platform/:api?', checkstate, render);
+      page('*', rewrite);
+      page('/:apptype?', checkstate, render);
+      page('/:apptype/:platform?', checkstate, render);
+      page('/:apptype/:platform/:api?', checkstate, render);
 
-	    // Initialize routing
-	    page.base('/');
-	    page();
+      // Initialize routing
+      page.base('/');
+      page();
 
-	    function rewrite(ctx, next) {
-	    		if (ctx.pathname !== '/' && !ctx.hash) return next();
-	        ctx.path = ctx.hash.replace(/^[\#\!]/, '')
-	        next();
-	    }
+      function rewrite(ctx, next) {
+          if (ctx.pathname !== '/' && !ctx.hash) return next();
+          ctx.path = ctx.hash.replace(/^[\#\!]/, '')
+          next();
+      }
 
-	    function checkstate(ctx, next) {
-	      var apptype = ctx.params.apptype || '';
-	      var platform = compose(ctx.params.platform || '');
-	      var api = ctx.params.api || '';
+      function checkstate(ctx, next) {
+        var apptype = ctx.params.apptype || '';
+        var platform = compose(ctx.params.platform || '');
+        var api = ctx.params.api || '';
 
-	      tutorial.set({
-	        apptype: apptype,
-	        nativePlatform: 'native-mobile' === apptype ? platform : '',
-	        hybridPlatform: 'hybrid' === apptype ? platform : '',
-	        clientPlatform: 'spa-api' === apptype ? platform : '',
-	        serverPlatform: 'web' === apptype ? platform : '',
-	        serverApi: 'no-api' === api || !api ? '' : compose(api)
-	      });
+        tutorial.set({
+          apptype: apptype,
+          nativePlatform: 'native-mobile' === apptype ? platform : '',
+          hybridPlatform: 'hybrid' === apptype ? platform : '',
+          clientPlatform: 'spa-api' === apptype ? platform : '',
+          serverPlatform: 'web' === apptype ? platform : '',
+          serverApi: 'no-api' === api || !api ? '' : compose(api)
+        });
 
-	      var codevisible = ('no-api' === api || 'web' === apptype);
-	      if (!api || codevisible) tutorial.set('codevisible', codevisible);
-	      next();
-	    }
+        var codevisible = ('no-api' === api || 'web' === apptype);
+        if (!api || codevisible) tutorial.set('codevisible', codevisible);
+        next();
+      }
 
-	    function render(ctx, next) {
-	      tutorial.render('#navigator-container');
-	    }
+      function render(ctx, next) {
+        tutorial.render('#navigator-container');
+      }
 
-	    /**
-	     * Bind tutorial changes to pushState
-	     */
+      /**
+       * Bind tutorial changes to pushState
+       */
 
-	    tutorial.on('apptype', onapptype);
-	    tutorial.on('nativePlatform', onplatform);
-	    tutorial.on('hybridPlatform', onplatform);
-	    tutorial.on('clientPlatform', onplatform);
-	    tutorial.on('serverPlatform', onplatform);
-	    tutorial.on('serverApi', onserverapi)
-	    tutorial.on('codevisible', oncodevisible);
+      tutorial.on('apptype', onapptype);
+      tutorial.on('nativePlatform', onplatform);
+      tutorial.on('hybridPlatform', onplatform);
+      tutorial.on('clientPlatform', onplatform);
+      tutorial.on('serverPlatform', onplatform);
+      tutorial.on('serverApi', onserverapi)
+      tutorial.on('codevisible', oncodevisible);
 
-	    function onapptype(val, old) {
-	      var url = '#!/:apptype'.replace(':apptype', val || '')
-	      if (!eqlPath(url)) return page(url);
-	    }
+      function onapptype(val, old) {
+        var url = '#!/:apptype'.replace(':apptype', val || '')
+        if (!eqlPath(url)) return page(url);
+      }
 
-	    function onplatform(val, old) {
-	      var url = '#!/:apptype/:platform';
-	      var apptype = tutorial.get('apptype');
-	      var platform = val ? extract.exec(val)[1] : '';
+      function onplatform(val, old) {
+        var url = '#!/:apptype/:platform';
+        var apptype = tutorial.get('apptype');
+        var platform = val ? extract(val) : '';
 
-	      if (!apptype) return;
+        if (!apptype) return;
 
-	      url = url
-	        .replace(':apptype', apptype)
-	        .replace(':platform', platform)
-	        .replace(/\/$/, '');
+        url = url
+          .replace(':apptype', apptype)
+          .replace(':platform', platform)
+          .replace(/\/$/, '');
 
-	      if (!eqlPath(url)) return page(url);
-	    }
+        if (!eqlPath(url)) return page(url);
+      }
 
-	    function onserverapi(api, old) {
-	      var apptype = tutorial.get('apptype');
-	      var platform = tutorial.get('clientPlatform')
-	        || tutorial.get('nativePlatform')
-	        || tutorial.get('hybridPlatform');
+      function onserverapi(api, old) {
+        var apptype = tutorial.get('apptype');
+        var platform = tutorial.get('clientPlatform')
+          || tutorial.get('nativePlatform')
+          || tutorial.get('hybridPlatform');
 
-	      if (!apptype) return;
-	      if (!platform) return;
-	      if (old && !api) return;
+        if (!apptype) return;
+        if (!platform) return;
+        if (old && !api) return;
 
-	      var url = '#!/:apptype/:platform/:api'
-	        .replace(':apptype', apptype)
-	        .replace(':platform', extract.exec(platform)[1])
-	        .replace(':api', api ? extract.exec(api)[1] : 'no-api')
-	        .replace(/\/$/, '');
+        var url = '#!/:apptype/:platform/:api'
+          .replace(':apptype', apptype)
+          .replace(':platform', extract(platform))
+          .replace(':api', api ? extract(api) : 'no-api')
+          .replace(/\/$/, '');
 
-	      if (!eqlPath(url)) return page(url);
-	    };
+        if (!eqlPath(url)) return page(url);
+      };
 
-	    function oncodevisible(visible, old) {
-	      if (!visible) return;
-	      var apptype = tutorial.get('apptype');
-	      var platform = tutorial.get('clientPlatform')
-	        || tutorial.get('nativePlatform')
-	        || tutorial.get('hybridPlatform')
-	        || tutorial.get('serverPlatform');
-	      var api = tutorial.get('serverApi');
+      function oncodevisible(visible, old) {
+        if (!visible) return;
+        var apptype = tutorial.get('apptype');
+        var platform = tutorial.get('clientPlatform')
+          || tutorial.get('nativePlatform')
+          || tutorial.get('hybridPlatform')
+          || tutorial.get('serverPlatform');
+        var api = tutorial.get('serverApi');
 
-	      if (!apptype) return;
-	      if (!platform) return;
-	      if (old && !visible) return;
+        if (!apptype) return;
+        if (!platform) return;
+        if (old && !visible) return;
 
-	      var url = '#!/:apptype/:platform/:api'
-	        .replace(':apptype', apptype)
-	        .replace(':platform', extract.exec(platform)[1])
-	        .replace(':api', api
-	          ? extract.exec(api)[1]
-	          : ('web' === apptype ? '' : 'no-api'))
-	        .replace(/\/$/, '');
+        var url = '#!/:apptype/:platform/:api'
+          .replace(':apptype', apptype)
+          .replace(':platform', extract(platform))
+          .replace(':api', api
+            ? extract(api)
+            : ('web' === apptype ? '' : 'no-api'))
+          .replace(/\/$/, '');
 
-	      if (!eqlPath(url)) return page(url);
-	    };
+        if (!eqlPath(url)) return page(url);
+      };
 
-	    // pretty printing
-	    tutorial.on('codevisible', prettifyonvisible);
-	    tutorial.on('nativevisible', prettifyonvisible);
-	    tutorial.on('hybridvisible', prettifyonvisible);
-	    tutorial.on('clientvisible', prettifyonvisible);
-	    tutorial.on('serverapivisible', prettifyonvisible);
+      // pretty printing
+      tutorial.on('codevisible', prettifyonvisible);
+      tutorial.on('nativevisible', prettifyonvisible);
+      tutorial.on('hybridvisible', prettifyonvisible);
+      tutorial.on('clientvisible', prettifyonvisible);
+      tutorial.on('serverapivisible', prettifyonvisible);
 
-	    function prettifyonvisible(visible) {
-	      if (visible && prettyPrint) prettyPrint();
-	    }
-		})()
+      function prettifyonvisible(visible) {
+        if (visible && prettyPrint) prettyPrint();
+      }
+    })()
 </script>
 
