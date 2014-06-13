@@ -32,7 +32,7 @@ The following code will be generated for you in the editor below:
 
 	  connection.connect();
 
-	  var query = "SELECT Id, Nickname, Email, FirstName, LastName, Password " + 
+	  var query = "SELECT Id, Nickname, Email, FirstName, LastName, Password " +
 	              "FROM MyUsers WHERE Nickname = ?";
 
 	  connection.query(query, [username], function (err, results) {
@@ -41,21 +41,21 @@ The following code will be generated for you in the editor below:
 	    var user = results[0];
 
 	    if (!bcrypt.compareSync(password, user.Password)) return callback();
-	    
+
 	    callback(null,   {
 	      id:           user.Id.toString(),
-	      username:     user.Email, 
+	      username:     user.Email,
 	      displayName:  (user.FirstName || '') + ' ' + (user.LastName || ''),
 	      name: {
 	        givenName:  user.FirstName,
 	        familyName: user.LastName
-	      }, 
+	      },
 	      emails:   [ {value: user.Email} ]
 	    });
 	  });
 	}
 
-As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first user with a `Nickname == username`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `username`, `displayName`, `emails`. 
+As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first user with a `Nickname == username`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `username`, `displayName`, `emails`.
 
 This script assumes you have a `MyUsers` table with all these columns. You can of course tweak this script in order to adjust it to your own requirements.
 
@@ -123,5 +123,21 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_
 * [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
 
+### Errors
 
-> Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection) 
+To return an error simple call the callback with an error as the first parameter:
+
+	callback(error);
+
+There are three different types of errors you can return from a DB Connection:
+
+- `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: Use this error when you know who is the user and you want to keep track of the wrong password.
+- `new ValidationError(<error code>, <message>)`: Generic error with an error code.
+- `new Error(<message>)`: Simple errors (no error code).
+
+Example:
+
+	callback(new ValidationError('email-to-long', 'Email is to long.'));
+
+
+> Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection)
