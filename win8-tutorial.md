@@ -4,7 +4,7 @@ This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.W
 
 ## Tutorial
 
-### 1. Install Auth0.Windows8.Cs NuGet package
+### 1. Install Auth0.Windows8.Js NuGet package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Js package, running the command:
 
