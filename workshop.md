@@ -61,7 +61,7 @@ Change the Client ID and Secret in the WCF service with the new credentials.
 Lastly instead of attaching the original id_token, obtain a new __delegation token__ using the original one.
 
 	// get JsonWebToken from logged in user
-	string token = ClaimsPrincipal.Current.FindFirst(c => c.Type == "id_token").Value;
+	string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
 
 	// create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
 	var auth0 = new Auth0.Client("... asp.net client id ...", "... asp.net client secret ...", "... namespace ...");

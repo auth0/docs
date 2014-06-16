@@ -61,7 +61,7 @@ Install the NuGet package on the client side
 Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF request
 
     // get JsonWebToken from logged in user
-    string token = ClaimsPrincipal.Current.FindFirst(c => c.Type == "id_token").Value;
+    string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
     
     // attach token to WCF request
     client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(token));
@@ -72,7 +72,7 @@ Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF reque
 > **Note**: the above asumes that the WCF service is protected with the same client secret as the web site. If you want to call a service protected with a different secret you can obtain a delegation token as shown below:
     
     // get JsonWebToken from logged in user
-    string token = ClaimsPrincipal.Current.FindFirst(c => c.Type == "id_token").Value;
+    string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
 
     // create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
     var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "@@account.namespace@@");

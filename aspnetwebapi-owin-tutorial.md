@@ -56,7 +56,7 @@ You can include new claims by attaching to `OnValidateIdentity`:
 
 You can get the attributes of the user on the Web API side by doing:
 
-      ClaimsPrincipal.Current.FindFirst("email").Value
+    ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value
 
 @@includes.callapi@@
 
