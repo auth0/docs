@@ -39,6 +39,9 @@ A __Rule__ takes the following arguments:
   * `clientName`: the name of the application (as defined on the dashboard).
   * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
   * `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
+  * `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
+    * `lifetimeInSeconds`: expiration of the token.
+    * `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
   * `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (WS-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (WS-trust user/password login used on CRM and Office365), and `delegation` (when calling the [Delegation endpoint](https://docs.auth0.com/auth-api#delegated)).
   * `request`: an object containing useful information of the request. It has the following properties:
     * `query`: querystring of the login transaction sent by the application
