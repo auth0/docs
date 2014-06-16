@@ -12,4 +12,9 @@ Or using Xamarin:
     var user = await auth0.LoginAsync(this);
     // user.IdToken <--- this is the JWT
 
-For other examples, look under the **Mobile/Native** section on the left sidebar.
+Or in Windows Phone:
+
+    var user = await auth0.LoginAsync();
+    // user.IdToken <--- this is the JWT
+
+For other examples, look under the [Native Mobile App](/#!/native-mobile) section.
