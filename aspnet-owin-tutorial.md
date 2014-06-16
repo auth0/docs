@@ -66,7 +66,7 @@ Once the user is successfully authenticated with the application, a `ClaimsPrinc
 
     public ActionResult Index() 
     {
-    	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+    	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
     }
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](user-profile).
