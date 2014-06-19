@@ -33,23 +33,27 @@ This rule will add a `hello` attribute to all users authenticating through any p
 
 A __Rule__ takes the following arguments:
 
-* `user`: the user object as it comes from the identity provider.
-* `context`: an object containing contextual information of the current authentication transaction. It has the following properties:
-  * `clientID`: the client id of the application the user is logging in to.
-  * `clientName`: the name of the application (as defined on the dashboard).
-  * `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
-  * `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
-  * `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
-    * `lifetimeInSeconds`: expiration of the token.
-    * `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
-  * `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (WS-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (WS-trust user/password login used on CRM and Office365), and `delegation` (when calling the [Delegation endpoint](https://docs.auth0.com/auth-api#delegated)).
-  * `request`: an object containing useful information of the request. It has the following properties:
-    * `query`: querystring of the login transaction sent by the application
-    * `body`: the body of the POST request on login transactions used on `oauth2-resource-owner` or `wstrust-usernamemixed` protocols.
-    * `userAgent`: the user-agent of the client that is trying to log in.
-    * `ip`: the originating IP address of the user trying to log in.
-  * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
-  * `stats`: an object containing specific user stats, like `stats.loginsCount`.
+#### user
+The user object as it comes from the identity provider.
+
+#### context
+An object containing contextual information of the current authentication transaction. It has the following properties:
+
+* `clientID`: the client id of the application the user is logging in to.
+* `clientName`: the name of the application (as defined on the dashboard).
+* `connection`: the name of the connection used to authenticate the user (e.g.: `twitter` or `some-google-apps-domain`)
+* `connectionStrategy`: the type of connection. For social connection `connectionStrategy` === `connection`. For enterprise connections, the strategy will be `waad` (Windows Azure AD), `ad` (Active Directory/LDAP), `auth0` (database connections), etc.
+* `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
+  * `lifetimeInSeconds`: expiration of the token.
+  * `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
+* `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (WS-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (WS-trust user/password login used on CRM and Office365), and `delegation` (when calling the [Delegation endpoint](https://docs.auth0.com/auth-api#delegated)).
+* `request`: an object containing useful information of the request. It has the following properties:
+  * `query`: querystring of the login transaction sent by the application
+  * `body`: the body of the POST request on login transactions used on `oauth2-resource-owner` or `wstrust-usernamemixed` protocols.
+  * `userAgent`: the user-agent of the client that is trying to log in.
+  * `ip`: the originating IP address of the user trying to log in.
+* `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
+* `stats`: an object containing specific user stats, like `stats.loginsCount`.
   
 
 > It is important to call the `callback` function which takes the `user` and `context` modified, otherwise the script will timeout (this is because of the async nature of node.js).
