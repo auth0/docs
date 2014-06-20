@@ -8,11 +8,12 @@ This tutorial explains how to integrate Auth0 with a Ruby on Rails application. 
 
 Add the gem to your Gemfile:
 
-```
-gem 'auth0'
-```
+    gem 'omniauth', '1.2.1'
+    gem 'omniauth-auth0', '1.0.1'
 
-> This gem is essentially an [Omniauth Strategy](https://github.com/intridea/omniauth/wiki/Strategy-Contribution-Guide).
+Then run:
+
+    $ bundle install
 
 ### 2. Setting up the callback URL in Auth0
 
@@ -44,7 +45,7 @@ Create the callback controller
 
 	rails generate controller auth0 callback
 
-Open the `callback_controller.rb` under the `app/controllers` folder and implement the methods `store` (used to store the user profile in session), and `failure` (to display error messages):
+Open the `auth0_controller.rb` under the `app/controllers` folder and implement the method callback as follows:
 
 	class Auth0Controller < ApplicationController
 		def callback
@@ -53,7 +54,9 @@ Open the `callback_controller.rb` under the `app/controllers` folder and impleme
 		end
 	end
 
-Set the callback route in the `routes.rb` under `config` folder:
+This stores the user profile in the session.
+
+Now replace the auto-generated route in routes.rb:
 
 	get "/auth/auth0/callback" => "auth0#callback"
 
@@ -75,11 +78,11 @@ The userinfo includes these attributes: `uid`, `name`, `email`, `nickname` and `
 
     <div class="well clearfix">
     	<h2>UID</h2>
-    	<%= @user.uid %>
+    	Hello <%= @user["info"]["name"] %>
     </div>
 
 OmniAuth will always return a hash of information after authenticating with an external provider in the Rack environment under the key `omniauth.auth`. This information is meant to be as normalized as possible, so the schema below will be filled to the greatest degree available given the provider upon authentication. For more information about the user profile [read this](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), and read [Auth0's normalized user profile](user-profile).
-    
+
 **Congratulations!**
 
 ### Sinatra
@@ -95,7 +98,7 @@ OmniAuth will always return a hash of information after authenticating with an e
 
     get '/' do
       # render the login widget form Step 5
-      erb :login 
+      erb :login
     end
 
     get '/auth/auth0/callback' do
