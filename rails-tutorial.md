@@ -43,22 +43,29 @@ Don't forget to change the callback_path if you're using a different route for t
 
 Create the callback controller
 
-	rails generate controller auth0 callback
+    rails generate controller callback store failure
 
-Open the `auth0_controller.rb` under the `app/controllers` folder and implement the method callback as follows:
+Open the `callback_controller.rb` under the `app/controllers` folder and implement the methods as follows:
 
-	class Auth0Controller < ApplicationController
-		def callback
-			session[:userinfo] = env['omniauth.auth']
-			redirect_to root_path
-		end
-	end
+    class CallbackController < ApplicationController
+      def store
+        #store the user profile in session and redirect to root
+        session[:userinfo] = request.env['omniauth.auth']
+        redirect_to '/'
+      end
+
+      def failure
+        #show a failure page
+        @error_msg = request.params['message']
+      end
+    end
 
 This stores the user profile in the session.
 
 Now replace the auto-generated route in routes.rb:
 
-	get "/auth/auth0/callback" => "auth0#callback"
+    get "/auth/auth0/callback" => "auth0#callback"
+    get "/auth/failure" => "callback#failure"
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
@@ -70,15 +77,15 @@ Once the user successfully authenticates and returns to the application, you can
 
     class UserController < ApplicationController
       def index
-      	@user = session[:userinfo]
+        @user = session[:userinfo]
       end
     end
 
 The userinfo includes these attributes: `uid`, `name`, `email`, `nickname` and `image`.
 
     <div class="well clearfix">
-    	<h2>UID</h2>
-    	Hello <%= @user["info"]["name"] %>
+      <h2>UID</h2>
+      Hello <%= @user["info"]["name"] %>
     </div>
 
 OmniAuth will always return a hash of information after authenticating with an external provider in the Rack environment under the key `omniauth.auth`. This information is meant to be as normalized as possible, so the schema below will be filled to the greatest degree available given the provider upon authentication. For more information about the user profile [read this](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema), and read [Auth0's normalized user profile](user-profile).
