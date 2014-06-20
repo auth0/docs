@@ -8,8 +8,8 @@ This tutorial explains how to integrate Auth0 with a Ruby on Rails application. 
 
 Add the gem to your Gemfile:
 
-    gem 'omniauth', '1.2.1'
-    gem 'omniauth-auth0', '1.0.1'
+    gem 'omniauth', '~> 1.2'
+    gem 'omniauth-auth0', '~> 1.0'
 
 Then run:
 
@@ -89,7 +89,7 @@ OmniAuth will always return a hash of information after authenticating with an e
 
     require 'sinatra'
     require 'omniauth'
-    require 'auth0'
+    require 'omniauth-auth0'
 
     use Rack::Session::Cookie
     use OmniAuth::Builder do
