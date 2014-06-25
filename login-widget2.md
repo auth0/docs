@@ -5,7 +5,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 * Having a professional looking login dialog that displays well on any resolution and device.
 * Finding the right icons for popular social providers.
 * Remembering what was the identity provider the user chose the last time.
-* Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
+* Solving the home realm discovery challenge with enteranprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
 ## Including the Login Widget on your page
@@ -128,7 +128,7 @@ It is also possible to start the widget in the **Sign Up** mode or **Reset Passw
 
 ## Anatomy of the Auth0 Login Widget
 
-![](img/widget-numbered.png)
+![](https://i.cloudup.com/AqCnBVv_mm.png)
 
 1. The __title__ of the widget. You can optionally show a 32x32 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
