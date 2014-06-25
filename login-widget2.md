@@ -128,7 +128,7 @@ It is also possible to start the widget in the **Sign Up** mode or **Reset Passw
 
 ## Anatomy of the Auth0 Login Widget
 
-![](https://i.cloudup.com/AqCnBVv_mm.png)
+![](https://i.cloudup.com/y2iG3mE8Ll.png)
 
 1. The __title__ of the widget. You can optionally show a 32x32 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
