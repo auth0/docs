@@ -86,7 +86,7 @@ This example shows how to work with only specified connections and display the l
 
 Resulting in:
 
-![](img/widget-customized.png)
+![](https://i.cloudup.com/hqxNWlq35a.png)
 
 ## Sending extra login parameters
 
