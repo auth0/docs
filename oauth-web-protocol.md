@@ -59,7 +59,7 @@ The steps are quite simple though:
   The `userinfo` endpoint will return something like this
 
   <pre><code>{
-    "_id": "4f2c8414310f59ce5f6aac652170ad43", // internal Auth0 id, don't use
+    "user_id": "google-oauth2|103547991597142817347",
     "email": "johnfoo@gmail.com",
     "family_name": "Foo",
     "gender": "male",
@@ -76,8 +76,7 @@ The steps are quite simple though:
     "locale": "en",
     "name": "John Foo",
     "nickname": "matiasw",
-    "picture": "https://lh4.googleusercontent.com/-OdsbOXom9qE/AAAAAAAAAAI/AAAAAAAAADU/_j8SzYTOJ4I/photo.jpg",
-    "user_id": "google-oauth2|103547991597142817347"
+    "picture": "https://lh4.googleusercontent.com/-OdsbOXom9qE/AAAAAAAAAAI/AAAAAAAAADU/_j8SzYTOJ4I/photo.jpg"
   }</code></pre>
 
 For more details on Auth0's normalized user profile, see [here](user-profile).
