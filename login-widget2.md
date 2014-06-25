@@ -171,4 +171,4 @@ You can also customize the error messages that will be displayed on certain situ
 
 These errors will be shown on the widget header:
 
-![](https://cloudup.com/c0IjHbq5jfL)
+![](https://i.cloudup.com/9AfFb-pbwm.png)
