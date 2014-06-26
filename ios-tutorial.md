@@ -4,10 +4,20 @@ This tutorial explains how to integrate Auth0 with a iOS App. `Auth0Client` help
 
 ## Tutorial
 
-### 1. Install Auth0Client static library
+### 1. Add Auth0Client library to your project
+
+
+#### CocoaPods
+Add the following line to your _Podfile_
+```ruby
+pod 'Auth0Client'
+```
+You can check our latest version in [Auth0.iOS Github Releases](https://github.com/auth0/Auth0.iOS/releases).
+
+#### Install Auth0Client library in your project
 
 1. Go to [Auth0.iOS repository in Github](https://github.com/auth0/Auth0.iOS) and click on __Download ZIP__
-2. Decompress it and reference the `Auth0Client` static library to your project:
+2. Decompress it and reference the `Auth0Client` library in your project:
 	* Go to your project in XCode
 	* Right-click on the `Frameworks` folder and select ___Add Files to "Your Project Name"___
 	* Select the `Auth0Client` folder, ensure that your project target is selected and press __Add__
@@ -21,7 +31,7 @@ This tutorial explains how to integrate Auth0 with a iOS App. `Auth0Client` help
 </div>
 
 ### 3. Integration
-There are three options to do the integration: 
+There are three options to do the integration:
 
 1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
@@ -34,14 +44,14 @@ To start with, we'd recommend using the __Login Widget__. Here is a snippet of c
 ```objective-c
 #import "Auth0Client.h"
 
-Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@" 
+Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@"
 								   clientId:@"@@account.clientId@@"];
 
 [client loginAsync:self withCompletionHandler:^(NSMutableDictionary* error) {
     if (error) {
         NSLog(@"Error authenticating: %@", [error objectForKey:@"error"]);
     }
-    else {      
+    else {
         // * Use client.auth0User to do wonderful things, e.g.:
 		// - get user email => [client.auth0User.Profile objectForKey:@"email"]
 		// - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
@@ -58,9 +68,9 @@ Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@"
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```objective-c
-[client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(NSMutableDictionary* error) 
-{ 
-	/* Use client.auth0User to do wonderful things */ 
+[client loginAsync:self connection:@"auth0waadtests.onmicrosoft.com" withCompletionHandler:^(NSMutableDictionary* error)
+{
+	/* Use client.auth0User to do wonderful things */
 }];
 ```
 
@@ -69,16 +79,16 @@ If you know which identity provider you want to use, you can add a `connection` 
 #### Option 3: Authentication with specific user name and password (only for providers that support this)
 
 ```objective-c
-[client loginAsync:self connection:@"my-db-connection" 
+[client loginAsync:self connection:@"my-db-connection"
 						username:@"username"
 						password:@"password"
-						withCompletionHandler:^(NSMutableDictionary* error) 
+						withCompletionHandler:^(NSMutableDictionary* error)
 {
 	if (error) {
 		NSLog(@"Error authenticating: %@ - %@", [error objectForKey:@"error"], [error objectForKey:@"error_description"]);
 	}
 	else {
-		/* Use client.auth0User to do wonderful things */ 
+		/* Use client.auth0User to do wonderful things */
 	}
 }];
 ```
