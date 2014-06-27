@@ -28,7 +28,7 @@ public class JWTFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        String token = getToken(token, (HttpServletRequest) request);
+        String token = getToken((HttpServletRequest) request);
 
         try {
             Map<String, Object> decoded = jwtVerifier.verify(token);
@@ -38,7 +38,8 @@ public class JWTFilter implements Filter {
         }
     }
 
-    private String getToken(String token, HttpServletRequest httpRequest) throws ServletException {
+    private String getToken(HttpServletRequest httpRequest) throws ServletException {
+        String token = "";
         final String authorizationHeader = httpRequest.getHeader("authorization");
         if (authorizationHeader == null) {
             throw new ServletException("Unauthorized: No Authorization header was found");
@@ -58,6 +59,11 @@ public class JWTFilter implements Filter {
         }
         return token;
     }
+    
+    @Override
+	public void destroy() {
+	//TODO should you do something here?
+	}
 }
 ```
 
