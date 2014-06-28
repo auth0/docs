@@ -3,7 +3,7 @@
 To configure Microsoft Account OAuth connections you need to register an application in the Live Connect Developer Center. 
 
 ##1. Log in into Live Connect Developer Center
-Log into [the Developer Center](http://msdn.microsoft.com/en-us/live/ff519582), then select __My Apps__:
+Log into [the Developer Center](https://account.live.com/developers/applications), then select __My Apps__:
 
 ![](img/ma-portal-1.png)
 

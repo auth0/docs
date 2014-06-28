@@ -23,7 +23,7 @@ There are multiple practical ways of getting th `connection`. Among the most com
 * You can use __vanity URLs__: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`
 * You can just ask the user to pick from a list (notice [there's an API](https://docs.auth0.com/api#!#get--api-connections) to retrieve all connections available)
 
-> Notice that these two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
+> These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
 
 * You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
 
