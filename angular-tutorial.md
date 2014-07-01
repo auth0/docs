@@ -36,7 +36,7 @@ angular.module('sample', ['auth'])
   });
 ```
 
-> Note: `clientID` and `domain` are prepopulated with the right values.
+> Note: `clientID` and `domain` are pre-populated with the right values if you are signed in to your Auth0 account.
 
 
 ### 3. Triggering the login
