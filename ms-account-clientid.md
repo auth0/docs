@@ -17,4 +17,4 @@ After the app is created, copy the `ClientId` and `ClientSecret` and enter them 
 
 Also, make sure you setup the callback URL for the app. That information should go into the `redirect domain` textbox and for your setup is:
 
-	http://@@account.namespace@@/login/callback
+	https://@@account.namespace@@/login/callback
