@@ -97,9 +97,9 @@ You can send extra parameters when starting a login by adding them to the option
         state: 'foo'
     });
 
-The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope` and `state`.
+The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope`, `state` and `connection_scopes`.
 
-There are other extrar parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explictely ask for `access_type=offline`. We support sending arbitrary parameters like this:
+There are other extra parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explictely ask for `access_type=offline`. We support sending arbitrary parameters like this:
 
     widget.signin({
         // ... other options ... 
@@ -118,6 +118,23 @@ There are different values supported for scope:
 * `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
+### Connection Scopes
+
+The `connection_scopes` parameter allows the dynamic specification of scopes that were not originally configured for a connection.
+
+The object keys must be the names of the connections and the values must be arrays containing the scopes to request. An example is shown below:
+
+    widget.signin({
+      connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
+      connection_scopes: { 
+        'facebook': ['public_profile', 'user_friends'],
+        'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
+        // none for twitter
+      }
+    }
+  
+> The values for each scope are not transformed in any way. They must exactly match the scopes recognized by each identity provider.
+  
 ## Signup and Reset
 
 It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
