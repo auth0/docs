@@ -95,3 +95,7 @@ This file is `app/config/security.yml`
 
 Notice that we need to identify the user provided selected in step 6 both in the firewall and in the providers.
 
+
+### 8. Triggering login manually or integrating the Auth0 widget
+
+@@sdk2@@
