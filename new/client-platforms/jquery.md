@@ -14,9 +14,9 @@ If you're creating a new app with jQuery which will use <%= configuration.api ? 
 
 <% } %>
 
-You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please [click here](#2-Configure-the-Auth0Widget) to learn how to do it.
+You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please [click here](#3) to learn how to do it.
 
-Otherwise, Please follow the steps below to configure your app to use jQuery with Auth0.
+Otherwise, please follow the steps below to configure your app to use jQuery with Auth0.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
@@ -26,7 +26,7 @@ Otherwise, Please follow the steps below to configure your app to use jQuery wit
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-````
+```
 
 We're including the Auth0 widget script to the `index.html`
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
     callbackOnLocationHash: true
   });
 });
-````
+```
 
 ### 3. Let's implement the login
 
@@ -54,13 +54,13 @@ $('.btn-login').click(function(e) {
   e.preventDefault();
   widget.signin({ popup: true });
 });
-````
+```
 
 ````html
 <!-- ... -->
 <input type="submit" class="btn-login" />
 <!-- ... -->
-````
+```
 
 If you want to check all the available arguments for the signin call, please [check here](https://docs.auth0.com/login-widget2#5)
 
@@ -70,8 +70,8 @@ If you want to check all the available arguments for the signin call, please [ch
 
 The `signin` method receives 2 extra arguments:
 
-1. A callback that will be called once the popup is shown
-2. A callback that handles login success and failure
+  1. A callback that will be called once the popup is shown
+  2. A callback that handles login success and failure
 
 In this case, we'll implement the callback #2.
 
@@ -95,7 +95,7 @@ $('.btn-login').click(function(e) {
     }
   }});
 });
-````
+```
 
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
 
@@ -137,12 +137,11 @@ $('.btn-login').click(function(e) {
     }
   }});
 });
-````
+```
 
 We're going to create the <%= configuration.api %> API in Auth0 in the following steps. Once we create it, you just need to put the client id of that API in this snippet and it'll work. Then, you can use the thirdPartyToken as needed.
 
-<% } %>
-<% else { %>
+<% } else { %>
 
 ####5. Configuring secure calls to your API
 
@@ -157,9 +156,9 @@ $.ajaxSetup({
     }
   }
 });
-````
+```
 
-Please note that we're using the JWT that we saved after login on Step #4.
+Please note that we're using the JWT that we saved after login on Step [#4](#5).
 
 <% } %>
 
@@ -169,11 +168,11 @@ We already have the `userProfile` variable with the user information. Now, we ca
 
 ````js
 $('.nick').text(userProfile.nickname);
-````
+```
 
 ````html
 <p>His name is <span class="nick"></span></p>
-````
+```
 
 You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
@@ -185,7 +184,7 @@ In our case, logout means just deleting the saved token from localStorage and re
 localStorage.removeItem('token');
 userProfile = null;
 window.location.href = "/";
-````
+```
 
 #### 8. Sit back and relax
 
