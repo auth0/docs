@@ -2,10 +2,10 @@
 
 The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't have to worry about:
 
-* Having a professional looking login dialog that displays well on any resolution and device.
+* Having a professionally looking login dialog that displays well on any resolution and device.
 * Finding the right icons for popular social providers.
 * Remembering what was the identity provider the user chose the last time.
-* Solving the home realm discovery challenge with enteranprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
+* Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
 ## Including the Login Widget on your page
@@ -97,9 +97,9 @@ You can send extra parameters when starting a login by adding them to the option
         state: 'foo'
     });
 
-The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope` and `state`.
+The following parameters are supported: `access_token`, `protocol`, `request_id`, `scope`, `state` and `connection_scopes`.
 
-There are other extrar parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explictely ask for `access_type=offline`. We support sending arbitrary parameters like this:
+There are other extra parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explicitly ask for `access_type=offline`. We support sending arbitrary parameters like this:
 
     widget.signin({
         // ... other options ... 
@@ -118,6 +118,23 @@ There are different values supported for scope:
 * `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
+### Connection Scopes
+
+The `connection_scopes` parameter allows for dynamically specifying scopes on any connection. This is useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request the user for extra permissions or attributes.
+
+The object keys must be the names of the connections and the values must be arrays containing the scopes to request to append to the dashboard specified scopes. An example is shown below:
+
+    widget.signin({
+      connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
+      connection_scopes: { 
+        'facebook': ['public_profile', 'user_friends'],
+        'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
+        // none for twitter
+      }
+    }
+  
+> The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+  
 ## Signup and Reset
 
 It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
