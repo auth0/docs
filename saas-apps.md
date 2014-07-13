@@ -19,6 +19,8 @@ Freshbooks customers use a wide variety of systems to authenticate users. This i
 
 Freshbooks wants to offer as many options as possible without the hassle of dealing with all these different options themselves. If possible, they want their app to be completely isolated from any of this.
 
+In the past, they have turned customers away because they couldn't support their identity requirements.
+
 ---
 
 ### Applications
@@ -37,4 +39,7 @@ Freshbooks wants to use a common architecture for all components of their soluti
 
 Being a system that deals with money, Freshbooks is always concerned with maintaining high level of trust and security. As such they want to implement these features:
 
+* Enforce certain password strengths for users authenticating with username/passwords.
+* Enforce account verification with e-mails.
+* Notify users when a login happens from a machine or location that has changed.
 
