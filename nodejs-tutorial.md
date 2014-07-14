@@ -28,8 +28,8 @@ Create a new file __setup-passport.js__ with the following code:
         clientID:     '@@account.clientId@@',
         clientSecret: '@@account.clientSecret@@',
         callbackURL:  '/callback'
-      }, function(accessToken, refreshToken, profile, done) {
-        //Some tracing info
+      }, function(accessToken, refreshToken, extraParams, profile, done) {
+        profile.id_token = extraParams['id_token'];
         console.log('profile is', profile);
         return done(null, profile);
       });
