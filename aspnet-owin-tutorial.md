@@ -15,7 +15,7 @@ Install-Package Auth0-ASPNET-Owin
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to your website. The first POST will be to the built-in OWIN route <strong>"/signin-auth0"</strong> (For security purposes, you have to register this URL on the <strong>Application Settings</strong> section on Auth0 Dashboard). After that is successful, it will redirect again to <strong>"/Auth0Account/ExternalLoginCallback"</strong> (Please do not register this route on the dashboard).</p>
+<p>After authenticating the user on Auth0, we will do a POST to your website. The first POST will be to the built-in OWIN route <strong>"/signin-auth0"</strong> (For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Dashboard). After that is successful, it will redirect again to <strong>"/Auth0Account/ExternalLoginCallback"</strong> (Please do not register this route on the dashboard).</p>
 
 <pre><code>http://localhost:PORT/signin-auth0</pre></code>
 </div>

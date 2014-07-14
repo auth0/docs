@@ -35,7 +35,7 @@ Let's start by adding the Auth0-servlet artifact to the project `pom.xml` file.
 
 ### 2. Setting up the callback URL in Auth0
 
-After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the **Application Settings** section on Auth0 Admin app.
+After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app.
 
 ```
 http://localhost:PORT/callback

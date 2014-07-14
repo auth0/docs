@@ -77,7 +77,7 @@ private void ConfigureAuth(Funq.Container container)
 ### 3. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <strong>Application Settings</strong> section on Auth0 Admin app (make sure to change the port).</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
 
 <pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
 </div>
