@@ -49,9 +49,11 @@ Open the `callback_controller.rb` under the `app/controllers` folder and impleme
 
     class CallbackController < ApplicationController
       def store
-        #example request.env['omniauth.auth'] in https://github.com/auth0/omniauth-auth0#auth-hash
-        #store the user profile in session and redirect to root
+        # example request.env['omniauth.auth'] in https://github.com/auth0/omniauth-auth0#auth-hash
+        # id_token = session[:userinfo]['credentials']['id_token']
+        # store the user profile in session and redirect to root
         session[:userinfo] = request.env['omniauth.auth']
+        
         redirect_to '/'
       end
 
@@ -61,7 +63,7 @@ Open the `callback_controller.rb` under the `app/controllers` folder and impleme
       end
     end
 
-This stores the user profile in the session.
+This stores the user profile in the session. Note, that you can get the JSON Web Token by doing `session[:userinfo]['credentials']['id_token']`.
 
 Now replace the auto-generated route in routes.rb:
 
@@ -113,6 +115,7 @@ OmniAuth will always return a hash of information after authenticating with an e
       auth = request.env['omniauth.auth']
       p auth.inspect
       # auth will have the user info!
+      # auth['credentials']['id_token'] is the JSON Web Token
     end
 
 ### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
