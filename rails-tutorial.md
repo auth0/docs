@@ -9,7 +9,7 @@ This tutorial explains how to integrate Auth0 with a Ruby on Rails application. 
 Add the gem to your Gemfile:
 
     gem 'omniauth', '~> 1.2'
-    gem 'omniauth-auth0', '~> 1.0'
+    gem 'omniauth-auth0', '~> 1.1'
 
 Then run:
 
