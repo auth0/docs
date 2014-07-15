@@ -27,15 +27,15 @@ Then run:
 
 Add the `auth0.rb` file under the `config/initializers` folder with the following settings:
 
-	Rails.application.config.middleware.use OmniAuth::Builder do
-	  provider(
-	  	:auth0,
-	  	'@@account.clientId@@',
-	  	'@@account.clientSecret@@',
-	  	'@@account.namespace@@',
-	  	callback_path: "/auth/auth0/callback"
-	  )
-	end
+    Rails.application.config.middleware.use OmniAuth::Builder do
+      provider(
+        :auth0,
+        '@@account.clientId@@',
+        '@@account.clientSecret@@',
+        '@@account.namespace@@',
+        callback_path: "/auth/auth0/callback"
+      )
+    end
 
 Don't forget to change the callback_path if you're using a different route for the callback.
 
@@ -49,6 +49,7 @@ Open the `callback_controller.rb` under the `app/controllers` folder and impleme
 
     class CallbackController < ApplicationController
       def store
+        #example request.env['omniauth.auth'] in https://github.com/auth0/omniauth-auth0#auth-hash
         #store the user profile in session and redirect to root
         session[:userinfo] = request.env['omniauth.auth']
         redirect_to '/'
@@ -113,6 +114,18 @@ OmniAuth will always return a hash of information after authenticating with an e
       p auth.inspect
       # auth will have the user info!
     end
+
+### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
+
+If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K.
+
+You can change to use In-Memory store for development as follows:
+
+  # /config/initializers/session_store.rb
+  CrazyApp::Application.config.session_store :cache_store
+
+  # /config/environments/development.rb
+  config.cache_store = :memory_store
 
 ### Troubleshooting SSL issues
 
