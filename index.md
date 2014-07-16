@@ -158,7 +158,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       tutorial.on('serverapivisible', prettifyonvisible);
 
       function prettifyonvisible(visible) {
-        if (visible && prettyPrint) prettyPrint();
+        if (visible && typeof prettyPrint !== 'undefined') prettyPrint();
       }
     })()
 </script>
