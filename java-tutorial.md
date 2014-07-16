@@ -161,7 +161,7 @@ Next step is to add a Login Page (`/login.jsp`) with the custom widget of the pr
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Login</title>
-    <script src="https://cdn.auth0.com/w2/auth0-widget-2.4.0.min.js"></script>
+    <script src="@@widget_url_no_scheme@@"></script>
   </head>
   <body>
     <script type="text/javascript">

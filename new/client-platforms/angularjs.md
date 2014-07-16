@@ -25,8 +25,8 @@ Otherwise, Please follow the steps below to configure AngularJS to use it with A
 <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
 
 <!-- Auth0 widget script and AngularJS module -->
-<script src="//cdn.auth0.com/w2/auth0-widget-4.js"></script>
-<script src="//cdn.auth0.com/w2/auth0-angular-0.4.js"> </script>
+<script src="@@widget_url_no_scheme@@"></script>
+<script src="@@auth0_angular_url_no_scheme@@"> </script>
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />

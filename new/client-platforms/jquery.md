@@ -22,7 +22,7 @@ Otherwise, please follow the steps below to configure your app to use jQuery wit
 
 ````html
 <!-- Auth0 widget script -->
-<script src="//cdn.auth0.com/w2/auth0-widget-4.js"></script>
+<script src="@@widget_url_no_scheme@@"></script>
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
