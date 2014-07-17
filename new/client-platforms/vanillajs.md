@@ -8,13 +8,13 @@ Please follow the steps below to configure your JS app to use Auth0.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-````html
+```html
 <!-- Auth0 widget script -->
 <script src="@@widget_url_no_scheme@@"></script>
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-````
+```
 
 We're including the Auth0 widget script to the `index.html`
 
@@ -22,7 +22,7 @@ We're including the Auth0 widget script to the `index.html`
 
 Configuring the Auth0Widget will let your app work with Auth0
 
-````js
+```js
 $(document).ready(function() {
   var widget = new Auth0Widget({
     domain: '@@account.namespace@@',
@@ -31,27 +31,25 @@ $(document).ready(function() {
     callbackOnLocationHash: true
   });
 });
-````
+```
 
 ### 5. Let's implement the login
 
 Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `signin` method of Auth0's `widget` we've just created.
 
-````js
+```js
 document.getElementById('btn-login').addEventListener('click', function() {
   widget.signin({ popup: true });
 });
-````
+```
 
-````html
+```html
 <!-- ... -->
 <input type="submit" class="btn-login" id="btn-login" />
 <!-- ... -->
-````
+```
 
 If you want to check all the available arguments for the signin call, please [check here](TODO://)
-
-![Signin popup](angular-signin.gif)
 
 #### 6. Handling Login success and failure
 
@@ -62,7 +60,7 @@ The `signin` method receives 2 extra arguments:
 
 In this case, we'll implement the callback #2.
 
-````js
+```js
 var userProfile;
 
 document.getElementById('btn-login').addEventListener('click', function() {
@@ -81,7 +79,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
     }
   }});
 });
-````
+```
 
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
 
@@ -89,13 +87,13 @@ We need to save the token so that we can use it later when calling a server or a
 
 We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
 
-````js
+```js
 document.getElementById('nick').textContent = userProfile.nickname;
-````
+```
 
-````html
+```html
 <p>His name is <span id="nick"></span></p>
-````
+```
 
 You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
@@ -103,11 +101,11 @@ You can [click here](https://docs.auth0.com/user-profile) to find out all of the
 
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
-````js
+```js
 localStorage.removeItem('token');
 userProfile = null;
 window.location.href = "/";
-````
+```
 
 #### 9. Sit back and relax
 
