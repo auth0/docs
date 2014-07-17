@@ -4,6 +4,8 @@ Auth0 can interact with __AWS STS__ directly, and obtain an __AWS token__ that c
 
 > Before moving forward, make sure you have AWS setup. Follow this short tutorial to do it: <a target="_new" href="aws-api-setup">How to Setup AWS to do Delegated Authentication with APIs</a>
 
+The first thing you need to do is enable `Amazon Web Services (AWS) API` from <a href="@@uiAppAddonsURL@@" target="_new">Application Add-ons</a> section.
+
 When a user authenticates with Auth0 you will get back an `id_token` (a [JWT](jwt)). You would then use this `id_token` to request Auth0 and AWS Token using the delegation endpoint:
 
     POST https://@@account.namespace@@/delegation

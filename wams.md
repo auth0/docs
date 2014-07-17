@@ -5,17 +5,9 @@ Auth0 ships with Windows Azure Mobile Services integration. With this capabiliti
 All this is very easily achieved:
 
 ###1. Connect Auth0 with WAMS
-The first thing you need to do is add your WAMS API to Auth0:
+The first thing you need to do is enable `Windows Azure Mobile Services (WAMS) API` from <a href="@@uiAppAddonsURL@@" target="_new">Application Add-ons</a> section.
 
-__Dashbaord > APIs__
-
-![](img/wams-tutorial-1.png)
-
-__New__ API:
-
-![](img/wams-tutorial-2.png)
-
-Choose a name for the new API. The next screen is very important. Here's where you enter the WAMS __Masterkey__. This key is a shared secret between WAMS and Auth0. Auth0 will use it to sign the [JWT](jwt) that's going to be sent in your API calls.
+Expand the panel, here's where you enter the WAMS __Masterkey__. This key is a shared secret between WAMS and Auth0. Auth0 will use it to sign the [JWT](jwt) that's going to be sent in your API calls.
 
 ![](img/wams-tutorial-3.png)
 
@@ -23,7 +15,7 @@ Choose a name for the new API. The next screen is very important. Here's where y
 
 ###2. Create a client for the application
 
-WAMS endpoints can be used from anywhere: [Android](android-tutorial), [iOS](ios-tutorial), Windows 8 [C#](win8-cs-tutorial) or [JavaScript](win8-tutorial) and [Windows Phone](windowsphone-tutorial). You can use any of these tutorials for creating an this app that will interact with WAMS. 
+WAMS endpoints can be used from anywhere: [Android](android-tutorial), [iOS](ios-tutorial), Windows 8 [C#](win8-cs-tutorial) or [JavaScript](win8-tutorial) and [Windows Phone](windowsphone-tutorial). You can use any of these tutorials for configuring your app that will interact with WAMS.
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 
@@ -88,9 +80,7 @@ These 6 new lines of code do all the work for you. The important aspects:
 3. The `GetDelegationToken` call exchanges the client token (just received in step #2) for another token to be used for with WAMS.
 4. A new `MobileServiceUser` object is created with the new information.
 
-The input for the `GetDelegationToken` method, is the clientID of the WAMS API. This value is available the the WAMS `settings`:
-
-![](img/wams-tutorial-4b.png)
+The input for the `GetDelegationToken` method, is the clientID of the App / API where `Windows Azure Mobile Services (WAMS) API` addon was enable.
 
 You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect him to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.  
 

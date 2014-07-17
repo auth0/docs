@@ -20,7 +20,13 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 <script type="text/javascript">
     (function() {
       var TutorialNavigator = require('tutorial-navigator');
-      var tutorial = new TutorialNavigator();
+      // IE8/9 SHIM
+      if (!window.location.origin) {
+        window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+      }
+      var tutorial = new TutorialNavigator({
+        docsDomain: document.location.origin
+      });
       var eqlPath = function(url) {
         var base = page.base() || '';
         var path = window.location.hash || '#!/';
@@ -152,7 +158,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       tutorial.on('serverapivisible', prettifyonvisible);
 
       function prettifyonvisible(visible) {
-        if (visible && prettyPrint) prettyPrint();
+        if (visible && typeof prettyPrint !== 'undefined') prettyPrint();
       }
     })()
 </script>

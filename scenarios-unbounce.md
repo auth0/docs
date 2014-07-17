@@ -18,7 +18,7 @@
 1. Add a new JavaScript to your Unbounce landing page and replace the Auth0 domain and client id with the values you've got from Auth0. Also make sure to check jQuery as a dependency.
 
 ```
-<script src="http://cdn.auth0.com/w2/auth0-2.1.js"></script>
+<script src="@@auth0js_url_no_scheme@@"></script>
 <script type="application/javascript">
   
   var auth0 = new Auth0({

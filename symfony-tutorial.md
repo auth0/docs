@@ -5,7 +5,9 @@ If you have used [Symfony](http://symfony.com) before you are probably aware of 
 ## Tutorial
 
 ### 1. Configure Auth0
-Create a PHP application in the [auth0 dashboard](https://app.auth0.com/#/) and add `http://<your-domain>/login/check-auth0` to the valid callbacks.
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+
+<pre><code>http://<your-domain>/login/check-auth0</pre></code>
 
 ### 2. Add HWIOAuthBundle to your composer.json
 
