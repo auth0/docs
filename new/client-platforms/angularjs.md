@@ -96,7 +96,7 @@ $scope.logout = function() {
 ```
 
 
-<% if (configuration.api && configuration.thirdParty) { %>
+<% if (!configuration.thirdParty) { %>
 
 ### 5. Configuring secure calls to our API
 
