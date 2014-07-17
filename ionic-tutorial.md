@@ -24,7 +24,23 @@ Move that script into your scripts folder (usually `app/scripts/`). Then, in you
       <script src"scripts/auth0-widget.js"> </script>
    ```
 
-### 2. Customize it to your needs
+### 2. Install InAppBrowser
+
+Execute the following command to include `InAppBrowser` in your app:
+
+```sh
+ phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+```
+
+And add to your `config.xml`:
+
+```xml
+<feature name="InAppBrowser">
+    <param name="ios-package" value="CDVInAppBrowser" />
+</feature>
+```
+
+### 3. Customize it to your needs
 
 Take a look at the [Angular Examples](https://github.com/auth0/auth0-angular/tree/master/examples).
 
