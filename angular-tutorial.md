@@ -4,7 +4,15 @@
 
 If you already have an existing application, please follow the steps below.
 
-### 1. Adding the Auth0 scripts and setting the right viewport
+### 1. Setting up the callback URL in Auth0
+
+<div class="setup-callback">
+<p>After authenticating the user on Auth0, we will do a GET to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app.</p>
+
+<pre><code>http://localhost:PORT/</pre></code>
+</div>
+
+### 2. Adding the Auth0 scripts and setting the right viewport
 
 ```html
 <!-- We use client cookies to save the user credentials -->
@@ -20,7 +28,7 @@ If you already have an existing application, please follow the steps below.
 
 We're including Auth0's angular module and its dependencies to the `index.html`.
 
-### 2. Add the module dependency and configure the service
+### 3. Add the module dependency and configure the service
 
 Add the `auth0` module dependency to your angular app definition and configure it by calling the `init` method of the `authProvider`
 
@@ -38,8 +46,7 @@ angular.module('sample', ['auth'])
 
 > Note: `clientID` and `domain` are pre-populated with the right values if you are signed in to your Auth0 account.
 
-
-### 3. Triggering the login
+### 4. Triggering the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup. In this case, we'll add the call in the login method of the controller. The `signin` method returns a promise. That means that we can handle login success and failure the following way:
 
@@ -70,7 +77,7 @@ $scope.login = function() {
 
 > Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/w2/auth0-widget-4.0.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
-### 4. (Optional) Add routing
+### 5. (Optional) Add routing
 
 In most cases, we'll have routing in our app. So let's add the `$routeProvider` configuration in the `config` method of our app and let's set a `hashPrefix`.
 
@@ -111,7 +118,7 @@ angular.module('YOUR-APP-NAME', ['auth0'])
 })
 ```
 
-#### 5. Adding a logout button
+### 6. Adding a logout button
 
 You can just call the `signout` method of Auth0 to remove all the cookies from the client that keep the user logged in:
 
@@ -127,18 +134,18 @@ $scope.logout = function() {
 
 You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-#### 6. Configuring secure calls to your API
+### 7. Configuring secure calls to your API
 
 When calling your API you will have to send the [JWT token](https://docs.auth0.com/jwt), which you've got on the login on every request. To do that, we need to do 2 things:
 
-##### 6.1 Add the dependency to the `authInterceptor` module
+#### 7.1 Add the dependency to the `authInterceptor` module
 
 ```js
 // app.js
 angular.module('YOUR-APP-NAME', ['auth0', 'authInterceptor'])
 ```
 
-##### 6.2 Add the `$http` interceptor
+#### 7.2 Add the `$http` interceptor
 
 The `$http` interceptor will send the token in the `Authorization` header if it's available. We need to add it in the `config` section of our application:
 
@@ -154,7 +161,7 @@ The `$http` interceptor will send the token in the `Authorization` header if it'
 
 Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](https://docs.auth0.com/jwt) will be sent on every request.
 
-#### 7. Showing user information
+### 8. Showing user information
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 

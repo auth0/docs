@@ -25,7 +25,7 @@ You can check our latest version in [Auth0.iOS Github Releases](https://github.c
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <b>Application Settings</b> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 </div>
@@ -98,9 +98,8 @@ If you know which identity provider you want to use, you can add a `connection` 
 The `auth0User` has the following properties:
 
 * `Profile`: returns a `NSDictionary` object containing all available user attributes (e.g.: `[client.auth0User.Profile objectForKey:@"email"]`).
-* `IdToken`: is a Json Web Token (JWT) containing the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity (or Windows Azure Mobile Services, see below).
+* `IdToken`: is a Json Web Token (JWT) containing the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
 * `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
 
-> If you want to use __Windows Azure Mobile Services__ (WAMS) you should create a WAMS app in Auth0 and set the Master Key that you can get on the Windows Azure portal. Then you have change your iOS App to use the client id and secret of the WAMS app just created and set the callback of the WAMS app to be `https://@@account.tenant@@.auth0.com/mobile`. Finally, you have to set the `MobileServiceAuthenticationToken` property of the `MobileServiceUser` with the `IdToken` property of `auth0User`.
 
 **Congratulations!**

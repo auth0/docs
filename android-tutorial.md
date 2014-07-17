@@ -84,8 +84,6 @@ protected void onActivityResult(int requestCode, int resultCode, Intent authActi
 
 Congratulations!
 
-> If you want to connect with a __Windows Azure Mobile Services__ (WAMS) backend, you should create a Windows Azure Mobile application on Auth0 (New App button). When you do that, Auth0 will sign the JsonWebToken with WAMS' `masterkey`, and you will be able to call their endpoints. Notice, that you can delete the Android app on Auth0 and use the WAMS instead and change the `client_id` parameter.
-
 Are you an Android ninja?
 
 > __HEADS UP__ Help us to build an awesome [Android SDK](https://github.com/auth0/Auth0-Android) and get a free license! Checkout the issues in the GitHub project and provide feeback and/or pull requests.
