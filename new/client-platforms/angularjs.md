@@ -20,7 +20,7 @@ If you already have an existing application, please follow the steps below.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-```html
+````html
 <!-- We use client cookies to save the user credentials -->
 <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
 
@@ -38,7 +38,7 @@ We're including Auth0's angular module and its dependencies to the `index.html`.
 
 Add the `auth0` module dependency to your angular app definition and configure it by calling the `init` method of the `authProvider
 
-```js
+````js
 // app.js
 angular.module('YOUR-APP-NAME', ['auth0'])
 .config(function (authProvider) {
@@ -56,7 +56,7 @@ angular.module('YOUR-APP-NAME', ['auth0'])
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup. 
 In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. When setting `popup` to `true`, the `signin` method returns a promise. That means that we can handle login success and failure the following way:
 
-```js
+````js
 // LoginCtrl.js
 $scope.login = function() {
   auth.signin({
@@ -70,7 +70,7 @@ $scope.login = function() {
 }
 ```
 
-```html
+````html
 <!-- login.tpl.html -->
 <!-- ... -->
 <input type="submit" ng-click="login()" />
@@ -85,13 +85,13 @@ $scope.login = function() {
 
 You can just call the `signout` method of Auth0 to remove all the cookies from the client that keep the user logged in:
 
-```js
+````js
 $scope.logout = function() {
   auth.signout();
 }
 ```
 
-```html
+````html
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
 
@@ -102,7 +102,7 @@ $scope.logout = function() {
 
 As we're going to call an API wez<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](https://docs.auth0.com/jwt) we receive on the login on every request. For that, we need to do the add the `authInterceptor` to the list of `$http` interceptors:
 
-```js
+````js
 // app.js
 myApp.config(function (authProvider, $routeProvider, $httpProvider) {
   // ...
@@ -121,7 +121,7 @@ Now, we want to be able to call <%= configuration.api %> which is a third party 
 
 For that, we're going to change the `login` function of our controller to look like this:
 
-```js
+````js
 $scope.login = function() {
   auth.signin({
     popup: true,
@@ -145,11 +145,11 @@ We're going to create the <%= configuration.api %> in the following steps. Once 
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
-```html
+````html
 <span>His name is {{auth.profile.nickname}}</span>
 ```
 
-```js
+````js
 // UserInfoCtrl.js
 function UserInfoCtrl($scope, auth) {
   $scope.auth = auth;
@@ -169,7 +169,7 @@ In most cases, we'll have routing in our app.
 We usually want users to be authenticated to access some of the routes. For those routes, we must set the `requiresLogin` property to `true`. 
 So let's add the `$routeProvider` configuration in the `config` method of our app and let's specify the login to route to which the users will be redirected if trying to access a route to which they don't have access to:
 
-```js
+````js
 // app.js
 .config(function (authProvider, $routeProvider, $locationProvider) {
   $routeProvider.when('/login', {
