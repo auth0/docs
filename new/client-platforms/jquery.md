@@ -6,17 +6,18 @@ lodash: true
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
-If you're creating a new app with jQuery which will use the <%= configuration.api %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
+> Note: If you're creating a new app with jQuery which will use the <%= configuration.api %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
+You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please [click here](#3) to learn how to do it.
 
 <% } else  { %>
 
-If you're creating a new app with jQuery which will use <%= configuration.api ? ('a ' + configuration.api) : 'your' %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
+> Note: If you're creating a new app with jQuery which will use <%= configuration.api ? ('a ' + configuration.api) : 'your' %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
+You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please [click here](#3) to learn how to do it.
 
 <% } %>
 
-You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please [click here](#3) to learn how to do it.
 
-Otherwise, please follow the steps below to configure your app to use jQuery with Auth0.
+If you already have an existing application, please follow the steps below.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
@@ -39,7 +40,7 @@ $(document).ready(function() {
   var widget = new Auth0Widget({
     domain: '@@account.namespace@@',
     clientID: '@@account.clientId@@',
-    callbackURL: '@@account.callback@@'
+    callbackURL: location.href,
     callbackOnLocationHash: true
   });
 });
@@ -64,9 +65,7 @@ $('.btn-login').click(function(e) {
 
 If you want to check all the available arguments for the signin call, please [check here](https://docs.auth0.com/login-widget2#5)
 
-![Signin popup](http://cdn.auth0.com/docs/angularjs-signin.gif)
-
-#### 4. Handling Login success and failure
+### 4. Handling Login success and failure
 
 The `signin` method receives 2 extra arguments:
 
@@ -99,9 +98,11 @@ $('.btn-login').click(function(e) {
 
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
 
+@@browser@@
+
 <% if (configuration.api && configuration.thirdParty) { %>
 
-#### 5. Configuring calls to a Third Party API
+### 5. Configuring calls to a Third Party API
 
 Now, we want to be able to call <%= configuration.api %> which is a third party api. What we're going to do is to exchange the JWT token we got from Auth0 for a token we can use to query <%= configuration.api %> securely and authenticated.
 
@@ -143,7 +144,7 @@ We're going to create the <%= configuration.api %> API in Auth0 in the following
 
 <% } else { %>
 
-####5. Configuring secure calls to your API
+### 5. Configuring secure calls to your API
 
 As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](https://docs.auth0.com/jwt) we receive on the login on every request. For that, we need to implement `$.ajaxSetup` so that every ajax call sends the `Authorization` header with the correct token.
 
@@ -162,7 +163,7 @@ Please note that we're using the JWT that we saved after login on Step [#4](#5).
 
 <% } %>
 
-#### 6. Showing user information
+### 6. Showing user information
 
 We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
 
@@ -176,7 +177,7 @@ $('.nick').text(userProfile.nickname);
 
 You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-#### 7. Logging out
+### 7. Logging out
 
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
@@ -186,6 +187,6 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-#### 8. Sit back and relax
+### 8. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and jQuery.
