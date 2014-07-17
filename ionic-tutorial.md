@@ -1,6 +1,6 @@
-# Using Auth0 with PhoneGap/Cordova
+# Using Auth0 with Ionic Framework (PhoneGap/Cordova + Angular)
 
-This tutorial explains how to integrate Auth0 with a Phonegap/Cordova application.
+This tutorial explains how to integrate Auth0 with a Ionic application. 
 
 ## Tutorial
 
@@ -26,4 +26,5 @@ Move that script into your scripts folder (usually `app/scripts/`). Then, in you
 
 ### 2. Customize it to your needs
 
-@@sdk2@@
+Take a look at the [Angular Examples](https://github.com/auth0/auth0-angular/tree/master/examples).
+
