@@ -47,6 +47,10 @@ angular.module('YOUR-APP-NAME', ['auth0'])
     clientID: '<%= account.clientId %>',
     callbackURL: location.href
   });
+})
+.run(function(auth) {
+  // This hooks al auth events to check everything as soon as the app starts
+  auth.hookEvents();
 });
 ```
 
