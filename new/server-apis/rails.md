@@ -4,8 +4,7 @@ lodash: true
 
 ##Ruby on Rails
 
-If you're creating a new Ruby on Rails api that you'll use with your <%= configuration.frontend %> code, you can [click here to download](https://github.com/auth0/auth0-rubyonrailsapi-sample/archive/master.zip) a seed project that is already configured to use Auth0.
-
+> Note: If you're creating a new Ruby on Rails api that you'll use with your <%= configuration.frontend %> code, you can [click here to download](https://github.com/auth0/auth0-rubyonrailsapi-sample/archive/master.zip) a seed project that is already configured to use Auth0.
 Then, you just need to specify your Auth0 account configuration in the `.env` file: https://github.com/auth0/auth0-rubyonrailsapi-sample#running-the-example
 
 Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.
