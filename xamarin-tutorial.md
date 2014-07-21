@@ -41,15 +41,13 @@ var auth0 = new Auth0Client(
 	"@@account.clientId@@");
 
 // 'this' could be a Context object (Android) or UIViewController, UIView, UIBarButtonItem (iOS)
-auth0.LoginAsync (this)
-	 .ContinueWith(t => { 
-	 /* 
-	    Use t.Result to do wonderful things, e.g.: 
-	      - get user email => t.Result.Profile["email"].ToString()
-	      - get facebook/google/twitter/etc access token => t.Result.Profile["identities"][0]["access_token"]
-	      - get Windows Azure AD groups => t.Result.Profile["groups"]
-	      - etc.
-	*/ });
+var user = await auth0.LoginAsync(this);
+/*
+- get user email => user.Profile["email"].ToString()
+- get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
+- get Windows Azure AD groups => user.Profile["groups"]
+- etc.
+*/
 ```
 
 > `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
@@ -61,8 +59,7 @@ auth0.LoginAsync (this)
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```csharp
-auth0.LoginAsync (this, "google-oauth2") // connection name here
-	 .ContinueWith(t => { /* Use t.Result to do wonderful things */ });
+var user = await auth0.LoginAsync(this, "google-oauth2"); // connection name here
 ```
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
@@ -70,14 +67,10 @@ auth0.LoginAsync (this, "google-oauth2") // connection name here
 #### Option 3: Authentication with specific user name and password
 
 ```csharp
-auth0.LoginAsync (
-	"sql-azure-database", 		// connection name here
-	"jdoe@foobar.com", 			// user name
-	"1234")						// password
-	 .ContinueWith(t => 
-	 { 
-	 	/* Use t.Result to do wonderful things */ 
- 	 });
+var user = await auth0.LoginAsync(
+  "sql-azure-database",   	// connection name here
+  "jdoe@foobar.com",      	// user name
+  "1234");             		// password
 ```
 
 ## Accessing user information
