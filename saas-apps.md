@@ -10,16 +10,16 @@ Freshbooks is a software company that offers a SaaS accounting package for a bro
 
 Freshbooks customers use a wide variety of systems to authenticate users. This is a reflection of their diversity, maturity and sophistication. 
 
-1. Many clients signup to Freshbooks with a custom __username/password__. Especially during trial periods.
-2. Some customers login with their existing __Google__, __LinkedIn__ & __Yahoo!__ credentials.
-3. Small businesses with employees directories based on __Office365__ or __Google Apps__ have a preference for login using these credentials.
-4. Bigger companies often have already one or many identity systems for employees. Many rely on __Active Directory__, or __LDAP__. Some have deployed systems for identity federation based on __ADFS__, __PingFederate__, __Okta__, __OneLogin__, __CA Siteminder__, or even custom __SAML-P providers__.
+* 1. Many clients signup to Freshbooks with a custom __username/password__. Especially during trial periods.
+* 2. Some customers login with their existing __Google__, __LinkedIn__ & __Yahoo!__ credentials.
+* 3. Small businesses with employees directories based on __Office365__ or __Google Apps__ have a preference for login using these credentials.
+* 4. Bigger companies often have already one or many identity systems for employees. Many rely on __Active Directory__, or __LDAP__. Some have deployed systems for identity federation based on __ADFS__, __PingFederate__, __Okta__, __OneLogin__, __CA Siteminder__, or even custom __SAML-P providers__.
 
 ![]()
 
 Freshbooks wants to offer as many options as possible without the hassle of dealing with all these different options themselves. If possible, they want their app to be completely isolated from any of this.
 
-In the past, they have turned customers away because they couldn't support their identity requirements.
+In the past, they have turned customers away because they couldn't support their identity requirements easily. Also, because of this wide variety of systems, on-boarding new customers required many weeks of professional services.
 
 ---
 
@@ -39,7 +39,10 @@ Freshbooks wants to use a common architecture for all components of their soluti
 
 Being a system that deals with money, Freshbooks is always concerned with maintaining high level of trust and security. As such they want to implement these features:
 
+* Simple __Role based authorization__. Users can be __Admins__, __Auditors__ and __Regular Users__. They need to attach these __roles__ to any user of the system, regardless of how theu authenticate.
 * Enforce certain password strengths for users authenticating with username/passwords.
 * Enforce account verification with e-mails.
 * Notify users when a login happens from a machine or location that has changed.
+
+---
 
