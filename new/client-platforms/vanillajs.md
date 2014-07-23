@@ -27,7 +27,7 @@ $(document).ready(function() {
   var widget = new Auth0Widget({
     domain: '@@account.namespace@@',
     clientID: '@@account.namespace@@',
-    callbackURL: '@@account.callback@@'
+    callbackURL: '@@account.callback@@',
     callbackOnLocationHash: true
   });
 });
