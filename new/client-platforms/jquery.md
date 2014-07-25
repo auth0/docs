@@ -6,13 +6,14 @@ lodash: true
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
-> Note: If you're creating a new app with jQuery which will use the <%= configuration.api %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
-You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please check out step #2 to learn how to do it.
+> Note: If you're creating a new app with jQuery which will use the <%= configuration.api %> API, you can [click here to download](https://docs.auth0.com/auth0-jquery/gh-pages/create-package?path=examples/widget-with-thirdparty-api&type=js@@clientParam@@) a seed project that is already configured to use Auth0.<% if (!account.userName) { %>
+You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please check out step #2 to learn how to do it.<% } %>
+
 
 <% } else  { %>
 
-> Note: If you're creating a new app with jQuery which will use <%= configuration.api ? ('a ' + configuration.api) : 'your' %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
-You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please check out step #2 to learn how to do it.
+> Note: If you're creating a new app with jQuery which will use <%= configuration.api ? ('a ' + configuration.api) : 'your' %> API, you can [click here to download](https://docs.auth0.com/auth0-jquery/gh-pages/create-package?path=examples/widget-with-api&type=js@@clientParam@@) a seed project that is already configured to use Auth0.
+<% if (!account.userName) { %> You only have to change the `Auth0Widget` configuration to use your Auth0's account. Please check out step #2 to learn how to do it.<% } %>
 
 <% } %>
 
