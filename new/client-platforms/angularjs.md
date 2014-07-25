@@ -199,9 +199,8 @@ So let's add the `$routeProvider` configuration in the `config` method of our ap
 
 __Note__: If you are using ui-router, you can follow [this guide](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router)
 
-#### Implementing Redirect mode.
+#### Additional info
 
-If you want to use redirect mode instead of a popup, just follow [this guide](https://github.com/auth0/auth0-angular/blob/master/docs/widget-redirect.md#getting-started-widget-redirect)
-
+To get Additional info on how to use this SDK, you [should check this out](https://github.com/auth0/auth0-angular/blob/master/README.md)
 
 
