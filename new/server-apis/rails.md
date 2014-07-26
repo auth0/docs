@@ -4,10 +4,9 @@ lodash: true
 
 ##Ruby on Rails
 
-> Note: If you're creating a new Ruby on Rails api that you'll use with your <%= configuration.frontend %> code, you can [click here to download](https://github.com/auth0/auth0-rubyonrailsapi-sample/archive/master.zip) a seed project that is already configured to use Auth0.
-Then, you just need to specify your Auth0 account configuration in the `.env` file: https://github.com/auth0/auth0-rubyonrailsapi-sample#running-the-example
+<a href="https://docs.auth0.com/ruby-auth0/master/create-package?path=examples/ruby-on-rails-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package"> Click here to download a Seed project<% if (account.userName) { %> with your Auth0 account information<% } %></a>
 
-Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.
+**Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 
 ### 1. Add jwt dependency to your Gemfile
 
@@ -15,9 +14,9 @@ You need to add the jwt dependency.
 
 Open your Gemfile and add the following:
 
-````js
+````bash
 gem 'jwt'
-````
+```
 
 ### 2. Add your Auth0 account information to secrets.yml
 
@@ -30,10 +29,10 @@ development:
   auth0_client_secret: <%= account.clientSecret %>
 
 production:
-  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  secret_key_base: ENV["SECRET_KEY_BASE"]
   auth0_client_id: <%= account.clientId %>
   auth0_client_secret: <%= account.clientSecret %>
-````
+```
 
 ### 3. Create SecuredController to validate the JWT
 
@@ -63,7 +62,7 @@ class SecuredController < ApplicationController
   end
 
 end
-````
+```
 
 ### 4. Securing your API
 
@@ -77,7 +76,7 @@ class SecuredPingController < SecuredController
   end
 
 end
-````
+```
 
 ### 5. You've nailed it.
 
