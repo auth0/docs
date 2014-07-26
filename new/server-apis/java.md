@@ -4,11 +4,11 @@ lodash: true
 
 ##Java
 
-If you're creating a new Java api that you'll use with your <%= configuration.frontend %> code, you can [click here to download](https://github.com/auth0/auth0-javaapi-sample/archive/master.zip) a seed project that is already configured to use Auth0.
+<a href="https://docs.auth0.com/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package"> Click here to download a Seed project</a>
 
-Then, you just need to specify your Auth0 account configuration as enviroment variables: https://github.com/auth0/auth0-javaapi-sample#running-the-example
+Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-java/blob/master/examples/java-api/README.md#running-the-example)
 
-Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.
+**Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.**
 
 ### 1. Add java-jwt dependency
 
@@ -22,7 +22,7 @@ For that, you can just add it to your `pom.xml` if you're using maven.
     <artifactId>java-jwt</artifactId>
     <version>0.2</version>
 </dependency>
-````
+```
 
 ### 2. Add JWT Validation filter
 
@@ -37,7 +37,7 @@ public class JWTFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
         jwtVerifier = new JWTVerifier(
           "<%= account.clientSecret %>",
-          "<%= account.clientID %>");
+          "<%= account.clientId %>");
     }
 
     @Override
@@ -81,7 +81,7 @@ public class JWTFilter implements Filter {
   }
 
 }
-````
+```
 
 Please note that we're setting the URL Pattern to `/api/*` in this case. That means that we'll check the user is authenticated only if the request is to the API.
 
@@ -98,7 +98,7 @@ Please note that if you're using Servlets 2.5, you won't be able to use the `@We
   <filter-name>JWTFilter</filter-name>
   <url-pattern>/api/*</url-pattern>
 </filter-mapping>
-````
+```
 
 
 ### 4. You've nailed it.

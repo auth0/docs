@@ -6,17 +6,15 @@ lodash: true
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
-> Note: If you're creating a new AngularJS app that you'll use with the <%= configuration.api %> API, you can [click here to download](https://github.com/auth0/auth0-angular-thirdparty-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
-You only have to change the `authProvider` configuration to use your Auth0's account. Please check out step #2 to learn how to do it.
+<a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package"> Click here to download a Seed project<% if (account.userName) { %> with your Auth0 account information<% } %></a>
 
 <% } else  { %>
 
-> Note: If you're creating a new AngularJS app that you'll use with your <%= configuration.api || '' %> API, you can [click here to download](https://github.com/auth0/auth0-angular-api-sample/archive/gh-pages.zip) a seed project that is already configured to use Auth0.
-You only have to change the `authProvider` configuration to use your Auth0's account. Please check out step #2 to learn how to do it.
+<a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package"> Click here to download a Seed project<% if (account.userName) { %> with your Auth0 account information<% } %></a>
 
 <% } %>
 
-If you already have an existing application, please follow the steps below.
+**Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
