@@ -4,7 +4,13 @@ lodash: true
 
 ##Java
 
-<a href="https://docs.auth0.com/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package"> Click here to download a Seed project</a>
+<div class="package">
+  <blockquote>
+    <a href="https://docs.auth0.com/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package">
+      <span>Download a Seed project</span>
+    </a> 
+  </blockquote>
+</div>
 
 Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-java/blob/master/examples/java-api/README.md#running-the-example)
 
