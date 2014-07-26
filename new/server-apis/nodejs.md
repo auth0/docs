@@ -8,7 +8,7 @@ lodash: true
   <blockquote>
     <a href="https://docs.auth0.com/node-auth0/master/create-package?path=examples/nodejs-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package">
       <span>Download a Seed project</span>
-      <% if (!account.userName) { %> 
+      <% if (account.userName) { %> 
       <span class="smaller">with your Auth0 API Keys already set and configured</span>
       <% } %>
     </a> 

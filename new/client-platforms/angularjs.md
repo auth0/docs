@@ -10,7 +10,7 @@ lodash: true
   <blockquote>
     <a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package">
       <span>Download a Seed project</span>
-      <% if (!account.userName) { %> 
+      <% if (account.userName) { %> 
       <span class="smaller">with your Auth0 API Keys already set and configured</span>
       <% } %>
     </a> 
@@ -23,7 +23,7 @@ lodash: true
   <blockquote>
     <a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package">
       <span>Download a Seed project</span>
-      <% if (!account.userName) { %> 
+      <% if (account.userName) { %> 
       <span class="smaller">with your Auth0 API Keys already set and configured</span>
       <% } %>
     </a> 

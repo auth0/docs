@@ -4,7 +4,17 @@ lodash: true
 
 ##Ruby on Rails
 
-<a href="https://docs.auth0.com/ruby-auth0/master/create-package?path=examples/ruby-on-rails-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package"> Click here to download a Seed project<% if (account.userName) { %> with your Auth0 account information<% } %></a>
+<div class="package">
+  <blockquote>
+    <a href="https://docs.auth0.com/ruby-auth0/master/create-package?path=examples/ruby-on-rails-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package">
+      <span>Download a Seed project</span>
+      <% if (account.userName) { %> 
+      <span class="smaller">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a> 
+  </blockquote>
+</div>
+
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 
