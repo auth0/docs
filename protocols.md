@@ -209,5 +209,7 @@ Claims sent in the SAML token, as well as other lower level settings of WS-Fed &
 ###For IdP
 If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are examples), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, etc.
 
+> You can also upload a Federation Metadata file.
+
 If a primary and a secondary certificates are present in the __Federation Metadata__, then both would work. Connection parameters can be updated anytime (by clicking on __Edit__ and __Save__). This allows simple certificate rollover.
 
