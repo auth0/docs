@@ -29,4 +29,6 @@ This sample code sends the JSON Web Token on each call:
 
 > Setting the cookie on the client-side using this method requires [jQuery.Cookie](https://github.com/carhartl/jquery-cookie).
 
+> The settings specified in `ajaxSetup` will affect all calls to $.ajax or Ajax-based derivatives such as $.get(). This can cause undesirable behavior since other callers (for example, plugins) may be expecting the normal default settings. For that reason is recommend against using this API. Instead, set the options explicitly in the call or define a simple plugin to do so ([more details](http://api.jquery.com/jQuery.ajaxSetup/)).
+
 To validate the token on the server side, we have tutorials for several platforms and languages to get you up and running as quickly as possible. Look at the Web APIs section on the sidebar.

@@ -179,6 +179,8 @@ Please note that we're using the JWT that we saved after login on Step [#4](#5).
 
 <% } %>
 
+> The settings specified in `ajaxSetup` will affect all calls to $.ajax or Ajax-based derivatives such as $.get(). This can cause undesirable behavior since other callers (for example, plugins) may be expecting the normal default settings. For that reason is recommend against using this API. Instead, set the options explicitly in the call or define a simple plugin to do so ([more details](http://api.jquery.com/jQuery.ajaxSetup/)).
+
 ### 6. Showing user information
 
 We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
