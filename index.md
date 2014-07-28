@@ -61,7 +61,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
           apptype: apptype,
           nativePlatform: 'native-mobile' === apptype ? platform : '',
           hybridPlatform: 'hybrid' === apptype ? platform : '',
-          clientPlatform: 'spa-api' === apptype ? platform : '',
+          clientPlatform: 'spa' === apptype ? platform : '',
           serverPlatform: 'web' === apptype ? platform : '',
           serverApi: 'no-api' === api || !api ? '' : api
         });
@@ -151,15 +151,12 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       };
 
       // pretty printing
-      tutorial.on('codevisible', prettifyonvisible);
-      tutorial.on('nativevisible', prettifyonvisible);
-      tutorial.on('hybridvisible', prettifyonvisible);
-      tutorial.on('clientvisible', prettifyonvisible);
-      tutorial.on('serverapivisible', prettifyonvisible);
+      tutorial.pretty(function() {
+        return 'function' === typeof window.prettyPrint
+          ? window.prettyPrint()
+          : null;
+      });
 
-      function prettifyonvisible(visible) {
-        if (visible && typeof prettyPrint !== 'undefined') prettyPrint();
-      }
     })()
 </script>
 
