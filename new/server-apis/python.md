@@ -19,9 +19,7 @@ lodash: true
 
 ### 1. Add the needed dependencies
 
-In this example, we'll be using Flask and we'll be validating the JWT. For that, add the following dependencies to your `requirements.txt`
-
-For that, you can just add it to your `pom.xml` if you're using maven.
+In this example, we'll be using Flask and we'll be validating the JWT. For that, add the following dependencies to your `requirements.txt`.
 
 ````text
 flask
@@ -75,14 +73,14 @@ def requires_auth(f):
     try:
         payload = jwt.decode(
             token,
-            base64.b64decode(@@account.clientSecret@@.replace("_","/").replace("-","+"))
+            base64.b64decode('@@account.clientSecret@@'.replace("_","/").replace("-","+"))
         )
     except jwt.ExpiredSignature:
         return authenticate({'code': 'token_expired', 'description': 'token is expired'})
     except jwt.DecodeError:
         return authenticate({'code': 'token_invalid_signature', 'description': 'token signature is invalid'})
 
-    if payload['aud'] != @@account.clientId@@:
+    if payload['aud'] != '@@account.clientId@@':
       return authenticate({'code': 'invalid_audience', 'description': 'the audience does not match. expected: ' + CLIENT_ID})
 
     _request_ctx_stack.top.current_user = user = payload
