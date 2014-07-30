@@ -1,7 +1,15 @@
-# Common Scenarios
+# Common SSO Scenarios 
 
 * [SaaS apps](saas-apps)
 * [Enterprise SSO](sso)
+
+---
+
+# API integrations
+
+* [AWS](aws)
+* [Firebase](firebaseapi-tutorial)
+* [Salesforce](salesforceapi-tutorial)
 
 ---
 
