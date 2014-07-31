@@ -25,11 +25,11 @@ We're including the Auth0 widget script to the `index.html`
 Configuring the Auth0Widget will let your app work with Auth0
 
 ````js
-$(document).ready(function() {
+document.addEventListener( "DOMContentLoaded", function(){
   var widget = new Auth0Widget({
     domain: '@@account.namespace@@',
-    clientID: '@@account.namespace@@',
-    callbackURL: '@@account.callback@@',
+    clientID: '@@account.clientId@@',
+    callbackURL: location.href,
     callbackOnLocationHash: true
   });
 });
