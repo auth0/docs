@@ -103,7 +103,7 @@ If you want to check all the available arguments for the signin call, please [ch
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
-### 5. Configuring calls to a Third Party API
+### 4. Configuring calls to a Third Party API
 
 Now, we want to be able to call <%= configuration.api %> which is a third party api. What we're going to do is to exchange the JWT token we got from Auth0 for a token we can use to query <%= configuration.api %> securely and authenticated.
 
