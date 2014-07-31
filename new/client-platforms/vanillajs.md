@@ -6,6 +6,8 @@ lodash: true
 
 Please follow the steps below to configure your JS app to use Auth0.
 
+@@includes.callback@@
+
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
 ````html

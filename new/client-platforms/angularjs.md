@@ -34,6 +34,8 @@ lodash: true
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
+@@includes.callback@@
+
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
 ````html
