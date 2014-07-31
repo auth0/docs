@@ -145,7 +145,7 @@ We're going to create the <%= configuration.api %> API in Auth0 in the following
 
 <% } else { %>
 
-### 5. Configuring secure calls to your API
+### 4. Configuring secure calls to your API
 
 As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](https://docs.auth0.com/jwt) we receive on the login on every request. For that, we need to implement `$.ajaxSetup` so that every ajax call sends the `Authorization` header with the correct token.
 
@@ -166,7 +166,7 @@ Please note that we're using the JWT that we saved after login on Step [#4](#5).
 
 > The settings specified in `ajaxSetup` will affect all calls to $.ajax or Ajax-based derivatives such as $.get(). This can cause undesirable behavior since other callers (for example, plugins) may be expecting the normal default settings. For that reason is recommend against using this API. Instead, set the options explicitly in the call or define a simple plugin to do so ([more details](http://api.jquery.com/jQuery.ajaxSetup/)).
 
-### 6. Showing user information
+### 5. Showing user information
 
 We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
 
@@ -180,7 +180,7 @@ $('.nick').text(userProfile.nickname);
 
 You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 7. Logging out
+### 6. Logging out
 
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
@@ -190,6 +190,6 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-### 8. Sit back and relax
+### 7. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and jQuery.
