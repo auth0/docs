@@ -69,30 +69,6 @@ $(document).ready(function() {
 Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `signin` method of Auth0's `widget` we've just created.
 
 ````js
-$('.btn-login').click(function(e) {
-  e.preventDefault();
-  widget.signin({ popup: true });
-});
-```
-
-````html
-<!-- ... -->
-<input type="submit" class="btn-login" />
-<!-- ... -->
-```
-
-If you want to check all the available arguments for the signin call, please [check here](https://docs.auth0.com/login-widget2#5)
-
-### 4. Handling Login success and failure
-
-The `signin` method receives 2 extra arguments:
-
-  1. A callback that will be called once the popup is shown
-  2. A callback that handles login success and failure
-
-In this case, we'll implement the callback #2.
-
-````js
 var userProfile;
 
 $('.btn-login').click(function(e) {
@@ -114,7 +90,14 @@ $('.btn-login').click(function(e) {
 });
 ```
 
+````html
+<!-- ... -->
+<input type="submit" class="btn-login" />
+<!-- ... -->
+```
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
+
+If you want to check all the available arguments for the signin call, please [check here](https://docs.auth0.com/login-widget2#5)
 
 @@browser@@
 
