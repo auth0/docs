@@ -76,15 +76,14 @@ angular.module('YOUR-APP-NAME', ['auth0'])
 ### 3. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup. 
-In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. When setting `popup` to `true`, the `signin` method returns a promise. That means that we can handle login success and failure the following way:
+In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. When setting `popup` to `true`, the `signin` method accepts a callback as a parameter. That means that we can handle login success and failure the following way:
 
 ````js
 // LoginCtrl.js
 $scope.login = function() {
   auth.signin({
     popup: true
-  })
-  .then(function() {
+  }, function() {
     // Success callback
   }, function() {
     // Error callback
@@ -147,13 +146,13 @@ For that, we're going to change the `login` function of our controller to look l
 $scope.login = function() {
   auth.signin({
     popup: true,
-  }).then(function(profile) {
+  }, function(profile) {
     // Put the <%= configuration.api %> client id here
-    return auth.getToken('THIRD_PARTY_API_CLIENT_ID')
-  }).then(function(thirdPartyToken) {
-    // Do something with the thirdPartyToken. Add it as a header or save it for later usage
-    $location.path('/');
-  }, function(err) {
+    auth.getToken('THIRD_PARTY_API_CLIENT_ID').then(function(firebaseToken) {
+      // Do something with the thirdPartyToken. Add it as a header or save it for later usage
+      $location.path('/');
+    })
+  } , function(err) {
     console.log("There was an error signin in", err);
   });
 }
