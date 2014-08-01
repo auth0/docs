@@ -44,7 +44,7 @@ lodash: true
 
 <!-- Auth0 widget script and AngularJS module -->
 <script src="@@widget_url_no_scheme@@"></script>
-<script src="@@auth0_angular_url_no_scheme@@"> </script>
+<script src="//cdn.auth0.com/w2/auth0-angular-2.js"> </script>
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
