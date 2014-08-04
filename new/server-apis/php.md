@@ -15,7 +15,7 @@ lodash: true
   </blockquote>
 </div>
 
-**Otherwise, Please follow the steps below to configure your existing Python app to use it with Auth0.**
+**Otherwise, Please follow the steps below to configure your existing PHP app to use it with Auth0.**
 
 ### 1. Add the needed dependencies
 
