@@ -20,6 +20,7 @@ lodash: true
 ### 1. Add the needed dependencies
 
 We need 2 dependencies to make this work:
+
 * **php-jwt**: This will take care of checking the JWT
 * **router**: We'll use this for creating simple routes
 
@@ -62,7 +63,7 @@ Now, you need to validate the [JWT](https://docs.auth0.com/jwt). For that, we'll
 
     // // validate the token
     $token = str_replace('Bearer ', '', $authorizationHeader);
-    $secret = '@@account.clientSecret';
+    $secret = '@@account.clientSecret@@';
     $decoded_token = null;
     try {
       $decoded_token = JWT::decode($token, base64_decode(strtr($secret, '-_', '+/')) );
