@@ -67,7 +67,7 @@ Open the **web.config** file located at the solution's root.
 
 Add the following entries as children of the `<appSettings>` element. 
 ````xml
-<add key="Auth0Domain" value="<%= account.clientId %>"/>
+<add key="Auth0Domain" value="https://<%= account.namespace %>/"/>
 <add key="Auth0ClientID" value="<%= account.clientId %>"/>
 <add key="Auth0ClientSecret" value="<%= account.clientSecret %>"/>
 ```
