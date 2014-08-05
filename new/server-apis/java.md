@@ -7,7 +7,7 @@ lodash: true
 <div class="package">
   <blockquote>
     <a href="https://docs.auth0.com/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span>Download a Seed project</span>
+      <span style="display: block">Download a Seed project</span>
     </a> 
   </blockquote>
 </div>

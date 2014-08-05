@@ -9,9 +9,9 @@ lodash: true
 <div class="package">
   <blockquote>
     <a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span>Download a Seed project</span>
+      <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %> 
-      <span class="smaller">with your Auth0 API Keys already set and configured</span>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
     </a> 
   </blockquote>
@@ -22,9 +22,9 @@ lodash: true
 <div class="package">
   <blockquote>
     <a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span>Download a Seed project</span>
+      <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %> 
-      <span class="smaller">with your Auth0 API Keys already set and configured</span>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
     </a> 
   </blockquote>
