@@ -88,4 +88,4 @@ To clear the cookie generated on login, use the `HttpContext.GetOwinContext().Au
 
 #### Download the sample
 
-Browse the sample on <a target="_blank" href="https://github.com/auth0/auth0-aspnet-owin/tree/master/MvcSample">GitHub</a>.
+Browse the sample on <a target="_blank" href="https://github.com/auth0/auth0-aspnet-owin/tree/master/examples/MvcSample">GitHub</a>.
