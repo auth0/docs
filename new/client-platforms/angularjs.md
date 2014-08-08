@@ -147,8 +147,13 @@ $scope.login = function() {
   auth.signin({
     popup: true,
   }, function(profile) {
-    // Put the <%= configuration.api %> client id here
-    auth.getToken('THIRD_PARTY_API_CLIENT_ID').then(function(firebaseToken) {
+    // Put the <%= configuration.api %> name here
+    auth.getToken({
+      // By default the first active third party add-on will be used
+      // However, We can specify which third party API to use here by specifying the name of the add-on
+      // api: <%= configuration.api %> 
+      
+    }).then(function(thirdPartyToken) {
       // Do something with the thirdPartyToken. Add it as a header or save it for later usage
       $location.path('/');
     })
@@ -158,7 +163,7 @@ $scope.login = function() {
 }
 ```
 
-We're going to create the <%= configuration.api %> in the following steps. Once we create it, you just need to put the client id of that API in this snippet and it'll work. Then, you can use the thirdPartyToken as needed.
+We're going to activate the <%= configuration.api %> add-on in the following steps. Once we do that, the code we wrote here will just work. 
 
 <% } %>
 
