@@ -7,6 +7,7 @@ These are the attributes that Auth0 will provide:
 * `user_id`: A unique identifier of the user per identity provider, same for all apps (e.g.: google-oauth2|103547991597142817347). **ALWAYS GENERATED**
 * `name`: The full name of the user (e.g.: John Foo). **ALWAYS GENERATED**
 * `email`: Email of the user.  (if available from provider. E.g. twitter won't give you one. If using facebook or windows live, you will have to ask for extra user consent).
+* `email_verified`: Whether the email of the user has been verified.  When using Database Connections an email is sent to the user on signup with a link that sets. When using Enterprise or Social Connections this flag comes from the identity provider. If it is not provided, then an email will be sent to the user to verify. Email verification can be turned on/off on the Dashboard under the Emails section.
 * `nickname`: User name (if available, might not be unique across identity providers). **ALWAYS GENERATED**
 * `picture`: URL pointing to the user picture (if not available, will use [gravatar.com](http://gravatar.com) with the email). **ALWAYS GENERATED**
 * `given_name`: First name of the user (if available).
@@ -19,11 +20,23 @@ Another piece of information added to the user profile is an array of identities
 
 > **NOTE:** Auth0 will pass-through to the app any other properties supplied by the identity provider, that are not mapped to the standard attributes named above.
 
+## Keeping User Data on your Application
+
+When outsourcing user authentication there is no more a Users/Passwords table, but you will still want to associate application data to the authenticated user. You can have a **Users table**, that would have a copy of each user coming from Auth0, without passwords of course. Every time a users logs in, you would search that user if it does not exist, insert it, if it does, update all the fields, essentially keeping a local copy of the user data. Another option would be to have the user identifier on each table/collection that has user-associated data. For smaller applications, that would be easier to implement.
+
+But the next question is, how do you uniquely identify a user coming from Auth0? There are two options:
+
+1. Using the `user_id` property which is unique per user per identity provider. 
+2. Using the `email` property. In this case it's very important to turn on Email Verification and also check that `email_verified` is `true`, otherwise you would be open to some edge case where a user might signup using an identity provider that provides email but it doesn't verify it. Also, in some cases like Twitter, email is not provided.
+
+## Sample User Profiles
+
 This is a sample user profile from a user that logged in through **Google**:
 
 ```
 {
   "email": "johnfoo@gmail.com",
+  "email_verified": true,
   "family_name": "Foo",
   "gender": "male",
   "given_name": "John",
@@ -49,6 +62,7 @@ This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
 ```
 {
   "email": "bobdoe@outlook.com",
+  "email_verified": true,
   "emails": [
     "bobdoe@outlook.com",
     "bobdoe@outlook.com"
@@ -102,6 +116,7 @@ This is a sample profile from **ADFS (Active Directory Federation Services)**:
 {
   "email": "john@fabrikam.com",
   "family_name": "Fabrikam",
+  "email_verified": false,
   "given_name": "John",
   "identities": [
     {
