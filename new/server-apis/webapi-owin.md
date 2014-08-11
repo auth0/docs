@@ -88,3 +88,51 @@ app.UseCors(CorsOptions.AllowAll);
 ```
 
 > Important: The CORS policy used in the previous code snippet is not recommended for a production. You will need to implement the `ICorsPolicyProvider` interface.
+
+#### Working with claims
+If you want to read/modify the claims that are populated based on the JWT you can use the following extensibility points:
+````CSharp
+string token = string.Empty;
+
+// Api controllers with an [Authorize] attribute will be validated with JWT
+app.UseJwtBearerAuthentication(
+    new JwtBearerAuthenticationOptions
+    {
+        AuthenticationMode = AuthenticationMode.Active,
+        AllowedAudiences = new[] { audience },
+        IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+        {
+            new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
+        },
+        Provider = new OAuthBearerAuthenticationProvider
+        {
+            OnRequestToken = context =>
+            {
+                token = context.Token;
+                return Task.FromResult<object>(null);
+            },
+            OnValidateIdentity = context =>
+            {
+                if (!string.IsNullOrEmpty(token))
+                {
+                    var notPadded = token.Split('.')[1];
+                    var claimsPart = Convert.FromBase64String(
+                        notPadded.PadRight(notPadded.Length + (4 - notPadded.Length % 4) % 4, '='));
+                
+                    var obj = JObject.Parse(Encoding.UTF8.GetString(claimsPart, 0, claimsPart.Length));
+
+                    // simple, not handling specific types, arrays, etc.
+                    foreach (var prop in obj.Properties().AsJEnumerable())
+                    {
+                        if (!context.Ticket.Identity.HasClaim(prop.Name, prop.Value.Value<string>()))
+                        {
+                            context.Ticket.Identity.AddClaim(new Claim(prop.Name, prop.Value.Value<string>()));
+                        }
+                    }
+                }
+
+                return Task.FromResult<object>(null);
+            }
+        }
+    });
+```
