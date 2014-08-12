@@ -44,3 +44,32 @@ And add to your `config.xml`:
 
 Take a look at the [Angular Examples](https://github.com/auth0/auth0-angular/tree/master/examples).
 
+
+### 4. Add the platforms you want to support:
+
+For instance, to support ios and android:
+
+```
+ionic platform ios
+ionic platform android
+```
+
+### 5. Build your Ionic project
+
+```
+onic build ios
+```
+
+Then, you can try your project by doing:
+
+```
+ionic emulate ios
+```
+
+Or if you want to try it on a browser (for easier development):
+
+```
+ionic serve ios
+```
+
+
