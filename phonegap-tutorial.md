@@ -14,13 +14,13 @@ We support multiple ways of doing this:
 
 Move that script into your scripts folder (usually `app/scripts/`). Then, in you `index.html` reference that file. For Auth0.js case it will look like this:
 
-   ```html
+   ```
    <script src="scripts/auth0.js"> </script>
    ```
 
    or in case of the widget:
 
-   ```html
+   ```
    <script src"scripts/auth0-widget.js"> </script>
    ```
 
@@ -43,7 +43,62 @@ And add to your `config.xml`:
 
 ### 3. Customize it to your needs
 
-@@sdk2@@
+### 3a. If you are using the widget
+
+```
+<script type="text/javascript">
+	
+  var widget = new Auth0Widget({
+    domain:         'your-domain.auth0.com',
+    clientID:       'your-client-id'
+  });
+  
+</script>
+<button onclick="widget.signin({ scope: 'openid profile' })">Login</button>
+```
+
+### 3b. If you are using Auth0.js
+
+```
+<button class="signin-google">Sign in with Google</button><br>
+<br><p>--- or ---</p>
+<label>Email</label><input type="text" id="email"><br>
+<label>Password</label><input type="password" id="password"><br>
+<button class="signin-db">Sign in with Email/Password</button>
+
+<script src="lib/jquery.js"></script>
+<script>
+  var auth0 = new Auth0({
+    domain:         'your-domain.auth0.com',
+    clientID:       'your-client-id'
+  });
+
+  $('.signin-google').on('click', function() {
+    auth0.signin({connection: 'google-oauth2'}, function (err, profile, id_token, access_token, state) {
+      /* 
+          store the profile and id_token in a cookie or local storage
+            $.cookie('profile', profile);
+            $.cookie('id_token', id_token);
+        */    
+    }); 
+  });
+
+  $('.signin-db').on('click', function() {
+    auth0.signin({
+      connection: 'foo', 
+      username: 'bar', 
+      password: 'foobar'
+    },
+    function (err, profile, id_token, access_token, state) {
+      /* 
+          store the profile and id_token in a cookie or local storage
+            $.cookie('profile', profile);
+            $.cookie('id_token', id_token);
+        */
+    });
+  });
+</script>
+```
 
 ### 4. Add the platforms you want to support:
 
