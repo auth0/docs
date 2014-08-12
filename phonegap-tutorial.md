@@ -29,7 +29,7 @@ Move that script into your scripts folder (usually `app/scripts/`). Then, in you
 Execute the following command to include `InAppBrowser` in your app:
 
 ```sh
- cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+ cordova plugin add org.apache.cordova.inappbrowser
 ```
 
 And add to your `config.xml`:
