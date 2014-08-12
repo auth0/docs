@@ -15,13 +15,13 @@ We support multiple ways of doing this:
 Move that script into your scripts folder (usually `app/scripts/`). Then, in you `index.html` reference that file. For Auth0.js case it will look like this:
 
    ```html
-      <script src="scripts/auth0.js"> </script>
+   <script src="scripts/auth0.js"> </script>
    ```
 
    or in case of the widget:
 
    ```html
-      <script src"scripts/auth0-widget.js"> </script>
+   <script src"scripts/auth0-widget.js"> </script>
    ```
 
 ### 2. Install InAppBrowser
@@ -29,7 +29,7 @@ Move that script into your scripts folder (usually `app/scripts/`). Then, in you
 Execute the following command to include `InAppBrowser` in your app:
 
 ```sh
- phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
+ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-inappbrowser.git
 ```
 
 And add to your `config.xml`:
@@ -40,6 +40,34 @@ And add to your `config.xml`:
 </feature>
 ```
 
+
 ### 3. Customize it to your needs
 
 @@sdk2@@
+
+### 4. Add the platforms you want to support:
+
+For instance, to support ios and android:
+
+```
+cordova platform add ios
+cordova platform add android
+```
+
+### 5. Build your phonegap project
+
+```
+cordova build
+```
+
+Then, you can try your project by doing:
+
+```
+cordova emulate ios
+```
+
+Or if you want to try it on a browser:
+
+```
+cordova serve ios
+```
