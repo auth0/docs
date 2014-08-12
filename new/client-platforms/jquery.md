@@ -124,10 +124,15 @@ $('.btn-login').click(function(e) {
 
       // Call to get new token starts here
 
-      widget.getClient().getDelegationToken('THIRD_PARTY_API_CLIENT_ID', token,
-        function(err, thirdPartyApiToken) {
-          localStorage.setItem('thirdPartyApiToken', thirdPartyApiToken.id_token);
-        });
+      widget.getClient().getDelegationToken({
+        id_token: token,
+        // By default the first active third party add-on will be used
+        // However, We can specify which third party API to use here by specifying the name of the add-on
+        // api: <%= configuration.api %>
+      },
+      function(err, thirdPartyApiToken) {
+        localStorage.setItem('thirdPartyApiToken', thirdPartyApiToken.id_token);
+      });
 
       // Call to get new token ends here
 
@@ -141,7 +146,7 @@ $('.btn-login').click(function(e) {
 });
 ```
 
-We're going to create the <%= configuration.api %> API in Auth0 in the following steps. Once we create it, you just need to put the client id of that API in this snippet and it'll work. Then, you can use the thirdPartyToken as needed.
+We're going to activate the <%= configuration.api %> add-on in the following steps. Once we do that, the code we wrote here will just work. 
 
 <% } else { %>
 
