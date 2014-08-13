@@ -36,7 +36,7 @@ lodash: true
 
 ### 1. Adding the Auth0 dependencies
 
-Add the following dependencies to the `bower.json` and run `bower install:
+Add the following dependencies to the `bower.json` and run `bower install`:
 
 ````json
 "dependencies" : {
