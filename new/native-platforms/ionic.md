@@ -40,7 +40,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 ````json
 "dependencies" : {
-  "auth0-angular": "2.0.*"
+  "auth0-angular": "2.2.*"
 },
 ```
 
