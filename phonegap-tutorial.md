@@ -1,5 +1,7 @@
 # Using Auth0 with PhoneGap/Cordova
 
+> **This tutorial is depracated. We've discontinued the Phonegap plugin. Please refer to [this new tutorial](https://docs.auth0.com/new/native-platforms/cordova) to learn how to use Phonegap with Auth0**
+
 This tutorial explains how to integrate Auth0 with a Phonegap/Cordova application.
 
 ## Tutorial
