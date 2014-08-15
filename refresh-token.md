@@ -34,7 +34,7 @@ GET YOUR_CALLBACK_URL#
     &refresh_token=....The refresh token....
 ```
 
-Now, every time you need to get a new `id_token`, you can call the `delegation` endpoint
+Now, every time you need to get a new `id_token`, you can call the [Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)
 
 ````
 POST https://@@acccount.namespace@@/delegation
