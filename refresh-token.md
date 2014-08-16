@@ -16,7 +16,7 @@ However, **if it does get compromised, you can revoke that `refresh_token` from 
 The process to log the user in is the same as [explained in the sequence diagram page](https://docs.auth0.com/sequence-diagrams). The difference is that when doing the call to the **`authorize`** endpoint, **an extra `scope` must be sent: `offline_access`**. This means that the call will look like:
 
 ````
-GET https://@@acccount.namespace@@/authorize/?
+GET https://@@account.namespace@@/authorize/?
     response_type=token
     &client_id=@@account.clientId@@
     &redirect_uri=YOUR_CALLBACK_URL
@@ -37,7 +37,7 @@ GET YOUR_CALLBACK_URL#
 Now, **every time you need to get a new `id_token`, you can call the [Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)**
 
 ````
-POST https://@@acccount.namespace@@/delegation
+POST https://@@account.namespace@@/delegation
 Content-Type: 'application/json'
 {
   "client_id":       "@@account.clientId",
