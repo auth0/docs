@@ -4,9 +4,9 @@ A Refresh Token is a token that can be used to get a new `id_token` ([JWT](http:
 
 ## Introduction
 
-The response of an initial authentication request is always an `id_token`. You can use this token to authenticate calls to your secure API. For security reasons, every `id_token` has a finite expiration.
+The response of an initial authentication request is always an `id_token`. You can use this token to authenticate calls to your secure API. For security reasons, every `id_token` has a finite expiration by default equals to 10 hours since the issued date.
 
-Applications that are installed on a device such a computer, a cell phone or a table might want to avoid asking the user to login everytime the token has expired.
+Applications that are installed on a device such as a computer, a cell phone or a tablet might want to avoid asking the user to login every time the token has expired.
 
 A `refresh_token` allows the application to get a new token as long as the user has not revoked the access granted.
 
