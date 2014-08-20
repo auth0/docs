@@ -6,7 +6,7 @@
 
 #### Policies
 
-Auth0 allows you to customize the level of security that will be required for user passwords during signup. By default, we are offering 5 levels of security:
+Auth0 allows you to customize the level of security that will be required for user passwords during signup. By default, we are offering 5 levels of security (which match [OWASP password recommendations](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls)):
  * **none** (by default): Non-empty password (or that the password has at least 1 character in length).
  * **low**: At least 6 characters in length.
  * **fair**: At least 8 characters in length, it must contain a lower case letter, a upper case letter and a number.
