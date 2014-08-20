@@ -1,15 +1,20 @@
 # Refresh Tokens
 
-A Refresh Token is a tokenthat **can be used to get a new `id_token` ([JWT](http://docs.auth0.com/jwt)) whenever you like**. It doesn't matter if the current `id_token` is expired or not.
+A Refresh Token is a token that can be used to get a new `id_token` ([JWT](http://docs.auth0.com/jwt)) **at any time**.
 
-## Reasons
+## Introduction
 
-Imagine that you login to an application using Auth0. After logging in, you get an `id_token`. Then, You send that token in every call you want to make authenticated to the API. However, the token has an expiration. Once that token is expired, the user needs to log in again to get a new, not expired, token. **Sometimes, we don't want to show the user the Login page again**. This usually happens in Mobile Applications. **In order to achieve that, you can use a `refresh_token`**. Every time the `id_token` expires, the `refresh_token` can be used to get a new and not expired one.
+The response of an initial authentication request is always an `id_token`. You can use this token to authenticate calls to your secure API. For security reasons, every `id_token` has a finite expiration by default equals to 10 hours since the issued date.
+
+Applications that are installed on a device such as a computer, a cell phone or a tablet might want to avoid asking the user to login every time the token has expired.
+
+A `refresh_token` allows the application to get a new token as long as the user has not revoked the access granted.
 
 ## Security considerations
 
-It's important to note that if the `refresh_token` is compromised, whoever has it can get new `id_tokens` whenever he wants. That's why **it's really important to keep the `refresh_token` in a secured place**. 
-However, **if it does get compromised, you can revoke that `refresh_token` from Auth0 dashboard** so that nobody else can use it.
+Because a refresh token never expires it is important to provide the user an easy way to revoke. Auth0 allows this from the dashboard and from the API.
+
+The user should be able to identify the `refresh_token` to revoke with the `device` name from where it has been requested (e.g. `John Doe's iPad`).
 
 ## How it all works
 
