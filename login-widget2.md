@@ -11,7 +11,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 ## Including the Login Widget on your page
 Add the script tag to your page to get started with __Auth0 Login Widget__.
 
-    <script src="@@widget_url@@"></script>
+    <script src="https://cdn.auth0.com/w2/auth0-widget-5.js"></script>
 
 ## Playground
 
