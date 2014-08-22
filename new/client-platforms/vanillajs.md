@@ -43,7 +43,7 @@ Now we're ready to implement the Login. Once the user clicks on the login button
 var userProfile;
 
 document.getElementById('btn-login').addEventListener('click', function() {
-  widget.signin({ popup: true, null, function(err, profile, token) {
+  widget.signin({ popup: true }, null, function(err, profile, token) {
     if (err) {
       // Error callback
       alert('There was an error');
@@ -56,7 +56,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
       // Save the profile
       userProfile = profile;
     }
-  }});
+  });
 });
 ```
 
@@ -90,11 +90,11 @@ You can [click here](https://docs.auth0.com/user-profile) to find out all of the
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
 ````js
-localStorage.removeItem('token');
+localStorage.removeItem('userToken');
 userProfile = null;
 window.location.href = "/";
 ```
 
 ### 6. Sit back and relax
 
-Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and jQuery.
+Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and VanillaJS.
