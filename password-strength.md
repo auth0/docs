@@ -6,7 +6,7 @@
 
 ## Policies
 
-With this feature, Auth0 allows to customize the level of complexity that will be required for user passwords during sign-ups. Auth0 offers 5 levels of security matching the [OWASP password recommendations](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls):
+With this feature, Auth0 allows to customize the level of complexity of the passwords a user enters during sign-ups. Auth0 offers 5 levels of security matching the [OWASP password recommendations](https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls):
 
  * **None** (default): the password must exist and be at least 1 character in length.
  * **Low**: must be at least 6 characters in length.

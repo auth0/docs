@@ -8,9 +8,9 @@ The response of an initial authentication request results in an `id_token` being
 
 Among other security measures, like signing, every `id_token` has an expiration. By default this is set to 10 hours since issue time, but it can be changed.
 
-Applications that are installed on a device such as a computer, a smartphone or a device might often want to avoid asking the user to enter credetnials each time a token expires.
+Applications that are installed on a device such as a computer or a smartphone among others, might often want to avoid asking the user to enter credetnials each time a token expires.
 
-A `refresh_token` is an artifact that allows the application to request Auth0 to issue a new token. This works as long as the __refresh token__ is not revoked in the server.
+A `refresh_token` is an artifact that allows the application to request Auth0 to issue a new `id_token`. This works as long as the __refresh token__ is not revoked in the server.
 
 Think of a __refresh token__ as a permission to renew tokens indefinitely, until you cancel that permission (which happens when it is __revoked__). When that happens, user will have to login again no matter what.
 
@@ -45,7 +45,7 @@ GET YOUR_CALLBACK_URL#
 
 This is the same as before but it will now contain a `refresh_token` parameter.
 
-> The token is the URL because the sample `authorize` request used `response_type=token`
+> Notice the token is sent back in the url because `authorize` request in this example uses `response_type=token`.
 
 Every time you need to get a new `id_token`, you can call the [Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)**
 
@@ -62,7 +62,7 @@ Content-Type: 'application/json'
 
 ## Using it with SDKs
 
-Libraries like `auth0.js`, `auth0-widget.js` or `auth0-angular.js`, all include support to get the `refresh_token`.
+Libraries like `auth0.js`, `auth0-widget.js` or `auth0-angular.js`, all include support to get a `refresh_token` and also renewed `id_tokens`.
 
 You can read more about it in the following links:
 
