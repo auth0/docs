@@ -20,7 +20,7 @@ __Connections > Enterprise > AD/LDAP__
 
 Name the connection and check whether you want `Kerberos` enabled for this connection. If you enable this, you need to enter the range of IP addresses from where `Kerberos` authentication will be enabled. These would typically be the intranet where `Kerberos` would work.
 
-In addition, `Email domains` field whitelists email suffixes that will be recognized before redirecting users to your AD/LDAP connection.
+In addition, the `Email domains` field, whitelists email suffixes that will be recognized before redirecting users to this particular AD/LDAP connection.
 
 ![](https://i.cloudup.com/xBs02mlMqR.png)
 
