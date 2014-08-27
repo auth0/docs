@@ -23,7 +23,7 @@ In order to change which policy should be used, go to [Database connections](htt
 
 After doing that, next time a user signs up or changes their password it will be prompted to follow the guidelines. In case their password does not match the required criteria, the password will be rejected by Auth0 and they will be asked to pick another password that complies with the requirements.
 
-### Custom Signup
+### Custom Signup Errors
 
 Signup error calls will return an HTTP status code of 400. The JSON structure returned will contain a `code` field that will contain `invalid_password` when the password does not meet the password policy criteria. 
 
