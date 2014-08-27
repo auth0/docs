@@ -47,13 +47,13 @@ This is the same as before but it will now contain a `refresh_token` parameter.
 
 > Notice the token is sent back in the URL because `authorize` request in this example uses `response_type=token`.
 
-Every time you need to get a new `id_token`, you can call the [Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)**
+Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)**
 
 ````
 POST https://@@account.namespace@@/delegation
 Content-Type: 'application/json'
 {
-  "client_id":       "@@account.clientId",
+  "client_id":       "@@account.clientId@@",
   "grant_type":      "urn:ietf:params:oauth:grant-type:jwt-bearer",
   "refresh_token":   "your_refresh_token",
   "api_type":        "app"
