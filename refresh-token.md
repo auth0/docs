@@ -1,6 +1,6 @@
 # Refresh Tokens
 
-__Refresh tokens_ are special kinds of tokens that your app can use to get renewed `id_token` ([JWT](http://docs.auth0.com/jwt)) **at any time**. A __refresh token__ must be securely stored in your app.
+__Refresh tokens__ are special kinds of tokens that your app can use to get renewed `id_token` ([JWT](http://docs.auth0.com/jwt)) **at any time**. A __refresh token__ must be securely stored in your app.
 
 ## Introduction
 
@@ -45,7 +45,7 @@ GET YOUR_CALLBACK_URL#
 
 This is the same as before but it will now contain a `refresh_token` parameter.
 
-> Notice the token is sent back in the url because `authorize` request in this example uses `response_type=token`.
+> Notice the token is sent back in the URL because `authorize` request in this example uses `response_type=token`.
 
 Every time you need to get a new `id_token`, you can call the [Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)**
 
@@ -58,7 +58,7 @@ Content-Type: 'application/json'
   "refresh_token":   "your_refresh_token",
   "api_type":        "app"
 }
-```
+``` 
 
 ## Using it with SDKs
 
