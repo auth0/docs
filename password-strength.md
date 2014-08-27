@@ -1,6 +1,6 @@
 ### Password Strength
 
-> WARNING: This is an upcoming feature that is not currently available in Auth0.
+> WARNING: This is a **beta** feature that may change in the future.
 
 > Note: Password Strength feature is only available to database connections, as for social and enterpise connections security level is enforced by their providers.
 
