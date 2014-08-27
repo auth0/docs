@@ -103,7 +103,17 @@ app.get('/callback',
 
 @@includes.callbackRegularWebapp@@
 
-### 6. Accessing user information
+In this case, the callbackURL should look something like:
+
+````
+http://yourUrl/callback
+```
+
+### 6. Triggering login manually or integrating the Auth0 widget
+
+@@sdk2@@
+
+### 7. Accessing user information
 
 You can access the user information via the `user` field in the `request`
 
@@ -115,7 +125,7 @@ app.get('/user', function (req, res) {
 });
 ```
 
-### 7. You've nailed it.
+### 8. You've nailed it.
 
 You have configured your NodeJS Webapp to use Auth0. Congrats, you're awesome!
 
