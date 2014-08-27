@@ -22,3 +22,45 @@ In order to change which policy should be used, go to [Database connections](htt
 ![Password Strength Panel in Auth0](https://i.cloudup.com/jH0kabJPoi.png)
 
 After doing that, next time a user signs up or changes their password it will be prompted to follow the guidelines. In case their password does not match the required criteria, the password will be rejected by Auth0 and they will be asked to pick another password that complies with the requirements.
+
+### Custom Signup
+
+Signup error calls will return an HTTP status code of 400. The JSON structure returned will contain a `code` field that will contain `invalid_password` when the password does not meet the password policy criteria. 
+
+In the `description` field the `rules` array will contain detailed information of which validations have failed in order to provide the user with good error messages.
+
+In each of the rules, `message` will be an string ready to be formated using a `printf` (or Node.js `util.format`) function. The values required in the formatting used can be found in the `format` array. We separate the `message` from the `format` to allow easier i18n of this error messages for building custom UIs. Take into account that some rules are composed ones, a rule may contain an `items` field that specifies which sub-rules have failed. Each sub-sule has a `message` and may have a `format` if required.
+
+This is an example of how the `description` error report will be with a `good` policy and `hello` as password:
+```json
+  "description":{
+    "rules":[
+      {"message":"At least %d characters in length","format":[8],"verified":false},
+      {"message":"Contain at least %d of the following %d types of characters:","format":[3,4],
+        "items":[
+          {"message":"lower case letters (a-z)","verified":true},
+          {"message":"upper case letters (A-Z)","verified":false},
+          {"message":"numbers (i.e. 0-9)","verified":false},
+          {"message":"special characters (e.g. !@#$%^&*)","verified":false}
+        ],"verified":false}
+      ],"
+      verified":false
+    }
+```
+
+This is the `description` error report with a `good` policy and `hello1234` as password:
+```json
+  "description":{
+    "rules":[
+      {"message":"At least %d characters in length","format":[8],"verified":true},
+      {"message":"Contain at least %d of the following %d types of characters:","format":[3,4],
+        "items":[
+          {"message":"lower case letters (a-z)","verified":true},
+          {"message":"upper case letters (A-Z)","verified":false},
+          {"message":"numbers (i.e. 0-9)","verified":true},
+          {"message":"special characters (e.g. !@#$%^&*)","verified":false}
+        ],"verified":false}
+      ],"
+      verified":false
+    }
+```
