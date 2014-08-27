@@ -20,7 +20,9 @@ __Connections > Enterprise > AD/LDAP__
 
 Name the connection and check whether you want `Kerberos` enabled for this connection. If you enable this, you need to enter the range of IP addresses from where `Kerberos` authentication will be enabled. These would typically be the intranet where `Kerberos` would work.
 
-![](https://s3.amazonaws.com/blog.auth0.com/adldap_create_01.PNG)
+In addition, `Email domains` field whitelists email suffixes that will be recognized before redirecting users to your AD/LDAP connection.
+
+![](https://i.cloudup.com/xBs02mlMqR.png)
 
 __Save__ the configuration. You are done on the Auth0 side! You will then be prompted to download the __AD/LDAP Connector__ on your machine.
 
