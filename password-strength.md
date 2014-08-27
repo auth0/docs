@@ -33,7 +33,7 @@ In each of the rules, `message` will be an string ready to be formated using a `
 
 This is an example of how the `description` error report will be with a `good` policy and `hello` as password:
 ```json
-  "description":{
+  {
     "rules":[
       {"message":"At least %d characters in length","format":[8],"verified":false},
       {"message":"Contain at least %d of the following %d types of characters:","format":[3,4],
@@ -50,7 +50,7 @@ This is an example of how the `description` error report will be with a `good` p
 
 This is the `description` error report with a `good` policy and `hello1234` as password:
 ```json
-  "description":{
+  {
     "rules":[
       {"message":"At least %d characters in length","format":[8],"verified":true},
       {"message":"Contain at least %d of the following %d types of characters:","format":[3,4],
