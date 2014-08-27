@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Ruby
+## Ruby API Tutorial
 
 > Note: If you're creating a Ruby On Rails app, please check [this other tutorial](http://docs.auth0.com/new/server-apis/rails). 
 

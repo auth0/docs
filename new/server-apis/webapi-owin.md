@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##ASP.NET Web API OWIN
+## ASP.NET Web API OWIN Tutorial
 
 <div class="package">
   <blockquote>

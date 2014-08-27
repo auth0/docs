@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## jQuery configuration
+## jQuery Tutorial
 
 <% if (configuration.api && configuration.thirdParty) { %>
 

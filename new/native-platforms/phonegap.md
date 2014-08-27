@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Phonegap
+## Phonegap tutorial
 
 <% if (configuration.api && configuration.thirdParty) { %>
 

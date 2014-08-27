@@ -40,3 +40,5 @@ If a connection has this setup, then the password textbox gets disabled automati
 ![](/img/hrd-loginwidget.png)
 
 In the example above the domain `qraftlabs.com` has been mapped to an enterprise connection.
+
+Notice that you can associate multiple domains to a single connection.

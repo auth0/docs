@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##PHP
+## PHP API Tutorial
 
 <div class="package">
   <blockquote>

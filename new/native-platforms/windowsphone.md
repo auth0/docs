@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##Windows Phone
+## Windows Phone Tutorial
 
 <div class="package">
   <blockquote>

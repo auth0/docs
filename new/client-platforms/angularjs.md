@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## AngularJS configuration
+## AngularJS Tutorial
 
 <% if (configuration.api && configuration.thirdParty) { %>
 

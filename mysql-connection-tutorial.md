@@ -99,31 +99,35 @@ After you have enabled the database connection, Auth0's widget will automaticall
 
 The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
 
+###Utilities
 * [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) _(~0.7.5)_
 * [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
-* [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
 * [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
-* [knex](http://knexjs.org) _(~0.6.3)_
-	* The function returned by `require('knex')` is available as `Knex`.
-* [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
-  * [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
-  * [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
-  * [Long](http://mongodb.github.io/node-mongodb-native/api-bson-generated/long.html)
-  * [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
-  * [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
-* [mysql](https://github.com/felixge/node-mysql) _(~2.3.2)_
-	* [mysql\_pool](https://github.com/felixge/node-mysql#pool-options)
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
-* [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
 * [q](https://github.com/kriskowal/q) _(~1.0.1)_
 * [request](https://github.com/mikeal/request) _(~2.21.0)_
-* [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 * [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
 * [xmldom](https://github.com/jindw/xmldom) _(~0.1.16)_
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_
 * [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
 
-### Errors
+###Databases
+* [cassandra](https://www.npmjs.org/package/node-cassandra-cql) _(^0.4.4)_
+* [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
+* [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
+	* [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
+	* [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
+	* [Long](http://mongodb.github.io/node-mongodb-native/api-bson-generated/long.html)
+	* [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
+	* [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
+* [knex](http://knexjs.org) _(~0.6.3)_
+	* The function returned by `require('knex')` is available as `Knex`.
+* [mysql](https://github.com/felixge/node-mysql) _(~2.3.2)_
+	* [mysql\_pool](https://github.com/felixge/node-mysql#pool-options)
+* [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
+* [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
+
+###Errors
 
 To return an error simple call the callback with an error as the first parameter:
 
@@ -138,6 +142,5 @@ There are three different types of errors you can return from a DB Connection:
 Example:
 
 	callback(new ValidationError('email-to-long', 'Email is to long.'));
-
 
 > Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection)

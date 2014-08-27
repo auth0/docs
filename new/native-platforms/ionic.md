@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Ionic
+## Ionic Framework Tutorial
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
