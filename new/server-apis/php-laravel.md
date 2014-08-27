@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##PHP Laravel API
+## PHP Laravel API Tutorial
 
 <div class="package">
   <blockquote>

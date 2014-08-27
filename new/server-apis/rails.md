@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##Ruby on Rails
+## Ruby on Rails API Tutoial
 
 <div class="package">
   <blockquote>

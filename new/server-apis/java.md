@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##Java
+## Java API Tutorial
 
 <div class="package">
   <blockquote>

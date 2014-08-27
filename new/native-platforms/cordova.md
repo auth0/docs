@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Cordova
+## Cordova Tutorial
 
 <% if (configuration.api && configuration.thirdParty) { %>
 

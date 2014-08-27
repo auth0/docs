@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-##NodeJS
+## NodeJS API Tutorial
 
 <div class="package">
   <blockquote>

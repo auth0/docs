@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Generic SPA / Vanilla JS configuration
+## Generic SPA / Vanilla JS Tutorial
 
 Please follow the steps below to configure your JS app to use Auth0.
 
