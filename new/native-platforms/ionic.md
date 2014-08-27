@@ -6,7 +6,7 @@ lodash: true
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
-<div class="package">
+<div class="package" style="text-align: center;">
   <blockquote>
     <a href="https://docs.auth0.com/auth0-ionic/master/create-package?path=examples/refresh-token-sample&type=js&filePath=examples/refresh-token-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
@@ -19,7 +19,7 @@ lodash: true
 
 <% } else  { %>
 
-<div class="package">
+<div class="package" style="text-align: center;">
   <blockquote>
     <a href="https://docs.auth0.com/auth0-ionic/master/create-package?path=examples/refresh-token-sample&type=js&filePath=examples/refresh-token-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>

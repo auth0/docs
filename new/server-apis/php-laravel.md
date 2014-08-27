@@ -4,7 +4,7 @@ lodash: true
 
 ## PHP Laravel API Tutorial
 
-<div class="package">
+<div class="package" style="text-align: center;">
   <blockquote>
     <a href="https://docs.auth0.com/laravel-auth0/master/create-package?path=examples/laravel-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>

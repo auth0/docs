@@ -4,7 +4,7 @@ lodash: true
 
 ## Windows Phone Tutorial
 
-<div class="package">
+<div class="package" style="text-align: center;">
   <blockquote>
     <a href="http://localhost:3000/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>

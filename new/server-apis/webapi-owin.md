@@ -4,7 +4,7 @@ lodash: true
 
 ## ASP.NET Web API OWIN Tutorial
 
-<div class="package">
+<div class="package" style="text-align: center;">
   <blockquote>
     <a href="https://docs.auth0.com/auth0-aspnet-owin/master/create-package?path=examples/WebApi&type=owin@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
