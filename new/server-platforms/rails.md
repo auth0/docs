@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Ruby On Rails Tutorial
+## Ruby On Rails Webapp Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>

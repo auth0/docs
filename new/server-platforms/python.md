@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Python Tutorial
+## Python Webapp Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>
