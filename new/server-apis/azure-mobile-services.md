@@ -12,9 +12,7 @@ WAMS endpoints can be used from anywhere: [Android](android-tutorial), [iOS](ios
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 
-![](img/wams-tutorial-4.png)
-
----
+![](/img/wams-tutorial-4.png)
 
 #### 2. Changing the sample to use Auth0
 
@@ -84,15 +82,15 @@ The final step is to use the information on the token on the server code. You wi
 
 ##### 1. Change permissions on the table for each operation:
 
-![](img/wams-tutorial-5.png)
+![](/img/wams-tutorial-5.png)
 
 
 ##### 2. Use the `user` object to change the behavior of the operation. 
 
 This example, inserts the `userId` on new rows:
 
-![](img/wams-tutorial-6.png)
+![](/img/wams-tutorial-6.png)
 
 And then when querying, it filters out rows for the logged in user:
 
-![](img/wams-tutorial-7.png)
+![](/img/wams-tutorial-7.png)
