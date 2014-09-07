@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## NodeJS Tutorial
+## NodeJS Webapp Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>

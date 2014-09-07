@@ -50,7 +50,7 @@ You can handle the authorization process client-side as follows:
 
 The Widget can be customized through the `options` parameter sent to the `signin` method.
 
-### Options
+### Options
 
 * __connections__: Array of enabled connections that will be used for the widget. Default: all enabled connections.
 * __container__: The id of the DIV where the widget will be contained.
@@ -110,7 +110,7 @@ There are other extra parameters that will depend on the provider. For example, 
 
 > Note: this would be analogous to trigger the login with `https://@@account.namespace@@/authorize?state=foo&access_type=offline&...`.
 
-### Scope
+### Scope
 
 There are different values supported for scope:
 
@@ -118,7 +118,7 @@ There are different values supported for scope:
 * `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
-### Connection Scopes
+### Connection Scopes
 
 The `connection_scopes` parameter allows for dynamically specifying scopes on any connection. This is useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request the user for extra permissions or attributes.
 
