@@ -1,7 +1,7 @@
 # Common SSO Scenarios 
 
 * [SaaS apps](saas-apps)
-* [Enterprise SSO](sso)
+* [SSO](sso)
 
 ---
 
@@ -10,6 +10,9 @@
 * [AWS](aws)
 * [Firebase](firebaseapi-tutorial)
 * [Salesforce](salesforceapi-tutorial)
+* SAP Netweaver Gateway
+* Windows Azure Mobile Services
+* Windows Azure Service Bus
 
 ---
 
