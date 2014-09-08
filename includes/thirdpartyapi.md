@@ -8,9 +8,9 @@ Go to <a href="<%= uiAppAddonsURL %>" target="_new">Application Add-ons</a> page
 
 <img src="https://cloudup.com/c8xbUL6QbJa+" />
 
-### 2. Just use it
+### 2. Use it
 
-Check the documentation of any of our FrontEnd or Mobile SDKs to learn how to call the [Delegation](https://docs.auth0.com/auth-api#delegated) API. Just go to the [Quickstart](https://docs.auth0.com/) and choose the desired library.
+Check the documentation of any of our FrontEnd or Mobile SDKs to learn how to call the [Delegation](https://docs.auth0.com/auth-api#delegated) API. Just go to the [Quickstart](https://docs.auth0.com/) and pick up the libary of your choice.
 
 ### 3. Sit back & relax
 

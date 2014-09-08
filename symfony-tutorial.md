@@ -1,6 +1,6 @@
 # Symfony Tutorial
 
-If you have used [Symfony](http://symfony.com) before you are probably aware of the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate your Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
+If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
 ## Tutorial
 
@@ -70,8 +70,9 @@ can use one of the predefined services that `HWIOAuthBundle` provides.
 
 This is where you set the filters to select which pages are protected (aka, needs login). You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
-This is a basic example that allows anonymus users and that restrict access to the `/demo/hello/` url. It doesn't store the users in a db
-This file is `app/config/security.yml`
+This is a basic example that allows anonymous users and then restricts access to the `/demo/hello/` route. It doesn't store the users in a db.
+
+This file is `app/config/security.yml`:
 
     security:
         providers:
