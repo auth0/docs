@@ -33,12 +33,12 @@ The [Login Widget](login-widget2) has built in functionality for identity provid
 
 An additional feature in the widget is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
 
-![](/img/hrd-adfs.png)
+![](https://cldup.com/k_LcfC8PHp.png)
 
 If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain:
 
-![](/img/hrd-loginwidget.png)
+![](https://cldup.com/R7mvAZpSnf.png)
 
-In the example above the domain `qraftlabs.com` has been mapped to an enterprise connection.
+In the example above the domain `companyx.com` has been mapped to an enterprise connection.
 
 Notice that you can associate multiple domains to a single connection.
