@@ -18,152 +18,166 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 </script>
 
 <script type="text/javascript">
-    (function() {
-      var TutorialNavigator = require('tutorial-navigator');
-      // IE8/9 SHIM
-      if (!window.location.origin) {
-        window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
-      }
+  // IE8/9 SHIM
+  if (!window.location.origin) {
+    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+  }
 
-      var tutorial = new TutorialNavigator({
-        docsDomain: document.location.origin,
-        apptypes: @@JSON.stringify(quickstart.apptypes)@@,
-        clientPlatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
-        hybridPlatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
-        nativePlatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
-        serverPlatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
-        serverApis: @@JSON.stringify(quickstart.serverApis)@@
+</script>
+<script type="text/javascript">
+  (function () {
+
+    // Redirect old `/#!/..` urls to new `/quickstart/...`
+    var pathname = window.location.pathname || '/';
+    var hash = window.location.hash;
+    var regex = /^\#\!\//;
+    if ('/' === pathname && regex.test(hash)) {
+      window.location = window.location.origin + hash.replace(regex, '/quickstart/');
+      return;
+    };
+
+    // Initialize and render `TutorialNavigator`
+    var TutorialNavigator = require('tutorial-navigator');
+    var tutorial = new TutorialNavigator({
+      docsDomain: document.location.origin,
+      apptypes: @@JSON.stringify(quickstart.apptypes)@@,
+      clientPlatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
+      hybridPlatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
+      nativePlatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
+      serverPlatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
+      serverApis: @@JSON.stringify(quickstart.serverApis)@@
+    });
+
+    function eqlPath (url) {
+      var base = page.base() || '';
+      var path = window.location.pathname.slice(base.length) || '/';
+      return path === url;
+    }
+
+    /**
+     * Routing
+     */
+
+    function rewrite(ctx, next) {
+      // Prepend `/quickstart` to routes withouth `/quickstart`
+      if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
+      next();
+    }
+
+    page('*', rewrite);
+    page('/quickstart/:apptype?', checkstate, render);
+    page('/quickstart/:apptype/:platform?', checkstate, render);
+    page('/quickstart/:apptype/:platform/:api?', checkstate, render);
+
+    // Initialize routing
+    // page.base('/quickstart');
+    page();
+
+    function checkstate(ctx, next) {
+      var apptype = ctx.params.apptype || '';
+      var platform = ctx.params.platform || '';
+      var api = ctx.params.api || '';
+
+      tutorial.set({
+        apptype: apptype,
+        nativePlatform: 'native-mobile' === apptype ? platform : '',
+        hybridPlatform: 'hybrid' === apptype ? platform : '',
+        clientPlatform: 'spa' === apptype ? platform : '',
+        serverPlatform: 'web' === apptype ? platform : '',
+        serverApi: 'no-api' === api || !api ? '' : api
       });
 
-      var eqlPath = function(url) {
-        var base = page.base() || '';
-        var path = window.location.pathname.slice(base.length) || '/';
-        return path === url;
-      }
+      var codevisible = ('no-api' === api || 'web' === apptype);
+      if (!api || codevisible) tutorial.set('codevisible', codevisible);
+      next();
+    }
 
-      /**
-       * Routing
-       */
+    function render(ctx, next) {
+      tutorial.render('#navigator-container');
+    }
 
-      page('*', rewrite);
-      page('/quickstart/:apptype?', checkstate, render);
-      page('/quickstart/:apptype/:platform?', checkstate, render);
-      page('/quickstart/:apptype/:platform/:api?', checkstate, render);
+    /**
+     * Bind tutorial changes to pushState
+     */
 
-      // Initialize routing
-      // page.base('/quickstart');
-      page();
+    tutorial.on('apptype', onapptype);
+    tutorial.on('nativePlatform', onplatform);
+    tutorial.on('hybridPlatform', onplatform);
+    tutorial.on('clientPlatform', onplatform);
+    tutorial.on('serverPlatform', onplatform);
+    tutorial.on('serverApi', onserverapi)
+    tutorial.on('codevisible', oncodevisible);
 
-      function rewrite(ctx, next) {
-        if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
-        next();
-      }
+    function onapptype(val, old) {
+      var url = '/quickstart/:apptype'.replace(':apptype', val || '')
+      if (!eqlPath(url)) return page(url);
+    }
 
-      function checkstate(ctx, next) {
-        var apptype = ctx.params.apptype || '';
-        var platform = ctx.params.platform || '';
-        var api = ctx.params.api || '';
+    function onplatform(val, old) {
+      var url = '/quickstart/:apptype/:platform';
+      var apptype = tutorial.get('apptype');
+      var platform = val ? val : '';
 
-        tutorial.set({
-          apptype: apptype,
-          nativePlatform: 'native-mobile' === apptype ? platform : '',
-          hybridPlatform: 'hybrid' === apptype ? platform : '',
-          clientPlatform: 'spa' === apptype ? platform : '',
-          serverPlatform: 'web' === apptype ? platform : '',
-          serverApi: 'no-api' === api || !api ? '' : api
-        });
+      if (!apptype) return;
 
-        var codevisible = ('no-api' === api || 'web' === apptype);
-        if (!api || codevisible) tutorial.set('codevisible', codevisible);
-        next();
-      }
+      url = url
+        .replace(':apptype', apptype)
+        .replace(':platform', platform)
+        .replace(/\/$/, '');
 
-      function render(ctx, next) {
-        tutorial.render('#navigator-container');
-      }
+      if (!eqlPath(url)) return page(url);
+    }
 
-      /**
-       * Bind tutorial changes to pushState
-       */
+    function onserverapi(api, old) {
+      var apptype = tutorial.get('apptype');
+      var platform = tutorial.get('clientPlatform')
+        || tutorial.get('nativePlatform')
+        || tutorial.get('hybridPlatform');
 
-      tutorial.on('apptype', onapptype);
-      tutorial.on('nativePlatform', onplatform);
-      tutorial.on('hybridPlatform', onplatform);
-      tutorial.on('clientPlatform', onplatform);
-      tutorial.on('serverPlatform', onplatform);
-      tutorial.on('serverApi', onserverapi)
-      tutorial.on('codevisible', oncodevisible);
+      if (!apptype) return;
+      if (!platform) return;
+      if (old && !api) return;
 
-      function onapptype(val, old) {
-        var url = '/quickstart/:apptype'.replace(':apptype', val || '')
-        if (!eqlPath(url)) return page(url);
-      }
+      var url = '/quickstart/:apptype/:platform/:api'
+        .replace(':apptype', apptype)
+        .replace(':platform', platform)
+        .replace(':api', api ? api : 'no-api')
+        .replace(/\/$/, '');
 
-      function onplatform(val, old) {
-        var url = '/quickstart/:apptype/:platform';
-        var apptype = tutorial.get('apptype');
-        var platform = val ? val : '';
+      if (!eqlPath(url)) return page(url);
+    };
 
-        if (!apptype) return;
+    function oncodevisible(visible, old) {
+      if (!visible) return;
+      var apptype = tutorial.get('apptype');
+      var platform = tutorial.get('clientPlatform')
+        || tutorial.get('nativePlatform')
+        || tutorial.get('hybridPlatform')
+        || tutorial.get('serverPlatform');
+      var api = tutorial.get('serverApi');
 
-        url = url
-          .replace(':apptype', apptype)
-          .replace(':platform', platform)
-          .replace(/\/$/, '');
+      if (!apptype) return;
+      if (!platform) return;
+      if (old && !visible) return;
 
-        if (!eqlPath(url)) return page(url);
-      }
+      var url = '/quickstart/:apptype/:platform/:api'
+        .replace(':apptype', apptype)
+        .replace(':platform', platform)
+        .replace(':api', api
+          ? api
+          : ('web' === apptype ? '' : 'no-api'))
+        .replace(/\/$/, '');
 
-      function onserverapi(api, old) {
-        var apptype = tutorial.get('apptype');
-        var platform = tutorial.get('clientPlatform')
-          || tutorial.get('nativePlatform')
-          || tutorial.get('hybridPlatform');
+      if (!eqlPath(url)) return page(url);
+    };
 
-        if (!apptype) return;
-        if (!platform) return;
-        if (old && !api) return;
+    // pretty printing
+    tutorial.pretty(function() {
+      return 'function' === typeof window.prettyPrint
+        ? window.prettyPrint()
+        : null;
+    });
 
-        var url = '/quickstart/:apptype/:platform/:api'
-          .replace(':apptype', apptype)
-          .replace(':platform', platform)
-          .replace(':api', api ? api : 'no-api')
-          .replace(/\/$/, '');
-
-        if (!eqlPath(url)) return page(url);
-      };
-
-      function oncodevisible(visible, old) {
-        if (!visible) return;
-        var apptype = tutorial.get('apptype');
-        var platform = tutorial.get('clientPlatform')
-          || tutorial.get('nativePlatform')
-          || tutorial.get('hybridPlatform')
-          || tutorial.get('serverPlatform');
-        var api = tutorial.get('serverApi');
-
-        if (!apptype) return;
-        if (!platform) return;
-        if (old && !visible) return;
-
-        var url = '/quickstart/:apptype/:platform/:api'
-          .replace(':apptype', apptype)
-          .replace(':platform', platform)
-          .replace(':api', api
-            ? api
-            : ('web' === apptype ? '' : 'no-api'))
-          .replace(/\/$/, '');
-
-        if (!eqlPath(url)) return page(url);
-      };
-
-      // pretty printing
-      tutorial.pretty(function() {
-        return 'function' === typeof window.prettyPrint
-          ? window.prettyPrint()
-          : null;
-      });
-
-    })()
+  })()
 </script>
 
