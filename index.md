@@ -24,9 +24,17 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       if (!window.location.origin) {
         window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
       }
+
       var tutorial = new TutorialNavigator({
-        docsDomain: document.location.origin
+        docsDomain: document.location.origin,
+        apptypes: @@JSON.stringify(quickstart.apptypes)@@,
+        clientPlatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
+        hybridPlatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
+        nativePlatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
+        serverPlatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
+        serverApis: @@JSON.stringify(quickstart.serverApis)@@
       });
+
       var eqlPath = function(url) {
         var base = page.base() || '';
         var path = window.location.pathname.slice(base.length) || '/';
