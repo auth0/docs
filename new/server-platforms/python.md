@@ -84,6 +84,8 @@ http://yourUrl/callback
 
 @@sdk2@@
 
+> **Note:** Please note that the `callbackURL` specified in the `Auth0Widget` constructor **must match** the one specified in the previous step
+
 ### 5. Accessing user information
 
 You can access the user information via the `profile` you stored in the session on step 2
