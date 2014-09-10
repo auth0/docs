@@ -35,7 +35,16 @@ Enable it by clicking **OFF**.
 
 ---
 
-##4. Get your ClientId and ClientSecret
+##4. Set up Consent Screen
+
+Under APIs & auth, go to **Consent Screen**. Here, enter your **Product Name** that will be shown when users try to log in through Google:
+
+![](img/goog-api-product-name.png)
+
+If this field is not present, your users may see errors such as `invalid_client: no application name` when attempting to log in.
+
+
+##5. Get your ClientId and ClientSecret
 
 Click **Credentials** in the left sidebar and then click **Create new Client ID**.
 
@@ -51,7 +60,7 @@ Click **Create Client ID**. The resulting settings will be displayed:
 
 You can now use the `ClientId` and `ClientSecret` for your Auth0 connection's settings.
 
-##5. Enable Admin SDK Service
+##6. Enable Admin SDK Service
 
 If you are planning to connect Google Apps enterprise domains, you need to enable the __Admin SDK__ service.
 
