@@ -64,7 +64,10 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
     function rewrite(ctx, next) {
       // Prepend `/quickstart` to routes withouth `/quickstart`
-      if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
+      // if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
+      ctx.pathname = ctx.pathname || '/';
+      // prepend quickstart if pathname is '/'
+      if(/^\/$/.test(ctx.pathname)) ctx.path = '/quickstart' + ctx.path;
       next();
     }
 
