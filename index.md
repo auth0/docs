@@ -83,11 +83,11 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
         nativePlatform: 'native-mobile' === apptype ? platform : '',
         hybridPlatform: 'hybrid' === apptype ? platform : '',
         clientPlatform: 'spa' === apptype ? platform : '',
-        serverPlatform: 'web' === apptype ? platform : '',
+        serverPlatform: 'webapp' === apptype ? platform : '',
         serverApi: 'no-api' === api || !api ? '' : api
       });
 
-      var codevisible = ('no-api' === api || 'web' === apptype);
+      var codevisible = ('no-api' === api || 'webapp' === apptype);
       if (!api || codevisible) tutorial.set('codevisible', codevisible);
       next();
     }
@@ -165,7 +165,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
         .replace(':platform', platform)
         .replace(':api', api
           ? api
-          : ('web' === apptype ? '' : 'no-api'))
+          : ('webapp' === apptype ? '' : 'no-api'))
         .replace(/\/$/, '');
 
       if (!eqlPath(url)) return page(url);
