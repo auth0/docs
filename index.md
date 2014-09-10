@@ -2,6 +2,27 @@
 title: Getting started with Auth0
 url: /
 ---
+
+<script type="text/javascript">
+  // IE8/9 SHIM
+  if (!window.location.origin) {
+    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+  }
+</script>
+
+<script type="text/javascript">
+
+  // Redirect old `/#!/..` urls to new `/quickstart/...`
+  var pathname = window.location.pathname || '/';
+  var hash = window.location.hash;
+  var regex = /^\#\!\//;
+  if ('/' === pathname && regex.test(hash)) {
+    window.location = window.location.origin + hash.replace(regex, '/quickstart/');
+  };
+
+</script>
+
+
 # Getting started with Auth0
 
 Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
@@ -18,24 +39,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 </script>
 
 <script type="text/javascript">
-  // IE8/9 SHIM
-  if (!window.location.origin) {
-    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
-  }
-
-</script>
-<script type="text/javascript">
   (function () {
-
-    // Redirect old `/#!/..` urls to new `/quickstart/...`
-    var pathname = window.location.pathname || '/';
-    var hash = window.location.hash;
-    var regex = /^\#\!\//;
-    if ('/' === pathname && regex.test(hash)) {
-      window.location = window.location.origin + hash.replace(regex, '/quickstart/');
-      return;
-    };
-
     // Initialize and render `TutorialNavigator`
     var TutorialNavigator = require('tutorial-navigator');
     var tutorial = new TutorialNavigator({
