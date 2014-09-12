@@ -34,7 +34,15 @@ lodash: true
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### 1. Adding the Auth0 dependencies
+### 1. Setting up the callback URL in Auth0
+
+<div class="setup-callback">
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+
+<pre><code>https://@@account.namespace@@/mobile</pre></code>
+</div>
+
+### 2. Adding the Auth0 dependencies
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
@@ -44,7 +52,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 },
 ```
 
-### 2. Add the references to the scripts in the `index.html`
+### 3. Add the references to the scripts in the `index.html`
 
 ````html
 <!-- Auth0 Login Widget -->
@@ -60,7 +68,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 <script src="lib/auth0-angular/build/auth0-angular.js"></script>
 ```
 
-### 3. Add `InAppBrowser` plugin
+### 4. Add `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
@@ -77,7 +85,7 @@ and then add the following configuration to the `config.xml` file:
 </feature>
 ```
 
-### 4. Add the Auth0 module dependency and configure the service
+### 5. Add the Auth0 module dependency and configure the service
 
 Add the `auth0` module dependency to your angular app definition and configure it by calling the `init` method of the `authProvider.
 
@@ -130,7 +138,7 @@ angular.module('starter', ['ionic',
 ```
 
 
-### 5. Let's implement the login
+### 6. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in the `LoginCtrl` and just call `signin` method to show the Login / SignUp popup. **It's important to set the `popup` property to `true` when calling the signin as otherwise it won't work on Ionic**.
 
@@ -158,7 +166,7 @@ $scope.login = function() {
 
 > Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/w2/auth0-widget-4.0.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
-### 6. Adding a logout button
+### 7. Adding a logout button
 
 You can just call the `signout` method of Auth0 to remove all the cookies from the client that keep the user logged in:
 
@@ -173,7 +181,7 @@ $scope.logout = function() {
 ```
 
 
-### 7. Configuring secure calls to our API
+### 8. Configuring secure calls to our API
 
 As we're going to call an API we made<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](https://docs.auth0.com/jwt) we receive on the login on every request. For that, we need to do the add the `authInterceptor` to the list of `$http` interceptors:
 
@@ -188,7 +196,7 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider) {
 
 Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](https://docs.auth0.com/jwt) will be sent on every request.
 
-### 8. Showing user information
+### 9. Showing user information
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
@@ -205,6 +213,6 @@ function UserInfoCtrl($scope, auth) {
 
 You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 9. Sit back and relax
+### 10. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Ionic.
