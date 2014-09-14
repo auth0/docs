@@ -6,6 +6,6 @@ To query Google Apps domain users, you need to enable the following:
 
   <img src="https://cdn.auth0.com/img/api-access.png" width="600">
 
-2. The owner of the Client ID on Google API Console needs to enable the Admin SDK API.
+2. The owner of the Client ID (the developer of the application) on Google API Console needs to enable the Admin SDK API.
 
   <img src="https://cdn.auth0.com/img/google-admin-sdk.png" width="600">
