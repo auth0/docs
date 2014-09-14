@@ -1,4 +1,4 @@
-# Querying Google Apps Users
+# Configuration needed to query users from a Google Apps domain
 
 To query Google Apps domain users, you need to enable the following:
 
