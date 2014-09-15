@@ -38,11 +38,11 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     var tutorial = new TutorialNavigator({
       docsDomain: document.location.origin,
       apptypes: @@JSON.stringify(quickstart.apptypes)@@,
-      clientPlatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
-      hybridPlatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
-      nativePlatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
-      serverPlatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
-      serverApis: @@JSON.stringify(quickstart.serverApis)@@
+      clientplatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
+      hybridplatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
+      nativeplatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
+      serverplatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
+      serverapis: @@JSON.stringify(quickstart.serverApis)@@
     });
 
     function eqlPath (url) {
