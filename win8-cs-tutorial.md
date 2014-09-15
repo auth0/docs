@@ -27,7 +27,8 @@ There are three options to do the integration:
 
 #### Option 1: Authentication using Login Widget
 
-To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project: 
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
+Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
 ```csharp
 using Auth0.SDK;
@@ -36,16 +37,14 @@ var auth0 = new Auth0Client(
 	"@@account.namespace@@",
 	"@@account.clientId@@");
 
-auth0.LoginAsync()
-	 .ContinueWith(t => { 
-	 /* 
-	    Use t.Result to do wonderful things, e.g.: 
-	      - get user email => t.Result.Profile["email"].ToString()
-	      - get facebook/google/twitter/etc access token => t.Result.Profile["identities"][0]["access_token"]
-	      - get Windows Azure AD groups => t.Result.Profile["groups"]
-	      - etc.
-	*/ },
-	TaskScheduler.FromCurrentSynchronizationContext());
+var user = await auth0.LoginAsync();
+/* 
+    Use this object to do wonderful things, e.g.:
+      - get user email => user.Profile["email"].ToString()
+      - get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
+      - get Windows Azure AD groups => user.Profile["groups"]
+      - etc.
+*/
 ```
 
 ![](img/win8-cs-step1.png)
@@ -55,8 +54,7 @@ auth0.LoginAsync()
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```csharp
-auth0.LoginAsync("auth0waadtests.onmicrosoft.com") // connection name here
-	 .ContinueWith(t => { /* Use t.Result to do wonderful things */ });
+var user = await auth0.LoginAsync("auth0waadtests.onmicrosoft.com")' // connection name here
 ```
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
@@ -64,14 +62,10 @@ auth0.LoginAsync("auth0waadtests.onmicrosoft.com") // connection name here
 #### Option 3: Authentication with specific user name and password (only for providers that support this)
 
 ```csharp
-auth0.LoginAsync(
+var user = await auth0.LoginAsync(
 	"my-db-connection", 	// connection name here
-	"username", 			// user name
-	"password")				// password
-	 .ContinueWith(t => 
-	 { 
-	 	/* Use t.Result to do wonderful things */ 
- 	 });
+	"username",
+	"password");
 ```
 
 #### Scope
