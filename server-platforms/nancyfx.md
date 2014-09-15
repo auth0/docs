@@ -16,7 +16,7 @@ lodash: true
 
 ### 1. Install the needed dependencies
 
-Just install them with `NuGet`
+Install Auth0 NancyFX dependency with `NuGet`
 
 ````bash
 PM> Install-Package Auth0.NancyFx.SelfHost
@@ -29,7 +29,7 @@ In your Nancy self hosted application add the following to your BootStrapper:
 ````cs
 protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
 {
-  ...
+  // ...
 
   Auth0Authentication.Enable(pipelines, new AuthenticationConfig
   {
@@ -38,18 +38,21 @@ protected override void ApplicationStartup(TinyIoCContainer container, IPipeline
     UserIdentifier = "userid"
   });
 
-  ...
+  // ...
 }
 ```
+The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when he tries to access a restricted view.
 
-The `AuthenticationConfig` gives you more control. Use `RedirectOnLoginFailed` to define the view shoud shown an unauthenticated user. The `CookieName` allows you to set your own cookie name. And last but not least you can set the identifier to identify the requests. This value of your user instance will save in the cookie. At this time you can set as identifier all fields of the Auth0 user token which are implemented.
+The `CookieName` allows you to set the name of the cookie that will be used to save the User information.
 
- * userid,
- * email,
- * nickname,
- * gravatarurl
+The `UserIdentifier` lets you set an identifier for the user. This are the fields that are available to use right now:
 
-**Important Hint:** Auth0.Nancy.SelfHost enabled in background the `CookieBasedSessions` setting. If you use in your App this setting too, switch it of now.
+  * `userid`
+  * `email`
+  * `nickname`
+  * `gravatarurl`
+
+> **Important Hint:** Auth0.Nancy.SelfHost enables `CookieBasedSessions` setting in the background. If you use this setting in your app as well, you should switch it off.
 
 ### 3. Add Auth0 configuration
 
@@ -67,7 +70,7 @@ You need to configure your Auth0 keys in the `app.config`
 
 ### 4. Block all unauthenticated requests
 
-After you enabled the `Auth0Authentication` you are able to block all unauthenticated requests by using
+After you enabled the `Auth0Authentication` you are able to block all unauthenticated requests with the following code.
 
 ````cs
 public class SecurePage : NancyModule

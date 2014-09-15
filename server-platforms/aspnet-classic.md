@@ -4,16 +4,15 @@ lodash: true
 
 ## ASP.Net Classic Tutorial
 
+**Please follow the steps below to configure your existing ASP.Net Classic WebApp to use it with Auth0.**
+
 ### 1. Showing the Login Widget
 
-We need to create the `default.asp` file. It'll be just hosting our `Login Widget`. After login with any provider, Auth0 will redirect the user to `/callback.asp`. That's because we've configured that url as the `callbackURL` of the widget. 
-
+First, we need to create the `default.asp` which will show the Login Widget from Auth0.
 
 ````asp
-<%@ Language="VBScript" %><%
- 
-Option Explicit
-%>
+<%= '\<%@ Language="VBScript" %\>' %>
+<%= '\<% Option Explicit %\>' %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,19 +33,23 @@ Option Explicit
 </html>
 ```
 
+After logging in with any provider, Auth0 will redirect the user to `/callback.asp`.
+
 ### 2. Processing the callback response
 
-Now, we need to create the `callback.asp` file. It will implement the basic OAuth 2 flow:
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll create the `callback.asp` file. 
+
+It will implement the basic OAuth 2 flow:
 
 1. Exchanges the **code** for an **access_token**
-2- Calls the **Userinfo** endpoint to get the current logged in user profile using the access_token as credentials.
+1. Calls the **Userinfo** endpoint to get the current logged in user profile using the access_token as credentials.
 
 ````asp
-<%@ Language="VBScript" %>
+<%= '\<%@ Language="VBScript" %\>' %>
  
 <script language="JScript" runat="server" src='//cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js'></script>
  
-<%
+<%= '\<%' %>
 CLIENT_ID = "@@account.clientId@@"
 CLIENT_SECRET = "@@account.clientSecret@@"
 REDIRECT_URI = "http://yourserver.com/callback.asp"
@@ -58,7 +61,7 @@ access_token = GetAccessToken(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, AUTHORIZAT
 set profile = GetUserProfile( access_token )
  
  
-' Do something usefule with the user profile (session, etc), possbily redirect to home
+'Here, you should save the profile in the session or somewhere'
  
 Response.Write "UserID = " & profile.user_id
  
@@ -101,7 +104,7 @@ Function GetAccessToken(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, code)
  
 End Function
  
-%>
+<%= '%\>' %>
 ```
 
 ### 3. You've nailed it.
