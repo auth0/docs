@@ -47,19 +47,20 @@ def callback_handling():
 
   json_header = {'content-type': 'application/json'}
 
-  token_url = "https://{domain}/oauth/token".format(domain=env["AUTH0_DOMAIN"])
+  token_url = "https://{domain}/oauth/token".format(domain='@@account.namespace@@')
+
   token_payload = {
-    'client_id' : env['AUTH0_CLIENT_ID'], \
-    'client_secret' : env['AUTH0_CLIENT_SECRET'], \
-    'redirect_uri' : env['AUTH0_CALLBACK_URL'], \
-    'code' : code, \
-    'grant_type': 'authorization_code' \
+    'client_id':     '@@account.clientId@@',
+    'client_secret': '@@account.clientSecret@@',
+    'redirect_uri':  '@@account.callback@@',
+    'code':          code,
+    'grant_type':    'authorization_code'
   }
 
   token_info = requests.post(token_url, data=json.dumps(token_payload), headers = json_header).json()
 
-  user_url = "https://{domain}/userinfo?access_token={access_token}"  \
-    .format(domain=env["AUTH0_DOMAIN"], access_token=token_info['access_token'])
+  user_url = "https://{domain}/userinfo?access_token={access_token}" \
+      .format(domain='@@account.namespace@@', access_token=token_info['access_token'])
 
   user_info = requests.get(user_url).json()
 

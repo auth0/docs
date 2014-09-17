@@ -8,7 +8,7 @@ lodash: true
   <blockquote>
     <a href="https://docs.auth0.com/Auth0.NancyFx.SelfHost/master/create-package?path=sample&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -64,7 +64,7 @@ You need to configure your Auth0 keys in the `app.config`
     <add key="auth0:ClientId" value="@@account.clientId@@" />
     <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
     <add key="auth0:Domain" value="@@account.namespace@@" />
-    <add key="auth0:CallbackUrl" value="http://yoururl.com/login-callback" />
+    <add key="auth0:CallbackUrl" value="@@account.callback@@" />
 </appSettings>
 ```
 

@@ -1,15 +1,14 @@
+---
+lodash: true
+---
+
 # Symfony Tutorial
 
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
 ## Tutorial
 
-### 1. Configure Auth0
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
-
-<pre><code>http://<your-domain>/login/check-auth0</pre></code>
-
-### 2. Add HWIOAuthBundle to your composer.json
+### 1. Add HWIOAuthBundle to your composer.json
 
     {
         "require": {
@@ -20,7 +19,7 @@ If you have used [Symfony](http://symfony.com) before, you are probably already 
 and run `composer update`
 
 
-### 3. Enable the bundle
+### 2. Enable the bundle
 
     // app/AppKernel.php
 
@@ -32,7 +31,7 @@ and run `composer update`
         );
     }
 
-### 4. Configure the routes
+### 3. Configure the routes
 
 Add the following routes at the begining of `app/config/routing.yml`
 
@@ -45,8 +44,18 @@ Add the following routes at the begining of `app/config/routing.yml`
         prefix:   /login
 
     auth0_login:
-        pattern: /login/check-auth0
+        pattern: /auth0/callback
 
+
+### 4. Configure Auth0
+
+@@includes.callbackRegularWebapp@@
+
+In this case, the callbackURL should look something like:
+
+````
+http://yourUrl/auth0/callback
+```
 
 ### 5. Configure the resource owner
 
@@ -84,7 +93,7 @@ This file is `app/config/security.yml`:
                 anonymous: ~
                 oauth:
                     resource_owners:
-                        auth0: "/login/check-auth0"
+                        auth0: "/auth0/callback"
                     login_path:        /login
                     use_forward:       false
                     failure_path:      /login
@@ -97,7 +106,6 @@ This file is `app/config/security.yml`:
             - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
 
 Notice that we need to identify the user provided selected in step 6 both in the firewall and in the providers.
-
 
 ### 8. Triggering login manually or integrating the Auth0 widget
 
