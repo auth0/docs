@@ -27,7 +27,8 @@ There are three options to do the integration:
 
 #### Option 1: Authentication using Login Widget
 
-To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project: 
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
+Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
 ```csharp
 using Auth0.Windows;
@@ -36,29 +37,26 @@ var auth0 = new Auth0Client(
 	"@@account.namespace@@",
 	"@@account.clientId@@");
 
-auth0.LoginAsync (this)
-	 .ContinueWith(t => { 
-	 /* 
-	    Use t.Result to do wonderful things, e.g.: 
-	      - get user email => t.Result.Profile["email"].ToString()
-	      - get facebook/google/twitter/etc access token => t.Result.Profile["identities"][0]["access_token"]
-	      - get Windows Azure AD groups => t.Result.Profile["groups"]
-	      - etc.
-	*/ },
-	TaskScheduler.FromCurrentSynchronizationContext());
+var user = await auth0.LoginAsync(this);
+/*
+    Use this object to do wonderful things, e.g.: 
+      - get user email => user.Profile["email"].ToString()
+      - get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
+      - get Windows Azure AD groups => user.Profile["groups"]
+      - etc.
+*/
 ```
 
 ![](img/wpf-winforms-step1.png)
 
-> For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync (this)`
+> For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
 
 #### Option 2: Authentication with your own UI
 
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```csharp
-auth0.LoginAsync (this, "auth0waadtests.onmicrosoft.com") // connection name here
-	 .ContinueWith(t => { /* Use t.Result to do wonderful things */ });
+var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // connection name here
 ```
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
@@ -66,14 +64,10 @@ auth0.LoginAsync (this, "auth0waadtests.onmicrosoft.com") // connection name her
 #### Option 3: Authentication with specific user name and password
 
 ```csharp
-auth0.LoginAsync (
+var user = await auth0.LoginAsync(
 	"my-db-connection", 	// connection name here
-	"username", 			// user name
-	"password")				// password
-	 .ContinueWith(t => 
-	 { 
-	 	/* Use t.Result to do wonderful things */ 
- 	 });
+	"username",
+	"password");
 ```
 
 ## Accessing user information
@@ -84,10 +78,8 @@ The `Auth0User` has the following properties:
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
 * `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
 
-
 ## Download the samples
 
 Browse the samples on GitHub from [here](https://github.com/auth0/auth0-winforms-wpf-sample).
-
 
 **Congratulations!**
