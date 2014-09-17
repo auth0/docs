@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## ASP.Net Classic Tutorial
+## ASP Classic Tutorial
 
 **Please follow the steps below to configure your existing ASP.Net Classic WebApp to use it with Auth0.**
 
