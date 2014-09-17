@@ -9,6 +9,8 @@ This is the data you should give to the ADFS admin:
 * Realm Identifier: `urn:auth0:@@account.tenant@@`
 * Endpoint: `https://@@account.namespace@@/login/callback`
 
+> If you want to use the [/oauth/ro](/auth-api#post--oauth-ro) endpoint make sure to enable `/adfs/services/trust/13/usernamemixed`.
+
 ### Scripted setup
 
 For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user. 
