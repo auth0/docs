@@ -81,7 +81,7 @@ and then add the following configuration to the `config.xml` file:
 ````xml
 <feature name="InAppBrowser">
   <param name="ios-package" value="CDVInAppBrowser" />
-  <param name="android-package" value="org.apache.cordova.InAppBrowser" />
+  <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
 </feature>
 ```
 
