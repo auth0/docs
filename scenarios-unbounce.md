@@ -1,4 +1,4 @@
-## Get User Information with one-click social authentication on Unbounce Landing Pages
+# Get User Information with one-click social authentication on Unbounce Landing Pages
 
 ![](https://dl.dropboxusercontent.com/u/21665105/unbounce.gif)
 

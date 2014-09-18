@@ -1,4 +1,4 @@
-## Sequence Diagrams
+# Sequence Diagrams
 
 ## Single Page Applications
 
