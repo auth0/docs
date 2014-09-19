@@ -54,9 +54,10 @@ SSLCertificateKeyFile /home/your_key.key
 
 Auth0 `clientSecret` is by default Base64 encoded which isn't compatible with this Apache plugin out of the box. We're going to change that in the near future, but in the meantime, you need to call an API to set that, for your account, the `clientSecret` isn't Base64 encoded.
 
-Just do the following `curl` from your terminal
+Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here <https://docs.auth0.com/api#!#post--oauth-token>
+
 ````bash
-curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 'authorization: Bearer CHANGED_WITH_YOUR_ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
+curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 'authorization: Bearer ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
 ```
 
 > Please note that you can get your `access_token` by clicking on `Try Me` in [this endpoint of the Api Explorer](https://docs.auth0.com/api#!#post--oauth-token)
