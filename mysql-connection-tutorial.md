@@ -22,42 +22,41 @@ In this tutorial, we will use __MySQL__. Select __MySQL__ from one of the templa
 
 The following code will be generated for you in the editor below:
 
-	function login (username, password, callback) {
-	  var connection = mysql({
-	    host     : 'localhost',
-	    user     : 'me',
-	    password : 'secret',
-	    database : 'mydb'
-	  });
+    function login (email, password, callback) {
+      var connection = mysql({
+        host     : 'localhost',
+        user     : 'me',
+        password : 'secret',
+        database : 'mydb'
+      });
 
-	  connection.connect();
+      connection.connect();
 
-	  var query = "SELECT Id, Nickname, Email, FirstName, LastName, Password " +
-	              "FROM MyUsers WHERE Nickname = ?";
+      var query = "SELECT id, nickname, email, password " +
+                 "FROM users WHERE email = ?";
 
-	  connection.query(query, [username], function (err, results) {
-	    if (err) return callback(err);
-	    if (results.length === 0) return callback();
-	    var user = results[0];
+      connection.query(query, [email], function (err, results) {
+        if (err) return callback(err);
+        if (results.length === 0) return callback();
+        var user = results[0];
 
-	    if (!bcrypt.compareSync(password, user.Password)) return callback();
+        if (!bcrypt.compareSync(password, user.password)) {
+          return callback();
+        }
 
-	    callback(null,   {
-	      id:           user.Id.toString(),
-	      username:     user.Email,
-	      displayName:  (user.FirstName || '') + ' ' + (user.LastName || ''),
-	      name: {
-	        givenName:  user.FirstName,
-	        familyName: user.LastName
-	      },
-	      emails:   [ {value: user.Email} ]
-	    });
-	  });
-	}
+        callback(null,   {
+          id:          user.id.toString(),
+          nickname:    user.nickname,
+          email:       user.email
+        });
 
-As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first user with a `Nickname == username`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `username`, `displayName`, `emails`.
+      });
 
-This script assumes you have a `MyUsers` table with all these columns. You can of course tweak this script in order to adjust it to your own requirements.
+    }
+
+As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first user with `email == user.email`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `nickname`, `email`.
+
+This script assumes you have a `users` table with all these columns. You can of course tweak this script in order to adjust it to your own requirements.
 
 ## Configuration
 
@@ -77,7 +76,7 @@ In the script you would refer to these parameters as: ```configuration.PARAMETER
 
 ## Debugging and troubleshooting
 
-You can test the script using the ```try``` button. If the result is okay you will see a green border and the resulting profile:
+You can test the script using the ```try``` button. If the result is okay you will see the resulting profile:
 
 ![](/img/db-connection-try-ok.png)
 
