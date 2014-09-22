@@ -8,10 +8,12 @@ Go to <a href="<%= uiAppAddonsURL %>" target="_new">Application Add-ons</a> page
 
 <img src="https://cloudup.com/c8xbUL6QbJa+" />
 
+Each integration is different and requires different parameters and configuration. once the add-on is activated, you will see tailored instructions with details on how to get this done.
+
 ### 2. Use it
 
-Check the documentation of any of our FrontEnd or Mobile SDKs to learn how to call the [Delegation](https://docs.auth0.com/auth-api#delegated) API. Just go to the [Quickstart](https://docs.auth0.com/) and pick up the libary of your choice.
+The key to this integration is the Delegation endpoint in Auth0. Check the documentation of any of our FrontEnd or Mobile SDKs to learn how to call the [this endpoint](https://docs.auth0.com/auth-api#delegated). You can download your favorite library from any of the [Quickstarts](https://docs.auth0.com/).
 
-### 3. Sit back & relax
+### 3. You are done!
 
-Now it's time to sit back, relax and open a beer. You've implemented Delegation for the <%= _.capitalize(configuration.thirdParty) %> API
+Congrats! You've implemented Delegation for the <%= _.capitalize(configuration.thirdParty) %> API

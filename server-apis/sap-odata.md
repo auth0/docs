@@ -1,7 +1,7 @@
 ---
 lodash: true
 ---
-> This integration is in __experimental mode__. Contact us oif you have questions.
+> This integration is in __experimental mode__. Contact us if you have questions.
 
 <% configuration.thirdParty = 'SAP OData' %>
 @@includes.thirdpartyapi@@
