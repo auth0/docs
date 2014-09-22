@@ -76,6 +76,10 @@ If you didn't configure `Kerberos` or you are outside your intranet you will be 
 
 > Notice the __User profile__ includes the __Groups__ a user belongs to in AD. This will include any nested groups (flattened list).
 
-##4. High availability
+##4. Kerberos mode
+
+This mode is only available if you deploy the connector on a Windows machine. It allows Integrated Windows Authentication (i.e. a user plugged to the network joined to the domain wouldn't have to enter the password at all). Notice that when enabling this you would have to enter the IP address ranges that will be using Kerberso. These are the IP addresses of the proxy your company is connecting through to Auth0.
+
+##5. High availability
 
 High availability is achieved through multiple instances of the connector running simultaneously. You need to simply install the connector on another machine. On Windows, just run the __MSI__ again. When the browser opens and requests entering the __Ticket URL__, close the window. Open File Explorer on the location the Connector is installed on (e.g. "\Program Files\ADLDAP Connector") and copy the `certs` folder and `config.json` from a previously configured connector instance here, overwriting any content that exists.
