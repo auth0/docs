@@ -1,4 +1,5 @@
 ---
+title: New Relic
 lodash: true
 ---
 <% integration = {};

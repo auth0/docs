@@ -1,4 +1,5 @@
 ---
+title: Box
 lodash: true
 ---
 <% integration = {};

@@ -1,4 +1,5 @@
 ---
+title: CloudBees
 lodash: true
 ---
 <% integration = {};

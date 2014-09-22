@@ -1,4 +1,5 @@
 ---
+title: AWS
 lodash: true
 ---
 <% configuration.thirdParty = 'AWS' %>

@@ -1,4 +1,5 @@
 ---
+title: Azure Mobile Services
 lodash: true
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>

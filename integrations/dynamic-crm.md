@@ -1,4 +1,5 @@
 ---
+title: Dynamic CRM
 lodash: true
 ---
 <% integration = {};
