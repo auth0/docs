@@ -107,6 +107,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     tutorial.on('serverPlatform', onplatform);
     tutorial.on('serverApi', onserverapi)
     tutorial.on('codevisible', oncodevisible);
+    tutorial.on('codevisible', swiftypeindex);
 
     function onapptype(val, old) {
       var url = '/quickstart/:apptype'.replace(':apptype', val || '')
@@ -177,6 +178,15 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
         ? window.prettyPrint()
         : null;
     });
+
+    function swiftypeindex (visible) {
+      if (!visible) {
+        return $('#tutorial-navigator .code-snippets').removeAttr('data-swiftype-index');
+      }
+
+      $('#tutorial-navigator .code-snippets').attr('data-swiftype-index', 'true');
+    }
+
 
   })()
 </script>
