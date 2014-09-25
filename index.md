@@ -55,16 +55,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
      * Routing
      */
 
-    function rewrite(ctx, next) {
-      // Prepend `/quickstart` to routes withouth `/quickstart`
-      // if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
-      ctx.pathname = ctx.pathname || '/';
-      // prepend quickstart if pathname is '/'
-      if(/^\/$/.test(ctx.pathname)) ctx.path = '/quickstart' + ctx.path;
-      next();
-    }
-
-    page('*', rewrite);
+    page('*', quickstartRoute);
     page('/quickstart/:apptype?', checkstate, render);
     page('/quickstart/:apptype/:platform?', checkstate, render);
     page('/quickstart/:apptype/:platform/:api?', checkstate, render);
@@ -72,6 +63,15 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     // Initialize routing
     // page.base('/quickstart');
     page();
+
+    function quickstartRoute(ctx, next) {
+      // Prepend `/quickstart` to routes withouth `/quickstart`
+      // if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
+      ctx.pathname = ctx.pathname || '/';
+      // prepend quickstart if pathname is '/'
+      if(/^\/$/.test(ctx.pathname)) ctx.path = '/quickstart' + ctx.path;
+      next();
+    }
 
     function checkstate(ctx, next) {
       var apptype = ctx.params.apptype || '';
@@ -180,6 +180,16 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
       if (!eqlPath(url)) return page(url);
     };
+
+    function swiftypeindex (visible) {
+      if (!visible) {
+        return $('#tutorial-navigator .snippet').removeAttr('data-swiftype-index');
+      }
+
+      $('#tutorial-navigator .snippet[empty-if=false]').each(function() {
+        $(this).attr('data-swiftype-index', 'true');
+      });
+    }
 
     // pretty printing
     tutorial.pretty(function() {
