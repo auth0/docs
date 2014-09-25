@@ -183,12 +183,10 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
     function swiftypeindex (visible) {
       if (!visible) {
-        return $('#tutorial-navigator .snippet').removeAttr('data-swiftype-index');
+        return $('#tutorial-navigator .code-snippets').removeAttr('data-swiftype-index');
       }
 
-      $('#tutorial-navigator .snippet[empty-if=false]').each(function() {
-        $(this).attr('data-swiftype-index', 'true');
-      });
+      $('#tutorial-navigator .code-snippets').attr('data-swiftype-index', 'true');
     }
 
     // pretty printing
