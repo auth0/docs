@@ -94,6 +94,8 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
     function render(ctx, next) {
       tutorial.render('#navigator-container');
+      swiftypeindex(tutorial.get('codevisible'));
+      titleupdate();
     }
 
     /**
@@ -101,13 +103,20 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
      */
 
     tutorial.on('apptype', onapptype);
+    tutorial.on('apptype', titleupdate);
     tutorial.on('nativePlatform', onplatform);
+    tutorial.on('nativePlatform', titleupdate);
     tutorial.on('hybridPlatform', onplatform);
+    tutorial.on('hybridPlatform', titleupdate);
     tutorial.on('clientPlatform', onplatform);
+    tutorial.on('clientPlatform', titleupdate);
     tutorial.on('serverPlatform', onplatform);
+    tutorial.on('serverPlatform', titleupdate);
     tutorial.on('serverApi', onserverapi)
+    tutorial.on('serverApi', titleupdate)
     tutorial.on('codevisible', oncodevisible);
     tutorial.on('codevisible', swiftypeindex);
+    tutorial.on('codevisible', titleupdate);
 
     function onapptype(val, old) {
       var url = '/quickstart/:apptype'.replace(':apptype', val || '')
@@ -187,6 +196,20 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       $('#tutorial-navigator .code-snippets').attr('data-swiftype-index', 'true');
     }
 
+    function titleupdate() {
+      var title = 'Quickstart for ';
+      var appTitle = tutorial.get('apptype') ? tutorial.apptypeTitle() : '';
+      if (!appTitle) return $('head title').html('Getting started with Auth0');
+
+      var platformTitle = tutorial.get('nativePlatform') || tutorial.get('hybridPlatform') || tutorial.get('clientPlatform') || tutorial.get('serverPlatform')
+        ? tutorial.platformTitle() : '';
+      if (!platformTitle) return $('head title').html(title + appTitle);
+
+      var apiTitle = tutorial.get('serverApi') ? tutorial.apiTitle() : '';
+      if (!apiTitle && !tutorial.get('codevisible')) return $('head title').html(title +  platformTitle);
+      if (!apiTitle) return $('head title').html('Getting started with ' + platformTitle);
+      return $('head title').html('Getting started with ' + platformTitle + ' and ' + apiTitle);
+    }
 
   })()
 </script>
