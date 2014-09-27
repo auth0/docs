@@ -23,7 +23,7 @@ Add the following dependencies to your `Gemfile` and run `bundle install`
 
 ````js
 gem 'omniauth', '~> 1.2'
-gem 'omniauth-auth0', '~> 1.1
+gem 'omniauth-auth0', '~> 1.1'
 ```
 
 ### 2. Initialize Omniauth Auth0
