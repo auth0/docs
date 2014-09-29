@@ -140,6 +140,6 @@ There are three different types of errors you can return from a DB Connection:
 
 Example:
 
-	callback(new ValidationError('email-to-long', 'Email is to long.'));
+	callback(new ValidationError('email-too-long', 'Email is too long.'));
 
 > Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection)
