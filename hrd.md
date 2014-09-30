@@ -21,7 +21,7 @@ Notice that this is equivalent of just navigating to:
 There are multiple practical ways of getting the `connection` value. Among the most common ones:
 
 * You can use __vanity URLs__: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`
-* You can just ask the user to pick from a list (notice [there's an API](https://docs.auth0.com/api#!#get--api-connections) to retrieve all connections available)
+* You can just ask the user to pick from a list (notice [there's an API](@@base_url@@/api#!#get--api-connections) to retrieve all connections available)
 
 > These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
 

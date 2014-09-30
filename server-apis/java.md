@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
     </a> 
   </blockquote>
@@ -32,7 +32,7 @@ For that, you can just add it to your `pom.xml` if you're using maven.
 
 ### 2. Add JWT Validation filter
 
-Now, you need to validate the [JWT](https://docs.auth0.com/jwt). For that, we'll use a Filter.
+Now, you need to validate the [JWT](@@base_url@@/jwt). For that, we'll use a Filter.
 
 ````java
 @WebFilter(filterName= "jwt-filter", urlPatterns = { "/api/*" })

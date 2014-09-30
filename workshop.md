@@ -52,7 +52,7 @@ Create a new WCF Project and Service. Add a call to the new service from the ASP
 
 ## Exercise 8
 
-Follow the <a href="https://docs.auth0.com/wcf-tutorial" target="_blank">WCF Tutorial</a>  in order to secure your web service.
+Follow the <a href="@@base_url@@/wcf-tutorial" target="_blank">WCF Tutorial</a>  in order to secure your web service.
 
 ## Exercise 9
 

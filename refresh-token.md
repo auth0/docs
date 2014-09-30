@@ -1,6 +1,6 @@
 # Refresh Tokens
 
-__Refresh tokens__ are special kinds of tokens that your app can use to get renewed `id_token` ([JWT](http://docs.auth0.com/jwt)) **at any time**. A __refresh token__ must be securely stored in your app.
+__Refresh tokens__ are special kinds of tokens that your app can use to get renewed `id_token` ([JWT](@@base_url@@/jwt)) **at any time**. A __refresh token__ must be securely stored in your app.
 
 ## Introduction
 
@@ -22,7 +22,7 @@ __Refresh tokens__ are issued for the combination of __App__, __User__ and __Dev
 
 ## How it all works
 
-The process to log the user in is the same as [explained in the sequence diagram page](https://docs.auth0.com/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
+The process to log the user in is the same as [explained in the sequence diagram page](@@base_url@@/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
 
 ````
 GET https://@@account.namespace@@/authorize/?
@@ -47,7 +47,7 @@ This is the same as before but it will now contain a `refresh_token` parameter.
 
 > Notice the token is sent back in the URL because `authorize` request in this example uses `response_type=token`.
 
-Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](https://docs.auth0.com/auth-api#!#post--delegation)**
+Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](@@base_url@@/auth-api#!#post--delegation)**
 
 ````
 POST https://@@account.namespace@@/delegation

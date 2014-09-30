@@ -132,11 +132,11 @@ $scope.logout = function() {
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
 
-You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 7. Configuring secure calls to your API
 
-When calling your API you will have to send the [JWT token](https://docs.auth0.com/jwt), which you've got on the login on every request. To do that, we need to do 2 things:
+When calling your API you will have to send the [JWT token](@@base_url@@/jwt), which you've got on the login on every request. To do that, we need to do 2 things:
 
 #### 7.1 Add the dependency to the `authInterceptor` module
 
@@ -159,7 +159,7 @@ The `$http` interceptor will send the token in the `Authorization` header if it'
 });
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](https://docs.auth0.com/jwt) will be sent on every request.
+Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
 
 ### 8. Showing user information
 

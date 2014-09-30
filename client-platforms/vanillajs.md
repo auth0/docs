@@ -67,7 +67,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 ```
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
 
-If you want to check all the available arguments for the signin call, please [check here](https://docs.auth0.com/login-widget2)
+If you want to check all the available arguments for the signin call, please [check here](@@base_url@@/login-widget2)
 
 
 
@@ -83,7 +83,7 @@ document.getElementById('nick').textContent = userProfile.nickname;
 <p>His name is <span id="nick"></span></p>
 ```
 
-You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 5. Logging out
 

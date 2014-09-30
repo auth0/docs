@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/spring-security-auth0/master/create-package?path=/examples/api-example&filePath=/examples/api-example/src/main/resources/auth0.properties&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/spring-security-auth0/master/create-package?path=/examples/api-example&filePath=/examples/api-example/src/main/resources/auth0.properties&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
     </a> 
   </blockquote>

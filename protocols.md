@@ -187,7 +187,7 @@ A failure response will contain error and error_description fields.
 
 These protocols are implemented mostly when interacting with well-known [identity providers](identityproviders). Most of the __social identity providers__ implement one or the other. The default protocol in Auth0 is OpenID Connect (see above).
 
-`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the the `connection_scopes` parameter. (See [this topic](https://docs.auth0.com/login-widget2#8) for more details)
+`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the the `connection_scopes` parameter. (See [this topic](@@base_url@@/login-widget2#8) for more details)
 
 ## WS-Federation
 
