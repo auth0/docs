@@ -26,7 +26,7 @@ For that, you can just add it to your `pom.xml` if you're using maven.
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>java-jwt</artifactId>
-    <version>0.4</version>
+    <version>0.5</version>
 </dependency>
 ```
 
