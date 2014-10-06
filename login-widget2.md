@@ -15,7 +15,7 @@ Add the script tag to your page to get started with __Auth0 Login Widget__.
 
 ## Playground
 
-@@sdk2@@
+@@widgetSDK2@@
 
 ## Single Page Applications
 
@@ -24,7 +24,7 @@ You can handle the authorization process client-side as follows:
     <script type="text/javascript">
         var widget = new Auth0Widget({
             domain:                 '@@account.namespace@@',
-            clientID:               '@@account.clientId@@', 
+            clientID:               '@@account.clientId@@',
             callbackURL:            '@@account.callback@@',
             callbackOnLocationHash: true
         });
@@ -37,10 +37,10 @@ You can handle the authorization process client-side as follows:
                 return alert('error fetching profile: ' + JSON.stringify(err));
               }
               // store result.id_token and profile in local storage or cookie
-                
+
             });
         }
-        
+
         widget.signin();
     </script>
 
@@ -65,10 +65,10 @@ The Widget can be customized through the `options` parameter sent to the `signin
 > Is there an option that you think would be useful? Just <a target="_blank" href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
 
 This example shows how to work with only specified connections and display the labels in Spanish:
-    
+
     var widget = new Auth0Widget({
         domain:         '@@account.namespace@@',
-        clientID:       '@@account.clientId@@', 
+        clientID:       '@@account.clientId@@',
         callbackURL:    '@@account.callback@@',
         dict:           'es'
     });
@@ -93,7 +93,7 @@ Resulting in:
 You can send extra parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`.
 
     widget.signin({
-        // ... other options ... 
+        // ... other options ...
         state: 'foo'
     });
 
@@ -102,7 +102,7 @@ The following parameters are supported: `access_token`, `protocol`, `request_id`
 There are other extra parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explicitly ask for `access_type=offline`. We support sending arbitrary parameters like this:
 
     widget.signin({
-        // ... other options ... 
+        // ... other options ...
         extraParameters: {
             access_type: 'offline'
         }
@@ -126,15 +126,15 @@ The object keys must be the names of the connections and the values must be arra
 
     widget.signin({
       connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
-      connection_scopes: { 
+      connection_scopes: {
         'facebook': ['public_profile', 'user_friends'],
         'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
         // none for twitter
       }
     }
-  
+
 > The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
-  
+
 ## Signup and Reset
 
 It is also possible to start the widget in the **Sign Up** mode or **Reset Password** mode as follows:
@@ -149,10 +149,10 @@ It is also possible to start the widget in the **Sign Up** mode or **Reset Passw
 
 1. The __title__ of the widget. You can optionally show a 32x32 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
-3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection. 
-4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection. 
+3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection.
+4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection.
 
-> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection whose primary or additional domains match "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen. 
+> **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection whose primary or additional domains match "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
 
 ## Customize the look and feel
 
@@ -163,7 +163,7 @@ You can apply your own style to the elements. All classes and ids are prefixed w
 You can also customize the error messages that will be displayed on certain situations:
 
     var widget = new Auth0Widget({
-        // ... other parameters ... 
+        // ... other parameters ...
         dict: {
             loadingTitle:   'loading...',
             close:          'close',

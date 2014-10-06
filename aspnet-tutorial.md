@@ -34,19 +34,19 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 
 ### 4. Triggering login manually or integrating the Auth0 widget
 
-@@sdk2@@
+@@widgetSDK2@@
 
 ### 5. Accessing user information
 
 Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
-    public ActionResult Index() 
+    public ActionResult Index()
     {
     	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
     }
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
-    
+
 **Congratulations!**
 
 ----

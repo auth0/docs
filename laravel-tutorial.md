@@ -62,7 +62,7 @@ In other words, you need to select a uri (for example /auth0/callback), configur
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
-@@sdk2@@
+@@widgetSDK2@@
 
 
 ### 6. Defining a user and a user provider

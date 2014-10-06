@@ -20,8 +20,8 @@ The steps are quite simple though:
           &redirect_uri=@@account.callback@@
           &state=VALUE_THAT_SURVIVES_REDIRECTS
           &scope=openid</code></pre>
-  
-@@sdk2@@
+
+@@widgetSDK2@@
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 
@@ -40,7 +40,7 @@ The steps are quite simple though:
     &redirect_uri=@@account.callback@@
     &client_secret=@@account.clientSecret@@
     &code=AUTHORIZATION_CODE
-    &grant_type=authorization_code</code></pre> 
+    &grant_type=authorization_code</code></pre>
 
 5. The response of the server will look like this
 
@@ -50,7 +50,7 @@ The steps are quite simple though:
      "token_type":"bearer",
   }</code></pre>
 
-  > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user. The `id_token` is a [Json Web Token](http://tools.ietf.org/html/draft-jones-json-web-token-08), also commonly used to authenticate API calls. Because it is signed with the app secret, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services or your own Web API. 
+  > The `access_token` can then be used to call Auth0's `userinfo` endpoint to get the attributes of the user. The `id_token` is a [Json Web Token](http://tools.ietf.org/html/draft-jones-json-web-token-08), also commonly used to authenticate API calls. Because it is signed with the app secret, you can use it to call other APIs that trust Auth0. An example of this is Windows Azure Mobile Services or your own Web API.
 
 6. Finally, you can get the user profile by calling
 

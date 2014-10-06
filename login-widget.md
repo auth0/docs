@@ -12,7 +12,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 
 ## Playground
 
-@@sdk@@
+@@widgetSDK@@
 
 ## Anatomy of the Auth0 Login Widget
 
@@ -20,8 +20,8 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 
 1. The __title__ of the widget. You can optionally show a 24x24 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
-3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection. 
-4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection. 
+3. The __Email__ field will be shown if you have at least one enterprise connection enabled. The __Password__ field will be shown if you have a Database connection.
+4. The __Sign Up__ and __Forgot Password__ links will be shown if you have a Database connection.
 
 > **How does enterprise SSO work?** Consider a user that enters john@**fabrikam.com**. If there's an enterprise connection with an associated domain "**fabrikam.com**", then the password field will be hidden. When the user clicks on __Sign In__, he/she will be redirected to the corresponding identity provider (Google Apps, AD, Windows Azure AD, etc.) where that domain is registered. If the user is already logged in with the Identity Provider, then Single Sign On will happen.
 
@@ -46,15 +46,15 @@ This example shows how to display the labels in Spanish:
     window.Auth0.signIn({
         onestep: true,
         title: "Contoso",
-        signInButtonText: "Ingresar", 
-        emailPlaceholder: "Correo", 
+        signInButtonText: "Ingresar",
+        emailPlaceholder: "Correo",
         passwordPlaceholder: "Contraseña",
         separatorText: "o",
         showIcon: true,
         icon: "https://myapp.com/logo.png",
         showSignup: true,
-        signupText: "Registrarme!", 
-        signupLink: "https://myapp.com/signup", 
+        signupText: "Registrarme!",
+        signupLink: "https://myapp.com/signup",
         showForgot: true,
         forgotText: "Olvidé mi contraseña",
         forgotLink: "https://myapp.com/forgot"
@@ -76,7 +76,7 @@ When using a database connections, the **Login Widget** has support for account 
         separatorText: "o",
         showIcon: true,
         icon: "https://myapp.com/logo.png",
-        // ... other properties ... 
+        // ... other properties ...
         signupTitle: "Registrarse",
         signupHeaderText: "Por favor, ingrese su correo y contraseña",
         signupFooterText: "Al hacer clic en \"Crear Usuario\", usted está aceptando nuestros términos y condiciones.",
@@ -97,7 +97,7 @@ Will display the following:
         separatorText: "o",
         showIcon: true,
         icon: "https://myapp.com/logo.png",
-        // ... other properties ... 
+        // ... other properties ...
         resetTitle: "Cambiar Contraseña",
         resetHeaderText: "Por favor, ingrese su correo y una nueva contraseña. Se le enviará un correo para confirmar el cambio de la misma.",
         resetButtonText: "Enviar",
@@ -120,7 +120,7 @@ You can also customize the error messages that will be displayed on certain situ
     window.Auth0.signIn({
         onestep: true,
         title: "Contoso",
-        // ... other properties ... 
+        // ... other properties ...
         // wrongEmailPasswordErrorText, serverErrorText, signupEnterpriseEmailWarningText, signupServerErrorText and resetServerErrorText are used only if you have a Database connection
         wrongEmailPasswordErrorText: 'Custom error message for invalid user/pass.',
         serverErrorText: 'There was an error processing the sign in.',
@@ -166,11 +166,11 @@ Here is an example:
     for (var i in client.strategies) {
       for (var j in client.strategies[i].connections) {
         var connection = client.strategies[i].connections[j];
-        
+
         var link = $('<a>')
                         .text(connection.name)
                         .attr('href', connection.url);
-        
+
         $('ul.login-list').append($('<li>').append(link));
       }
     }
@@ -179,7 +179,7 @@ Here is an example:
 
 * Can I customize the colors and structure of the widget?
 
-    Yes. You can customize it by passing a `css` parameter to the script pointing to a URL with your CSS (hosted on HTTPS). Or you can use the JavaScript API and use your own UI. 
+    Yes. You can customize it by passing a `css` parameter to the script pointing to a URL with your CSS (hosted on HTTPS). Or you can use the JavaScript API and use your own UI.
     Here are a couple of fiddles to play around: <a href="http://jsfiddle.net/auth0/FSCrV/" target="_blank">css customization</a> and <a href="http://jsfiddle.net/auth0/2t9HG/" target="_blank">JavaScript API</a>
 
 * Can I remove the "Powered by Auth0"?
@@ -190,6 +190,6 @@ Here is an example:
 
     Yes. You can embed it on a `div` by adding a query string to the script URL specifying the div `id`. e.g.: &lt;script id="auth0" src="https://sdk.auth0.com/auth0.js#client=...&**container=root**">&lt;/script>
 
-* What happens if the user enters an email corresponding to a domain that has not been provisioned before? 
+* What happens if the user enters an email corresponding to a domain that has not been provisioned before?
 
     That behavior will depend on another parameter called `provisioningOnUnknownDomain`. If this flag is true, we will show the [provisioning widget](#) pre-populated with that domain. If that flag is false, an error message will be displayed (The domain has not been setup yet).

@@ -4,7 +4,7 @@ title: Auth0 and ServiceStack
 
 # Using Auth0 with ServiceStack
 
-We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications. At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users. 
+We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications. At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users.
 
 ##Before you start
 
@@ -23,7 +23,7 @@ Once the default template unfolds, use NuGet to install the **ServiceStack.Host.
 Add the following line to your `Global.asax` file (this is required for ServiceStack):
 
 ```
-routes.IgnoreRoute("api/{*pathInfo}"); 
+routes.IgnoreRoute("api/{*pathInfo}");
 ```
 
 Add a `HomeController` to return the `default.htm` page. Under the __Controllers__ folder add:
@@ -44,9 +44,9 @@ Run this command on the __Package Manager Console__:
 
 	Install-Package Auth0-ServiceStack-OAuthProvider
 
-This command will add two classes to your project under the __App_Start__ folder: `Auth0Provider` and `Auth0UserSession`. 
+This command will add two classes to your project under the __App_Start__ folder: `Auth0Provider` and `Auth0UserSession`.
 
-`Auth0Provider` extends ServiceStack's `OAuthProvider` and handles the authentication transaction for you. 
+`Auth0Provider` extends ServiceStack's `OAuthProvider` and handles the authentication transaction for you.
 
 ###3. Enable Authentication and plug in Auth0's Provider
 
@@ -95,7 +95,7 @@ Open your `web.config` file and change the three Auth0's parameters under `<appS
 
 ###5. Add backend code to test the app
 
-Open the the `WebServiceExamples.cs` file. 
+Open the the `WebServiceExamples.cs` file.
 
 ####1. Add the `Authenticate` attribute to the `Hello` DTO:
 
@@ -141,9 +141,9 @@ public class HelloService : ServiceBase<Hello>
 
 ### 6. Triggering login manually or integrating the Auth0 widget
 
-@@sdk2@@
+@@widgetSDK2@@
 
-### 7. Add UI code to Login and invoke the `HelloService`  
+### 7. Add UI code to Login and invoke the `HelloService`
 
 Open `default.htm` and add the following statement in the `jQuery.ready` body:
 
@@ -157,7 +157,7 @@ $.getJSON('/api/hello', function (data) {
 Add a section to display the `UserInfo`:
 
 ```html
-<div>User Info: 
+<div>User Info:
      <pre><code id="userInfo">Not logged in</code></pre>
 </div>
 ```

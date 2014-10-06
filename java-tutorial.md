@@ -1,12 +1,12 @@
 # Auth0 and Java
 
-[Auth0](https://www.auth0.com) is a cloud service that provides a turn-key solution for authentication, authorization and Single Sign On. 
+[Auth0](https://www.auth0.com) is a cloud service that provides a turn-key solution for authentication, authorization and Single Sign On.
 
-You can use  [Auth0](https://www.auth0.com) to add username/password authentication, support for enterprise identity like Active Directory or SAML and also for social identities like Google, Facebook or Salesforce among others to your web, API and mobile native apps. 
+You can use  [Auth0](https://www.auth0.com) to add username/password authentication, support for enterprise identity like Active Directory or SAML and also for social identities like Google, Facebook or Salesforce among others to your web, API and mobile native apps.
 
 ## Servlet-based Application Tutorial
 
-This guide will walk you through adding authentication to an existing Java Web Application that is based on [Java Servlet Technology](http://www.oracle.com/technetwork/java/index-jsp-135475.html). 
+This guide will walk you through adding authentication to an existing Java Web Application that is based on [Java Servlet Technology](http://www.oracle.com/technetwork/java/index-jsp-135475.html).
 
 In case you are starting from scratch, you can create a Java Web Application by using the `maven-archetype-webapp`
 
@@ -131,7 +131,7 @@ As configured previously, the user will be redirected to `/protected`. User-prov
 
 ### 4. (Optional) Widget
 
-@@sdk2@@
+@@widgetSDK2@@
 
 ### 5. (Optional) Customize your JSP login page
 
@@ -223,19 +223,19 @@ In order to handle the callback call from Auth0, you will need to have a Servlet
  * onReject: What should be done when the user is not authenticated.
  * loadTokens: You should override this method to provide a custom way of restoring both id and access tokens. By default, they are stored in the Session object but, for instance, they can be persisted in databases.
 
-Method signatures are as follows: 
+Method signatures are as follows:
 
 ```java
 protected void onSuccess(
-    ServletRequest req, ServletResponse resp, FilterChain next, Tokens tokens) 
+    ServletRequest req, ServletResponse resp, FilterChain next, Tokens tokens)
         throws IOException, ServletException {
 
 }
 
 protected void onReject(
-    ServletRequest req, ServletResponse response, FilterChain next) 
+    ServletRequest req, ServletResponse response, FilterChain next)
         throws IOException, ServletException {
-        
+
 }
 
 protected Tokens loadTokens(ServletRequest req, ServletResponse resp) {
@@ -255,7 +255,7 @@ Method signatures are:
 
 ```java
 protected void saveTokens(
-    HttpServletRequest req, HttpServletResponse resp, Tokens tokens) 
+    HttpServletRequest req, HttpServletResponse resp, Tokens tokens)
         throws ServletException, IOException {
 }
 

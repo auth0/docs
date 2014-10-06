@@ -8,10 +8,10 @@ lodash: true
   <blockquote>
     <a href="@@base_url@@/node-auth0/master/create-package?path=examples/nodejs-regular-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -27,13 +27,13 @@ npm install passport passport-auth0 --save
 
 ### 2. Configure passport-auth0
 
-We need to configure Passport to use Auth0 strategy. 
+We need to configure Passport to use Auth0 strategy.
 
 ````js
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
-var strategy = new Auth0Strategy({  
+var strategy = new Auth0Strategy({
     domain:       '@@account.namespace@@',
     clientID:     '@@account.clientId@@',
     clientSecret: '@@account.clientSecret@@',
@@ -49,14 +49,14 @@ passport.use(strategy);
 
 // This is not a best practice, but we want to keep things simple for now
 passport.serializeUser(function(user, done) {
-  done(null, user); 
+  done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
 
-module.exports = strategy; 
+module.exports = strategy;
 ```
 
 ### 3. Add needed requires & initialize passport configuration
@@ -66,7 +66,7 @@ In the startup file (e.g. _server.js_ or _app.js_) add:
 ````js
 var passport = require('passport');
 
-// This is the file we created in step 2. 
+// This is the file we created in step 2.
 // This will configure Passport to use Auth0
 var strategy = require('./setup-passport');
 
@@ -94,8 +94,8 @@ We need to add the handler for the Auth0 callback so that we can authenticate th
 
 ````js
 // Auth0 callback handler
-app.get('/callback', 
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }), 
+app.get('/callback',
+  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
   function(req, res) {
     if (!req.user) {
       throw new Error('user null');
@@ -114,7 +114,7 @@ http://yourUrl/callback
 
 ### 6. Triggering login manually or integrating the Auth0 widget
 
-@@sdk2@@
+@@widgetSDK2@@
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Widget` constructor **must match** the one specified in the previous step
 
@@ -153,7 +153,7 @@ module.exports = function(req, res, next) {
 // user.js
 var requiresLogin = require('requiresLogin');
 
-app.get('/user', 
+app.get('/user',
   requiresLogin,
   function (req, res) {
     res.render('user', {

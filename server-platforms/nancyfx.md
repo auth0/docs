@@ -113,7 +113,7 @@ public class Authentication : NancyModule
 
 ### 6. Triggering login manually or integrating the Auth0 widget
 
-@@sdk2@@
+@@widgetSDK2@@
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Widget` constructor **must match** the one specified in the previous step
 
