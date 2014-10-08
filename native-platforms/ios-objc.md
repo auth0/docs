@@ -99,10 +99,22 @@ Auth0.iOS uses the native Facebook SDK to obtain the user's access token so you'
 
 First, add the following entries to the `Info.plist`:
 
-|Key|Value|
-|---|-----|
-|_FacebookAppId_|`YOUR_FACEBOOK_APP_ID`|
-|_FacebookDisplayName_|`YOUR_FACEBOOK_DISPLAY_NAME`|
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>FacebookAppId</td>
+    <td>YOUR_FACEBOOK_APP_ID</td>
+  </tr>
+  <tr>
+    <td>FacebookDisplayName</td>
+    <td>YOUR_FACEBOOK_DISPLAY_NAME</td>
+  </tr>
+</table>
 
 Then, register a custom URL Type with the format `fb<FacebookAppId>`.
 
