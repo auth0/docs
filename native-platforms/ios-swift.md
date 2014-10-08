@@ -1,0 +1,185 @@
+---
+lodash: true
+---
+
+## iOS Swift Tutorial
+
+<% if (configuration.api && configuration.thirdParty) { %>
+
+<div class="package" style="text-align: center;">
+  <blockquote>
+    <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+      <span style="display: block">Download a Seed project</span>
+      <% if (account.userName) { %>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a>
+  </blockquote>
+</div>
+
+<% } else  { %>
+
+<div class="package" style="text-align: center;">
+  <blockquote>
+    <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+      <span style="display: block">Download a Seed project</span>
+      <% if (account.userName) { %>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a>
+  </blockquote>
+</div>
+
+<% } %>
+
+**Otherwise, if you already have an existing application, please follow the steps below.**
+
+### 1. Setting up the callback URL in Auth0
+
+<div class="setup-callback">
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+
+<pre><code>@@account.clientId@@://*.auth0.com/authorize</pre></code>
+</div>
+
+### 2. Adding the Auth0 dependencies
+
+#### [CocoaPods](http://cocoapods.org)
+
+Add the following to the `Podfile` and run `pod install`:
+
+```ruby
+pod 'Auth0.iOS', '~> 1.0'
+pod 'JWTDecode', '~> 0.2'
+```
+
+> If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
+
+#### Without CocoaPods
+
+If you want to add [Auth0.iOS](https://github.com/auth0/Auth0.iOS) as a dependency you'll need to add the repository as a submodule, then include the source files in your Xcode project. Also you'll need to add its dependencies to your project:
+
+> Mandatory
+
+* [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) **(~> 1.9)**
+* [libextobjc](https://github.com/jspahrsummers/libextobjc) **(~> 0.4)**
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking) **(~> 2.3)**
+* [ISO8601DateFormatter](https://github.com/boredzo/iso-8601-date-formatter) **(~> 0.7)**
+
+> If you use Facebook Native Authentication
+
+* [Facebook-iOS-SDK](https://developers.facebook.com/docs/ios/) **(~> 3.15)**
+
+> If you use Twitter Native Authentication
+
+* [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager) **(~> 1.3)**
+* [PSAlertView](https://github.com/steipete/PSAlertView) **(~> 2.0)**
+* [TWReverseAuth](https://github.com/seivan/TWReverseAuth) **(~> 0.1.0)**
+
+### 3. Configuring Auth0 Credentials & Callbacks
+
+Add the following entries to your app's Info plist:
+
+|Key|Value|
+|---|------|
+|Auth0ClientId|@@account.clientId@@|
+|Auth0Tenant|@@account.tenant@@|
+
+Also you'll need to register a new _URL Type_ with the following scheme
+`a0$@@account.clientId@@`. You can do it from your app's target Info section.
+
+Finally, to use **Auth0.iOS** SDK, you'll need to import it in your app's Bridging Header:
+
+```objc
+#import <Auth0.iOS/Auth0.h>
+```
+> For more information on how to create a Bridging Header please check [this guide](https://developer.apple.com/library/ios/documentation/swift/conceptual/buildingcocoaapps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-XID_78)
+
+### 4. Register Native Authentication Handlers
+
+To allow native logins using other iOS apps, e.g: Safari, Facebook, etc, you need to add the following method to your `AppDelegate.swift` file.
+
+```swift
+func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
+    return A0IdentityProviderAuthenticator.sharedInstance().handleURL(url, sourceApplication: sourceApplication)
+}
+```
+
+If you need Facebook or Twitter native authentication please  continue reading to learn how to configure them. Otherwise please go directly to the [next step](#5)
+
+####Facebook
+
+Auth0.iOS uses Facebook iOS SDK to obtain user's access token so you'll need to configure it using your Facebook App info:
+
+First, add the following entries to the `Info.plist`:
+
+|Key|Value|
+|---|-----|
+|_FacebookAppId_|`YOUR_FACEBOOK_APP_ID`|
+|_FacebookDisplayName_|`YOUR_FACEBOOK_DISPLAY_NAME`|
+
+Register a custom URL Type with the format `fb<FacebookAppId>`.
+
+>For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+
+Here's an example of how the entries should look like:
+
+[![FB plist](https://cloudup.com/cYOWHbPp8K4+)](http://auth0.com)
+
+Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate.m` file, for example:
+
+```swift
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  let fbAuthenticator = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
+    A0IdentityProviderAuthenticator.sharedInstance().registerAuthenticationProvider(fbAuthenticator)
+  return true
+}
+```
+
+####Twitter
+
+To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
+
+```swift
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  let twitterApiKey = //Remember to obfuscate your api key
+  let tiwtterApiSecret = //Remember to obfuscate your api secret
+  let twttrAuthenticator = A0TwitterAuthenticator.newAuthenticatorWithKey(twitterApiKey, andSecret: twitterApiSecret)
+    A0IdentityProviderAuthenticator.sharedInstance().registerAuthenticationProvider(twttrAuthenticator)
+  return true
+}
+```
+
+### 5. Let's implement the login
+Now we're ready to implement the Login. We can instantiate `A0AuthenticationController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
+
+```swift
+let authController = A0AuthenticationViewController()
+authController.closable = true
+authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
+  // Do something with token & profile. e.g.: save them.
+  // Auth0.iOS will not save the Token and the profile for you.
+  // And dismiss the ViewController
+  self.dismissViewControllerAnimated(true, completion: nil)
+}
+self.presentViewController(authController, animated: true, completion: nil)
+```
+
+On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
+
+> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI.
+
+### 6. Showing user information
+
+After the user has logged in, we can use the `profile` object which has all the user information:
+
+```swift
+  self.usernameLabel.text = profile.name
+  self.emailLabel.text = profile.email
+```
+
+You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Auth0.iOS/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+
+### 8. We're done
+
+You've implemented Login and Signup with Auth0 in iOS.
