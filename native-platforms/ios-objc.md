@@ -67,6 +67,8 @@ Add the following entries to your app's Info plist:
 Also you'll need to register a new _URL Type_ with the following scheme
 `a0$@@account.clientId@@`. You can do it from your app's target Info section.
 
+![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
+
 ### 3. Register Native Authentication Handlers
 
 To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.m` file.
