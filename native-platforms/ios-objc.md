@@ -81,12 +81,11 @@ To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc,
 }
 ```
 
-If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the [next step](#5)
+> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the [next step](#5)
 
 #### Facebook
 
-Auth0.iOS uses the native Facebook SDK to obtain user's access token so you'll need to configure it using your Facebook App info.:
-
+Auth0.iOS uses the native Facebook SDK to obtain user's access token so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 
