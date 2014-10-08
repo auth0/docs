@@ -1,4 +1,4 @@
-> __IMPORTANT:__ We are deprecating this version of the widget. Please use the [new version](/login-widget2).
+> __IMPORTANT:__ We are deprecating this version of the widget. Please use the [new version](/lock).
 
 # Auth0 Login Widget
 
