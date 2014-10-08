@@ -34,7 +34,9 @@ lodash: true
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### 1. Setting up the callback URL in Auth0
+### Before Starting
+
+Please remember that for security purposes, you have to register the URL of your app on Auth0 Admin app as the callbackURL.
 
 <div class="setup-callback">
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
@@ -42,9 +44,7 @@ lodash: true
 <pre><code>@@account.clientId@@://*.auth0.com/authorize</pre></code>
 </div>
 
-### 2. Adding the Auth0 dependencies
-
-#### [CocoaPods](http://cocoapods.org)
+### 1. Adding the Auth0 dependencies
 
 Add the following to the `Podfile` and run `pod install`:
 
@@ -55,28 +55,7 @@ pod 'JWTDecode', '~> 0.2'
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
-#### Without CocoaPods
-
-If you want to add [Auth0.iOS](https://github.com/auth0/Auth0.iOS) as a dependency you'll need to add the repository as a submodule, then include the source files in your Xcode project. Also you'll need to add its dependencies to your project:
-
-> Mandatory
-
-* [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) **(~> 1.9)**
-* [libextobjc](https://github.com/jspahrsummers/libextobjc) **(~> 0.4)**
-* [AFNetworking](https://github.com/AFNetworking/AFNetworking) **(~> 2.3)**
-* [ISO8601DateFormatter](https://github.com/boredzo/iso-8601-date-formatter) **(~> 0.7)**
-
-> If you use Facebook Native Authentication
-
-* [Facebook-iOS-SDK](https://developers.facebook.com/docs/ios/) **(~> 3.15)**
-
-> If you use Twitter Native Authentication
-
-* [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager) **(~> 1.3)**
-* [PSAlertView](https://github.com/steipete/PSAlertView) **(~> 2.0)**
-* [TWReverseAuth](https://github.com/seivan/TWReverseAuth) **(~> 0.1.0)**
-
-### 3. Configuring Auth0 Credentials & Callbacks
+### 2. Configuring Auth0 Credentials & Callbacks
 
 Add the following entries to your app's Info plist:
 
@@ -88,9 +67,9 @@ Add the following entries to your app's Info plist:
 Also you'll need to register a new _URL Type_ with the following scheme
 `a0$@@account.clientId@@`. You can do it from your app's target Info section.
 
-### 4. Register Native Authentication Handlers
+### 3. Register Native Authentication Handlers
 
-To allow native logins using other iOS apps, e.g: Safari, Facebook, etc, you need to add the following method to your `AppDelegate.m` file.
+To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.m` file.
 
 ```objc
 #import <Auth0.iOS/Auth0.h>
@@ -100,11 +79,12 @@ To allow native logins using other iOS apps, e.g: Safari, Facebook, etc, you nee
 }
 ```
 
-If you need Facebook or Twitter native authentication please  continue reading to learn how to configure them. Otherwise please go directly to the [next step](#5)
+If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the [next step](#5)
 
-####Facebook
+#### Facebook
 
-Auth0.iOS uses Facebook iOS SDK to obtain user's access token so you'll need to configure it using your Facebook App info:
+Auth0.iOS uses the native Facebook SDK to obtain user's access token so you'll need to configure it using your Facebook App info.:
+
 
 First, add the following entries to the `Info.plist`:
 
@@ -115,11 +95,12 @@ First, add the following entries to the `Info.plist`:
 
 Register a custom URL Type with the format `fb<FacebookAppId>`.
 
->For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+> For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+> **Note:** This information should be the same as the one set in Facebook's Connection settings on your Auth0 account
 
 Here's an example of how the entries should look like:
 
-[![FB plist](https://cloudup.com/cYOWHbPp8K4+)](http://auth0.com)
+![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
 Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate.m` file, for example:
 
@@ -127,8 +108,8 @@ Finally, you need to register Auth0 Facebook authenticator somewhere in your app
 #import <Auth0.iOS/Auth0.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
-  [[A0SocialAuthenticator sharedInstance] registerSocialAuthenticatorProvider:facebook];
+    A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
+    [[A0SocialAuthenticator sharedInstance] registerSocialAuthenticatorProvider:facebook];
 }
 ```
 
@@ -147,7 +128,8 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 }
 ```
 
-### 5. Let's implement the login
+### 4. Let's implement the login
+
 Now we're ready to implement the Login. We can instantiate `A0AuthenticationController` and present it as a modal screen. In one of your controllers import **Auth0.iOS** classes
 
 ```objc
@@ -160,7 +142,6 @@ Then we instantiate the native widget and present it as a modal screen:
 A0AuthenticationViewController *controller = [[A0AuthenticationViewController alloc] init];
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
     // Do something with token & profile. e.g.: save them.
-    // Auth0.iOS will not save the Token and the profile for you.
     // And dismiss the ViewController
     [self dismissViewControllerAnimated:YES completion:nil];
 };
@@ -169,9 +150,11 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
+> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Auth0.iOS/wiki/How-to-save-and-refresh-JWT-token)
+
 > Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI.
 
-### 6. Showing user information
+### 5. Showing user information
 
 After the user has logged in, we can use the `profile` object which has all the user information:
 
@@ -184,4 +167,4 @@ You can [click here](@@base_url@@/user-profile) to find out all of the available
 
 ### 8. We're done
 
-You've implemented Login and Signup with Auth0 in iOS.
+You've implemented Login and Signup with Auth0 in iOS. You're awesome!
