@@ -36,8 +36,6 @@ lodash: true
 
 ### Before Starting
 
-Please remember that for security purposes, you have to register the URL of your app on Auth0 Admin app as the callbackURL.
-
 <div class="setup-callback">
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
@@ -57,7 +55,7 @@ pod 'JWTDecode', '~> 0.2'
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 
-Add the following entries to your app's Info plist:
+Add the following entries to your app's `Info.plist`:
 
 |Key|Value|
 |---|------|
@@ -81,11 +79,11 @@ To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc,
 }
 ```
 
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the [next step](#5)
+> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the [next step](#8)
 
 #### Facebook
 
-Auth0.iOS uses the native Facebook SDK to obtain user's access token so you'll need to configure it using your Facebook App info:
+Auth0.iOS uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 
@@ -94,10 +92,11 @@ First, add the following entries to the `Info.plist`:
 |_FacebookAppId_|`YOUR_FACEBOOK_APP_ID`|
 |_FacebookDisplayName_|`YOUR_FACEBOOK_DISPLAY_NAME`|
 
-Register a custom URL Type with the format `fb<FacebookAppId>`.
+Then, register a custom URL Type with the format `fb<FacebookAppId>`.
 
-> For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
-> **Note:** This information should be the same as the one set in Facebook's Connection settings on your Auth0 account
+> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+
+> **Note:** The Facebook app should be the same as the one set in Facebook's Connection settings on your Auth0 account
 
 Here's an example of how the entries should look like:
 
@@ -153,7 +152,7 @@ On successful authentication, `onAuthenticationBlock` will yield the user's prof
 
 > To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Auth0.iOS/wiki/How-to-save-and-refresh-JWT-token)
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI.
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
 
 ### 5. Showing user information
 
@@ -164,7 +163,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   self.emailLabel.text = profile.email;
 ```
 
-You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Auth0.iOS/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Auth0.iOS/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
 
 ### 6. We're done
 
