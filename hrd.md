@@ -1,4 +1,4 @@
-# Selecting the connection in Auth0 for multiple login options 
+# Selecting the connection in Auth0 for multiple login options
 
 Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multitenant apps in which a single app is used by many different organizations, each one potentially using different systems: LDAP, Active Directory, Google Apps, or username/password stores.
 
@@ -6,12 +6,12 @@ Auth0 allows you to offer your users multiple ways of authenticating. This is es
 
 > Selecting the appropriate Identity Providers from multiple options is called "Home Realm Discovery". A pompous name for a simple problem.
 
-##Option 1: programmatically 
+##Option 1: programmatically
 When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your dashboard.
 
-If using the [Login Widget](login-widget2), this is as simple as writing:
+If using the [Auth0Lock](lock), this is as simple as writing:
 
-	auth0.signin({connection: 'YOUR_CONNECTION'});
+	auth0.show({connections: ['YOUR_CONNECTION']});
 
 
 Notice that this is equivalent of just navigating to:
@@ -27,11 +27,11 @@ There are multiple practical ways of getting the `connection` value. Among the m
 
 * You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
 
-##Option 2: using the Login Widget
+##Option 2: using the Auth0Lock
 
-The [Login Widget](login-widget2) has built in functionality for identity provider selection. For social connections it will show logos for all those enabled in that particular app. 
+The [Auth0Lock](lock) has built in functionality for identity provider selection. For social connections it will show logos for all those enabled in that particular app.
 
-An additional feature in the widget is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
+An additional feature in the Auth0Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
 
 ![](https://cldup.com/k_LcfC8PHp.png)
 

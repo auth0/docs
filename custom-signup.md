@@ -1,6 +1,6 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields. The [Login Widget](login-widget2) has a `signup` mode but it does not support adding arbitrary fields, so you will have to implement your own UI for signup. Note that you can still use the Login Widget for signin though.
+In some cases, you may want to customize the user sign up form with more fields. The [Auth0Lock](lock) has a `signup` mode but it does not support adding arbitrary fields, so you will have to implement your own UI for signup. Note that you can still use the Auth0Lock for signin though.
 
 > You can find the source code of this example in [this github repository](https://github.com/auth0/node-auth0/tree/master/examples/custom-signup).
 
@@ -21,24 +21,22 @@ In some cases, you may want to customize the user sign up form with more fields.
 
 Notice that `color` and `food` are custom fields and we will be storing them too.
 
-### 2. Add the Auth0 Widget to it
+### 2. Add the Auth0Lock to it
 
 ```html
 <script src="@@widget_url_no_scheme@@"></script>
 ```
 
 ```js
-window.widget = new Auth0Widget({
-  domain:                     'contoso.auth0.com',
-  clientID:                   'DyG9nCwIEofSy66QM3oo5xU6NFs3TmvT',
-  callbackURL:                'http://localhost:1337/',
-  callbackOnLocationHash:     true
-});
+window.lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+
+window.lock.getClient()._callbackURL = '@@account.callback@@';
+window.lock.getClient()._callbackOnLocationHash = true;
 ```
 
 ### 3. Bind the submit event
 
-Then, bind the `submit` event of the form so the user data is sent to our server side. 
+Then, bind the `submit` event of the form so the user data is sent to our server side.
 
 ```js
 $('#create-user').submit(function (event) {
@@ -61,7 +59,7 @@ $('#create-user').submit(function (event) {
     dataType: 'json',
     success: function(xhr, status) {
       // We are login the user programatically after creating it
-      widget.getClient().login({
+      lock.getClient().login({
         'username': userData.email,
         'password': userData.password,
         'connection': 'Username-Password-Authentication'
@@ -81,12 +79,12 @@ $('#create-user').submit(function (event) {
 
 ### 4. Server Side
 
-After receiving the request from the client, the JSON contained in the body of the message must be enriched with the `connection` field, that indicates in which connection the user must be stored. `POST` that JSON to `/api/users` and in case that succeeds the user is created. 
+After receiving the request from the client, the JSON contained in the body of the message must be enriched with the `connection` field, that indicates in which connection the user must be stored. `POST` that JSON to `/api/users` and in case that succeeds the user is created.
 
 
 	POST /api/users
     Authorization: Bearer .... access_token ....
-    
+
     {
          email: "...",        // taken from request
          password: "...",
@@ -96,4 +94,4 @@ After receiving the request from the client, the JSON contained in the body of t
     }
 
 > Bear in mind that before doing that you may need to generate an access token. Check the API section for more information.
-> In case you are using any of our bindings for Node.js, ASP.NET you may use those instead of doing the HTTP requests manually. 
+> In case you are using any of our bindings for Node.js, ASP.NET you may use those instead of doing the HTTP requests manually.

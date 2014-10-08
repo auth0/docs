@@ -56,9 +56,9 @@ Edit `App_Start\Startup.Auth.cs` in order to call the `UseAuth0Authentication` e
 
 The nuget provides a simple controller (_Auth0AccountController_) to process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
 
-### 5. Triggering login manually or integrating the Auth0 widget
+### 5. Triggering login manually or integrating the Auth0Lock
 
-@@widgetSDK2@@
+@@lockSDK@@
 
 ### 6. Accessing user information
 

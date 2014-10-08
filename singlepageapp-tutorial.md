@@ -8,9 +8,9 @@
   <pre><code>http://localhost:PORT/callback</pre></code>
   </div>
 
-### 2. Triggering login manually or integrating the Auth0 widget
+### 2. Triggering login manually or integrating the Auth0Lock
 
-@@sdk2WithCallbackOnHash@@
+@@lockSDKWithCallbackOnHash@@
 
 ### 3. Validate the JsonWebToken on the server
 
@@ -20,8 +20,8 @@ This sample code sends the JSON Web Token on each call:
 
     $.ajaxSetup({
       'beforeSend': function(xhr) {
-        if ($.cookie('id_token')) {        
-          xhr.setRequestHeader('Authorization', 
+        if ($.cookie('id_token')) {
+          xhr.setRequestHeader('Authorization',
                 'Bearer ' + $.cookie('id_token'));
         }
       }

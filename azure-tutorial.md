@@ -19,7 +19,7 @@ Blog post explaining how to integrate with a Windows Azure Mobile Services backe
 
 There is one consideration that you might want to take into account when deploying to Windows Azure (or any other environment).
 
-We recommend creating one application per environment in Auth0 (e.g. "Dev", "Test", "QA", etc). 
+We recommend creating one application per environment in Auth0 (e.g. "Dev", "Test", "QA", etc).
 
 Each application has a different `Client Id` and `Client Secret` and can be configured with a different callback URL. You can use the [Web.config transformations](http://msdn.microsoft.com/en-us/library/dd465326.aspx) to apply a transformation depening on the Build Configuration you use. For instance
 
@@ -46,13 +46,11 @@ Then, whenever you have to reference the ClientID, Secret or callback, you use t
 ```
 <script src="@@widget_url@@"></script>
 <script type="text/javascript">
-    var widget = new Auth0Widget({
-        domain:                 '@@account.namespace@@',
-        clientID:               '@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', 
-        callbackURL:            '@System.Configuration.ConfigurationManager.AppSettings["auth0:CallbackUrl"]'
-    });
+    var lock = new Auth0Lock('@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', '@@account.namespace@@');
 
-    // widget.show();
+    lock.show({
+      callbackURL: '@System.Configuration.ConfigurationManager.AppSettings["auth0:CallbackUrl"]'
+    });
 </script>
 ```
 

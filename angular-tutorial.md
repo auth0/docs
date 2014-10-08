@@ -18,7 +18,7 @@ If you already have an existing application, please follow the steps below.
 <!-- We use client cookies to save the user credentials -->
 <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
 
-<!-- Auth0 widget script and AngularJS module -->
+<!-- Auth0Lock script and AngularJS module -->
 <script src="@@widget_url_no_scheme@@"></script>
 <script src="@@auth0_angular_url_no_scheme@@"> </script>
 

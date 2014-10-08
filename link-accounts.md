@@ -7,19 +7,24 @@ Auth0 supports the association of different accounts. Applications often support
 ```
 <script src="@@widget_url@@"></script>
 <script type="text/javascript">
-  var widget = new Auth0Widget({
-    domain:       '@@account.namespace@@',
-    clientID:     '@@account.clientId@@',
-    callbackURL:  '@@account.callback@@',
-    dict: {
-      signin: {
-        title: 'Link with another account'
+  var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+
+  function signin () {
+    lock.show({
+      callbackURL:  '@@account.callback@@',
+      dict: {
+        signin: {
+          title: 'Link with another account'
+        }
+      },
+      authParams: {
+        access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...'
       }
-    }
-  });
+    })
+  }
 </script>
 
-<a href="javascript:widget.signin({ access_token: '...LOGGED_IN_USER_ACCESS_TOKEN...' })">Add account</a>
+<a href="javascript:signin()">Add account</a>
 ```
 
 > Notice the `access_token` fragment of the URL that is normally not present. This is the `access_token` Auth0 will generate when a user logs in. It identifies a logged in user univocally in Auth0.

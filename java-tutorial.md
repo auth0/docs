@@ -129,9 +129,9 @@ In the `Auth0ServletCallback` the data to popuplate principal will be persisted 
 
 As configured previously, the user will be redirected to `/protected`. User-provided `HelloServlet`, which overrides `doGet` method, will be handling that case.
 
-### 4. (Optional) Widget
+### 4. (Optional) Auth0Lock
 
-@@widgetSDK2@@
+@@lockSDK@@
 
 ### 5. (Optional) Customize your JSP login page
 
@@ -189,20 +189,23 @@ Next step is to add a Login Page (`/login.jsp`) with the custom widget of the pr
          }
       %>
 
-      var widget = new Auth0Widget({
-        domain:         '<%= application.getInitParameter("auth0.domain") %>',
-        clientID:       '<%= application.getInitParameter("auth0.client_id") %>',
-        callbackURL:    '<%= buildUrl(request, "/callback") %>',
-        // Add your custom state here
-        state:          'foo'
-      });
+      var lock = new Auth0Lock('<%= application.getInitParameter("auth0.client_id") %>', '<%= application.getInitParameter("auth0.domain") %>');
 
+      function signin () {
+        lock.show({
+          callbackURL: '<%= buildUrl(request, "/callback") %>',
+          authParams: {
+            // Add your custom state here
+            state: '${state}'
+          }
+        })
+      }
     </script>
     <% if ( request.getParameter("error") != null ) { %>
         <%-- TODO Escape and encode ${param.error} properly. It can be done using jstl c:out. --%>
         <span style="color: red;">${param.error}</span>
     <% } %>
-    <button onclick="widget.signin({state: '${state}'})">Login</button>
+    <button onclick="signin()">Login</button>
   </body>
 </html>
 ```

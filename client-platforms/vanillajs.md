@@ -11,39 +11,43 @@ Please follow the steps below to configure your JS app to use Auth0.
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
 ````html
-<!-- Auth0 widget script -->
+<!-- Auth0Lock script -->
 <script src="@@widget_url_no_scheme@@"></script>
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
 
-We're including the Auth0 widget script to the `index.html`
+We're including the Auth0 lock script to the `index.html`
 
-### 2. Configure the Auth0Widget
+### 2. Create the Auth0Lock instance
 
-Configuring the Auth0Widget will let your app work with Auth0
+Configuring the Auth0Lock will let your app work with Auth0
 
 ````js
+var lock = null;
 document.addEventListener( "DOMContentLoaded", function(){
-  var widget = new Auth0Widget({
-    domain: '@@account.namespace@@',
-    clientID: '@@account.clientId@@',
-    callbackURL: location.href,
-    callbackOnLocationHash: true
-  });
+  lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
 });
 ```
 
 ### 3. Let's implement the login
 
-Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `signin` method of Auth0's `widget` we've just created.
+Now we're ready to implement the Login.
+
+````html
+<!-- ... -->
+<input id="btn-login" class="btn-login" type="submit" />
+<!-- ... -->
+```
+
+Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
 ````js
-var userProfile;
+var userProfile = null;
 
 document.getElementById('btn-login').addEventListener('click', function() {
-  widget.signin({ popup: true }, null, function(err, profile, token) {
+  lock.show({ popup: true }, function(err, profile, token) {
     if (err) {
       // Error callback
       alert('There was an error');
@@ -60,14 +64,9 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
-````html
-<!-- ... -->
-<input type="submit" class="btn-login" id="btn-login" />
-<!-- ... -->
-```
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
 
-If you want to check all the available arguments for the signin call, please [check here](@@base_url@@/login-widget2)
+If you want to check all the available arguments for the show method, check the [Auth0Lock](@@base_url@@/lock) documentation.
 
 
 

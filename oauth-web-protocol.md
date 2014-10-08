@@ -12,7 +12,7 @@ The steps are quite simple though:
   <pre><code>@@account.callback@@</pre></code>
   </div>
 
-2. Triggering login manually or integrating the Auth0 widget
+2. Triggering login manually or integrating the Auth0Lock
 
   <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
           response_type=code
@@ -21,7 +21,7 @@ The steps are quite simple though:
           &state=VALUE_THAT_SURVIVES_REDIRECTS
           &scope=openid</code></pre>
 
-@@widgetSDK2@@
+@@lockSDK@@
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 

@@ -32,9 +32,9 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 <add key="auth0:Domain" value="@@account.namespace@@" />
 ```
 
-### 4. Triggering login manually or integrating the Auth0 widget
+### 4. Triggering login manually or integrating the Auth0Lock
 
-@@widgetSDK2@@
+@@lockSDK@@
 
 ### 5. Accessing user information
 

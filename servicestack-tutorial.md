@@ -139,9 +139,9 @@ public class HelloService : ServiceBase<Hello>
 ```
 > Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
 
-### 6. Triggering login manually or integrating the Auth0 widget
+### 6. Triggering login manually or integrating the Auth0Lock
 
-@@widgetSDK2@@
+@@lockSDK@@
 
 ### 7. Add UI code to Login and invoke the `HelloService`
 

@@ -8,10 +8,10 @@ lodash: true
   <blockquote>
     <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -61,8 +61,8 @@ angular.module('YOUR-APP-NAME', ['auth0', 'angular-storage', 'angular-jwt'])
 
 ### 3. Let's implement the login
 
-Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup. 
-In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile and token into `localStorage`
+Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
+In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile and token into `localStorage`.
 
 ````js
 // LoginCtrl.js
@@ -129,7 +129,6 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtIntercept
 
 Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
 
-
 ### 6. Showing user information
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
@@ -178,8 +177,8 @@ Now it's time to sit back, relax and open a beer. You've implemented Login and S
 ### Optional Steps
 #### Let's add routing
 
-In most cases, we'll have routing in our app. 
-We usually want users to be authenticated to access some of the routes. For those routes, we must set the `requiresLogin` property to `true`. 
+In most cases, we'll have routing in our app.
+We usually want users to be authenticated to access some of the routes. For those routes, we must set the `requiresLogin` property to `true`.
 So let's add the `$routeProvider` configuration in the `config` method of our app and let's specify the login to route to which the users will be redirected if trying to access a route to which they don't have access to:
 
 ````js

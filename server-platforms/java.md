@@ -87,11 +87,11 @@ In this case, the callbackURL should look something like:
 http://yourUrl/callback
 ```
 
-### 4. Triggering login manually or integrating the Auth0 widget
+### 4. Triggering login manually or integrating the Auth0Lock
 
-@@widgetSDK2@@
+@@lockSDK@@
 
-> **Note:** Please note that the `callbackURL` specified in the `Auth0Widget` constructor **must match** the one specified in the previous step
+> **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
 ### 5. Accessing user information
 

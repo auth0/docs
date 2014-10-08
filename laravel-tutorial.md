@@ -60,9 +60,9 @@ In other words, you need to select a uri (for example /auth0/callback), configur
     Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
 
 
-### 5. Triggering login manually or integrating the Auth0 widget
+### 5. Triggering login manually or integrating the Auth0Lock
 
-@@widgetSDK2@@
+@@lockSDK@@
 
 
 ### 6. Defining a user and a user provider
