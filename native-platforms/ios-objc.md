@@ -57,10 +57,22 @@ pod 'JWTDecode', '~> 0.2'
 
 Add the following entries to your app's `Info.plist`:
 
-|Key|Value|
-|---|------|
-|Auth0ClientId|@@account.clientId@@|
-|Auth0Tenant|@@account.tenant@@|
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Auth0ClientId</td>
+    <td>@@account.clientId@@</td>
+  </tr>
+  <tr>
+    <td>Auth0Tenant</td>
+    <td>@@account.tenant@@</td>
+  </tr>
+</table>
 
 Also you'll need to register a new _URL Type_ with the following scheme
 `a0$@@account.clientId@@`. You can do it from your app's target Info section.

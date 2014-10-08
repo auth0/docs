@@ -60,10 +60,23 @@ Now, since you need to configure your project to be able to use Auth0.iOS. For t
 
 Add the following entries to your app's `Info.plist`:
 
-|Key|Value|
-|---|------|
-|Auth0ClientId|@@account.clientId@@|
-|Auth0Tenant|@@account.tenant@@|
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Auth0ClientId</td>
+    <td>@@account.clientId@@</td>
+  </tr>
+  <tr>
+    <td>Auth0Tenant</td>
+    <td>@@account.tenant@@</td>
+  </tr>
+</table>
+
 
 Also you'll need to register a new _URL Type_ with the following scheme
 `a0$@@account.clientId@@`. You can do it from your app's target Info section.
@@ -88,10 +101,22 @@ Auth0.iOS uses the native Facebook SDK to obtain the user's access token so you'
 
 First, add the following entries to the `Info.plist`:
 
-|Key|Value|
-|---|-----|
-|_FacebookAppId_|`YOUR_FACEBOOK_APP_ID`|
-|_FacebookDisplayName_|`YOUR_FACEBOOK_DISPLAY_NAME`|
+<table class="table"> 
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>FacebookAppId</td>
+    <td>YOUR_FACEBOOK_APP_ID</td>
+  </tr>
+  <tr>
+    <td>FacebookDisplayName</td>
+    <td>YOUR_FACEBOOK_DISPLAY_NAME</td>
+  </tr>
+</table>
 
 Then, register a custom URL Type with the format `fb<FacebookAppId>`.
 
