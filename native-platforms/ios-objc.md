@@ -165,6 +165,7 @@ After the user has logged in, we can use the `profile` object which has all the 
 
 You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Auth0.iOS/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
 
-### 8. We're done
+### 6. We're done
 
 You've implemented Login and Signup with Auth0 in iOS. You're awesome!
+
