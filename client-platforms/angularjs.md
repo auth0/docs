@@ -161,7 +161,7 @@ angular.module('myApp', ['auth0', 'angular-storage'])
     }
   });
 });
-````
+```
 
 ### 8. Sit back and relax
 
