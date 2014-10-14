@@ -4,21 +4,6 @@ lodash: true
 
 ## AngularJS Tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a> 
-  </blockquote>
-</div>
-
-<% } else  { %>
-
 <div class="package" style="text-align: center;">
   <blockquote>
     <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
@@ -29,8 +14,6 @@ lodash: true
     </a> 
   </blockquote>
 </div>
-
-<% } %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
@@ -43,8 +26,11 @@ lodash: true
 <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
 
 <!-- Auth0 widget script and AngularJS module -->
-<script src="@@widget_url_no_scheme@@"></script>
-<script src="//cdn.auth0.com/w2/auth0-angular-2.js"> </script>
+<script src="//cdn.auth0.com/js/lock-6.js"></script>
+<script type="text/javascript" src="//rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
+<script type="text/javascript" src="//rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+
+<script src="//cdn.auth0.com/w2/auth0-angular-3.js"> </script>
 
 <!-- Setting the right viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -54,16 +40,15 @@ We're including Auth0's angular module and its dependencies to the `index.html`.
 
 ### 2. Add the module dependency and configure the service
 
-Add the `auth0` module dependency to your angular app definition and configure it by calling the `init` method of the `authProvider
+Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
 ````js
 // app.js
-angular.module('YOUR-APP-NAME', ['auth0'])
+angular.module('YOUR-APP-NAME', ['auth0', 'angular-storage', 'angular-jwt'])
 .config(function (authProvider) {
   authProvider.init({
     domain: '<%= account.namespace %>',
-    clientID: '<%= account.clientId %>',
-    callbackURL: location.href
+    clientID: '<%= account.clientId %>'
   });
 })
 .run(function(auth) {
@@ -76,15 +61,16 @@ angular.module('YOUR-APP-NAME', ['auth0'])
 ### 3. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup. 
-In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. When setting `popup` to `true`, the `signin` method accepts a callback as a parameter. That means that we can handle login success and failure the following way:
+In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile and token into `localStorage`
 
 ````js
 // LoginCtrl.js
-$scope.login = function() {
-  auth.signin({
-    popup: true
-  }, function() {
+$scope.login = function(store, $location) {
+  auth.signin({}, function(profile, token) {
     // Success callback
+    store.set('profile', profile);
+    store.set('token', token);
+    $location.path('/');
   }, function() {
     // Error callback
   });
@@ -100,15 +86,17 @@ $scope.login = function() {
 
 @@browser@@
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/w2/auth0-widget-4.0.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
 ### 4. Adding a logout button
 
-You can just call the `signout` method of Auth0 to remove all the cookies from the client that keep the user logged in:
+You can just call the `signout` method of Auth0 to log the user out. You should also remove the information saved into `localStorage`:
 
 ````js
 $scope.logout = function() {
   auth.signout();
+  store.remove('profile');
+  store.remove('token');
 }
 ```
 
@@ -117,55 +105,27 @@ $scope.logout = function() {
 ```
 
 
-<% if (!configuration.thirdParty) { %>
-
 ### 5. Configuring secure calls to our API
 
-As we're going to call an API wez<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](@@base_url@@/jwt) we receive on the login on every request. For that, we need to do the add the `authInterceptor` to the list of `$http` interceptors:
+As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](@@base_url@@/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors:
 
 ````js
 // app.js
-myApp.config(function (authProvider, $routeProvider, $httpProvider) {
+myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
   // ...
-  $httpProvider.interceptors.push('authInterceptor');
+
+  jwtInterceptorProvider.tokenGetter = function(auth) {
+    // Return the saved token
+    return store.get('token');
+  }
+
+  $httpProvider.interceptors.push('jwtInterceptor');
   // ...
 });
 ```
 
 Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
 
-<% } else {%>
-
-### 5. Configuring calls to a Third Party API
-
-Now, we want to be able to call <%= configuration.api %> which is a third party api. What we're going to do is to exchange the [JWT token](@@base_url@@/jwt) token we got from Auth0 for a token we can use to query <%= configuration.api %> securely and authenticated.
-
-For that, we're going to change the `login` function of our controller to look like this:
-
-````js
-$scope.login = function() {
-  auth.signin({
-    popup: true,
-  }, function(profile) {
-    // Put the <%= configuration.api %> name here
-    auth.getToken({
-      // By default the first active third party add-on will be used
-      // However, We can specify which third party API to use here by specifying the name of the add-on
-      // api: <%= configuration.api %> 
-      
-    }).then(function(thirdPartyToken) {
-      // Do something with the thirdPartyToken. Add it as a header or save it for later usage
-      $location.path('/');
-    })
-  } , function(err) {
-    console.log("There was an error signin in", err);
-  });
-}
-```
-
-We're going to activate the <%= configuration.api %> add-on in the following steps. Once we do that, the code we wrote here will just work. 
-
-<% } %>
 
 ### 6. Showing user information
 
@@ -184,7 +144,26 @@ function UserInfoCtrl($scope, auth) {
 
 You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 7. Sit back and relax
+### 7. Keeping the user logged in after page refreshes
+
+We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
+
+````js
+angular.module('myApp', ['auth0', 'angular-storage'])
+.run(function($rootScope, auth, store) {
+  // This events gets triggered on refresh or URL change
+  $rootScope.$on('$locationChangeStart', function() {
+    if (!auth.isAuthenticated) {
+      var token = store.get('token');
+      if (token) {
+        auth.authenticate(store.get('profile'), token);
+      }
+    }
+  });
+});
+````
+
+### 8. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and AngularJS.
 
