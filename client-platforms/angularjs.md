@@ -25,8 +25,9 @@ lodash: true
 <!-- We use client cookies to save the user credentials -->
 <script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
 
-<!-- Auth0 widget script and AngularJS module -->
+<!-- Auth0 Lock script and AngularJS module -->
 <script src="//cdn.auth0.com/js/lock-6.js"></script>
+<!-- angular-jwt and angular-storage -->
 <script type="text/javascript" src="//rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 <script type="text/javascript" src="//rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
 
@@ -65,15 +66,17 @@ In this case, we'll add the call in the `login` method of the `LoginCtrl` contro
 
 ````js
 // LoginCtrl.js
-$scope.login = function(store, $location) {
-  auth.signin({}, function(profile, token) {
-    // Success callback
-    store.set('profile', profile);
-    store.set('token', token);
-    $location.path('/');
-  }, function() {
-    // Error callback
-  });
+function LoginCtrl(store, $location) {
+  $scope.login = function() {
+    auth.signin({}, function(profile, token) {
+      // Success callback
+      store.set('profile', profile);
+      store.set('token', token);
+      $location.path('/');
+    }, function() {
+      // Error callback
+    });
+  }
 }
 ```
 
