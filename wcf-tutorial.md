@@ -45,10 +45,10 @@ Once the user is successfully authenticated with the application, a `ClaimsPrinc
     {
         public string DoWork()
         {
-            var claims = (User.Identity as IClaimsIdentity).Claims
+            var claims = ((ClaimsIdentity)Thread.CurrentPrincipal.Identity).Claims
             string email = claims.SingleOrDefault(c => c.ClaimType == "email");
 
-            return "Hello from WCF " + Thread.CurrentPrincipal.Identity.Name +  "(" + email + ")";
+            return "Hello from WCF " + User.Identity.Name +  " (" + email + ")";
         }
     }
 
