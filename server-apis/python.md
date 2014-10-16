@@ -113,3 +113,13 @@ def securedPing():
 ### 4. You've nailed it.
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+
+### Note for Python 2.7
+
+If you're using Python 2.7 and you already have the `jwt` package installed, you need to do the following to get this working:
+
+````bash
+pip uninstall jwt
+pip uninstall pyjwt
+pip install pyjwt
+```
