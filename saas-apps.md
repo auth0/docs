@@ -1,7 +1,5 @@
 # Using Auth0 in SaaS, multi-tenant Apps
 
-> This article is under development. Feedback very welcome.
-
 > Multitenancy refers to a principle in software architecture where a single instance of the software runs on a server, serving multiple client-organizations (tenants)
 
 Let's start by enumerating some multi tenant applications and understand how they handle it.
@@ -50,11 +48,11 @@ Let's start by enumerating some multi tenant applications and understand how the
 <img src="https://cloudup.com/c9wc2n55i3K+" width="400">
 <img src="https://cloudup.com/ccqaPFLghy4+" width="400">
 
-Authentication:
+### Authentication:
 
 * Dropbox asks for an e-mail. Based on the e-mail suffix, if there is an organization with a domain that matches that suffix, it will hide the password and show "Single Sign On Enabled". When the user clicks on the "Continue" it will be redirected to the identity provider. If there is no SSO configured for that domain, the user will just enter the password.
 
-Authorization:
+### Authorization:
 
 * Once a user is authenticated you get access to folders/files you own and folders you were shared.
 * You get access to your personal account and any organization you belong
@@ -88,13 +86,13 @@ Storing the folders you have access to as part of the user model in this case, w
 <img src="https://cloudup.com/ceLMDO3TLba+" width="400">
 <img src="https://cloudup.com/cexc__8B02O+" width="400">
 
-Authentication:
+### Authentication:
 
 * Auth0 has a single dashboard for all the tenants and it is accesible through <https://app.auth0.com>. 
 * It supports Google, GitHub, Live and User/Passwords.
 * It also supports Enterprise connections (configured manually for now) and using the email domain for home realm discovery (see screen below). Similar to Dropbox experience.
 
-Authorization:
+### Authorization:
 
 * A user can belong to multiple tenants and have different permissions on each tenant (user foo can be an admin on tenant bar and be a regular user of tenant xyz. 
 * It is implemented by assigning the `user_id` property to an "account-level" entity together with the permission if the user has access to everything OR to an "app-level" entity if the user has an app level permission.
@@ -124,10 +122,10 @@ Authorization:
 
 Here is a typical scenario of a SaaS multi tenant app: 
 
-* 1. Many clients signup with a custom __username/password__. Especially during trial periods.
-* 2. Some customers login with their existing __Google__, __LinkedIn__ & __Yahoo!__ credentials.
-* 3. Small businesses with employees directories based on __Office365__ or __Google Apps__ have a preference for login using these credentials.
-* 4. Bigger companies often have already one or many identity systems for employees. Many rely on __Active Directory__, or __LDAP__. Some have deployed systems for identity federation based on __ADFS__, __PingFederate__, __Okta__, __OneLogin__, __CA Siteminder__, or even custom __SAML-P providers__.
+* Many clients signup with a custom __username/password__. Especially during trial periods.
+* Some customers login with their existing __Google__, __LinkedIn__ & __Yahoo!__ credentials.
+* Small businesses with employees directories based on __Office365__ or __Google Apps__ have a preference for login using these credentials.
+* Bigger companies often have already one or many identity systems for employees. Many rely on __Active Directory__, or __LDAP__. Some have deployed systems for identity federation based on __ADFS__, __PingFederate__, __Okta__, __OneLogin__, __CA Siteminder__, or even custom __SAML-P providers__.
 
 The app is primarily a web app, built as a __Single Page App__ (SPA) using __AngularJS__ with a backend API built with __nodejs__. They also have a mobile app for __Android__ and __iOS__ with a subset of the web app functionality. 
 
@@ -164,3 +162,4 @@ Here is an example that would model a simplified "Slack" (a chat application) au
 }
 ```
 
+> This article is under development. Feedback very welcome.
