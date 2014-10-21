@@ -3,7 +3,7 @@
 To configure SoundCloud OAuth2 connections you will need to register Auth0 with SoundCloud on their [developer portal](http://developers.soundcloud.com/).
 
 ##1. Log in into the developer portal
-Go to the [developer portal](http://developers.soundcloud.com/), and login with your SoundCloud credentials. Select __Your Apps__ and click on __Register a new application__:
+Go to the [developer portal](http://developers.soundcloud.com/), and login with your SoundCloud credentials. Select __Your Apps__ and click on __Register a new app__:
 
 ![](img/soundcloud-devportal-1.png)
 

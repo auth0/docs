@@ -1,6 +1,6 @@
 # Linking Accounts
 
-Auth0 supports the association of different accounts. Applications often support multiple identity providers. Through linking, a user can authenticate with one identity provider and later on with another, but appear to the app as being the same. 
+Auth0 supports the association of different accounts. Applications often support multiple identity providers. Through linking, a user can authenticate with one identity provider and later on with another, but appear to the app as being the same.
 
 **Linking through Auth0 Login Widget**
 
@@ -9,7 +9,7 @@ Auth0 supports the association of different accounts. Applications often support
 <script type="text/javascript">
   var widget = new Auth0Widget({
     domain:       '@@account.namespace@@',
-    clientID:     '@@account.clientId@@', 
+    clientID:     '@@account.clientId@@',
     callbackURL:  '@@account.callback@@',
     dict: {
       signin: {
@@ -73,7 +73,7 @@ The SDKs should make this very easy. The SDK for your platform will make it avai
 <%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>
 ```
 
-If you are rolling up your own implementation, it will be available through the standard OAuth2 flow: 
+If you are rolling your own implementation, it will be available through the standard OAuth2 flow:
 
   1. User logs in and returns to the app with a `code`
   2. The app exchanges the `code` for the `access_token`
