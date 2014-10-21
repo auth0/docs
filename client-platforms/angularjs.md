@@ -152,14 +152,19 @@ You can [click here](@@base_url@@/user-profile) to find out all of the available
 We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
 
 ````js
-angular.module('myApp', ['auth0', 'angular-storage'])
-.run(function($rootScope, auth, store) {
+angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
+.run(function($rootScope, auth, store, jwtHelper, $location) {
   // This events gets triggered on refresh or URL change
   $rootScope.$on('$locationChangeStart', function() {
     if (!auth.isAuthenticated) {
       var token = store.get('token');
       if (token) {
-        auth.authenticate(store.get('profile'), token);
+        if (!jwtHelper.isTokenExpired(token)) {
+          auth.authenticate(store.get('profile'), token);
+        } else {
+          // Either show Login page or use the refresh token to get a new idToken
+          $location.path('/');
+        }
       }
     }
   });
