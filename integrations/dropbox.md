@@ -1,4 +1,5 @@
 ---
+title: Dropbox
 lodash: true
 ---
 <% integration = {};

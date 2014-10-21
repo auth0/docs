@@ -8,7 +8,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-cordova/master/create-package?path=examples/basic-sample&type=js&filePath=examples/basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-cordova/master/create-package?path=examples/basic-sample&type=js&filePath=examples/basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -21,7 +21,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-cordova/master/create-package?path=examples/basic-sample&type=js&filePath=examples/basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-cordova/master/create-package?path=examples/basic-sample&type=js&filePath=examples/basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -53,7 +53,7 @@ and then add the following configuration to the `config.xml` file:
 
 ### 2. Follow the guide specific to the FrontEnd technology you're using
 
-Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](https://docs.auth0.com/new/client-platforms/jquery), [AngularJS](https://docs.auth0.com/new/client-platforms/angularjs) and [Vanilla JS](https://docs.auth0.com/new/client-platforms/vanillajs).
+Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](@@base_url@@/new/client-platforms/jquery), [AngularJS](@@base_url@@/new/client-platforms/angularjs) and [Vanilla JS](@@base_url@@/new/client-platforms/vanillajs).
 
 > **Warning**: Cordova doesn't support getting dependencies from a CDN, so you're going to have to download the JS and CSS dependencies locally and then point to the downloaded files.
 

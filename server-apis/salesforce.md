@@ -1,4 +1,5 @@
 ---
+title: Salesforce
 lodash: true
 ---
 <% configuration.thirdParty = 'Salesforce' %>

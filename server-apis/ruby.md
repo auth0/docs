@@ -4,7 +4,7 @@ lodash: true
 
 ## Ruby API Tutorial
 
-> Note: If you're creating a Ruby On Rails app, please check [this other tutorial](http://docs.auth0.com/new/server-apis/rails). 
+> Note: If you're creating a Ruby On Rails app, please check [this other tutorial](@@base_url@@/new/server-apis/rails). 
 
 Otherwise, Please follow the steps below to configure your existing Ruby app to use it with Auth0.
 
@@ -20,7 +20,7 @@ gem 'jwt'
 
 ### 2. Validate JWT token
 
-You need to validate the [JWT](https://docs.auth0.com/jwt)s to make sure the user is authenticated. For that, in a filter or in a middleware processor that runs before your actions, you should write the following code:
+You need to validate the [JWT](@@base_url@@/jwt)s to make sure the user is authenticated. For that, in a filter or in a middleware processor that runs before your actions, you should write the following code:
 
 ```ruby
 class InvalidTokenError < StandardError; end

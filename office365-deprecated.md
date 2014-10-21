@@ -7,7 +7,7 @@ Migrate your Office365 Connections to Windows Azure AD Connections.
 ## How
 
 1. Create a Windows Azure AD subscription (free)
-2. Create a Directory (that will be associated with your Office365 account) and an application as explained here <https://docs.auth0.com/waad-clientid>
+2. Create a Directory (that will be associated with your Office365 account) and an application as explained here <@@base_url@@/waad-clientid>
 
 __IMPORTANT:__ If you were using the `user_id` in your application, notice that it will change from `office365|....some-guid....` to `waad|...email....`.
 

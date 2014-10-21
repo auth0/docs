@@ -54,14 +54,53 @@ SSLCertificateKeyFile /home/your_key.key
 
 Auth0 `clientSecret` is by default Base64 encoded which isn't compatible with this Apache plugin out of the box. We're going to change that in the near future, but in the meantime, you need to call an API to set that, for your account, the `clientSecret` isn't Base64 encoded.
 
-Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here <https://docs.auth0.com/api#!#post--oauth-token>
+Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here <@@base_url@@/api#!#post--oauth-token>
 
 ````bash
 curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 'authorization: Bearer ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
 ```
 
-> Please note that you can get your `access_token` by clicking on `Try Me` in [this endpoint of the Api Explorer](https://docs.auth0.com/api#!#post--oauth-token)
+> Please note that you can get your `access_token` by clicking on `Try Me` in [this endpoint of the Api Explorer](@@base_url@@/api#!#post--oauth-token)
 
-### 3. You've nailed it.
+### 4. Authorization
 
-Now you have your application configured to use Auth0 with Apache without actually having to touch a single line of your app. Pretty neat, right?
+You can configure Apache to protect a certain location based on an attribute of the user. Here is an example:
+
+```
+<Location /example/>
+   AuthType openid-connect
+   #Require valid-user
+   Require claim folder:exmaple
+</Location>
+
+<Location /example2>
+   AuthType openid-connect
+   #Require valid-user
+   Require claim folder:example2
+</Location>
+```
+
+Then you can write a rule in Auth0 that would return the `folder` attribute:
+
+```
+function(user, context, callback) {
+    if (somecondition()) {   
+       user.folder = 'example2';
+    }
+
+   user.folder = 'example';
+}
+```
+
+Or you could even use an array of folders and the apache module will check if the array contains any of these values
+
+```
+function(user, context, callback) {
+    user.folders = [];
+    if (somecondition()) {   
+       user.folders.push('example2');
+    }
+
+   user.folders.push('example');
+}
+```

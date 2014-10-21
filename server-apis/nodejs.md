@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/node-auth0/master/create-package?path=examples/nodejs-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/node-auth0/master/create-package?path=examples/nodejs-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %> 
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -29,7 +29,7 @@ npm install express-jwt --save
 
 ### 2. Configure express-jwt with your Auth0 account
 
-You need to set the ClientID and ClientSecret in `express-jwt`'s configuration so that it can validate and sign [JWT](https://docs.auth0.com/jwt)s for you.
+You need to set the ClientID and ClientSecret in `express-jwt`'s configuration so that it can validate and sign [JWT](@@base_url@@/jwt)s for you.
 
 ````js
   var express = require('express');

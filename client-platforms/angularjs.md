@@ -8,7 +8,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %> 
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -21,7 +21,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %> 
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -121,7 +121,7 @@ $scope.logout = function() {
 
 ### 5. Configuring secure calls to our API
 
-As we're going to call an API wez<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](https://docs.auth0.com/jwt) we receive on the login on every request. For that, we need to do the add the `authInterceptor` to the list of `$http` interceptors:
+As we're going to call an API wez<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](@@base_url@@/jwt) we receive on the login on every request. For that, we need to do the add the `authInterceptor` to the list of `$http` interceptors:
 
 ````js
 // app.js
@@ -132,13 +132,13 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider) {
 });
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](https://docs.auth0.com/jwt) will be sent on every request.
+Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
 
 <% } else {%>
 
 ### 5. Configuring calls to a Third Party API
 
-Now, we want to be able to call <%= configuration.api %> which is a third party api. What we're going to do is to exchange the [JWT token](https://docs.auth0.com/jwt) token we got from Auth0 for a token we can use to query <%= configuration.api %> securely and authenticated.
+Now, we want to be able to call <%= configuration.api %> which is a third party api. What we're going to do is to exchange the [JWT token](@@base_url@@/jwt) token we got from Auth0 for a token we can use to query <%= configuration.api %> securely and authenticated.
 
 For that, we're going to change the `login` function of our controller to look like this:
 
@@ -182,7 +182,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-You can [click here](https://docs.auth0.com/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 7. Sit back and relax
 

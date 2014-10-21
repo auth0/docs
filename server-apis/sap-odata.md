@@ -1,4 +1,5 @@
 ---
+title: SAP OData
 lodash: true
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.

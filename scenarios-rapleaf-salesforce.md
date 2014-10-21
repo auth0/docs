@@ -5,7 +5,7 @@ Upon a signup of a new user to a website with any social credential, we want to:
 1. __Augment the user profile__ with additional public information through [RapLeaf](http://www.rapleaf.com/).
 2. Record the new signup as a __New Lead__ on [Salesforce](http://www.salesforce.com/) for follow-up.
 
-Implementing this with Auth0 is very easy. You just need 2 [Rules](https://docs.auth0.com/rules) in your pipeline:
+Implementing this with Auth0 is very easy. You just need 2 [Rules](@@base_url@@/rules) in your pipeline:
 
 ![](https://docs.google.com/drawings/d/1PFj7JsAZiQCCQaM7pN5c0Fi8UbMvfAMGjgt-_SdTC6Q/pub?w=850&amp;h=430)
 

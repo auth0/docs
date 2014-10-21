@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-PHP/master/create-package?path=examples/basic-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-PHP/master/create-package?path=examples/basic-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -38,7 +38,7 @@ We need 2 dependencies to make this work:
 
 ### 2. Create the JWT Validation filter
 
-Now, you need to validate the [JWT](https://docs.auth0.com/jwt). For that, we'll create a filter that will run in the routes we need.
+Now, you need to validate the [JWT](@@base_url@@/jwt). For that, we'll create a filter that will run in the routes we need.
 
 ````php
   // Require composer autoloader

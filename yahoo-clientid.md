@@ -3,7 +3,7 @@
 To configure a Yahoo! connection you will need to register Auth0 on the [Yahoo! Developer Network portal](https://developer.yahoo.com/).
 
 ##1. Add a new Project
-Log in into [Yahoo! Developer Network portal](https://developer.yahoo.com/), select [__My Projects__](https://developer.apps.yahoo.com/projects) and click on __Create a Project__:
+Log in to [Yahoo! Developer Network portal](https://developer.yahoo.com/) and click on __Create an App__:
 
 ![](img/yahoo-register-1.png)
 

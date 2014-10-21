@@ -1,4 +1,5 @@
 ---
+title: Sharepoint
 lodash: true
 ---
 <% integration = {};

@@ -1,4 +1,5 @@
 ---
+title: Spring CM
 lodash: true
 ---
 <% integration = {};

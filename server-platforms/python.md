@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="https://docs.auth0.com/auth0-python/master/create-package?path=examples/flask-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/auth0-python/master/create-package?path=examples/flask-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -106,7 +106,7 @@ def dashboard():
 </div>
 ```
 
-[Click here](https://docs.auth0.com/user-profile) to check all the information that the userinfo hash has.
+[Click here](@@base_url@@/user-profile) to check all the information that the userinfo hash has.
 
 ### 6. You've nailed it.
 

@@ -1,4 +1,5 @@
 ---
+title: Egnyte
 lodash: true
 ---
 <% integration = {};

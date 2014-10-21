@@ -150,7 +150,7 @@ module.exports = Auth0Mosca;
 
 ```
 
-`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](https://docs.auth0.com/protocols#9) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
+`authenticateWithCredentials` uses the [OAuth2 Resource Owner Password Credential Grant](@@base_url@@/protocols#9) to authenticate the broker and all connections to it. Each time a `publisher` or a `subscriber` send a __CONNECT__message to the broker the `authenticate` function is called. In it we call the Auth0 endpoint and forward the device's `username`/`password`. Auth0 validates this against it's account store (that is the first `request.post` in the code). If successful, it validates and parses the Json Web Token to obtain the device profile and adds it to the `client` object that represents either the `subscriber` or the `publisher`. That's done in the `jwt.verify` call.
 
 By convention, all devices connected to the broker have an account in Auth0:
 

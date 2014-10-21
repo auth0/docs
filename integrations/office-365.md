@@ -1,4 +1,5 @@
 ---
+title: Office 365
 lodash: true
 ---
 <% integration = {};
