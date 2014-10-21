@@ -62,16 +62,14 @@ $(document).ready(function() {
 
 ### 3. Let's implement the login
 
-Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
+Now we're ready to implement the login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
 ````js
 var userProfile;
 
 $('.btn-login').click(function(e) {
   e.preventDefault();
-  lock.show({
-    popup: true
-  }, function(err, profile, token) {
+  lock.show(function(err, profile, token) {
     if (err) {
       // Error callback
       alert('There was an error');
@@ -113,7 +111,7 @@ var userProfile;
 
 $('.btn-login').click(function(e) {
   e.preventDefault();
-  lock.show({ popup: true, function(err, profile, token) {
+  lock.show(function(err, profile, token) {
     if (err) {
       // Error callback
       alert('There was an error');
