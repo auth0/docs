@@ -1,7 +1,5 @@
 # Password Strength in Auth0 Database Connections
 
-> WARNING: This is an experimental feature still under development.
-
 > Note: the __Password Strength__ feature is only available in database connections. The password complexity in Social and Enterpise connections is enforced by the providers.
 
 ## Policies
