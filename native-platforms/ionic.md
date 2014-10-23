@@ -40,6 +40,8 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 ### 3. Add the references to the scripts in the `index.html`
 
 ````html
+<!-- Auth0 Lock -->
+<script src="lib/auth0-lock/build/auth0-lock.js"></script>
 <!-- auth0-angular -->
 <script src="lib/auth0-angular/build/auth0-angular.js"></script>
 <!-- angular storage -->
