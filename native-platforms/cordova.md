@@ -34,6 +34,16 @@ lodash: true
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
+### 0. Setting up the callback URL in Auth0
+
+<div class="setup-callback">
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+
+<pre><code>https://@@account.namespace@@/mobile</pre></code>
+
+<p>If you'd also want to test your application with Ionic Serve, then add your localhost url as another <b>App Callback URL<b></p>
+</div>
+
 ### 1. Add `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:

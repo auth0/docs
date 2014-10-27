@@ -23,6 +23,8 @@ lodash: true
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
+
+<p>If you'd also want to test your application with Ionic Serve, then add your localhost url as another <b>App Callback URL<b></p>
 </div>
 
 ### 2. Adding the Auth0 dependencies
