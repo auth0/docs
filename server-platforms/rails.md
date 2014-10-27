@@ -140,6 +140,20 @@ class SecuredController < ApplicationController
 end
 ```
 
+### Optional steps
+#### Getting the error description on Failure
+
+In case of failure, you may want to get the description of the error. For that, in your `config/production.rb` add the following:
+
+````ruby
+OmniAuth.config.on_failure = Proc.new { |env|
+  message_key = env['omniauth.error.type']
+  error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
+  new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}&error_description=#{error_description}"
+  Rack::Response.new(['302 Moved'], 302, 'Location' => new_path).finish
+}
+```
+
 ### Troubleshooting
 
 #### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
