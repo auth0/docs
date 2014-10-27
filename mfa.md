@@ -50,8 +50,25 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+## Session
 
-##Simple demo
+By default multifactor is requested only once per month. You can change this by disabling the cookie with `ignoreCookie` as follows:
+
+```
+function (user, context, callback) {
+  
+  if( conditionIsMet() ){ 
+    context.multifactor = {
+      ignoreCookie: true,
+      provider: 'google-authenticator'
+    };
+  }
+
+  callback(null, user, context);
+}
+```
+
+## Simple demo
 
 This demo illustrates an app in which __Duo Security__ has been enabled. 
 
