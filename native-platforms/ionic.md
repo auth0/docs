@@ -129,7 +129,7 @@ In this case, we'll add the call in the `login` method of the `LoginCtrl` contro
 
 ````js
 // LoginCtrl.js
-function LoginCtrl(store, $scope, $location) {
+function LoginCtrl(store, $scope, $location, auth) {
   $scope.login = function() {
     auth.signin({
       authParams: {
