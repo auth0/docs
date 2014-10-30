@@ -21,7 +21,7 @@ Let's start by enumerating some multi tenant applications and understand how the
 * In Slack a user can belong to multiple teams (or organizations).Each team/org can be considered a __tenant__.
 * You can switch from one team to another through an option in Slack.
 * Users can either have __full__ or __single-channel__ access within a team (organization).
-* A user can be have __full access__ on one team but __single-channel access__ on another one.
+* A user can have __full access__ on one team but __single-channel access__ on another one.
 
 ### Modeling this in Auth0
 
