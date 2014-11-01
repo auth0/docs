@@ -4,7 +4,7 @@ These connections allow users to login without credentials. They work by using a
 
 Applications that want to use these connections interact with Auth0 in two steps:
 
-* First the must create a __"user"__ in Auth0, registering the artifact used to authenticate them (e.g. a `phone_number` or an `email`). A one time code will be sent to them. 
+* First the must create a __"user"__ in Auth0, registering the artifact used to authenticate them (e.g. a `phone_number` or an `email`). A one-time code will be sent to them. 
 
 * Later, the app validates the code with Auth0, using either `email` or `phone_number` as the _username_.
 
@@ -42,7 +42,7 @@ Content-Type: 'application/json'
 
 > The {API Auth Token} used to authenticate this request is the __API Token__. See [this endpoint](https://docs.auth0.com/api#authentication) to obtain it.
 
-The important parmeters are `connection` (that must be __sms__) and the `phone_number`.
+The important parameters are `connection` (that must be __sms__) and the `phone_number`.
 
 Auth0 will send the message configured on the dashboard to the `phone-number` specified, including the one-time-password.
 
