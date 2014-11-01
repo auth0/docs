@@ -40,6 +40,8 @@ Content-Type: 'application/json'
 }
 ``` 
 
+> The {API Auth Token} used to authenticate this request is the __API Token__. See [this endpoint](https://docs.auth0.com/api#authentication) to obtain it.
+
 The important parmeters are `connection` (that must be __sms__) and the `phone_number`.
 
 Auth0 will send the message configured on the dashboard to the `phone-number` specified, including the one-time-password.
