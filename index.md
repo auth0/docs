@@ -87,7 +87,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
         serverApi: 'no-api' === api || !api ? '' : api
       });
 
-      var codevisible = ('no-api' === api || 'webapp' === apptype);
+      var codevisible = ('no-api' === api || ('webapp' === apptype && platform));
       if (!api || codevisible) tutorial.set('codevisible', codevisible);
       next();
     }
