@@ -19,6 +19,7 @@ Think of a __refresh token__ as a permission to renew tokens indefinitely, until
 Because a __refresh token__ never expires, it is important to provide admins of apps ability to revoke access. Auth0 allows this process to happen both from the dashboard and programmatically through an API.
 
 __Refresh tokens__ can be issued and revoked for each combination of __app__, __user__ and __device__.
+To revoke a __refresh token__ through the API see [Revoking a refresh token](@@base_url@@/api#delete--api-users--user_id--refresh_tokens--refresh_token-).
 
 ## How it all works
 
