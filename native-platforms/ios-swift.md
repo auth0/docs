@@ -79,7 +79,7 @@ Add the following entries to your app's `Info.plist`:
 
 
 Also you'll need to register a new _URL Type_ with the following scheme
-`a0$@@account.clientId@@`. You can do it from your app's target Info section.
+`a0@@account.clientId@@`. You can do it from your app's target Info section.
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
