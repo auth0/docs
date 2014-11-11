@@ -23,9 +23,21 @@ On subsequent user sign-ups or changes to their passwords, the policy will be en
 
 Existing passwords entered prior to changing the policy will continue to operate.
 
+### Lock
+
+After enabling password policies, on signup and reset Lock modes user will be notified when their password does not meet the required criteria.
+
+On desktop:
+
+![Auth0 Lock Password Strength checks on Desktop](https://cldup.com/7cmjQFY45M.png)
+
+On mobile:
+
+![Auth0 Lock Password Strength checks on Mobile](https://cldup.com/moUbn4XXxR.png)
+
 ## Custom Signup Errors
 
-Sign-up errors will return a 400 HTTP status code. The response JSON will contain a `code: invalid_password` when the password does not meet the password policy criteria. 
+Sign-up errors will return a 400 HTTP status code. The response JSON will contain a `code: invalid_password` when the password does not meet the password policy criteria.
 
 The response also has additional information that can be used to guide the user intp what is wrong with the selected password:
 
