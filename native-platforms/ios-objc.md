@@ -8,7 +8,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/Auth0.iOS/master/create-package?path=Examples/basic-sample&type=replace&filePath=Examples/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/Lock.iOS-OSX/master/create-package?path=Examples/basic-sample&type=replace&filePath=Examples/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -21,7 +21,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/Auth0.iOS/master/create-package?path=Examples/basic-sample&type=replace&filePath=Examples/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/Lock.iOS-OSX/master/create-package?path=Examples/basic-sample&type=replace&filePath=Examples/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -47,7 +47,7 @@ lodash: true
 Add the following to the `Podfile` and run `pod install`:
 
 ```ruby
-pod 'Auth0.iOS', '~> 1.0'
+pod 'Lock', '~> 1.4'
 pod 'JWTDecode', '~> 0.2'
 ```
 
@@ -84,7 +84,7 @@ Also you'll need to register a new _URL Type_ with the following scheme
 To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.m` file.
 
 ```objc
-#import <Auth0.iOS/Auth0.h>
+#import <Lock/Lock.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [[A0SocialAuthenticator sharedInstance] handleURL:url sourceApplication:sourceApplication];
@@ -95,7 +95,7 @@ To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc,
 
 #### Facebook
 
-Auth0.iOS uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info:
+Lock uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 
@@ -129,7 +129,7 @@ Here's an example of how the entries should look like:
 Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate.m` file, for example:
 
 ```objc
-#import <Auth0.iOS/Auth0.h>
+#import <Lock/Lock.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
@@ -142,7 +142,7 @@ Finally, you need to register Auth0 Facebook authenticator somewhere in your app
 To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
 
 ```objc
-#import <Auth0.iOS/Auth0.h>
+#import <Lock/Lock.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSString *twitterApiKey = ... //Remember to obfuscate your api key
@@ -154,16 +154,16 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 
 ### 4. Let's implement the login
 
-Now we're ready to implement the Login. We can instantiate `A0AuthenticationController` and present it as a modal screen. In one of your controllers import **Auth0.iOS** classes
+Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers import **Lock** classes
 
 ```objc
-#import <Auth0.iOS/Auth0.h>
+#import <Lock/Lock.h>
 ```
 
 Then we instantiate the native widget and present it as a modal screen:
 
 ```objc
-A0AuthenticationViewController *controller = [[A0AuthenticationViewController alloc] init];
+A0LockViewController *controller = [[A0LockViewController alloc] init];
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
     // Do something with token & profile. e.g.: save them.
     // And dismiss the ViewController
@@ -174,7 +174,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
-> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Auth0.iOS/wiki/How-to-save-and-refresh-JWT-token)
+> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/How-to-save-and-refresh-JWT-token)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
 
@@ -187,7 +187,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   self.emailLabel.text = profile.email;
 ```
 
-> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Auth0.iOS/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
 
 ### 6. We're done
 
