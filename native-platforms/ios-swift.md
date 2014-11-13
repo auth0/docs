@@ -8,7 +8,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/Auth0.iOS/master/create-package?path=Examples/basic-sample-swift&type=replace&filePath=Examples/basic-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/Lock.iOS-OSX/master/create-package?path=Examples/basic-sample-swift&type=replace&filePath=Examples/basic-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -20,7 +20,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/Auth0.iOS/master/create-package?path=Examples/basic-sample-swift&type=replace&filePath=Examples/basic-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/Lock.iOS-OSX/master/create-package?path=Examples/basic-sample-swift&type=replace&filePath=Examples/basic-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -46,7 +46,7 @@ lodash: true
 Add the following to the `Podfile` and run `pod install`:
 
 ```ruby
-pod 'Auth0.iOS', '~> 1.0'
+pod 'Lock', '~> 1.4'
 pod 'JWTDecode', '~> 0.2'
 ```
 
@@ -54,7 +54,7 @@ pod 'JWTDecode', '~> 0.2'
 
 ### 2. Configuring your Swift project to use an ObjC library
 
-Now, since you need to configure your project to be able to use Auth0.iOS. For that, just read [this guide](https://github.com/auth0/Auth0.iOS/wiki/Auth0.iOS-&-Swift)
+Now, since you need to configure your project to be able to use Lock. For that, just read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/Lock-&-Swift)
 
 ### 3. Configuring Auth0 Credentials & Callbacks
 
@@ -97,7 +97,7 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 
 #### Facebook
 
-Auth0.iOS uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info:
+Lock uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
 
@@ -153,14 +153,14 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 ```
 
 ### 5. Let's implement the login
-Now we're ready to implement the Login. We can instantiate `A0AuthenticationController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
+Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
 ```swift
-let authController = A0AuthenticationViewController()
+let authController = A0LockViewController()
 authController.closable = true
 authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
   // Do something with token & profile. e.g.: save them.
-  // Auth0.iOS will not save the Token and the profile for you.
+  // Lock will not save the Token and the profile for you.
   // And dismiss the ViewController
   self.dismissViewControllerAnimated(true, completion: nil)
 }
@@ -169,7 +169,7 @@ self.presentViewController(authController, animated: true, completion: nil)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
-> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Auth0.iOS/wiki/How-to-save-and-refresh-JWT-token)
+> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/How-to-save-and-refresh-JWT-token)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
 ### 7. Showing user information
@@ -181,7 +181,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   self.emailLabel.text = profile.email
 ```
 
-> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Auth0.iOS/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
 
 ### 8. We're done
 
