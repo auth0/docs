@@ -36,7 +36,7 @@ lodash: true
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>@@account.clientId@@://*.auth0.com/authorize</pre></code>
 </div>
@@ -60,7 +60,7 @@ Now, since you need to configure your project to be able to use Auth0.iOS. For t
 
 Add the following entries to your app's `Info.plist`:
 
-<table class="table"> 
+<table class="table">
   <thead>
     <tr>
       <th>Key</th>
@@ -101,7 +101,7 @@ Auth0.iOS uses the native Facebook SDK to obtain the user's access token so you'
 
 First, add the following entries to the `Info.plist`:
 
-<table class="table"> 
+<table class="table">
   <thead>
     <tr>
       <th>Key</th>
