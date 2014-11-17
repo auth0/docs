@@ -37,11 +37,14 @@ lodash: true
 ### 0. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 
-<p>If you'd also want to test your application with Ionic Serve, then add your localhost url as another <b>App Callback URL<b></p>
+<p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
+
+<pre><code>file://*</code></pre>
+
 </div>
 
 ### 1. Add `InAppBrowser` plugin
@@ -73,7 +76,7 @@ Now, you can just follow the tutorial for the FrontEnd technology that you're us
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Cordova.
 
-### Troubleshooting 
+### Troubleshooting
 
 #### Command failed with exit code 65 when running ionic build
 
