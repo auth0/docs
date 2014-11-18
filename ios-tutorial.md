@@ -16,7 +16,7 @@ You can check our latest version in [Auth0.iOS Github Releases](https://github.c
 
 #### Install Auth0Client library in your project
 
-1. Go to [Auth0.iOS repository in Github](https://github.com/auth0/Auth0.iOS) and click on __Download ZIP__
+1. Go to [Auth0.iOS repository in GitHub](https://github.com/auth0/Auth0.iOS) and click on __Download ZIP__
 2. Decompress it and reference the `Auth0Client` library in your project:
 	* Go to your project in XCode
 	* Right-click on the `Frameworks` folder and select ___Add Files to "Your Project Name"___
@@ -25,7 +25,7 @@ You can check our latest version in [Auth0.iOS Github Releases](https://github.c
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 </div>

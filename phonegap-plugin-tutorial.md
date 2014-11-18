@@ -19,7 +19,7 @@ phonegap local plugin add https://github.com/auth0/phonegap-auth0.git
 ```xml
 <plugin name="Auth0Client" value="com.auth0.sdk" />
 ```
-	
+
 If you prefer using <a href="http://build.phonegap.com/" target="_new">PhoneGap Build</a>, you can ignore step #1.1 and include the following element to your `www/config.xml` file:
 
 ```xml
@@ -41,13 +41,13 @@ If you prefer using <a href="http://build.phonegap.com/" target="_new">PhoneGap 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 </div>
 
 ### 3. Integration
-There are three options to do the integration: 
+There are three options to do the integration:
 
 1. Using the [Auth0 Login Widget](login-widget2) inside an InAppBrowser control (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
@@ -55,7 +55,7 @@ There are three options to do the integration:
 
 #### Option 1: Authentication using Login Widget
 
-To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project: 
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
 ```javascript
 var auth0 = new Auth0Client(
@@ -64,8 +64,8 @@ var auth0 = new Auth0Client(
 
 auth0.login(function (err, result) {
 	if (err) return err;
-	/* 
-	Use result to do wonderful things, e.g.: 
+	/*
+	Use result to do wonderful things, e.g.:
 		- get user email => result.profile.email
 		- get facebook/google/twitter/etc access token => result.profile.identities[0].access_token
 		- get Windows Azure AD groups => result.profile.groups
@@ -83,8 +83,8 @@ If you know which identity provider you want to use, you can add a `connection` 
 ```javascript
 auth0.login({ connection: "google-oauth2" }, function (err, result) {
 	if (err) return err;
-	/* 
-	Use result to do wonderful things, e.g.: 
+	/*
+	Use result to do wonderful things, e.g.:
 		- get user email => result.profile.email
 		- get facebook/google/twitter/etc access token => result.profile.identities[0].access_token
 		- get Windows Azure AD groups => result.profile.groups
@@ -98,14 +98,14 @@ auth0.login({ connection: "google-oauth2" }, function (err, result) {
 #### Option 3: Authentication with specific user name and password
 
 ```javascript
-auth0.login({ 
-	connection: "sql-azure-database", 
-	username: 	"jdoe@foobar.com", 
-	password: 	"1234" 
+auth0.login({
+	connection: "sql-azure-database",
+	username: 	"jdoe@foobar.com",
+	password: 	"1234"
 },
 function (err, result) {
 	if (err) return err;
-	/* Use result to do wonderful things */ 
+	/* Use result to do wonderful things */
 });
 ```
 

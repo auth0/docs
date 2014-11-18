@@ -13,13 +13,13 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 </div>
 
 ### 3. Integration
-There are three options to do the integration: 
+There are three options to do the integration:
 
 1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
@@ -38,7 +38,7 @@ var auth0 = new Auth0Client(
 	"@@account.clientId@@");
 
 var user = await auth0.LoginAsync();
-/* 
+/*
     Use this object to do wonderful things, e.g.:
       - get user email => user.Profile["email"].ToString()
       - get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
