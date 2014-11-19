@@ -56,6 +56,8 @@ The last step: modify permissions so your app can read the directory and click o
 
 <img src="img/waad-8b.png" style="width: 60%;  border: 2px solid #eee;" />
 
+> NOTE: If you want to enable some extended attributes (like `Extended Profile` or `Security Groups`) you need also to enable the following permissions: **Application Permissions: Read directory data**, **Delegated Permissions: Access your organization's directory**.
+
 Make sure to copy the value of the secret before leaving this screen.
 
 <img src="img/waad-9.png" style="width: 60%;  border: 2px solid #eee;" />
