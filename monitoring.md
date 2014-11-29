@@ -1,6 +1,6 @@
 # Monitoring Auth0
 
-If you are using the public cloud version of Auth0 we recommend you subscribe to [https://status.auth0.com](https://status.auth0.com) for a continuous stream of notifications regarding the availability of the service. Any incidents are reported there by the Auth0 Devops team. Current and historical uptime is available on [http://uptime.auth0.com](http://uptime.auth0.com).
+If you are using the public cloud version of Auth0 we recommend you subscribe to [http://status.auth0.com](http://status.auth0.com) for a continuous stream of notifications regarding the availability of the service. Any incidents are reported there by the Auth0 Devops team. Current and historical uptime is available on [http://uptime.auth0.com](http://uptime.auth0.com).
 
 ## Monitoring your own Auth0 account
 
