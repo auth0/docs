@@ -4,7 +4,7 @@ Auth0 offers great support for __all__ subscribers.  You can email an unlimited 
 
 Auth0 offers a __Premium Support__ option, which we recommend for all subscribers using Auth0 in production environments:
 
-![](https://docs.google.com/drawings/d/1--ZQ8r9B6O8Kii1CKFjPOpJmGBiHlbAfM_mlaj6ySX0/pub?w=620&h=338)
+![](https://docs.google.com/drawings/d/1--ZQ8r9B6O8Kii1CKFjPOpJmGBiHlbAfM_mlaj6ySX0/pub?w=744&h=346)
 
 
 
