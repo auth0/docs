@@ -145,6 +145,7 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
   * [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
   * [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
 * [mysql](https://github.com/felixge/node-mysql) _(~2.0.0-alpha8)_
+* [pubnub](https://github.com/pubnub/javascript/tree/master/node.js) _(3.7.0)_
 * [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
 * [q](https://github.com/kriskowal/q) _(~1.0.1)_
 * [querystring](http://nodejs.org/api/querystring.html) _(0.10.28)_
