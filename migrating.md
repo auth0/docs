@@ -44,4 +44,6 @@ Then when a user authenticates, the following process take place:
 
 ![](img/migrating-2.png)
 
-Password resets will only affect the users stored in Auth0, and new users will be stored in Auth0 only.
+So for example, let's say you have a MySQL database and you are hashing passwords with SHA1. You would define the script that connects to MySQL, gets the user from the DB and then uses `crypto.createHash('sha1')` to hash the password and check against the stored password. If that was succesful, the user will be automatically created in Auth0 database and his/her password will be hashed using `bcrypt` with 12 iterations (our default hashing algorithm). Next time a user logs in, we will check against OUR database and our hash.
+
+> Note: Password resets will only affect the users stored in Auth0, and new users will be stored in Auth0 only.
