@@ -10,7 +10,7 @@ The way this works is by means of a "central service" (in the case of Google at 
 
 For every application in Auth0 that you want to enable SSO, you have to turn on the SSO flag on the application settings on the Auth0 dashoard (or through the API)
 
-![SSO Checkbox](https://cdn.auth0.com/docs/sso-checkbox.png)
+<img src="https://cdn.auth0.com/docs/sso-checkbox.png" alt="Single Sign On Checkbox" style="width: 50%">
 
 Then, there are two ways of implementing SSO in Auth0. One involves client-side (JavaScript) and the other is completely server side.
 
