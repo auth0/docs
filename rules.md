@@ -130,6 +130,7 @@ We have an open source repository for common rules here:
 The script runs in a JavaScript sandbox for security reasons. You can use the full power of the language (ECMAScript 5) and a few selected libraries. The current sandbox supports:
 
 * [async](https://github.com/caolan/async) _(~0.1.22)_
+* [azure_storage](https://github.com/Azure/azure-storage-node) _(~0.4.1)_
 * [bcrypt](https://github.com/ncb000gt/node.bcrypt.js) _(~0.7.5)_
 * [Buffer](http://nodejs.org/docs/v0.10.24/api/buffer.html)
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
