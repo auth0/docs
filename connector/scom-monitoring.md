@@ -1,19 +1,19 @@
-# Monitoring the ADLDAP Connector with System Center Operation Management
+# Monitoring the ADLDAP Connector with System Center Operations Manager
 
-The Auth0 ADLDAP connector runs as a Service on Windows.
+The Auth0 AD/LDAP connector can run as a Service on Windows based machines.
 
-You can monitor the service status with System Center as any other service.
+You can monitor the service status using System Center as you would do with any other service.
 
-Open the "Add Monitoring Wizard" and select the Monitoring Type "Windows Service":
+1. Open the __Add Monitoring Wizard__ and select the __Monitoring Type: Windows Service__:
 
 ![ss-2014-12-11T22-48-51.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-12-11T22-48-51.png)
 
-Enter a name and description:
+2. Enter a name and description:
 
 ![ss-2014-12-11T22-49-57.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-12-11T22-49-57.png)
 
-Select the Server and then the "Auth0 ADLDAP" windows service:
+3. Select the Server in which the AD/LDAP Connector is installed and then choose "Auth0 ADLDAP":
 
 ![ss-2014-12-11T22-50-37.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-12-11T22-50-37.png)
 
-Lastly select the desired **CPU** and **Memory limits**.
+4. Select the desired **CPU** and **Memory limits**.

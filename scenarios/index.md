@@ -5,7 +5,8 @@
 # Common SSO Scenarios
 
 * [SaaS apps](saas-apps)
-* [SSO](sso)
+* [SSO](sso/single-sign-on)
+* [Home Realm Discovery](hrd)
 
 - - -
 

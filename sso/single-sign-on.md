@@ -1,12 +1,12 @@
 # What is SSO?
 
-SSO means Single Sign On. The user logs in to one application and it's "automatically" signed in to every other application, regardless of the platform, technology and domain.
+SSO (Single Sign On) means that when a user logs in to one application he will be "automatically" signed in to every other application, regardless of the platform, technology and domain.
 
-For example, Google implements SSO for their products: Gmail, YouTube, Analytics, etc. When you turn on your computer and access Gmail, you login for the first time. Then, you go to YouTube and you don't get prompt to login again.
+For example, Google implements SSO for their products: Gmail, YouTube, Analytics, etc. When you turn on your computer and access Gmail, you login for the first time. Then, if you go to YouTube you won't be prompted for credentials again.
 
-The way this works is by means of a "central service" (in the case of Google at https://accounts.google.com). When you login for the first time a cookie gets created on this central service. Then, when you try to access the second application, you get redirected to the central service, but since you already have a cookie, you get redirected to the app directly with a token, which means you're already logged in.
+The way this works is by means of a "central service" (in the case of Google this is https://accounts.google.com). When you login for the first time a cookie gets created on this central service. Then, when you try to access the second application, you get redirected to the central service, but since you already have a cookie, you get redirected to the app directly with a token, which means you're already logged in.
 
-## How to implement SSO?
+## How to implement SSO with Auth0?
 
 For every application in Auth0 that you want to enable SSO, you have to turn on the SSO flag on the application settings on the Auth0 dashoard (or through the API)
 
