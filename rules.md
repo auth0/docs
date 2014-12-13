@@ -139,6 +139,7 @@ The script runs in a JavaScript sandbox for security reasons. You can use the fu
 * [jwt](https://github.com/auth0/node-jsonwebtoken) _(~0.1.0)_
 * [knex](http://knexjs.org) _(~0.6.3)_
   * The function returned by `require('knex')` is available as `Knex`.
+* [lodash](https://github.com/lodash/lodash) _(~2.4.1)_
 * [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
   * [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
   * [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
