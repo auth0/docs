@@ -30,6 +30,7 @@
 * [Segment.io](scenarios/segmentio)
 * [Splunk](scenarios/splunk)
 * [Unbounce](scenarios/unbounce)
+* [Zendesk](scenarios/zendesk)
 
 - - -
 
