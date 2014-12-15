@@ -2,6 +2,6 @@
 
 In this section:
 
--  [Configuring Time Sincronization](/appliance/clock)
--  [Updating an Auth0 Cluster](/appliance/update)
--  [Checking a shasum for an update package](/appliance/update_checksum)
+-  [Configuring time synchronization](/appliance/clock)
+-  [Updating an Auth0 cluster](/appliance/update)
+-  [Checking integrity of an update package](/appliance/update_checksum)

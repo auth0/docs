@@ -1,20 +1,20 @@
-## Configuring Time Sincronization
+## Configuring Time Synchronization
 
-Auth0 uses several cryptographical function that depends on the system clock to be synchronized.
+Auth0 uses several cryptographic functions that depend on the system clock.
 
-If you are running Auth0 on a IaaS (Infrastracture as a Service) provider you can skip this document since this is automatically managed for you at a higher level.
+If you are running Auth0 on an IaaS (Infrastracture as a Service) provider (e.g. AWS, Microsoft Azure, etc.), you can skip this document since this is automatically managed for you.
 
-If you are running Auth0 on premises you will need to tell the appliance where is your company's ntp server. In most of the cases this is the same server than the Domain Controller, please consult your IT department for it.
+If you are running Auth0 on your own hardware or VM host, you will need to make sure the Auth0 Appliance has NTP configured correctly. In most cases, the NTP server is your Domain Controller. Please contact your IT administrator for details.
 
-You can change the address on the configuration section:
+You can change the NTP server address on the configuration section of the Dashboard:
 
 ![ss-2014-12-15T11-34-37.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-12-15T11-34-37.png)
 
-This can be either an ip address or a domain name.
+This can be either an IP address or a server name.
 
-### Fine tunning
+### Fine-tuning
 
-Auth0 uses [ntpd](http://doc.ntp.org/4.1.1/confopt.htm) for time synchronization. You can establish different configuration parameters as follows:
+Internally, Auth0 uses [ntpd](http://doc.ntp.org/4.1.1/confopt.htm) for time synchronization. You can establish different configuration parameters as follows:
 
 ![ss-2014-12-15T11-36-53.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-12-15T11-36-53.png)
 
@@ -22,6 +22,8 @@ Auth0 uses [ntpd](http://doc.ntp.org/4.1.1/confopt.htm) for time synchronization
 1.south-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5
 ```
 
-This increases the frequency as described in the **ntpd** documentation:
+This command increases the frequency of updates as described in the **ntpd** documentation:
 
 > These options specify the minimum and maximum poll intervals for NTP messages, in seconds to the power of two. The maximum poll interval defaults to 10 (1,024 s), but can be increased by the maxpoll option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the minpoll option to a lower limit of 4 (16 s).
+
+> Fine tuning is only available for Auth0's engineers.
