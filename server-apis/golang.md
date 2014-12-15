@@ -29,7 +29,7 @@ go get github.com/auth0/go-jwt-middleware
 
 ### 2. Configure `go-jwt-middleware` to use your Auth0 Account
 
-You need to set the ClientID and ClientSecret in `go-jwt-middleware`'s configuration so that it can validate [JWT](@@base_url@@/jwt)s for you.
+You need to set the ClientSecret in `go-jwt-middleware`'s configuration so that it can validate [JWTs](@@base_url@@/jwt) for you.
 
 ````go
 package main
@@ -55,10 +55,26 @@ func main() {
 
 ### 3. Secure your API
 
-Now, you need to specify one or more routes or paths that you want to protect, so that only users with the correct JWT will be able to do the request.
+Now, you can use the `go-jwt-middleware` to secure your API. You can do so using `net/http` handlers or using `negroni` middlewares as well.
 
-````js
-app.use('/api/path-you-want-to-protect', jwtCheck);
+````go
+// Regular HTTP HandlerFunc
+func SecuredPingHandler(w http.ResponseWriter, r *http.Request) {
+  respondJson("All good. You only get this message if you're authenticated", w)
+}
+
+// Negroni sample
+r := mux.NewRouter()
+r.Handle("/secured/ping", negroni.New(
+  negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
+  negroni.Wrap(http.HandlerFunc(SecuredPingHandler)),
+))
+http.Handle("/", r)
+http.ListenAndServe(":3001", nil)
+
+// net/http sample
+app := jwtMiddleware.Handler(SecuredPingHandler)
+http.ListenAndServe("0.0.0.0:3000", app)
 ```
 
 ### 4. You've nailed it.
