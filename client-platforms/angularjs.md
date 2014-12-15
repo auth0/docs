@@ -117,10 +117,11 @@ As we're going to call an API we did<%= configuration.api ? ' on ' + configurati
 myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
   // ...
 
-  jwtInterceptorProvider.tokenGetter = function(store) {
+  // We're annotating this function so that the `store` is injected correctly when this file is minified
+  jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     // Return the saved token
     return store.get('token');
-  }
+  }];
 
   $httpProvider.interceptors.push('jwtInterceptor');
   // ...
