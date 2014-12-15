@@ -1,8 +1,4 @@
----
-title: Active Directory / LDAP Authentication
-layout: doc.nosidebar
----
-# AD and LDAP Authentication
+# Installing the AD LDAP Connector on other platforms
 
 Connecting with __Active Directory__ or any other __LDAP__ server with Auth0 usually involves deploying and running a piece of software on your side. This guide will walk you through the steps to download, run, deploy and customize such component.
 
@@ -49,9 +45,7 @@ Once node.js has been installed, download and unzip the source code for the __Au
 
 	> node server.js
 
-When prompted for the ticket url, paste the following:
-
-    https://@@account.namespace@@/p/custom/@@ticket@@
+When prompted for the ticket url, paste the ticket url provided when you created the connection (if you don't have it handy, you can find it on the dashboard, by clicking on Setup on the connection).
 
 > After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server to complete the setup on Auth0.
 
@@ -67,8 +61,6 @@ To connect to AD or any LDAP directory:
 - `LDAP_BIND_PASSWORD`: the password of the service account
 
 ###Restart the server (`CTRL+C` to stop it and then `node server.js` again). Login again.
-
-<a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
 **Congratulations!** If you get a green check on this step, it means the configuration of the connector is successfully completed.
 
