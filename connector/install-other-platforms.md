@@ -57,7 +57,7 @@ To connect to AD or any LDAP directory:
 
 - `LDAP_URL`: the url for the ldap server (e.g.: `ldap://myldap.com:389`)
 - `LDAP_BASE`: the base to query (e.g.: `DC=mycompany,DC=com`)
-- `LDAP_BIND_USER`: a service account used for authentication and quering (currently this accepts the fully qualified name for the user, like CN=Foo,CN=Users,DC=fabrikam,DC=com)
+- `LDAP_BIND_USER`: a service account used for authentication and querying (currently this accepts the fully qualified name for the user, like CN=Foo,CN=Users,DC=fabrikam,DC=com)
 - `LDAP_BIND_PASSWORD`: the password of the service account
 
 ###Restart the server (`CTRL+C` to stop it and then `node server.js` again). Login again.
