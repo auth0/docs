@@ -47,11 +47,6 @@ This document aims to describe the major differences between Auth0's API v1 and 
 | [PATCH /api/clients/{client-id}](https://docs.auth0.com/api#!#patch--api-clients--client-id-)      | None | Available as [PATCH /api/v2/clients/{id}](https://docs.auth0.com/apiv2#!/clients/patch_clients_by_id). |
 | DELETE /api/clients/{client-id}     | None | Available as [DELETE /api/v2/clients/{id}](https://docs.auth0.com/apiv2#!/clients/delete_clients_by_id). |
 
-
-
-
-
-
 ## Authentication mechanism
 Auth0's API v1 required consumers to send an `access_token` which was obtained by performing [`POST /oauth/token`](https://docs.auth0.com/api#!#post--oauth-token) request and sending the `clientId` and `clientSecret`. All subsequent request included the `access_token` using the **Authorization** header:
 ```
@@ -84,10 +79,11 @@ Authorization: Beader {id_token}
 ```
 
 The following scopes are automatically granted:
-* read:current_user
-* update:current_user_metadata
-* delete:current_user_metadata
-* create:current_user_metadata
+
+* read:current\_user
+* update:current\_user\_metadata
+* delete:current\_user\_metadata
+* create:current\_user\_metadata
 
 Basically, with an `id_token` for a user you can read all its information an write its own `user_metadata`.
 
@@ -110,11 +106,13 @@ console.log(user.hobby); // "surf"
 Note that we are not using `user.metadata.hobby`.
 
 This automatic merging caused a lot of confusion both to us and to our users. Additionally, having a single _bag_ for all metadata did not sit well with our new permissions model, as:
+
 * Sometimes you might want to store information in `metadata` that was core to your application's functionality.
 * You might want to allow your users to update their own metadata.
 
-### app_metadata and user_metadata
+### app\_metadata and user\_metadata
 In API v2 the concept of `metadata` is split into:
+
 * `user_metadata`: Data related to the user that does not affect the application's core functionality.
 * `app_metadata`: Data related to the user that does affect the application's core functionality.
 
@@ -144,6 +142,7 @@ These are some general endpoint related changes.
 
 ### Less is more
 In API v1 we had different endpoints to atomically update fields. For example, to change user's properties we had:
+
 * [`PUT /api/users/{user_id}/email`](https://docs.auth0.com/api#!#put--api-users--user_id--email)
 * [`PUT /api/users/{user_id}/metadata`](https://docs.auth0.com/api#!#put--api-users--user_id--metadata)
 * [`PUT /api/users/{user_id}/password`](https://docs.auth0.com/api#!#put--api-users--user_id--password)
