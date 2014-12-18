@@ -6,11 +6,11 @@ These are the steps to update the AD/LDAP Connector to the latest version:
 
 Hover over the Connector status indicator on the dashbaord:
 
-![](img/adldap-connector-version.png)
+![](https://cdn.auth0.com/docs/img/adldap-connector-version.png)
 
 The tooltip will indicate the current status and the installed version.
 
-The latest version of the AD/LDAP Connector is always available on the [GitHub repository](https://github.com/auth0/ad-ldap-connector/commits/master) or as [an installer](https://cdn.auth0.com/adldap.msi) for Windows based machines. 
+The latest version of the AD/LDAP Connector is always available on the [GitHub repository](https://github.com/auth0/ad-ldap-connector/commits/master) or as [an installer](https://cdn.auth0.com/adldap.msi) for Windows based machines.
 
 ###2. Backup your current config
 
@@ -19,7 +19,7 @@ Before updating the connector backup these files from `%Program Files(x86)%\Auth
   -  `certs`
   -  `lib\profileMapper.js`
 
-> The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets. 
+> The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets.
 
 ###3. Download the latest version
 
