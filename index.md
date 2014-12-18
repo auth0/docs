@@ -29,20 +29,22 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
 <script src="https://cdn.auth0.com/tutorial-navigator/latest/build.min.js" type="text/javascript"></script>
 <link href="https://cdn.auth0.com/tutorial-navigator/latest/build.min.css" type="text/css" rel="stylesheet"></link>
-<script type="text/javascript" src="/js/page.min.js"></script>
+<script type="text/javascript" src="@@env.BASE_URL@@/js/page.min.js"></script>
 
 <script type="text/javascript">
   (function () {
+    var BASE_URL = "@@env.BASE_URL@@";
+
     // Initialize and render `TutorialNavigator`
     var TutorialNavigator = require('tutorial-navigator');
     var tutorial = new TutorialNavigator({
-      docsDomain: document.location.origin,
-      apptypes: @@JSON.stringify(quickstart.apptypes)@@,
+      docsDomain:      document.location.origin + BASE_URL,
+      apptypes:        @@JSON.stringify(quickstart.apptypes)@@,
       clientplatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
       hybridplatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
       nativeplatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
       serverplatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
-      serverapis: @@JSON.stringify(quickstart.serverApis)@@
+      serverapis:      @@JSON.stringify(quickstart.serverApis)@@
     });
 
     function eqlPath (url) {
@@ -54,11 +56,10 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     /**
      * Routing
      */
-
     page('*', quickstartRoute);
-    page('/quickstart/:apptype?', checkstate, render);
-    page('/quickstart/:apptype/:platform?', checkstate, render);
-    page('/quickstart/:apptype/:platform/:api?', checkstate, render);
+    page(BASE_URL + '/quickstart/:apptype?', checkstate, render);
+    page(BASE_URL + '/quickstart/:apptype/:platform?', checkstate, render);
+    page(BASE_URL + '/quickstart/:apptype/:platform/:api?', checkstate, render);
 
     // Initialize routing
     // page.base('/quickstart');
@@ -69,7 +70,9 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       // if(!/^\/quickstart/.test(ctx.path)) ctx.path = '/quickstart' + ctx.path;
       ctx.pathname = ctx.pathname || '/';
       // prepend quickstart if pathname is '/'
-      if(/^\/$/.test(ctx.pathname)) ctx.path = '/quickstart' + ctx.path;
+      if(ctx.pathname === BASE_URL) {
+        ctx.path = BASE_URL + '/quickstart';
+      }
       next();
     }
 
@@ -79,7 +82,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       var api = ctx.params.api || '';
 
       tutorial.set({
-        apptype: apptype,
+        apptype:        apptype,
         nativePlatform: 'native-mobile' === apptype ? platform : '',
         hybridPlatform: 'hybrid' === apptype ? platform : '',
         clientPlatform: 'spa' === apptype ? platform : '',
@@ -119,12 +122,12 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     tutorial.on('codevisible', titleupdate);
 
     function onapptype(val, old) {
-      var url = '/quickstart/:apptype'.replace(':apptype', val || '')
+      var url = BASE_URL + '/quickstart/:apptype'.replace(':apptype', val || '')
       if (!eqlPath(url)) return page(url);
     }
 
     function onplatform(val, old) {
-      var url = '/quickstart/:apptype/:platform';
+      var url = BASE_URL + '/quickstart/:apptype/:platform';
       var apptype = tutorial.get('apptype');
       var platform = val ? val : '';
 
@@ -148,7 +151,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       if (!platform) return;
       if (old && !api) return;
 
-      var url = '/quickstart/:apptype/:platform/:api'
+      var url = BASE_URL + '/quickstart/:apptype/:platform/:api'
         .replace(':apptype', apptype)
         .replace(':platform', platform)
         .replace(':api', api ? api : 'no-api')
@@ -170,7 +173,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
       if (!platform) return;
       if (old && !visible) return;
 
-      var url = '/quickstart/:apptype/:platform/:api'
+      var url = BASE_URL + '/quickstart/:apptype/:platform/:api'
         .replace(':apptype', apptype)
         .replace(':platform', platform)
         .replace(':api', api
