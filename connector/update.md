@@ -1,5 +1,7 @@
 # Updating the AD/LDAP Connector
 
+If there are multiple instances of the AD/LDAP Connector in a deployment, it is recommended that the set of steps below be done to each instance, one at a time, so that only one instance is down at a time.
+
 These are the steps to update the AD/LDAP Connector to the latest version:
 
 ###1. Verify the version you have installed
