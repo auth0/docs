@@ -9,22 +9,22 @@ This tutorial will use the simplest identity provider (Google OAuth2) that requi
 ##1. Login into Auth0
 Login and select the __Social__ option under the __Connections__ tab:
 
-![](img/connection-add.png)
+![](//cdn.auth0.com/docs/img/connection-add.png)
 
-##2. Enable the Connection 
+##2. Enable the Connection
 Choose _Google/Gmail_ and change status to __Enabled__. Notice all attributes about the user that are supplied by Google, select the ones you are interested in:
 
-![](img/connection-add-idp-attributes.png)
+![](//cdn.auth0.com/docs/img/connection-add-idp-attributes.png)
 
 Save the connection. You are done!
 
 ##3. Test the new connection
 Click on the __Test__ button:
 
-![](img/connection-add-idp-test.png)
+![](//cdn.auth0.com/docs/img/connection-add-idp-test.png)
 
 You will be redirected to Google for authentication and after that you will return to Auth0 where your user profile will be displayed:
 
-![](img/connection-add-idp-test-r.png)
+![](//cdn.auth0.com/docs/img/connection-add-idp-test-r.png)
 
 > For full integration with Google OAuth2, you need to obtain a `clientId` and a `clientSecret`. For a quick setup you don't need it. See [here](goog-clientid) for details.

@@ -18,12 +18,12 @@ Once the user logged in using a second factor you will get back an extra propert
 ```
 
 
-## Google Authenticator 
+## Google Authenticator
 
 ```
 function (user, context, callback) {
-  
-  if( conditionIsMet() ){ 
+
+  if( conditionIsMet() ){
     context.multifactor = {
         provider: 'google-authenticator'
       };
@@ -37,8 +37,8 @@ function (user, context, callback) {
 
 ```
 function (user, context, callback) {
-  
-  if( conditionIsMet() ){ 
+
+  if( conditionIsMet() ){
     context.multifactor = {
         provider: 'duo',
         ikey: '{your Duo integration key}',
@@ -56,8 +56,8 @@ By default multifactor is requested only once per month. You can change this by 
 
 ```
 function (user, context, callback) {
-  
-  if( conditionIsMet() ){ 
+
+  if( conditionIsMet() ){
     context.multifactor = {
       ignoreCookie: true,
       provider: 'google-authenticator'
@@ -70,11 +70,11 @@ function (user, context, callback) {
 
 ## Simple demo
 
-This demo illustrates an app in which __Duo Security__ has been enabled. 
+This demo illustrates an app in which __Duo Security__ has been enabled.
 
 1. User logs in with Windows Live.
 2. User is challenged with an additional authentication factor (in this example the enrollment process has been completed).
 3. User accesses the app.
 
 
-![](img/duo.gif)
+![](//cdn.auth0.com/docs/img/duo.gif)

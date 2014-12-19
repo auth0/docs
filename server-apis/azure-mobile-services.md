@@ -13,7 +13,7 @@ WAMS endpoints can be used from anywhere: [Android](android-tutorial), [iOS](ios
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 
-![](/img/wams-tutorial-4.png)
+![](//cdn.auth0.com/docs/img/wams-tutorial-4.png)
 
 #### 2. Changing the sample to use Auth0
 
@@ -67,14 +67,14 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
 
 These 6 new lines of code do all the work for you. The important aspects:
 
-1. The `Auth0Client` class takes 2 parameters: your `namespace` and the `clientId` of the client application. 
+1. The `Auth0Client` class takes 2 parameters: your `namespace` and the `clientId` of the client application.
 2. There are various overloads for the  `LoginAsync` method. In the example above all options will be presented to the user. You can use other versions of `LoginAsync` to direct login to a specific provider. For example: `LoginAsync("github")` will have users login exclusively with GitHub.
 3. The `GetDelegationToken` call exchanges the client token (just received in step #2) for another token to be used for with WAMS.
 4. A new `MobileServiceUser` object is created with the new information.
 
 The input for the `GetDelegationToken` method, is the clientID of the App / API where `Windows Azure Mobile Services (WAMS) API` addon was enable.
 
-You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect him to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.  
+You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect him to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.
 
 > The sample above is using Windows 8, C#. Clients on other platforms would use almost identical code.
 
@@ -83,15 +83,15 @@ The final step is to use the information on the token on the server code. You wi
 
 ##### 1. Change permissions on the table for each operation:
 
-![](/img/wams-tutorial-5.png)
+![](//cdn.auth0.com/docs/img/wams-tutorial-5.png)
 
 
-##### 2. Use the `user` object to change the behavior of the operation. 
+##### 2. Use the `user` object to change the behavior of the operation.
 
 This example, inserts the `userId` on new rows:
 
-![](/img/wams-tutorial-6.png)
+![](//cdn.auth0.com/docs/img/wams-tutorial-6.png)
 
 And then when querying, it filters out rows for the logged in user:
 
-![](/img/wams-tutorial-7.png)
+![](//cdn.auth0.com/docs/img/wams-tutorial-7.png)

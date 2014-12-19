@@ -29,7 +29,7 @@ This rule will add a `hello` attribute to all users authenticating through any p
       callback(null, user, context)
     }
 
-> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](img/rules.png)
+> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](//cdn.auth0.com/docs/img/rules.png)
 
 A __Rule__ takes the following arguments:
 
@@ -54,7 +54,7 @@ An object containing contextual information of the current authentication transa
   * `ip`: the originating IP address of the user trying to log in.
 * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
 * `stats`: an object containing specific user stats, like `stats.loginsCount`.
-  
+
 
 > It is important to call the `callback` function which takes the `user` and `context` modified, otherwise the script will timeout (this is because of the async nature of node.js).
 
@@ -121,7 +121,7 @@ In addition to adding and removing properties from the user object, you can retu
 
 This will cause a redirect to your callback url with an `error` querystring parameter with the message you set. e.g.: `https://yourapp.com/callback?error=Only%20admins%20can%20use%20this`
 
-We have an open source repository for common rules here: 
+We have an open source repository for common rules here:
 
 <div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a target="_blank" href="https://github.com/auth0/rules">https://github.com/auth0/rules</a></div>
 

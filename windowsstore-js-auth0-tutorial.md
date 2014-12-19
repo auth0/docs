@@ -3,13 +3,13 @@ title: Windows Store Javascript Auth0 Tutorial
 layout: doc.nosidebar.tutorial
 ---
 
-# Authenticating Users Anywhere with Auth0 
+# Authenticating Users Anywhere with Auth0
 
 ## Goals
 
 1. Build a Windows Store app that authenticates users with any identity provider (e.g. Facebook, Google, MS Account, Twitter, PayPal, LinkedIn, Office365, Google Apps, etc)
 
-2. Once authenticated, call Auth0 API to retrieve user's information. 
+2. Once authenticated, call Auth0 API to retrieve user's information.
 
 > The tutorial will take 10 minutes approximately. You are just 10 minutes away from the (W) token :). You shouldn't, but if you need help: http://chat.auth0.com
 
@@ -38,7 +38,7 @@ Keep Auth0 open. You will later need information from the dashboard to test your
 
 ###1. Open Visual Studio 2012 and create a new blank Windows Store App:
 
-![](img/windowsstore-javascript-step1.png)
+![](//cdn.auth0.com/docs/img/windowsstore-javascript-step1.png)
 
 ###2. Add a basic UI to the app
 
@@ -49,13 +49,13 @@ Open the `default.html` file and replace `<p>Content goes here</p>` to a `button
 <button id="login">Login</button>
 ```
 
-![](img/windowsstore-javascript-step2.png)
+![](//cdn.auth0.com/docs/img/windowsstore-javascript-step2.png)
 
 ###3. Add the auth0Client.js javascript
 
 This javascript will encapsulate all access to Auth0. Add a new file named `auth0Client.js` under the `js` folder:
 
-![](img/windowsstore-javascript-step3.png)
+![](//cdn.auth0.com/docs/img/windowsstore-javascript-step3.png)
 
 And add the following code:
 
@@ -113,11 +113,11 @@ var page = WinJS.UI.Pages.define("/default.html", {
 
 When you run the application you will see the Login Screen with the __Auth0 Login Widget__:
 
-![](img/windowsstore-javascript-step5.png)
+![](//cdn.auth0.com/docs/img/windowsstore-javascript-step5.png)
 
 It will show "Google" as an option to authenticate. Place a breakpoint in the `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` line and complete authentication. If everything is successful, you will see the `access_token`.
 
-###6. Enable other identity providers 
+###6. Enable other identity providers
 
 Go back to [Auth0](https://app.auth0.com) and select __Connections__, __Social__:
 
@@ -127,7 +127,7 @@ Enable any of the providers available by clicking on the `Disabled` button.
 
 Run the app again and you will see the providers you just enabled on the login screen:
 
-![](img/windowsstore-javascript-step6.2.png)
+![](//cdn.auth0.com/docs/img/windowsstore-javascript-step6.2.png)
 
 ###7. Getting user attributes
 
@@ -163,6 +163,6 @@ function log(msg) {
 
 Run the app again and you will see the user info after login:
 
-![](img/windowsstore-javascript-step7.png)
+![](//cdn.auth0.com/docs/img/windowsstore-javascript-step7.png)
 
 ## Congratulations!! Go get your token!

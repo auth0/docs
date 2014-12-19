@@ -19,7 +19,7 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 </div>
 
 ### 3. Integration
-There are three options to do the integration: 
+There are three options to do the integration:
 
 1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
@@ -39,7 +39,7 @@ var auth0 = new Auth0Client(
 
 var user = await auth0.LoginAsync(this);
 /*
-    Use this object to do wonderful things, e.g.: 
+    Use this object to do wonderful things, e.g.:
       - get user email => user.Profile["email"].ToString()
       - get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
       - get Windows Azure AD groups => user.Profile["groups"]
@@ -47,7 +47,7 @@ var user = await auth0.LoginAsync(this);
 */
 ```
 
-![](img/wpf-winforms-step1.png)
+![](//cdn.auth0.com/docs/img/wpf-winforms-step1.png)
 
 > For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
 

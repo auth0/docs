@@ -10,7 +10,7 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 
 <pre><code>Install-Package Auth0.Windows8.Js</pre></code>
 
-And add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element: 
+And add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element:
 
 ```html
 <script src="/js/auth0.js"></script>
@@ -25,7 +25,7 @@ And add reference to the JavaScript code in the __default.html__, include the fo
 </div>
 
 ### 3. Integration
-There are three options to do the integration: 
+There are three options to do the integration:
 
 1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
@@ -33,7 +33,7 @@ There are three options to do the integration:
 
 #### Option 1: Authentication using Login Widget
 
-To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project: 
+To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
 ```javascript
 
@@ -43,8 +43,8 @@ var auth0 = new Auth0Client(
 
 auth0.Login(function (err, result) {
   if (err) return err;
-  /* 
-  Use result to do wonderful things, e.g.: 
+  /*
+  Use result to do wonderful things, e.g.:
     - get user email => result.Profile.email
     - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
     - get Windows Azure AD groups => result.Profile.groups
@@ -53,7 +53,7 @@ auth0.Login(function (err, result) {
 });
 ```
 
-![](img/win8-cs-step1.png)
+![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
 
 #### Option 2: Authentication with your own UI
 
@@ -62,8 +62,8 @@ If you know which identity provider you want to use, you can add a `connection` 
 ```javascript
 auth0.Login({ connection: "auth0waadtests.onmicrosoft.com" }, function (err, result) {
   if (err) return err;
-  /* 
-  Use result to do wonderful things, e.g.: 
+  /*
+  Use result to do wonderful things, e.g.:
     - get user email => result.Profile.email
     - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
     - get Windows Azure AD groups => result.Profile.groups
@@ -84,8 +84,8 @@ auth0.Login({
   },
   function (err, result) {
     if (err) return err;
-    /* 
-    Use result to do wonderful things, e.g.: 
+    /*
+    Use result to do wonderful things, e.g.:
       - get user email => result.Profile.email
       - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
       - get Windows Azure AD groups => result.Profile.groups

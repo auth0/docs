@@ -52,7 +52,7 @@ var user = await auth0.LoginAsync(this);
 
 > `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 
-![](/img/xamarin.auth0client.png)
+![](//cdn.auth0.com/docs/img/xamarin.auth0client.png)
 
 #### Option 2: Authentication with your own UI
 
