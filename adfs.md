@@ -13,14 +13,14 @@ This is the data you should give to the ADFS admin:
 
 ### Scripted setup
 
-For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user. 
+For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user.
 
     (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://raw.github.com/auth0/adfs-auth0/master/adfs.ps1") | iex
     AddRelyingParty "urn:auth0:@@account.tenant@@" "https://@@account.namespace@@/login/callback"
 
-Copy & Paste the script above on Windows PowerShell. 
+Copy & Paste the script above on Windows PowerShell.
 
-![](img/adfs-script.png)
+![](//cdn.auth0.com/docs/img/adfs-script.png)
 
 > You must run the script above as an administrator of your system.
 
@@ -30,7 +30,7 @@ Copy & Paste the script above on Windows PowerShell.
 
     $realm = "urn:auth0:@@account.tenant@@";
     $webAppEndpoint = "https://@@account.namespace@@/login/callback";
-    
+
     Add-PSSnapin Microsoft.Adfs.Powershell
     Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
     $rp = Get-ADFSRelyingPartyTrust -Name $realm
@@ -38,16 +38,16 @@ Copy & Paste the script above on Windows PowerShell.
 #####2. Creates the rules to output the most common Active Directory attributes (email, UPN, given name, surname)
 
     $rules = @'
-    @RuleName = "Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)" 
-    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"] 
-    => issue(store = "Active Directory", 
-        types = ("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress", 
-                 "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name", 
-                 "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", 
-                 "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", 
+    @RuleName = "Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)"
+    c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
+    => issue(store = "Active Directory",
+        types = ("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+                 "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+                 "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
+                 "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname",
                  "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"), query = ";mail,displayName,userPrincipalName,givenName,sn;{0}", param = c.Value);
     '@
-  
+
     Set-ADFSRelyingPartyTrust –TargetName $realm -IssuanceTransformRules $rules
 
     $rSet = New-ADFSClaimRuleSet –ClaimRule '=> issue(Type = "http://schemas.microsoft.com/authorization/claims/permit", Value = "true");'
@@ -65,7 +65,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 4- Select `Enter data about the relying party manually` and click `Next`
 
-![](img/adfs-importmanual.png)
+![](//cdn.auth0.com/docs/img/adfs-importmanual.png)
 
 5- Enter an arbitrary name (e.g. "@@account.appName@@") and click `Next`
 
@@ -77,13 +77,13 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
     https://@@account.namespace@@/login/callback
 
-![](img/adfs-url.png)
- 
+![](//cdn.auth0.com/docs/img/adfs-url.png)
+
 9- Add a relying party identifier with the following value and click `Add` and then `Next`
 
     urn:auth0:@@account.tenant@@
 
-![](img/adfs-identifier.png)
+![](//cdn.auth0.com/docs/img/adfs-identifier.png)
 
 10- Leave the default option (Permit all users...) and click `Next`
 
@@ -93,7 +93,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 13- Leave the default option (Send LDAP Attributes as Claims)
 
-![](img/adfs-sendldap.png)
+![](//cdn.auth0.com/docs/img/adfs-sendldap.png)
 
 14- Give the rule an arbitrary name that describes what it does. For example:
 
@@ -101,6 +101,6 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 15- Select the following mappings and click `Finish`
 
-![](img/adfs-claimrules.png)
+![](//cdn.auth0.com/docs/img/adfs-claimrules.png)
 
 Yes, running the script is definitely easier.

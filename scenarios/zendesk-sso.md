@@ -12,7 +12,7 @@ You can enable SSO for administrators/agents, users, or both. In any case, the c
 
 Log in to your Zendesk dashboard, go into your **Security** settings and enable **SSO** with **JSON Web Token**:
 
-![](/img/zendesk-sso-1.png)
+![](//cdn.auth0.com/docs/img/zendesk-sso-1.png)
 
 Here you'll need to configure the **Remote login URL**, which points to a webpage where your users will be able to sign in, for example, using [Lock](/lock).
 Also, take note of the **Shared secret** here, we'll be using it in the next step.

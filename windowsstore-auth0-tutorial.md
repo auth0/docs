@@ -3,13 +3,13 @@ title: Windows Store Auth0 Tutorial
 layout: doc.nosidebar.tutorial
 ---
 
-# Authenticating Users Anywhere with Auth0 
+# Authenticating Users Anywhere with Auth0
 
 ## Goals
 
 1. Build a Windows Store app that authenticates users with any identity provider (e.g. Facebook, Google, MS Account, Twitter, PayPal, LinkedIn, Office365, Google Apps, etc)
 
-2. Once authenticated, call Auth0 API to retrieve user's information. 
+2. Once authenticated, call Auth0 API to retrieve user's information.
 
 > The tutorial will take 10 minutes approximately. You are just 10 minutes away from the (W) token :). You shouldn't, but if you need help: http://chat.auth0.com
 
@@ -62,7 +62,7 @@ Make the class public, and add the following properties and a constructor:
         private string Callback { get; set; }
 
         public string AuthenticationToken { get; set; }
-        public string AccessToken { get; set; } 
+        public string AccessToken { get; set; }
 
         public Auth0Client(string tenant, string clientId, string callback)
         {
@@ -151,7 +151,7 @@ When you run the application you will see the Login Screen with the __Auth0 Logi
 
 It will show "Google" as an option to authenticate. Place a breakpoint in the `var token=ts.Result` line and complete authentication. If everything is successful, you will see the `access_token`.
 
-###6. Enable other identity providers 
+###6. Enable other identity providers
 
 Go back to [Auth0](https://app.auth0.com) and select __Connections__, __Social__:
 
@@ -167,7 +167,7 @@ Run the app again and you will see the providers you just enabled on the login s
 
 Open the `MainPage.xaml` file and drop a `TextBox` control from the Toolbox after the `Button`, name it `UserInfo`, clean `Text` and set `IsReadOnly` to `true`:
 
-![](img/windowsstore-step7.1.png)
+![](//cdn.auth0.com/docs/img/windowsstore-step7.1.png)
 
 Open the `Auth0Client.cs` file and add the __GetUserInfoAsync__ method:
 
@@ -201,7 +201,7 @@ Go to the Button_Click event handler and replace `var token = ts.Result;` to the
 
 ```cs
 
-client.GetUserInfoAsync().ContinueWith(task => 
+client.GetUserInfoAsync().ContinueWith(task =>
     {
         this.UserInfo.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.UserInfo.Text = task.Result);
     });
@@ -209,6 +209,6 @@ client.GetUserInfoAsync().ContinueWith(task =>
 
 Run the app again, and you will see the user info after login:
 
-![](img/windowsstore-step7.png)
+![](//cdn.auth0.com/docs/img/windowsstore-step7.png)
 
 Congratulations!!

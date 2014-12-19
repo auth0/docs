@@ -16,7 +16,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 
 ## Anatomy of the Auth0 Login Widget
 
-![](img/widget-numbered.png)
+![](//cdn.auth0.com/docs/img/widget-numbered.png)
 
 1. The __title__ of the widget. You can optionally show a 24x24 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
@@ -63,7 +63,7 @@ This example shows how to display the labels in Spanish:
 
 Resulting in:
 
-![](img/widget-customized.png)
+![](//cdn.auth0.com/docs/img/widget-customized.png)
 
 ## Customizing the Login Widget for Database Connections
 
@@ -88,7 +88,7 @@ When using a database connections, the **Login Widget** has support for account 
 
 Will display the following:
 
-![](img/widget-customized-signup.png)
+![](//cdn.auth0.com/docs/img/widget-customized-signup.png)
 
 ### Customizing **change-password** messages
 
@@ -111,7 +111,7 @@ Will display the following:
 
 Will display the following:
 
-![](img/widget-customized-reset.png)
+![](//cdn.auth0.com/docs/img/widget-customized-reset.png)
 
 ## Customizing error messages
 
@@ -135,7 +135,7 @@ You can also customize the error messages that will be displayed on certain situ
 
 These errors will be shown on the widget header:
 
-![](img/widget-error.png)
+![](//cdn.auth0.com/docs/img/widget-error.png)
 
 ## Sending extra query string parameters
 

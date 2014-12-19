@@ -1,6 +1,6 @@
 # Using Auth0 with ASP.NET MVC 4 - Enterprise Providers
 
-The true power of Auth0 is that it open new possibilities to integrate your application with your customers user directories. In this tutorial we will guide you through a series of steps to enable enterprise single-sign on in your Asp.Net MVC 4 application. 
+The true power of Auth0 is that it open new possibilities to integrate your application with your customers user directories. In this tutorial we will guide you through a series of steps to enable enterprise single-sign on in your Asp.Net MVC 4 application.
 
 ##Before you start
 
@@ -9,9 +9,9 @@ The true power of Auth0 is that it open new possibilities to integrate your appl
 
 ##Integrating Auth0 with MVC4
 
-###1. Enable an enterprise provider 
+###1. Enable an enterprise provider
 
-Go to [Enterprise Connections](@@uiURL@@/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial. 
+Go to [Enterprise Connections](@@uiURL@@/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial.
 
 ###2. Create a new provisioning route
 
@@ -71,18 +71,18 @@ After an administrator of the domain follows the provisioning link, he will be r
     {
         if (granted && !string.IsNullOrEmpty(domain))
         {
-            OAuthWebSecurity.RegisterClient(new Auth0.OpenAuthClient(connection, 
+            OAuthWebSecurity.RegisterClient(new Auth0.OpenAuthClient(connection,
                                                                 "@@account.clientId@@",
                                                                 "@@account.clientSecret@@",
-                                                                "@@account.namespace@@", 
+                                                                "@@account.namespace@@",
                                                                 connection), connection, new Dictionary<string, object>());
-            
+
             ViewBag.domain = domain;
             ViewBag.connection = connection;
             return View("Domain_Granted");
         }
 
-        //.... same code you have before next  
+        //.... same code you have before next
 
 ####4.b Create a view named ```Domain_Granted``` in ```Views\Account```:
 
@@ -112,7 +112,7 @@ Create a new controller named EnterpriseLoginController:
         public ActionResult Open(string domain)
         {
             return new AccountController.ExternalLoginResult(
-                    domain, 
+                    domain,
                     Url.Action("ExternalLoginCallback", "Account"));
         }
     }
@@ -128,16 +128,16 @@ Modify the ```RouteConfig.cs``` file and add a new route **before** the default 
 
 And modify the ```Domain_Granted```, add the following link:
 
-    <a href="/e/@ViewBag.connection"> login as @ViewBag.domain </a> 
+    <a href="/e/@ViewBag.connection"> login as @ViewBag.domain </a>
 
 When Enterprise Users visit this URL they are automatically redirected to their company login page:
 
-![](img/enterprise-login.png)
+![](//cdn.auth0.com/docs/img/enterprise-login.png)
 
 ## Testing the app:
 
 Open a browser, navigate to the website and press the **sign up my company** link. You should see the provisioning widget and if you have a google account you will be able to register a company:
 
-![](img/widget-prov-in-aspnet.png)
+![](//cdn.auth0.com/docs/img/widget-prov-in-aspnet.png)
 
-Congratulations! 
+Congratulations!

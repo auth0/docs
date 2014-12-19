@@ -5,7 +5,7 @@ To configure WordPress OAuth2 connections you will need to register Auth0 with W
 ##1. Log in into the developer portal
 Go to the [developer portal](http://developer.wordpress.com/), and login with your WordPress credentials. Select __My Applications__ and click on __Create New Application__:
 
-![](img/wordpress-devportal-1.png)
+![](//cdn.auth0.com/docs/img/wordpress-devportal-1.png)
 
 ---
 
@@ -15,7 +15,7 @@ Create a new application and complete the form. Use this URL as your callback:
 
 	https://@@account.namespace@@/login/callback
 
-![](img/wordpress-devportal-2.png)
+![](//cdn.auth0.com/docs/img/wordpress-devportal-2.png)
 
 ---
 
@@ -23,5 +23,5 @@ Create a new application and complete the form. Use this URL as your callback:
 
 Once the application is registered, enter your new `Client ID` and `Client Secret` into the connection settings in Auth0.
 
-![](img/wordpress-devportal-3.png)
+![](//cdn.auth0.com/docs/img/wordpress-devportal-3.png)
 

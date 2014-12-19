@@ -1,6 +1,6 @@
 # Connecting Active Directory with Auth0
 
-Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network. 
+Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network.
 
 The __AD/LDAP Connector (1)__, is a bridge between your __Active Directory (2)__  and the __Auth0 Service (3)__. This bridge is necessary because AD is typically locked down to your internal network, and Auth0 is a cloud service running on a completely different context.
 
@@ -16,17 +16,17 @@ The first step is creating a new Connection on the dashboard:
 
 __Connections > Enterprise > AD/LDAP__
 
-![](https://puu.sh/7iXKl.png)
+![](https://cdn.auth0.com/docs/img/ldap-create.png)
 
 Name the connection and check whether you want `Kerberos` enabled for this connection. If you enable this, you need to enter the range of IP addresses from where `Kerberos` authentication will be enabled. These would typically be the intranet where `Kerberos` would work.
 
 In addition, the `Email domains` field, whitelists email suffixes that will be recognized before redirecting users to this particular AD/LDAP connection.
 
-![](https://i.cloudup.com/xBs02mlMqR.png)
+![](https://cdn.auth0.com/docs/img/ldap-create-2.png)
 
 __Save__ the configuration. You are done on the Auth0 side! You will then be prompted to download the __AD/LDAP Connector__ to your machine.
 
-![](https://s3.amazonaws.com/blog.auth0.com/adldap_create_02.PNG)
+![](https://cdn.auth0.com/docs/img/ldap-create-3.png)
 
 > We ship different versions of the Connector to install it on multiple platforms: Windows, Linux and OS X
 
