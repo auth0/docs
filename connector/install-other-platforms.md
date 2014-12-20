@@ -12,14 +12,14 @@ In order to install the __Auth0 AD/LDAP Connector__  you need to first install n
   <ul>
     <li>
       <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.pkg" target="_blank">
-        <img src="/img/node-mac.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/node-mac.png" alt="">
         Macintosh Installer
         <small>node-v0.8.22.pkg</small>
       </a>
     </li>
     <li id="source">
       <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.tar.gz" target="_blank">
-        <img src="/img/node-linux.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/node-linux.png" alt="">
         Linux
         <small>node-v0.8.22.tar.gz</small>
       </a>
@@ -33,7 +33,7 @@ Once node.js has been installed, download and unzip the source code for the __Au
   <ul>
     <li>
       <a href="https://github.com/auth0/ad-ldap-connector/archive/master.zip" target="_blank">
-        <img src="/img/package.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/package.png" alt="">
         Auth0 AD / LDAP Connector (zip)
         <small>source code zip file</small>
       </a>

@@ -16,21 +16,21 @@ In order to install the __Auth0 Custom Authentication Connector__ you need to fi
   <ul>
     <li>
       <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22-x86.msi" target="_blank">
-        <img src="/img/node-windows.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
         Windows Installer
         <small>node-v0.8.22-x86.msi</small>
       </a>
     </li>
     <li>
       <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.pkg" target="_blank">
-        <img src="/img/node-mac.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/node-mac.png" alt="">
         Macintosh Installer
         <small>node-v0.8.22.pkg</small>
       </a>
     </li>
     <li id="source">
       <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.tar.gz" target="_blank">
-        <img src="/img/node-linux.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/node-linux.png" alt="">
         Linux
         <small>node-v0.8.22.tar.gz</small>
       </a>
@@ -44,7 +44,7 @@ Once node.js has been installed, download and unzip the source code for the __Au
   <ul>
     <li>
       <a href="https://github.com/auth0/custom-connector/archive/master.zip" target="_blank">
-        <img src="/img/package.png" alt="">
+        <img src="//cdn.auth0.com/docs/img/package.png" alt="">
         Auth0 Custom Authentication Connector (zip)
         <small>source code zip file</small>
       </a>
@@ -62,7 +62,7 @@ When prompted for the ticket url, paste the following:
 
 	https://@@account.namespace@@/p/custom/@@ticket@@
 
-> After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server to complete the setup on Auth0. 
+> After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server to complete the setup on Auth0.
 
 ##2. Let's try to login!
 
@@ -70,7 +70,7 @@ Now that you have a running authentication server, let's try to login with a tes
 
 <a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
--  Test User: __foo@bar.com__ 
+-  Test User: __foo@bar.com__
 -  Test Password: __123__
 
 > By default, the connector will only allow one user to login: a __test__ user that is hard coded in the app. This is so you can verify that everything works fine before changing it to use a real user repository (like a SQL database).
@@ -91,7 +91,7 @@ To change the authentication logic, you will have to edit `users.js`
 	  // lookup a user
 	  // validate password
 	  // return user with profile
-	  
+
 	  return callback(null, { id: 123, username: 'test', displayName: 'test user', ... });
 	};
 
@@ -127,7 +127,7 @@ For your reference, here are tutorials you can follow to learn more about deploy
 
 ### Production considerations
 
-To avoid man in the middle attacks, this server has to be configured to use TLS/SSL. If you are running under IIS, configure the [web site to use SSL](http://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis). 
+To avoid man in the middle attacks, this server has to be configured to use TLS/SSL. If you are running under IIS, configure the [web site to use SSL](http://www.iis.net/learn/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 If you are hosting on Linux, change the [server.js](https://github.com/auth0/ad-ldap-connector/blob/master/server.js) to use an [https server in node.js](http://nodejs.org/api/https.html#https_https_createserver_options_requestlistener).
 
@@ -152,11 +152,11 @@ var checkStep = function () {
 		for (var i = 1; i < currentStep; i++) {
 			$('h2:contains(' + i + '.)')
 				.addClass('step-finished')
-				.prepend('<img src="/img/check.png">');
+				.prepend('<img src="//cdn.auth0.com/docs/img/check.png">');
 		};
 
 		$('.current-step').removeClass('current-step');
-		
+
 		$('h2:contains(' + currentStep + '.)').addClass('current-step');
 
 		if (currentStep === 3 && $('#logmeout3').length === 0) {
