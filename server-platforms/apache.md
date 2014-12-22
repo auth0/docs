@@ -70,7 +70,7 @@ You can configure Apache to protect a certain location based on an attribute of 
 <Location /example/>
    AuthType openid-connect
    #Require valid-user
-   Require claim folder:exmaple
+   Require claim folder:example
 </Location>
 
 <Location /example2>
