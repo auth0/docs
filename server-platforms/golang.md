@@ -51,33 +51,29 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
   domain := "@@account.namespace@@"
 
   // Instantiating the OAuth2 package to exchange the Code for a Token
-  opts, err := oauth2.New(
-    oauth2.Client("@@account.clientId@@", "@@account.clientSecret@@"),
-    oauth2.RedirectURL(os.Getenv("http://yourUrl/callback")),
-    oauth2.Scope("openid", "profile"),
-    oauth2.Endpoint(
-      "https://" + domain + "/authorize",
-      "https://" + domain + "/oauth/token",
-    ),
-  )
-
-  if err != nil {
-    http.Error(w, err.Error(), http.StatusInternalServerError)
-    return
+  conf := &oauth2.Config{
+    ClientID:     os.Getenv("AUTH0_CLIENT_ID"),
+    ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET"),
+    RedirectURL:  os.Getenv("AUTH0_CALLBACK_URL"),
+    Scopes:       []string{"openid", "profile"},
+    Endpoint: oauth2.Endpoint{
+      AuthURL:  "https://" + domain + "/authorize",
+      TokenURL: "https://" + domain + "/oauth/token",
+    },
   }
 
-  # Getting the Code that we got from Auth0
+  // Getting the Code that we got from Auth0
   code := r.URL.Query().Get("code")
-  transport, err := opts.NewTransportFromCode(code)
+  
+  // Exchanging the code for a token
+  token, err := conf.Exchange(oauth2.NoContext, code)
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
     return
   }
-
-  token := transport.Token()
 
   // Getting now the User information
-  client := http.Client{Transport: transport}
+  client := conf.Client(oauth2.NoContext, token)
   resp, err := client.Get("https://" + domain + "/userinfo")
   if err != nil {
     http.Error(w, err.Error(), http.StatusInternalServerError)
