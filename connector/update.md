@@ -17,9 +17,10 @@ The latest version of the AD/LDAP Connector is always available on the [GitHub r
 ###2. Backup your current config
 
 Before updating the connector backup these files from `%Program Files(x86)%\Auth0\AD LDAP Connector\`:
-* `config.json`
-* `certs`
-* `lib\profileMapper.js`
+
+*  `config.json`
+*  `certs`
+*  `lib\profileMapper.js`
 
 > The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets.
 
