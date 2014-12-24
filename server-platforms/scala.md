@@ -36,6 +36,12 @@ auth0.callbackURL="http://localhost:9000/callback"
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
 ````scala
+// conf/routes
+GET     /callback                   controllers.Callback.callback(code: Option[String], state: Option[String])
+```
+
+````scala
+// controllers/Callback.scala
 object Callback extends Controller {
 
   // callback route
@@ -106,12 +112,6 @@ In this case, the callbackURL should look something like:
 http://yourUrl/callback
 ```
 
-Also, remember to add the route in the `conf/routes` file:
-
-````scala
-GET     /callback                   controllers.Callback.callback(code: Option[String], state: Option[String])
-```
-
 ### 3. Triggering login manually or integrating the Auth0Lock
 
 @@lockSDK@@
@@ -123,6 +123,7 @@ GET     /callback                   controllers.Callback.callback(code: Option[S
 You can access the user information from the `cache`
 
 ````scala
+// controllers/User.scala
 def index = AuthenticatedAction { request =>
   val idToken = request.session.get("idToken").get
   val profile = Cache.getAs[JsValue](idToken + "profile").get
@@ -131,6 +132,7 @@ def index = AuthenticatedAction { request =>
 ```
 
 ````scala
+// views/user.html.scala
 @(profile: JsValue)
 
 @main("Auth0 Play2 Scala Sample","home") {
