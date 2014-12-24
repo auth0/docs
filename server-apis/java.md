@@ -18,15 +18,20 @@ Then, you just need to specify your Auth0 account configuration as enviroment va
 
 ### 1. Add java-jwt dependency
 
-You need to add the java-jwt dependency.
+You need to add the `java-jwt` and `commons-codec` dependencies.
 
-For that, you can just add it to your `pom.xml` if you're using maven.
+For that, you can just add them to your `pom.xml` if you're using maven.
 
 ````xml
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>java-jwt</artifactId>
     <version>0.5</version>
+</dependency>
+<dependency>
+  <groupId>commons-codec</groupId>
+  <artifactId>commons-codec</artifactId>
+  <version>1.4</version>
 </dependency>
 ```
 
@@ -42,7 +47,7 @@ public class JWTFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         jwtVerifier = new JWTVerifier(
-          "<%= account.clientSecret %>",
+          new Base64(true).decodeBase64("<%= account.clientSecret %>"),
           "<%= account.clientId %>");
     }
 
