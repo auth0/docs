@@ -47,7 +47,7 @@ lodash: true
 Add the following to the `Podfile` and run `pod install`:
 
 ```ruby
-pod 'Lock', '~> 1.4'
+pod 'Lock', '~> 1.7'
 pod 'JWTDecode', '~> 0.2'
 ```
 
