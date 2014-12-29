@@ -87,7 +87,7 @@ To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc,
 #import <Lock/Lock.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[A0SocialAuthenticator sharedInstance] handleURL:url sourceApplication:sourceApplication];
+    return [[A0IdentityProviderAuthenticator sharedInstance] handleURL:url sourceApplication:sourceApplication];
 }
 ```
 
@@ -133,7 +133,7 @@ Finally, you need to register Auth0 Facebook authenticator somewhere in your app
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
-    [[A0SocialAuthenticator sharedInstance] registerSocialAuthenticatorProvider:facebook];
+    [[A0IdentityProviderAuthenticator sharedInstance] registerSocialAuthenticatorProvider:facebook];
 }
 ```
 
@@ -148,7 +148,7 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
   NSString *twitterApiKey = ... //Remember to obfuscate your api key
   NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
   A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
-  [[A0SocialAuthenticator sharedInstance] registerSocialAuthenticatorProvider:twitter];
+  [[A0IdentityProviderAuthenticator sharedInstance] registerSocialAuthenticatorProvider:twitter];
 }
 ```
 
