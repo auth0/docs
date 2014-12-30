@@ -22,7 +22,7 @@ Enter the name of your app and optionally a Logo and click **Next**.
 Enter the following values:
 
 * **Single sign on URL**: https://@@account.namespace@@/login/callback
-* **Audience URI (SP Entity ID)**: urn:auth0:@@account.tenant@@
+* **Audience URI (SP Entity ID)**: urn:auth0:@@account.tenant@@:@@connectionName@@
 * Add an Attribute Statement to map "email" to ${user.email}
 
 ![](//cdn.auth0.com/docs/img/okta-4.png)
@@ -54,22 +54,20 @@ Click on **Save** and close the next dialog. You will get asked which applicatio
 
 # Testing
 
-If you have a user on Okta you can now click on **Try** on your Auth0 dashboard and you should be redirected to OneLogin:
+If you have a user on Okta you can now click on **Try** on your Auth0 dashboard and you should be redirected to Okta:
 
 ![](//cdn.auth0.com/docs/img/okta-8.png)
 
-> **Note**: the **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a OneLogin user, read the following section to configure Idp Initiated SignOn so the customer can try on their portal.
+> **Note**: the **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a Okta user, read the following section to configure IdP Initiated SignOn so the customer can try on their portal.
 
 ![](//cdn.auth0.com/docs/img/okta-9.png)
 
-## Idp Initiated SignOn
+## IdP Initiated SignOn
 
-Okta has an Application Portal / Launcher for their users. If you want to support that, you will have to change the Single sign on URL in OneLogin dashboard to be:
+Okta has an Application Portal / Launcher for their users. If you want to support that, you will have to change the Single sign on URL in Okta dashboard to be:
 
 * **Single sign on URL**: https://@@account.namespace@@/login/callback?connection=okta-customer
 
 Where `okta-customer` is the connection name you assigned in Auth0 dashboard.
 
-Also, you have to pick the application to redirect after the SAML assertion is consumed. You can find this in the connection -> Idp Initated SSO tab
-
-
+Also, you have to pick the application to redirect after the SAML assertion is consumed. You can find this in the **Connection -> IdP Initated SSO tab**.

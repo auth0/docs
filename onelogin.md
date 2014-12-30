@@ -42,8 +42,8 @@ Click on **Save**. You will get a dialog with a **Continue** button and a link, 
 
 The information here is what the OneLogin admin needs to finish the configuration of the SAML application.
 
-* **SAML Consumer URL**: https://YOUR_DOMAIN.auth0.com/login/callback
-* **SAML Audience**: urn:auth0:YOUR_DOMAIN
+* **SAML Consumer URL**: https://@@account.namespace@@/login/callback
+* **SAML Audience**: urn:auth0:@@account.tenant@@:@@connectionName@@
 
 ![](//cdn.auth0.com/docs/img/onelogin-9.png)
 
@@ -55,14 +55,14 @@ If you have a user on OneLogin you can now click on **Try** on your Auth0 dashbo
 
 > **Note**: the **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a OneLogin user, read the following section to configure Idp Initiated SignOn so the customer can try on their portal.
 
-## Idp Initiated SignOn
+## IdP Initiated SignOn
 
 OneLogin has an Application Portal / Launcher for their users. If you want to support that, you will have to change the SAML Consume URL in OneLogin dashboard to be:
 
-* SAML Consumer URL: https://YOUR_DOMAIN.auth0.com/login/callback?connection=onelogin-customer
+* SAML Consumer URL: https://@@account.namespace@@/login/callback?connection=onelogin-customer
 
 Where `onelogin-customer` is the connection name you assigned in Auth0 dashboard
 
-Also, you have to pick the application to redirect after the SAML assertion is consumed. You can find this in the connection -> Idp Initated SSO tab
+Also, you have to pick the application to redirect after the SAML assertion is consumed. You can find this in the **Connection -> IdP Initated SSO tab**.
 
 ![](//cdn.auth0.com/docs/img/onelogin-11.png)
