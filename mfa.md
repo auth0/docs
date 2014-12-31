@@ -2,7 +2,7 @@
 
 > This feature is in __beta__. Please [contact us](mailto://support@auth0.com) if you have any questions or if you'd like integration with a specific system not listed here.
 
-> **Warning**: Multifactor authentication does not work with the `/ro` (Resource Owner) endpoint. If using MFA for database connections that use popup mode, `sso: true` needs to be added to the options for auth0.js or Lock. Failing to do so will result in users being able to log in without MFA checks. [More information on `sso` parameter](link to auth0.js sso).
+> **Warning**: Multifactor authentication does not work with the `/ro` (Resource Owner) endpoint. If using MFA for database connections that use popup mode, `sso: true` needs to be added to the options for auth0.js or Lock. Failing to do so will result in users being able to log in without MFA checks. [More information on `sso` parameter](https://github.com/auth0/auth0.js#popup-mode).
 
 Auth0 ships with built-in support for popular, multi-factor authentication systems. We currently have these two systems enabled:
 
