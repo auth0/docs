@@ -2,6 +2,9 @@
 
 > This feature is in __beta__. Please [contact us](mailto://support@auth0.com) if you have any questions or if you'd like integration with a specific system not listed here.
 
+> Warning: Multifactor Authentication does not work with database connections /ro endpoint. This basically means that if you want to enforce MFA for database connections that use popup mode you need to add to the showSignin/show options authParams: { sso: true } if using Auth0 Lock or to the signin/login in Auth0.js {sso: true}. Failing to do this will result in users being able to log in without MFA checks which will undermine the whole purpose of enabling it. More information on [sso parameter](link to auth0.js sso).
+
+
 Auth0 ships with built-in support for popular, multi-factor authentication systems. We currently have these two systems enabled:
 
 * [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator)
