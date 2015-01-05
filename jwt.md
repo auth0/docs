@@ -58,8 +58,8 @@ Where:
 
 ---
 
-##When using Windows Azure Mobile Services
-Windows Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAMS compatible JWT have an additional property in the body:
+##When using Microsoft Azure Mobile Services
+Microsoft Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAMS compatible JWT have an additional property in the body:
 
 	uid: "{connection}|{user_id}"
 

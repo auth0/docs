@@ -86,7 +86,7 @@ This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
 }
 ```
 
-This is a sample profile from **Office 365 (Windows Azure Active Directory)**:
+This is a sample profile from **Office 365 (Microsoft Azure Active Directory)**:
 
 ```
 {

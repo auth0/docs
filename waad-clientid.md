@@ -1,12 +1,12 @@
-# Obtaining a ClientId and Client Secret for a Windows Azure Active Directory
+# Obtaining a ClientId and Client Secret for a Microsoft Azure Active Directory
 
-To allow users to login using a Windows Azure Active Directory account you have to register your application through the Windows Azure portal. If you don't have a Windows Azure account, you can signup for one, free, here <http://www.windowsazure.com/en-us/pricing/free-trial>.
+To allow users to login using a Microsoft Azure Active Directory account you have to register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can signup for one, free, here <http://www.windowsazure.com/en-us/pricing/free-trial>.
 
-> NOTE: there is no way to create an application that integrates with Windows Azure AD without having **your own** Windows Azure AD instance.
+> NOTE: there is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
 
-## 1. Create a new Windows Azure Active Directory instance
+## 1. Create a new Microsoft Azure Active Directory instance
 
-After signing up on Windows Azure, click on **Active Directory** item on the Dashboard.
+After signing up on Microsoft Azure, click on **Active Directory** item on the Dashboard.
 
 <img src="img/waad-0.png" style="width: 60%;  border: 2px solid #eee;" />
 
@@ -20,7 +20,7 @@ Enter a subdomain, e.g.: **@@account.tenant@@** (this could be anything, does no
 
 ## 2. Create a new Application
 
-Once the Windows Azure AD was created, go to **APPLICATIONS** and click on **ADD AN APPLICATION**:
+Once the Microsoft Azure AD was created, go to **APPLICATIONS** and click on **ADD AN APPLICATION**:
 
 <img src="img/waad-3.png" style="width: 60%;  border: 2px solid #eee;" />
 
@@ -37,7 +37,7 @@ Proceed to the next screen and enter the following:
 * **SIGN-ON URL**: your application URL (completely arbitrary)
 * **APP ID URI**: https://**@@account.tenant@@**.onmicrosoft.com/yourapp
 
-> NOTE: The APP ID URI is just a logical identifier, not a real URL. It is important to use the value as specified above in APP ID URI. For instance, if the Windows Azure AD you've just created is **myorg.onmicrosoft.com**, here you would enter https://**myorg.onmicrosoft.com**/yourapp.
+> NOTE: The APP ID URI is just a logical identifier, not a real URL. It is important to use the value as specified above in APP ID URI. For instance, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, here you would enter https://**myorg.onmicrosoft.com**/yourapp.
 
 <img src="img/waad-5.png" style="width: 60%;  border: 2px solid #eee;" />
 
@@ -68,4 +68,4 @@ Finally, copy and paste the Client ID and the Key in Auth0.
 
 <img src="img/waad-10.png" style="width: 60%;  border: 2px solid #eee;" />
 
-**Congratulations!** You are now ready to accept Windows Azure AD users.
+**Congratulations!** You are now ready to accept Microsoft Azure AD users.

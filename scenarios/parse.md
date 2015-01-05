@@ -75,12 +75,12 @@ function rule(user, context, callback) {
           user.parse_session_token = body.sessionToken;
           return callback(null, user, context);
         }
-        return callback(new Error('The user provisioning returned an unkonwn error. Body: ' + JSON.stringify(body)));
+        return callback(new Error('The user provisioning returned an unknown error. Body: ' + JSON.stringify(body)));
       });
     }
     else
     {
-      return callback(new Error('The login returned an unkonwn error. Status: ' + response.statusCode + 'Body: ' + body));
+      return callback(new Error('The login returned an unknown error. Status: ' + response.statusCode + 'Body: ' + body));
     }
   });
 }

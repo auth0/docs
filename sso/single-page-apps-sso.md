@@ -75,7 +75,7 @@ To do that, you have to check every X amount of time whether the SSO session is 
 
 ````js
 setInterval(function() {
-  // if the toke is not in local storage, there is nothing to check (i.e. the user is already logged out)
+  // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
   
   lock.$auth0.getSSOData(function(err, data) {
