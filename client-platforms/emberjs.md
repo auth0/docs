@@ -15,6 +15,6 @@ lodash: true
   </blockquote>
 </div>
 
-The EmberJS integration is a wrapper on top of [Auth0 Lock](https://github.com/auth0/lock). Right now, the integration consists in a `Mixing` that will help you handle the Login and keep the `currentUser` always in scope.
+The EmberJS integration is a wrapper on top of [Auth0 Lock](https://github.com/auth0/lock). Right now, the integration consists in a `Mixin` that will help you handle the Login and keep the `currentUser` always in scope.
 
 
