@@ -119,7 +119,7 @@ angular.module('starter', ['ionic',
 
 })
 .run(function(auth) {
-  // This hooks al auth events to check everything as soon as the app starts
+  // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();
 });
 ```
