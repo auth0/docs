@@ -55,7 +55,7 @@ Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@"
         // * Use client.auth0User to do wonderful things, e.g.:
 		// - get user email => [client.auth0User.Profile objectForKey:@"email"]
 		// - get facebook/google/twitter/etc access token => [[[client.auth0User.Profile objectForKey:@"identities"] objectAtIndex:0] objectForKey:@"access_token"]
-		// - get Windows Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
+		// - get Microsoft Azure AD groups => [client.auth0User.Profile objectForKey:@"groups"]
 		// - etc.
     }
 }];

@@ -38,7 +38,7 @@ Add the following in the list of the services `providers`, located in `app/confi
 );
 ```
 
-Optionally, if you want to use the (facede)[http://laravel.com/docs/facades] called Auth0 you should also add an `alias` in the same file. That lets you call the service method like `Auth0::jwtuser()`.
+Optionally, if you want to use the (facade)[http://laravel.com/docs/facades] called Auth0 you should also add an `alias` in the same file. That lets you call the service method like `Auth0::jwtuser()`.
 
 ````php
 'aliases' => array(

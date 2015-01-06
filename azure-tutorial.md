@@ -1,8 +1,8 @@
-# Using Auth0 with Windows Azure
+# Using Auth0 with Microsoft Azure
 
-From an Auth0 integration perspective, the code is the same, regardless of where your app is running: on Windows Azure or your local dev environment.
+From an Auth0 integration perspective, the code is the same, regardless of where your app is running: on Microsoft Azure or your local dev environment.
 
-To integrate applications supported by the Windows Azure platform, consider these tutorials:
+To integrate applications supported by the Microsoft Azure platform, consider these tutorials:
 
 * [ASP.NET application](aspnet-tutorial) <br />
 Simple non-intrusive integration with any version of ASP.NET.
@@ -10,14 +10,14 @@ Simple non-intrusive integration with any version of ASP.NET.
 * [Node.js application](nodejs-tutorial) <br />
 Integration using [passport](http://passportjs.org/).
 
-* [Windows Azure Mobile Services](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
-Blog post explaining how to integrate with a Windows Azure Mobile Services backend.
+* [Microsoft Azure Mobile Services](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
+Blog post explaining how to integrate with a Microsoft Azure Mobile Services backend.
 
 ---
 
-### Tip: change Auth0 configuration when deploying to Windows Azure
+### Tip: change Auth0 configuration when deploying to Microsoft Azure
 
-There is one consideration that you might want to take into account when deploying to Windows Azure (or any other environment).
+There is one consideration that you might want to take into account when deploying to Microsoft Azure (or any other environment).
 
 We recommend creating one application per environment in Auth0 (e.g. "Dev", "Test", "QA", etc).
 
@@ -54,7 +54,7 @@ Then, whenever you have to reference the ClientID, Secret or callback, you use t
 </script>
 ```
 
-Whether you deploy to Windows Azure Web Sites or a Cloud Service the Web.config transformation will run.
+Whether you deploy to Microsoft Azure Web Sites or a Cloud Service the Web.config transformation will run.
 
 > **TIP**: to test your web.config transforms you can use this [awesome tool](http://webconfigtransformationtester.apphb.com/)
 

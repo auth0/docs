@@ -75,7 +75,7 @@ Auth0 supports the following strategies:
 
 |Strategy           | Used when users are in                                        |   
 |===================|===============================================================|
-|office365          |Office 365 and Windows Azure Active Directory.                 |
+|office365          |Office 365 and Microsoft Azure Active Directory.               |
 |adfs               |On Premises Active Directory or any WS-Federation server.      |
 |google-apps        |Google Apps.                                                   |
 |windowslive        |Microsoft Account (formerly LiveID).                           |
@@ -277,7 +277,7 @@ For updates, you need to use the PUT operation. PUTs also work on a specific `co
 |Verb	 |URL 													 		  |Description																																																																   |
 |========|================================================================|============================================================================================================================================================================================================================================================================|
 |`GET`	 |https://@@account.namespace@@/api/users 						  |Gets all users who have logged in through any of your connections.																																																		   |
-|`GET`	 |https://@@account.namespace@@/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Windows Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance ADFS), it will return the users who have logged in through that connection.|
+|`GET`	 |https://@@account.namespace@@/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance ADFS), it will return the users who have logged in through that connection.|
 |`GET`	 |https://@@account.namespace@@/api/socialconnections/users       |Gets all users who have logged in through any of the enabled social connections.																																															   |
 
 ####User object
