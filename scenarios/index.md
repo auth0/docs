@@ -15,6 +15,7 @@
 * [AWS](aws)
 * [Firebase](firebaseapi-tutorial)
 * [Salesforce](salesforceapi-tutorial)
+* [Amazon Cognito](scenarios/amazon-cognito)
 * SAP Netweaver Gateway
 * Windows Azure Mobile Services
 * Windows Azure Service Bus
