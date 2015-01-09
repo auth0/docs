@@ -1,4 +1,4 @@
-# Installing the AD LDAP Connector
+# Installing the AD LDAP Connector on Windows
 
 Connecting with __Active Directory__ or any other __LDAP__ server with Auth0 requires deploying and running a piece of software on your side.
 
