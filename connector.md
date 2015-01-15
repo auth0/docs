@@ -10,4 +10,4 @@ In this section:
 -  [High Availability](@@env.BASE_URL@@/connector/high-availability)
 -  [Updating the Connector](@@env.BASE_URL@@/connector/update)
 -  [Monitoring with System Center Operations Manager](@@env.BASE_URL@@/connector/scom-monitoring)
--  [Throubleshooting](@@env.BASE_URL@@/connector/throubleshooting)
+-  [Troubleshooting](@@env.BASE_URL@@/connector/troubleshooting)
