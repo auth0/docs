@@ -26,7 +26,7 @@ For that, you can just add them to your `pom.xml` if you're using maven.
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>java-jwt</artifactId>
-    <version>0.5</version>
+    <version>2.0.1</version>
 </dependency>
 <dependency>
   <groupId>commons-codec</groupId>
@@ -47,7 +47,7 @@ public class JWTFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         jwtVerifier = new JWTVerifier(
-          new Base64(true).decodeBase64("<%= account.clientSecret %>"),
+          "<%= account.clientSecret %>",
           "<%= account.clientId %>");
     }
 
