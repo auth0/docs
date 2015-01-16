@@ -30,7 +30,7 @@ Before updating the connector backup these files from `%Program Files(x86)%\Auth
 
 *  `config.json`
 *  `certs`
-*  `lib\profileMapper.js` **only if you modified this file manually*
+*  `lib\profileMapper.js` **only if you modified this file manually**
 
 > The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets.
 
