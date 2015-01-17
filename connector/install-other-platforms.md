@@ -1,4 +1,4 @@
-# Installing the AD LDAP Connector on other platforms
+# Installing the AD LDAP Connector on different platforms
 
 1.  [Install node.js v0.10](https://nodejs.org).
 2.  Use the GitHub repository to download the package: <a class="download-github" href=""></a> to /tmp. Eg: <pre><code class="curl-example"></code></pre>

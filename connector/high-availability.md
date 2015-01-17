@@ -1,21 +1,21 @@
 # High availability
 
-The connector is a very important component, therefore we recommend a high available deployment.
+The connector is a very important component, therefore we recommend a highly available deployment through redundancy: installing multiple instances of it.
 
-If one of the connector fails either because of a network issue or hardware issue, Auth0 can redirect the login transactions to the other connector.
+If one of the instances fails either because of a network issue or hardware issue, Auth0 will redirect the login transactions to the other connector.
 
-Having a High Available deployment also allows updating the connector with zero downtime.
+Having a highly available deployment also allows updating the connector with zero downtime.
 
 ## Instructions
 
 1. Install the connector as explained [here](@@env.BASE_URL@@/connector/install).
-2. Once the first connection is up and running, move to the next point.
-3. Copy the **config.json**, **lib/profileMapper.js** and **certs** from:
+2. Make sure all steps are complete and the connector is up and running.
+3. Copy **config.json**, **lib/profileMapper.js** and everything under the **certs** folder from:
   -  Windows: `C:\Program Files (x86)\Auth0\AD LDAP Connector\`
   -  Linux: `/opt/auth0/ad-ldap`
 
-4. Install the connector on a second server using the same instructions as above for the first server, when prompted for the Ticket URL close the dialog.
-5. Overwrite the the **config.json**, **lib/profileMapper.js** and **certs** on the second server using the files from the first server.
+4. Install the connector on a second server follwing the same instructions as above. When prompted for the __Ticket URL__ close the dialog.
+5. Overwrite all the copied files (**config.json**, **lib/profileMapper.js** and **certs**).
 6. Restart the service on the second server.
 
 You should see now 2 connectors on the dashboard.

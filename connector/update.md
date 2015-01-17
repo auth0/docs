@@ -1,6 +1,6 @@
 # Updating the AD/LDAP Connector
 
-If there are multiple instances of the AD/LDAP Connector in a deployment, it is recommended that the set of steps below be done to each instance, one at a time, so that only one instance is down at a time.
+If there are multiple instances of the AD/LDAP Connector in a deployment, it is recommended that the set of steps below be done to each instance, one at a time, so that only one instance is down at ay point in time.
 
 These are the steps to update the AD/LDAP Connector to the latest version:
 
@@ -22,14 +22,14 @@ Download the Windows Installer from <a class="download-link" href=""></a>. The s
 
 Use the GitHub repository for other platforms: <a class="download-github" href=""></a>.
 
-**Note:** Always verify the checksums as explained [here](@@env.BASE_URL@@/checksum).
+**Note:** Always verify the checksum of the downloaded installer as explained [here](@@env.BASE_URL@@/checksum).
 
 ###3. Backup your current config
 
 Before updating the connector backup these files from `%Program Files(x86)%\Auth0\AD LDAP Connector\`:
 
 *  `config.json`
-*  `certs`
+*  `certs` folder
 *  `lib\profileMapper.js` **only if you modified this file manually**
 
 > The PATH above works for Windows based machines. Installations in other platforms will be located somewhere else, but contain the same assets.
