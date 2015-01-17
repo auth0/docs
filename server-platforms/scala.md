@@ -141,7 +141,7 @@ def index = AuthenticatedAction { request =>
 }
 ```
 
-### 5. You've nailed it.
+### 5. You're done!
 
 You have configured your Play2 Scala Webapp to use Auth0. Congrats, you're awesome!
 

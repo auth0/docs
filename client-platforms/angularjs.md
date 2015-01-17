@@ -171,9 +171,9 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 });
 ```
 
-### 8. Sit back and relax
+### 8. You're done!
 
-Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and AngularJS.
+You've implemented Login and Signup with Auth0 and AngularJS.
 
 ### Optional Steps
 #### Let's add routing

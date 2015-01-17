@@ -192,6 +192,6 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-### 7. Sit back and relax
+### 7. You're done!
 
-Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and jQuery.
+You've implemented Login and Signup with Auth0 and jQuery.

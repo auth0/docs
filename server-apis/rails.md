@@ -88,6 +88,6 @@ class SecuredPingController < SecuredController
 end
 ```
 
-### 5. You've nailed it.
+### 5. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!

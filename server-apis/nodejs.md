@@ -50,6 +50,6 @@ Now, you need to specify one or more routes or paths that you want to protect, s
 app.use('/api/path-you-want-to-protect', jwtCheck);
 ```
 
-### 4. You've nailed it.
+### 4. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!

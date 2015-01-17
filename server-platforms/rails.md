@@ -113,7 +113,7 @@ end
 
 [Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
 
-### 7. You've nailed it.
+### 7. You're done!
 
 You have configured your Ruby on Rails Webapp to use Auth0. Congrats, you're awesome!
 

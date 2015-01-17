@@ -109,6 +109,6 @@ End Function
 <%= '%\>' %>
 ```
 
-### 3. You've nailed it.
+### 3. You're done!
 
 You have configured your ASP.Net Classic Webapp to use Auth0. Congrats, you're awesome!

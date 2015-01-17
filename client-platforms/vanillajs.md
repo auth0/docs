@@ -94,6 +94,6 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-### 6. Sit back and relax
+### 6. You're done!
 
-Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and VanillaJS.
+You've implemented Login and Signup with Auth0 and VanillaJS.

@@ -124,7 +124,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse resp) throw
 }
 ```
 
-### 6. You've nailed it.
+### 6. You're done!
 
 You have configured your Java Webapp to use Auth0. Congrats, you're awesome!
 

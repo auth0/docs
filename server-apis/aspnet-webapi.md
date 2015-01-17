@@ -56,7 +56,7 @@ Add the following entries as children of the `<appSettings>` element.
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
 
-### 5. You've nailed it.
+### 5. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
 

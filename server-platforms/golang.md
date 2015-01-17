@@ -161,7 +161,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 
 [Click here](@@base_url@@/user-profile) to check all the information that the userinfo hash has.
 
-### 6. You've nailed it.
+### 6. You're done!
 
 You have configured your GoLang Webapp to use Auth0. Congrats, you're awesome!
 

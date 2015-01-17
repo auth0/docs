@@ -130,7 +130,7 @@ app.get('/user', function (req, res) {
 });
 ```
 
-### 8. You've nailed it.
+### 8. You're done!
 
 You have configured your NodeJS Webapp to use Auth0. Congrats, you're awesome!
 

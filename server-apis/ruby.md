@@ -43,6 +43,6 @@ def validate_token
 end
 ```
 
-### 3. You've nailed it.
+### 3. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
