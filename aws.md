@@ -43,16 +43,32 @@ function (user, context, callback) {
   
   context.samlConfiguration.mappings = {
       "https://aws.amazon.com/SAML/Attributes/Role": "awsRole",
-      "https://aws.amazon.com/SAML/Attributes/RoleSessionName": "awsRoleSession" 
-      //"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" : "email"
+      "https://aws.amazon.com/SAML/Attributes/RoleSessionName": "awsRoleSession"
   };
   callback(null, user, context);
 }
 ```
 
+Notice that how you obtain these 2 values in multiple ways. The above, just hardcodes them. You could store these in the __User Profile__, or you could also derive them from other attributes. For example, you might use Active Directory and have properties already associated with users (e.g. `groups`). You can then define a map between `groups` and `AWS roles`:
+
+```
+...
+var awsRoles = {
+  'DomainUser': 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::95123456838:saml-provider/MyAuth0',
+  'DomainAdmins': arn:aws:iam::957483571234:role/SysAdmins,arn:aws:iam::95123456838:saml-provider/MyAuth0'
+};
+
+context.samlConfiguration.mappings = {
+    "https://aws.amazon.com/SAML/Attributes/Role": awsRoles[user.group],
+    "https://aws.amazon.com/SAML/Attributes/RoleSessionName": user.name, 
+
+};
+...
+```
+
 The __AWS roles__ you send will be associated to an __AWS IAM Policy__ that will enforce the type of access allowed for a resource, including the AWS dashboard. Notice the __AWS Role__ has structure of `{Fully qualified Role name},{Fully qualified identity provider}`. In the sample above the IdP is identified as `arn:aws:iam::951887872838:saml-provider/MyAuth0`.
 
-More information on roles, policies see [here]().
+More information on roles, policies see [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html).
 
 ---
 
