@@ -15,7 +15,7 @@ It is very important to have the server clock automatically synchronized with an
 -  **Architecture**: x86 or x86-64
 -  **CPU cores**: min. 1, recommended 2
 -  **Storage**: 500MB of free space on disk
--  **Operative System**: The connector can run on Windows or Linux
+-  **Operating System**: The connector can run on Windows or Linux
 -  **RAM**: min. 2GB
 
 ## Windows Version
