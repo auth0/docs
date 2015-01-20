@@ -1,16 +1,15 @@
 ## Throubleshooting with HAR files
 
-Some times during development the authentication flow doesn't work as expected.
+Sometimes during development the authentication flow doesn't work as expected.
 
-The fastest way to get support is to export a HAR file from chrome dev tools. A **HTTP Archive (HAR) format** file, is a JSON formatted log file of the web browser interactions with web servers.
+The fastest way to identify the underlying issue is to export a `HAR` file from Google Chrome Dev Tools. An **HTTP Archive (HAR) format** file, is a JSON formatted log file of all web browser interactions with web servers.
 
-Generating a HAR file:
+###Generating a HAR file:
 
-
-1.  Close all Incognito windows from Google Chrome.
-2.  Open a new Incognito tab on Google Chrome.
-3.  Open Chrome Developers Tools on the new Incognito Window and click the Network Tab.
-4.  Proceed to demo the issue you want to show us by trying to authenticate.
-5.  Once finished, go to the network tab, right click and then **Save as HAR**: ![docs/img/ss-2015-01-19T11-32-15.png](https://cdn.auth0.com/docs/img/ss-2015-01-19T11-32-15.png)
-6.  Before sending the HAR file to us, make sure to obfuscate any sensitive information in a text editor.
-7.  Send us the file
+1.  Close all __incognito__ windows from Google Chrome.
+2.  Open a __new incognito__ tab on Google Chrome.
+3.  Open __Google Chrome Developers Tools__ on the new Incognito Window and click the Network Tab. Make sure you check the __Preserve Log__ options to record all interactions.
+4.  Proceed with the navigation that presents issues.
+5.  When complete, go back to the __Network__ tab, right click and then select **Save as HAR**: ![docs/img/ss-2015-01-19T11-32-15.png](https://cdn.auth0.com/docs/img/ss-2015-01-19T11-32-15.png)
+6.  Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (e.g. remove passwords, client_secrets, etc).
+7.  Send the file to [support](mailto://support.auth0.com?subject=HAR file)

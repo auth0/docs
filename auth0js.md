@@ -1,0 +1,301 @@
+# auth0.js
+
+__auth0.js__ is a UI-less client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process with the service, and process the response (usually parsing the [JWT](jwt) (JSON web token) that results from a successful authentication). 
+
+## Installing
+
+First, you need to import the library in your page. You have various options:
+
+1. Import the library from [our CDN](http://cdn.auth0.com/w2/auth0-4.js)
+2. If you are using browserify, install with `npm i auth0.js --production --save`.
+3. [Download the file from releases](https://github.com/auth0/auth0.js/releases)
+
+> Note: The samples below use jQuery, but `auth0.js` does not depend on jQuery and any equivalent library can be used with it.
+
+## Initialize
+
+Construct a new instance of the Auth0 client as follows:
+
+~~~html
+<script src="http://cdn.auth0.com/w2/auth0-4.js"></script>
+<script type="text/javascript">
+  var auth0 = new Auth0({
+    domain:       '@@account.namespace@@',
+    clientID:     '@@account.clientId@@',
+    callbackURL:  '{YOUR APP URL}',
+    callbackOnLocationHash: true
+  });
+
+  //...
+</script>
+~~~
+
+## Basic operations
+
+### Login
+
+Trigger the login on any of your enabled `Connections` with:
+
+~~~js
+  //trigger login with google
+  $('.login-google').click(function () {
+    auth0.login({
+      connection: 'google-oauth2'
+    });
+  });
+
+  //trigger login with github
+  $('.login-github').click(function () {
+    auth0.login({
+      connection: 'github'
+    });
+  });
+
+  //trigger login with an enterprise connection
+  $('.login-github').click(function () {
+    auth0.login({
+      connection: 'contoso.com'
+    });
+  });
+
+  //trigger login with a db connection that requires username/password
+  $('.login-dbconn').click(function () {
+    auth0.login({
+      connection: 'db-conn',
+      username:   $('.username').val(),
+      password:   $('.password').val(),
+    });
+  });
+
+  //trigger login with a db connection and avoid the redirect (best experience for SPA)
+  $('.login-dbconn').click(function () {
+    auth0.login({
+      connection: 'db-conn',
+      username:   $('.username').val(),
+      password:   $('.password').val(),
+    },
+    function (err, profile, id_token, access_token) {
+      // store in cookies
+    });
+  });
+
+  //trigger login popup with google
+  $('.login-google-popup').click(function (e) {
+    e.preventDefault();
+    auth0.login({
+      connection: 'google-oauth2',
+      popup: true,
+      popupOptions: {
+        width: 450,
+        height: 800
+      }
+    }, function(err, profile, id_token, access_token, state) {
+      if (err) {
+        alert("something went wrong: " + err.message);
+        return;
+      }
+      alert('hello ' + profile.name);
+    });
+  });
+~~~
+
+You can also request `scopes` that are not pre-configured for your social connections:
+
+~~~js
+  //trigger login requesting additional scopes with google
+  $('.login-google').click(function () {
+    auth0.login({
+      connection: 'google-oauth2',
+      connection_scope: ['https://www.googleapis.com/auth/orkut', 'https://picasaweb.google.com/data/']
+    });
+  });
+
+  // alternatively a comma separated list also works
+  $('.login-google').click(function () {
+    auth0.login({
+      connection: 'google-oauth2',
+      connection_scope: 'https://www.googleapis.com/auth/orkut,https://picasaweb.google.com/data/'
+    });
+  });
+~~~
+
+Trigger the login with offline mode support to get the `refresh_token`
+
+````js
+$('.login-dbconn').click(function () {
+    auth0.login({
+      connection: 'db-conn',
+      username:   $('.username').val(),
+      password:   $('.password').val(),
+      scope: 'openid offline_access'
+    },
+    function (err, profile, id_token, access_token, state, refresh_token) {
+      // store in cookies
+      // refresh_token is sent because offline_access is set as a scope
+    });
+  });
+````
+
+### Processing the callback
+
+#### Redirect Mode
+
+Once you have succesfully authenticated, Auth0 will redirect to the `callbackURL` parameter defined in the constructor. Auth0 will append a few extra parameters after a hash on the URL. These include: an `access_token` and an `id_token` (a JWT). You can parse the hash and retrieve the full user profile as follows:
+
+```js
+  $(function () {
+    var result = auth0.parseHash(window.location.hash);
+
+    //use result.id_token to call your rest api
+
+    if (result && result.id_token) {
+      auth0.getProfile(result.id_token, function (err, profile) {
+        alert('hello ' + profile.name);
+      });
+      // If offline_access was a requested scope
+      // You can grab the result.refresh_token here
+
+    } else if (result && result.error) {
+      alert('error: ' + result.error);
+    }
+  });
+```
+
+Or just parse the hash (if loginOption.scope is not `openid profile`, then the profile will only contains the `user_id`):
+
+```js
+  $(function () {
+      var result = auth0.parseHash(window.location.hash);
+      if (result && result.profile) {
+        alert('your user_id is: ' + result.profile.sub);
+        //use result.id_token to call your rest api
+      }
+    });
+  });
+```
+
+If there is no hash, `result` will be null. If the hash contains an `id_token`, the profile field will be populated.
+
+#### Popup Mode
+
+While using this mode, the result will be passed as the `login` method callback;
+
+```js
+  auth0.login({ popup: true }, function(err, profile, id_token, access_token, state, refresh_token) {
+    if (err) {
+      // Handle the error!
+      return;
+    }
+
+    //use id_token to call your rest api
+    alert('hello ' + profile.name);
+
+    // refresh_token is sent only if offline_access is set as a scope
+  });
+});
+```
+
+## Operations for Database connections
+
+### Sign-ups
+
+If you use [Database Connections](https://docs.auth0.com/mysql-connection-tutorial) you can signup new users with:
+
+~~~js
+  $('.signup').click(function () {
+    auth0.signup({
+      connection: 'db-conn',
+      username:   'foo@bar.com',
+      password:   'shhh...secret'
+    }, function (err) {
+      console.log(err.message);
+    });
+  });
+~~~
+
+After a successful login, `auth0.js` will auto login the user. If you do not want this to happen, use the `auto_login: false` option in the signup method.
+
+### Change Password
+
+~~~js
+  $('.change_password').click(function () {
+    auth0.changePassword({
+      connection: 'db-conn',
+      username:   'foo@bar.com',
+      password:   'bla bla instead of shhh...secret' // the new password
+    }, function (err, resp) {
+      console.log(err.message);
+    });
+  });
+~~~
+
+##Advanced operations
+
+###Delegation Token Request
+
+A delegation token is a new token for a different service or app/API.
+
+If you just want to get a new token for an application registered in Auth0 that is not the current one, you can do the following:
+
+````js
+var options = {
+  id_token: 'your-id-token',    // The id_token you have now
+  targetClientId: 'The-ClientId-Of-The-App-you-are-getting-a-JWT-for'
+  api: 'firebase',              // The type of app (Auth0 can generate multiple token formats)
+  scope: "openid profile"		    // default: openid
+};
+
+auth0.getDelegationToken(options, function (err, delegationResult) {
+	// Call your API using delegationResult.id_token
+});
+````
+
+### Refresh tokens
+
+If you want to refresh your existing (non-expired) token:
+
+````js
+auth0.renewIdToken(current_id_token, function (err, delegationResult) {
+  // Get here the new delegationResult.id_token
+});
+````
+
+If you want to refresh your existing (expired) token, if you have the refresh_token, you can call the following:
+
+````js
+auth0.refreshToken(refresh_token, function (err, delegationResult) {
+  // Get here the new delegationResult.id_token
+});
+````
+
+### Validate a User
+
+You can validate a user of a specific (db) connection with his username and password:
+
+~~~js
+auth0.validateUser({
+  connection:   'db-conn',
+  username:     'foo@bar.com',
+  password:     'blabla'
+}, function (err, valid) { });
+~~~
+
+### SSO
+
+The `getSSOData` method fetches Single-Sign-On information from Auth0:
+
+```js
+  auth0.getSSOData(function (err, ssoData) {
+    if (err) return console.log(err.message);
+    expect(ssoData.sso).to.exist;
+  });
+```
+
+```js
+  // Don't bring active directory data
+  auth0.getSSOData(false, fn);
+```
+
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them as [issues in our repository](https://github.com/auth0/auth0.js/issues). Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
