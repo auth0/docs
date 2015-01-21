@@ -32,4 +32,4 @@ __Save__ the configuration. You are done on the Auth0 side! You will then be pro
 
 Keep the __TICKET URL__ at hand as you will need it later.
 
-[Continue to the instructions to install the connector.](@@env.BASE_URL@@/docs/connector).
+[Continue to the instructions to install the connector.](@@env.BASE_URL@@/connector).
