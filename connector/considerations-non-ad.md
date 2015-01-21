@@ -1,4 +1,4 @@
-# Installing the Connector on Windows
+# OpenLDAP and non-AD Considerations
 
 The connector comes by default highly optimized for **Active Directory**. To configure for OpenLDAP or other LDAPs directories you will have to add these settings in the **config.json** file:
 
