@@ -16,4 +16,4 @@ You can monitor the service status using System Center as you would do with any 
 
 ![ss-2014-12-11T22-50-37.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-12-11T22-50-37.png)
 
-* Select the desired **CPU** and **Memory limits**.
+* Select the limits of **CPU** and **Memory limits**. Eg: 10% of CPU and 200MB of RAM are good limits to trigger alerts.
