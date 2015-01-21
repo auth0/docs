@@ -1,4 +1,4 @@
-# Obtaining an API Key and Secret Key for LinkedId
+# Obtaining an API Key and Secret Key for LinkedIn
 
 To configure LinkedIn OAuth2 connections you will need to register Auth0 with LinkedIn on their [developer portal](http://developer.linkedin.com/).
 
