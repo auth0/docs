@@ -16,7 +16,7 @@ First, you need to import the library in your page. You have various options:
 
 Construct a new instance of the Auth0 client as follows:
 
-~~~html
+```
 <script src="http://cdn.auth0.com/w2/auth0-4.js"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
@@ -28,7 +28,7 @@ Construct a new instance of the Auth0 client as follows:
 
   //...
 </script>
-~~~
+```
 
 ## Basic operations
 
@@ -36,7 +36,7 @@ Construct a new instance of the Auth0 client as follows:
 
 Trigger the login on any of your enabled `Connections` with:
 
-~~~js
+```
   //trigger login with google
   $('.login-google').click(function () {
     auth0.login({
@@ -97,11 +97,11 @@ Trigger the login on any of your enabled `Connections` with:
       alert('hello ' + profile.name);
     });
   });
-~~~
+```
 
 You can also request `scopes` that are not pre-configured for your social connections:
 
-~~~js
+```
   //trigger login requesting additional scopes with google
   $('.login-google').click(function () {
     auth0.login({
@@ -117,11 +117,11 @@ You can also request `scopes` that are not pre-configured for your social connec
       connection_scope: 'https://www.googleapis.com/auth/orkut,https://picasaweb.google.com/data/'
     });
   });
-~~~
+```
 
 Trigger the login with offline mode support to get the `refresh_token`
 
-````js
+```
 $('.login-dbconn').click(function () {
     auth0.login({
       connection: 'db-conn',
@@ -134,7 +134,7 @@ $('.login-dbconn').click(function () {
       // refresh_token is sent because offline_access is set as a scope
     });
   });
-````
+```
 
 ### Processing the callback
 
@@ -142,7 +142,7 @@ $('.login-dbconn').click(function () {
 
 Once you have succesfully authenticated, Auth0 will redirect to the `callbackURL` parameter defined in the constructor. Auth0 will append a few extra parameters after a hash on the URL. These include: an `access_token` and an `id_token` (a JWT). You can parse the hash and retrieve the full user profile as follows:
 
-```js
+```
   $(function () {
     var result = auth0.parseHash(window.location.hash);
 
@@ -201,7 +201,7 @@ While using this mode, the result will be passed as the `login` method callback;
 
 If you use [Database Connections](https://docs.auth0.com/mysql-connection-tutorial) you can signup new users with:
 
-~~~js
+```
   $('.signup').click(function () {
     auth0.signup({
       connection: 'db-conn',
@@ -211,13 +211,13 @@ If you use [Database Connections](https://docs.auth0.com/mysql-connection-tutori
       console.log(err.message);
     });
   });
-~~~
+```
 
 After a successful login, `auth0.js` will auto login the user. If you do not want this to happen, use the `auto_login: false` option in the signup method.
 
 ### Change Password
 
-~~~js
+```
   $('.change_password').click(function () {
     auth0.changePassword({
       connection: 'db-conn',
@@ -227,7 +227,7 @@ After a successful login, `auth0.js` will auto login the user. If you do not wan
       console.log(err.message);
     });
   });
-~~~
+```
 
 ##Advanced operations
 
@@ -237,7 +237,7 @@ A delegation token is a new token for a different service or app/API.
 
 If you just want to get a new token for an application registered in Auth0 that is not the current one, you can do the following:
 
-````js
+```
 var options = {
   id_token: 'your-id-token',    // The id_token you have now
   targetClientId: 'The-ClientId-Of-The-App-you-are-getting-a-JWT-for'
@@ -248,50 +248,50 @@ var options = {
 auth0.getDelegationToken(options, function (err, delegationResult) {
 	// Call your API using delegationResult.id_token
 });
-````
+```
 
 ### Refresh tokens
 
 If you want to refresh your existing (non-expired) token:
 
-````js
+```
 auth0.renewIdToken(current_id_token, function (err, delegationResult) {
   // Get here the new delegationResult.id_token
 });
-````
+```
 
 If you want to refresh your existing (expired) token, if you have the refresh_token, you can call the following:
 
-````js
+```
 auth0.refreshToken(refresh_token, function (err, delegationResult) {
   // Get here the new delegationResult.id_token
 });
-````
+```
 
 ### Validate a User
 
 You can validate a user of a specific (db) connection with his username and password:
 
-~~~js
+```
 auth0.validateUser({
   connection:   'db-conn',
   username:     'foo@bar.com',
   password:     'blabla'
 }, function (err, valid) { });
-~~~
+```
 
 ### SSO
 
 The `getSSOData` method fetches Single-Sign-On information from Auth0:
 
-```js
+```
   auth0.getSSOData(function (err, ssoData) {
     if (err) return console.log(err.message);
     expect(ssoData.sso).to.exist;
   });
 ```
 
-```js
+```
   // Don't bring active directory data
   auth0.getSSOData(false, fn);
 ```
