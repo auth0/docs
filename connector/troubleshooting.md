@@ -1,4 +1,4 @@
-# Throubleshooting
+# Troubleshooting
 
 We do our best to support many scenarios and different configurations.
 
