@@ -20,5 +20,5 @@
 [events-notes]: https://github.com/auth0/lock/wiki/Events
 [development-notes]: https://github.com/auth0/lock/wiki/Development-notes
 [release-process]: https://github.com/auth0/lock/wiki/Release-process
-[playground-url]: http://lock-pl4y.herokuapp.com
+[playground-url]: http://auth0.github.io/playground/
 [migration-guide]: https://github.com/auth0/lock/wiki/Migration-guide
