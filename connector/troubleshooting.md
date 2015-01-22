@@ -7,7 +7,9 @@ Unfortunately some issues are very hard to predict. Especially those that happen
 If you are experiencing problems with the connector, please send us an email to [support](mailto:support@auth0.com) with the following information:
 
 -  Symptoms, explain your problem
--  the `config.json`
+-  the `config.json` from:
+    -  Windows: **C:\Program Files (x86)\Auth0\AD LDAP Connector\config.json**
+    -  Linux: **/opt/auth0-adldap/config.json**
 -  the service log files from:
     -  Windows: **C:\Program Files (x86)\Auth0\AD LDAP Connector\logs.log**
     -  Linux: **/var/log/auth0-adldap.log**
