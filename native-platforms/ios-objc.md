@@ -172,11 +172,14 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 [self presentViewController:controller animated:YES completion:nil];
 ```
 
+[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-Widget-Screenshot.png)](https://auth0.com)
+
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI. 
+> Or you can also try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.iOS-OSX#sms) or [TouchID](https://github.com/auth0/Lock.iOS-OSX#touchid)
+
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
 > To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/How-to-save-and-refresh-JWT-token)
-
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
 
 ### 5. Showing user information
 
