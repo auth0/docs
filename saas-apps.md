@@ -14,7 +14,7 @@ Let's start by enumerating some multi tenant applications and understand how the
 * Slack implements a login screen that asks for email. 
 * The email is then mapped to a Slack account:  `https://{account}.slack.com`.
 * Slack likely maintains a mapping table between email (or email domain) and the Slack subdomain. Notice that in the example above, when entering `matias@auth0.com`, the user is redirected to `https://auth0.slack.com`.
-* Slack only supports email/password authentication. This approach of asking the user for an email first, is a good starting point for enterprise SSO. Each organization will have configured its identity provider (SAML, ADFS, etc.) and Slack will redirect there once the user entered their email (instead of asking th user for credentials).
+* Slack only supports email/password authentication. This approach of asking the user for an email first, is a good starting point for enterprise SSO. Each organization will have configured its identity provider (SAML, ADFS, etc.) and Slack will redirect there once the user entered their email (instead of asking the user for credentials).
 
 ### Authorization: 
     
