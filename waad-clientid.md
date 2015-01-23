@@ -69,3 +69,9 @@ Finally, copy and paste the Client ID and the Key in Auth0.
 <img src="https://cdn.auth0.com/docs/img/waad-10.png" style="width: 60%;  border: 2px solid #eee;" />
 
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
+
+## Troubleshooting
+
+* Make sure to use an Incognito/InPrivate window when granting access and use a Global Administrator user. 
+
+* If you get _Access cannot be granted to this service because the service listing is not properly configured by the publisher._ try turning on the **Application is Multi Tenant** option in the Windows Azure AD application on the Azure dashboard.
