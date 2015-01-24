@@ -1,0 +1,253 @@
+---
+title: ssocircle 
+layout: doc.nosidebar
+---
+# SAML SSO with ssocircle as an Identity Provider
+This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO) to authenticate users against the ssocircle Identity Provider.
+
+There are **6 steps** to this sample
+
+1. Set up the Auth0 Service Provider
+2. Set up the ssocircle IDentity Provider (IDP)
+3. Test the connection to the ssocircle IDP
+4. Register a simple HTML application with which to test the end-to-end connection.
+5. Create the HTML page for a test application
+6. Test your creation
+
+# 1. Set up the Auth0 service provider
+
+In this step you will configure Auth0 so it knows how to communicate with ssocircle for single sign on via the SAML protocol.
+
+**In the Auth0 dashboard:**
+
+1. Click on **"Connections"** link at left.
+2. In the list of options below "Connections", click on **"Enterprise"**
+3. In the middle of the screen, click on **"SAMLP Identity Provider"**
+4. Click on the blue **"Create New Connection"** button
+
+
+In the "Create SAMLP Identity Provider" connection window, enter the following information into the "Configuration" tab.
+
+**Connection Name:** You can make up any name, such as "SampleSAMLConnection"
+
+**Email Domains:** In this example, we will use the Lock widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
+For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.
+
+**Sign In URL:** enter this URL:
+https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle
+
+**Sign Out URL:** enter this URL:
+https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle
+
+**Certificate:**  Create a file called ssocirclecert.pem and paste in the contents below:
+
+>
+-----BEGIN CERTIFICATE-----
+MIICjDCCAXSgAwIBAgIFAJRvxcMwDQYJKoZIhvcNAQEEBQAwLjELMAkGA1UEBhMCREUxEjAQBgNV 
+BAoTCVNTT0NpcmNsZTELMAkGA1UEAxMCQ0EwHhcNMTEwNTE3MTk1NzIxWhcNMTYwODE3MTk1NzIx 
+WjBLMQswCQYDVQQGEwJERTESMBAGA1UEChMJU1NPQ2lyY2xlMQwwCgYDVQQLEwNpZHAxGjAYBgNV 
+BAMTEWlkcC5zc29jaXJjbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCbzDRkudC/ 
+aC2gMqRVVaLdPJJEwpFB4o71fR5bnNd2ocnnNzJ/W9CoCargzKx+EJ4Nm3vWmX/IZRCFvrvy9C78 
+fP1cmt6Sa091K9luaMAyWn7oC8h/YBXH7rB42tdvWLY4Kl9VJy6UCclvasyrfKx+SR4KU6zCsM62 
+2Kvp5wW67QIDAQABoxgwFjAUBglghkgBhvhCAQEBAf8EBAMCBHAwDQYJKoZIhvcNAQEEBQADggEB 
+AJ0heua7mFO3QszdGu1NblGaTDXtf6Txte0zpYIt+8YUcza2SaZXXvCLb9DvGxW1TJWaZpPGpHz5 
+tLXJbdYQn7xTAnL4yQOKN6uNqUA/aTVgyyUJkWZt2giwEsWUvG0UBMSPS1tp2pV2c6/olIcbdYU6 
+ZecUz6N24sSS7itEBC6nwCVBoHOL8u6MsfxMLDzJIPBI68UZjz3IMKTDUDv6U9DtYmXLc8iMVZBn 
+cYJn9NgNi3ghl9fYPpHcc6QbXeDUjhdzXXUqG+hB6FabGqdTdkIZwoi4gNpyr3kacKRVWJssDgak 
+eL2MoDNqJyQ0fXC6Ze3f79CKy/WjeU5FLwDZR0Q=
+>
+-----END CERTIFICATE-----
+
+
+When you paste the certificate into your file, line breaks may get replaced with spaces.  You need to restore the original line breaks and make sure that the line breaks are **exactly** as shown above and the BEGIN CERTIFICATE and END CERTIFICATE
+lines are on their own line and the first and last lines of the file, respectively.
+
+Click on the red **"UPLOAD CERTIFICATE"** button and select the .pem file you just created.
+
+You can ignore the rest of the fields for now.
+
+**Save:** Click on the blue **"SAVE"** button at the bottom.
+
+Here is an example of what the filled-out screen would look like.
+
+![](https://cdn.auth0.com/docs/img/ssocircle-1.png)
+
+
+After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button.  
+
+Click on the **"CONTINUE"** button. In the window that appears, near the bottom, there is a line that says, "You can access the metadata for your connection in Auth0 here:".  Copy the URL below that line into your browser address bar.  The picture below shows the screen on which this URL will appear and where to find it:
+
+![](https://cdn.auth0.com/docs/img/ssocircle-2.png)
+
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+
+Once you go to that metadata URL, it will display the metadata for the Auth0 side of the federation. It will look something like the following with your tenant name in place of the 'xxxxx':
+
+![](https://cdn.auth0.com/docs/img/ssocircle-3.png)
+
+This metadata needs to be given to the IDP, in this case, ssocircle, so it knows how to interact with Auth0.  The steps below will show how to do that.
+
+Copy the entire contents of the metadata, between and including the start and end EntityDescriptor tags.
+
+````"<EntityDescriptor> "...   
+to ...
+"</EntityDescriptor>" ````
+
+You will paste all this into an ssocircle configuration screen later.
+
+# 2. Set up the ssocircle Identity Provider
+
+In this step you will configure ssocircle so it knows how to receive and respond to SAML-based authentication requests from Auth0.
+
+Go to **ssocircle.com** and register for an account (if you haven't already)
+
+Complete the registration and make sure you are logged into ssocircle.com.
+
+Click on the **“Manage Metadata”** link on the left (toward the bottom of the links)
+
+Click on the link **“Add new Service Provider”**
+
+Fill out the following fields:
+
+**FQDN of the ServiceProvider:** Auth0.com
+
+**Attributes send in assertion:** check the box for ‘EmailAddress’
+
+**Insert your metadata information:** paste in the XML metadata that you downloaded after configuring Auth0.  E.g. the info that starts with:
+"<EntityDescriptor..."
+
+Then press the **“Submit”** button to complete the configuration of the IDP
+
+![](https://cdn.auth0.com/docs/img/ssocircle-4.png)
+
+# 3. Test the connection to the ssocircle IDP
+
+In this step, you will do a quick test to make sure the SAML configuration between Auth0 and ssocircle is working.
+
+In the Auth0 dashboard, navigate to:  Connections -> Enterprise -> SAMLP Identity Provider.
+
+Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
+
+When you click on the **"Try"** button, you should be redirected from Auth0 to the ssocircle login page.  You may receive a window that says "Your session has timed out." with a link to "Return to Login page" below it.  If so, just click on the "Return to Login page" link.
+
+Once you are at the **ssocircle login screen**, login with the credentials you provided when you created the ssocircle account and press the "Login" button.
+
+If the SAML configuration works, your browser will be redirected back to an Auth0 page that says "It works!!!".  This page will display the contents of the SAML authentication assertion sent by the ssocircle IDP to Auth0.
+
+This means the connection from Auth0 to the ssocircle IDP is working.
+
+If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
+
+NOTE: The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+
+Here is a sample of the "It Works" screen:
+
+![](https://cdn.auth0.com/docs/img/ssocircle-5.png)
+
+# 4. Register a simple HTML application with which to test the end-to-end connection.
+
+In this step, you will register an application in Auth0 that will use the SAML connection you set up in the above steps.
+
+In the **Auth0 dashboard**, click on the **"Apps/APIs"** link at left.
+
+Click on the red **"+ NEW APP/API"** button on the right.
+
+In the **Name** field, enter a name like "My-HTML-SAML-App".
+
+Press the blue **"SAVE"** button.
+
+In the **Auth0 dashboard**, click again on the **"Apps/APIs"** link at left
+
+Find the row for the application you just created, and click on the **"Settings"** icon to the right of the application name. (the round gear icon)
+
+In the **"Allowed Callback URL"** field, enter **"http://auth0.com/docs"**. This is the URL to which users will be redirected after authentication.  The URL entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 docs URL.
+
+Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
+
+In the same screen, click on the blue **"Connections"** tab (In the row that says Quick Start, Settings etc.
+
+Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
+
+Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
+
+![](https://cdn.auth0.com/docs/img/ssocircle-6.png)
+
+# 5. Create the HTML page for a test application
+
+In this section you will create a very simple HTML page that invokes the Auth0 Lock widget which will trigger the SAML login sequence.  This will enable an end-to-end test of the SAML SSO.
+
+Create an HTML page and insert the following HTML and javascript code:
+
+
+```
+
+    <!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+    <HTML>
+    <BODY>
+    <p> Click on the button to log in </p>
+
+    <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
+    <script type="text/javascript">
+      var lock = new Auth0Lock('your-app-cient-id', '@@acount.namespace@@');
+  
+      function signin() {
+        lock.show({
+            callbackURL: 'http://auth0.com/docs' 
+          , responseType: 'code'
+          , authParams: {
+            scope: 'openid profile'
+          }
+        });
+      }
+    </script>
+    <button onclick="signin()">Login</button>
+    </HTML>
+    </BODY>
+
+```
+
+
+Save this file in a place where you can access it via a browser.
+For this example, we'll call it **"hello-saml.html"**.
+
+# 6. Test your sample application
+
+In this step, you will test your sampl HTML application that uses the Auth0 SAML connection you set up to perform SSO with ssocircle.
+
+In your browser, navigate to the html file created above, **hello-saml.html**.
+
+You should first see a white page with a login button on it.
+
+Click on the **login** button.
+
+The **Auth0 Lock** widget should appear with one button titled **"saml".**
+
+If you have other connections turned on for your application, your Lock widget may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the Settings tab for the  application in the Auth0 dashboard.  (Apps/APIs -> Settings)
+
+Click on the **"saml"** button or the **ACCESS** button "to initiate the SAML sso sequence with ssocircle.
+
+![](https://cdn.auth0.com/docs/img/ssocircle-7.png)
+
+You will be redirected to the ssocircle IDP to log in. 
+
+Note that whether you are prompted for credentials at this point depends on whether you still have an active session at ssocircle.
+
+From the "try me" test you did earlier, you may still have an active session at ssocircle.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specifed in the html file. (Remember that this callback URL must also be in the "Allowed Callback URLs" in the application's Setting tab in the Auth0 dashboard.)
+
+If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to ssocircle.com.  Log in to ssocircle using the credentials with which you established your account at ssocircle.  Upon successful authentication, you will be redirected to the callback URL specified in the .html file.
+
+![](https://cdn.auth0.com/docs/img/ssocircle-8.png)
+
+#7. Troubleshooting.
+
+This section has a few ideas for things to check if your sample doesn't work.
+
+Note that if your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again.  Otherwise, the browser may not be picking up the latest version of your html page.
+
+When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction.  There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for "HTTP Trace" to find some.  Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the callback URL.
+
+Be sure to check to make sure cookies and javascript are enabled for your browser.
+
+Check to make sure that the callback URL specified in the HTML file is also listed in the Allowed Callback URLs field in the Settings tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on Apps/API link, then on the Settings icon to the right of the application name.)
+
+
