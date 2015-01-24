@@ -2,7 +2,7 @@
 title: ssocircle 
 layout: doc.nosidebar
 ---
-# Configuring ssocircle as an Identity Provider
+# SAML SSO with ssocircle as an Identity Provider
 
 There are **6 steps** to this sample
 
@@ -14,6 +14,8 @@ There are **6 steps** to this sample
 6. Test your creation
 
 # 1. Set up the Auth0 service provider
+
+In this step you will configure Auth0 so it knows how to communicate with ssocircle for single sign on via the SAML protocol.
 
 **In the Auth0 dashboard:**
 
@@ -94,6 +96,8 @@ You will paste all this into an ssocircle configuration screen later.
 
 # 2. Set up the ssocircle Identity Provider
 
+In this step you will configure ssocircle so it knows how to receive and respond to SAML-based authentication requests from Auth0.
+
 Go to **ssocircle.com** and register for an account (if you haven't already)
 
 Complete the registration and make sure you are logged into ssocircle.com.
@@ -117,6 +121,8 @@ Then press the **“Submit”** button to complete the configuration of the IDP
 
 # 3. Test the connection to the ssocircle IDP
 
+In this step, you will do a quick test to make sure the SAML configuration between Auth0 and ssocircle is working.
+
 In the Auth0 dashboard, navigate to:  Connections -> Enterprise -> SAMLP Identity Provider.
 
 Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
@@ -138,6 +144,8 @@ Here is a sample of the "It Works" screen:
 ![](https://cdn.auth0.com/docs/img/ssocircle-5.png)
 
 # 4. Register a simple HTML application with which to test the end-to-end connection.
+
+In this step, you will register an application in Auth0 that will use the SAML connection you set up in the above steps.
 
 In the **Auth0 dashboard**, click on the **"Apps/APIs"** link at left.
 
@@ -165,7 +173,7 @@ Find the row for the SAML connection you created above and click on the on/off t
 
 # 5. Create the HTML page for a test application
 
-In this section you will create a very simple HTML page that invokes the Auth0 Lock widget which will trigger the SAML login sequence.
+In this section you will create a very simple HTML page that invokes the Auth0 Lock widget which will trigger the SAML login sequence.  This will enable an end-to-end test of the SAML SSO.
 
 Create an HTML page and insert the following HTML and javascript code:
 
@@ -203,6 +211,8 @@ For this example, we'll call it "hello-saml.html"
 
 # 6. Test your sample application
 
+In this step, you will test your sampl HTML application that uses the Auth0 SAML connection you set up to perform SSO with ssocircle.
+
 In your browser, navigate to the html file created above (hello-saml.html).
 
 You should first see a white page with a login button on it.
@@ -226,6 +236,8 @@ If sufficient time has passed, or if you delete your browser cookies before init
 ![](https://cdn.auth0.com/docs/img/ssocircle-8.png)
 
 #7. Troubleshooting.
+
+This section has a few ideas for things to check if your sample doesn't work.
 
 Note that if your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again.  Otherwise, the browser may not be picking up the latest version of your html page.
 
