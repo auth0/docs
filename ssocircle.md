@@ -3,6 +3,7 @@ title: ssocircle
 layout: doc.nosidebar
 ---
 # SAML SSO with ssocircle as an Identity Provider
+This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO) to authenticate users against the ssocircle Identity Provider.
 
 There are **6 steps** to this sample
 
@@ -159,7 +160,7 @@ In the **Auth0 dashboard**, click again on the **"Apps/APIs"** link at left
 
 Find the row for the application you just created, and click on the **"Settings"** icon to the right of the application name. (the round gear icon)
 
-In the **"Allowed Callback URL"** field, enter a URL to which to redirect the user after authentication.  
+In the **"Allowed Callback URL"** field, enter **"http://auth0.com/docs"**. This is the URL to which users will be redirected after authentication.  The URL entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 docs URL.
 
 Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
@@ -191,7 +192,7 @@ Create an HTML page and insert the following HTML and javascript code:
   
       function signin() {
         lock.show({
-            callbackURL: 'http://auth0.com/docs' <- must match allowed URL in settings
+            callbackURL: 'http://auth0.com/docs' 
           , responseType: 'code'
           , authParams: {
             scope: 'openid profile'
@@ -207,13 +208,13 @@ Create an HTML page and insert the following HTML and javascript code:
 
 
 Save this file in a place where you can access it via a browser.
-For this example, we'll call it "hello-saml.html"
+For this example, we'll call it **"hello-saml.html"**.
 
 # 6. Test your sample application
 
 In this step, you will test your sampl HTML application that uses the Auth0 SAML connection you set up to perform SSO with ssocircle.
 
-In your browser, navigate to the html file created above (hello-saml.html).
+In your browser, navigate to the html file created above, **hello-saml.html**.
 
 You should first see a white page with a login button on it.
 
@@ -221,7 +222,9 @@ Click on the **login** button.
 
 The **Auth0 Lock** widget should appear with one button titled **"saml".**
 
-Click on the **"saml"** button to initiate the SAML sso sequence with ssocircle.
+If you have other connections turned on for your application, your Lock widget may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the Settings tab for the  application in the Auth0 dashboard.  (Apps/APIs -> Settings)
+
+Click on the **"saml"** button or the **ACCESS** button "to initiate the SAML sso sequence with ssocircle.
 
 ![](https://cdn.auth0.com/docs/img/ssocircle-7.png)
 
