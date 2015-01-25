@@ -91,9 +91,11 @@ This metadata needs to be given to the IDP, in this case SSOCircle, so it knows 
 
 Copy the entire contents of the metadata, between and including the start and end `EntityDescriptor` tags:
 
-````"<EntityDescriptor> "...   
-to ...
-"</EntityDescriptor>" ````
+````
+    "<EntityDescriptor> "...   
+    to ...
+    "</EntityDescriptor>" 
+````
 
 You will paste all this into an SSOCircle configuration screen later.
 
@@ -130,7 +132,7 @@ In this step, you will do a quick test to make sure the SAML configuration betwe
 
 * Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
 
-* Click on the **"Try"** button. You should be redirected from Auth0 to the SSOCircle login page.  You may receive a window that says _"Your session has timed out."_ with a link to _"Return to Login page" below it.  If so, just click on the "Return to Login page"_ link.
+* Click on the **"Try"** button. You should be redirected from Auth0 to the SSOCircle login page.  You may receive a window that says _"Your session has timed out."_ with a link to _"Return to Login page"_ below it.  If so, just click on the _"Return to Login page"_ link.
 
 * Once you are at the **SSOCircle login screen**, login with the credentials you provided when you created the SSOCircle account and press the "Login" button.
 
@@ -161,7 +163,8 @@ In this step, you will register an application in Auth0 that will use the SAML c
 
 * Find the row for the application you just created, and click on the **"Settings"** icon to the right of the application name. (the round gear icon)
 
-* In the **"Allowed Callback URL"** field, enter **http://jwt.io**. This is the URL to which users will be redirected after authentication.  The URL entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool.
+* In the **"Allowed Callback URL"** field, enter **http://jwt.io**. 
+* The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool.
 
 * Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
@@ -206,7 +209,9 @@ Create an HTML page and insert the following HTML and javascript code:
 
 ```
 
-Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 4.
+Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 4.  
+
+The client ID for your application can be found in the **Auth0 dashboard** by going to __"Apps/APIs"__ link and clicking on the __"Settings"__ (gear) icon to the right of your application name.
 
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.
@@ -249,6 +254,6 @@ When troubleshooting SSO, it is often helpful to capture an HTTP trace of the in
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
-Check to make sure that the callback URL specified in the HTML file is also listed in the Allowed Callback URLs field in the Settings tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on Apps/API link, then on the Settings icon to the right of the application name.)
+Check to make sure that the callback URL specified in the HTML file is also listed in the **Allowed Callback URLs** field in the __""Settings""__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
 
 
