@@ -204,3 +204,14 @@ module Net
   end
 end
 ```
+#### Troubleshooting "failure message=invalid_credentials"
+
+This issue isn't presented while working on your local (development). After deployment on your staging or production envrinoment and after hitting your callback this issue may appear.
+
+To fix the above error, add the following at your config/environments/staging.rb or production.rb
+
+````ruby
+OmniAuth.config.full_host = "http://www.example.com"
+```
+
+Please substitute the above url with your desire one.
