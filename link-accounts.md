@@ -101,5 +101,5 @@ Body should be:
 }
 ```
 
-Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowlive|9876543210987654321'`.
+Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowslive|9876543210987654321'`.
 
