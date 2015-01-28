@@ -47,9 +47,9 @@ lodash: true
 Add the following to the `buid.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock:1.0.0'
-compile 'com.auth0.android:lock-facebook:1.0.0'
-compile 'com.auth0.android:lock-googleplus:1.0.0'
+compile 'com.auth0.android:lock:1.1.+'
+compile 'com.auth0.android:lock-facebook:1.1.+'
+compile 'com.auth0.android:lock-googleplus:1.1.+'
 ```
 
 ### 2. Configuring Auth0 Credentials & Callbacks
