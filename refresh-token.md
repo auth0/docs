@@ -78,4 +78,4 @@ You can read more about them in the following links:
 
 * [Getting it with Auth0.js](https://github.com/auth0/auth0.js#login)  and [using it to get a new id_token](https://github.com/auth0/auth0.js#refresh-token)
 * [Getting it with Auth0-widget.js](https://github.com/auth0/widget#show-widget). Using it is through Auth0.js
-* [Getting and using it with Auth0-angular.js](https://github.com/auth0/auth0-angular/blob/master/docs/refreshToken.md)
+* [Getting and using it with Auth0-angular.js](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
