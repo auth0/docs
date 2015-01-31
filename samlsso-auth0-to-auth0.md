@@ -4,11 +4,11 @@
 
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 account (account 1) as a SAML Service Provider(SP), authenticating users against a second Auth0 account (account 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML account (account 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
-There are **9 steps** to this sample
+There are **9 sections** to this sample and a troubleshooting section at the end.
 
 1. Establish two Auth0 accounts
-2. Set up the Auth0 IDP (account 2)
-3. Set up the Auth0 service provider (account 1)
+2. Set up the Auth0 Identity Provider (IDP) (account 2)
+3. Set up the Auth0 Service Provider (SP) (account 1)
 4. Add your Service Provider metadata to the Identity Provider
 5. Test Identity Provider
 6. Test the connection from Service Provider to Identity Provider
@@ -24,7 +24,7 @@ If you do not already have two Auth0 accounts, you will need to create them.
 
 In the upper right corner, click on the name of your account and in the popup menu which appears, select "New Account".  
 
-In the window which appears, enter a name for your second account in the "Your Auth0 domain" field and press the **"SAVE"** button.
+In the window which appears, enter a name for your second account in the **"Your Auth0 domain"** field and press the **"SAVE"** button.
 
 You can switch back and forth between the accounts by going to the upper right corner of the dashboard, clicking on the name of the current account, and using the popup menu which appears to switch between your accounts.
 
@@ -67,7 +67,9 @@ Next, create a user to use in testing the SAML SSO sequence.
 2. Click on the red **"+ NEW USER"** button on the right.
 
 3. In the **Email** field, enter an email for your test user.  The domain name for the email should match what you enter in section 3 below.  For example, if your user is john.doe@abc-example.com, you would enter that here, and then enter "abc-example.com" in step 3 below for the Email domain. 
+
 4. Enter a password for the user
+
 5. For the Connection, leave it at the default value. (Username-Password-Authentication)
 
 6. Press the blue **"SAVE"** button.
@@ -88,12 +90,12 @@ Log out of **Account 2** and log into **Account 1**.
 4. Click on the blue **"Create New Connection"** button
 
 
-In the "Create SAMLP Identity Provider" connection window, enter the following information into the "Configuration" tab.
+In the **"Create SAMLP Identity Provider"** connection window, enter the following information into the "Configuration" tab.
 
 **Connection Name:** You can enter any name, such as "SAML-Auth0-IDP"
 
 **Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
-For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.
+For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  Make sure the test user you created in section 2 has an email address with email domain that matches what you enter here.
 
 **Sign In URL:** enter the **"SAML Protocol URL"** field that you copied in section 2 above. (From account 2 dashboard, Apps/APIs link, Settings tab, Advanced Settings, ENDPOINTS section, SAML tab, "SAML Protocol URL" field.)
 
@@ -117,7 +119,7 @@ Click on the **"CONTINUE"** button.
 
 In the window that appears, metadata about this SAML provider (account 1) is displayed.  You will need to collect two pieces of information about this Auth0 account (the service provider) that you will then paste into the other Auth0 account you set up (the identity provider).
 
-First, look for the second bullet in the list of information that tells you the "Entity ID".  It will be of the form _urn:auth0:@@account.tenant@@:@@connectionName@@_.  
+First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form _urn:auth0:@@account.tenant@@:@@connectionName@@_.  
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.
 
 In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
@@ -132,7 +134,7 @@ Once you go to that metadata URL, it will display the metadata for the Auth0 acc
 
 ![](https://cdn.auth0.com/docs/img/saml-auth0-5.png)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the "Location" field.  It will be a URL of the form
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form
 
 https://@@account.tenant@@.auth0.com/login/callback?connection=@@connectionName@@.
 
@@ -157,7 +159,7 @@ In this section you will go back and add some information about the Service Prov
 
 4. Next, click on the **"SAML2 WEB APP"** box itself to access the **"Addon: SAML2 Web App"** popup.  Make sure you are in the **Settings**" tab.
 
-5. In the **"Application Callback URL"** field, paste in the Assertion Consumer Service URL that you copied and saved in Step 3 above (the last step).
+5. In the **"Application Callback URL"** field, paste in the **Assertion Consumer Service URL** that you copied and saved in section 3 above (the last step).
 
 6. In the Settings field below, go to line 2 that has the "audience" attribute.  
 
@@ -165,7 +167,7 @@ First, replace all single quote marks in that line with double quote marks.
 
 Then remove the "//" at the beginning of the line to uncomment it.
 
-Next, replace the original value (urn:foo) with the Entity ID value you saved and copied in step 3 above. The new line 2 should look something like:
+Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
 
 ````
     "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
@@ -184,13 +186,13 @@ That will trigger a login screen from account 2, the Identity Provider.
 
 Log in with the credentials for account 2.
 
-If your configuration is correct, you will see a screen titled "It works!"
+If your configuration is correct, you will see a screen titled **"It works!"**
 
 This screen will show you the encoded and decoded SAML response that would be sent by the Identity Provider.
 
-Check the decoded SAML response and locate (about half-way down) the "<saml:Audience>" tag and make sure it matches the Entity ID you entered in the previous screen (obtained during step 3).
+Check the decoded SAML response and locate (about half-way down) the **"<saml:Audience>"** tag and make sure it matches the **Entity ID** you entered in the previous screen (obtained during step 3).
 
-Click on "Close this window" at the bottom of the screen.
+Click on **"Close this window"** at the bottom of the screen.
 
 ![](https://cdn.auth0.com/docs/img/saml-auth0-8.png)
 
@@ -200,7 +202,7 @@ In this section, you will test to make sure the SAML configuration between Auth0
 
 Log out of Account 2 and return to Account 1.
 
-* In the Auth0 dashboard, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
+* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
 
 * Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
 
@@ -215,7 +217,7 @@ If it didn't work, double check the above steps and then consult the **troublesh
 
 > NOTE: the **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
 
-Here is a sample of the "It Works" screen:
+Here is a sample of the **"It Works"** screen:
 
 ![](https://cdn.auth0.com/docs/img/saml-auth0-9.png)
 
@@ -298,7 +300,7 @@ In this step, you will test your sample HTML application that uses the Auth0 SAM
 
 * Click on the **login** button.
 
-The **Auth0 Lock** widget should appear with one button titled **"saml".**
+The **Auth0 Lock** widget should appear with one button titled **"saml"**.
 
 If you have other connections turned on for your application, your **Auth0 Lock Widget** may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the __Settings__ tab for the  application in the Account 1 Auth0 dashboard.  (__Apps/APIs -> Settings__)
 
@@ -306,7 +308,7 @@ After entering your email address, the blue button on the Lock widget may have a
 
 ![](https://cdn.auth0.com/docs/img/saml-auth0-10.png)
 
-* You will be redirected to the IDP to log in. 
+* You will be redirected to the Identity Provider to log in. 
 
 Note that whether you are prompted for credentials at this point depends on whether you still have an active session at the Identity Provider.
 
