@@ -39,7 +39,7 @@ lodash: true
 <div class="setup-callback">
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>@@account.clientId@@://*.auth0.com/authorize</pre></code>
+<pre><code>a0@@account.clientId@@://*.auth0.com/authorize</pre></code>
 </div>
 
 ### 1. Adding Auth0 Lock to your project
@@ -47,9 +47,9 @@ lodash: true
 Add the following to the `buid.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock:1.0.0'
-compile 'com.auth0.android:lock-facebook:1.0.0'
-compile 'com.auth0.android:lock-googleplus:1.0.0'
+compile 'com.auth0.android:lock:1.1.+'
+compile 'com.auth0.android:lock-facebook:1.1.+'
+compile 'com.auth0.android:lock-googleplus:1.1.+'
 ```
 
 ### 2. Configuring Auth0 Credentials & Callbacks
@@ -165,7 +165,10 @@ Intent lockIntent = new Intent(this, LockActivity.class);
 startActivity(lockIntent);
 ```
 
+[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
+
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
+> Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#sms)
 
 Once the user logs in, we have to register to the `Lock.AUTHENTICATION_ACTION` from a `LocalBroadcastManager` to receive the user profile and tokens.
 

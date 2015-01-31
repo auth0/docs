@@ -10,6 +10,12 @@
 
 - - -
 
+# Advanced Scenarios
+
+* [Invite-only users](invite-only)
+
+- - -
+
 # API integrations
 
 * [AWS](aws)

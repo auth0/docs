@@ -27,7 +27,7 @@ Auth0 supports the association of different accounts. Applications often support
 <a href="javascript:signin()">Add account</a>
 ```
 
-> Notice the `access_token` fragment of the URL that is normally not present. This is the `access_token` Auth0 will generate when a user logs in. It identifies a logged in user univocally in Auth0.
+> Notice the `access_token` fragment of the URL that is normally not present. This is the `access_token` Auth0 will generate when a user logs in. It identifies a logged in user uniquely in Auth0.
 
 **Manually initiating the authentication transaction**
 
@@ -101,5 +101,5 @@ Body should be:
 }
 ```
 
-Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowlive|9876543210987654321'`.
+Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowslive|9876543210987654321'`.
 

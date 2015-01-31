@@ -10,7 +10,7 @@ Check the "Import Users to Auth0" option in the connection settings:
 
 ![](//cdn.auth0.com/docs/img/migrating-1.png)
 
-## How does it works?
+## How does it work?
 
 When you write a **login script** in the database connection to authenticate users, for instance:
 
