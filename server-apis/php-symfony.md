@@ -95,7 +95,7 @@ security:
             pattern: ^/api
             stateless: true
             simple_preauth:
-                authenticator: auth0_symfony_jwt.jwt_authenticator
+                authenticator: auth0_jwt_aut.jwt_authenticator
 
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
