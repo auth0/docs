@@ -4,7 +4,7 @@
 
 This tutorial will walk you through the process of connecting a very basic application up to Auth0 for social authentication and help you get familiar with the Auth0 user interface.
 
-There are **9 sections** to this sample and a troubleshooting section at the end.
+There are 16 short sections to this lesson.  Each section will teach you a new skill or area of the Auth0 user interface.  You should do them in order as each step builds on previous steps.
 
 1. Establish an Auth0 account
 2. Register an application
@@ -12,6 +12,16 @@ There are **9 sections** to this sample and a troubleshooting section at the end
 4. Turn connection on for application
 5. Create the HTML page for a test application.
 6. Test your sample application.
+7. View User Information
+8. Create a New User
+9. Set Password Strength
+10. Create Another New User & View Logs
+11. Create a Rule
+12. Customize the Lock Widget
+13. Use the Auth0 API Explorer
+14. Call the Auth0 API from your Code
+15. Implement Logout
+16. Additional Tutorials to Learn More
 
 # 1. Establish an Auth0 account
 
@@ -48,11 +58,11 @@ You will now see a screen with your application name at the top and four tabs (Q
 7. For the front end, choose "Vanilla JS"
 8. On the next screen, choose the red "NO, SKIP THIS" button.
 
-The resulting screen will show the snippets of JavaScript code to include in your application.  You will create the application in a later step.
+The resulting screen will show the snippets of JavaScript code to include in your application.  
 
 9. Click on the **"Settings"** tab (near the top of the screen).
 
-This will show you the settings for your application.  You will see the name you gave your application, the domain, and the client ID.  Note the domain and client ID field.
+This will show you the settings for your application.  You will see the name you gave your application, the domain, and the client ID.  Note the domain and client ID field as you will need to paste them into your code later.
 
 10. Click on the **"Quick Start"** tab to return to the code samples.  Scroll down to view the section titled, **"2. Create the Auth0Lock instance"**.  
 
@@ -69,8 +79,7 @@ In the **"Allowed Callback URLs"** field, enter "http://jwt.io".  The Allowed Ca
 
 # 3. Set up a connection
 
-In this section you will configure a connection. A connection is an authentication mechanism.  Auth0 supports many types of connection mechanisms, such as social authentication via Google, Facebook, LinkedIn, etc, or enterprise authentication mechanisms such as AD, LDAP directories, SAML Identity Providers or WS-Fed providers.  Auth0 also supports authentication against databases.
-
+In this section you will configure a connection. A connection represents an authentication system (sometimes called a provider).  Auth0 supports connections to many types of authentication systems, such as social authentication via Google, Facebook, LinkedIn, etc, or enterprise authentication mechanisms such as AD, LDAP directories, SAML Identity Providers or WS-Fed providers.  Auth0 also supports authentication against databases.  Database authentication can use either the Auth0 database provided by default to each Auth0 account, or a custom database of a customer's choice.
 
 **In the Auth0 dashboard:**
 
@@ -150,8 +159,7 @@ The **Auth0 Lock** widget should appear with a button ("g+") to trigger authenti
 
 If you have other connections turned on for your application, your **Auth0 Lock Widget** may look slightly different.  
 
-Click on the "g+" button and log in with Google account credentials.  If your authentication is successful, you'll be redirected to the jwt.io page, and the JASON Web Token created by Auth0 will be displayed for you.
-
+Click on the "g+" button and log in with Google account credentials.  If your authentication is successful, you'll be redirected to the jwt.io page, and the JASON Web Token created by Auth0 will be displayed for you.  (Later we'll change the callback to redirect back to your own application but for now jwt.io is handy because it shows you the resulting token.)
 
 Note that whether you are prompted for credentials by the social provider depends on whether you still have an active session there.
 
@@ -206,7 +214,7 @@ This new user will use username-password authentication against the local Auth0 
 
 3. Move the slider to the right or left to adjust the password strength.  Note that the password criteria are displayed below the slider as you adjust it.
 
-# 10. Create Another New User
+# 10. Create Another New User & View Logs
 
 In this section you will create another new user to test the password strength you just set.  This new user will also be created in the Auth0 database for your account.
 
@@ -225,6 +233,12 @@ You will see a list of users who have logged in, when they last logged in, how m
 5. For the "Connection" field choose "Username-Password-Authentication".
 
 6. Click on the blue "SAVE" button at the bottom.
+
+7. Try to run your sample application, logging in with the new users you created.
+
+8. In the **Auth0 dashboard** return to the **Users** link and you should now see new users you created.
+
+9. In the **Auth0 dashboard** click on the **Logs** link and you should see the list of authentications done by your new users as you tested your sample page.
 
 
 
@@ -280,6 +294,7 @@ In your sample html page created in section 5, add a line for the 'dict' paramet
     }
 ```
 
+
 #13. Use the Auth0 API Explorer
 
 In this section we'll show you how to use the Auth0 API Explorer
@@ -287,6 +302,29 @@ In this section we'll show you how to use the Auth0 API Explorer
 Documentation on the API explorer can be found at:
 __https://auth0.com/docs/apiv2__
 
+1. Go to: __https://auth0.com/docs/apiv2__
+
+2. In the "Scopes" section of the page, check the box for "read:users"
+
+3. In the "API Token" section of the page, click on the 'copy' icon (2pages) on the right.
+
+4. Scroll down to the "users" section of the page and click on "users" to expand the section showing API calls related to users.
+
+5. Click on the link titled "/api/v2/users" to the right of the blue "GET"
+ box, to expand the API call that will get all users who've logged in.
+ 
+6. You can fill in parameters such as '10' for 'per_page'
+
+7. Scroll down and click on the "Try it out!" button
+
+In the Response Body field you will see the results of the API call.
+
+In the "Request URL" field, you will see the API call to retrieve users, with the parameters you specified.
+
+This API explorer gives you a handy way to try out API calls to make sure they work before you put them in your program. 
+
+You can click on the "cURL it up!" field to get a version of the API request that you can try out via the curl command, from either a script or command line.
+ 
 
 #14. Call the Auth0 API from your Code
 
@@ -299,6 +337,10 @@ In this section we'll revisit and augment the code in our sample to more fully h
 Documentation on how to implement logout can be found at:
 __https://auth0.com/docs/logout__
 
-#16. Additional Tutorials
+#16. Additional Tutorials to Learn More
 
 The tutorials shown below will help you explore further
+
+__https://github.com/auth0/lock/wiki/Authentication-Modes__
+
+__https://github.com/auth0/lock/wiki/Using-a-Refresh-Token__
