@@ -74,8 +74,8 @@ In the **"Allowed Callback URLs"** field, enter "http://jwt.io".  The Allowed Ca
 
 12. Click on the blue **"SAVE CHANGES"** button at the bottom of the screen.
 
-
-
+This link has more information on the concept of applications in Auth0.
+__https://auth0.com/docs/applications__
 
 # 3. Set up a connection
 
@@ -214,6 +214,12 @@ This new user will use username-password authentication against the local Auth0 
 
 3. Move the slider to the right or left to adjust the password strength.  Note that the password criteria are displayed below the slider as you adjust it.
 
+More information on password strenth can be found at:
+
+__https://auth0.com/docs/password-strength__
+
+
+
 # 10. Create Another New User & View Logs
 
 In this section you will create another new user to test the password strength you just set.  This new user will also be created in the Auth0 database for your account.
@@ -293,7 +299,8 @@ In your sample html page created in section 5, add a line for the 'dict' paramet
         });
     }
 ```
-
+This page provides basic documentation on the Auth0 lock and will help you understand the call made above.
+__https://auth0.com/docs/lock__
 
 #13. Use the Auth0 API Explorer
 
@@ -324,11 +331,21 @@ In the "Request URL" field, you will see the API call to retrieve users, with th
 This API explorer gives you a handy way to try out API calls to make sure they work before you put them in your program. 
 
 You can click on the "cURL it up!" field to get a version of the API request that you can try out via the curl command, from either a script or command line.
+
+You can use the API explorer to try out the rich Auth0 API.  Just be sure to update your selections in the "Scopes" section. 
  
 
 #14. Call the Auth0 API from your Code
 
-In this section we'll show you how to call the Auth0 API from code
+In this section we'll show you how to modify the simple HelloWorld application to call the Auth0 API from code.
+
+Modify the code to add the following:
+
+
+
+Auth0 has many tutorials for specific platforms/technology.  The following tutorial has examples of the calls we added.
+
+__https://auth0.com/docs/quickstart/spa/javascript/no-api__
 
 #15. Implement Logout
 
@@ -343,4 +360,45 @@ The tutorials shown below will help you explore further
 
 __https://github.com/auth0/lock/wiki/Authentication-Modes__
 
+
 __https://github.com/auth0/lock/wiki/Using-a-Refresh-Token__
+
+Links related to user profile and sign up
+
+__https://auth0.com/docs/user-profile__
+__https://auth0.com/docs/custom-signup__
+__https://auth0.com/docs/invite-only__
+__https://auth0.com/docs/password-strength__
+__https://auth0.com/docs/link-accounts__
+
+Links related to Authentication
+
+__https://auth0.com/docs/sso__
+__https://auth0.com/docs/identityproviders__
+__https://auth0.com/docs/mfa__
+__https://auth0.com/docs/oauth-implicit-protocol__
+__https://auth0.com/docs/oauth-web-protocol__
+__https://auth0.com/docs/sequence-diagrams__
+
+__https://auth0.com/docs/protocols__
+
+Links related to calling APIs and using refresh token
+__https://auth0.com/docs/refresh-token__
+
+__https://auth0.com/docs/saas-apps__
+
+__https://auth0.com/docs/scenarios__
+
+
+__https://auth0.com/docs/apps-apis__
+
+__https://auth0.com/docs/what-to-do-once-the-user-is-logged-in__
+
+A Workshop that uses ASP.NET
+__https://auth0.com/docs/workshop__
+
+__https://auth0.com/docs/__
+
+
+Search capability to help you find anything else
+__https://auth0.com/docs/search__
