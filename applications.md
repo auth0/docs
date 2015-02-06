@@ -1,4 +1,4 @@
-# Applications
+# Core Concepts: Applications
 
 An application is one of the core concepts in Auth0, which is why it's important to know how this relates to your applications and the impact this will have on auditing, authorization, billing, ...
 
