@@ -15,24 +15,20 @@ lodash: true
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
-
-<p>Also, if you are testing your application with `ionic serve`, make sure to add your the following to Allowed Callback URL</p>
-
-<pre><code>file://*
+<pre><code>https://@@account.namespace@@/mobile
+file://*
 http://localhost:8100
-</code></pre>
-
+</pre></code>
 
 </div>
 
 ### 2. Configure Auth0 to work with Firebase
 
-Now, you need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this configuration to get the Firebase token. 
+You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to get the Firebase authentication token. 
 
-In order to configure it, go to [Application Settings](@@uiAppSettingsURL@@) and go to the Addons section. In there, just turn on the Firebase Addon and enter your Firebase secret.
+Go to [Application Settings](@@uiAppSettingsURL@@) and click on Addons. In there, just turn on the Firebase Addon and enter your Firebase secret.
 
 ![Firebase secret](http://d.pr/i/1ejf7+)
 
@@ -43,11 +39,9 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 ````json
 "dependencies" : {
-  // Auth0 Dependencies
   "auth0-angular": "4.*",
   "a0-angular-storage": ">= 0.0.6",
   "angular-jwt": ">= 0.0.4",
-  // Firebase dependencies
   "angularfire": "~0.9.2"
 },
 ```
@@ -164,7 +158,7 @@ function LoginCtrl(store, $scope, $location, auth) {
         store.set('firebaseToken', delegation.id_token);
         $state.go('dashboard');
       }, function(error) {
-        console.log("There was an error logging in", error);
+        // Error getting the firebase token
       })
     }, function() {
       // Error callback
@@ -218,6 +212,8 @@ var friends = friendsSync.$asArray();
 friends.$add({name: 'Hey John'});
 ```
 
+> Check the [AngularFire documentation](https://www.firebase.com/docs/web/libraries/angular/guide.html) for more information and how to use all of its features 
+
 ### 10. Showing user information
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
@@ -265,7 +261,7 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 
 ### 11. Sit back and relax
 
-Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Ionic.
+Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0, Ionic and Firebase.
 
 
 ### Troubleshooting
