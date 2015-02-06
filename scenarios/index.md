@@ -19,7 +19,7 @@
 # API integrations
 
 * [AWS](aws)
-* [Ionic and Firebase](scenarios/ionic-and-firebase.md)
+* [Ionic and Firebase](scenarios/ionic-and-firebase)
 * [Amazon Cognito](scenarios/amazon-cognito)
 * SAP Netweaver Gateway
 * Windows Azure Mobile Services
