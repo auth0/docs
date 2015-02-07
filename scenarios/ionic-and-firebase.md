@@ -4,6 +4,8 @@ lodash: true
 
 ## Ionic Framework + Firebase Tutorial
 
+You can either download the sample project, or follow the instructions below.
+
 <div class="package" style="text-align: center;">
   <blockquote>
     <a href="http://cdn.auth0.com/auth0-ionic-firebase-sample.zip" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
