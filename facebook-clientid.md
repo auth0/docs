@@ -36,3 +36,7 @@ Once the application is registered, enter your new `App ID` and `App Secret` int
 ![](//cdn.auth0.com/docs/img/facebook-4.png)
 
 **That's it!** You can try it with the tester now.
+
+##5. Set the Facebook application to Live
+
+Before your users can login with the new facebook application, you must set it to live via the "Status & Review" tab in the facebook developer page.
