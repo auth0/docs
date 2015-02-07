@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-ionic/master/create-package?path=examples/firebase-sample" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="http://cdn.auth0.com/auth0-ionic-firebase-sample.zip" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a sample project</span>
     </a>
   </blockquote>
