@@ -141,9 +141,9 @@ After a successful login, you will:
 
 1. Save the __user profile__.
 2. Save the __token__ and __[refresh token](@@base_url@@/refresh-token)__
-3. Call Auth0 to issue a Firebase token and save it as well.
+3. Call Auth0 to issue a __Firebase token__ and save it as well.
 
-> All these artifacts are persisted into `localStorage` in the browser. The Firebase token issued through Auth0's [Delegation endpoint](https://auth0.com/docs/auth-api#delegated).
+> All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](https://auth0.com/docs/auth-api#delegated).
 
 ````js
 // LoginCtrl.js
@@ -238,7 +238,7 @@ function UserInfoCtrl($scope, auth) {
 
 [Click here](@@base_url@@/user-profile) to find out all of the available properties from a user's profile. Note that some of these depend on the social provider being used.
 
-### 11. Keeping the user logged in after page refreshes
+### 11. Keeping the user logged-in after page refreshes
 
 The user profile and the tokens are saved in `localStorage`. If the page os refreshed, you just need to fetch them from the store and let `auth0-angular` know that the user is already authenticated:
 
@@ -266,7 +266,7 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 ```
 
 
-### 11. Sit back and relax
+### 12. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0, Ionic and Firebase.
 
