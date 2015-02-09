@@ -1,4 +1,5 @@
 ---
+title: Azure Blob Storage Addon
 lodash: true
 ---
 <% configuration.thirdParty = 'Azure Blob Storage' %>
