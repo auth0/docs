@@ -1,3 +1,7 @@
+---
+title: How Auth0 versioning works?
+---
+
 # Versioning
 
 We believe versioning is a crucial part of our offering. By providing a consistent versioning scheme for our products we are able to help our users manage and predict how our changes will impact  usage.
