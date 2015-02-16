@@ -23,6 +23,14 @@ Finally, grab the ARN of the role that was automatically created in the previous
 
 ![Grab Role ARN](https://cdn.auth0.com/blog/Roles.gif)
 
+# Configuring Auth0
+### Configure your application
+Amazon will use the public signing key from the OpenID Provider Metadata (https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the Json Web Token. 
+
+By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the dashboard, press "Show Advanced Settings" and change the algorithm to RS256:
+
+![](https://cdn.auth0.com/docs/img/cdn-amazon-cognito-rs256.png)
+
 ## Code time!
 Now it’s time to start coding our app. In this case, we’ll be using Swift, but the same sample applies to Objective C as well.
 
