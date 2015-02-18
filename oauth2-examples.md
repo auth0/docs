@@ -12,7 +12,8 @@ After the call completes successfully, you will be able to login using these new
 
 ## Dropbox
 
-* [Create an application](https://www.dropbox.com/developers/apps/create)* Set `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* [Create an application](https://www.dropbox.com/developers/apps/create)
+* Set `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `App Key` and `App Secret`:
 
 ```
