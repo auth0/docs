@@ -75,7 +75,7 @@ When application users login to an application through Auth0 an `id_token` with 
 
 If one such token is sent to the API using the **Authorization** header:
 ```
-Authorization: Beader {id_token}
+Authorization: Bearer {id_token}
 ```
 
 The following scopes are automatically granted:
