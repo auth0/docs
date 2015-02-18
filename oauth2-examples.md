@@ -8,7 +8,7 @@ Here are a few examples of OAuth2 connections you can create through the API. Sa
 curl -vX POST https://@@account.namespace@@/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
 ```
 
-After the call completes successfuly, you will be able to login using these new providers.
+After the call completes successfully, you will be able to login using these new providers.
 
 ## Dropbox
 
