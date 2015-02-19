@@ -10,7 +10,7 @@ Out of the box, Auth0 supports the following:
   * __LDAP__
   * __Google Apps__
   * __Office365__
-  * __SQL & Custom Accout stores__
+  * __SQL & Custom Account stores__
   * __PingFederate__
   * Any __SAML-P__ or __WS-Federation__ system
   * __SharePoint Online Apps__
