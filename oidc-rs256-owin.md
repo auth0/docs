@@ -1,8 +1,12 @@
-Since Auth0 exposes OIDC discovery documents (`https://{YOURS}.auth0.com/.well-known/openid-configuration`), we can use the OpenID Connect middleware for Katana v3 (OWIN) to read that information and automatically configure our web app, so you don't have to provide all the configuration values:
+# OpenID Connect Discovery
+
+Auth0 exposes OIDC discovery documents (`https://@@account.namespace@@/.well-known/openid-configuration`). These can be used to automatically configure applications. 
+
+A good example is __OpenID Connect middleware for Katana v3 (OWIN)__:
 
 ![](https://cdn.auth0.com/docs/oidc-discovery.png)
 
-### How to use it
+## How to use it
 
 1. Install the nuget package `Microsoft.Owin.Security.OpenIdConnect` (v3.x.x)
 2. Go to `App_Start\Startup.Auth.cs`, and replace your implementation with the following:
@@ -15,7 +19,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
 {
-  Authority = "https://{YOU}.auth0.com/",
+  Authority = "https://@@account.namespace@@/",
   ClientId = "{YOUR_AUTH0_CLIENT_ID}",
   SignInAsAuthenticationType = CookieAuthenticationDefaults.AuthenticationType,
   ResponseType = "token",
@@ -37,13 +41,15 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
 });
 ```
 
-#### Disclaimer
-Currently, the OpenID Connect middleware is not supporting JWT tokens signed with symmetric keys, so we need to make sure to configure RSA algorithm from Auth0 dashboard:
+## Notes on this middleware
+Currently, the OpenID Connect middleware does not support JWT tokens signed with symmetric keys. Make sure you configure your app to use the RSA algorithm using public/private keys:
 
-1. Go to https://app.auth0.com/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
-2. Click on `Show Advanced Settings` button.
+###On the Auth0 dashboard:
+
+1. Go to https://manage.auth0.com/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
+2. Click on `Show Advanced Settings`.
 3. Set `RS256` as `JsonWebToken Token Signature Algorithm` and click on `Save`.
 
 ![](https://cdn.auth0.com/docs/rsa256.png)
 
-> Now, JWT tokens will be signed with your private signing key and they can be verified using your public signing key.
+With this setting, Auth0 will issue JWT tokens signed with your private signing key. Your app will verify them with your public signing key.

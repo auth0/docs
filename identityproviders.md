@@ -10,11 +10,11 @@ Out of the box, Auth0 supports the following:
   * __LDAP__
   * __Google Apps__
   * __Office365__
-  * __SQL__
+  * __SQL & Custom Accout stores__
   * __PingFederate__
   * Any __SAML-P__ or __WS-Federation__ system
-  * __SharePoint Online Apps__ (beta)
-  * __IP Address based Authentication__ (beta)
+  * __SharePoint Online Apps__
+  * __IP Address based Authentication__
 
 ## Social
   * __Amazon__
@@ -32,6 +32,7 @@ Out of the box, Auth0 supports the following:
   * __Box__
   * __Salesforce__
   * __Salesforce (sandbox)__
+  * __Salesforce Communities__
   * __Fitbit__
   * __Baidu__
   * __RenRen__
@@ -49,6 +50,8 @@ Out of the box, Auth0 supports the following:
   * __The City__
   * __The City (sandbox)__
   * __Planning Center__
+  * __Exact__
+  * Any __[OAuth2 Authorization Server](oauth2)__
 
 ## Additional Information
 
