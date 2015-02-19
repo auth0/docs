@@ -1,6 +1,6 @@
 # Extended Authentication for Parse Apps
 
-Mobile Backend as a Service (MBaaS) platforms such as [Parse](www.parse.com) have become very popular as they allow developers to very quickly develop and deploy apps. They achieve this through higher-level abstractions and through common app services such as storage, cross-device UI frameworks, and automated app lifecycle management.
+Mobile Backend as a Service (MBaaS) platforms such as [Parse](http://www.parse.com) have become very popular as they allow developers to very quickly develop and deploy apps. They achieve this through higher-level abstractions and through common app services such as storage, cross-device UI frameworks, and automated app lifecycle management.
 
 Most offer fairly straightforward user management capabilities, with objects in their backend that represent users, and with basic credential and access management. This works well for a large number of apps, but many other apps require integration with existing identity systems. Apps that will be used in corporate environments will very likely need integration with systems like LDAP or Active Directory. Apps targeting consumers or individuals, would benefit from integration with social networks like Facebook, Twitter, LinkedIn and similar.  
 
