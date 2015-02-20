@@ -8,7 +8,7 @@ This document aims to describe the major differences between Auth0's API v1 and 
 * v2 has `user_metadata` for trivial data about users and `app_metadata` for data that affects how your applications work. Unlike `metadata` in API v1, those fields are not merged into the root `user` object.
 * Less endpoints to make development easier since things work as developers would expect and there is less choice with the same features.
 * All endpoints will work with ids, no more strings (such as connection name).
-* New `user_id` (available as `v2_id` with "usr\_" suffix) and clientID ("cli\_" suffix) formats to easily recognize the type of entity based on its id.
+* New `user_id` (available as `v2_id` with "usr\_" prefix) and clientID ("cli\_" prefix) formats to easily recognize the type of entity based on its id.
 * Improved input validation and error messages.
 
 ### User endpoints
@@ -16,7 +16,7 @@ This document aims to describe the major differences between Auth0's API v1 and 
 | ------------- |-------------| -----|
 | [GET /api/users](https://docs.auth0.com/api#!#get--api-users)      | None | Available as [GET /api/v2/users](https://docs.auth0.com/apiv2#!/users/get_users) |
 |  [GET /api/users?search={criteria}](https://docs.auth0.com/api#!#get--api-users-search--criteria-)  | Not available      |   Search won't be available until we implement Elastic Search |
-| [GET /api/users/{user_id}](https://docs.auth0.com/api#!#get--api-users--user_id-) | None      |  Available as   [GET /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/get_users_by_id). Also accepts `v2_id`. |
+| [GET /api/users/{user\_id}](https://docs.auth0.com/api#!#get--api-users--user_id-) | None      |  Available as   [GET /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/get_users_by_id). Also accepts `v2\_id`. |
 | [GET /api/connections/{connection}/users](https://docs.auth0.com/api#!#get--api-connections--connection--users) | Not available      |  Will be available as part of user search with `connection` parameter. |
 | [GET /api/connections/{connection}/users}](https://docs.auth0.com/api#!#get--api-connections--connection--users) | Not available      |  Will be available as part of user search through `connection` criteria. |
 | [GET /api/connections/{connection}/users?search={criteria}](https://docs.auth0.com/api#!#get--api-connections--connection--users-search--criteria-) | Not available      |  Will be available as part of user search through `connection` criteria. |
@@ -24,19 +24,19 @@ This document aims to describe the major differences between Auth0's API v1 and 
 | [GET /api/socialconnections/users?search={criteria}](https://docs.auth0.com/api#!#get--api-socialconnections-users-search--criteria-) | Not available      |  Will be available as part of user search through criteria TBD. |
 | [GET /api/clients/{client-id}/users](https://docs.auth0.com/api#!#get--api-socialconnections-users-search--criteria-) | Not available      |  Will be available as part of user search through `client` criteria. |
 | [POST /api/users](https://docs.auth0.com/api#!#post--api-users) | None      |  Available as [POST /api/v2/users](https://docs.auth0.com/apiv2#!/users/post_users). |
-| [POST /api/users/{user_id}/send_verification_email](https://docs.auth0.com/api#!#post--api-users--user_id--send_verification_email) | Not available      |   Still to be implemented.. |
-| [POST /api/users/{user_id}/change_password_ticket](https://docs.auth0.com/api#!#post--api-users--user_id--change_password_ticket) | Not available      |   Still to be implemented. |
-| [POST /api/users/{user_id}/verification_ticket](https://docs.auth0.com/api#!#post--api-users--user_id--verification_ticket) | Not available      |  Still to be implemented. |
-| [POST /api/users/{user_id}/public_key](https://docs.auth0.com/api#!#post--api-users--user_id--publickey) | Not available      |  Still to be implemented. |
-| [PUT /api/users/{user_id}/email](https://docs.auth0.com/api#!#put--api-users--user_id--email) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2_id`. |
-| [PUT /api/users/{user_id}/metadata](https://docs.auth0.com/api#!#put--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2_id`. |
-| [PUT /api/users/{user_id}/password](https://docs.auth0.com/api#!#put--api-users--user_id--password) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2_id`. |
+| [POST /api/users/{user\_id}/send\_verification\_email](https://docs.auth0.com/api#!#post--api-users--user_id--send_verification_email) | Not available      |   Still to be implemented.. |
+| [POST /api/users/{user\_id}/change\_password\_ticket](https://docs.auth0.com/api#!#post--api-users--user_id--change_password_ticket) | Not available      |   Still to be implemented. |
+| [POST /api/users/{user\_id}/verification\_ticket](https://docs.auth0.com/api#!#post--api-users--user_id--verification_ticket) | Not available      |  Still to be implemented. |
+| [POST /api/users/{user\_id}/public\_key](https://docs.auth0.com/api#!#post--api-users--user_id--publickey) | Not available      |  Still to be implemented. |
+| [PUT /api/users/{user\_id}/email](https://docs.auth0.com/api#!#put--api-users--user_id--email) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2_id`. |
+| [PUT /api/users/{user\_id}/metadata](https://docs.auth0.com/api#!#put--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2\_id`. |
+| [PUT /api/users/{user\_id}/password](https://docs.auth0.com/api#!#put--api-users--user_id--password) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2_id`. |
 | [PUT /api/users/{email}/password](https://docs.auth0.com/api#!#put--api-users--email--password) | Removed      | Endpoints only accept ids, not strings. |
-| [PATCH /api/users/{user_id}/metadata](https://docs.auth0.com/api#!#patch--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2_id`. |
+| [PATCH /api/users/{user\_id}/metadata](https://docs.auth0.com/api#!#patch--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/patch_users_by_id). Also accepts `v2\_id`. |
 | [DELETE /api/users](https://docs.auth0.com/api#!#delete--api-users) | None      |  Available as [DELETE /api/v2/users](https://docs.auth0.com/apiv2#!/users/delete_users). |
 | [DELETE /api/users](https://docs.auth0.com/api#!#delete--api-users--user_id-) | None      |  Available as [DELETE /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/delete_users_by_id). Also accepts `v2_id`. |
-| [DELETE /api/users/{user_id}/refresh_tokens/{refresh_token}](https://docs.auth0.com/api#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Not available      |  Still to be implemented. |
-| [DELETE /api/users/{user_id}/public_key?device={device}](https://docs.auth0.com/api#!#delete--api-users--user_id--publickey-device--device-) | Not available      |  Still to be implemented. |
+| [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](https://docs.auth0.com/api#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Not available      |  Still to be implemented. |
+| [DELETE /api/users/{user\_id}/public_key?device={device}](https://docs.auth0.com/api#!#delete--api-users--user_id--publickey-device--device-) | Not available      |  Still to be implemented. |
 
 ### Client endpoints
 | v1 Endpoint      | Change        | In v2  |
