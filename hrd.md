@@ -50,11 +50,15 @@ Using the [Auth0Lock](lock)'s [support for customization and extensibility](http
 ```
 var lock = new Auth0Lock(cid, domain);
 lock.once('signin ready', function() {
-    var link = $('<a class="a0-zocial a0-waad" href="#"><span>Login with Fabrikam Azure AD</span></a>');
-    link.appendTo('.a0-iconlist');
-    link.on('click', function() {
-        lock.getClient().login({connection: 'fabrikamdirectory.onmicrosoft.com'});
+    var link = $('<a class="a0-zocial a0-waad" href="#">' +
+        '<span>Login with Fabrikam Azure AD</span></a>');
+    link.on('click', function () {
+        lock.getClient().login({ 
+            connection: 'fabrikamdirectory.onmicrosoft.com' });
     });
+
+    var iconList = $(this.$container).find('.a0-iconlist');
+    iconList.append(link);
 });
 
 lock.show({
