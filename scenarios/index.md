@@ -13,7 +13,7 @@
 # Advanced Scenarios
 
 * [Invite-only users](invite-only)
-* [Multi-tnenant SaaS applications with Azure AD](scenarios/multi-tenant-saas-azure-ad)
+* [Multi-tenant SaaS applications with Azure AD](scenarios/multi-tenant-saas-azure-ad)
 
 - - -
 
