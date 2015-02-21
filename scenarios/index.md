@@ -13,6 +13,7 @@
 # Advanced Scenarios
 
 * [Invite-only users](invite-only)
+* [Multi-tnenant SaaS applications with Azure AD](scenarios/multi-tenant-saas-azure-ad)
 
 - - -
 
@@ -22,8 +23,8 @@
 * [Ionic and Firebase](scenarios/ionic-and-firebase)
 * [Amazon Cognito](scenarios/amazon-cognito)
 * SAP Netweaver Gateway
-* Windows Azure Mobile Services
-* Windows Azure Service Bus
+* Microsoft Azure Mobile Services
+* Microsoft Azure Service Bus
 
 - - -
 
