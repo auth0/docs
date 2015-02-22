@@ -40,6 +40,8 @@ If proxies are installed, make sure they are configured correctly.
 
 A quick test for this is to open a browser pointing to [https://@@account.namespace@@/test](https://@@account.namespace@@/test).
 
+We don't recommend using Proxies for the connector, but if you need to use one, you can setup an environment variable `HTTP_PROXY=http://your_proxy`.
+
 ### Service account permissions
 
 The Service account used to configure the connector must have read permissions on the AD/LDAP server, as well as capable of querying groups for users.

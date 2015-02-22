@@ -6,6 +6,8 @@ The connector must be installed on a server with outbound connectivity to at the
 
 The connector can be installed and configured behind a __proxy server__ but we don't recommend this.
 
+> You can enable a proxy through the environment variable `HTTP_PROXY`.
+
 No inbound rules are required unless **Kerberos** or **Certificate authentication** is enabled. In these cases, the server(s) where the connector is installed on must be reachable from your users browsers. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector and the other.
 
 It is very important to have the server clock automatically synchronized with an NTP server. Otherwise the connector will fail to start and report __clock skew error__.
