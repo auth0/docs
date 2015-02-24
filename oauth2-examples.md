@@ -56,3 +56,25 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
+##Xing
+
+* [Create an application](https://developer.xing.com/applications/dashboard)
+* Copy `Consumer Key` and `Consumer Secret` to config file below
+
+
+```
+{
+  "name": "xing",
+  "strategy": "oauth1",
+  "options": {
+    "client_id": "{YOUR_XING_CONSUMER_KEY}",
+    "client_secret": "{YOUR_XING_CONSUMER_SECRET}",
+    "requestTokenURL": "https://api.xing.com/v1/request_token",
+    "accessTokenURL": "https://api.xing.com/v1/access_token",
+    "userAuthorizationURL": "https://api.xing.com/v1/authorize",
+    "scripts": {
+      "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.xing.com/v1/users/me.json',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode)); var p = JSON.parse(b); var profile = p.users[0]; cb(null, profile); });}"
+    }
+  }
+}
+```

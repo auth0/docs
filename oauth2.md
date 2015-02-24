@@ -94,6 +94,7 @@ A direct link would look like:
 
 ##Other resources
 
-* [Custom OAuth2 Connections samples](oauth2-examples)
+* [Custom OAuth2/OAuth1 Connections samples](oauth2-examples)
 * [Identity Providers in Auth0](identityproviders)
 * [Protocols](protocols)
+* [Custom OAuth1 Connections](oauth1)
