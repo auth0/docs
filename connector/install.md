@@ -65,3 +65,17 @@ Once you submit the above information, the connector will perform a series of te
 Make sure that all tests are in green.
 
 Congratulations, your connector is installed and ready to use.
+
+## Troubleshooting
+
+To assist in troubleshooting, here is an explanation of the tests performed for initial or modified AD/LDAP Connector Configuration settings.
+
+Under "Configuration log" in the AD/LDAP Configuration window:
+
+Test 1: Attempts to establish a TCP connection to the LDAP server and port specified.  If this test fails, check basic network connectivity and firewall settings that might prevent such a connection.
+
+Test 2: Attempts to perform an LDAP bind on the LDAP server and port specified and with the username and password provided.  If this test fails, check the LDAP connection string, search path, username and password. 
+
+Test 3: Attempts to perform an LDAP search against the directory to check the privileges of the specified username.  If this test fails, check the privileges of the username in the target directory.
+
+Test 4: Attempts to establish a connection to the Auth0 server.  If this test fails, check network connectivity and firewall settings that might prevent such a connection.
