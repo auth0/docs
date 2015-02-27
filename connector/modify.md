@@ -33,7 +33,5 @@ Make sure that all tests are in green.
 For an explanation of each test, see the "Troubleshooting" section of the [AD/LDAP installation instructions](@@env.BASE_URL@@/connector/install)
 
 
-## Connector Restart
- 
 
-Your AD/LDAP connector should be automatically restarted after changes are made.
+Your AD/LDAP connector will connect using the new directory parameters after changes are made that pass all the tests.  If any test fails, the changes will not be saved.
