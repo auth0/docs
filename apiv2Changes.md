@@ -10,6 +10,7 @@ This document aims to describe the major differences between Auth0's API v1 and 
 * All endpoints will work with ids, no more strings (such as connection name).
 * New `user_id` (available as `v2_id` with "usr\_" prefix) and clientID ("cli\_" prefix) formats to easily recognize the type of entity based on its id.
 * Improved input validation and error messages.
+* Only one connection with the same is exposed per tenant, instead of one per client. To enable/disable a connection for a client, the `enabled_clients` property is used.
 
 ### User endpoints
 | v1 Endpoint      | Change        | In v2  |
@@ -18,7 +19,6 @@ This document aims to describe the major differences between Auth0's API v1 and 
 |  [GET /api/users?search={criteria}](https://docs.auth0.com/api#!#get--api-users-search--criteria-)  | Not available      |   Search won't be available until we implement Elastic Search |
 | [GET /api/users/{user\_id}](https://docs.auth0.com/api#!#get--api-users--user_id-) | None      |  Available as   [GET /api/v2/users/{id}](https://docs.auth0.com/apiv2#!/users/get_users_by_id). Also accepts `v2\_id`. |
 | [GET /api/connections/{connection}/users](https://docs.auth0.com/api#!#get--api-connections--connection--users) | Not available      |  Will be available as part of user search with `connection` parameter. |
-| [GET /api/connections/{connection}/users}](https://docs.auth0.com/api#!#get--api-connections--connection--users) | Not available      |  Will be available as part of user search through `connection` criteria. |
 | [GET /api/connections/{connection}/users?search={criteria}](https://docs.auth0.com/api#!#get--api-connections--connection--users-search--criteria-) | Not available      |  Will be available as part of user search through `connection` criteria. |
 | [GET /api/enterpriseconnections/users?search={criteria}](https://docs.auth0.com/api#!#get--api-enterpriseconnections-users-search--criteria-) | Not available      |  Will be available as part of user search through criteria TBD. |
 | [GET /api/socialconnections/users?search={criteria}](https://docs.auth0.com/api#!#get--api-socialconnections-users-search--criteria-) | Not available      |  Will be available as part of user search through criteria TBD. |
@@ -46,6 +46,16 @@ This document aims to describe the major differences between Auth0's API v1 and 
 | [PUT /api/clients/{client-id}](https://docs.auth0.com/api#!#put--api-clients--client-id-)      | Not available | Available as [PUT /api/v2/clients/{id}](https://docs.auth0.com/apiv2#!/clients/patch_clients_by_id). |
 | [PATCH /api/clients/{client-id}](https://docs.auth0.com/api#!#patch--api-clients--client-id-)      | None | Available as [PATCH /api/v2/clients/{id}](https://docs.auth0.com/apiv2#!/clients/patch_clients_by_id). |
 | DELETE /api/clients/{client-id}     | None | Available as [DELETE /api/v2/clients/{id}](https://docs.auth0.com/apiv2#!/clients/delete_clients_by_id). |
+
+
+### Connection endpoints
+| v1 Endpoint      | Change        | In v2  |
+| ------------- |-------------| -----|
+| [GET /api/connections](https://auth0.com/docs/api#!#get--api-connections)      | None | Available as [GET /api/v2/connections](https://auth0.com/docs/apiv2#!/connections/get_connections). |
+| [GET /api/connections/{connection-name}](https://auth0.com/docs/api#!#get--api-connections--connection-name-)      | Changed `connection-name` to `id` | Available as [GET /api/connections/{id}](https://auth0.com/docs/apiv2#!/connections/get_connections_by_id) . |
+| [POST /api/connections](https://auth0.com/docs/api#!#post--api-connections)      | Added `enabled_clients` property | Available as [POST /api/v2/connections](https://auth0.com/docs/apiv2#!/connections/post_connections). |
+| [PUT /api/connections/{connection-name}](https://auth0.com/docs/api#!#put--api-connections--connection-name-)      | Not available. Changed `connection-name` to `id` | Available as [PATCH /api/v2/connections/{id}](https://auth0.com/docs/apiv2#!/connections/patch_connections_by_id). |
+| [DELETE /api/connections/{connection-name}](https://auth0.com/docs/api#!#delete--api-connections--connection-name-)     | Changed `connection-name` to `id` | Available as [DELETE /api/v2/clients/{id}](https://auth0.com/docs/apiv2#!/connections/delete_connections_by_id). |
 
 ## Authentication mechanism
 Auth0's API v1 required consumers to send an `access_token` which was obtained by performing [`POST /oauth/token`](https://docs.auth0.com/api#!#post--oauth-token) request and sending the `clientId` and `clientSecret`. All subsequent request included the `access_token` using the **Authorization** header:
@@ -136,6 +146,24 @@ console.log(user.app_metadata.plan); // "full"
 ```
 
 > Note: Users that previously had `metadata` set will have it available under `app_metadata`.
+
+## Connections
+For each named connection that a tenant created API v1 exposes an individual connection for each client the tenant has.
+
+Given a named connection, API v2 only exposes one for the tenant. Management of the clients for which the connection is enabled is performed using the `enabled_clients` property.
+
+For example, to create a connection that is enabled for clients `AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ` and `DaM8bokEXBWrTUFZiXjWn50jei6ardyV` the following can be used:
+```
+curl -H "Authorization: Bearer {API_TOKEN}" -X POST -H "Content-Type: application/json" 
+-d '{"name":"new-connection","strategy":"auth0","enabled_clients":["AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ","DaM8bokEXBWrTUFZiXjWn50jei6ardyV"]}' 
+https://login.auth0.com/api/v2/connections
+```
+
+Additionally, connection names cannot be used to manage connections. Instead a new `id` property has been introduced. For example, to retrieve the connection with id `'con_UITxoKznrqb1oxIU'` the following can be used:
+```
+curl -H "Authorization: Bearer {API_TOKEN}" 
+https://login.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
+```
 
 ## Endpoints
 These are some general endpoint related changes.
