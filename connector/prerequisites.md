@@ -1,20 +1,25 @@
 # Prerequisites
 
-## Internet Connectivity
+## Connectivity to Auth0
 
-The connector must be installed on a server with outbound connectivity to at the very least `https://@@account.namespace@@` on port **443**.
+The connector must be installed on a server with outbound connectivity to the Auth0 service at:  `https://@@account.namespace@@` on port **443**.
 
 The connector can be installed and configured behind a __proxy server__ but we don't recommend this.
 
 > You can enable a proxy through the environment variable `HTTP_PROXY`.
 
-No inbound rules are required unless **Kerberos** or **Certificate authentication** is enabled. In these cases, the server(s) where the connector is installed on must be reachable from your users browsers. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector and the other.
+## Special cases requiring connectivity from browsers 
 
-It is very important to have the server clock automatically synchronized with an NTP server. Otherwise the connector will fail to start and report __clock skew error__.
+You do not need inbound connectivity enabled to the AD/LDAP connector unless **Kerberos** or **Certificate authentication** is enabled. In these cases, the server(s) on which the connector is installed must be reachable from your users' browsers on port 443. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector or the other.
 
 ## Connectivity to LDAP
 
-The connector must be installed on a server with access to the LDAP server on port **389 for ldap** or **636 for ldaps**.
+The AD/LDAP Connector must be installed on a server with access to the LDAP server on port **389 for ldap** or **636 for ldaps**.
+
+
+## Time sync requirement
+
+It is very important to have the AD/LDAP Connector server clock automatically synchronized with an NTP server. Otherwise the connector will fail to start and report __clock skew error__.
 
 ## Hardware requirements
 
@@ -26,4 +31,5 @@ The connector must be installed on a server with access to the LDAP server on po
 
 ## Windows Version
 
-The connector can run on Windows 7+ or Windows 2008R2+. We recommend Windows 2012.
+We recommend use of Windows Server 2012.
+The connector can run on Windows 7+ or Windows 2008R2+ 
