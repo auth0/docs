@@ -18,7 +18,7 @@ Once you have launched the Connector Admin Console  you can modify the LDAP sett
 For an explanation of each field, see the "Link to LDAP" section of the [AD/LDAP installation instructions](@@env.BASE_URL@@/connector/install)
 
 
-When you are done modifying the LDAP configuration, press the **Save** button.
+Click **Save** when you are done modifying the LDAP configuration.
 
 
 ## Connector Test 

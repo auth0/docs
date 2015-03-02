@@ -68,14 +68,21 @@ Congratulations, your connector is installed and ready to use.
 
 ## Troubleshooting
 
-To assist in troubleshooting, here is an explanation of the tests performed for initial or modified AD/LDAP Connector Configuration settings.
+After clicking "Save", the AD/LDAP Connector configuration console will perform a series of tests to validate the entered information.  The results of the tests are displayed under the **"Configuration log"** heading in the console screen.  An explanation is provided below of the tests performed.
 
-Under "Configuration log" in the AD/LDAP Configuration window:
 
-Test 1: Attempts to establish a TCP connection to the LDAP server and port specified.  If this test fails, check basic network connectivity and firewall settings that might prevent such a connection.
+Test 1: Attempts to establish a TCP connection to the LDAP server and port specified.  
 
-Test 2: Attempts to perform an LDAP bind on the LDAP server and port specified and with the username and password provided.  If this test fails, check the LDAP connection string, search path, username and password. 
+If Test 1 fails, check basic network connectivity and firewall settings that might prevent such a connection.
 
-Test 3: Attempts to perform an LDAP search against the directory to check the privileges of the specified username.  If this test fails, check the privileges of the username in the target directory.
+Test 2: Attempts to perform an LDAP bind on the LDAP server and port specified and with the username and password provided.  
 
-Test 4: Attempts to establish a connection to the Auth0 server.  If this test fails, check network connectivity and firewall settings that might prevent such a connection.
+If Test 2 fails, check the LDAP connection string, search path, username and password. 
+
+Test 3: Attempts to perform an LDAP search against the directory to check the privileges of the specified username.  
+
+If Test 3 fails, check the privileges of the username in the target directory.
+
+Test 4: Attempts to establish a connection to the Auth0 server.  
+
+If Test 4 fails, check network connectivity and firewall settings that might prevent such a connection.
