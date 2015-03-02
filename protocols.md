@@ -208,9 +208,9 @@ Claims sent in the SAML token, as well as other lower level settings of WS-Fed &
 
 The following optional parameters can be used when redirecting to the WS-Fed endpoint:
 
-* wreply: Callback URL
-* wctx: Your application's state
-* whr: The name of the connection (to skip the login page)
+* `wreply`: Callback URL
+* `wctx`: Your application's state
+* `whr`: The name of the connection (to skip the login page)
 
 ```
 https://@@account.namespace@@/wsfed/@@account.clientId@@?whr=google-oauth2
