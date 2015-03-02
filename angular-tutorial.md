@@ -34,7 +34,7 @@ Add the `auth0` module dependency to your angular app definition and configure i
 
 ```js
 // app.js
-angular.module('sample', ['auth'])
+angular.module('sample', ['auth0'])
   .config(function(authProvider) {
     authProvider.init({
       clientID: '@@account.clientId@@',
