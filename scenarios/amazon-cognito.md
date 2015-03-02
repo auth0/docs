@@ -6,13 +6,14 @@ In this document, I’ll explain how you can integrate your mobile app with two 
 
 ## Configuring Amazon Web Services
 ### Create a new OpenID Connect Provider
-The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your auth0 domain (_accountName_.auth0.com) and your _clientId_ and use them to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home)
+The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 domain (_accountName_.auth0.com) and your _clientId_ and use them to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home):
 
 ![IDP Creation](https://cdn.auth0.com/blog/IDPCreation.gif)
 
+> It's not necessary to set up an IAM role after creating the identity provider. If you don't have one already, Cognito will create a default IAM role in the next step.
 
 ### Create a Cognito Identity Pool
-Now, you need to create an Identity Pool in [Cognito Console](https://console.aws.amazon.com/cognito/home). This will be used to login to Amazon Cognito using the Auth0’s Identity Provider that you created in the previous step.
+Now, you need to create an Identity Pool in the [Cognito Console](https://console.aws.amazon.com/cognito/home). This will be used to log in to Amazon Cognito using the Auth0 Identity Provider that you created in the previous step.
 
 ![Cognito Pool Creation](https://cdn.auth0.com/blog/IDPCognito.gif)
 
@@ -25,30 +26,30 @@ Finally, grab the ARN of the role that was automatically created in the previous
 
 # Configuring Auth0
 ### Configure your application
-Amazon will use the public signing key from the OpenID Provider Metadata (https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the Json Web Token. 
+Amazon will use the public signing key from the OpenID Provider Metadata (https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token. 
 
 By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the dashboard, press "Show Advanced Settings" and change the algorithm to RS256:
 
 ![](https://cdn.auth0.com/docs/img/cdn-amazon-cognito-rs256.png)
 
 ## Code time!
-Now it’s time to start coding our app. In this case, we’ll be using Swift, but the same sample applies to Objective C as well.
+Now it’s time to start coding our app. In this case, we’ll be using Swift, but the same sample applies to Objective-C as well.
 
 ### Adding the Needed Dependencies
 
 Add the following dependencies to your `Podfile`
 
-````ruby
+```ruby
 pod "Lock", "~> 1.7", :inhibit_warnings => true
 pod "JWTDecode", "~> 0.2"
 pod "SimpleKeychain", "~> 0.2"
 pod 'AWSCognitoSync', "~> 1.0"
-````
+```
 ### Logging the User In
 We’ll use [Auth0 Lock for iOS](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement it in [this documentation page](https://auth0.com/docs/native-platforms/ios-swift).
-Once the user is successfully logged in with Auth0, we’ll send his or her credentials to Amazon Cognito:
+Once the user is successfully logged in with Auth0, we’ll send their credentials to Amazon Cognito:
 
-````swift
+```swift
 let authController = A0LockViewController()
 authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
   // Save Tokens and Credentials into the keychain as you'd regularly do
@@ -80,13 +81,13 @@ authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!)
       return nil
   }
 }
-````
+```
 
 ### Using Cognito
 
 Now, the user is logged in to Cognito through Auth0. You can now store information in Cognito that only this user will be able to use.
 
-````swift
+```swift
 let cognitoSync = AWSCognito.defaultCognito()
 let dataset = cognitoSync.openOrCreateDataset("MainDataset")
 // Get an existing value
@@ -100,7 +101,7 @@ dataset.synchronize().continueWithBlock { (task) -> AnyObject! in
 // Set a new value
 dataset.setString(self.textValue.text, forKey: "value")
 dataset.synchronize()
-````
+```
 ## Let’s see how it works!
 
 ![Cognito working](https://cdn.auth0.com/blog/CognitoSample.gif)
