@@ -1,6 +1,14 @@
 # Office 365 Integration
 
-Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add Single Sign On (SSO) to Office 365 using Auth0. Your users will be able to log in using their existing Active Directory credentials, with support for Integrated Windows Authentication (Kerberos) and SSO with other third party applications they might be using like Salesforce, Dropbox, ...
+Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add Single Sign On (SSO) to Office 365 using Auth0. 
+
+## Why use Auth0 for Office 365
+
+Your users will be able to log in using their existing Active Directory credentials, with support for Integrated Windows Authentication (Kerberos) if they're on a domain-joined machine in the corporate network. 
+
+This would typically require you to setup [an advanced ADFS infrastructure](https://msdn.microsoft.com/en-us/library/azure/dn151324.aspx) with Federation Servers in the corporate network and Web Application Proxies exposed in the DMZ. But with Auth0 as an identity provider for Office 365 all of this is handled by the [AD Connector](https://auth0.com/docs/connector/overview) which doesn't require you to expose any of your servers to the outside world.
+
+In addition to that users can also have SSO with other applications they're building or Third Party Applications they're using (like Salesforce, Dropbox, SharePoint Server, ...).
 
 ## High-level Overview
 
