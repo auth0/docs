@@ -33,6 +33,8 @@ There are **7 steps** to this sample
 
 7. Find the line that starts with "<KeyDescriptor" and has "use" as "signing".  Copy the lines between, but not including, the "<ds:X509Certificate" and "</ds:X509Certificate" lines.  Paste these lines into a file, called ssocirclecert.pem, making sure to preserve the line breaks exactly as shown in the original.
 
+The portion of the ssocircle metadata URL that shows the certificate is shown below:
+
 ![](https://cdn.auth0.com/docs/img/ssocircle-9.png)
 
 # 2. Set up the Auth0 service provider
