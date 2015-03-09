@@ -66,7 +66,7 @@ In this case, we'll add the call in the `login` method of the `LoginCtrl` contro
 
 ````js
 // LoginCtrl.js
-function LoginCtrl(store, $location) {
+function LoginCtrl($scope, auth, store, $location) {
   $scope.login = function() {
     auth.signin({}, function(profile, token) {
       // Success callback
