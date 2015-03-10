@@ -96,4 +96,4 @@ cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]
 
 #### Get a blank page with an OK after signin
 
-This could that the `InAppBrowser` plugin wasn't installed successfully by Cordova. If you are seeing this error only when viewing your app in the ionic viewer app, this article (http://forum.ionicframework.com/t/does-ionic-view-support-cordova-inappbrowser/18021/3) suggests that `InAppBrowser` is not yet supported. You can verify by running the app in your emulator or in the browser. See the previous section to learn how to solve this.
+This could mean that the `InAppBrowser` plugin wasn't installed successfully by Cordova. If you are seeing this error only when viewing your app in the ionic viewer app, <a href="http://forum.ionicframework.com/t/does-ionic-view-support-cordova-inappbrowser/18021/3">this article</a>  suggests that `InAppBrowser` is not yet supported. You can verify this by running the app in your emulator or in the browser. See the previous section to learn how to solve this.
