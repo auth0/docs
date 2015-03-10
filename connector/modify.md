@@ -16,6 +16,7 @@ The `config.json` is the AD/LDAP Connector's configuration file in which the fol
  - `KERBEROS_AUTH`: Specifies if **Kerberos Authentication** is enabled or not. This value is configured in Auth0 and maintained by the connector.
  - `LAST_SENT_THUMBPRINT`: Thumbprint of the last certificate which was sent to Auth0.
  - `LDAP_BASE`: Defines the location in the directory from which the LDAP search begins. Eg: `DC=fabrikam,DC=local`
+ - `LDAP_BASE_GROUPS`: Defines the location in the directory from wich the LDAP search for groups begins.
  - `LDAP_BIND_CREDENTIALS`: The encrypted password of the LDAP user.
  - `LDAP_BIND_PASSWORD`: The password of the LDAP user.
  - `LDAP_BIND_USER`: The user for which we will bind a connection to LDAP.
