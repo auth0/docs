@@ -45,7 +45,7 @@ Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` w
     	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
     }
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](https://auth0.com/docs/user-profile).
 
 **Congratulations!**
 
@@ -63,7 +63,7 @@ To clear the cookie generated on login, use the `FederatedAuthentication.Session
 
 #### Link accounts
 
-To allow users to link accounts from different providers, read [Link Accounts](link-accounts).
+To allow users to link accounts from different providers, read [Link Accounts](https://auth0.com/docs/link-accounts).
 
 You will need the `access_token` of the logged in user. You can get it from:
 
@@ -73,8 +73,8 @@ You will need the `access_token` of the logged in user. You can get it from:
 
 #### Flow the identity to a WCF service
 
-If you want to flow the identity of the user logged in to a web site, to a WCF service or an API, you have to use the `callbackOnLocationHash: true` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](/wcf-tutorial).
+If you want to flow the identity of the user logged in to a web site, to a WCF service or an API, you have to use the `callbackOnLocationHash: true` parameter on the login widget constructor. When sending that paramter, Auth0 will generate an `id_token` which is a [JsonWebToken](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-06) that can be either send straight to your service or it can be exchanged to generate an `ActAs` token. [Read more about this](https://auth0.com/docs/wcf-tutorial).
 
 #### Manage environments: Dev, Test, Production
 
-We recommend creating one application per environment in Auth0 and have different client ids and secret per environment. [Read more about this](azure-tutorial).
+We recommend creating one application per environment in Auth0 and have different client ids and secret per environment. [Read more about this](https://auth0.com/docs/azure-tutorial).

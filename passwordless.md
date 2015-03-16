@@ -18,7 +18,7 @@ This __Passwordless connection__ uses SMS (sent via [Twilio](http://www.twilio.c
 
 ####1. Get an account with Twilio
 
-You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-it-be-reset). These are the credentials for the Twilio API that Auth0 will use to send the SMS to the user.
+You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the credentials for the Twilio API that Auth0 will use to send the SMS to the user.
 
 ####2. Configure the Connection on the Dashboard
 

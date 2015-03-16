@@ -4,7 +4,7 @@ Azure AD is often used as a user directory for Office 365, Intune, Dynamics CRM 
 
 ![](//cdn.auth0.com/docs/img/azure-ad-mt-single-tenant-example.png)
 
-In that case the users in your organization's directory (contoso.onmicrosoft.com) will be able to access the applications you registered in your directory (Contoso Intranet and Office 365). This is how the [standard integration with Auth0 works](waad-clientid), you'll create an application in Azure AD that points to Auth0 after which you can create it as an Azure AD Connection in the dashboard.
+In that case the users in your organization's directory (contoso.onmicrosoft.com) will be able to access the applications you registered in your directory (Contoso Intranet and Office 365). This is how the [standard integration with Auth0 works](https://auth0.com/docs/waad-clientid), you'll create an application in Azure AD that points to Auth0 after which you can create it as an Azure AD Connection in the dashboard.
 
 A more advanced concept in Azure AD is the support for multi-tenant applications. This is where your directory can define an application (typically a SaaS application) which can be used by other directories (your customers).
 

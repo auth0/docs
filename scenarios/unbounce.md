@@ -33,7 +33,7 @@
 
 2. Add a button (or whatever UI element you consider) that will trigger the login with the provider. Take note of the button ID under Advanced.
 
-3. You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and add Hidden fields for each field. In the following example we are using the [normalized profile](user-profile) fields `name`, `email`, `given_name`, `family_name`, `nickname` and `picture` and at the end you can see a LinkedIn field called `headline`.
+3. You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and add Hidden fields for each field. In the following example we are using the [normalized profile](https://auth0.com/docs/user-profile) fields `name`, `email`, `given_name`, `family_name`, `nickname` and `picture` and at the end you can see a LinkedIn field called `headline`.
 
   ![](https://cloudup.com/caDtUPj4EO3+)
 

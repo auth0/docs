@@ -239,7 +239,7 @@ client.on('message', function(topic, message) {
 ```
 
 ##Summary
-This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example). 
+This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](https://auth0.com/docs/rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example). 
 
 > Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
 

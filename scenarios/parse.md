@@ -2,11 +2,11 @@
 
 Mobile Backend as a Service (MBaaS) platforms such as [Parse](http://www.parse.com) have become very popular as they allow developers to very quickly develop and deploy apps. They achieve this through higher-level abstractions and through common app services such as storage, cross-device UI frameworks, and automated app lifecycle management.
 
-Most offer fairly straightforward user management capabilities, with objects in their backend that represent users, and with basic credential and access management. This works well for a large number of apps, but many other apps require integration with existing identity systems. Apps that will be used in corporate environments will very likely need integration with systems like LDAP or Active Directory. Apps targeting consumers or individuals, would benefit from integration with social networks like Facebook, Twitter, LinkedIn and similar.  
+Most offer fairly straightforward user management capabilities, with objects in their backend that represent users, and with basic credential and access management. This works well for a large number of apps, but many other apps require integration with existing identity systems. Apps that will be used in corporate environments will very likely need integration with systems like LDAP or Active Directory. Apps targeting consumers or individuals, would benefit from integration with social networks like Facebook, Twitter, LinkedIn and similar.
 
 While advanced MBaaS, like __Parse__, do not offer this out-of-the-box, they have built extensibility points in their platforms to allow integration with systems offering more elaborate authentication.
 
-Auth0 is also designed with great extensibility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](identityproviders).
+Auth0 is also designed with great extensibility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](https://auth0.com/docs/identityproviders).
 
 ##How it works?
 

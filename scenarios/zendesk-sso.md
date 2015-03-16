@@ -2,7 +2,7 @@
 
 This [Zendesk article](https://support.zendesk.com/hc/en-us/articles/203663816-Setting-up-single-sign-on-with-JWT-JSON-Web-Token-) details everything you need to know about getting SSO to work with any JWT provider.
 
-Using Auth0 will allow you to quickly set up Zendesk logins with **LDAP**, **Active Directory**, **Google Apps** or any of the [supported identity providers](https://docs.auth0.com/scenarios/identityproviders).
+Using Auth0 will allow you to quickly set up Zendesk logins with **LDAP**, **Active Directory**, **Google Apps** or any of the [supported identity providers](https://docs.auth0.com/identityproviders).
 
 > **Note:** If you happen to lock yourself out of your Zendesk account while following this tutorial, you can always log in with your regular Zendesk credentials at https://your_domain.zendesk.com/access/normal
 
@@ -20,7 +20,7 @@ Also, take note of the **Shared secret** here, we'll be using it in the next ste
 ## 2. Implement a rule to create a JWT for Zendesk
 
 We want to create a JWT with a user's information after login that Zendesk can understand.
-We can achieve this using a [rule](/rules).
+We can achieve this using a [rule](https://auth0.com/docs/rules).
 In this example, we're storing the Zendesk **Shared secret** as an encrypted key-value pair, which can be accessed with `configuration.ZENDESK_JWT_SECRET`.
 
 ```js
@@ -65,7 +65,7 @@ function (user, context, callback) {
 ## 3. Redirect users to the URL returned by Zendesk
 
 The rule returned in the previous step will return a user property named `zendesk_jwt_url`, which will allow your user to log in.
-If you are using [Lock](lock), for example:
+If you are using [Lock](https://auth0.com/docs/lock), for example:
 
 ```js
 lock.show(function (err, profile, id_token) {
