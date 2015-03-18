@@ -28,4 +28,4 @@ This command increases the frequency of updates as described in the **ntpd** doc
 
 > Fine tuning is only available for Auth0's engineers.
 
-If the virtual machine-hosting software, such as VMware, has an option for the host OS to update the guest OS, this should be turned off, so as to not interfere with the NTP time synchronization of the Auth0 appliance guest. For example, in VMware Tools, the "sync guest time with host" checkbox should be unchecked (off) for the Auth0 guest virtual machine.  
+If the virtual machine-hosting software, such as VMware, has an option for the host operating system (OS) to update the guest OS, this should be turned off, so it will not interfere with the NTP time synchronization of the Auth0 appliance guest. For example, in VMware Tools, the "sync guest time with host" checkbox should be unchecked (off) for the Auth0 guest virtual machine.  
