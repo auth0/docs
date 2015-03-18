@@ -27,3 +27,5 @@ This command increases the frequency of updates as described in the **ntpd** doc
 > These options specify the minimum and maximum poll intervals for NTP messages, in seconds to the power of two. The maximum poll interval defaults to 10 (1,024 s), but can be increased by the maxpoll option to an upper limit of 17 (36.4 h). The minimum poll interval defaults to 6 (64 s), but can be decreased by the minpoll option to a lower limit of 4 (16 s).
 
 > Fine tuning is only available for Auth0's engineers.
+
+If the virtual machine-hosting software, such as VMware, has an option for the host OS to update the guest OS, this should be turned off, so as to not interfere with the NTP time synchronization of the Auth0 appliance guest. For example, in VMware Tools, the "sync guest time with host" checkbox should be unchecked (off) for the Auth0 guest virtual machine.  
