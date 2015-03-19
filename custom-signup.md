@@ -95,3 +95,15 @@ After receiving the request from the client, the JSON contained in the body of t
 
 > Bear in mind that before doing that you may need to generate an access token. Check the API section for more information.
 > In case you are using any of our bindings for Node.js, ASP.NET you may use those instead of doing the HTTP requests manually.
+
+## Optional: Verifying password strength
+
+Password policies for database connections in the dashboard.
+For more information, [check out the documentation](password-strength).
+
+The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
+
+    https://cdn.auth0.com/client/@@account.clientId@@.js
+
+This file can then be parsed client-side to find the current password policy configured in the dashboard.
+[Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
