@@ -48,34 +48,21 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
-We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
-
 If you want to check all the available arguments for the show method, check the [Auth0Lock](@@base_url@@/lock) documentation.
-
-
-
-### 4. Showing user information
 
 After authentication you will get the token in a window.location.hash. You can use lock to parse the hash and get the token. This token will be used for two things:
 
 -  retrieve the profile from auth0
 -  call your backend APIs
 
-````js
+In this example we are going to store the id_token in the localStorage. We do this so the user doesn't have to authenticate every time.
+
+```js
 var hash = lock.parseHash(window.location.hash);
 
 if (hash && hash.id_token) {
   //save the token in the session:
   localStorage.setItem('id_token', hash.id_token);
-
-  //get the profile and show some information:
-  lock.getProfile(hash.id_token, function (err, profile) {
-    if (err) {
-      return alert('There was an error geting the profile: ' + err.message);
-    }
-    window.profile = profile;
-    document.getElementById('name').textContent = profile.name;
-  });
 }
 
 if (hash && hash.error) {
@@ -83,7 +70,22 @@ if (hash && hash.error) {
 }
 ```
 
-````html
+### 4. Get the user profile and show information about the user
+
+```js
+  //retrieve the profile:
+var id_token = localStorage.get('id_token');
+if (id_token) {
+  lock.getProfile(id_token, function (err, profile) {
+    if (err) {
+      return alert('There was an error geting the profile: ' + err.message);
+    }
+    document.getElementById('name').textContent = profile.name;
+  });
+}
+```
+
+```html
 <p>Name: <span id="name"></span></p>
 ```
 
@@ -111,9 +113,8 @@ getFoos.then(function (response) {
 
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
-````js
+```js
 localStorage.removeItem('id_token');
-delete window.profile;
 window.location.href = "/";
 ```
 
