@@ -62,16 +62,24 @@ After authentication you will get the token in a window.location.hash. You can u
 -  call your backend APIs
 
 ````js
-var authHash = lock.parseHash(window.location.hash);
-if (authHash && authHash.id_token) {
+var hash = lock.parseHash(window.location.hash);
+
+if (hash && hash.id_token) {
   //save the token in the session:
-  localStorage.setItem('id_token', authHash.id_token);
+  localStorage.setItem('id_token', hash.id_token);
 
   //get the profile and show some information:
-  lock.getProfile(result.id_token, function (err, profile) {
+  lock.getProfile(hash.id_token, function (err, profile) {
+    if (err) {
+      return alert('There was an error geting the profile: ' + err.message);
+    }
     window.profile = profile;
     document.getElementById('name').textContent = profile.name;
   });
+}
+
+if (hash && hash.error) {
+  alert('There was an error: ' + hash.error + '\n' + hash.error_description);
 }
 ```
 
