@@ -119,7 +119,7 @@ In addition to adding and removing properties from the user object, you can retu
     }
 
 
-This will cause a redirect to your callback url with an `error` querystring parameter with the message you set. e.g.: `https://yourapp.com/callback?error=Only%20admins%20can%20use%20this`
+This will cause a redirect to your callback url with an `error` querystring parameter with the message you set. e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`
 
 We have an open source repository for common rules here:
 
