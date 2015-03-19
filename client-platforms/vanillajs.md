@@ -76,7 +76,7 @@ if (authHash && authHash.id_token) {
 ```
 
 ````html
-<p>His name is <span id="name"></span></p>
+<p>Name: <span id="name"></span></p>
 ```
 
 You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
