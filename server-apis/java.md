@@ -37,6 +37,8 @@ For that, you can just add them to your `pom.xml` if you're using maven.
 
 ### 2. Add JWT Validation filter
 
+> Dropwizard users: make sure to ignore the requests that contain `OPTIONS` as method. You can do that by checking `"OPTIONS".equals(request.getMethod())` and calling `chain.doFilter(request, response); return;` in  `JWTFilter`.
+
 Now, you need to validate the [JWT](@@base_url@@/jwt). For that, we'll use a Filter.
 
 ````java
