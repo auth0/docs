@@ -8,7 +8,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/Lock.iOS-OSX/master/create-package?path=Examples/basic-sample&type=replace&filePath=Examples/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample&type=replace&filePath=iOS/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -21,7 +21,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/Lock.iOS-OSX/master/create-package?path=Examples/basic-sample&type=replace&filePath=Examples/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample&type=replace&filePath=iOS/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -47,7 +47,7 @@ lodash: true
 Add the following to the `Podfile` and run `pod install`:
 
 ```ruby
-pod 'Lock', '~> 1.7'
+pod 'Lock', '~> 1.10'
 pod 'JWTDecode', '~> 0.2'
 ```
 
