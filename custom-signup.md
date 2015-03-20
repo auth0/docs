@@ -98,7 +98,7 @@ After receiving the request from the client, the JSON contained in the body of t
 
 ## Optional: Verifying password strength
 
-Password policies for database connections in the dashboard.
+Password policies for database connections can be configured in the dashboard.
 For more information, [check out the documentation](password-strength).
 
 The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
