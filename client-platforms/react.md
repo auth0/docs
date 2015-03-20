@@ -2,7 +2,7 @@
 lodash: true
 ---
 
-## Generic SPA / Vanilla JS Tutorial
+## React Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>
@@ -37,9 +37,13 @@ We're including the Auth0 lock script to the `index.html`
 Configuring the Auth0Lock will let your app work with Auth0. We recommend creating it in the `componentWillMount` lifecycle event of your Component.
 
 ````js
-componentWillMount: function() {
-    this.lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-},
+var App = React.createClass({
+  // ...
+  componentWillMount: function() {
+      this.lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+  },
+  // ...
+});
 ```
 
 ### 3. Let's implement the login
@@ -48,8 +52,11 @@ Now we're ready to implement the Login. Once the user clicks on the login button
 
 ````jsx
 var Home = React.createClass({
+  // ...
   showLock: function() {
-    this.lock.show();
+    // We receive lock from the parent component in this case
+    // If you instantiate it in this component, just do this.lock.show()
+    this.props.lock.show();
   },
 
   render: function() {
@@ -72,7 +79,9 @@ In this example we are going to store the `token` in `localStorage`. We do this 
 
 ```js
 var App = React.createClass({
+  // ...
   componentWillMount: function() {
+    // ...
     this.setState({idToken: this.getIdToken()})
   },
   getIdToken: function() {
@@ -106,6 +115,8 @@ var LoggedIn = React.createClass({
   },
 
   componentDidMount: function() {
+    // In this case, we receive lock and the token from the parent component
+    // If you hav them locally, just use `this.lock` and `this.idToken`
     this.props.lock.getProfile(this.props.idToken, function (err, profile) {
       if (err) {
         console.log("Error loading the Profile", err);
