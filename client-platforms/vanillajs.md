@@ -25,10 +25,7 @@ We're including the Auth0 lock script to the `index.html`
 Configuring the Auth0Lock will let your app work with Auth0
 
 ````js
-var lock = null;
-document.addEventListener( "DOMContentLoaded", function(){
-  lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-});
+var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
 ```
 
 ### 3. Let's implement the login
@@ -47,53 +44,82 @@ Once the user clicks on the login button, we'll call the `.show()` method of Aut
 var userProfile = null;
 
 document.getElementById('btn-login').addEventListener('click', function() {
-  lock.show({ popup: true }, function(err, profile, token) {
-    if (err) {
-      // Error callback
-      alert('There was an error');
-    } else {
-      // Success calback
-
-      // Save the JWT token.
-      localStorage.setItem('userToken', token);
-
-      // Save the profile
-      userProfile = profile;
-    }
-  });
+  lock.show({ authParams: { scope: 'openid' } });
 });
 ```
 
-We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
-
 If you want to check all the available arguments for the show method, check the [Auth0Lock](@@base_url@@/lock) documentation.
 
+After authentication, the page will be reloaded and you will get the token in a window.location.hash. This token can be parsed with Lock and it will be used for two things:
 
+-  retrieve the profile from auth0
+-  call your backend APIs
 
-### 4. Showing user information
+In this example we are going to store the `id_token` in local storage. We do this so users don't have to authenticate every time they open the application.
 
-We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
+```js
+var hash = lock.parseHash(window.location.hash);
 
-````js
-document.getElementById('nick').textContent = userProfile.nickname;
+if (hash && hash.id_token) {
+  //save the token in the session:
+  localStorage.setItem('id_token', hash.id_token);
+}
+
+if (hash && hash.error) {
+  alert('There was an error: ' + hash.error + '\n' + hash.error_description);
+}
 ```
 
-````html
-<p>His name is <span id="nick"></span></p>
+### 4. Get the user profile and display the user's information
+
+```js
+  //retrieve the profile:
+var id_token = localStorage.get('id_token');
+if (id_token) {
+  lock.getProfile(id_token, function (err, profile) {
+    if (err) {
+      return alert('There was an error geting the profile: ' + err.message);
+    }
+    document.getElementById('name').textContent = profile.name;
+  });
+}
+```
+
+```html
+<p>Name: <span id="name"></span></p>
 ```
 
 You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 5. Logging out
+### 5. Use the id_token to call your api
+
+```js
+var getFoos = fetch('/api/foo', {
+  headers: {
+    'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+  },
+  method: 'GET',
+  cache: false
+});
+
+getFoos.then(function (response) {
+  response.json().then(function (foos) {
+    console.log('the foos:', foos);
+  });
+});
+```
+
+Note: [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a quite new and experimental browser api not yet supported by all browsers. Fortunately there is a polyfill [here](https://github.com/github/fetch).
+
+### 6. Logging out
 
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
-````js
-localStorage.removeItem('userToken');
-userProfile = null;
+```js
+localStorage.removeItem('id_token');
 window.location.href = "/";
 ```
 
-### 6. You're done!
+### 7. You're done!
 
 You've implemented Login and Signup with Auth0 and VanillaJS.
