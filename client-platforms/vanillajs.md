@@ -50,12 +50,12 @@ document.getElementById('btn-login').addEventListener('click', function() {
 
 If you want to check all the available arguments for the show method, check the [Auth0Lock](@@base_url@@/lock) documentation.
 
-After authentication you will get the token in a window.location.hash. You can use lock to parse the hash and get the token. This token will be used for two things:
+After authentication, the page will be reloaded and you will get the token in a window.location.hash. This token can be parsed with Lock and it will be used for two things:
 
 -  retrieve the profile from auth0
 -  call your backend APIs
 
-In this example we are going to store the id_token in the localStorage. We do this so the user doesn't have to authenticate every time.
+In this example we are going to store the `id_token` in local storage. We do this so users don't have to authenticate every time they open the application.
 
 ```js
 var hash = lock.parseHash(window.location.hash);
@@ -70,7 +70,7 @@ if (hash && hash.error) {
 }
 ```
 
-### 4. Get the user profile and show information about the user
+### 4. Get the user profile and display the user's information
 
 ```js
   //retrieve the profile:
@@ -108,6 +108,8 @@ getFoos.then(function (response) {
   });
 });
 ```
+
+Note: [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a quite new and experimental browser api not yet supported by all browsers. Fortunately there is a polyfill [here](https://github.com/github/fetch).
 
 ### 6. Logging out
 
