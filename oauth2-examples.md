@@ -1,8 +1,8 @@
-# Generic OAuth2 Examples
+# Generic OAuth2 or OAuth1 Examples
 
-The [OAuth2](oauth2) connection gives you the ability to support any OAuth2 provider in addition to the ones that are availble in the dashboard.
+The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are availble in the dashboard.
 
-Here are a few examples of OAuth2 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
+Here are a few examples of OAuth2/OAuth1 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
 
 ```
 curl -vX POST https://@@account.namespace@@/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
@@ -77,6 +77,28 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
+##Imgur
+
+* [Create an application](https://api.imgur.com/oauth2/addclient)
+* Copy `Client ID` and `Client Secret` to config file below
+
+
+```
+{
+  "name": "imgur",
+  "strategy": "oauth2",
+  "options": {
+    "client_id": "{YOUR-IMGUR-CLIENT-ID}",
+    "client_secret": "{YOUR-IMGUR-CLIENT-SECRET}",
+    "authorizationURL": "https://api.imgur.com/oauth2/authorize",
+    "tokenURL": "https://api.imgur.com/oauth2/token",
+    "scripts": {
+      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.imgur.com/3/account/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b).data; profile.user_id = profile.id; cb(null, profile); });}"
+    }
+  }
+}
+```
+
 ##Xing
 
 * [Create an application](https://developer.xing.com/applications/dashboard)
@@ -88,8 +110,8 @@ After the call completes successfully, you will be able to login using these new
   "name": "xing",
   "strategy": "oauth1",
   "options": {
-    "client_id": "{YOUR_XING_CONSUMER_KEY}",
-    "client_secret": "{YOUR_XING_CONSUMER_SECRET}",
+    "client_id": "{YOUR-XING-CONSUMER-KEY}",
+    "client_secret": "{YOUR-XING-CONSUMER-SECRET}",
     "requestTokenURL": "https://api.xing.com/v1/request_token",
     "accessTokenURL": "https://api.xing.com/v1/access_token",
     "userAuthorizationURL": "https://api.xing.com/v1/authorize",
