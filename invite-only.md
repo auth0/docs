@@ -16,6 +16,8 @@ The users will be stored in a database and this is why we’ll need to make sure
 
 ![](//cdn.auth0.com/docs/img/invite-only-connections.png)
 
+The prevent users from signing up you'll need to activate the "Disable Sign Ups" option on the connection to make sure users can only be created from your backend.
+
 The Analystick application is an ASP.NET MVC web application hosted on http://localhost:45000/, so we’ll need to make sure we create an application in the dashboard with the right parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
