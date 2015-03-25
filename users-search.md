@@ -1,11 +1,10 @@
 # Users search
 
-At the [dashboard user' section](https://manage.auth0.com/#/users) you can search throught your registered users
-using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
+You can search your registered users from the [dashboard](https://manage.auth0.com/#/users) or API using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
 
-We provide some examples below:
+Here are some examples:
 
-## Cross-fields search
+## Cross-field search
 
 ```
 john
@@ -17,7 +16,7 @@ john
 name:john
 ```
 
-Search all users which its name is 'john'
+Search all users whose name is exactly john
 
 ## Search by email (exact match)
 
@@ -49,7 +48,8 @@ _exists_:app_metadata.plan
 _missing_:app_metadata.plan
 ```
 
-## List all users from specific connection/provider
+## List all users from a specific connection or provider
+
 
 ```
 identities.provider:"google-oauth2"
@@ -59,12 +59,6 @@ identities.provider:"google-oauth2"
 
 ```
 loginsCount:>100
-```
-
-## List all users who logged in last year
-
-```
-lastLogin:[2014-01-01 TO 2014-12-31]
 ```
 
 ## List all users who logged in before 2015
