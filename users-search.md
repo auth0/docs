@@ -8,7 +8,7 @@ We provide some examples below:
 ## Cross-fields search
 
 ```
-jhon
+john
 ```
 
 ## Search by field
@@ -17,24 +17,24 @@ jhon
 name:john
 ```
 
-Search all users which its name is 'jhon'
+Search all users which its name is 'john'
 
 ## Search by email (exact match)
 
 ```
-email:john@contoso.com
+email:"john@contoso.com"
 ```
 
 ## Search by multiple emails (specifying OR/AND operators)
 
 ```
-email:("john@contoso.com 0OR mary@contoso.com")
+email:("john@contoso.com" OR "mary@contoso.com")
 ```
 
 ## Search users without verified email
 
 ```
--email_verified:true
+email_verified:false
 ```
 
 ## Search users with some app_metadata field
@@ -64,7 +64,7 @@ loginsCount:>100
 ## List all users who logged in last year
 
 ```
-lastLogin:[2014-01-01 TO 2014-12-31)]
+lastLogin:[2014-01-01 TO 2014-12-31]
 ```
 
 ## List all users who logged in before 2015
