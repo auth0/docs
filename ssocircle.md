@@ -5,16 +5,39 @@ layout: doc.nosidebar
 # SAML SSO with SSOCircle as an Identity Provider
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), authenticating users against the __SSOCircle__ Identity Provider.
 
-There are **6 steps** to this sample
+There are **7 steps** to this sample
 
-1. Set up the Auth0 Service Provider.
-2. Set up the ssocircle Identity Provider (IDP).
-3. Test the connection to the ssocircle IDP.
-4. Register a simple HTML application with which to test the end-to-end connection.
-5. Create the HTML page for a test application.
-6. Test your creation.
+1. Obtain SSOCircle metadata.
+2. Set up the Auth0 Service Provider.
+3. Configure the SSOCircle Identity Provider (IDP).
+4. Test the connection to the SSOCircle IDP.
+5. Register a simple HTML application with which to test the end-to-end connection.
+6. Create the HTML page for a test application.
+7. Test your creation.
+8. Troubleshooting.
 
-# 1. Set up the Auth0 service provider
+
+# 1. Obtain SSOCircle meta data
+
+1. Go to **[ssocircle.com](http://ssocircle.com)** and register for an account (if you haven't already).
+
+2. Complete the registration and make sure you are logged into SSOCircle.
+
+3. Click on the **“Manage Metadata”** link on the left (toward the bottom of the links)
+
+4. Click on the **SSOCircle Public IDP Metadata** link in the middle of the screen.  You will need to copy three attributes from the page displayed, to use in step #2 below.
+
+5. Find the line that starts with "<SingleSignOnService" and has "HTTP-Redirect" as the binding.  Copy the Location URL from that line.
+
+6. Find the line that starts with "<SingleLogoutService" and has "HTTP-Redirect" as the binding.  Copy the Location URL from that line.
+
+7. Find the line that starts with "<KeyDescriptor" and has "use" as "signing".  Copy the lines between, but not including, the "<ds:X509Certificate" and "</ds:X509Certificate" lines.  Paste these lines into a file, called ssocirclecert.pem, making sure to preserve the line breaks exactly as shown in the original.
+
+The portion of the ssocircle metadata URL that shows the certificate is shown below:
+
+![](https://cdn.auth0.com/docs/img/ssocircle-9.png)
+
+# 2. Set up the Auth0 service provider
 
 In this step you will configure Auth0 so it knows how to communicate with __SSOCircle__ for single sign on via the SAML protocol.
 
@@ -26,20 +49,21 @@ In this step you will configure Auth0 so it knows how to communicate with __SSOC
 4. Click on the blue **"Create New Connection"** button
 
 
-In the "Create SAMLP Identity Provider" connection window, enter the following information into the "Configuration" tab.
+5. In the "Create SAMLP Identity Provider" connection window, enter the following information into the "Configuration" tab.
 
 **Connection Name:** You can make up any name, such as "SampleSAMLConnection"
 
 **Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
 For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.
 
-**Sign In URL:** enter this URL:
+**Sign In URL:** enter the URL copied in step **#5** in section 1:
+It should probably be:
 https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle
 
-**Sign Out URL:** enter this URL:
+**Sign Out URL:** enter the URL copied in step **#6** in section 1:
 https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle
 
-**Certificate:**  Create a file called ssocirclecert.pem and paste in the contents below:
+**Certificate:**  Add a "BEGIN CERTIFICATE" and "END CERTIFICATE" statement to the ssocirclecert.pem file created earlier.  Make sure the file looks like the following:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -59,14 +83,14 @@ eL2MoDNqJyQ0fXC6Ze3f79CKy/WjeU5FLwDZR0Q=
 ```
 
 
-When you paste the certificate into your file, line breaks may get replaced with spaces.  You need to restore the original line breaks and make sure that the line breaks are **exactly** as shown above and the BEGIN CERTIFICATE and END CERTIFICATE
-lines are on their own line and the first and last lines of the file, respectively.
+When you paste the certificate into your file, line breaks may get replaced with spaces.  You need to restore the original line breaks and make sure that the line breaks are **exactly** as shown above (or as shown on the ssocircle public IDP metadata page if changed) and the BEGIN CERTIFICATE and END CERTIFICATE
+lines are on their own line, with preceeding and following dashes and the first and last lines of the file, respectively.
 
-Click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you just created.
+6. In the Auth0 screen, click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you just created.
 
 You can ignore the rest of the fields for now.
 
-**Save:** Click on the blue **"SAVE"** button at the bottom.
+7. **Save:** Click on the blue **"SAVE"** button at the bottom.
 
 Here is an example of what the filled-out screen would look like:
 
@@ -75,9 +99,9 @@ Here is an example of what the filled-out screen would look like:
 
 After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button.  
 
-Click on the **"CONTINUE"** button. In the window that appears, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
+8. Click on the **"CONTINUE"** button. In the window that appears, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
 
-Copy the URL below that line into your browser address bar.  The picture below shows the screen on which this URL will appear and where to find it:
+9. Copy the URL below that line into your browser address bar.  The picture below shows the screen on which this URL will appear and where to find it:
 
 ![](https://cdn.auth0.com/docs/img/ssocircle-2.png)
 
@@ -89,7 +113,7 @@ Once you go to that metadata URL, it will display the metadata for the Auth0 sid
 
 This metadata needs to be given to the IDP, in this case SSOCircle, so it knows how to interact with Auth0.  The steps below will show how to do that.
 
-Copy the entire contents of the metadata, between and including the start and end `EntityDescriptor` tags:
+10. Copy the entire contents of the metadata, between and including the start and end `EntityDescriptor` tags:
 
 ````
     "<EntityDescriptor> "...   
@@ -99,32 +123,30 @@ Copy the entire contents of the metadata, between and including the start and en
 
 You will paste all this into an SSOCircle configuration screen later.
 
-# 2. Set up the SSOCircle Identity Provider
+# 3. Configure the SSOCircle Identity Provider
 
 In this step you will configure SSOCircle so it knows how to receive and respond to SAML-based authentication requests from Auth0.
 
-* Go to **[ssocircle.com](http://ssocircle.com)** and register for an account (if you haven't already).
+1. Go back to **[ssocircle.com](http://ssocircle.com)** 
 
-* Complete the registration and make sure you are logged into SSOCircle.
+2. Click on the **“Manage Metadata”** link on the left (toward the bottom of the links)
 
-* Click on the **“Manage Metadata”** link on the left (toward the bottom of the links)
+3. Click on the link **“Add new Service Provider”**
 
-* Click on the link **“Add new Service Provider”**
-
-* Fill out the following fields:
+4. Fill out the following fields:
 
 **FQDN of the ServiceProvider:** Auth0.com
 
-**Attributes send in assertion:** check the box for ‘EmailAddress’
+**Attributes to send in assertion:** check the box for ‘EmailAddress’ (the attribute that will be used to login)
 
-**Insert your metadata information:** paste in the XML metadata that you downloaded after configuring Auth0.  E.g. the info that starts with:
+**Insert your metadata information:** paste in the XML metadata that you copied in Section 2, step 10 above, after configuring Auth0.  E.g. the info that starts with:
 `<EntityDescriptor ...`
 
-* Then press the **“Submit”** button to complete the configuration of the IDP
+5. Then press the **“Submit”** button to complete the configuration of the IDP
 
 ![](https://cdn.auth0.com/docs/img/ssocircle-4.png)
 
-# 3. Test the connection to the SSOCircle IDP
+# 4. Test the connection to the SSOCircle IDP
 
 In this step, you will do a quick test to make sure the SAML configuration between Auth0 and SSOCircle is working.
 
@@ -147,7 +169,7 @@ Here is a sample of the "It Works" screen:
 
 ![](https://cdn.auth0.com/docs/img/ssocircle-5.png)
 
-# 4. Register a simple HTML application with which to test the end-to-end connection.
+# 5. Register a simple HTML application with which to test the end-to-end connection.
 
 In this step, you will register an application in Auth0 that will use the SAML connection you set up in the above steps.
 
@@ -176,7 +198,7 @@ In this step, you will register an application in Auth0 that will use the SAML c
 
 ![](https://cdn.auth0.com/docs/img/ssocircle-6.png)
 
-# 5. Create the HTML page for a test application
+# 6. Create the HTML page for a test application
 
 In this section you will create a very simple HTML page that invokes the **Auth0 Lock Widget** which will trigger the SAML login sequence.  This will enable an end-to-end test of the SAML SSO.
 
@@ -216,7 +238,7 @@ The client ID for your application can be found in the **Auth0 dashboard** by go
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.
 
-# 6. Test your sample application
+# 7. Test your sample application
 
 In this step, you will test your sample HTML application that uses the Auth0 SAML connection you set up to perform SSO with SSOCircle.
 
@@ -244,7 +266,7 @@ If sufficient time has passed, or if you delete your browser cookies before init
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io). This tool will display the token that your app would receive.
 
-#7. Troubleshooting.
+#8. Troubleshooting.
 
 This section has a few ideas for things to check if your sample doesn't work.
 
