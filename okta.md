@@ -71,3 +71,11 @@ Okta has an Application Portal / Launcher for their users. If you want to suppor
 Where `okta-customer` is the connection name you assigned in Auth0 dashboard.
 
 Also, you have to pick the application to redirect after the SAML assertion is consumed. You can find this in the **Connection -> IdP Initated SSO tab**.
+
+## Troubleshooting
+
+If a user is returned to the Okta dashboard after authenticating via Okta in a ServiceProvider-initiated login flow, check the following:
+
+1. If your application is integrated with Auth0 using the OpenID Connect protocol, Auth0 will take the value of the 'state' parameter and pass it on to Okta in the SAML "RelayState" parameter. Therefore, make sure you are setting the 'state' parameter to a value that Okta can use.
+
+2. In the Okta configuration screen titled "(2) Configure SAML", click on "Show Advanced Settings" and check the option for "Request Compression".  The Okta documentation indicates this should be checked if the value of this parameter is compressed.  Some Okta users have reported it should be checked for HTTP Redirect binding and uncompressed for HTTP POST binding.   

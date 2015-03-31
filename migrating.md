@@ -2,7 +2,7 @@
 
 Our focus has always been not only greenfield projects but also existing applications that want to extend their Authentication capabilities.
 
-We have released a new feature that enables the gradual migration users from an existing **Database Connection** to Auth0.
+We have released a new feature that enables the gradual migration of users from an existing **Database Connection** to Auth0.
 
 ## How to enable it?
 
@@ -40,7 +40,7 @@ function (email, password, callback) {
 }
 ```
 
-Then when a user authenticates, the following process take place:
+Then when a user authenticates, the following process takes place:
 
 ![](//cdn.auth0.com/docs/img/migrating-2.png)
 

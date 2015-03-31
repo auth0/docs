@@ -20,7 +20,7 @@ It is usually a good idea to keep the connector up to date. You can check the ve
 
 ![](https://cdn.auth0.com/docs/img/adldap-connector-version.png)
 
-##Common issues
+## Common issues
 
 These are the most common problems:
 
@@ -31,6 +31,24 @@ Make sure the clock of your server is current.
 If the time is not correct, it will cause authentication requests to fail. This can be fixed by ensuring that the System is properly configured to use to pool a sync server via the NTP (Network Time Protocol).
 
 Note: on windows environments the ntp provider is usually the same domain controller. Make sure that your Domain Controller is synchronized with some external service.
+
+### No connection to Active Directory
+
+The connector should be installed on a server that can reach the LDAP server. When firewalls, VPN connections, ... are placed between the connector and the LDAP server this might lead to connectivity issues between the connector and the LDAP server.
+
+In a Windows Network with Active Directory you can try the `nltest` command. To test if a specific machine can reach the `fabrikam.local` domain you can try `nltest /dsgetdc:fabrikam.local`.
+
+![](https://cdn.auth0.com/docs/img/connector-nltest-domain.png)
+
+To see to which domain the current server is connected you can also try:
+
+```
+nltest /dsgetdc:
+```
+
+When the domain does not exist or is unreachable `nltest` will return an error message:
+
+> Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN
 
 ### No internet connectivity
 
