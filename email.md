@@ -8,11 +8,11 @@ The dashboard allows customizing these emails using Markdown templates and marco
 
 ## Configuring From, Subject and Redirect To
 
-For each email being sent you can control the **From address**, the **Subject** and the **Redirect To** URL.
+For each email type the **From address**, the **Subject** and the **Redirect To** URL can be customized.
 
 ### From Address
 
-The **From address** is the address the end user will see when receiving an email from Auth0. If you leave this field empty the **From address** will be set to the email address of the account owner.
+The **From address** is the address the end user will see when receiving an email from Auth0. If you leave this field empty the **From address** will be set to the email address of the Auth0 account owner (in case there are multiple account users the system will use the email address of the first owner).
 
 This field supports the following macros:
 
@@ -38,7 +38,7 @@ v=spf1 include:spf.auth0.com ~all
 If you're already sending emails from this domain and you want to add Auth0 to the SPF configuration just add it after your existing definitions. Eg:
 
 ```
-v=spf1 include:outlook.com include:spf.mandrillapp.com ~all
+v=spf1 include:outlook.com include:spf.auth0.com ~all
 ```
 
 #### DKIM Configuration
@@ -66,13 +66,13 @@ The **Redirect To** field allows you to control to which URL users will be redir
 - `{application.callback_domain}`
 - `{application.name}`
 
-You would then be able to redirect users to a page on the callback domain, eg: `{application.callback_domain}/result_page`. Note that if the application has multiple callback domains configured the first one will be used.
+You would then be able to redirect users to a page on the Allowed Callback URL, eg: `{application.callback_domain}/result_page`. Note that if the application has multiple Allowed Callback URLs configured the first one will be used.
 
 ## Email Templates
 
 ### Verification Email
 
-This email will be sent whenever a user signs up or logs in for the first time. When the user follows the verification link, an `email_verified` flag will be set in the user's profile. `\@\@url\@\@` is a placeholder for this link.
+This email will be sent whenever a user signs up or logs in for the first time. When the user follows the verification link, the `email_verified` property will be changed to `true` in the user's profile.
 
 The following macros are available in this template:
 

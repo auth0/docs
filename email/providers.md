@@ -1,6 +1,6 @@
 # Using your own SMTP Provider for sending emails
 
-Instead of using Auth0's infrastructure for email communication with your users the API also allows you to configure your own provider. This allows you to better monitor and troubleshoot the email communication.
+Instead of using Auth0's infrastructure for email communication with your users the Auth0 API v2 also allows you to configure your own provider. This allows you to better monitor and troubleshoot the email communication.
 
 We currently support the following providers:
 
@@ -15,7 +15,7 @@ Sign up for an account on [Amazon](http://aws.amazon.com) and [configure Amazon 
 Then on the API v2 page you can generate an API token with the right scopes (eg: to create or update the email provider) and you can post your Amazon SES credentials to the API:
 
 ```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X POST  -H "Content-Type: application/json" -d '{ "name": "ses", "credentials": { "accessKeyId": "YOUR_AWS_ACCESS_KEY_ID", "secretAccessKey": "YOUR_AWS_SECRET_ACCESS_KEY", "region": "YOUR_AWS_DEFAULT_REGION" } }' https://login.auth0.com/api/v2/emails/provider
+curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{ "name": "ses", "credentials": { "accessKeyId": "YOUR_AWS_ACCESS_KEY_ID", "secretAccessKey": "YOUR_AWS_SECRET_ACCESS_KEY", "region": "YOUR_AWS_DEFAULT_REGION" } }' https://login.auth0.com/api/v2/emails/provider
 ```
 
 After setting up Amazon SES as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](https://manage.auth0.com/#/emails). The [Amazon SES console](https://console.aws.amazon.com/ses) will now show all emails which are being sent to your users from Auth0.
@@ -27,7 +27,7 @@ Sign up for an account on [Mandrill](https://mandrill.com/) and create a new API
 Then on the API v2 page you can generate an API token with the right scopes (eg: to create or update the email provider) and you can post your Mandrill credentials to the API:
 
 ```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"mandrill","credentials":{"api_key":"YOUR_MANDRILL_API_KEY"}}' https://login.auth0.com/api/v2/emails/provider
+curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"mandrill","credentials":{"api_key":"YOUR_MANDRILL_API_KEY"}}' https://login.auth0.com/api/v2/emails/provider
 ```
 
 After setting up Mandrill as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](https://manage.auth0.com/#/emails).
@@ -45,7 +45,7 @@ Sign up for an account on [SendGrid](https://sendgrid.com/home) or if you have a
 Then on the API v2 page you can generate an API token with the right scopes (eg: to create or update the email provider) and you can post your SendGrid credentials to the API:
 
 ```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"sendgrid","credentials":{"api_user":"YOUR_SENDGRID_API_USER","api_key":"YOUR_SENDGRID_API_KEY"}}' https://login.auth0.com/api/v2/emails/provider
+curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"sendgrid","credentials":{"api_user":"YOUR_SENDGRID_API_USER","api_key":"YOUR_SENDGRID_API_KEY"}}' https://login.auth0.com/api/v2/emails/provider
 ```
 
 After setting up SendGrid as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](https://manage.auth0.com/#/emails).
