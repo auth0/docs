@@ -25,7 +25,7 @@ In order to avoid your emails ending up in the user's junk folder we recommend a
 
 Additionally, when SPF and DKIM are not configured you users might see the **From address** with "on behalf of" depending on the email client they're using:
 
-> MyApp \<support@mail128-21.atl41.mandrillapp.com\> on behalf of MyApp \<support@fabrikamcorp.com\>
+> MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrikamcorp.com
 
 #### SPF Configuration
 
@@ -72,7 +72,7 @@ You would then be able to redirect users to a page on the callback domain, eg: `
 
 ### Verification Email
 
-This email will be sent whenever a user signs up or logs in for the first time. When the user follows the verification link, an `email_verified` flag will be set in the user's profile. `@@url@@` is a placeholder for this link.
+This email will be sent whenever a user signs up or logs in for the first time. When the user follows the verification link, an `email_verified` flag will be set in the user's profile. `\@\@url\@\@` is a placeholder for this link.
 
 The following macros are available in this template:
 
@@ -98,7 +98,7 @@ The following macros are available in this template:
 
 ### Change Password Confirmation Email
 
-This email will be sent whenever a user changes passwords. The password will not be changed until the user follows the verification link in the email. `@@url@@` is a placeholder for the verification link.
+This email will be sent whenever a user changes passwords. The password will not be changed until the user follows the verification link in the email.
 
 The following macros are available in this template:
 
@@ -114,5 +114,5 @@ http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%2
 
 ## Advanced Topics
 
-- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](email-providers)
-- [Take control of the complete email flow](email-custom)
+- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](@@env.BASE_URL@@/email/providers)
+- [Take control of the complete email flow](@@env.BASE_URL@@/email/custom)

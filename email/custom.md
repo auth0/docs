@@ -1,0 +1,92 @@
+# Take control of the complete Email flow
+
+The email flow in Auth0 can address the requirements of most applications, but there might still be cases where you might need more flexibility:
+
+ - Localization
+ - Calculated **Redirect To** url based on user/tenant/... 
+ - Different email templates per application/tenant/...
+
+Our extensiblity points and the API allow you to completely take over the email flow and control when and how emails are being sent out.
+
+To get started you will need to disable the Emails [in the dashboard](https://manage.auth0.com/#/emails) after which can implement the different email flows in your own environment.
+
+## Verification Email
+
+The verification email can be should be sent to every user for which the `email_verified` property is set to `false`. These are typically users in database connections and users authenticating with Social Providers that don't validate email addresses when users register for a new account.
+
+Using a [Rule](https://auth0.com/docs/rules) you can call out to one of your APIs when the user logs in for the first time with an email address which hasn't been verified.
+
+```
+function (user, context, callback) {    
+  if (user.email_verified || user.verification_email_sent) {
+    return callback(null, user, context);
+  } 
+
+  request.post({
+    url: 'https://api.mycompany.com/mails/verification',
+    json: {
+      user: user,
+      context: context,
+      secretToken: ";ojhsajk;h;Kh:Jh",
+    },
+    timeout: 5000
+  }, function(err, response, body){
+    if (err) 
+      return callback(new Error(err));
+    user.persistent.verification_email_sent = true;
+    return callback(null, user, context);
+  });
+}
+```
+
+After calling the API we add a flag to the user which specifies that the verification email has already been sent to make sure the email is only sent once.
+
+Since the email will be sent by your own API you now have complete control over the verification email. The only thing we need to keep in mind is that the users still need to click the verification link to verify their email address.
+
+The Auth0 API exposes [the verification endpoint](https://auth0.com/docs/api#!#post--api-users--user_id--verification_ticket) which makes it possible to generate the email verification link for a specific user. The endpoint also allows you to specify the `resultUrl` which is the URL to which your users will be sent after they validated their email address. 
+
+As a result you now also have complete control over the URL the users will be redirected to after validation. This can be useful when users need to be redirected to specific pages based on their account, on their subscription, on the tenant, ...
+
+## Welcome Email
+
+The welcome email is an email we'll want to send to users with a verified email address and this can also be implemented using a rule.
+
+```
+function (user, context, callback) {    
+  if (!user.email_verified || user.welcome_email_sent) {
+    return callback(null, user, context);
+  } 
+
+  request.post({
+    url: 'http://requestb.in/17ef4bb1',
+    json: {
+      user: user,
+      context: context,
+      secretToken: ";ojhsajk;h;Kh:Jh",
+    },
+    timeout: 5000
+  }, function(err, response, body){
+    if (err) 
+      return callback(new Error(err));
+    user.persistent.welcome_email_sent = true;
+    return callback(null, user, context);
+  });
+}
+```
+
+The rule only runs if the email is verified and if we haven't sent this mail before, to make sure it only runs once.
+
+Since the email will be sent by your own API you now have complete control over the verification email.
+
+## Change Password Confirmation Email
+
+We currently don't have any extensiblity points that allow you to write custom code when users change their password. This means you'll just need to write some code after users changed their password. 
+
+To handle this flow you'll need to host a "Change Password" form which captures the new password of the user and posts it to the [change password ticket endpoint](https://auth0.com/docs/api#!#post--api-users--user_id--change_password_ticket). When calling this endpoint the password is not updated, but a "change password confirmation" link is generated.
+
+You can now send an email to your users with this link and only when users click this link will their password be updated.
+
+## Other Topics
+
+- [Emails in Auth0](@@env.BASE_URL@@/email)
+- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](@@env.BASE_URL@@/email/providers)
