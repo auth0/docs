@@ -19,7 +19,7 @@ If you specify a `returnTo` parameter, Auth0 will redirect to that URL after log
 
 Facebook has some special requirements to trigger a logout. You will have to build the logout URL as described below:
 
-    https://@@account.namespace@@/v2/logout?
+    https://@@account.namespace@@/v2/logout?federated&
           returnTo=url_encode(https://@@account.namespace@@/logout?returnTo=http://yoursite)
           &access_token=[facebook access_token]
 
