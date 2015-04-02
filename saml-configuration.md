@@ -53,7 +53,7 @@ For some 3rd party applications that support SAML, the Auth0 side of the configu
 
 For any application not listed on the "Third Party Apps" page, the Auth0 side of the configuration is done using the "Apps/APIs" link and then clicking on the "Addons" tab.
 
-* Generic instructions for Auth0 as SAML Identity Provider
+* [Generic Identity Provider Configuration](@@env.BASE_URL@@/saml-idp-generic)
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
 
