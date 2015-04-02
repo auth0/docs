@@ -1,6 +1,76 @@
 # SAML
 
-Auth0 supports SAML protocol (used by apps like Salesforce, Box, etc.), WS-Federation protocol (used by apps like [SharePoint](integrations/sharepoint), CRM, etc.) and the OAuth2/OpenID Connect protocol (used by custom developed applications). This document explains how to customize the SAML Assertions and the SAML and WS-Fed protocol parameters.
+In a SAML federation there is a Service Provider and an Identity Provider.  The Service Provider agrees to trust the Identity Provider to authenticate users.  The Identity Provider authenticates users and provides to Service Providers an Authentication Assertion that indicates a user has been authenticated.
+
+Auth0 supports the SAML protocol and can serve in either a SAML Service Provider (SP) role, a SAML Identity Provider (IDP) role, or both.
+
+
+### SAML Identity Provider
+
+Some Applications, such as Salesforce, Box, Workday, can be configured to allow users to authenticate against an external Identity Provider using the SAML protocol.  Such applications can be integrated with Auth0 and in this case Auth0 will serve as the SAML IDP for the application.  
+
+Users of the application will be redirected to Auth0 to log in, and Auth0 can authenticate them using any backend authentication connection, such as an LDAP directory, a database, or even other SAML IDPs or Social Providers.  Once the user is authenticated, Auth0 will return a SAML assertion to the application indicating that the user has been successfully authenticated.
+
+![](https://cdn.auth0.com/docs/img/saml-case2.png)
+
+### SAML Service Provider
+
+Other applications, especially custom applications, may externalize authentication against an external Identity Provider using a protocol such as OpenID Connect or OAuth2.  In such cases, even though the application was written to utilize the OpenID Connect or OAuth2 protocol, it may be desirable to leverage an enterprise SAML provider for authentication.  
+
+In this situation, Auth0 will receive an authentication request from the application using the OpenID Connect or OAuth2 protocol, and Auth0 will translate the request into a SAML Authentication Request and send it on to a SAML Identity Provider.  In this case, Auth0 serves as a SAML Service Provider in the federation with the Identity Provider.
+
+![](https://cdn.auth0.com/docs/img/saml-case1.png)
+
+### SAML Service Provider and Identity Provider
+
+Auth0 can also serve as an authentication hub between applications making a SAML request and backend SAML Identity Providers.  In this case, Auth0 would serve as a SAML Identity Provider to the applications, and it would also serve as a SAML Service Provider to backend SAML Identity Providers.  This use case is advantageous when applications need to support multiple backend Identity Providers.
+
+![](https://cdn.auth0.com/docs/img/saml-case3.png)  
+
+## Configuring Auth0 as a Service Provider
+
+If Auth0 will serve as a SAML Service Provider, an Auth0 Connection is used to configure the Auth0 side (Service Provider) of each SAML federation. 
+
+There are instructions for several specific providers below: 
+
+* [ADFS](@@env.BASE_URL@@/adfs)
+* [Okta](@@env.BASE_URL@@/okta)
+* [OneLogin](@@env.BASE_URL@@/onelogin)
+* [Ping7](@@env.BASE_URL@@/ping7)
+* [SiteMinder](@@env.BASE_URL@@/siteminder)
+* [SSOCircle](@@env.BASE_URL@@/ssocircle)
+
+Auth0 can be configured as a Service Provider to any other SAML-compliant Identity Provider using the following generic instructions:
+
+* [Generic Service Provider Configuration](@@env.BASE_URL@@/saml-sp-generic)
+
+
+## Configuring Auth0 as a SAML Identity Provider
+
+Configuring Auth0 to serve as a SAML Identity Provider is done in a couple different places, depending on the type of application.
+
+For some 3rd party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, and selecting the specific application.  Instructions specific to each application are provided.
+
+For any application not listed on the "Third Party Apps" page, the Auth0 side of the configuration is done using the "Apps/APIs" link and then clicking on the "Addons" tab.
+
+* Generic instructions for Auth0 as SAML Identity Provider
+
+Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
+
+## Configuration Auth0 as both Service Provider and Identity Provider
+
+In this situation, there are two federations to configure.  The federation between the application and Auth0 will follow the instructions above for Configuring Auth0 as an Identity Provider.   The federation between Auth0 and any backend SAML Identity providers would follow the instructions for Configuring Auth0 as a Service Provider.
+
+## Some SAML-compliant Identity Providers
+
+  
+A list of [Identity Providers](@@env.BASE_URL@@/samlp-providers) that are believed to be SAML compliant.
+
+## Customizing SAML assertions (Auth0 as IDP)
+
+ 
+ 
+This section explains how to customize the SAML Assertions and the SAML and WS-Fed protocol parameters when Auth0 is configured to serve as an Identity Provider.
 
 By default, Auth0 will generate a SAML Assertion following certain conventions. However, you can customize everything by creating a [rule](rules) like this:
 
@@ -21,7 +91,7 @@ By default, Auth0 will generate a SAML Assertion following certain conventions. 
 
 ### Configuration options
 
-Below all the customizations you can do:
+Below are all the customizations you can do:
 
 * __audience (`string`):__ The audience of the SAML Assertion. Default will be the `Issuer` on `SAMLRequest`.
 * __recipient (`string`):__ The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on `SAMLRequest` or Callback URL if no SAMLRequest was sent.
@@ -37,3 +107,6 @@ Below all the customizations you can do:
 * __signResponse (`bool`):__ Whether or not the SAML Response should be signed. By default the SAML Assertion will be signed, but not the SAML Response. If `true`, SAML Response will be signed instead of SAML Assertion.
 * __nameIdentifierFormat (`string`):__ Default is `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 * __nameIdentifierProbes (`Array`):__ Auth0 will try each of the attributes of this array in order. If one of them has a value, it will use that for the Subject/NameID. The order is: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` (mapped from `user_id`), `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` (mapped from `email`), `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` (mapped from `name`).
+
+
+
