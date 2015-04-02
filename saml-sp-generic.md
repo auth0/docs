@@ -40,9 +40,8 @@ In the **"Create SAMLP Identity Provider"** connection window, enter the followi
 
 **Connection Name:** You can enter any name, such as "SAML-SP"
 
-**Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
-For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  Make sure the test user you created in section 2 has an email address with email domain that matches what you enter here.
-If you leave this field blank, users with any email domain can use the IDP.
+**Email Domains:** Enter the email domain name for the users that will log in via this connection.
+For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.  If you leave this field blank, users with any email domain can use the IDP.
 
 **Sign In URL:** enter the **"SAML SSO URL"** that you obtained from the Identity Provider.
 
