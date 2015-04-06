@@ -2,7 +2,7 @@
 
 Our focus has always been not only greenfield projects but also existing applications that want to extend their Authentication capabilities.
 
-With this in mind, our [API has an endpoint](https://login.auth0.com/docs/api/v2/#!/users-imports/post_users_imports) that allows consumers to populate a database connection with users obtained from a file. Each of those users will have to reset their password on they log in for the first time.
+With this in mind, our [API has an endpoint](https://auth0.com/docs/apiv2#!/jobs/post_users_imports) that allows consumers to populate a database connection with users obtained from a file. Each of those users will have to reset their password on they log in for the first time.
 
 ## Pre-requisites
 
@@ -170,7 +170,7 @@ Body
 }
 ```
 
-The returned entity represents the import job. You can query its status using [this other endpoint](https://login.auth0.com/docs/api/v2/#!/users-imports/get_users_imports_by_job_id).
+The returned entity represents the import job. You can query its status using [this other endpoint](https://auth0.com/docs/apiv2#!/jobs/get_jobs_by_id).
 
 Once the job finishes, whether it failed or was successful, Auth0 account owners will get an e-mail notifying about the result.
 
