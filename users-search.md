@@ -1,6 +1,6 @@
 # Users search
 
-You can search your registered users from the [dashboard](https://manage.auth0.com/#/users) or API using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
+You can search registered users using our [dashboard](https://manage.auth0.com/#/users) or API using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
 
 Here are some examples:
 
