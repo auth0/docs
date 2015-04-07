@@ -69,8 +69,9 @@ lastLogin:[* TO 202014-12-31]
 
 More samples with ranges:
 
-* Logins count from 100 to 200: `loginsCount:[100 TO 200]`
-* Logins count from 100 upwards: `loginsCount:[100 TO *]`
+* Logins count >= 100 and <= 200: `loginsCount:[100 TO 200]`
+* Logins count >= 100: `loginsCount:[100 TO *]`
+* Logins count > 100 and < 200 `loginsCount:{100 TO 200}`
 * Curly and square brackets can be combined: `loginsCount:[100 TO 200}
 
 ## List all users with a specific role
