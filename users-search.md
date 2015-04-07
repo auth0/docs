@@ -80,7 +80,7 @@ app_metadata.roles:"admin"
 ```
 
 ## fuzziness
-We can search for terms that are similar to, but not exactly like our search terms.
+You can search for terms that are similar to, but not exactly like our search terms.
 
 ```
 name:jhn~
