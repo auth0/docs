@@ -1,6 +1,6 @@
 # Users search
 
-You can search registered users using our [dashboard](https://manage.auth0.com/#/users) or API using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
+You can search registered users using our [dashboard](@@uiURL@@/#/users) or [APIv2](@@base_url@@/apiv2#!/users/get_users) using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
 
 Here are some examples:
 
@@ -13,7 +13,7 @@ john
 ## Search by field
 
 ```
-name:john
+name:"john"
 ```
 
 Search all users whose name is exactly john
