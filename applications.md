@@ -77,7 +77,9 @@ Whenever a user logs in to an application, a login fails, a user signs up, a pas
 
 ### Cost
 
-The [pricing model](https://auth0.com/pricing) is based on the type of identity providers you're using, together with the number of active users and any additional features that have been enabled. Active users are users that authenticated in the last 30 days for **a given application**. In the following example we have 3 active social users for the month of February:
+The [pricing model](https://auth0.com/pricing) is based on the type of identity providers you're using, together with the number of active users and any additional features that have been enabled. Active users are users that authenticated in the last 30 days for **a given application**. We define an application as a client id and client secret pair, if multiple applications (say one on iOS and one on Android) share the same client id and client secret pair, they are a single app in this definition.
+
+In the following example we have 3 active social users for the month of February:
 
 ![](//cdn.auth0.com/docs/img/applications-single-app-active-users.png)
 
