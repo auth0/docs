@@ -33,7 +33,7 @@ email:("john@contoso.com" OR "mary@contoso.com")
 ## Search users without verified email
 
 ```
-email_verified:false
+email_verified:false OR _missing_:email_verified
 ```
 
 ## Search users with some app_metadata field
@@ -64,7 +64,7 @@ loginsCount:>100
 ## List all users who logged in before 2015
 
 ```
-lastLogin:[* TO 202014-12-31]
+lastLogin:[* TO 2014-12-31]
 ```
 
 More samples with ranges:
