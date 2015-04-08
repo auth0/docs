@@ -20,6 +20,14 @@ It is usually a good idea to keep the connector up to date. You can check the ve
 
 ![](https://cdn.auth0.com/docs/img/adldap-connector-version.png)
 
+## Troubleshooting Tool
+
+The troubleshooting tool is part of the AD LDAP Connector and can be launched on Windows using **C:\Program Files (x86)\Auth0\AD LDAP Connector\troubleshoot.cmd** or on Linux using **node troubleshoot.js**.
+
+This tool will try to detect the most common problems related to the AD LDAP Connector:
+
+![](https://cdn.auth0.com/docs/img/connector-troubleshooter.png)
+
 ## Common issues
 
 These are the most common problems:
