@@ -17,8 +17,8 @@ The `config.json` is the AD/LDAP Connector's configuration file in which the fol
  - `LAST_SENT_THUMBPRINT`: Thumbprint of the last certificate which was sent to Auth0.
  - `LDAP_BASE`: Defines the location in the directory from which the LDAP search begins. Eg: `DC=fabrikam,DC=local`
  - `LDAP_BASE_GROUPS`: Defines the location in the directory from wich the LDAP search for groups begins.
- - `LDAP_BIND_CREDENTIALS`: The encrypted password of the LDAP user.
- - `LDAP_BIND_PASSWORD`: The password of the LDAP user.
+ - `LDAP_BIND_PASSWORD`: The password of the LDAP user. This setting will automatically be removed after the connector has been initialized.
+ - `LDAP_BIND_CREDENTIALS`: The encrypted password of the LDAP user. This setting will automatically be added after the connector has been initialized.
  - `LDAP_BIND_USER`: The user for which we will bind a connection to LDAP.
  - `LDAP_HEARTBEAT_SECONDS`: The keep-alive in seconds to keep the LDAP connection open.
  - `LDAP_SEARCH_ALL_QUERY`: The LDAP query used to list all users in the LDAP store. Default: `(objectCategory=person)`;
