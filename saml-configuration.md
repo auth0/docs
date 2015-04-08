@@ -49,17 +49,31 @@ Auth0 can be configured as a Service Provider to any other SAML-compliant Identi
 
 Configuring Auth0 to serve as a SAML Identity Provider is done in a couple different places, depending on the type of application.
 
-For some 3rd party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, and selecting the specific application.  Instructions specific to each application are provided.
+For some Third Party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, clicking on the "NEW THIRD PARTY APP" button, and selecting the specific application.  Instructions specific to the chosen application are provided.
 
-For any application not listed on the "Third Party Apps" page, the Auth0 side of the configuration is done using the "Apps/APIs" link and then clicking on the "Addons" tab.
+* [Third Party SAML Web Apps](@@env.BASE_URL@@/saml2webapp-tutorial)
+
+
+For any application not listed on the "Third Party Apps" page, (click NEW THIRD PARTY APP button to see the list) the Auth0 side of the configuration can be done using the "Apps/APIs" link and then clicking on the "Addons" tab for the particular application, and clicking on the toggle in the "SAML2 WEB APP" box.   
+
+Generic instructions for configuring Auth0 as an IDP:
 
 * [Generic Identity Provider Configuration](@@env.BASE_URL@@/saml-idp-generic)
+
+The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  Third Party Applications that require special settings are documented at: 
+
+* [SAML settings needed for some Third Party Apps](@@env.BASE_URL@@/saml-apps)
+
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
 
 ## Configuration Auth0 as both Service Provider and Identity Provider
 
 In this situation, there are two federations to configure.  The federation between the application and Auth0 will follow the instructions above for Configuring Auth0 as an Identity Provider.   The federation between Auth0 and any backend SAML Identity providers would follow the instructions for Configuring Auth0 as a Service Provider.
+
+A different, but similar, use case is setting up one Auth0 account to serve as a SAML Service Provider and then setting up a second Auth0 account to serve as a SAML Identity Provider for the first account.  This configuration would typically just be used for testing purposes.  The steps to set this up are described in:
+
+[Auth0 as Identity Provider for itself](@@env.BASE_URL@@/samlsso-auth0-to-auth0)
 
 ## Some SAML-compliant Identity Providers
 
@@ -68,11 +82,11 @@ A list of [Identity Providers](@@env.BASE_URL@@/samlp-providers) that are believ
 
 ## Customizing SAML assertions (Auth0 as IDP)
 
- 
+The "Configuring Auth0 as a SAML Identity Provider" section above contains information on basic configuration for Auth0 to serve as a SAML Identity Provider.
  
 This section explains how to customize the SAML Assertions and the SAML and WS-Fed protocol parameters when Auth0 is configured to serve as an Identity Provider.
 
-By default, Auth0 will generate a SAML Assertion following certain conventions. However, you can customize everything by creating a [rule](rules) like this:
+You can customize the SAML Assertion by creating a [rule](rules) like this:
 
     function (user, context, callback) {
       // change SAML token lifetime to 10 hours
