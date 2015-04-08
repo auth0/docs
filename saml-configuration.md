@@ -49,12 +49,12 @@ Auth0 can be configured as a Service Provider to any other SAML-compliant Identi
 
 Configuring Auth0 to serve as a SAML Identity Provider is done in a couple different places, depending on the type of application.
 
-For some Third Party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, clicking on the "NEW THIRD PARTY APP" button, and selecting the specific application.  Instructions specific to the chosen application are provided.
+For some Third Party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, clicking on  "NEW THIRD PARTY APP", and selecting the specific application.  Instructions specific to the chosen application are provided.
 
 * [Third Party SAML Web Apps](@@env.BASE_URL@@/saml2webapp-tutorial)
 
 
-For any application not listed on the "Third Party Apps" page, (click NEW THIRD PARTY APP button to see the list) the Auth0 side of the configuration can be done using the "Apps/APIs" link and then clicking on the "Addons" tab for the particular application, and clicking on the toggle in the "SAML2 WEB APP" box.   
+For any application not listed on the "Third Party Apps" page, (click "NEW THIRD PARTY APP"  to see the list) the Auth0 side of the configuration can be done using the "Apps/APIs" link and then clicking on the "Addons" tab for the particular application, and clicking on the toggle in the "SAML2 WEB APP" box.   
 
 Generic instructions for configuring Auth0 as an IDP:
 
