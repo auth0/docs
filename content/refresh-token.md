@@ -21,20 +21,20 @@ Because a __refresh token__ never expires, it is important to provide admins of 
 __Refresh tokens__ can be issued and revoked for each combination of __app__, __user__ and __device__.
 To revoke a __refresh token__, you can call the **[revoke refresh token](@@base_url@@/api#delete--api-users--user_id--refresh_tokens--refresh_token-)** endpoint:
 
-````
+```
 DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh token>
 
 {
   "Authorization":   "Bearer <your access token>",
 }
 
-``` 
+```
 
 ## How it all works
 
 The process to log the user in is the same as [explained in the sequence diagram page](@@base_url@@/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
 
-````
+```
 GET https://@@account.namespace@@/authorize/?
     response_type=token
     &client_id=@@account.clientId@@
@@ -45,7 +45,7 @@ GET https://@@account.namespace@@/authorize/?
 
 After the user authenticates with the IdP, Auth0 will redirect the user to the callback URL as usual. The complete URL will look like:
 
-````
+```
 GET YOUR_CALLBACK_URL#
     access_token=2YotnF..........1zCsicMWpAA
     &id_token=......Json Web Token......
@@ -68,14 +68,14 @@ Content-Type: 'application/json'
   "refresh_token":   "your_refresh_token",
   "api_type":        "app"
 }
-``` 
+```
 
 ## Using it with SDKs
 
-Libraries like `auth0.js`, `auth0-widget.js` or `auth0-angular.js` all include support to get a `refresh_token` and also renewed `id_tokens`.
+Libraries like `auth0.js`, Lock and `auth0-angular.js` all include support to get a `refresh_token` and renewed `id_tokens`.
 
 You can read more about them in the following links:
 
 * [Getting it with Auth0.js](https://github.com/auth0/auth0.js#login)  and [using it to get a new id_token](https://github.com/auth0/auth0.js#refresh-token)
-* [Getting it with Auth0-widget.js](https://github.com/auth0/widget#show-widget). Using it is through Auth0.js
+* [Getting and using it with Lock](https://github.com/auth0/lock/wiki/Using-a-Refresh-Token).
 * [Getting and using it with Auth0-angular.js](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
