@@ -58,21 +58,21 @@ identities.provider:"google-oauth2"
 ## List all users with more than 100 logins
 
 ```
-loginsCount:>100
+logins_count:>100
 ```
 
 ## List all users who logged in before 2015
 
 ```
-lastLogin:[* TO 2014-12-31]
+last_login:[* TO 2014-12-31]
 ```
 
 More samples with ranges:
 
-* Logins count >= 100 and <= 200: `loginsCount:[100 TO 200]`
-* Logins count >= 100: `loginsCount:[100 TO *]`
-* Logins count > 100 and < 200 `loginsCount:{100 TO 200}`
-* Curly and square brackets can be combined: `loginsCount:[100 TO 200}
+* Logins count >= 100 and <= 200: `logins_count:[100 TO 200]`
+* Logins count >= 100: `logins_count:[100 TO *]`
+* Logins count > 100 and < 200 `logins_count:{100 TO 200}`
+* Curly and square brackets can be combined: `logins_count:[100 TO 200}
 
 ## List all users with a specific role
 
