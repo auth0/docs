@@ -157,7 +157,7 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 
 Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock. 
 
-![Create Class Xcode](https://cdn.auth0.com//blog/react-native-touchid/CreateClass.gif)
+![Create Class Xcode](https://assets.auth0.com/mobile-sdk-lock/CreateNativeModuleClass.gif)
 
 `LockReactModule.h`
 
@@ -218,13 +218,7 @@ var Lock = require('NativeModules').LockReactModule;
 Then we can show _Lock_:
 
 ```js
-Lock.show({
-  closable: true,
-  authParams: {
-    connection: 'Username-Password-Authentication',
-    scope: 'openid email offline_access',
-  },
-}, (err, profile, token) => {
+Lock.show({}, (err, profile, token) => {
   if (err) {
     console.log(err);
     return;
