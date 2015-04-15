@@ -44,12 +44,12 @@ lodash: true
 
 ### 1. Adding Auth0 Lock to your project
 
-Add the following to the `buid.gradle`:
+Add the following to the `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock:1.1.+'
-compile 'com.auth0.android:lock-facebook:1.1.+'
-compile 'com.auth0.android:lock-googleplus:1.1.+'
+compile 'com.auth0.android:lock:1.3.+'
+compile 'com.auth0.android:lock-facebook:1.3.+'
+compile 'com.auth0.android:lock-googleplus:1.3.+'
 ```
 
 ### 2. Configuring Auth0 Credentials & Callbacks
@@ -109,7 +109,7 @@ public class MyApplication extends Application implements LockProvider {
 
 ### 3. Register Native Authentication Handlers
 
-You can configure Lock to use other native android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialised.
+You can configure Lock to use other native Android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialised.
 
 > If you don't want to use Facebook nor Google+ native authentication, please go directly to the [next step](#9)
 
@@ -195,7 +195,7 @@ After the user has logged in, we can use the `UserProfile` object to display the
   emailTextView.setText(profile.getEmail());
 ```
 
-> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/android-core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of this depend on the social provider being used.
+> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/android-core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
 
 ### 6. We're done
 
