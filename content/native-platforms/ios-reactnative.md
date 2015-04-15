@@ -2,13 +2,13 @@
 lodash: true
 ---
 
-## iOS Objective-C Tutorial
+## iOS React Native Tutorial
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample&type=replace&filePath=iOS/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -21,7 +21,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample&type=replace&filePath=iOS/basic-sample/basic-sample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -32,7 +32,7 @@ lodash: true
 
 <% } %>
 
-**Otherwise, if you already have an existing application, please follow the steps below.**
+**Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
 ### Before Starting
 
@@ -44,12 +44,13 @@ lodash: true
 
 ### 1. Adding the Auth0 dependencies
 
-Add the following to the `Podfile` and run `pod install`:
+Inside your project create a file named `Podfile` with these contents:
 
 ```ruby
-pod 'Lock', '~> 1.10'
-pod 'JWTDecode', '~> 0.2'
+pod 'LockReact', '~> 0.2'
 ```
+
+and run `pod install`
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
@@ -91,7 +92,7 @@ To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc,
 }
 ```
 
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #4__
+> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #4__
 
 #### Facebook
 
@@ -152,47 +153,99 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 }
 ```
 
-### 4. Let's implement the login
+### 4. Add Native Module for Lock to your project
 
-Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers import **Lock** classes
+Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock. 
+
+![Create Class Xcode](https://assets.auth0.com/mobile-sdk-lock/CreateNativeModuleClass.gif)
+
+`LockReactModule.h`
 
 ```objc
-#import <Lock/Lock.h>
+// LockReactModule.h file
+#import <Foundation/Foundation.h>
+#import "RCTBridgeModule.h"
+
+@interface LockReactModule : NSObject<RCTBridgeModule>
+
+@end
 ```
 
-Then we instantiate the native widget and present it as a modal screen:
+`LockReactModule.m`
 
 ```objc
-A0LockViewController *controller = [[A0LockViewController alloc] init];
-controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    // Do something with token & profile. e.g.: save them.
-    // And dismiss the ViewController
-    [self dismissViewControllerAnimated:YES completion:nil];
-};
-[self presentViewController:controller animated:YES completion:nil];
+#import "LockReactModule.h"
+#import <LockReact/A0LockReact.h>
+
+@implementation LockReactModule
+
+RCT_EXPORT_MODULE();
+
+RCT_EXPORT_METHOD(show:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    A0LockReact *lock = [[A0LockReact alloc] init];
+    [lock showWithOptions:options callback:callback];
+  });
+}
+
+RCT_EXPORT_METHOD(showSMS:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    A0LockReact *lock = [[A0LockReact alloc] init];
+    [lock showSMSWithOptions:options callback:callback];
+  });
+}
+
+RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    A0LockReact *lock = [[A0LockReact alloc] init];
+    [lock showTouchIDWithOptions:options callback:callback];
+  });
+}
+
+@end
+```
+
+> You can also download [LockReactModule.h](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/Modules/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/Modules/LockReactModule.m) and add them to your Xcode project.
+
+### 5. Let's implement the login
+
+Now we're ready to implement the Login. First we need to require the native module we've just created:
+
+```js
+var Lock = require('NativeModules').LockReactModule;
+```
+
+Then we can show _Lock_:
+
+```js
+Lock.show({}, (err, profile, token) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  // Authentication worked!
+  console.log('Logged in with Auth0!');
+});
 ```
 
 [![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](https://github.com/auth0/Lock.iOS-OSX/wiki/Getting-Started:-Use-your-own-UI). 
-> Or you can also try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.iOS-OSX#sms) or [TouchID](https://github.com/auth0/Lock.iOS-OSX#touchid)
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.ReactNative#sms) or [TouchID](https://github.com/auth0/Lock.ReactNative#touchid)
 
-On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
-
-> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/How-to-save-and-refresh-JWT-token)
+On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 
 ### 5. Showing user information
 
-After the user has logged in, we can use the `profile` object which has all the user information:
+After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
 
-```objc
-  self.usernameLabel.text = profile.name;
-  self.emailLabel.text = profile.email;
+```js
+  <Text>Welcome {this.state.profile.name}</Text>
+  <Text>Your email is: {this.state.profile.email}</Text>
 ```
 
-> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 6. We're done
 
-You've implemented Login and Signup with Auth0 in iOS. You're awesome!
+You've implemented Authentication with Auth0 in iOS & React Native. You're awesome!
 
