@@ -72,8 +72,8 @@ Add the following entries to your app's `Info.plist`:
     <td>@@account.clientId@@</td>
   </tr>
   <tr>
-    <td>Auth0Tenant</td>
-    <td>@@account.tenant@@</td>
+    <td>Auth0Domain</td>
+    <td>@@account.domain@@</td>
   </tr>
 </table>
 
@@ -93,7 +93,7 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 }
 ```
 
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the [next step](#8)
+> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #4__
 
 #### Facebook
 
