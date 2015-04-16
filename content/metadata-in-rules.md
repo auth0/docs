@@ -32,6 +32,7 @@ To read metadata from a rule all you need to do is access the correct user prope
 To make a decision based on the user's roles you would write the following code:
 ```js
 function(user, context, callback){
+  user.app_metadata = user.app_metadata || {};
   if (user.app_metadata.roles.indexOf('writer')){
     // this code would be executed for the user
   }
@@ -44,6 +45,7 @@ function(user, context, callback){
 Similarly, you can use the color:
 ```js
 function(user, context, callback){
+  user.user_metadata = user.user_metadata || {};
   if (user.user_metadata.preferences.color === 'black'){
     // this code would not be executed for the user
   }
@@ -59,6 +61,7 @@ All rules will provide an `auth0` variable which is an instance of the [node Aut
 To add the admin role to a user:
 ```js
 function(user, context, callback){
+  user.app_metadata = user.app_metadata || {};
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = user.app_metadata.roles || [];
   user.app_metadata.roles.push('admin');
@@ -94,6 +97,7 @@ The resulting user is:
 To add the add a `fontSize` preference:
 ```js
 function(user, context, callback){
+  user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   user.user_metadata.preferences.fontSize = 12;
@@ -130,6 +134,8 @@ The resulting user is:
 If you are updating both `user_metadata` and `app_metadata` in the same rule you can do it in parallel to reduce the rule's processing time (compared to doing it sequentially):
 ```js
 function(user, context, callback){
+  user.app_metadata = user.app_metadata || {};
+  user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   user.user_metadata.preferences.fontSize = 12;
@@ -179,6 +185,7 @@ There are different ways of deleting properties. This section explains them with
 To delete a property the value `null` must be sent for it. For example, to delete the user's roles:
 ```js
 function(user, context, callback){
+  user.app_metadata = user.app_metadata || {};
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = null;
   
@@ -212,6 +219,7 @@ THe resulting user is:
 To delete the user's writer role:
 ```js
 function(user, context, callback){
+  user.app_metadata = user.app_metadata || {};
   user.app_metadata.roles = user.app_metadata.roles || [];
   
   var index = user.app_metadata.roles.indexOf('writer');
@@ -252,6 +260,7 @@ The resulting user is:
 To delete the user's color preference:
 ```js
 function(user, context, callback){
+  user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   delete user.user_metadata.preferences.color;
