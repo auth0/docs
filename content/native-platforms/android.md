@@ -165,7 +165,7 @@ Intent lockIntent = new Intent(this, LockActivity.class);
 startActivity(lockIntent);
 ```
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
+[![Lock.png](https://cdn.auth0.com/mobile-sdk-lock/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
 > Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#sms)
