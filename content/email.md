@@ -4,11 +4,11 @@ Auth0 can send emails to users when they sign up, when their email address needs
 
 The dashboard allows customizing these emails using Markdown templates and marcos which include the context of the current application and the current user.
 
-![](//cdn.auth0.com/docs/img/email-dashboard.png)
+![](//cdn.auth0.com/docs/img/emails-fields.png)
 
 ## Configuring From, Subject and Redirect To
 
-For each email type the **From address**, the **Subject** and the **Redirect To** URL can be customized.
+For each email type the **From address**, the **Subject**, the **URL Lifetime** and the **Redirect To** URL can be customized.
 
 ### From Address
 
@@ -68,6 +68,18 @@ The **Redirect To** field allows you to control to which URL users will be redir
 
 You would then be able to redirect users to a page on the Allowed Callback URL, eg: `{application.callback_domain}/result_page`. Note that if the application has multiple Allowed Callback URLs configured the first one will be used.
 
+### URL Lifetime
+
+The **Verification Email** and **Change Password Confirmation Email** both contain a link which will allow the users to verify their email address or confirm the password change they made.
+
+For security reasons the lifetime of this link can be changed. The default value is 432000 seconds (5 days).
+
+When users click the expired link and a **Redirect To** URL is configured, they'll be redirected to this URL and the following information will be added to the querystring:
+
+```
+http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
+```
+
 ## Email Templates
 
 ### Verification Email
@@ -111,6 +123,20 @@ When a **Redirect To** URL is configured the user will be redirected to this URL
 ```
 http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
 ```
+
+### Blocked Account Email
+
+This email will be sent whenever a user account is blocked. Each time a login fails for a user coming from a specific IP address the failed login count increases. When the count reaches 10 the user won't be able to login again from that IP address until the link in the Blocked Account Email is clicked.
+
+If the user logs in before the counter reaches 10, the failed login counter will be reset to 0.
+
+The following macros are available in this template:
+
+- `user.source_ip`
+- `user.city`
+- `user.country`
+- `application.name`
+- `connection.name`
 
 ## Advanced Topics
 
