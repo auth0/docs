@@ -214,4 +214,4 @@ To fix the above error, add the following at your config/environments/staging.rb
 OmniAuth.config.full_host = "http://www.example.com"
 ```
 
-Please substitute the above url with your desire one.
+Substitute `http://www.example.com` with the actual URL you'll be using in your application.
