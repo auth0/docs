@@ -80,14 +80,6 @@ You can test the script using the ```try``` button. If the result is okay you wi
 
 ![](//cdn.auth0.com/docs/img/db-connection-try-ok.png)
 
-If the script failed for some reason, you will see a red border and the errors that occurred:
-
-![](//cdn.auth0.com/docs/img/db-connection-try-fail.png)
-
-JavaScript's `console.log` is supported, so you can output more details:
-
-![](//cdn.auth0.com/docs/img/db-connection-console-log.png)
-
 ## Auth0 Login Widget
 
 After you have enabled the database connection, Auth0's widget will automatically change the appearance to allow users to enter `username` and `password`. These will be inputs to your script.
