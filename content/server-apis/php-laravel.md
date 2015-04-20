@@ -57,11 +57,12 @@ If you want to restrict access with the Auth0 Middleware, you will need to add i
 ...
 
 protected $routeMiddleware = [
-		...
-		'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware',
-	];
+	...
+	'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware',
+];
 
 ...
+
 ```
 
 Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface).
@@ -78,6 +79,9 @@ public function register()
         '\Auth0\Login\Repository\Auth0UserRepository');
 
 }
+...
+
+```
 
 ### 3. Configure it
 
