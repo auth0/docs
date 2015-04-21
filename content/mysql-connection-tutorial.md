@@ -10,7 +10,7 @@ In this tutorial we will guide you through a series of steps to plug your users 
 
 Log in into Auth0, select the __Connections__ menu option, and then __Database__. Create a new name for the database connection. You can choose any name. It is not important at this time.
 
-![](//assets.auth0.com.s3.amazonaws.com/docs/img/db-connection-create.png)
+![](//cdn.auth0.com/docs/img/db-connection-create.png)
 
 ## Customize the database connection
 
@@ -18,7 +18,7 @@ Auth0 ships with multiple templates to connect with common and widely used datab
 
 In this tutorial, we will use __MySQL__. Select __MySQL__ from one of the templates available:
 
-![](//assets.auth0.com.s3.amazonaws.com/docs/img/db-connection-login-script.png)
+![](//cdn.auth0.com/docs/img/db-connection-login-script.png)
 
 The following code will be generated for you in the editor below:
 
@@ -62,7 +62,7 @@ This script assumes you have a `users` table with all these columns. You can of 
 
 At the bottom of the editor you will find a way of storing parameters securely. This is convenient for storing the credentials used to connect to the database:
 
-![](//assets.auth0.com.s3.amazonaws.com/docs/img/db-connection-configurate.png)
+![](//cdn.auth0.com/docs/img/db-connection-configurate.png)
 
 In the script you would refer to these parameters as: ```configuration.PARAMETER_NAME```. For example, you could write:
 
@@ -78,13 +78,13 @@ In the script you would refer to these parameters as: ```configuration.PARAMETER
 
 You can test the script using the ```try``` button. If the result is okay you will see the resulting profile:
 
-![](//assets.auth0.com.s3.amazonaws.com/docs/img/db-connection-try-ok.png)
+![](//cdn.auth0.com/docs/img/db-connection-try-ok.png)
 
 ## Auth0 Login Widget
 
 After you have enabled the database connection, Auth0's widget will automatically change the appearance to allow users to enter `username` and `password`. These will be inputs to your script.
 
-![](//assets.auth0.com.s3.amazonaws.com/docs/img/db-connection-widget.png)
+![](//cdn.auth0.com/docs/img/db-connection-widget.png)
 
 ## How it works
 
