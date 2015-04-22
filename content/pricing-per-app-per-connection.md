@@ -7,8 +7,7 @@ In addition to the IdP type, the number of active users and the addons you selec
 A simple yet very common Auth0 scenario is when an Auth0 customer builds 1 app or api and enables users to authenticate to it via a 1 connection.
 In the picture below, an Auth0 customer built and angular.js app and created an active directory connection, allowing active users to authenticate themselves using their corporate credentials, whether they are in the office or on the road.
 
-![](
-https://docs.google.com/drawings/d/1iZHRuRj7w3jjt4Zn1pNk6T7kxKRbNaii5l8gbF8Pbg0/pub?w=732&h=108)
+![](https://docs.google.com/drawings/d/1iZHRuRj7w3jjt4Zn1pNk6T7kxKRbNaii5l8gbF8Pbg0/pub?w=732&h=108)
 
 In this simple example, Auth0 would charge the customer based on the fact that it is an enterprise connection (as opposed to a social or database connection), the number of monthly active users authenticating to the app as well as any addons (e.g. premium support) selected by the customer.
 
