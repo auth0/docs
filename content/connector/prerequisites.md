@@ -26,7 +26,7 @@ It is very important to have the AD/LDAP Connector server clock automatically sy
 -  **Architecture**: x86 or x86-64
 -  **CPU cores**: min. 1, recommended 2
 -  **Storage**: 500MB of free space on disk
--  **Operating System**: The connector can run on Windows or Linux
+-  **Operating System**: The connector can run on Windows or Linux.  Windows is required if Kerberos authentication will be used.
 -  **RAM**: min. 2GB
 
 ## Windows Version
