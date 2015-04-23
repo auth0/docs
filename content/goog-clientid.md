@@ -50,7 +50,12 @@ Click **Credentials** in the left sidebar and then click **Create new Client ID*
 
 ![](//cdn.auth0.com/docs/img/goog-api-credentials.png)
 
-Enter your tenant's information. That means replacing the appearences of **"YOURTENANT"** shown in the following figure with the tenant you created.
+Enter your account's information. That means replacing the appearances of **"YOURTENANT"** in the following figures with your Auth0 account name.
+
+When prompted, use the following settings:
+
+* Authorized JavaScript Origins: `https://@@account.namespace@@`
+* Authorized Redirect URI: `https://@@account.namespace@@/login/callback`
 
 ![](//cdn.auth0.com/docs/img/goog-api-client-creation.png)
 
@@ -58,7 +63,7 @@ Click **Create Client ID**. The resulting settings will be displayed:
 
 ![](//cdn.auth0.com/docs/img/goog-api-client-settings.png)
 
-You can now use the `ClientId` and `ClientSecret` for your Auth0 connection's settings.
+You can now use the client ID and secret for your Auth0 connection's settings.
 
 ##6. Enable Admin SDK Service
 
