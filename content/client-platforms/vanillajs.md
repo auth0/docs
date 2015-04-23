@@ -74,7 +74,7 @@ if (hash && hash.error) {
 
 ```js
   //retrieve the profile:
-var id_token = localStorage.get('id_token');
+var id_token = localStorage.getItem('id_token');
 if (id_token) {
   lock.getProfile(id_token, function (err, profile) {
     if (err) {
