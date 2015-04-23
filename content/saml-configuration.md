@@ -123,4 +123,51 @@ Below are all the customizations you can do:
 * __nameIdentifierProbes (`Array`):__ Auth0 will try each of the attributes of this array in order. If one of them has a value, it will use that for the Subject/NameID. The order is: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` (mapped from `user_id`), `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` (mapped from `email`), `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` (mapped from `name`).
 
 
+# Design Considerations
 
+## SAML Provisioning 
+
+In designing a SAML SSO implementation, it is often helpful to consider which system(s) will serve as authoritative sources for user profile information, what user profile attributes each application will need, and how the user profile information will be distributed to all systems that need it.
+
+### Auth0 as Service Provider
+
+If Auth0 is serving as the Service Provider in a SAML federation, it does not require any out-of-band process to create user accounts in Auth0 in advance of user authentication.  Auth0 can route authentication requests to an Identity Provider without already having an account pre-created for a specific user.  
+
+There are several mechanisms available to route a request to an IdP. See:
+
+[Selecting the Connection in Auth0](@@env.BASE_URL@@/hrd)
+
+A popular option is specifying e-mail domains as part of the IDP configuration. For example: adding the email domain "companyx.com" to the IDP configuration for company X will result in all users with that email domain being routed to that IDP.
+
+When a user authenticates at an Identity Provider, the user attributes returned by the Identity Provider in the SAML Authentication Assertion will be used to create a user profile for the user in Auth0 at the time of authentication. That user profile will contain the attributes sent by the IDP.
+
+The user profile received by Auth0 will also be relayed to the application. 
+
+Note, however, that while Auth0 does not require any process to pre-create accounts in Auth0 prior to user authentication, an application integrated with Auth0 may still require this.  If this is the case, several options exist:
+
+   * When a user is created at the Identity Provider, an out-of-band process can create the user in the application or Auth0 and add any user profile attributes needed by the application. After the user is authenticated, if attributes are still missing in the profile, the application can obtain the attributes from the appropriate source and then store these in the Auth0 user profile. Upon next login, those extra attributes will be sent to the application in addition to the Identity Provider's attributes.
+   
+   * An Auth0 rule can be written to call an API to retrieve any missing information and add it dynamically to the Auth0 profile, which is returned to the application. Rules are executed after successful authentication. Profile attributes can be retrieved each time from a remote source or persisted in the Auth0 profile.
+   
+   * Auth0 can simply pass the basic user profile information from the Identity Provider to the application and the application can retrieve any missing information from another source to populate a user profile that is local to the application.
+   
+In selecting an approach, careful consideration should be given to utilize an appropriate authoritative source for any user profile attributes used for access control.  For example, an Identity Provider may be able to supply basic user profile attributes such as email address, name, and possibly access control groups for a user.  There may, however, be additional administrative functions within the application that are needed to grant application-specific privileges to users.   
+
+### Auth0 as Identity Provider
+
+If Auth0 is serving as the Identity Provider in a SAML federation, user accounts may be created in a variety of ways.
+
+   * Users created in a backend authentication system used by Auth0 such as an LDAP directory, a database, or another SAML Identity Provider.
+   * Use of the Auth0 Dashboard by administrators to create users in Auth0
+   * Calls to the Auth0 API to create users in Auth0
+   * Self-service user signup to create users in Auth0
+
+Once accounts have been created in Auth0, or any authentication system it uses in  a connection, it may be necessary to create an account and user profile for users in an application using Auth0 as an Identity Provider, if the application was written to retrieve user profile information from a local application store.
+
+Several options exist:
+
+   * An out-of-band process can create user profile information in the application.
+   * An Auth0 rule that executes on first login could call an application API to create the user profile in the application.
+   * The application can be modified to create user profiles dynamically, based on information in the SAML assertion.
+
+In selecting an approach, careful consideration should be given to utilize an appropriate authoritative source for any user profile attributes used for access control.
