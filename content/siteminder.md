@@ -61,7 +61,17 @@ Add any other properties you wish to share about the authenticated user to this 
 
 ###7. Optional Assertion Encryption
 
-The Service Provider supports encryption of Assertions. If this option is used, __[download the SP public key certificate]()__ and add it to the __Policy Server Keystore__.
+The Service Provider supports encryption of Assertions. 
+To use this option, do the following to download the Service Provider public key certificate.
+
+* In the Auth0 Dashboard, click on __Connections__ and then __Enterprise__
+* Click on SAMLP Identity Provider
+* Click on the Setup icon (pencil)
+
+In the window which appears, the seventh (last) bullet gives you links to download the .pem or .cer format certificate.
+
+Download the desired certificate and add it to the SiteMinder __Policy Server Keystore__.
 
 ![](//cdn.auth0.com/docs/img/siteminder-encryption.png)
+
 
