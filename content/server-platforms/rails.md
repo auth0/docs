@@ -92,6 +92,12 @@ http://yourUrl/auth/auth0/callback
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
+Also if you need to force an identity provider just redirect to Omniauth's path like this:
+
+```ruby
+redirect_to '/auth/auth0?connection=CONNECTION_NAME'
+```
+
 ### 6. Accessing user information
 
 You can access the user information via the `userinfo` you stored in the session on step 3
