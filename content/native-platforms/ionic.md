@@ -36,7 +36,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 ````json
 "dependencies" : {
-  "auth0-angular": "3.*",
+  "auth0-angular": "4.*",
   "a0-angular-storage": ">= 0.0.6",
   "angular-jwt": ">= 0.0.4"
 },
