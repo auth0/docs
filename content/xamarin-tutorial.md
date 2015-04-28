@@ -2,6 +2,8 @@
 
 This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or Android). `Xamarin.Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](identityproviders), via the OpenId Connect protocol (built on top of OAuth2). The library is cross-platform, so once you learn it on iOS, you're all set on Android.
 
+> We have a Objective-C Binding Library for our Lock implementation in iOS, you can check it out in our Github [repo](https://github.com/auth0/Lock.Xamarin)
+
 ## Tutorial
 
 ### 1. Install Xamarin.Auth0Client component
