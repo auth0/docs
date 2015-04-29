@@ -71,7 +71,7 @@ Add the following entries to your app's `Info.plist`:
   </tr>
   <tr>
     <td>Auth0Domain</td>
-    <td>@@account.domain@@</td>
+    <td>@@account.namespace@@</td>
   </tr>
 </table>
 
