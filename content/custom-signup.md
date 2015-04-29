@@ -107,3 +107,33 @@ The configured password policies, along with other connection information, can b
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
+
+## Notes
+
+This example is focused on client side login (for an SPA for example).
+
+If you need to get redirected, just removing the callback on the login call:
+
+```js
+...
+
+lock.getClient().login({
+  'username': userData.email,
+  'password': userData.password,
+  'connection': 'Username-Password-Authentication'
+});
+
+...
+```
+
+This will make it redirect the user to your callback with the tokens in the URL hash:
+
+```
+@@account.callback@@#access_token=#THE_ACCESS_TOKEN#&id_token=#THE_ID_TOKEN#&token_type=Bearer
+```
+
+Also, if you need to work wit a `code` response type, just set the `_callbackOnLocationHash` to `false`.
+
+```
+window.lock.getClient()._callbackOnLocationHash = false;
+```
