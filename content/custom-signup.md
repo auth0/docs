@@ -76,6 +76,7 @@ $('#create-user').submit(function (event) {
 });
 ```
 
+***Notes***: This example is focused on client side login for an SPA for example using the **Popup flow**. Using this approach, you get the user's tokens by a callback function in the login method. If you are looking for the **Redirect flow** (where the user gets redirectd after the signup) check the section 5.
 
 ### 4. Server Side
 
@@ -96,7 +97,7 @@ After receiving the request from the client, the JSON contained in the body of t
 > Bear in mind that before doing that you may need to generate an access token. Check the API section for more information.
 > In case you are using any of our bindings for Node.js, ASP.NET you may use those instead of doing the HTTP requests manually.
 
-## Optional: Verifying password strength
+### Optional: Verifying password strength
 
 Password policies for database connections can be configured in the dashboard.
 For more information, [check out the documentation](password-strength).
@@ -108,12 +109,8 @@ The configured password policies, along with other connection information, can b
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
 
-## Notes
-
-This example is focused on client side login (for an SPA for example) using the popup flow. Using this approach, you get the user's tokens by a callback in the login method.
-
-### Redirect flow
-To enable the redirection, you must remove the callback function in the login method.
+## 5. Redirect flow
+To enable the redirect flow, you must remove the callback function in the login method:
 
 ```js
 ...
@@ -127,13 +124,13 @@ lock.getClient().login({
 ...
 ```
 
-After this, Lock will redirect the user to the callback function after authenticate him. In this example, as the `_callbackOnLocationHash` is active, it redirects the user to the callback with the tokens in the URL hash:
+After this, Lock will redirect the user to the callback URL after authenticated. In this example, as the `_callbackOnLocationHash` is `TRUE`, it redirects the user to the callback with the tokens in the URL hash:
 
 ```
 @@account.callback@@#access_token=#THE_ACCESS_TOKEN#&id_token=#THE_ID_TOKEN#&token_type=Bearer
 ```
 
-Also, if you need to work wit a `code` response type (used on regular webapps), just set the `_callbackOnLocationHash` to `false`.
+If you are working on a regular webapp, you will need to use the `code` response type which adds a `code` GET parameter to the URL in order to hadle it on your backend. To accomplish this, just set the `_callbackOnLocationHash` to `false`. 
 
 ```
 window.lock.getClient()._callbackOnLocationHash = false;
