@@ -76,7 +76,7 @@ $('#create-user').submit(function (event) {
 });
 ```
 
-***Notes***: This example is focused on client side login for an SPA for example using the **Popup flow**. Using this approach, you get the user's tokens by a callback function in the login method. If you are looking for the **Redirect flow** (where the user gets redirectd after the signup) check the [section 5](#5-redirect-flow).
+>***Notes***: This example is focused on client side login for an SPA for example using the **Popup flow**. Using this approach, you get the user's tokens by a callback function in the login method. If you are looking for the **Redirect flow** (where the user gets redirectd after the signup) check the [section 5](#5-redirect-flow).
 
 ### 4. Server Side
 
