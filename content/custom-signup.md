@@ -76,6 +76,7 @@ $('#create-user').submit(function (event) {
 });
 ```
 
+>***Notes***: This example is focused on an SPA using the **Popup flow**. Using this approach, you get the user's tokens by a callback function in the login method. If you are looking for the **Redirect flow** (where the user gets redirectd after the signup) check the [Redirect flow section](#redirect-flow).
 
 ### 4. Server Side
 
@@ -96,7 +97,7 @@ After receiving the request from the client, the JSON contained in the body of t
 > Bear in mind that before doing that you may need to generate an access token. Check the API section for more information.
 > In case you are using any of our bindings for Node.js, ASP.NET you may use those instead of doing the HTTP requests manually.
 
-## Optional: Verifying password strength
+### Optional: Verifying password strength
 
 Password policies for database connections can be configured in the dashboard.
 For more information, [check out the documentation](password-strength).
@@ -107,3 +108,30 @@ The configured password policies, along with other connection information, can b
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
+
+## Redirect flow
+To enable the redirect flow, you must remove the callback function in the login method:
+
+```js
+...
+
+lock.getClient().login({
+  'username': userData.email,
+  'password': userData.password,
+  'connection': 'Username-Password-Authentication'
+});
+
+...
+```
+
+After this, Lock will redirect the user to the callback URL after authenticated. In this example, as the `_callbackOnLocationHash` is `true`, it redirects the user to the callback with the tokens in the URL hash:
+
+```
+@@account.callback@@#access_token=#THE_ACCESS_TOKEN#&id_token=#THE_ID_TOKEN#&token_type=Bearer
+```
+
+If you are working on a regular webapp, you will need to use the `code` response type which adds a `code` GET parameter to the URL in order to handle it on your backend. To accomplish this, just set the `_callbackOnLocationHash` to `false`. 
+
+```
+window.lock.getClient()._callbackOnLocationHash = false;
+```
