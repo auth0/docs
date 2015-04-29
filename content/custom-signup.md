@@ -110,9 +110,10 @@ This file can then be parsed client-side to find the current password policy con
 
 ## Notes
 
-This example is focused on client side login (for an SPA for example).
+This example is focused on client side login (for an SPA for example) using the popup flow. Using this approach, you get the user's tokens by a callback in the login method.
 
-If you need to get redirected, just removing the callback on the login call:
+### Redirect flow
+To enable the redirection, you must remove the callback function in the login method.
 
 ```js
 ...
@@ -126,13 +127,13 @@ lock.getClient().login({
 ...
 ```
 
-This will make it redirect the user to your callback with the tokens in the URL hash:
+After this, Lock will redirect the user to the callback function after authenticate him. In this example, as the `_callbackOnLocationHash` is active, it redirects the user to the callback with the tokens in the URL hash:
 
 ```
 @@account.callback@@#access_token=#THE_ACCESS_TOKEN#&id_token=#THE_ID_TOKEN#&token_type=Bearer
 ```
 
-Also, if you need to work wit a `code` response type, just set the `_callbackOnLocationHash` to `false`.
+Also, if you need to work wit a `code` response type (used on regular webapps), just set the `_callbackOnLocationHash` to `false`.
 
 ```
 window.lock.getClient()._callbackOnLocationHash = false;
