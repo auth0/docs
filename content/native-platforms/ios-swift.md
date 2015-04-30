@@ -85,7 +85,7 @@ Also you'll need to register a new _URL Type_ with the following scheme
 
 ### 4. Register Native Authentication Handlers
 
-To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.m` file.
+To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.swift` file.
 
 ```swift
 func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
