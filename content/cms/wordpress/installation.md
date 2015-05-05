@@ -15,8 +15,6 @@ There are two ways to install the plugin.
 
 <img src="https://cdn.auth0.com/docs/cms/wordpress/wp-auth0-install.gif" alt="WP Auth0 installation">
 
-See *[Setting up the plugin](/cms/wordpress/configuration)*
-
 ##Manually uploading the plugin zip
 
 1. Download the plugin zip file from the [WordPress Plugins site](https://wordpress.org/plugins/auth0/)
