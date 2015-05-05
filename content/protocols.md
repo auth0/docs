@@ -73,7 +73,7 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "id_token":"......JWT......"
     }
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
 Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 
@@ -91,9 +91,9 @@ The client requests authorization to Auth0 endpoint:
 
 	https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
-The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page. 
+The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page.
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JsonWebToken](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
 ### 2. Authentication
 
@@ -115,7 +115,7 @@ Clients typically extract the URI fragment with the __Access Token__ and cancel 
 
 ## OAuth Resource Owner Password Credentials Grant
 
-This endpoint is used by clients to obtain an access token (and optionally a [JsonWebToken](jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
+This endpoint is used by clients to obtain an access token (and optionally a [JSON Web Token](jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
 
 ### 1. Login Request
 
@@ -136,7 +136,7 @@ Currently, Auth0 implements the following connections for a resource owner grant
 
 > Note: For Google authentication we are relying on an endpoint that is marked as deprecated, so use it at your own risk. The user might get a warning saying that someone has logged in from another IP address and will have to complete a captcha challenge allowing the login to happen.
 
-As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token*. This is a [JsonWebToken](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). `scope=openid profile` will return the entire user profile.
+As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token*. This is a [JSON Web Token](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). `scope=openid profile` will return the entire user profile.
 
 #### Sample Request
 
@@ -166,22 +166,40 @@ A failure response will contain error and error_description fields.
 	HTTP/1.1 401 Unauthorized
 	Server: GFE/1.3
 	Content-Type: application/json
-	
+
 	{
 	  "error": "Unauthorized",
 	  "error_description": "BadAuthentication"
 	}
-	
+
 #### Sample Response for an unsupported connection
 
 	HTTP/1.1 400 BadRequest
 	Server: GFE/1.3
 	Content-Type: application/json
-	
+
 	{
 	  "error": "invalid_request",
 	  "error_description": "specified strategy does not support requested operation (windowslive)"
 	}
+
+## Validating tokens
+
+OAuth access tokens can be validated by calling the [`/userinfo` API endpoint](https://auth0.com/docs/auth-api#!#get--userinfo),
+which returns a JSON object with the full user profile.
+If the access token is invalid or has expired, this endpoint will return a 401 Unauthorized response.
+
+An `id_token` can be validated using the token's signature:
+
+* If the token was signed with symmetric encryption (HMAC SHA256),
+the signature can be verified **server-side** using the issuer's secret.
+
+* If it was signed with asymmetric encryption (RSA SHA256),
+the signature can be verified using the issuer's public key.
+
+Another way of validating an `id_token` is by calling the [`/tokeninfo` API endpoint](https://auth0.com/docs/auth-api#!#post--tokeninfo),
+which returns a JSON object with the full user profile.
+If the JWT has been tampered with or has expired, this endpoint will return a 401 Unauthorized response.
 
 ## OAuth2 / OAuth1
 
