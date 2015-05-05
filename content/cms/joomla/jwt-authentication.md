@@ -1,1 +1,0 @@
-#Wordpress JWT Authentication

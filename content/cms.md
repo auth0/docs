@@ -22,9 +22,5 @@ These will provide a new Login Widget (powered by Auth0) that enables:
 
 ##Joomla Extension
 
-
-
 - [Installation](/cms/joomla/installation)
 - [Configuration](/cms/joomla/configuration)
-- [JWT Authentication](/cms/joomla/jwt-authentication)
-- [Troubleshoot](/cms/joomla/troubleshoot)
