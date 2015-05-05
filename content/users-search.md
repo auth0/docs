@@ -61,6 +61,12 @@ identities.provider:"google-oauth2"
 logins_count:>100
 ```
 
+## List all users that never logged in
+
+```
+(_missing_:logins_count OR logins_count:0)
+```
+
 ## List all users who logged in before 2015
 
 ```
