@@ -1,8 +1,8 @@
-# Identity Protocols supported by Auth0 
+# Identity Protocols supported by Auth0
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](saml-configuration), WS-Federation). In most cases you won't need to go this deep to use Auth0.
 
-> This article is meant as an introduction. See the references section below for more information. 
+> This article is meant as an introduction. See the references section below for more information.
 
 ## OAuth Server Side
 
@@ -18,9 +18,9 @@ This protocol is best suited for web sites that need:
 ### 1. Initiation
 
 Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
-            
+
     https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
-    
+
  `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, you will get an error.
 
 > A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
@@ -51,9 +51,9 @@ Upon successful authentication, the user will eventually return to your web site
 
     http://CALLBACK/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
 
-`CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1. 
+`CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1.
 
-Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's API. 
+Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's API.
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret` (step 5 in the diagram).
 
@@ -61,7 +61,7 @@ To get an Access Token, you would send a POST request to the token endpoint in A
 
 	Content-type: application/x-www-form-urlencoded
 
-	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code 
+	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
 
@@ -124,7 +124,7 @@ It receives a `client_id`, `client_secret`, `username`, `password` and `connecti
 	POST /oauth/ro HTTP/1.1
 	Host: @@account.namespace@@
 	Content-Type: application/x-www-form-urlencoded
-	
+
 	grant_type=password&username=johndoe&password=abcdef&client_id=@@account.clientId@@&connection=YOUR CONNECTION
 
 Currently, Auth0 implements the following connections for a resource owner grant:
@@ -148,7 +148,7 @@ In response to a login request, Auth0 will return either an HTTP 200, if login s
 A successful response contains the *access_token* (that can be exchanged for the userinfo), and the *id_token* (if 'openid' was specified in `scope` parameter).
 
 A failure response will contain error and error_description fields.
-	
+
 #### Sample Successful Response
 
 	HTTP/1.1 200 OK
@@ -209,7 +209,7 @@ These protocols are implemented mostly when interacting with well-known [identit
 
 ## WS-Federation
 
-WS-Federation is supported both for apps (e.g. any WIF based app) and for identity providers (e.g. ADFS or ACS). 
+WS-Federation is supported both for apps (e.g. any WIF based app) and for identity providers (e.g. ADFS or ACS).
 
 ###For apps
 All registered apps in Auth0 get a WS-Fed endpoint of the form:
@@ -222,7 +222,7 @@ The metadata endpoint that you can use to configure the __Relying Party__:
 
 All options for WS-Fed are available under the [advanced settings](https://app.auth0.com/#/applications/@@account.clientId@@/settings) for an App.
 
-Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](saml-configuration). 
+Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](saml-configuration).
 
 The following optional parameters can be used when redirecting to the WS-Fed endpoint:
 
@@ -241,4 +241,3 @@ If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are 
 > You can also upload a Federation Metadata file.
 
 If a primary and a secondary certificates are present in the __Federation Metadata__, then both would work. Connection parameters can be updated anytime (by clicking on __Edit__ and __Save__). This allows simple certificate rollover.
-
