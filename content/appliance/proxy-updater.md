@@ -55,3 +55,6 @@ The **Auth0 Proxy Updater** is designed to be installed on a corporate intranet 
 
 The output from the system update will appear in the **Configuration** section in a text pane for each node.
 
+### Updates to Auth0 Proxy Updater
+Each future update to the Auth0 Proxy Updater will come in the form of a new .ova file, which would be deployed in the same fashion as the original install described above.
+
