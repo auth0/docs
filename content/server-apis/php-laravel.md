@@ -49,7 +49,7 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 );
 ```
 
-Now, you will be able to access to the logged user info with `Auth0::getUserInfo()` and hook to the onLogin event  `Auth0::onLogin(function(...))`.
+Now, you will be able to access to the logged user info with `Auth0::getUser()` and hook to the onLogin event  `Auth0::onLogin(function(...))`.
 
 If you want to restrict access with the Auth0 Middleware, you will need to add it in `app/Http/Kernel.php`
 
