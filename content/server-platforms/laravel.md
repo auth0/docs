@@ -12,7 +12,7 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 To install this plugin add the following dependency to your composer.json
 
 ```js
-"auth0/login" : "2.0.*"
+"auth0/login" : "~2.1"
 ```
 
 and run `composer update`
@@ -21,8 +21,7 @@ NOTE: Some plugin dependencies are not tagged, so you have to either change the 
 
 ```js
 "adoy/oauth2": "dev-master",
-"firebase/php-jwt" : "dev-master",
-"illuminate/contracts": "5.*"
+"firebase/php-jwt" : "dev-master"
 ```
 
 ### 2. Enable it in Laravel

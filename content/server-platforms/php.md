@@ -23,7 +23,7 @@ Add the following dependencies to your `composer.json` and run `composer update`
 
 ````json
 "require": {
-  "auth0/auth0-php": "0.6.*",
+  "auth0/auth0-php": "~1.0",
   "adoy/oauth2": "dev-master",
   "vlucas/phpdotenv": "dev-master"
 }
@@ -46,13 +46,13 @@ $auth0 = new Auth0(array(
 
 ### 3. Add Auth0 callback handler
 
-Now, we can call `$auth0->getUserInfo()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
+Now, we can call `$auth0->getUser()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
 
 ````php
 // callback.php
 
 ...
-$auth0->getUserInfo();
+$auth0->getUser();
 
 if (!$userInfo) {
     // We have no user info
@@ -64,7 +64,7 @@ if (!$userInfo) {
 }
 ```
 
-Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUserInfo()` it will retrieve the information from the Session.
+Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUser()` it will retrieve the information from the Session.
 
 @@includes.callbackRegularWebapp@@
 
@@ -82,12 +82,12 @@ http://yourUrl/callback.php
 
 ### 5. Accessing user information
 
-You can access the user information via the `getUserInfo` method from Auth0
+You can access the user information via the `getUser` method from Auth0
 
 ````php
 <?php
 ...
-$userInfo = $auth0->getUserInfo();
+$userInfo = $auth0->getUser();
 ?>
 <html>
   <body class="home">

@@ -24,7 +24,7 @@ We need to add **laravel-auth0** dependency to your composer.json. As it depends
 Once that's done, just run the following:
 
 ````bash
-composer require auth0/login:2.0.*
+composer require auth0/login:~2.1
 ```
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
