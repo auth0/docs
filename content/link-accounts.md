@@ -95,7 +95,6 @@ Body should be:
 
 ```
 {
-	clientID: "@@account.globalClientId@@", // Your global client ID
     access_token: "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
     user_id: "LINKED_USER_ID" // (provider|id)
 }
