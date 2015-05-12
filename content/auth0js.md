@@ -296,6 +296,43 @@ The `getSSOData` method fetches Single-Sign-On information from Auth0:
   auth0.getSSOData(false, fn);
 ```
 
+### CORS
+
+There is a cross-origin request when you ask for credentials in your application like this:
+
+```
+  auth0.login({
+    connection: 'db-conn',
+    username:   $('.username').val(),
+    password:   $('.password').val(),
+  });
+```
+
+Most modern browsers support [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
+
+Auth0.js version 6 fallbacks to JSONP when CORS is not available. In this mode the credentials are sent over query string. This information is encrypted at the protocol level (HTTPS) but it is a bad practice. To disable the JSONP fallback use `forceJSONP: false` as follows:
+
+```
+var auth0 = new Auth0({
+  domain:      '@@account.namespace@@',
+  clientID:    '@@account.clientId@@',
+  callbackURL: '{YOUR APP URL}',
+  forceJSONP:  false
+});
+```
+
+Future versions of Auth0.js will drop support for JSONP.
+
+If you do need to support older browsers do not ask the credentials in your application. Let auth0 prompt for credentials in the auth0 domain as follows:
+
+```
+  auth0.login({
+    connection: 'db-conn',
+  });
+```
+
+You can customize the login page shown when doing this from your dashboard.
+
 ## Issue Reporting
 
 If you have found a bug or if you have a feature request, please report them as [issues in our repository](https://github.com/auth0/auth0.js/issues). Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
