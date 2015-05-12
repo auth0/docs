@@ -15,12 +15,12 @@ These will provide a new Login Widget (powered by Auth0) that enables:
 
 ##WordPress Plugin
 
-- [Installation](/cms/wordpress/installation)
-- [Configuration](/cms/wordpress/configuration)
-- [JWT Authentication](/cms/wordpress/jwt-authentication)
-- [Troubleshoot](/cms/wordpress/troubleshoot)
+- [Installation](http://docs.auth0.com/cms/wordpress/installation)
+- [Configuration](http://docs.auth0.com/cms/wordpress/configuration)
+- [JWT Authentication](http://docs.auth0.com/cms/wordpress/jwt-authentication)
+- [Troubleshoot](http://docs.auth0.com/cms/wordpress/troubleshoot)
 
 ##Joomla Extension
 
-- [Installation](/cms/joomla/installation)
-- [Configuration](/cms/joomla/configuration)
+- [Installation](http://docs.auth0.com/cms/joomla/installation)
+- [Configuration](http://docs.auth0.com/cms/joomla/configuration)
