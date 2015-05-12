@@ -11,7 +11,7 @@ There are two ways to install the plugin.
 2. Click on *Add New* next to the page title.
 3. Search for the Auth0 Plugin and click on install
 4. When the installation finishes, click on activate and it is ready to go.
-5. [Setup the plugin](/cms/wordpress/configuration)
+5. [Setup the plugin](http://docs.auth0.com/cms/wordpress/configuration)
 
 <img src="https://cdn.auth0.com/docs/cms/wordpress/wp-auth0-install.gif" alt="WP Auth0 installation">
 
@@ -23,6 +23,6 @@ There are two ways to install the plugin.
 4. Click on *Upload Plugin* next to the page title.
 5. Select the zip file you had just downloaded and click on *Install now*
 6. When the installation finishes, click on activate and it is ready to go.
-7. [Setup the plugin](/cms/wordpress/configuration)
+7. [Setup the plugin](http://docs.auth0.com/cms/wordpress/configuration)
 
 <img src="https://cdn.auth0.com/docs/cms/wordpress/wp-auth0-install-manual.gif" alt="WP Auth0 manual installation">
