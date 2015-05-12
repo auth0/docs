@@ -28,6 +28,8 @@ This tool will try to detect the most common problems related to the AD LDAP Con
 
 ![](https://cdn.auth0.com/docs/img/connector-troubleshooter.png)
 
+**Note:** in order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](@@env.BASE_URL@@/connector/modify#1). 
+
 ## Common issues
 
 These are the most common problems:
