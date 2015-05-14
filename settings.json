@@ -1,6 +1,4 @@
 {
-  "theme": "default",
-  "title": "Auth0 Docs",
   "menus": {
     "navigation": [
       {
@@ -159,17 +157,6 @@
           { "title": "Users search", "url":"/users-search"},
           { "title": "Legacy Widget", "url":"/login-widget2"},
           { "title": "CMS", "url":"/cms"}
-        ]
-      },
-      {
-        "title": "Tutorials",
-        "icon": "icon-question-sign",
-        "items": [
-          { "title": "", "url": "/" },
-          { "title": "", "url": "/" },
-          { "title": "", "url": "/" },
-          { "title": "", "url": "/" },
-          { "title": "", "url": "/" }
         ]
       }
     ],
