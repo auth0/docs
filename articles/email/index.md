@@ -1,3 +1,7 @@
+---
+url: /email
+---
+
 # Emails in Auth0
 
 Auth0 can send emails to users when they sign up, when their email address needs to be validated and when they change their password.
@@ -61,7 +65,7 @@ If this value is empty the subject will be set depending on the type of email wh
 
 ### Redirect To
 
-The **Redirect To** field allows you to control to which URL users will be redirected after clicking the link in one of the emails. 
+The **Redirect To** field allows you to control to which URL users will be redirected after clicking the link in one of the emails.
 
 - `{application.callback_domain}`
 - `{application.name}`

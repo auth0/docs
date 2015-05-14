@@ -1,11 +1,15 @@
+---
+url: /identityproviders
+---
+
 # Identity Providers supported by Auth0
 
-Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc. 
+Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc.
 
 Out of the box, Auth0 supports the following:
 
 ## Enterprise
-  * __Active Directory__ 
+  * __Active Directory__
   * __ADFS__
   * __LDAP__
   * __Google Apps__

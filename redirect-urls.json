@@ -153,7 +153,7 @@
   },
   {
     "from": "/ad",
-    "to": "/connections/ad"
+    "to": "/connections/active-directory"
   },
   {
     "from": "/adfs",
@@ -294,5 +294,89 @@
   {
     "from": "/checksum",
     "to": "/appliance/checksum"
+  },
+  {
+    "from": "/android-tutorial",
+    "to": "/tutorials/android"
+  },
+  {
+    "from": "/angular-tutorial",
+    "to": "/tutorials/angularjs"
+  },
+  {
+    "from": "/aspnetwebapi-owin-tutorial",
+    "to": "/tutorials/aspnet-web-api-owin"
+  },
+  {
+    "from": "/aspnetwebapi-tutorial",
+    "to": "/tutorials/aspnet-web-api"
+  },
+  {
+    "from": "/ember-tutorial",
+    "to": "/tutorials/emberjs"
+  },
+  {
+    "from": "/ios-tutorial",
+    "to": "/tutorials/ios"
+  },
+  {
+    "from": "/java-tutorial",
+    "to": "/tutorials/java"
+  },
+  {
+    "from": "/mvc3-tutorial",
+    "to": "/tutorials/aspnet-mvc3"
+  },
+  {
+    "from": "/mvc-tutorial-enterprise",
+    "to": "/tutorials/aspnet-mvc4-enterprise-providers"
+  },
+  {
+    "from": "/phonegap-plugin-tutorial",
+    "to": "/tutorials/cordova"
+  },
+  {
+    "from": "/singlepageapp-tutorial",
+    "to": "/tutorials/single-page-app"
+  },
+  {
+    "from": "/wcf-tutorial",
+    "to": "/tutorials/wcf-service"
+  },
+  {
+    "from": "/win8-cs-tutorial",
+    "to": "/tutorials/windows-store-app-csharp"
+  },
+  {
+    "from": "/windowsstore-auth0-tutorial",
+    "to": "/tutorials/windows-store-app-csharp"
+  },
+  {
+    "from": "/windowsstore-js-auth0-tutorial",
+    "to": "/tutorials/windows-store-app-javascript"
+  },
+  {
+    "from": "/win8-tutorial",
+    "to": "/tutorials/windows-store-app-csharp"
+  },
+  {
+    "from": "/windowsphone-tutorial",
+    "to": "/tutorials/windows-phone"
+  },
+  {
+    "from": "/wpf-winforms-tutorial",
+    "to": "/tutorials/wpf-winforms"
+  },
+  {
+    "from": "/xamarin-tutorial",
+    "to": "/tutorials/xamarin"
+  },
+  {
+    "from": "/auth0js",
+    "to": "/libraries/auth0js"
+  },
+  {
+    "from": "/aws",
+    "to": "/integrations/aws"
   }
 ]

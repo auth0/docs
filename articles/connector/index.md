@@ -1,3 +1,7 @@
+---
+url: /connector
+---
+
 ## Connector
 
 Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network.
