@@ -150,5 +150,149 @@
   {
     "from": "/sharepoint-apps",
     "to": "/integrations/sharepoint-apps"
+  },
+  {
+    "from": "/ad",
+    "to": "/connections/ad"
+  },
+  {
+    "from": "/adfs",
+    "to": "/connections/adfs"
+  },
+  {
+    "from": "/37signals-clientid",
+    "to": "/connections/37signals"
+  },
+  {
+    "from": "/amazon-clientid",
+    "to": "/connections/amazon"
+  },
+  {
+    "from": "/aol-clientid",
+    "to": "/connections/aol"
+  },
+  {
+    "from": "/dwolla-clientid",
+    "to": "/connections/dwolla"
+  },
+  {
+    "from": "/baidu-clientid",
+    "to": "/connections/baidu"
+  },
+  {
+    "from": "/box-clientid",
+    "to": "/connections/box"
+  },
+  {
+    "from": "/evernote-clientid",
+    "to": "/connections/evernote"
+  },
+  {
+    "from": "/exact-clientid",
+    "to": "/connections/exact"
+  },
+  {
+    "from": "/facebook-clientid",
+    "to": "/connections/facebook"
+  },
+  {
+    "from": "/fitbit-clientid",
+    "to": "/connections/fitbit"
+  },
+  {
+    "from": "/github-clientid",
+    "to": "/connections/github"
+  },
+  {
+    "from": "/goodreads-clientid",
+    "to": "/connections/goodreads"
+  },
+  {
+    "from": "/goog-clientid",
+    "to": "/connections/google"
+  },
+  {
+    "from": "/miicard-clientid",
+    "to": "/connections/miicard"
+  },
+  {
+    "from": "/ms-account-clientid",
+    "to": "/connections/microsoft-account"
+  },
+  {
+    "from": "/o365-clientid",
+    "to": "/connections/o365-deprecated"
+  },
+  {
+    "from": "/paypal-clientid",
+    "to": "/connections/paypal"
+  },
+  {
+    "from": "/planningcenter-clientid",
+    "to": "/connections/planning-center"
+  },
+  {
+    "from": "/salesforce-clientid",
+    "to": "/connections/salesforce"
+  },
+  {
+    "from": "/renren-clientid",
+    "to": "/connections/renren"
+  },
+  {
+    "from": "/sharepoint-clientid",
+    "to": "/connections/sharepoint-online"
+  },
+  {
+    "from": "/shopify-clientid",
+    "to": "/connections/shopify"
+  },
+  {
+    "from": "/soundcloud-clientid",
+    "to": "/connections/soundcloud"
+  },
+  {
+    "from": "/thecity-clientid",
+    "to": "/connections/thecity"
+  },
+  {
+    "from": "/twitter-clientid",
+    "to": "/connections/twitter"
+  },
+  {
+    "from": "/vkontakte-clientid",
+    "to": "/connections/vkontakte"
+  },
+  {
+    "from": "/waad-clientid",
+    "to": "/connections/azure-active-directory"
+  },
+  {
+    "from": "/weibo-clientid",
+    "to": "/connections/weibo"
+  },
+  {
+    "from": "/wordpress-clientid",
+    "to": "/connections/wordpress"
+  },
+  {
+    "from": "/yahoo-clientid",
+    "to": "/connections/yahoo"
+  },
+  {
+    "from": "/yandex-clientid",
+    "to": "/connections/yandex"
+  },
+  {
+    "from": "/instagram-clientid",
+    "to": "/connections/instagram"
+  },
+  {
+    "from": "/linkedin-clientid",
+    "to": "/connections/linkedin"
+  },
+  {
+    "from": "/checksum",
+    "to": "/appliance/checksum"
   }
 ]
