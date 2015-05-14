@@ -1,3 +1,7 @@
+---
+url: /appliance
+---
+
 ## Auth0 Appliance
 
 In this section:
