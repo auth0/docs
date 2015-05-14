@@ -104,7 +104,6 @@ After the call completes successfully, you will be able to login using these new
 * [Create an application](https://developer.xing.com/applications/dashboard)
 * Copy `Consumer Key` and `Consumer Secret` to config file below
 
-
 ```
 {
   "name": "xing",
@@ -120,4 +119,25 @@ After the call completes successfully, you will be able to login using these new
     }
   }
 }
+```
+
+##Twitch
+
+* [Create an application](http://www.twitch.tv/kraken/oauth2/clients/new)
+* Copy `Client ID` and `Client Secret` to config file below
+
+```
+{
+  "name": "twitch",
+  "strategy": "oauth2",
+  "options": {
+    "client_id": "{YOUR-TWITCH-CLIENTID}",
+    "client_secret": "{YOUR-TWITCH-CLIENTSECRET}",
+    "authorizationURL": "https://api.twitch.tv/kraken/oauth2/authorize",
+    "tokenURL": "https://api.twitch.tv/kraken/oauth2/token",
+    "scope": ["user_read"],
+    "scripts": {
+      "fetchUserProfile": "function(accessToken, ctx, cb){ request.get('https://api.twitch.tv/kraken/user', { headers: { 'Authorization': 'OAuth ' + accessToken, 'Accept': 'application/vnd.twitchtv.v3+json' } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.id = profile._id; delete profile._id; profile.links=profile._links; delete profile._links; return cb(null, profile);});}"
+    }
+  }
 ```
