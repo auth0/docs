@@ -1,0 +1,145 @@
+[{
+  "from": "/ionic-tutorial",
+  "to" : "/native-platforms/ionic"
+},
+{
+  "from": "/javaapi-tutorial",
+  "to" : "/server-apis/java"
+},
+{
+  "from": "/laravelapi-tutorial",
+  "to" : "/server-apis/php-laravel"
+},
+{
+  "from": "/nodeapi-tutorial",
+  "to" : "/server-apis/nodejs"
+},
+{
+  "from": "/nodejs-tutorial",
+  "to" : "/server-platforms/nodejs"
+},
+{
+  "from": "/phpapi-tutorial",
+  "to" : "/server-apis/php"
+},
+{
+  "from": "/pythonapi-tutorial",
+  "to" : "/server-apis/python"
+},
+{
+  "from": "/rubyapi-tutorial",
+  "to" : "/server-apis/rails"
+},
+{
+  "from": "/awsapi-tutorial",
+  "to": "/server-apis/aws"
+},
+{
+  "from": "/wams",
+  "to": "/server-apis/azure-mobile-services"
+},
+{
+  "from": "/firebaseapi-tutorial",
+  "to": "/server-apis/firebase"
+},
+{
+  "from": "/salesforcesandboxapi-tutorial",
+  "to": "/server-apis/salesforce-sandbox"
+},
+{
+  "from": "/salesforceapi-tutorial",
+  "to": "/server-apis/salesforce"
+},
+{
+  "from": "/sapapi-tutorial",
+  "to": "/server-apis/sap-odata"
+},
+{
+  "from": "/rails-tutorial",
+  "to": "/server-platforms/rails"
+},
+{
+  "from": "/python-tutorial",
+  "to": "/server-platforms/python"
+},
+{
+  "from": "/php-tutorial",
+  "to": "/server-platforms/php"
+},
+{
+  "from": "/java-tutorial",
+  "to" : "/server-platforms/java"
+},
+{
+  "from": "/phonegap-tutorial",
+  "to" : "/native-platforms/phonegap"
+},
+{
+  "from": "/widget",
+  "to": "/login-widget2"
+},
+{
+  "from": "/scenarios-keenio",
+  "to": "/scenarios/keenio"
+},
+{
+  "from": "/scenarios-mixpanel-fullcontact-salesforce",
+  "to": "/scenarios/mixpanel-fullcontact-salesforce"
+},
+{
+  "from": "/scenarios-mqtt",
+  "to": "/scenarios/mqtt"
+},
+{
+  "from": "/scenarios-parse",
+  "to": "/scenarios/parse"
+},
+{
+  "from": "/scenarios-rapleaf-salesforce",
+  "to": "/scenarios/rapleaf-salesforce"
+},
+{
+  "from": "/scenarios-segmentio",
+  "to": "/scenarios/segmentio"
+},
+{
+  "from": "/scenarios-splunk",
+  "to": "/scenarios/splunk"
+},
+{
+  "from": "/scenarios-tessel",
+  "to": "/scenarios/tessel"
+},
+{
+  "from": "/scenarios-unbounce",
+  "to": "/scenarios/unbounce"
+},
+{
+  "from": "/updating-appliance",
+  "to": "/appliance/update"
+},
+{
+  "from": "/adldap-auth",
+  "to": "/connector/install"
+}, {
+  "from": "/adldap-x",
+  "to": "/connector/install-other-platforms"
+}, {
+  "from": "/aspnet-tutorial",
+  "to": "/server-platforms/aspnet"
+}, {
+  "from": "/aspnet-owin-tutorial",
+  "to": "/server-platforms/aspnet-owin"
+}, {
+  "from": "/servicestack-tutorial",
+  "to": "/server-platforms/servicestack"
+}, {
+  "from": "/laravel-tutorial",
+  "to": "/server-platforms/laravel"
+}, {
+  "from": "/symfony-tutorial",
+  "to": "/server-platforms/symfony"
+},{
+  "from": "/sharepoint-apps",
+  "to": "/integrations/sharepoint-apps"
+  }]

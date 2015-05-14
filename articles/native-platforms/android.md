@@ -156,9 +156,9 @@ lock.setProvider(Strategies.GooglePlus.getName(), googleplus);
 
 ### 4. Let's implement the login
 
-Now we're ready to implement the Login. 
+Now we're ready to implement the Login.
 
-We can show the Login Dialog by starting the activity `LockActivity`. 
+We can show the Login Dialog by starting the activity `LockActivity`.
 
 ```java
 Intent lockIntent = new Intent(this, LockActivity.class);
@@ -200,4 +200,3 @@ After the user has logged in, we can use the `UserProfile` object to display the
 ### 6. We're done
 
 You've implemented Login and Signup with Auth0 in Android. You're awesome!
-
