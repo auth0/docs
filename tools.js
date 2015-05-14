@@ -22,13 +22,19 @@ program
   .version('0.0.1')
 
 
-  .command('mv <oldPath> <newPath>')
-  .action(function (oldPath, newPath) {
+  .command('mv <oldUrl> <newUrl>')
+  .action(function (oldUrl, newUrl) {
+    if (oldUrl[0] !== '/') {
+      oldUrl = '/' + oldUrl;
+    }
+    if (newUrl[0] !== '/') {
+      newUrl = '/' + newUrl;
+    }
+    var oldPath = 'articles' + oldUrl + '.md';
+    var newPath = 'articles' + newUrl + '.md';
     fs.rename(oldPath, newPath, function(err) {
       if (err) { return console.error(err); }
 
-      var oldUrl = oldPath.replace('articles', '').replace('.md', '');
-      var newUrl = newPath.replace('articles', '').replace('.md', '');
       addRedirect(oldUrl, newUrl, function(err) {
         if (err) { return console.error(err); }
 
