@@ -425,14 +425,22 @@
   },
   {
     "from": "/apiv2Changes",
-    "to": "/api-v2-changes"
+    "to": "/api/v2/changes"
   },
   {
     "from": "/apiv2",
-    "to": "/api-v2"
+    "to": "/api/v2"
   },
   {
     "from": "/metadata-in-rules",
     "to": "/rules/metadata-in-rules"
+  },
+  {
+    "from": "/api-reference",
+    "to": "/api/v1/reference"
+  },
+  {
+    "from": "/api",
+    "to": "/api/v1"
   }
 ]
