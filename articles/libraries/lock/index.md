@@ -1,3 +1,7 @@
+---
+url: /libraries/lock
+---
+
 @@lock_readme@@
 
 ## Start using Auth0Lock

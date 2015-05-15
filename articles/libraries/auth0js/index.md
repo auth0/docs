@@ -1,3 +1,7 @@
+---
+url: /libraries/auth0js
+---
+
 # auth0.js
 
 __auth0.js__ is a UI-less client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process with the service, and process the response (usually parsing the [JWT](jwt) (JSON web token) that results from a successful authentication).

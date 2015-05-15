@@ -1,3 +1,7 @@
+---
+url: /samlsso-auth0-to-auth0
+---
+
 # SAML SSO with Auth0 as ServiceProvider and as an Identity Provider
 
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 account (account 1) as a SAML Service Provider(SP), authenticating users against a second Auth0 account (account 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML account (account 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
@@ -63,7 +67,7 @@ Next, create a user to use in testing the SAML SSO sequence.
 
 2. Click on the red **"+ NEW USER"** button on the right.
 
-3. In the **Email** field, enter an email for your test user.  The domain name for the email should match what you enter in section 3 below.  For example, if your user is `john.doe@abc-example.com`, you would enter that here, and then enter "abc-example.com" in step 3 below for the Email domain. 
+3. In the **Email** field, enter an email for your test user.  The domain name for the email should match what you enter in section 3 below.  For example, if your user is `john.doe@abc-example.com`, you would enter that here, and then enter "abc-example.com" in step 3 below for the Email domain.
 
 4. Enter a password for the user
 
@@ -109,9 +113,9 @@ Here is an example of what the filled-out screen would look like: (you should ha
 ![](https://cdn.auth0.com/docs/img/saml-auth0-3.png)
 
 
-After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it) 
+After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
 
-Click on the **"CONTINUE"** button. 
+Click on the **"CONTINUE"** button.
 
 In the window that appears, metadata about this SAML provider (account 1) is displayed.  You will need to collect two pieces of information about this Auth0 account (the service provider) that you will then paste into the other Auth0 account you set up (the identity provider).
 
@@ -201,7 +205,7 @@ Log out of Account 2 and return to Account 1.
 
 * Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
 
-* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test account you created earlier.   
+* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test account you created earlier.
 
 You will then be redirected to the Lock login widget of the Identity Provider.  Login with the credentials for the test user you created.
 
@@ -234,7 +238,7 @@ Make sure you are logged into the **Account 1 Auth0 dashboard**.
 
 * Find the row for the application you just created, and click on the **"Settings"** icon to the right of the application name. (the round gear icon)
 
-* In the **"Allowed Callback URL"** field, enter **[http://jwt.io](http://jwt.io)**. 
+* In the **"Allowed Callback URL"** field, enter **[http://jwt.io](http://jwt.io)**.
 * The list of allowed callback URLs is a list of URL(s) to which users will be redirected after authentication.  The URL(s) entered here must match the **"callback URL"** in the HTML code created in the next step.  Normally you would enter a URL for your application, but to keep this example simple, users will simply be sent to the Auth0 JWT online tool which will provide some information about the JASON Web Token returned at the end of the authentication sequence.
 
 * Press the blue **"SAVE CHANGES"** button at the bottom of the screen.
@@ -263,10 +267,10 @@ Create an HTML page and insert the following HTML and javascript code:
     <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
     <script type="text/javascript">
       var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@acount.namespace@@');
-  
+
       function signin() {
         lock.show({
-            callbackURL: 'http://jwt.io' 
+            callbackURL: 'http://jwt.io'
           , responseType: 'token'
           , authParams: {
             scope: 'openid profile'
@@ -303,7 +307,7 @@ After entering your email address, the blue button on the Lock widget may have a
 
 ![](https://cdn.auth0.com/docs/img/saml-auth0-10.png)
 
-* You will be redirected to the Identity Provider to log in. 
+* You will be redirected to the Identity Provider to log in.
 
 Note that whether you are prompted for credentials at this point depends on whether you still have an active session at the Identity Provider.
 
@@ -313,7 +317,7 @@ If sufficient time has passed, or if you delete your browser cookies before init
 
 ![](https://cdn.auth0.com/docs/img/saml-auth0-11.png)
 
-Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io). 
+Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 
 #10. Troubleshooting.
 
@@ -328,4 +332,3 @@ Be sure to check to make sure cookies and javascript are enabled for your browse
 Check to make sure that the callback URL specified in the HTML file is also listed in the **Allowed Callback URLs** field in the __""Settings""__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
 
 The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
-
