@@ -18,7 +18,7 @@ Splunk's API supports basic & token based auth. For simplicity, we use basic aut
 
 When enabled, this rule will start sending events that will show up on Splunk's dashboard:
 
-![](//cdn.auth0.com/docs/img/splunk-dashbaord.png)
+![](../../media/articles/scenarios/splunk-dashbaord.png)
 
 ```
 function(user, context, callback) {

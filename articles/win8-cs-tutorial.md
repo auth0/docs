@@ -47,7 +47,7 @@ var user = await auth0.LoginAsync();
 */
 ```
 
-![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
+![](../media/articles/win8-cs-step1.png)
 
 #### Option 2: Authentication with your own UI
 

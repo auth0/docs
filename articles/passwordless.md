@@ -25,7 +25,7 @@ You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-ba
 Enter the __Twilio Account SID__ and __Auth Token__. 
 Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password.
 
-![](https://cldup.com/Cz-QfQvjm6.png)
+![](../media/articles/Cz-QfQvjm6.png)
 
 ### How to use it
 

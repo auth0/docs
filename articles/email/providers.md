@@ -34,7 +34,7 @@ After setting up Mandrill as your provider you can send a test mail [using the T
 
 The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will now show the emails which have been sent to your users, the subject and the delivery status of each message.
 
-![](//cdn.auth0.com/docs/img/email-mandrill-monitoring.png)
+![](../../media/articles/email/email-mandrill-monitoring.png)
 
 This page even allows you to see the contents of every email which has been sent to your users for advanced troubleshooting.
 
@@ -52,7 +52,7 @@ After setting up SendGrid as your provider you can send a test mail [using the T
 
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now show the emails which have been sent to your users and the delivery status of each message.
 
-![](//cdn.auth0.com/docs/img/email-sendgrid-monitoring.png)
+![](../../media/articles/email/email-sendgrid-monitoring.png)
 
 ## Other Topics
 
