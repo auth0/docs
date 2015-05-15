@@ -1,6 +1,6 @@
 ---
-title: Windows Store Auth0 Tutorial
-layout: doc.nosidebar.tutorial
+title: Using Auth0 with Windows App Store
+description: This tutorial explains how to integrate Auth0 with a Windows App Store using the Auth0.Windows8.Cs Nuget package.
 ---
 
 # Authenticating Users Anywhere with Auth0
@@ -73,70 +73,25 @@ Make the class public, and add the following properties and a constructor:
     }
 ```
 
-Add a __LoginAsync__ method:
+![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
 
-```cs
-    public async Task<string> LoginAsync()
-    {
-        var auth0Url = string.Format("https://{0}.auth0.com/login?client={1}&redirect_uri={2}&response_type=token&scope=openid",
-                            this.Tenant, this.ClientId, this.Callback);
+#### Option 2: Authentication with your own UI
 
-        var result = await WebAuthenticationBroker.AuthenticateAsync(WebAuthenticationOptions.None, new Uri(auth0Url), new Uri(this.Callback)).AsTask();
+If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
-        if (result.ResponseStatus == WebAuthenticationStatus.Success)
-        {
-            var tokens = parseResult(result.ResponseData);
-
-            this.AuthenticationToken = tokens["id_token"];
-            this.AccessToken = tokens["access_token"];
-
-            return this.AccessToken;
-        }
-
-        return null;
-    }
+```csharp
+var user = await auth0.LoginAsync("auth0waadtests.onmicrosoft.com")' // connection name here
 ```
 
-And then add this helper method to extract the `tokens`:
+> connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
 
-```cs
-    private static Dictionary<string, string> parseResult(string result)
-    {
-        Dictionary<string, string> tokens = new Dictionary<string, string>();
+#### Option 3: Authentication with specific user name and password (only for providers that support this)
 
-        //result will be: https://callback#id_token=1234&access_token=12345&...
-        var strTokens = result.Split('#')[1].Split('&');
-
-        foreach (var t in strTokens)
-        {
-            var tok = t.Split('=');
-            tokens.Add(tok[0], tok[1]);
-        }
-
-        return tokens;
-    }
-```
-
-`WebAuthenticationBroker` belongs to the namespace `Windows.Security.Authentication.Web`, before compiling add the following using statement:
-
-```
-using Windows.Security.Authentication.Web;
-```
-
-Compile the solution to verify everything is working fine.
-
-###4. Wire-up UI controls to Auth0Client
-
-Add the following code to the Button_Click event handler:
-
-```cs
-var client = new Auth0Client("{YOUR TENANT NAME}", "{YOUR CLIENT ID}", "http://localhost/win8");
-
-client.LoginAsync()
-		.ContinueWith(ts => {
-			var token = ts.Result;
-		});
-
+```csharp
+var user = await auth0.LoginAsync(
+	"my-db-connection", 	// connection name here
+	"username",
+	"password");
 ```
 
 Replace __{YOUR TENANT NAME}__ with the name you used when you created the account with Auth0. And __{YOUR CLIENT ID}__ with the `clientId` value you can get from your settings page:

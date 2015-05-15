@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "Egnyte"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

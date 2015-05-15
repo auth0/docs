@@ -1,3 +1,7 @@
+---
+title: Using Auth0 in ASP.NET Web API (OWIN)
+---
+
 # Using Auth0 in ASP.NET Web API (OWIN)
 
 @@includes.apinote@@
@@ -45,7 +49,7 @@ You can include new claims by attaching to `OnValidateIdentity`:
         {
             // ...
             Provider = new OAuthBearerAuthenticationProvider
-            { 
+            {
                 OnValidateIdentity = context =>
                 {
                     context.Ticket.Identity.AddClaim(new System.Security.Claims.Claim("foo", "var"));

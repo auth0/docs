@@ -1,3 +1,7 @@
+---
+title: Using Auth0 with iOS
+---
+
 # Using Auth0 with iOS
 
 This tutorial explains how to integrate Auth0 with a iOS App. `Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).

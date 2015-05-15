@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "EchoSign"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

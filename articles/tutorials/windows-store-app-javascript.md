@@ -1,6 +1,5 @@
 ---
-title: Windows Store Javascript Auth0 Tutorial
-layout: doc.nosidebar.tutorial
+title: Using Auth0 with Windows App Store in JavaScript
 ---
 
 # Authenticating Users Anywhere with Auth0
@@ -45,8 +44,7 @@ Keep Auth0 open. You will later need information from the dashboard to test your
 Open the `default.html` file and replace `<p>Content goes here</p>` to a `button`:
 
 ```html
-
-<button id="login">Login</button>
+<script src="/js/auth0.js"></script>
 ```
 
 ![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step2.png)
@@ -61,28 +59,20 @@ And add the following code:
 
 ```javascript
 
-(function () {
-    "use strict";
+var auth0 = new Auth0Client(
+  "@@account.namespace@@",
+  "@@account.clientId@@");
 
-    function Login() {
-
-        var auth0Url = "https://{YOUR_TENANT_NAME}.auth0.com/authorize";
-
-        var clientId = "{YOUR_CLIENT_ID}";
-        var callbackUrl = "http://localhost/win8";
-
-        auth0Url += "?client_id=" + clientId + "&redirect_uri=" + callbackUrl + "&response_type=token&scope=openid";
-
-        var startUri = new Windows.Foundation.Uri(auth0Url);
-        var endUri = new Windows.Foundation.Uri(callbackUrl);
-
-        Windows.Security.Authentication.Web.WebAuthenticationBroker.authenticateAsync(
-            Windows.Security.Authentication.Web.WebAuthenticationOptions.none, startUri, endUri)
-            .done(function (result) {
-                var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];
-            });
-    }
-})();
+auth0.Login(function (err, result) {
+  if (err) return err;
+  /*
+  Use result to do wonderful things, e.g.:
+    - get user email => result.Profile.email
+    - get facebook/google/twitter/etc access token => result.Profile.identities[0].access_token
+    - get Windows Azure AD groups => result.Profile.groups
+    - etc.
+  */
+});
 ```
 
 Replace __{YOUR TENANT NAME}__ with the name you used when you created the account with Auth0. And __{YOUR CLIENT ID}__ with the `clientId` value you can get from your settings page:

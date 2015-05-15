@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "Concur"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

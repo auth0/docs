@@ -1,3 +1,7 @@
+---
+title: Using Auth0 in Ember.js applications
+---
+
 # Using Auth0 in Ember.js applications
 
 Read the [Single Page Application tutorial](singlepageapp-tutorial) to get an idea of how Auth0 works in this scenario.

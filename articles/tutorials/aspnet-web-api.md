@@ -1,3 +1,7 @@
+---
+title: Using Auth0 in ASP.NET Web API
+---
+
 # Using Auth0 in ASP.NET Web API
 
 @@includes.apinote@@

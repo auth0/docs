@@ -1,3 +1,7 @@
+---
+title: Using Auth0 in Single Page Apps / HTML5
+---
+
 # Using Auth0 in Single Page Apps / HTML5
 
 ### 1. Setting up the callback URL in Auth0

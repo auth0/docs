@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "Box"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

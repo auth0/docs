@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "Zoom"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

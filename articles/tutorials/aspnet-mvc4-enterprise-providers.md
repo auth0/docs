@@ -1,3 +1,7 @@
+---
+title: Using Auth0 with ASP.NET MVC 4 - Enterprise Providers
+---
+
 # Using Auth0 with ASP.NET MVC 4 - Enterprise Providers
 
 The true power of Auth0 is that it open new possibilities to integrate your application with your customers user directories. In this tutorial we will guide you through a series of steps to enable enterprise single-sign on in your Asp.Net MVC 4 application.

@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "Salesforce"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "Dropbox"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

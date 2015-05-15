@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "CloudBees"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "SpringCM"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@

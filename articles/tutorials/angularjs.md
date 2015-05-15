@@ -1,3 +1,7 @@
+---
+title: AngularJS Tutorial
+---
+
 # AngularJS Tutorial
 
 > Note: If you're creating a new AngularJS app that you'll use with your API, you can [download a seed project](https://github.com/auth0/auth0-angular-api-sample/archive/gh-pages.zip) that is already configured to use Auth0. You only have to change the `authProvider` configuration to use your Auth0's account as shown in Step 2.
@@ -197,4 +201,3 @@ Please take note of your app settings:
 * __Domain__: `@@account.namespace@@`
 * __ClientID__: `@@account.clientId@@`
 * __Callback URL__: `@@account.callback@@`
-

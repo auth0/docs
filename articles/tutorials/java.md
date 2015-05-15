@@ -1,4 +1,8 @@
-# Auth0 and Java
+---
+title: Using Auth0 with Java
+---
+
+# Using Auth0 with Java
 
 [Auth0](https://www.auth0.com) is a cloud service that provides a turn-key solution for authentication, authorization and Single Sign On.
 
@@ -267,4 +271,3 @@ protected void onSuccess(
         throws ServletException, IOException {
 }
 ```
-

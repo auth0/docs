@@ -1,3 +1,8 @@
+---
+title: Using Auth0 with Android
+description: Learn how to setup your Android app to use Auth0 for authentication.
+---
+
 # Using Auth0 with Android
 
 Integrating Auth0 with Android based apps relies on the common method of instantiating a [WebView](http://developer.android.com/reference/android/webkit/WebView.html) inside the native app to drive all interactions with the authentication providers, and then extracting security tokens once they become available.

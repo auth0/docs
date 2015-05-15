@@ -1,3 +1,7 @@
+---
+title: Using Auth0 with a native Windows Phone 8 app
+---
+
 # Using Auth0 with a native Windows Phone 8 app
 
 This tutorial explains how to integrate Auth0 with a Windows Phone app. `Auth0.WindowsPhone` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).

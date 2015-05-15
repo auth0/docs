@@ -4,4 +4,4 @@ lodash: true
 ---
 <% integration = {};
 integration.name = "AD RMS"; %>
-@@includes.integrations@@
+@@include('integrations/_template')@@
