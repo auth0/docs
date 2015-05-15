@@ -157,7 +157,7 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 
 Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock. 
 
-[![Create Class Xcode](https://cdn.auth0.com/mobile-sdk-lock/CreateNativeModuleClass.gif)](https://auth0.com)
+[![Create Class Xcode](../../media/articles/native-platforms/CreateNativeModuleClass.gif)](https://auth0.com)
 
 `LockReactModule.h`
 
@@ -228,7 +228,7 @@ Lock.show({}, (err, profile, token) => {
 });
 ```
 
-[![Lock.png](https://cdn.auth0.com/mobile-sdk-lock/Lock-Widget-Screenshot.png)](https://auth0.com)
+[![Lock.png](../../media/articles/native-platforms/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.ReactNative#sms) or [TouchID](https://github.com/auth0/Lock.ReactNative#touchid)
 

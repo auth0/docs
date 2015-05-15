@@ -14,6 +14,6 @@ In some cases, instead of **cn** it might be better to use **uid**.
 
 With the OpenDJ Control Panel it's possible to retrieve the list of attributes for each user. This list can help you decide which attribute will be used as the username when authenticating with Auth0.
 
-![](https://cdn.auth0.com/docs/img/opendj-attributes.png)
+![](../../media/articles/connector/opendj-attributes.png)
 
 In this example John's `cn` is **johndoe** and the `mail` field is set to **johndoe@contoso.com**. If your organization wants users to authenticate using their username (`cn`) you can set the `LDAP_USER_BY_NAME` setting to `(cn={0})`, but if users should authenticate using their email address you should set it to `(mail={0})`.

@@ -8,7 +8,7 @@ The AD/LDAP connector supports Kerberos to make it easer for your users to authe
 
 To activate Kerberos on an Active Directory, simply enable the option in the dashboard.
 
-![](https://cdn.auth0.com/docs/img/connector-kerberos-configuration.png)
+![](../../media/articles/connector/connector-kerberos-configuration.png)
 
 After enabling Kerberos you'll also be able to configure the **IP Ranges**. When users originate from these IP address ranges this information will be exposed in the **SSO endpoint** which means client-side SDKs like **auth0.js** and the **Lock** will be able to detect Kerberos support and allow Integrated Windows Authentication.
 
@@ -24,19 +24,19 @@ Users connecting from within the building will all originate from `24.12.34.56` 
 
 **Note:** For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file.
 
-![](https://cdn.auth0.com/docs/img/connector-kerberos-flow.png)
+![](../../media/articles/connector/connector-kerberos-flow.png)
 
 On the other hand, when users are not in the corporate network (eg: at a customer) they won't be able to access the AD/LDAP Connector directly. The users will need to enter their username/password and Auth0 will validate these credentials with the AD/LDAP Connector (which will in turn talk to Active Directory).
 
-![](https://cdn.auth0.com/docs/img/connector-credentials-flow.png)
+![](../../media/articles/connector/connector-credentials-flow.png)
 
 ## End-user Experience
 
 Users on a domain-joined machine, coming from the configured IP addres range:
 
-![Login Kerberos](//cdn.auth0.com/docs/img/office-365-idp-login-kerberos.gif)
+![Login Kerberos](../../media/articles/connector/office-365-idp-login-kerberos.gif)
 
 Users that are not in the corporate network will need to enter their AD credentials:
 
-![Login External](//cdn.auth0.com/docs/img/office-365-idp-login-external.gif)
+![Login External](../../media/articles/connector/office-365-idp-login-external.gif)
 

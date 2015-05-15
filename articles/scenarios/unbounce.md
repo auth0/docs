@@ -1,6 +1,6 @@
 # Get User Information with one-click social authentication on Unbounce Landing Pages
 
-![](https://dl.dropboxusercontent.com/u/21665105/unbounce.gif)
+![](../../media/articles/scenarios/unbounce.gif)
 
 ### Configuration on Auth0
 

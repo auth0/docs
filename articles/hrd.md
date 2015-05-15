@@ -33,11 +33,11 @@ The [Auth0Lock](lock) has built in functionality for identity provider selection
 
 An additional feature in the Auth0Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
 
-![](https://cldup.com/k_LcfC8PHp.png)
+![](../media/articles/k_LcfC8PHp.png)
 
 If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain:
 
-![](https://cldup.com/R7mvAZpSnf.png)
+![](../media/articles/R7mvAZpSnf.png)
 
 In the example above the domain `companyx.com` has been mapped to an enterprise connection.
 
@@ -68,7 +68,7 @@ lock.show({
 
 This is useful when you want to give users a consistent login experience where they click on the connection they want to use.
 
-![](//cdn.auth0.com/docs/img/hrd-custom-buttons-lock.png)
+![](../media/articles/hrd-custom-buttons-lock.png)
 
 The Auth0Lock's stylesheet contains the following provider icons which can be used when adding custom buttons:
 

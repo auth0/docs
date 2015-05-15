@@ -8,21 +8,21 @@ In this document, I’ll explain how you can integrate your mobile app with two 
 ### Create a new OpenID Connect Provider
 The first step is to create an OpenID Connect Provider pointing to your Auth0 account. Please take a note of your Auth0 domain (_accountName_.auth0.com) and your _clientId_ and use them to create the Identity Pool in the [IAM Console](https://console.aws.amazon.com/iam/home):
 
-![IDP Creation](https://cdn.auth0.com/blog/IDPCreation.gif)
+![IDP Creation](../../media/articles/scenarios/IDPCreation.gif)
 
 > It's not necessary to set up an IAM role after creating the identity provider. If you don't have one already, Cognito will create a default IAM role in the next step.
 
 ### Create a Cognito Identity Pool
 Now, you need to create an Identity Pool in the [Cognito Console](https://console.aws.amazon.com/cognito/home). This will be used to log in to Amazon Cognito using the Auth0 Identity Provider that you created in the previous step.
 
-![Cognito Pool Creation](https://cdn.auth0.com/blog/IDPCognito.gif)
+![Cognito Pool Creation](../../media/articles/scenarios/IDPCognito.gif)
 
 > Please take a note of the ARN selected in the end of the gif. We’ll use it later on!
 
 ### Grab the Role ARN
 Finally, grab the ARN of the role that was automatically created in the previous step from the [IAM console](https://console.aws.amazon.com/iam/home).
 
-![Grab Role ARN](https://cdn.auth0.com/blog/Roles.gif)
+![Grab Role ARN](../../media/articles/scenarios/Roles.gif)
 
 # Configuring Auth0
 ### Configure your application
@@ -30,7 +30,7 @@ Amazon will use the public signing key from the OpenID Provider Metadata (https:
 
 By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the dashboard, press "Show Advanced Settings" and change the algorithm to RS256:
 
-![](https://cdn.auth0.com/docs/img/cdn-amazon-cognito-rs256.png)
+![](../../media/articles/scenarios/cdn-amazon-cognito-rs256.png)
 
 ## Code time!
 Now it’s time to start coding our app. In this case, we’ll be using Swift, but the same sample applies to Objective-C as well.
@@ -104,7 +104,7 @@ dataset.synchronize()
 ```
 ## Let’s see how it works!
 
-![Cognito working](https://cdn.auth0.com/blog/CognitoSample.gif)
+![Cognito working](../../media/articles/scenarios/CognitoSample.gif)
 
 ## Final Thoughts
 

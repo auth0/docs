@@ -8,7 +8,7 @@ We have released a new feature that enables the gradual migration of users from 
 
 Check the "Import Users to Auth0" option in the connection settings:
 
-![](//cdn.auth0.com/docs/img/migrating-1.png)
+![](../media/articles/migrating-1.png)
 
 ## How does it work?
 
@@ -42,7 +42,7 @@ function (email, password, callback) {
 
 Then when a user authenticates, the following process takes place:
 
-![](//cdn.auth0.com/docs/img/migrating-2.png)
+![](../media/articles/migrating-2.png)
 
 So for example, let's say you have a MySQL database and you are hashing passwords with SHA1. You would define the script that connects to MySQL, gets the user from the DB and then uses `crypto.createHash('sha1')` to hash the password and check against the stored password. If that was succesful, the user will be automatically created in Auth0 database and his/her password will be hashed using `bcrypt` with 12 iterations (our default hashing algorithm). Next time a user logs in, we will check against OUR database and our hash.
 
