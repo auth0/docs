@@ -1,3 +1,7 @@
+---
+url: /saml-apps
+---
+
 # SAML Configurations for 3rd party apps
 
 ##Google Apps
@@ -78,7 +82,7 @@
 {
  "audience":  "https://{YOUR SPROUT VIDEO ACCOUNT}.vids.io",
  "mappings": {  
-       "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",   
+       "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
        "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
  },
  "createUpnClaim":       false,
@@ -146,4 +150,3 @@
 **Callback URL**: `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`
 
 ---
-

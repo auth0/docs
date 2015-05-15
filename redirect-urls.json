@@ -378,5 +378,61 @@
   {
     "from": "/aws",
     "to": "/integrations/aws"
+  },
+  {
+    "from": "/lock",
+    "to": "/libraries/lock"
+  },
+  {
+    "from": "/login-widget",
+    "to": "/libraries/login-widget"
+  },
+  {
+    "from": "/login-widget2",
+    "to": "/libraries/login-widget2"
+  },
+  {
+    "from": "/webapi",
+    "to": "/tutorials/aspnet-web-api"
+  },
+  {
+    "from": "/okta",
+    "to": "/saml/identity-providers/okta"
+  },
+  {
+    "from": "/onelogin",
+    "to": "/saml/identity-providers/onelogin"
+  },
+  {
+    "from": "/ping7",
+    "to": "/saml/identity-providers/ping7"
+  },
+  {
+    "from": "/passwordless",
+    "to": "/connections/passwordless"
+  },
+  {
+    "from": "/siteminder",
+    "to": "/saml/identity-providers/siteminder"
+  },
+  {
+    "from": "/ssocircle",
+    "to": "/saml/identity-providers/ssocircle"
+  },
+  {
+    "from": "/wsfedwebapp-tutorial",
+    "to": "/tutorials/wsfed-web-app"
+  },
+  {
+    "from": "/apiv2Changes",
+    "to": "/api-v2-changes"
+  },
+  {
+    "from": "/apiv2",
+    "to": "/api-v2"
+  },
+  {
+    "from": "/metadata-in-rules",
+    "to": "/rules/metadata-in-rules"
   }
 ]
