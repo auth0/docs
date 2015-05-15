@@ -1,3 +1,7 @@
+---
+url: /saml-idp-generic
+---
+
 # Auth0 as Identity Provider
 
 These instructions explain how to configure Auth0 to serve as an Identity Provider in a SAML federation.
@@ -7,14 +11,14 @@ There are **5 sections**, including a troubleshooting section at the end.
 1. Obtain information from the Service Provider/Application
 2. Configure Auth0 as IDP
 3. Configure the Service Provider
-4. Test 
+4. Test
 5. Troubleshooting
 
 ##1. Obtain Information from the Service Provider
 
 1. You will need to obtain from the Service Provider (application) the URL to which the SAML Authentication Assertion should be sent.  This may be called the Assertion Consumer Service URL, or the Post-back URL or the Callback URL.
 
-##2. Configure Auth0 as IDP 
+##2. Configure Auth0 as IDP
 
 In this section you will configure Auth0 to serve as an Identity Provider.  You will do this by registering an application and using an AddOn.
 
@@ -46,7 +50,7 @@ In this section you will configure Auth0 to serve as an Identity Provider.  You 
 10. Scroll back up and click on the "Addons" tab.  Then click on the box labeled "SAML2 WEB APP".  
 
 ![](https://cdn.auth0.com/docs/img/saml-idp-generic3.png)
- 
+
 
 11. In the "Application Callback URL" field, enter the URL at the Service Provider (or application) to which the SAML assertions should be sent after Auth0 has authenticated the user.  
 
@@ -56,7 +60,7 @@ In this section you will configure Auth0 to serve as an Identity Provider.  You 
 
 ![](https://cdn.auth0.com/docs/img/saml-idp-generic5.png)
 
-##3. Configure the Service Provider 
+##3. Configure the Service Provider
 
 In this section you will add some information to the Service Provider  so the Service Provider knows how to send SAML-based authentication requests to the Auth0 Identity Provider.  The instructions provided here are generic.  You will need to find the appropriate screens and fields on the Service Provider.
 
@@ -73,7 +77,7 @@ The Service Provider will need a certificate from the Auth0 Identity Provider.  
 If the Service Provider asks for an Issuer, this can also be obtained from the same screen.
 
 
-##4. Test 
+##4. Test
 
 Once you have completed the above configuration, test the login.
 
@@ -93,4 +97,3 @@ Be sure to check to make sure cookies and javascript are enabled for your browse
 
 
 The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
-

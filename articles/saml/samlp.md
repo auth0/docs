@@ -1,4 +1,8 @@
 ---
+url: /samlp
+---
+
+---
 title: SAML
 layout: doc.nosidebar
 ---

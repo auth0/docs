@@ -1,145 +1,446 @@
-[{
-  "from": "/ionic-tutorial",
-  "to" : "/native-platforms/ionic"
-},
-{
-  "from": "/javaapi-tutorial",
-  "to" : "/server-apis/java"
-},
-{
-  "from": "/laravelapi-tutorial",
-  "to" : "/server-apis/php-laravel"
-},
-{
-  "from": "/nodeapi-tutorial",
-  "to" : "/server-apis/nodejs"
-},
-{
-  "from": "/nodejs-tutorial",
-  "to" : "/server-platforms/nodejs"
-},
-{
-  "from": "/phpapi-tutorial",
-  "to" : "/server-apis/php"
-},
-{
-  "from": "/pythonapi-tutorial",
-  "to" : "/server-apis/python"
-},
-{
-  "from": "/rubyapi-tutorial",
-  "to" : "/server-apis/rails"
-},
-{
-  "from": "/awsapi-tutorial",
-  "to": "/server-apis/aws"
-},
-{
-  "from": "/wams",
-  "to": "/server-apis/azure-mobile-services"
-},
-{
-  "from": "/firebaseapi-tutorial",
-  "to": "/server-apis/firebase"
-},
-{
-  "from": "/salesforcesandboxapi-tutorial",
-  "to": "/server-apis/salesforce-sandbox"
-},
-{
-  "from": "/salesforceapi-tutorial",
-  "to": "/server-apis/salesforce"
-},
-{
-  "from": "/sapapi-tutorial",
-  "to": "/server-apis/sap-odata"
-},
-{
-  "from": "/rails-tutorial",
-  "to": "/server-platforms/rails"
-},
-{
-  "from": "/python-tutorial",
-  "to": "/server-platforms/python"
-},
-{
-  "from": "/php-tutorial",
-  "to": "/server-platforms/php"
-},
-{
-  "from": "/java-tutorial",
-  "to" : "/server-platforms/java"
-},
-{
-  "from": "/phonegap-tutorial",
-  "to" : "/native-platforms/phonegap"
-},
-{
-  "from": "/widget",
-  "to": "/login-widget2"
-},
-{
-  "from": "/scenarios-keenio",
-  "to": "/scenarios/keenio"
-},
-{
-  "from": "/scenarios-mixpanel-fullcontact-salesforce",
-  "to": "/scenarios/mixpanel-fullcontact-salesforce"
-},
-{
-  "from": "/scenarios-mqtt",
-  "to": "/scenarios/mqtt"
-},
-{
-  "from": "/scenarios-parse",
-  "to": "/scenarios/parse"
-},
-{
-  "from": "/scenarios-rapleaf-salesforce",
-  "to": "/scenarios/rapleaf-salesforce"
-},
-{
-  "from": "/scenarios-segmentio",
-  "to": "/scenarios/segmentio"
-},
-{
-  "from": "/scenarios-splunk",
-  "to": "/scenarios/splunk"
-},
-{
-  "from": "/scenarios-tessel",
-  "to": "/scenarios/tessel"
-},
-{
-  "from": "/scenarios-unbounce",
-  "to": "/scenarios/unbounce"
-},
-{
-  "from": "/updating-appliance",
-  "to": "/appliance/update"
-},
-{
-  "from": "/adldap-auth",
-  "to": "/connector/install"
-}, {
-  "from": "/adldap-x",
-  "to": "/connector/install-other-platforms"
-}, {
-  "from": "/aspnet-tutorial",
-  "to": "/server-platforms/aspnet"
-}, {
-  "from": "/aspnet-owin-tutorial",
-  "to": "/server-platforms/aspnet-owin"
-}, {
-  "from": "/servicestack-tutorial",
-  "to": "/server-platforms/servicestack"
-}, {
-  "from": "/laravel-tutorial",
-  "to": "/server-platforms/laravel"
-}, {
-  "from": "/symfony-tutorial",
-  "to": "/server-platforms/symfony"
-},{
-  "from": "/sharepoint-apps",
-  "to": "/integrations/sharepoint-apps"
-  }]
+[
+  {
+    "from": "/ionic-tutorial",
+    "to": "/native-platforms/ionic"
+  },
+  {
+    "from": "/javaapi-tutorial",
+    "to": "/server-apis/java"
+  },
+  {
+    "from": "/laravelapi-tutorial",
+    "to": "/server-apis/php-laravel"
+  },
+  {
+    "from": "/nodeapi-tutorial",
+    "to": "/server-apis/nodejs"
+  },
+  {
+    "from": "/nodejs-tutorial",
+    "to": "/server-platforms/nodejs"
+  },
+  {
+    "from": "/phpapi-tutorial",
+    "to": "/server-apis/php"
+  },
+  {
+    "from": "/pythonapi-tutorial",
+    "to": "/server-apis/python"
+  },
+  {
+    "from": "/rubyapi-tutorial",
+    "to": "/server-apis/rails"
+  },
+  {
+    "from": "/awsapi-tutorial",
+    "to": "/server-apis/aws"
+  },
+  {
+    "from": "/wams",
+    "to": "/server-apis/azure-mobile-services"
+  },
+  {
+    "from": "/firebaseapi-tutorial",
+    "to": "/server-apis/firebase"
+  },
+  {
+    "from": "/salesforcesandboxapi-tutorial",
+    "to": "/server-apis/salesforce-sandbox"
+  },
+  {
+    "from": "/salesforceapi-tutorial",
+    "to": "/server-apis/salesforce"
+  },
+  {
+    "from": "/sapapi-tutorial",
+    "to": "/server-apis/sap-odata"
+  },
+  {
+    "from": "/rails-tutorial",
+    "to": "/server-platforms/rails"
+  },
+  {
+    "from": "/python-tutorial",
+    "to": "/server-platforms/python"
+  },
+  {
+    "from": "/php-tutorial",
+    "to": "/server-platforms/php"
+  },
+  {
+    "from": "/java-tutorial",
+    "to": "/server-platforms/java"
+  },
+  {
+    "from": "/phonegap-tutorial",
+    "to": "/native-platforms/phonegap"
+  },
+  {
+    "from": "/widget",
+    "to": "/login-widget2"
+  },
+  {
+    "from": "/scenarios-keenio",
+    "to": "/scenarios/keenio"
+  },
+  {
+    "from": "/scenarios-mixpanel-fullcontact-salesforce",
+    "to": "/scenarios/mixpanel-fullcontact-salesforce"
+  },
+  {
+    "from": "/scenarios-mqtt",
+    "to": "/scenarios/mqtt"
+  },
+  {
+    "from": "/scenarios-parse",
+    "to": "/scenarios/parse"
+  },
+  {
+    "from": "/scenarios-rapleaf-salesforce",
+    "to": "/scenarios/rapleaf-salesforce"
+  },
+  {
+    "from": "/scenarios-segmentio",
+    "to": "/scenarios/segmentio"
+  },
+  {
+    "from": "/scenarios-splunk",
+    "to": "/scenarios/splunk"
+  },
+  {
+    "from": "/scenarios-tessel",
+    "to": "/scenarios/tessel"
+  },
+  {
+    "from": "/scenarios-unbounce",
+    "to": "/scenarios/unbounce"
+  },
+  {
+    "from": "/updating-appliance",
+    "to": "/appliance/update"
+  },
+  {
+    "from": "/adldap-auth",
+    "to": "/connector/install"
+  },
+  {
+    "from": "/adldap-x",
+    "to": "/connector/install-other-platforms"
+  },
+  {
+    "from": "/aspnet-tutorial",
+    "to": "/server-platforms/aspnet"
+  },
+  {
+    "from": "/aspnet-owin-tutorial",
+    "to": "/server-platforms/aspnet-owin"
+  },
+  {
+    "from": "/servicestack-tutorial",
+    "to": "/server-platforms/servicestack"
+  },
+  {
+    "from": "/laravel-tutorial",
+    "to": "/server-platforms/laravel"
+  },
+  {
+    "from": "/symfony-tutorial",
+    "to": "/server-platforms/symfony"
+  },
+  {
+    "from": "/sharepoint-apps",
+    "to": "/integrations/sharepoint-apps"
+  },
+  {
+    "from": "/ad",
+    "to": "/connections/active-directory"
+  },
+  {
+    "from": "/adfs",
+    "to": "/connections/adfs"
+  },
+  {
+    "from": "/37signals-clientid",
+    "to": "/connections/37signals"
+  },
+  {
+    "from": "/amazon-clientid",
+    "to": "/connections/amazon"
+  },
+  {
+    "from": "/aol-clientid",
+    "to": "/connections/aol"
+  },
+  {
+    "from": "/dwolla-clientid",
+    "to": "/connections/dwolla"
+  },
+  {
+    "from": "/baidu-clientid",
+    "to": "/connections/baidu"
+  },
+  {
+    "from": "/box-clientid",
+    "to": "/connections/box"
+  },
+  {
+    "from": "/evernote-clientid",
+    "to": "/connections/evernote"
+  },
+  {
+    "from": "/exact-clientid",
+    "to": "/connections/exact"
+  },
+  {
+    "from": "/facebook-clientid",
+    "to": "/connections/facebook"
+  },
+  {
+    "from": "/fitbit-clientid",
+    "to": "/connections/fitbit"
+  },
+  {
+    "from": "/github-clientid",
+    "to": "/connections/github"
+  },
+  {
+    "from": "/goodreads-clientid",
+    "to": "/connections/goodreads"
+  },
+  {
+    "from": "/goog-clientid",
+    "to": "/connections/google"
+  },
+  {
+    "from": "/miicard-clientid",
+    "to": "/connections/miicard"
+  },
+  {
+    "from": "/ms-account-clientid",
+    "to": "/connections/microsoft-account"
+  },
+  {
+    "from": "/o365-clientid",
+    "to": "/connections/o365-deprecated"
+  },
+  {
+    "from": "/paypal-clientid",
+    "to": "/connections/paypal"
+  },
+  {
+    "from": "/planningcenter-clientid",
+    "to": "/connections/planning-center"
+  },
+  {
+    "from": "/salesforce-clientid",
+    "to": "/connections/salesforce"
+  },
+  {
+    "from": "/renren-clientid",
+    "to": "/connections/renren"
+  },
+  {
+    "from": "/sharepoint-clientid",
+    "to": "/connections/sharepoint-online"
+  },
+  {
+    "from": "/shopify-clientid",
+    "to": "/connections/shopify"
+  },
+  {
+    "from": "/soundcloud-clientid",
+    "to": "/connections/soundcloud"
+  },
+  {
+    "from": "/thecity-clientid",
+    "to": "/connections/thecity"
+  },
+  {
+    "from": "/twitter-clientid",
+    "to": "/connections/twitter"
+  },
+  {
+    "from": "/vkontakte-clientid",
+    "to": "/connections/vkontakte"
+  },
+  {
+    "from": "/waad-clientid",
+    "to": "/connections/azure-active-directory"
+  },
+  {
+    "from": "/weibo-clientid",
+    "to": "/connections/weibo"
+  },
+  {
+    "from": "/wordpress-clientid",
+    "to": "/connections/wordpress"
+  },
+  {
+    "from": "/yahoo-clientid",
+    "to": "/connections/yahoo"
+  },
+  {
+    "from": "/yandex-clientid",
+    "to": "/connections/yandex"
+  },
+  {
+    "from": "/instagram-clientid",
+    "to": "/connections/instagram"
+  },
+  {
+    "from": "/linkedin-clientid",
+    "to": "/connections/linkedin"
+  },
+  {
+    "from": "/checksum",
+    "to": "/appliance/checksum"
+  },
+  {
+    "from": "/android-tutorial",
+    "to": "/tutorials/android"
+  },
+  {
+    "from": "/angular-tutorial",
+    "to": "/tutorials/angularjs"
+  },
+  {
+    "from": "/aspnetwebapi-owin-tutorial",
+    "to": "/tutorials/aspnet-web-api-owin"
+  },
+  {
+    "from": "/aspnetwebapi-tutorial",
+    "to": "/tutorials/aspnet-web-api"
+  },
+  {
+    "from": "/ember-tutorial",
+    "to": "/tutorials/emberjs"
+  },
+  {
+    "from": "/ios-tutorial",
+    "to": "/tutorials/ios"
+  },
+  {
+    "from": "/java-tutorial",
+    "to": "/tutorials/java"
+  },
+  {
+    "from": "/mvc3-tutorial",
+    "to": "/tutorials/aspnet-mvc3"
+  },
+  {
+    "from": "/mvc-tutorial-enterprise",
+    "to": "/tutorials/aspnet-mvc4-enterprise-providers"
+  },
+  {
+    "from": "/phonegap-plugin-tutorial",
+    "to": "/tutorials/cordova"
+  },
+  {
+    "from": "/singlepageapp-tutorial",
+    "to": "/tutorials/single-page-app"
+  },
+  {
+    "from": "/wcf-tutorial",
+    "to": "/tutorials/wcf-service"
+  },
+  {
+    "from": "/win8-cs-tutorial",
+    "to": "/tutorials/windows-store-app-csharp"
+  },
+  {
+    "from": "/windowsstore-auth0-tutorial",
+    "to": "/tutorials/windows-store-app-csharp"
+  },
+  {
+    "from": "/windowsstore-js-auth0-tutorial",
+    "to": "/tutorials/windows-store-app-javascript"
+  },
+  {
+    "from": "/win8-tutorial",
+    "to": "/tutorials/windows-store-app-csharp"
+  },
+  {
+    "from": "/windowsphone-tutorial",
+    "to": "/tutorials/windows-phone"
+  },
+  {
+    "from": "/wpf-winforms-tutorial",
+    "to": "/tutorials/wpf-winforms"
+  },
+  {
+    "from": "/xamarin-tutorial",
+    "to": "/tutorials/xamarin"
+  },
+  {
+    "from": "/auth0js",
+    "to": "/libraries/auth0js"
+  },
+  {
+    "from": "/aws",
+    "to": "/integrations/aws"
+  },
+  {
+    "from": "/lock",
+    "to": "/libraries/lock"
+  },
+  {
+    "from": "/login-widget",
+    "to": "/libraries/login-widget"
+  },
+  {
+    "from": "/login-widget2",
+    "to": "/libraries/login-widget2"
+  },
+  {
+    "from": "/webapi",
+    "to": "/tutorials/aspnet-web-api"
+  },
+  {
+    "from": "/okta",
+    "to": "/saml/identity-providers/okta"
+  },
+  {
+    "from": "/onelogin",
+    "to": "/saml/identity-providers/onelogin"
+  },
+  {
+    "from": "/ping7",
+    "to": "/saml/identity-providers/ping7"
+  },
+  {
+    "from": "/passwordless",
+    "to": "/connections/passwordless"
+  },
+  {
+    "from": "/siteminder",
+    "to": "/saml/identity-providers/siteminder"
+  },
+  {
+    "from": "/ssocircle",
+    "to": "/saml/identity-providers/ssocircle"
+  },
+  {
+    "from": "/wsfedwebapp-tutorial",
+    "to": "/tutorials/wsfed-web-app"
+  },
+  {
+    "from": "/apiv2Changes",
+    "to": "/api/v2/changes"
+  },
+  {
+    "from": "/apiv2",
+    "to": "/api/v2"
+  },
+  {
+    "from": "/metadata-in-rules",
+    "to": "/rules/metadata-in-rules"
+  },
+  {
+    "from": "/api-reference",
+    "to": "/api/v1/reference"
+  },
+  {
+    "from": "/api",
+    "to": "/api/v1"
+  }
+]

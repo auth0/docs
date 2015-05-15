@@ -61,7 +61,7 @@ Add any other properties you wish to share about the authenticated user to this 
 
 ###7. Optional Assertion Encryption
 
-The Service Provider supports encryption of Assertions. 
+The Service Provider supports encryption of Assertions.
 To use this option, do the following to download the Service Provider public key certificate.
 
 * In the Auth0 Dashboard, click on __Connections__ and then __Enterprise__
@@ -73,5 +73,3 @@ In the window which appears, the seventh (last) bullet gives you links to downlo
 Download the desired certificate and add it to the SiteMinder __Policy Server Keystore__.
 
 ![](//cdn.auth0.com/docs/img/siteminder-encryption.png)
-
-

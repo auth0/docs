@@ -1,3 +1,7 @@
+---
+url: /cms
+---
+
 #CMS
 
 The Auth0's CMSs Plugins/Extensions provides an easy way to integrate your CMS installation with your Auth0 account enabling Single Sign On for Enterprises, social login and user/password login throught all your instances and platforms.
