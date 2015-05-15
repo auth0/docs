@@ -79,8 +79,8 @@
         "title": "Libraries",
         "icon": "icon-book",
         "items": [
-          { "title": "Auth0.js", "url": "/auth0js" },
-          { "title": "Lock", "url": "/lock" },
+          { "title": "Auth0.js", "url": "/libraries/auth0js" },
+          { "title": "Lock", "url": "/libraries/lock" },
           { "title": "Browser", "url": "/quickstart/spa"},
           { "title": "Mobile & Native", "url": "/quickstart/native-mobile" },
           { "title": "Server", "url": "/quickstart/webapp" }
@@ -90,8 +90,8 @@
         "title": "API Reference",
         "icon": "icon-cogs",
         "items": [
-          { "title": "API", "url": "/api"},
-          { "title": "API v2 (beta)", "url": "/apiv2"},
+          { "title": "API", "url": "/api/v1"},
+          { "title": "API v2 (beta)", "url": "/api/v2"},
           { "title": "Authentication Endpoints", "url": "/auth-api"}
         ]
       },
