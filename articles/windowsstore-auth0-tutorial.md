@@ -22,15 +22,15 @@ This tutorial assumes you are familiar with C# & Visual Studio 2012.
 1. Open an account with [Auth0](https://developers.auth0.com)
 2. You can login with a Google, Github or a Microsoft Account:
 
-![](https://puu.sh/3dmCI.png)
+![](../media/articles/windowsstore-auth0-tutorial/3dmCI.png)
 
 3. After login, enter a name for your account. This will uniquely identify you in Auth0. We will refer to this as {YOUR_TENANT_NAME} later in the tutorial.
 
-![](https://puu.sh/3dmFE.png)
+![](../media/articles/windowsstore-auth0-tutorial/3dmFE.png)
 
 4. Choose the type of application you are building. Select __Windows 8__:
 
-![](https://puu.sh/3drhv.png)
+![](../media/articles/windowsstore-auth0-tutorial/3drhv.png)
 
 Keep Auth0 open. You will later need information from the dashboard to test your app.
 
@@ -38,19 +38,19 @@ Keep Auth0 open. You will later need information from the dashboard to test your
 
 ###1. Open Visual Studio 2012 and create a new blank Windows Store App:
 
-![](https://puu.sh/3doIO.png)
+![](../media/articles/windowsstore-auth0-tutorial/3doIO.png)
 
 ###2. Add a basic UI to the app
 
 Open the `MainPage.xaml` file and drop a `Button` control from the Toolbox:
 
-![](https://puu.sh/3iwYD.png)
+![](../media/articles/windowsstore-auth0-tutorial/3iwYD.png)
 
 ###3. Add an Auth0Client class
 
 This class will encapsulate all access to Auth0. Add a new class named `Auth0Client` to the project:
 
-![](https://puu.sh/3dpIT.png)
+![](../media/articles/windowsstore-auth0-tutorial/3dpIT.png)
 
 Make the class public, and add the following properties and a constructor:
 
@@ -141,13 +141,13 @@ client.LoginAsync()
 
 Replace __{YOUR TENANT NAME}__ with the name you used when you created the account with Auth0. And __{YOUR CLIENT ID}__ with the `clientId` value you can get from your settings page:
 
-![](https://puu.sh/3dqSy.png)
+![](../media/articles/windowsstore-auth0-tutorial/3dqSy.png)
 
 ###5. Compile and test the application:
 
 When you run the application you will see the Login Screen with the __Auth0 Login Widget__:
 
-![](https://puu.sh/3drsI.png)
+![](../media/articles/windowsstore-auth0-tutorial/3drsI.png)
 
 It will show "Google" as an option to authenticate. Place a breakpoint in the `var token=ts.Result` line and complete authentication. If everything is successful, you will see the `access_token`.
 
@@ -155,19 +155,19 @@ It will show "Google" as an option to authenticate. Place a breakpoint in the `v
 
 Go back to [Auth0](https://app.auth0.com) and select __Connections__, __Social__:
 
-![](https://puu.sh/3drDu.png)
+![](../media/articles/windowsstore-auth0-tutorial/3drDu.png)
 
 Enable any of the providers available by clicking on the `Disabled` button.
 
 Run the app again and you will see the providers you just enabled on the login screen:
 
-![](https://puu.sh/3drIj.png)
+![](../media/articles/windowsstore-auth0-tutorial/3drIj.png)
 
 ###7. Getting user attributes
 
 Open the `MainPage.xaml` file and drop a `TextBox` control from the Toolbox after the `Button`, name it `UserInfo`, clean `Text` and set `IsReadOnly` to `true`:
 
-![](//cdn.auth0.com/docs/img/windowsstore-step7.1.png)
+![](../media/articles/windowsstore-auth0-tutorial/windowsstore-step7.1.png)
 
 Open the `Auth0Client.cs` file and add the __GetUserInfoAsync__ method:
 
@@ -209,6 +209,6 @@ client.GetUserInfoAsync().ContinueWith(task =>
 
 Run the app again, and you will see the user info after login:
 
-![](//cdn.auth0.com/docs/img/windowsstore-step7.png)
+![](../media/articles/windowsstore-auth0-tutorial/windowsstore-step7.png)
 
 Congratulations!!

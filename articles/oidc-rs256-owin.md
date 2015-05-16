@@ -4,7 +4,7 @@ Auth0 exposes OIDC discovery documents (`https://@@account.namespace@@/.well-kno
 
 A good example is __OpenID Connect middleware for Katana v3 (OWIN)__:
 
-![](https://cdn.auth0.com/docs/oidc-discovery.png)
+![](../media/articles/oidc-rs256-owin/oidc-discovery.png)
 
 ## How to use it
 
@@ -50,6 +50,6 @@ Currently, the OpenID Connect middleware does not support JWT tokens signed with
 2. Click on `Show Advanced Settings`.
 3. Set `RS256` as `JsonWebToken Token Signature Algorithm` and click on `Save`.
 
-![](https://cdn.auth0.com/docs/rsa256.png)
+![](../media/articles/oidc-rs256-owin/rsa256.png)
 
 With this setting, Auth0 will issue JWT tokens signed with your private signing key. Your app will verify them with your public signing key.

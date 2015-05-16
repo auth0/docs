@@ -22,7 +22,7 @@ The URL for the dashboard is `https://{your Office365 tenant}.sharepoint.com/_la
 
 #### Generate a __Client_Id__ and __ClientSecret__:
 
-![](http://puu.sh/90SvG.png)
+![](../../media/articles/integrations/sharepoint-apps/90SvG.png)
 
 #### Complete the information in the form:
 
@@ -44,11 +44,11 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 
 Complete the information in your app manifest in Visual Studio:
 
-![](http://puu.sh/90SEc.png)
+![](../../media/articles/integrations/sharepoint-apps/90SEc.png)
 
 Notice the `Query string` will be exactly like the `Redirect URI` you completed before. Then right-click on the project and select `Publish`:
 
-![](http://puu.sh/90SUB.png)
+![](../../media/articles/integrations/sharepoint-apps/90SUB.png)
 
 Create a __Publishing Profile__ (you will have to enter the same __Client Id__ & __Client Secret__ obtained in the SharePoint dashboard).
 
@@ -60,7 +60,7 @@ Click on __Package__ and upload the resulting file to SharePoint.
 
 The last step in the integration is to add a SharePoint connection in Auth0:
 
-![](http://puu.sh/8XoVl.png)
+![](../../media/articles/integrations/sharepoint-apps/8XoVl.png)
 
 You will need:
 
@@ -72,7 +72,7 @@ You will need:
 
 Users will install your app from the Office Marketplace. When they click on the link, they will be directed to Auth0, which will negotiate the access token for you, and finally to your app. Your app will receive a `User Profile` that will look like this:
 
-![](http://puu.sh/8Xp6x.png) 
+![](../../media/articles/integrations/sharepoint-apps/8Xp6x.png) 
 
 > Notice that the following properties will be included: `cacheKey`, `refresh_token`, `host` and `site`. These will allow you to call back SharePoint APIs (e.g. lists, etc.). 
 
