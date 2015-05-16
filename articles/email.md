@@ -4,7 +4,7 @@ Auth0 can send emails to users when they sign up, when their email address needs
 
 The dashboard allows customizing these emails using Markdown templates and marcos which include the context of the current application and the current user.
 
-![](//cdn.auth0.com/docs/img/emails-fields.png)
+![](../media/articles/email/emails-fields.png)
 
 ## Configuring From, Subject and Redirect To
 

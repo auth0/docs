@@ -4,7 +4,7 @@ Download the package provided by Auth0 to your local machine and verify its inte
 
 Open the dashboard and navigate to **Configuration**, then click on **Update from Package** and select the package from the file system:
 
-![](https://cdn.auth0.com/docs/img/ss-2014-12-03T12-29-18.png)
+![](../../media/articles/appliance/update/ss-2014-12-03T12-29-18.png)
 
 Every node in the cluster will be automatically updated with no downtime.
 

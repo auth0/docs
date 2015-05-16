@@ -18,7 +18,7 @@ These logs are not accessible to us directly.
 
 It is usually a good idea to keep the connector up to date. You can check the version of the installed connector on the Dashboard:
 
-![](https://cdn.auth0.com/docs/img/adldap-connector-version.png)
+![](../../media/articles/connector/troubleshooting/adldap-connector-version.png)
 
 ## Troubleshooting Tool
 
@@ -26,7 +26,7 @@ The troubleshooting tool is part of the AD LDAP Connector and can be launched on
 
 This tool will try to detect the most common problems related to the AD LDAP Connector:
 
-![](https://cdn.auth0.com/docs/img/connector-troubleshooter.png)
+![](../../media/articles/connector/troubleshooting/connector-troubleshooter.png)
 
 ## Common issues
 
@@ -46,7 +46,7 @@ The connector should be installed on a server that can reach the LDAP server. Wh
 
 In a Windows Network with Active Directory you can try the `nltest` command. To test if a specific machine can reach the `fabrikam.local` domain you can try `nltest /dsgetdc:fabrikam.local`.
 
-![](https://cdn.auth0.com/docs/img/connector-nltest-domain.png)
+![](../../media/articles/connector/troubleshooting/connector-nltest-domain.png)
 
 To see to which domain the current server is connected you can also try:
 

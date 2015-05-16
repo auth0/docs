@@ -21,7 +21,7 @@ static final String Connection = "google-oauth2";  //change to "paypal", "linked
 
 The sample shows two buttons for Login. The one labeled __Login__, will initiate the login process with the connection specified in the constant `Connection` (google-oauth2 in this sample). The button labeled __Login With Widget__ will display the __Auth0 Login Widget__ and allow you to choose any configured Identity Provider.
 
-![](//cdn.auth0.com/docs/img/android.png)
+![](../media/articles/android-tutorial/android.png)
 
 ##Using the library
 

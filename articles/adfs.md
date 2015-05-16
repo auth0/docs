@@ -20,7 +20,7 @@ For automated integration, this script uses the [ADFS PowerShell SnapIn](http://
 
 Copy & Paste the script above on Windows PowerShell.
 
-![](//cdn.auth0.com/docs/img/adfs-script.png)
+![](../media/articles/adfs/adfs-script.png)
 
 > You must run the script above as an administrator of your system.
 
@@ -65,7 +65,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 4- Select `Enter data about the relying party manually` and click `Next`
 
-![](//cdn.auth0.com/docs/img/adfs-importmanual.png)
+![](../media/articles/adfs/adfs-importmanual.png)
 
 5- Enter an arbitrary name (e.g. "@@account.appName@@") and click `Next`
 
@@ -77,13 +77,13 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
     https://@@account.namespace@@/login/callback
 
-![](//cdn.auth0.com/docs/img/adfs-url.png)
+![](../media/articles/adfs/adfs-url.png)
 
 9- Add a relying party identifier with the following value and click `Add` and then `Next`
 
     urn:auth0:@@account.tenant@@
 
-![](//cdn.auth0.com/docs/img/adfs-identifier.png)
+![](../media/articles/adfs/adfs-identifier.png)
 
 10- Leave the default option (Permit all users...) and click `Next`
 
@@ -93,7 +93,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 13- Leave the default option (Send LDAP Attributes as Claims)
 
-![](//cdn.auth0.com/docs/img/adfs-sendldap.png)
+![](../media/articles/adfs/adfs-sendldap.png)
 
 14- Give the rule an arbitrary name that describes what it does. For example:
 
@@ -101,6 +101,6 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 15- Select the following mappings and click `Finish`
 
-![](//cdn.auth0.com/docs/img/adfs-claimrules.png)
+![](../media/articles/adfs/adfs-claimrules.png)
 
 Yes, running the script is definitely easier.
