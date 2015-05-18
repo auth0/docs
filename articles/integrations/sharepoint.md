@@ -8,17 +8,17 @@ Auth0 can help radically simplify the authentication process for SharePoint. In 
 
 The first thing you need to do is go to the [Third Party Apps](https://manage.auth0.com/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
 
-![Create a new Third Party Application](../../media/articles/integrations/sharepoint/sharepoint-new-app.png)
+![Create a new Third Party Application](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-new-app.png)
 
 ### 2. Follow the Live Documentation
 
 On the Settings tab you'll need to enter the URL of the SharePoint Web Application and the external URL (typically the internet endpoint in your Alternate Access Mappings).
 
-![Tutorial](../../media/articles/integrations/sharepoint/sharepoint-app-tutorial.png)
+![Tutorial](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-app-tutorial.png)
 
 The Live Documentation will ask you to execute the installation script to install our custom Claims Provider after which you'll need to enable it and complete the configuration in Central Administration:
 
-![Central Administration](../../media/articles/integrations/sharepoint/sharepoint-central-admin.png)
+![Central Administration](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-central-admin.png)
 
 Note that the call to `Enable-Auth0` can be adapted to:
 
@@ -47,11 +47,11 @@ Enable-Auth0
 
 You have configured SharePoint to use Auth0 as the SSO Broker. When your users visit your site they'll be presented with a login page showing all the connections enabled for that application.
 
-![SharePoint Login Page](../../media/articles/integrations/sharepoint/sharepoint-login-page.png)
+![SharePoint Login Page](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-login-page.png)
 
 Depending on which claims have been mapped when installing the claims provider this additional information will also be available in the user's personal settings page:
 
-![SharePoint User Info](../../media/articles/integrations/sharepoint/sharepoint-user-info.png)
+![SharePoint User Info](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-user-info.png)
 
 ## Authorization
 
@@ -59,11 +59,11 @@ The claims being passed through from Auth0 can also be used for authorization in
 
 Let's take Azure AD as an example. In this Cloud Directory users can be part of groups and David is part of Fabrikam HR.
 
-![Azure AD Group Member](../../media/articles/integrations/sharepoint/sharepoint-group-member.png)
+![Azure AD Group Member](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-group-member.png)
 
 When David logs in using his Azure AD account (and the Security Groups attribute is enabled for that connection) the group memberships will be stored in the `groups` attribute of the user's profile.
 
-![User Groups](../../media/articles/integrations/sharepoint/sharepoint-profile-groups.png)
+![User Groups](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-profile-groups.png)
 
 If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](https://manage.auth0.com/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
 
@@ -103,7 +103,7 @@ Enable-Auth0
 
 By default a user won't have access to the site:
 
-![Access Denied](../../media/articles/integrations/sharepoint/sharepoint-no-access.png)
+![Access Denied](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-no-access.png)
 
 Now instead of adding that specific user to a SharePoint Group (eg: Contributors) we can now add a **Role** to a SharePoint Group. Here's a sample PowerShell script that shows how to add "Fabrikam HR" members to the Contributors group:
 
@@ -128,9 +128,9 @@ After adding this claim value to the Contributors group David will be able to ac
 
 Errors and warnings are logged to SharePoint's Unified Logging Service and tools like the [ULS Viewer](http://www.microsoft.com/en-us/download/details.aspx?id=44020) can be used to troubleshoot any issues you might have when using the Claims Provider.
 
-![ULS](../../media/articles/integrations/sharepoint/sharepoint-uls-logs.png)
+![ULS](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-uls-logs.png)
 
 And when working with additional claims and authorization it can always be useful to view the claims for the current user. [Liam Clearly](https://www.helloitsliam.com)'s [Claims Viewer Web Part](https://sharepointobservations.wordpress.com/2013/08/21/sharepoint-2013-and-adfs-2-0-test-with-claims-viewer-web-part/) can be used to troubleshoot any issues with the user's claims:
 
-![Claims Webpart](../../media/articles/integrations/sharepoint/sharepoint-claims-webpart.png)
+![Claims Webpart](../@@env.MEDIA_URL@@/articles/integrations/sharepoint/sharepoint-claims-webpart.png)
 

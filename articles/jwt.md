@@ -82,4 +82,4 @@ var secret = crypto.createHash('sha256').update(masterkey + "JWTSig").digest('ba
 
 Where `masterkey` is your WAMS masterkey:
 
-![](../media/articles/jwt/3ruy9.png)
+![](@@env.MEDIA_URL@@/articles/jwt/3ruy9.png)

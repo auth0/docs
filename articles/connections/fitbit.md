@@ -5,7 +5,7 @@ To configure a Fitbit connection you will need to register a new application in 
 ##1. Log in into Fitbit's Developers site
 Log in into [Fitbit's Developer site](https://dev.fitbit.com), select __REGISTER AN APP__:
 
-![](../media/articles/fitbit-clientid/fitbit-register-1.png)
+![](@@env.MEDIA_URL@@/articles/fitbit-clientid/fitbit-register-1.png)
 
 ---
 

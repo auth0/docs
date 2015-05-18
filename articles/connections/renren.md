@@ -4,7 +4,7 @@ To configure a RenRen OAuth2 connection you will need to register your Auth0 ten
 
 ##1. Log in into the integration portal and register a new App:
 
-![](../media/articles/renren-clientid/renren-register-1.png)
+![](@@env.MEDIA_URL@@/articles/renren-clientid/renren-register-1.png)
 
 ---
 
@@ -14,7 +14,7 @@ Use the following value for the callback URL:
 
 	https://@@account.namespace@@/login/callback
 
-![](../media/articles/renren-clientid/renren-register-2.png)
+![](@@env.MEDIA_URL@@/articles/renren-clientid/renren-register-2.png)
 
 ---
 
@@ -22,4 +22,4 @@ Use the following value for the callback URL:
 
 Once the app is registered, enter the new API Key and Secret Key in Auth0's RenRen connection:
 
-![](../media/articles/renren-clientid/renren-register-3.png)
+![](@@env.MEDIA_URL@@/articles/renren-clientid/renren-register-3.png)

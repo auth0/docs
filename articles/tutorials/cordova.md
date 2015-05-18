@@ -74,7 +74,7 @@ auth0.login(function (err, result) {
 });
 ```
 
-![](../media/articles/phonegap-plugin-tutorial/phonegap.auth0client.png)
+![](@@env.MEDIA_URL@@/articles/phonegap-plugin-tutorial/phonegap.auth0client.png)
 
 #### Option 2: Authentication with your own UI
 

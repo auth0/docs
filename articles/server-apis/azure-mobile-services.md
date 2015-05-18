@@ -13,7 +13,7 @@ WAMS endpoints can be used from anywhere: [Android](https://auth0.com/docs/andro
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 
-![](../../media/articles/server-apis/azure-mobile-services/wams-tutorial-4.png)
+![](../@@env.MEDIA_URL@@/articles/server-apis/azure-mobile-services/wams-tutorial-4.png)
 
 #### 2. Changing the sample to use Auth0
 
@@ -83,15 +83,15 @@ The final step is to use the information on the token on the server code. You wi
 
 ##### 1. Change permissions on the table for each operation:
 
-![](../../media/articles/server-apis/azure-mobile-services/wams-tutorial-5.png)
+![](../@@env.MEDIA_URL@@/articles/server-apis/azure-mobile-services/wams-tutorial-5.png)
 
 
 ##### 2. Use the `user` object to change the behavior of the operation.
 
 This example, inserts the `userId` on new rows:
 
-![](../../media/articles/server-apis/azure-mobile-services/wams-tutorial-6.png)
+![](../@@env.MEDIA_URL@@/articles/server-apis/azure-mobile-services/wams-tutorial-6.png)
 
 And then when querying, it filters out rows for the logged in user:
 
-![](../../media/articles/server-apis/azure-mobile-services/wams-tutorial-7.png)
+![](../@@env.MEDIA_URL@@/articles/server-apis/azure-mobile-services/wams-tutorial-7.png)

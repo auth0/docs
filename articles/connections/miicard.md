@@ -4,5 +4,5 @@ Please contact miiCard to get [self-management](http://www.miicard.com/developer
 
 Once this is enabled, you will be able to complete the Auth0 setup. The `Consumer Key` and `Consumer Secret` will be available on the __miiCard Business Portal__:
 
-![](../media/articles/miicard-clientid/miicard-businessportal.png)
+![](@@env.MEDIA_URL@@/articles/miicard-clientid/miicard-businessportal.png)
 

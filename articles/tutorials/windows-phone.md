@@ -51,7 +51,7 @@ var user = await auth0.LoginAsync();
 
 Invoking LoginAsync without parameters will show the login widget:
 
-![](../media/articles/windowsphone-tutorial/windows-phone-tutorial.png)
+![](@@env.MEDIA_URL@@/articles/windowsphone-tutorial/windows-phone-tutorial.png)
 
 #### Option 2: Authentication with your own UI
 

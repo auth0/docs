@@ -8,4 +8,4 @@ However, when we try to call the API, we're getting Access Denied. This is proba
 
 In order to configure what scopes/permissions we need from the user, we must go to the [Connections](https://app.auth0.com/#/connections/social) section in Auth0 Dashboard. In there, we can expand any of the Identity Providers and then choose the particular scopes we need. For example, for facebook, we can add new scopes as follows:
 
-![Scopes for facebook](../../media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.gif)
+![Scopes for facebook](../@@env.MEDIA_URL@@/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.gif)

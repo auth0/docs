@@ -1,6 +1,6 @@
 # Get User Information with one-click social authentication on Unbounce Landing Pages
 
-![](../../media/articles/scenarios/unbounce/unbounce.gif)
+![](../@@env.MEDIA_URL@@/articles/scenarios/unbounce/unbounce.gif)
 
 ### Configuration on Auth0
 

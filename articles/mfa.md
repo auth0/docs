@@ -79,4 +79,4 @@ This demo illustrates an app in which __Duo Security__ has been enabled.
 3. User accesses the app.
 
 
-![](../media/articles/mfa/duo.gif)
+![](@@env.MEDIA_URL@@/articles/mfa/duo.gif)

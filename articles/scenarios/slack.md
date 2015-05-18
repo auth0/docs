@@ -4,8 +4,8 @@ You can configure Slack to login with Auth0. That way users would be able to log
 
 This is how it looks like when you login:
 
-![](../../media/articles/scenarios/slack/slack-login.gif)
+![](../@@env.MEDIA_URL@@/articles/scenarios/slack/slack-login.gif)
 
 This is how you configure it:
 
-![](../../media/articles/scenarios/slack/slack-config.gif)
+![](../@@env.MEDIA_URL@@/articles/scenarios/slack/slack-config.gif)

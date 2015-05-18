@@ -154,7 +154,7 @@ module.exports = Auth0Mosca;
 
 By convention, all devices connected to the broker have an account in Auth0:
 
-![](../../media/articles/scenarios/mqtt/7JNZP.png)
+![](../@@env.MEDIA_URL@@/articles/scenarios/mqtt/7JNZP.png)
 
 Notice that the Device Profile also has a property `topics`. This is an array with all topics this particular device is allowed to. In the screenshot above, `thermostat-1a` will be allowed publishing (or subscribing) to topics `temperature` and `config`.
 

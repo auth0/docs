@@ -18,7 +18,7 @@ Once the default template unfolds, use NuGet to install the **ServiceStack.Host.
 
 	Install-Package ServiceStack.Host.Mvc
 
-![](../../media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
+![](../@@env.MEDIA_URL@@/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
 Add the following line to your `Global.asax` file (this is required for ServiceStack):
 

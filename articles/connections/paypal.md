@@ -5,13 +5,13 @@ To configure a PayPal OpenId Connect connection you will need to register Auth0 
 ##1. Log in into Developer Portal
 Go to the [developer portal](https://developer.paypal.com/), and sign in with your PayPal credentials and then click on __Manage Applications__:
 
-![](../media/articles/paypal-clientid/paypal-devportal-1.png)
+![](@@env.MEDIA_URL@@/articles/paypal-clientid/paypal-devportal-1.png)
 
 ---
 
 ##2. Complete information about your Auth0 instance
 
-![](../media/articles/paypal-clientid/paypal-devportal-2.png)
+![](@@env.MEDIA_URL@@/articles/paypal-clientid/paypal-devportal-2.png)
 
 
 
@@ -28,7 +28,7 @@ Go to the [developer portal](https://developer.paypal.com/), and sign in with yo
 
 Once the application is registered, enter your new `App Id` and `App Secret` into the connection settings in Auth0.
 
-![](../media/articles/paypal-clientid/paypal-devportal-3.png)
+![](@@env.MEDIA_URL@@/articles/paypal-clientid/paypal-devportal-3.png)
 
-![](../media/articles/paypal-clientid/paypal-devportal-4.png)
+![](@@env.MEDIA_URL@@/articles/paypal-clientid/paypal-devportal-4.png)
 

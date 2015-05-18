@@ -33,7 +33,7 @@ This rule will add a `hello` attribute to all users authenticating through any p
       callback(null, user, context)
     }
 
-> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](../media/articles/rules/rules.png)
+> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](@@env.MEDIA_URL@@/articles/rules/rules.png)
 
 A __Rule__ takes the following arguments:
 

@@ -41,7 +41,7 @@ These are the steps to update the AD/LDAP Connector to the latest version:
 
 Hover over the Connector status indicator on the dashbaord:
 
-![](../../media/articles/connector/update/adldap-connector-version.png)
+![](../@@env.MEDIA_URL@@/articles/connector/update/adldap-connector-version.png)
 
 The tooltip will indicate the current status and the installed version.
 

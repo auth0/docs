@@ -16,7 +16,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 
 ## Anatomy of the Auth0 Login Widget
 
-![](../media/articles/login-widget/widget-numbered.png)
+![](@@env.MEDIA_URL@@/articles/login-widget/widget-numbered.png)
 
 1. The __title__ of the widget. You can optionally show a 24x24 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
@@ -63,7 +63,7 @@ This example shows how to display the labels in Spanish:
 
 Resulting in:
 
-![](../media/articles/login-widget/widget-customized.png)
+![](@@env.MEDIA_URL@@/articles/login-widget/widget-customized.png)
 
 ## Customizing the Login Widget for Database Connections
 
@@ -88,7 +88,7 @@ When using a database connections, the **Login Widget** has support for account 
 
 Will display the following:
 
-![](../media/articles/login-widget/widget-customized-signup.png)
+![](@@env.MEDIA_URL@@/articles/login-widget/widget-customized-signup.png)
 
 ### Customizing **change-password** messages
 
@@ -111,7 +111,7 @@ Will display the following:
 
 Will display the following:
 
-![](../media/articles/login-widget/widget-customized-reset.png)
+![](@@env.MEDIA_URL@@/articles/login-widget/widget-customized-reset.png)
 
 ## Customizing error messages
 
@@ -135,7 +135,7 @@ You can also customize the error messages that will be displayed on certain situ
 
 These errors will be shown on the widget header:
 
-![](../media/articles/login-widget/widget-error.png)
+![](@@env.MEDIA_URL@@/articles/login-widget/widget-error.png)
 
 ## Sending extra query string parameters
 

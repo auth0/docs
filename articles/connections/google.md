@@ -7,7 +7,7 @@ Go to the [API Console](https://console.developers.google.com), and click __Crea
 
 A dialog like the one shown in the following figure will be displayed.
 
-![](../media/articles/goog-clientid/goog-api-app-empty.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-app-empty.png)
 
 ##2. Complete information about your instance of Auth0
 
@@ -15,11 +15,11 @@ Provide your app's information and click **Create**.
 
 > The information provided in this dialog is not related to Auth0. It is only useful for your reference
 
-![](../media/articles/goog-clientid/goog-api-app-info.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-app-info.png)
 
 An activity will begin, as shown in the following figure. Once the activity is completed you will be redirected to the project's dashboard to continue with the next steps.
 
-![](../media/articles/goog-clientid/goog-api-creation-activity.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-creation-activity.png)
 
 ---
 
@@ -27,11 +27,11 @@ An activity will begin, as shown in the following figure. Once the activity is c
 
 Click **Enable an API** and locate the **Google+ API** item in the list.
 
-![](../media/articles/goog-clientid/goog-api-plus-off.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-plus-off.png)
 
 Enable it by clicking **OFF**.
 
-![](../media/articles/goog-clientid/goog-api-plus-on.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-plus-on.png)
 
 ---
 
@@ -39,7 +39,7 @@ Enable it by clicking **OFF**.
 
 Under APIs & auth, go to **Consent Screen**. Here, enter your **Product Name** that will be shown when users try to log in through Google:
 
-![](../media/articles/goog-clientid/goog-api-product-name.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-product-name.png)
 
 If this field is not present, your users may see errors such as `invalid_client: no application name` when attempting to log in.
 
@@ -48,7 +48,7 @@ If this field is not present, your users may see errors such as `invalid_client:
 
 Click **Credentials** in the left sidebar and then click **Create new Client ID**.
 
-![](../media/articles/goog-clientid/goog-api-credentials.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-credentials.png)
 
 Enter your account's information. That means replacing the appearances of **"YOURTENANT"** in the following figures with your Auth0 account name.
 
@@ -57,11 +57,11 @@ When prompted, use the following settings:
 * Authorized JavaScript Origins: `https://@@account.namespace@@`
 * Authorized Redirect URI: `https://@@account.namespace@@/login/callback`
 
-![](../media/articles/goog-clientid/goog-api-client-creation.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-client-creation.png)
 
 Click **Create Client ID**. The resulting settings will be displayed:
 
-![](../media/articles/goog-clientid/goog-api-client-settings.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-client-settings.png)
 
 You can now use the client ID and secret for your Auth0 connection's settings.
 
@@ -71,4 +71,4 @@ If you are planning to connect Google Apps enterprise domains, you need to enabl
 
 To do so, click **API** in the left sidebar, locate the **Admin SDK** item and click **OFF** to turn it on.
 
-![](../media/articles/goog-clientid/goog-api-admin-sdk.png)
+![](@@env.MEDIA_URL@@/articles/goog-clientid/goog-api-admin-sdk.png)

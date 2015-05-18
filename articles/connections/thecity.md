@@ -4,7 +4,7 @@
 
 Log in into your The City portal, and select __Admin__:
 
-![](../media/articles/thecity-clientid/thecity-register-1.png)
+![](@@env.MEDIA_URL@@/articles/thecity-clientid/thecity-register-1.png)
 
 ---
 
@@ -12,11 +12,11 @@ Log in into your The City portal, and select __Admin__:
 
 Select __API > Plugin > Create plugin__:
 
-![](../media/articles/thecity-clientid/thecity-register-2.png)
+![](@@env.MEDIA_URL@@/articles/thecity-clientid/thecity-register-2.png)
 
 Complete the form using this callback URL:
 
-![](../media/articles/thecity-clientid/thecity-register-3.png)
+![](@@env.MEDIA_URL@@/articles/thecity-clientid/thecity-register-3.png)
 
 	https://@@account.namespace@@/login/callback
 
@@ -28,4 +28,4 @@ Press __Create__
 
 Once the application is created, enter your new `App ID` and `Secret` into the connection settings in Auth0.
 
-![](../media/articles/thecity-clientid/thecity-register-4.png)
+![](@@env.MEDIA_URL@@/articles/thecity-clientid/thecity-register-4.png)

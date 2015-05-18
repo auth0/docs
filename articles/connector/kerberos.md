@@ -8,7 +8,7 @@ The AD/LDAP connector supports Kerberos to make it easer for your users to authe
 
 To activate Kerberos on an Active Directory, simply enable the option in the dashboard.
 
-![](../../media/articles/connector/kerberos/connector-kerberos-configuration.png)
+![](../@@env.MEDIA_URL@@/articles/connector/kerberos/connector-kerberos-configuration.png)
 
 After enabling Kerberos you'll also be able to configure the **IP Ranges**. When users originate from these IP address ranges this information will be exposed in the **SSO endpoint** which means client-side SDKs like **auth0.js** and the **Lock** will be able to detect Kerberos support and allow Integrated Windows Authentication.
 
@@ -24,19 +24,19 @@ Users connecting from within the building will all originate from `24.12.34.56` 
 
 **Note:** For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file.
 
-![](../../media/articles/connector/kerberos/connector-kerberos-flow.png)
+![](../@@env.MEDIA_URL@@/articles/connector/kerberos/connector-kerberos-flow.png)
 
 On the other hand, when users are not in the corporate network (eg: at a customer) they won't be able to access the AD/LDAP Connector directly. The users will need to enter their username/password and Auth0 will validate these credentials with the AD/LDAP Connector (which will in turn talk to Active Directory).
 
-![](../../media/articles/connector/kerberos/connector-credentials-flow.png)
+![](../@@env.MEDIA_URL@@/articles/connector/kerberos/connector-credentials-flow.png)
 
 ## End-user Experience
 
 Users on a domain-joined machine, coming from the configured IP addres range:
 
-![Login Kerberos](../../media/articles/connector/kerberos/office-365-idp-login-kerberos.gif)
+![Login Kerberos](../@@env.MEDIA_URL@@/articles/connector/kerberos/office-365-idp-login-kerberos.gif)
 
 Users that are not in the corporate network will need to enter their AD credentials:
 
-![Login External](../../media/articles/connector/kerberos/office-365-idp-login-external.gif)
+![Login External](../@@env.MEDIA_URL@@/articles/connector/kerberos/office-365-idp-login-external.gif)
 

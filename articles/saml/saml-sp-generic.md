@@ -60,7 +60,7 @@ You can ignore the rest of the fields for now.
 
 Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain.)
 
-![](../media/articles/saml-sp-generic/saml-sp-generic1.png)
+![](@@env.MEDIA_URL@@/articles/saml-sp-generic/saml-sp-generic1.png)
 
 
 After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
@@ -139,7 +139,7 @@ If it didn't work, double check the above steps and then consult the **troublesh
 
 Here is a sample of the **"It Works"** screen:
 
-![](../media/articles/saml-sp-generic/saml-auth0-9.png)
+![](@@env.MEDIA_URL@@/articles/saml-sp-generic/saml-auth0-9.png)
 
 
 ##5. Troubleshooting.
