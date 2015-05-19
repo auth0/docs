@@ -48,7 +48,7 @@ document.getElementById('btn-login').addEventListener('click', function() {
 });
 ```
 
-If you want to check all the available arguments for the show method, check the [Auth0Lock](@@base_url@@/lock) documentation.
+If you want to check all the available arguments for the show method, check the [Auth0Lock](/lock) documentation.
 
 After authentication, the page will be reloaded and you will get the token in a window.location.hash. This token can be parsed with Lock and it will be used for two things:
 
@@ -89,7 +89,7 @@ if (id_token) {
 <p>Name: <span id="name"></span></p>
 ```
 
-You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 5. Use the id_token to call your api
 

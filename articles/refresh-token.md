@@ -1,6 +1,6 @@
 # Refresh Tokens
 
-__Refresh tokens__ are special kinds of tokens that your app can use to get renewed `id_token` ([JWT](@@base_url@@/jwt)) **at any time**. A __refresh token__ must be securely stored in your app.
+__Refresh tokens__ are special kinds of tokens that your app can use to get renewed `id_token` ([JWT](/jwt)) **at any time**. A __refresh token__ must be securely stored in your app.
 
 ## Introduction
 
@@ -19,7 +19,7 @@ Think of a __refresh token__ as a permission to renew tokens indefinitely, until
 Because a __refresh token__ never expires, it is important to provide admins of apps ability to revoke access. Auth0 allows this process to happen both from the dashboard and programmatically through an API.
 
 __Refresh tokens__ can be issued and revoked for each combination of __app__, __user__ and __device__.
-To revoke a __refresh token__, you can call the **[revoke refresh token](@@base_url@@/api#delete--api-users--user_id--refresh_tokens--refresh_token-)** endpoint:
+To revoke a __refresh token__, you can call the **[revoke refresh token](/api#delete--api-users--user_id--refresh_tokens--refresh_token-)** endpoint:
 
 ```
 DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh token>
@@ -32,7 +32,7 @@ DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh
 
 ## How it all works
 
-The process to log the user in is the same as [explained in the sequence diagram page](@@base_url@@/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
+The process to log the user in is the same as [explained in the sequence diagram page](/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
 
 ```
 GET https://@@account.namespace@@/authorize/?
@@ -57,7 +57,7 @@ This is the same as before but it will now contain a `refresh_token` parameter.
 
 > Notice the token is sent back in the URL because `authorize` request in this example uses `response_type=token`.
 
-Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](@@base_url@@/auth-api#!#post--delegation)**
+Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](/auth-api#!#post--delegation)**
 
 ````
 POST https://@@account.namespace@@/delegation

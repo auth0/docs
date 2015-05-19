@@ -9,13 +9,13 @@ To configure Microsoft Account OAuth connections you need to register an applica
 ##1. Log in into Live Connect Developer Center
 Log into [the Developer Center](https://account.live.com/developers/applications), then select __My Apps__:
 
-![](@@env.MEDIA_URL@@/articles/connections/social/microsoft-account/ma-portal-1.png)
+![](/media/articles/connections/social/microsoft-account/ma-portal-1.png)
 
 ---
 
 ##2. Create an application
 
-![](@@env.MEDIA_URL@@/articles/connections/social/microsoft-account/ma-portal-2.png)
+![](/media/articles/connections/social/microsoft-account/ma-portal-2.png)
 
 After the app is created, copy the `ClientId` and `ClientSecret` and enter them into your connection settings.
 

@@ -4,7 +4,7 @@ url: /libraries/auth0js
 
 # auth0.js
 
-__auth0.js__ is a UI-less client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process with the service, and process the response (usually parsing the [JWT](jwt) (JSON web token) that results from a successful authentication).
+__auth0.js__ is a UI-less client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process with the service, and process the response (usually parsing the [JWT](/jwt) (JSON web token) that results from a successful authentication).
 
 ## Installing
 
@@ -203,7 +203,7 @@ While using this mode, the result will be passed as the `login` method callback;
 
 ### Sign-ups
 
-If you use [Database Connections](@@env.BASE_URL@@/mysql-connection-tutorial) you can signup new users with:
+If you use [Database Connections](/mysql-connection-tutorial) you can signup new users with:
 
 ```
   $('.signup').click(function () {

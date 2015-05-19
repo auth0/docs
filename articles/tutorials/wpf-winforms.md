@@ -51,7 +51,7 @@ var user = await auth0.LoginAsync(this);
 */
 ```
 
-![](@@env.MEDIA_URL@@/articles/wpf-winforms-tutorial/wpf-winforms-step1.png)
+![](/media/articles/wpf-winforms-tutorial/wpf-winforms-step1.png)
 
 > For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
 

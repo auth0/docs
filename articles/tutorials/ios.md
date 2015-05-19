@@ -65,7 +65,7 @@ Auth0Client *client = [Auth0Client auth0Client:@"@@account.namespace@@"
 }];
 ```
 
-![](@@env.MEDIA_URL@@/articles/ios-tutorial/iOS-step1.png)
+![](/media/articles/ios-tutorial/iOS-step1.png)
 
 #### Option 2: Authentication with your own UI
 

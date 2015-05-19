@@ -136,12 +136,12 @@ And modify the ```Domain_Granted```, add the following link:
 
 When Enterprise Users visit this URL they are automatically redirected to their company login page:
 
-![](@@env.MEDIA_URL@@/articles/mvc-tutorial-enterprise/enterprise-login.png)
+![](/media/articles/mvc-tutorial-enterprise/enterprise-login.png)
 
 ## Testing the app:
 
 Open a browser, navigate to the website and press the **sign up my company** link. You should see the provisioning widget and if you have a google account you will be able to register a company:
 
-![](@@env.MEDIA_URL@@/articles/mvc-tutorial-enterprise/widget-prov-in-aspnet.png)
+![](/media/articles/mvc-tutorial-enterprise/widget-prov-in-aspnet.png)
 
 Congratulations!

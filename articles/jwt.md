@@ -15,7 +15,7 @@ A JWT consists of 3 segments:
 ```javascript
 {
 	typ: 'JWT',
-	alg: 'HS256'	
+	alg: 'HS256'
 }
 ```
 ###2. Body
@@ -28,7 +28,7 @@ The minimum information will be:
     aud: "@@account.clientId@@",
     exp: 1372674336,
     iat: 1372638336
-}	
+}
 ```
 
 * `iss` the __issuer__ which corresponds to your instance of Auth0.
@@ -37,7 +37,7 @@ The minimum information will be:
 * `exp` the __expiration__, set to 10 hours.
 * `iat` the __issued at timestamp__.
 
-If the `scope` in the authorization request is set to `scope=openid profile`, then all the properties of the [user profile](user-profile) are added to the Body. You can also define specific attributes with the syntax: `scope: 'openid {attr1} {attr2} {attrN}'`. For example: `scope: 'openid name email picture'`.
+If the `scope` in the authorization request is set to `scope=openid profile`, then all the properties of the [user profile](/user-profile) are added to the Body. You can also define specific attributes with the syntax: `scope: 'openid {attr1} {attr2} {attrN}'`. For example: `scope: 'openid name email picture'`.
 
 > __Beware!__ If you are using the `implicit flow`, as you would if you are issuing the authorization request from a device, the JWT is returned in the URL, not in the response body. Some browsers have restrictions on URL lengths and can give you unexpected results.
 
@@ -67,8 +67,8 @@ Microsoft Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. W
 
 ```javascript
 function read(query, user, request) {
-    if (user && user.userId) { 
-    	query.where({ owner: user.userId }); 
+    if (user && user.userId) {
+    	query.where({ owner: user.userId });
     }
     request.execute();
 }
@@ -82,4 +82,4 @@ var secret = crypto.createHash('sha256').update(masterkey + "JWTSig").digest('ba
 
 Where `masterkey` is your WAMS masterkey:
 
-![](@@env.MEDIA_URL@@/articles/jwt/3ruy9.png)
+![](/media/articles/jwt/3ruy9.png)

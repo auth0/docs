@@ -14,8 +14,8 @@ For every application in Auth0 that you want to enable SSO, you have to turn on 
 
 Then, there are two ways of implementing SSO in Auth0. One involves client-side (JavaScript) and the other is completely server side.
 
-* [Client-side SSO (Single Page Apps)](single-page-apps-sso)
-* [Server-side SSO (Regular Web Apps)](regular-web-apps-sso)
+* [Client-side SSO (Single Page Apps)](/single-page-apps-sso)
+* [Server-side SSO (Regular Web Apps)](/regular-web-apps-sso)
 
 > You can see an example of SSO with both Single Page Apps and Regular Web Apps in [this github repository](https://github.com/auth0/auth0-sso-sample)
 

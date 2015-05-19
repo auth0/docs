@@ -1,6 +1,6 @@
 # Identity Protocols supported by Auth0
 
-Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](saml-configuration), WS-Federation). In most cases you won't need to go this deep to use Auth0.
+Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation). In most cases you won't need to go this deep to use Auth0.
 
 > This article is meant as an introduction. See the references section below for more information.
 
@@ -73,7 +73,7 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "id_token":"......JWT......"
     }
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
 Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 
@@ -93,7 +93,7 @@ The client requests authorization to Auth0 endpoint:
 
 The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page.
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
 ### 2. Authentication
 
@@ -115,7 +115,7 @@ Clients typically extract the URI fragment with the __Access Token__ and cancel 
 
 ## OAuth Resource Owner Password Credentials Grant
 
-This endpoint is used by clients to obtain an access token (and optionally a [JSON Web Token](jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
+This endpoint is used by clients to obtain an access token (and optionally a [JSON Web Token](/jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.
 
 ### 1. Login Request
 
@@ -136,7 +136,7 @@ Currently, Auth0 implements the following connections for a resource owner grant
 
 > Note: For Google authentication we are relying on an endpoint that is marked as deprecated, so use it at your own risk. The user might get a warning saying that someone has logged in from another IP address and will have to complete a captcha challenge allowing the login to happen.
 
-As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token*. This is a [JSON Web Token](jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). `scope=openid profile` will return the entire user profile.
+As optional parameter, you can include <code>scope=openid</code>. It will return, not only the *access_token*, but also an *id_token*. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). `scope=openid profile` will return the entire user profile.
 
 #### Sample Request
 
@@ -205,7 +205,7 @@ If the JWT has been tampered with or has expired, this endpoint will return a 40
 
 These protocols are implemented mostly when interacting with well-known [identity providers](identityproviders). Most of the __social identity providers__ implement one or the other. The default protocol in Auth0 is OpenID Connect (see above).
 
-`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the the `connection_scopes` parameter. (See [this topic](@@base_url@@/login-widget2#8) for more details)
+`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the the `connection_scopes` parameter. (See [this topic](/login-widget2#8) for more details)
 
 ## WS-Federation
 
@@ -222,7 +222,7 @@ The metadata endpoint that you can use to configure the __Relying Party__:
 
 All options for WS-Fed are available under the [advanced settings](https://app.auth0.com/#/applications/@@account.clientId@@/settings) for an App.
 
-Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](saml-configuration).
+Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](/saml-configuration).
 
 The following optional parameters can be used when redirecting to the WS-Fed endpoint:
 

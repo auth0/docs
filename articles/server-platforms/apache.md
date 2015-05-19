@@ -8,7 +8,7 @@ lodash: true
 
 ### 1. Install and enable `mod_auth_openidc` module
 
-First, you need to install the `mod_auth_openidc` module for Apache. 
+First, you need to install the `mod_auth_openidc` module for Apache.
 
 You can get the binaries from [Github](https://github.com/pingidentity/mod_auth_openidc/releases) and install them for your OS. If your OS isn't compatible with any of the binaries, you can still [build it from source](https://github.com/pingidentity/mod_auth_openidc/blob/master/INSTALL)
 
@@ -54,13 +54,13 @@ SSLCertificateKeyFile /home/your_key.key
 
 Auth0 `clientSecret` is by default Base64 encoded which isn't compatible with this Apache plugin out of the box. We're going to change that in the near future, but in the meantime, you need to call an API to set that, for your account, the `clientSecret` isn't Base64 encoded.
 
-Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here <@@base_url@@/api#!#post--oauth-token>
+Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here </api#!#post--oauth-token>
 
 ````bash
 curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 'authorization: Bearer ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
 ```
 
-> Please note that you can get your `access_token` by clicking on `Try Me` in [this endpoint of the Api Explorer](@@base_url@@/api#!#post--oauth-token)
+> Please note that you can get your `access_token` by clicking on `Try Me` in [this endpoint of the Api Explorer](/api#!#post--oauth-token)
 
 ### 4. Authorization
 
@@ -84,7 +84,7 @@ Then you can write a rule in Auth0 that would return the `folder` attribute:
 
 ```
 function(user, context, callback) {
-    if (somecondition()) {   
+    if (somecondition()) {
        user.folder = 'example2';
     }
 
@@ -97,7 +97,7 @@ Or you could even use an array of folders and the apache module will check if th
 ```
 function(user, context, callback) {
     user.folders = [];
-    if (somecondition()) {   
+    if (somecondition()) {
        user.folders.push('example2');
     }
 

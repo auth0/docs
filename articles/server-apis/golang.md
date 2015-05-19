@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-golang/master/create-package?path=examples/go-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-golang/master/create-package?path=examples/go-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %> 
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -29,7 +29,7 @@ go get github.com/auth0/go-jwt-middleware
 
 ### 2. Configure `go-jwt-middleware` to use your Auth0 Account
 
-You need to set the ClientSecret in `go-jwt-middleware`'s configuration so that it can validate [JWTs](@@base_url@@/jwt) for you.
+You need to set the ClientSecret in `go-jwt-middleware`'s configuration so that it can validate [JWTs](/jwt) for you.
 
 ````go
 package main

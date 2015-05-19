@@ -17,7 +17,7 @@ Here are a few examples. You could:
 * Normalize attributes from different providers besides to what we provide out of the box.
 * Reuse information from existing databases or APIs in migration scenarios.
 * Keep a white-list of users in a file and deny access based on email.
-* Have counters or other persisted information. For more information on how to do this check [this article](@@base_url@@/metadata-in-rules).
+* Have counters or other persisted information. For more information on how to do this check [this article](/metadata-in-rules).
 
 __Auth0 Rules__ are implemented in JavaScript. Which means you don't have to learn an esoteric DSL. They run in their own sandbox to protect the core of Auth0's runtime. Even if you make a mistake and your code ends up in a tight loop for example, everything else will work just fine.
 
@@ -33,7 +33,7 @@ This rule will add a `hello` attribute to all users authenticating through any p
       callback(null, user, context)
     }
 
-> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](@@env.MEDIA_URL@@/articles/rules/index/rules.png)
+> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](/media/articles/rules/index/rules.png)
 
 A __Rule__ takes the following arguments:
 
@@ -50,7 +50,7 @@ An object containing contextual information of the current authentication transa
 * `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
   * `lifetimeInSeconds`: expiration of the token.
   * `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
-* `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (WS-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (WS-trust user/password login used on CRM and Office365), and `delegation` (when calling the [Delegation endpoint](@@base_url@@/auth-api#delegated)).
+* `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `samlp` (SAML protocol used on SaaS apps), `wsfed` (WS-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (WS-trust user/password login used on CRM and Office365), and `delegation` (when calling the [Delegation endpoint](/auth-api#delegated)).
 * `request`: an object containing useful information of the request. It has the following properties:
   * `query`: querystring of the login transaction sent by the application
   * `body`: the body of the POST request on login transactions used on `oauth2-resource-owner` or `wstrust-usernamemixed` protocols.

@@ -30,7 +30,7 @@ You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-ba
 Enter the __Twilio Account SID__ and __Auth Token__.
 Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password.
 
-![](@@env.MEDIA_URL@@/articles/connections/passwordless/index/Cz-QfQvjm6.png)
+![](/media/articles/connections/passwordless/index/Cz-QfQvjm6.png)
 
 ### How to use it
 
@@ -48,13 +48,13 @@ Content-Type: 'application/json'
 }
 ```
 
-> Use [this endpoint](@@env.BASE_URL@@/api#authentication) to obtain the __{Auth0 API Token}__.
+> Use [this endpoint](/api#authentication) to obtain the __{Auth0 API Token}__.
 
 The key parameters are `connection` (that must be __sms__ for this connection) and the `phone_number`.
 
 Auth0 will send the SMS message configured on the dashboard to the `phone-number` specified, including the one-time-password (with 10 minutes expiration).
 
-Your application will capture the one-time-password and validate it with Auth0 using the __[Resource Owner](@@env.BASE_URL@@/auth-api#!#post--oauth-ro)__ authentication endpoint:
+Your application will capture the one-time-password and validate it with Auth0 using the __[Resource Owner](/auth-api#!#post--oauth-ro)__ authentication endpoint:
 
 ```
 POST https://@@account.namespace@@/oauth/ro
@@ -79,4 +79,4 @@ A successful authentication will result in a JWT sent back in the response:
 }
 ```
 
-The actual contents of the `id_token` will depend on the `scope` and on any [rules](rules) you might have defined.
+The actual contents of the `id_token` will depend on the `scope` and on any [rules](/rules) you might have defined.

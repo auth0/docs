@@ -4,7 +4,7 @@ public: false
 
 ## <%= integration.name %> integration
 
-In this tutorial, you'll learn how to add Single Sign On (SSO) to <%= integration.name %> using Auth0. Your users will be able to log in using any of our [Social Identity Providers](@@base_url@@/identityproviders) (Facebook, Twitter, Github, etc.), [Enterprise Providers](@@base_url@@/identityproviders) (LDAP, Active Directory, ADFS, etc.) or with username and password.
+In this tutorial, you'll learn how to add Single Sign On (SSO) to <%= integration.name %> using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, etc.), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, etc.) or with username and password.
 
 ### 1. Adding the Integration to your account
 

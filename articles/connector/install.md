@@ -30,17 +30,17 @@ The Connector is packaged as a standard installer file (__MSI__). Download from 
 
 Run the installer and follow the instructions:
 
-![](../@@env.MEDIA_URL@@/articles/connector/install/adldap-connector-setup.png)
+![](/media/articles/connector/install/adldap-connector-setup.png)
 
 The __AD/LDAP Connector__ in Windows is installed as a Windows Service:
 
-![](../@@env.MEDIA_URL@@/articles/connector/install/adldap-connector-services.png)
+![](/media/articles/connector/install/adldap-connector-services.png)
 
 ## Link to Auth0
 
 Once the installation is complete, you will see the following screen in a browser pointing to localhost:
 
-![](../@@env.MEDIA_URL@@/articles/connector/install/adldap-connector-admin-ticket.png)
+![](/media/articles/connector/install/adldap-connector-admin-ticket.png)
 
 Enter the __TICKET URL__ provided when you provisioned the connection.
 
@@ -50,7 +50,7 @@ The __TICKET URL__ uniquely identifies this connector in Auth0. The Connector wi
 
 Once you have entered the __TICKET URL__, you must enter the LDAP settings:
 
-![](../@@env.MEDIA_URL@@/articles/connector/install/adldap-connector-admin-settings.png)
+![](/media/articles/connector/install/adldap-connector-admin-settings.png)
 
 -  **LDAP Connection String (eg: ldap://ldap.internal.contoso.com):** This is the protocol + the domain name or ip address of your LDAP server. The protocol can be either `ldap` or `ldaps`. If you need to use `ldaps` make sure that the certificate is valid in the current server.
 -  **Base DN (eg: dc=contoso,dc=com):** This is the base container for all the queries performed by the connector.
@@ -59,7 +59,7 @@ Once you have entered the __TICKET URL__, you must enter the LDAP settings:
 
 Once you submit the above information, the connector will perform a series of tests:
 
-![](../@@env.MEDIA_URL@@/articles/connector/install/adldap-connector-admin-settings-ok.png)
+![](/media/articles/connector/install/adldap-connector-admin-settings-ok.png)
 
 Make sure that all tests are in green.
 

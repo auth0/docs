@@ -9,15 +9,15 @@ layout: doc.nosidebar
 
 Go to Okta dashboard and click on **Applications**. Click on **Create New App**.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-1.png)
+![](/media/articles/saml/identity-providers/okta/okta-1.png)
 
 Select **SAML 2.0**.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-2.png)
+![](/media/articles/saml/identity-providers/okta/okta-2.png)
 
 Enter the name of your app and optionally a Logo and click **Next**.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-3.png)
+![](/media/articles/saml/identity-providers/okta/okta-3.png)
 
 Enter the following values:
 
@@ -25,20 +25,20 @@ Enter the following values:
 * **Audience URI (SP Entity ID)**: urn:auth0:@@account.tenant@@:@@connectionName@@
 * Add an Attribute Statement to map "email" to ${user.email}
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-4.png)
+![](/media/articles/saml/identity-providers/okta/okta-4.png)
 
 Select this is an internal application and then Finish.
 
 Click on **View Setup Instructions**
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-5.png)
+![](/media/articles/saml/identity-providers/okta/okta-5.png)
 
 Take note of the following:
 
 * **Identity Provider Single Sign-On URL**
 * **Download certificate**
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-6.png)
+![](/media/articles/saml/identity-providers/okta/okta-6.png)
 
 # On Auth0 dashboard...
 
@@ -48,7 +48,7 @@ Go to **Connections** -> **Enterprise** -> **SAMLP Identity Provider** and click
 
 * Upload the okta.cer certificate
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-7.png)
+![](/media/articles/saml/identity-providers/okta/okta-7.png)
 
 Click on **Save** and close the next dialog. You will get asked which application you want to connect this to.
 
@@ -56,11 +56,11 @@ Click on **Save** and close the next dialog. You will get asked which applicatio
 
 If you have a user on Okta you can now click on **Try** on your Auth0 dashboard and you should be redirected to Okta:
 
-![](@@env.MEDIA_URL@@/articles/okta/okta-8.png)
+![](/media/articles/okta/okta-8.png)
 
 > **Note**: the **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a Okta user, read the following section to configure IdP Initiated SignOn so the customer can try on their portal.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/okta/okta-9.png)
+![](/media/articles/saml/identity-providers/okta/okta-9.png)
 
 ## IdP Initiated SignOn
 

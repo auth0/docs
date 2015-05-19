@@ -140,7 +140,7 @@ In this case, add the call in the `login` method of the `LoginCtrl` controller.
 After a successful login, you will:
 
 1. Save the __user profile__.
-2. Save the __token__ and __[refresh token](@@base_url@@/refresh-token)__
+2. Save the __token__ and __[refresh token](/refresh-token)__
 3. Call Auth0 to issue a __Firebase token__ and save it as well.
 
 > All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](https://auth0.com/docs/auth-api#delegated).
@@ -236,7 +236,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-[Click here](@@base_url@@/user-profile) to find out all of the available properties from a user's profile. Note that some of these depend on the social provider being used.
+[Click here](/user-profile) to find out all of the available properties from a user's profile. Note that some of these depend on the social provider being used.
 
 ### 11. Keeping the user logged-in after page refreshes
 

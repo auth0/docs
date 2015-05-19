@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -110,7 +110,7 @@ $scope.logout = function() {
 
 ### 5. Configuring secure calls to our API
 
-As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](@@base_url@@/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors:
+As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors:
 
 ````js
 // app.js
@@ -128,7 +128,7 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtIntercept
 });
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
+Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
 
 ### 6. Showing user information
 
@@ -145,7 +145,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 7. Keeping the user logged in after page refreshes
 

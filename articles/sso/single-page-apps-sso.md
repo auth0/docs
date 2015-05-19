@@ -20,17 +20,17 @@ var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
 
 
 
-// sso requires redirect mode, hence we need to parse 
+// sso requires redirect mode, hence we need to parse
 // the response from Auth0 that comes on location hash
 var hash = lock.parseHash(window.location.hash);
 if (hash && hash.id_token) {
-  // the user came back from the login (either SSO or regular login), 
+  // the user came back from the login (either SSO or regular login),
   // save the token
   localStorage.setItem('userToken', hash.id_token);
   // redirect to "targetUrl" if any
   window.location.href = hash.state || '#home';
   return;
-} 
+}
 
 // Get the user token if we've saved it in localStorage before
 var idToken = localStorage.getItem('userToken');
@@ -48,7 +48,7 @@ lock.$auth0.getSSOData(function(err, data) {
       // If the user wanted to go to some other URL, you can track it with `state`
       state: getQueryParam(location.search, 'targetUrl'),
       callbackOnLocationHash: true
-    }); 
+    });
   } else {
     // regular login
     document.body.style.display = 'inline';
@@ -64,12 +64,12 @@ lock.$auth0.getSSOData(function(err, data) {
 
 > If not using lock, you can use auth0.js for the `getSSOData` and `signin` API
 
-If the single sign on happens against app3.com (a regular web app), then you have to redirect to `app3.com/sso?targetUrl=/foo/bar`. Read more about this on [Single Sign On with Regular Web Apps](regular-web-apps-sso). 
+If the single sign on happens against app3.com (a regular web app), then you have to redirect to `app3.com/sso?targetUrl=/foo/bar`. Read more about this on [Single Sign On with Regular Web Apps](/regular-web-apps-sso).
 
 
 ## Single Logout
 
-If the user logged out from app1.com, then we want to clean up the token on app2.com (and app3.com). Read more about [Single Log Out](sso).
+If the user logged out from app1.com, then we want to clean up the token on app2.com (and app3.com). Read more about [Single Log Out](/logout).
 
 To do that, you have to check every X amount of time whether the SSO session is still alive in Auth0. If it is not, then remove the token from storage for the app.
 
@@ -77,16 +77,16 @@ To do that, you have to check every X amount of time whether the SSO session is 
 setInterval(function() {
   // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
   if (!localStorage.getItem('userToken')) return;
-  
+
   lock.$auth0.getSSOData(function(err, data) {
     // if there is still a session, do nothing
     if (err || (data && data.sso)) return;
-    
-    // if we get here, it means there is no session on Auth0, 
+
+    // if we get here, it means there is no session on Auth0,
     // then remove the token and redirect to #login
     localStorage.removeItem('userToken');
     window.location.href = '#login'
-    
+
   });
 }, 5000)
 ```

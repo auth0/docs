@@ -15,7 +15,7 @@ Some Applications, such as Salesforce, Box, Workday, can be configured to allow 
 
 Users of the application will be redirected to Auth0 to log in, and Auth0 can authenticate them using any backend authentication connection, such as an LDAP directory, a database, or even other SAML IDPs or Social Providers.  Once the user is authenticated, Auth0 will return a SAML assertion to the application indicating that the user has been successfully authenticated.
 
-![](@@env.MEDIA_URL@@/articles/saml-configuration/saml-case2.png)
+![](/media/articles/saml-configuration/saml-case2.png)
 
 ### SAML Service Provider
 
@@ -23,13 +23,13 @@ Other applications, especially custom applications, may externalize authenticati
 
 In this situation, Auth0 will receive an authentication request from the application using the OpenID Connect or OAuth2 protocol, and Auth0 will translate the request into a SAML Authentication Request and send it on to a SAML Identity Provider.  In this case, Auth0 serves as a SAML Service Provider in the federation with the Identity Provider.
 
-![](@@env.MEDIA_URL@@/articles/saml/saml-configuration/saml-case1.png)
+![](/media/articles/saml/saml-configuration/saml-case1.png)
 
 ### SAML Service Provider and Identity Provider
 
 Auth0 can also serve as an authentication hub between applications making a SAML request and backend SAML Identity Providers.  In this case, Auth0 would serve as a SAML Identity Provider to the applications, and it would also serve as a SAML Service Provider to backend SAML Identity Providers.  This use case is advantageous when applications need to support multiple backend Identity Providers.
 
-![](@@env.MEDIA_URL@@/articles/saml-configuration/saml-case3.png)  
+![](/media/articles/saml-configuration/saml-case3.png)  
 
 ## Configuring Auth0 as a Service Provider
 
@@ -37,16 +37,16 @@ If Auth0 will serve as a SAML Service Provider, an Auth0 Connection is used to c
 
 There are instructions for several specific providers below:
 
-* [ADFS](@@env.BASE_URL@@/adfs)
-* [Okta](@@env.BASE_URL@@/okta)
-* [OneLogin](@@env.BASE_URL@@/onelogin)
-* [Ping7](@@env.BASE_URL@@/ping7)
-* [SiteMinder](@@env.BASE_URL@@/siteminder)
-* [SSOCircle](@@env.BASE_URL@@/ssocircle)
+* [ADFS](/adfs)
+* [Okta](/okta)
+* [OneLogin](/onelogin)
+* [Ping7](/ping7)
+* [SiteMinder](/siteminder)
+* [SSOCircle](/ssocircle)
 
 Auth0 can be configured as a Service Provider to any other SAML-compliant Identity Provider using the following generic instructions:
 
-* [Generic Service Provider Configuration](@@env.BASE_URL@@/saml-sp-generic)
+* [Generic Service Provider Configuration](/saml-sp-generic)
 
 
 ## Configuring Auth0 as a SAML Identity Provider
@@ -55,18 +55,18 @@ Configuring Auth0 to serve as a SAML Identity Provider is done in a couple diffe
 
 For some Third Party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, clicking on  "NEW THIRD PARTY APP", and selecting the specific application.  Instructions specific to the chosen application are provided.
 
-* [Third Party SAML Web Apps](@@env.BASE_URL@@/saml2webapp-tutorial)
+* [Third Party SAML Web Apps](/saml2webapp-tutorial)
 
 
 For any application not listed on the "Third Party Apps" page, (click "NEW THIRD PARTY APP"  to see the list) the Auth0 side of the configuration can be done using the "Apps/APIs" link and then clicking on the "Addons" tab for the particular application, and clicking on the toggle in the "SAML2 WEB APP" box.
 
 Generic instructions for configuring Auth0 as an IDP:
 
-* [Generic Identity Provider Configuration](@@env.BASE_URL@@/saml-idp-generic)
+* [Generic Identity Provider Configuration](/saml-idp-generic)
 
 The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  Third Party Applications that require special settings are documented at:
 
-* [SAML settings needed for some Third Party Apps](@@env.BASE_URL@@/saml-apps)
+* [SAML settings needed for some Third Party Apps](/saml-apps)
 
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
@@ -77,12 +77,12 @@ In this situation, there are two federations to configure.  The federation betwe
 
 A different, but similar, use case is setting up one Auth0 account to serve as a SAML Service Provider and then setting up a second Auth0 account to serve as a SAML Identity Provider for the first account.  This configuration would typically just be used for testing purposes.  The steps to set this up are described in:
 
-[Auth0 as Identity Provider for itself](@@env.BASE_URL@@/samlsso-auth0-to-auth0)
+[Auth0 as Identity Provider for itself](/samlsso-auth0-to-auth0)
 
 ## Some SAML-compliant Identity Providers
 
 
-A list of [Identity Providers](@@env.BASE_URL@@/samlp-providers) that are believed to be SAML compliant.
+A list of [Identity Providers](/samlp-providers) that are believed to be SAML compliant.
 
 ## Customizing SAML assertions (Auth0 as IDP)
 
@@ -90,7 +90,7 @@ The "Configuring Auth0 as a SAML Identity Provider" section above contains infor
 
 This section explains how to customize the SAML Assertions and the SAML and WS-Fed protocol parameters when Auth0 is configured to serve as an Identity Provider.
 
-You can customize the SAML Assertion by creating a [rule](rules) like this:
+You can customize the SAML Assertion by creating a [rule](/rules) like this:
 
     function (user, context, callback) {
       // change SAML token lifetime to 10 hours
@@ -115,8 +115,8 @@ Below are all the customizations you can do:
 * __recipient (`string`):__ The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on `SAMLRequest` or Callback URL if no SAMLRequest was sent.
 * __mappings (`Array`):__ The mappings between Auth0 profile and the output attributes on the SAML Assertion. Default mapping is shown above.
 * __createUpnClaim (`bool`):__ Whether or not a UPN claim should be created. Default is `true`.
-* __passthroughClaimsWithNoMapping (`bool`):__ If `true` (default), for each claim that is not mapped to the [common profile](user-profile), Auth0 will passthrough those in the output assertion. If `false`, those claims won't be mapped. Default is `true`.
-* __mapUnknownClaimsAsIs (`bool`):__ if `passthroughClaimsWithNoMapping` is `true` and this is `false` (default), for each claim that is not mapped to the [common profile](user-profile) Auth0 will add a prefix `http://schema.auth0.com`. If `true` it will passthrough the claim as-is. Default is `false`.
+* __passthroughClaimsWithNoMapping (`bool`):__ If `true` (default), for each claim that is not mapped to the [common profile](/user-profile), Auth0 will passthrough those in the output assertion. If `false`, those claims won't be mapped. Default is `true`.
+* __mapUnknownClaimsAsIs (`bool`):__ if `passthroughClaimsWithNoMapping` is `true` and this is `false` (default), for each claim that is not mapped to the [common profile](/user-profile) Auth0 will add a prefix `http://schema.auth0.com`. If `true` it will passthrough the claim as-is. Default is `false`.
 * __mapIdentities:__ If `true`, it will will add more information in the token like the provider used (google, adfs, ad, etc.) and the `access_token` if available. Default is `true`.
 * __signatureAlgorithm:__ Signature algorithm to sign the SAML Assertion or response. Default is `rsa-sha1` and it could be `rsa-sha256`.
 * __digestAlgorithm:__ Digest algorithm to calculate digest of the SAML Assertion or response. default `sha1`. It could be `sha256`.
@@ -139,7 +139,7 @@ If Auth0 is serving as the Service Provider in a SAML federation, it does not re
 
 There are several mechanisms available to route a request to an IdP. See:
 
-[Selecting the Connection in Auth0](@@env.BASE_URL@@/hrd)
+[Selecting the Connection in Auth0](/hrd)
 
 A popular option is specifying e-mail domains as part of the IDP configuration. For example: adding the email domain "companyx.com" to the IDP configuration for company X will result in all users with that email domain being routed to that IDP.
 

@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
     </a> 
   </blockquote>
@@ -39,7 +39,7 @@ For that, you can just add them to your `pom.xml` if you're using maven.
 
 > Dropwizard users: make sure to ignore the requests that contain `OPTIONS` as method. You can do that by checking `"OPTIONS".equals(request.getMethod())` and calling `chain.doFilter(request, response); return;` in  `JWTFilter`.
 
-Now, you need to validate the [JWT](@@base_url@@/jwt). For that, we'll use a Filter.
+Now, you need to validate the [JWT](/jwt). For that, we'll use a Filter.
 
 ````java
 @WebFilter(filterName= "jwt-filter", urlPatterns = { "/api/*" })

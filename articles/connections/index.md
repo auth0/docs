@@ -20,7 +20,7 @@ Out of the box, Auth0 supports the following:
 
 ## Social
 
-Auth0 supports the following social providers out of the box. Additionally, you can add any [OAuth2 Authorization Server](@@env.BASE_URL@@/connections/social/oauth2).
+Auth0 supports the following social providers out of the box. Additionally, you can add any [OAuth2 Authorization Server](/connections/social/oauth2).
 
 <ul>
 <% _.forEach(_.sortBy(articles.connections.social, 'connection'), function(article) { %>
@@ -53,7 +53,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 ## Additional Information
 
-Auth0 sits in between your app and the system that authenticates your users (any of the above.) Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](user-profile) that simpifies user management.
+Auth0 sits in between your app and the system that authenticates your users (any of the above.) Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](/user-profile) that simpifies user management.
 
 > The relationship between Auth0 and each of these authentication providers is called a 'connection'
 

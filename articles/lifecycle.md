@@ -14,7 +14,7 @@ For example, in this __rule__ it is always better to write:
 
 ```
 function(user, context, callback){
-	var log_url = configuration.log_url;	
+	var log_url = configuration.log_url;
 ...
 }
 ```
@@ -23,11 +23,11 @@ than:
 
 ```
 function(user, context, callback){
-	var log_url = ‘https://someurl/log’;	
+	var log_url = ‘https://someurl/log’;
 ...
 }
 ```
 
 Very likely this URL will change from development to production. This will make your code more portable.
 
-You can also maintain the source code of the rules in a GitHub repository. If you choose the GitHub integration route, the rules in your Auth0 account will be automatically updated whenever a change is submitted to the GitHub repository. To configure this integration see [here](rules#8).
+You can also maintain the source code of the rules in a GitHub repository. If you choose the GitHub integration route, the rules in your Auth0 account will be automatically updated whenever a change is submitted to the GitHub repository. To configure this integration see [here](/rules#8).

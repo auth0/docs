@@ -35,7 +35,7 @@ There are **7 steps** to this sample
 
 The portion of the ssocircle metadata URL that shows the certificate is shown below:
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-9.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-9.png)
 
 # 2. Set up the Auth0 service provider
 
@@ -94,7 +94,7 @@ You can ignore the rest of the fields for now.
 
 Here is an example of what the filled-out screen would look like:
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-1.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-1.png)
 
 
 After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button.  
@@ -103,13 +103,13 @@ After pressing the **"SAVE"** button, A window will appear with a red **"CONTINU
 
 9. Copy the URL below that line into your browser address bar.  The picture below shows the screen on which this URL will appear and where to find it:
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-2.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-2.png)
 
 In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 side of the federation. It will look something like the following with your tenant name in place of the 'xxxxx':
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-3.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-3.png)
 
 This metadata needs to be given to the IDP, in this case SSOCircle, so it knows how to interact with Auth0.  The steps below will show how to do that.
 
@@ -144,7 +144,7 @@ In this step you will configure SSOCircle so it knows how to receive and respond
 
 5. Then press the **“Submit”** button to complete the configuration of the IDP
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-4.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-4.png)
 
 # 4. Test the connection to the SSOCircle IDP
 
@@ -167,7 +167,7 @@ If it didn't work, double check the above steps and then consult the **troublesh
 
 Here is a sample of the "It Works" screen:
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-5.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-5.png)
 
 # 5. Register a simple HTML application with which to test the end-to-end connection.
 
@@ -196,7 +196,7 @@ In this step, you will register an application in Auth0 that will use the SAML c
 
 * Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-6.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-6.png)
 
 # 6. Create the HTML page for a test application
 
@@ -252,7 +252,7 @@ If you have other connections turned on for your application, your **Auth0 Lock 
 
 Click on the **"saml"** button or the **ACCESS** button to initiate the SAML sso sequence with ssocircle.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-7.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-7.png)
 
 * You will be redirected to the SSOCircle IDP to log in.
 
@@ -262,7 +262,7 @@ From the "try me" test you did earlier, you may still have an active session at 
 
 If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to ssocircle.com.  Log in to SSOCircle using the credentials with which you established your account at SSOCircle.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/ssocircle/ssocircle-8.png)
+![](/media/articles/saml/identity-providers/ssocircle/ssocircle-8.png)
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io). This tool will display the token that your app would receive.
 

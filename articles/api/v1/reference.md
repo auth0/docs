@@ -12,7 +12,7 @@ Each request to the API should include an access token, either in the query stri
 is equivalent to:
 
 	GET https://@@account.namespace@@/api/connections
-	Authorization: bearer {ACCESS-TOKEN}	
+	Authorization: bearer {ACCESS-TOKEN}
 
 A token can be obtained by POSTing this request to the token endpoint:
 
@@ -48,14 +48,14 @@ The only accepted header is `Authorization` that can be used to send the access_
 
 ####List all Connections
 	GET https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
-	
+
 Returns a list of all defined connections in Auth0. A `connection` object will look like this:
 
-	{ 
+	{
 		"client_id": "@@account.clientId@@",
 		"name": YOUR-CONNECTION-NAME,
-		"options": 
-		{ 
+		"options":
+		{
 			...
 		},
 		"status": 0,
@@ -69,11 +69,11 @@ Returns a list of all defined connections in Auth0. A `connection` object will l
 | `name`	 | The unique name you gave to the connection. 									  					 |
 | `status`	 | Defines whether the connection is active `1` or not `0`.      				  					 |
 | `strategy` | The type of identity provider associated with this connection. See below for supported strategies.|
-| `options`  | An object with properties that are dependent on the strategy selected.          					 | 
+| `options`  | An object with properties that are dependent on the strategy selected.          					 |
 
 Auth0 supports the following strategies:
 
-|Strategy           | Used when users are in                                        |   
+|Strategy           | Used when users are in                                        |
 |===================|===============================================================|
 |office365          |Office 365 and Microsoft Azure Active Directory.               |
 |adfs               |On Premises Active Directory or any WS-Federation server.      |
@@ -90,7 +90,7 @@ A GET against `connections` with a name specified in the path will just return t
 
 Here are two `curl` sample scripts to get a specific connection or all of them:
 
-	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN} 
+	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN}
 
 	curl https://@@account.namespace@@/api/connections/{YOUR-CONNECTION-NAME}?access_token={YOUR ACCESS TOKEN}
 
@@ -110,7 +110,7 @@ The `options` object returned in the `connection` will be different for each str
 		  '9b250aad7e4956704072ffaa60cde7795f23b52a',
 		  'f97702a42c893a0fb1b546dad21c79fb720473a85',
 		  '9b250aad7e4959804072ffaa60cde7795f23b52a' ],
-		signInEndpoint: ADFS-LOGIN-PAGE 
+		signInEndpoint: ADFS-LOGIN-PAGE
 	}
 
 |Parameter       | Description																 										  	    |
@@ -133,10 +133,10 @@ The `options` object returned in the `connection` will be different for each str
 		ext_agreed_terms: true/false,
 		api_enable_users: true/false,
 		scope: [ 'https://www.googleapis.com/auth/userinfo.email',
-				 'https://www.googleapis.com/auth/userinfo.profile' ] 
+				 'https://www.googleapis.com/auth/userinfo.profile' ]
 	}
 
-> To obtain `client_id` and `client_secret` for Google Apps connections, see [here](goog-clientid).
+> To obtain `client_id` and `client_secret` for Google Apps connections, see [here](/goog-clientid).
 
 ######Office 365
 
@@ -150,14 +150,14 @@ The `options` object returned in the `connection` will be different for each str
 		ext_assigned_plans: true/false,
 		api_enable_users: true/false,
 		app_domain: '@@account.namespace@@',
-		thumbprints: [] 
+		thumbprints: []
 	}
 
 > To obtain `client_id` and `client_secret` for Office 365 connections, see [here](o365-clientid).
 
 ######Google OAuth2
 
-	{ 
+	{
 		client_id: 'GOOG-CLIENT-ID',
 		client_secret: 'GOOG-CLIENT-SECRET',
 		email: true/false,
@@ -188,8 +188,8 @@ The `options` object returned in the `connection` will be different for each str
 		spreadsheets: true/false,
 		url_shortener: true/false,
 		webmaster_tools: true/false,
-		scope: [] 
-	}	
+		scope: []
+	}
 
 ######Microsoft Account
 
@@ -219,7 +219,7 @@ The `options` object returned in the `connection` will be different for each str
 		skydrive_update: true/false,
 		applications: true/false,
 		applications_create: true/false,
-		scope: [] 
+		scope: []
 	}
 
 > To obtain `client_id` and `client_secret` for Microsoft Accounts, see [here](ms-account-clientid).
@@ -267,7 +267,7 @@ The body of the request will in essence be a `connection` object. For example, t
 
 Once again, the `options` object is dependent on the strategy specified.
 
-If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.). 
+If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.).
 
 ####Updating a Connection
 
@@ -294,7 +294,7 @@ For updates, you need to use the PUT operation. PUTs also work on a specific `co
 		name: 'John Fabrikam',
 		nickname: 'john',
 		picture: 'https://secure.gravatar.com/avatar/5426f6b9d63ad92d60e6fe9fdf83aa21?s=480&r=pg&d=https%3A%2F%2Fssl.gstatic.com%2Fs2%2Fprofiles%2Fimages%2Fsilhouette80.png',
-		user_id: 'adfs|john@fabrikam.com' 
+		user_id: 'adfs|john@fabrikam.com'
 	}
 
 Most attributes in the `user` object are self-explanatory. Some comments below:
@@ -308,4 +308,4 @@ Most attributes in the `user` object are self-explanatory. Some comments below:
 
 ####Other resources
 
-* [Auth0 node module](node-auth0client). A simple client library for Node.js apps.
+* [Auth0 node module](/node-auth0client). A simple client library for Node.js apps.

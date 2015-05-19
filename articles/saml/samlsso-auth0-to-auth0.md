@@ -30,7 +30,7 @@ In the window which appears, enter a name for your second account in the **"Your
 
 You can switch back and forth between the accounts by going to the upper right corner of the dashboard, clicking on the name of the current account, and using the popup menu which appears to switch between your accounts.
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-1.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-1.png)
 
 ##2. Set up the Auth0 IDP (account 2)
 
@@ -58,7 +58,7 @@ Log into **Account 2**
 
 9. Scroll down further to the **"ENDPOINTS"** section and click on the blue **"SAML"** tab within that section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as in the next step you will need to paste it into the other Auth0 account, account 1.
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-2.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-2.png)
 
 Next, create a user to use in testing the SAML SSO sequence.
 **In the Auth0 dashboard:**
@@ -110,7 +110,7 @@ You can ignore the rest of the fields for now.
 
 Here is an example of what the filled-out screen would look like: (you should have filled out the Email domains field as well with your specific test user's email domain.)
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-3.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-3.png)
 
 
 After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button. (You might have to scroll up to see it)
@@ -127,13 +127,13 @@ In that same window, near the bottom, there is a line that says, _"You can acces
 
 Copy the URL below that line into your browser address bar.  The picture below shows the screen on which this URL will appear and where to find it:
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-4.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-4.png)
 
 In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 account 1 (service provider side of the federation. It will look something like the following with your account name in place of the 'xxxxx':
 
-![](@@env.MEDIA_URL@@/articles/samlsso-auth0-to-auth0/saml-auth0-5.png)
+![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-5.png)
 
 You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://@@account.tenant@@.auth0.com/login/callback?connection=@@connectionName@@__.
 
@@ -154,7 +154,7 @@ In this section you will go back and add some information about the Service Prov
 3. Locate the box with the **"SAML2 WEB APP"** label and click on the circle toggle to turn it green.
 
 
-![](@@env.MEDIA_URL@@/articles/samlsso-auth0-to-auth0/saml-auth0-6.png)
+![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-6.png)
 
 4. Next, click on the **"SAML2 WEB APP"** box itself to access the **"Addon: SAML2 Web App"** popup.  Make sure you are in the **Settings**" tab.
 
@@ -174,7 +174,7 @@ Next, replace the original value (urn:foo) with the **Entity ID** value you save
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen
 
-![](@@env.MEDIA_URL@@/articles/samlsso-auth0-to-auth0/saml-auth0-7.png)
+![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-7.png)
 
 
 # 5. Test Identity Provider
@@ -193,7 +193,7 @@ Check the decoded SAML response and locate (about half-way down) the **"<saml:Au
 
 Click on **"Close this window"** at the bottom of the screen.
 
-![](@@env.MEDIA_URL@@/articles/samlsso-auth0-to-auth0/saml-auth0-8.png)
+![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-8.png)
 
 # 6. Test the connection from Service Provider to Identity Provider
 
@@ -218,7 +218,7 @@ If it didn't work, double check the above steps and then consult the **troublesh
 
 Here is a sample of the **"It Works"** screen:
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-9.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-9.png)
 
 # 7. Register a simple HTML application with which to test the end-to-end connection.
 
@@ -249,7 +249,7 @@ Make sure you are logged into the **Account 1 Auth0 dashboard**.
 
 * Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-12.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-12.png)
 
 # 8. Create the HTML page for a test application
 
@@ -305,7 +305,7 @@ If you have other connections turned on for your application, your **Auth0 Lock 
 
 After entering your email address, the blue button on the Lock widget may have a new label. Click on the button which may be labeled **"saml"** or **ACCESS** or with the email domain of the email address you are logging in with, to initiate the SAML sso sequence with the Auth0 Identity Provider.
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-10.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-10.png)
 
 * You will be redirected to the Identity Provider to log in.
 
@@ -315,7 +315,7 @@ From the "try me" test you did earlier, you may still have an active session at 
 
 If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to the Identity Provider.  Log in to the Identity Provider using the credentials for the test user you created in Auth0 Account 2.
 
-![](@@env.MEDIA_URL@@/articles/saml/samlsso-auth0-to-auth0/saml-auth0-11.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-11.png)
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 

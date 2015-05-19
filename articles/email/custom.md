@@ -92,5 +92,5 @@ You can now send an email to your users with this link and only when users click
 
 ## Other Topics
 
-- [Emails in Auth0](@@env.BASE_URL@@/email)
-- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](@@env.BASE_URL@@/email/providers)
+- [Emails in Auth0](/email)
+- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)

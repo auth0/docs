@@ -1,6 +1,6 @@
 # Using Auth0 with PhoneGap (Cordova)
 
-> **This tutorial is depracated. We've discontinued the Phonegap plugin. Please refer to [this new tutorial](@@base_url@@/new/native-platforms/cordova) to learn how to use Phonegap with Auth0**
+> **This tutorial is depracated. We've discontinued the Phonegap plugin. Please refer to [this new tutorial](/new/native-platforms/cordova) to learn how to use Phonegap with Auth0**
 
 This tutorial explains how to integrate Auth0 with a PhoneGap (Cordova) application. The __com.auth0.sdk__ plugin helps you authenticate users with any [Auth0 supported identity provider](identityproviders), via the OpenId Connect protocol (built on top of OAuth2).
 
@@ -74,7 +74,7 @@ auth0.login(function (err, result) {
 });
 ```
 
-![](@@env.MEDIA_URL@@/articles/phonegap-plugin-tutorial/phonegap.auth0client.png)
+![](/media/articles/phonegap-plugin-tutorial/phonegap.auth0client.png)
 
 #### Option 2: Authentication with your own UI
 

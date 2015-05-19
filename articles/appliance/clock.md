@@ -8,7 +8,7 @@ If you are running Auth0 on your own hardware or VM host, you will need to make 
 
 You can change the NTP server address on the configuration section of the Dashboard:
 
-![ss-2014-12-15T11-34-37.png](../@@env.MEDIA_URL@@/articles/appliance/clock/ss-2014-12-15T11-34-37.png)
+![ss-2014-12-15T11-34-37.png](/media/articles/appliance/clock/ss-2014-12-15T11-34-37.png)
 
 This can be either an IP address or a server name.
 
@@ -16,7 +16,7 @@ This can be either an IP address or a server name.
 
 Internally, Auth0 uses [ntpd](http://doc.ntp.org/4.1.1/confopt.htm) for time synchronization. You can establish different configuration parameters as follows:
 
-![ss-2014-12-15T11-36-53.png](../@@env.MEDIA_URL@@/articles/appliance/clock/ss-2014-12-15T11-36-53.png)
+![ss-2014-12-15T11-36-53.png](/media/articles/appliance/clock/ss-2014-12-15T11-36-53.png)
 
 ```
 1.south-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5

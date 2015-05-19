@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-react/gh-pages/create-package?path=examples/redirect-lock-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-react/gh-pages/create-package?path=examples/redirect-lock-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -68,7 +68,7 @@ var Home = React.createClass({
 });
 ```
 
-> If you want to check all the available arguments for the show method, check the [Auth0Lock](@@base_url@@/lock) documentation.
+> If you want to check all the available arguments for the show method, check the [Auth0Lock](/lock) documentation.
 
 After authentication, Auth0 will redirect your user back to your application. You'll get the `token` as a `hash` parameter. You can use `lock` to parse the `hash` and get the `token`. This `token` will be used for two things:
 
@@ -141,11 +141,11 @@ var LoggedIn = React.createClass({
 
 ```
 
-> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 5. Performing secure calls to your API
 
-As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](@@base_url@@/jwt) we receive on the login on every request in the `Authorization` header. 
+As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request in the `Authorization` header.
 
 ```js
 var getFoos = fetch('/api/foo', {

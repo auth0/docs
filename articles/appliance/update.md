@@ -1,10 +1,10 @@
 # Updating an Auth0 Cluster
 
-Download the package provided by Auth0 to your local machine and verify its integrity by comparing the checksum provided by Auth0 with a computed one as explained [here](@@env.BASE_URL@@/checksum).
+Download the package provided by Auth0 to your local machine and verify its integrity by comparing the checksum provided by Auth0 with a computed one as explained [here](/checksum).
 
 Open the dashboard and navigate to **Configuration**, then click on **Update from Package** and select the package from the file system:
 
-![](../@@env.MEDIA_URL@@/articles/appliance/update/ss-2014-12-03T12-29-18.png)
+![](/media/articles/appliance/update/ss-2014-12-03T12-29-18.png)
 
 Every node in the cluster will be automatically updated with no downtime.
 

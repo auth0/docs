@@ -8,7 +8,7 @@ Auth0 can send emails to users when they sign up, when their email address needs
 
 The dashboard allows customizing these emails using Markdown templates and marcos which include the context of the current application and the current user.
 
-![](@@env.MEDIA_URL@@/articles/email/index/emails-fields.png)
+![](/media/articles/email/index/emails-fields.png)
 
 ## Configuring From, Subject and Redirect To
 
@@ -144,5 +144,5 @@ The following macros are available in this template:
 
 ## Advanced Topics
 
-- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](@@env.BASE_URL@@/email/providers)
-- [Take control of the complete email flow](@@env.BASE_URL@@/email/custom)
+- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
+- [Take control of the complete email flow](/email/custom)

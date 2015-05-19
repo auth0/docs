@@ -4,10 +4,10 @@ From an Auth0 integration perspective, the code is the same, regardless of where
 
 To integrate applications supported by the Microsoft Azure platform, consider these tutorials:
 
-* [ASP.NET application](aspnet-tutorial) <br />
+* [ASP.NET application](/aspnet-tutorial) <br />
 Simple non-intrusive integration with any version of ASP.NET.
 
-* [Node.js application](nodejs-tutorial) <br />
+* [Node.js application](/nodejs-tutorial) <br />
 Integration using [passport](http://passportjs.org/).
 
 * [Microsoft Azure Mobile Services](http://blog.auth0.com/2013/03/17/Authenticate-Azure-Mobile-Services-apps-with-Everything-using-Auth0/) <br />
@@ -57,5 +57,3 @@ Then, whenever you have to reference the ClientID, Secret or callback, you use t
 Whether you deploy to Microsoft Azure Web Sites or a Cloud Service the Web.config transformation will run.
 
 > **TIP**: to test your web.config transforms you can use this [awesome tool](http://webconfigtransformationtester.apphb.com/)
-
-

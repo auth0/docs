@@ -4,8 +4,8 @@
 
 # Common SSO Scenarios
 
-* [SaaS apps](saas-apps)
-* [SSO](sso/single-sign-on)
+* [SaaS apps](/saas-apps)
+* [SSO](/sso/single-sign-on)
 * [Home Realm Discovery](hrd)
 
 - - -
@@ -13,15 +13,15 @@
 # Advanced Scenarios
 
 * [Invite-only users](invite-only)
-* [Multi-tenant SaaS applications with Azure AD](scenarios/multi-tenant-saas-azure-ad)
+* [Multi-tenant SaaS applications with Azure AD](/scenarios/multi-tenant-saas-azure-ad)
 
 - - -
 
 # API integrations
 
 * [AWS](aws)
-* [Ionic and Firebase](scenarios/ionic-and-firebase)
-* [Amazon Cognito](scenarios/amazon-cognito)
+* [Ionic and Firebase](/scenarios/ionic-and-firebase)
+* [Amazon Cognito](/scenarios/amazon-cognito)
 * SAP Netweaver Gateway
 * Microsoft Azure Mobile Services
 * Microsoft Azure Service Bus
@@ -30,21 +30,21 @@
 
 # Integration scenarios
 
-* [Keen.io](scenarios/keenio)
-* [Mixpanel Fullcontact Salesforce](scenarios/mixpanel-fullcontact-salesforce)
-* [Parse](scenarios/parse)
-* [Rapleaf Salesforce](scenarios/rapleaf-salesforce)
-* [Segment.io](scenarios/segmentio)
-* [Splunk](scenarios/splunk)
-* [Unbounce](scenarios/unbounce)
-* [Zendesk](scenarios/zendesk-sso)
+* [Keen.io](/scenarios/keenio)
+* [Mixpanel Fullcontact Salesforce](/scenarios/mixpanel-fullcontact-salesforce)
+* [Parse](/scenarios/parse)
+* [Rapleaf Salesforce](/scenarios/rapleaf-salesforce)
+* [Segment.io](/scenarios/segmentio)
+* [Splunk](/scenarios/splunk)
+* [Unbounce](/scenarios/unbounce)
+* [Zendesk](/scenarios/zendesk-sso)
 
 - - -
 
 # Internet of Things
 
-* [MQTT](scenarios/mqtt)
-* [Tessel](scenarios/tessel)
+* [MQTT](/scenarios/mqtt)
+* [Tessel](/scenarios/tessel)
 
 - - -
 

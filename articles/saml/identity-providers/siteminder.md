@@ -20,13 +20,13 @@ Provide an appropriate name for this Service Provider. We suggest using:
 
 * __Name:__ `@@account.tenant@@`
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-users.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-users.png)
 
 ###2. Defining NameIdentifier
 
 You can define many ways of generating a `NameIdentifier` for users authenticating with SiteMinder. Typically you will map this value to one of the user properties in the User Directory as `uid` in the example blow:
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-nameids.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-nameids.png)
 
 ###3. Configure the Service Provider General SAML properties
 
@@ -36,7 +36,7 @@ Use the following values for this configuration screen:
 * __SAML Version:__ `2.0`
 * __Skew Time:__ `30 seconds`
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-general.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-general.png)
 
 ###4. Configure the Assertion Consumer Service URL
 
@@ -45,19 +45,19 @@ The __Assertion Consumer Service URL__ is the location where SiteMinder will POS
 * __Assertion Consumer Service:__ `https://@@account.namespace@@/login/callback`
 * __HTTP-Post__: `checked`
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-sso.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-sso.png)
 
 ###5. Configure additional user properties to send in the token
 
-Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in [step 2](siteminder#2) as a unique handle of the user. These attributes will be treated as reference information:
+Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in [step 2](/siteminder#2) as a unique handle of the user. These attributes will be treated as reference information:
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-attributes.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-attributes.png)
 
 ###6. Enter the Single Sign Out URL
 
 * __SLO Location URL:__ `https://@@account.namespace@@/logout`
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-slo.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-slo.png)
 
 ###7. Optional Assertion Encryption
 
@@ -72,4 +72,4 @@ In the window which appears, the seventh (last) bullet gives you links to downlo
 
 Download the desired certificate and add it to the SiteMinder __Policy Server Keystore__.
 
-![](@@env.MEDIA_URL@@/articles/saml/identity-providers/siteminder/siteminder-encryption.png)
+![](/media/articles/saml/identity-providers/siteminder/siteminder-encryption.png)

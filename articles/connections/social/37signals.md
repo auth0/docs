@@ -10,7 +10,7 @@ To configure a 37Signals OAuth2 connection you will need to register your Auth0 
 
 The first form consists of basic information about your app (name, website, logo):
 
-![](@@env.MEDIA_URL@@/articles/connections/social/37signals/37signals-register-1.png)
+![](/media/articles/connections/social/37signals/37signals-register-1.png)
 
 ---
 
@@ -18,7 +18,7 @@ The first form consists of basic information about your app (name, website, logo
 
 Define which 37Signals applications you want access to, and complete the callback URL in Auth0:
 
-![](@@env.MEDIA_URL@@/articles/connections/social/37signals/37signals-register-2.png)
+![](/media/articles/connections/social/37signals/37signals-register-2.png)
 
 	https://@@account.namespace@@/login/callback
 
@@ -28,4 +28,4 @@ Define which 37Signals applications you want access to, and complete the callbac
 
 Once the application is registered, enter your new `Client Id` and `Client Secret` into the connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/connections/social/37signals/37signals-register-4.png)
+![](/media/articles/connections/social/37signals/37signals-register-4.png)

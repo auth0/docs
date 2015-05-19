@@ -81,9 +81,9 @@ function(ctx, access_token, callback) {
 }
 ```
 
-> We recommend using the field names in the [normalized profile](user-profile).
+> We recommend using the field names in the [normalized profile](/user-profile).
 
-Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](rules).
+Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](/rules).
 
 >One advantage of using Rules is that they apply to __any__ connection.
 

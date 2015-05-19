@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-golang/master/create-package?path=examples/regular-web-app&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-golang/master/create-package?path=examples/regular-web-app&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -159,7 +159,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 </div>
 ```
 
-[Click here](@@base_url@@/user-profile) to check all the information that the userinfo hash has.
+[Click here](/user-profile) to check all the information that the userinfo hash has.
 
 ### 6. You're done!
 

@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-scala/master/create-package?path=examples/regular-webapp&filePath=examples/regular-webapp/conf/application.conf&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-scala/master/create-package?path=examples/regular-webapp&filePath=examples/regular-webapp/conf/application.conf&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -88,7 +88,7 @@ object Callback extends Controller {
         accessToken <- (response.json \ "access_token").asOpt[String]
       } yield {
         Future.successful((idToken, accessToken)) 
-      }).getOrElse(Future.failed[(String, String)](new IllegalStateException("Tokens not sent")))
+      }).getOrElse(Future.failed[(String, String)](/new IllegalStateException("Tokens not sent")))
     }
     
   }

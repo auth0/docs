@@ -20,7 +20,7 @@ You should see now 2 connectors on the dashboard.
 
 ## Instructions for Linux
 
-1. Install the connector as explained [here](@@env.BASE_URL@@/connector/install).
+1. Install the connector as explained [here](/connector/install).
 2. Make sure all steps are complete and the connector is up and running.
 3. Copy **config.json**, **lib/profileMapper.js** and everything under the **certs** folder from:
   -  Windows: `C:\Program Files (x86)\Auth0\AD LDAP Connector\`

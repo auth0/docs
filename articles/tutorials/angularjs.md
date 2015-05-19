@@ -136,11 +136,11 @@ $scope.logout = function() {
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
 
-You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 7. Configuring secure calls to your API
 
-When calling your API you will have to send the [JWT token](@@base_url@@/jwt), which you've got on the login on every request. To do that, we need to do 2 things:
+When calling your API you will have to send the [JWT token](/jwt), which you've got on the login on every request. To do that, we need to do 2 things:
 
 #### 7.1 Add the dependency to the `authInterceptor` module
 
@@ -163,7 +163,7 @@ The `$http` interceptor will send the token in the `Authorization` header if it'
 });
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
+Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
 
 ### 8. Showing user information
 
@@ -192,7 +192,7 @@ The following [examples](https://github.com/auth0/auth0-angular/tree/master/exam
     * [Java](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/java)
     * [.NET OWIN](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/aspnet-owin)
     * [Node.js](https://github.com/auth0/auth0-angular/tree/master/examples/api-authentication/nodejs)
-    * Also, but not included in examples, we support these technologies: [PHP](phpapi-tutorial), [ASP.NET WebAPI](aspnetwebapi-tutorial), [Ruby](rubyapi-tutorial) among others.
+    * Also, but not included in examples, we support these technologies: [PHP](/phpapi-tutorial), [ASP.NET WebAPI](/aspnetwebapi-tutorial), [Ruby](/rubyapi-tutorial) among others.
  * [UI Router](https://github.com/auth0/auth0-angular/tree/master/examples/ui-router): Managing routes using ui-router.
  * [Require JS](https://github.com/auth0/auth0-angular/tree/master/examples/requirejs): Using RequireJS to include dependencies.
 

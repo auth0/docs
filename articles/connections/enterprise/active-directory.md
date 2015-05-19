@@ -21,20 +21,20 @@ The first step is creating a new Connection on the dashboard:
 
 __Connections > Enterprise > AD/LDAP__
 
-![](@@env.MEDIA_URL@@/articles/connections/enterprise/active-directory/ldap-create.png)
+![](/media/articles/connections/enterprise/active-directory/ldap-create.png)
 
 Name the connection and check whether you want `Kerberos` enabled for this connection. If you enable this, you need to enter the range of IP addresses from where `Kerberos` authentication will be enabled. These would typically be the intranet where `Kerberos` would work.
 
 In addition, the `Email domains` field, whitelists email suffixes that will be recognized before redirecting users to this particular AD/LDAP connection.
 
-![](@@env.MEDIA_URL@@/articles/connections/enterprise/active-directory/ldap-create-2.png)
+![](/media/articles/connections/enterprise/active-directory/ldap-create-2.png)
 
 __Save__ the configuration. You are done on the Auth0 side! You will then be prompted to download the __AD/LDAP Connector__ to your machine.
 
-![](@@env.MEDIA_URL@@/articles/connections/enterprise/active-directory/ldap-create-3.png)
+![](/media/articles/connections/enterprise/active-directory/ldap-create-3.png)
 
 > We ship different versions of the Connector to install it on multiple platforms: Windows and Linux.
 
 Keep the __TICKET URL__ at hand as you will need it later.
 
-[Continue to the instructions to install the connector.](@@env.BASE_URL@@/connector).
+[Continue to the instructions to install the connector.](/connector).

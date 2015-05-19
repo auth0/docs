@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/auth0-ionic/master/create-package?path=examples/refresh-token-sample&type=js&filePath=examples/refresh-token-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-ionic/master/create-package?path=examples/refresh-token-sample&type=js&filePath=examples/refresh-token-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -128,7 +128,7 @@ angular.module('starter', ['ionic',
 ### 6. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
-In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile, token and [refresh token](@@base_url@@/refresh-token) into `localStorage`
+In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile, token and [refresh token](/refresh-token) into `localStorage`
 
 ````js
 // LoginCtrl.js
@@ -178,7 +178,7 @@ $scope.logout = function() {
 ```
 ### 8. Configuring secure calls to our API
 
-As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](@@base_url@@/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors. Also, as JWTs expire, we'll use the `refreshToken` to get a new JWT if the one we have is expired:
+As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors. Also, as JWTs expire, we'll use the `refreshToken` to get a new JWT if the one we have is expired:
 
 ````js
 // app.js
@@ -208,7 +208,7 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtIntercept
 });
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](@@base_url@@/jwt) will be sent on every request.
+Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
 
 ### 9. Showing user information
 
@@ -225,7 +225,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 10. Keeping the user logged in after page refreshes
 

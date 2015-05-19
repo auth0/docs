@@ -41,7 +41,7 @@ These are the steps to update the AD/LDAP Connector to the latest version:
 
 Hover over the Connector status indicator on the dashbaord:
 
-![](../@@env.MEDIA_URL@@/articles/connector/update/adldap-connector-version.png)
+![](/media/articles/connector/update/adldap-connector-version.png)
 
 The tooltip will indicate the current status and the installed version.
 
@@ -55,7 +55,7 @@ Download the Windows Installer from <a class="download-link" href=""></a>. The s
 
 Use the GitHub repository for other platforms: <a class="download-github" href=""></a>.
 
-**Note:** Always verify the checksum of the downloaded installer as explained [here](@@env.BASE_URL@@/checksum).
+**Note:** Always verify the checksum of the downloaded installer as explained [here](/checksum).
 
 ### 3. Backup your current config
 

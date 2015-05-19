@@ -1,6 +1,6 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields. The [Auth0Lock](lock) has a `signup` mode but it does not support adding arbitrary fields, so you will have to implement your own UI for signup. Note that you can still use the Auth0Lock for signin though.
+In some cases, you may want to customize the user sign up form with more fields. The [Auth0Lock](/lock) has a `signup` mode but it does not support adding arbitrary fields, so you will have to implement your own UI for signup. Note that you can still use the Auth0Lock for signin though.
 
 > You can find the source code of this example in [this github repository](https://github.com/auth0/node-auth0/tree/master/examples/custom-signup).
 
@@ -130,7 +130,7 @@ After this, Lock will redirect the user to the callback URL after authenticated.
 @@account.callback@@#access_token=#THE_ACCESS_TOKEN#&id_token=#THE_ID_TOKEN#&token_type=Bearer
 ```
 
-If you are working on a regular webapp, you will need to use the `code` response type which adds a `code` GET parameter to the URL in order to handle it on your backend. To accomplish this, just set the `_callbackOnLocationHash` to `false`. 
+If you are working on a regular webapp, you will need to use the `code` response type which adds a `code` GET parameter to the URL in order to handle it on your backend. To accomplish this, just set the `_callbackOnLocationHash` to `false`.
 
 ```
 window.lock.getClient()._callbackOnLocationHash = false;

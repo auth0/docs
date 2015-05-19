@@ -29,11 +29,11 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
 <script src="https://cdn.auth0.com/tutorial-navigator/latest/build.min.js" type="text/javascript"></script>
 <link href="https://cdn.auth0.com/tutorial-navigator/latest/build.min.css" type="text/css" rel="stylesheet"></link>
-<script type="text/javascript" src="@@env.BASE_URL@@/js/page.min.js"></script>
+<script type="text/javascript" src="/js/page.min.js"></script>
 
 <script type="text/javascript">
   (function () {
-    var BASE_URL = "@@env.BASE_URL@@";
+    var BASE_URL = "/";
 
     // Initialize and render `TutorialNavigator`
     var TutorialNavigator = require('tutorial-navigator');

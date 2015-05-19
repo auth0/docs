@@ -4,7 +4,7 @@ Auth0 allows you to store data related to each user that does not come from the 
 
 You can read about each of them [here](https://auth0.com/docs/apiv2Changes#8).
 
-This article explains how you can work with metadata in [Rules](@@base_url@@/rules) code. 
+This article explains how you can work with metadata in [Rules](/rules) code. 
 
 Each sample rule in this article is assumed to have the following user as the `user` parameter:
 

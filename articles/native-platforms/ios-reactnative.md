@@ -8,7 +8,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -21,7 +21,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="@@base_url@@/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -157,7 +157,7 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 
 Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock. 
 
-[![Create Class Xcode](../@@env.MEDIA_URL@@/articles/native-platforms/ios-reactnative/CreateNativeModuleClass.gif)](https://auth0.com)
+[![Create Class Xcode](/media/articles/native-platforms/ios-reactnative/CreateNativeModuleClass.gif)](https://auth0.com)
 
 `LockReactModule.h`
 
@@ -228,7 +228,7 @@ Lock.show({}, (err, profile, token) => {
 });
 ```
 
-[![Lock.png](../@@env.MEDIA_URL@@/articles/native-platforms/ios-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
+[![Lock.png](/media/articles/native-platforms/ios-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.ReactNative#sms) or [TouchID](https://github.com/auth0/Lock.ReactNative#touchid)
 
@@ -243,7 +243,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   <Text>Your email is: {this.state.profile.email}</Text>
 ```
 
-> You can [click here](@@base_url@@/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
 ### 6. We're done
 

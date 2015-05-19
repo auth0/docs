@@ -6,7 +6,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
 	<blockquote>
-		<a href="@@base_url@@/auth0-aspnet-owin/master/create-package?path=examples/basic-mvc-sample&filePath=examples/basic-mvc-sample/BasicMvcSample/Web.config&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+		<a href="/auth0-aspnet-owin/master/create-package?path=examples/basic-mvc-sample&filePath=examples/basic-mvc-sample/BasicMvcSample/Web.config&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
 			<span style="display: block">Download a Seed project</span>
 			<% if (account.userName) { %>
 			<span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -85,7 +85,7 @@ Once the user is successfully authenticated with the application, a `ClaimsPrinc
     	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
     }
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](user-profile).
+The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](/user-profile).
 
 
 **Congratulations!**

@@ -59,4 +59,4 @@ The steps are quite simple though:
     "picture": "https://lh4.googleusercontent.com/-OdsbOXom9qE/AAAAAAAAAAI/AAAAAAAAADU/_j8SzYTOJ4I/photo.jpg"
   }</code></pre>
 
-For more details on Auth0's normalized user profile, see [here](user-profile).
+For more details on Auth0's normalized user profile, see [here](/user-profile).

@@ -58,9 +58,9 @@ function(token, tokenSecret, ctx, callback){
 
 The `token` and `tokenSecret` parameters will often be used for authenticating requests to the provider's API. 
 
-> We recommend using the field names in the [normalized profile](user-profile).
+> We recommend using the field names in the [normalized profile](/user-profile).
 
-Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](rules). 
+Notice that you can manipulate the profile returned from the provider to filter/remove/add anything in it. However, we recommend you keep this script as simple as possible. More sophisticated manipulation of the user information can be achieved through [Rules](/rules). 
 
 >One advantage of using Rules is that they apply to __any__ connection.
 

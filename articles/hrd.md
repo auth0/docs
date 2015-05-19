@@ -9,7 +9,7 @@ Auth0 allows you to offer your users multiple ways of authenticating. This is es
 ##Option 1: programmatically
 When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your dashboard.
 
-If using the [Auth0Lock](lock), this is as simple as writing:
+If using the [Auth0Lock](/lock), this is as simple as writing:
 
 	auth0.show({connections: ['YOUR_CONNECTION']});
 
@@ -21,7 +21,7 @@ Notice that this is equivalent of just navigating to:
 There are multiple practical ways of getting the `connection` value. Among the most common ones:
 
 * You can use __vanity URLs__: `https://{connection}.yoursite.com` or `https://www.yoursite.com/{connection}`
-* You can just ask the user to pick from a list (notice [there's an API](@@base_url@@/api#!#get--api-connections) to retrieve all connections available)
+* You can just ask the user to pick from a list (notice [there's an API](/api#!#get--api-connections) to retrieve all connections available)
 
 > These two methods assume it is acceptable for your app to disclose the names of all companies you are connected to. Sometimes this is not the case.
 
@@ -29,15 +29,15 @@ There are multiple practical ways of getting the `connection` value. Among the m
 
 ##Option 2: using email domains with the Auth0Lock
 
-The [Auth0Lock](lock) has built in functionality for identity provider selection. For social connections it will show logos for all those enabled in that particular app.
+The [Auth0Lock](/lock) has built in functionality for identity provider selection. For social connections it will show logos for all those enabled in that particular app.
 
 An additional feature in the Auth0Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
 
-![](@@env.MEDIA_URL@@/articles/hrd/k_LcfC8PHp.png)
+![](/media/articles/hrd/k_LcfC8PHp.png)
 
 If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain:
 
-![](@@env.MEDIA_URL@@/articles/hrd/R7mvAZpSnf.png)
+![](/media/articles/hrd/R7mvAZpSnf.png)
 
 In the example above the domain `companyx.com` has been mapped to an enterprise connection.
 
@@ -45,7 +45,7 @@ Notice that you can associate multiple domains to a single connection.
 
 ##Option 3: adding custom buttons to the Auth0Lock
 
-Using the [Auth0Lock](lock)'s [support for customization and extensibility](https://github.com/auth0/lock/wiki/Auth0lock-customization) it's also possible to add buttons for your Enterprise Connections. Here's an example of adding a button for an Azure AD connection to the Lock:
+Using the [Auth0Lock](/lock)'s [support for customization and extensibility](https://github.com/auth0/lock/wiki/Auth0lock-customization) it's also possible to add buttons for your Enterprise Connections. Here's an example of adding a button for an Azure AD connection to the Lock:
 
 ```
 var lock = new Auth0Lock(cid, domain);
@@ -53,7 +53,7 @@ lock.once('signin ready', function() {
     var link = $('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
     link.on('click', function () {
-        lock.getClient().login({ 
+        lock.getClient().login({
             connection: 'fabrikamdirectory.onmicrosoft.com' });
     });
 
@@ -68,7 +68,7 @@ lock.show({
 
 This is useful when you want to give users a consistent login experience where they click on the connection they want to use.
 
-![](@@env.MEDIA_URL@@/articles/hrd/hrd-custom-buttons-lock.png)
+![](/media/articles/hrd/hrd-custom-buttons-lock.png)
 
 The Auth0Lock's stylesheet contains the following provider icons which can be used when adding custom buttons:
 

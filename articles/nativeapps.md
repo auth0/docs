@@ -1,6 +1,6 @@
 # Calling APIs from Native Devices
 
-Once the user has logged in using one of our SDKs as part of the response, you will get a [JSON Web Token](jwt) signed with the secret of that application. 
+Once the user has logged in using one of our SDKs as part of the response, you will get a [JSON Web Token](/jwt) signed with the secret of that application. 
 
 For instance, in iOS:
 
