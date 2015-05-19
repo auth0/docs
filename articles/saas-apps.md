@@ -136,8 +136,8 @@ The app is primarily a web app, built as a __Single Page App__ (SPA) using __Ang
 
 ## Should you use one database connection or multiple ones?
 
-A single database connection is often sufficient. Whether the user has access to a certain tenant or not could very well be handled with [metadata](https://docs.auth0.com/api#!#put--api-users--user_id--metadata), not with different database connections.
-The only case where it would make sense to use different DB connections is if you need to isolate a set of users (e.g. staging vs. prod environment), but even then we would recommend creating different accounts in Auth0 for that case. The other case where you would need a separate database connection would be if "tenant-A" use the builtin Auth0 user store but "tenant-B" has a set of users somewhere and you want to authenticate those users. In that case you would create a [custom db connection](https://docs.auth0.com/mysql-connection-tutorial) only for that tenant and somewhere in your application you would have to store that association.
+A single database connection is often sufficient. Whether the user has access to a certain tenant or not could very well be handled with [metadata](@@env.BASE_URL@@/api#!#put--api-users--user_id--metadata), not with different database connections.
+The only case where it would make sense to use different DB connections is if you need to isolate a set of users (e.g. staging vs. prod environment), but even then we would recommend creating different accounts in Auth0 for that case. The other case where you would need a separate database connection would be if "tenant-A" use the builtin Auth0 user store but "tenant-B" has a set of users somewhere and you want to authenticate those users. In that case you would create a [custom db connection](@@env.BASE_URL@@/mysql-connection-tutorial) only for that tenant and somewhere in your application you would have to store that association.
 
 ## Should I use a single Auth0 account for all tenants?
 
@@ -147,7 +147,7 @@ Typically yes, one account for all tenants would be ok and it would allow you to
 
 ## How do I store different roles for each tenant?
 
-As explained above, the way to handle roles per tenant would be using [metadata](https://docs.auth0.com/api#!#put--api-users--user_id--metadata).
+As explained above, the way to handle roles per tenant would be using [metadata](@@env.BASE_URL@@/api#!#put--api-users--user_id--metadata).
 
 Metadata in Auth0's user profile is a generic way of associating information to __any__ authenticated user. __Permissions__, __Groups__, __Roles__ are all special cases of these attributes.
 

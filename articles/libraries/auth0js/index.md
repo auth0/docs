@@ -203,7 +203,7 @@ While using this mode, the result will be passed as the `login` method callback;
 
 ### Sign-ups
 
-If you use [Database Connections](https://docs.auth0.com/mysql-connection-tutorial) you can signup new users with:
+If you use [Database Connections](@@env.BASE_URL@@/mysql-connection-tutorial) you can signup new users with:
 
 ```
   $('.signup').click(function () {

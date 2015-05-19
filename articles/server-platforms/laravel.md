@@ -125,7 +125,7 @@ The [Laravel Security System](http://laravel.com/docs/security) needs a *User Ob
 
 #### 6.1. Using the auth0 driver
 
-The plugin comes with an authentication driver called auth0. This driver defines a user structure that wraps the [Normalized User Profile](https://docs.auth0.com/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
+The plugin comes with an authentication driver called auth0. This driver defines a user structure that wraps the [Normalized User Profile](@@env.BASE_URL@@/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
 
 This works fine for basic testing or if you don't really need to persist the user. At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 

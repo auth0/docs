@@ -10,7 +10,7 @@ These will provide a new Login Widget (powered by Auth0) that enables:
 
 - Single Sign On with Enterprise Directories (LDAP, AD, Google Apps, Office365 and SAML Provider)
 - Shared User/Password between multiple WordPresses for Single Sign On
-- Single Sign On with +30 [Social Providers](https://docs.auth0.com/identityproviders)
+- Single Sign On with +30 [Social Providers](@@env.BASE_URL@@/identityproviders)
 - User Management Dashboard
 - Optional Two Factor Authentication
 - Single Sign On between WordPress and other Applications
@@ -19,12 +19,12 @@ These will provide a new Login Widget (powered by Auth0) that enables:
 
 ##WordPress Plugin
 
-- [Installation](http://docs.auth0.com/cms/wordpress/installation)
-- [Configuration](http://docs.auth0.com/cms/wordpress/configuration)
-- [JWT Authentication](http://docs.auth0.com/cms/wordpress/jwt-authentication)
-- [Troubleshoot](http://docs.auth0.com/cms/wordpress/troubleshoot)
+- [Installation](@@env.BASE_URL@@/cms/wordpress/installation)
+- [Configuration](@@env.BASE_URL@@/cms/wordpress/configuration)
+- [JWT Authentication](@@env.BASE_URL@@/cms/wordpress/jwt-authentication)
+- [Troubleshoot](@@env.BASE_URL@@/cms/wordpress/troubleshoot)
 
 ##Joomla Extension
 
-- [Installation](http://docs.auth0.com/cms/joomla/installation)
-- [Configuration](http://docs.auth0.com/cms/joomla/configuration)
+- [Installation](@@env.BASE_URL@@/cms/joomla/installation)
+- [Configuration](@@env.BASE_URL@@/cms/joomla/configuration)

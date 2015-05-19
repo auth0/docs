@@ -48,13 +48,13 @@ Content-Type: 'application/json'
 }
 ```
 
-> Use [this endpoint](https://docs.auth0.com/api#authentication) to obtain the __{Auth0 API Token}__.
+> Use [this endpoint](@@env.BASE_URL@@/api#authentication) to obtain the __{Auth0 API Token}__.
 
 The key parameters are `connection` (that must be __sms__ for this connection) and the `phone_number`.
 
 Auth0 will send the SMS message configured on the dashboard to the `phone-number` specified, including the one-time-password (with 10 minutes expiration).
 
-Your application will capture the one-time-password and validate it with Auth0 using the __[Resource Owner](https://docs.auth0.com/auth-api#!#post--oauth-ro)__ authentication endpoint:
+Your application will capture the one-time-password and validate it with Auth0 using the __[Resource Owner](@@env.BASE_URL@@/auth-api#!#post--oauth-ro)__ authentication endpoint:
 
 ```
 POST https://@@account.namespace@@/oauth/ro

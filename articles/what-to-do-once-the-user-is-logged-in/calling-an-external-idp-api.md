@@ -1,6 +1,6 @@
 # Calling an external IdP (Facebook, Github, etc.) API.
 
-**The user is logged in. That means that we can get the [user profile](https://docs.auth0.com/user-profile).**
+**The user is logged in. That means that we can get the [user profile](@@env.BASE_URL@@/user-profile).**
 
 If we're using [Lock](https://github.com/auth0/Lock) or [Auth0.js](https://github.com/auth0/Auth0.js) from the client side, we'll get the profile in the callback after the user is logged in. 
 If we're using any SDK from the server side, we probably can access the profile from either the request or the session.
@@ -33,7 +33,7 @@ The profile will look as follows:
 
 As you can see, **there's an array called `identities`**. In there, we'll get **the `accessToken`** of the different Identity Providers the user has used to log in. 
 
-> Most of the times, there's going to be just one, but if you've used [account linking feature](https://docs.auth0.com/link-accounts) there might be more than one.
+> Most of the times, there's going to be just one, but if you've used [account linking feature](@@env.BASE_URL@@/link-accounts) there might be more than one.
 
 The `accessToken` we get here will have access to call all the APIs we've specified we need in Auth0 dashboard. 
 
