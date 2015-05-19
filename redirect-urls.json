@@ -442,5 +442,13 @@
   {
     "from": "/api",
     "to": "/api/v1"
+  },
+  {
+    "from": "/oauth2",
+    "to": "/connections/social/oauth2"
+  },
+  {
+    "from": "/mysql-connection-tutorial",
+    "to": "/connections/database/mysql"
   }
 ]
