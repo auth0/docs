@@ -5,7 +5,7 @@ To configure a Weibo connection you will need to register Auth0 on the [Weibo Ap
 ##1. Add a new Application
 Log in into [Weibo portal](http://open.weibo.com/apps), register a new application:
 
-![](@@env.MEDIA_URL@@/articles/weibo-clientid/weibo-register-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/weibo/weibo-register-1.png)
 
 ---
 ##2. Callback URLs

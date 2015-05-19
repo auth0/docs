@@ -4,9 +4,9 @@ To configure a Box OAuth2 connection you will need to register your Auth0 tenant
 
 ##1. Log in into the developer portal and register a new App:
 
-![](@@env.MEDIA_URL@@/articles/box-clientid/box-register-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/box/box-register-1.png)
 
-![](@@env.MEDIA_URL@@/articles/box-clientid/box-register-2.png)
+![](@@env.MEDIA_URL@@/articles/connections/box/box-register-2.png)
 
 ---
 
@@ -14,11 +14,11 @@ To configure a Box OAuth2 connection you will need to register your Auth0 tenant
 
 After the app is created, click on __Edit__ and review the (long) form. There're a number of properties that you can change (e.g. contact information, logos, etc.).
 
-![](@@env.MEDIA_URL@@/articles/box-clientid/box-register-3.png)
+![](@@env.MEDIA_URL@@/articles/connections/box/box-register-3.png)
 
 Scroll down and you'll find the `client_id` and `client_secret` fields under the __OAuth2 Parameters__ section:
 
-![](@@env.MEDIA_URL@@/articles/box-clientid/box-register-4.png)
+![](@@env.MEDIA_URL@@/articles/connections/box/box-register-4.png)
 
 Enter this URL as the `redirect_uri`:
 

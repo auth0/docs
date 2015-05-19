@@ -5,7 +5,7 @@ To configure Shopify OAuth2 connections you will need to register Auth0 with Sho
 ##1. Create an App on the Partner Portal
 Go to the [partner portal](https://app.shopify.com/services/partners), and login with your WordPress credentials. Select __Apps__ and click on __Create app__:
 
-![](@@env.MEDIA_URL@@/articles/shopify-clientid/shopify-devportal-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/shopify/shopify-devportal-1.png)
 
 ---
 
@@ -15,11 +15,10 @@ Create a new application and complete the form. Use this URL as your callback:
 
 	https://@@account.namespace@@/login/callback
 
-![](@@env.MEDIA_URL@@/articles/shopify-clientid/shopify-devportal-2.png)
+![](@@env.MEDIA_URL@@/articles/connections/shopify/shopify-devportal-2.png)
 
 ---
 
 ##4. Get your API Key and Shared Secret
 
 Once the application is registered, enter your new `API Key` and `Shared Secret` into the connection settings in Auth0.
-

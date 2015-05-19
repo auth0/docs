@@ -5,7 +5,7 @@ To configure an Amazon connection you will need to register Auth0 on the Amazon 
 ##1. Add a new Application
 Log in into [Amazon](http://login.amazon.com) and select __App Console__:
 
-![](@@env.MEDIA_URL@@/articles/amazon-clientid/amazon-login-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/amazon/amazon-login-1.png)
 
 ---
 
@@ -13,7 +13,7 @@ Log in into [Amazon](http://login.amazon.com) and select __App Console__:
 
 Click on the __Register New Application__ button and complete the form:
 
-![](@@env.MEDIA_URL@@/articles/amazon-clientid/amazon-register-app.png)
+![](@@env.MEDIA_URL@@/articles/connections/amazon/amazon-register-app.png)
 
 The callback address for your app should be:
 
@@ -25,6 +25,4 @@ The callback address for your app should be:
 
 Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/amazon-clientid/amazon-add-connection.png)
-
-
+![](@@env.MEDIA_URL@@/articles/connections/amazon/amazon-add-connection.png)

@@ -14,7 +14,7 @@ Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
 
 Complete the form:
 
-![](@@env.MEDIA_URL@@/articles/yandex-clientid/yandex-create-app.png)
+![](@@env.MEDIA_URL@@/articles/connections/yandex/yandex-create-app.png)
 
 The callback address for your app should be:
 
@@ -29,5 +29,4 @@ Notice that `scopes` in Yandex are defined in this screen. Select what kind of i
 
 Once the application is registered, enter your new `Application ID` and `Application Password` into the connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/yandex-clientid/yandex-add-connection.png)
-
+![](@@env.MEDIA_URL@@/articles/connections/yandex/yandex-add-connection.png)

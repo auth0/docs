@@ -45,19 +45,19 @@ In this section you will configure Auth0 to serve as an Identity Provider.  You 
 
 9. Scroll down further to the **"ENDPOINTS"** section and click on the blue **"SAML"** tab within that section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as you will need to provide it to the Service Provider.
 
-![](@@env.MEDIA_URL@@/articles/saml-idp-generic/saml-idp-generic2.png)
+![](@@env.MEDIA_URL@@/articles/saml/saml-idp-generic/saml-idp-generic2.png)
 
 10. Scroll back up and click on the "Addons" tab.  Then click on the box labeled "SAML2 WEB APP".  
 
-![](@@env.MEDIA_URL@@/articles/saml-idp-generic/saml-idp-generic3.png)
- 
+![](@@env.MEDIA_URL@@/articles/saml/saml-idp-generic/saml-idp-generic3.png)
+
 11. In the "Application Callback URL" field, enter the URL at the Service Provider (or application) to which the SAML assertions should be sent after Auth0 has authenticated the user.  
 
-![](@@env.MEDIA_URL@@/articles/saml-idp-generic/saml-idp-generic4.png)
+![](@@env.MEDIA_URL@@/articles/saml/saml-idp-generic/saml-idp-generic4.png)
 
 12.  In the Addon SAML2 Web App popup, click on the "Usage" tab.  This tab will provide you with the information needed to configure the Service Provider application.
 
-![](@@env.MEDIA_URL@@/articles/saml-idp-generic/saml-idp-generic5.png)
+![](@@env.MEDIA_URL@@/articles/saml/saml-idp-generic/saml-idp-generic5.png)
 
 ##3. Configure the Service Provider
 

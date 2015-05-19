@@ -5,7 +5,7 @@ To configure Instagram OAuth2 connections you will need to register Auth0 with I
 ##1. Log in into the developer portal
 Go to the [developer portal](http://instagram.com/developer), and log in with your Instagram credentials. Click on __Register Your Application__:
 
-![](@@env.MEDIA_URL@@/articles/instagram-clientid/instagram-devportal-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/instagram/instagram-devportal-1.png)
 
 ---
 
@@ -15,7 +15,6 @@ Create a new application and complete the form. Use this URL as your callback:
 
 	https://@@account.namespace@@/login/callback
 
-![](@@env.MEDIA_URL@@/articles/instagram-clientid/instagram-devportal-2.png)
+![](@@env.MEDIA_URL@@/articles/connections/instagram/instagram-devportal-2.png)
 
 Enter your new `Client ID` and `Client Secret` into the connection settings in Auth0.
-

@@ -22,10 +22,10 @@ You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-ba
 
 ####2. Configure the Connection on the Dashboard
 
-Enter the __Twilio Account SID__ and __Auth Token__. 
+Enter the __Twilio Account SID__ and __Auth Token__.
 Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password.
 
-![](@@env.MEDIA_URL@@/articles/passwordless/Cz-QfQvjm6.png)
+![](@@env.MEDIA_URL@@/articles/connections/passwordless/Cz-QfQvjm6.png)
 
 ### How to use it
 
@@ -41,7 +41,7 @@ Content-Type: 'application/json'
   "email_verified": false,
   "phone_number":   "+14251112222"
 }
-``` 
+```
 
 > Use [this endpoint](https://docs.auth0.com/api#authentication) to obtain the __{Auth0 API Token}__.
 

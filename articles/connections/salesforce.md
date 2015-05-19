@@ -6,7 +6,7 @@ To configure a Salesforce OAuth2 connection you will need to register your Auth0
 
 Log into [login.salesforce.com](https://login.salesforce.com/), and click on the __New__ button of __Connected Apps__ in __Build | Create | Apps__:
 
-![](@@env.MEDIA_URL@@/articles/salesforce-clientid/salesforce-register-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/salesforce/salesforce-register-1.png)
 
 ---
 
@@ -14,7 +14,7 @@ Log into [login.salesforce.com](https://login.salesforce.com/), and click on the
 
 Complete the basic information about your app (Connected App Name, API Name and Contact Email), complete the callback URL and define Selected OAuth Scopes and click on __Save__:
 
-![](@@env.MEDIA_URL@@/articles/salesforce-clientid/salesforce-register-2.png)
+![](@@env.MEDIA_URL@@/articles/connections/salesforce/salesforce-register-2.png)
 
 	https://@@account.namespace@@/login/callback
 
@@ -24,7 +24,4 @@ Complete the basic information about your app (Connected App Name, API Name and 
 
 Once the application is registered, enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/salesforce-clientid/salesforce-register-3.png)
-
-
-
+![](@@env.MEDIA_URL@@/articles/connections/salesforce/salesforce-register-3.png)

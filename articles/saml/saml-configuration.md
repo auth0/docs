@@ -23,7 +23,7 @@ Other applications, especially custom applications, may externalize authenticati
 
 In this situation, Auth0 will receive an authentication request from the application using the OpenID Connect or OAuth2 protocol, and Auth0 will translate the request into a SAML Authentication Request and send it on to a SAML Identity Provider.  In this case, Auth0 serves as a SAML Service Provider in the federation with the Identity Provider.
 
-![](@@env.MEDIA_URL@@/articles/saml-configuration/saml-case1.png)
+![](@@env.MEDIA_URL@@/articles/saml/saml-configuration/saml-case1.png)
 
 ### SAML Service Provider and Identity Provider
 

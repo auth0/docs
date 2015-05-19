@@ -5,11 +5,11 @@ To configure an vKontakte connection you will need to register your Auth0 instan
 ##1. Create a new Application in vKontakte:
 Log in into vKontakte and [create a new app](http://vk.com/editapp?act=create):
 
-![](@@env.MEDIA_URL@@/articles/vkontakte-clientid/vkontakte-create-app.png)
+![](@@env.MEDIA_URL@@/articles/connections/vkontakte/vkontakte-create-app.png)
 
 You will be required to confirm the request with an SMS message:
 
-![](@@env.MEDIA_URL@@/articles/vkontakte-clientid/vkontakte-validate-create-app.png)
+![](@@env.MEDIA_URL@@/articles/connections/vkontakte/vkontakte-validate-create-app.png)
 
 ---
 
@@ -17,7 +17,7 @@ You will be required to confirm the request with an SMS message:
 
 Complete the form:
 
-![](@@env.MEDIA_URL@@/articles/vkontakte-clientid/vkontakte-register-app.png)
+![](@@env.MEDIA_URL@@/articles/connections/vkontakte/vkontakte-register-app.png)
 
 The callback address for your app should be:
 
@@ -29,5 +29,4 @@ The callback address for your app should be:
 
 Once the application is registered, enter your new `Application ID` and `Secure Key` into the connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/vkontakte-clientid/vkontakte-add-connection.png)
-
+![](@@env.MEDIA_URL@@/articles/connections/vkontakte/vkontakte-add-connection.png)

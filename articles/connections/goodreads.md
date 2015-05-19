@@ -3,7 +3,7 @@
 ##1. Log in into Goodreads's developers site
 Log in into [Goodreads's Developer site](https://www.goodreads.com/api), select __developer key__:
 
-![](@@env.MEDIA_URL@@/articles/goodreads-clientid/goodreads-register-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/goodreads/goodreads-register-1.png)
 
 ---
 
@@ -19,4 +19,4 @@ Use this for the `Callback URL`:
 
 Once the application is registered, enter your new `Key` and `Secret` into the connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/goodreads-clientid/goodreads-register-2.png)
+![](@@env.MEDIA_URL@@/articles/connections/goodreads/goodreads-register-2.png)

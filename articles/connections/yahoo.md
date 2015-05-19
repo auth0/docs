@@ -26,5 +26,3 @@ Also make sure to select at least one Yahoo API:
 Once the project is created, enter your new `Consumer Key` a  nd `Consumer Secret` into the Yahoo! connection settings in Auth0.
 
 ![](@@env.MEDIA_URL@@/articles/yahoo-clientid/yahoo-register-2.png)
-
-

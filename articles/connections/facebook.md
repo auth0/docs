@@ -5,13 +5,13 @@ To configure Facebook connections you will need to register Auth0 with Facebook 
 ##1. Log in into Facebook Developers
 Go to the [Facebook Developers Apps](https://developers.facebook.com/apps), login with your account and click on the __Create New App__ button:
 
-![](@@env.MEDIA_URL@@/articles/facebook-clientid/facebook-1.png)
+![](@@env.MEDIA_URL@@/articles/connections/facebook/facebook-1.png)
 
 ---
 
 ##2. Give a name to your Application
 
-![](@@env.MEDIA_URL@@/articles/facebook-clientid/facebook-2.png)
+![](@@env.MEDIA_URL@@/articles/connections/facebook/facebook-2.png)
 
 ---
 
@@ -19,13 +19,13 @@ Go to the [Facebook Developers Apps](https://developers.facebook.com/apps), logi
 
 Copy the App ID and App Secret to the clipboard:
 
-![](@@env.MEDIA_URL@@/articles/facebook-clientid/facebook-3.png)
+![](@@env.MEDIA_URL@@/articles/connections/facebook/facebook-3.png)
 
 On app **Settings > Advanced**, enter the following URL on the "Valid OAuth redirect URIs":
 
     https://@@account.namespace@@/login/callback
 
-![](@@env.MEDIA_URL@@/articles/facebook-clientid/facebook-3b.png)
+![](@@env.MEDIA_URL@@/articles/connections/facebook/facebook-3b.png)
 
 ---
 
@@ -33,7 +33,7 @@ On app **Settings > Advanced**, enter the following URL on the "Valid OAuth redi
 
 Once the application is registered, enter your new `App ID` and `App Secret` into the Facebook connection settings in Auth0.
 
-![](@@env.MEDIA_URL@@/articles/facebook-clientid/facebook-4.png)
+![](@@env.MEDIA_URL@@/articles/connections/facebook/facebook-4.png)
 
 **That's it!** You can try it with the tester now.
 
