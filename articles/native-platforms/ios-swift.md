@@ -46,7 +46,7 @@ lodash: true
 Add the following to the `Podfile` and run `pod install`:
 
 ```ruby
-pod 'Lock', '~> 1.10'
+pod 'Lock', '~> 1.12'
 pod 'JWTDecode', '~> 0.2'
 ```
 
@@ -54,9 +54,21 @@ pod 'JWTDecode', '~> 0.2'
 
 ### 2. Configuring your Swift project to use an ObjC library
 
-Now, since you need to configure your project to be able to use Lock. For that, just read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/Lock-&-Swift)
+Since [CocoaPods 0.36](http://blog.cocoapods.org/CocoaPods-0.36/) you can build any library as a Cocoa Touch framework. This allows to import them directly in your swift files like this:
 
-### 3. Configuring Auth0 Credentials & Callbacks
+```swift
+import Lock
+```
+
+To enable this feature, just add this line at the top level of your `Podfile` (outside any target definition):
+
+```ruby
+use_frameworks!
+```
+
+> If you dont want to use this feature please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/Lock-&-Swift).
+
+### 3. Configure Auth0 Lock for iOS
 
 Add the following entries to your app's `Info.plist`:
 
@@ -77,23 +89,49 @@ Add the following entries to your app's `Info.plist`:
   </tr>
 </table>
 
-
 Also you'll need to register a new _URL Type_ with the following scheme
 `a0@@account.clientId@@`. You can do it from your app's target Info section.
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
-### 4. Register Native Authentication Handlers
-
-To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.swift` file.
+The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String, annotation: AnyObject?) -> Bool {
-    return A0IdentityProviderAuthenticator.sharedInstance().handleURL(url, sourceApplication: sourceApplication)
+import UIKit
+import Lock
+
+class MyApplication: NSObject {
+    static let sharedInstance = MyApplication()
+    let lock: A0Lock
+    private override init() {
+        lock = A0Lock()
+    }
+}
+```
+
+> You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
+
+### 4. Register Native Authentication Handlers
+
+First in your AppDelegate method `application:didFinishLaunchingWithOptions:` add the following lines:
+
+```swift
+let lock = MyApplication.sharedInstance.lock
+lock.applicationLaunchedWithOptions(launchOptions)
+```
+
+Then to allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method:
+
+```swift
+func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    let lock = MyApplication.sharedInstance.lock
+    return lock.handleURL(url, sourceApplication: sourceApplication)
 }
 ```
 
 > If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #4__
+
+**IMPORTANT**: Before you continue to the next section, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](https://manage.auth0.com/#/connections/social)
 
 #### Facebook
 
@@ -128,27 +166,46 @@ Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
-Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate.m` file, for example:
+Then add Lock Facebook's Pod
 
-```swift
-func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-  let fbAuthenticator = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
-  A0IdentityProviderAuthenticator.sharedInstance().registerAuthenticationProvider(fbAuthenticator)
-  return true
-}
+```ruby
+pod 'Lock-Facebook', '~> 2.0'
 ```
 
-#### Twitter
-
-To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
+After that, where you initialize `A0Lock`, import `LockFacebook` module 
 
 ```swift
-func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-  let twitterApiKey = //Remember to obfuscate your api key
-  let tiwtterApiSecret = //Remember to obfuscate your api secret
-  let twttrAuthenticator = A0TwitterAuthenticator.newAuthenticatorWithKey(twitterApiKey, andSecret: twitterApiSecret)
-  A0IdentityProviderAuthenticator.sharedInstance().registerAuthenticationProvider(twttrAuthenticator)
-  return true
+import LockFacebook
+```
+
+And register it with `A0Lock`:
+
+```swift
+let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
+lock.registerAuthenticators([facebook])
+```
+
+####Twitter
+
+First add Lock Twitter's Pod
+
+```ruby
+pod 'Lock-Twitter', '~> 1.0'
+```
+
+After that, where you initialize `A0Lock`, import `LockTwitter` module 
+
+```swift
+import LockTwitter
+```
+
+And register it with `A0Lock`:
+
+```swift
+let apiKey = ... //Remember to obfuscate your api key
+let apiSecret = ... //Remember to obfuscate your api secret
+let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(apiKey, andSecret:apiSecret)
+lock.registerAuthenticators([twitter])
 }
 ```
 
@@ -156,15 +213,16 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
 ```swift
-let authController = A0LockViewController()
-authController.closable = true
-authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
+let lock = MyApplication.sharedInstance.lock
+let controller = lock.newLockViewController()
+controller.closable = true
+controller.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
   // Do something with token & profile. e.g.: save them.
   // Lock will not save the Token and the profile for you.
   // And dismiss the ViewController
   self.dismissViewControllerAnimated(true, completion: nil)
 }
-self.presentViewController(authController, animated: true, completion: nil)
+self.presentViewController(controller, animated: true, completion: nil)
 ```
 
 [![Lock.png](https://cdn.auth0.com/mobile-sdk-lock/Lock-Widget-Screenshot.png)](https://auth0.com)
