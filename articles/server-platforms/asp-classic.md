@@ -86,7 +86,7 @@ Function GetUserProfile(access_token)
 End Function
 
 
-Function GetAccessToken(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, code)
+Function GetAccessToken(client_id, client_secret, redirect_uri, authorization_code)
 
   Set http = Server.CreateObject("MSXML2.ServerXMLHTTP")
 
@@ -94,7 +94,7 @@ Function GetAccessToken(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, code)
 
   http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
 
-  http.send "client_id=" & CLIENT_ID & "&client_secret=" & CLIENT_SECRET & "&redirect_uri=" & server.UrlEncode(REDIRECT_URI) & "&code=" & AUTHORIZATION_CODE & "&grant_type=authorization_code"
+  http.send "client_id=" & client_id & "&client_secret=" & client_secret & "&redirect_uri=" & server.UrlEncode(redirect_uri) & "&code=" & authorization_code & "&grant_type=authorization_code"
 
   result = http.responseText
 
