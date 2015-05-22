@@ -77,7 +77,7 @@ Then add the following entries to `AndroidManifest.xml` inside the `<application
   </intent-filter>
 </activity>
 <meta-data android:name="com.auth0.lock.client-id" android:value="@@account.clientId@@"/>
-<meta-data android:name="com.auth0.lock.tenant" android:value="@@account.tenant@@"/>
+<meta-data android:name="com.auth0.lock.domain-url" android:value="@@account.namespace@@"/>
 <!--Auth0 Lock End-->
 ```
 
