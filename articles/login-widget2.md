@@ -88,7 +88,7 @@ This example shows how to work with only specified connections and display the l
 
 Resulting in:
 
-![](https://i.cloudup.com/W9rpHdyIwf.png)
+![](../media/articles/login-widget2/W9rpHdyIwf.png)
 
 ## Sending extra login parameters
 
@@ -147,7 +147,7 @@ It is also possible to start the widget in the **Sign Up** mode or **Reset Passw
 
 ## Anatomy of the Auth0 Login Widget
 
-![](https://i.cloudup.com/y2iG3mE8Ll.png)
+![](../media/articles/login-widget2/y2iG3mE8Ll.png)
 
 1. The __title__ of the widget. You can optionally show a 32x32 icon.
 2. The __social buttons__ will be shown if you have at least one social connection enabled.
@@ -190,4 +190,4 @@ You can also customize the error messages that will be displayed on certain situ
 
 These errors will be shown on the widget header:
 
-![](https://i.cloudup.com/9AfFb-pbwm.png)
+![](../media/articles/login-widget2/9AfFb-pbwm.png)

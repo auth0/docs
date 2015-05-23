@@ -17,7 +17,7 @@ With this feature, Auth0 allows to customize the level of complexity of the pass
 
 To change the password strength policy, go to [Database connections](https://app.auth0.com/#/connections/database), click on the `Security` button on the connection you want to apply it:
 
-![Password Strength Panel in Auth0](https://i.cloudup.com/jH0kabJPoi.png)
+![Password Strength Panel in Auth0](../media/articles/password-strength/jH0kabJPoi.png)
 
 On subsequent user sign-ups or changes to their passwords, the policy will be enforced. If their entered password does not match the required criteria, the password will be rejected by Auth0 and they will be asked to pick another one that complies with the requirements.
 
@@ -29,11 +29,11 @@ After enabling password policies, on signup and reset Lock modes user will be no
 
 On desktop:
 
-![Auth0 Lock Password Strength checks on Desktop](https://cldup.com/7cmjQFY45M.png)
+![Auth0 Lock Password Strength checks on Desktop](../media/articles/password-strength/7cmjQFY45M.png)
 
 On mobile:
 
-![Auth0 Lock Password Strength checks on Mobile](https://cldup.com/moUbn4XXxR.png)
+![Auth0 Lock Password Strength checks on Mobile](../media/articles/password-strength/moUbn4XXxR.png)
 
 ## Custom Signup Errors
 

@@ -53,7 +53,7 @@ auth0.Login(function (err, result) {
 });
 ```
 
-![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
+![](../media/articles/win8-tutorial/win8-cs-step1.png)
 
 #### Option 2: Authentication with your own UI
 

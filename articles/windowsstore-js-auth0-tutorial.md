@@ -22,15 +22,15 @@ This tutorial assumes you are familiar with JavaScript & Visual Studio 2012.
 1. Open an account with [Auth0](https://developers.auth0.com)
 2. You can login with a Google, Github or a Microsoft Account:
 
-![](https://puu.sh/3dmCI.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/3dmCI.png)
 
 3. After login, enter a name for your account. This will uniquely identify you in Auth0. We will refer to this as {YOUR_TENANT_NAME} later in the tutorial.
 
-![](https://puu.sh/3dmFE.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/3dmFE.png)
 
 4. Choose the type of application you are building. Select __Windows 8__:
 
-![](https://puu.sh/3drhv.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/3drhv.png)
 
 Keep Auth0 open. You will later need information from the dashboard to test your app.
 
@@ -38,7 +38,7 @@ Keep Auth0 open. You will later need information from the dashboard to test your
 
 ###1. Open Visual Studio 2012 and create a new blank Windows Store App:
 
-![](//cdn.auth0.com/docs/img/windowsstore-javascript-step1.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step1.png)
 
 ###2. Add a basic UI to the app
 
@@ -49,13 +49,13 @@ Open the `default.html` file and replace `<p>Content goes here</p>` to a `button
 <button id="login">Login</button>
 ```
 
-![](//cdn.auth0.com/docs/img/windowsstore-javascript-step2.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step2.png)
 
 ###3. Add the auth0Client.js javascript
 
 This javascript will encapsulate all access to Auth0. Add a new file named `auth0Client.js` under the `js` folder:
 
-![](//cdn.auth0.com/docs/img/windowsstore-javascript-step3.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step3.png)
 
 And add the following code:
 
@@ -87,7 +87,7 @@ And add the following code:
 
 Replace __{YOUR TENANT NAME}__ with the name you used when you created the account with Auth0. And __{YOUR CLIENT ID}__ with the `clientId` value you can get from your settings page:
 
-![](https://puu.sh/3dqSy.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/3dqSy.png)
 
 And add reference to the javaScript code in the `default.html`, including the following line in the <head> element:
 
@@ -113,7 +113,7 @@ var page = WinJS.UI.Pages.define("/default.html", {
 
 When you run the application you will see the Login Screen with the __Auth0 Login Widget__:
 
-![](//cdn.auth0.com/docs/img/windowsstore-javascript-step5.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step5.png)
 
 It will show "Google" as an option to authenticate. Place a breakpoint in the `var access_token = result.responseData.split("#")[1].split("&")[1].split("=")[0];` line and complete authentication. If everything is successful, you will see the `access_token`.
 
@@ -121,13 +121,13 @@ It will show "Google" as an option to authenticate. Place a breakpoint in the `v
 
 Go back to [Auth0](https://app.auth0.com) and select __Connections__, __Social__:
 
-![](https://puu.sh/3drDu.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/3drDu.png)
 
 Enable any of the providers available by clicking on the `Disabled` button.
 
 Run the app again and you will see the providers you just enabled on the login screen:
 
-![](//cdn.auth0.com/docs/img/windowsstore-javascript-step6.2.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step6.2.png)
 
 ###7. Getting user attributes
 
@@ -163,6 +163,6 @@ function log(msg) {
 
 Run the app again and you will see the user info after login:
 
-![](//cdn.auth0.com/docs/img/windowsstore-javascript-step7.png)
+![](../media/articles/windowsstore-js-auth0-tutorial/windowsstore-javascript-step7.png)
 
 ## Congratulations!! Go get your token!

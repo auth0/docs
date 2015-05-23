@@ -113,15 +113,15 @@ We recommend adding probes in SCOM for all the endpoints describe before, includ
 
 Setup for SCOM is straight forward as shown on these screenshots:
 
-![ss-2014-11-21T15-44-34.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-21T15-44-34.png)
+![ss-2014-11-21T15-44-34.png](../media/articles/monitoring/ss-2014-11-21T15-44-34.png)
 
-![ss-2014-11-21T16-31-15.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-21T16-31-15.png)
+![ss-2014-11-21T16-31-15.png](../media/articles/monitoring/ss-2014-11-21T16-31-15.png)
 
-![ss-2014-11-21T16-32-25.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-21T16-32-25.png)
+![ss-2014-11-21T16-32-25.png](../media/articles/monitoring/ss-2014-11-21T16-32-25.png)
 
-![ss-2014-11-21T16-33-51.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-21T16-33-51.png)
+![ss-2014-11-21T16-33-51.png](../media/articles/monitoring/ss-2014-11-21T16-33-51.png)
 
-![ss-2014-11-21T16-34-25.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-21T16-34-25.png)
+![ss-2014-11-21T16-34-25.png](../media/articles/monitoring/ss-2014-11-21T16-34-25.png)
 
 Make sure to configure proper alerts against these probes. Timeouts on endpoints are dependent on the network configuration, but should resemble the expected behavior of applications.
 
@@ -129,9 +129,9 @@ Make sure to configure proper alerts against these probes. Timeouts on endpoints
 
 You can monitor System Center activity throught the monitoring tab as shown bellow:
 
-![ss-2014-11-25T17-20-47.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-25T17-20-47.png)
+![ss-2014-11-25T17-20-47.png](../media/articles/monitoring/ss-2014-11-25T17-20-47.png)
 
-![ss-2014-11-25T17-22-10.png](https://s3.amazonaws.com/blog.auth0.com/ss-2014-11-25T17-22-10.png)
+![ss-2014-11-25T17-22-10.png](../media/articles/monitoring/ss-2014-11-25T17-22-10.png)
 
 > If any of these alarms are triggered, contact [Auth0 support](mailto://support@auth0.com) immediately.
 

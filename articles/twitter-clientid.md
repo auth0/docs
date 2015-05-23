@@ -6,7 +6,7 @@ To configure a Twitter connection you will need to register Auth0 with Twitter.
 
 Log in to Twitter, and [create a new Twitter application](https://apps.twitter.com/app/new):
 
-![](//cdn.auth0.com/docs/img/twitter-api-1.png)
+![](../media/articles/twitter-clientid/twitter-api-1.png)
 
 Your callback URL into Auth0 is:
 
@@ -20,8 +20,8 @@ Once the application is created, go to Settings tab and make sure to check the _
 
 To reveal your consumer secret, click on **manage keys and access tokens**:
 
-![](//cdn.auth0.com/docs/img/twitter-api-2.png)
+![](../media/articles/twitter-clientid/twitter-api-2.png)
 
 Copy these values and enter them in the [Auth0 dashboard](https://manage.auth0.com/#/connections/social):
 
-![](//cdn.auth0.com/docs/img/twitter-api-3.png)
+![](../media/articles/twitter-clientid/twitter-api-3.png)
