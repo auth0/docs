@@ -20,11 +20,23 @@ It is usually a good idea to keep the connector up to date. You can check the ve
 
 ![](https://cdn.auth0.com/docs/img/adldap-connector-version.png)
 
+## Troubleshooting in the Admin Console
+
+The __Troubleshooting__ section in the Admin Console will show the logs for the AD/LDAP Connector:
+
+![](https://cdn.auth0.com/docs/img/connector-admin-console-logs.png)
+
+The __Run__ button on the __Troubleshooting__ page will run the troubleshooting tool to detect the most common problems related to the AD/LDAP Connector.
+
+![](https://cdn.auth0.com/docs/img/connector-admin-console-troubleshooter.png)
+
+The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to [support](mailto:support@auth0.com) if you're experiencing problems with the connector.
+
 ## Troubleshooting Tool
 
 The troubleshooting tool is part of the AD LDAP Connector and can be launched on Windows using **C:\Program Files (x86)\Auth0\AD LDAP Connector\troubleshoot.cmd** or on Linux using **node troubleshoot.js**.
 
-This tool will try to detect the most common problems related to the AD LDAP Connector:
+This tool will try to detect the most common problems related to the AD/LDAP Connector:
 
 ![](https://cdn.auth0.com/docs/img/connector-troubleshooter.png)
 

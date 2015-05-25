@@ -46,7 +46,6 @@ Enter the __TICKET URL__ provided when you provisioned the connection.
 
 The __TICKET URL__ uniquely identifies this connector in Auth0. The Connector will use this to communicate with Auth0 Server and automatically complete the configuration.
 
-
 ## Link to LDAP
 
 Once you have entered the __TICKET URL__, you must enter the LDAP settings:
@@ -69,7 +68,6 @@ Congratulations, your connector is installed and ready to use.
 ## Troubleshooting
 
 After clicking "Save", the AD/LDAP Connector configuration console will perform a series of tests to validate the entered information.  The results of the tests are displayed under the **"Configuration log"** heading in the console screen.  An explanation is provided below of the tests performed.
-
 
 Test 1: Attempts to establish a TCP connection to the LDAP server and port specified.  
 
