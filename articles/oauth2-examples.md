@@ -141,3 +141,26 @@ After the call completes successfully, you will be able to login using these new
     }
   }
 ```
+
+##Bitbucket
+
+* Register a new Consumer in Bitbucket
+* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback). 
+* Copy `Consumer Key` and `Consumer Secret` to config file below
+
+```
+{
+  "name": "bitbucket",
+  "strategy": "oauth1",
+  "options": {
+    "client_id": "{YOUR BITBUCKET CONSUMER KEY}",
+    "client_secret": "{YOUR BITBUCKET CONSUMER SECRET}",
+    "requestTokenURL": "https://bitbucket.org/api/1.0/oauth/request_token",
+    "accessTokenURL": "https://bitbucket.org/api/1.0/oauth/access_token",
+    "userAuthorizationURL": "https://bitbucket.org/api/1.0/oauth/authenticate",
+    "scripts": {
+      "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://bitbucket.org/api/1.0/user',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode)); var p = JSON.parse(b); var profile = p.user; profile.picture = p.user.avatar; profile.id = p.user.username; cb(null, profile); });}"
+    }
+  }
+}
+```
