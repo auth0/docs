@@ -164,3 +164,26 @@ After the call completes successfully, you will be able to login using these new
   }
 }
 ```
+
+##Dribbble
+
+* [Register a new Consumer in Dribbble](https://dribbble.com/account/applications/new)
+* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback). 
+* Copy `Client ID` and `Client Secret` to config file below
+
+```
+{
+  "name": "dribbble",
+  "strategy": "oauth2",
+  "options": {
+    "client_id": "{YOUR DRIBBLE CLIENT ID}",
+    "client_secret": "{YOUT DRIBBBLE CLIENT SECRET}",
+    "authorizationURL": "https://dribbble.com/oauth/authorize",
+    "tokenURL": "https://dribbble.com/oauth/token",
+    "scope": ["public"],
+    "scripts": {
+      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.dribbble.com/v1/user', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.id; profile.picture = profile.avatar_url; cb(null, profile); });}"
+    }
+  }
+}
+```
