@@ -2,7 +2,7 @@
 
 Auth0 ships with AWS IAM integration out of the box that allows you to:
 
-1. Login to AWS Dashboard with any of the [supported Identity Providers](/identityproviders). 
+1. Login to AWS Dashboard with any of the [supported Identity Providers](/identityproviders).
 2. Obtain AWS Tokens to securely call AWS APIs and resources.
 
 ###SSO with AWS Dashboard
@@ -76,7 +76,7 @@ More information on roles, policies see [here](http://docs.aws.amazon.com/IAM/la
 
 This second scenario is even more powerful. Auth0 can interact with __AWS STS__ directly, and obtain an __AWS token__ that can be used to call any AWS API.
 
-This works with any supported [Identity Provider](identityproviders) in Auth0:
+This works with any supported [Identity Provider](/identityproviders) in Auth0:
 
 <img src="https://docs.google.com/drawings/d/1fNzgOGyONXBnj2Oe197N2ZdLNNs6W5gfQWyMHNNQEc4/pub?w=960&amp;h=720"/>
 

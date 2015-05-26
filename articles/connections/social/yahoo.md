@@ -9,7 +9,7 @@ To configure a Yahoo! connection you will need to register Auth0 on the [Yahoo! 
 ##1. Add a new Project
 Log in to [Yahoo! Developer Network portal](https://developer.yahoo.com/) and click on __Create an App__:
 
-![](/media/articles/yahoo-clientid/yahoo-register-1.png)
+![](/media/articles/connections/social/yahoo/yahoo-register-1.png)
 
 ---
 
@@ -21,7 +21,7 @@ Complete the form. For __Access Scopes__ select "This app requires access to pri
 
 Also make sure to select at least one Yahoo API:
 
-![](/media/articles/yahoo-clientid/yahoo-register-3.png)
+![](/media/articles/connections/social/yahoo/yahoo-register-3.png)
 
 ---
 
@@ -29,4 +29,4 @@ Also make sure to select at least one Yahoo API:
 
 Once the project is created, enter your new `Consumer Key` a  nd `Consumer Secret` into the Yahoo! connection settings in Auth0.
 
-![](/media/articles/yahoo-clientid/yahoo-register-2.png)
+![](/media/articles/connections/social/yahoo/yahoo-register-2.png)

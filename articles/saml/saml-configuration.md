@@ -15,7 +15,7 @@ Some Applications, such as Salesforce, Box, Workday, can be configured to allow 
 
 Users of the application will be redirected to Auth0 to log in, and Auth0 can authenticate them using any backend authentication connection, such as an LDAP directory, a database, or even other SAML IDPs or Social Providers.  Once the user is authenticated, Auth0 will return a SAML assertion to the application indicating that the user has been successfully authenticated.
 
-![](/media/articles/saml-configuration/saml-case2.png)
+![](/media/articles/saml/saml-configuration/saml-case2.png)
 
 ### SAML Service Provider
 
@@ -29,7 +29,7 @@ In this situation, Auth0 will receive an authentication request from the applica
 
 Auth0 can also serve as an authentication hub between applications making a SAML request and backend SAML Identity Providers.  In this case, Auth0 would serve as a SAML Identity Provider to the applications, and it would also serve as a SAML Service Provider to backend SAML Identity Providers.  This use case is advantageous when applications need to support multiple backend Identity Providers.
 
-![](/media/articles/saml-configuration/saml-case3.png)  
+![](/media/articles/saml/saml-configuration/saml-case3.png)  
 
 ## Configuring Auth0 as a Service Provider
 

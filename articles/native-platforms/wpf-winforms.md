@@ -4,7 +4,7 @@ title: Using Auth0 with WPF or Winforms
 
 # Using Auth0 with WPF or Winforms
 
-This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
+This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 ## Tutorial
 
@@ -25,7 +25,7 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using [Auth0 Lock](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using [Auth0 Lock](/login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 
@@ -51,7 +51,7 @@ var user = await auth0.LoginAsync(this);
 */
 ```
 
-![](/media/articles/wpf-winforms-tutorial/wpf-winforms-step1.png)
+![](/media/articles/tutorials/wpf-winforms/wpf-winforms-step1.png)
 
 > For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
 
@@ -80,7 +80,7 @@ The `Auth0User` has the following properties:
 
 * `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
-* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](/link-accounts).
 
 ## Download the samples
 

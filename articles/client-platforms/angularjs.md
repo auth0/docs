@@ -89,7 +89,7 @@ function LoginCtrl($scope, auth, store, $location) {
 
 @@browser@@
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
 ### 4. Adding a logout button
 
@@ -211,5 +211,3 @@ __Note__: If you are using ui-router, you can follow [this guide](https://github
 #### Additional info
 
 To get Additional info on how to use this SDK, you [should check this out](https://github.com/auth0/auth0-angular/blob/master/README.md)
-
-

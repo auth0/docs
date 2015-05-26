@@ -2,10 +2,10 @@
 
 **The user is logged in. That means that we can get the [user profile](/user-profile).**
 
-If we're using [Lock](https://github.com/auth0/Lock) or [Auth0.js](https://github.com/auth0/Auth0.js) from the client side, we'll get the profile in the callback after the user is logged in. 
+If we're using [Lock](https://github.com/auth0/Lock) or [Auth0.js](https://github.com/auth0/Auth0.js) from the client side, we'll get the profile in the callback after the user is logged in.
 If we're using any SDK from the server side, we probably can access the profile from either the request or the session.
 
-The profile will look as follows: 
+The profile will look as follows:
 
 ````json
 {
@@ -31,13 +31,13 @@ The profile will look as follows:
 }
 ```
 
-As you can see, **there's an array called `identities`**. In there, we'll get **the `accessToken`** of the different Identity Providers the user has used to log in. 
+As you can see, **there's an array called `identities`**. In there, we'll get **the `accessToken`** of the different Identity Providers the user has used to log in.
 
 > Most of the times, there's going to be just one, but if you've used [account linking feature](/link-accounts) there might be more than one.
 
-The `accessToken` we get here will have access to call all the APIs we've specified we need in Auth0 dashboard. 
+The `accessToken` we get here will have access to call all the APIs we've specified we need in Auth0 dashboard.
 
-> You can read [this article](adding-scopes-for-an-external-idp) If you need to add more scopes/permissions to call other APIs. 
+> You can read [this article](/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp) If you need to add more scopes/permissions to call other APIs. 
 
 Let's just use the `accessToken` then! For example, if we're using lock we can do as follows:
 

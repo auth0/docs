@@ -4,11 +4,11 @@ connection: Generic OAuth2 Provider
 
 # Adding a generic OAuth2 Authorization Server to Auth0
 
-The most common [identity providers](identityproviders) are readily available on Auth0's dashboard. However, you can add any __OAuth2 Authorization Server__ to Auth0 as an identity provider.
+The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any __OAuth2 Authorization Server__ to Auth0 as an identity provider.
 
-> Auth0 implements the standard __[Authorization Code Grant flow](protocols#1)__.
+> Auth0 implements the standard __[Authorization Code Grant flow](/protocols#1)__.
 
-To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API](api#!#post--api-connections)__. The example below, creates a new __Google__ custom connection:
+To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API](/api#!#post--api-connections)__. The example below, creates a new __Google__ custom connection:
 
 
 ```
@@ -89,7 +89,7 @@ Notice that you can manipulate the profile returned from the provider to filter/
 
 ##Using your new connection
 
-You can use any of the Auth0 standard mechanisms to login a user with the new connection (e.g. direct links, [Auth0 Lock](lock), [auth0.js](auth0js), etc.).
+You can use any of the Auth0 standard mechanisms to login a user with the new connection (e.g. direct links, [Auth0 Lock](/lock), [auth0.js](/auth0js), etc.).
 
 A direct link would look like:
 
@@ -98,7 +98,7 @@ A direct link would look like:
 
 ##Other resources
 
-* [Custom OAuth2/OAuth1 Connections samples](oauth2-examples)
-* [Identity Providers in Auth0](identityproviders)
-* [Protocols](protocols)
-* [Custom OAuth1 Connections](oauth1)
+* [Custom OAuth2/OAuth1 Connections samples](/oauth2-examples)
+* [Identity Providers in Auth0](/identityproviders)
+* [Protocols](/protocols)
+* [Custom OAuth1 Connections](/oauth1)

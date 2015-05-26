@@ -64,7 +64,7 @@ lock.$auth0.getSSOData(function(err, data) {
 
 > If not using lock, you can use auth0.js for the `getSSOData` and `signin` API
 
-If the single sign on happens against app3.com (a regular web app), then you have to redirect to `app3.com/sso?targetUrl=/foo/bar`. Read more about this on [Single Sign On with Regular Web Apps](/regular-web-apps-sso).
+If the single sign on happens against app3.com (a regular web app), then you have to redirect to `app3.com/sso?targetUrl=/foo/bar`. Read more about this on [Single Sign On with Regular Web Apps](/sso/regular-web-apps-sso).
 
 
 ## Single Logout

@@ -153,7 +153,7 @@ The `options` object returned in the `connection` will be different for each str
 		thumbprints: []
 	}
 
-> To obtain `client_id` and `client_secret` for Office 365 connections, see [here](o365-clientid).
+> To obtain `client_id` and `client_secret` for Office 365 connections, see [here](/o365-clientid).
 
 ######Google OAuth2
 
@@ -222,7 +222,7 @@ The `options` object returned in the `connection` will be different for each str
 		scope: []
 	}
 
-> To obtain `client_id` and `client_secret` for Microsoft Accounts, see [here](ms-account-clientid).
+> To obtain `client_id` and `client_secret` for Microsoft Accounts, see [here](/ms-account-clientid).
 
 ####Get a specific Connection
 

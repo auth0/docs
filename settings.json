@@ -126,13 +126,15 @@
           { "title": "Overview", "url":"/overview"},
           { "title": "Applications", "url":"/applications"},
           { "title": "Rules", "url":"/rules"},
-          { "title": "Emails", "url":"/email"}
+          { "title": "Emails", "url":"/email"},
+          { "title": "Identity Providers", "url": "/identityproviders" }
         ]
       },
       {
         "title": "Help Topics",
         "icon": "icon-question-sign",
         "items": [
+          { "title": "Tutorials", "url": "/tutorials" },
           { "title": "Scenarios", "url":"/scenarios"},
           { "title": "User Profile", "url":"/user-profile"},
           { "title": "Web Apps vs. Web APIs", "url": "/apps-apis" },
@@ -144,10 +146,11 @@
           { "title": "Active Directory", "url": "/ad" },
           { "title": "Database Connections", "url": "/mysql-connection-tutorial" },
           { "title": "Passwordless Connections", "url": "/passwordless" },
+
+
           { "title": "Protocols", "url":"/protocols"},
           { "title": "Sequence Diagrams", "url":"/sequence-diagrams"},
           { "title": "Refresh token", "url":"/refresh-token"},
-          { "title": "Identity Providers", "url": "/identityproviders" },
           { "title": "SAML", "url":"/saml-configuration"},
           { "title": "Link Accounts", "url": "/link-accounts" },
           { "title": "Custom Signup", "url": "/custom-signup" },

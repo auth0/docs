@@ -16,7 +16,7 @@ Add a **New SAML App**
 
 Take note of the **SAML Endpoints** (HTTP and SLO)
 
-![](/media/articles/onelogin/onelogin-3.png)
+![](/media/articles/saml/identity-providers/onelogin/onelogin-3.png)
 
 Download the X.509 certificate (onelogin.pem)
 

@@ -56,7 +56,7 @@ Click on **Save** and close the next dialog. You will get asked which applicatio
 
 If you have a user on Okta you can now click on **Try** on your Auth0 dashboard and you should be redirected to Okta:
 
-![](/media/articles/okta/okta-8.png)
+![](/media/articles/saml/identity-providers/okta/okta-8.png)
 
 > **Note**: the **Try** button only works for users logged in to Auth0 dashboard. You can't send this to an anonymous user (e.g. a customer). If you don't have a Okta user, read the following section to configure IdP Initiated SignOn so the customer can try on their portal.
 

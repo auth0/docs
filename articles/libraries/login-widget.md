@@ -1,4 +1,4 @@
-^^warning __WARNING:__ This version of the login widget has been deprecated. <br> Please use the [new version](/docs/lock) instead.
+^^warning __WARNING:__ This version of the login widget has been deprecated. <br> Please use the [new version](/lock) instead.
 
 # Auth0 Login Widget
 
@@ -145,7 +145,7 @@ You can send extra parameters when starting a login by adding query strings in t
 
 Common parameters are:
 
-* `response_type`: this could be `code` or `token`. Usually `code` is used in web apps (server-side) and `token` on mobile, native or single page apps. See [server side protocol](oauth-web-protocol) and [mobile, single page apps and native apps](oauth-implicit-protocol) sections for more information about one or the other.
+* `response_type`: this could be `code` or `token`. Usually `code` is used in web apps (server-side) and `token` on mobile, native or single page apps. See [server side protocol](/oauth-web-protocol) and [mobile, single page apps and native apps](/oauth-implicit-protocol) sections for more information about one or the other.
 * `state`: arbitrary state value that will be mantained across redirects (useful for XSRF)
 * `scope`: there are various possible values for scope today:
     * `scope=openid`: it will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.

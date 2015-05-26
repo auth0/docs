@@ -153,143 +153,143 @@
   },
   {
     "from": "/ad",
-    "to": "/connections/active-directory"
+    "to": "/connections/enterprise/active-directory"
   },
   {
     "from": "/adfs",
-    "to": "/connections/adfs"
+    "to": "/connections/enterprise/adfs"
   },
   {
     "from": "/37signals-clientid",
-    "to": "/connections/37signals"
+    "to": "/connections/social/37signals"
   },
   {
     "from": "/amazon-clientid",
-    "to": "/connections/amazon"
+    "to": "/connections/social/amazon"
   },
   {
     "from": "/aol-clientid",
-    "to": "/connections/aol"
+    "to": "/connections/social/aol"
   },
   {
     "from": "/dwolla-clientid",
-    "to": "/connections/dwolla"
+    "to": "/connections/social/dwolla"
   },
   {
     "from": "/baidu-clientid",
-    "to": "/connections/baidu"
+    "to": "/connections/social/baidu"
   },
   {
     "from": "/box-clientid",
-    "to": "/connections/box"
+    "to": "/connections/social/box"
   },
   {
     "from": "/evernote-clientid",
-    "to": "/connections/evernote"
+    "to": "/connections/social/evernote"
   },
   {
     "from": "/exact-clientid",
-    "to": "/connections/exact"
+    "to": "/connections/social/exact"
   },
   {
     "from": "/facebook-clientid",
-    "to": "/connections/facebook"
+    "to": "/connections/social/facebook"
   },
   {
     "from": "/fitbit-clientid",
-    "to": "/connections/fitbit"
+    "to": "/connections/social/fitbit"
   },
   {
     "from": "/github-clientid",
-    "to": "/connections/github"
+    "to": "/connections/social/github"
   },
   {
     "from": "/goodreads-clientid",
-    "to": "/connections/goodreads"
+    "to": "/connections/social/goodreads"
   },
   {
     "from": "/goog-clientid",
-    "to": "/connections/google"
+    "to": "/connections/social/google"
   },
   {
     "from": "/miicard-clientid",
-    "to": "/connections/miicard"
+    "to": "/connections/social/miicard"
   },
   {
     "from": "/ms-account-clientid",
-    "to": "/connections/microsoft-account"
+    "to": "/connections/social/microsoft-account"
   },
   {
     "from": "/o365-clientid",
-    "to": "/connections/o365-deprecated"
+    "to": "/connections/enterprise/o365-deprecated"
   },
   {
     "from": "/paypal-clientid",
-    "to": "/connections/paypal"
+    "to": "/connections/social/paypal"
   },
   {
     "from": "/planningcenter-clientid",
-    "to": "/connections/planning-center"
+    "to": "/connections/social/planning-center"
   },
   {
     "from": "/salesforce-clientid",
-    "to": "/connections/salesforce"
+    "to": "/connections/social/salesforce"
   },
   {
     "from": "/renren-clientid",
-    "to": "/connections/renren"
+    "to": "/connections/social/renren"
   },
   {
     "from": "/sharepoint-clientid",
-    "to": "/connections/sharepoint-online"
+    "to": "/connections/enterprise/sharepoint-online"
   },
   {
     "from": "/shopify-clientid",
-    "to": "/connections/shopify"
+    "to": "/connections/social/shopify"
   },
   {
     "from": "/soundcloud-clientid",
-    "to": "/connections/soundcloud"
+    "to": "/connections/social/soundcloud"
   },
   {
     "from": "/thecity-clientid",
-    "to": "/connections/thecity"
+    "to": "/connections/social/thecity"
   },
   {
     "from": "/twitter-clientid",
-    "to": "/connections/twitter"
+    "to": "/connections/social/twitter"
   },
   {
     "from": "/vkontakte-clientid",
-    "to": "/connections/vkontakte"
+    "to": "/connections/social/vkontakte"
   },
   {
     "from": "/waad-clientid",
-    "to": "/connections/azure-active-directory"
+    "to": "/connections/enterprise/azure-active-directory"
   },
   {
     "from": "/weibo-clientid",
-    "to": "/connections/weibo"
+    "to": "/connections/social/weibo"
   },
   {
     "from": "/wordpress-clientid",
-    "to": "/connections/wordpress"
+    "to": "/connections/social/wordpress"
   },
   {
     "from": "/yahoo-clientid",
-    "to": "/connections/yahoo"
+    "to": "/connections/social/yahoo"
   },
   {
     "from": "/yandex-clientid",
-    "to": "/connections/yandex"
+    "to": "/connections/social/yandex"
   },
   {
     "from": "/instagram-clientid",
-    "to": "/connections/instagram"
+    "to": "/connections/social/instagram"
   },
   {
     "from": "/linkedin-clientid",
-    "to": "/connections/linkedin"
+    "to": "/connections/social/linkedin"
   },
   {
     "from": "/checksum",
@@ -297,35 +297,35 @@
   },
   {
     "from": "/android-tutorial",
-    "to": "/tutorials/android"
+    "to": "/native-platforms/android"
   },
   {
     "from": "/angular-tutorial",
-    "to": "/tutorials/angularjs"
+    "to": "/client-platforms/angularjs"
   },
   {
     "from": "/aspnetwebapi-owin-tutorial",
-    "to": "/tutorials/aspnet-web-api-owin"
+    "to": "/server-apis/webapi-owin"
   },
   {
     "from": "/aspnetwebapi-tutorial",
-    "to": "/tutorials/aspnet-web-api"
+    "to": "/server-apis/aspnet-webapi"
   },
   {
     "from": "/ember-tutorial",
-    "to": "/tutorials/emberjs"
+    "to": "/client-platforms/emberjs"
   },
   {
     "from": "/ios-tutorial",
-    "to": "/tutorials/ios"
+    "to": "/native-platforms/ios-objc"
   },
   {
     "from": "/java-tutorial",
-    "to": "/tutorials/java"
+    "to": "/server-platforms/java"
   },
   {
     "from": "/mvc3-tutorial",
-    "to": "/tutorials/aspnet-mvc3"
+    "to": "/server-platforms/aspnet"
   },
   {
     "from": "/mvc-tutorial-enterprise",
@@ -333,43 +333,43 @@
   },
   {
     "from": "/phonegap-plugin-tutorial",
-    "to": "/tutorials/cordova"
+    "to": "/native-platforms/cordova"
   },
   {
     "from": "/singlepageapp-tutorial",
-    "to": "/tutorials/single-page-app"
+    "to": "/client-platforms/vinillajs"
   },
   {
     "from": "/wcf-tutorial",
-    "to": "/tutorials/wcf-service"
+    "to": "/server-apis/wcf-service"
   },
   {
     "from": "/win8-cs-tutorial",
-    "to": "/tutorials/windows-store-app-csharp"
+    "to": "/native-platforms/windows-store-csharp"
   },
   {
     "from": "/windowsstore-auth0-tutorial",
-    "to": "/tutorials/windows-store-app-csharp"
+    "to": "/native-platforms/windows-store-csharp"
   },
   {
     "from": "/windowsstore-js-auth0-tutorial",
-    "to": "/tutorials/windows-store-app-javascript"
+    "to": "/native-platforms/windows-store-javascript"
   },
   {
     "from": "/win8-tutorial",
-    "to": "/tutorials/windows-store-app-javascript"
+    "to": "/native-platforms/windows-store-javascript"
   },
   {
     "from": "/windowsphone-tutorial",
-    "to": "/tutorials/windows-phone"
+    "to": "/native-platforms/windowsphone"
   },
   {
     "from": "/wpf-winforms-tutorial",
-    "to": "/tutorials/wpf-winforms"
+    "to": "/native-platforms/wpf-winforms"
   },
   {
     "from": "/xamarin-tutorial",
-    "to": "/tutorials/xamarin"
+    "to": "/native-platforms/xamarin"
   },
   {
     "from": "/auth0js",
@@ -393,7 +393,7 @@
   },
   {
     "from": "/webapi",
-    "to": "/tutorials/aspnet-web-api"
+    "to": "/server-apis/aspnet-webapi"
   },
   {
     "from": "/okta",

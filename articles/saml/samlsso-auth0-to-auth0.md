@@ -133,7 +133,7 @@ In general, you can access the metadata for a SAML connection in Auth0 here: `ht
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 account 1 (service provider side of the federation. It will look something like the following with your account name in place of the 'xxxxx':
 
-![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-5.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-5.png)
 
 You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://@@account.tenant@@.auth0.com/login/callback?connection=@@connectionName@@__.
 
@@ -154,7 +154,7 @@ In this section you will go back and add some information about the Service Prov
 3. Locate the box with the **"SAML2 WEB APP"** label and click on the circle toggle to turn it green.
 
 
-![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-6.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-6.png)
 
 4. Next, click on the **"SAML2 WEB APP"** box itself to access the **"Addon: SAML2 Web App"** popup.  Make sure you are in the **Settings**" tab.
 
@@ -174,7 +174,7 @@ Next, replace the original value (urn:foo) with the **Entity ID** value you save
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen
 
-![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-7.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-7.png)
 
 
 # 5. Test Identity Provider
@@ -193,7 +193,7 @@ Check the decoded SAML response and locate (about half-way down) the **"<saml:Au
 
 Click on **"Close this window"** at the bottom of the screen.
 
-![](/media/articles/samlsso-auth0-to-auth0/saml-auth0-8.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-8.png)
 
 # 6. Test the connection from Service Provider to Identity Provider
 

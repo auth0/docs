@@ -4,7 +4,7 @@ title: Using Auth0 with Xamarin
 
 # Using Auth0 with Xamarin
 
-This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or Android). `Xamarin.Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](identityproviders), via the OpenId Connect protocol (built on top of OAuth2). The library is cross-platform, so once you learn it on iOS, you're all set on Android.
+This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or Android). `Xamarin.Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders), via the OpenId Connect protocol (built on top of OAuth2). The library is cross-platform, so once you learn it on iOS, you're all set on Android.
 
 > We have a Objective-C Binding Library for our Lock implementation in iOS, you can check it out in our Github [repo](https://github.com/auth0/Lock.Xamarin)
 
@@ -31,7 +31,7 @@ For more information, please visit the <a target="_blank" href="http://docs.xama
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using the [Auth0 Login Widget](login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using the [Auth0 Login Widget](/login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 
@@ -58,7 +58,7 @@ var user = await auth0.LoginAsync(this);
 
 > `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 
-![](/media/articles/xamarin-tutorial/xamarin.auth0client.png)
+![](/media/articles/tutorials/xamarin/xamarin.auth0client.png)
 
 #### Option 2: Authentication with your own UI
 
@@ -85,7 +85,7 @@ The `Auth0User` has the following properties:
 
 * `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
-* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](link-accounts).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](/link-accounts).
 
 ## Download the samples
 

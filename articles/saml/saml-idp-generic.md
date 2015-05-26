@@ -40,7 +40,7 @@ In this section you will configure Auth0 to serve as an Identity Provider.  You 
 
 8. In the expanded window, scroll down to the **"CERTIFICATES"** section and click on the **"DOWNLOAD CERTIFICATES"** button.  In the popup which appears, select "PEM" to select a PEM-formatted certificate.  The certificate will be downloaded to a file called "@@account.tenant@@.pem".  Save this file as you will need to upload this file when configuring the Service Provider.
 
-![](/media/articles/saml-idp-generic/saml-idp-generic1.png)
+![](/media/articles/saml/saml-idp-generic/saml-idp-generic1.png)
 
 
 9. Scroll down further to the **"ENDPOINTS"** section and click on the blue **"SAML"** tab within that section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as you will need to provide it to the Service Provider.
