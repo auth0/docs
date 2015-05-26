@@ -185,7 +185,7 @@ A failure response will contain error and error_description fields.
 
 ## Validating tokens
 
-OAuth access tokens can be validated by calling the [`/userinfo` API endpoint](https://auth0.com/docs/auth-api#!#get--userinfo),
+OAuth access tokens can be validated by calling the [`/userinfo` API endpoint](/auth-api#!#get--userinfo),
 which returns a JSON object with the full user profile.
 If the access token is invalid or has expired, this endpoint will return a 401 Unauthorized response.
 
@@ -197,7 +197,7 @@ the signature can be verified **server-side** using the issuer's secret.
 * If it was signed with asymmetric encryption (RSA SHA256),
 the signature can be verified using the issuer's public key.
 
-Another way of validating an `id_token` is by calling the [`/tokeninfo` API endpoint](https://auth0.com/docs/auth-api#!#post--tokeninfo),
+Another way of validating an `id_token` is by calling the [`/tokeninfo` API endpoint](/auth-api#!#post--tokeninfo),
 which returns a JSON object with the full user profile.
 If the JWT has been tampered with or has expired, this endpoint will return a 401 Unauthorized response.
 

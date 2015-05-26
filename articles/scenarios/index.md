@@ -8,25 +8,25 @@
 * [SSO](/sso/single-sign-on)
 * [Home Realm Discovery](hrd)
 
-- - -
+---
 
 # Advanced Scenarios
 
-* [Invite-only users](invite-only)
+* [Invite-only users](/invite-only)
 * [Multi-tenant SaaS applications with Azure AD](/scenarios/multi-tenant-saas-azure-ad)
 
-- - -
+---
 
 # API integrations
 
-* [AWS](aws)
+* [AWS](/integrations/aws)
 * [Ionic and Firebase](/scenarios/ionic-and-firebase)
 * [Amazon Cognito](/scenarios/amazon-cognito)
 * SAP Netweaver Gateway
 * Microsoft Azure Mobile Services
 * Microsoft Azure Service Bus
 
-- - -
+---
 
 # Integration scenarios
 
@@ -39,13 +39,13 @@
 * [Unbounce](/scenarios/unbounce)
 * [Zendesk](/scenarios/zendesk-sso)
 
-- - -
+---
 
 # Internet of Things
 
 * [MQTT](/scenarios/mqtt)
 * [Tessel](/scenarios/tessel)
 
-- - -
+---
 
 > Using Auth0 in other ways? [Let us know!](mailto://support@auth0.com?Subject=I'm building something really cool)

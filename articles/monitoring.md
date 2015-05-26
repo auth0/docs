@@ -6,7 +6,7 @@ If you are using the public cloud version of Auth0 we recommend you subscribe to
 
 You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
 
-	https://@@account.namespace@@/test 
+	https://@@account.namespace@@/test
 
 This should return a Json object with a single property:
 
@@ -24,13 +24,13 @@ returns a simple text:
 
 ```
 200
-content-type: text/plain 
+content-type: text/plain
 OK
 ```
 
 Each of these tests verifies correct functioning of various components of the server, memory consumption, I/O operations, database, etc.
 
-If you extended Auth0 through [rules](/rules) or [a custom db connection](mysql-connection-tutorial), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimick what a user would do (e.g. follow redirects, input username/password on a form, etc.).
+If you extended Auth0 through [rules](/rules) or [a custom db connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimick what a user would do (e.g. follow redirects, input username/password on a form, etc.).
 
 ```
 POST https://@@account.namespace@@/oauth/ro
@@ -57,7 +57,7 @@ HTTP 200
 }
 ```
 
-Many tools exist for monitoring using this approach: [New Relic](http://newrelic.com), [Pingdom](http://pingdom.com), etc. 
+Many tools exist for monitoring using this approach: [New Relic](http://newrelic.com), [Pingdom](http://pingdom.com), etc.
 
 ---
 
@@ -105,7 +105,7 @@ Individual nodes that are not responding, or timeout can be __removed from the l
 
 ### Configuring SCOM
 
-Auth0 can be monitored as a standard web application on System Center Operations Manager (or any other similar tool that supports synthetic transactions). 
+Auth0 can be monitored as a standard web application on System Center Operations Manager (or any other similar tool that supports synthetic transactions).
 
 We recommend adding probes in SCOM for all the endpoints describe before, including a login synthetic transaction.
 
@@ -134,4 +134,3 @@ You can monitor System Center activity throught the monitoring tab as shown bell
 ![ss-2014-11-25T17-22-10.png](/media/articles/monitoring/ss-2014-11-25T17-22-10.png)
 
 > If any of these alarms are triggered, contact [Auth0 support](mailto://support@auth0.com) immediately.
-

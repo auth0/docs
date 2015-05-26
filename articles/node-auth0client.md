@@ -31,7 +31,7 @@ Use this to retrieve all connections defined in your Auth0 account.
 		//.....
 	});
 
-If successful, ``connections`` will be an array of connection objects. The contents of each will very depending on the type defined (e.g. ADFS, Office 365, Google Apps, etc). See the [API Reference](api-reference) for a detailed description of each of these.
+If successful, ``connections`` will be an array of connection objects. The contents of each will very depending on the type defined (e.g. ADFS, Office 365, Google Apps, etc). See the [API Reference](/api/v1/reference) for a detailed description of each of these.
 
 ### Getting a specific Connection
 Returns a ``connection`` object by name.
@@ -121,7 +121,7 @@ The same than ```getUsers``` but this method returns users for all social connec
 
 ## Authentication
 
-This library is useful to consume Auth0's REST API. To authenticate users you can use the [passport strategy](https://github.com/auth0/passport-auth0). See the [Node.js Tutorial](/nodejs-tutorial) for an end to end walkthrough. 
+This library is useful to consume Auth0's REST API. To authenticate users you can use the [passport strategy](https://github.com/auth0/passport-auth0). See the [Node.js Tutorial](/nodejs-tutorial) for an end to end walkthrough.
 
 ## End to end sample
 

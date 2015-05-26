@@ -5,7 +5,7 @@ connection: Goodreads
 # Obtaining a Consumer and Secret Keys for Goodreads
 
 ##1. Log in into Goodreads's developers site
-Log in into [Goodreads's Developer site](https://www.goodreads.com/api), select __developer key__:
+Log in into [Goodreads's Developer site](https://www.goodreads.com/api/v1), select __developer key__:
 
 ![](/media/articles/connections/social/goodreads/goodreads-register-1.png)
 

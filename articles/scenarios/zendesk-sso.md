@@ -18,7 +18,7 @@ Take note of the **Shared secret**, which will be used in the following step.
 ## 2. Implement a rule to create a JWT for Zendesk
 
 We want to create a JWT with a user's information after login that Zendesk can understand.
-This can be achieved by [using a rule](https://auth0.com/docs/rules).
+This can be achieved by [using a rule](/rules).
 In this example the Zendesk **Shared secret** is being stored as an encrypted key-value pair, which can be accessed with `configuration.ZENDESK_JWT_SECRET` in the rule's code.
 
 ```js
@@ -63,7 +63,7 @@ function (user, context, callback) {
 ## 3. Redirect users to the URL returned by Zendesk
 
 The rule returned in the previous step will return a user property named `zendesk_jwt_url`, which will allow your user to log in.
-If using [Lock](https://auth0.com/docs/lock), for example:
+If using [Lock](/lock), for example:
 
 ```js
 lock.show(function (err, profile, id_token) {

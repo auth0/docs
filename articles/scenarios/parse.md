@@ -6,7 +6,7 @@ Most offer fairly straightforward user management capabilities, with objects in 
 
 While advanced MBaaS, like __Parse__, do not offer this out-of-the-box, they have built extensibility points in their platforms to allow integration with systems offering more elaborate authentication.
 
-Auth0 is also designed with great extensibility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](https://auth0.com/docs/identityproviders).
+Auth0 is also designed with great extensibility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](/identityproviders).
 
 ##How it works?
 

@@ -1,7 +1,7 @@
 ---
 title: Using Passwordless SMS & Email Authentication with Auth0
 connection: SMS & Email
-url: /connections/passwordless
+url: /connections/connections/passwordless
 ---
 
 # Passwordless Connections
@@ -31,7 +31,7 @@ You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-ba
 Enter the __Twilio Account SID__ and __Auth Token__.
 Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password.
 
-![](/media/articles/connections/passwordless/index/Cz-QfQvjm6.png)
+![](/media/articles/connections/connections/passwordless/index/Cz-QfQvjm6.png)
 
 ### How to use it
 
@@ -49,7 +49,7 @@ Content-Type: 'application/json'
 }
 ```
 
-> Use [this endpoint](/api#authentication) to obtain the __{Auth0 API Token}__.
+> Use [this endpoint](/api/v1#authentication) to obtain the __{Auth0 API Token}__.
 
 The key parameters are `connection` (that must be __sms__ for this connection) and the `phone_number`.
 

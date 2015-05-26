@@ -8,7 +8,7 @@ The most common [identity providers](/identityproviders) are readily available o
 
 > Auth0 implements the standard __[Authorization Code Grant flow](/protocols#1)__.
 
-To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API](/api#!#post--api-connections)__. The example below, creates a new __Google__ custom connection:
+To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API](/api/v1#!#post--api-connections)__. The example below, creates a new __Google__ custom connection:
 
 
 ```

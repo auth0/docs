@@ -292,4 +292,4 @@ Once the user has gone through the whole flow he'll be able to access the member
 
 ![](/media/articles/invite-only/invite-only-profile.png)
 
-This scenario covered how to implement an invite-only flow by using Auth0 API to completely customize the signup process and the email flow. For more information about the API you can use the [API explorer](/api) and  [API v2 explorer](/apiv2) to try the different endpoints.
+This scenario covered how to implement an invite-only flow by using Auth0 API to completely customize the signup process and the email flow. For more information about the API you can use the [API explorer](/api/v1) and  [API v2 explorer](/api/v2) to try the different endpoints.

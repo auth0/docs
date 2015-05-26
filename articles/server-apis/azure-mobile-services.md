@@ -9,7 +9,7 @@ lodash: true
 
 #### 1. Create a client for the application
 
-WAMS endpoints can be used from anywhere: [Android](https://auth0.com/docs/android-tutorial), [iOS](https://auth0.com/docs/ios-tutorial), Windows 8 [C#](https://auth0.com/docs/win8-cs-tutorial) or [JavaScript](https://auth0.com/docs/win8-tutorial) and [Windows Phone](https://auth0.com/docs/windowsphone-tutorial). You can use any of these tutorials for configuring your app that will interact with WAMS.
+WAMS endpoints can be used from anywhere: [Android](/android-tutorial), [iOS](/ios-tutorial), Windows 8 [C#](/win8-cs-tutorial) or [JavaScript](/win8-tutorial) and [Windows Phone](/windowsphone-tutorial). You can use any of these tutorials for configuring your app that will interact with WAMS.
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 

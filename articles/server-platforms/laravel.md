@@ -103,7 +103,7 @@ Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
-You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](https://auth0.com/docs/lock), by adding the following javascript into a Laravel view or layout
+You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
 ```html
 

@@ -2,7 +2,7 @@
 
 **Amazon Cognito** is a new backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
 
-In this document, I’ll explain how you can integrate your mobile app with two solutions: Auth0 to get authentication with either [Social Providers](https://auth0.com/docs/identityproviders#2) (Facebook, Twitter, etc.), [Enterprise providers](https://auth0.com/docs/identityproviders#1) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code
+In this document, I’ll explain how you can integrate your mobile app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#2) (Facebook, Twitter, etc.), [Enterprise providers](/identityproviders#1) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code
 
 ## Configuring Amazon Web Services
 ### Create a new OpenID Connect Provider
@@ -26,7 +26,7 @@ Finally, grab the ARN of the role that was automatically created in the previous
 
 # Configuring Auth0
 ### Configure your application
-Amazon will use the public signing key from the OpenID Provider Metadata (https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token. 
+Amazon will use the public signing key from the OpenID Provider Metadata (https://subscription.auth0.com/.well-known/jwks.json) to validate the signature of the JSON Web Token.
 
 By default Auth0 will use the HS256 signature algorithm which is not supported in this scenario (this will result in "Invalid login token" errors). Go to your application in the dashboard, press "Show Advanced Settings" and change the algorithm to RS256:
 
@@ -46,7 +46,7 @@ pod "SimpleKeychain", "~> 0.2"
 pod 'AWSCognitoSync', "~> 1.0"
 ```
 ### Logging the User In
-We’ll use [Auth0 Lock for iOS](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement it in [this documentation page](https://auth0.com/docs/native-platforms/ios-swift).
+We’ll use [Auth0 Lock for iOS](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement it in [this documentation page](/native-platforms/ios-swift).
 Once the user is successfully logged in with Auth0, we’ll send their credentials to Amazon Cognito:
 
 ```swift

@@ -2,9 +2,9 @@
 
 Auth0 allows you to store data related to each user that does not come from the identity provider. This is known as metadata. There are two kinds of metadata, **user_metadata** and **app_metadata**.
 
-You can read about each of them [here](https://auth0.com/docs/apiv2Changes#8).
+You can read about each of them [here](/api/v2/changes#8).
 
-This article explains how you can work with metadata in [Rules](/rules) code. 
+This article explains how you can work with metadata in [Rules](/rules) code.
 
 Each sample rule in this article is assumed to have the following user as the `user` parameter:
 
@@ -36,7 +36,7 @@ function(user, context, callback){
   if (user.app_metadata.roles.indexOf('writer')){
     // this code would be executed for the user
   }
-  
+
   ...
 }
 ```
@@ -49,7 +49,7 @@ function(user, context, callback){
   if (user.user_metadata.preferences.color === 'black'){
     // this code would not be executed for the user
   }
-  
+
   ...
 }
 ```
@@ -65,7 +65,7 @@ function(user, context, callback){
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = user.app_metadata.roles || [];
   user.app_metadata.roles.push('admin');
-  
+
   // persist the app_metadata update
   auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function(){
@@ -101,7 +101,7 @@ function(user, context, callback){
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   user.user_metadata.preferences.fontSize = 12;
-  
+
   // persist the user_metadata update
   auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
     .then(function(){
@@ -139,17 +139,17 @@ function(user, context, callback){
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   user.user_metadata.preferences.fontSize = 12;
-  
+
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = user.app_metadata.roles || [];
   user.app_metadata.roles.push('admin');
-  
+
   // persist the app_metadata update
   var appMetadataPromise  = auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
-  
+
   // persist the user_metadata update
   var userMetadataPromise = auth0.users.updateUserMetadata(user.user_id, user.user_metadata);
-  
+
   // using q library to wait for all promises to complete
   q.all([userMetadataPromise, appMetadataPromise])
     .then(function(){
@@ -188,7 +188,7 @@ function(user, context, callback){
   user.app_metadata = user.app_metadata || {};
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = null;
-  
+
   // persist the app_metadata update
   auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function(){
@@ -221,14 +221,14 @@ To delete the user's writer role:
 function(user, context, callback){
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.roles = user.app_metadata.roles || [];
-  
+
   var index = user.app_metadata.roles.indexOf('writer');
-  
+
   if (index !== -1){
     // update the app_metadata that will be part of the response
     user.app_metadata.roles.splice(index, 1);
   }
-  
+
   // persist the app_metadata update
   auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function(){
@@ -264,7 +264,7 @@ function(user, context, callback){
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   delete user.user_metadata.preferences.color;
-  
+
   // persist the user_metadata update
   auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
     .then(function(){
