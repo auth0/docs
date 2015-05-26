@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Android Tutorial
+tags:
+  - quickstart
 ---
 
 ## Android Tutorial

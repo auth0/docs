@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: AngularJS Tutorial
+tags:
+  - quickstart
 ---
 
 ## AngularJS Tutorial

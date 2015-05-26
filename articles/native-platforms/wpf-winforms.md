@@ -1,8 +1,10 @@
 ---
-title: Using Auth0 with WPF or Winforms
+title: WPF and Winforms Tutorial
+tags:
+  - quickstart
 ---
 
-# Using Auth0 with WPF or Winforms
+# WPF and Winforms Tutorial
 
 This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 

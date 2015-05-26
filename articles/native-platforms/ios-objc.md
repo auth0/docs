@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: iOS Objective-C Tutorial
+tags:
+  - quickstart
 ---
 
 ## iOS Objective-C Tutorial
@@ -218,7 +221,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 [![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](https://github.com/auth0/Lock.iOS-OSX/wiki/Getting-Started:-Use-your-own-UI). 
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](https://github.com/auth0/Lock.iOS-OSX/wiki/Getting-Started:-Use-your-own-UI).
 > Or you can also try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.iOS-OSX#sms) or [TouchID](https://github.com/auth0/Lock.iOS-OSX#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
@@ -239,4 +242,3 @@ After the user has logged in, we can use the `profile` object which has all the 
 ### 6. We're done
 
 You've implemented Login and Signup with Auth0 in iOS. You're awesome!
-

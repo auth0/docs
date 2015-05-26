@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Socket.io Tutorial
+tags:
+  - quickstart
 ---
 
 ## Socket.io Tutorial
@@ -14,7 +17,7 @@ In order to avoid that, you can configure Socket.io to work with JWT and particu
   <blockquote>
     <a href="https://github.com/auth0/socketio-jwt/tree/master/example" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a working sample</span>
-    </a> 
+    </a>
   </blockquote>
 </div>
 

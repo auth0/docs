@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Cordova Tutorial
+tags:
+  - quickstart
 ---
 
 ## Cordova Tutorial
@@ -34,7 +37,7 @@ lodash: true
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### 0. Setting up the callback URL in Auth0
+### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
@@ -47,7 +50,7 @@ lodash: true
 
 </div>
 
-### 1. Add `InAppBrowser` plugin
+### 2. Add `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
@@ -64,7 +67,7 @@ and then add the following configuration to the `config.xml` file:
 </feature>
 ```
 
-### 2. Follow the guide specific to the FrontEnd technology you're using
+### 3. Follow the guide specific to the FrontEnd technology you're using
 
 Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](/new/client-platforms/jquery), [AngularJS](/new/client-platforms/angularjs) and [Vanilla JS](/new/client-platforms/vanillajs).
 
@@ -72,7 +75,7 @@ Now, you can just follow the tutorial for the FrontEnd technology that you're us
 
 > **Warning**: You must use `popup` mode when configuring an application with Cordova. (All available guides currently do that by default)
 
-### 3. Sit back and relax
+### 4. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Cordova.
 

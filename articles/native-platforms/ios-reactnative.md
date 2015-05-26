@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: iOS React Native Tutorial
+tags:
+  - quickstart
 ---
 
 ## iOS React Native Tutorial
@@ -155,7 +158,7 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 
 ### 4. Add Native Module for Lock to your project
 
-Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock. 
+Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock.
 
 [![Create Class Xcode](/media/articles/native-platforms/ios-reactnative/CreateNativeModuleClass.gif)](https://auth0.com)
 
@@ -248,4 +251,3 @@ After the user has logged in, we can use the `profile` object which has all the 
 ### 6. We're done
 
 You've implemented Authentication with Auth0 in iOS & React Native. You're awesome!
-

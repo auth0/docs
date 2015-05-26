@@ -1,8 +1,11 @@
 ---
 lodash: true
+title: Ruby On Rails Web App Tutorial
+tags:
+  - quickstart
 ---
 
-## Ruby On Rails Webapp Tutorial
+## Ruby On Rails Web App Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>

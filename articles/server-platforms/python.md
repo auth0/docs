@@ -1,8 +1,11 @@
 ---
 lodash: true
+title: Python Web App Tutorial
+tags:
+  - quickstart
 ---
 
-## Python Webapp Tutorial
+## Python Web App Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>

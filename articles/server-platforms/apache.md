@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Apache Tutorial
+tags:
+  - quickstart
 ---
 
 ## Apache Tutorial

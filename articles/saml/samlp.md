@@ -1,11 +1,9 @@
 ---
 url: /samlp
----
-
----
 title: SAML
 layout: doc.nosidebar
 ---
+
 # SAML Identity Provider Configuration
 
 These are the parameters used to configure a SAML Identity Provider:

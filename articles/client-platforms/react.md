@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: React Tutorial
+tags:
+  - quickstart
 ---
 
 ## React Tutorial

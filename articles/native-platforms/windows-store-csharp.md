@@ -1,4 +1,10 @@
-# Using Auth0 with Windows App Store
+---
+title: Windows Store App in C# Tutorial
+tags:
+  - quickstart
+---
+
+# Windows Store App in C# Tutorial
 
 This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.Windows8.Cs` helps you authenticate users with any [Auth0 supported identity provider](identityproviders).
 

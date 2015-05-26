@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: NodeJS Web App Tutorial
+tags:
+  - quickstart
 ---
 
 ## NancyFX Tutorial
@@ -120,6 +123,3 @@ public class Authentication : NancyModule
 ### 7. You're done!
 
 You have configured your NancyFX Webapp to use Auth0. Congrats, you're awesome!
-
-
-

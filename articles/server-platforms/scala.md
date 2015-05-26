@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Play 2 Scala Tutorial
+tags:
+  - quickstart
 ---
 
 ## Play 2 Scala Tutorial
@@ -62,7 +65,7 @@ object Callback extends Controller {
               "accessToken" -> accessToken
             )  
       }
-        
+
       }.recover {
         case ex: IllegalStateException => Unauthorized(ex.getMessage)
       }  
@@ -87,12 +90,12 @@ object Callback extends Controller {
         idToken <- (response.json \ "id_token").asOpt[String]
         accessToken <- (response.json \ "access_token").asOpt[String]
       } yield {
-        Future.successful((idToken, accessToken)) 
+        Future.successful((idToken, accessToken))
       }).getOrElse(Future.failed[(String, String)](/new IllegalStateException("Tokens not sent")))
     }
-    
+
   }
-  
+
   def getUser(accessToken: String): Future[JsValue] = {
     val config = Auth0Config.get()
     val userResponse = WS.url(String.format("https://%s/userinfo", config.domain))(Play.current)

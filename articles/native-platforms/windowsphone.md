@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Windows Phone Tutorial
+tags:
+  - quickstart
 ---
 
 ## Windows Phone Tutorial
@@ -8,10 +11,10 @@ lodash: true
   <blockquote>
     <a href="http://localhost:3000/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
         <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -27,7 +30,7 @@ Install-Package Auth0.WindowsPhone
 ### 2. Instantiate the Auth0 client
 Provide your domain and application's **Client ID** as parameters when creating the client instance:
 ```CSharp
-private Auth0Client auth0Client = new Auth0Client("<%= account.namespace %>", "<%= account.clientId %>"); 
+private Auth0Client auth0Client = new Auth0Client("<%= account.namespace %>", "<%= account.clientId %>");
 ```
 
 ### 3. Allow users to log in

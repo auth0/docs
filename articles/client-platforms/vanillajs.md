@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Generic SPA / Vanilla JS Tutorial
+tags:
+  - quickstart
 ---
 
 ## Generic SPA / Vanilla JS Tutorial

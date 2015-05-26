@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: iOS Swift Tutorial
+tags:
+  - quickstart
 ---
 
 ## iOS Swift Tutorial
@@ -172,7 +175,7 @@ Then add Lock Facebook's Pod
 pod 'Lock-Facebook', '~> 2.0'
 ```
 
-After that, where you initialize `A0Lock`, import `LockFacebook` module 
+After that, where you initialize `A0Lock`, import `LockFacebook` module
 
 ```swift
 import LockFacebook
@@ -193,7 +196,7 @@ First add Lock Twitter's Pod
 pod 'Lock-Twitter', '~> 1.0'
 ```
 
-After that, where you initialize `A0Lock`, import `LockTwitter` module 
+After that, where you initialize `A0Lock`, import `LockTwitter` module
 
 ```swift
 import LockTwitter
@@ -227,7 +230,7 @@ self.presentViewController(controller, animated: true, completion: nil)
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](https://github.com/auth0/Lock.iOS-OSX/wiki/Getting-Started:-Use-your-own-UI). 
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](https://github.com/auth0/Lock.iOS-OSX/wiki/Getting-Started:-Use-your-own-UI).
 > Or you can also try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.iOS-OSX#sms) or [TouchID](https://github.com/auth0/Lock.iOS-OSX#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.

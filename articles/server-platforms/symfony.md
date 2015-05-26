@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Symfony Tutorial
+tags:
+  - quickstart
 ---
 
 # Symfony Tutorial

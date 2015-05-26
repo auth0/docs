@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Phonegap Tutorial
+tags:
+  - quickstart
 ---
 
 ## Phonegap tutorial

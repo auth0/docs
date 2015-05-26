@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: ASP Classic Tutorial
+tags:
+  - quickstart
 ---
 
 ## ASP Classic Tutorial

@@ -1,8 +1,11 @@
 ---
 lodash: true
+title: Go Web App Tutorial
+tags:
+  - quickstart
 ---
 
-## GoLang Webapp Tutorial
+## Go Web App Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>
@@ -64,7 +67,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
   // Getting the Code that we got from Auth0
   code := r.URL.Query().Get("code")
-  
+
   // Exchanging the code for a token
   token, err := conf.Exchange(oauth2.NoContext, code)
   if err != nil {
@@ -197,7 +200,7 @@ func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFu
 }
 ```
 
-Finally, we can use Negroni to set up this middleware for any route that needs authentication: 
+Finally, we can use Negroni to set up this middleware for any route that needs authentication:
 
 
 ````go

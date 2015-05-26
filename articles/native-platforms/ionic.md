@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: Ionic Framework Tutorial
+tags:
+  - quickstart
 ---
 
 ## Ionic Framework Tutorial

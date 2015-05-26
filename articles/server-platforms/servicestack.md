@@ -1,8 +1,10 @@
 ---
-title: Auth0 and ServiceStack
+title: ServiceStack Tutorial
+tags:
+  - quickstart
 ---
 
-# Using Auth0 with ServiceStack
+# ServiceStack Tutorial
 
 We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications. At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users.
 

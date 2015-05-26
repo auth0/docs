@@ -1,5 +1,8 @@
 ---
 lodash: true
+title: jQuery Tutorial
+tags:
+  - quickstart
 ---
 
 ## jQuery Tutorial

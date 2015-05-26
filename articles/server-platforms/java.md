@@ -1,8 +1,11 @@
 ---
 lodash: true
+title: Java Web App Tutorial
+tags:
+  - quickstart
 ---
 
-## Java Webapp Tutorial
+## Java Web App Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>
