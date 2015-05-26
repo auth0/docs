@@ -13,7 +13,7 @@ tags:
 
 First, we need to create the `default.asp` which will show the Login Widget from Auth0.
 
-````asp
+```asp
 <%= '\<%@ Language="VBScript" %\>' %>
 <%= '\<% Option Explicit %\>' %>
 <!doctype html>
@@ -49,7 +49,7 @@ It will implement the basic OAuth 2 flow:
 1. Exchanges the **code** for an **access_token**
 1. Calls the **Userinfo** endpoint to get the current logged in user profile using the access_token as credentials.
 
-````asp
+```asp
 <%= '\<%@ Language="VBScript" %\>' %>
 
 <script language="JScript" runat="server" src='//cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js'></script>

@@ -37,7 +37,7 @@ tags:
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
-````json
+```json
 "dependencies" : {
   "auth0-angular": "4.*",
   "a0-angular-storage": ">= 0.0.6",
@@ -47,7 +47,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 ### 3. Add the references to the scripts in the `index.html`
 
-````html
+```html
 <!-- Auth0 Lock -->
 <script src="lib/auth0-lock/build/auth0-lock.js"></script>
 <!-- auth0-angular -->
@@ -62,13 +62,13 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
-````bash
+```bash
 ionic plugin add org.apache.cordova.inappbrowser
 ```
 
 and then add the following configuration to the `config.xml` file:
 
-````xml
+```xml
 <feature name="InAppBrowser">
   <param name="ios-package" value="CDVInAppBrowser" />
   <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
@@ -79,7 +79,7 @@ and then add the following configuration to the `config.xml` file:
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
-````js
+```js
 // app.js
 angular.module('starter', ['ionic',
   'starter.controllers',
@@ -133,7 +133,7 @@ angular.module('starter', ['ionic',
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
 In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile, token and [refresh token](/refresh-token) into `localStorage`
 
-````js
+```js
 // LoginCtrl.js
 function LoginCtrl(store, $scope, $location, auth) {
   $scope.login = function() {
@@ -155,7 +155,7 @@ function LoginCtrl(store, $scope, $location, auth) {
 }
 ```
 
-````html
+```html
 <!-- login.tpl.html -->
 <!-- ... -->
 <input type="submit" ng-click="login()" />
@@ -168,7 +168,7 @@ function LoginCtrl(store, $scope, $location, auth) {
 
 You can just call the `signout` method of Auth0 to log the user out. You should also remove the information saved into `localStorage`:
 
-````js
+```js
 $scope.logout = function() {
   auth.signout();
   store.remove('profile');
@@ -176,14 +176,14 @@ $scope.logout = function() {
 }
 ```
 
-````html
+```html
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
 ### 8. Configuring secure calls to our API
 
 As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors. Also, as JWTs expire, we'll use the `refreshToken` to get a new JWT if the one we have is expired:
 
-````js
+```js
 // app.js
 myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
   // ...
@@ -217,11 +217,11 @@ Now, you can regularly call your API with `$http`, `$resource` or any rest clien
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
-````html
+```html
 <span>His name is {{auth.profile.nickname}}</span>
 ```
 
-````js
+```js
 // UserInfoCtrl.js
 function UserInfoCtrl($scope, auth) {
   $scope.auth = auth;
@@ -234,7 +234,7 @@ You can [click here](/user-profile) to find out all of the available properties 
 
 We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
 
-````js
+```js
 angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 .run(function($rootScope, auth, store, jwtHelper, $location) {
   // This events gets triggered on refresh or URL change
@@ -282,20 +282,20 @@ This means that the `InAppBrowser` plugin wasn't installed successfully by Cordo
 
 * Reinstall the `InAppBrowser` plugin
 
-````bash
+```bash
 ionic plugin remove org.apache.cordova.inappbrowser
 ionic plugin add org.apache.cordova.inappbrowser
 ```
 * Remove the platform and re add it
 
-````bash
+```bash
 ionic platform remove ios
 ionic platform add ios
 ```
 
 * Copy the contents from the plugin to the platform plugins
 
-````bash
+```bash
 cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/org.apache.cordova.inappbrowser/
 ```
 

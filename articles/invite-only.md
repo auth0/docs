@@ -158,7 +158,7 @@ The link in our email template will redirect to Auth0 for email verification, af
 
 Once the user entered his password we'll verify that the account hasn't been updated yet, we'll update the user's password and mark him as active (```activation_pending = false```).
 
-```csharp
+```cs
 /// <summary>
 /// GET Account/Activate?userToken=xxx
 /// </summary>
@@ -236,7 +236,7 @@ As a final step we’re also enforcing the user activation. When we configure Au
 
 In this example we’re checking if a user is active, and if that’s the case we’ll add the "Member" role to the user:
 
-```csharp
+```cs
 public partial class Startup
 {
    public void ConfigureAuth(IAppBuilder app)
@@ -275,7 +275,7 @@ public partial class Startup
 
 And now we can protect our pages which should only be accessible to users by enforcing the presence of a Member claim:
 
-```csharp
+```cs
 [Authorize(Roles = "Member")]
 public class ProfileController : Controller
 {

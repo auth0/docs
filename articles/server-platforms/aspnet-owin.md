@@ -43,7 +43,7 @@ Install-Package Auth0-ASPNET-Owin
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
-```
+```xml
 <add key="auth0:ClientId" value="@@account.clientId@@" />
 <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
 <add key="auth0:Domain" value="@@account.namespace@@" />

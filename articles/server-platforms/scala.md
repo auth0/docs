@@ -24,9 +24,9 @@ tags:
 
 Add the following keys to your `application.conf`
 
-````properties
+```properties
 # Auth0 Information
-# ~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~
 
 auth0.clientSecret="@@account.clientSecret@@"
 auth0.clientId="@@account.clientId@@"
@@ -38,12 +38,12 @@ auth0.callbackURL="http://localhost:9000/callback"
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
-````scala
+```scala
 // conf/routes
 GET     /callback                   controllers.Callback.callback(code: Option[String], state: Option[String])
 ```
 
-````scala
+```scala
 // controllers/Callback.scala
 object Callback extends Controller {
 
@@ -111,7 +111,7 @@ object Callback extends Controller {
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/callback
 ```
 
@@ -125,7 +125,7 @@ http://yourUrl/callback
 
 You can access the user information from the `cache`
 
-````scala
+```scala
 // controllers/User.scala
 def index = AuthenticatedAction { request =>
   val idToken = request.session.get("idToken").get
@@ -134,7 +134,7 @@ def index = AuthenticatedAction { request =>
 }
 ```
 
-````scala
+```scala
 // views/user.html.scala
 @(profile: JsValue)
 
@@ -154,7 +154,7 @@ You have configured your Play2 Scala Webapp to use Auth0. Congrats, you're aweso
 
 You can add the following `Action` to check if the user is authenticated and redirect him to the login page if he's not:
 
-````scala
+```scala
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
   Action { request =>
     (request.session.get("idToken").flatMap { idToken =>

@@ -8,10 +8,10 @@ lodash: true
   <blockquote>
     <a href="/auth0.net/master/create-package?path=examples/webapi&filePath=examples/webapi/Api/Web.config&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
         <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -20,20 +20,20 @@ lodash: true
 ### 1. Install the WebApi.JsonWebToken package
 
 You can either run the following command or install it via **Package Manager**.
-````Powershell
+```Powershell
 Install-Package WebApi.JsonWebToken
 ```
 
 ### 2. Configure the JsonWebToken message handler
 
 Open the **WebApiConfig.cs** file located in the **App_Start** folder and add the following `using` statements:
-````CSharp
+```cs
 using Api.App_Start;
 using System.Web.Configuration;
 ```
 
 Add the following code snippet inside the `Register` method.
-````CSharp
+```cs
 var clientID = WebConfigurationManager.AppSettings["Auth0ClientID"];
 var clientSecret = WebConfigurationManager.AppSettings["Auth0ClientSecret"];
 
@@ -47,8 +47,8 @@ config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
 ### 3. Update the web.config file with your app's credentials
 Open the **web.config** file located at the solution's root.
 
-Add the following entries as children of the `<appSettings>` element. 
-````xml
+Add the following entries as children of the `<appSettings>` element.
+```xml
 <add key="Auth0ClientID" value="<%= account.clientId %>"/>
 <add key="Auth0ClientSecret" value="<%= account.clientSecret %>"/>
 ```

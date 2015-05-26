@@ -9,7 +9,7 @@ We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to i
 
 Modify your `composer.json` to add the following dependencies and run `composer update`.
 
-~~~js
+```json
 {
     "require": {
         "firebase/php-jwt": "dev-master",
@@ -17,11 +17,11 @@ Modify your `composer.json` to add the following dependencies and run `composer 
         "auth0/jwt-auth-bundle": "~1.2"
     }
 }
-~~~
+```
 
 ###2. Add the bundle to your AppKernell.php file
 
-~~~php
+```php
 
 class AppKernel extends Kernel
 {
@@ -42,18 +42,18 @@ class AppKernel extends Kernel
         return $bundles;
     }
 
-~~~
+```
 
 ###3. Configure your Auth0 app data
 
 Modify the file /app/config/config.yml
 
-~~~yml
+```yml
 jwt_auth:
     client_id:     YOURCLIENTID
     client_secret: YOURCLIENTSECRET
     secret_base64_encoded: true
-~~~
+```
 
 ###4. Setup your User and UserProvider
 
@@ -68,12 +68,12 @@ The UserProvider must implements the JWTUserProviderInterface (see /source/AppBu
 
 Then configure your UserProvider on /app/config/services.yml
 
-~~~yml
+```yml
 services:
     a0_user_provider:
         class: AppBundle\Security\A0UserProvider
         arguments: ["@jwt_auth.auth0_service"]
-~~~
+```
 
 ###5. Setup the SecurityProvider
 
@@ -83,7 +83,7 @@ Modify the file /app/config/security.yml:
 - define your secured area that want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-~~~yml
+```yml
 security:
     providers:
         a0:
@@ -100,7 +100,7 @@ security:
     access_control:
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api, roles: ROLE_OAUTH_USER }
-~~~
+```
 
 
 ## Issue Reporting

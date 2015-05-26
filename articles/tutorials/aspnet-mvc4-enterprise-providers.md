@@ -68,7 +68,7 @@ In the previous article we added the login widget to simplify the social and ent
 
 After an administrator of the domain follows the provisioning link, he will be redirected to the same callback we use for login. In this case we want to add the new connection to our list of oauth providers and render a page for the end user that the process has finished
 
-####4.a Modify the ```ExternalLoginCallback``` method in ```AccountController.cs```` as follows:
+####4.a Modify the ```ExternalLoginCallback``` method in ```AccountController.cs``` as follows:
 
     [AllowAnonymous]
     public ActionResult ExternalLoginCallback(string returnUrl, bool granted, string domain, string connection)

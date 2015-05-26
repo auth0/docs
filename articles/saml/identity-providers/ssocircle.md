@@ -115,11 +115,11 @@ This metadata needs to be given to the IDP, in this case SSOCircle, so it knows 
 
 10. Copy the entire contents of the metadata, between and including the start and end `EntityDescriptor` tags:
 
-````
+```
     "<EntityDescriptor> "...
     to ...
     "</EntityDescriptor>"
-````
+```
 
 You will paste all this into an SSOCircle configuration screen later.
 

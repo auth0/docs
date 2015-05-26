@@ -168,9 +168,9 @@ Then remove the "//" at the beginning of the line to uncomment it.
 
 Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
 
-````
+```
     "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
-````
+```
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen
 

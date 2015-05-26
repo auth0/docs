@@ -21,7 +21,7 @@ lodash: true
 
 In this example, we'll be using Flask and we'll be validating the JWT. For that, add the following dependencies to your `requirements.txt`.
 
-````text
+```text
 flask
 PyJWT
 flask-cors
@@ -31,7 +31,7 @@ flask-cors
 
 Now, you need to validate the [JWT](/jwt). For that, we'll create a custom annotation.
 
-````python
+```python
 import jwt
 import base64
 import os
@@ -93,7 +93,7 @@ def requires_auth(f):
 
 Now, you can just use this annotation in your methods
 
-````python
+```python
 # Controllers API
 
 # This doesn't need authenticatton
@@ -118,7 +118,7 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 
 If you're using Python 2.7 and you already have the `jwt` package installed, you need to do the following to get this working:
 
-````bash
+```bash
 pip uninstall jwt
 pip uninstall pyjwt
 pip install pyjwt

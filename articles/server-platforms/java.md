@@ -24,7 +24,7 @@ tags:
 
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
-````xml
+```xml
 <dependency>
   <groupId>javax.servlet</groupId>
   <artifactId>javax.servlet-api</artifactId>
@@ -42,7 +42,7 @@ Add the following dependencies to your `pom.xml` and run `mvn install`.
 
 We need to configure `auth0-servlet` to use our Auth0 credentials. For that, just modify the `web.xml`
 
-````xml
+```xml
 <context-param>
     <param-name>auth0.client_id</param-name>
     <param-value>@@account.clientId@@</param-value>
@@ -63,7 +63,7 @@ We need to configure `auth0-servlet` to use our Auth0 credentials. For that, jus
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Servlet` provided by the SDK. We have to configure it on the `web.xml`
 
-````js
+```xml
 <servlet>
     <servlet-name>RedirectCallback</servlet-name>
     <servlet-class>com.auth0.Auth0ServletCallback</servlet-class>
@@ -86,7 +86,7 @@ We need to add the handler for the Auth0 callback so that we can authenticate th
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/callback
 ```
 
@@ -102,7 +102,7 @@ http://yourUrl/callback
 
 You can access the user information from `Auth0User` by calling `Auth0User.get(request)` or you can get the information directly from the Session variable `user`
 
-````java
+```java
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException
 {
@@ -137,7 +137,7 @@ You have configured your Java Webapp to use Auth0. Congrats, you're awesome!
 
 You can add a `Filter` to check if the user is authenticated and redirect him to the login page if he's not. For that, we need to configure it in the `web.xml`
 
-````xml
+```xml
 <filter>
   <filter-name>AuthFilter</filter-name>
   <filter-class>com.auth0.Auth0Filter</filter-class>

@@ -107,9 +107,9 @@ The Identity Provider may call this any of the following
 If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the Entity ID" from Auth0.
 
 
-````
+```
     "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
-````
+```
 
 If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.
 

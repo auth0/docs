@@ -29,7 +29,7 @@ handle("/sso")
 
 Here is an example in node.js:
 
-````js
+```js
 app.get('/sso', function(req,res, next) {
   if (req.isAuthenticated()) {
     if (/^http/.test(req.query.targetUrl)) return res.send(400, "url must be relative");
@@ -57,7 +57,7 @@ handle("/callback")
 
 Here is an example in node.js:
 
-````js
+```js
 app.get('/callback',
     passport.authenticate('auth0'),
     function(req, res) {
@@ -79,7 +79,7 @@ https://YOURS.auth0.com/authorize?client_id=…&response_type=code&redirect_uri=
 
 Here is an example in node.js:
 
-````js
+```js
 app.get('/',
     // This redirects to https://YOURS.auth0.com....
     passport.authenticate('auth0', {}),

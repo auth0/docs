@@ -41,7 +41,7 @@ There are three options to do the integration:
 
 To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
-```csharp
+```cs
 using Auth0.SDK;
 
 var auth0 = new Auth0Client(
@@ -66,7 +66,7 @@ var user = await auth0.LoginAsync(this);
 
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
-```csharp
+```cs
 var user = await auth0.LoginAsync(this, "google-oauth2"); // connection name here
 ```
 
@@ -74,7 +74,7 @@ var user = await auth0.LoginAsync(this, "google-oauth2"); // connection name her
 
 #### Option 3: Authentication with specific user name and password
 
-```csharp
+```cs
 var user = await auth0.LoginAsync(
   "sql-azure-database",   	// connection name here
   "jdoe@foobar.com",      	// user name

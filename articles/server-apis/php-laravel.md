@@ -23,7 +23,7 @@ We need to add **laravel-auth0** dependency to your composer.json. As it depends
 
 Once that's done, just run the following:
 
-````bash
+```bash
 composer require auth0/login:~2.1
 ```
 
@@ -89,7 +89,7 @@ To configure the plugin, you need to publish the plugin configuration and comple
 
 To publish the example configuration file use this command
 
-````bash
+```bash
 php artisan vendor:publish
 ```
 
@@ -97,7 +97,7 @@ php artisan vendor:publish
 
 By default, Apache doesn't provide the `Authorization header` to the request, we can solve that by enabling `mod_rewrite` and adding the following rule to your `.htaccess`:
 
-````bash
+```bash
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 ```
@@ -106,7 +106,7 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 Now you can secure your REST calls like this:
 
-````php
+```php
 Route::get('/api/protected', array('middleware' => 'auth0.jwt', function() {
     return "Hello " . Auth0::jwtuser()->name;
 }));
@@ -125,7 +125,7 @@ To configure CORS, you should add the `laravel-cors` dependency. You can [check 
 
 After you've installed it, just set the following in the configuration file for `CORS`:
 
-````php
+```php
 'defaults' => array(
     'supportsCredentials' => false,
     'allowedOrigins' => array(),

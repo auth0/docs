@@ -20,7 +20,7 @@ A very good starting point is any of the samples you can download from the Azure
 Changing the samples to use Auth0 is very simple. As an example, if you followed the Windows 8 sample (C#), you will end up with an `AuthenticateAsync` method that adds one of the standard WAMS authentication mechanisms.
 
 
-```
+```cs
 private async System.Threading.Tasks.Task AuthenticateAsync()
 {
   while (user == null)

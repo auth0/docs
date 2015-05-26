@@ -56,7 +56,7 @@ Add the following routes at the begining of `app/config/routing.yml`
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/auth0/callback
 ```
 

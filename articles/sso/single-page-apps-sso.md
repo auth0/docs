@@ -10,7 +10,7 @@ Let's say we have three applications
 
 The user logs in on app1.com and tries to access app2.com. Since app2.com is a Single Page App you need to have some code like the following to do SSO. This code should be on every SPA you have (In this case App1 and App2).:
 
-````html
+```html
 <script type="text/javascript">
 // hide the page in case there is an SSO session (to avoid flickering)
 document.body.style.display = 'none';
@@ -73,7 +73,7 @@ If the user logged out from app1.com, then we want to clean up the token on app2
 
 To do that, you have to check every X amount of time whether the SSO session is still alive in Auth0. If it is not, then remove the token from storage for the app.
 
-````js
+```js
 setInterval(function() {
   // if the token is not in local storage, there is nothing to check (i.e. the user is already logged out)
   if (!localStorage.getItem('userToken')) return;

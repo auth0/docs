@@ -11,7 +11,7 @@ A good example is __OpenID Connect middleware for Katana v3 (OWIN)__:
 1. Install the nuget package `Microsoft.Owin.Security.OpenIdConnect` (v3.x.x)
 2. Go to `App_Start\Startup.Auth.cs`, and replace your implementation with the following:
 
-```csharp
+```cs
 app.UseCookieAuthentication(new CookieAuthenticationOptions
 {
   AuthenticationType = CookieAuthenticationDefaults.AuthenticationType

@@ -32,7 +32,7 @@ Install-Package Auth0-ASPNET
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
-```
+```xml
 <add key="auth0:ClientId" value="@@account.clientId@@" />
 <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
 <add key="auth0:Domain" value="@@account.namespace@@" />
@@ -44,7 +44,7 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 
 ### 5. Accessing user information
 
-Once the user succesfuly authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
+Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
     public ActionResult Index()
     {

@@ -13,7 +13,7 @@ Please follow the steps below to configure your JS app to use Auth0.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-````html
+```html
 <!-- Auth0Lock script -->
 <script src="@@widget_url_no_scheme@@"></script>
 
@@ -27,7 +27,7 @@ We're including the Auth0 lock script to the `index.html`
 
 Configuring the Auth0Lock will let your app work with Auth0
 
-````js
+```js
 var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
 ```
 
@@ -35,7 +35,7 @@ var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
 
 Now we're ready to implement the Login.
 
-````html
+```html
 <!-- ... -->
 <input id="btn-login" class="btn-login" type="submit" />
 <!-- ... -->
@@ -43,7 +43,7 @@ Now we're ready to implement the Login.
 
 Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
-````js
+```js
 var userProfile = null;
 
 document.getElementById('btn-login').addEventListener('click', function() {

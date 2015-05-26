@@ -25,7 +25,7 @@ tags:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-````html
+```html
 <!-- Auth0Lock script -->
 <script src="@@widget_url_no_scheme@@"></script>
 
@@ -39,7 +39,7 @@ We're including the Auth0 lock script to the `index.html`
 
 Configuring the Auth0Lock will let your app work with Auth0. We recommend creating it in the `componentWillMount` lifecycle event of your Component.
 
-````js
+```js
 var App = React.createClass({
   // ...
   componentWillMount: function() {
@@ -53,7 +53,7 @@ var App = React.createClass({
 
 Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
-````jsx
+```jsx
 var Home = React.createClass({
   // ...
   showLock: function() {

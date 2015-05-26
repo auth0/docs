@@ -54,7 +54,7 @@ tags:
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
-````bash
+```bash
 phonegap plugin add org.apache.cordova.inappbrowser
 ```
 
@@ -80,20 +80,20 @@ This means that the `InAppBrowser` plugin wasn't installed successfully by Cordo
 
 * Reinstall the `InAppBrowser` plugin
 
-````bash
+```bash
 ionic plugin remove org.apache.cordova.inappbrowser
 ionic plugin add org.apache.cordova.inappbrowser
 ```
 * Remove the platform and re add it
 
-````bash
+```bash
 ionic platform remove ios
 ionic platform add ios
 ```
 
 * Copy the contents from the plugin to the platform plugins
 
-````bash
+```bash
 cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/org.apache.cordova.inappbrowser/
 ```
 

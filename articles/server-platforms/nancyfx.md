@@ -1,6 +1,6 @@
 ---
 lodash: true
-title: NodeJS Web App Tutorial
+title: NancyFX Tutorial
 tags:
   - quickstart
 ---
@@ -21,7 +21,7 @@ tags:
 
 Install Auth0 NancyFX dependency with `NuGet`
 
-````bash
+```bash
 PM> Install-Package Auth0.NancyFx.SelfHost
 ```
 
@@ -29,7 +29,7 @@ PM> Install-Package Auth0.NancyFx.SelfHost
 
 In your Nancy self hosted application add the following to your BootStrapper:
 
-````cs
+```cs
 protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
 {
   // ...
@@ -61,7 +61,7 @@ The `UserIdentifier` lets you set an identifier for the user. This are the field
 
 You need to configure your Auth0 keys in the `app.config`
 
-````xml
+```xml
 <appSettings>
     <!-- Auth0 configuration -->
     <add key="auth0:ClientId" value="@@account.clientId@@" />
@@ -75,7 +75,7 @@ You need to configure your Auth0 keys in the `app.config`
 
 After you enabled the `Auth0Authentication` you are able to block all unauthenticated requests with the following code.
 
-````cs
+```cs
 public class SecurePage : NancyModule
 {
     public SecurePage()
@@ -90,7 +90,7 @@ public class SecurePage : NancyModule
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. We also need to add an endpoint to let users Login and Logout
 
-````cs
+```cs
 public class Authentication : NancyModule
 {
     public Authentication()

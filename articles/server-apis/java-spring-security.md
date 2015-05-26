@@ -20,7 +20,7 @@ You need to add the `spring-security-auth0` dependency.
 
 For that, you can just add it to your `pom.xml` if you're using maven.
 
-````xml
+```xml
 <dependency>
   <groupId>com.auth0</groupId>
   <artifactId>spring-security-auth0</artifactId>
@@ -34,7 +34,7 @@ Now you need to configure Spring to use Spring Security with Auth0.
 
 For that, just add the following to the `application-context.xml`
 
-````xml
+```xml
 <!--  Use default Auth0 security context -->
 <import resource="classpath:auth0-security-context.xml" />
 
@@ -47,7 +47,7 @@ For that, just add the following to the `application-context.xml`
 
 and create the `auth0.properties` file with the following information:
 
-````properties
+```properties
 auth0.clientSecret=@@account.clientSecret@@
 auth0.clientId=@@account.clientId@@
 auth0.domain=@@account.namespace@@
@@ -59,7 +59,7 @@ auth0.securedRoute=/secured/**
 
 Now, you can create the controllers. Every controller that has a route inside `/secured/` in this case will ask for the JWT
 
-````java
+```java
 @Controller
 public class SecuredPingController {
 
@@ -80,7 +80,7 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 
 In order to configure CORS, just add the following `Filter` for all your requests:
 
-````java
+```java
 @Component
 public class SimpleCORSFilter implements Filter {
 

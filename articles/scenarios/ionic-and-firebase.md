@@ -37,7 +37,7 @@ Go to [Application Settings](@@uiAppSettingsURL@@) and click on Addons. In there
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
-````json
+```json
 "dependencies" : {
   "auth0-angular": "4.*",
   "a0-angular-storage": ">= 0.0.6",
@@ -48,7 +48,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 ### 4. Add the references to the scripts in the `index.html`
 
-````html
+```html
 <!-- Auth0 Lock -->
 <script src="lib/auth0-lock/build/auth0-lock.js"></script>
 <!-- auth0-angular -->
@@ -66,13 +66,13 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. Run the following command:
 
-````bash
+```bash
 ionic plugin add org.apache.cordova.inappbrowser
 ```
 
 Add the following configuration to the `config.xml` file:
 
-````xml
+```xml
 <feature name="InAppBrowser">
   <param name="ios-package" value="CDVInAppBrowser" />
   <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
@@ -83,7 +83,7 @@ Add the following configuration to the `config.xml` file:
 
 Add the `auth0`, `angular-storage`, `angular-jwt` and `firebase` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
-````js
+```js
 // app.js
 angular.module('starter', ['ionic',
   'starter.controllers',
@@ -145,7 +145,7 @@ After a successful login, you will:
 
 > All these artifacts are persisted into `localStorage` in the browser. The Firebase token is obtained through Auth0's [Delegation endpoint](/auth-api#delegated).
 
-````js
+```js
 // LoginCtrl.js
 function LoginCtrl(store, $scope, $location, auth) {
   $scope.login = function() {
@@ -173,7 +173,7 @@ function LoginCtrl(store, $scope, $location, auth) {
 }
 ```
 
-````html
+```html
 <!-- login.tpl.html -->
 <!-- ... -->
 <input type="submit" ng-click="login()" />
@@ -186,7 +186,7 @@ function LoginCtrl(store, $scope, $location, auth) {
 
 Just call the `signout` method in Auth0 to log the user out. You should also remove the information saved into `localStorage`:
 
-````js
+```js
 $scope.logout = function() {
   auth.signout();
   store.remove('token');
@@ -197,14 +197,14 @@ $scope.logout = function() {
 }
 ```
 
-````html
+```html
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
 ### 9. Configuring secure calls to Firebase
 
 Now that you have the Firebase token, you simply pass it to the AngularFire module using the `authWithCustomToken` function:
 
-````js
+```js
 var friendsRef = new Firebase("https://<your-account>.firebaseio.com/<your collection>");
 // Here we're using the Firebase Token we stored after login
 friendsRef.authWithCustomToken(store.get('firebaseToken'), function(error, auth) {
@@ -225,11 +225,11 @@ friends.$add({name: 'Hey John'});
 
 After the user has logged in, you can get the `profile` property from the `auth` service. You can access all logged-in user properties:
 
-````html
+```html
 <span>His name is {{auth.profile.nickname}}</span>
 ```
 
-````js
+```js
 // UserInfoCtrl.js
 function UserInfoCtrl($scope, auth) {
   $scope.auth = auth;
@@ -242,7 +242,7 @@ function UserInfoCtrl($scope, auth) {
 
 The user profile and the tokens are saved in `localStorage`. If the page os refreshed, you just need to fetch them from the store and let `auth0-angular` know that the user is already authenticated:
 
-````js
+```js
 angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 .run(function($rootScope, auth, store, jwtHelper, $location) {
   // This events gets triggered on refresh or URL change
@@ -279,20 +279,20 @@ This means that the `InAppBrowser` plugin wasn't installed successfully by Cordo
 
 * Reinstall the `InAppBrowser` plugin:
 
-````bash
+```bash
 ionic plugin remove org.apache.cordova.inappbrowser
 ionic plugin add org.apache.cordova.inappbrowser
 ```
 * Remove the platform and add it again:
 
-````bash
+```bash
 ionic platform remove ios
 ionic platform add ios
 ```
 
 * Copy the contents from the plugin to the platform plugins
 
-````bash
+```bash
 cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/org.apache.cordova.inappbrowser/
 ```
 

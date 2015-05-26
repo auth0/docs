@@ -24,7 +24,7 @@ tags:
 
 Add the following dependencies to your `Gemfile` and run `bundle install`
 
-````js
+```js
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 ```
@@ -33,7 +33,7 @@ gem 'omniauth-auth0', '~> 1.1'
 
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
-````ruby
+```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider(
     :auth0,
@@ -49,13 +49,13 @@ end
 
 Use the following command to create the controller that will handle Auth0 callback:
 
-````bash
+```bash
 rails generate controller auth0 callback failure --skip-template-engine --skip-assets
 ```
 
 Now, go to the newly created controller and add the code to handle the success and failure of the callback.
 
-````ruby
+```ruby
 class Auth0Controller < ApplicationController
   def callback
     # This stores all the user information that came from Auth0
@@ -75,7 +75,7 @@ end
 
 Now, replace the generated routes on `routes.rb` with the following ones:
 
-````ruby
+```ruby
 get "/auth/auth0/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
@@ -86,7 +86,7 @@ get "/auth/failure" => "auth0#failure"
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/auth/auth0/callback
 ```
 ### 5. Triggering login manually or integrating the Auth0Lock
@@ -105,7 +105,7 @@ redirect_to '/auth/auth0?connection=CONNECTION_NAME'
 
 You can access the user information via the `userinfo` you stored in the session on step 3
 
-````ruby
+```ruby
 class DashboardController < SecuredController
   def show
     @user = session[:userinfo]
@@ -113,7 +113,7 @@ class DashboardController < SecuredController
 end
 ```
 
-````html
+```html
 <div>
   <img class="avatar" src="<%= "\<%= @user[:info][:image] %\>" %>"/>
   <h2>Welcome <%= "\<%= @user[:info][:name] %\>" %></h2>
@@ -132,7 +132,7 @@ You have configured your Ruby on Rails Webapp to use Auth0. Congrats, you're awe
 
 You can add the following parent controller to all pages that need the user to be authenticated:
 
-````ruby
+```ruby
 class SecuredController < ApplicationController
 
   before_action :logged_in_using_omniauth?
@@ -154,7 +154,7 @@ end
 
 In case of failure, you may want to get the description of the error. For that, in your `config/production.rb` add the following:
 
-````ruby
+```ruby
 OmniAuth.config.on_failure = Proc.new { |env|
   message_key = env['omniauth.error.type']
   error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
@@ -173,12 +173,12 @@ You can change to use In-Memory store for development as follows.
 
 1. Go to `/config/initializers/session_store.rb` and add the following:
 
-````ruby
+```ruby
 Rails.application.config.session_store :cache_store
 ```
 2. Go to `/config/enviroments/development.rb` and add the following
 
-````ruby
+```ruby
 config.cachestore = :memorystore
 ```
 
@@ -190,13 +190,13 @@ It seems that under some configurations Ruby can't find certification authority 
 
 Download CURL's CA certs bundle to the project directory:
 
-````bash
+```bash
 $ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
 ```
 
 Then add this initializer `config/initializers/fix_ssl.rb`:
 
-````ruby
+```ruby
 require 'open-uri'
 require 'net/https'
 
@@ -219,7 +219,7 @@ This issue isn't presented while working on your local (development). After depl
 
 To fix the above error, add the following at your config/environments/staging.rb or production.rb
 
-````ruby
+```ruby
 OmniAuth.config.full_host = "http://www.example.com"
 ```
 

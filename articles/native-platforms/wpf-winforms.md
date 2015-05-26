@@ -36,7 +36,7 @@ There are three options to do the integration:
 To start with, we'd recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
-```csharp
+```cs
 using Auth0.Windows;
 
 var auth0 = new Auth0Client(
@@ -61,7 +61,7 @@ var user = await auth0.LoginAsync(this);
 
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
-```csharp
+```cs
 var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // connection name here
 ```
 
@@ -69,7 +69,7 @@ var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // con
 
 #### Option 3: Authentication with specific user name and password
 
-```csharp
+```cs
 var user = await auth0.LoginAsync(
 	"my-db-connection", 	// connection name here
 	"username",

@@ -24,7 +24,7 @@ tags:
 
 Add the following dependencies to your `composer.json` and run `composer update`
 
-````json
+```json
 "require": {
   "auth0/auth0-php": "~1.0",
   "adoy/oauth2": "dev-master",
@@ -36,7 +36,7 @@ Add the following dependencies to your `composer.json` and run `composer update`
 
 ### 2. Configure Auth0 PHP Plugin
 
-````php
+```php
 use Auth0SDK\Auth0;
 
 $auth0 = new Auth0(array(
@@ -51,7 +51,7 @@ $auth0 = new Auth0(array(
 
 Now, we can call `$auth0->getUser()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
 
-````php
+```php
 // callback.php
 
 ...
@@ -73,7 +73,7 @@ Once the user info is fetched, it'll be stored in the session. Therefore, from t
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/callback.php
 ```
 
@@ -87,7 +87,7 @@ http://yourUrl/callback.php
 
 You can access the user information via the `getUser` method from Auth0
 
-````php
+```php
 <?php
 ...
 $userInfo = $auth0->getUser();
@@ -113,7 +113,7 @@ By default, the SDK will store the user information in the PHP Session and it wi
 
 If you want to change PHP Session and use Laravel, Zend, Symfony or other abstraction to the session, you can create a class that implements get, set, delete and pass it to the SDK as following.
 
-````php
+```php
 $laravelStore = new MyLaravelStore();
 $auth0 = new Auth0(array(
     // ...

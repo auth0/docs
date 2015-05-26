@@ -7,7 +7,7 @@ If we're using any SDK from the server side, we probably can access the profile 
 
 The profile will look as follows:
 
-````json
+```json
 {
   "email": "johnfoo@gmail.com",
   "email_verified": true,
@@ -41,7 +41,7 @@ The `accessToken` we get here will have access to call all the APIs we've specif
 
 Let's just use the `accessToken` then! For example, if we're using lock we can do as follows:
 
-````js
+```js
 lock.show(function(err, token, profile) {
   // Assuming the user can ONLY log in with Google
   // We're sure the first identity is Google

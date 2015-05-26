@@ -23,7 +23,7 @@ Install `go-jwt-middleware` to check for JWTs on HTTP requests.
 
 Just run the following code to install the dependency
 
-````js
+```js
 go get github.com/auth0/go-jwt-middleware
 ```
 
@@ -31,7 +31,7 @@ go get github.com/auth0/go-jwt-middleware
 
 You need to set the ClientSecret in `go-jwt-middleware`'s configuration so that it can validate [JWTs](/jwt) for you.
 
-````go
+```go
 package main
 
 import (
@@ -57,7 +57,7 @@ func main() {
 
 Now, you can use the `go-jwt-middleware` to secure your API. You can do so using `net/http` handlers or using `negroni` middlewares as well.
 
-````go
+```go
 // Regular HTTP HandlerFunc
 func SecuredPingHandler(w http.ResponseWriter, r *http.Request) {
   respondJson("All good. You only get this message if you're authenticated", w)

@@ -24,7 +24,7 @@ tags:
 
 Add the following dependencies to your `requirements.txt` and run `pip install -r requirements.txt`
 
-````js
+```js
 flask
 requests
 ```
@@ -35,7 +35,7 @@ This example uses `flask` but it could work with any server
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
-````python
+```python
 import os
 import json
 
@@ -81,7 +81,7 @@ def callback_handling():
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/callback
 ```
 ### 4. Triggering login manually or integrating the Auth0Lock
@@ -94,7 +94,7 @@ http://yourUrl/callback
 
 You can access the user information via the `profile` you stored in the session on step 2
 
-````python
+```python
 @app.route("/dashboard")
 @requires_auth
 def dashboard():
@@ -102,7 +102,7 @@ def dashboard():
 
 ```
 
-````html
+```html
 <div>
   <img class="avatar" src="{{user['picture']}}"/>
   <h2>Welcome {{user['nickname']}}</h2>
@@ -121,7 +121,7 @@ You have configured your Python Webapp to use Auth0. Congrats, you're awesome!
 
 You can add the following annotation to your `Flask` app to check if the user is authenticated
 
-````python
+```python
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):

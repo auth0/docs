@@ -42,7 +42,7 @@ tags:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-````html
+```html
 <!-- Auth0 lock script -->
 <script src="@@widget_url_no_scheme@@"></script>
 
@@ -56,7 +56,7 @@ We're including the Auth0 lock script to the `index.html`
 
 Configuring the Auth0Lock will let your app work with Auth0:
 
-````js
+```js
 var lock = null;
 $(document).ready(function() {
    lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 Now we're ready to implement the login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
-````js
+```js
 var userProfile;
 
 $('.btn-login').click(function(e) {
@@ -89,7 +89,7 @@ $('.btn-login').click(function(e) {
 });
 ```
 
-````html
+```html
 <!-- ... -->
 <input type="submit" class="btn-login" />
 <!-- ... -->
@@ -109,7 +109,7 @@ Now, we want to be able to call <%= configuration.api %> which is a third party 
 
 For that, we're going to modify the login call we did in step #4. We're going to add the call to get the new token
 
-````js
+```js
 var userProfile;
 
 $('.btn-login').click(function(e) {
@@ -154,7 +154,7 @@ We're going to activate the <%= configuration.api %> add-on in the following ste
 
 As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to implement `$.ajaxSetup` so that every ajax call sends the `Authorization` header with the correct token.
 
-````js
+```js
 $.ajaxSetup({
   'beforeSend': function(xhr) {
     if (localStorage.getItem('userToken')) {
@@ -175,11 +175,11 @@ Please note that we're using the JWT that we saved after login on Step [#4](#5).
 
 We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
 
-````js
+```js
 $('.nick').text(userProfile.nickname);
 ```
 
-````html
+```html
 <p>His name is <span class="nick"></span></p>
 ```
 
@@ -189,7 +189,7 @@ You can [click here](/user-profile) to find out all of the available properties 
 
 In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
 
-````js
+```js
 localStorage.removeItem('token');
 userProfile = null;
 window.location.href = "/";

@@ -8,10 +8,10 @@ lodash: true
   <blockquote>
     <a href="/auth0-aspnet-owin/master/create-package?path=examples/WebApi&filePath=examples/WebApi/Api/Web.config&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
         <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -20,12 +20,12 @@ lodash: true
 ### 1. Setup NuGet dependencies
 
 Update this package:
-````Powershell
+```Powershell
 Update-Package System.IdentityModel.Tokens.Jwt
 ```
 
 Install the following NuGet package:
-````Powershell
+```Powershell
 Install-Package Microsoft.Owin.Security.Jwt
 ```
 
@@ -34,7 +34,7 @@ Install-Package Microsoft.Owin.Security.Jwt
 Open the **Startup.cs** class located inside the **App_Start** folder.
 
 Add the following using statements
-````CSharp
+```cs
 using Microsoft.Owin.Security.Jwt;
 using System.Web.Http;
 using Microsoft.Owin.Security.DataHandler.Encoder;
@@ -43,7 +43,7 @@ using WebConfigurationManager = System.Web.Configuration.WebConfigurationManager
 ```
 
 Update the `Configuration` method with the following code:
-````CSharp
+```cs
 var issuer = WebConfigurationManager.AppSettings["Auth0Domain"];
 var audience = WebConfigurationManager.AppSettings["Auth0ClientID"];
 var secret = TextEncodings.Base64Url.Decode(
@@ -65,8 +65,8 @@ app.UseJwtBearerAuthentication(
 ### 3. Update the web.config file with your app's credentials
 Open the **web.config** file located at the solution's root.
 
-Add the following entries as children of the `<appSettings>` element. 
-````xml
+Add the following entries as children of the `<appSettings>` element.
+```xml
 <add key="Auth0Domain" value="https://<%= account.namespace %>/"/>
 <add key="Auth0ClientID" value="<%= account.clientId %>"/>
 <add key="Auth0ClientSecret" value="<%= account.clientSecret %>"/>
@@ -83,7 +83,7 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 #### Configuring CORS
 
 To configure CORS you need to first install the `Microsoft.Owin.Cors` NuGet package. Once that is done you can simply update the configuration method in your **Startup** class as shown in the following snippet:
-````CSharp
+```cs
 app.UseCors(CorsOptions.AllowAll);
 ```
 
@@ -91,7 +91,7 @@ app.UseCors(CorsOptions.AllowAll);
 
 #### Working with claims
 If you want to read/modify the claims that are populated based on the JWT you can use the following extensibility points:
-````CSharp
+```cs
 string token = string.Empty;
 
 // Api controllers with an [Authorize] attribute will be validated with JWT
@@ -118,7 +118,7 @@ app.UseJwtBearerAuthentication(
                     var notPadded = token.Split('.')[1];
                     var claimsPart = Convert.FromBase64String(
                         notPadded.PadRight(notPadded.Length + (4 - notPadded.Length % 4) % 4, '='));
-                
+
                     var obj = JObject.Parse(Encoding.UTF8.GetString(claimsPart, 0, claimsPart.Length));
 
                     // simple, not handling specific types, arrays, etc.

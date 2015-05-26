@@ -24,7 +24,7 @@ tags:
 
 Install the following dependencies using `go get`
 
-````bash
+```bash
 go get github.com/gorilla/mux
 go get golang.org/x/oauth2
 go get github.com/astaxie/beego/session
@@ -36,7 +36,7 @@ go get github.com/astaxie/beego/session
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
-````go
+```go
 package callback
 
 import (
@@ -117,7 +117,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
 Remember to set this handler to the `/callback` path:
 
-````go
+```go
 r := mux.NewRouter()
 r.HandleFunc("/callback", callback.CallbackHandler)
 ```
@@ -128,7 +128,7 @@ r.HandleFunc("/callback", callback.CallbackHandler)
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/callback
 ```
 ### 4. Triggering login manually or integrating the Auth0Lock
@@ -141,7 +141,7 @@ http://yourUrl/callback
 
 You can access the user information via the `profile` you stored in the session on step 2
 
-````go
+```go
 func UserHandler(w http.ResponseWriter, r *http.Request) {
 
   session, _ := app.GlobalSessions.SessionStart(w, r)
@@ -155,7 +155,7 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 
 ```
 
-````html
+```html
 <div>
   <img class="avatar" src="{{.picture}}"/>
   <h2>Welcome {{.nickname}}</h2>
@@ -175,13 +175,13 @@ We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middlew
 
 First, we need to install it via `go get`:
 
-````bash
+```bash
 go get github.com/codegangsta/negroni
 ```
 
 Then, we should create a middleware that will check if the `profile` is in the session:
 
-````go
+```go
 package middlewares
 
 import (
@@ -203,7 +203,7 @@ func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFu
 Finally, we can use Negroni to set up this middleware for any route that needs authentication:
 
 
-````go
+```go
 r.Handle("/user", negroni.New(
   negroni.HandlerFunc(middlewares.IsAuthenticated),
   negroni.Wrap(http.HandlerFunc(user.UserHandler)),

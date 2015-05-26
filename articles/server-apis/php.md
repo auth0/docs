@@ -24,7 +24,7 @@ We need 2 dependencies to make this work:
 * **php-jwt**: this will take care of checking the JWT
 * **router**: we'll use this for creating simple routes
 
-````json
+```json
 {
     "name": "your/app",
     "description": "Basic sample for securing an API",
@@ -41,7 +41,7 @@ We need 2 dependencies to make this work:
 
 Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that will run in the routes we need.
 
-````php
+```php
   // Require composer autoloader
   require __DIR__ . '/vendor/autoload.php';
 
@@ -89,7 +89,7 @@ Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that 
 
 Now, you can just create routes under /secured route which will check the JWT
 
-````php
+```php
 // Controllers API
 
 $router->get('/ping', function() {

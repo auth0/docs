@@ -8,7 +8,7 @@ lodash: true
 
 Here's a sample call to the delegation endpoint to get the SAS:
 
-```
+```text
 POST https://@@account.namespace@@/delegation
 Content-Type: 'application/json'
 {
@@ -28,7 +28,7 @@ Content-Type: 'application/json'
 
 The result of calling the delegation endpoint will be something like:
 
-```
+```json
 {
   "azure_sb_sas": "SharedAccessSignature sig=k8bNfT81R8L...LztXvY%3D&se=14098336&skn=PolicyName&sr=http%3A%2F%2Fnamespace.servicebus.windows.net%2Fmy_queue"
 }

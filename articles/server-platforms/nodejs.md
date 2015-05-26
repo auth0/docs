@@ -24,7 +24,7 @@ tags:
 
 Just run the following code to install the dependencies and add them to your `package.json`
 
-````js
+```js
 npm install passport passport-auth0 --save
 ```
 
@@ -32,7 +32,7 @@ npm install passport passport-auth0 --save
 
 We need to configure Passport to use Auth0 strategy.
 
-````js
+```js
 var passport = require('passport');
 var Auth0Strategy = require('passport-auth0');
 
@@ -66,7 +66,7 @@ module.exports = strategy;
 
 In the startup file (e.g. _server.js_ or _app.js_) add:
 
-````js
+```js
 var passport = require('passport');
 
 // This is the file we created in step 2.
@@ -82,7 +82,7 @@ var session = require('express-session');
 
 Now, just add the following middlewares to your app:
 
-````js
+```js
 app.use(cookieParser());
 app.use(session({ secret: 'shhhhhhhhh' }));
 ...
@@ -95,7 +95,7 @@ app.use(passport.session());
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
-````js
+```js
 // Auth0 callback handler
 app.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
@@ -111,7 +111,7 @@ app.get('/callback',
 
 In this case, the callbackURL should look something like:
 
-````
+```
 http://yourUrl/callback
 ```
 
@@ -125,7 +125,7 @@ http://yourUrl/callback
 
 You can access the user information via the `user` field in the `request`
 
-````js
+```js
 app.get('/user', function (req, res) {
   res.render('user', {
     user: req.user
@@ -143,7 +143,7 @@ You have configured your NodeJS Webapp to use Auth0. Congrats, you're awesome!
 
 You can add the following middleware to check if the user is authenticated and redirect him to the login page if he's not:
 
-````js
+```js
 // requiresLogin.js
 module.exports = function(req, res, next) {
   if (!req.isAuthenticated()) {
@@ -152,7 +152,7 @@ module.exports = function(req, res, next) {
   next();
 }
 ```
-````js
+```js
 // user.js
 var requiresLogin = require('requiresLogin');
 

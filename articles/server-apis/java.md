@@ -22,7 +22,7 @@ You need to add the `java-jwt` and `commons-codec` dependencies.
 
 For that, you can just add them to your `pom.xml` if you're using maven.
 
-````xml
+```xml
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>java-jwt</artifactId>
@@ -41,7 +41,7 @@ For that, you can just add them to your `pom.xml` if you're using maven.
 
 Now, you need to validate the [JWT](/jwt). For that, we'll use a Filter.
 
-````java
+```java
 @WebFilter(filterName= "jwt-filter", urlPatterns = { "/api/*" })
 public class JWTFilter implements Filter {
   private JWTVerifier jwtVerifier;
@@ -100,7 +100,7 @@ Please note that we're setting the URL Pattern to `/api/*` in this case. That me
 
 Please note that if you're using Servlets 2.5, you won't be able to use the `@WebFilter` annotation. In that case, add the following to your `web.xml`:
 
-````xml
+```xml
 <filter>
   <filter-name>JWTFilter</filter-name>
   <filter-class>com.auth0.example.JWTFilter</filter-class>

@@ -59,7 +59,7 @@ This is the same as before but it will now contain a `refresh_token` parameter.
 
 Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](/auth-api#!#post--delegation)**
 
-````
+```
 POST https://@@account.namespace@@/delegation
 Content-Type: 'application/json'
 {

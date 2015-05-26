@@ -17,7 +17,7 @@ You can get the binaries from [Github](https://github.com/pingidentity/mod_auth_
 
 Once you've installed it, you just need to enable it for Apache
 
-````bash
+```bash
 sudo a2enmod mod_auth_openidc
 ```
 
@@ -27,7 +27,7 @@ Now, you should get a new configuration file under the `/etc/apache2/mods-availa
 
 In there, you must add the following configuration for the `mod_auth_openidc` module
 
-````
+```
 OIDCProviderIssuer https://@@account.namespace@@
 OIDCProviderAuthorizationEndpoint https://@@account.namespace@@/authorize
 OIDCProviderTokenEndpoint https://@@account.namespace@@/oauth/token
@@ -59,7 +59,7 @@ Auth0 `clientSecret` is by default Base64 encoded which isn't compatible with th
 
 Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here </api/v1#!#post--oauth-token>
 
-````bash
+```bash
 curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 'authorization: Bearer ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
 ```
 
@@ -69,7 +69,7 @@ curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 
 
 You can configure Apache to protect a certain location based on an attribute of the user. Here is an example:
 
-```
+```xml
 <Location /example/>
    AuthType openid-connect
    #Require valid-user
@@ -85,7 +85,7 @@ You can configure Apache to protect a certain location based on an attribute of 
 
 Then you can write a rule in Auth0 that would return the `folder` attribute:
 
-```
+```js
 function(user, context, callback) {
     if (somecondition()) {
        user.folder = 'example2';
@@ -97,7 +97,7 @@ function(user, context, callback) {
 
 Or you could even use an array of folders and the apache module will check if the array contains any of these values
 
-```
+```js
 function(user, context, callback) {
     user.folders = [];
     if (somecondition()) {
