@@ -90,8 +90,8 @@
         "title": "API Reference",
         "icon": "icon-cogs",
         "items": [
-          { "title": "API", "url": "/api/v1"},
-          { "title": "API v2 (beta)", "url": "/api/v2"},
+          { "title": "API (deprecated)", "url": "/api/v1"},
+          { "title": "API v2", "url": "/api/v2"},
           { "title": "Authentication Endpoints", "url": "/auth-api"}
         ]
       },
