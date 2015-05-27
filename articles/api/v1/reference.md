@@ -136,7 +136,7 @@ The `options` object returned in the `connection` will be different for each str
 				 'https://www.googleapis.com/auth/userinfo.profile' ]
 	}
 
-> To obtain `client_id` and `client_secret` for Google Apps connections, see [here](/goog-clientid).
+> To obtain `client_id` and `client_secret` for Google Apps connections, see [here](/connections/social/google).
 
 ######Office 365
 

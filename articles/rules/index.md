@@ -19,6 +19,8 @@ Here are a few examples. You could:
 * Keep a white-list of users in a file and deny access based on email.
 * Have counters or other persisted information. For more information on how to do this check [this article](/metadata-in-rules).
 
+> You can find even more examples of rules on [Github](https://github.com/auth0/rules).
+
 __Auth0 Rules__ are implemented in JavaScript. Which means you don't have to learn an esoteric DSL. They run in their own sandbox to protect the core of Auth0's runtime. Even if you make a mistake and your code ends up in a tight loop for example, everything else will work just fine.
 
 Notice you can chain rules together to keep functionality modular and easy to understand. __Rules__ can be turned on and off individually.

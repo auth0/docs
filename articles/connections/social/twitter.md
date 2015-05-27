@@ -26,6 +26,6 @@ To reveal your consumer secret, click on **manage keys and access tokens**:
 
 ![](/media/articles/connections/social/twitter/twitter-api-2.png)
 
-Copy these values and enter them in the [Auth0 dashboard](https://manage.auth0.com/#/connections/social):
+Copy these values and enter them in the [Auth0 dashboard](https://@@uiURL@@/#/connections/social):
 
 ![](/media/articles/connections/social/twitter/twitter-api-3.png)

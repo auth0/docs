@@ -26,3 +26,4 @@ url: /libraries/lock
 [release-process]: https://github.com/auth0/lock/wiki/Release-process
 [playground-url]: http://auth0.github.io/playground/
 [migration-guide]: https://github.com/auth0/lock/wiki/Migration-guide
+[license-url]: https://github.com/auth0/lock/blob/master/LICENSE

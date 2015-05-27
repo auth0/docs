@@ -1,6 +1,6 @@
 # Node.js with Auth0 under the hood
 
-As we mentioned in the [tutorial page](/nodejs-tutorial), the easiest way of using Auth0 from a node app is through the excellent [passport module](http://passportjs.org).
+As we mentioned in the [tutorial page](/server-platforms/nodejs), the easiest way of using Auth0 from a node app is through the excellent [passport module](http://passportjs.org).
 
 We've built a [simple strategy for passport](https://github.com/auth0/passport-auth0) to make things easier.
 

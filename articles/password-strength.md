@@ -15,7 +15,7 @@ With this feature, Auth0 allows to customize the level of complexity of the pass
 
 ## Changing your policy
 
-To change the password strength policy, go to [Database connections](https://app.auth0.com/#/connections/database), click on the `Security` button on the connection you want to apply it:
+To change the password strength policy, go to [Database connections](https://@@uiURL@@/#/connections/database), click on the `Security` button on the connection you want to apply it:
 
 ![Password Strength Panel in Auth0](/media/articles/password-strength/jH0kabJPoi.png)
 

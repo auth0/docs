@@ -136,30 +136,39 @@
         "items": [
           { "title": "Tutorials", "url": "/tutorials" },
           { "title": "Scenarios", "url":"/scenarios"},
+
+
           { "title": "User Profile", "url":"/user-profile"},
           { "title": "Web Apps vs. Web APIs", "url": "/apps-apis" },
           { "title": "Logout", "url":"/logout"},
           { "title": "Connector", "url":"/connector"},
           { "title": "Single Sign On (SSO)", "url":"/sso/single-sign-on"},
           { "title": "After Login", "url":"/what-to-do-once-the-user-is-logged-in/index"},
-          { "title": "Rules Repository", "url": "https://github.com/auth0/rules" },
           { "title": "Active Directory", "url": "/ad" },
           { "title": "Database Connections", "url": "/mysql-connection-tutorial" },
           { "title": "Passwordless Connections", "url": "/passwordless" },
 
 
-          { "title": "Protocols", "url":"/protocols"},
+
           { "title": "Sequence Diagrams", "url":"/sequence-diagrams"},
           { "title": "Refresh token", "url":"/refresh-token"},
           { "title": "SAML", "url":"/saml-configuration"},
           { "title": "Link Accounts", "url": "/link-accounts" },
-          { "title": "Custom Signup", "url": "/custom-signup" },
+
           { "title": "Password Policies", "url": "/password-strength"},
           { "title": "Multifactor Auth (beta)", "url": "/mfa" },
-          { "title": "User Migration (beta)", "url": "/migrating"},
+
           { "title": "Users search", "url":"/users-search"},
-          { "title": "Legacy Widget", "url":"/login-widget2"},
-          { "title": "CMS", "url":"/cms"}
+          { "title": "CMS Integrations", "url":"/cms"}
+        ]
+      },
+      {
+        "title": "Advanced Topics",
+        "icon": "icon-question-sign",
+        "items": [
+          { "title": "Protocols", "url":"/protocols"},
+          { "title": "Custom Signup", "url": "/custom-signup" },
+          { "title": "User Migration (beta)", "url": "/migrating"}
         ]
       }
     ],

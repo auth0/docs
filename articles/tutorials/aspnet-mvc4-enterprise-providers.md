@@ -9,7 +9,7 @@ The true power of Auth0 is that it open new possibilities to integrate your appl
 ##Before you start
 
 1. You will need Visual Studio 2012 and MVC4
-2. Have completed the [previous tutorial](/aspnet-tutorial). You are supposed to do these steps on top of the result of the previous tutorial.
+2. Have completed the [previous tutorial](/server-platforms/aspnet). You are supposed to do these steps on top of the result of the previous tutorial.
 
 ##Integrating Auth0 with MVC4
 

@@ -121,7 +121,7 @@ The same than ```getUsers``` but this method returns users for all social connec
 
 ## Authentication
 
-This library is useful to consume Auth0's REST API. To authenticate users you can use the [passport strategy](https://github.com/auth0/passport-auth0). See the [Node.js Tutorial](/nodejs-tutorial) for an end to end walkthrough.
+This library is useful to consume Auth0's REST API. To authenticate users you can use the [passport strategy](https://github.com/auth0/passport-auth0). See the [Node.js Tutorial](/server-platforms/nodejs) for an end to end walkthrough.
 
 ## End to end sample
 

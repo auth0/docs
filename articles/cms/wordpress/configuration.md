@@ -2,7 +2,7 @@
 
 The first thing you will need to do, is to set up your *Auth0 Domain*, *Client Id* and *Client Secret*.
 
-So, go to your account and under the [Apps section](https://manage.auth0.com/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
+So, go to your account and under the [Apps section](https://@@uiURL@@/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
 
 Then copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the plugin settings.
 

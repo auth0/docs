@@ -27,4 +27,4 @@ You will be redirected to Google for authentication and after that you will retu
 
 ![](/media/articles/enable-simple-connection/connection-add-idp-test-r.png)
 
-> For full integration with Google OAuth2, you need to obtain a `clientId` and a `clientSecret`. For a quick setup you don't need it. See [here](/goog-clientid) for details.
+> For full integration with Google OAuth2, you need to obtain a `clientId` and a `clientSecret`. For a quick setup you don't need it. See [here](/connections/social/google) for details.

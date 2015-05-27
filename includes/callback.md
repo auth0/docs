@@ -7,7 +7,7 @@
 <pre><code><%= account.callback %></code></pre>
 </p>
 <% } else { %>
-<p>Please remember that for security purposes, you have to register the URL of your app on the <a href="https://app.auth0.com/#/applications" target="_blank">Settings Section</a> section on Auth0 Admin app as the callbackURL.</p>
+<p>Please remember that for security purposes, you have to register the URL of your app on the <a href="<%= uiURL %>/#/applications" target="_blank">Settings Section</a> section on Auth0 Admin app as the callbackURL.</p>
 <% } %>
 
 </div>
