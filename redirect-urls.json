@@ -450,5 +450,13 @@
   {
     "from": "/mysql-connection-tutorial",
     "to": "/connections/database/mysql"
+  },
+  {
+    "from": "/quickstart/native-mobile/windows8-cp/:client",
+    "to": "/quickstart/native-mobile/windows-store-csharp/:client"
+  },
+  {
+    "from": "/quickstart/native-mobile/windows8/:client",
+    "to": "/quickstart/native-mobile/windows-store-javascript/:client"
   }
 ]
