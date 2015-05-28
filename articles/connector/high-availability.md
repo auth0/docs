@@ -8,10 +8,10 @@ Having a highly available deployment also allows updating the connector with zer
 
 ## Instructions for Windows
 
-1. Install the connector as explained [here](@@env.BASE_URL@@/connector/install).
+1. Install the connector as explained [here](/connector/install).
 2. Make sure all steps are complete and the connector is up and running.
 3. Navigate to the Admin Console and export the configuration: [http://localhost:8357/#export](http://localhost:8357/#export)
-4. Install the connector on a second server following the same instructions as above. 
+4. Install the connector on a second server following the same instructions as above.
 5. When prompted for the __Ticket URL__, go to the __Import / Export__ tab and import the configuration there.
 
 You should see now 2 connectors on the dashboard.
