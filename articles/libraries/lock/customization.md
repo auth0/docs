@@ -1,4 +1,4 @@
-## User configurable options
+## Lock: User configurable options
 The **Auth0Lock** can be customized through the `options` parameter sent to the `.show()` methods.
 
 ```js

@@ -1,6 +1,6 @@
-# Refresh tokens
+# Lock: Refresh tokens
 
-Mostly when building mobile apps, we want to show the signin page only once and then leave the user logged in forever. For those cases, it makes sense to have a `refreshToken`. A `refreshToken` lets us get a new `id_token` (`JWT`) anytime we want. 
+Mostly when building mobile apps, we want to show the signin page only once and then leave the user logged in forever. For those cases, it makes sense to have a `refreshToken`. A `refreshToken` lets us get a new `id_token` (`JWT`) anytime we want.
 
 > **Warning**: This means that if the `refreshToken` gets compromised, unless we revoke that token, somebody would be able to get a new JWT forever.
 
@@ -39,4 +39,3 @@ lock.getClient().refreshToken(refresh_token, function (err, delegationResult) {
   // Get here the new JWT via delegationResult.id_token
 });
 ````
-

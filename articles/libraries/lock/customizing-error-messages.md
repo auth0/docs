@@ -1,3 +1,5 @@
+# Lock: Customizing Error Messages
+
 You can customize the error messages that will be displayed on certain situations by providing a [dict option](https://github.com/auth0/lock/wiki/Auth0Lock-customization#dict-object) at the [customization options](https://github.com/auth0/lock/wki/Auth0Lock-customization):
 
 ```js

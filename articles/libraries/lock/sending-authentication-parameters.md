@@ -1,3 +1,5 @@
+# Lock: Authentication Parameters
+
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `'foo'`.
 
 ```js
@@ -55,7 +57,7 @@ The object keys must be the names of the connections and the values must be arra
 lock.show({
   authParams: {
     connections: ['facebook', 'google-oauth2', 'twitter', 'Username-Password-Authentication', 'fabrikam.com'],
-    connection_scopes: { 
+    connection_scopes: {
       'facebook': ['public_profile', 'user_friends'],
       'google-oauth2': ['https://www.googleapis.com/auth/orkut'],
       // none for twitter
@@ -63,5 +65,5 @@ lock.show({
   }
 }
 ```
-  
+
 > The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.

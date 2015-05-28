@@ -1,4 +1,4 @@
-## API syntax
+## Lock: API syntax
 
 ```js
 var lock = new Auth0Lock(clientID, domain).

@@ -1,4 +1,4 @@
-# Authentication Modes
+# Lock: Authentication Modes
 
 After Auth0 Lock is opened, you can choose any of the Identity Providers (IdP) that Auth0 has, to Login. Depending on how the IdP Web/App is openned, a different authentication mode is used.
 

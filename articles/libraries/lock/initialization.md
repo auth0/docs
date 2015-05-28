@@ -1,3 +1,5 @@
+# Lock: Initiialization
+
 ```javascript
 // Initialize with clientID and domain
 var lock = new Auth0Lock(clientID, domain);

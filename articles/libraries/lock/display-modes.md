@@ -1,4 +1,4 @@
-# Display Modes
+# Lock: Display Modes
 
 You can display Lock embedded or as a modal dialog with an overlay
 

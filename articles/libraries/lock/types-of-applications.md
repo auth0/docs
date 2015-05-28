@@ -1,4 +1,4 @@
-# Types of applications
+# Lock: Types of applications
 
 You can use Auth0 Lock with both Single Page Apps and with Regular WebApps. In this section we'll learn how to use it with each of them.
 
