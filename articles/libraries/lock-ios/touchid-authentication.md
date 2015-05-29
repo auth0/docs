@@ -1,3 +1,8 @@
+---
+toc_title: TouchID Authentication
+description:
+---
+
 # Lock iOS: TouchID Authentication
 
 Lock provides passwordless authentication with TouchID for your Auth0 DB connection. To start authenticating your users with TouchID please follow those steps:

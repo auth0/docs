@@ -1,3 +1,8 @@
+---
+toc-title: Logging
+description: Learn how to debug Lock by enabling logging.
+---
+
 # Lock iOS: Logging
 
 __Lock__ logs serveral useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).

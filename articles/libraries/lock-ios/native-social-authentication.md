@@ -1,3 +1,8 @@
+---
+toc_title: Native Social Authentication
+description:
+---
+
 # Lock iOS: Native Social Authentication
 
 **Lock** by default handles all social authentication with Safari (Web Login), but you can enable native login for some social connections.

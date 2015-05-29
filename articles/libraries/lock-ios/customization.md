@@ -1,3 +1,8 @@
+---
+toc_title: Customization
+description: Learn how to customize the look and feel of Lock
+---
+
 # Lock iOS: Customization
 
 Lock UI can be customized by creating your own `A0Theme` and overriding the default one before displaying `A0LockViewController`:
