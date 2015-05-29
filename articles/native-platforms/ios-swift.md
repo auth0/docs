@@ -69,7 +69,7 @@ To enable this feature, just add this line at the top level of your `Podfile` (o
 use_frameworks!
 ```
 
-> If you dont want to use this feature please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/Lock-&-Swift).
+> If you dont want to use this feature please read [this guide](/libraries/lock-ios/swift).
 
 ### 3. Configure Auth0 Lock for iOS
 
@@ -230,12 +230,12 @@ self.presentViewController(controller, animated: true, completion: nil)
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](https://github.com/auth0/Lock.iOS-OSX/wiki/Getting-Started:-Use-your-own-UI).
-> Or you can also try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.iOS-OSX#sms) or [TouchID](https://github.com/auth0/Lock.iOS-OSX#touchid)
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
-> To learn how to save and manage the tokens and profile, please read [this guide](https://github.com/auth0/Lock.iOS-OSX/wiki/How-to-save-and-refresh-JWT-token)
+> To learn how to save and manage the tokens and profile, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens)
 
 ### 7. Showing user information
 

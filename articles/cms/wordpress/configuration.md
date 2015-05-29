@@ -28,14 +28,14 @@ Then copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the plugin sett
 
 ### Advanced
 
-- **Translation:** this represents the Lock's dict parameter, should be a valid JSON object. When this setting is in use, will override the Title setting. For more info [click here] (https://github.com/auth0/lock/wiki/Auth0Lock-customization#dict-stringobject).
+- **Translation:** this represents the Lock's dict parameter, should be a valid JSON object. When this setting is in use, will override the Title setting. For more info [click here] (/libraries/lock/customization#dict-stringobject).
 - **Username style:** If you don't want to force the username to be a valid email, you can set this setting to username.
-- **Remember last login:** Request for SSO data and enable Last time you signed in with[...] message. For more info [click here](https://github.com/auth0/lock/wiki/Auth0Lock-customization#rememberlastlogin-boolean).
+- **Remember last login:** Request for SSO data and enable Last time you signed in with[...] message. For more info [click here](/libraries/lock/customization#rememberlastlogin-boolean).
 - **Login redirection URL:** use this setting if you want to force the redirection after the user logs in.
 - **Requires verified email:** Mark this if you require the user to have a verified email to login.
 - **Allow signup:** The user signup will be enabled only it it enabled the WordPress' *Anyone can register* setting. You can manage this setting on *Settings > General > Membership, Anyone can register*.
 - **Auto Login (no widget):** Mark this to avoid the login page (you will have to select a single login provider).
-- **Extra settings:** This field is the JSon that describes the options to call Lock with. It'll override any other option set here. See all the posible options [here](https://github.com/auth0/lock/wiki/Auth0Lock-customization). (IE: `{"disableResetAction": true }`)
+- **Extra settings:** This field is the JSon that describes the options to call Lock with. It'll override any other option set here. See all the posible options [here](/libraries/lock/customization). (IE: `{"disableResetAction": true }`)
 - **Widget URL:** Point this to the latest widget available in the CDN.
 - **Auth0 Implicit flow:** If it is enabled, it will make Lock use the [implicit workflow](https://auth0.com/docs/protocols#5) retrieving in the browser and sending back to the server with the needed user data. It is useful in cases where the server is behind a firewal without internet access.
 - **Customize the Login Widget with custom JS:** This allows you to add custom JS to customize Lock. This is useful in cases you need to add custom buttons ([more info here](https://auth0.com/docs/hrd#3)). Following this example, you can add the *Fabrikam Azure AD* button with the following code:

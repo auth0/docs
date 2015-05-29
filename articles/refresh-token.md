@@ -77,5 +77,5 @@ Libraries like `auth0.js`, Lock and `auth0-angular.js` all include support to ge
 You can read more about them in the following links:
 
 * [Getting it with Auth0.js](https://github.com/auth0/auth0.js#login)  and [using it to get a new id_token](https://github.com/auth0/auth0.js#refresh-token)
-* [Getting and using it with Lock](https://github.com/auth0/lock/wiki/Using-a-Refresh-Token).
+* [Getting and using it with Lock](/libraries/lock/using-a-refresh-token).
 * [Getting and using it with Auth0-angular.js](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)

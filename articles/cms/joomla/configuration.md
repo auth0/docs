@@ -38,7 +38,7 @@ So, go to your account and under the [Apps section](https://@@uiURL@@/#/applicat
 
 #### Advanced Settings
 
-- **Translation:** this represents the Lock's dict parameter, should be a valid JSON object. When this setting is in use, will override the Title setting. For more info [click here] (https://github.com/auth0/lock/wiki/Auth0Lock-customization#dict-stringobject).
+- **Translation:** this represents the Lock's dict parameter, should be a valid JSON object. When this setting is in use, will override the Title setting. For more info [click here] (/libraries/lock/customization#dict-stringobject).
 - **Username style:** If you don't want to force the username to be a valid email, you can set this setting to username.
-- **Remember last login:** Request for SSO data and enable Last time you signed in with[...] message. For more info [click here](https://github.com/auth0/lock/wiki/Auth0Lock-customization#rememberlastlogin-boolean).
+- **Remember last login:** Request for SSO data and enable Last time you signed in with[...] message. For more info [click here](/libraries/lock/customization#rememberlastlogin-boolean).
 - **Widget URL:** Point this to the latest widget available in the CDN.
