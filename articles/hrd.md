@@ -45,7 +45,7 @@ Notice that you can associate multiple domains to a single connection.
 
 ##Option 3: adding custom buttons to the Auth0Lock
 
-Using the [Auth0Lock](/lock)'s [support for customization and extensibility](https://github.com/auth0/lock/wiki/Auth0lock-customization) it's also possible to add buttons for your Enterprise Connections. Here's an example of adding a button for an Azure AD connection to the Lock:
+Using the [Auth0Lock](/lock)'s [support for customization and extensibility](/libraries/lock/customization) it's also possible to add buttons for your Enterprise Connections. Here's an example of adding a button for an Azure AD connection to the Lock:
 
 ```
 var lock = new Auth0Lock(cid, domain);

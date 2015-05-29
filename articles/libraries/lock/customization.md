@@ -260,7 +260,7 @@ lock.show({
 
 ### popup {Boolean}
 
-If set to true, shows a popup when trying to login with a Social or Enterprise IdP. For more information, [read this](https://github.com/auth0/lock/wiki/Authentication-Modes#popup-mode). Defaults to `true` when a `callback` is set, otherwise `false`.
+If set to true, shows a popup when trying to login with a Social or Enterprise IdP. For more information, [read this](/libraries/lock/authentication-modes#popup-mode). Defaults to `true` when a `callback` is set, otherwise `false`.
 
 ```js
 lock.show({
@@ -472,7 +472,7 @@ Internally set from `callback` parameter
 [disablesignup-image]: https://cloudup.com/cdHWtzNrCAi+
 [disablereset-image]: https://cloudup.com/cnolm6HqGMq+
 [username-image]: https://cloudup.com/cYAiKnsV_EQ+
-[authparams-link]: https://github.com/auth0/lock/wiki/Sending-authentication-parameters
+[authparams-link]: /libraries/lock/sending-authentication-parameters
 [closable-image]: https://cloudup.com/cySs9OP6yUc+
 [socialbuttons-image]: https://cloudup.com/cMsyrifz46s+
 [popup-image]: https://cloudup.com/cY08amfJ1yh+

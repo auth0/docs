@@ -270,7 +270,7 @@ If you have found a bug or if you have a feature request, please report them at 
 * [Development][development-notes] notes.
 * [Release process][release-process] notes.
 * [Auth0Lock playground][playground-url]
-* [Using Refresh Tokens](https://github.com/auth0/lock/wiki/Using-a-Refresh-Token)
+* [Using Refresh Tokens](/libraries/lock/using-a-refresh-token)
 * Legacy **Auth0Widget** [Migration guide][migration-guide] to **AuthoLock**
 
 <!-- Vaaaaarrsss -->
@@ -304,8 +304,8 @@ If you have found a bug or if you have a feature request, please report them at 
 [error-customization]: /libraries/lock/customizing-error-messages
 [i18n-notes]: /libraries/lock/i18n
 [events-notes]: /libraries/lock/events
-[development-notes]: https://github.com/auth0/lock/wiki/Development-notes
-[release-process]: https://github.com/auth0/lock/wiki/Release-process
+[development-notes]: https://github.com/auth0/lock
+[release-process]: https://github.com/auth0/lock
 [playground-url]: http://auth0.github.com/playground
 [migration-guide]: /libraries/lock/migration-guide
 

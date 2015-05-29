@@ -116,7 +116,7 @@ So, for example if you had `signin_ready` now it is `signin ready`.
 
 Also, the one named `transition_mode` has been deprecated and removed from the list of Events.
 
-For more information about events, check [Auth0 Lock Events](https://github.com/auth0/lock/wiki/Events) section.
+For more information about events, check [Auth0 Lock Events](/libraries/lock/events) section.
 
 
 <!-- Links -->
