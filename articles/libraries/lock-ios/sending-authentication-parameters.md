@@ -1,3 +1,8 @@
+---
+toc_title: Sending Authentication Parameters
+description:
+---
+
 # Lock iOS: Sending Authentication Parameters
 
 You can send parameters, before displaying `A0AuthenticationViewController` or when calling any API method using `A0APIClient`, by adding them to a `A0AuthParameters` object. By default `A0AuthParameters` has the parameter `scope` with `openid offline_access` and `device` with the name obtained from calling

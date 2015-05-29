@@ -1,4 +1,10 @@
-# Lock iOS: Using with Switf
+---
+toc_title: Using Lock with Swift
+description:
+---
+
+
+# Lock iOS: Using with Swift
 
 **Lock** was written in Objective-C but it can be used from a pure Swift project or a Hybrid project (Swift & Objective-C).
 

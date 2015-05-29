@@ -80,7 +80,9 @@
         "icon": "icon-book",
         "items": [
           { "title": "Auth0.js", "url": "/libraries/auth0js" },
-          { "title": "Lock", "url": "/libraries/lock" },
+          { "title": "Lock - Web", "url": "/libraries/lock" },
+          { "title": "Lock - iOS/OSX", "url": "/libraries/lock-ios" },
+          { "title": "Lock - Android", "url": "/libraries/lock-android" },
           { "title": "Browser", "url": "/quickstart/spa"},
           { "title": "Mobile & Native", "url": "/quickstart/native-mobile" },
           { "title": "Server", "url": "/quickstart/webapp" }

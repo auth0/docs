@@ -1,8 +1,9 @@
 ---
 url: /libraries/lock-ios
+lodash: true
 ---
 
-# Lock for iOS
+# Lock for iOS and OS X
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
@@ -101,6 +102,22 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 ```
 
 > This is required to be able to return back to your application when authenticating with Safari (or native integration with FB or Twitter if used). This call checks the URL and handles all that have the custom scheme defined before.
+
+## Additional Documents
+
+<ul>
+<% _.forEach(_.sortBy(articles.libraries.lock_ios, 'toc_title'), function(article) { %>
+  <% if (article.toc_title) { %>
+  <li>
+    <span><a href="<%- article.url %>"><%- article.toc_title %></a>
+    <% if (article.description) { %>
+      - <%- article.description %>
+    <% } %>
+    </span>
+  </li>
+  <% } %>
+<% }); %>
+</ul>
 
 
 ## Usage

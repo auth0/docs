@@ -1,3 +1,9 @@
+---
+toc_title: SSO on Mobile Apps
+description:
+---
+
+
 # Lock iOS: SSO on Mobile Apps
 
 In order to do SSO on Mobile Apps, we need to use a shared keychain. We'll learn how to do this throughout this post.
