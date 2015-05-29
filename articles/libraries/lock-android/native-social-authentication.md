@@ -1,3 +1,9 @@
+---
+toc_title: Native Social Authentication
+---
+
+# Lock Android: Native Social Authentication
+
 **Lock** by default handles all social authentication with a Browser installed in your Android device, but for some social connections you can take advantage of our native integration.
 We implemented native integration with Facebook and Google+ and bundled each of them in a separate Android Library (*aar* file), to start using them just add these lines in your `build.gradle`:
 
@@ -41,7 +47,7 @@ public void onCreate() {
 
 ###Google+
 
-For Google+ login we use Android G+ library that is part of Google Play Services. 
+For Google+ login we use Android G+ library that is part of Google Play Services.
 Before starting you'll need to register your application in Google+ so follow the instructions in Step 1 of [this guide](https://developers.google.com/+/mobile/android/getting-started).
 Then in your `AndroidManifest.xml` add these permissions and meta-data value for Google Play Services:
 

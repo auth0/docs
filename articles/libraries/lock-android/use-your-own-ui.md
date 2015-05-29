@@ -1,3 +1,9 @@
+---
+toc_title: Using Your Own UI
+---
+
+# Lock Android: Using Your Own UI
+
 For this tutorial, you need to create a new account in [Auth0](https://www.auth0.com) and setup a new application. We will then implement mobile authentication in Android.
 
 1.  Add the following dependency to your project:

@@ -1,5 +1,6 @@
 ---
 url: /libraries/lock-android
+lodash: true
 ---
 
 # Lock for Android
@@ -12,6 +13,22 @@ url: /libraries/lock-android
 * Provides a **beautiful native UI** to log your users in.
 * Provides support for **Social Providers** (Facebook, Twitter, etc.), **Enterprise Providers** (AD, LDAP, etc.) and **Username & Password**.
 * Passwordless authentication using **SMS**.
+
+## Additional Documents
+
+<ul>
+<% _.forEach(_.sortBy(articles.libraries.lock_android, 'toc_title'), function(article) { %>
+  <% if (article.toc_title) { %>
+  <li>
+    <span><a href="<%- article.url %>"><%- article.toc_title %></a>
+    <% if (article.description) { %>
+      - <%- article.description %>
+    <% } %>
+    </span>
+  </li>
+  <% } %>
+<% }); %>
+</ul>
 
 ## Requierements
 
