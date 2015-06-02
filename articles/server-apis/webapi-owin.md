@@ -116,8 +116,9 @@ app.UseJwtBearerAuthentication(
                 if (!string.IsNullOrEmpty(token))
                 {
                     var notPadded = token.Split('.')[1];
-                    var claimsPart = Convert.FromBase64String(
-                        notPadded.PadRight(notPadded.Length + (4 - notPadded.Length % 4) % 4, '='));
+                    var padded = notPadded.PadRight(notPadded.Length + (4 - notPadded.Length % 4) % 4, '=');
+                    var urlUnescaped = padded.Replace('-', '+').Replace('_', '/');
+                    var claimsPart = Convert.FromBase64String(urlUnescaped);
 
                     var obj = JObject.Parse(Encoding.UTF8.GetString(claimsPart, 0, claimsPart.Length));
 
