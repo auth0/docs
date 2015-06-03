@@ -1,5 +1,11 @@
 ---
 connection: Microsoft Account (formerly LiveID)
+image: /media/connections/microsoft-account.png
+alias:
+ - live-id
+ - microsoft-live
+ - windowslive
+ - windows-live
 ---
 
 # Obtaining a ClientId and Client Secret in Microsoft Account

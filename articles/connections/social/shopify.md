@@ -1,5 +1,6 @@
 ---
 connection: Shopify
+image: /media/connections/shopify.png
 ---
 
 # Obtaining a API Key and Shared Secret for Shopify

@@ -1,6 +1,7 @@
 ---
 title: Authenticating Users on a MySQL with username and password
 connection: MySQL
+image: /media/connections/mysql.png
 ---
 
 # Authenticating Users on a database with username and password

@@ -1,5 +1,6 @@
 ---
 connection: LinkedIn
+image: /media/connections/linkedin.png
 ---
 
 # Obtaining an API Key and Secret Key for LinkedIn

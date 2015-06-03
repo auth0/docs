@@ -1,6 +1,10 @@
 ---
 title: Connecting SharePoint Apps with Auth
 connection: SharePoint Apps
+image: /media/connections/sharepoint.png
+alias:
+  - sharepoint-apps
+  - sharepoint-online
 ---
 
 # Obtaining a App Id and App Secret for SharePoint

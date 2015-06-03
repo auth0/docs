@@ -1,5 +1,6 @@
 ---
 connection: Planning Center
+image: /media/connections/planning-center.png
 ---
 
 # Obtaining a Consumer and Secret Keys for Planning Center

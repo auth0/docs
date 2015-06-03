@@ -1,5 +1,6 @@
 ---
 connection: Exact
+image: /media/connections/exact.png
 ---
 
 # Obtaining an Client Id and Client Secret for Exact

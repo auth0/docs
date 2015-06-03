@@ -1,5 +1,6 @@
 ---
 connection: Twitter
+image: /media/connections/twitter.png
 ---
 
 # Obtaining Consumer and Secret Keys for Twitter

@@ -1,5 +1,6 @@
 ---
 connection: Github
+image: /media/connections/github.png
 ---
 
 # Obtaining a ClientId and Client Secret for GitHub

@@ -1,6 +1,9 @@
 ---
 title: Connecting Office 365 with Auth0 (Deprecated)
 connection: Office 365 (Deprecated)
+image: /media/connections/office-365.png
+alias:
+  - office365
 ---
 
 # Obtaining a ClientId and Client Secret for an Office 365 connection

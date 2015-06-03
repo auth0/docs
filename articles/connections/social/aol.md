@@ -1,5 +1,6 @@
 ---
 connection: AOL
+image: /media/connections/aol.png
 ---
 
 # Obtaining an Client Id and Client Secret for AOL

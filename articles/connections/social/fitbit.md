@@ -1,5 +1,6 @@
 ---
 connection: Fitbit
+image: /media/connections/fitbit.png
 ---
 
 # Obtaining a Consumer and Secret Keys for Fitbit

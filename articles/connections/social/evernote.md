@@ -1,5 +1,6 @@
 ---
 connection: Evernote
+image: /media/connections/evernote.png
 ---
 
 # Obtaining an API Consumer Key and Consumer Secret for Evernote

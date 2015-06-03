@@ -1,5 +1,6 @@
 ---
 connection: Yandex
+image: /media/connections/yandex.png
 ---
 
 # Obtaining an Application ID and Application Password for Yandex

@@ -1,7 +1,6 @@
 ---
 url: /tutorials
 lodash: true
-article: false
 ---
 
 # Tutorials

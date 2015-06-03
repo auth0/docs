@@ -1,5 +1,6 @@
 ---
 connection: Goodreads
+image: /media/connections/goodreads.png
 ---
 
 # Obtaining a Consumer and Secret Keys for Goodreads

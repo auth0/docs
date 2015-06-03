@@ -1,6 +1,14 @@
 ---
 title: Connecting Azure Active Directory with Auth0
 connection: Azure Active Directory
+image: /media/connections/azure.png
+alias:
+  - azure-ad
+  - waad
+  - windows-azure-ad
+  - windows-azure-active-directory
+  - microsoft-azure-ad
+  - microsoft-azure-active-directory
 ---
 
 # Obtaining a ClientId and Client Secret for a Microsoft Azure Active Directory

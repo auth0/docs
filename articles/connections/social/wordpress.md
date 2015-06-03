@@ -1,5 +1,6 @@
 ---
 connection: WordPress
+image: /media/connections/wordpress.png
 ---
 
 # Obtaining a Client ID and Client Secret for WordPress

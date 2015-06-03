@@ -1,5 +1,6 @@
 ---
 connection: Box
+image: /media/connections/box.png
 ---
 
 # Obtaining an Client Id and Client Secret for Box

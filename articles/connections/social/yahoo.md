@@ -1,5 +1,6 @@
 ---
 connection: Yahoo!
+image: /media/connections/yahoo.png
 ---
 
 # Obtaining a Consumer Key and Consumer Secret for Yahoo!

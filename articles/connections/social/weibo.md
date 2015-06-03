@@ -1,5 +1,6 @@
 ---
 connection: Weibo
+image: /media/connections/weibo.png
 ---
 
 # Obtaining a App ID and App Secret for Weibo

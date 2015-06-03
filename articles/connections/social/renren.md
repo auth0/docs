@@ -1,5 +1,6 @@
 ---
 connection: RenRen
+image: /media/connections/renren.png
 ---
 
 # Obtaining an API Key and Secret Key for RenRen
