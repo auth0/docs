@@ -120,3 +120,87 @@ compile 'com.auth0.android:core:1.7.+'
     }
   ```
 > More details about the parameters you can use check [this wiki page](/libraries/lock/sending-authentication-parameters).
+
+## Social Authentication
+
+1. Configure Facebook Native integration when building `Lock` in your Application object
+  ```java
+    .withIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this))
+  ```
+  > **Note**: You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook 
+
+1. Configure Google+ Native integration too
+  ```java
+    .withIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this))
+  ```
+  > **Note**: Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
+  
+1. Fetch your Auth0 application information, you can do this from your Main activity, so we can start start authenticating with either Social Identity Provider (IdP from now on)
+  ```java
+    Lock.getLock(this).getAPIClient().fetchApplicationInfo(new BaseCallback<Application>() {
+        @Override
+        public void onSuccess(Application application) {
+            //All is good, we can continue
+        }
+
+        @Override
+        public void onFailure(Throwable throwable) {
+            //Handle failure
+        }
+    });
+  ```
+
+1. In your Activity that will trigger authentication, create a property to store the current IdP handler
+  ```java
+  private IdentityProvider identityProvider;
+  ```
+  > We recommend cleaning up this property when `onDestroy()` is called
+  
+1. Reset any IdP state when Activity is stopped
+  ```java
+      @Override
+    protected void onStop() {
+        super.onStop();
+        Lock.getLock(this).resetAllProviders();
+    }
+  ```
+  
+1. Override `onActivityResult(int, int, Intent)` in the Activity and pass the information to current IdP handler
+  ```java
+      @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (identity != null) {
+            identity.authorize(this, requestCode, resultCode, data);
+        }
+    }
+  ```
+
+1. Start social authentication from an Activity
+  ```java
+        Lock lock = Lock.getLock(this);
+        identityProvider = lock.providerForName(Strategies.Facebook.getName());
+        identityProvider.setCallback(new IdentityProviderCallback() {
+            @Override
+            public void onFailure(Dialog dialog) {
+
+            }
+
+            @Override
+            public void onFailure(int titleResource, int messageResource, Throwable throwable) {
+
+            }
+
+            @Override
+            public void onSuccess(String serviceName, String accessToken) {
+
+            }
+
+            @Override
+            public void onSuccess(Token token) {
+
+            }
+        });
+        IdentityProviderRequest request = new IdentityProviderAuthenticationRequestEvent(Strategies.Facebook.getName());
+        identityProvider.start(this, request, lock.getAPIClient().getApplication());
+  ```
