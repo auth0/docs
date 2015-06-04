@@ -55,7 +55,7 @@ Now, you have to create a role that will have one or more policies associated. Y
 
   ![](/media/articles/aws-api-setup/aws-api-setup-8.png)
 
-5. This is where you assign permissions to this role. In this example, we are creating a policy that give full access to the S3 resource `YOUR_BUCKET/${saml:sub}`. This will be evaluated on runtime and replaced with the `user_id` of the logged in user.
+5. This is where you assign permissions to this role. In this example, we are creating a policy that give full access to the S3 resource `YOUR_BUCKET/<%= '${saml:sub}' %>`. This will be evaluated on runtime and replaced with the `user_id` of the logged in user.
 
   ![](/media/articles/aws-api-setup/aws-api-setup-9.png)
 
