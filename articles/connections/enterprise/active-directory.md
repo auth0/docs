@@ -1,7 +1,11 @@
 ---
 title: Connecting Active Directory with Auth0
 connection: Active Directory
+image: /media/connections/windows.png
+alias:
+  - ad
 ---
+
 
 # Connecting Active Directory with Auth0
 

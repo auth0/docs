@@ -1,5 +1,6 @@
 ---
 connection: Dwolla
+image: /media/connections/dwolla.png
 ---
 
 # Obtaining a Client ID and Client Secret for Dwolla

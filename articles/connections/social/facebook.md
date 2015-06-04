@@ -1,5 +1,6 @@
 ---
 connection: Facebook
+image: /media/connections/facebook.png
 ---
 
 # Obtaining an App ID and App Secret for Facebook

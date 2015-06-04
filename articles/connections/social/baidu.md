@@ -1,5 +1,6 @@
 ---
 connection: Baidu
+image: /media/connections/baidu.png
 ---
 
 # Obtaining an API Key and Secret Key for Baidu

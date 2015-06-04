@@ -1,5 +1,6 @@
 ---
 connection: vKontakte
+image: /media/connections/vkontakte.png
 ---
 
 # Obtaining an Application ID and Secure Key for vKontakte

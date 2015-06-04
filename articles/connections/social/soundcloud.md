@@ -1,5 +1,6 @@
 ---
 connection: SoundCloud
+image: /media/connections/soundcloud.png
 ---
 
 # Obtaining a Client ID and Client Secret for SoundCloud

@@ -1,5 +1,6 @@
 ---
 connection: Salesforce
+image: /media/connections/salesforce.png
 ---
 
 # Obtaining an Client Id and Client Secret for Salesforce

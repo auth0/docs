@@ -1,5 +1,9 @@
 ---
 connection: 37 Signals (Basecamp)
+image: /media/connections/37signals.jpg
+alias:
+  - basecamp
+	- thirtysevensignals
 ---
 
 # Obtaining an Client Id and Client Secret for 37Signals

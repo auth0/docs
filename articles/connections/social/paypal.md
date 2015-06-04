@@ -1,5 +1,6 @@
 ---
 connection: PayPal
+image: /media/connections/paypal.png
 ---
 
 # Obtaining a App Id and App Secret for PayPal

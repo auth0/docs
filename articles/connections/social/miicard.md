@@ -1,5 +1,6 @@
 ---
 connection: miiCard
+image: /media/connections/miicard.png
 ---
 
 # Obtaining a Consumer Key and Consumer Secret for miiCard

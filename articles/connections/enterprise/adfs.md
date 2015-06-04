@@ -1,6 +1,10 @@
 ---
 title: Connecting ADFS with Auth0
 connection: ADFS
+image: /media/connections/windows.png
+alias:
+  - active-directory-federation-services
+  - adfs-2
 ---
 
 # Connecting ADFS with Auth0
