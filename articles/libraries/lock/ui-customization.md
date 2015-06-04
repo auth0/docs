@@ -16,6 +16,19 @@ body #a0-lock {
 }
 ```
 
+### Disabling animations
+
+Since all `Lock` animations are CSS animations the way to disable them is through CSS
+
+```css
+#a0-lock * {
+  -webkit-animation: none !important;
+  animation: none !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+```
+
 ### Adding a new UI element using JavaScript
 
 This code adds a new button to the widget. Since the widget runs as part of the same DOM of the page, you can maniuplate it in the way you want.
