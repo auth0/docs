@@ -220,7 +220,7 @@ The metadata endpoint that you can use to configure the __Relying Party__:
 
 	https://@@account.namespace@@/wsfed/@@account.clientId@@/FederationMetadata/2007-06/FederationMetadata.xml
 
-All options for WS-Fed are available under the [advanced settings](https://@@uiURL@@/#/applications/@@account.clientId@@/settings) for an App.
+All options for WS-Fed are available under the [advanced settings](@@uiURL@@/#/applications/@@account.clientId@@/settings) for an App.
 
 Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](/saml-configuration).
 

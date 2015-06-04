@@ -138,7 +138,7 @@ Then to allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari
 
 > If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #4__
 
-Before reading how to configure either Facebook or Twitter integration, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](https://@@uiURL@@/#/connections/social)
+Before reading how to configure either Facebook or Twitter integration, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](@@uiURL@@/#/connections/social)
 
 #### Facebook
 
