@@ -8,7 +8,7 @@ For this tutorial, you need to create a new account in [Auth0](https://www.auth0
 
 1.  Add the following dependency to your project:
   ```gradle
-compile 'com.auth0.android:core:1.7.+'
+compile 'com.auth0.android:core:1.9.+'
   ```
 
 2. Create a new instance of `APIClient` and store it in your `Application` object (or a singleton).
@@ -124,7 +124,13 @@ compile 'com.auth0.android:core:1.7.+'
 
 ## Social Authentication
 
-1. Configure Facebook Native integration when building `Lock` in your Application object
+1. Include native integration libs in your `build.gradle`:
+  ```gradle
+  compile 'com.auth0.android:lock-facebook:2.0.+'
+  compile 'com.auth0.android:lock-googleplus:2.0.+'
+  ```
+  
+1. Configure Facebook Native integration with `Lock.Builder` calling this method
   ```java
   .withIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this))
   ```
