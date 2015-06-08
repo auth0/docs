@@ -41,6 +41,7 @@ There are instructions for several specific providers below:
 * [Okta](/okta)
 * [OneLogin](/onelogin)
 * [Ping7](/ping7)
+* [SalesForce](/salesforceidp)
 * [SiteMinder](/siteminder)
 * [SSOCircle](/ssocircle)
 
@@ -135,7 +136,7 @@ In designing a SAML SSO implementation, it is often helpful to consider which sy
 
 ### Auth0 as Service Provider
 
-If Auth0 is serving as the Service Provider in a SAML federation, it does not require any out-of-band process to create user accounts in Auth0 in advance of user authentication.  Auth0 can route authentication requests to an Identity Provider without already having an account pre-created for a specific user.  
+If Auth0 is serving as the Service Provider in a SAML federation, it does not require any out-of-band process to create user accounts in Auth0 in advance of user authentication.  Auth0 can route authentication requests to an Identity Provider without already having an account pre-created for a specific user. Auth0 will capture user profile information from the assertion returned by the Identity Provider and create a user profile for the user in Auth0.  This is sometimes called Just-In-Time provisioning. 
 
 There are several mechanisms available to route a request to an IdP. See:
 
@@ -175,3 +176,11 @@ Several options exist:
    * The application can be modified to create user profiles dynamically, based on information in the SAML assertion.
 
 In selecting an approach, careful consideration should be given to utilize an appropriate authoritative source for any user profile attributes used for access control.
+
+## Deprovisioning
+
+Deprovisioning of accounts should be done, at minimum, at the Identity Provider.  Once an account is removed or disabled at the Identity Provider, the user will not be able to log in.
+
+It may also be desirable to remove accounts at Auth0 if it is acting as Service Provider or an application integrated with Auth0.  Regardless of whether Auth0 is acting as a Service Provider or an Identity Provider, user accounts can be removed from Auth0 via the Auth0 dashboard or via the Auth0 API.  
+
+
