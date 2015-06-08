@@ -1,5 +1,4 @@
 ---
-title: salesforce-idp
 layout: doc.nosidebar
 ---
 # SAML SSO with SalesForce as an Identity Provider
