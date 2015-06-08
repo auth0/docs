@@ -41,7 +41,7 @@ There are instructions for several specific providers below:
 * [Okta](/okta)
 * [OneLogin](/onelogin)
 * [Ping7](/ping7)
-* [SalesForce](/salesforceidp)
+* [SalesForce](/saml/identity-providers/salesforce)
 * [SiteMinder](/siteminder)
 * [SSOCircle](/ssocircle)
 
