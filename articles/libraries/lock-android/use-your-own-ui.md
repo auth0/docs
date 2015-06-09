@@ -198,7 +198,7 @@ compile 'com.auth0.android:core:1.9.+'
       public void onFailure(int titleResource, int messageResource, Throwable throwable) {
           //An error ocurred with Auth0 integration
           // title & message for an error are always returned
-          identity.clearSession();
+          identityProvider.clearSession();
       }
 
       @Override
