@@ -5,20 +5,12 @@ description:
 
 # Lock iOS: Native Social Authentication
 
-**Lock** by default handles all social authentication with Safari (Web Login), but you can enable native login for some social connections.
-The only connections that have native integration are Facebook and Twitter and are included by default in **Lock** pod but you can pick the one you need. For example if you only need Facebook:
-
+**Lock** by default handles all social authentication with Safari (Web Login), but you can enable native login for some social connections. Currently we only provide integration with Facebook & Twitter that can be included like this in your `Podfile`
 ```ruby
-pod 'Lock/UI'
-pod 'Lock/Facebook'
+pod 'Lock-Facebook'
+pod 'Lock-Twitter'
 ```
-
-Only Twitter:
-
-```ruby
-pod 'Lock/UI'
-pod 'Lock/Twitter'
-```
+> We recommend to at least fix the major version instead of always obtaining the latest version, e.g `pod 'Lock-Facebook', '~> 2.0`
 
 ## Configuration
 
@@ -38,26 +30,26 @@ Here's an example of how the entries should look like in your `Info.plist` file:
 
 [![FB plist](https://cloudup.com/cYOWHbPp8K4+)](http://auth0.com)
 
-Finally, you need to register Auth0 Facebook Provider somewhere in your application. You can do that in the `AppDelegate.m` file:
+Finally, you need to register `A0FacebookAuthenticator` with your instance of `A0Lock`:
 
 ```objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
-  [[A0SocialAuthenticator sharedInstance] registerSocialAuthenticatorProvider:facebook];
-}
+A0Lock *lock = ...//Get your Lock instance
+A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
+[lock registerAuthenticators:@[facebook]];
 ```
 
 ###Twitter
 
 Twitter authentication is done using [Reverse Auth](https://dev.twitter.com/docs/ios/using-reverse-auth) in order to obtain a valid access_token that can be sent to Auth0 Server and validate the user. By default we use iOS Twitter Integration but we support OAuth Web Flow (with Safari) as a fallback mechanism in case a user has no accounts configured in his/her Apple Device.
 
-To support Twitter authentication you need to configure the Twitter authentication provider:
+To support Twitter authentication you need to register `A0TwitterAuthenticator` with your instance of `A0Lock`:
 
 ```objc
+A0Lock *lock = ...//Get your Lock instance
 NSString *twitterApiKey = ... //Remember to obfuscate your api key
 NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
 A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
-[[A0SocialAuthenticator sharedInstance] registerSocialAuthenticatorProvider:twitter];
+[lock registerAuthenticators:@[twitter]];
 ```
 
 We need your twitter app's key & secret in order to sign the reverse auth request. For more info please read the Twitter documentation related to [Authorizing Requests](https://dev.twitter.com/docs/auth/authorizing-request) and [Reverse Auth](https://dev.twitter.com/docs/ios/using-reverse-auth).
