@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: NodeJS Web App Tutorial
+name: Node.js
+image: //auth0.com/lib/platforms-collection/img/node.png
 tags:
   - quickstart
 ---

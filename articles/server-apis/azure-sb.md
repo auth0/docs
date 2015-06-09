@@ -1,4 +1,7 @@
 ---
+name: Azure Service Bus
+thirdParty: true
+image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
 ---
 <% configuration.thirdParty = 'Azure Service Bus' %>

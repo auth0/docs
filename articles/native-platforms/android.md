@@ -1,6 +1,9 @@
 ---
 lodash: true
 title: Android Tutorial
+name: Android
+hybrid: false
+image: //auth0.com/lib/platforms-collection/img/android.png
 tags:
   - quickstart
 ---

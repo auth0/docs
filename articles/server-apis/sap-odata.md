@@ -1,5 +1,8 @@
 ---
 title: SAP OData
+name: SAP OData
+thirdParty: true
+image: //auth0.com/lib/saas-collection/img/sap.png
 lodash: true
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.

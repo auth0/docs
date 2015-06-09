@@ -1,5 +1,7 @@
 ---
 title: Laravel Tutorial
+name: PHP (Laravel)
+image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
 ---

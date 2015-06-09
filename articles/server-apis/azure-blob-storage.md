@@ -1,5 +1,8 @@
 ---
 title: Azure Blob Storage Addon
+name: Azure Blob Storage
+thirdParty: true
+image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
 ---
 <% configuration.thirdParty = 'Azure Blob Storage' %>

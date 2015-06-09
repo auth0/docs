@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: React Tutorial
+name: React
+image: //auth0.com/lib/platforms-collection/img/react.png
 tags:
   - quickstart
 ---

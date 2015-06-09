@@ -1,6 +1,9 @@
 ---
 lodash: true
 title: iOS Objective-C Tutorial
+name: iOS - Objective C
+hybrid: false
+image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
   - quickstart
 ---

@@ -1,5 +1,8 @@
 ---
 title: WPF and Winforms Tutorial
+name: WPF / Winforms
+hybrid: false
+image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 ---

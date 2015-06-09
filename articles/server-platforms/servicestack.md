@@ -1,5 +1,7 @@
 ---
 title: ServiceStack Tutorial
+name: ServiceStack
+image: //auth0.com/lib/platforms-collection/img/service-stack.png
 tags:
   - quickstart
 ---

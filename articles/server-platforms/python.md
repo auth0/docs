@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: Python Web App Tutorial
+name: Python
+image: //auth0.com/lib/platforms-collection/img/python.png
 tags:
   - quickstart
 ---

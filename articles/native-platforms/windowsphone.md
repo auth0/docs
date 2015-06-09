@@ -1,6 +1,9 @@
 ---
 lodash: true
 title: Windows Phone Tutorial
+name: Windows Phone
+hybrid: false
+image: //auth0.com/lib/platforms-collection/img/windows-phone.png
 tags:
   - quickstart
 ---
