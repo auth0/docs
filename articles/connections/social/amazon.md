@@ -3,7 +3,7 @@ connection: Amazon
 image: /media/connections/amazon.png
 alias:
   - aws
-	- amazon-web-services
+  - amazon-web-services
 ---
 
 # Obtaining a ClientId and Client Secret for Amazon
