@@ -9,7 +9,7 @@ Auth0 allows you to offer your users multiple ways of authenticating. This is es
 ##Option 1: programmatically
 When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any __connection__ defined in your dashboard.
 
-If using the [Auth0Lock](/lock), this is as simple as writing:
+If using the [Lock](/lock), this is as simple as writing:
 
 	auth0.show({connections: ['YOUR_CONNECTION']});
 
@@ -27,11 +27,11 @@ There are multiple practical ways of getting the `connection` value. Among the m
 
 * You could use non-human-readable connection names and use some external mechanism to map these to users (e.g. through a primary verification, out of band channel for example).
 
-##Option 2: using email domains with the Auth0Lock
+##Option 2: using email domains with Lock
 
-The [Auth0Lock](/lock) has built in functionality for identity provider selection. For social connections it will show logos for all those enabled in that particular app.
+The [Lock](/lock) has built in functionality for identity provider selection. For social connections it will show logos for all those enabled in that particular app.
 
-An additional feature in the Auth0Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
+An additional feature in the Lock is the use of email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. For example, when configuring an ADFS or a SAML-P identity provider:
 
 ![](/media/articles/hrd/k_LcfC8PHp.png)
 
@@ -43,9 +43,9 @@ In the example above the domain `companyx.com` has been mapped to an enterprise 
 
 Notice that you can associate multiple domains to a single connection.
 
-##Option 3: adding custom buttons to the Auth0Lock
+##Option 3: adding custom buttons to Lock
 
-Using the [Auth0Lock](/lock)'s [support for customization and extensibility](/libraries/lock/customization) it's also possible to add buttons for your Enterprise Connections. Here's an example of adding a button for an Azure AD connection to the Lock:
+Using [Lock](/lock)'s [support for customization and extensibility](/libraries/lock/customization) it's also possible to add buttons for your Enterprise Connections. Here's an example of adding a button for an Azure AD connection to the Lock:
 
 ```
 var lock = new Auth0Lock(cid, domain);
@@ -70,7 +70,7 @@ This is useful when you want to give users a consistent login experience where t
 
 ![](/media/articles/hrd/hrd-custom-buttons-lock.png)
 
-The Auth0Lock's stylesheet contains the following provider icons which can be used when adding custom buttons:
+Lock's stylesheet contains the following provider icons which can be used when adding custom buttons:
 
 ```
 .a0-amazon
