@@ -1,5 +1,7 @@
 ---
 title: ASP.NET Tutorial
+name: ASP.NET
+image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 ---

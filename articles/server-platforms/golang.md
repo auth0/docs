@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: Go Web App Tutorial
+name: Go
+image: //auth0.com/lib/platforms-collection/img/golang.png
 tags:
   - quickstart
 ---

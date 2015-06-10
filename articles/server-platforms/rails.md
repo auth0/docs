@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: Ruby On Rails Web App Tutorial
+name: Ruby On Rails
+image: //auth0.com/lib/platforms-collection/img/rails.png
 tags:
   - quickstart
 ---

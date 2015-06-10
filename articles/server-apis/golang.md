@@ -1,4 +1,6 @@
 ---
+name: Go
+image: //auth0.com/lib/platforms-collection/img/golang.png
 lodash: true
 ---
 

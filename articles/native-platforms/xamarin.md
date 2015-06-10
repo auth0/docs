@@ -1,5 +1,8 @@
 ---
 title: Xamarin Tutorial
+name: Xamarin
+hybrid: false
+image: //auth0.com/lib/platforms-collection/img/xamarin.png
 tags:
   - quickstart
 ---

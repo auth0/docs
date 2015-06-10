@@ -6,7 +6,7 @@ lodash: true
 # Tutorials
 
 <ul>
-<% _.forEach(_.sortBy(articles.tutorials, 'title'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('tutorials').items, 'title'), function(article) { %>
   <li>
     <a href="<%- article.url %>"><%- article.title %></a>
     <p><%- article.description %></p>
