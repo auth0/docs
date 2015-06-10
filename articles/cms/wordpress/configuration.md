@@ -55,3 +55,21 @@ lock.once('signin ready', function() {
 ```
 
 >**Note:** Have in mind that the variable `lock` is where has the instance to the Lock widget.
+
+## Integrating with the plugin
+
+The plugin provides an action to get notified each time a user logs in or is created in WordPress. This action is called `auth0_user_login` and receives 4 params:
+1. $user_id (int): the id of the user logged in
+2. $user_profile (stdClass): the Auth0 profile of the user
+3. $is_new (boolean): `true` if the user was created on WordPress, `false` if doesn't. Don't get confused with Auth0 registrations, this flag will tell you if a new user was created on the WordPress database.
+4. $id_token (string): the user's JWT.
+
+To hook to this action, you will need to do the following:
+```
+    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,4 ); 
+
+    function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token) {
+        ...
+    }
+```
+
