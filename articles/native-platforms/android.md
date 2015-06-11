@@ -54,8 +54,8 @@ Add the following to the `build.gradle`:
 
 ```gradle
 compile 'com.auth0.android:lock:1.5.+'
-compile 'com.auth0.android:lock-facebook:1.5.+'
-compile 'com.auth0.android:lock-googleplus:1.5.+'
+compile 'com.auth0.android:lock-facebook:2.0.+'
+compile 'com.auth0.android:lock-googleplus:2.0.+'
 ```
 
 ### 2. Configuring Auth0 Credentials & Callbacks
@@ -99,7 +99,7 @@ public class MyApplication extends Application implements LockProvider {
 
   public void onCreate() {
     super.onCreate();
-    lock = new LockBuilder()
+    lock = new Lock.Builder()
       .loadFromApplication(this)
       /** Other configuration goes here */
       .closable(true)
@@ -126,7 +126,11 @@ Lock uses the native Facebook SDK to obtain the user's access token. This means 
 To get started, in your AndroidManifest.xml you need to add the following:
 
 ```xml
-<activity android:name="com.facebook.LoginActivity"/>
+<activity android:name="com.facebook.FacebookActivity"
+          android:configChanges=
+              "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:label="@string/app_name" />
 <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 ```
 
@@ -136,11 +140,13 @@ Where `@string/facebook_app_id` is your Facebook Application ID that you can get
 
 > **Note:** The Facebook app should be the same as the one set in Facebook's Connection settings on your Auth0 account
 
-Finally, you need to register the Auth0 Facebook Identity Provider with Lock. This must be done after Lock is initialised in your `Application` class:
+Finally, you need to register the Auth0 Facebook Identity Provider with Lock. This can be done when building `Lock` with `Lock.Builder`:
 
 ```java
-FacebookIdentityProvider facebook = new FacebookIdentityProvider(lock);
-lock.setProvider(Strategies.Facebook.getName(), facebook);
+lock = new Lock.Builder()
+        /** Other configuration goes here */
+        .withIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this))
+        .build();
 ```
 
 ####Google+
@@ -153,11 +159,13 @@ To support Google+ native authentication you need to add the following permissio
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 ```
 
-Finally, you need to register the Auth0 Google+ Identity Provider with Lock. This must be done after Lock is initialised in your `Application` class:
+Finally, you need to register the Auth0 Google+ Identity Provider with Lock. This can be done when building `Lock` with `Lock.Builder`:
 
 ```java
-GooglePlusIdentityProvider googleplus = new GooglePlusIdentityProvider(lock, this);
-lock.setProvider(Strategies.GooglePlus.getName(), googleplus);
+lock = new Lock.Builder()
+        /** Other configuration goes here */
+        .withIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this))
+        .build();
 ```
 
 ### 4. Let's implement the login
