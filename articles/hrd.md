@@ -57,8 +57,9 @@ lock.once('signin ready', function() {
             connection: 'fabrikamdirectory.onmicrosoft.com' });
     });
 
-    var iconList = $(this.$container).find('.a0-iconlist');
-    iconList.append(link);
+    $('.a0-iconlist', this.$container)
+        .append(link)
+        .removeClass('a0-hide');
 });
 
 lock.show({
