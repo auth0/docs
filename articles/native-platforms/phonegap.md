@@ -10,6 +10,14 @@ tags:
 
 ## Phonegap tutorial
 
+# To Run the example
+
+<p>In order to run the project, you need to have `node`, `cordova` and `ios-sim` installed.
+Once you have that, just clone the project and run the following:</p>
+
+<pre><code>cordova build ios</code></pre>
+<pre><code>cordova emulate ios</code></pre>
+
 <% if (configuration.api && configuration.thirdParty) { %>
 
 <div class="package" style="text-align: center;">
@@ -41,6 +49,8 @@ tags:
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 0. Setting up the callback URL in Auth0
+
+
 
 <div class="setup-callback">
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
