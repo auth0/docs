@@ -271,7 +271,7 @@ If you have found a bug or if you have a feature request, please report them at 
 * [Release process][release-process] notes.
 * [Auth0Lock playground][playground-url]
 * [Using Refresh Tokens](/libraries/lock/using-a-refresh-token)
-* Legacy **Auth0Widget** [Migration guide][migration-guide] to **AuthoLock**
+* Legacy **Auth0Widget** [Migration guide][migration-guide] to **Auth0Lock**
 
 <!-- Vaaaaarrsss -->
 
