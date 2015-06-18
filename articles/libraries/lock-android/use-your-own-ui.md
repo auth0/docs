@@ -24,7 +24,7 @@ compile 'com.auth0.android:core:1.9.+'
       }
   
       public APIClient getClient() {
-        return lock.getAPIClient();
+        return client;
       }
   }
   ```
