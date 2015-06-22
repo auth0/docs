@@ -28,7 +28,11 @@ The user's file must have an array with the user's information in JSON format. T
         },
         "app_metadata": {
             "type": "object",
-            "description": "Additional properties related to the user."
+            "description": "Data related to the user that does affect the application's core functionality."
+        },
+        "user_metadata": {
+            "type": "object",
+            "description": "Data related to the user that does not affect the application's core functionality."
         }
     },
     "required": ["email", "email_verified"],
@@ -64,6 +68,9 @@ A file with the following contents is valid:
     "app_metadata": {
         "roles": ["admin"],
         "plan": "premium"
+    },
+    "user_metadata": {
+        "theme": "light"
     }
   }
 ]
