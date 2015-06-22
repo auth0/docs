@@ -1,4 +1,4 @@
-# Lock: Initiialization
+# Lock: Initialization
 
 ```javascript
 // Initialize with clientID and domain
