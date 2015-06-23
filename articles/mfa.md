@@ -1,20 +1,20 @@
 # Multi-factor Authentication in Auth0
 
-Auth0 ships with built-in support for popular, multi-factor authentication systems. The following systems are integrated into Auth0 and can be enabled with minimal effort:
+Auth0 offers built-in support for OTP multi-factor authentication via Google Authenticator and Duo. 
 
 * [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator)
 * [Duo Security](https://www.duosecurity.com/)
 
-You can define arbitrary conditions that will trigger additional authentication challenges to your users for increased security:
+In addition to these built-in integrations, Auth0 supports **contextual MFA** and **custom providers**. 
 
-* Geographic location.
-* The application that is being accessed.
-* Time constraints.
+Contextual MFA allows you to define arbitrary conditions that will trigger additional authentication challenges to your users for increased security, for example:
+
+* Geographic location (geo-fencing).
+* Type of network used (IP filtering).
+* Time of day, day of the week.
 * Change in the location or device used to login.
 
-Applications can also change behavior depending on whether additional factors were applied for the authentication.
-
-You can integrate **any** multi-factor provider through Auth0's extensibility. 
+Contextual MFA allows you to integrate **any** multi-factor provider through Auth0's extensibility. 
 
 ## Google Authenticator
 
