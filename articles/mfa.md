@@ -14,7 +14,7 @@ Contextual MFA allows you to define arbitrary conditions that will trigger addit
 * Time of day, day of the week.
 * Change in the location or device used to login.
 
-Contextual MFA allows you to integrate **any** multi-factor provider through Auth0's extensibility. 
+Custom provider allows you to integrate **any** multi-factor provider through Auth0's extensibility. 
 
 ## Google Authenticator
 
