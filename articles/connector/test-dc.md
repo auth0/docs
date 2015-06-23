@@ -7,7 +7,7 @@ In these instructions you will:
 * [Install Active Directory Domain Services](#install-active-directory-domain-services)
 * [Promote the server to a Domain Controller](#promote-the-server-to-a-domain-controller)
 * [Add a few test groups and users](#add-a-few-test-groups-and-users)
-* [Install and configure the Auth0 AD/LDAP Connector](#install-and-configure-the-adldap-connector)
+* [Install and configure the AD/LDAP Connector](#install-and-configure-the-adldap-connector)
 * [Test an authentication flow from Auth0](#test-an-authentication-flow-from-auth0)
 
 ## Create a new Windows Server VM on Azure
