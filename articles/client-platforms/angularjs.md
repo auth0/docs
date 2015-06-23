@@ -71,18 +71,18 @@ In this case, we'll add the call in the `login` method of the `LoginCtrl` contro
 
 ```js
 // LoginCtrl.js
-function LoginCtrl($scope, auth, store, $location) {
-  $scope.login = function() {
-    auth.signin({}, function(profile, token) {
-      // Success callback
+angular.module('YOUR-APP-NAME').controller('LoginCtrl', ['$scope', '$http', 'auth', 'store', '$location', function ($scope, $http, auth, store, $location) {
+  $scope.login = function () {
+    auth.signin({}, function (profile, token) {
+    // Success callback
       store.set('profile', profile);
       store.set('token', token);
       $location.path('/');
-    }, function() {
-      // Error callback
+    }, function () {
+    // Error callback
     });
   }
-}
+}]);
 ```
 
 ```html
