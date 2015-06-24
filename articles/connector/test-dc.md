@@ -75,16 +75,15 @@ Install-ADDSForest –DomainName mycompany.local
 
 ## Install and configure the AD/LDAP Connector
 
-1. In your Auth0 account, create a new **Active Directory/LDAP** connection with the name `auth0-test-ad` by following [these steps](/connections/enterprise/active-directory).
-1. Copy the **Ticket URL** that is generated at the end of those instructions.
+1. In your Auth0 account, create a new **Active Directory/LDAP** connection with the name `auth0-test-ad` by following [these steps](/connections/enterprise/active-directory).  
+  **NOTE**: Be sure to copy the **Ticket URL** that is generated at the end of those instructions.
 1. On the VM, disable **Internet Explorer Enhanced Security Configuration** by following [these steps](http://blog.blksthl.com/2012/11/28/how-to-disable-ie-enhanced-security-in-windows-server-2012/).
-1. Run **Internet Explorer** and open the **Ticket URL** from above.
-1. Follow the instructions in the browser to download and install the **Connector**.
-1. When the install is complete, a new browser tab will be opened to complete the **Connector** configuration.  It will ask you to copy in the same **Ticket URL** from before so it can pre-populate the configuration data.
-1. It will then prompt you for the LDAP service account. Just use the admin account we created for the VM:
+1. Open **Internet Explorer** with the **Ticket URL** from above.
+1. Follow the instructions in the browser to download, install, and configure the **Connector**.
+1. Per those instructions, you will be prompted for the LDAP service account. Just use the admin account we created for the VM:
   * Username: `mycompany\ad-admin`
   * Password: (same as before)
-1. Reboot the server.
+1. When you're done with the instructions, reboot the server.
 1. Log back into the VM using Remote Desktop.
 1. Open the Connector configuration site again: http://localhost:8357/
 1. Test that the **Connector** is able to find a user by clicking on the **Search** tab and under "Find User by Login", type `mary.smith` and click **Search**.
