@@ -1,6 +1,6 @@
 # Identity Protocols supported by Auth0
 
-Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation). In most cases you won't need to go this deep to use Auth0.
+Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation, LDAP). In most cases you won't need to go this deep to use Auth0.
 
 > This article is meant as an introduction. See the references section below for more information.
 
@@ -241,3 +241,58 @@ If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are 
 > You can also upload a Federation Metadata file.
 
 If a primary and a secondary certificates are present in the __Federation Metadata__, then both would work. Connection parameters can be updated anytime (by clicking on __Edit__ and __Save__). This allows simple certificate rollover.
+
+## Redirect protocol in Rules
+
+Auth0 allows you to customize and extend the authentication transaction through code functions you write in JavaScript called __[Rules](/rules)__. Rules run after the user is authenticated with a connection, but before the result is sent back to an app.
+
+The __Redirect__ protocol allows you to interrupt the normal flow, and send the user to an arbitrary endpoint when a condition is met:
+
+```
+function(user,context,callback){
+	
+	if( someCondition() ){
+		context.redirect = {
+			url: "https://some_location"
+		};
+	}
+
+	callback(null,user,context);
+}
+```
+
+if `context.redirect` is set, and after all rules are executed, the user will be redirected to the `url`, with at least one additional query string parameter `state`.
+
+What happens in that location is up to the developer. Typical uses of this facility include: 
+
+* Generic MFA
+* Profile enrichment.
+* User enrollment.
+* Consent & legal terms acceptance.
+
+To resume the transaction, user needs to `POST` or `GET` to the url: `https://@@account.namespace@@/continue`:
+
+
+
+	POST /continue&state={the state value} HTTP/1.1
+	Host: @@account.namespace@@
+	Content-Type: application/x-www-form-urlencoded
+
+	{body}
+
+Notice that `state` __must__ match what was sent by Auth0 to the endpoint. The `{body}` or other query string parameters are app specific.
+
+Transactions that are resumed can be easily be identified with the `protocol=redirect-callback` property:
+
+```
+function(user,context,callback){
+	
+	if( context.protocol === 'redirect-callback' ){
+		//Resuming from a redirect
+	}
+
+	callback(null,user,context);
+}
+```
+
+A common and convenient way of transferring information from Auth0 to the external site and back is through a [JWT](/jwt).
