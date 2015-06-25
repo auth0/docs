@@ -105,7 +105,7 @@ https://@@account.namespace@@/authorize?response_type=token&scope=openid%20profi
 ```
 
 1. Log in with one of the test users that was created in the directory.  For example:
-  * Username: `mycompany\mary.smith`
+  * Username: `mary.smith`
   * Password: `Pass@word1!`
   ![](/media/articles/connector/test-dc/auth-flow-login.png)
 1. If everything is working, you should get redirected to the JWT.io website and be looking at the contents of the resulting JWT:  
