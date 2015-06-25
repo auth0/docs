@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: jQuery Tutorial
+name: jQuery
+image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
 tags:
   - quickstart
 ---

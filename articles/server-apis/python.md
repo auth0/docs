@@ -1,4 +1,7 @@
 ---
+name: Python API
+thirdParty: false
+image: //auth0.com/lib/platforms-collection/img/python.png
 lodash: true
 ---
 

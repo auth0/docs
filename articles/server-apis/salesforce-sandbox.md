@@ -1,5 +1,8 @@
 ---
 title: Salesforce (Sandbox) API
+name: Salesforce (sandbox)
+thirdParty: true
+image: //auth0.com/lib/saas-collection/img/salesforce.png
 lodash: true
 ---
 <% configuration.thirdParty = 'Salesforce (Sandbox)' %>

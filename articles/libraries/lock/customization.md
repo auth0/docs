@@ -74,7 +74,7 @@ lock.show({
 
 ### dict {String|Object}
 
-`dict` can be a string matching the language (`'en'`, `'es'`, `'it'`, [etc.][i18n-link]) or an object containing your customized text labels. To learn how to customize error messages, you can [read more here](/libraries/lock/customizing-error-messages).
+`dict` can be a string matching the language (`'en'`, `'es'`, `'it'`, [etc.][/libraries/lock/i18n]) or an object containing your customized text labels. To learn how to customize error messages, you can [read more here](/libraries/lock/customizing-error-messages).
 
 ```js
 // select a supported language
@@ -478,6 +478,5 @@ Internally set from `callback` parameter
 [popup-image]: https://cloudup.com/cY08amfJ1yh+
 [windowopen-link]: https://developer.mozilla.org/en-US/docs/Web/API/Window.open#Position_and_size_features
 [popupoptions-image]: https://cloudup.com/cqvq_Gz5VUZ+
-[i18n-link]: https://github.com/auth0/lock/tree/master/i18n
 [gravatar-image]: https://cldup.com/yt3vJ2UQzq.png
 [defaultadusernamefromemailprefix-image]: https://cldup.com/IWdks93Oh5.png

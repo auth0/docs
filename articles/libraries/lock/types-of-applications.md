@@ -15,7 +15,7 @@ var lock = new Auth0Lock('dsa7d77dsa7d7', 'mine.auth0.com');
 
 lock.show(function(err, profile, id_token) {
   if (err) {
-    console.log("There was ane error :/", err);
+    console.log("There was an error :/", err);
     return;
   }
 

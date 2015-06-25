@@ -4,6 +4,8 @@ url: /saml-configuration
 
 # SAML
 
+## Overview
+
 In a SAML federation there is a Service Provider and an Identity Provider.  The Service Provider agrees to trust the Identity Provider to authenticate users.  The Identity Provider authenticates users and provides to Service Providers an Authentication Assertion that indicates a user has been authenticated.
 
 Auth0 supports the SAML protocol and can serve in either a SAML Service Provider (SP) role, a SAML Identity Provider (IDP) role, or both.
@@ -85,13 +87,141 @@ A different, but similar, use case is setting up one Auth0 account to serve as a
 
 A list of [Identity Providers](/samlp-providers) that are believed to be SAML compliant.
 
+## Special Configuration Situations
+
+Once a basic SAML setup has been done, there are a number of additional requirements that may need to be implemented to refine the setup to a particular situation.  The instructions below assume a connection has been set up (for Auth0 as Service Provider) or an Application has been set up (Auth0 as Identity Provider) and instructions are given for the specific settings to alter for each requirement.
+
+### IDP-initiated SSO
+
+Most of the instructions for setting up a SAML federation start with Service-Provider-Initiated Single Sign On which involves a user first invoking a URL on the Service Provider which returns a browser redirect to send the user to the Identity Provider for authentication.  After authentication, the user browser is redirected back to the Service Provider with a SAML assertion indicating authentication status. This is common for consumer-facing scenarios.   
+
+An alternative sequence is called Identity-Provider-Initiated Single Sign On where a user first invokes a URL on the Identity Provider and is prompted to authenticate and then is redirected to the Service Provider with a SAML assertion.  This is common in enterprise scenarios where an enterprise sets up a portal with links to outsourced or cloud-hosted applications to ensure users go to the correct application.  In this case the user first goes to the portal URL, which redirects to the IDP, where the user authenticates.  After authentication, the user clicks on links on the portal and their browser is redirected to the Service Provider with a SAML assertion. 
+
+### Auth0 as Service Provider
+If Auth0 is acting as a Service Provider, the following is needed to support IDP-Initiated Single Sign On.
+
+* Ensure the IDP includes the connection parameter in the ACS (Assertion Consumer Service) URL.
+* In the connection configuration, use the IDP-Initiated tab to specify the application to which the user will be redirected.
+
+### Auth0 as Identity Provider
+If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
+
+* In the Apps/APIs -> Addons -> SAML2 WEB APP -> Settings, specify a query parameter can be added at the end of the Application Callback URL, if needed, to indicate where the user should be sent.
+
+
+### Signing and Encryption
+
+#### Auth0 as Service Provider
+
+##### Signing SAML Authentication Requests
+
+If Auth0 is acting as a SAML Service Provider, the Authentication Request sent to the Identity Provider can be signed by doing the following for the SAML connection:
+
+* Connections -> Enterprise -> SAMLP Identity Provider -> Settings (gear icon)
+* Turn on the **"Sign Request"** toggle
+* Download the certificate underneath the **"Sign Request"** toggle and give it to the Identity Provider for use in validating the signature.
+
+###### Turning Deflate encoding on and off
+Note that by default, SAML Authentication Requests are sent via HTTP-Redirect and using deflate encoding, which puts the signature in a query parameter.  To turn deflate encoding off, one can use the Auth0 APIv2 **"Update a connection"** endpoint to set the "deflate" option to false.  
+
+First use the APIv2 Get a Connection to see and copy the list of all options.  Then use Update a Connection, adding the "deflate" option and setting it to false, and paste in the rest of the options and their values:
+
+```
+{
+   "name":"NAME_OF_CONNECTION"
+   "options" : {
+       ""deflate":false
+    ...include all other options...
+    }
+}
+```
+
+##### Receiving Signed SAML Authentication Responses
+
+When Auth0 is acting as a SAML Service Provider, all SAML Responses from an Identity Provider should be signed to ensure the response has not been tampered with.  Auth0 should be configured to validate the signature of the responses by:
+
+* Obtain a signing certificate from the Identity Provider
+* Load the certificate from the Identity Provider into the Auth0 Connection:
+* Connections -> Enterprise -> SAMLP Identity Providers -> Settings (gear icon) for the desired connection -> **"UPLOAD CERTIFICATE"**
+
+Auth0 can accept a SAML response with signature for either the assertion, the response or both.
+
+
+##### Receiving Encrypted SAML Authentication Assertions
+
+When Auth0 is acting as a SAML Service Provider, it may need to receive encrypted assertions from an Identity Provider. To do this, the Service Provider public key/certificate must be given to the Identity Provider.  The Identity Provider will encipher the SAML assertion with the public key and then Auth0 as the Service Provider will use its private key to decipher the assertion. 
+
+To prepare a connection for this:
+
+* Connections -> Enterprise -> SAMLP Identity Providers -> Setup (pencil icon) for the desired connection
+* See the "Optional: Assertions can be encrypted..." line which provides the ability to download a certificate in three different formats.
+* Download and send to the Identity Provider administrator the certificate format needed by the Identity Provider.
+
+
+#### Auth0 as Identity Provider
+
+##### Receiving signed SAML Authentication Requests
+
+When Auth0 is acting as a SAML Identity Provider, it can receive signed Authentication requests. with its private key and the receiving Service Provider will validate the signature with the corresponding public key/certificate.  To do this:
+
+##### Sending Signed SAML Authentication Responses/Assertions
+
+When Auth0 is acting as a SAML Identity Provider, it will sign responses or assertions with its private key and the receiving Service Provider will validate the signature with the corresponding public key/certificate.  To do this:
+
+* Apps/APIs -> Settings (gear icon) -> Show Advanced Settings
+* Under **"CERTIFICATE"** use **"DOWNLOAD CERTIFICATE"** to obtain the Identity Provider signing certificate.
+* Send this certificate to the Service Provider for use in validating the signature.
+* Then go to "Addons" -> "SAML2 WEB APP" -> Settings tab
+* By default the SAML Assertion will be signed.
+* To sign the SAML Response, uncomment the "signResponse" line and set it to "true"
+
+At present, Auth0 will sign either the assertion **or** the response, but not both simultaneously.
+
+
+##### Sending Encrypted SAML Authentication Assertions
+
+When Auth0 is acting as a SAML Identity Provider, it is possible for it to encrypt the SAML assertion it sends by using a Rule.
+
+You will need to obtain the certificate and public key from the Service Provider.
+
+```
+
+function (user, context, callback) {
+
+  context.samlConfiguration = (context.samlConfiguration || {});
+  context.samlConfiguration.encryptionPublicKey = "-----BEGIN PUBLIC KEY-----\nMIGf...bpP/t3\n+JGNGIRMj1hF1rnb6QIDAQAB\n-----END PUBLIC KEY-----\n";
+  context.samlConfiguration.encryptionCert = "-----BEGIN CERTIFICATE-----\nMII...u84\n-----END CERTIFICATE-----\n";
+
+  callback(null, user, context);
+}
+```
+
 ## Customizing SAML assertions (Auth0 as IDP)
 
 The "Configuring Auth0 as a SAML Identity Provider" section above contains information on basic configuration for Auth0 to serve as a SAML Identity Provider.
 
 This section explains how to customize the SAML Assertions and the SAML and WS-Fed protocol parameters when Auth0 is configured to serve as an Identity Provider.
 
+
+### Via Application Addons
+
+In the Auth0 dashboard, the **""Apps/APIs"** -> **"Settings"** -> **"Addons"** -> **"SAML2WebApp"** -> **"Settings"** tab can be used for several types of customizations, including the following common cases:
+
+* Specifying an audience other than the default Issuer of the SAML request
+* Specifying a recipient
+* mapping profile attributes to specific attribute statements 
+* Changing the signature or digest algorithm
+* Specifying whether to sign the assertion or the entire response
+
+The tab contains a description of each setting.
+
+### Via Rules
+
+Auth0 rules can also be used to add more extensive or dynamic customizations to the SAML response.  Note that customizations done in Rules will override customizations done in the Apps/APIs Addons tab.
+
 You can customize the SAML Assertion by creating a [rule](/rules) like this:
+
+```
 
     function (user, context, callback) {
       // change SAML token lifetime to 10 hours
@@ -106,11 +236,31 @@ You can customize the SAML Assertion by creating a [rule](/rules) like this:
 
       callback(null, user, context)
     }
+```
+
+To include user_metadata attributes in an assertion, you can create a [rule](/rules) like this:
+
+```
+  function (user, context, callback) {
+   
+     user.user_metadata = user.user_metadata || {};
+     user.user_metadata.color2 = "purple";
+     context.samlConfiguration.mappings = {
+     
+     //Attribute already in user_metadata
+     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
+     
+     //Attribute dynamically added to user_metadata above
+     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",    
+     };
+     callback(null, user, context);
+  }
+```
 
 
 ### Configuration options
 
-Below are all the customizations you can do:
+Below are all the customizations you can do and they can be done using either of the above two options.
 
 * __audience (`string`):__ The audience of the SAML Assertion. Default will be the `Issuer` on `SAMLRequest`.
 * __recipient (`string`):__ The recipient of the SAML Assertion (SubjectConfirmationData). Default is `AssertionConsumerUrl` on `SAMLRequest` or Callback URL if no SAMLRequest was sent.
@@ -183,4 +333,12 @@ Deprovisioning of accounts should be done, at minimum, at the Identity Provider.
 
 It may also be desirable to remove accounts at Auth0 if it is acting as Service Provider or an application integrated with Auth0.  Regardless of whether Auth0 is acting as a Service Provider or an Identity Provider, user accounts can be removed from Auth0 via the Auth0 dashboard or via the Auth0 API.  
 
+# Troubleshooting
+
+The following tools are useful for troubleshooting SAML authentication.
+
+Can paste saml response from Auth0 logs straight into this decoder
+https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php
+
+FF SAML addon works even better!
 

@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: AngularJS Tutorial
+name: Angular.js
+image: //auth0.com/lib/platforms-collection/img/angular.png
 tags:
   - quickstart
 ---

@@ -1,5 +1,8 @@
 ---
 title: Salesforce
+name: Salesforce
+thirdParty: true
+image: //auth0.com/lib/saas-collection/img/salesforce.png
 lodash: true
 ---
 <% configuration.thirdParty = 'Salesforce' %>

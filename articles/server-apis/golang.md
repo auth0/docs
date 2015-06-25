@@ -1,4 +1,7 @@
 ---
+name: Go
+thirdParty: false
+image: //auth0.com/lib/platforms-collection/img/golang.png
 lodash: true
 ---
 
@@ -8,10 +11,10 @@ lodash: true
   <blockquote>
     <a href="/auth0-golang/master/create-package?path=examples/go-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 

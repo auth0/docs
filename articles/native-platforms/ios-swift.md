@@ -1,6 +1,9 @@
 ---
 lodash: true
 title: iOS Swift Tutorial
+name: iOS - Swift
+hybrid: false
+image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
   - quickstart
 ---

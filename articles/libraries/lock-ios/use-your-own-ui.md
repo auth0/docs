@@ -132,7 +132,7 @@ NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
     A0Lock *lock = ... //Get your Lock instance
     [[lock apiClient] fetchAppInfoWithSuccess:^(A0Application *application) {
       NSLog(@"Your Auth0 app information: %@.", application);
-      [[A0IdentityProviderAuthenticator sharedInstance] configureForApplication:application];
+      [[lock identityProviderAuthenticator] configureForApplication:application];
     } failure:^(NSError *error) {
       NSLog(@"Oops something went wrong: %@", error);
     }];

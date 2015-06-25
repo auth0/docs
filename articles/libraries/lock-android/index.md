@@ -17,7 +17,7 @@ lodash: true
 ## Additional Documents
 
 <ul>
-<% _.forEach(_.sortBy(articles.libraries.lock_android, 'toc_title'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('libraries.lock-android').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
     <span><a href="<%- article.url %>"><%- article.toc_title %></a>
@@ -30,7 +30,7 @@ lodash: true
 <% }); %>
 </ul>
 
-## Requierements
+## Requirements
 
 Android API level 14+ is required in order to use Lock's UI.
 If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.7.+`, the minimum required API level is 9.

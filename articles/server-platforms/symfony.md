@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: Symfony Tutorial
+name: PHP (Symfony)
+image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
 ---

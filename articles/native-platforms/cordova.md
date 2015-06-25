@@ -1,6 +1,9 @@
 ---
 lodash: true
 title: Cordova Tutorial
+name: Cordova
+hybrid: true
+image: //auth0.com/lib/platforms-collection/img/phonegap.png
 tags:
   - quickstart
 ---

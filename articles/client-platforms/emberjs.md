@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: EmberJS Tutorial
+name: EmberJS
+image: //auth0.com/lib/platforms-collection/img/emberjs.png
 tags:
   - quickstart
 ---

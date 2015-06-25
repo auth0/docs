@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: Apache Tutorial
+name: Apache
+image: //auth0.com/lib/platforms-collection/img/apache.jpg
 tags:
   - quickstart
 ---

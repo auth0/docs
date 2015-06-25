@@ -26,119 +26,37 @@ The user's file must have an array with the user's information in JSON format. T
             "type": "string",
             "description": "The username."
         },
-        "family_name": {
-            "type": "string",
-            "description": "The user's last name."
-        },
-        "gender": {
-            "type": "string",
-            "description": "The user's gender."
-        },
-        "name": {
-            "type": "string",
-            "description": "The user's full name."
-        },
-        "nickname": {
-            "type": "string",
-            "description": "The user's nickname."
-        },
-        "picture": {
-            "type": "string",
-            "description": "The URI from where to obtain the user's picture."
-        },
-        "locale": {
-            "type": "string",
-            "description": "The user's locale."
-        },
-        "given_name": {
-            "type": "string",
-            "description": "The user's first name."
-        },
-        "loginsCount": {
-            "type": "number",
-            "description": "The amout of times the user has logged in.",
-            "minimum": 1,
-            "maximum": 1
-        },
-        "metadata": {
+        "app_metadata": {
             "type": "object",
-            "description": "Additional properties related to the user."
+            "description": "Data related to the user that does affect the application's core functionality."
         },
-        "created_at": {
+        "user_metadata": {
             "type": "object",
-            "description": "The date when the user was created."
-        },
-        "identities": {
-            "type": "array",
-            "description": "The user's identities.",
-            "items": {
-                "type": "object",
-                "required": ["profileData", "provider", "connection", "isSocial"],
-                "properties": {
-                    "profileData": {
-                        "type": "object",
-                        "required": ["email", "email_verified"],
-                        "properties": {
-                            "email_verified": {
-                                "type": "boolean"
-                            },
-                            "email": {
-                                "type": "string",
-                                "description": "The email of the user's identity.",
-                                "format": "email"
-                            }
-                        }
-                    },
-                    "provider": {
-                        "type": "string",
-                        "description": "The identity provider.",
-                        "enum":["auth0"]
-                    },
-                    "connection": {
-                        "type": "string",
-                        "description": "The connection of the user's identity."
-                    },
-                    "isSocial": {
-                        "type": "boolean",
-                        "description": "True if the IdP is social, false otherwise.",
-                        "enum":[false]
-                    }
-                }
-            },
-            "minItems": 1,
-            "maxItems": 1
+            "description": "Data related to the user that does not affect the application's core functionality."
         }
     },
-    "required": ["email", "email_verified", "identities", "loginsCount", "created_at"],
-    "id": "user",
+    "required": ["email", "email_verified"],
     "additionalProperties": false
 }
 ```
 
-### User metadata schema
-Additionally, the metadata property must be valid for the following schema:
-```json
-{
-  "type": "object",
-  "properties": {
-    "clientID": { "not": {} },
-    "globalClientID": { "not": {} },
-    "global_client_id": { "not": {} },
-    "email_verified": { "not": {} },
-    "user_id": { "not": {} },
-    "identities": { "not": {} },
-    "lastIP": { "not": {} },
-    "lastLogin": { "not": {} },
-    "metadata": { "not": {} },
-    "created_at": { "not": {} },
-    "loginsCount": { "not": {} },
-    "_id": { "not": {} }
-  },
-  "id": "user_metadata"
-}
-```
+### User `app_metadata` schema
 
-Basically, it should not contain any of the properties listed above.
+Additionally, the `app_metadata` should not contain any of these properties:
+
+* clientID
+* globalClientID
+* global_client_id
+* email_verified
+* user_id
+* identities
+* lastIP
+* lastLogin
+* metadata
+* created_at
+* loginsCount
+* _id
+
 
 ### File example
 A file with the following contents is valid:
@@ -146,12 +64,14 @@ A file with the following contents is valid:
 [
   {
     "email": "john.doe@contoso.com",
-    "family_name": "Doe",
     "email_verified": false,
-    "gender": "male",
-    "name": "John Doe",
-    "nickname": "Johnny",
-    "given_name": "John"
+    "app_metadata": {
+        "roles": ["admin"],
+        "plan": "premium"
+    },
+    "user_metadata": {
+        "theme": "light"
+    }
   }
 ]
 ```
@@ -166,7 +86,7 @@ Body
     "type":"users_import",
     "tenant":"contoso",
     "connection":"abcd",
-    "_id":"545bb6aca4109a44b38ba231"
+    "id":"job_abcdef1234567890"
 }
 ```
 

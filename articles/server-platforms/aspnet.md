@@ -1,5 +1,7 @@
 ---
 title: ASP.NET Tutorial
+name: ASP.NET
+image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 ---
@@ -48,7 +50,7 @@ Once the user successfully authenticated to the application, a `ClaimsPrincipal`
 
     public ActionResult Index()
     {
-    	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
+    	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
     }
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](/user-profile).

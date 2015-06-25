@@ -14,19 +14,17 @@ compile 'com.auth0.android:core:1.9.+'
 2. Create a new instance of `APIClient` and store it in your `Application` object (or a singleton).
   ```java
   public class CustomApplication extends Application {
-      private Lock lock;
+      private APIClient client;
   
       @Override
       public void onCreate() {
-          lock = new LockBuilder()
-              .clientId("YOUR_CLIENT_ID")
-              .domainUrl("YOUR_AUTH0_DOMAIN_URL")
-              .build();
-          client = new APIClient("YOUR_CLIENT_ID", "YOUR_ACCOUNT_NAME");
+        String clientId = "YOUR_CLIENT_ID";
+        String domainUrl = "YOUR_DOMAIN_URL"; //e.g. https://samples.auth0.com
+        client = new APIClient(clientId, domainUrl, BaseAPIClient.AUTH0_US_CDN_URL);
       }
   
       public APIClient getClient() {
-          return lock.getAPIClient();
+        return client;
       }
   }
   ```
@@ -130,21 +128,22 @@ compile 'com.auth0.android:core:1.9.+'
   compile 'com.auth0.android:lock-googleplus:2.0.+'
   ```
   
-1. Configure Facebook Native integration with `Lock.Builder` calling this method
+1. Configure Facebook Native integration and store the reference (e.g. in your Application class)
   ```java
-  .withIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this))
+  facebook = new FacebookIdentityProvider(this);
   ```
   > **Note**: You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook 
 
-1. Configure Google+ Native integration too
+1. Configure Google+ Native integration and store the reference (e.g. in your Application class)
   ```java
-  .withIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this))
+  googleplus = new GooglePlusIdentityProvider(this);
   ```
   > **Note**: Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
   
 1. Fetch your Auth0 application information, you can do this from your Main activity, so we can start start authenticating with either Social Identity Provider (IdP from now on)
   ```java
-  Lock.getLock(this).getAPIClient().fetchApplicationInfo(new BaseCallback<Application>() {
+  CustomApplication app = ... //Fetch your application object
+  app.getAPIClient().fetchApplicationInfo(new BaseCallback<Application>() {
       @Override
       public void onSuccess(Application application) {
           //All is good, we can continue
@@ -167,8 +166,9 @@ compile 'com.auth0.android:core:1.9.+'
   ```java
   @Override
   protected void onStop() {
-      super.onStop();
-      Lock.getLock(this).resetAllProviders();
+    super.onStop();
+    facebook.stop();
+    googleplus.stop();
   }
   ```
   
@@ -185,8 +185,7 @@ compile 'com.auth0.android:core:1.9.+'
 
 1. Now we can authenticate with either IdP
   ```java
-  Lock lock = Lock.getLock(this);
-  identityProvider = lock.providerForName(Strategies.Facebook.getName());
+  identityProvider = facebook;
   identityProvider.setCallback(new IdentityProviderCallback() {
       @Override
       public void onFailure(Dialog dialog) {
@@ -198,7 +197,7 @@ compile 'com.auth0.android:core:1.9.+'
       public void onFailure(int titleResource, int messageResource, Throwable throwable) {
           //An error ocurred with Auth0 integration
           // title & message for an error are always returned
-          identity.clearSession();
+          identityProvider.clearSession();
       }
 
       @Override
@@ -214,14 +213,15 @@ compile 'com.auth0.android:core:1.9.+'
       }
   });
   IdentityProviderRequest request = new IdentityProviderAuthenticationRequestEvent(Strategies.Facebook.getName());
-  identityProvider.start(this, request, lock.getAPIClient().getApplication());
+  CustomApplication app = ... //Fetch your application object
+  identityProvider.start(this, request, app.getAPIClient().getApplication());
   ```
   
 1. Send IdP credentials to Auth0
   ```java
   private void authenticateWithAuth0(String serviceName, String accessToken) {
-      Lock lock = Lock.getLock(this);
-      lock.getAPIClient().socialLogin(serviceName, accessToken, lock.getAuthenticationParameters(), new AuthenticationCallback() {
+    CustomApplication app = ... //Fetch your application object
+    app.getAPIClient().socialLogin(serviceName, accessToken, null, new AuthenticationCallback() {
           @Override
           public void onSuccess(UserProfile profile, Token token) {
               //Successfully authenticated with Auth0.

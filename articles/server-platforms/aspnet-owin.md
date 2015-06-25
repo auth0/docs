@@ -1,6 +1,8 @@
 ---
 lodash: true
 title: ASP.NET (OWIN) Tutorial
+name: ASP.NET (OWIN)
+image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 ---
