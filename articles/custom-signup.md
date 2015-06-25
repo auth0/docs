@@ -117,7 +117,8 @@ use redirect mode, configure a callback URL when calling `auth0.signup`. After a
 successful login, Auth0 will redirect the user to the configured callback URL
 with a JWT (`id_token`) in the query string.
 
->
+> [To learn more about the differences between popup and redirect modes,
+please refer to this document](https://auth0.com/docs/libraries/lock/authentication-modes).
 
 ```js
 window.auth0 = new Auth0({
