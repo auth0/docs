@@ -295,4 +295,6 @@ function(user,context,callback){
 }
 ```
 
+> Note that all rules are run all over again on `/continue`. You need to make sure you don't end up on an infinte redirect loop with checks like the above.
+
 A common and convenient way of transferring information from Auth0 to the external site and back is through a [JWT](/jwt).
