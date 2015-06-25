@@ -19,3 +19,4 @@ In this section:
 -  [Updating the Connector](/connector/update)
 -  [Monitoring with System Center Operations Manager](/connector/scom-monitoring)
 -  [Troubleshooting](/connector/troubleshooting)
+-  [Creating a Test Active Directory Domain Controller](/connector/test-dc)
