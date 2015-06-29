@@ -269,6 +269,7 @@ What happens in that location is up to the developer. Typical uses of this facil
 * Profile enrichment.
 * User enrollment.
 * Consent & legal terms acceptance.
+* User claims consent pages.
 
 To resume the transaction, user needs to `POST` or `GET` to the url: `https://@@account.namespace@@/continue`:
 
