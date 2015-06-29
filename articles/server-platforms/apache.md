@@ -20,7 +20,7 @@ You can get the binaries from [Github](https://github.com/pingidentity/mod_auth_
 Once you've installed it, you just need to enable it for Apache
 
 ```bash
-sudo a2enmod mod_auth_openidc
+sudo a2enmod auth_openidc
 ```
 
 ### 2. Configure the module with your Auth0 Account information
