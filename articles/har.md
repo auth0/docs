@@ -1,4 +1,4 @@
-## Throubleshooting with HAR files
+## Troubleshooting with HAR files
 
 Sometimes during development the authentication flow doesn't work as expected.
 
