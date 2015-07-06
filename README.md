@@ -29,7 +29,17 @@ name: Quickstart Name
 image: //cdn.auth0.com/path/to/icon.png
 thirdParty: true|false  # For server apis only
 hybrid: true|false # For native platforms only
+snippets:
+  dependancies: folder/dependancies.html
+  setup: folder/app.js
+  use: folder/login.js
 ---
+```
+
+For each quickstart you must specify the snippets and create the associated snippet file in the `/snippets` folder. You must provide all three snippets for each quickstart: `dependancies`, `setup`, and `use`. To include the snippet in the quickstart document simply reference it:
+
+```md
+@@snippet(meta.snippets.use)@@
 ```
 
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.

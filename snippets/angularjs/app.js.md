@@ -1,7 +1,3 @@
----
-title: Configure Auth0 for Angular
----
-
 ```js
 // app.js
 angular.module('YOUR-APP-NAME', ['auth0', 'angular-storage', 'angular-jwt'])

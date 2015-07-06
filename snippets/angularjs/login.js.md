@@ -14,3 +14,10 @@ function ($scope, $http, auth, store, $location) {
   }
 }]);
 ```
+
+```html
+<!-- login.tpl.html -->
+<!-- ... -->
+<input type="submit" ng-click="login()" />
+<!-- ... -->
+```
