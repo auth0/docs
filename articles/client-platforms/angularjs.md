@@ -48,49 +48,16 @@ We're including Auth0's angular module and its dependencies to the `index.html`.
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
-```js
-// app.js
-angular.module('YOUR-APP-NAME', ['auth0', 'angular-storage', 'angular-jwt'])
-.config(function (authProvider) {
-  authProvider.init({
-    domain: '<%= account.namespace %>',
-    clientID: '<%= account.clientId %>'
-  });
-})
-.run(function(auth) {
-  // This hooks al auth events to check everything as soon as the app starts
-  auth.hookEvents();
-});
-```
-
+@@snippet('angularjs/app.run.js')@@
 
 ### 3. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
 In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile and token into `localStorage`.
 
-```js
-// LoginCtrl.js
-function LoginCtrl($scope, auth, store, $location) {
-  $scope.login = function() {
-    auth.signin({}, function(profile, token) {
-      // Success callback
-      store.set('profile', profile);
-      store.set('token', token);
-      $location.path('/');
-    }, function() {
-      // Error callback
-    });
-  }
-}
-```
+@@snippet('angularjs/loginctrl.js')@@
 
-```html
-<!-- login.tpl.html -->
-<!-- ... -->
-<input type="submit" ng-click="login()" />
-<!-- ... -->
-```
+@@snippet('angularjs/login.tpl.html')@@
 
 @@browser@@
 
@@ -100,38 +67,15 @@ function LoginCtrl($scope, auth, store, $location) {
 
 You can just call the `signout` method of Auth0 to log the user out. You should also remove the information saved into `localStorage`:
 
-```js
-$scope.logout = function() {
-  auth.signout();
-  store.remove('profile');
-  store.remove('token');
-}
-```
+@@snippet('angularjs/logout.js')@@
 
-```html
-<input type="submit" ng-click="logout()" value="Log out" />
-```
-
+@@snippet('angularjs/logout.html')@@
 
 ### 5. Configuring secure calls to our API
 
 As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors:
 
-```js
-// app.js
-myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtInterceptorProvider) {
-  // ...
-
-  // We're annotating this function so that the `store` is injected correctly when this file is minified
-  jwtInterceptorProvider.tokenGetter = ['store', function(store) {
-    // Return the saved token
-    return store.get('token');
-  }];
-
-  $httpProvider.interceptors.push('jwtInterceptor');
-  // ...
-});
-```
+@@snippet('angularjs/app.config.js.md')@@
 
 Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
 
@@ -139,16 +83,9 @@ Now, you can regularly call your API with `$http`, `$resource` or any rest clien
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
-```html
-<span>His name is {{auth.profile.nickname}}</span>
-```
+@@snippet('angularjs/profile.html')@@
 
-```js
-// UserInfoCtrl.js
-function UserInfoCtrl($scope, auth) {
-  $scope.auth = auth;
-}
-```
+@@snippet('angular/userinfoctrl.js')@@
 
 You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
@@ -156,25 +93,7 @@ You can [click here](/user-profile) to find out all of the available properties 
 
 We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
 
-```js
-angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
-.run(function($rootScope, auth, store, jwtHelper, $location) {
-  // This events gets triggered on refresh or URL change
-  $rootScope.$on('$locationChangeStart', function() {
-    var token = store.get('token');
-    if (token) {
-      if (!jwtHelper.isTokenExpired(token)) {
-        if (!auth.isAuthenticated) {
-          auth.authenticate(store.get('profile'), token);
-        }
-      } else {
-        // Either show Login page or use the refresh token to get a new idToken
-        $location.path('/');
-      }
-    }
-  });
-});
-```
+@@snippet('angularjs/token-refresh.js')@@
 
 ### 8. You're done!
 
@@ -187,29 +106,7 @@ In most cases, we'll have routing in our app.
 We usually want users to be authenticated to access some of the routes. For those routes, we must set the `requiresLogin` property to `true`.
 So let's add the `$routeProvider` configuration in the `config` method of our app and let's specify the login to route to which the users will be redirected if trying to access a route to which they don't have access to:
 
-```js
-// app.js
-.config(function (authProvider, $routeProvider, $locationProvider) {
-  $routeProvider.when('/login', {
-    templateUrl: 'login.tpl.html',
-    controller: 'LoginCtrl'
-  });
-  // Logged in route
-  $routeProvider.when('/user-info', {
-    templateUrl: 'userInfo.tpl.html',
-    controller: 'UserInfoCtrl',
-    requiresLogin: true
-  });
-
-  authProvider.init({
-    domain: '<%= account.namespace %>',
-    clientID: '<%= account.clientId %>',
-    callbackURL: location.href,
-    // Here we add the URL to go if the user tries to access a resource he can't because he's not authenticated
-    loginUrl: '/login'
-  });
-});
-```
+@@snippet('angularjs/app.routing.js')@@
 
 __Note__: If you are using ui-router, you can follow [this guide](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router)
 

@@ -17,7 +17,7 @@ lodash: true
 ## Additional Documents
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('libraries.lock-android').items, 'toc_title'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-android').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
     <span><a href="<%- article.url %>"><%- article.toc_title %></a>
