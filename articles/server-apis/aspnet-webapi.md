@@ -74,4 +74,8 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 ### Optional Steps
 #### Configuring CORS
 
-You can follow [this article](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) to configure CORS in your application.
+One of the requirements is package Microsoft.AspNet.WebApi.Cors. You can use the following command from VS2013 Package Manager Console:
+
+`Install-Package Microsoft.AspNet.WebApi.Cors`
+
+For more details, you can follow [this article](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) to configure CORS in your application.
