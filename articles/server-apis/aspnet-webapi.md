@@ -21,12 +21,18 @@ lodash: true
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
 
-### 1. Install the WebApi.JsonWebToken package
+### 1. Install the WebApi.JsonWebToken &amp; Auth0-ASPNET packages
 
-You can either run the following command or install it via **Package Manager**.
+You can either run the following commands or install them via **Package Manager**.
+
 ```Powershell
 Install-Package WebApi.JsonWebToken
 ```
+
+```Powershell
+Install-Package Auth0-ASPNET
+```
+
 
 ### 2. Configure the JsonWebToken message handler
 
