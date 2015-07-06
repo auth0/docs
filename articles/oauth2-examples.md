@@ -1,6 +1,6 @@
 # Generic OAuth2 or OAuth1 Examples
 
-The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are availble in the dashboard.
+The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.
 
 Here are a few examples of OAuth2/OAuth1 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
 
@@ -35,7 +35,7 @@ After the call completes successfully, you will be able to login using these new
 
 ##Uber
 
-* [Create an application](https://developer.uber.com/apps/new) 
+* [Create an application](https://developer.uber.com/apps/new)
 * Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `Client ID` and `Secret` to config file below
 
@@ -145,7 +145,7 @@ After the call completes successfully, you will be able to login using these new
 ##Bitbucket
 
 * Register a new Consumer in Bitbucket
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback). 
+* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `Consumer Key` and `Consumer Secret` to config file below
 
 ```
@@ -168,7 +168,7 @@ After the call completes successfully, you will be able to login using these new
 ##Dribbble
 
 * [Register a new Consumer in Dribbble](https://dribbble.com/account/applications/new)
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback). 
+* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `Client ID` and `Client Secret` to config file below
 
 ```
