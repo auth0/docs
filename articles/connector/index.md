@@ -14,6 +14,7 @@ In this section:
 -  [Installing the Connector on **other platforms**](/connector/install-other-platforms)
 -  [Modifying the Connector Settings](/connector/modify)
 -  [Kerberos Support](/connector/kerberos)
+-  [Client Certificate Support](/connector/client-certificates)
 -  [OpenLDAP and non-AD Considerations](/connector/considerations-non-ad)
 -  [High Availability](/connector/high-availability)
 -  [Updating the Connector](/connector/update)
