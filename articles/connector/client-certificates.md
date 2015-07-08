@@ -8,38 +8,47 @@ To activate Client Certificates on an LDAP connection, simply enable the option 
 
 ![](/media/articles/connector/client-certs/connector-client-cert-enable.png)
 
+> Note that you'll also need to configure the IP Ranges. Only users coming from these IP Ranges will be prompted to authenticate using Client Certificates. Users that originate from different IP Ranges will be presented with the traditional username/password login form.
+
 Once this has been configured in Auth0 you'll need to configure the certificates in the AD/LDAP Connector. Supporting Client Certificates will require the following:
 
  1. An SSL certificate for the **Front Facing Url**, because the interaction between the end user and the connector will need to happen over HTTPS.
  2. One or more CA certificates
  3. A Client Certificate signed by the CA for each user that needs to authenticate using Client Certificates
 
-The SSL certificate and the CA certificate can be uploaded
+The SSL certificate and the CA certificate can be uploaded in the AD/LDAP Connector:
 
 ![](/media/articles/connector/client-certs/connector-client-cert-config.png)
 
+For testing purposes you can generate your own self-signed CA and Client Certificates using **makecert.exe** on Windows, which is part of the Windows SDK:
 
-## Flow
+```
+SET ClientCertificateName=jon
+SET RootCertificateName=FabrikamRootCA
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\makecert.exe" -sky exchange -r -n "CN=%RootCertificateName%" -pe -a sha1 -len 2048 -ss My "%RootCertificateName%.cer"
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Bin\makecert.exe" -n "CN=%ClientCertificateName%" -pe -sky exchange -m 96 -ss My -in "%RootCertificateName%" -is my -a sha1
+```
 
-Depending on the location of the user the authentication flow will be different when Kerberos is enabled. Let's take Fabrikam as an example. Since Fabrikam uses the SaaS version of Auth0 they configured their Public IP Address (`24.12.34.56/32`) in the connection.
+The important part here is that the Client Certificate's subject must be in the format of `CN=AD_USERNAME`, eg: `CN=jon`.
 
-Users connecting from within the building will all originate from `24.12.34.56` (as configured on the connection). When they authenticate, the users can follow the Kerberos flow and have a SSO experience.
+## End User
 
-**Note:** For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file.
+In an application we might now start the sign in flow using an AD/LDAP Connection:
 
-![](/media/articles/connector/kerberos/connector-kerberos-flow.png)
+```
+    auth.signin({
+      popup: true,
+      connection: 'FabrikamAD',
+      scope: 'openid name email'
+    }, onLoginSuccess, onLoginFailed);
+```
 
-On the other hand, when users are not in the corporate network (eg: at a customer) they won't be able to access the AD/LDAP Connector directly. The users will need to enter their username/password and Auth0 will validate these credentials with the AD/LDAP Connector (which will in turn talk to Active Directory).
+If the user's IP address falls within a configured IP Range they'll be prompted to authenticate with a Client Certificate:
 
-![](/media/articles/connector/kerberos/connector-credentials-flow.png)
+![Choose Client Certificate](/media/articles/connector/client-certs/connector-client-cert-choose.png)
 
-## End-user Experience
+After choosing the certificate the AD/LDAP Connector will validate it and the user will be logged in:
 
-Users on a domain-joined machine, coming from the configured IP addres range:
+![Signed In using Client Certificates](/media/articles/connector/client-certs/connector-client-cert-loggedin.png)
 
-![Login Kerberos](/media/articles/connector/kerberos/office-365-idp-login-kerberos.gif)
-
-Users that are not in the corporate network will need to enter their AD credentials:
-
-![Login External](/media/articles/connector/kerberos/office-365-idp-login-external.gif)
 
