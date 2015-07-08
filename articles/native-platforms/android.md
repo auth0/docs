@@ -53,7 +53,7 @@ tags:
 Add the following to the `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock:1.5.+'
+compile 'com.auth0.android:lock:1.9.+'
 compile 'com.auth0.android:lock-facebook:2.0.+'
 compile 'com.auth0.android:lock-googleplus:2.0.+'
 ```
