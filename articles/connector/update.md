@@ -27,7 +27,7 @@ The updater script will update the AD/LDAP Connector from the command line by ru
  To run the updater script execute the following statement in the command line:
  
  ```
- @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/auth0/ad-ldap-connector/master/update-connector.ps1'))"
+ @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://cdn.auth0.com/connector/windows/update-connector.ps1'))"
  ```
 
 ![](https://cdn.auth0.com/docs/img/connector-update-script.png)
