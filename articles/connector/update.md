@@ -32,6 +32,7 @@ The updater script will update the AD/LDAP Connector from the command line by ru
 
 ![](https://cdn.auth0.com/docs/img/connector-update-script.png)
  
+> Note: The updater script uses specific PowerShell commands that are only avaible in Windows PowerShell 3.0 and higher. If you're running on Windows 2008 and Windows 2008 R2 you might need to update your PowerShell version first: https://www.microsoft.com/en-us/download/details.aspx?id=34595
 
 ## Updating manually (Windows/Linux)
 
