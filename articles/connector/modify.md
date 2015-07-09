@@ -51,6 +51,7 @@ The `config.json` is the AD/LDAP Connector's configuration file in which the fol
  - `LDAP_SEARCH_GROUPS`: The LDAP query used to find groups in the LDAP store. Default: `(member:1.2.840.113556.1.4.1941:={0})`.
  - `LDAP_SEARCH_QUERY`: The LDAP query used to find users in the LDAP store. Default: `(&(objectCategory=person)(anr={0}))`;
  - `LDAP_USER_BY_NAME`: The LDAP query used to find the user during authentication. This setting allows you to specify which attribute will be considered as the user's username, like the common name, the sAMAccountName, UPN, ... Default: `(sAMAccountName={0})`.
+ - `LDAP_URL`: The LDAP connection string, eg: `ldap://fabrikam-dc.fabrikam.local`
  - `PORT`: The port on which the server will run when Kerberos or Client Certificate Authentication is enabled.
  - `PROVISIONING_TICKET`: The Auth0 provisioning ticket used to communicate with Auth0.
  - `REALM`: The Auth0 realm, eg: `urn:auth0:fabrikam`. This value is maintained by the connector.
