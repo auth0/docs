@@ -3,11 +3,13 @@ name: Ruby API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## Ruby API Tutorial
 
-> Note: If you're creating a Ruby On Rails app, please check [this other tutorial](/new/server-apis/rails). 
+> Note: If you're creating a Ruby On Rails app, please check [this other tutorial](/new/server-apis/rails).
 
 Otherwise, Please follow the steps below to configure your existing Ruby app to use it with Auth0.
 

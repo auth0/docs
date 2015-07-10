@@ -3,6 +3,8 @@ name: Node.js API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/node.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## NodeJS API Tutorial

@@ -3,6 +3,8 @@ name: PHP (Laravel) API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## PHP Laravel API Tutorial

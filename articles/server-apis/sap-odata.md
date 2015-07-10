@@ -4,6 +4,8 @@ name: SAP OData
 thirdParty: true
 image: //auth0.com/lib/saas-collection/img/sap.png
 lodash: true
+tags:
+  - quickstart
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.
 
