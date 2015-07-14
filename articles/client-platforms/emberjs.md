@@ -27,13 +27,23 @@ tags:
 
 `auth0-ember-simple-auth` is an add-on for [simple-auth](http://ember-simple-auth.com), which can be installed via [ember-cli](http://www.ember-cli.com).
 
+`cd` to your project directory, then run the following command to install both add-ons and their dependencies:
+
+```
+ember install auth0-ember-simple-auth
+ember generate simple-lock
+```
+
+>>> Note: If you're not already using ember-cli, then you may wish to read the handy ember-cli [guide page.](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli)
+
 ### 2. Configuration
 
-Once you've installed simple-auth, and the add-on, its just a matter of adding some configuration.
+Once you've installed everything, its just a matter of adding some configuration.
 
 ```js
 // config/environment.js
 ENV['simple-auth'] = {
+  authorizer: 'simple-auth-authenticator:lock',
   authenticationRoute: 'sign_in',
   routeAfterAuthentication: 'home',
   routeIfAlreadyAuthenticated: 'home'
@@ -45,7 +55,18 @@ ENV['simple-lock'] = {
 }
 ```
 
-> Note: If you're using a content security policy, you'll also need to add `<%= account.namespace %>` to the `connect-src` CSP entry.
+> Note: If you're using a content security policy, you'll also need to add `<%= account.namespace %>` to the `connect-src`, and the following entries:
+`https://cdn.auth0.com` to the `font-src` and `script-src` CSP entries.
+
+```js
+// config/environment.js
+ENV['contentSecurityPolicy'] = {
+  'font-src': "'self' data: https://cdn.auth0.com",
+  'style-src': "'self' 'unsafe-inline'",
+  'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://cdn.auth0.com",
+  'connect-src': "'self' http://localhost:* <%= account.namespace %>"
+};
+```
 
 ### 3. Extend your router
 
@@ -60,8 +81,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // Check out the docs for all the options:
       // https://auth0.com/docs/libraries/lock/customization
 
-      // These options will request a refresh token and launch lock.js in popup mode
-      var lockOptions = {authParams:{scope: 'openid offline_access'}};
+      // This will launch lock.js in popup mode
+      var lockOptions = {authParams:{scope: 'openid'}};
 
       this.get('session').authenticate('simple-auth-authenticator:lock', lockOptions);
     }
@@ -89,9 +110,51 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin);
 ```
 
-### 4. You're done!
+### 4. Updating your views
 
-You've implemented Sign in & up with Auth0 and Ember.
+Now that your router is ready, you'll probably want to add some links so that your users can sign in and out. These routes are handled by the configuration that we added for ember simple auth.
+
+```handlebars
+{{#if session.isAuthenticated}}
+  <a {{ action 'invalidateSession' }}>Logout</a>
+{{else}}
+  <a {{ action 'authenticateSession' }}>Login</a>
+{{/if}}
+```
+
+### 5. You're authenticated!
+
+When you authenticate, your application will receive session data from the popup window — Then, session data will be stored in localStorage with a key of `ember_simple_auth:session`. The session object is a JSON object that contains your user profile data, JWT token and access token.
+
+You can access this session information in ember templates by using `{{session.secure}}`. So for example, if you wanted to say Hi to the user and show the associated avatar:
+
+```handlebars
+<div class="user-info">
+  <span class="user-info__leader">Hi,</span>
+  <img class="user-info__avatar" src="{{session.secure.profile.picture}}">
+  <span class="user-info__name">{{session.secure.profile.name}}</span>
+</div>
+```
+
+### 6. Using your JWT token to make API requests
+
+When you want to make an API request, you will need to add the users [JWT token](https://auth0.com/docs/jwt) to an `Authorization` HTTP header:
+
+```js
+fetch('/api/foo', {
+  method: 'GET',
+  cache: false,
+  headers: {
+    'Authorization': `Bearer ${session.secure.jwt}`
+  }
+}).then(function (response) {
+  // use response
+});
+```
+
+### 7. You're done!
+
+🙌 You've implemented Sign in & up with Auth0 and Ember. 
 
 ------
 
