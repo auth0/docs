@@ -5,6 +5,9 @@ name: ASP Classic
 image: //auth0.com/lib/platforms-collection/img/asp-classic.jpg
 tags:
   - quickstart
+snippets:
+  setup: server-platforms/asp-classic/setup
+  use: server-platforms/asp-classic/use
 ---
 
 ## ASP Classic Tutorial
@@ -15,30 +18,7 @@ tags:
 
 First, we need to create the `default.asp` which will show the Login Widget from Auth0.
 
-```asp
-<%= '\<%@ Language="VBScript" %\>' %>
-<%= '\<% Option Explicit %\>' %>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Testing Auth0 with Classic ASP</title>
-</head>
-<body>
-  <script src="@@widget_url@@"></script>
-  <script type="text/javascript">
-    var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-
-    function signin() {
-      lock.show({
-        callbackURL: 'http://yourserver.com/callback.asp'
-      });
-    }
-  </script>
-  <button onclick="signin()">Login</button>
-</body>
-</html>
-```
+@@snippet(meta.snippets.setup)@@
 
 After logging in with any provider, Auth0 will redirect the user to `/callback.asp`.
 
@@ -51,29 +31,9 @@ It will implement the basic OAuth 2 flow:
 1. Exchanges the **code** for an **access_token**
 1. Calls the **Userinfo** endpoint to get the current logged in user profile using the access_token as credentials.
 
+@@snippet(meta.snippets.use)@@
+
 ```asp
-<%= '\<%@ Language="VBScript" %\>' %>
-
-<script language="JScript" runat="server" src='//cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js'></script>
-
-<%= '\<%' %>
-CLIENT_ID = "@@account.clientId@@"
-CLIENT_SECRET = "@@account.clientSecret@@"
-REDIRECT_URI = "http://yourserver.com/callback.asp"
-
-AUTHORIZATION_CODE = Request.querystring( "code" )
-
-access_token = GetAccessToken(CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, AUTHORIZATION_CODE)
-
-set profile = GetUserProfile( access_token )
-
-
-'Here, you should save the profile in the session or somewhere'
-
-Response.Write "UserID = " & profile.user_id
-
-
-
 Function GetUserProfile(access_token)
 
   Set http = Server.CreateObject("MSXML2.ServerXMLHTTP")

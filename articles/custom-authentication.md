@@ -15,21 +15,21 @@ In order to install the __Auth0 Custom Authentication Connector__ you need to fi
 <div class="installers">
   <ul>
     <li>
-      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22-x86.msi" target="_blank">
+      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22-x86.msi">
         <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
         Windows Installer
         <small>node-v0.8.22-x86.msi</small>
       </a>
     </li>
     <li>
-      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.pkg" target="_blank">
+      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.pkg">
         <img src="//cdn.auth0.com/docs/img/node-mac.png" alt="">
         Macintosh Installer
         <small>node-v0.8.22.pkg</small>
       </a>
     </li>
     <li id="source">
-      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.tar.gz" target="_blank">
+      <a href="http://nodejs.org/dist/v0.8.22/node-v0.8.22.tar.gz">
         <img src="//cdn.auth0.com/docs/img/node-linux.png" alt="">
         Linux
         <small>node-v0.8.22.tar.gz</small>
@@ -43,7 +43,7 @@ Once node.js has been installed, download and unzip the source code for the __Au
 <div class="installers">
   <ul>
     <li>
-      <a href="https://github.com/auth0/custom-connector/archive/master.zip" target="_blank">
+      <a href="https://github.com/auth0/custom-connector/archive/master.zip">
         <img src="//cdn.auth0.com/docs/img/package.png" alt="">
         Auth0 Custom Authentication Connector (zip)
         <small>source code zip file</small>
@@ -68,7 +68,7 @@ When prompted for the ticket url, paste the following:
 
 Now that you have a running authentication server, let's try to login with a test user.
 
-<a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid" target="_blank"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
+<a href="@@uiURL@@/tester?ticket=@@ticket@@" class="btn btn-mid"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
 
 -  Test User: __foo@bar.com__
 -  Test Password: __123__

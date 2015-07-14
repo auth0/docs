@@ -5,6 +5,9 @@ image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/java/dependancies
+  use: server-apis/java/use
 ---
 
 ## Java API Tutorial
@@ -27,18 +30,7 @@ You need to add the `java-jwt` and `commons-codec` dependencies.
 
 For that, you can just add them to your `pom.xml` if you're using maven.
 
-```xml
-<dependency>
-    <groupId>com.auth0</groupId>
-    <artifactId>java-jwt</artifactId>
-    <version>2.0.1</version>
-</dependency>
-<dependency>
-  <groupId>commons-codec</groupId>
-  <artifactId>commons-codec</artifactId>
-  <version>1.4</version>
-</dependency>
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Add JWT Validation filter
 
@@ -46,60 +38,7 @@ For that, you can just add them to your `pom.xml` if you're using maven.
 
 Now, you need to validate the [JWT](/jwt). For that, we'll use a Filter.
 
-```java
-@WebFilter(filterName= "jwt-filter", urlPatterns = { "/api/*" })
-public class JWTFilter implements Filter {
-  private JWTVerifier jwtVerifier;
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        jwtVerifier = new JWTVerifier(
-          new Base64(true).decodeBase64("<%= account.clientSecret %>"),
-          "<%= account.clientId %>");
-    }
-
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        String token = getToken((HttpServletRequest) request);
-
-        try {
-            Map<String, Object> decoded = jwtVerifier.verify(token);
-            // Do something with decoded information like UserId
-            chain.doFilter(request, response);
-        } catch (Exception e) {
-            throw new ServletException("Unauthorized: Token validation failed", e);
-        }
-    }
-
-    private String getToken(HttpServletRequest httpRequest) throws ServletException {
-      String token = null;
-        final String authorizationHeader = httpRequest.getHeader("authorization");
-        if (authorizationHeader == null) {
-            throw new ServletException("Unauthorized: No Authorization header was found");
-        }
-
-        String[] parts = authorizationHeader.split(" ");
-        if (parts.length != 2) {
-            throw new ServletException("Unauthorized: Format is Authorization: Bearer [token]");
-        }
-
-        String scheme = parts[0];
-        String credentials = parts[1];
-
-        Pattern pattern = Pattern.compile("^Bearer$", Pattern.CASE_INSENSITIVE);
-        if (pattern.matcher(scheme).matches()) {
-            token = credentials;
-        }
-        return token;
-    }
-
-  @Override
-  public void destroy() {
-
-  }
-
-}
-```
+@@snippet(meta.snippets.use)@@
 
 Please note that we're setting the URL Pattern to `/api/*` in this case. That means that we'll check the user is authenticated only if the request is to the API.
 

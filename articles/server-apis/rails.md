@@ -5,6 +5,10 @@ image: //auth0.com/lib/platforms-collection/img/rails.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/rails/dependancies
+  setup: server-apis/rails/setup
+  use: server-apis/rails/use
 ---
 
 ## Ruby on Rails API Tutoial
@@ -29,9 +33,7 @@ Add this line to your application's Gemfile:
 
 #### Install
 
-```ruby
-gem 'knock', '~> 1.2'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 And then execute:
 
@@ -48,26 +50,12 @@ This file contains all the informations about the existing configuration options
 
 Then include the `Knock::Authenticable` module in your `ApplicationController`
 
-```ruby
-class ApplicationController < ActionController::API
-  include Knock::Authenticable
-end
-```
+@@snippet(meta.snippets.setup)@@
 
 You can now protect your resources by adding the `authenticate` before_action
 to your controllers like this:
 
-```ruby
-class SecuredResourceController < ApplicationController
-  before_action :authenticate
-
-  def index
-    # etc...
-  end
-
-  # etc...
-end
-```
+@@snippet(meta.snippets.use)@@
 
 If no valid token is passed with the request, Knock will respond with:
 

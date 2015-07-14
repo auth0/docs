@@ -5,6 +5,10 @@ image: //auth0.com/lib/platforms-collection/img/golang.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/golang/dependancies
+  setup: server-apis/golang/setup
+  use: server-apis/golang/use
 ---
 
 ## GoLang API Tutorial
@@ -28,59 +32,19 @@ Install `go-jwt-middleware` to check for JWTs on HTTP requests.
 
 Just run the following code to install the dependency
 
-```js
-go get github.com/auth0/go-jwt-middleware
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure `go-jwt-middleware` to use your Auth0 Account
 
 You need to set the ClientSecret in `go-jwt-middleware`'s configuration so that it can validate [JWTs](/jwt) for you.
 
-```go
-package main
-
-import (
-  // ...
-  "github.com/auth0/go-jwt-middleware"
-  // ...
-)
-
-func main() {
-  jwtMiddleware := jwtmiddleware.New(jwtmiddleware.Options{
-    ValidationKeyGetter: func(token *jwt.Token) (interface{}, error) {
-      decoded, err := base64.URLEncoding.DecodeString("@@account.clientSecret@@")
-      if err != nil {
-        return nil, err
-      }
-      return decoded, nil
-    },
-  })
-}
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Secure your API
 
 Now, you can use the `go-jwt-middleware` to secure your API. You can do so using `net/http` handlers or using `negroni` middlewares as well.
 
-```go
-// Regular HTTP HandlerFunc
-func SecuredPingHandler(w http.ResponseWriter, r *http.Request) {
-  respondJson("All good. You only get this message if you're authenticated", w)
-}
-
-// Negroni sample
-r := mux.NewRouter()
-r.Handle("/secured/ping", negroni.New(
-  negroni.HandlerFunc(jwtMiddleware.HandlerWithNext),
-  negroni.Wrap(http.HandlerFunc(SecuredPingHandler)),
-))
-http.Handle("/", r)
-http.ListenAndServe(":3001", nil)
-
-// net/http sample
-app := jwtMiddleware.Handler(SecuredPingHandler)
-http.ListenAndServe("0.0.0.0:3000", app)
-```
+@@snippet(meta.snippets.use)@@
 
 ### 4. You're done!
 

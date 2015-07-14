@@ -19,7 +19,7 @@ This is a one time setup
   ![](/media/articles/aws-api-setup/aws-api-setup-2.png)
 
 <% if (account.userName) { %>
-3. Download the metadata from <a href="https://@@account.namespace@@/samlp/metadata/@@account.clientId@@" target="_new">https://@@account.namespace@@/samlp/metadata/@@account.clientId@@</a> and upload it here.
+3. Download the metadata from <a href="https://@@account.namespace@@/samlp/metadata/@@account.clientId@@">https://@@account.namespace@@/samlp/metadata/@@account.clientId@@</a> and upload it here.
 <% } else { %>
 3. Download the metadata from `https://@@account.namespace@@/samlp/metadata/@@account.clientId@@` and upload it here.
 <% } %>

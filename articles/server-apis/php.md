@@ -5,6 +5,10 @@ image: //auth0.com/lib/platforms-collection/img/php.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/php/dependancies
+  setup: server-apis/php/setup
+  use: server-apis/php/use
 ---
 
 ## PHP API Tutorial
@@ -29,85 +33,22 @@ We need 2 dependencies to make this work:
 * **php-jwt**: this will take care of checking the JWT
 * **router**: we'll use this for creating simple routes
 
-```json
-{
-    "name": "your/app",
-    "description": "Basic sample for securing an API",
-    "require": {
-        "bramus/router": "dev-master",
-        "firebase/php-jwt": "~2.2"
-    },
-    "license": "MIT"
-}
-```
+@@snippet(meta.snippets.dependancies)@@
+
+>>>>>>> Extracted snippets from tutorials
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Create the JWT Validation filter
 
 Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that will run in the routes we need.
 
-```php
-  // Require composer autoloader
-  require __DIR__ . '/vendor/autoload.php';
-
-  // Create Router instance
-  $router = new \Bramus\Router\Router();
-
-  // Check JWT on /secured routes. This can be any route you like
-  $router->before('GET', '/secured/.*', function() {
-
-    // This method will exist if you're using apache
-    // If you're not, please go to the extras for a defintion of it.
-    $requestHeaders = apache_request_headers();
-    $authorizationHeader = $requestHeaders['AUTHORIZATION'];
-
-    if ($authorizationHeader == null) {
-      header('HTTP/1.0 401 Unauthorized');
-      echo "No authorization header sent";
-      exit();
-    }
-
-    // // validate the token
-    $token = str_replace('Bearer ', '', $authorizationHeader);
-    $secret = '@@account.clientSecret@@';
-    $decoded_token = null;
-    try {
-      $decoded_token = JWT::decode($token, base64_decode(strtr($secret, '-_', '+/')) );
-    } catch(UnexpectedValueException $ex) {
-      header('HTTP/1.0 401 Unauthorized');
-      echo "Invalid token";
-      exit();
-    }
-
-
-    // // validate that this token was made for us
-    if ($decoded_token->aud != '@@account.clientId@@0') {
-      header('HTTP/1.0 401 Unauthorized');
-      echo "Invalid token";
-      exit();
-    }
-
-  });
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Create a /secured route that will use this filter
 
 Now, you can just create routes under /secured route which will check the JWT
 
-```php
-// Controllers API
-
-$router->get('/ping', function() {
-  echo "All good. You don't need to be authenticated to call this";
-});
-
-$router->get('/secured/ping', function() {
-  echo "All good. You only get this message if you're authenticated";
-});
-
-// Run the Router
-$router->run();
-```
+@@snippet(meta.snippets.use)@@
 
 ### 4. You're done!
 

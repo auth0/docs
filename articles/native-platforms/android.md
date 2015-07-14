@@ -6,6 +6,10 @@ hybrid: false
 image: //auth0.com/lib/platforms-collection/img/android.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/android/dependancies
+  setup: native-platforms/android/setup
+  use: native-platforms/android/use
 ---
 
 ## Android Tutorial
@@ -43,20 +47,15 @@ tags:
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
-
-<pre><code>a0@@account.clientId@@://*.auth0.com/authorize</pre></code>
+  <p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+  <pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</code></pre>
 </div>
 
 ### 1. Adding Auth0 Lock to your project
 
 Add the following to the `build.gradle`:
 
-```gradle
-compile 'com.auth0.android:lock:1.9.+'
-compile 'com.auth0.android:lock-facebook:2.0.+'
-compile 'com.auth0.android:lock-googleplus:2.0.+'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 
@@ -88,30 +87,11 @@ Then add the following entries to `AndroidManifest.xml` inside the `<application
 ```
 
 
-### 3. Initialise Lock
+### 3. Initialize Lock
 
 First make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add these lines of code:
 
-```java
-public class MyApplication extends Application implements LockProvider {
-
-  private Lock lock;
-
-  public void onCreate() {
-    super.onCreate();
-    lock = new Lock.Builder()
-      .loadFromApplication(this)
-      /** Other configuration goes here */
-      .closable(true)
-      .build();
-  }
-
-  @Override
-  public Lock getLock() {
-    return lock;
-  }
-}
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Register Native Authentication Handlers
 
@@ -174,10 +154,7 @@ Now we're ready to implement the Login.
 
 We can show the Login Dialog by starting the activity `LockActivity`.
 
-```java
-Intent lockIntent = new Intent(this, LockActivity.class);
-startActivity(lockIntent);
-```
+@@snippet(meta.snippets.use)@@
 
 [![Lock.png](/media/articles/native-platforms/android/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 

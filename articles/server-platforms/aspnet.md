@@ -4,6 +4,10 @@ name: ASP.NET
 image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/aspnet/dependancies
+  setup: server-platforms/aspnet/setup
+  use: server-platforms/aspnet/use
 ---
 
 # ASP.NET Tutorial
@@ -16,16 +20,14 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (any k
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
-```
-Install-Package Auth0-ASPNET
-```
+@@snippet(meta.snippets.dependancies)@@
 
 > This package will add a `LoginCallback.ashx` to your project, which will process the login.
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app.</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@">Application Settings</a> section on Auth0 Admin app.</p>
 
 <pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
 </div>
@@ -34,11 +36,7 @@ Install-Package Auth0-ASPNET
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
-```xml
-<add key="auth0:ClientId" value="@@account.clientId@@" />
-<add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
-<add key="auth0:Domain" value="@@account.namespace@@" />
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 

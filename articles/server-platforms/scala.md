@@ -5,6 +5,10 @@ name: Play 2 Scala
 image: //auth0.com/lib/platforms-collection/img/play.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/scala/dependancies
+  setup: server-platforms/scala/setup
+  use: server-platforms/scala/use
 ---
 
 ## Play 2 Scala Tutorial
@@ -24,26 +28,13 @@ tags:
 
 ### 1. Add configuration keys from Auth0
 
-Add the following keys to your `application.conf`
-
-```properties
-# Auth0 Information
-# ~~~~~~~~~~~~~~~~~~~~~~~
-
-auth0.clientSecret="@@account.clientSecret@@"
-auth0.clientId="@@account.clientId@@"
-auth0.domain="@@account.namespace@@"
-auth0.callbackURL="http://localhost:9000/callback"
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Add Auth0 callback handler
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
-```scala
-// conf/routes
-GET     /callback                   controllers.Callback.callback(code: Option[String], state: Option[String])
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ```scala
 // controllers/Callback.scala

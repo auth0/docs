@@ -5,6 +5,10 @@ thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/wcf.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/wcf-service/dependancies
+  setup: server-apis/wcf-service/setup
+  use: server-apis/wcf-service/use
 ---
 
 # Using Auth0 with a WCF Service
@@ -20,7 +24,7 @@ The first scenario usually happens on trusted clients (e.g. a script, a desktop 
 
 For this tutorial, we will assume the standard WCF template with a `basicHttpBinding`.
 
-##Using Auth0 generated JsonWebTokens with WCF services
+## Using Auth0 generated JsonWebTokens with WCF services
 
 The integration consists of adding a `ServiceAuthorizationManager` (which is an extensibility point offered by WCF). This class intercepts all calls to a specific service and extracts the HTTP `Authorization` header that contains the JsonWebToken. Then it validates the token using a symmetric or asymmetric key, checks that it's not expired, and finally verifies that the `audience` is correct. If all these are correct, control is transfered to the user code with a `ClaimsPrincipal` object set for the app to use.
 
@@ -28,38 +32,19 @@ The integration consists of adding a `ServiceAuthorizationManager` (which is an 
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
 
-    Install-Package Auth0-WCF-Service-JWT
+@@snippet(meta.snippets.dependancies)@@
 
 > This package creates the `ServiceAuthorizationManager` and will add a set of configuration settings.
 
 ###2. Completing your app Web.Config with Auth0 settings
 
-The NuGet package will create three empty settings under the `<appSettings>` section. Replace them with the following values:
-
-    <appSettings>
-      <add key="jwt:SymmetricKey" value="@@account.clientSecret@@" />
-      <add key="jwt:AllowedAudience" value="@@account.clientId@@" />
-      <add key="jwt:AllowedIssuer" value="https://@@account.namespace@@/" />
-    </appSettings>
-
-Make sure to add the `<serviceAuthorization>` element as well:
-
-    <serviceAuthorization principalPermissionMode="Custom" serviceAuthorizationManagerType="....ValidateJsonWebToken, ..." />
+@@snippet(meta.snippets.setup)@@
 
 ###3. Accessing user information
 
 Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` or `Thread.CurrentPrincipal` properties:
 
-    public class Service1 : IService1
-    {
-        public string DoWork()
-        {
-            var claims = ((ClaimsIdentity)Thread.CurrentPrincipal.Identity).Claims
-            string email = claims.SingleOrDefault(c => c.ClaimType == "email");
-
-            return "Hello from WCF " + User.Identity.Name +  " (" + email + ")";
-        }
-    }
+@@snippet(meta.snippets.use)@@
 
 ###4. Attaching a token on the client
 

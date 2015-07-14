@@ -4,7 +4,7 @@ Please follow the steps below to configure your Auth0 account to work with <%= _
 
 ### 1. Activate the add-on.
 
-Go to <a href="<%= uiAppAddonsURL %>" target="_new">Application Add-ons</a> page and activate the <%= _.capitalize(configuration.thirdParty) %> add-on.
+Go to <a href="<%= uiAppAddonsURL %>">Application Add-ons</a> page and activate the <%= _.capitalize(configuration.thirdParty) %> add-on.
 
 <img src="https://cloudup.com/c8xbUL6QbJa+" />
 

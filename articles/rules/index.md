@@ -129,13 +129,13 @@ This will cause a redirect to your callback url with an `error` querystring para
 
 We have an open source repository for common rules here:
 
-<div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a target="_blank" href="https://github.com/auth0/rules">https://github.com/auth0/rules</a></div>
+<div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a href="https://github.com/auth0/rules">https://github.com/auth0/rules</a></div>
 
 ## Available Modules
 
 The script runs in a JavaScript sandbox for security reasons which is based on [webtask.io](https://webtask.io). You can use the full power of the language (ECMAScript 5). The current sandbox supports:
 
-<div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a target="_blank" href="https://tehsis.github.io/webtaskio-canirequire/">Modules Supported by the Sandbox</a></div>
+<div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a href="https://tehsis.github.io/webtaskio-canirequire/">Modules Supported by the Sandbox</a></div>
 
 ## Source Control with GitHub
 

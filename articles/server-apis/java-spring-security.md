@@ -5,6 +5,10 @@ image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/java-spring-security/dependancies
+  setup: server-apis/java-spring-security/setup
+  use: server-apis/java-spring-security/use
 ---
 
 ## Java API Tutorial
@@ -25,13 +29,7 @@ You need to add the `spring-security-auth0` dependency.
 
 For that, you can just add it to your `pom.xml` if you're using maven.
 
-```xml
-<dependency>
-  <groupId>com.auth0</groupId>
-  <artifactId>spring-security-auth0</artifactId>
-  <version>0.2</version>
-</dependency>
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure Spring to use Auth0
 
@@ -52,29 +50,13 @@ For that, just add the following to the `application-context.xml`
 
 and create the `auth0.properties` file with the following information:
 
-```properties
-auth0.clientSecret=@@account.clientSecret@@
-auth0.clientId=@@account.clientId@@
-auth0.domain=@@account.namespace@@
-# This is the path to secure.
-auth0.securedRoute=/secured/**
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Create the controllers
 
 Now, you can create the controllers. Every controller that has a route inside `/secured/` in this case will ask for the JWT
 
-```java
-@Controller
-public class SecuredPingController {
-
- @RequestMapping(value = "/secured/ping")
-  @ResponseBody
-  public String securedPing() {
-    return "All good. You only get this message if you're authenticated";
-  }
-}
-```
+@@snippet(meta.snippets.use)@@
 
 ### 4. You're done!
 

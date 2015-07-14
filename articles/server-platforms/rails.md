@@ -5,6 +5,10 @@ name: Ruby On Rails
 image: //auth0.com/lib/platforms-collection/img/rails.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/rails/dependancies
+  setup: server-platforms/rails/setup
+  use: server-platforms/rails/use
 ---
 
 ## Ruby On Rails Web App Tutorial
@@ -26,26 +30,13 @@ tags:
 
 Add the following dependencies to your `Gemfile` and run `bundle install`
 
-```js
-gem 'omniauth', '~> 1.2'
-gem 'omniauth-auth0', '~> 1.1'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Initialize Omniauth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
-```ruby
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider(
-    :auth0,
-    '@@account.clientId@@',
-    '@@account.clientSecret@@',
-    '@@account.namespace@@',
-    callback_path: "/auth/auth0/callback"
-  )
-end
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 3. Add the Auth0 callback handler
 

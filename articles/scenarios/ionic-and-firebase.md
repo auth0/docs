@@ -17,7 +17,7 @@ You can either download the sample project, or follow the instructions below.
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
 
 <pre><code>https://@@account.namespace@@/mobile, file://*, http://localhost:8100
 </pre></code>

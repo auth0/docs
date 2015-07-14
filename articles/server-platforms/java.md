@@ -5,6 +5,10 @@ name: Java
 image: //auth0.com/lib/platforms-collection/img/java.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/java/dependancies
+  setup: server-platforms/java/setup
+  use: server-platforms/java/use
 ---
 
 ## Java Web App Tutorial
@@ -26,19 +30,7 @@ tags:
 
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
-```xml
-<dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>javax.servlet-api</artifactId>
-  <version>3.0.1</version>
-  <scope>provided</scope>
-</dependency>
-<dependency>
-  <groupId>com.auth0</groupId>
-  <artifactId>auth0-servlet</artifactId>
-  <version>2.0</version>
-</dependency>
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure it
 
@@ -65,24 +57,7 @@ We need to configure `auth0-servlet` to use our Auth0 credentials. For that, jus
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Servlet` provided by the SDK. We have to configure it on the `web.xml`
 
-```xml
-<servlet>
-    <servlet-name>RedirectCallback</servlet-name>
-    <servlet-class>com.auth0.Auth0ServletCallback</servlet-class>
-    <init-param>
-        <param-name>auth0.redirect_on_success</param-name>
-        <param-value>/</param-value>
-    </init-param>
-    <init-param>
-        <param-name>auth0.redirect_on_error</param-name>
-        <param-value>/login</param-value>
-    </init-param>
-</servlet>
- <servlet-mapping>
-    <servlet-name>RedirectCallback</servlet-name>
-    <url-pattern>/callback</url-pattern>
-</servlet-mapping>
-```
+@@snippet(meta.snippets.dependancies)@@
 
 @@includes.callbackRegularWebapp@@
 
