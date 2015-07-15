@@ -23,19 +23,16 @@ tags:
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 
-### 1. Add jwt dependency to your Gemfile
+### 1. Install the knock gem
 
-You need to add the jwt dependency.
-
-Open your Gemfile and add the following:
-
-```bash
-gem 'jwt'
-```
+Setup knock in 2 minutes: 
+<a href="https://github.com/nsarno/knock#getting-started" target="_blank">
+  Getting Started
+</a>
 
 ### 2. Add your Auth0 account information to secrets.yml
 
-You need to set the ClientID and ClientSecret in `config/secrets.yml` file so that you can then get them and use them to validate and sign [JWT](/jwt)s for you.
+You need to set the ClientID and ClientSecret in `config/secrets.yml` file so they can be used to validate and sign [JWT](/jwt)s for you.
 
 ```yaml
 development:
@@ -49,55 +46,21 @@ production:
   auth0_client_secret: <%= account.clientSecret %>
 ```
 
-### 3. Create SecuredController to validate the JWT
+**Warning:**
+If you share your code, you should use environment variable to protect your ClientID and ClientSecret.
 
-Now, let's add a new controller that inherits from ApplicationController which will take care of validating the JWT and checking that the user has been authenticated.
+### 3. Tell knock to use your Auth0 account information
 
-```ruby
-class SecuredController < ApplicationController
-  before_action :validate_token
-
-  class InvalidTokenError < StandardError; end  
-
-  private
-
-  def validate_token
-    begin
-      authorization = request.headers['Authorization']
-      raise InvalidTokenError if authorization.nil?
-
-      token = request.headers['Authorization'].split(' ').last
-      decoded_token = JWT.decode(token,
-        JWT.base64url_decode(Rails.application.secrets.auth0_client_secret))
-
-      raise InvalidTokenError if Rails.application.secrets.auth0_client_id != decoded_token[0]["aud"]
-
-      @user = decoded_token
-    rescue JWT::DecodeError, InvalidTokenError
-      render :json => { :error => "Unauthorized: Invalid token." }, status: :unauthorized
-    end
-  end
-
-end
-```
-
-### 4. Securing your API
-
-Now, every new controller that you create that inherits from `SecuredController` will verify that the user is authenticated.
+In `config/initializer/knock.rb`, uncomment the following lines:
 
 ```ruby
-class SecuredPingController < SecuredController
-
-  def ping
-    render :json => {
-      :message => "All good. You only get this message if authenticated.",
-      :user => @user
-    }
-  end
-
-end
+config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
-### 5. You're done!
+```ruby
+config.token_secret_signature_key = -> { Rails.application.secrets.auth0_client_secret }
+```  
+
+### 4. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
