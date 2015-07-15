@@ -1,4 +1,4 @@
-# Node.js modules available in the appliace
+# Node.js modules available in an Auth0 Appliance
 
 For the appliances rules and custom database connections run in a JavaScript sandbox for security reasons. You can use the full power of the language (ECMAScript 5) and a few selected libraries. 
 
