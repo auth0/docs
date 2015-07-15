@@ -3,6 +3,8 @@ name: Spring Security Java API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## Java API Tutorial
@@ -11,7 +13,7 @@ lodash: true
   <blockquote>
     <a href="/spring-security-auth0/master/create-package?path=examples/api-example&filePath=examples/api-example/src/main/resources/auth0.properties&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -54,7 +56,7 @@ and create the `auth0.properties` file with the following information:
 auth0.clientSecret=@@account.clientSecret@@
 auth0.clientId=@@account.clientId@@
 auth0.domain=@@account.namespace@@
-# This is the path to secure. 
+# This is the path to secure.
 auth0.securedRoute=/secured/**
 ```
 

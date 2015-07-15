@@ -5,6 +5,10 @@ name: jQuery
 image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
 tags:
   - quickstart
+snippets:
+  dependancies: jquery/dependancies.html
+  setup: jquery/setup.js
+  use: jquery/use.js
 ---
 
 ## jQuery Tutorial
@@ -44,13 +48,7 @@ tags:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-```html
-<!-- Auth0 lock script -->
-<script src="@@widget_url_no_scheme@@"></script>
-
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+@@snippet(meta.snippets.dependancies)@@
 
 We're including the Auth0 lock script to the `index.html`
 
@@ -58,44 +56,13 @@ We're including the Auth0 lock script to the `index.html`
 
 Configuring the Auth0Lock will let your app work with Auth0:
 
-```js
-var lock = null;
-$(document).ready(function() {
-   lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-});
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Let's implement the login
 
 Now we're ready to implement the login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
-```js
-var userProfile;
-
-$('.btn-login').click(function(e) {
-  e.preventDefault();
-  lock.show(function(err, profile, token) {
-    if (err) {
-      // Error callback
-      alert('There was an error');
-    } else {
-      // Success calback
-
-      // Save the JWT token.
-      localStorage.setItem('userToken', token);
-
-      // Save the profile
-      userProfile = profile;
-    }
-  });
-});
-```
-
-```html
-<!-- ... -->
-<input type="submit" class="btn-login" />
-<!-- ... -->
-```
+@@snippet(meta.snippets.use)@@
 
 We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
 

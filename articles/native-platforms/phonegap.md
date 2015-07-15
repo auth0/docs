@@ -10,6 +10,14 @@ tags:
 
 ## Phonegap tutorial
 
+# To Run the example
+
+<p>In order to run the project, you need to have `node`, `cordova` and `ios-sim` installed.
+Once you have that, just clone the project and run the following:</p>
+
+<pre><code>cordova build ios</code></pre>
+<pre><code>cordova emulate ios</code></pre>
+
 <% if (configuration.api && configuration.thirdParty) { %>
 
 <div class="package" style="text-align: center;">
@@ -42,6 +50,8 @@ tags:
 
 ### 0. Setting up the callback URL in Auth0
 
+
+
 <div class="setup-callback">
 <p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
@@ -58,7 +68,7 @@ tags:
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
 ```bash
-phonegap plugin add org.apache.cordova.inappbrowser
+phonegap plugin add cordova-plugin-inappbrowser
 ```
 
 > **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using `<gap:plugin`. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)

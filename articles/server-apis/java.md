@@ -3,6 +3,8 @@ name: Java API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## Java API Tutorial
@@ -11,7 +13,7 @@ lodash: true
   <blockquote>
     <a href="/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-    </a> 
+    </a>
   </blockquote>
 </div>
 

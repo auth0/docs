@@ -4,6 +4,8 @@ name: Azure Mobile Services
 thirdParty: true
 image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
+tags:
+  - quickstart
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>
 @@includes.thirdpartyapi@@

@@ -5,6 +5,10 @@ name: Angular.js
 image: //auth0.com/lib/platforms-collection/img/angular.png
 tags:
   - quickstart
+snippets:
+  dependancies: angularjs/dependancies.html
+  setup: angularjs/app.js
+  use: angularjs/login.js
 ---
 
 ## AngularJS Tutorial
@@ -26,21 +30,7 @@ tags:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-```html
-<!-- We use client cookies to save the user credentials -->
-<script src="//code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
-
-<!-- Auth0 Lock script and AngularJS module -->
-<script src="@@widget_url_no_scheme@@"></script>
-<!-- angular-jwt and angular-storage -->
-<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
-<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-
-<script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
-
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+@@snippet(meta.snippets.dependancies)@@
 
 We're including Auth0's angular module and its dependencies to the `index.html`.
 
@@ -48,53 +38,18 @@ We're including Auth0's angular module and its dependencies to the `index.html`.
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
-```js
-// app.js
-angular.module('YOUR-APP-NAME', ['auth0', 'angular-storage', 'angular-jwt'])
-.config(function (authProvider) {
-  authProvider.init({
-    domain: '<%= account.namespace %>',
-    clientID: '<%= account.clientId %>'
-  });
-})
-.run(function(auth) {
-  // This hooks al auth events to check everything as soon as the app starts
-  auth.hookEvents();
-});
-```
-
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
 In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile and token into `localStorage`.
 
-```js
-// LoginCtrl.js
-function LoginCtrl($scope, auth, store, $location) {
-  $scope.login = function() {
-    auth.signin({}, function(profile, token) {
-      // Success callback
-      store.set('profile', profile);
-      store.set('token', token);
-      $location.path('/');
-    }, function() {
-      // Error callback
-    });
-  }
-}
-```
-
-```html
-<!-- login.tpl.html -->
-<!-- ... -->
-<input type="submit" ng-click="login()" />
-<!-- ... -->
-```
+@@snippet(meta.snippets.use)@@
 
 @@browser@@
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
 ### 4. Adding a logout button
 

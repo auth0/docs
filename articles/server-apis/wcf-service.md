@@ -3,6 +3,8 @@ title: Using Auth0 with a WCF Service
 name: .NET WCF
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/wcf.png
+tags:
+  - quickstart
 ---
 
 # Using Auth0 with a WCF Service

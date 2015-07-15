@@ -2,6 +2,8 @@
 name: PHP (Symfony) API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png
+tags:
+  - quickstart
 ---
 
 # Symfony Auth0 JWT Bundle

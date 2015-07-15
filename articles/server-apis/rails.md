@@ -3,6 +3,8 @@ name: Ruby On Rails API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## Ruby on Rails API Tutoial
@@ -11,10 +13,10 @@ lodash: true
   <blockquote>
     <a href="/auth0-ruby-samples/master/create-package?path=ruby-on-rails-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %> 
+      <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
       <% } %>
-    </a> 
+    </a>
   </blockquote>
 </div>
 
@@ -58,14 +60,14 @@ class SecuredController < ApplicationController
   class InvalidTokenError < StandardError; end  
 
   private
- 
+
   def validate_token
     begin
       authorization = request.headers['Authorization']
       raise InvalidTokenError if authorization.nil?
 
       token = request.headers['Authorization'].split(' ').last
-      decoded_token = JWT.decode(token, 
+      decoded_token = JWT.decode(token,
         JWT.base64url_decode(Rails.application.secrets.auth0_client_secret))
 
       raise InvalidTokenError if Rails.application.secrets.auth0_client_id != decoded_token[0]["aud"]
@@ -75,7 +77,7 @@ class SecuredController < ApplicationController
       render :json => { :error => "Unauthorized: Invalid token." }, status: :unauthorized
     end
   end
-  
+
 end
 ```
 
@@ -87,7 +89,7 @@ Now, every new controller that you create that inherits from `SecuredController`
 class SecuredPingController < SecuredController
 
   def ping
-    render :json => { 
+    render :json => {
       :message => "All good. You only get this message if authenticated.",
       :user => @user
     }

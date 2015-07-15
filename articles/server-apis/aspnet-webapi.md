@@ -4,6 +4,8 @@ name: ASP.NET Web API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/asp.png
 lodash: true
+tags:
+  - quickstart
 ---
 
 ## ASP.NET Web API Tutorial
@@ -21,12 +23,18 @@ lodash: true
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
 
-### 1. Install the WebApi.JsonWebToken package
+### 1. Install the WebApi.JsonWebToken &amp; Auth0-ASPNET packages
 
-You can either run the following command or install it via **Package Manager**.
+You can either run the following commands or install them via **Package Manager**.
+
 ```Powershell
 Install-Package WebApi.JsonWebToken
 ```
+
+```Powershell
+Install-Package Auth0-ASPNET
+```
+
 
 ### 2. Configure the JsonWebToken message handler
 
@@ -68,4 +76,8 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 ### Optional Steps
 #### Configuring CORS
 
-You can follow [this article](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) to configure CORS in your application.
+One of the requirements is package Microsoft.AspNet.WebApi.Cors. You can use the following command from VS2013 Package Manager Console:
+
+`Install-Package Microsoft.AspNet.WebApi.Cors`
+
+For more details, you can follow [this article](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) to configure CORS in your application.

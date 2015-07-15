@@ -20,7 +20,7 @@ This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or
 In order to include `Xamarin.Auth0Client` component, please perform the following steps:
 
   1. With the project loaded in Xamarin Studio (or Visual Studio), right-click on the `Components` folder in the `Solution Explorer` and select `Get More Components`.
-  2. Search and double-click on `Xamarin.Auth0Client` component.
+  2. Search and double-click on `Auth0Client` component.
   3. From the component page, select the `Add to Project` button to download the component and add it to the current project.
 
 For more information, please visit the <a target="_blank" href="http://docs.xamarin.com/guides/cross-platform/application_fundamentals/components_walkthrough">Xamarin documentation page</a>.
@@ -36,7 +36,7 @@ For more information, please visit the <a target="_blank" href="http://docs.xama
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using the [Auth0 Login Widget](/login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using the [Auth0 Login Widget](/lock) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 

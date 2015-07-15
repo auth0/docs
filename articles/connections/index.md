@@ -11,7 +11,7 @@ Out of the box, Auth0 supports the following:
 
 ## Enterprise
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections.enterprise').items, 'connection'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
   <li>
     <a href="<%- article.url %>"><%- article.connection %></a>
   </li>
@@ -23,7 +23,7 @@ Out of the box, Auth0 supports the following:
 Auth0 supports the following social providers out of the box. Additionally, you can add any [OAuth2 Authorization Server](/connections/social/oauth2).
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections.social').items, 'connection'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
   <li>
     <a href="<%- article.url %>"><%- article.connection %></a>
   </li>
@@ -33,7 +33,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 ## Database and Custom Connections
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections.database').items, 'connection'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('connections/database').items, 'connection'), function(article) { %>
   <li>
     <a href="<%- article.url %>"><%- article.connection %></a>
   </li>
@@ -43,7 +43,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 ## Passwordless
 
 <ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections.passwordless').items, 'connection'), function(article) { %>
+<% _.forEach(_.sortBy(articles.findByHash('connections/passwordless').items, 'connection'), function(article) { %>
   <li>
     <a href="<%- article.url %>"><%- article.connection %></a>
   </li>

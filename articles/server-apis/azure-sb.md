@@ -3,6 +3,8 @@ name: Azure Service Bus
 thirdParty: true
 image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
+tags:
+  - quickstart
 ---
 <% configuration.thirdParty = 'Azure Service Bus' %>
 @@includes.thirdpartyapi@@

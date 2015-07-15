@@ -35,7 +35,7 @@ After the call completes successfully, you will be able to login using these new
 
 ##Uber
 
-* [Create an application](https://developer.uber.com/apps/new) 
+* [Create an application](https://developer.uber.com/apps/new)
 * Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `Client ID` and `Secret` to config file below
 
@@ -145,7 +145,7 @@ After the call completes successfully, you will be able to login using these new
 ##Bitbucket
 
 * Register a new Consumer in Bitbucket
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback). 
+* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `Consumer Key` and `Consumer Secret` to config file below
 
 ```
@@ -168,7 +168,7 @@ After the call completes successfully, you will be able to login using these new
 ##Dribbble
 
 * [Register a new Consumer in Dribbble](https://dribbble.com/account/applications/new)
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback). 
+* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
 * Copy `Client ID` and `Client Secret` to config file below
 
 ```
@@ -183,6 +183,28 @@ After the call completes successfully, you will be able to login using these new
     "scope": ["public"],
     "scripts": {
       "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.dribbble.com/v1/user', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.id; profile.picture = profile.avatar_url; cb(null, profile); });}"
+    }
+  }
+}
+```
+
+##Vimeo
+
+* [Create an application](https://developer.vimeo.com/apps/new)
+* Copy `Client Identifier` and `Client Secrets` to config file below
+
+```
+{
+  "name": "vimeo",
+  "strategy": "oauth2",
+  "options": {
+    "client_id": "{YOUR-VIMEO-CLIENT-IDENTIFIER}",
+    "client_secret": "{YOUR-VIMEO-CLIENT-SECRET}",
+    "authorizationURL": "https://api.vimeo.com/oauth/authorize",
+    "tokenURL": "https://api.vimeo.com/oauth/access_token",
+    "scope": ["public"],
+    "scripts": {
+      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.vimeo.com/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uri; cb(null, profile); });}"
     }
   }
 }

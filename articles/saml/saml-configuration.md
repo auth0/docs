@@ -93,9 +93,9 @@ Once a basic SAML setup has been done, there are a number of additional requirem
 
 ### IDP-initiated SSO
 
-Most of the instructions for setting up a SAML federation start with Service-Provider-Initiated Single Sign On which involves a user first invoking a URL on the Service Provider which returns a browser redirect to send the user to the Identity Provider for authentication.  After authentication, the user browser is redirected back to the Service Provider with a SAML assertion indicating authentication status. This is common for consumer-facing scenarios.   
+Most of the instructions for setting up a SAML federation start with Service-Provider-Initiated Single Sign On which involves a user first invoking a URL on the Service Provider which returns a browser redirect to send the user to the Identity Provider for authentication.  After authentication, the user browser is redirected back to the Service Provider with a SAML assertion indicating authentication status. This is common for consumer-facing scenarios.
 
-An alternative sequence is called Identity-Provider-Initiated Single Sign On where a user first invokes a URL on the Identity Provider and is prompted to authenticate and then is redirected to the Service Provider with a SAML assertion.  This is common in enterprise scenarios where an enterprise sets up a portal with links to outsourced or cloud-hosted applications to ensure users go to the correct application.  In this case the user first goes to the portal URL, which redirects to the IDP, where the user authenticates.  After authentication, the user clicks on links on the portal and their browser is redirected to the Service Provider with a SAML assertion. 
+An alternative sequence is called Identity-Provider-Initiated Single Sign On where a user first invokes a URL on the Identity Provider and is prompted to authenticate and then is redirected to the Service Provider with a SAML assertion.  This is common in enterprise scenarios where an enterprise sets up a portal with links to outsourced or cloud-hosted applications to ensure users go to the correct application.  In this case the user first goes to the portal URL, which redirects to the IDP, where the user authenticates.  After authentication, the user clicks on links on the portal and their browser is redirected to the Service Provider with a SAML assertion.
 
 ### Auth0 as Service Provider
 If Auth0 is acting as a Service Provider, the following is needed to support IDP-Initiated Single Sign On.
@@ -149,7 +149,7 @@ Auth0 can accept a SAML response with signature for either the assertion, the re
 
 ##### Receiving Encrypted SAML Authentication Assertions
 
-When Auth0 is acting as a SAML Service Provider, it may need to receive encrypted assertions from an Identity Provider. To do this, the Service Provider public key/certificate must be given to the Identity Provider.  The Identity Provider will encipher the SAML assertion with the public key and then Auth0 as the Service Provider will use its private key to decipher the assertion. 
+When Auth0 is acting as a SAML Service Provider, it may need to receive encrypted assertions from an Identity Provider. To do this, the Service Provider public key/certificate must be given to the Identity Provider.  The Identity Provider will encipher the SAML assertion with the public key and then Auth0 as the Service Provider will use its private key to decipher the assertion.
 
 To prepare a connection for this:
 
@@ -209,7 +209,7 @@ In the Auth0 dashboard, the **""Apps/APIs"** -> **"Settings"** -> **"Addons"** -
 
 * Specifying an audience other than the default Issuer of the SAML request
 * Specifying a recipient
-* mapping profile attributes to specific attribute statements 
+* mapping profile attributes to specific attribute statements
 * Changing the signature or digest algorithm
 * Specifying whether to sign the assertion or the entire response
 
@@ -242,16 +242,16 @@ To include user_metadata attributes in an assertion, you can create a [rule](/ru
 
 ```
   function (user, context, callback) {
-   
+
      user.user_metadata = user.user_metadata || {};
      user.user_metadata.color2 = "purple";
      context.samlConfiguration.mappings = {
-     
+
      //Attribute already in user_metadata
      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-     
+
      //Attribute dynamically added to user_metadata above
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",    
+     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
      };
      callback(null, user, context);
   }
@@ -268,7 +268,7 @@ Below are all the customizations you can do and they can be done using either of
 * __createUpnClaim (`bool`):__ Whether or not a UPN claim should be created. Default is `true`.
 * __passthroughClaimsWithNoMapping (`bool`):__ If `true` (default), for each claim that is not mapped to the [common profile](/user-profile), Auth0 will passthrough those in the output assertion. If `false`, those claims won't be mapped. Default is `true`.
 * __mapUnknownClaimsAsIs (`bool`):__ if `passthroughClaimsWithNoMapping` is `true` and this is `false` (default), for each claim that is not mapped to the [common profile](/user-profile) Auth0 will add a prefix `http://schema.auth0.com`. If `true` it will passthrough the claim as-is. Default is `false`.
-* __mapIdentities:__ If `true`, it will will add more information in the token like the provider used (google, adfs, ad, etc.) and the `access_token` if available. Default is `true`.
+* __mapIdentities:__ If `true`, it will add more information in the token like the provider used (google, adfs, ad, etc.) and the `access_token` if available. Default is `true`.
 * __signatureAlgorithm:__ Signature algorithm to sign the SAML Assertion or response. Default is `rsa-sha1` and it could be `rsa-sha256`.
 * __digestAlgorithm:__ Digest algorithm to calculate digest of the SAML Assertion or response. default `sha1`. It could be `sha256`.
 * __destination:__ Destination of the SAML Response. If not specified, it will be `AssertionConsumerUrl` of `SAMLRequest` or Callback URL if there was no SAMLRequest.
@@ -286,7 +286,7 @@ In designing a SAML SSO implementation, it is often helpful to consider which sy
 
 ### Auth0 as Service Provider
 
-If Auth0 is serving as the Service Provider in a SAML federation, it does not require any out-of-band process to create user accounts in Auth0 in advance of user authentication.  Auth0 can route authentication requests to an Identity Provider without already having an account pre-created for a specific user. Auth0 will capture user profile information from the assertion returned by the Identity Provider and create a user profile for the user in Auth0.  This is sometimes called Just-In-Time provisioning. 
+If Auth0 is serving as the Service Provider in a SAML federation, it does not require any out-of-band process to create user accounts in Auth0 in advance of user authentication.  Auth0 can route authentication requests to an Identity Provider without already having an account pre-created for a specific user. Auth0 will capture user profile information from the assertion returned by the Identity Provider and create a user profile for the user in Auth0.  This is sometimes called Just-In-Time provisioning.
 
 There are several mechanisms available to route a request to an IdP. See:
 
@@ -341,4 +341,3 @@ Can paste saml response from Auth0 logs straight into this decoder
 https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php
 
 FF SAML addon works even better!
-

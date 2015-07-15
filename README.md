@@ -29,9 +29,75 @@ name: Quickstart Name
 image: //cdn.auth0.com/path/to/icon.png
 thirdParty: true|false  # For server apis only
 hybrid: true|false # For native platforms only
+snippets:
+  dependancies: folder/dependancies.html
+  setup: folder/app.js
+  use: folder/login.js
 ---
+```
+
+For each quickstart you must specify the snippets and create the associated snippet file in the `/snippets` folder. You must provide all three snippets for each quickstart: `dependancies`, `setup`, and `use`. To include the snippet in the quickstart document simply reference it:
+
+```md
+@@snippet(meta.snippets.use)@@
 ```
 
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
 
 Additionally, the quickstart configuration is also in this repository here: [quickstart.yml](/quickstart.yml).
+
+## API
+
+> WARNING: This API is for Auth0 internal use only. You should not rely on the docs API for anything. There is *NO SLA or support* for the document API.
+
+All document content is accessible through the docs API as well as through regular HTML.
+
+To request a document in embedded format (i.e. no template html) to embed externally simply append `?e=1` to any url.
+
+To request content in JSON or JSONP format simply pass the header `Accept: 'application/json'` and optionally specify a ``?callback=foo` query parameter for JSONP.
+
+In the JSON or JSONP responses you can also request the document metadata by appending `?m=1` to the query.
+
+## Code snippets
+Code snippets are available both through the API and to use in markdown docs.
+
+Access via API:
+
+GET: `/docs/meta/snippets/{hash}`
+Response:
+```json
+{
+  "title": "{title}",
+  "content": "{<pre><code class="{class}">{code}</code></pre> }",
+  "hash": "{hash}"
+  "additional_metadata": ""
+}
+```
+
+Use in markdown docs:
+
+```md
+@@snippet('{hash}')@@
+```
+
+## Connections
+Connections are available both through the API and to use in markdown docs.
+
+Access via API:
+
+GET: `/docs/meta/connections`
+GET: `/docs/meta/connections/{type}`
+GET: `/docs/meta/connections/{type}/{connection}`
+Response:
+```json
+{
+  "title": "{title}",
+  "hash": "{hash}",
+  "url": "https://auth0.com/docs/path/to/doc",
+  "image": "https://cdn.auth0.com/docs/path/to/image.png",
+  "type": "database|social|enterprise",
+  "alias": [
+    "alias1"
+  ]
+}
+```

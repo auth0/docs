@@ -8,7 +8,7 @@ tags:
 
 # ServiceStack Tutorial
 
-We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications. At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users.
+At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users.
 
 ##Before you start
 
@@ -44,6 +44,8 @@ public class HomeController : Controller
 
 ###2. Install Auth0 OAuthProvider
 
+We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthProvider/) to simplify integration of Auth0 with ServiceStack based applications.
+
 Run this command on the __Package Manager Console__:
 
 	Install-Package Auth0-ServiceStack-OAuthProvider
@@ -78,7 +80,7 @@ private void ConfigureAuth(Funq.Container container)
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
-### 3. Setting up the callback URL in Auth0
+### 4. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
 <p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
@@ -86,7 +88,7 @@ private void ConfigureAuth(Funq.Container container)
 <pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
 </div>
 
-###4. Enter configuration settings
+###5. Enter configuration settings
 
 Open your `web.config` file and change the three Auth0's parameters under `<appSettings>`:
 
@@ -97,11 +99,11 @@ Open your `web.config` file and change the three Auth0's parameters under `<appS
 ```
 
 
-###5. Add backend code to test the app
+###6. Add backend code to test the app
 
 Open the the `WebServiceExamples.cs` file.
 
-####1. Add the `Authenticate` attribute to the `Hello` DTO:
+####6.1. Add the `Authenticate` attribute to the `Hello` DTO:
 
 ```c#
 [Authenticate]
@@ -111,7 +113,7 @@ public class Hello
 }
 ```
 
-####2. Add an `IAuthSession` property to the `HelloResponse` DTO:
+####6.2. Add an `IAuthSession` property to the `HelloResponse` DTO:
 
 ```c#
 public class HelloResponse
@@ -122,7 +124,7 @@ public class HelloResponse
 }
 ```
 
-####3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
+####6.3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
 
 ```c#
 public class HelloService : ServiceBase<Hello>
@@ -143,11 +145,11 @@ public class HelloService : ServiceBase<Hello>
 ```
 > Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
 
-### 6. Triggering login manually or integrating the Auth0Lock
+### 7. Triggering login manually or integrating the Auth0Lock
 
 @@lockSDK@@
 
-### 7. Add UI code to Login and invoke the `HelloService`
+### 8. Add UI code to Login and invoke the `HelloService`
 
 Open `default.htm` and add the following statement in the `jQuery.ready` body:
 
@@ -166,7 +168,7 @@ Add a section to display the `UserInfo`:
 </div>
 ```
 
-###8. Run the app
+###9. Run the app
 
 After successful authentication, the `UserProfile` will be displayed on the page.
 
