@@ -145,7 +145,7 @@ fetch('/api/foo', {
   method: 'GET',
   cache: false,
   headers: {
-    'Authorization': `Bearer ${session.secure.jwt}`
+    'Authorization': 'Bearer <%= "${session.secure.jwt}" %>'
   }
 }).then(function (response) {
   // use response
@@ -154,7 +154,7 @@ fetch('/api/foo', {
 
 ### 7. You're done!
 
-🙌 You've implemented Sign in & up with Auth0 and Ember. 
+🙌 You've implemented Sign in & up with Auth0 and Ember.
 
 ------
 
