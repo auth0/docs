@@ -75,6 +75,23 @@ If no valid token is passed with the request, Knock will respond with:
 head :unauthorized
 ```
 
+If a token is given, Knock makes two assumptions by default:
+
+1. Your app defines a `User` model with an `id` field.
+2. The 'sub' claim in the token payload contains the user id.
+
+So we try to retrieve the current user like this:
+
+```ruby
+User.find claims['sub']
+```
+
+You can easily configure this behavior by changing the following line in the `config/initializer/knock.rb`:
+
+```ruby
+config.current_user_from_token = -> (claims) { User.find claims['sub'] }
+```
+
 ### 2. Add your Auth0 account information to secrets.yml
 
 You need to set the ClientID and ClientSecret in `config/secrets.yml` file so they can be used to validate and sign [JWT](/jwt)s for you.
@@ -104,7 +121,7 @@ config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 
 ```ruby
 config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
-```  
+```
 
 ### 4. You're done!
 
