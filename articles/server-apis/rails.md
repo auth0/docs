@@ -23,12 +23,57 @@ tags:
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 
-### 1. Install the knock gem
+### 1. Setup the knock gem
 
-Setup knock in 2 minutes: 
-<a href="https://github.com/nsarno/knock#getting-started" target="_blank">
-  Getting Started
-</a>
+Add this line to your application's Gemfile:
+
+#### Install
+
+```ruby
+gem 'knock', '~> 1.2'
+```
+
+And then execute:
+
+    $ bundle install
+
+Finally, run the install generator:
+
+    $ rails generate knock:install
+
+It will create the following initializer `config/initializers/knock.rb`.
+This file contains all the informations about the existing configuration options.
+
+#### Usage
+
+Then include the `Knock::Authenticable` module in your `ApplicationController`
+
+```ruby
+class ApplicationController < ActionController::API
+  include Knock::Authenticable
+end
+```
+
+You can now protect your resources by adding the `authenticate` before_action
+to your controllers like this:
+
+```ruby
+class SecuredResourceController < ApplicationController
+  before_action :authenticate
+
+  def index
+    # etc...
+  end
+
+  # etc...
+end
+```
+
+If no valid token is passed with the request, Knock will respond with:
+
+```
+head :unauthorized
+```
 
 ### 2. Add your Auth0 account information to secrets.yml
 
