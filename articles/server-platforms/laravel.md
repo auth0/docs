@@ -30,7 +30,7 @@ NOTE: Some plugin dependencies are not tagged, so you have to either change the 
 
 ```js
 "adoy/oauth2": "dev-master",
-"firebase/php-jwt" : "dev-master"
+"firebase/php-jwt" : "~2.2"
 ```
 
 ### 2. Enable it in Laravel

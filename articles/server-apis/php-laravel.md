@@ -24,7 +24,7 @@ tags:
 
 ### 1. Add the needed dependencies and configure `composer.json`
 
-We need to add **laravel-auth0** dependency to your composer.json. As it depends on some packages that don't yet have tags (firebase/php-jwt for example), you need to first change your `composer.json` `minimum-stability` property to dev.
+We need to add **laravel-auth0** dependency to your composer.json. As it depends on some packages that don't yet have tags (adoy/oauth2 for example), you need to first change your `composer.json` `minimum-stability` property to dev.
 
 Once that's done, just run the following:
 
