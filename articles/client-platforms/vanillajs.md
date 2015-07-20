@@ -6,9 +6,9 @@ image: //auth0.com/lib/platforms-collection/img/html5.png
 tags:
   - quickstart
 snippets:
-  dependancies: client-platforms/vinillajs/dependancies
-  setup: client-platforms/vinillajs/setup
-  use: client-platforms/vinillajs/use
+  dependancies: client-platforms/vanillajs/dependancies
+  setup: client-platforms/vanillajs/setup
+  use: client-platforms/vanillajs/use
 ---
 
 ## Generic SPA / Vanilla JS Tutorial
