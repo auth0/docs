@@ -1,10 +1,8 @@
 ---
-Name: Auth0 Intro video
-Description: >
-In this video, within 6 minutes you'll go from having no app, to having an application that has authentication working with Twitter, Github, Google and Username and Password using Auth0.
-TimeInSeconds: 389
-Url: https://auth0-1.wistia.com/medias/27i80efy8c
-VideoId: 27i80efy8c
+name: Auth0 Intro video
+description: "In this video, within 6 minutes you'll go from having no app, to having an application that has authentication working with Twitter, Github, Google and Username and Password using Auth0."
+timeInSeconds: 389
+videoId: 27i80efy8c
 ---
 In this video, we'll look at how quickly we can have authentication up and running with Auth0.
 We’ll start by Creating an account, which is free for development and testing.  

@@ -1,9 +1,7 @@
 ---
 Name: Setup a Social Connection
-Description: >
-In this video, you'll learn how you can configure any Social Identity Provider with Auth0. 
+Description: "In this video, you'll learn how you can configure any Social Identity Provider with Auth0."
 TimeInSeconds: 177
-Url: https://auth0-1.wistia.com/medias/k3j81ck3nl
 VideoId: k3j81ck3nl
 ---
 In this video, we’ll setup your first social connection.  You can see the full list of social connections available for you to use, by clicking ‘Connections’ and then ‘Social’ in the navigation menu
