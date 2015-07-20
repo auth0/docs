@@ -6,6 +6,10 @@ hybrid: true
 image: //auth0.com/lib/platforms-collection/img/phonegap.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/cordova/dependancies
+  setup: native-platforms/jquery/setup
+  use: native-platforms/jquery/use
 ---
 
 ## Cordova Tutorial
@@ -43,13 +47,13 @@ tags:
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 
 <p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
 
-<pre><code>file://*</code></pre>
+<pre><code>file://\*</code></pre>
 
 </div>
 
@@ -57,9 +61,7 @@ tags:
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
-```bash
-cordova plugin add org.apache.cordova.inappbrowser
-```
+@@snippet(meta.snippets.dependancies)@@
 
 and then add the following configuration to the `config.xml` file:
 

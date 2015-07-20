@@ -6,6 +6,10 @@ hybrid: true
 image: //auth0.com/lib/platforms-collection/img/react.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/ios-reactnative/dependancies
+  setup: native-platforms/ios-reactnative/setup
+  use: native-platforms/ios-reactnative/use
 ---
 
 ## iOS React Native Tutorial
@@ -43,18 +47,16 @@ tags:
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>a0@@account.clientId@@://*.auth0.com/authorize</pre></code>
+<pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</pre></code>
 </div>
 
 ### 1. Adding the Auth0 dependencies
 
 Inside your project create a file named `Podfile` with these contents:
 
-```ruby
-pod 'LockReact', '~> 0.2'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 and run `pod install`
 
@@ -217,22 +219,11 @@ RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSende
 
 Now we're ready to implement the Login. First we need to require the native module we've just created:
 
-```js
-var Lock = require('NativeModules').LockReactModule;
-```
+@@snippet(meta.snippets.setup)@@
 
 Then we can show _Lock_:
 
-```js
-Lock.show({}, (err, profile, token) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  // Authentication worked!
-  console.log('Logged in with Auth0!');
-});
-```
+@@snippet(meta.snippets.use)@@
 
 [![Lock.png](/media/articles/native-platforms/ios-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
 

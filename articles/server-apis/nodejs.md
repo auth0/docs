@@ -5,6 +5,10 @@ image: //auth0.com/lib/platforms-collection/img/node.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/nodejs/dependancies
+  setup: server-apis/nodejs/setup
+  use: server-apis/nodejs/use
 ---
 
 ## NodeJS API Tutorial
@@ -28,32 +32,19 @@ You need to add the express-jwt dependency.
 
 Just run the following code to install the dependency and add it to your `package.json`
 
-```bash
-npm install express-jwt --save
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure express-jwt with your Auth0 account
 
 You need to set the ClientID and ClientSecret in `express-jwt`'s configuration so that it can validate and sign [JWT](/jwt)s for you.
 
-```js
-var express = require('express');
-var app = express();
-var jwt = require('express-jwt');
-
-var jwtCheck = jwt({
-  secret: new Buffer('<%= account.clientSecret %>', 'base64'),
-  audience: '<%= account.clientId %>'
-});
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Secure your API
 
 Now, you need to specify one or more routes or paths that you want to protect, so that only users with the correct JWT will be able to do the request.
 
-```js
-app.use('/api/path-you-want-to-protect', jwtCheck);
-```
+@@snippet(meta.snippets.use)@@
 
 ### 4. You're done!
 

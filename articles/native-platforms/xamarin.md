@@ -5,6 +5,10 @@ hybrid: false
 image: //auth0.com/lib/platforms-collection/img/xamarin.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/xamarin/dependancies
+  setup: native-platforms/xamarin/setup
+  use: native-platforms/xamarin/use
 ---
 
 # Xamarin Tutorial
@@ -17,18 +21,14 @@ This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or
 
 ### 1. Install Xamarin.Auth0Client component
 
-In order to include `Xamarin.Auth0Client` component, please perform the following steps:
+@@snippet(meta.snippets.dependancies)@@
 
-  1. With the project loaded in Xamarin Studio (or Visual Studio), right-click on the `Components` folder in the `Solution Explorer` and select `Get More Components`.
-  2. Search and double-click on `Auth0Client` component.
-  3. From the component page, select the `Add to Project` button to download the component and add it to the current project.
-
-For more information, please visit the <a target="_blank" href="http://docs.xamarin.com/guides/cross-platform/application_fundamentals/components_walkthrough">Xamarin documentation page</a>.
+For more information, please visit the <a href="http://docs.xamarin.com/guides/cross-platform/application_fundamentals/components_walkthrough">Xamarin documentation page</a>.
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 </div>
@@ -44,22 +44,9 @@ There are three options to do the integration:
 
 To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
-```cs
-using Auth0.SDK;
+@@snippet(meta.snippets.setup)@@
 
-var auth0 = new Auth0Client(
-	"@@account.namespace@@",
-	"@@account.clientId@@");
-
-// 'this' could be a Context object (Android) or UIViewController, UIView, UIBarButtonItem (iOS)
-var user = await auth0.LoginAsync(this);
-/*
-- get user email => user.Profile["email"].ToString()
-- get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
-- get Windows Azure AD groups => user.Profile["groups"]
-- etc.
-*/
-```
+@@snippet(meta.snippets.use)@@
 
 > `Xamarin.Auth0Client` is built on top of the `WebRedirectAuthenticator` in the Xamarin.Auth component. All rules for standard authenticators apply regarding how the UI will be displayed.
 

@@ -6,9 +6,9 @@ image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
 tags:
   - quickstart
 snippets:
-  dependancies: jquery/dependancies.html
-  setup: jquery/setup.js
-  use: jquery/use.js
+  dependancies: client-platforms/jquery/dependancies
+  setup: client-platforms/jquery/setup
+  use: client-platforms/jquery/use
 ---
 
 ## jQuery Tutorial

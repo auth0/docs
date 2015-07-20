@@ -8,7 +8,7 @@ $('.btn-login').click(function(e) {
       // Error callback
       alert('There was an error');
     } else {
-      // Success calback
+      // Success callback
 
       // Save the JWT token.
       localStorage.setItem('userToken', token);

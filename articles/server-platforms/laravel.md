@@ -4,6 +4,10 @@ name: PHP (Laravel)
 image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/laravel/dependancies
+  setup: server-platforms/laravel/setup
+  use: server-platforms/laravel/use
 ---
 
 # Laravel Tutorial
@@ -18,13 +22,7 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 
 ### 1. Install the plugin and its dependencies
 
-To install this plugin add the following dependency to your composer.json
-
-```js
-"auth0/login" : "~2.1"
-```
-
-and run `composer update`
+@@snippet(meta.snippets.dependancies)@@
 
 NOTE: Some plugin dependencies are not tagged, so you have to either change the `minimum-stability` to `dev` or you have to add the dependencies manually.
 
@@ -36,12 +34,7 @@ NOTE: Some plugin dependencies are not tagged, so you have to either change the 
 ### 2. Enable it in Laravel
 Add the following in the list of the services providers, located in `app/config/app.php`
 
-```php
-'providers' => array(
-    // ...
-    'Auth0\Login\LoginServiceProvider',
-);
-```
+@@snippet(meta.snippets.setup)@@
 
 Optionally, if you want to use the [facade](http://laravel.com/docs/facades) called `Auth0` you should also add an alias in the same file
 
@@ -107,26 +100,7 @@ Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
 
 You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
-```html
-
-<script src="https://cdn.auth0.com/js/lock-7.min.js"></script>
-<script type="text/javascript">
-
-    var lock = new Auth0Lock('{{ $auth0Config['client_id'] }}', '{{ $auth0Config['domain'] }}');
-
-    function signin() {
-        lock.show({
-            callbackURL: '{{ $auth0Config['redirect_uri'] }}'
-            , responseType: 'code'
-            , authParams: {
-                scope: 'openid profile'
-            });
-    }
-</script>
-
-<button onclick="signin()">Login</button>
-
-```
+@@snippet(meta.snippets.use)@@
 
 ### 6. Defining a user and a user provider
 

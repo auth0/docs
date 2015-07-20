@@ -5,6 +5,10 @@ name: PHP (Symfony)
 image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/symfony/dependancies
+  setup: server-platforms/symfony/setup
+  use: server-platforms/symfony/use
 ---
 
 # Symfony Tutorial
@@ -15,30 +19,18 @@ If you have used [Symfony](http://symfony.com) before, you are probably already 
 
 ### 1. Add HWIOAuthBundle to your composer.json
 
-    {
-        "require": {
-            "hwi/oauth-bundle": "0.4.*@dev"
-        }
-    }
+@@snippet(meta.snippets.dependancies)@@
 
 and run `composer update`
 
 
 ### 2. Enable the bundle
 
-    // app/AppKernel.php
-
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-        );
-    }
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Configure the routes
 
-Add the following routes at the begining of `app/config/routing.yml`
+Add the following routes at the beginning of `app/config/routing.yml`
 
     hwi_oauth_redirect:
         resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"

@@ -4,6 +4,10 @@ name: ServiceStack
 image: //auth0.com/lib/platforms-collection/img/service-stack.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/servicestack/dependancies
+  setup: server-platforms/servicestack/setup
+  use: server-platforms/servicestack/use
 ---
 
 # ServiceStack Tutorial
@@ -20,7 +24,7 @@ For this example, we will use the standard template that ships with Visual Studi
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
-	Install-Package ServiceStack.Host.Mvc
+@@snippet(meta.snippets.dependancies)@@
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
@@ -64,26 +68,14 @@ ConfigureAuth(container);
 
 And then uncomment and edit the `ConfigureAuth` method to look like this:
 
-```c#
-private void ConfigureAuth(Funq.Container container)
-{
-	var appSettings = new AppSettings();
-
-    Plugins.Add(new AuthFeature(
-                    () => new Auth0UserSession(),
-                    new IAuthProvider[] {
-                    new Auth0Provider(appSettings, appSettings.GetString("oauth.auth0.OAuthServerUrl"))
-                }));
-
-}
-```
+@@snippet(meta.snippets.dependancies)@@
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
 ### 4. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
 
 <pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
 </div>

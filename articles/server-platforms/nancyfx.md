@@ -5,6 +5,10 @@ name: NancyFX
 image: //auth0.com/lib/platforms-collection/img/nancyfx.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/nancyfx/dependancies
+  setup: server-platforms/nancyfx/setup
+  use: server-platforms/nancyfx/use
 ---
 
 ## NancyFX Tutorial
@@ -23,29 +27,14 @@ tags:
 
 Install Auth0 NancyFX dependency with `NuGet`
 
-```bash
-PM> Install-Package Auth0.NancyFx.SelfHost
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure Auth0
 
 In your Nancy self hosted application add the following to your BootStrapper:
 
-```cs
-protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-{
-  // ...
+@@snippet(meta.snippets.setup)@@
 
-  Auth0Authentication.Enable(pipelines, new AuthenticationConfig
-  {
-    RedirectOnLoginFailed = "login",
-    CookieName = "_auth0_userid",
-    UserIdentifier = "userid"
-  });
-
-  // ...
-}
-```
 The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when he tries to access a restricted view.
 
 The `CookieName` allows you to set the name of the cookie that will be used to save the User information.

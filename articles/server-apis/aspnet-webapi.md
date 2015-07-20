@@ -4,8 +4,10 @@ name: ASP.NET Web API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/asp.png
 lodash: true
-tags:
-  - quickstart
+snippets:
+  dependancies: server-apis/aspnet-webapi/dependancies
+  setup: server-apis/aspnet-webapi/setup
+  use: server-apis/aspnet-webapi/use
 ---
 
 ## ASP.NET Web API Tutorial
@@ -27,14 +29,7 @@ tags:
 
 You can either run the following commands or install them via **Package Manager**.
 
-```Powershell
-Install-Package WebApi.JsonWebToken
-```
-
-```Powershell
-Install-Package Auth0-ASPNET
-```
-
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure the JsonWebToken message handler
 
@@ -45,25 +40,15 @@ using System.Web.Configuration;
 ```
 
 Add the following code snippet inside the `Register` method.
-```cs
-var clientID = WebConfigurationManager.AppSettings["Auth0ClientID"];
-var clientSecret = WebConfigurationManager.AppSettings["Auth0ClientSecret"];
 
-config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
-{
-    Audience = clientID,
-    SymmetricKey = clientSecret
-});
-```
+@@snippet(meta.snippets.use)@@
 
 ### 3. Update the web.config file with your app's credentials
 Open the **web.config** file located at the solution's root.
 
 Add the following entries as children of the `<appSettings>` element.
-```xml
-<add key="Auth0ClientID" value="<%= account.clientId %>"/>
-<add key="Auth0ClientSecret" value="<%= account.clientSecret %>"/>
-```
+
+@@snippet(meta.snippets.setup)@@
 
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
