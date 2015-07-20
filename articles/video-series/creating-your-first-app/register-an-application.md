@@ -2,7 +2,6 @@
 Name: Register an application
 Description: "In this video, you'll learn how to register a new application in Auth0 and how to configure it."
 TimeInSeconds: 241
-Url: https://auth0-1.wistia.com/medias/rinlyqb8po
 VideoId: rinlyqb8po
 ---
 In this screencast we’ll learn how to register an application in Auth0, a simple process that can be completed in a matter of minutes.
