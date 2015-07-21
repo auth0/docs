@@ -1,4 +1,5 @@
 ---
+title: PHP (Laravel) API Tutorial
 name: PHP (Laravel) API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png

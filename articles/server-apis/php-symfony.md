@@ -1,4 +1,5 @@
 ---
+title: PHP (Symfony) API Tutorial
 name: PHP (Symfony) API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png

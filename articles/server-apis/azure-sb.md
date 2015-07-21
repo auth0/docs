@@ -1,4 +1,5 @@
 ---
+title: Azure Service Bus Tutorial
 name: Azure Service Bus
 thirdParty: true
 image: //auth0.com/lib/platforms-collection/img/azure.png

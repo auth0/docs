@@ -1,5 +1,5 @@
 ---
-title: Using Auth0 with a WCF Service
+title: WCF Service Tutorial
 name: .NET WCF
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/wcf.png

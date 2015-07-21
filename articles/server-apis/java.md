@@ -1,4 +1,5 @@
 ---
+title: Java API Tutorial
 name: Java API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/java.png

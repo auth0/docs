@@ -1,4 +1,5 @@
 ---
+title: Ruby API Tutorial
 name: Ruby API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png

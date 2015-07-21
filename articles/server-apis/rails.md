@@ -1,4 +1,5 @@
 ---
+title: Ruby on Rails API Tutorial
 name: Ruby On Rails API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
@@ -11,7 +12,7 @@ snippets:
   use: server-apis/rails/use
 ---
 
-## Ruby on Rails API Tutoial
+## Ruby on Rails API Tutorial
 
 <div class="package" style="text-align: center;">
   <blockquote>

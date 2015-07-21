@@ -1,4 +1,5 @@
 ---
+title: Spring Security Java API Tutorial
 name: Spring Security Java API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/java.png

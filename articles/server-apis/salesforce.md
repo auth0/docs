@@ -1,5 +1,5 @@
 ---
-title: Salesforce
+title: Salesforce Tutorial
 name: Salesforce
 thirdParty: true
 image: //auth0.com/lib/saas-collection/img/salesforce.png
