@@ -20,7 +20,7 @@ A token is obtained using the POST method:
 	Content-type: application/x-www-form-urlencoded
 	client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials
 
-The response of this POST will be a JSON object:
+The response body of this POST will be a JSON object:
 
 	{
 		'access_token': TOKEN
@@ -87,6 +87,7 @@ The body of the response is a `connection` object formatted as follows:
 | `windowslive` | Microsoft Account (formerly LiveID) |
 
 When implementing the `office365`, `google-apps` or `adfs` strategies the following properties are added to the connection object:
+
  `provisioning_ticket`: TICKET
  `provisioning_ticket_url`: PROVISIONING-URL
 
@@ -124,9 +125,9 @@ The `options` object returned within the `connection` will be different for each
 
 | Parameter | Description |
 |:----------|:------------|
-| `tenant_domain` | The domain name of the company (If the user's email is _john@mycompany.com_, then _mycompany.com_ is the domain) |
-| `adfs_server` | (e.g. _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml)_ |
-| `signInEndpoint`| The URL of the ADFS server where __Auth0__ will redirect users for login. (e.g. _the-adfs-server.company.com/adfs/ls_) |
+| `tenant_domain` | The domain name of the company (If the user's email is _john@mycompany.com_, then _mycompany.com_ is the domain). |
+| `adfs_server` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
+| `signInEndpoint`| The URL of the ADFS server where __Auth0__ will redirect users for login. (for example: _the-adfs-server.company.com/adfs/ls_). |
 
 ######Google Apps Strategy
 
@@ -312,9 +313,9 @@ Most attributes in the `user` object are self-explanatory. Some comments below:
 |Parameter | Description |
 |:---------|:------------|
 |`issuer` | The name of the authentication server. In the example above it is the name of the ADFS server used by Fabrikam.|
-|`user_id` | (e.g.: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_ |
+|`user_id` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 |`picture` | The URL of the user's gravatar, if available. |
-|`user_id` | A "friendly" unique identifier composed the strategy plus a unique identifier from the `issuer` (e.g. e-mail, etc.) |
+|`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, etc.). |
 
 ####Other resources
 
