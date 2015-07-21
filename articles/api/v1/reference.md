@@ -9,7 +9,7 @@ Each API request must include an access token, either inside the query string...
 
 	https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
 
-or in an ```Authorization``` header...
+or in an ```Authorization``` header.
 
 	GET https://@@account.namespace@@/api/connections
 	Authorization: bearer {ACCESS-TOKEN}
