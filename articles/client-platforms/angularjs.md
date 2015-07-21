@@ -6,9 +6,9 @@ image: //auth0.com/lib/platforms-collection/img/angular.png
 tags:
   - quickstart
 snippets:
-  dependancies: angularjs/dependancies.html
-  setup: angularjs/app.js
-  use: angularjs/login.js
+  dependancies: client-platforms/angularjs/dependancies
+  setup: client-platforms/angularjs/setup
+  use: client-platforms/angularjs/use
 ---
 
 ## AngularJS Tutorial

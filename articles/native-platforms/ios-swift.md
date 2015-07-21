@@ -6,6 +6,10 @@ hybrid: false
 image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/ios-swift/dependancies
+  setup: native-platforms/ios-swift/setup
+  use: native-platforms/ios-swift/use
 ---
 
 ## iOS Swift Tutorial
@@ -42,19 +46,16 @@ tags:
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>a0@@account.clientId@@://*.auth0.com/authorize</pre></code>
+<pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</pre></code>
 </div>
 
 ### 1. Adding the Auth0 dependencies
 
 Add the following to the `Podfile` and run `pod install`:
 
-```ruby
-pod 'Lock', '~> 1.12'
-pod 'JWTDecode', '~> 0.2'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
@@ -102,18 +103,7 @@ Also you'll need to register a new _URL Type_ with the following scheme
 
 The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
 
-```swift
-import UIKit
-import Lock
-
-class MyApplication: NSObject {
-    static let sharedInstance = MyApplication()
-    let lock: A0Lock
-    private override init() {
-        lock = A0Lock()
-    }
-}
-```
+@@snippet(meta.snippets.setup)@@
 
 > You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
 
@@ -218,18 +208,7 @@ lock.registerAuthenticators([twitter])
 ### 5. Let's implement the login
 Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
-```swift
-let lock = MyApplication.sharedInstance.lock
-let controller = lock.newLockViewController()
-controller.closable = true
-controller.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
-  // Do something with token & profile. e.g.: save them.
-  // Lock will not save the Token and the profile for you.
-  // And dismiss the ViewController
-  self.dismissViewControllerAnimated(true, completion: nil)
-}
-self.presentViewController(controller, animated: true, completion: nil)
-```
+@@snippet(meta.snippets.use)@@
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 

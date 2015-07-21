@@ -5,6 +5,10 @@ name: Socket.io
 image: //auth0.com/lib/platforms-collection/img/socketio.svg
 tags:
   - quickstart
+snippets:
+  dependancies: client-platforms/socket-io/dependancies
+  setup: client-platforms/socket-io/setup
+  use: client-platforms/socket-io/use
 ---
 
 ## Socket.io Tutorial

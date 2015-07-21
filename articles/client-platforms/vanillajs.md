@@ -5,6 +5,10 @@ name: Vanilla JS
 image: //auth0.com/lib/platforms-collection/img/html5.png
 tags:
   - quickstart
+snippets:
+  dependancies: client-platforms/vanillajs/dependancies
+  setup: client-platforms/vanillajs/setup
+  use: client-platforms/vanillajs/use
 ---
 
 ## Generic SPA / Vanilla JS Tutorial
@@ -15,13 +19,7 @@ Please follow the steps below to configure your JS app to use Auth0.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-```html
-<!-- Auth0Lock script -->
-<script src="@@widget_url_no_scheme@@"></script>
-
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+@@snippet(meta.snippets.dependancies)@@
 
 We're including the Auth0 lock script to the `index.html`
 
@@ -29,9 +27,7 @@ We're including the Auth0 lock script to the `index.html`
 
 Configuring the Auth0Lock will let your app work with Auth0
 
-```js
-var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Let's implement the login
 
@@ -45,13 +41,7 @@ Now we're ready to implement the Login.
 
 Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
-```js
-var userProfile = null;
-
-document.getElementById('btn-login').addEventListener('click', function() {
-  lock.show({ authParams: { scope: 'openid' } });
-});
-```
+@@snippet(meta.snippets.use)@@
 
 If you want to check all the available arguments for the show method, check the [Auth0Lock](/lock) documentation.
 

@@ -5,6 +5,10 @@ name: React
 image: //auth0.com/lib/platforms-collection/img/react.png
 tags:
   - quickstart
+snippets:
+  dependancies: client-platforms/react/dependancies
+  setup: client-platforms/react/setup
+  use: client-platforms/react/use
 ---
 
 ## React Tutorial
@@ -27,13 +31,7 @@ tags:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-```html
-<!-- Auth0Lock script -->
-<script src="@@widget_url_no_scheme@@"></script>
-
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+@@snippet(meta.snippets.dependancies)@@
 
 We're including the Auth0 lock script to the `index.html`
 
@@ -41,37 +39,13 @@ We're including the Auth0 lock script to the `index.html`
 
 Configuring the Auth0Lock will let your app work with Auth0. We recommend creating it in the `componentWillMount` lifecycle event of your Component.
 
-```js
-var App = React.createClass({
-  // ...
-  componentWillMount: function() {
-      this.lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-  },
-  // ...
-});
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Let's implement the login
 
 Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
 
-```jsx
-var Home = React.createClass({
-  // ...
-  showLock: function() {
-    // We receive lock from the parent component in this case
-    // If you instantiate it in this component, just do this.lock.show()
-    this.props.lock.show();
-  },
-
-  render: function() {
-    return (
-    <div className="login-box">
-      <a onClick={this.showLock}>Sign In</a>
-    </div>);
-  }
-});
-```
+@@snippet(meta.snippets.use)@@
 
 > If you want to check all the available arguments for the show method, check the [Auth0Lock](/lock) documentation.
 

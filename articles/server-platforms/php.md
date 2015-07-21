@@ -5,6 +5,10 @@ name: PHP
 image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/php/dependancies
+  setup: server-platforms/php/setup
+  use: server-platforms/php/use
 ---
 
 ##  PHP Web App Tutorial
@@ -24,15 +28,7 @@ tags:
 
 ### 1. Add Needed dependencies dependencies
 
-Add the following dependencies to your `composer.json` and run `composer update`
-
-```json
-"require": {
-  "auth0/auth0-php": "~1.0",
-  "adoy/oauth2": "dev-master",
-  "vlucas/phpdotenv": "dev-master"
-}
-```
+@@snippet(meta.snippets.dependancies)@@
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 

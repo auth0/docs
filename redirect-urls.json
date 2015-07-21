@@ -441,7 +441,7 @@
   },
   {
     "from": "/api",
-    "to": "/api/v1"
+    "to": "/api/v2"
   },
   {
     "from": "/oauth2",

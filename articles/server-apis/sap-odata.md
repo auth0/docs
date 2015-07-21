@@ -1,5 +1,5 @@
 ---
-title: SAP OData
+title: SAP OData Tutorial
 name: SAP OData
 thirdParty: true
 image: //auth0.com/lib/saas-collection/img/sap.png

@@ -1,11 +1,13 @@
 ---
-title: Azure Mobile Services
+title: Azure Mobile Services Tutorial
 name: Azure Mobile Services
 thirdParty: true
 image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  use: server-apis/azure-mobile-services/use
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>
 @@includes.thirdpartyapi@@
@@ -25,50 +27,7 @@ A very good starting point is any of the samples you can download from the Azure
 Changing the samples to use Auth0 is very simple. As an example, if you followed the Windows 8 sample (C#), you will end up with an `AuthenticateAsync` method that adds one of the standard WAMS authentication mechanisms.
 
 
-```cs
-private async System.Threading.Tasks.Task AuthenticateAsync()
-{
-  while (user == null)
-  {
-    string message;
-
-    try
-    {
-      //Adding Auth0
-      //Login User
-      var auth0 = new Auth0Client("@@account.namespace@@", "@@account.clientId@@");
-
-      var appUser = await auth0.LoginAsync(); //This call presents user with all available options
-
-      //This obtains a token for WAMS
-      var api = await auth0.GetDelegationToken("{THE WAMS CLIENT ID IN AUTH0}");
-
-      //Tell WAMS to use this new token
-      user = new MobileServiceUser(appUser.Profile["name"].ToString());
-      user.MobileServiceAuthenticationToken = api["id_token"].ToString();
-      App.MobileService.CurrentUser = user;
-
-      //Old code
-      //user = await App.MobileService.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-
-      message =
-        string.Format("You are now logged in - {0}", user.UserId);
-    }
-
-    catch (InvalidOperationException)
-    {
-      message = "You must log in. Login Required";
-    }
-
-    var dialog = new MessageDialog(message);
-
-    dialog.Commands.Add(new UICommand("OK"));
-
-    await dialog.ShowAsync();
-  }
-}
-
-```
+@@snippet(meta.snippets.use)@@
 
 These 6 new lines of code do all the work for you. The important aspects:
 

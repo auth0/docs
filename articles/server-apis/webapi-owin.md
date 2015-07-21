@@ -6,6 +6,10 @@ image: //auth0.com/lib/platforms-collection/img/asp.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/aspnet-webapi-owin/dependancies
+  setup: server-apis/aspnet-webapi-owin/setup
+  use: server-apis/aspnet-webapi-owin/use
 ---
 
 ## ASP.NET Web API OWIN Tutorial
@@ -25,15 +29,9 @@ tags:
 
 ### 1. Setup NuGet dependencies
 
-Update this package:
-```Powershell
-Update-Package System.IdentityModel.Tokens.Jwt
-```
+Install and update the following NuGet packages:
 
-Install the following NuGet package:
-```Powershell
-Install-Package Microsoft.Owin.Security.Jwt
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure Json Web Token authentication
 
@@ -49,34 +47,15 @@ using WebConfigurationManager = System.Web.Configuration.WebConfigurationManager
 ```
 
 Update the `Configuration` method with the following code:
-```cs
-var issuer = WebConfigurationManager.AppSettings["Auth0Domain"];
-var audience = WebConfigurationManager.AppSettings["Auth0ClientID"];
-var secret = TextEncodings.Base64Url.Decode(
-    WebConfigurationManager.AppSettings["Auth0ClientSecret"]);
 
-// Api controllers with an [Authorize] attribute will be validated with JWT
-app.UseJwtBearerAuthentication(
-    new JwtBearerAuthenticationOptions
-    {
-        AuthenticationMode = AuthenticationMode.Active,
-        AllowedAudiences = new[] { audience },
-        IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
-        {
-            new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
-        },
-    });
-```
+@@snippet(meta.snippets.use)@@
 
 ### 3. Update the web.config file with your app's credentials
 Open the **web.config** file located at the solution's root.
 
 Add the following entries as children of the `<appSettings>` element.
-```xml
-<add key="Auth0Domain" value="https://<%= account.namespace %>/"/>
-<add key="Auth0ClientID" value="<%= account.clientId %>"/>
-<add key="Auth0ClientSecret" value="<%= account.clientSecret %>"/>
-```
+
+@@snippet(meta.snippets.setup)@@
 
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.

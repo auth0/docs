@@ -1,9 +1,14 @@
 ---
+title: PHP (Symfony) API Tutorial
 name: PHP (Symfony) API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/php-symfony/dependancies
+  setup: server-apis/php-symfony/setup
+  use: server-apis/php-symfony/use
 ---
 
 # Symfony Auth0 JWT Bundle
@@ -17,15 +22,7 @@ We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to i
 
 Modify your `composer.json` to add the following dependencies and run `composer update`.
 
-```json
-{
-    "require": {
-        "firebase/php-jwt": "~2.2",
-        "adoy/oauth2": "dev-master",
-        "auth0/jwt-auth-bundle": "~1.2"
-    }
-}
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ###2. Add the bundle to your AppKernell.php file
 
@@ -56,12 +53,7 @@ class AppKernel extends Kernel
 
 Modify the file /app/config/config.yml
 
-```yml
-jwt_auth:
-    client_id:     YOURCLIENTID
-    client_secret: YOURCLIENTSECRET
-    secret_base64_encoded: true
-```
+@@snippet(meta.snippets.setup)@@
 
 ###4. Setup your User and UserProvider
 
@@ -91,25 +83,7 @@ Modify the file /app/config/security.yml:
 - define your secured area that want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-```yml
-security:
-    providers:
-        a0:
-            id:
-                a0_user_provider
-
-    firewalls:
-        secured_area:
-            pattern: ^/api
-            stateless: true
-            simple_preauth:
-                authenticator: jwt_auth.jwt_authenticator
-
-    access_control:
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: ROLE_OAUTH_USER }
-```
-
+@@snippet(meta.snippets.dependancies)@@
 
 ## Issue Reporting
 

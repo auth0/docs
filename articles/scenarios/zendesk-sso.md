@@ -29,24 +29,12 @@ function (user, context, callback) {
 
   // Generate a random UUID: http://en.wikipedia.org/wiki/Universally_unique_identifier
   // Used in the token's jti claim to avoid replay attacks
-  function uuid() {
-    var s = [];
-    var hexDigits = "0123456789abcdef";
-    for (var i = 0; i < 36; i++) {
-        s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
-    }
-    s[14] = "4";
-    s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
-    s[8] = s[13] = s[18] = s[23] = "-";
-
-    var id = s.join("");
-    return id;
-  }
+  var uuid = require('uuid');
 
   // Create the JWT as required by Zendesk
   var payload = {
     iat: new Date().getTime() / 1000,
-    jti: uuid(),
+    jti: uuid.v4(),
     email: user.email,
     name: user.name,
     external_id: user.user_id

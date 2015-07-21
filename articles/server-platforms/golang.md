@@ -5,6 +5,10 @@ name: Go
 image: //auth0.com/lib/platforms-collection/img/golang.png
 tags:
   - quickstart
+snippets:
+  dependancies: server-platforms/golang/dependancies
+  setup: server-platforms/golang/setup
+  use: server-platforms/golang/use
 ---
 
 ## Go Web App Tutorial
@@ -26,11 +30,7 @@ tags:
 
 Install the following dependencies using `go get`
 
-```bash
-go get github.com/gorilla/mux
-go get golang.org/x/oauth2
-go get github.com/astaxie/beego/session
-```
+@@snippet(meta.snippets.dependancies)@@
 
 > This example uses `mux` for routing but you can use whichever router you want
 
@@ -119,10 +119,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
 
 Remember to set this handler to the `/callback` path:
 
-```go
-r := mux.NewRouter()
-r.HandleFunc("/callback", callback.CallbackHandler)
-```
+@@snippet(meta.snippets.setup)@@
 
 ### 3. Specify the callback on Auth0 Dashboard
 

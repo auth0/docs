@@ -6,6 +6,10 @@ hybrid: false
 image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/ios-objc/dependancies
+  setup: native-platforms/ios-objc/setup
+  use: native-platforms/ios-objc/use
 ---
 
 ## iOS Objective-C Tutorial
@@ -43,19 +47,16 @@ tags:
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>a0@@account.clientId@@://*.auth0.com/authorize</pre></code>
+<pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</pre></code>
 </div>
 
 ### 1. Adding the Auth0 dependencies
 
 Add the following to the `Podfile` and run `pod install`:
 
-```ruby
-pod 'Lock', '~> 1.12'
-pod 'JWTDecode', '~> 0.2'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
@@ -87,37 +88,7 @@ Also you'll need to register a new _URL Type_ with the following scheme
 
 The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
 
-```objc
-@class A0Lock;
-@interface MyApplication : NSObject
-@property (readonly, nonatomic) A0Lock *lock;
-+ (MyApplication *)sharedInstance;
-@end
-```
-
-```objc
-#import "MyApplication.h"
-#import <Lock/Lock.h>
-
-@implementation MyApplication
-+ (MyApplication*)sharedInstance {
-    static Application *sharedApplication = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedApplication = [[self alloc] init];
-    });
-    return sharedApplication;
-}
-
-- (id)init {
-    self = [super init];
-    if (self) {
-        _lock = [A0Lock newLock];
-    }
-    return self;
-}
-@end
-```
+@@snippet(meta.snippets.setup)@@
 
 > You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
 
@@ -211,16 +182,7 @@ A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithK
 
 Now we're ready to implement the Login using Lock, you only need to instantiate and present it from any of your UIViewControllers like this:
 
-```objc
-A0Lock *lock = [[MyApplication sharedInstance] lock];
-A0LockViewController *controller = [lock newLockViewController];
-controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    // Do something with token & profile. e.g.: save them.
-    // And dismiss the ViewController
-    [self dismissViewControllerAnimated:YES completion:nil];
-};
-[self presentViewController:controller animated:YES completion:nil];
-```
+@@snippet(meta.snippets.setup)@@
 
 [![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)](https://auth0.com)
 

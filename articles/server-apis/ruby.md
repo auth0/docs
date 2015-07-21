@@ -1,10 +1,15 @@
 ---
+title: Ruby API Tutorial
 name: Ruby API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
 lodash: true
 tags:
   - quickstart
+snippets:
+  dependancies: server-apis/ruby/dependancies
+  setup: server-apis/ruby/setup
+  use: server-apis/ruby/use
 ---
 
 ## Ruby API Tutorial
@@ -19,34 +24,13 @@ You need to add the jwt dependency.
 
 Open your Gemfile and add the following:
 
-```bash
-gem 'jwt'
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Validate JWT token
 
 You need to validate the [JWT](/jwt)s to make sure the user is authenticated. For that, in a filter or in a middleware processor that runs before your actions, you should write the following code:
 
-```ruby
-class InvalidTokenError < StandardError; end
-
-def validate_token
-  begin
-    auth0_client_id = '<%= account.clientId %>'
-    auth0_client_secret = '<%= account.clientSecret %>'
-    authorization = request.headers['Authorization']
-    raise InvalidTokenError if authorization.nil?
-
-    token = request.headers['Authorization'].split(' ').last
-    decoded_token = JWT.decode(token,
-      JWT.base64url_decode(auth0_client_secret))
-
-    raise InvalidTokenError if auth0_client_id != decoded_token[0]["aud"]
-  rescue JWT::DecodeError
-    raise InvalidTokenError
-  end
-end
-```
+@@snippet(meta.snippets.use)@@
 
 ### 3. You're done!
 

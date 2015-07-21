@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage Addon
+title: Azure Blob Storage Addon Tutorial
 name: Azure Blob Storage
 thirdParty: true
 image: //auth0.com/lib/platforms-collection/img/azure.png

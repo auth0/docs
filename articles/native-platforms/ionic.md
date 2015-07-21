@@ -6,6 +6,10 @@ hybrid: true
 image: //auth0.com/lib/platforms-collection/img/phonegap.png
 tags:
   - quickstart
+snippets:
+  dependancies: native-platforms/ionic/dependancies
+  setup: native-platforms/ionic/setup
+  use: native-platforms/ionic/use
 ---
 
 ## Ionic Framework Tutorial
@@ -26,13 +30,13 @@ tags:
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://@@account.namespace@@/mobile</pre></code>
 
 <p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
 
-<pre><code>file://*</code></pre>
+<pre><code>file://\*</code></pre>
 
 </div>
 
@@ -40,13 +44,7 @@ tags:
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
-```json
-"dependencies" : {
-  "auth0-angular": "4.*",
-  "a0-angular-storage": ">= 0.0.6",
-  "angular-jwt": ">= 0.0.4"
-},
-```
+@@snippet(meta.snippets.dependancies)@@
 
 ### 3. Add the references to the scripts in the `index.html`
 
@@ -82,88 +80,14 @@ and then add the following configuration to the `config.xml` file:
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
-```js
-// app.js
-angular.module('starter', ['ionic',
-  'starter.controllers',
-  'starter.services',
-  'auth0',
-  'angular-storage',
-  'angular-jwt'])
-.config(function($stateProvider, $urlRouterProvider, authProvider, $httpProvider,
-  jwtInterceptorProvider) {
-
-
-  $stateProvider
-  // This is the state where you'll show the login
-  .state('login', {
-    url: '/login',
-    templateUrl: 'templates/login.html',
-    controller: 'LoginCtrl',
-  })
-  // Your app states
-  .state('dashboard', {
-    url: '/dashboard',
-    templateUrl: 'templates/dashboard.html',
-    data: {
-      // This tells Auth0 that this state requires the user to be logged in.
-      // If the user isn't logged in and he tries to access this state
-      // he'll be redirected to the login page
-      requiresLogin: true
-    }
-  })
-
-  ...
-
-  authProvider.init({
-    domain: '<%= account.namespace %>',
-    clientID: '<%= account.clientId %>',
-    loginState: 'login'
-  });
-
-  ...
-
-})
-.run(function(auth) {
-  // This hooks all auth events to check everything as soon as the app starts
-  auth.hookEvents();
-});
-```
-
+@@snippet(meta.snippets.setup)@@
 
 ### 6. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
 In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile, token and [refresh token](/refresh-token) into `localStorage`
 
-```js
-// LoginCtrl.js
-function LoginCtrl(store, $scope, $location, auth) {
-  $scope.login = function() {
-    auth.signin({
-      authParams: {
-        scope: 'openid offline_access',
-        device: 'Mobile device'
-      }
-    }, function(profile, token, accessToken, state, refreshToken) {
-      // Success callback
-      store.set('profile', profile);
-      store.set('token', token);
-      store.set('refreshToken', refreshToken);
-      $location.path('/');
-    }, function() {
-      // Error callback
-    });
-  }
-}
-```
-
-```html
-<!-- login.tpl.html -->
-<!-- ... -->
-<input type="submit" ng-click="login()" />
-<!-- ... -->
-```
+@@snippet(meta.snippets.use)@@
 
 > Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 

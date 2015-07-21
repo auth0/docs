@@ -21,8 +21,12 @@ lodash: true
 <ul>
 <% _.forEach(_.sortBy(tags.quickstart, 'title'), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.title %></a>
-    <p><%- article.description %></p>
+    <% if (article.title) { %>
+      <a href="<%- article.url %>"><%- article.title %></a>
+      <p><%- article.description %></p>
+    <% } else { %>
+      <span style="color: red;">ERROR: No title for <%- article.url %></span>
+    <% } %>
   </li>
 <% }); %>
 </ul>
