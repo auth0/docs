@@ -2,6 +2,6 @@
 title: Concur
 lodash: true
 ---
-<% integration = {};
+<% var integration = {};
 integration.name = "Concur"; %>
 @@include('integrations/_template')@@

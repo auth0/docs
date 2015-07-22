@@ -2,6 +2,6 @@
 title: Salesforce
 lodash: true
 ---
-<% integration = {};
+<% var integration = {};
 integration.name = "Salesforce"; %>
 @@include('integrations/_template')@@

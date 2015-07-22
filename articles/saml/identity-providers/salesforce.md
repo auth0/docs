@@ -28,10 +28,10 @@ There are **5 steps** to this sample
  ![](https://cdn.auth0.com/docs/img/salesforceidp-1.png)
 
 
-5. Create an Identity Provider, by clicking to enable SalesForce as an Identity Provider. 
+5. Create an Identity Provider, by clicking to enable SalesForce as an Identity Provider.
 
  ![](https://cdn.auth0.com/docs/img/salesforceidp-2.png)
- 
+
 6. Choose the default certificate and Save.
 
  ![](https://cdn.auth0.com/docs/img/salesforceidp-3.png)
@@ -39,7 +39,7 @@ There are **5 steps** to this sample
 7. Click on **"Download Certificate"** to download the Identity Provider certificate.  Save the file downloaded for use in step 2 below.
 
  ![](https://cdn.auth0.com/docs/img/salesforceidp-4.png)
- 
+
 7. Click on **"Download Metadata"** to download the Identity Provider metadata.  Save the file downloaded for use in step 2 below.
 
  ![](https://cdn.auth0.com/docs/img/salesforceidp-5.png)
@@ -54,7 +54,7 @@ In this step you will configure Auth0 as a Service Provider so it knows how to c
 1. Click on **"Connections"** at left.
 2. In the list of options below "Connections", click on **"Enterprise"**
 3. In the middle of the screen, click on **"SAMLP Identity Provider"**
-4. Click on **"Create New Connection"** 
+4. Click on **"Create New Connection"**
 
 
 5. In the "Create SAMLP Identity Provider" connection window, enter the following information into the "Configuration" tab.
@@ -67,7 +67,7 @@ For example, if your users have an email domain of 'abc-example.com', you would 
 **Sign In URL:** Open the MetaData file downloaded from SalesForce and locate the line that contains the SingleSignOnService Binding. The value of the "Location" attribute on this line is the Sign In URL.  It will be something like:
 
  https://{sf-account-name}.my.salesforce.com/idp/endpoint/HttpRedirect
- 
+
  where "{sf-account-name}" would be replaced by your SalesForce account domain name.
 
 
@@ -87,7 +87,7 @@ where "original.crt" is the downloaded .crt file from SalesForce.
 You can ignore the rest of the fields for now.
 
 7. **Save:** Click on  **"SAVE"**.
-  
+
 
 8. Click on  **"CONTINUE"**. In the window that appears, SAML metadata for the Auth0 Service Provider will be displayed.  Keep this window as you will need to enter some of this information into SalesForce to finish the federation Configuration.
 
@@ -101,17 +101,17 @@ In general, you can access the metadata for a SAML connection in Auth0 here: `ht
 
 In this step you will configure SalesForce with the metadata from Auth0 so it knows how to receive and respond to SAML-based authentication requests from Auth0.
 
-1. Go back to **[SalesForce.com](http://salesforce.com)** 
+1. Go back to **[SalesForce.com](http://salesforce.com)**
 
 2. Click on **"Setup"** in upper right
 
-3. Click on  **“Manage Apps”**  on the left 
+3. Click on  **“Manage Apps”**  on the left
 
 3. Click on  **“Connected Apps”**
 
 4. Create a new Connected App and fill out the following fields:
 
-**Entity ID:** urn:auth0:@@accountName@@:@@connectionName@@
+**Entity ID:** urn:auth0:@@account.namespace@@:@@connectionName@@
 
 **ACS URL:** https://@@account.namespace@@/login/callback
 
@@ -141,7 +141,7 @@ In this step you will configure SalesForce with the metadata from Auth0 so it kn
 7
 . Click on **"Save"**
 8. Under **"Manage Users"** Click on **"Users"**
-9. Click on **"Edit"** to edit your test user and set the profile to **"Standard User"** 
+9. Click on **"Edit"** to edit your test user and set the profile to **"Standard User"**
 
 
  ![](https://cdn.auth0.com/docs/img/salesforceidp-10.png)
@@ -173,14 +173,11 @@ This section has a few ideas for things to check if your sample doesn't work.
 
 
 When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction and save it in a .har file.
- 
- **[har file instructions](https://auth0.com/docs/har)** 
+
+ **[har file instructions](https://auth0.com/docs/har)**
 
 Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the callback URL.  The .har file will also contain the SAML response.
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
 Make sure that the user's profile in SalesForce has permission to login via the SalesForce IDP.  (See section 4 above)
-
-
-

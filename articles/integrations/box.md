@@ -2,6 +2,6 @@
 title: Box
 lodash: true
 ---
-<% integration = {};
+<% var integration = {};
 integration.name = "Box"; %>
 @@include('integrations/_template')@@

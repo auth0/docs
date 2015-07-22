@@ -2,6 +2,6 @@
 title: CloudBees
 lodash: true
 ---
-<% integration = {};
+<% var integration = {};
 integration.name = "CloudBees"; %>
 @@include('integrations/_template')@@

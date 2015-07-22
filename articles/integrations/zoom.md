@@ -2,6 +2,6 @@
 title: Zoom
 lodash: true
 ---
-<% integration = {};
+<% var integration = {};
 integration.name = "Zoom"; %>
 @@include('integrations/_template')@@

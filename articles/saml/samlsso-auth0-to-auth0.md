@@ -258,30 +258,29 @@ In this section you will create a very simple HTML page that invokes the **Auth0
 Create an HTML page and insert the following HTML and javascript code:
 
 
-```
-    <!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
-    <HTML>
-    <BODY>
-    <p> Click on the button to log in </p>
+```html
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<BODY>
+<p> Click on the button to log in </p>
 
-    <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
-    <script type="text/javascript">
-      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@acount.namespace@@');
+<script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
+<script type="text/javascript">
+  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@account.namespace@@');
 
-      function signin() {
-        lock.show({
-            callbackURL: 'http://jwt.io'
-          , responseType: 'token'
-          , authParams: {
-            scope: 'openid profile'
-          }
-        });
+  function signin() {
+    lock.show({
+        callbackURL: 'http://jwt.io'
+      , responseType: 'token'
+      , authParams: {
+        scope: 'openid profile'
       }
-    </script>
-    <button onclick="signin()">Login</button>
-    </HTML>
-    </BODY>
-
+    });
+  }
+</script>
+<button onclick="signin()">Login</button>
+</HTML>
+</BODY>
 ```
 
 Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 7 above.  
@@ -311,7 +310,7 @@ After entering your email address, the blue button on the Lock widget may have a
 
 Note that whether you are prompted for credentials at this point depends on whether you still have an active session at the Identity Provider.
 
-From the "try me" test you did earlier, you may still have an active session at the Identity Provider.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specifed in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the application's Setting tab in the Auth0 dashboard.)
+From the "try me" test you did earlier, you may still have an active session at the Identity Provider.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specified in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the application's Setting tab in the Auth0 dashboard.)
 
 If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to the Identity Provider.  Log in to the Identity Provider using the credentials for the test user you created in Auth0 Account 2.
 

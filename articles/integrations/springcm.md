@@ -2,6 +2,6 @@
 title: Spring CM
 lodash: true
 ---
-<% integration = {};
+<% var integration = {};
 integration.name = "SpringCM"; %>
 @@include('integrations/_template')@@

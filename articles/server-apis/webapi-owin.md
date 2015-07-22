@@ -7,9 +7,9 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/aspnet-webapi-owin/dependancies
-  setup: server-apis/aspnet-webapi-owin/setup
-  use: server-apis/aspnet-webapi-owin/use
+  dependancies: server-apis/webapi-owin/dependancies
+  setup: server-apis/webapi-owin/setup
+  use: server-apis/webapi-owin/use
 ---
 
 ## ASP.NET Web API OWIN Tutorial
