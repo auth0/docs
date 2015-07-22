@@ -86,9 +86,9 @@ pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
     println("Oops something went wrong: \(error)" 
   })
   ```
-> More details about the parameters you can use check [this wiki page](/docs/libraries/lock-ios/sending-authentication-parameters).
+> More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
 
-After that, you may want to save the user's token to be able to use them later, you can find how to do it [here](/docs/libraries/lock-ios/save-and-refresh-jwt-tokens).
+After that, you may want to save the user's token to be able to use them later, you can find how to do it [here](/libraries/lock-ios/save-and-refresh-jwt-tokens).
 
 ## Social Authentication
 
@@ -127,7 +127,7 @@ After that, you may want to save the user's token to be able to use them later, 
   let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
   lock.registerAuthenticators([facebook])
   ```
-  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](/docs/libraries/lock-ios/native-social-authentication#2) for more information.
+  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](/libraries/lock-ios/native-social-authentication#2) for more information.
 
 4. Configure Twitter Native Integration
   ```objc
