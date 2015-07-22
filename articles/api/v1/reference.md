@@ -20,7 +20,7 @@ A token is obtained using the POST method:
 	Content-type: application/x-www-form-urlencoded
 	client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials
 
-The response body of this POST will be a JSON object:
+The response body of this POST is a JSON object:
 
 	{
 		'access_token': TOKEN
