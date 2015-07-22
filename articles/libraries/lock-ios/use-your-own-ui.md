@@ -10,7 +10,7 @@ description: How to build your own UI and authenticate with Auth0 iOS SDK
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download iOS Custom UI Sample</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -22,7 +22,7 @@ description: How to build your own UI and authenticate with Auth0 iOS SDK
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download iOS Custom UI Sample</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
