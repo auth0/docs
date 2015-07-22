@@ -19,7 +19,7 @@ lodash: true
 # Quickstarts
 
 <ul>
-<% _.forEach(_.sortBy(tags.quickstart, 'title'), function(article) { %>
+<% _.forEach(_.sortBy(tags.quickstart, function(a) { return a.title.toUpperCase(); }), function(article) { %>
   <li>
     <% if (article.title) { %>
       <a href="<%- article.url %>"><%- article.title %></a>

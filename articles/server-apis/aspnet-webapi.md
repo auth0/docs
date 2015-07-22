@@ -4,6 +4,8 @@ name: ASP.NET Web API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/asp.png
 lodash: true
+tags:
+  - quickstart
 snippets:
   dependancies: server-apis/aspnet-webapi/dependancies
   setup: server-apis/aspnet-webapi/setup
