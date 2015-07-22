@@ -24,15 +24,15 @@ snippets:
   </blockquote>
 </div>
 
-**Otherwise, if you already have an existing application, please follow the steps below.**
+**If you already have an existing application, follow the steps below.**
 
 @@includes.callback@@
 
-### 1. Adding the Auth0 scripts and setting the right viewport
+### 1. Add the Auth0 scripts and set the viewport
 
 @@snippet(meta.snippets.dependancies)@@
 
-We're including Auth0's angular module and its dependencies to the `index.html`.
+This will include Auth0's angular module and its dependencies to the `index.html`file.
 
 ### 2. Add the module dependency and configure the service
 
@@ -40,20 +40,21 @@ Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your
 
 @@snippet(meta.snippets.setup)@@
 
-### 3. Let's implement the login
+### 3. Implement the login
 
-Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
-In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile and token into `localStorage`.
+To implement the login, inject the `auth` service into any controller and call the `signin` method to show the Login / SignUp popup.
+
+In the following example, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`.
 
 @@snippet(meta.snippets.use)@@
 
 @@browser@@
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
-### 4. Adding a logout button
+### 4. Add a logout button
 
-You can just call the `signout` method of Auth0 to log the user out. You should also remove the information saved into `localStorage`:
+To add a logout button, call the `auth.signout` method to logout the user. Also remove the profile and token information saved in `localStorage`:
 
 ```js
 $scope.logout = function() {
@@ -68,9 +69,9 @@ $scope.logout = function() {
 ```
 
 
-### 5. Configuring secure calls to our API
+### 5. Configure secure calls to our API
 
-As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors:
+To call an API you have implemented <%= configuration.api ? ' on ' + configuration.api : '' %>, be sure to send the [JWT token](/jwt) received on the login of each request by adding the `jwtInterceptor` to the list of `$http` interceptors:
 
 ```js
 // app.js
@@ -88,11 +89,11 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtIntercept
 });
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
+Now you can regularly call this API with `$http`, `$resource` or any rest client as you would do normally and the [JWT token](/jwt) will be sent on each request.
 
-### 6. Showing user information
+### 6. Show the user's information
 
-After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
+After a user has logged in, retrieve from the `auth` service the `profile` property, which has all of the user's information:
 
 ```html
 <span>His name is {{auth.profile.nickname}}</span>
@@ -105,11 +106,12 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+To discover all the available properties of the user's profile, see [user-profile](/user-profile).
+__Note:__ The properties available depend on which social provider is used.
 
-### 7. Keeping the user logged in after page refreshes
+### 7. Keep the user logged in after the page refreshes
 
-We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
+The user's profile and tokens are already saved to `localStorage`. To keep the user logged in, get the profile and tokens on each page refresh and let `auth0-angular` know the user is already authenticated.
 
 ```js
 angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
@@ -123,7 +125,7 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
           auth.authenticate(store.get('profile'), token);
         }
       } else {
-        // Either show Login page or use the refresh token to get a new idToken
+        // Either show the login page or use the refresh token to get a new idToken
         $location.path('/');
       }
     }
@@ -131,16 +133,22 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 });
 ```
 
-### 8. You're done!
+### 8. All done!
 
-You've implemented Login and Signup with Auth0 and AngularJS.
+You have completed the implementation of Login and Signup with Auth0 and AngularJS.
 
 ### Optional Steps
-#### Let's add routing
+####Add routing
 
-In most cases, we'll have routing in our app.
-We usually want users to be authenticated to access some of the routes. For those routes, we must set the `requiresLogin` property to `true`.
-So let's add the `$routeProvider` configuration in the `config` method of our app and let's specify the login to route to which the users will be redirected if trying to access a route to which they don't have access to:
+Most apps will need to authenticate users so that they may access certain routes. 
+
+To enable access to a route:
+
+1. set the `requiresLogin` property to `true`.
+
+2. Add the `$routeProvider` configuration in the `config` method of our app.
+
+3. Specify a login page to which users will be redirected if trying to access a route when not authenticated.
 
 ```js
 // app.js
@@ -160,14 +168,14 @@ So let's add the `$routeProvider` configuration in the `config` method of our ap
     domain: '<%= account.namespace %>',
     clientID: '<%= account.clientId %>',
     callbackURL: location.href,
-    // Here we add the URL to go if the user tries to access a resource he can't because he's not authenticated
+    // Here include the URL to redirect to if the user tries to access a resource when not authenticated.
     loginUrl: '/login'
   });
 });
 ```
 
-__Note__: If you are using ui-router, you can follow [this guide](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router)
+__Note__: If you are using ui-router, see this guide: [UI Router](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router).
 
 #### Additional info
 
-To get Additional info on how to use this SDK, you [should check this out](https://github.com/auth0/auth0-angular/blob/master/README.md)
+For additional info on how to use this SDK, see [Auth0 and AngularJS](https://github.com/auth0/auth0-angular/blob/master/README.md).
