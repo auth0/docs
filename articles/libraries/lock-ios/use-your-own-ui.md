@@ -1,154 +1,168 @@
 ---
-toc_title: Using Your Own UI
-description:
+lodash: true
+toc_title: Lock iOS: Build your own UI
+description: How to build your own UI and authenticate with Auth0 iOS SDK
 ---
 
+# Build your own UI
 
-# Lock iOS: Using Your Own UI
+<% if (configuration.api && configuration.thirdParty) { %>
 
-For this tutorial, you need to create a new account in [Auth0](https://www.auth0.com) and setup a new application. We will then implement mobile auth.
+<div class="package" style="text-align: center;">
+  <blockquote>
+    <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+      <span style="display: block">Download iOS Custom UI Sample</span>
+      <% if (account.userName) { %>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a>
+  </blockquote>
+</div>
+<% } else  { %>
+
+<div class="package" style="text-align: center;">
+  <blockquote>
+    <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+      <span style="display: block">Download iOS Custom UI Sample</span>
+      <% if (account.userName) { %>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a>
+  </blockquote>
+</div>
+
+<% } %>
+
+
+**Otherwise, if you already have an existing application, please follow the steps below.**
 
 1.  Add the following dependencies to your project using Cocoapods:
     ```ruby
-pod "Lock/Core", "~> 1.10"
-pod "Lock-Facebook", "~> 2.0" #If you need FB integration
-pod "Lock-Twitter", "~> 1.0" #If you need Twitter integration
+pod "Lock/Core", "~> 1.16"
+pod "Lock-Facebook", "~> 2.0" #If you need FB native integration
+pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
     ```
 
-2. Add in your app's Info plist your ClientId and Domain with the keys `Auth0ClientId` and `Auth0Domain`
+2. Open your app's `Info.plist` file and add two new entries `Auth0ClientId` and `Auth0Domain` with the following values `@@account.clientId@@` and `@@account.namespace@@`
 
-3. Instantiate `A0Lock` and keep a reference to it either in your AppDelegate or other object
-    ```objc
-self.lock = [A0Lock newLock];
-    ```
-
-3. In your `AppDelegate.m` inside the method `-application:didFinishLaunchingWithOptions` load your **Auth0** app information from the server
-    ```objc
-A0Lock *lock = ... //Get your Lock instance
-[[lock apiClient] fetchAppInfoWithSuccess:^(A0Application *application) {
-  //You don't need to store this object. It's stored for you inside A0APIClient
-  NSLog(@"Your Auth0 app information: %@.", application);
-} failure:^(NSError *error) {
-  NSLog(@"Oops something went wrong: %@", error);
-}];
-    ```
-
-3. Create a `UIViewController` for the Login Screen and declare `IBOutlet` for *username* and *password*.
+3. Create a new instantiate of `A0Lock` and store it where is easily accessible:
   ```objc
-  @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-  @property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
+  self.lock = [A0Lock newLock];
   ```
-  > **Note**: The Layout of the ViewController's view is up to you!. We only need these two outlets to fetch username and password.
-
-4. Declare an `IBAction` method to perform the login and implement it calling Auth0 Database Login
-  ```objc
-  - (IBAction)loginUser:(id)sender;
+  ```swift
+  self.lock = A0Lock()
   ```
 
+4. When you need to login your user with email/password credentials, just paste the following code 
   ```objc
-  - (void)loginUser:(id)sender {
-    //Validate User and Password
-    //Show some feedback to the user. e.g: a spinner.
-    A0Lock *lock = ... //Get your Lock instance
-    A0APIClient *client = [lock apiClient];
-    A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
-      NSLog(@"We did it!. Logged in with Auth0!.");
-    };
-    A0APIClientError *error = ^(NSError *error){
-      NSLog(@"Oops something went wrong: %@", error);
-    };
-    [client loginWithUsername:self.username.text
-                     password:self.password.text
-                   parameters:nil
-                      success:success
-                      failure:failure];
-  }
+  NSString *email = ... // User's email
+  NSString *password = ... // User's password
+  A0Lock *lock = ... // Get your Lock instance
+  A0APIClient *client = [lock apiClient];
+  A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
+    NSLog(@"We did it!. Logged in with Auth0.");
+  };
+  A0APIClientError *error = ^(NSError *error){
+    NSLog(@"Oops something went wrong: %@", error);
+  };
+  A0AuthParameters *params = [A0AuthParameters newDefaultParams];
+  params[A0ParameterConnection] = @"Username-Password-Authentication"; // Or your configured DB connection
+  [client loginWithUsername:email
+                   password:password
+                 parameters:params
+                    success:success
+                    failure:failure];
   ```
 
-6. In your Sign up `UIViewController` add the following to sign up users with Auth0 Database connection:
-  ```objc
-  @property (weak, nonatomic) IBOutlet UILabel *usermname;
-  @property (weak, nonatomic) IBOutlet UILabel *password;
-  @property (weak, nonatomic) IBOutlet UILabel *repeatPassword;
-
-  - (IBAction)signUpUser:(id)sender;
+  ```swift
+  let email = ... // User's email
+  let password = ... // User's password
+  let lock = ... // Get your Lock instance
+  let client = lock.apiClient()
+  let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
+  client.loginWithUsername(email, password: password, parameters: parameters, success: { profile, token in
+    println("We did it!. Logged in with Auth0.")
+  }, failure: { error in 
+    println("Oops something went wrong: \(error)" 
+  })
   ```
-  ```objc
-  - (void)signUpUser:(id)sender {
-    //Validate User, password and repeat password.
-    //Show some feedback to the user. e.g: a spinner.
-    A0Lock *lock = ... //Get your Lock instance
-    A0APIClient *client = [lock apiClient];
-    A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
-      NSLog(@"We did it!. Signed up and logged in with Auth0!.");
-    };
-    A0APIClientError *error = ^(NSError *error){
-      NSLog(@"Oops something went wrong: %@", error);
-    };
-    [client signUpWithUsername:self.username.text
-                      password:self.password.text
-                loginOnSuccess:YES
-                    parameters:nil
-                       success:success
-                       failure:failure];
-  }
-  ```
-> More details about the parameters you can use check [this wiki page](https://github.com/auth0/Auth0.iOS/wiki/Sending-authentication-parameters).
+> More details about the parameters you can use check [this wiki page](/docs/libraries/lock-ios/sending-authentication-parameters).
 
-After that, you may want to save the user's token to be able to use them later, you can find how to do it [here](https://github.com/auth0/Auth0.iOS/wiki/How-to-save-and-refresh-JWT-token).
+After that, you may want to save the user's token to be able to use them later, you can find how to do it [here](/docs/libraries/lock-ios/save-and-refresh-jwt-tokens).
 
 ## Social Authentication
-1. Register a new _URL Type_ with the following scheme
-`a0$<clientId>`.
 
-2. Add the following lines to your `AppDelegate.m`
+1. In your `AppDelegate` method named `application:didFinishLaunchingWithOptions` add the following line:
   ```objc
-  #import <Lock/Lock.h>
+  A0Lock *lock = ... //Get your Lock instance
+  [lock applicationLaunchedWithOptions:launchOptions];
+  ```
+  ```swift
+  let lock = ... // Get your Lock instance
+  lock.applicationLaunchedWithOptions(launchOptions)
+  ```
 
+2. Also add the following lines to your `AppDelegate` too
+  ```objc
   - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     A0Lock *lock = ... //Get your Lock instance
     return [lock handleURL:url sourceApplication:sourceApplication];
   }
   ```
+  ```swift
+  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    let lock = ... // Get your Lock instance
+    return lock.handleURL(url, sourceApplication: sourceApplication)
+  }
+  ```
 
-3. Configure Facebook Native Login (Only once in your `AppDelegate.m` `-application:didFinishLaunchingWithOptions`)
+3. Configure Facebook Native Integration
   ```objc
   A0Lock *lock = ... //Get your Lock instance
   A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
   [lock registerAuthenticators:@[facebook]];
   ```
-  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](https://github.com/auth0/Auth0.iOS#facebook) for more information.
+  ```swift
+  let lock = ... //Get your Lock instance
+  let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
+  lock.registerAuthenticators([facebook])
+  ```
+  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](/docs/libraries/lock-ios/native-social-authentication#2) for more information.
 
-4. Configure Twitter Native Login (Only once in your `AppDelegate.m` `-application:didFinishLaunchingWithOptions`)
+4. Configure Twitter Native Integration
   ```objc
   NSString *twitterApiKey = ... //Remember to obfuscate your api key
-NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
+  NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
   A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey andSecret:twitterApiSecret];
   A0Lock *lock = ... //Get your Lock instance
   [lock registerAuthenticators:@[twitter]];
   ```
-4. Configure A0IdentityProviderAuthenticator with your App's social connections (Only once in your `AppDelegate.m` `-application:didFinishLaunchingWithOptions`)
-  ```objc
-    A0Lock *lock = ... //Get your Lock instance
-    [[lock apiClient] fetchAppInfoWithSuccess:^(A0Application *application) {
-      NSLog(@"Your Auth0 app information: %@.", application);
-      [[lock identityProviderAuthenticator] configureForApplication:application];
-    } failure:^(NSError *error) {
-      NSLog(@"Oops something went wrong: %@", error);
-    }];
+  ```swift
+  let twitterApiKey = ... //Remember to obfuscate your api key
+  let twitterApiSecret = ... //Remember to obfuscate your api key
+  let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(twitterApiKey, andSecret:twitterApiSecret)
+  let lock = ... //Get your Lock instance
+  lock.registerAuthenticators([twitter])
   ```
 
 5. Authenticate with a social connection
   ```objc
-  A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
-    NSLog(@"We did it!. Signed up and logged in with Auth0!.");
+  void(^success)(A0UserProfile *, A0Token *) = ^(A0UserProfile *profile, A0Token *token) {
+    NSLog(@"We did it!. Logged in with Auth0.");
   };
-  A0APIClientError *error = ^(NSError *error){
+  void(^error)(NSError *) = ^(NSError *error) {
     NSLog(@"Oops something went wrong: %@", error);
   };
   A0Lock *lock = ... //Get your Lock instance
-  [[lock identityProviderAuthenticator] authenticateForStrategyName:A0StrategyNameFacebook
-                                                                     parameters:nil
-                                                                        success:success
-                                                                        failure:failure];
+  [[lock identityProviderAuthenticator] authenticateWithConnectionName:@"facebook" parameters:nil success:success failure:failure];
+  ```
+  ```swift
+  let success = { (profile: A0UserProfile, token: A0Token) in
+    println("We did it!. Logged in with Auth0.")
+  }
+  let failure = { (error: NSError) in
+    println("Oops something went wrong: \(error)")
+  }
+  let lock = ... //Get your Lock instance
+  lock.identityProviderAuthenticator().authenticateWithConnectionName("facebook", parameters: nil, success: success, failure: failure)
   ```
