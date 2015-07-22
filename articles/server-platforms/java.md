@@ -57,7 +57,7 @@ We need to configure `auth0-servlet` to use our Auth0 credentials. For that, jus
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Servlet` provided by the SDK. We have to configure it on the `web.xml`
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.setup)@@
 
 @@includes.callbackRegularWebapp@@
 
