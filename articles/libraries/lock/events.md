@@ -33,7 +33,7 @@ lock.removeListener('signin ready', signinHandlerFn);
 - `signup ready`: Triggers when signup mode is displayed.
 - `signup submit`: Triggers when singup mode is submitted.
 - `signup success`: Triggers when signup was succeeded with no error.
-- `signup error`: Triggers when there's an error on the signup workflow..
+- `signup error`: Triggers when there's an error on the signup workflow.
 - `reset ready`: Triggers when reset mode is displayed.
 - `reset submit`: Triggers when reset mode is submitted (for database and enterprise connections).
 - `reset success`: Triggers when reset has succeeded with no error.
@@ -43,7 +43,7 @@ lock.removeListener('signin ready', signinHandlerFn);
 - `kerberos ready`: Triggers when integrated windows authentication mode is displayed.
 - `kerberos submit`: Triggers when integrated windows authentication mode is submitted.
 - `loading ready`: Triggers when loading mode is displayed.
-- `error shown`:  Triggers when an error was displayed into the Lock.
+- `error shown`: Triggers when an error was displayed.
 
 ## Examples
 
