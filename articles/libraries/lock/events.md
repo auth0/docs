@@ -44,7 +44,6 @@ lock.removeListener('signin ready', signinHandlerFn);
 - `kerberos submit`: Triggers when integrated windows authentication mode is submitted.
 - `loading ready`: Triggers when loading mode is displayed.
 - `error shown`:  Triggers where an error was rendered into the Lock.
-- `client initialized`: (**internal only**)Triggers when `clientID`'s config data is fetched and loaded.
 
 ## Examples
 
@@ -64,3 +63,9 @@ lock.on('signin submit', function (options, context) {
 - `icon hidden`: Triggered when Lock icon or gravatar image has been hidden.
 - `avatar shown`: Triggered when Lock avatar has been shown.
 - `icon hidden`: Triggered when Lock avatar has been hidden.
+- `client fetch success`: Triggers when `clientID`'s config data is fetched.
+- `client fetch error`: Triggers when there's an error when fetching `clientID`'s config data.
+- `client loaded`: Triggers when `clientID`'s config data was loaded.
+- `client initialized`: Triggers when `clientID`'s config data is fetched and loaded.
+
+
