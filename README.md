@@ -1,10 +1,11 @@
+# Auth0 Documentation
 This is the repository for the Auth0 documentation.
 
-
-* Always use absolute links
+## Contributing Guidelines
+* Always use absolute links from the root of the site. Note, that your links should NOT start with `/docs` or any other base path. If the site is hosted with a base like on `auth0.com/docs` the links will be corrected at runtime.
 * Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use variables instead such as `@@uiUrl@@`
 * Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image_name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
-* Try to keep images no more than 750 pixels wide
+* Try to keep images to no more than 750 pixels wide
 
 
 ## Test Procedures
@@ -18,7 +19,7 @@ When testing a document or tutorial below are several areas to look for.
 1. Check for outdated dependancies (both auth0 dependancies and third-party i.e. node modules, nuget packages, gems, etc.)
 
 ## Quickstarts
-All quickstart data now comes directly from the docs API at `/meta/quickstart`. This means that the quickstart on docs and manage will both consume the same datasource and will always be up to date. To add a new quickstart you simply need to add the markdown document in the appropriate folder: [server-apis](/articles/server-apids), [server-platforms](/articles/server-platforms), [native-platforms](/articles/native-platforms), or [client-platforms](/articles/client-platforms). The only requirement is that you need to specify the correct front matter.
+All quickstart data comes directly from the docs API at `/meta/quickstart`. This means that the quickstart on docs and manage will both consume the same datasource and will always be up to date. To add a new quickstart you simply need to add the markdown document in the appropriate folder: [server-apis](/articles/server-apids), [server-platforms](/articles/server-platforms), [native-platforms](/articles/native-platforms), or [client-platforms](/articles/client-platforms). The only requirement is that you need to specify the correct front matter.
 
 For all quickstart docs, provide the following:
 
