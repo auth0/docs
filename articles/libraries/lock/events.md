@@ -43,7 +43,7 @@ lock.removeListener('signin ready', signinHandlerFn);
 - `kerberos ready`: Triggers when integrated windows authentication mode is displayed.
 - `kerberos submit`: Triggers when integrated windows authentication mode is submitted.
 - `loading ready`: Triggers when loading mode is displayed.
-- `error shown`:  Triggers where an error was rendered into the Lock.
+- `error shown`:  Triggers when an error was displayed into the Lock.
 
 ## Examples
 
