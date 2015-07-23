@@ -24,7 +24,7 @@ lock.removeListener('signin ready', signinHandlerFn);
 
 - `shown`: Triggers when the Lock early opens.
 - `ready`: Triggers when the Lock is ready for user interaction.
-- `close`: Triggers when the user manually closes the widget.
+- `close`: Triggers when the user manually closes Lock.
 - `hidden`: Triggers when Lock has hidden.
 - `signin ready`: Triggers when signin mode view is displayed.
 - `signin submit`: Triggers when signin panel is being submitted or the user clicks on a social connection.
@@ -43,7 +43,7 @@ lock.removeListener('signin ready', signinHandlerFn);
 - `kerberos ready`: Triggers when integrated windows authentication mode is displayed.
 - `kerberos submit`: Triggers when integrated windows authentication mode is displayed.
 - `loading ready`: Triggers when loading mode is displayed.
-- `error shown`:  Triggers where an error was rendered into the widget.
+- `error shown`:  Triggers where an error was rendered into Lock.
 - `client initialized`: (**internal only**)Triggers when `clientID`'s config data is fetched and loaded.
 
 ## Examples
