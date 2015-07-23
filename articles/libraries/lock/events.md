@@ -24,26 +24,26 @@ lock.removeListener('signin ready', signinHandlerFn);
 
 - `shown`: Triggers when the Lock early opens.
 - `ready`: Triggers when the Lock is ready for user interaction.
-- `close`: Triggers when the user manually closes Lock.
-- `hidden`: Triggers when Lock has hidden.
+- `close`: Triggers when the user manually closes the Lock.
+- `hidden`: Triggers when the Lock has hidden.
 - `signin ready`: Triggers when signin mode view is displayed.
-- `signin submit`: Triggers when signin panel is being submitted or the user clicks on a social connection.
+- `signin submit`: Triggers when signin mode is being submitted or the user clicks on a social connection.
 - `signin success`: Triggers when signin has succeeded with no error.
 - `signin error`: Triggers when there's an error on the signin workflow.
 - `signup ready`: Triggers when signup mode is displayed.
-- `signup submit`: Triggers when singup panel is being submitted  or the user clicks on a social connection.
+- `signup submit`: Triggers when singup mode is being submitted or the user clicks on a social connection.
 - `signup success`: Triggers when signup was succeeded with no error.
 - `signup error`: Triggers when there's an error on the signup workflow..
 - `reset ready`: Triggers when reset mode is displayed.
-- `reset submit`: Triggers when reset panel is being submitted (for database and enterprise connections).
+- `reset submit`: Triggers when reset mode is being submitted (for database and enterprise connections).
 - `reset success`: Triggers when reset has succeeded with no error.
 - `reset error`: Triggers when there's an error on the reset workflow.
 - `loggedin ready`: Triggers when loggedin mode is displayed.
 - `loggedin submit`: Triggers when loggedin panel is being submitted or the user clicks on a social connection.
 - `kerberos ready`: Triggers when integrated windows authentication mode is displayed.
-- `kerberos submit`: Triggers when integrated windows authentication mode is displayed.
+- `kerberos submit`: Triggers when integrated windows authentication mode is submitted.
 - `loading ready`: Triggers when loading mode is displayed.
-- `error shown`:  Triggers where an error was rendered into Lock.
+- `error shown`:  Triggers where an error was rendered into the Lock.
 - `client initialized`: (**internal only**)Triggers when `clientID`'s config data is fetched and loaded.
 
 ## Examples
