@@ -35,7 +35,7 @@ lock.removeListener('signin ready', signinHandlerFn);
 - `signup success`: Triggers when signup was succeeded with no error.
 - `signup error`: Triggers when there's an error on the signup workflow.
 - `reset ready`: Triggers when reset mode is displayed.
-- `reset submit`: Triggers when reset mode is submitted (for database and enterprise connections).
+- `reset submit`: Triggers when reset mode is submitted.
 - `reset success`: Triggers when reset has succeeded with no error.
 - `reset error`: Triggers when there's an error on the reset workflow.
 - `loggedin ready`: Triggers when loggedin mode is displayed.
