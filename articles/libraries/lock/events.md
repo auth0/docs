@@ -24,15 +24,26 @@ lock.removeListener('signin ready', signinHandlerFn);
 
 - `shown`: Triggers when the Lock early opens.
 - `ready`: Triggers when the Lock is ready for user interaction.
-- `hidden`: Triggers when Lock has hidden.
+- `close`: Triggers when the user manually closes the Lock.
+- `hidden`: Triggers when the Lock has hidden.
 - `signin ready`: Triggers when signin mode view is displayed.
-- `signin submit`: Triggers when signin panel is being submitted (for database and enterprise connections).
+- `signin submit`: Triggers when signin mode is submitted.
+- `signin success`: Triggers when signin has succeeded with no error.
+- `signin error`: Triggers when there's an error on the signin workflow.
 - `signup ready`: Triggers when signup mode is displayed.
+- `signup submit`: Triggers when singup mode is submitted.
+- `signup success`: Triggers when signup was succeeded with no error.
+- `signup error`: Triggers when there's an error on the signup workflow.
 - `reset ready`: Triggers when reset mode is displayed.
+- `reset submit`: Triggers when reset mode is submitted.
+- `reset success`: Triggers when reset has succeeded with no error.
+- `reset error`: Triggers when there's an error on the reset workflow.
 - `loggedin ready`: Triggers when loggedin mode is displayed.
+- `loggedin submit`: Triggers when loggedin panel is submitted.
 - `kerberos ready`: Triggers when integrated windows authentication mode is displayed.
+- `kerberos submit`: Triggers when integrated windows authentication mode is submitted.
 - `loading ready`: Triggers when loading mode is displayed.
-- `client initialized`: (**internal only**)Triggers when `clientID`'s config data is fetched and loaded.
+- `error shown`: Triggers when an error was displayed.
 
 ## Examples
 
@@ -52,3 +63,9 @@ lock.on('signin submit', function (options, context) {
 - `icon hidden`: Triggered when Lock icon or gravatar image has been hidden.
 - `avatar shown`: Triggered when Lock avatar has been shown.
 - `icon hidden`: Triggered when Lock avatar has been hidden.
+- `client fetch success`: Triggers when `clientID`'s config data is fetched.
+- `client fetch error`: Triggers when there's an error when fetching `clientID`'s config data.
+- `client loaded`: Triggers when `clientID`'s config data was loaded.
+- `client initialized`: Triggers when `clientID`'s config data is fetched and loaded.
+
+
