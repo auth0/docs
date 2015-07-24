@@ -52,8 +52,8 @@ This feature will also display the contents of the AD/LDAP connector log file.
 The Search feature of the Connector Admin Console is designed to allow the testing of search queries used by the AD/LDAP connector against the target AD/LDAP directory.  This can be an aid in debugging search filters used in the AD/LDAP connector configuration file, `config.json`, (see below).
 
 ## Update
-The Update feature of the Connector Admin Console provides a convenient way to update the AD/LDAP connector to a new version. 
- 
+The Update feature of the Connector Admin Console provides a convenient way to update the AD/LDAP connector to a new version.
+
 ## Using the configuration file
 
 The `config.json` file is the AD/LDAP Connector's configuration file.  It can be edited to make changes that are not possible via the AD/LDAP Connector Admin Console. The file is located in the install directory for the AD/LDAP Connector. The following settings are supported in this file:
@@ -62,6 +62,7 @@ The `config.json` file is the AD/LDAP Connector's configuration file.  It can be
  - `CA_CERT`: An authority certificate or array of authority certificates to check the remote host against.
  - `CLIENT_CERT_AUTH`: Specifies if **Client Certificate Authentication** is enabled or not. This value is configured in Auth0 and maintained by the connector.
  - `CONNECTION`: The name of the connection in Auth0 which is linked to this instance of the connector. This value is maintained by the connector.
+ - `CONNECTIONS_API_V2_KEY`: An APIv2 token which is used to [get information about the connection in Auth0](https://auth0.com/docs/apiv2#!/connections/get_connections). Set this when you need to troubleshoot the connector, this will compare the local certificate to the one configured in Auth0 and detect a possible mismatch.
  - `FIREWALL_RULE_CREATED`: Will be set to `true` once the Firewall rule has been created for the Kerberos Server (only when Kerberos is enabled).
  - `GROUPS`: Include the user's groups when enriching the profile. Default: `true`.
  - `GROUP_PROPERTY`: The attribute of the group object that will be used when adding the groups to a user. Default: `cn`.
