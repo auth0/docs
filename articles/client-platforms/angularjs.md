@@ -30,9 +30,9 @@ snippets:
 
 ### 1. Add the Auth0 scripts and set the viewport
 
-@@snippet(meta.snippets.dependancies)@@
+Add the code below to the `index.html` file to include Auth0's angular module and its dependencies and set the viewport:
 
-This will include Auth0's angular module and its dependencies to the `index.html`file.
+@@snippet(meta.snippets.dependancies)@@
 
 ### 2. Add the module dependency and configure the service
 
@@ -44,9 +44,11 @@ Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your
 
 To implement the login, inject the `auth` service into any controller and call the `signin` method to show the Login / SignUp popup.
 
-In the following example, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`.
+In the following code, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`.
 
 @@snippet(meta.snippets.use)@@
+
+This is how it will appear in the browser:
 
 @@browser@@
 
@@ -68,10 +70,9 @@ $scope.logout = function() {
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
 
+### 5. Configure secure calls to your API
 
-### 5. Configure secure calls to our API
-
-To call an API you have implemented <%= configuration.api ? ' on ' + configuration.api : '' %>, be sure to send the [JWT token](/jwt) received on the login of each request by adding the `jwtInterceptor` to the list of `$http` interceptors:
+To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return the [JWT token](/jwt) received on the login of each request by adding `jwtInterceptor` to the list of `$http` interceptors:
 
 ```js
 // app.js
@@ -109,9 +110,9 @@ function UserInfoCtrl($scope, auth) {
 To discover all the available properties of the user's profile, see [user-profile](/user-profile).
 __Note:__ The properties available depend on which social provider is used.
 
-### 7. Keep the user logged in after the page refreshes
+### 7. Keep the user logged in after a page refresh
 
-The user's profile and tokens are already saved to `localStorage`. To keep the user logged in, get the profile and tokens on each page refresh and let `auth0-angular` know the user is already authenticated.
+The user's profile and tokens are already saved to `localStorage`. To keep the user logged in, retrieve the token from `localStorage` on each page refresh and let `auth0-angular` know the user is already authenticated.
 
 ```js
 angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
@@ -144,7 +145,7 @@ Most apps will need to authenticate users so that they may access certain routes
 
 To enable access to a route:
 
-1. set the `requiresLogin` property to `true`.
+1. Set the `requiresLogin` property to `true`.
 
 2. Add the `$routeProvider` configuration in the `config` method of our app.
 
@@ -174,8 +175,8 @@ To enable access to a route:
 });
 ```
 
-__Note__: If you are using ui-router, see this guide: [UI Router](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router).
+__Note__: If you are using UI router, see [UI Router](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router).
 
-#### Additional info
+#### Additional information
 
-For additional info on how to use this SDK, see [Auth0 and AngularJS](https://github.com/auth0/auth0-angular/blob/master/README.md).
+For additional information on how to use this SDK, see [Auth0 and AngularJS](https://github.com/auth0/auth0-angular/blob/master/README.md).
