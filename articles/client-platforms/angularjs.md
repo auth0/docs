@@ -34,7 +34,7 @@ snippets:
 
 ### 2. Add the module dependency and configure the service
 
-Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
+Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`:
 
 @@snippet(meta.snippets.setup)@@
 
@@ -88,7 +88,7 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtIntercept
 });
 ```
 
-Now you can regularly call this API with `$http`, `$resource` or any rest client as you would do normally and the [JWT token](/jwt) will be sent on each request.
+Now you can regularly call this API with `$http`, `$resource` or any rest client as you would normally and the [JWT token](/jwt) will be sent on each request.
 
 ### 6. Show the user's information
 
@@ -105,12 +105,13 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-To discover all the available properties of the user's profile, see [user-profile](/user-profile).
+To discover all the available properties of a user's profile, see [user-profile](/user-profile).
+
 __Note:__ The properties available depend on which social provider is used.
 
 ### 7. Keep the user logged in after a page refresh
 
-The user's profile and tokens are already saved to `localStorage`. To keep the user logged in, retrieve the token from `localStorage` on each page refresh and let `auth0-angular` know the user is already authenticated.
+The user's profile and tokens are already saved to `localStorage`. To keep the user logged in, retrieve the token from `localStorage` on each page refresh and let `auth0-angular` know the user is already authenticated:
 
 ```js
 angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
@@ -139,7 +140,7 @@ You have completed the implementation of Login and Signup with Auth0 and Angular
 ### Optional Steps
 ####Add routing
 
-Most apps will need to authenticate users so that they may access certain routes. 
+Most apps will need to authenticate users to enable access certain routes. 
 
 To enable access to a route:
 
@@ -173,7 +174,7 @@ To enable access to a route:
 });
 ```
 
-__Note__: If you are using UI router, see [UI Router](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router).
+__Note__: If you are using a UI router, see [UI Router](https://github.com/auth0/auth0-angular/blob/master/docs/routing.md#ui-router).
 
 #### Additional information
 
