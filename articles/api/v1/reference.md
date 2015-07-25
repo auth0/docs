@@ -9,7 +9,7 @@ Each API request must include an access token, either inside the query string...
 
 	https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
 
-or in an ```Authorization``` header.
+or in an ```Authorization``` header:
 
 	GET https://@@account.namespace@@/api/connections
 	Authorization: bearer {ACCESS-TOKEN}
@@ -49,7 +49,7 @@ The `Authorization` header is the only accepted header and is used in place of t
 
 ####List all Connections
 
-To return a list of all defined connections in Auth0 use this syntax:
+To return a list of all defined connections in Auth0, use this syntax:
 
 	GET https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
 
@@ -86,14 +86,15 @@ The body of the response is a `connection` object formatted as follows:
 | `office365` | Office 365 and Microsoft Azure Active Directory |
 | `windowslive` | Microsoft Account (formerly LiveID) |
 
-When implementing the `office365`, `google-apps` or `adfs` strategies the following properties are added to the connection object:
+When implementing the `office365`, `google-apps` or `adfs` strategies, the following properties are added to the connection object:
 
  `provisioning_ticket`: TICKET
+
  `provisioning_ticket_url`: PROVISIONING-URL
 
 The `provisioning_ticket_url` is sent to the identity provider administrator and contains information on how to complete the configuration on their side.
 
-A GET against `connections` with a specified {connectionName} in the path will return the matching connection object only.
+A GET on `connections` with a specified {connectionName} in the path will return the matching connection object only.
 
 ######Here are two `curl` sample scripts: 
 This script returns a specific connection:
@@ -125,7 +126,7 @@ The `options` object returned within the `connection` will be different for each
 
 | Parameter | Description |
 |:----------|:------------|
-| `tenant_domain` | The domain name of the company (If the user's email is _john@mycompany.com_, then _mycompany.com_ is the domain). |
+| `tenant_domain` | The domain name of the company (If the user's email is _john @mycompany.com_, then _mycompany.com_ is the domain). |
 | `adfs_server` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 | `signInEndpoint`| The URL of the ADFS server where Auth0 will redirect users for login. (for example: _the-adfs-server.company.com/adfs/ls_). |
 
@@ -241,7 +242,7 @@ To obtain `client_id` and `client_secret` for Microsoft Accounts, see [ms-accoun
 
 
 ####DELETE a connection
-A DELETE operation against the `connections` object will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
+A DELETE operation on the `connections` object will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
 
 	DELETE https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
@@ -282,13 +283,13 @@ If successful, the response body will contain a complete `connection` object. Th
 
 ####Updating a Connection
 
-For updates use the PUT method. A PUT works on a specific `connection`, therefore the connection `name` must be specified. All object parameters must be included, not just those that have changed.
+For updates, use the PUT method. A PUT works on a specific `connection`, therefore the connection `name` must be specified. All object parameters must be included, not only those which have changed.
 
 ### Users
 | Verb | URL | Description |
 |:-----|:----|:------------|
 |`GET` |https://@@account.namespace@@/api/users |Gets all users who have logged in through any of your connections. |
-|`GET` |https://@@account.namespace@@/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance ADFS), it will return the users who have logged in through that connection.|
+|`GET` |https://@@account.namespace@@/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance: ADFS), this will return users who have logged in through that connection.|
 |`GET` |https://@@account.namespace@@/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
 
 ####The User Object
@@ -308,11 +309,11 @@ For updates use the PUT method. A PUT works on a specific `connection`, therefor
 		user_id: 'adfs|john@fabrikam.com'
 	}
 
-Most attributes in the `user` object are self-explanatory. Some comments below:
+Most attributes in the `user` object are self-explanatory. Some comments are below:
 
 |Parameter | Description |
 |:---------|:------------|
-|`issuer` | The name of the authentication server. In the example above it is the name of the ADFS server used by Fabrikam.|
+|`issuer` | The name of the authentication server. In the example above it is the URL of Fabrikam's ADFS server used.|
 |`user_id` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 |`picture` | The URL of the user's gravatar, if available. |
 |`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, etc.). |
