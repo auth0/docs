@@ -42,41 +42,39 @@ snippets:
 
 <% } %>
 
-**Otherwise, if you already have an existing application, please follow the steps below.**
+**If you already have an existing application, please follow the steps below.**
 
 @@includes.callback@@
 
-### 1. Adding the Auth0 scripts and setting the right viewport
+### 1. Add the Auth0 scripts and set the viewport
 
 @@snippet(meta.snippets.dependencies)@@
 
-We're including the Auth0 lock script to the `index.html`
-
 ### 2. Configure the Auth0Lock
 
-Configuring the Auth0Lock will let your app work with Auth0:
+Configure Auth0Lock with your `client-ID` and `domain`:
 
 @@snippet(meta.snippets.setup)@@
 
-### 3. Let's implement the login
+### 3. Implement the login
 
-Now we're ready to implement the login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API.
 
 @@snippet(meta.snippets.use)@@
 
-We need to save the token so that we can use it later when calling a server or an API. In this case, we're saving that token in LocalStorage.
+To discover all the available arguments for `lock.show`, see [user-profile](/lock#5).
 
-If you want to check all the available arguments for the signin call, please [check here](/lock#5)
+This is how it will appear in the browser:
 
 @@browser@@
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
-### 4. Configuring calls to a Third Party API
+### 4. Configure calls to a Third Party API
 
-Now, we want to be able to call <%= configuration.api %> which is a third party api. What we're going to do is to exchange the JWT token we got from Auth0 for a token we can use to query <%= configuration.api %> securely and authenticated.
+To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
-For that, we're going to modify the login call we did in step #4. We're going to add the call to get the new token
+Modify the login code in [Step 3](#3) by adding a call to get the new token:
 
 ```js
 var userProfile;
@@ -115,13 +113,13 @@ $('.btn-login').click(function(e) {
 });
 ```
 
-We're going to activate the <%= configuration.api %> add-on in the following steps. Once we do that, the code we wrote here will just work.
+The code above will function once the <%= configuration.api %> add-on is activated in the following steps.
 
 <% } else { %>
 
-### 4. Configuring secure calls to your API
+### 5. Configure secure calls to your API
 
-As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to implement `$.ajaxSetup` so that every ajax call sends the `Authorization` header with the correct token.
+To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, implement `$.ajaxSetup` to send on each request, in the `Authorization` header with every ajax call, the [JWT token](/jwt) received on the login and saved to `localStorage` as shown in [Step 3](#3).
 
 ```js
 $.ajaxSetup({
@@ -134,15 +132,13 @@ $.ajaxSetup({
 });
 ```
 
-Please note that we're using the JWT that we saved after login on Step [#4](#5).
-
 <% } %>
 
-> The settings specified in `ajaxSetup` will affect all calls to $.ajax or Ajax-based derivatives such as $.get(). This can cause undesirable behavior since other callers (for example, plugins) may be expecting the normal default settings. For that reason is recommend against using this API. Instead, set the options explicitly in the call or define a simple plugin to do so ([more details](http://api.jquery.com/jQuery.ajaxSetup/)).
+__Note:__ The settings specified in `ajaxSetup` will affect all calls to $.ajax or Ajax-based derivatives such as $.get(). This may cause undesirable behavior if other callers (for example: plugins) are expecting the default settings. Therefore, use of this API is not recommended. Instead, set the options explicitly in the call or define a simple plugin to do so. For more information, see [jQuery.ajaxSetup()](http://api.jquery.com/jQuery.ajaxSetup/).
 
-### 5. Showing user information
+### 6. Display user information
 
-We already have the `userProfile` variable with the user information. Now, we can set that information to a span:
+Since the `userProfile` variable contains the user's information, it can be called on to diplay that information in `span` tag:
 
 ```js
 $('.nick').text(userProfile.nickname);
@@ -152,11 +148,13 @@ $('.nick').text(userProfile.nickname);
 <p>His name is <span class="nick"></span></p>
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+To discover all the available properties of a user's profile, see [user-profile](/user-profile).
 
-### 6. Logging out
+__Note:__ The properties available depend on which social provider is used.
 
-In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
+### 7. Logging out
+
+In this implementation, logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
 localStorage.removeItem('token');
@@ -164,6 +162,6 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-### 7. You're done!
+### 8. All done!
 
-You've implemented Login and Signup with Auth0 and jQuery.
+You have completed the implementation of Login and Signup with Auth0 and jQuery.

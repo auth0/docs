@@ -70,7 +70,7 @@ $scope.logout = function() {
 
 ### 5. Configure secure calls to your API
 
-To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return the [JWT token](/jwt) received on the login of each request by adding `jwtInterceptor` to the list of `$http` interceptors:
+To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return on each request the [JWT token](/jwt) received on the login by adding `jwtInterceptor` to the list of `$http` interceptors:
 
 ```js
 // app.js
