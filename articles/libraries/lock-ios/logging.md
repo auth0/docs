@@ -1,5 +1,5 @@
 ---
-toc-title: Logging
+toc_title: Logging
 description: Learn how to debug Lock by enabling logging.
 ---
 

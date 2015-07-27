@@ -1,9 +1,39 @@
 ---
-toc_title: Lock iOS: Build your own UI
-description: 
+toc_title: Build your own UI
+description: Customize the UI of Lock in your App
+lodash: true
 ---
 
-# Build your own UI
+# Lock iOS: Build your own UI
+
+<% if (configuration.api && configuration.thirdParty) { %>
+
+<div class="package" style="text-align: center;">
+  <blockquote>
+   <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+      <span style="display: block">Download iOS Custom UI Sample</span>
+      <% if (account.userName) { %>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a>
+  </blockquote>
+</div>
+<% } else  { %>
+
+<div class="package" style="text-align: center;">
+  <blockquote>
+    <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+      <span style="display: block">Download iOS Custom UI Sample</span>
+      <% if (account.userName) { %>
+      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
+      <% } %>
+    </a>
+  </blockquote>
+</div>
+
+<% } %>
+
+**Otherwise, if you already have an existing application, please follow the steps below.**
 
 1.  Add the following dependencies to your project using Cocoapods:
     ```ruby
@@ -22,7 +52,7 @@ pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
   self.lock = A0Lock()
   ```
 
-4. When you need to login your user with email/password credentials, just paste the following code 
+4. When you need to login your user with email/password credentials, just paste the following code
   ```objc
   NSString *email = ... // User's email
   NSString *password = ... // User's password
@@ -51,8 +81,8 @@ pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
   let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
   client.loginWithUsername(email, password: password, parameters: parameters, success: { profile, token in
     println("We did it!. Logged in with Auth0.")
-  }, failure: { error in 
-    println("Oops something went wrong: \(error)" 
+  }, failure: { error in
+    println("Oops something went wrong: \(error)"
   })
   ```
 > More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
