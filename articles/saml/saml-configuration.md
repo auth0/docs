@@ -195,6 +195,22 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+### Logout
+
+
+For information on how to log out the user's session in Auth0, or in both Auth0 and federated identity providers, see:
+
+* [Logout](/logout)
+
+When Auth0 is serving as a SAML Identity Provider, it is necessary to specify a logout callback URL in the Application Addon Settings in order for logout to work.  To do this, go to:
+
+* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings 
+
+In the "Settings" field, enter a specification for logout callback URL:
+
+```
+"logout": { "callback" : "http://your-callback-goes-here" },
+```
 
 ## Customizing SAML assertions (Auth0 as IDP)
 
