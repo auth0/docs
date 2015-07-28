@@ -42,7 +42,7 @@ snippets:
 
 <% } %>
 
-**If you already have an existing application, please follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 @@includes.callback@@
 
@@ -148,13 +148,11 @@ $('.nick').text(userProfile.nickname);
 <p>His name is <span class="nick"></span></p>
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile).
+To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
 
-__Note:__ The properties available depend on which social provider is used.
+### 7. Log out
 
-### 7. Logging out
-
-In this implementation, logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
+In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
 localStorage.removeItem('token');
