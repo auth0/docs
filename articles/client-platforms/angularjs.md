@@ -42,7 +42,7 @@ Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your
 
 To implement the login, inject the `auth` service into any controller and call the `signin` method to show the Login / SignUp popup.
 
-In the following code, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`.
+In the following code, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`:
 
 @@snippet(meta.snippets.use)@@
 
@@ -54,7 +54,7 @@ __Note:__ There are multiple ways of implementing a login. The example above dis
 
 ### 4. Add a logout button
 
-To add a logout button, call the `auth.signout` method to logout the user. Also remove the profile and token information saved in `localStorage`:
+To add a logout button, call the `auth.signout` method to log out the user. Also remove the profile and token information saved in `localStorage`:
 
 ```js
 $scope.logout = function() {

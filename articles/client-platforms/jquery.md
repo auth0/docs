@@ -58,7 +58,7 @@ Configure Auth0Lock with your `client-ID` and `domain`:
 
 ### 3. Implement the login
 
-To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API.
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
 @@snippet(meta.snippets.use)@@
 
@@ -138,7 +138,7 @@ __Note:__ The settings specified in `ajaxSetup` will affect all calls to $.ajax 
 
 ### 6. Display user information
 
-Since the `userProfile` variable contains the user's information, it can be called on to diplay that information in `span` tag:
+Since the `userProfile` variable contains the user's information, it can be called on to diplay that information in a `span` tag:
 
 ```js
 $('.nick').text(userProfile.nickname);

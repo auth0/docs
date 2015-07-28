@@ -100,7 +100,7 @@ import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-
 export default Ember.Route.extend(UnauthenticatedRouteMixin);
 ```
 
-and add a route for authenticated users.
+and add a route for authenticated users:
 
 ```js
 // app/routes/home.js
