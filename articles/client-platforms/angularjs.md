@@ -24,7 +24,7 @@ snippets:
   </blockquote>
 </div>
 
-**If you already have an existing application, follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 @@includes.callback@@
 
@@ -107,9 +107,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile).
-
-__Note:__ The properties available depend on which social provider is used.
+To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Keep the user logged in after a page refresh
 

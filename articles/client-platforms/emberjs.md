@@ -19,7 +19,7 @@ tags:
   </blockquote>
 </div>
 
-**If you already have an existing application, follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 @@includes.callback@@
 
