@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/golang.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/golang/dependancies
+  dependencies: server-platforms/golang/dependencies
   setup: server-platforms/golang/setup
   use: server-platforms/golang/use
 ---
@@ -30,7 +30,7 @@ snippets:
 
 Install the following dependencies using `go get`
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > This example uses `mux` for routing but you can use whichever router you want
 

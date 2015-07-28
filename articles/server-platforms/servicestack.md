@@ -5,7 +5,7 @@ image: //auth0.com/lib/platforms-collection/img/service-stack.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/servicestack/dependancies
+  dependencies: server-platforms/servicestack/dependencies
   setup: server-platforms/servicestack/setup
   use: server-platforms/servicestack/use
 ---
@@ -24,7 +24,7 @@ For this example, we will use the standard template that ships with Visual Studi
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
@@ -68,7 +68,7 @@ ConfigureAuth(container);
 
 And then uncomment and edit the `ConfigureAuth` method to look like this:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 

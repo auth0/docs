@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/java-spring-security/dependancies
+  dependencies: server-apis/java-spring-security/dependencies
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
 ---
@@ -30,7 +30,7 @@ You need to add the `spring-security-auth0` dependency.
 
 For that, you can just add it to your `pom.xml` if you're using maven.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure Spring to use Auth0
 

@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/nodejs/dependancies
+  dependencies: server-apis/nodejs/dependencies
   setup: server-apis/nodejs/setup
   use: server-apis/nodejs/use
 ---
@@ -33,7 +33,7 @@ You need to add the express-jwt dependency.
 
 Just run the following code to install the dependency and add it to your `package.json`
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure express-jwt with your Auth0 account
 

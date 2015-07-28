@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/php-symfony/dependancies
+  dependencies: server-apis/php-symfony/dependencies
   setup: server-apis/php-symfony/setup
   use: server-apis/php-symfony/use
 ---
@@ -22,7 +22,7 @@ We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to i
 
 Modify your `composer.json` to add the following dependencies and run `composer update`.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ###2. Add the bundle to your AppKernell.php file
 
@@ -83,7 +83,7 @@ Modify the file /app/config/security.yml:
 - define your secured area that want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ## Issue Reporting
 

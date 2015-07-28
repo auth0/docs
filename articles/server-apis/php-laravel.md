@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/php-laravel/dependancies
+  dependencies: server-apis/php-laravel/dependencies
   setup: server-apis/php-laravel/setup
   use: server-apis/php-laravel/use
 ---
@@ -33,7 +33,7 @@ We need to add **laravel-auth0** dependency to your composer.json. As it depends
 
 Once that's done, just run the following:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 

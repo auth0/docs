@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/socketio.svg
 tags:
   - quickstart
 snippets:
-  dependancies: client-platforms/socket-io/dependancies
+  dependencies: client-platforms/socket-io/dependencies
   setup: client-platforms/socket-io/setup
   use: client-platforms/socket-io/use
 ---

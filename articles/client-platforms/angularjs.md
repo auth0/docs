@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/angular.png
 tags:
   - quickstart
 snippets:
-  dependancies: client-platforms/angularjs/dependancies
+  dependencies: client-platforms/angularjs/dependencies
   setup: client-platforms/angularjs/setup
   use: client-platforms/angularjs/use
 ---
@@ -30,7 +30,7 @@ snippets:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 We're including Auth0's angular module and its dependencies to the `index.html`.
 

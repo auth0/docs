@@ -6,7 +6,7 @@ image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
 tags:
   - quickstart
 snippets:
-  dependancies: client-platforms/jquery/dependancies
+  dependencies: client-platforms/jquery/dependencies
   setup: client-platforms/jquery/setup
   use: client-platforms/jquery/use
 ---
@@ -48,7 +48,7 @@ snippets:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 We're including the Auth0 lock script to the `index.html`
 

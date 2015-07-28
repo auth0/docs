@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/xamarin.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/xamarin/dependancies
+  dependencies: native-platforms/xamarin/dependencies
   setup: native-platforms/xamarin/setup
   use: native-platforms/xamarin/use
 ---
@@ -21,7 +21,7 @@ This tutorial explains how to integrate Auth0 with a Xamarin application (iOS or
 
 ### 1. Install Xamarin.Auth0Client component
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 For more information, please visit the <a href="http://docs.xamarin.com/guides/cross-platform/application_fundamentals/components_walkthrough">Xamarin documentation page</a>.
 

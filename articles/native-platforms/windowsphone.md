@@ -7,7 +7,7 @@ image: //auth0.com/lib/platforms-collection/img/windows-phone.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/windows-phone/dependancies
+  dependencies: native-platforms/windows-phone/dependencies
   setup: native-platforms/windows-phone/setup
   use: native-platforms/windows-phone/use
 ---
@@ -31,7 +31,7 @@ snippets:
 
 You can either run the following command or install it via the **Package Manager** UI.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Instantiate the Auth0 client
 Provide your domain and application's **Client ID** as parameters when creating the client instance:

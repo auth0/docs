@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/rails.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/rails/dependancies
+  dependencies: server-platforms/rails/dependencies
   setup: server-platforms/rails/setup
   use: server-platforms/rails/use
 ---
@@ -30,13 +30,13 @@ snippets:
 
 Add the following dependencies to your `Gemfile` and run `bundle install`
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Initialize Omniauth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 3. Add the Auth0 callback handler
 

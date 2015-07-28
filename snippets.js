@@ -10,7 +10,7 @@ var folders = [
 ];
 
 var snippets = [
-  'dependancies.md',
+  'dependencies.md',
   'setup.md',
   'use.md'
 ];

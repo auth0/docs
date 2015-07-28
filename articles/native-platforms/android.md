@@ -7,7 +7,7 @@ image: //auth0.com/lib/platforms-collection/img/android.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/android/dependancies
+  dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup
   use: native-platforms/android/use
 ---
@@ -55,7 +55,7 @@ snippets:
 
 Add the following to the `build.gradle`:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 

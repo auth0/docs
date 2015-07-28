@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/aspnet-owin/dependancies
+  dependencies: server-platforms/aspnet-owin/dependencies
   setup: server-platforms/aspnet-owin/setup
   use: server-platforms/aspnet-owin/use
 ---
@@ -33,7 +33,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (of an
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Setting up the callback URL in Auth0
 

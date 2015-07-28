@@ -5,7 +5,7 @@ image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/aspnet/dependancies
+  dependencies: server-platforms/aspnet/dependencies
   setup: server-platforms/aspnet/setup
   use: server-platforms/aspnet/use
 ---
@@ -20,7 +20,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (any k
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > This package will add a `LoginCallback.ashx` to your project, which will process the login.
 

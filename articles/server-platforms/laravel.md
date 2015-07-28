@@ -5,7 +5,7 @@ image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/laravel/dependancies
+  dependencies: server-platforms/laravel/dependencies
   setup: server-platforms/laravel/setup
   use: server-platforms/laravel/use
 ---
@@ -22,7 +22,7 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 
 ### 1. Install the plugin and its dependencies
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 NOTE: Some plugin dependencies are not tagged, so you have to either change the `minimum-stability` to `dev` or you have to add the dependencies manually.
 

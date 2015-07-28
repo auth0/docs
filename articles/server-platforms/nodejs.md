@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/node.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/nodejs/dependancies
+  dependencies: server-platforms/nodejs/dependencies
   setup: server-platforms/nodejs/setup
   use: server-platforms/nodejs/use
 ---
@@ -30,7 +30,7 @@ snippets:
 
 Just run the following code to install the dependencies and add them to your `package.json`
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure passport-auth0
 

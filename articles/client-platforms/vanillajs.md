@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/html5.png
 tags:
   - quickstart
 snippets:
-  dependancies: client-platforms/vanillajs/dependancies
+  dependencies: client-platforms/vanillajs/dependencies
   setup: client-platforms/vanillajs/setup
   use: client-platforms/vanillajs/use
 ---
@@ -19,7 +19,7 @@ Please follow the steps below to configure your JS app to use Auth0.
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 We're including the Auth0 lock script to the `index.html`
 

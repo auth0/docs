@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/aspnet-webapi/dependancies
+  dependencies: server-apis/aspnet-webapi/dependencies
   setup: server-apis/aspnet-webapi/setup
   use: server-apis/aspnet-webapi/use
 ---
@@ -31,7 +31,7 @@ snippets:
 
 You can either run the following commands or install them via **Package Manager**.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure the JsonWebToken message handler
 

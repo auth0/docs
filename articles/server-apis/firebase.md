@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/firebase/dependancies
+  dependencies: server-apis/firebase/dependencies
   setup: server-apis/firebase/setup
   use: server-apis/firebase/use
 ---
