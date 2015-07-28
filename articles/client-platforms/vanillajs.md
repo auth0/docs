@@ -45,7 +45,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
 
-After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and retrieve the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
 In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
@@ -87,7 +87,7 @@ To discover all the available properties of a user's profile, see [user-profile]
 
 ### 5. Use the token to call your api
 
-To perform secure calls to your API, include the `id_token` in the `Authorization` header.
+To perform secure calls to your API, include the `id_token` in the `Authorization` header:
 
 ```js
 var getFoos = fetch('/api/foo', {

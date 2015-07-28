@@ -52,7 +52,7 @@ Create a `token` containing the user's profile information:
 
     var server = http.createServer(app);
 
-For authentication, use the [global authorization callback](https://github.com/LearnBoost/socket.io/wiki/Authorizing) on Socket.io. 
+For authentication, use the [global authorization callback](https://github.com/LearnBoost/socket.io/wiki/Authorizing) on Socket.io:
 
     var socketioJwt = require('socketio-jwt');
 

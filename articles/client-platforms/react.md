@@ -31,25 +31,25 @@ snippets:
 
 ### 1. Add the Auth0 scripts and set the viewport
 
-Add the code below to the `index.html` file to include Auth0's angular module and its dependencies and set the viewport:
+Add the code below to the `index.html` file to include the Auth0 script and set the viewport:
 
 @@snippet(meta.snippets.dependancies)@@
 
 ### 2. Configure Auth0Lock
 
-To have your app work with Auth0, configure Auth0Lock by creating an instance of the service in the `componentWillMount` lifecycle event of your component.
+To have your app work with Auth0, configure Auth0Lock by creating an instance of the service in the `componentWillMount` lifecycle event of your component:
 
 @@snippet(meta.snippets.setup)@@
 
 ### 3. Implement the login
 
-To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks on the login button.
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
 
 @@snippet(meta.snippets.use)@@
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
 
-After authentication, Auth0 will redirect the user back to your application with an identifying `idToken` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and retrieve the `idToken`. This `idToken` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+After authentication, Auth0 will redirect the user back to your application with an identifying `idToken` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `idToken`. This `idToken` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
 In this example, the `token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
@@ -121,7 +121,7 @@ To discover all the available properties of a user's profile, see [user-profile]
 
 ### 5. Perform secure calls to your API
 
-To perform secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return on each request the [JWT token](/jwt) received on the login in the `Authorization` header.
+To perform secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return on each request the [JWT token](/jwt) received on the login in the `Authorization` header:
 
 ```js
 var getFoos = fetch('/api/foo', {
