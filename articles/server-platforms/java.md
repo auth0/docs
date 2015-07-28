@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/java.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/java/dependancies
+  dependencies: server-platforms/java/dependencies
   setup: server-platforms/java/setup
   use: server-platforms/java/use
 ---
@@ -30,7 +30,7 @@ snippets:
 
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure it
 

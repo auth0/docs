@@ -7,7 +7,7 @@ image: //auth0.com/lib/platforms-collection/img/react.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/ios-reactnative/dependancies
+  dependencies: native-platforms/ios-reactnative/dependencies
   setup: native-platforms/ios-reactnative/setup
   use: native-platforms/ios-reactnative/use
 ---
@@ -56,7 +56,7 @@ snippets:
 
 Inside your project create a file named `Podfile` with these contents:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 and run `pod install`
 

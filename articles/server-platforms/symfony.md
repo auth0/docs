@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/symfony/dependancies
+  dependencies: server-platforms/symfony/dependencies
   setup: server-platforms/symfony/setup
   use: server-platforms/symfony/use
 ---
@@ -19,7 +19,7 @@ If you have used [Symfony](http://symfony.com) before, you are probably already 
 
 ### 1. Add HWIOAuthBundle to your composer.json
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 and run `composer update`
 

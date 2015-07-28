@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/apache.jpg
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/apache/dependancies
+  dependencies: server-platforms/apache/dependencies
   setup: server-platforms/apache/setup
   use: server-platforms/apache/use
 ---
@@ -17,14 +17,14 @@ snippets:
 
 ### 1. Install and enable `mod_auth_openidc` module
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 First, you need to install the `mod_auth_openidc` module for Apache.
 
 You can get the binaries from [Github](https://github.com/pingidentity/mod_auth_openidc/releases) and install them for your OS. If your OS isn't compatible with any of the binaries, you can still [build it from source](https://github.com/pingidentity/mod_auth_openidc/blob/master/INSTALL)
 
 Once you've installed it, you just need to enable it for Apache
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure the module with your Auth0 Account information
 

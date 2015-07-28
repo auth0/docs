@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/rails/dependancies
+  dependencies: server-apis/rails/dependencies
   setup: server-apis/rails/setup
   use: server-apis/rails/use
 ---
@@ -34,7 +34,7 @@ Add this line to your application's Gemfile:
 
 #### Install
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 And then execute:
 

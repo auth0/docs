@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/play.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/scala/dependancies
+  dependencies: server-platforms/scala/dependencies
   setup: server-platforms/scala/setup
   use: server-platforms/scala/use
 ---
@@ -28,13 +28,13 @@ snippets:
 
 ### 1. Add configuration keys from Auth0
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Add Auth0 callback handler
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ```scala
 // controllers/Callback.scala

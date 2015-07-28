@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/php/dependancies
+  dependencies: server-apis/php/dependencies
   setup: server-apis/php/setup
   use: server-apis/php/use
 ---
@@ -34,7 +34,7 @@ We need 2 dependencies to make this work:
 * **php-jwt**: this will take care of checking the JWT
 * **router**: we'll use this for creating simple routes
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 >>>>>>> Extracted snippets from tutorials
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.

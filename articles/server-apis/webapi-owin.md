@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/webapi-owin/dependancies
+  dependencies: server-apis/webapi-owin/dependencies
   setup: server-apis/webapi-owin/setup
   use: server-apis/webapi-owin/use
 ---
@@ -31,7 +31,7 @@ snippets:
 
 Install and update the following NuGet packages:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure Json Web Token authentication
 

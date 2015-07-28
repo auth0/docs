@@ -7,7 +7,7 @@ image: //auth0.com/lib/platforms-collection/img/phonegap.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/phonegap/dependancies
+  dependencies: native-platforms/phonegap/dependencies
   setup: native-platforms/jquery/setup
   use: native-platforms/jquery/use
 ---
@@ -71,7 +71,7 @@ Once you have that, just clone the project and run the following:</p>
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using `<gap:plugin`. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
 

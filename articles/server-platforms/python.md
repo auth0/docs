@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/python.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/python/dependancies
+  dependencies: server-platforms/python/dependencies
   setup: server-platforms/python/setup
   use: server-platforms/python/use
 ---
@@ -28,7 +28,7 @@ snippets:
 
 ### 1. Add dependencies
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 This example uses `flask` but it could work with any server
 

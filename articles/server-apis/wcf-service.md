@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/wcf.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/wcf-service/dependancies
+  dependencies: server-apis/wcf-service/dependencies
   setup: server-apis/wcf-service/setup
   use: server-apis/wcf-service/use
 ---
@@ -32,7 +32,7 @@ The integration consists of adding a `ServiceAuthorizationManager` (which is an 
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > This package creates the `ServiceAuthorizationManager` and will add a set of configuration settings.
 

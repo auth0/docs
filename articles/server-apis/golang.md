@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/golang/dependancies
+  dependencies: server-apis/golang/dependencies
   setup: server-apis/golang/setup
   use: server-apis/golang/use
 ---
@@ -33,7 +33,7 @@ Install `go-jwt-middleware` to check for JWTs on HTTP requests.
 
 Just run the following code to install the dependency
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure `go-jwt-middleware` to use your Auth0 Account
 

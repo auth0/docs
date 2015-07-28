@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/wpf-winforms/dependancies
+  dependencies: native-platforms/wpf-winforms/dependencies
   setup: native-platforms/wpf-winforms/setup
   use: native-platforms/wpf-winforms/use
 ---
@@ -21,7 +21,7 @@ This tutorial explains how to integrate Auth0 with a WPF or Winforms application
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WinformsOrWPF package, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Setting up the callback URL in Auth0
 

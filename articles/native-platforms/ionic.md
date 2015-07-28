@@ -7,7 +7,7 @@ image: //auth0.com/lib/platforms-collection/img/phonegap.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/ionic/dependancies
+  dependencies: native-platforms/ionic/dependencies
   setup: native-platforms/ionic/setup
   use: native-platforms/ionic/use
 ---
@@ -44,7 +44,7 @@ snippets:
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 3. Add the references to the scripts in the `index.html`
 

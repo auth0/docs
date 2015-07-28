@@ -7,7 +7,7 @@ image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/ios-objc/dependancies
+  dependencies: native-platforms/ios-objc/dependencies
   setup: native-platforms/ios-objc/setup
   use: native-platforms/ios-objc/use
 ---
@@ -56,7 +56,7 @@ snippets:
 
 Add the following to the `Podfile` and run `pod install`:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 

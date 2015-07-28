@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/php/dependancies
+  dependencies: server-platforms/php/dependencies
   setup: server-platforms/php/setup
   use: server-platforms/php/use
 ---
@@ -28,7 +28,7 @@ snippets:
 
 ### 1. Add Needed dependencies dependencies
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 

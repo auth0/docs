@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/windows-8.png
 tags:
   - quickstart  
 snippets:
-  dependancies: native-platforms/windows-store-csharp/dependancies
+  dependencies: native-platforms/windows-store-csharp/dependencies
   setup: native-platforms/windows-store-csharp/setup
   use: native-platforms/windows-store-csharp/use
 ---
@@ -21,7 +21,7 @@ This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.W
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Cs package, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Setting up the callback URL in Auth0
 

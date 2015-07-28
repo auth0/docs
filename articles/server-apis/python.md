@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/python/dependancies
+  dependencies: server-apis/python/dependencies
   setup: server-apis/python/setup
   use: server-apis/python/use
 ---
@@ -31,7 +31,7 @@ snippets:
 
 In this example, we'll be using Flask and we'll be validating the JWT. For that, add the following dependencies to your `requirements.txt`.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Create the JWT Validation annotation
 

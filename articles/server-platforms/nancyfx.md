@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/nancyfx.png
 tags:
   - quickstart
 snippets:
-  dependancies: server-platforms/nancyfx/dependancies
+  dependencies: server-platforms/nancyfx/dependencies
   setup: server-platforms/nancyfx/setup
   use: server-platforms/nancyfx/use
 ---
@@ -27,7 +27,7 @@ snippets:
 
 Install Auth0 NancyFX dependency with `NuGet`
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure Auth0
 

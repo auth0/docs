@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/windows-8.png
 tags:
   - quickstart
 snippets:
-  dependancies: native-platforms/windows-store-javascript/dependancies
+  dependencies: native-platforms/windows-store-javascript/dependencies
   setup: native-platforms/windows-store-javascript/setup
   use: native-platforms/windows-store-javascript/use
 ---
@@ -21,7 +21,7 @@ This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.W
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Js package, running the command:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 And add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element:
 

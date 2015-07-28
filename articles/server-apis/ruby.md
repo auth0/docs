@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/ruby/dependancies
+  dependencies: server-apis/ruby/dependencies
   setup: server-apis/ruby/setup
   use: server-apis/ruby/use
 ---
@@ -24,7 +24,7 @@ You need to add the jwt dependency.
 
 Open your Gemfile and add the following:
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Validate JWT token
 

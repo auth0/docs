@@ -7,7 +7,7 @@ lodash: true
 tags:
   - quickstart
 snippets:
-  dependancies: server-apis/java/dependancies
+  dependencies: server-apis/java/dependencies
   use: server-apis/java/use
 ---
 
@@ -31,7 +31,7 @@ You need to add the `java-jwt` and `commons-codec` dependencies.
 
 For that, you can just add them to your `pom.xml` if you're using maven.
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 ### 2. Add JWT Validation filter
 

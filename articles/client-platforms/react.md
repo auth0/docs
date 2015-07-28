@@ -6,7 +6,7 @@ image: //auth0.com/lib/platforms-collection/img/react.png
 tags:
   - quickstart
 snippets:
-  dependancies: client-platforms/react/dependancies
+  dependencies: client-platforms/react/dependencies
   setup: client-platforms/react/setup
   use: client-platforms/react/use
 ---
@@ -31,7 +31,7 @@ snippets:
 
 ### 1. Adding the Auth0 scripts and setting the right viewport
 
-@@snippet(meta.snippets.dependancies)@@
+@@snippet(meta.snippets.dependencies)@@
 
 We're including the Auth0 lock script to the `index.html`
 
