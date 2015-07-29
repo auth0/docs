@@ -18,25 +18,25 @@ This document aims to describe the major differences between Auth0's API v1 and 
 | [GET /api/users](/api/v1#!#get--api-users)      | None | Available as [GET /api/v2/users](/api/v2#!/users/get_users) |
 |  [GET /api/users?search={criteria}](/api/v1#!#get--api-users-search--criteria-)  | Changed parameter and syntax      |  Implemented using Elastic Search. Documentation [here](/api/v2#!/users/get_users).  |
 | [GET /api/users/{user\_id}](/api/v1#!#get--api-users--user_id-) | None      |  Available as   [GET /api/v2/users/{id}](/api/v2#!/users/get_users_by_id). Also accepts `v2\_id`. |
-| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Not available      |  Will be available as part of user search with `connection` parameter. |
-| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Not available      |  Will be available as part of user search through `connection` criteria. |
+| [GET /api/connections/{connection}/users](/api/v1#!#get--api-connections--connection--users) | Not available      |  TBD. |
+| [GET /api/connections/{connection}/users?search={criteria}](/api/v1#!#get--api-connections--connection--users-search--criteria-) | Not available |  TBD. |
 | [GET /api/enterpriseconnections/users?search={criteria}](/api/v1#!#get--api-enterpriseconnections-users-search--criteria-) | Changed to use search      |  Available using `q=identities.isSocial:false AND NOT identities.provider:'auth0'` and `search_engine=v2` as query string. It is possible to add other conditions things to the search. Documentation [here](/api/v2#!/users/get_users). |
 | [GET /api/socialconnections/users?search={criteria}](/api/v1#!#get--api-socialconnections-users-search--criteria-) |  Changed to use search      |  Available using `q=identities.isSocial:true` and `search_engine=v2` in the query string. It is possible to add other conditions things to the search. Documentation [here](/api/v2#!/users/get_users). |
-| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available      |  Will be available as part of user search through `client` criteria. |
+| [GET /api/clients/{client-id}/users](/api/v1#!#get--api-socialconnections-users-search--criteria-) | Not available      |  Won't be available. |
 | [POST /api/users](/api/v1#!#post--api-users) | None      |  Available as [POST /api/v2/users](/api/v2#!/users/post_users). |
-| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available      |   Still to be implemented.. |
-| [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | Not available      |   Still to be implemented. |
-| [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | Not available      |  Still to be implemented. |
-| [POST /api/users/{user\_id}/public\_key](/api/v1#!#post--api-users--user_id--publickey) | Not available      |  Still to be implemented. |
+| [POST /api/users/{user\_id}/send\_verification\_email](/api/v1#!#post--api-users--user_id--send_verification_email) | Not available      |   Still to be implemented. |
+| [POST /api/users/{user\_id}/change\_password\_ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) | None      |   Available as [POST /api/v2/tickets/password-change](/api/v2#!/tickets/post_password_change). |
+| [POST /api/users/{user\_id}/verification\_ticket](/api/v1#!#post--api-users--user_id--verification_ticket) | None      |  Available as [POST /api/v2/tickets/email-verification](/api/v2#!/tickets/post_email_verification). |
+| [POST /api/users/{user\_id}/public\_key](/api/v1#!#post--api-users--user_id--publickey) | Keys are created for a device, not a user. |  Available as [POST /api/v2/device-credentials](/api/v2#!/Device_Credentials/post_device_credentials). |
 | [PUT /api/users/{user\_id}/email](/api/v1#!#put--api-users--user_id--email) | Removed      |  Available as [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id). Also accepts `v2_id`. |
-| [PUT /api/users/{user\_id}/metadata](/api/v1#!#put--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id). Also accepts `v2\_id`. |
+| [PUT /api/users/{user\_id}/metadata](/api/v1#!#put--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id). Also accepts `v2_id`. |
 | [PUT /api/users/{user\_id}/password](/api/v1#!#put--api-users--user_id--password) | Removed      |  Available as [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id). Also accepts `v2_id`. |
 | [PUT /api/users/{email}/password](/api/v1#!#put--api-users--email--password) | Removed      | Endpoints only accept ids, not strings. |
-| [PATCH /api/users/{user\_id}/metadata](/api/v1#!#patch--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id). Also accepts `v2\_id`. |
+| [PATCH /api/users/{user\_id}/metadata](/api/v1#!#patch--api-users--user_id--metadata) | Removed      |  Available as [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id). Also accepts `v2_id`. |
 | [DELETE /api/users](/api/v1#!#delete--api-users) | None      |  Available as [DELETE /api/v2/users](/api/v2#!/users/delete_users). |
 | [DELETE /api/users](/api/v1#!#delete--api-users--user_id-) | None      |  Available as [DELETE /api/v2/users/{id}](/api/v2#!/users/delete_users_by_id). Also accepts `v2_id`. |
-| [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Not available      |  Still to be implemented. |
-| [DELETE /api/users/{user\_id}/public_key?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Not available      |  Still to be implemented. |
+| [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials.  |  Available as [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id). |
+| [DELETE /api/users/{user\_id}/public_key?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials.      |  Available as [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id). |
 
 ### Client endpoints
 | v1 Endpoint      | Change        | In v2  |
@@ -56,6 +56,17 @@ This document aims to describe the major differences between Auth0's API v1 and 
 | [POST /api/connections](/api/v1#!#post--api-connections)      | Added `enabled_clients` property | Available as [POST /api/v2/connections](/api/v2#!/connections/post_connections). |
 | [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-)      | Not available. Changed `connection-name` to `id` | Available as [PATCH /api/v2/connections/{id}](/api/v2#!/connections/patch_connections_by_id). |
 | [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-)     | Changed `connection-name` to `id` | Available as [DELETE /api/v2/clients/{id}](/api/v2#!/connections/delete_connections_by_id). |
+
+### Rules endpoints
+| v1 Endpoint      | Change        | In v2  |
+| ------------- |-------------| -----|
+| [GET /api/rules](/api/v1#!#get--api-rules-) | None | Available as [GET /api/v2/rules](/api/v2#!/rules/get_rules). |
+| [POST /api/rules](/api/v1#!#post--api-rules)      | None | Available as [POST /api/v2/rules](/api/v2#!/rules/post_rules-). |
+| [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-)      | Using `{id}` instead of name | Available as [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id). |
+| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Using `{id}` instead of name | Available as [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id). |
+
+### Logs endpoints
+Have not been implemented in API v2. We first need to index logs in Elastic Search.
 
 ## Authentication mechanism
 Auth0's API v1 required consumers to send an `access_token` which was obtained by performing [`POST /oauth/token`](/api/v1#!#post--oauth-token) request and sending the `clientId` and `clientSecret`. All subsequent request included the `access_token` using the **Authorization** header:
@@ -180,7 +191,7 @@ In API v2 we simplified this to only have [`PATCH /api/v2/users/{id}`](/api/v2#!
 ### All endpoints work with ids
 Endpoints such as [`PUT /api/users/{email}/password`](/api/v1#!#put--api-users--email--password) will no longer be available.
 
-All endpoints will receive an identifier. This will particularly affect the **Rules** and **Connections** endpoints once implemented.
+All endpoints will receive an identifier. This particularly affects the **Rules** and **Connections**.
 
 ### Improved input validation and error messages
 All endpoints in API v2 use [JSON schemas](http://json-schema.org) to validate their input and descriptive error messages are returned in case a schema's constraints are not met.
