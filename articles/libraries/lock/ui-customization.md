@@ -63,7 +63,7 @@ lock.getClient().getSSOData(true, function (err, ssoData) {
 
 ### Order of definition
 
-Auth0 Lock inserts it's CSS definitions in the `head` node of the HTML Document and it does at the very last. So, in order to override the Lock's main styles you must insert your CSS in the `body` node, right after the `<script>` tag definition for the Auth0 Lock inclusion:
+Auth0 Lock inserts it's CSS definitions in the `head` node of the HTML Document and it does this at the very end. So, in order to override the Lock's main styles you must insert your CSS in the `body` node, right after the `<script>` tag definition for the Auth0 Lock inclusion:
 
 ```html
 <script src="https://cdn.auth0.com/js/lock-6.min.js"></script>
