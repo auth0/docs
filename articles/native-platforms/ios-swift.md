@@ -125,7 +125,7 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 }
 ```
 
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #4__
+> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #5__
 
 **IMPORTANT**: Before you continue to the next section, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](@@uiURL@@/#/connections/social)
 
