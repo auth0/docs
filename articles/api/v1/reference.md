@@ -5,7 +5,7 @@
 	https://@@account.namespace@@/api
 
 ###Authentication
-Each API request must include an access token, either inside the query string...
+Each API request must include an access token, either inside the query string:
 
 	https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
 
@@ -27,7 +27,7 @@ The response body of this POST is a JSON object:
 		'token_type':'bearer'
 	}
 
-Here's a simple example using `curl`:
+Here is a simple example using `curl`:
 
 	curl https://@@account.namespace@@/oauth/token --data "client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials"
 
@@ -107,7 +107,7 @@ This script returns all connections:
 
 #####Options
 
-The `options` object returned within the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](@@uiURL@@/#/connections) screen.
+The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](@@uiURL@@/#/connections) screen.
 
 ######ADFS Strategy
 
@@ -234,15 +234,15 @@ To obtain `client_id` and `client_secret` for Office 365 connections, see [o365-
 		scope: []
 	}
 
-To obtain `client_id` and `client_secret` for Microsoft Accounts, see [ms-account-clientid](/ms-account-clientid).
+To obtain `client_id` and `client_secret` for Microsoft Accounts, see [Microsoft Account Client ID](/ms-account-clientid).
 
-####GET a specific Connection
+####Get a specific Connection
 
 	GET https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
 
-####DELETE a connection
-A DELETE operation on the `connections` object will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
+####Delete a connection
+A Delete operation on the `connections` object will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
 
 	DELETE https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
