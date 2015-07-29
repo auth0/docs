@@ -97,13 +97,13 @@ Most of the instructions for setting up a SAML federation start with Service-Pro
 
 An alternative sequence is called Identity-Provider-Initiated Single Sign On where a user first invokes a URL on the Identity Provider and is prompted to authenticate and then is redirected to the Service Provider with a SAML assertion.  This is common in enterprise scenarios where an enterprise sets up a portal with links to outsourced or cloud-hosted applications to ensure users go to the correct application.  In this case the user first goes to the portal URL, which redirects to the IDP, where the user authenticates.  After authentication, the user clicks on links on the portal and their browser is redirected to the Service Provider with a SAML assertion.
 
-### Auth0 as Service Provider
+#### Auth0 as Service Provider
 If Auth0 is acting as a Service Provider, the following is needed to support IDP-Initiated Single Sign On.
 
 * Ensure the IDP includes the connection parameter in the ACS (Assertion Consumer Service) URL.
 * In the connection configuration, use the IDP-Initiated tab to specify the application to which the user will be redirected.
 
-### Auth0 as Identity Provider
+#### Auth0 as Identity Provider
 If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
 
 * In the Apps/APIs -> Addons -> SAML2 WEB APP -> Settings, specify a query parameter can be added at the end of the Application Callback URL, if needed, to indicate where the user should be sent.
@@ -211,6 +211,14 @@ In the "Settings" field, enter a specification for logout callback URL:
 ```
 "logout": { "callback" : "http://your-callback-goes-here" },
 ```
+
+### Selecting between multiple Identity Providers (Auth0 connections)
+
+If you have a multi-tenant application, or even a single-tenant application, that needs to select between multiple Identity Providers (Auth0 connections), this is called Home Realm Discovery. This can be done by programmatically specifying the connection in the call which invokes authentication, or by specifying the email domain(s) for each connection in the connection settings, or by adding custom buttons to the Lock widget.  
+
+Information on how to do each of these options is at:
+
+* [Home Realm Discovery](/hrd)
 
 ## Customizing SAML assertions (Auth0 as IDP)
 
