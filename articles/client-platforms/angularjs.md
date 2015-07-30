@@ -30,6 +30,8 @@ snippets:
 
 ### 1. Add the Auth0 scripts and set the viewport
 
+Add the code below to the `index.html` file to include Auth0's angular module and its dependencies and set the viewport:
+
 @@snippet(meta.snippets.dependencies)@@
 
 ### 2. Add the module dependency and configure the service

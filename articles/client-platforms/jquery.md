@@ -48,6 +48,8 @@ snippets:
 
 ### 1. Add the Auth0 scripts and set the viewport
 
+Add the code below to the `index.html` file to include Auth0's jQuery module and its dependencies and set the viewport:
+
 @@snippet(meta.snippets.dependencies)@@
 
 ### 2. Configure the Auth0Lock
