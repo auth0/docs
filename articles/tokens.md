@@ -4,34 +4,29 @@
 
 This document is designed to clarify and disambiguate the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.  
 
-First there are a couple different classes of tokens (Need better description)
-JWT - self contained
-Opaque token with identifier(s) that tie to information in a server’s persistent storage
+First there are a couple different categories of tokens 
+
+* JSON Web Tokens (JWT) - These are tokens that conform to the JSON Web Token standard and contain information about an identity.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+* Opaque tokens - Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation.
 
 * The Auth0 id_token
-* The Auth0 access_token (Auth0 APIv1 token?)
+* The Auth0 access_token (Auth0 APIv1 token)
 * Identity Provider access tokens from other providers
-* The refresh token
-* A Delegation token - 
-* The Auth0 APIv2 Token -
+* The Auth0 refresh token
+* A Delegation token 
+* The Auth0 APIv2 Token 
 
 
-In the logs file, (authN via SAML connection) I’m seeing an entry for “exchange” and it says exchange of “authorization code for access token” - Is the “authorization code” that is referenced there yet another “token”?
+(Editing question: In the logs file, (authN via SAML connection) there is an entry for “exchange” and it says exchange of “authorization code for access token” - Is the “authorization code” that is referenced there yet another “token” that should be documented here?)
 
 ### id_token (JWT)
 
 The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a mechanism for transferring claims about a user from Identity Providers, who are authoritative sources of such information, to other relying parties, such as websites or web services, also known as service providers, who need such information.  The claims included in a JWT can be basic profile attributes such as a name or email address as well as security information such as a group membership or the support plan a user is entitled to use.
 
 ### Auth0 access token
-The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 APIv1 and the /userinfo endpoint within the Auth0 Authentication API.  (clarify which API - you can’t call apiv2 with access token . We often say “API” but there are 3!.  APIv1 explorer page calls it “Auth0 API”.  APIv2 explorer page has no title at all.  Authentication API explorer calls it “Authentication API”.  The term “Management API”  is a good name but does not seem to be used anywhere.
-
-
-To update app_metadata - have to use apiv2 access token (which is also a JWT)
-apiv2 - must use apiv2 token.  The access token from authN can’t be used for apiv2. 
-id_token can be used for some parts of user profile, namely read profile for the id in id_token or or update the user_metadata subset of your own profile.  
-The authN access token can be used for apiv1 or some endpoints in authN api.
+The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API ( APIv1) and the /userinfo endpoint within the Auth0 Authentication API.  
 
 ### Identity Provider access tokens 
 When a user authenticates via Auth0 with another social provider's authentication service, such as Facebook or LinkedIn, the social provider will return an access token that can be used by the client program to call that social provider's API.
@@ -40,10 +35,10 @@ When a user authenticates via Auth0 with another social provider's authenticatio
 The Refresh token is a long-lived token that is used to obtain a new id_token after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in everytime the user uses the mobile app.  
 
 ### Delegation tokens
-The Auth0 id_token can be exchanged for another token, called a Delegation token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.  
+The Auth0 `id_token` can be exchanged for another token, called a Delegation token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.  
 
 ### Auth0 APIv2 token
-There is also a token required to call the Auth0 APIv2.  This token is for a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant. 
+The Auth0 APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant. 
 
 The following sections will discuss each token in greater detail and provide information on how to use each.
 
@@ -94,19 +89,19 @@ https://github.com/auth0/auth0.js
 
 
 ###Validity
-The id_token is valid for 10 hours (36000 seconds) by default.  The expiration of this token can be set in the `Apps/APIs` -> Settings screen using the `JWT expiration` field.
+The `id_token` is valid for 10 hours (36000 seconds) by default.  The expiration of this token can be set in the `Apps/APIs` -> Settings screen using the `JWT expiration` field.
 
 ###Renewing the token
 
-A new id_token can be obtained using an existing, unexpired id_token or by using a refresh token and the /delegation endpoint.  
+A new `id_token` can be obtained using an existing, unexpired `id_token` or by using a refresh token and the `/delegation` endpoint.  
 
-To use an existing, unexpired id_token to obtain a new one, use the renewIdToken function within auth0.js library as shown at:
+To use an existing, unexpired `id_token` to obtain a new one, use the `renewIdToken` function within auth0.js library as shown at:
 https://github.com/auth0/auth0.js#refresh-token
 
-To get a new id_token when the existing id_token has expired, use a refresh token to get a new id token, as explained in the Refresh Token section below and also at:
+To get a new `id_token` when the existing `id_token` has expired, use a refresh token to get a new `id token`, as explained in the Refresh Token section below and also at:
 https://auth0.com/docs/refresh-token
 
-The auth0.js library can also be used to refresh an id token as shown at:
+The auth0.js library can also be used to refresh an `id token` as shown at:
 https://github.com/auth0/auth0.js#refresh-token
 
 ###Termination of tokens
@@ -122,8 +117,9 @@ https://auth0.com/docs/auth-api#user-profile
 The `id_token` can also be used to call the /delegation endpoint within the Auth0 authentication API to obtain another token for another API.
 https://auth0.com/docs/auth-api#delegated
 
-The id token can also be used to call other APIs. 
-(come back to this.  Make sure the samples we provide help customers do this properly.   Should each API have its own token?  Better to exchange 1st token to get a different token specific to the API.  )
+The `id_token` can also be used to call other APIs. 
+(Note - provide samples that illustrate best practices - should each API require a different token? e.g. in sample - Better to exchange first token to get a different token specific to the API.  )
+
 https://auth0.com/docs/sequence-diagrams
 
 Further examples of using the id_token to get tokens for another API are at:
@@ -133,16 +129,16 @@ https://github.com/auth0/auth0.js#delegation-token-request
 This section contains pointers on best practices related to the `id_token`.
 
 ####Token Validation
-Single Page Applications or mobile apps do not need to validate the JWT as they just pass it to something else.  Server side APIs that receive the JWT, however, do need to validate  it. There are server side APIs to do such validation.  One example for node.js is:
+Single Page Applications or mobile apps do not need to validate the JWT as they just pass it to something else.  Server side APIs that receive the JWT, however, do need to validate  it. There are server-side APIs to do such validation.  One example for node.js is:
 https://github.com/auth0/node-jsonwebtoken
 
-Could mention this blog post?
+A blog post with advice about vulnerabilities to avoid in use of JWTs.
 https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/
 If there is any sensitive information included in the JWT, it should be encrypted, but the need for this is not common.
 
 
 ## Auth0 access token
-The Auth0 access token, usually called `access_token` in the code samples, is an opaque string which is returned by calls that invoke the Auth0 authentication process and is only used to call the Auth0 API.  The Auth0 access token does not contain any claims, cannot be decoded, and is not signed.  
+The Auth0 access token, usually called `access_token` in the code samples, is an opaque string which is returned by calls that invoke the Auth0 authentication process and is only used to call the Auth0 API.  The Auth0 access token does not contain any claims, cannot be decoded, does not conform with any standard and is not signed. 
    
 https://auth0.com/docs/libraries/auth0js
 
@@ -179,14 +175,14 @@ Once issued, Auth0 access tokens can not be revoked.
 
 ###Uses
 
-The Auth0 access token is used to call the Auth0 API.
+The Auth0 access token is used to call the Auth0 Management APIv1.  This version of the Auth0 Management API has been deprecated and should no longer be used.
 
-It can be used to call the /userinfo endpoint within the authentication API to get user profile information.
+It can also be used to call the /userinfo endpoint within the authentication API to get user profile information.
 https://auth0.com/docs/auth-api#user-profile
 
 ###Best practices
 ####Token Validation
-The Auth0 access token is only used to call Auth0 APIv1 and as such Auth0 is the only entity that needs to validate this token.  Applications do not need to validate this token in any way.
+The Auth0 access token is only used to call Auth0 Management APIv1 and as such Auth0 is the only entity that needs to validate this token.  Applications do not need to validate this token in any way.
 
 
 ## Identity Provider Access Tokens
@@ -194,11 +190,11 @@ Third Party Access Tokens are issued by third party social providers, such as Fa
  
 https://auth0.com/docs/libraries/auth0js
 
-###How to get third party access tokens
+###How to get Identity Provider access tokens
 
-Third party access tokens can be obtained in one of two ways.  First, if a user authenticates to a third party, social authentication provider, an access token for that third party provider will be returned in the first element of the identities array within the user profile object returned by Auth0.  
+Identity Provider access tokens can be obtained in one of two ways.  First, if a user authenticates to a social Identity Provider, such as Facebook, an Identity Provider access token for that social Identity Provider will be returned in the first element of the `identities` array within the user profile object returned by Auth0.  
 
-For example, if authentication is invoked via a call to the Lock widget’s .show method, the following code would be used to put the third party access token into a variable called `thirdPartyAccessToken`. .
+For example, if authentication is invoked via a call to the Lock widget’s .show method, the following code would be used to put the Identity Provider access token into a variable called `identityProviderAccessToken`. .
 
 ```
     lock.show({
@@ -207,19 +203,19 @@ For example, if authentication is invoked via a call to the Lock widget’s .sho
         scope: 'openid name email'
       }
     }, function(err, profile, token) {
-        thirdPartyAccessToken = profile.identities[0].access_token;
+        identityProviderAccessToken = profile.identities[0].access_token;
     });
 ```
 
-Examples of the identities array and profiles as returned by various social providers are at:
+Examples of the `identities` array and profiles as returned by various social providers are at:
 https://auth0.com/docs/user-profile
 
 
-###How to control contents of third party access tokens
-The contents of third party access tokens will vary by the issuing provider.  
+###How to control contents of Identity Provider access tokens
+The contents of third party access tokens will vary by the issuing Identity Provider.  
 
 ###Validity
-The validity period for third party access tokens will vary by the issuing provider.
+The validity period for third party access tokens will vary by the issuing Identity Provider.
 
 ###Renewing the token
 There is no standard way to renew Identity Provider access tokens through Auth0.  The mechanism, if available, for renewal of Identity Provider access tokens would vary by Identity Provider and be handled by each Identity Provider.
@@ -229,7 +225,7 @@ There is no standard way to renew Identity Provider access tokens through Auth0.
 The ability to terminate Identity Provider access tokens is up to each individual Identity Provider.
 
 ###Uses
-The Identity Provider access token would be used to call an API offered by the provider that issued the token.  For example, an access token issued after authentication to Facebook could be used to call the Facebook Graph API.
+The Identity Provider access is used to call an API offered by the Identity Provider that issued the token.  For example, an access token issued after authentication to Facebook could be used to call the Facebook Graph API.
 
 Additional information is at:
 https://auth0.com/docs/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api
@@ -237,10 +233,10 @@ https://auth0.com/docs/what-to-do-once-the-user-is-logged-in/adding-scopes-for-a
 
 ###Best practices
 ####Validation
-In general, Identity Provider access tokens would be passed to the issuing provider, and the issuing provider would be responsible for validation. 
+In general, Identity Provider access tokens are passed to the issuing provider, and the issuing provider is responsible for validation of the token. 
 
 ## Refresh Token
-The Auth0 refresh token is used to get a new id_token without requiring the user to re-authenticate.  This is primarily useful for mobile applications that are installed on a device.  
+The Auth0 refresh token is used to get a new `id_token` without requiring the user to re-authenticate.  This is primarily useful for mobile applications that are installed on a device.  
 
 More information on the refresh token is at:
 https://auth0.com/docs/refresh-token
@@ -256,7 +252,7 @@ https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md
 https://github.com/auth0/auth0.js#login
 
 ###How to control contents of Auth0 refresh token
-The Auth0 refresh token can be issued and revoked for any combination of application, user and device.   The client application is specified in the call that invokes the Auth0 authentication sequence, and the user and device will be the user that authenticates and the device used at the time of authentication.   There is no ability to further influence the contents of the Auth0 refresh token besides the application, user and device for which it is issued.
+The Auth0 refresh token can be issued and revoked for any combination of application, user and device.   The client application is specified in the call that invokes the Auth0 authentication sequence, and the user and device are the user that authenticates and the device used at the time of authentication.   There is no ability to further influence the contents of the Auth0 refresh token besides the application, user and device for which it is issued.
 
 ###Validity
 The refresh token is valid indefinitely, but it can be revoked.  See the Termination section below.
@@ -275,14 +271,14 @@ Further information is at:
 https://auth0.com/docs/refresh-token#2
 
 ###Uses
-The Refresh Token is used to obtain a new Auth0 id_token.  This can be done with the /delegation endpoint in the Auth0 Authentication API.  This endpoint is documented at:
+The Refresh Token is used to obtain a new Auth0 `id_token`.  This can be done with the /delegation endpoint in the Auth0 Authentication API.  This endpoint is documented at:
 https://auth0.com/docs/auth-api#delegated
 
 An example of this call is included at:
 https://auth0.com/docs/refresh-token#3
 
 
-To get a new id_token when the existing id_token has expired, use a refresh token to get a new id token, as explained at:
+To get a new `id_token` when the existing `id_token` has expired, use a refresh token to get a new id token, as explained at:
 https://auth0.com/docs/refresh-token
 
 The auth0.js library can also be used to refresh an id token as shown at:
@@ -290,19 +286,17 @@ https://github.com/auth0/auth0.js#refresh-token
 
 ###Best practices
 ####Validation
-The refresh token is passed to Auth0 and Auth0 will perform any necessar
+The refresh token is passed to Auth0 and Auth0 will perform any necessary validation.
 
 ## Delegation Tokens
 Delegation tokens are tokens used to call another API.  
-The Auth0 id_token can be exchanged for another token, called a Delegation token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
+The Auth0 `id_token` can be exchanged for another token, called a Delegation token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
 
-The type of the delegation token will vary depending on the target API with which it will be used.  For example, if it will be used for an application/API registered in Auth0, it will be a JWT token.  If the delegation token is for an application AddOn, it will vary by provider.  If issued for Azure blob storage, it will be a SAS (Shared Access Signature).  If the delegation token is for the Firebase add on , it will be a JWT.
+The type of the delegation token will vary depending on the target API with which it will be used.  For example, if it will be used for an application/API registered in Auth0, it will be a JWT token.  If the delegation token is for an application AddOn, it will vary by provider.  For exampke, if issued for Azure blob storage, it will be a SAS (Shared Access Signature).  If the delegation token is for the Firebase add on , it will be a JWT.
 https://github.com/auth0/auth0.js#delegation-token-request
 
-Has to be for another app or an addon (but not SAML or WS-Fed addon), have to have enabled it.  Must have set up trust by getting some kind of  secret from the AddOn, and entering it into the configuration for the Addon within Auth0.  (This may be more appropriate in a ‘task’ oriented doc rather than this high level doc on tokens)
-
 ###How to get a delegation token
-The id_token for an authenticated user can be used with the /delegation endpoint to request a delegation token for a particular target.  The target can be either another application/API registered in Auth0 or an application Addon configured in Auth0.  The Addons for which this can be done are those that are not SAML or WS-Fed Addons and the Addon must be configured in Auth0 with secrets obtained from the Addon service, such as Firebase.  Instructions for setting up the secrets are available from the Addon configuration page for each Addon.  The secrets are used to sign the delegation token so that the Addon API can validate and trust the token.
+The `id_token` for an authenticated user can be used with the /delegation endpoint to request a delegation token for a particular target.  The target can be either another application/API registered in Auth0 or an application Addon configured in Auth0.  The Addons for which this can be done are those that are not SAML or WS-Fed Addons and the Addon must be configured in Auth0 with secrets obtained from the Addon service, such as Firebase.  Instructions for setting up the secrets are available from the Addon configuration page for each Addon.  The secrets are used to sign the delegation token so that the Addon API can validate and trust the token.
 
 Information on the delegation endpoint is at:
 https://auth0.com/docs/auth-api#delegated
@@ -319,7 +313,7 @@ For APIs registered as Addons in Auth0, the validity period of the token will va
 
 
 ###Renewal of a delegation token
-When a delegation token expires, the delegation endpoint can be used to obtain a token
+When a delegation token expires, the delegation endpoint can be used to obtain a token.
 
 ###Terminating a delegation token
 The ability to revoke a delegation token will vary by individual Addon.  The documentation available from the provider of any Addon API should be consulted for further information on whether a token can be revoked and if so, how to do it.
@@ -342,9 +336,6 @@ Tokens should be issued with a short timeframe for expiration, where configurabl
 
 The Auth0 APIv2 token is required to call v2 of the Auth0 Management API, frequently referred to as APIv2.  This token is used by a specific tenant in Auth0 to call Auth0 APIv2 to access or update records for that tenant.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant. 
 
-
-To update app_metadata - have to use apiv2 access token 
-
 ###How to get a APIv2 token
 
 An Auth0 APIv2 token can be generated on the Auth0 APIv2 explorer page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant api key/secret.  
@@ -363,8 +354,6 @@ The APIv2 token will be issued for a particular tenant.  To have a token issued 
 ###Validity
 There is no specific validity period for an APIv2 token.  An APIv2 token can be built programmatically, as desired, by a client.
 
-This seems a bit fishy to me… it’s conceivably good forever?
-
 ###Renewal of an APIv2 token
 There is no mechanism for renewing an APIv2 token.  A new token should be created whenever it is needed.
 
@@ -372,6 +361,8 @@ There is no mechanism for renewing an APIv2 token.  A new token should be create
 There is no mechanism for terminating an APIv2 token.
 
 ###Uses
+The Auth0 APIv2 access token is used to call the Auth0 Management APIv2.  This token is required to update the app_metadata portions of the user profile.
+
 ###Best Practices
 
 
@@ -399,10 +390,12 @@ See APIv2 - User endpoints
 https://auth0.com/docs/api/v2
 
 ##Getting user profile info from other providers
-Some basic user profile information from third party providers is made available in the Auth0 user profile object.    Does one ever need to call 3rd party authentication provider for more?
+Some basic user profile information from third party providers is made available in the Auth0 user profile object.   
 
 ##Calling the Auth0 APIv2
-The Auth0 APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 APIv2 endpoints.  In other words, the id_token and access token discussed above are not used to call Auth0 APIv2.  
+The Auth0 APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 APIv2 endpoints.   
+
+(Note: Could the web application also generate an Auth0 APIv2 access token?)
 
 Documentation on the available endpoints in Auth0 APIv2 are at:
 https://auth0.com/docs/api/v2
@@ -414,24 +407,17 @@ https://auth0.com/docs/auth-api
 ##Calling the API of the social provider through which the user authenticated
 https://auth0.com/docs/what-to-do-once-the-user-is-logged-in/index
 
-##Calling some other API, like an API developed by a customer
-There is mention of this at below URL, but not complete info - need better sample.  Jared says difficult to do this properly, so we better have a proper example.
+##Calling an API developed by a customer
+This is best done by registering the API in Auth0 and obtaining a delegation token with which to call the API.
 https://auth0.com/docs/sequence-diagrams
-
-#Calling the Resource Owner endpoint
-
-A few more random notes - do they belong here?
-response type=code - we return a code, app calls our auth0 api to get token to access
-   exchange code to get token.
-   you get back id_token and access_token.
 
 
 
 Useful References for Further Reading
-JSON Web tokens in Auth0.  Calls the id_token the JWT.  No mention of id_token.  Mentions proprietary nonsense for Microsoft stuff.
+An overview explanation of JSON Web Tokens
 https://auth0.com/docs/jwt
 
-Nice writeup on the contents of a JSON Web Token
+A writeup on the contents of a JSON Web Token
 https://scotch.io/tutorials/the-anatomy-of-a-json-web-token
 
 Wikipedia page on JSON Web Tokens
@@ -443,35 +429,31 @@ https://tools.ietf.org/html/rfc7519
 Debugger for viewing JSON Web Tokens
 http://jwt.io/
 
+The UI-less library for node.js clients of Auth0
 https://auth0.com/docs/libraries/auth0js
 
-WEb app vs api, cookies vs tokens
+Discussion of web apps vs apis, cookies vs tokens
 https://auth0.com/docs/apps-apis
 
 Blog Post: Cookies vs Tokens
 https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/
-- session info stored in cookie, ties to session with info on a server
-- token - sent in authorization header with each call to API
-   (you want the token to be something std like JWT)
 
 Blog Post: Ten things about tokens
 https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/
 
+Describes the JWT expiration
 https://auth0.com/docs/applications
-Describes the "JWT expiration" and where set.  Seems to refer to access token but calls it "JWT expiration" even though access token isn't in JWT format?
 
-https://auth0.com/docs/auth-api
 doc on authentication api - /authorize, /userinfo, /tokeninfo, delegation, impersonation etc.
+https://auth0.com/docs/auth-api
 
+Discussion of how to link accounts and what that means for user profile and tokens of logged-in user.
 https://auth0.com/docs/link-accounts
-Link accts - mentions the multiple elements in identities array.  Getting access_token of logged in user.
 
+Discussion of clearing cookies set by auth0, use of the returnTo parm
 https://auth0.com/docs/logout
-clearing cookies set by auth0, returnTo parm, doesn't mention deleting token/session which is mentioned in a sample somewhere.  Find that sample.
 
-https://auth0.com/docs/custom-authentication
-This is about a custom authN connector.  Doesn't say anything about tokens.  Does it need to - e.g. any special security issues with this?
-
+(Find the sample and include link here that shows how to terminate a session)
 
 Blog posts related to tokens
 Using JWTs as API keys
@@ -480,9 +462,8 @@ https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/
 Blacklisting JWTs
 https://auth0.com/blog/2015/03/10/blacklist-json-web-token-api-keys/
 
-Blog Post on vulnerabilities in use of JWT’s by libraries - worth including?
+Blog Post on vulnerabilities in use of JWT’s by libraries 
 https://auth0.com/blog/2015/03/31/critical-vulnerabilities-in-json-web-token-libraries/
-
 
 Some discussion of authorization and scopes here
 https://auth0.com/docs/api/v2/changes
