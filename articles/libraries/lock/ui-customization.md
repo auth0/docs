@@ -31,7 +31,7 @@ Since all `Lock` animations are CSS animations the way to disable them is throug
 
 ### Adding a new UI element using JavaScript
 
-This code adds a new button to the widget. Since the widget runs as part of the same DOM of the page, you can maniuplate it in the way you want.
+This code adds a new button to the widget. Since the widget runs as part of the same DOM of the page, you can manipulate it in the way you want.
 
 ![](https://cdn.auth0.com/img/lock-add-btn.png)
 
