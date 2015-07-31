@@ -209,7 +209,7 @@ For example, if authentication is invoked via a call to the Lock widget’s .sho
     }, function(err, profile, token) {
         thirdPartyAccessToken = profile.identities[0].access_token;
     });
-
+```
 
 Examples of the identities array and profiles as returned by various social providers are at:
 https://auth0.com/docs/user-profile
