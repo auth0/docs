@@ -32,9 +32,12 @@ Colons are useful when you are directly referring to an example, such as "here i
 <b>Adjectives</b>
 Hyphens are used between adjectives and the verb they modify if and only if the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
 
-<b>Periods and quotes</b>
+<b>Punctuation and quotes</b>
 In American English, but not British English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with perionds inside the quotation marks," you would construct the quotation as you see here, with the comma inside the quotation marks.
 If this becomes an issue when quoting code because the code does not include the punction mark in question, do not place the punctuation mark inside the quotes.
+
+##Formatting##
+Do not use block quote style for notes or warnings. It makes the note or warning too prominent.
 
 
 
