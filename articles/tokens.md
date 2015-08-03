@@ -75,6 +75,12 @@ lock.show({
 The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The responseType should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the /authorize endpoint here:
 https://auth0.com/docs/auth-api
 
+The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented at:
+https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context
+
+There is also a sample for altering scopes in a Rule at:
+https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md
+
 Additional information on the `id_token` is at:
 https://auth0.com/docs/jwt
 
@@ -90,6 +96,14 @@ https://github.com/auth0/auth0.js
 
 ###Validity
 The `id_token` is valid for 10 hours (36000 seconds) by default.  The expiration of this token can be set in the `Apps/APIs` -> Settings screen using the `JWT expiration` field.
+
+The validity period of the token can be altered via Auth0 Rules using the context.jwtConfiguration.lifetimeInSeconds object as documented at:
+https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context
+
+For example, the following code in a Rule would set the id_token JWT expiration to 1 hour.
+```
+context.jwtConfiguration.lifetimeInSeconds = 3600;
+```
 
 ###Renewing the token
 
