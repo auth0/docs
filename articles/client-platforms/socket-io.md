@@ -13,11 +13,11 @@ snippets:
 
 ## Socket.io Tutorial
 
-When using Realtime frameworks like Socket.io, Authentication is something extremely important. If you don't handle it correctly, a malicious user could hijack the stream and use it to get and send any information he'd want.
+When using Realtime frameworks like Socket.io, authentication is very important. If handled incorrectly, improper authentication could allow a malicious user to hijack the stream and obtain all user information.
 
-In order to avoid that, you can configure Socket.io to work with JWT and particularly with Auth0.
+For best security, configure Socket.io to work with JWT and particularly with Auth0.
 
-### Instructions
+Here is sample project that uses [Express](http://expressjs.com/), and [Socket.io](http://socket.io) and handles authentication using Json Web Tokens (JWT).
 
 <div class="package" style="text-align: center;">
   <blockquote>
@@ -27,18 +27,16 @@ In order to avoid that, you can configure Socket.io to work with JWT and particu
   </blockquote>
 </div>
 
-Let's look at a simple sample that uses [express](http://expressjs.com/), [socket.io](http://socket.io) and handles authentication using Json Web Tokens (JWT).
+### Server-side code
 
-### Server Side
-
-Code speaks by itself. Focus on the `/login` and the usage of `socketioJwt.authorize`.
+Create a `token` containing the user's profile information:
 
     var jwt = require('jsonwebtoken');
     // other requires
 
     app.post('/login', function (req, res) {
 
-      // TODO: validate the actual user user
+      // TODO: validate the user
       var profile = {
         first_name: 'John',
         last_name: 'Doe',
@@ -46,7 +44,7 @@ Code speaks by itself. Focus on the `/login` and the usage of `socketioJwt.autho
         id: 123
       };
 
-      // we are sending the profile in the token
+      // send the profile in the token
       var token = jwt.sign(profile, jwtSecret, { expiresInMinutes: 60*5 });
 
       res.json({token: token});
@@ -54,7 +52,7 @@ Code speaks by itself. Focus on the `/login` and the usage of `socketioJwt.autho
 
     var server = http.createServer(app);
 
-Then the socket.io server
+For authentication, use the [global authorization callback](https://github.com/LearnBoost/socket.io/wiki/Authorizing) on Socket.io:
 
     var socketioJwt = require('socketio-jwt');
 
@@ -75,16 +73,14 @@ Then the socket.io server
       console.log('listening on http://localhost:9000');
     });
 
-The JWT is signed with the `jwtSecret` which is stored only on the server.
-
-Here we are using the [global authorization callback](https://github.com/LearnBoost/socket.io/wiki/Authorizing) on socket.io. We are also using a simple module we wrote ([socketio-jwt](https://github.com/auth0/socketio-jwt)) to help us with the details of handling the JWT. This module expects the JWT in the querystring during the handshake.
+This example uses a simple module ([socketio-jwt](https://github.com/auth0/socketio-jwt)) for handling JWT. This module expects the JWT in the querystring during the handshake. The JWT is signed with the `jwtSecret` which is stored only on the server.
 
 If the client sends a valid JWT, the handshake completes successfully and the `connection` event is triggered.
 
 
-### Client Side
+### Client-side code
 
-A simple js client side code that uses this server is shown bellow:
+Here is js client-side code that uses the Socket.io server:
 
     function connect_socket (token) {
       var socket = io.connect('', {
@@ -108,4 +104,4 @@ A simple js client side code that uses this server is shown bellow:
       });
     });
 
-As stated before, this is much simpler than using cookies and sessions, and it is much easier to implement across different technologies.
+This method is much simpler than using cookies and sessions, and it is much easier to implement across different technologies.

@@ -19,26 +19,24 @@ tags:
   </blockquote>
 </div>
 
-**Otherwise, if you already have an existing application, please follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 @@includes.callback@@
 
-### 1. Getting started
+### 1. Install the add-on
 
-`auth0-ember-simple-auth` is an add-on for [simple-auth](http://ember-simple-auth.com), which can be installed via [ember-cli](http://www.ember-cli.com).
+Auth0 Ember simple-auth is an add-on for the [simple-auth](http://ember-simple-auth.com) library, and is installed via [ember-cli](http://www.ember-cli.com).
 
-`cd` to your project directory, then run the following command to install both add-ons and their dependencies:
+To install this add-on and its dependencies, `cd` to your project directory and execute the following commands:
 
 ```
 ember install auth0-ember-simple-auth
 ember generate simple-lock
 ```
 
->>> Note: If you're not already using ember-cli, then you may wish to read the handy ember-cli [guide page.](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli)
+__Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
 
-### 2. Configuration
-
-Once you've installed everything, its just a matter of adding some configuration.
+### 2. Configure the add-on
 
 ```js
 // config/environment.js
@@ -55,8 +53,8 @@ ENV['simple-lock'] = {
 }
 ```
 
-> Note: If you're using a content security policy, you'll also need to add `<%= account.namespace %>` to the `connect-src`, and the following entries:
-`https://cdn.auth0.com` to the `font-src` and `script-src` CSP entries.
+If using a content security policy, add 
+`https://cdn.auth0.com` to both the `font-src` and `script-src` contentSecurityPolicy entries and `<%= account.namespace %>` to the `connect-src` entry:
 
 ```js
 // config/environment.js
@@ -68,7 +66,9 @@ ENV['contentSecurityPolicy'] = {
 };
 ```
 
-### 3. Extend your router
+### 3. Extend routes
+
+Extend a route and set [user-configurable options](https://auth0.com/docs/libraries/lock/customization):
 
 ```js
 // app/routes/application.js
@@ -78,7 +78,7 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     sessionRequiresAuthentication: function(){
-      // Check out the docs for all the options:
+      // For a list of user-configurable options, see:
       // https://auth0.com/docs/libraries/lock/customization
 
       // This will launch lock.js in popup mode
@@ -90,7 +90,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 });
 ```
 
-Now that we've mixed in `ApplicationRouteMixin`, all we need to do is add a route for signing in, and a route for where the user will be directed once signed in.
+Add a route for signing in:
 
 ```js
 // app/routes/sign_in.js
@@ -100,6 +100,7 @@ import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-
 export default Ember.Route.extend(UnauthenticatedRouteMixin);
 ```
 
+and add a route for authenticated users:
 
 ```js
 // app/routes/home.js
@@ -110,9 +111,9 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin);
 ```
 
-### 4. Updating your views
+### 4. Login and logout
 
-Now that your router is ready, you'll probably want to add some links so that your users can sign in and out. These routes are handled by the configuration that we added for ember simple auth.
+Add login and logout links. These routes are handled according to the simple-auth configuration settings.
 
 ```handlebars
 {{#if session.isAuthenticated}}
@@ -122,11 +123,11 @@ Now that your router is ready, you'll probably want to add some links so that yo
 {{/if}}
 ```
 
-### 5. You're authenticated!
+### 5. Authenticated user session data
 
-When you authenticate, your application will receive session data from the popup window — Then, session data will be stored in localStorage with a key of `ember_simple_auth:session`. The session object is a JSON object that contains your user profile data, JWT token and access token.
+Once a user is authenticated, session data received from the popup window will be stored in `localStorage` under the `ember_simple_auth:session` key. This session object is a JSON object that contains user profile data, a JWT token and an access token.
 
-You can access this session information in ember templates by using `{{session.secure}}`. So for example, if you wanted to say Hi to the user and show the associated avatar:
+You can access this session information in the ember templates by using `{{session.secure}}`. For example, to say "Hi" and show the user's associated avatar:
 
 ```handlebars
 <div class="user-info">
@@ -136,9 +137,9 @@ You can access this session information in ember templates by using `{{session.s
 </div>
 ```
 
-### 6. Using your JWT token to make API requests
+### 6. Using a JWT token to make API requests
 
-When you want to make an API request, you will need to add the users [JWT token](https://auth0.com/docs/jwt) to an `Authorization` HTTP header:
+To make an API request, add the user's [JWT token](https://auth0.com/docs/jwt) to an `Authorization` HTTP header:
 
 ```js
 fetch('/api/foo', {
@@ -152,12 +153,10 @@ fetch('/api/foo', {
 });
 ```
 
-### 7. You're done!
+### 7. All done!
 
-🙌 You've implemented Sign in & up with Auth0 and Ember.
+You have completed the implementation of Login and Signup with Auth0 and and Ember.
 
-------
+#### Additional information
 
-#### Additional info
-
-To get Additional info on how to use this SDK, check the [readme](http://github.com/auth0/auth0-ember-simple-auth/blob/master/README.md)
+For Additional information on how to use this SDK, see [Auth0 Ember simple auth](http://github.com/auth0/auth0-ember-simple-auth/blob/master/README.md).
