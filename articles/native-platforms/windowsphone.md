@@ -54,9 +54,26 @@ Alternatively, if you want to allow database users to sign in and you have their
 var user = await auth0.LoginAsync("{CONNECTION_NAME}", "{USER_NAME}", "{PASSWORD}");
 ```
 
-### 4. Sit back and relax
+### 4. Use server API if necessary:
+
+```cs
+var client = new HttpClient();
+
+// Accessing public resource
+var response = await client.GetAsync(new Uri("{YOUR API URL}/{PUBLIC RESOURCE}"));
+
+// Accessing secured resource
+// Initialize HTTP request message
+var message = new HttpRequestMessage(HttpMethod.Get, new Uri("{YOUR API URL}/{SECURED RESOURCE}"));
+// Add header so that server can recognize logged in user
+message.Headers.Add("Authorization", "Bearer " + App.Auth0.CurrentUser.IdToken);
+response = await client.SendRequestAsync(message);
+```
+
+### 5. Sit back and relax
 
 Now it's time to sit back and relax. You've implemented log in and signup with Auth0 for your Windows Phone application.
+
 
 ### Additional information
 You can also check out the [Github page](https://github.com/auth0/auth0.windowsphone) access the source code, and additional documentation.
