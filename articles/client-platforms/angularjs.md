@@ -2,6 +2,10 @@
 lodash: true
 title: AngularJS Tutorial
 name: Angular.js
+alias:
+  - angular
+  - angularjs
+language: Javascript
 image: //auth0.com/lib/platforms-collection/img/angular.png
 tags:
   - quickstart
