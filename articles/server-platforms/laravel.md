@@ -24,13 +24,6 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 
 @@snippet(meta.snippets.dependencies)@@
 
-NOTE: Some plugin dependencies are not tagged, so you have to either change the `minimum-stability` to `dev` or you have to add the dependencies manually.
-
-```js
-"adoy/oauth2": "dev-master",
-"firebase/php-jwt" : "~2.2"
-```
-
 ### 2. Enable it in Laravel
 Add the following in the list of the services providers, located in `app/config/app.php`
 
