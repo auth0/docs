@@ -15,7 +15,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/auth0-react/gh-pages/create-package?path=examples/redirect-lock-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-react/gh-pages/create-package?path=examples/redirect-lock-with-api&type=js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -27,25 +27,25 @@ snippets:
 **If you have an existing application, follow the steps below.**
 
 
-@@includes.callback@@
+${includes.callback}
 
 ### 1. Add the Auth0 scripts and set the viewport
 
 Add the code below to the `index.html` file to include the Auth0 script and set the viewport:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Auth0Lock
 
 To have your app work with Auth0, configure Auth0Lock by creating an instance of the service in the `componentWillMount` lifecycle event of your component:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
 <<<<<<< HEAD

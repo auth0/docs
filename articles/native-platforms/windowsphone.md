@@ -16,7 +16,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
         <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -31,18 +31,18 @@ snippets:
 
 You can either run the following command or install it via the **Package Manager** UI.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Instantiate the Auth0 client
 Provide your domain and application's **Client ID** as parameters when creating the client instance:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Allow users to log in
 
 The simplest way is to simply call:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 If you want to specify a particular connection you can do that using:
 ```cs

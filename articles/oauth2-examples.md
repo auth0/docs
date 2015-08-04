@@ -5,7 +5,7 @@ The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to sup
 Here are a few examples of OAuth2/OAuth1 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
 
 ```
-curl -vX POST https://@@account.namespace@@/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
+curl -vX POST https://${account.namespace}/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
 ```
 
 After the call completes successfully, you will be able to login using these new providers.
@@ -13,7 +13,7 @@ After the call completes successfully, you will be able to login using these new
 ## Dropbox
 
 * [Create an application](https://www.dropbox.com/developers/apps/create)
-* Set `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `App Key` and `App Secret`:
 
 ```
@@ -36,7 +36,7 @@ After the call completes successfully, you will be able to login using these new
 ##Uber
 
 * [Create an application](https://developer.uber.com/apps/new)
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Client ID` and `Secret` to config file below
 
 ```
@@ -145,7 +145,7 @@ After the call completes successfully, you will be able to login using these new
 ##Bitbucket
 
 * Register a new Consumer in Bitbucket
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Consumer Key` and `Consumer Secret` to config file below
 
 ```
@@ -168,7 +168,7 @@ After the call completes successfully, you will be able to login using these new
 ##Dribbble
 
 * [Register a new Consumer in Dribbble](https://dribbble.com/account/applications/new)
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Client ID` and `Client Secret` to config file below
 
 ```

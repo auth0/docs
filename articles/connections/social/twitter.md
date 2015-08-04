@@ -15,7 +15,7 @@ Log in to Twitter, and [create a new Twitter application](https://apps.twitter.c
 
 Your callback URL into Auth0 is:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 Once the application is created, go to Settings tab and make sure to check the __"Allow this application to be used to Sign in with Twitter"__ option.
 
@@ -27,6 +27,6 @@ To reveal your consumer secret, click on **manage keys and access tokens**:
 
 ![](/media/articles/connections/social/twitter/twitter-api-2.png)
 
-Copy these values and enter them in the [Auth0 dashboard](@@uiURL@@/#/connections/social):
+Copy these values and enter them in the [Auth0 dashboard](${uiURL}/#/connections/social):
 
 ![](/media/articles/connections/social/twitter/twitter-api-3.png)

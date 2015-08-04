@@ -4,7 +4,7 @@ template: saml/saml-apps/_template
 ---
 
 
-@@block:samlconfig@@
+${block:samlconfig}
 
 ```
 {
@@ -24,4 +24,4 @@ template: saml/saml-apps/_template
 }
 ```
 
-@@endblock@@
+${endblock}

@@ -1,4 +1,4 @@
 ---
 title: Authentication API
 ---
-@@apiExplorer({isAuth: true, anchors: true})@@
+${apiExplorer({isAuth: true, anchors: true})}

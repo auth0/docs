@@ -8,7 +8,7 @@ tags:
   - quickstart
 ---
 <% configuration.thirdParty = 'AWS' %>
-@@includes.thirdpartyapi@@
+${includes.thirdpartyapi}
 
 ### Additional information
 

@@ -8,7 +8,7 @@ The default email flow in Auth0 can address the requirements of most application
 
 Our extensiblity points, together with our API allow you to completely take over the email flow and control when and how emails are being sent out.
 
-To get started you will need to disable the Emails [in the dashboard](@@uiURL@@/#/emails) after which you will be able to implement the different email flows in your own environment.
+To get started you will need to disable the Emails [in the dashboard](${uiURL}/#/emails) after which you will be able to implement the different email flows in your own environment.
 
 ## Verification Email
 

@@ -1,8 +1,8 @@
 ```javascript
 
 var auth0 = new Auth0Client(
-  "@@account.namespace@@",
-  "@@account.clientId@@");
+  "${account.namespace}",
+  "${account.clientId}");
 
 auth0.Login(function (err, result) {
   if (err) return err;

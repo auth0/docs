@@ -15,7 +15,7 @@ The true power of Auth0 is that it open new possibilities to integrate your appl
 
 ###1. Enable an enterprise provider
 
-Go to [Enterprise Connections](@@uiURL@@/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial.
+Go to [Enterprise Connections](${uiURL}/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the same credentials you use for Google OAuth2 in the previous tutorial.
 
 ###2. Create a new provisioning route
 
@@ -25,9 +25,9 @@ We will start by creating a route that will enable us to associate new companies
     public class ProvisioningController : Controller
     {
         private readonly Auth0.Client auth0Client = new Auth0.Client(
-                    "@@account.clientId@@",
-                    "@@account.clientSecret@@",
-                    "@@account.namespace@@");
+                    "${account.clientId}",
+                    "${account.clientSecret}",
+                    "${account.namespace}");
 
         [HttpPost]
         public ActionResult Index(Auth0.ProvisioningTicket ticket)
@@ -61,7 +61,7 @@ In the previous article we added the login widget to simplify the social and ent
             <li><a href="javascript:window.Auth0.signIn({onestep: true})">login</a></li>
             <li><a href="javascript:window.Auth0.showProvisioning('/Provisioning')">sign up my company</a></li>
         </ul>
-        <script src="@@sdkURL@@/auth0.js#client=@@account.clientId@@&authorize_url=/Account/Auth0Login"></script>
+        <script src="${sdkURL}/auth0.js#client=${account.clientId}&authorize_url=/Account/Auth0Login"></script>
     }
 
 ###4. Handle success delegation
@@ -76,9 +76,9 @@ After an administrator of the domain follows the provisioning link, he will be r
         if (granted && !string.IsNullOrEmpty(domain))
         {
             OAuthWebSecurity.RegisterClient(new Auth0.OpenAuthClient(connection,
-                                                                "@@account.clientId@@",
-                                                                "@@account.clientSecret@@",
-                                                                "@@account.namespace@@",
+                                                                "${account.clientId}",
+                                                                "${account.clientSecret}",
+                                                                "${account.namespace}",
                                                                 connection), connection, new Dictionary<string, object>());
 
             ViewBag.domain = domain;

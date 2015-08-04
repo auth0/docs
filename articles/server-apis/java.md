@@ -15,7 +15,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/auth0-java/master/create-package?path=examples/java-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-java/master/create-package?path=examples/java-api&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
     </a>
   </blockquote>
@@ -31,7 +31,7 @@ You need to add the `java-jwt` and `commons-codec` dependencies.
 
 For that, you can just add them to your `pom.xml` if you're using maven.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Add JWT Validation filter
 
@@ -39,7 +39,7 @@ For that, you can just add them to your `pom.xml` if you're using maven.
 
 Now, you need to validate the [JWT](/jwt). For that, we'll use a Filter.
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 Please note that we're setting the URL Pattern to `/api/*` in this case. That means that we'll check the user is authenticated only if the request is to the API.
 

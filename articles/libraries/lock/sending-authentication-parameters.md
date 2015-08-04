@@ -27,7 +27,7 @@ lock.show({
 });
 ```
 
-> Note: this would be analogous to trigger the login with `https://@@account.namespace@@/authorize?access_type=offline&...`.
+> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?access_type=offline&...`.
 
 
 ## Supported parameters

@@ -94,7 +94,7 @@ You can ignore the rest of the fields for now.
  ![](https://cdn.auth0.com/docs/img/salesforceidp-7.png)
 
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 
 # 3. Configure the SalesForce Identity Provider
@@ -111,9 +111,9 @@ In this step you will configure SalesForce with the metadata from Auth0 so it kn
 
 4. Create a new Connected App and fill out the following fields:
 
-**Entity ID:** urn:auth0:@@account.namespace@@:@@connectionName@@
+**Entity ID:** urn:auth0:${account.namespace}:${connectionName}
 
-**ACS URL:** https://@@account.namespace@@/login/callback
+**ACS URL:** https://${account.namespace}/login/callback
 
 **Subject Type:** "Persistent ID"
 

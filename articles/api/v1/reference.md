@@ -2,23 +2,23 @@
 
 ###API endpoint
 
-	https://@@account.namespace@@/api
+	https://${account.namespace}/api
 
 ###Authentication
 Each API request must include an access token, either inside the query string:
 
-	https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
+	https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
 
 or in an ```Authorization``` header:
 
-	GET https://@@account.namespace@@/api/connections
+	GET https://${account.namespace}/api/connections
 	Authorization: bearer {ACCESS-TOKEN}
 
 A token is obtained using the POST method:
 
-	POST https://@@account.namespace@@/oauth/token
+	POST https://${account.namespace}/oauth/token
 	Content-type: application/x-www-form-urlencoded
-	client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials
+	client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials
 
 The response body of this POST is a JSON object:
 
@@ -29,7 +29,7 @@ The response body of this POST is a JSON object:
 
 Here is a simple example using `curl`:
 
-	curl https://@@account.namespace@@/oauth/token --data "client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials"
+	curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
 
 ###Headers
 The `Authorization` header is the only accepted header and is used in place of the query string to send the access_token. All content is  returned in JSON. The `Accept` header is ignored for now.
@@ -41,22 +41,22 @@ The `Authorization` header is the only accepted header and is used in place of t
 ###Connection Methods
 | Verb | URL |
 |:-----|:----|
-|`GET` | https://@@account.namespace@@/api/connections |
-|`GET` | https://@@account.namespace@@/api/connections/{connectionName} |
-|`POST` | https://@@account.namespace@@/api/connections |
-|`DELETE`| https://@@account.namespace@@/api/connections/{connectionName} |
-|`PUT` | https://@@account.namespace@@/api/connections/{connectionName} |
+|`GET` | https://${account.namespace}/api/connections |
+|`GET` | https://${account.namespace}/api/connections/{connectionName} |
+|`POST` | https://${account.namespace}/api/connections |
+|`DELETE`| https://${account.namespace}/api/connections/{connectionName} |
+|`PUT` | https://${account.namespace}/api/connections/{connectionName} |
 
 ####List all Connections
 
 To return a list of all defined connections in Auth0, use this syntax:
 
-	GET https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
+	GET https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
 
 The body of the response is a `connection` object formatted as follows:
 
 	{
-		"client_id": "@@account.clientId@@",
+		"client_id": "${account.clientId}",
 		"name": YOUR-CONNECTION-NAME,
 		"options":
 		{
@@ -69,7 +69,7 @@ The body of the response is a `connection` object formatted as follows:
 ####Parameters
 | Parameter  | Description |
 |:-----------|:------------|
-| `client_id`| Your client_id (@@account.clientId@@), used to obtain the authentication token.					 |
+| `client_id`| Your client_id (${account.clientId}), used to obtain the authentication token.					 |
 | `name` | The unique name you gave to the connection. 									  					 |
 | `status` | Defines whether the connection is active `1` or not `0`. |
 | `strategy` | The type of identity provider associated with this connection. See below for supported strategies.|
@@ -99,15 +99,15 @@ A GET on `connections` with a specified {connectionName} in the path will return
 ######Here are two `curl` sample scripts: 
 This script returns a specific connection:
 
-	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN}
+	curl https://${account.namespace}/api/connections/?access_token={YOUR ACCESS TOKEN}
 
 This script returns all connections:
 
-	curl https://@@account.namespace@@/api/connections/{YOUR-CONNECTION-NAME}?access_token={YOUR ACCESS TOKEN}
+	curl https://${account.namespace}/api/connections/{YOUR-CONNECTION-NAME}?access_token={YOUR ACCESS TOKEN}
 
 #####Options
 
-The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](@@uiURL@@/#/connections) screen.
+The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](${uiURL}/#/connections) screen.
 
 ######ADFS Strategy
 
@@ -196,7 +196,7 @@ To obtain `client_id` and `client_secret` for Google Apps connections, see [Goog
 		ext_groups: true/false,
 		ext_assigned_plans: true/false,
 		api_enable_users: true/false,
-		app_domain: '@@account.namespace@@',
+		app_domain: '${account.namespace}',
 		thumbprints: []
 	}
 
@@ -238,13 +238,13 @@ To obtain `client_id` and `client_secret` for Microsoft Accounts, see [Microsoft
 
 ####Get a specific Connection
 
-	GET https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
+	GET https://${account.namespace}/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
 
 ####Delete a connection
 A Delete operation on the `connections` object will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
 
-	DELETE https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
+	DELETE https://${account.namespace}/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
 
 If successful, the response body will contain a confirmation object:
@@ -259,7 +259,7 @@ __Note:__ Batch operations are not yet supported.
 
 To create a new connection, POST a connection object to the `connections` resource:
 
-	POST https://@@account.namespace@@/connections
+	POST https://${account.namespace}/connections
 	Content-Type: application/json
 
 The body of the request is formatted as a `connection` object. For example, the following will create a new connection to Google Apps, initially inactive (status=0):
@@ -288,9 +288,9 @@ For updates, use the PUT method. A PUT works on a specific `connection`, therefo
 ### Users
 | Verb | URL | Description |
 |:-----|:----|:------------|
-|`GET` |https://@@account.namespace@@/api/users |Gets all users who have logged in through any of your connections. |
-|`GET` |https://@@account.namespace@@/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance: ADFS), this will return users who have logged in through that connection.|
-|`GET` |https://@@account.namespace@@/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
+|`GET` |https://${account.namespace}/api/users |Gets all users who have logged in through any of your connections. |
+|`GET` |https://${account.namespace}/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance: ADFS), this will return users who have logged in through that connection.|
+|`GET` |https://${account.namespace}/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
 
 ####The User Object
 

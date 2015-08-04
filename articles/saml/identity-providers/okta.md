@@ -21,8 +21,8 @@ Enter the name of your app and optionally a Logo and click **Next**.
 
 Enter the following values:
 
-* **Single sign on URL**: https://@@account.namespace@@/login/callback
-* **Audience URI (SP Entity ID)**: urn:auth0:@@account.tenant@@:@@connectionName@@
+* **Single sign on URL**: https://${account.namespace}/login/callback
+* **Audience URI (SP Entity ID)**: urn:auth0:${account.tenant}:${connectionName}
 * Add an Attribute Statement to map "email" to ${user.email}
 
 ![](/media/articles/saml/identity-providers/okta/okta-4.png)
@@ -66,7 +66,7 @@ If you have a user on Okta you can now click on **Try** on your Auth0 dashboard 
 
 Okta has an Application Portal / Launcher for their users. If you want to support that, you will have to change the Single sign on URL in Okta dashboard to be:
 
-* **Single sign on URL**: https://@@account.namespace@@/login/callback?connection=okta-customer
+* **Single sign on URL**: https://${account.namespace}/login/callback?connection=okta-customer
 
 Where `okta-customer` is the connection name you assigned in Auth0 dashboard.
 

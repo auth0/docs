@@ -13,7 +13,7 @@ To configure an Exact OAuth2 connection you will need to register your Auth0 ten
 
 Enter your app name. You will also be asked for a `Callback URL`. Use this value:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ##3. Copy `client_id` and `client_secret` to the Auth0 dashbaord.
 

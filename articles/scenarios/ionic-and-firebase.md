@@ -17,9 +17,9 @@ You can either download the sample project, or follow the instructions below.
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following values:</p>
 
-<pre><code>https://@@account.namespace@@/mobile, file://*, http://localhost:8100
+<pre><code>https://${account.namespace}/mobile, file://*, http://localhost:8100
 </pre></code>
 
 </div>
@@ -28,7 +28,7 @@ You can either download the sample project, or follow the instructions below.
 
 You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to issue a Firebase authentication token. 
 
-Go to [Application Settings](@@uiAppSettingsURL@@) and click on Addons. In there, turn on the __Firebase Addon__ and enter your Firebase secret.
+Go to [Application Settings](${uiAppSettingsURL}) and click on Addons. In there, turn on the __Firebase Addon__ and enter your Firebase secret.
 
 ![Firebase secret](http://d.pr/i/1ejf7+)
 

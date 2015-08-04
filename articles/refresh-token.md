@@ -22,7 +22,7 @@ __Refresh tokens__ can be issued and revoked for each combination of __app__, __
 To revoke a __refresh token__, you can call the **[revoke refresh token](/api/v1#delete--api-users--user_id--refresh_tokens--refresh_token-)** endpoint:
 
 ```
-DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh token>
+DELETE https://${account.namespace}/api/users/<user id>/refresh_tokens/<refresh token>
 
 {
   "Authorization":   "Bearer <your access token>",
@@ -35,9 +35,9 @@ DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh
 The process to log the user in is the same as [explained in the sequence diagram page](/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
 
 ```
-GET https://@@account.namespace@@/authorize/?
+GET https://${account.namespace}/authorize/?
     response_type=token
-    &client_id=@@account.clientId@@
+    &client_id=${account.clientId}
     &redirect_uri=YOUR_CALLBACK_URL
     &state=VALUE_THAT_SURVIVES_REDIRECTS
     &scope=openid%20offline_access
@@ -60,10 +60,10 @@ This is the same as before but it will now contain a `refresh_token` parameter.
 Every time you need to get a new `id_token`, you can call the **[Delegation endpoint](/auth-api#!#post--delegation)**
 
 ```
-POST https://@@account.namespace@@/delegation
+POST https://${account.namespace}/delegation
 Content-Type: 'application/json'
 {
-  "client_id":       "@@account.clientId@@",
+  "client_id":       "${account.clientId}",
   "grant_type":      "urn:ietf:params:oauth:grant-type:jwt-bearer",
   "refresh_token":   "your_refresh_token",
   "api_type":        "app"

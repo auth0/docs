@@ -18,7 +18,7 @@ Go to the [partner portal](https://app.shopify.com/services/partners), and login
 
 Create a new application and complete the form. Use this URL as your callback:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-2.png)
 

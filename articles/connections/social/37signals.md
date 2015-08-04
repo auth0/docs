@@ -24,7 +24,7 @@ Define which 37Signals applications you want access to, and complete the callbac
 
 ![](/media/articles/connections/social/37signals/37signals-register-2.png)
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 

@@ -19,9 +19,9 @@ This is a one time setup
   ![](/media/articles/aws-api-setup/aws-api-setup-2.png)
 
 <% if (account.userName) { %>
-3. Download the metadata from <a href="https://@@account.namespace@@/samlp/metadata/@@account.clientId@@">https://@@account.namespace@@/samlp/metadata/@@account.clientId@@</a> and upload it here.
+3. Download the metadata from <a href="https://${account.namespace}/samlp/metadata/${account.clientId}">https://${account.namespace}/samlp/metadata/${account.clientId}</a> and upload it here.
 <% } else { %>
-3. Download the metadata from `https://@@account.namespace@@/samlp/metadata/@@account.clientId@@` and upload it here.
+3. Download the metadata from `https://${account.namespace}/samlp/metadata/${account.clientId}` and upload it here.
 <% } %>
 
   ![](/media/articles/aws-api-setup/aws-api-setup-3.png)
@@ -46,7 +46,7 @@ Now, you have to create a role that will have one or more policies associated. Y
 
   * **SAML Provider**: the provider you've just created
   * **Attribute**: `SAML:iss`
-  * **Value**: `urn:@@account.namespace@@`
+  * **Value**: `urn:${account.namespace}`
 
 
   ![](/media/articles/aws-api-setup/aws-api-setup-7.png)

@@ -117,7 +117,7 @@ When a user authenticates with Auth0 you will get back an `id_token` (a [JWT](/j
 
 This is a sample Request on the delegation endpoint
 
-    POST https://@@account.namespace@@/delegation
+    POST https://${account.namespace}/delegation
 
     grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
     &id_token=THE_ID_TOKEN_OF_LOGGED_IN_USER

@@ -18,7 +18,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=Android/basic-sample&type=replace&filePath=Android/basic-sample/app/src/main/res/values/auth0.xml@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=Android/basic-sample&type=replace&filePath=Android/basic-sample/app/src/main/res/values/auth0.xml${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -31,7 +31,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=Android/basic-sample&type=replace&filePath=Android/basic-sample/app/src/main/res/values/auth0.xml@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=Android/basic-sample&type=replace&filePath=Android/basic-sample/app/src/main/res/values/auth0.xml${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -47,15 +47,15 @@ snippets:
 ### Before Starting
 
 <div class="setup-callback">
-  <p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
-  <pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</code></pre>
+  <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+  <pre><code>a0${account.clientId}://\*.auth0.com/authorize</code></pre>
 </div>
 
 ### 1. Adding Auth0 Lock to your project
 
 Add the following to the `build.gradle`:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 
@@ -78,11 +78,11 @@ Then add the following entries to `AndroidManifest.xml` inside the `<application
     <action android:name="android.intent.action.VIEW"/>
     <category android:name="android.intent.category.DEFAULT"/>
     <category android:name="android.intent.category.BROWSABLE"/>
-    <data android:scheme="a0@@account.clientId@@" android:host="@@account.namespace@@"/>
+    <data android:scheme="a0${account.clientId}" android:host="${account.namespace}"/>
   </intent-filter>
 </activity>
-<meta-data android:name="com.auth0.lock.client-id" android:value="@@account.clientId@@"/>
-<meta-data android:name="com.auth0.lock.domain-url" android:value="@@account.namespace@@"/>
+<meta-data android:name="com.auth0.lock.client-id" android:value="${account.clientId}"/>
+<meta-data android:name="com.auth0.lock.domain-url" android:value="${account.namespace}"/>
 <!--Auth0 Lock End-->
 ```
 
@@ -91,7 +91,7 @@ Then add the following entries to `AndroidManifest.xml` inside the `<application
 
 First make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add these lines of code:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Register Native Authentication Handlers
 
@@ -154,7 +154,7 @@ Now we're ready to implement the Login.
 
 We can show the Login Dialog by starting the activity `LockActivity`.
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/android/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 

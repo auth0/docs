@@ -4,7 +4,7 @@ template: saml/saml-apps/_template
 ---
 
 
-@@block:samlconfig@@
+${block:samlconfig}
 
 ```json
 {
@@ -30,10 +30,10 @@ template: saml/saml-apps/_template
 }
 ```
 
-@@endblock@@
+${endblock}
 
 
-@@block:notes@@
+${block:notes}
 
 ## Application Callback URL
 
@@ -130,4 +130,4 @@ template: saml/saml-apps/_template
 </samlp:Response>
 ```
 
-@@endblock@@
+${endblock}

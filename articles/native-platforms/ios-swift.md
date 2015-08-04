@@ -18,7 +18,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-swift&type=replace&filePath=iOS/basic-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-swift&type=replace&filePath=iOS/basic-sample-swift/SwiftSample/Info.plist${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -30,7 +30,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-swift&type=replace&filePath=iOS/basic-sample-swift/SwiftSample/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-swift&type=replace&filePath=iOS/basic-sample-swift/SwiftSample/Info.plist${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -46,16 +46,16 @@ snippets:
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</pre></code>
+<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
 ### 1. Adding the Auth0 dependencies
 
 Add the following to the `Podfile` and run `pod install`:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
@@ -88,22 +88,22 @@ Add the following entries to your app's `Info.plist`:
   </thead>
   <tr>
     <td>Auth0ClientId</td>
-    <td>@@account.clientId@@</td>
+    <td>${account.clientId}</td>
   </tr>
   <tr>
     <td>Auth0Domain</td>
-    <td>@@account.namespace@@</td>
+    <td>${account.namespace}</td>
   </tr>
 </table>
 
 Also you'll need to register a new _URL Type_ with the following scheme
-`a0@@account.clientId@@`. You can do it from your app's target Info section.
+`a0${account.clientId}`. You can do it from your app's target Info section.
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
 The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 > You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
 
@@ -127,7 +127,7 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 
 > If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #5__
 
-**IMPORTANT**: Before you continue to the next section, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](@@uiURL@@/#/connections/social)
+**IMPORTANT**: Before you continue to the next section, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](${uiURL}/#/connections/social)
 
 #### Facebook
 
@@ -208,7 +208,7 @@ lock.registerAuthenticators([twitter])
 ### 5. Let's implement the login
 Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
@@ -234,4 +234,4 @@ After the user has logged in, we can use the `profile` object which has all the 
 
 You've implemented Login and Signup with Auth0 in iOS. You're awesome!
 
-> You can also <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/ProfileSample/Info.plist@@account.clientParam@@">download</a> our sample project that shows how to store/update your user profile with Auth0
+> You can also <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project that shows how to store/update your user profile with Auth0

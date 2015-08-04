@@ -17,7 +17,7 @@ To configure a RenRen OAuth2 connection you will need to register your Auth0 ten
 
 Use the following value for the callback URL:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/renren/renren-register-2.png)
 

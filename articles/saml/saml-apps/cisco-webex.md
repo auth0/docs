@@ -3,7 +3,7 @@ title: Cisco WebEx SAML Configuration
 template: saml/saml-apps/_template
 ---
 
-@@block:samlconfig@@
+${block:samlconfig}
 
 ```
 {
@@ -23,4 +23,4 @@ template: saml/saml-apps/_template
 
 Notice that Webex has an option to automatically provision new users. You will need to send that info along as claims (lastname, etc).
 
-@@endblock@@
+${endblock}

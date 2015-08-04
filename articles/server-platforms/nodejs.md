@@ -15,7 +15,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/node-auth0/master/create-package?path=examples/nodejs-regular-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/node-auth0/master/create-package?path=examples/nodejs-regular-webapp&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -30,13 +30,13 @@ snippets:
 
 Just run the following code to install the dependencies and add them to your `package.json`
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure passport-auth0
 
 We need to configure Passport to use Auth0 strategy.
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Add needed requires & initialize passport configuration
 
@@ -83,7 +83,7 @@ app.get('/callback',
   });
 ```
 
-@@includes.callbackRegularWebapp@@
+${includes.callbackRegularWebapp}
 
 In this case, the callbackURL should look something like:
 
@@ -93,7 +93,7 @@ http://yourUrl/callback
 
 ### 6. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

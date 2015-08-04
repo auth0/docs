@@ -20,14 +20,14 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (any k
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET** package, running the command:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 > This package will add a `LoginCallback.ashx` to your project, which will process the login.
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@">Application Settings</a> section on Auth0 Admin app.</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section on Auth0 Admin app.</p>
 
 <pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
 </div>
@@ -36,11 +36,11 @@ Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manag
 
 The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 ### 5. Accessing user information
 

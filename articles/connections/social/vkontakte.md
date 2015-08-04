@@ -26,7 +26,7 @@ Complete the form:
 
 The callback address for your app should be:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 

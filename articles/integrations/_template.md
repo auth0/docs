@@ -8,7 +8,7 @@ In this tutorial, you'll learn how to add Single Sign On (SSO) to <%= integratio
 
 ### 1. Adding the Integration to your account
 
-The first thing you need to do is go to the [Third party apps](@@uiURL@@/#/externalapps/create) section in the dashboard and choose <%= integration.name %> from the list of apps.
+The first thing you need to do is go to the [Third party apps](${uiURL}/#/externalapps/create) section in the dashboard and choose <%= integration.name %> from the list of apps.
 
 ![Choose the new app](https://cloudup.com/cs5kEnkFs9i+)
 
