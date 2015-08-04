@@ -10,7 +10,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-   <a href="/native-mobile-samples/master/create-package?path=Android/custom-ui-sample&type=replace&filePath=Android/custom-ui-sample/app/src/main/res/values/auth0.xml@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+   <a href="/native-mobile-samples/master/create-package?path=Android/custom-ui-sample&type=replace&filePath=Android/custom-ui-sample/app/src/main/res/values/auth0.xml${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download Android Custom UI Sample</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -22,7 +22,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=Android/custom-ui-sample&type=replace&filePath=Android/custom-ui-sample/app/src/main/res/values/auth0.xml@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=Android/custom-ui-sample&type=replace&filePath=Android/custom-ui-sample/app/src/main/res/values/auth0.xml${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download Android Custom UI Sample</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -47,8 +47,8 @@ lodash: true
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <resources>
-      <string name="auth0_client_id">@@account.clientId@@</string>
-      <string name="auth0_domain_name">@@account.namespace@@</string>
+      <string name="auth0_client_id">${account.clientId}</string>
+      <string name="auth0_domain_name">${account.namespace}</string>
   </resources>
   ```
 
@@ -151,7 +151,7 @@ lodash: true
 
 1. In your `auth0.xml` file add the following entry
   ```xml
-  <string name="auth0_scheme">a0@@account.clientId.toLowerCase()@@</string>
+  <string name="auth0_scheme">a0${account.clientId.toLowerCase()}</string>
   ```
 
 1. Configure your Login *Activity* adding the following intent filters in your `AndroidManifest.xml` file

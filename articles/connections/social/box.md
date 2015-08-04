@@ -27,6 +27,6 @@ Scroll down and you'll find the `client_id` and `client_secret` fields under the
 
 Enter this URL as the `redirect_uri`:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 Make sure you define the appropriate permission `scopes` for your app.

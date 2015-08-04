@@ -16,7 +16,7 @@ Having your partners test the new connection is very easy nevertheless:
 
 ##1. Create a Test app
 
-Register a new application on Auth0: __[Dashboard > Apps/APIs > Create](@@uiURL@@/#/applications/create)__. You can give it any name: __Test App__
+Register a new application on Auth0: __[Dashboard > Apps/APIs > Create](${uiURL}/#/applications/create)__. You can give it any name: __Test App__
 
 In the settings of the newly created app, configure __Allowed Callback Urls__ to __[http://jwt.io](http://jwt.io)__.
 
@@ -25,7 +25,7 @@ Click on __SAVE CHANGES__.
 
 ##2. Send your Partner the link to login
 
-	https://@@account.namespace@@/authorize?response_type=token&scope=openid%20profile&client_id={THE_APP_CLIENT_ID}&redirect_uri=http://jwt.io&connection={THE_CONNECTION_YOU_WANT_TO_TEST}
+	https://${account.namespace}/authorize?response_type=token&scope=openid%20profile&client_id={THE_APP_CLIENT_ID}&redirect_uri=http://jwt.io&connection={THE_CONNECTION_YOU_WANT_TO_TEST}
 
 Make sure you replace these two parameters:
 

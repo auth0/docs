@@ -105,7 +105,7 @@ After pressing the **"SAVE"** button, A window will appear with a red **"CONTINU
 
 ![](/media/articles/saml/identity-providers/ssocircle/ssocircle-2.png)
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 side of the federation. It will look something like the following with your tenant name in place of the 'xxxxx':
 
@@ -213,7 +213,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
     <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@acount.namespace@@');
+      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${acount.namespace}');
 
       function signin() {
         lock.show({

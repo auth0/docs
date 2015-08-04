@@ -20,7 +20,7 @@ alias:
   - azure-vm
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>
-@@includes.thirdpartyapi@@
+${includes.thirdpartyapi}
 
 ### Additional Information
 
@@ -37,7 +37,7 @@ A very good starting point is any of the samples you can download from the Azure
 Changing the samples to use Auth0 is very simple. As an example, if you followed the Windows 8 sample (C#), you will end up with an `AuthenticateAsync` method that adds one of the standard WAMS authentication mechanisms.
 
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 These 6 new lines of code do all the work for you. The important aspects:
 

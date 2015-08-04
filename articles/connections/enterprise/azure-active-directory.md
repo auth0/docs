@@ -27,7 +27,7 @@ Click on **ADD+** at the bottom of the screen:
 
 <img src="https://cdn.auth0.com/docs/img/waad-1.png" style="width: 60%;  border: 2px solid #eee;" />
 
-Enter a subdomain, e.g.: **@@account.tenant@@** (this could be anything, does not have to match with Auth0 subdomain and it will be used in the next step). Enter also your country and a friendly name for the organization.
+Enter a subdomain, e.g.: **${account.tenant}** (this could be anything, does not have to match with Auth0 subdomain and it will be used in the next step). Enter also your country and a friendly name for the organization.
 
 <img src="https://cdn.auth0.com/docs/img/waad-2.png" style="width: 60%;  border: 2px solid #eee;" />
 
@@ -48,7 +48,7 @@ Enter a friendly name for the application and select "WEB APPLICATION AND/OR WEB
 Proceed to the next screen and enter the following:
 
 * **SIGN-ON URL**: your application URL (completely arbitrary)
-* **APP ID URI**: https://**@@account.tenant@@**.onmicrosoft.com/yourapp
+* **APP ID URI**: https://**${account.tenant}**.onmicrosoft.com/yourapp
 
 > NOTE: The APP ID URI is just a logical identifier, not a real URL. It is important to use the value as specified above in APP ID URI. For instance, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, here you would enter https://**myorg.onmicrosoft.com**/yourapp.
 
@@ -61,7 +61,7 @@ Once the application has been created, you will have to configure a couple of th
 Enter the following values on **KEYS** and **REPLY URL**, and click **Save**.
 
 * **KEYS**: Select 1 or 2 years (when you save it will show the key)
-* **REPLY URL**: https://@@account.namespace@@/login/callback
+* **REPLY URL**: https://${account.namespace}/login/callback
 
 <img src="https://cdn.auth0.com/docs/img/waad-8.png" style="width: 60%;  border: 2px solid #eee;" />
 

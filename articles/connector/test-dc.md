@@ -94,14 +94,14 @@ Install-ADDSForest –DomainName mycompany.local
 
 To easily test that everything is working using your Auth0 account, we're going to configure your **Default App** in Auth0 to use your new **Active Directory / LDAP** connection and then use the `/authorize` endpoint to initiate an authentication flow.
 
-1. In Auth0's Management Dashboard, browse to [your applications](@@uiURL@@/#/applications).
+1. In Auth0's Management Dashboard, browse to [your applications](${uiURL}/#/applications).
 1. Click the **Settings** gear of your **Default App**
 1. Make sure that `http://jwt.io` is in the list of the app's **Allowed Callback URLs**.
 1. Click the **Connections** tab.
 1. Under **Enterprise** make sure the `auth0-test-ad` **Active Directory / LDAP** connection is enabled.
 1. Test the authentication flow by opening the following link in your browser:  
 ```
-https://@@account.namespace@@/authorize?response_type=token&scope=openid%20profile&client_id=@@account.clientId@@&redirect_uri=http://jwt.io&connection=auth0-test-ad
+https://${account.namespace}/authorize?response_type=token&scope=openid%20profile&client_id=${account.clientId}&redirect_uri=http://jwt.io&connection=auth0-test-ad
 ```
 
 1. Log in with one of the test users that was created in the directory.  For example:

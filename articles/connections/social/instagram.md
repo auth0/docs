@@ -18,7 +18,7 @@ Go to the [developer portal](http://instagram.com/developer), and log in with yo
 
 Create a new application and complete the form. Use this URL as your callback:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-2.png)
 

@@ -9,4 +9,4 @@ To configure a connection with [Planning Center](http://get.planningcenteronline
 
 Please include this callback URL in the request:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback

@@ -23,7 +23,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/spring-security-auth0/master/create-package?path=examples/api-example&filePath=examples/api-example/src/main/resources/auth0.properties&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/spring-security-auth0/master/create-package?path=examples/api-example&filePath=examples/api-example/src/main/resources/auth0.properties&type=replace${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
     </a>
   </blockquote>
@@ -37,7 +37,7 @@ You need to add the `spring-security-auth0` dependency.
 
 For that, you can just add it to your `pom.xml` if you're using maven.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Spring to use Auth0
 
@@ -58,13 +58,13 @@ For that, just add the following to the `application-context.xml`
 
 and create the `auth0.properties` file with the following information:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Create the controllers
 
 Now, you can create the controllers. Every controller that has a route inside `/secured/` in this case will ask for the JWT
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ### 4. You're done!
 

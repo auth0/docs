@@ -4,8 +4,8 @@
 <script language="JScript" runat="server" src='//cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js'></script>
 
 <%= '\<%' %>
-CLIENT_ID = "@@account.clientId@@"
-CLIENT_SECRET = "@@account.clientSecret@@"
+CLIENT_ID = "${account.clientId}"
+CLIENT_SECRET = "${account.clientSecret}"
 REDIRECT_URI = "http://yourserver.com/callback.asp"
 
 AUTHORIZATION_CODE = Request.querystring( "code" )

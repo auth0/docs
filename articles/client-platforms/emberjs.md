@@ -17,7 +17,7 @@ tags:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/auth0-ember-simple-auth/master/create-package?path=examples/simple&filePath=examples/simple/config/auth0-variables.js&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-ember-simple-auth/master/create-package?path=examples/simple&filePath=examples/simple/config/auth0-variables.js&type=replace${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -28,7 +28,7 @@ tags:
 
 **If you have an existing application, follow the steps below.**
 
-@@includes.callback@@
+${includes.callback}
 
 ### 1. Install the add-on
 

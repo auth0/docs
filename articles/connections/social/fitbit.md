@@ -18,7 +18,7 @@ Log in into [Fitbit's Developer site](https://dev.fitbit.com), select __REGISTER
 
 Your callback URL into Auth0 is:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 

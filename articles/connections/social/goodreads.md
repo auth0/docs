@@ -16,7 +16,7 @@ Log in into [Goodreads's Developer site](https://www.goodreads.com/api/v1), sele
 
 Use this for the `Callback URL`:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 

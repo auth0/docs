@@ -4,7 +4,7 @@ title: Windows Phone Tutorial
 name: Windows Phone
 alias:
   - windows phone
-language: 
+language:
   - Javascript
   - C#
 hybrid: false
@@ -26,7 +26,7 @@ alias:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
         <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -41,15 +41,15 @@ alias:
 
 You can either run the following command or install it via the **Package Manager** UI.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Instantiate the Auth0 client
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Allow users to log in
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ### 4. Use server API if necessary:
 
