@@ -1,4 +1,5 @@
 {
+  "title": "Auth0 Docs",
   "menus": {
     "navigation": [
       {
@@ -174,6 +175,11 @@
         ]
       }
     ],
-    "footer": []
+    "footer": [
+      {
+        "title": "Home",
+        "url": "/docs"
+      }
+    ]
   }
 }
