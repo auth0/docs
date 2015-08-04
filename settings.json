@@ -175,6 +175,11 @@
         ]
       }
     ],
-    "footer": []
+    "footer": [
+      {
+        "title": "Home",
+        "url": "/docs"
+      }
+    ]
   }
 }
