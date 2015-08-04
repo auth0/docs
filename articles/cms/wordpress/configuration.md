@@ -38,8 +38,8 @@ Then copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the plugin sett
 - **Auto Login (no widget):** Mark this to avoid the login page (you will have to select a single login provider).
 - **Extra settings:** This field is the JSon that describes the options to call Lock with. It'll override any other option set here. See all the posible options [here](/libraries/lock/customization). (IE: `{"disableResetAction": true }`)
 - **Widget URL:** Point this to the latest widget available in the CDN.
-- **Auth0 Implicit flow:** If it is enabled, it will make Lock use the [implicit workflow](https://auth0.com/docs/protocols#5) retrieving in the browser and sending back to the server with the needed user data. It is useful in cases where the server is behind a firewal without internet access. If this setting is enabled with **SSO**, you will need to add `http://your-domain/wp-login.php` as a valid callback on your Auth0 app.
-- **Customize the Login Widget with custom JS:** This allows you to add custom JS to customize Lock. This is useful in cases you need to add custom buttons ([more info here](https://auth0.com/docs/hrd#3)). Following this example, you can add the *Fabrikam Azure AD* button with the following code:
+- **Auth0 Implicit flow:** If it is enabled, it will make Lock use the [implicit workflow](/protocols#5) retrieving in the browser and sending back to the server with the needed user data. It is useful in cases where the server is behind a firewal without internet access. If this setting is enabled with **SSO**, you will need to add `http://your-domain/wp-login.php` as a valid callback on your Auth0 app.
+- **Customize the Login Widget with custom JS:** This allows you to add custom JS to customize Lock. This is useful in cases you need to add custom buttons ([more info here](/hrd#3)). Following this example, you can add the *Fabrikam Azure AD* button with the following code:
 
 ```
 lock.once('signin ready', function() {
