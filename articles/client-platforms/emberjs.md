@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: EmberJS Tutorial
 name: EmberJS
 image: //auth0.com/lib/platforms-collection/img/emberjs.png
@@ -53,7 +52,7 @@ ENV['simple-lock'] = {
 }
 ```
 
-If using a content security policy, add 
+If using a content security policy, add
 `https://cdn.auth0.com` to both the `font-src` and `script-src` contentSecurityPolicy entries and `<%= account.namespace %>` to the `connect-src` entry:
 
 ```js

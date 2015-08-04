@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: AngularJS Tutorial
 name: Angular.js
 alias:
@@ -144,7 +143,7 @@ You have completed the implementation of Login and Signup with Auth0 and Angular
 ### Optional Steps
 ####Add routing
 
-Most apps will need to authenticate users to enable access certain routes. 
+Most apps will need to authenticate users to enable access certain routes.
 
 To enable access to a route:
 

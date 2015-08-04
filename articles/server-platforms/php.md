@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: PHP Web App Tutorial
 name: PHP
 image: //auth0.com/lib/platforms-collection/img/php.png

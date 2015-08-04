@@ -1,6 +1,5 @@
 ---
 title: Box
-lodash: true
 ---
 <% var integration = {};
 integration.name = "Box"; %>

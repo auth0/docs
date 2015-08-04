@@ -3,7 +3,6 @@ title: Ruby on Rails API Tutorial
 name: Ruby On Rails API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
-lodash: true
 tags:
   - quickstart
 snippets:

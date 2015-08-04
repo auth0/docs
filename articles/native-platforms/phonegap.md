@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Phonegap Tutorial
 name: Phonegap
 hybrid: true

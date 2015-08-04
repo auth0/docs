@@ -3,7 +3,6 @@ title: ASP.NET Web API Tutorial
 name: ASP.NET Web API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/asp.png
-lodash: true
 tags:
   - quickstart
 snippets:

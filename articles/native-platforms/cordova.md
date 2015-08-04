@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Cordova Tutorial
 name: Cordova
 hybrid: true

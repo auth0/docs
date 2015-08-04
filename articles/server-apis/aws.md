@@ -3,7 +3,6 @@ title: AWS Tutorial
 name: AWS
 thirdParty: true
 image: //auth0.com/lib/saas-collection/img/aws.png
-lodash: true
 tags:
   - quickstart
 ---

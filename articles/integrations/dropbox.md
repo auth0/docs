@@ -1,6 +1,5 @@
 ---
 title: Dropbox
-lodash: true
 ---
 <% var integration = {};
 integration.name = "Dropbox"; %>

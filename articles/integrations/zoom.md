@@ -1,6 +1,5 @@
 ---
 title: Zoom
-lodash: true
 ---
 <% var integration = {};
 integration.name = "Zoom"; %>

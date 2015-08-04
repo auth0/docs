@@ -3,7 +3,6 @@ title: PHP API Tutorial
 name: PHP API
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png
-lodash: true
 tags:
   - quickstart
 snippets:

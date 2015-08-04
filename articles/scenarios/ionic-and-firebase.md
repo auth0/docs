@@ -1,7 +1,3 @@
----
-lodash: true
----
-
 ## Ionic Framework + Firebase Tutorial
 
 You can either download the sample project, or follow the instructions below.
@@ -26,7 +22,7 @@ You can either download the sample project, or follow the instructions below.
 
 ### 2. Configure Auth0 to work with Firebase
 
-You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to issue a Firebase authentication token. 
+You need to add your Firebase account information to Auth0. Once the user logs in to the App, Auth0 will use this information to issue a Firebase authentication token.
 
 Go to [Application Settings](${uiAppSettingsURL}) and click on Addons. In there, turn on the __Firebase Addon__ and enter your Firebase secret.
 
@@ -136,7 +132,7 @@ angular.module('starter', ['ionic',
 ### 7. Implementing login
 
 Now you're ready to implement the Login. You can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
-In this case, add the call in the `login` method of the `LoginCtrl` controller. 
+In this case, add the call in the `login` method of the `LoginCtrl` controller.
 After a successful login, you will:
 
 1. Save the __user profile__.

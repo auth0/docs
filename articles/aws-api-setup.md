@@ -1,7 +1,3 @@
----
-lodash: true
----
-
 # How to Setup AWS to do Delegated Authentication with APIs
 
 In order to do delegated authentication with AWS APIs you have to create a **SAML Provider** and one or more **Roles**. This document explains how to do that.

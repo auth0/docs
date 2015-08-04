@@ -1,6 +1,5 @@
 ---
 url: /identityproviders
-lodash: true
 ---
 
 # Identity Providers supported by Auth0

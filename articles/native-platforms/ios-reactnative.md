@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: iOS React Native Tutorial
 name: iOS - React Native
 hybrid: true

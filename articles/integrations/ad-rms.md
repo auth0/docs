@@ -1,6 +1,5 @@
 ---
 title: AD RMS
-lodash: true
 ---
 <% var integration = {};
 integration.name = "AD RMS"; %>

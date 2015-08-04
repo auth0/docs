@@ -3,7 +3,6 @@ title: Go API Tutorial
 name: Go
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/golang.png
-lodash: true
 tags:
   - quickstart
 snippets:

@@ -3,7 +3,6 @@ title: Salesforce (Sandbox) API Tutorial
 name: Salesforce (sandbox)
 thirdParty: true
 image: //auth0.com/lib/saas-collection/img/salesforce.png
-lodash: true
 tags:
   - quickstart
 ---
