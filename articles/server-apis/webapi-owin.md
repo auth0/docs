@@ -10,7 +10,6 @@ thirdParty: false
 framework:
   - OWIN
 image: //auth0.com/lib/platforms-collection/img/asp.png
-lodash: true
 tags:
   - quickstart
 snippets:

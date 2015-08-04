@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Socket.io Tutorial
 name: Socket.io
 alias:

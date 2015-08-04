@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: iOS Objective-C Tutorial
 name: iOS - Objective C
 hybrid: false

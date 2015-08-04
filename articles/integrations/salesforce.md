@@ -1,6 +1,5 @@
 ---
 title: Salesforce
-lodash: true
 ---
 <% var integration = {};
 integration.name = "Salesforce"; %>

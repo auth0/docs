@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Android Tutorial
 name: Android
 alias:
@@ -100,7 +99,7 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Register Native Authentication Handlers
 
-You can configure Lock to use other native Android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialised.
+You can configure Lock to use other native Android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialized.
 
 > If you don't want to use Facebook nor Google+ native authentication, please go directly to the [next step](#9)
 

@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: iOS Swift Tutorial
 name: iOS - Swift
 alias:

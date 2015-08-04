@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: ASP Classic Tutorial
 name: ASP Classic
 image: //auth0.com/lib/platforms-collection/img/asp-classic.jpg

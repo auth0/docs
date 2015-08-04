@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Windows Phone Tutorial
 name: Windows Phone
 alias:

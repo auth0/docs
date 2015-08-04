@@ -9,7 +9,6 @@ alias:
 languages:
   - Javascript
 image: //auth0.com/lib/platforms-collection/img/node.png
-lodash: true
 tags:
   - quickstart
 snippets:

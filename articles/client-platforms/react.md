@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: React Tutorial
 name: React
 alias:

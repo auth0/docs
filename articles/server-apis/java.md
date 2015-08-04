@@ -7,7 +7,6 @@ alias:
 languages:
   - Java
 image: //auth0.com/lib/platforms-collection/img/java.png
-lodash: true
 tags:
   - quickstart
 snippets:

@@ -10,7 +10,6 @@ framework:
   - Ruby on Rails
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
-lodash: true
 tags:
   - quickstart
 snippets:

@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Ionic Framework Tutorial
 name: Ionic
 alias:

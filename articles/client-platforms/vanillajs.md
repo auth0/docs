@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Generic SPA / Vanilla JS Tutorial
 name: Vanilla JS
 alias:

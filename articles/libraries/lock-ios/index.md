@@ -1,6 +1,5 @@
 ---
 url: /libraries/lock-ios
-lodash: true
 ---
 
 # Lock for iOS and OS X

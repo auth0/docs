@@ -6,7 +6,6 @@ alias:
   - azure blob storage
   - azblob
 image: //auth0.com/lib/platforms-collection/img/azure.png
-lodash: true
 tags:
   - quickstart
 ---

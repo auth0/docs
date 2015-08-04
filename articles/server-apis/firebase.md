@@ -5,7 +5,6 @@ thirdParty: true
 alias:
   - Firebase
 image: //auth0.com/lib/saas-collection/img/firebase.png
-lodash: true
 tags:
   - quickstart
 snippets:

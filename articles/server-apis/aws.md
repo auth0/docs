@@ -7,7 +7,6 @@ alias:
   - amazon webservices
   - aws
 image: //auth0.com/lib/saas-collection/img/aws.png
-lodash: true
 tags:
   - quickstart
 ---

@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: jQuery Tutorial
 name: jQuery
 alias:

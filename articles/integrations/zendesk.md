@@ -1,6 +1,5 @@
 ---
 title: ZenDesk
-lodash: true
 ---
 <% var integration = {};
 integration.name = "ZenDesk"; %>
