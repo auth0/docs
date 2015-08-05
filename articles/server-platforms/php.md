@@ -66,7 +66,7 @@ if (!$userInfo) {
 
 Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUser()` it will retrieve the information from the Session.
 
-${includes.callbackRegularWebapp}
+${include('./_callbackRegularWebapp')}
 
 In this case, the callbackURL should look something like:
 

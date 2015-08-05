@@ -9,7 +9,7 @@ snippets:
   use: server-apis/azure-mobile-services/use
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional Information
 

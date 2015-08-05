@@ -1,10 +1,8 @@
 ---
 title: Sprout Video SAML Configuration
-template: saml/saml-apps/_template
 ---
 
-
-${block:samlconfig}
+${include('./\_header')}
 
 ```
 {
@@ -23,5 +21,3 @@ ${block:samlconfig}
  ],
 }
 ```
-
-${endblock}

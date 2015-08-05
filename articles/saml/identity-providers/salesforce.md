@@ -111,15 +111,15 @@ In this step you will configure SalesForce with the metadata from Auth0 so it kn
 
 4. Create a new Connected App and fill out the following fields:
 
-**Entity ID:** urn:auth0:${account.namespace}:${connectionName}
+**Entity ID:** `urn:auth0:${account.namespace}:${connectionName}``
 
-**ACS URL:** https://${account.namespace}/login/callback
+**ACS URL:** `https://${account.namespace}/login/callback`
 
-**Subject Type:** "Persistent ID"
+**Subject Type:** `Persistent ID`
 
 **Name ID Format:** Choose the one with emailAddress
 
-**Issuer:** https://{your-saleforce-domain}.my.salesforce.com
+**Issuer:** `https://{your-saleforce-domain}.my.salesforce.com`
 
 5. Then press  **“Save”** to complete the configuration of the IDP
 

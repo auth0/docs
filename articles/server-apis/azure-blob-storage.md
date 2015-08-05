@@ -7,7 +7,7 @@ tags:
   - quickstart
 ---
 <% configuration.thirdParty = 'Azure Blob Storage' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional information
 

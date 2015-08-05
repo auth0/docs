@@ -83,7 +83,7 @@ app.get('/callback',
   });
 ```
 
-${includes.callbackRegularWebapp}
+${include('./_callbackRegularWebapp')}
 
 In this case, the callbackURL should look something like:
 

@@ -7,7 +7,7 @@ tags:
   - quickstart
 ---
 <% configuration.thirdParty = 'Salesforce (Sandbox)' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional information
 

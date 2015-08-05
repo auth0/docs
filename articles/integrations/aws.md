@@ -99,7 +99,7 @@ As an example of an IAM policy:
                   "s3:PutObjectAcl"
               ],
               "Resource": [
-                  "arn:aws:s3:::YOUR_BUCKET_NAME/${saml:sub}/*"
+                  "arn:aws:s3:::YOUR_BUCKET_NAME/<%= "${saml:sub}" %>/*"
               ],
               "Effect": "Allow"
           }
@@ -108,7 +108,7 @@ As an example of an IAM policy:
 
 This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of a SAML token digitally signed that Auth0 exchanges with AWS on your behalf (step 3).
 
-The `${saml:sub}` will be automagically mapped from the authenticated user (`sub` means `subject`, that will equal to the user identifier). This means that the __original__ identity of the user can be used throughout the system: your app, S3, etc.
+The `<%= "${saml:sub}" %>` will be automagically mapped from the authenticated user (`sub` means `subject`, that will equal to the user identifier). This means that the __original__ identity of the user can be used throughout the system: your app, S3, etc.
 
 
 ###Getting the AWS Token for an authenticated user

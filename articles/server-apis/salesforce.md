@@ -8,7 +8,7 @@ tags:
   - quickstart
 ---
 <% configuration.thirdParty = 'Salesforce' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional information
 

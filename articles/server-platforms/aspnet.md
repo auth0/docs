@@ -74,7 +74,7 @@ To allow users to link accounts from different providers, read [Link Accounts](/
 You will need the `access_token` of the logged in user. You can get it from:
 
 ```
-<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>
+${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 ```
 
 #### Flow the identity to a WCF service

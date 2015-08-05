@@ -58,10 +58,10 @@ For example, if your users have an email domain of 'abc-example.com', you would 
 
 **Sign In URL:** enter the URL copied in step **#5** in section 1:
 It should probably be:
-https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle
+`https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle`
 
 **Sign Out URL:** enter the URL copied in step **#6** in section 1:
-https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle
+`https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle`
 
 **Certificate:**  Add a "BEGIN CERTIFICATE" and "END CERTIFICATE" statement to the ssocirclecert.pem file created earlier.  Make sure the file looks like the following:
 

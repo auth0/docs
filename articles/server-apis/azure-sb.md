@@ -7,7 +7,7 @@ tags:
   - quickstart
 ---
 <% configuration.thirdParty = 'Azure Service Bus' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional information
 

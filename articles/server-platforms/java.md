@@ -59,7 +59,7 @@ We need to add the handler for the Auth0 callback so that we can authenticate th
 
 ${snippet(meta.snippets.setup)}
 
-${includes.callbackRegularWebapp}
+${include('./_callbackRegularWebapp')}
 
 In this case, the callbackURL should look something like:
 

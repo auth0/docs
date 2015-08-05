@@ -45,7 +45,7 @@ Add the following routes at the beginning of `app/config/routing.yml`
 
 ### 4. Configure Auth0
 
-${includes.callbackRegularWebapp}
+${include('./_callbackRegularWebapp')}
 
 In this case, the callbackURL should look something like:
 
