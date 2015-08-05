@@ -17,8 +17,9 @@ fourKeyConcepts:
   -
     text: Payback and ROI
     icon: css-class-bud-icon
-longDescription: Whether you’re a multi-billion dollar enterprise, an established web-native service, or a brand-new startup, you already know that you depend on secure identity management to protect your business. Identity management is a lot like database management: central to nearly all software, and rocket science to implement correctly. You wouldn’t engineer your own database - so why are you still building your own identity infrastructure?
-The case for buying your identity infrastructure ultimately comes down to risk, agility, and money. In this report we’ll look at what goes into a complete and trustworthy identity solution, and compare those costs and risks to a purchased solution from Auth0. and figure out the break-even payback period for some example scenarios. Finally, we will give you some ROI tools you can use to make the right decision for your organization.  
+longDescription: >
+	Whether you’re a multi-billion dollar enterprise, an established web-native service, or a brand-new startup, you already know that you depend on secure identity management to protect your business. Identity management is a lot like database management: central to nearly all software, and rocket science to implement correctly. You wouldn’t engineer your own database - so why are you still building your own identity infrastructure?
+	The case for buying your identity infrastructure ultimately comes down to risk, agility, and money. In this report we’ll look at what goes into a complete and trustworthy identity solution, and compare those costs and risks to a purchased solution from Auth0. and figure out the break-even payback period for some example scenarios. Finally, we will give you some ROI tools you can use to make the right decision for your organization.  
 shortTagline: You wouldn't build your own database, so why are you still building your own identity solution? 
 ---
 
