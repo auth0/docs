@@ -34,7 +34,7 @@ This document describes the major differences between Auth0's API v1 and the new
 | [PUT /api/users/{email}/password](/api/v1#!#put--api-users--email--password) | Removed. | Endpoints only accept ids, not strings. |
 | [PATCH /api/users/{user\_id}/metadata](/api/v1#!#patch--api-users--user_id--metadata) | Removed. | [PATCH /api/v2/users/{id}](/api/v2#!/users/patch_users_by_id) also accepts `v2_id` |
 | [DELETE /api/users](/api/v1#!#delete--api-users) | None. | [DELETE /api/v2/users](/api/v2#!/users/delete_users) |
-| [DELETE /api/users](/api/v1#!#delete--api-users--user_id-) | None. | [DELETE /api/v2/users/{id}](/api/v2#!/users/delete_users_by_id) also accepts `v2_id` |
+| [DELETE /api/users{user_id}](/api/v1#!#delete--api-users--user_id-) | None. | [DELETE /api/v2/users/{id}](/api/v2#!/users/delete_users_by_id) also accepts `v2_id` |
 | [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 | [DELETE /api/users/{user\_id}/public_key?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 
@@ -79,10 +79,10 @@ Authorization: Bearer {api_jwt_token}
 ```
 
 ### Scopes
-To use an endpoint, at least one of its available scopes (as listed in [API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not others.
+To use an endpoint, at least one of its available scopes (as listed in [API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
 
 ### The `id_token` and special scopes
-An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Below is an example of an `id_token`, although more claims may be included:
+An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Here is an example of an `id_token`, although more claims may be included:
 ```
 {
   "iss": "https://contoso.auth0.com/",
@@ -121,7 +121,7 @@ when working with rules or retrieving the user from the API you would get:
 console.log(user.email); // "jane.doe@gmail.com"
 console.log(user.hobby); // "surf"
 ```
-**Note:** `user.metadata.hobby` is not being used.
+Note that `user.metadata.hobby` is not being used.
 
 This automatic merging caused confusion for our customers. Also, having a single bucket for all metadata did not work well with our new permissions model for the following reasons:
 
@@ -173,10 +173,10 @@ https://login.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
 ```
 
 ## Endpoints
-Some general endpoint-related changes are detailed below.
+Some of the changes to endpoints are detailed below.
 
 ### Consolidation
-In API v1, different endpoints are used to update the various user properties. For example, to change the following user properties requires using these separate endpoints:
+In API v1, different endpoints are used to update the various user properties. For example, changing the following user properties requires using these separate endpoints:
 
 * [`PUT /api/users/{user_id}/email`](/api/v1#!#put--api-users--user_id--email)
 * [`PUT /api/users/{user_id}/metadata`](/api/v1#!#put--api-users--user_id--metadata)
