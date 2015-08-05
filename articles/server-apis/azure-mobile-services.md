@@ -19,7 +19,7 @@ alias:
   - azure-vm
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional Information
 

@@ -25,7 +25,7 @@ alias:
 
 Follow the steps below to configure your JS app to use Auth0.
 
-${includes.callback}
+${include('./\_callback')}
 
 ### 1. Add the Auth0 scripts and set the viewport
 

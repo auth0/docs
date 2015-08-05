@@ -1,3 +1,7 @@
+---
+public: false
+---
+
 # <%= _.capitalize(configuration.thirdParty) %> API
 
 Please follow the steps below to configure your Auth0 account to work with <%= _.capitalize(configuration.thirdParty) %>.

@@ -12,7 +12,7 @@ tags:
 > This integration is in __experimental mode__. Contact us if you have questions.
 
 <% configuration.thirdParty = 'SAP OData' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional information
 

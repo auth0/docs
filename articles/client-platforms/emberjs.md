@@ -27,7 +27,7 @@ tags:
 
 **If you have an existing application, follow the steps below.**
 
-${includes.callback}
+${include('./\_callback')}
 
 ### 1. Install the add-on
 

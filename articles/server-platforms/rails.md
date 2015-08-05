@@ -78,7 +78,7 @@ get "/auth/failure" => "auth0#failure"
 
 ### 4. Specify the callback on Auth0 Dashboard
 
-${includes.callbackRegularWebapp}
+${include('./_callbackRegularWebapp')}
 
 In this case, the callbackURL should look something like:
 

@@ -75,7 +75,7 @@ All linked identities will show up in the `User Profile` like in this example:
 The SDKs should make this very easy. The SDK for your platform will make it available in the most natural way for said platform. As an example, if you are using ASP.NET, the `access_token` is available as a claim:
 
 ```
-<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>
+${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 ```
 
 If you are rolling your own implementation, it will be available through the standard OAuth2 flow:
@@ -101,4 +101,3 @@ Body should be:
 ```
 
 Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowslive|9876543210987654321'`.
-

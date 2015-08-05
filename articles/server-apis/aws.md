@@ -11,7 +11,7 @@ tags:
   - quickstart
 ---
 <% configuration.thirdParty = 'AWS' %>
-${includes.thirdpartyapi}
+${include('./\_thirdpartyapi')}
 
 ### Additional information
 

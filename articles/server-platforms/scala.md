@@ -100,7 +100,7 @@ object Callback extends Controller {
 }
 ```
 
-${includes.callbackRegularWebapp}
+${include('./_callbackRegularWebapp')}
 
 In this case, the callbackURL should look something like:
 
