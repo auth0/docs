@@ -1,29 +1,31 @@
-# Checking the shasum of a package
+# Check the shasum of a package
 
-To prevent transmission or storage corruption every download file is provided with a SHA-1 checksum.
-
-To check the integrity of the file, use the following command:
+To avoid corruption in the transmission or storage of a package, every downloaded file is provided with a SHA-1 checksum.
 
 ### Linux and OS X
+
+To check the integrity of a file, use the shasum command with the following syntax:
 
 ```
 shasum file
 ```
 
-The output of this command will be the shasum of the downloaded package. You should compare the number displayed by the shasum command with the shasum provided in the instructions.
+The output of this command is the SHA-1 checksum of the downloaded package. Compare the number displayed by the shasum command with the shasum provided in the instructions.
 
 ### Windows
 
-A shasum tool for Windows can be obtained from:
+A shasum tool for Windows is available at:
 
-[http://www.microsoft.com/en-us/download/details.aspx?id=11533](http://www.microsoft.com/en-us/download/details.aspx?id=11533)
+[Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533)
 
-Usage:
+To check the integrity of a file, use the fciv.exe command with the -sha1 option:
 
 ```
 fciv.exe -sha1 file
 ```
 
-where xxxx is the build number.
+where _xxxx_ is the build number.
 
-You must include the `-sha1` option since __fciv.exe__ uses md5 by default. More information [here](http://support2.microsoft.com/kb/889768).
+__Note:__ The `-sha1` option must be included since __fciv.exe__ uses md5 by default. 
+
+More information is available at [How to compute the MD5 or SHA-1 cryptographic hash values for a file](http://support2.microsoft.com/kb/889768).
