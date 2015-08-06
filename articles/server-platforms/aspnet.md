@@ -8,6 +8,10 @@ snippets:
   dependencies: server-platforms/aspnet/dependencies
   setup: server-platforms/aspnet/setup
   use: server-platforms/aspnet/use
+alias:
+  - microsoft-net
+  - aspnet-mvc
+  - net-mvc
 ---
 
 # ASP.NET Tutorial

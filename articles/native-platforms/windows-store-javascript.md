@@ -15,6 +15,11 @@ snippets:
   dependencies: native-platforms/windows-store-javascript/dependencies
   setup: native-platforms/windows-store-javascript/setup
   use: native-platforms/windows-store-javascript/use
+alias:
+  - windows-8
+  - windows-81
+  - windows-tablet
+  - surface
 ---
 
 # Windows Store App in Javascript Tutorial

@@ -9,6 +9,9 @@ snippets:
   dependencies: server-platforms/aspnet-owin/dependencies
   setup: server-platforms/aspnet-owin/setup
   use: server-platforms/aspnet-owin/use
+alias:
+  - aspnetowin
+  - owin
 ---
 
 # ASP.NET (OWIN) Tutorial

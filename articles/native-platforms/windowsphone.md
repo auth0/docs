@@ -15,6 +15,11 @@ snippets:
   dependencies: native-platforms/windows-phone/dependencies
   setup: native-platforms/windows-phone/setup
   use: native-platforms/windows-phone/use
+alias:
+  - wp8
+  - windows-phone
+  - windows-phone-8
+  - microsoft-phone
 ---
 
 ## Windows Phone Tutorial

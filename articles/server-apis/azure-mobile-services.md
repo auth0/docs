@@ -11,6 +11,13 @@ tags:
   - quickstart
 snippets:
   use: server-apis/azure-mobile-services/use
+alias:
+  - windows-azure
+  - microsoft-azure
+  - windows-azure-websites
+  - windows-azure-vm
+  - azure-websites
+  - azure-vm
 ---
 <% configuration.thirdParty = 'Azure Mobile Services' %>
 @@includes.thirdpartyapi@@

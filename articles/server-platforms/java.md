@@ -9,6 +9,9 @@ snippets:
   dependencies: server-platforms/java/dependencies
   setup: server-platforms/java/setup
   use: server-platforms/java/use
+alias:
+  - spring
+  - spring-security
 ---
 
 ## Java Web App Tutorial

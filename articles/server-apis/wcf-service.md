@@ -14,6 +14,9 @@ snippets:
   dependencies: server-apis/wcf-service/dependencies
   setup: server-apis/wcf-service/setup
   use: server-apis/wcf-service/use
+alias:
+  - wfc
+  - windows-communication-foundation
 ---
 
 # Using Auth0 with a WCF Service
