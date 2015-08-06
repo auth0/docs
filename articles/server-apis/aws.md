@@ -2,6 +2,10 @@
 title: AWS Tutorial
 name: AWS
 thirdParty: true
+alias:
+  - Amazon web services
+  - amazon webservices
+  - aws
 image: //auth0.com/lib/saas-collection/img/aws.png
 lodash: true
 tags:

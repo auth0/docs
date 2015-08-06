@@ -1,6 +1,11 @@
 ---
 title: WCF Service Tutorial
 name: .NET WCF
+alias:
+  - wcf
+languages:
+  - C#
+  - Visual Basic .Net
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/wcf.png
 tags:

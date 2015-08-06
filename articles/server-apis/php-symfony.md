@@ -2,6 +2,10 @@
 title: PHP (Symfony) API Tutorial
 name: PHP (Symfony) API
 thirdParty: false
+alias:
+  - symfony
+languages:
+  - PHP
 image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart

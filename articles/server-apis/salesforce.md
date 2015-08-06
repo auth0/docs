@@ -1,6 +1,8 @@
 ---
 title: Salesforce Tutorial
 name: Salesforce
+alias:
+  - salesforce
 thirdParty: true
 image: //auth0.com/lib/saas-collection/img/salesforce.png
 lodash: true

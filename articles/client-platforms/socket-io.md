@@ -2,6 +2,11 @@
 lodash: true
 title: Socket.io Tutorial
 name: Socket.io
+alias:
+  - socketio
+  - socket.io
+language: 
+  - Javascript
 image: //auth0.com/lib/platforms-collection/img/socketio.svg
 tags:
   - quickstart

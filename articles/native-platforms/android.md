@@ -2,6 +2,9 @@
 lodash: true
 title: Android Tutorial
 name: Android
+alias:
+  - Android
+language: Java
 hybrid: false
 image: //auth0.com/lib/platforms-collection/img/android.png
 tags:

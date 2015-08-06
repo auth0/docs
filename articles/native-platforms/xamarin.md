@@ -1,6 +1,10 @@
 ---
 title: Xamarin Tutorial
 name: Xamarin
+alias:
+  - Xamarin
+language: 
+  - C#
 hybrid: false
 image: //auth0.com/lib/platforms-collection/img/xamarin.png
 tags:

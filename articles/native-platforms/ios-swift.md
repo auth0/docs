@@ -2,6 +2,13 @@
 lodash: true
 title: iOS Swift Tutorial
 name: iOS - Swift
+alias:
+  - ios
+  - iphone
+  - ipad
+language: 
+  - Swift
+  - Objective C
 hybrid: false
 image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:

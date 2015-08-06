@@ -1,6 +1,10 @@
 ---
 title: Ruby API Tutorial
 name: Ruby API
+alias:
+  - ruby
+languages:
+  - Ruby
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
 lodash: true

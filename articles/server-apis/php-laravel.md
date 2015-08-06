@@ -2,6 +2,10 @@
 title: PHP (Laravel) API Tutorial
 name: PHP (Laravel) API
 thirdParty: false
+alias:
+  - laravel
+languages:
+  - PHP
 image: //auth0.com/lib/platforms-collection/img/php.png
 lodash: true
 tags:

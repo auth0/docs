@@ -2,6 +2,9 @@
 title: Azure Blob Storage Addon Tutorial
 name: Azure Blob Storage
 thirdParty: true
+alias:
+  - azure blob storage
+  - azblob
 image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
 tags:
