@@ -4,7 +4,8 @@ title: Phonegap Tutorial
 name: Phonegap
 alias:
   - phonegap
-language: Javascript
+language: 
+  - Javascript
 framework:
   - Cordova
 hybrid: true
