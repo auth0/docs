@@ -1,6 +1,10 @@
 ---
 title: Python API Tutorial
 name: Python API
+alias:
+  - python
+languages:
+  - Python
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/python.png
 lodash: true

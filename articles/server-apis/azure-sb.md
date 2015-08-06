@@ -2,6 +2,8 @@
 title: Azure Service Bus Tutorial
 name: Azure Service Bus
 thirdParty: true
+alias:
+  - Azure Service Bus
 image: //auth0.com/lib/platforms-collection/img/azure.png
 lodash: true
 tags:

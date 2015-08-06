@@ -2,6 +2,13 @@
 lodash: true
 title: EmberJS Tutorial
 name: EmberJS
+alias:
+  - ember
+  - emberjs
+language: 
+  - Javascript
+framework:
+  - EmberJS
 image: //auth0.com/lib/platforms-collection/img/emberjs.png
 tags:
   - quickstart

@@ -2,6 +2,12 @@
 title: Node.JS API Tutorial
 name: Node.js API
 thirdParty: false
+alias:
+  - node
+  - nodejs
+  - node.js
+languages:
+  - Javascript
 image: //auth0.com/lib/platforms-collection/img/node.png
 lodash: true
 tags:

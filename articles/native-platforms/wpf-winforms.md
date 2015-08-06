@@ -2,6 +2,16 @@
 title: WPF and Winforms Tutorial
 name: WPF / Winforms
 hybrid: false
+alias:
+  - wpf
+  - windows forms
+  - win forms
+language: 
+  - Javascript
+  - C#
+framework:
+  - WPF
+  - WinForms
 image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart

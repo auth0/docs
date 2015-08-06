@@ -1,6 +1,10 @@
 ---
 title: PHP API Tutorial
 name: PHP API
+alias:
+  - php
+languages:
+  - PHP
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/php.png
 lodash: true

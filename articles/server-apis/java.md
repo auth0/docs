@@ -2,6 +2,10 @@
 title: Java API Tutorial
 name: Java API
 thirdParty: false
+alias:
+  - java
+languages:
+  - Java
 image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
 tags:

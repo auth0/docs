@@ -2,6 +2,11 @@
 lodash: true
 title: Generic SPA / Vanilla JS Tutorial
 name: Vanilla JS
+alias:
+  - vanilla
+  - vanillajs
+language: 
+  - Javascript
 image: //auth0.com/lib/platforms-collection/img/html5.png
 tags:
   - quickstart

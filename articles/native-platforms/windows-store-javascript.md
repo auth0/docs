@@ -2,6 +2,12 @@
 title: Windows Store App in Javascript Tutorial
 name: Windows Store (JS)
 hybrid: false
+alias:
+  - windows app
+  - windows
+language: 
+  - Javascript
+  - C#
 image: //auth0.com/lib/platforms-collection/img/windows-8.png
 tags:
   - quickstart

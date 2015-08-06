@@ -1,7 +1,14 @@
 ---
 title: ASP.NET Web API OWIN Tutorial
 name: ASP.NET Web API (OWIN)
+alias:
+  - owin
+languages:
+  - C#
+  - Visual Basic .Net
 thirdParty: false
+framework:
+  - OWIN
 image: //auth0.com/lib/platforms-collection/img/asp.png
 lodash: true
 tags:

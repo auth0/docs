@@ -2,6 +2,13 @@
 lodash: true
 title: React Tutorial
 name: React
+alias:
+  - react
+  - reactjs
+language: 
+  - Javascript
+framework:
+  - React
 image: //auth0.com/lib/platforms-collection/img/react.png
 tags:
   - quickstart

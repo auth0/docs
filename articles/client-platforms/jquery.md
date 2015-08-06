@@ -2,6 +2,12 @@
 lodash: true
 title: jQuery Tutorial
 name: jQuery
+alias:
+  - jquery
+language: 
+  - Javascript
+framework:
+  - jQuery
 image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
 tags:
   - quickstart

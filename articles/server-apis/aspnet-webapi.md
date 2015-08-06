@@ -1,6 +1,14 @@
 ---
 title: ASP.NET Web API Tutorial
 name: ASP.NET Web API
+alias:
+  - webapi
+  - asp.net webapi
+language: 
+  - Visual Basic .Net
+  - C#
+framework:
+  - WebAPI
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/asp.png
 lodash: true

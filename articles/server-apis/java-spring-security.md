@@ -2,6 +2,13 @@
 title: Spring Security Java API Tutorial
 name: Spring Security Java API
 thirdParty: false
+alias:
+  - spring security
+  - spring
+languages:
+  - Java
+framework:
+  - Spring
 image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
 tags:

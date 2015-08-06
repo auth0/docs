@@ -2,6 +2,11 @@
 lodash: true
 title: Windows Phone Tutorial
 name: Windows Phone
+alias:
+  - windows phone
+language: 
+  - Javascript
+  - C#
 hybrid: false
 image: //auth0.com/lib/platforms-collection/img/windows-phone.png
 tags:
