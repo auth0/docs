@@ -21,7 +21,7 @@ Complete the basic information about your app (Connected App Name, API Name and 
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-2.png)
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 

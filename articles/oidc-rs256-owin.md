@@ -1,6 +1,6 @@
 # OpenID Connect Discovery
 
-Auth0 exposes OIDC discovery documents (`https://@@account.namespace@@/.well-known/openid-configuration`). These can be used to automatically configure applications. 
+Auth0 exposes OIDC discovery documents (`https://${account.namespace}/.well-known/openid-configuration`). These can be used to automatically configure applications. 
 
 A good example is __OpenID Connect middleware for Katana v3 (OWIN)__:
 
@@ -19,7 +19,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 
 app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
 {
-  Authority = "https://@@account.namespace@@/",
+  Authority = "https://${account.namespace}/",
   ClientId = "{YOUR_AUTH0_CLIENT_ID}",
   SignInAsAuthenticationType = CookieAuthenticationDefaults.AuthenticationType,
   ResponseType = "token",
@@ -46,7 +46,7 @@ Currently, the OpenID Connect middleware does not support JWT tokens signed with
 
 ###On the Auth0 dashboard:
 
-1. Go to @@uiURL@@/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
+1. Go to ${uiURL}/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
 2. Click on `Show Advanced Settings`.
 3. Set `RS256` as `JsonWebToken Token Signature Algorithm` and click on `Save`.
 

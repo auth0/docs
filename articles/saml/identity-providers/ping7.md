@@ -6,17 +6,17 @@ layout: doc.nosidebar
 
 Most options are the default values. You will just need to press __Next__ in most screens. If metadata import fails for some reason, keep these values at hand. These are the most important configuration parameters:
 
-* __EntityID:__ `urn:auth0:@@account.tenant@@:@@connectionName@@`
-* __Assertion Consumer Service URL:__ `https://@@account.namespace@@/login/callback`
-* __Logout URL:__ `https://@@account.namespace@@/logout`
+* __EntityID:__ `urn:auth0:${account.tenant}:${connectionName}`
+* __Assertion Consumer Service URL:__ `https://${account.namespace}/login/callback`
+* __Logout URL:__ `https://${account.namespace}/logout`
 * __HTTP-Redirect__ binding for SAML Request
 * __HTTP-POST__ binding for SAML Response
 
-> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://@@account.namespace@@/login/callback?connection=@@connectionName@@`
+> If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=${connectionName}`
 
 ###1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@). This will be used in [step 3](ping7#3) and it is used to automatically import information about your partner.
+Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=${connectionName}). This will be used in [step 3](ping7#3) and it is used to automatically import information about your partner.
 
 ###2. Create a new __SP Connection__
 
@@ -34,7 +34,7 @@ Select __Browser SSO__ as the __Connection Options__:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-3.png)
 
-Upload the [__metadata file__](https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
+Upload the [__metadata file__](https://${account.namespace}/samlp/metadata?connection=${connectionName}) you downloaded in step 1. The __Entity ID__, __Connection Name__ and the __Base URL__ will be automatically completed based on the information from the metadata file. You can also complete other relevant information from your partner:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-4.png)
 
@@ -88,7 +88,7 @@ This is the last step for configuring __Browser SSO__. On __Digital Signature Se
 
 ![](/media/articles/saml/identity-providers/ping7/ping-15.png)
 
-The last two options to configure are the certificate used to sign incoming requests. Auth0 will not sign `SAMLRequests` by default. For some reason, there's no way around this setting. [Download the Auth0 certificate](https://@@account.tenant@@.auth0.com/pem) and upload it here.
+The last two options to configure are the certificate used to sign incoming requests. Auth0 will not sign `SAMLRequests` by default. For some reason, there's no way around this setting. [Download the Auth0 certificate](https://${account.tenant}.auth0.com/pem) and upload it here.
 
 ![](/media/articles/saml/identity-providers/ping7/ping-16.png)
 ![](/media/articles/saml/identity-providers/ping7/ping-17.png)

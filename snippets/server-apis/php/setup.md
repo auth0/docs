@@ -21,7 +21,7 @@
 
     // // validate the token
     $token = str_replace('Bearer ', '', $authorizationHeader);
-    $secret = '@@account.clientSecret@@';
+    $secret = '${account.clientSecret}';
     $decoded_token = null;
     try {
       $decoded_token = JWT::decode($token, base64_decode(strtr($secret, '-_', '+/')) );
@@ -33,7 +33,7 @@
 
 
     // // validate that this token was made for us
-    if ($decoded_token->aud != '@@account.clientId@@0') {
+    if ($decoded_token->aud != '${account.clientId}0') {
       header('HTTP/1.0 401 Unauthorized');
       echo "Invalid token";
       exit();

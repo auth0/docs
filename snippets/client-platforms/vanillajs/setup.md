@@ -1,3 +1,3 @@
 ```js
-var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```

@@ -311,4 +311,4 @@ If you have found a bug or if you have a feature request, please report them at 
 
 ## Start using Auth0Lock
 
-@@lockSDK@@
+${lockSDK}

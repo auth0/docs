@@ -1,7 +1,7 @@
 ```html
-<script src="@@widget_url@@"></script>
+<script src="${widget_url}"></script>
 <script>
-var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
 
 function signin() {

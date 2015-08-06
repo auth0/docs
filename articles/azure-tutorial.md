@@ -44,9 +44,9 @@ Each application has a different `Client Id` and `Client Secret` and can be conf
 Then, whenever you have to reference the ClientID, Secret or callback, you use this syntax:
 
 ```
-<script src="@@widget_url@@"></script>
+<script src="${widget_url}"></script>
 <script type="text/javascript">
-    var lock = new Auth0Lock('@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', '@@account.namespace@@');
+    var lock = new Auth0Lock('@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', '${account.namespace}');
 
     lock.show({
       callbackURL: '@System.Configuration.ConfigurationManager.AppSettings["auth0:CallbackUrl"]'

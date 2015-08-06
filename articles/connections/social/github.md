@@ -20,7 +20,7 @@ Log in into GitHub and [register an new Application](https://github.com/settings
 
 The callback address for your app should be:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## Connectivity to Auth0
 
-The connector must be installed on a server with outbound connectivity to the Auth0 service at:  `https://@@account.namespace@@` on port **443**.
+The connector must be installed on a server with outbound connectivity to the Auth0 service at:  `https://${account.namespace}` on port **443**.
 
 The connector can be installed and configured behind a __proxy server__ but we don't recommend this.
 

@@ -18,7 +18,7 @@ Then on the API v2 page you can generate an API token with the right scopes (eg:
 curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{ "name": "ses", "credentials": { "accessKeyId": "YOUR_AWS_ACCESS_KEY_ID", "secretAccessKey": "YOUR_AWS_SECRET_ACCESS_KEY", "region": "YOUR_AWS_DEFAULT_REGION" } }' https://login.auth0.com/api/v2/emails/provider
 ```
 
-After setting up Amazon SES as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](@@uiURL@@/#/emails). The [Amazon SES console](https://console.aws.amazon.com/ses) will now show all emails which are being sent to your users from Auth0.
+After setting up Amazon SES as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](${uiURL}/#/emails). The [Amazon SES console](https://console.aws.amazon.com/ses) will now show all emails which are being sent to your users from Auth0.
 
 ## Configuring Mandrill for sending emails
 
@@ -30,7 +30,7 @@ Then on the API v2 page you can generate an API token with the right scopes (eg:
 curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"mandrill","credentials":{"api_key":"YOUR_MANDRILL_API_KEY"}}' https://login.auth0.com/api/v2/emails/provider
 ```
 
-After setting up Mandrill as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](@@uiURL@@/#/emails).
+After setting up Mandrill as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](${uiURL}/#/emails).
 
 The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will now show the emails which have been sent to your users, the subject and the delivery status of each message.
 
@@ -48,7 +48,7 @@ Then on the API v2 page you can generate an API token with the right scopes (eg:
 curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"sendgrid","credentials":{"api_user":"YOUR_SENDGRID_API_USER","api_key":"YOUR_SENDGRID_API_KEY"}}' https://login.auth0.com/api/v2/emails/provider
 ```
 
-After setting up SendGrid as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](@@uiURL@@/#/emails).
+After setting up SendGrid as your provider you can send a test mail [using the Try button in the Emails section of the dashboard](${uiURL}/#/emails).
 
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now show the emails which have been sent to your users and the delivery status of each message.
 

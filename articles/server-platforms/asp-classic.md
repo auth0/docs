@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: ASP Classic Tutorial
 name: ASP Classic
 image: //auth0.com/lib/platforms-collection/img/asp-classic.jpg
@@ -18,7 +17,7 @@ snippets:
 
 First, we need to create the `default.asp` which will show the Login Widget from Auth0.
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 After logging in with any provider, Auth0 will redirect the user to `/callback.asp`.
 
@@ -31,7 +30,7 @@ It will implement the basic OAuth 2 flow:
 1. Exchanges the **code** for an **access_token**
 1. Calls the **Userinfo** endpoint to get the current logged in user profile using the access_token as credentials.
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ```asp
 Function GetUserProfile(access_token)

@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Generic SPA / Vanilla JS Tutorial
 name: Vanilla JS
 alias:
@@ -20,19 +19,19 @@ snippets:
 
 Follow the steps below to configure your JS app to use Auth0.
 
-@@includes.callback@@
+${include('./\_callback')}
 
 ### 1. Add the Auth0 scripts and set the viewport
 
 Add the code below to the `index.html` file to include the Auth0 `lock` script and set the viewport:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Auth0Lock
 
 To have your app work with Auth0, configure Auth0Lock by creating an instance of the service:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
@@ -46,7 +45,7 @@ Create a login button:
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks on the login button.
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
 

@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: NancyFX Tutorial
 name: NancyFX
 image: //auth0.com/lib/platforms-collection/img/nancyfx.png
@@ -15,7 +14,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/Auth0.NancyFx.SelfHost/master/create-package?path=sample&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/Auth0.NancyFx.SelfHost/master/create-package?path=sample&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
     </a>
   </blockquote>
@@ -27,13 +26,13 @@ snippets:
 
 Install Auth0 NancyFX dependency with `NuGet`
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Auth0
 
 In your Nancy self hosted application add the following to your BootStrapper:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when he tries to access a restricted view.
 
@@ -55,10 +54,10 @@ You need to configure your Auth0 keys in the `app.config`
 ```xml
 <appSettings>
     <!-- Auth0 configuration -->
-    <add key="auth0:ClientId" value="@@account.clientId@@" />
-    <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
-    <add key="auth0:Domain" value="@@account.namespace@@" />
-    <add key="auth0:CallbackUrl" value="@@account.callback@@" />
+    <add key="auth0:ClientId" value="${account.clientId}" />
+    <add key="auth0:ClientSecret" value="${account.clientSecret}" />
+    <add key="auth0:Domain" value="${account.namespace}" />
+    <add key="auth0:CallbackUrl" value="${account.callback}" />
 </appSettings>
 ```
 
@@ -107,7 +106,7 @@ public class Authentication : NancyModule
 
 ### 6. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

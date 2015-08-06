@@ -3,7 +3,7 @@
 ## Component configuration
 The first thing you will need to do, is to set up your *Auth0 Domain*, *Client Id* and *Client Secret* in your content configuration.
 
-So, go to your account and under the [Apps section](@@uiURL@@/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
+So, go to your account and under the [Apps section](${uiURL}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
 
 1. Access the Auth0 component page.
 2. Complete your *Auth0 Domain*, *Client Id* and *Client Secret*.

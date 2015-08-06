@@ -6,9 +6,9 @@ layout: doc.nosidebar
 
 Most options are the default values. These are the most important configuration parameters you will need:
 
-* __EntityID:__ `urn:auth0:@@account.tenant@@`
-* __Assertion Consumer Service URL:__ `https://@@account.namespace@@/login/callback`
-* __Logout URL:__ `https://@@account.namespace@@/logout`
+* __EntityID:__ `urn:auth0:${account.tenant}`
+* __Assertion Consumer Service URL:__ `https://${account.namespace}/login/callback`
+* __Logout URL:__ `https://${account.namespace}/logout`
 * __HTTP-Redirect__ binding for SAML Request
 * __HTTP-POST__ binding for SAML Response
 
@@ -18,7 +18,7 @@ The instructions below will guide you into where these values need to be entered
 
 Provide an appropriate name for this Service Provider. We suggest using:
 
-* __Name:__ `@@account.tenant@@`
+* __Name:__ `${account.tenant}`
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-users.png)
 
@@ -32,7 +32,7 @@ You can define many ways of generating a `NameIdentifier` for users authenticati
 
 Use the following values for this configuration screen:
 
-* __SP ID:__ `urn:auth0:@@account.tenant@@`
+* __SP ID:__ `urn:auth0:${account.tenant}`
 * __SAML Version:__ `2.0`
 * __Skew Time:__ `30 seconds`
 
@@ -40,9 +40,9 @@ Use the following values for this configuration screen:
 
 ###4. Configure the Assertion Consumer Service URL
 
-The __Assertion Consumer Service URL__ is the location where SiteMinder will POST back the SAML Token. This Service Provider (@@account.tenant@@) only supports the `HTTP-POST` binding for SAML Responses. Use these values:
+The __Assertion Consumer Service URL__ is the location where SiteMinder will POST back the SAML Token. This Service Provider (${account.tenant}) only supports the `HTTP-POST` binding for SAML Responses. Use these values:
 
-* __Assertion Consumer Service:__ `https://@@account.namespace@@/login/callback`
+* __Assertion Consumer Service:__ `https://${account.namespace}/login/callback`
 * __HTTP-Post__: `checked`
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-sso.png)
@@ -55,7 +55,7 @@ Add any other properties you wish to share about the authenticated user to this 
 
 ###6. Enter the Single Sign Out URL
 
-* __SLO Location URL:__ `https://@@account.namespace@@/logout`
+* __SLO Location URL:__ `https://${account.namespace}/logout`
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-slo.png)
 

@@ -23,7 +23,7 @@ Go to the [developer portal](https://developer.paypal.com/), and sign in with yo
 * Make sure you select __OAuth 2.0 / OpenId Connect__ as the protocols option.
 * Your callback URL is:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 > Note that you can control the scope of access through Auth0 (currently: profile, email, address, phone). But you will also need to enable that access in the portal checking the right attributes.
 

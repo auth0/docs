@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: jQuery Tutorial
 name: jQuery
 alias:
@@ -23,7 +22,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-thirdparty-api&type=js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -37,7 +36,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-api&type=js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -50,31 +49,31 @@ snippets:
 
 **If you have an existing application, follow the steps below.**
 
-@@includes.callback@@
+${include('./\_callback')}
 
 ### 1. Add the Auth0 scripts and set the viewport
 
 Add the code below to the `index.html` file to include Auth0's jQuery module and its dependencies and set the viewport:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure the Auth0Lock
 
 Configure Auth0Lock with your `client-ID` and `domain`:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see [user-profile](/lock#5).
 
 This is how it will appear in the browser:
 
-@@browser@@
+${browser}
 
 <% if (configuration.api && configuration.thirdParty) { %>
 

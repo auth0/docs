@@ -1,6 +1,5 @@
 ---
 url: /libraries/lock-ios
-lodash: true
 ---
 
 # Lock for iOS and OS X
@@ -42,7 +41,7 @@ Then in your project's `Info.plist` file add the following entries:
 * __Auth0ClientId__: The client ID of your application in __Auth0__.
 * __Auth0Domain__: Your account's domain in __Auth0__.
 
-> You can find these values in your app's settings in [Auth0 dashboard](@@uiURL@@/#/applications).
+> You can find these values in your app's settings in [Auth0 dashboard](${uiURL}/#/applications).
 
 For example:
 
@@ -194,7 +193,7 @@ And you'll see TouchID login screen
 
 ### SMS
 
-`A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](@@uiURL@@/#/connections/passwordless).
+`A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${uiURL}/#/connections/passwordless).
 
 First instantiate `A0SMSLockViewController` and register the authentication callback that will receive the authenticated user's credentials.
 

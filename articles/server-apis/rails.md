@@ -10,7 +10,6 @@ framework:
   - Ruby on Rails
 thirdParty: false
 image: //auth0.com/lib/platforms-collection/img/rails.png
-lodash: true
 tags:
   - quickstart
 snippets:
@@ -23,7 +22,7 @@ snippets:
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/auth0-ruby-samples/master/create-package?path=ruby-on-rails-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/auth0-ruby-samples/master/create-package?path=ruby-on-rails-api&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download a Seed project</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -41,7 +40,7 @@ Add this line to your application's Gemfile:
 
 #### Install
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 And then execute:
 
@@ -58,12 +57,12 @@ This file contains all the informations about the existing configuration options
 
 Then include the `Knock::Authenticable` module in your `ApplicationController`
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 You can now protect your resources by adding the `authenticate` before_action
 to your controllers like this:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 If no valid token is passed with the request, Knock will respond with:
 
