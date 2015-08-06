@@ -6,6 +6,8 @@ alias:
   - cordova
 language: 
   - Javascript
+framework:
+  - Cordova
 hybrid: true
 image: //auth0.com/lib/platforms-collection/img/phonegap.png
 tags:

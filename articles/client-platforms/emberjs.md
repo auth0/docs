@@ -7,6 +7,8 @@ alias:
   - emberjs
 language: 
   - Javascript
+framework:
+  - EmberJS
 image: //auth0.com/lib/platforms-collection/img/emberjs.png
 tags:
   - quickstart

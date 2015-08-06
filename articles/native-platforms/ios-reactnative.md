@@ -7,6 +7,8 @@ alias:
   - react native
 language: 
   - Javascript
+framework:
+  - React Native
 hybrid: true
 image: //auth0.com/lib/platforms-collection/img/react.png
 tags:

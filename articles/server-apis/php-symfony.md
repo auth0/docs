@@ -6,6 +6,8 @@ alias:
   - symfony
 languages:
   - PHP
+framework:
+  - Symfony
 image: //auth0.com/lib/platforms-collection/img/php.png
 tags:
   - quickstart

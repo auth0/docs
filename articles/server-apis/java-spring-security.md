@@ -7,6 +7,8 @@ alias:
   - spring
 languages:
   - Java
+framework:
+  - Spring
 image: //auth0.com/lib/platforms-collection/img/java.png
 lodash: true
 tags:

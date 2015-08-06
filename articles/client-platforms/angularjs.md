@@ -5,7 +5,10 @@ name: Angular.js
 alias:
   - angular
   - angularjs
-language: Javascript
+language: 
+  - Javascript
+framework:
+  - AngularJS
 image: //auth0.com/lib/platforms-collection/img/angular.png
 tags:
   - quickstart

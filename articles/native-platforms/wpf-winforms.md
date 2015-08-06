@@ -6,7 +6,12 @@ alias:
   - wpf
   - windows forms
   - win forms
-language: C#
+language: 
+  - Javascript
+  - C#
+framework:
+  - WPF
+  - WinForms
 image: //auth0.com/lib/platforms-collection/img/asp.png
 tags:
   - quickstart
