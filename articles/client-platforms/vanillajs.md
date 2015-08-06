@@ -14,6 +14,12 @@ snippets:
   dependencies: client-platforms/vanillajs/dependencies
   setup: client-platforms/vanillajs/setup
   use: client-platforms/vanillajs/use
+alias:
+  - spa
+  - single-page-app
+  - html5
+  - backendless
+  - javascript-app
 ---
 
 ## Generic SPA / Vanilla JS Tutorial

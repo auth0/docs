@@ -19,6 +19,11 @@ snippets:
   dependencies: native-platforms/wpf-winforms/dependencies
   setup: native-platforms/wpf-winforms/setup
   use: native-platforms/wpf-winforms/use
+alias:
+  - wpf
+  - wiforms
+  - rich-client-application
+  - rich-client
 ---
 
 # WPF and Winforms Tutorial

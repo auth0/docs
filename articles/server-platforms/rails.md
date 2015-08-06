@@ -9,6 +9,10 @@ snippets:
   dependencies: server-platforms/rails/dependencies
   setup: server-platforms/rails/setup
   use: server-platforms/rails/use
+alias:
+  - ruby-rails
+  - sinatra
+  - omniauth
 ---
 
 ## Ruby On Rails Web App Tutorial

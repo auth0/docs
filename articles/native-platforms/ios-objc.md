@@ -17,6 +17,10 @@ snippets:
   dependencies: native-platforms/ios-objc/dependencies
   setup: native-platforms/ios-objc/setup
   use: native-platforms/ios-objc/use
+alias:
+  - objective-c
+  - iphone
+  - ipad
 ---
 
 ## iOS Objective-C Tutorial

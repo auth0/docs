@@ -16,6 +16,8 @@ snippets:
   dependencies: client-platforms/angularjs/dependencies
   setup: client-platforms/angularjs/setup
   use: client-platforms/angularjs/use
+alias:
+  - angular
 ---
 
 ## AngularJS Tutorial

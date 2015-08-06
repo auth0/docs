@@ -16,6 +16,8 @@ snippets:
   dependencies: native-platforms/cordova/dependencies
   setup: native-platforms/jquery/setup
   use: native-platforms/jquery/use
+alias:
+  - apache-cordova
 ---
 
 ## Cordova Tutorial

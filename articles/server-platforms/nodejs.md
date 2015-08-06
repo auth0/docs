@@ -9,6 +9,11 @@ snippets:
   dependencies: server-platforms/nodejs/dependencies
   setup: server-platforms/nodejs/setup
   use: server-platforms/nodejs/use
+alias:
+  - node
+  - express
+  - node-connect
+  - passport
 ---
 
 ## NodeJS Web App Tutorial

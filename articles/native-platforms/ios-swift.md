@@ -17,6 +17,8 @@ snippets:
   dependencies: native-platforms/ios-swift/dependencies
   setup: native-platforms/ios-swift/setup
   use: native-platforms/ios-swift/use
+alias:
+  - ios
 ---
 
 ## iOS Swift Tutorial
