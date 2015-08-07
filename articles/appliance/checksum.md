@@ -1,4 +1,4 @@
-# Verify the integrity of an update package
+# Verify Update Package Integrity
 
 To avoid corruption in the transmission or storage of a package, every downloaded file is provided with a SHA-1 checksum.
 
