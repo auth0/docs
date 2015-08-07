@@ -103,36 +103,11 @@ Your application needs to capture the one-time-password and validate it with Aut
 
 * [Using the `scope` parameter to control which claims are returned in the token](/scopes)
 
-### How to use it with Auth0.js (The JavaScript SDK)
-#### First step: __registering a user__
-You can use our client side javascript SDK [Auth0.js](https://github.com/auth0/auth0.js#with-sms) which has a convenient method named `startPasswordless`:
-
-```
-auth0.startPasswordless({
-    phoneNumber: $('.phone-input').val()
-}, function (err, result) {
-    if (err) return alert("something went wrong: " + err.message);
-    console.log(result);
-});
-```
-
-The actual contents of the `id_token` will depend on the `scope` and on any [rules](/rules) you might have defined.
-
-#### Second Step: Verifying the one-time-password
-To verify the one-time-password you have to login the user using the method named `login`:
-
-```
-auth0.login({
-    username: $('.phone-input').val(),
-    password: $('.sms-code-input').val(),
-    connection: 'sms'
-}, function (err, profile, id_token, access_token, state, refresh_token) {
-    if (err) return alert("something went wrong: " + err.message);
-    console.log(profile, id_token, access_token, state, refresh_token);
-});
-```
-### How to use it with Lock
-TBD
+### How to use it with our client SDKs
+#### [Auth0.js (The JavaScript SDK)](/libraries/auth0js#12)
+#### [iOS](/libraries/lock-ios)
+#### [Android](/libraries/lock-android)
+#### [Lock](/libraries/lock)
 
 ## Passwordless with email
 
@@ -148,7 +123,6 @@ Enter the __From__, the __Subject__ and the __body__ of the mail.
 (insert screenshot)
 
 ### How to use it with Auth0 APIs:
-You can use our client side javascript SDK [Auth0.js](https://github.com/auth0/auth0.js#with-email) which has a convenient method named `startPasswordless`:
 
 ```
 POST https://@@account.namespace@@/api/v2/users/
@@ -178,18 +152,8 @@ https://@@account.namespace@@/authorize?
   &redirect_uri=https://contoso.com
 ```
 
-### How to use it with Auth0.js (The JavaScript SDK)
-You can use our client side javascript SDK [Auth0.js](https://github.com/auth0/auth0.js#with-sms) which has a convenient method named `startPasswordless`:
-
-```
-auth0.startPasswordless({
-  email: $('.email-input').val()
-}, function (err, result) {
-    if (err) return alert("something went wrong: " + err.message);
-    console.log(result);
-});
-```
-If the request was successful you should receive an email with the link at the specified address
-
-### How to use it with Lock
-TBD
+### How to use it with our client SDKs
+#### [Auth0.js (The JavaScript SDK)](/libraries/auth0js#15)
+#### [iOS](/libraries/lock-ios)
+#### [Android](/libraries/lock-android)
+#### [Lock](/libraries/lock)

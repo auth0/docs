@@ -232,6 +232,55 @@ After a successful login, `auth0.js` will auto login the user. If you do not wan
     });
   });
 ```
+## Operations for PasswordLess connections
+
+### Using SMS
+
+#### Registering a user
+
+```
+  $('.request-sms-code').click(function (e) {
+      e.preventDefault();
+      auth0.startPasswordless({
+          phoneNumber: $('.phone-input').val()
+      }, function (err, result) {
+          if (err) return alert("something went wrong: " + err.message);
+          console.log(result);
+      });
+  });
+```
+
+#### Verifying the one-time-password
+
+```
+    $('.submit-sms-code').click(function (e) {
+        e.preventDefault();
+        auth0.login({
+            username: $('.phone-input').val(),
+            password: $('.sms-code-input').val(),
+            connection: 'sms'
+        }, function (err, profile, id_token, access_token, state, refresh_token) {
+            if (err) return alert("something went wrong: " + err.message);
+            console.log(profile, id_token, access_token, state, refresh_token);
+        });
+    });
+```
+
+### Using email
+
+#### Requesting a magic link
+
+```
+    $('.request-email-link').click(function (e) {
+        e.preventDefault();
+        auth0.startPasswordless({
+          email: $('.email-input').val()
+        }, function (err, result) {
+            if (err) return alert("something went wrong: " + err.message);
+            console.log(result);
+        });
+    });
+```
 
 ## Advanced operations
 
