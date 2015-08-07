@@ -1,5 +1,5 @@
 ---
-title: Dollars and Sense: Why Buying Your Identity Infrastructure Is Good Busines
+title: "Dollars and Sense: Why Buying Your Identity Infrastructure Is Good Busines"
 type: whitepaper
 description: It is tempting to build your own identity management. But it does not make good economic sense. This white paper looks in detail at the costs to build a trustworthy identity solution in today’s high-risk environment, what it costs to purchase a subscription to the developer-friendly Auth0 platform, and for several typical scenarios, determines the payback period for using Auth0.
 hash: build-vs-buy
@@ -17,9 +17,9 @@ fourKeyConcepts:
   -
     text: Payback and ROI
     icon: css-class-bud-icon
-longDescription: >
+longDescription: "
 	Whether you’re a multi-billion dollar enterprise, an established web-native service, or a brand-new startup, you already know that you depend on secure identity management to protect your business. Identity management is a lot like database management: central to nearly all software, and rocket science to implement correctly. You wouldn’t engineer your own database - so why are you still building your own identity infrastructure?
-	The case for buying your identity infrastructure ultimately comes down to risk, agility, and money. In this report we’ll look at what goes into a complete and trustworthy identity solution, and compare those costs and risks to a purchased solution from Auth0. and figure out the break-even payback period for some example scenarios. Finally, we will give you some ROI tools you can use to make the right decision for your organization.  
+	The case for buying your identity infrastructure ultimately comes down to risk, agility, and money. In this report we’ll look at what goes into a complete and trustworthy identity solution, and compare those costs and risks to a purchased solution from Auth0. and figure out the break-even payback period for some example scenarios. Finally, we will give you some ROI tools you can use to make the right decision for your organization."
 shortTagline: You wouldn't build your own database, so why are you still building your own identity solution? 
 ---
 
