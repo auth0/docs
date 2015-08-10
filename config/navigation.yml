@@ -1,0 +1,212 @@
+categories:
+  -
+    id: "product"
+    name: "Product"
+    description: "Learn all about what Auth0 offers as a service"
+    links:
+      -
+        name: "Overview"
+        icon: "icon-budicon-121"
+        description: "What is Auth0 and how can it help you build applications."
+        href: "/overview"
+      -
+        name: "Applications"
+        icon: "icon-budicon-349"
+        description: "What is Auth0 and how can it help you build applications."
+        href: "/applications"
+      -
+        name: "Rules"
+        icon: "icon-budicon-173"
+        description: "What is Auth0 and how can it help you build applications."
+        href: "/rules"
+      -
+        name: "Identity Providers"
+        icon: "icon-budicon-297"
+        description: "What is Auth0 and how can it help you build applications."
+        href: "/identityproviders"
+      -
+        name: "Single Sign On"
+        icon: "icon-budicon-170"
+        description: "What is Auth0 and how can it help you build applications."
+        href: "/sso/single-sign-on"
+      -
+        name: "User Profile"
+        icon: "icon-budicon-289"
+        description: "What is Auth0 and how can it help you build applications."
+        href: "/user-profile"
+      -
+        name: "Multifactor Authentication"
+        icon: "icon-budicon-243"
+        description: "Add additional security with a second factor of authentication."
+        href: "/mfa"
+      -
+        name: "Passwordless Authentication"
+        icon: "icon-budicon-499"
+        description: "Authenticate users without a password using SMS, Email, or TouchID."
+        href: "/connections/passwordless"
+      -
+        name: "Auth0 Appliance"
+        icon: "icon-budicon-359"
+        description: "Deploy Auth0 to your own cloud or datacenter."
+        href: "/appliance"
+  -
+    id: "api"
+    name: "API"
+    description: "Learn all about what Auth0 offers as a service"
+    sections:
+      explorer:
+        name: "API Explorer"
+        description: "Read the full reference to Auth0’s API and try all endpoints using your own credentials."
+        href: "/api/v2/"
+      auth-endpoints:
+        name: "Authentication Endpoints"
+        description: "Perform Enterprise Authentication or OpenID operations asing these APIs."
+        href: "/auth-api/"
+      announcements:
+        name: "Announcements"
+        links:
+          -
+            name: "Supported Protocols"
+            href: "https://auth0.com/docs/protocols"
+          -
+            name: "API v1 vs v2"
+            href: "https://auth0.com/docs/api/v2/changes"
+          -
+            name: "Blacklisting JWT API Keys"
+            href: "https://auth0.com/blog/2015/03/10/blacklist-json-web-token-api-keys/"
+  -
+    id: "sdk"
+    name: "Libraries & SDKs"
+    description: "Learn all about what Auth0 offers as a service"
+    links:
+      -
+        name: "AngularJS"
+        slug: "angular"
+        href: "#"
+      -
+        name: "NodeJS"
+        slug: "node"
+        href: "#"
+      -
+        name: "Lock - iOS"
+        slug: "lock"
+        href: "#"
+      -
+        name: "Lock - Android"
+        slug: "lock"
+        href: "#"
+      -
+        name: "Lock - Web"
+        slug: "lock"
+        href: "#"
+      -
+        name: "Ruby on Rails"
+        slug: "rails"
+        href: "#"
+      -
+        name: "React"
+        slug: "react"
+        href: "#"
+      -
+        name: "Ember.js"
+        slug: "emberjs"
+        href: "#"
+      -
+        name: "Java"
+        slug: "java"
+        href: "#"
+      -
+        name: "jQuery"
+        slug: "jquery"
+        href: "#"
+      -
+        name: "iOS"
+        slug: "ios"
+        href: "#"
+      -
+        name: "Android"
+        slug: "android"
+        href: "#"
+      -
+        name: "Ruby"
+        slug: "ruby"
+        href: "#"
+      -
+        name: "Scala"
+        slug: "scala"
+        href: "#"
+      -
+        name: ".NET"
+        slug: "net"
+        href: "#"
+      -
+        name: "PHP"
+        slug: "php"
+        href: "#"
+      -
+        name: "Python"
+        slug: "python"
+        href: "#"
+      -
+        name: "Go"
+        slug: "go"
+        href: "#"
+  -
+    id: "how-to"
+    name: "How To's"
+    description: "Learn all about what Auth0 offers as a service"
+    links:
+      -
+        name: "Refresh Tokens"
+        icon: "icon-budicon-754"
+        href: "/refresh-token"
+        description: "How to securely renew id tokens within your apps."
+      -
+        name: "Importing and Migrating Users to Auth0"
+        icon: "icon-budicon-754"
+        href: "/migrating"
+        description: "Import users from existing applications into Auth0."
+      -
+        name: "Customizing Sign Up Forms"
+        icon: "icon-budicon-754"
+        href: "/custom-signup"
+        description: "Deliver a customized signup experience to your users."
+      -
+        name: "Linking Accounts"
+        icon: "icon-budicon-754"
+        href: "/link-accounts"
+        description: "Unify a single user's identity using different identity providers."
+      -
+        name: "Logout"
+        icon: "icon-budicon-754"
+        href: "/logout"
+        description: "Learn about clearing sso cookies and other logout operations."
+      -
+        name: "Cookies vs. Tokens"
+        icon: "icon-budicon-754"
+        href: "/apps-apis"
+        description: "Learn token-based authentication design vs cookie-based authentication."
+      -
+        name: "Connecting Active Directory"
+        icon: "icon-budicon-754"
+        href: "/connections/enterprise/active-directory"
+      -
+        name: "Using and Configuring SAML"
+        icon: "icon-budicon-754"
+        href: "/saml-configuration"
+      -
+        name: "User Profile"
+        icon: "icon-budicon-754"
+        href: "/user-profile"
+      -
+        name: "Setup and Use the Connector"
+        icon: "icon-budicon-754"
+        href: "/connector"
+      -
+        name: "Custom Password Strength"
+        icon: "icon-budicon-754"
+        href: "/password-strength"
+      -
+        name: "Configure Emails"
+        icon: "icon-budicon-778"
+        href: "/email"

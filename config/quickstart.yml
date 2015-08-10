@@ -28,3 +28,9 @@ apptypes:
     description: A JS/HTML5 mobile app that runs in devices
     example: "eg: PhoneGap Ionic"
     budicon: 243
+
+  - title: Backend/API
+    name: backend
+    description: An API or service that does JWT validation
+    example: "eg: Custom API"
+    budicon: 649
