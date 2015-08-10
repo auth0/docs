@@ -44,25 +44,12 @@ You can either run the following command or install it via the **Package Manager
 @@snippet(meta.snippets.dependencies)@@
 
 ### 2. Instantiate the Auth0 client
-Provide your domain and application's **Client ID** as parameters when creating the client instance:
 
 @@snippet(meta.snippets.setup)@@
 
 ### 3. Allow users to log in
 
-The simplest way is to simply call:
-
 @@snippet(meta.snippets.use)@@
-
-If you want to specify a particular connection you can do that using:
-```cs
-var user = await auth0Client.LoginAsync("{CONNECTION_NAME}");
-```
-
-Alternatively, if you want to allow database users to sign in and you have their credentials in memory:
-```cs
-var user = await auth0.LoginAsync("{CONNECTION_NAME}", "{USER_NAME}", "{PASSWORD}");
-```
 
 ### 4. Use server API if necessary:
 
