@@ -2,7 +2,7 @@ categories:
   -
     id: "product"
     name: "Product"
-    description: "Learn all about what Auth0 offers as a service"
+    description: "Learn how to use the key features of Auth0"
     links:
       -
         name: "Overview"
@@ -12,27 +12,27 @@ categories:
       -
         name: "Applications"
         icon: "icon-budicon-349"
-        description: "What is Auth0 and how can it help you build applications."
+        description: "Understanding an appliciation in the context of Auth0."
         href: "/applications"
       -
         name: "Rules"
         icon: "icon-budicon-173"
-        description: "What is Auth0 and how can it help you build applications."
+        description: "Extend and enhance Auth0 with your custom logic."
         href: "/rules"
       -
         name: "Identity Providers"
         icon: "icon-budicon-297"
-        description: "What is Auth0 and how can it help you build applications."
+        description: "Discover all the of identity providers Auth0 supports."
         href: "/identityproviders"
       -
-        name: "Single Sign On"
+        name: "Single Sign-On"
         icon: "icon-budicon-170"
-        description: "What is Auth0 and how can it help you build applications."
+        description: "Provide a better user experience with single sign-on."
         href: "/sso/single-sign-on"
       -
         name: "User Profile"
         icon: "icon-budicon-289"
-        description: "What is Auth0 and how can it help you build applications."
+        description: "Learn how to use and add metadata to the user profile."
         href: "/user-profile"
       -
         name: "Multifactor Authentication"
@@ -52,7 +52,7 @@ categories:
   -
     id: "api"
     name: "API"
-    description: "Learn all about what Auth0 offers as a service"
+    description: "The core Auth0 APIs for Authentication and Management"
     sections:
       explorer:
         name: "API Explorer"
@@ -67,94 +67,94 @@ categories:
         links:
           -
             name: "Supported Protocols"
-            href: "https://auth0.com/docs/protocols"
+            href: "/protocols"
           -
             name: "API v1 vs v2"
-            href: "https://auth0.com/docs/api/v2/changes"
+            href: "/api/v2/changes"
           -
             name: "Blacklisting JWT API Keys"
             href: "https://auth0.com/blog/2015/03/10/blacklist-json-web-token-api-keys/"
   -
     id: "sdk"
     name: "Libraries & SDKs"
-    description: "Learn all about what Auth0 offers as a service"
+    description: "Explore content by language and platform"
     links:
       -
         name: "AngularJS"
         slug: "angular"
-        href: "#"
+        href: "/client-platforms/angularjs"
       -
         name: "NodeJS"
         slug: "node"
-        href: "#"
+        href: "/server-platforms/nodejs"
       -
         name: "Lock - iOS"
         slug: "lock"
-        href: "#"
+        href: "/libraries/lock-ios"
       -
         name: "Lock - Android"
         slug: "lock"
-        href: "#"
+        href: "/libraries/lock-android"
       -
         name: "Lock - Web"
         slug: "lock"
-        href: "#"
+        href: "/libraries/lock"
       -
         name: "Ruby on Rails"
         slug: "rails"
-        href: "#"
+        href: "/server-platforms/rails"
       -
         name: "React"
         slug: "react"
-        href: "#"
+        href: "/client-platforms/react"
       -
         name: "Ember.js"
         slug: "emberjs"
-        href: "#"
+        href: "/client-platforms/emberjs"
       -
         name: "Java"
         slug: "java"
-        href: "#"
+        href: "/server-platforms/java"
       -
         name: "jQuery"
         slug: "jquery"
-        href: "#"
+        href: "/client-platforms/jquery"
       -
         name: "iOS"
         slug: "ios"
-        href: "#"
+        href: "/native-platforms/ios-objc"
       -
         name: "Android"
         slug: "android"
-        href: "#"
+        href: "/native-platforms/android"
       -
         name: "Ruby"
         slug: "ruby"
-        href: "#"
+        href: "/server-apis/ruby"
       -
         name: "Scala"
         slug: "scala"
-        href: "#"
+        href: "/server-platforms/scala"
       -
         name: ".NET"
         slug: "net"
-        href: "#"
+        href: "/server-platforms/aspnet-owin"
       -
         name: "PHP"
         slug: "php"
-        href: "#"
+        href: "/server-platforms/php"
       -
         name: "Python"
         slug: "python"
-        href: "#"
+        href: "/server-platforms/python"
       -
         name: "Go"
         slug: "go"
-        href: "#"
+        href: "/server-platforms/golang"
   -
     id: "how-to"
     name: "How To's"
-    description: "Learn all about what Auth0 offers as a service"
+    description: "Learn how to get the most out of Auth0"
     links:
       -
         name: "Refresh Tokens"
