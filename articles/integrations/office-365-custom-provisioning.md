@@ -22,6 +22,8 @@ On the **Configure** tab of the application you will be able to generate a new k
 
 ![Azure AD Client ID and Key](/media/articles/integrations/office-365/office-365-app-key.png)
 
+> Note: They key generated here is valid for 1 or 2 years. Make sure you generate a new key before it expires and you update it in Auth0 accordingly.
+
 The final step in the Azure AD configuration is to give the required permissions to the application. Under **Application Permissions** (at the bottom of the page) you will need to choose **Read and write directory data**. This will allow your application to create new users in Azure AD.
 
 ## Azure AD Provisioning Rule
@@ -251,6 +253,8 @@ function (user, context, callback) {
 }
 ```
 
+> Note: this code shows the provisioning process of a new user, but you can also adapt the code to synchronise metadata of existing users.
+
 ## End-user Experience
 
 The easiest way for your external users to authenticate is by using IdP initiated login: [Using smart links or IdP initiated authentication with Office 365](https://community.office365.com/en-us/w/sso/using-smart-links-or-idp-initiated-authentication-with-office-365).
@@ -262,3 +266,7 @@ https://@@account.namespace@@.auth0.com/login?client=CLIENT_ID_OF_THIRD_PARTY_AP
 ```
 
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.
+
+![Different connections enabled for Office 365](/media/articles/integrations/office-365/office-365-different-connections.png)
+
+In this example Fabrikam enabled a few social accounts and a database connection for their Office 365 Third Pary application in Auth0.
