@@ -32,7 +32,7 @@ DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh
 
 ## How it all works
 
-The process to log the user in is the same as [explained in the sequence diagram page](/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope`. For example:
+The process to log the user in is the same as [explained in the sequence diagram page](/sequence-diagrams). The difference is that when calling the **`authorize`** endpoint, you must include the **`offline_access`** `scope` as well as provide a `device` value. For example:
 
 ```
 GET https://@@account.namespace@@/authorize/?
@@ -41,7 +41,10 @@ GET https://@@account.namespace@@/authorize/?
     &redirect_uri=YOUR_CALLBACK_URL
     &state=VALUE_THAT_SURVIVES_REDIRECTS
     &scope=openid%20offline_access
+    &device=my-device
 ```
+
+> Note: `device` can have any value you wish (example: a mobile device ID).  Refresh tokens will be tracked (and can be revoked) by each unique combination of __app__, __user__ and __device__.
 
 After the user authenticates with the IdP, Auth0 will redirect the user to the callback URL as usual. The complete URL will look like:
 
