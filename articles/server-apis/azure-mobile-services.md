@@ -3,6 +3,7 @@ title: Azure Mobile Services Tutorial
 name: Azure Mobile Services
 alias:
   - Azure Mobile Services
+  - azure
   - WAMS
 thirdParty: true
 image: //auth0.com/lib/platforms-collection/img/azure.png
