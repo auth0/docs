@@ -6,9 +6,10 @@ alias:
   - ios
   - iphone
   - ipad
+  - swift
+  - touchid
 language: 
   - Swift
-  - Objective C
 hybrid: false
 image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:

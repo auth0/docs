@@ -6,6 +6,7 @@ alias:
   - wpf
   - windows forms
   - win forms
+  - winforms
 language: 
   - Javascript
   - C#

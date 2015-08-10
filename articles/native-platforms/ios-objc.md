@@ -8,7 +8,6 @@ alias:
   - iphone
   - ipad
 language: 
-  - Swift
   - Objective C
 image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
