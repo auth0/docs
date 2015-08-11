@@ -4,7 +4,7 @@ url: /appliance
 
 ## Auth0 Appliance Deployment and Maintenance
 
-The Auth0 appliance can be deployed in either Auth0's cloud, your cloud, or your own datacenter. If deploying on-premises in your own datacenter, you are responsible for the operation and monitoring of the servers that host the Auth0 service.
+The Auth0 appliance can be deployed in either Auth0's cloud, your cloud, or your own datacenter. If deploying in your own cloud or datacenter, you are responsible for the operation and monitoring of the servers that host the Auth0 service.
 
 See [Auth0 Deployment Models](/deployment) for details on the main differences between each of the four deployment models.
 
@@ -14,7 +14,7 @@ The initial deployment, setup, configuration, security patches, software upgrade
 
 ###Server requirements
 
-The number of servers required to host the Auth0 appliance depends on the expected traffic and the desired availability. In some scenarios, a single node is sufficient. The minimum requirement for a highly available deployment is three load balanced network nodes. No special load balancing logic is needed (no sticky sessions).
+The number of servers required to host the Auth0 appliance depends on the expected traffic and the desired availability. In some scenarios, a single node is sufficient. The minimum requirement for a highly available deployment is three load balanced nodes. No special load balancing logic is needed (no sticky sessions).
 
 ###Internet access
 
@@ -24,7 +24,7 @@ The diagram below details a few of these dependencies:
 
 ![](/media/articles/appliance/overview.png)
 
-###On-premises deployment communication with Auth0 
+###Communication with Auth0
 
 No information will be transferred outside the Auth0 nodes without consent from you. For maintenance purposes, nodes will contact external endpoints only with your consent and supervision (e.g. in order to download a new version of the software or apply an security patch).
 
@@ -34,7 +34,7 @@ The Auth0 staff does not have access to any nodes without your consent.
 
 ###Scheduled maintenance
 
-The typical update cycle is once per month. You can also customize the update schedule.
+The typical update cycle is once per month. You can control the schedule when available updates are applied.
 
 ###Maintenance access
 
@@ -42,11 +42,11 @@ To perform maintenance, Auth0 will remotely access your nodes (either through a 
 
 ###Node monitoring
 
-Because nodes are running under your control behind your firewall and therefore beyond our reach, you are responsible for monitoring service performance. We recommend VM level monitoring (e.g. CPU utilization) as well as service level monitoring. Auth0 provides specific monitoring endpoints that you can attach to your own monitoring tools (e.g. Microsoft System Center, IBM Tivoli, HP OpenView, etc.). Detailed guidance is available at [Monitoring Auth0](/monitoring).
+Since nodes are running under your control behind your firewall and therefore beyond our reach, you are responsible for monitoring that the service is performing at expected levels. We recommend VM level monitoring (e.g. CPU utilization) as well as service level monitoring. Auth0 provides specific monitoring endpoints that you can attach to your own monitoring tools (e.g. Microsoft System Center, IBM Tivoli, HP OpenView, etc.). Detailed guidance is available at [Monitoring Auth0](/monitoring).
 
-###Performance issues
+###Support
 
-If you are experiencing performance issues, contact Auth0 support immediately .
+If the Auth0 appliance does not perform as expected, contact Auth0 support.
 
 ##Additional information:
 
