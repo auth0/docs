@@ -16,17 +16,13 @@ alias:
 
 # ASP.NET (OWIN) Tutorial
 
-<div class="package" style="text-align: center;">
-	<blockquote>
-		<a href="/auth0-aspnet-owin/master/create-package?path=examples/basic-mvc-sample&filePath=examples/basic-mvc-sample/BasicMvcSample/Web.config&type=replace${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-			<span style="display: block">Download a Seed project</span>
-			<% if (account.userName) { %>
-			<span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-			<% } %>
-		</a>
-	</blockquote>
-</div>
-
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-aspnet-owin',
+  pkgBranch: 'master',
+  pkgPath: 'examples/basic-mvc-sample',
+  pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 This tutorial explains how to integrate Auth0 with an ASP.NET application (of any kind: WebForms, MVC and even Web API) that uses the ASP.NET 4.5 Owin infrastructure.
 

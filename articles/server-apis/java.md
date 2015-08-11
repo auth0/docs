@@ -16,13 +16,13 @@ snippets:
 
 ## Java API Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-java/master/create-package?path=examples/java-api&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-java',
+  pkgBranch: 'master',
+  pkgPath: 'examples/java-api',
+  pkgFilePath: null,
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-java/blob/master/examples/java-api/README.md#running-the-example)
 

@@ -18,16 +18,13 @@ alias:
 
 ## NodeJS Web App Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/node-auth0/master/create-package?path=examples/nodejs-regular-webapp&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'node-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/nodejs-regular-webapp',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing NodeJS WebApp to use it with Auth0.**
 

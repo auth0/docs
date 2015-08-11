@@ -3,7 +3,7 @@ title: jQuery Tutorial
 name: jQuery
 alias:
   - jquery
-language: 
+language:
   - Javascript
 framework:
   - jQuery
@@ -18,34 +18,13 @@ snippets:
 
 ## jQuery Tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-thirdparty-api&type=js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-api&type=js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-jquery',
+  pkgBranch: 'gh-pages',
+  pkgPath: (configuration.api && configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 **If you have an existing application, follow the steps below.**
 

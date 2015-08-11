@@ -3,7 +3,7 @@ title: Phonegap Tutorial
 name: Phonegap
 alias:
   - phonegap
-language: 
+language:
   - Javascript
 framework:
   - Cordova
@@ -21,39 +21,19 @@ snippets:
 
 # To Run the example
 
-<p>In order to run the project, you need to have `node`, `cordova` and `ios-sim` installed.
-Once you have that, just clone the project and run the following:</p>
+In order to run the project, you need to have `node`, `cordova` and `ios-sim` installed.
+Once you have that, just clone the project and run the following:
 
-<pre><code>cordova build ios</code></pre>
-<pre><code>cordova emulate ios</code></pre>
+`cordova build ios`
+`cordova emulate ios`
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-cordova/master/create-package?path=examples/phonegap-basic-sample&type=js&filePath=examples/phonegap-basic-sample/www/js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-cordova/master/create-package?path=examples/phonegap-basic-sample&type=js&filePath=examples/phonegap-basic-sample/www/js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-cordova',
+  pkgBranch: 'master',
+  pkgPath: 'examples/phonegap-basic-sample',
+  pkgFilePath: 'examples/phonegap-basic-sample/www/js' + account.clientParam,
+  pkgType: 'js'
+}) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 

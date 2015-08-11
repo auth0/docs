@@ -12,13 +12,13 @@ snippets:
 
 ## NancyFX Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/Auth0.NancyFx.SelfHost/master/create-package?path=sample&type=server${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'Auth0.NancyFx.SelfHost',
+  pkgBranch: 'master',
+  pkgPath: 'sample',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
 

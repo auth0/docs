@@ -4,7 +4,7 @@ name: React
 alias:
   - react
   - reactjs
-language: 
+language:
   - Javascript
 framework:
   - React
@@ -19,16 +19,13 @@ snippets:
 
 ## React Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-react/gh-pages/create-package?path=examples/redirect-lock-with-api&type=js${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-react',
+  pkgBranch: 'gh-pages',
+  pkgPath: 'examples/redirect-lock-with-api',
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 **If you have an existing application, follow the steps below.**
 

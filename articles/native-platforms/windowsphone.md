@@ -23,6 +23,14 @@ alias:
 
 ## Windows Phone Tutorial
 
+<%= include('../_includes/package', {
+  pkgRepo: 'Auth0.WindowsPhone',
+  pkgBranch: 'master',
+  pkgPath: 'examples/WindowsPhoneSilverlight',
+  pkgFilePath: null,
+  pkgType: 'none' + account.clientParam
+}) %>
+
 <div class="package" style="text-align: center;">
   <blockquote>
     <a href="/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">

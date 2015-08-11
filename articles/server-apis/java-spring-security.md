@@ -20,13 +20,13 @@ snippets:
 
 ## Java API Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/spring-security-auth0/master/create-package?path=examples/api-example&filePath=examples/api-example/src/main/resources/auth0.properties&type=replace${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'spring-security-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/api-example',
+  pkgFilePath: 'examples/api-example/src/main/resources/auth0.properties',
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.**
 

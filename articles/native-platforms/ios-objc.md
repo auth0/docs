@@ -6,7 +6,7 @@ alias:
   - ios
   - iphone
   - ipad
-language: 
+language:
   - Objective C
 image: //auth0.com/lib/platforms-collection/img/ios.png
 tags:
@@ -22,6 +22,14 @@ alias:
 ---
 
 ## iOS Objective-C Tutorial
+
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-ionic',
+  pkgBranch: 'master',
+  pkgPath: 'examples/refresh-token-sample',
+  pkgFilePath: 'examples/refresh-token-sample/www/js' + account.clientParam,
+  pkgType: 'js'
+}) %>
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
