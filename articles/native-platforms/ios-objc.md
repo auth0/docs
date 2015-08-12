@@ -133,7 +133,7 @@ First, add the following entries to the `Info.plist`:
   </tr>
 </table>
 
-Then, register a custom URL Type with the format `fb<FacebookAppId>`.
+Then, register a custom URL Type with the format `fb<FacebookAppID>`.
 
 > For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started) and [Obtaining an App ID and App Secret for Facebook](/connections/social/facebook).
 

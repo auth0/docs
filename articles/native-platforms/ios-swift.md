@@ -56,7 +56,7 @@ Since [CocoaPods 0.36](http://blog.cocoapods.org/CocoaPods-0.36/) you can build 
 import Lock
 ```
 
-To enable this feature, just add this line at the top level of your `Podfile` (outside any target definition):
+To enable this feature, there is a line at the top level of the `Podfile` (outside any target definition):
 
 ```ruby
 use_frameworks!
@@ -132,7 +132,7 @@ First, add the following entries to the `Info.plist`:
     </tr>
   </thead>
   <tr>
-    <td>FacebookAppId</td>
+    <td>FacebookAppID</td>
     <td>YOUR_FACEBOOK_APP_ID</td>
   </tr>
   <tr>
@@ -141,9 +141,9 @@ First, add the following entries to the `Info.plist`:
   </tr>
 </table>
 
-Then, register a custom URL Type with the format `fb<FacebookAppId>`.
+Then, register a custom URL Type with the format `fb<FacebookAppID>`.
 
-> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started) and [Obtaining an App ID and App Secret for Facebook](/connections/social/facebook).
 
 > **Note:** The Facebook app should be the same as the one set in Facebook's Connection settings on your Auth0 account
 
@@ -156,6 +156,10 @@ Then add Lock Facebook's Pod
 ```ruby
 pod 'Lock-Facebook', '~> 2.0'
 ```
+
+Click on the `Pods` project and select `Lock-Facebook` target and set `Allow Non-modular Includes In Framework Modules` to Yes:
+
+![Lock.png](/media/articles/native-platforms/ios-swift/Facebook-Config-Screenshot.png)
 
 After that, where you initialize `A0Lock`, import `LockFacebook` module
 
@@ -194,6 +198,8 @@ lock.registerAuthenticators([twitter])
 }
 ```
 
+> For more information on how to configure this, please check [Obtaining Consumer and Secret Keys for Twitter](/connections/social/twitter).
+
 ### 5. Let's implement the login
 Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
@@ -202,7 +208,7 @@ ${snippet(meta.snippets.use)}
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
-> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#8) or [TouchID](/libraries/lock-ios#7)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 

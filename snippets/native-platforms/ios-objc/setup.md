@@ -17,7 +17,7 @@
     dispatch_once(&onceToken, ^{
         sharedApplication = [[self alloc] init];
     });
-    wreturn sharedApplication;
+    return sharedApplication;
 }
 
 - (id)init {
