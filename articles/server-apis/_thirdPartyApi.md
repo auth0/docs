@@ -2,13 +2,13 @@
 public: false
 ---
 
-# <%= _.capitalize(configuration.thirdParty) %> API
+# <%= meta.name %> API
 
-Please follow the steps below to configure your Auth0 account to work with <%= _.capitalize(configuration.thirdParty) %>.
+Please follow the steps below to configure your Auth0 account to work with <%= meta.name %>.
 
 ### 1. Activate the add-on.
 
-Go to <a href="<%= uiAppAddonsURL %>">Application Add-ons</a> page and activate the <%= _.capitalize(configuration.thirdParty) %> add-on.
+Go to <a href="<%= uiAppAddonsURL %>">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
 
 <img src="https://cloudup.com/c8xbUL6QbJa+" />
 
@@ -20,4 +20,4 @@ The key to this integration is the Delegation endpoint in Auth0. Check the docum
 
 ### 3. You are done!
 
-Congrats! You've implemented Delegation for the <%= _.capitalize(configuration.thirdParty) %> API
+Congrats! You've implemented Delegation for the <%= meta.name %> API

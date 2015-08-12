@@ -12,5 +12,4 @@ snippets:
   setup: server-apis/firebase/setup
   use: server-apis/firebase/use
 ---
-<% configuration.thirdParty = 'Firebase' %>
-${include('./\_thirdpartyapi')}
+${include('./_thirdPartyApi')}

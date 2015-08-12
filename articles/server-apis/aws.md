@@ -10,8 +10,7 @@ image: //auth0.com/lib/saas-collection/img/aws.png
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'AWS' %>
-${include('./\_thirdpartyapi')}
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

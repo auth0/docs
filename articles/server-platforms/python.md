@@ -37,7 +37,7 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Specify the callback on Auth0 Dashboard
 
-${include('./_callbackRegularWebapp')}
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 

@@ -8,8 +8,7 @@ image: //auth0.com/lib/saas-collection/img/salesforce.png
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'Salesforce (Sandbox)' %>
-${include('./\_thirdpartyapi')}
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

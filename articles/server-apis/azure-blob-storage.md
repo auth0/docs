@@ -9,8 +9,7 @@ image: //auth0.com/lib/platforms-collection/img/azure.png
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'Azure Blob Storage' %>
-${include('./\_thirdpartyapi')}
+${include('./_thirdPartyApi')}
 
 ### Additional information
 
