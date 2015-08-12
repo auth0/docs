@@ -156,7 +156,7 @@ Take note you need to customize the value of the following URL query parameters:
 * `auth0_account` (required) must specify your Auth0 account name  
 * `auth0_client_id` (required) must specify the Auth0 client ID
 * `auth0_client_secret` (required) must specify the Auth0 client secret  
-* `branch` (optional) may secify the branch of the GitHub repository to integrate with Auth0 configuration; if not specified, `master` is assumed.  
+* `branch` (optional) may specify the branch of the GitHub repository to integrate with Auth0 configuration; if not specified, `master` is assumed.  
 
 Currently only public repositories are supported.
 
