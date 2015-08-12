@@ -12,12 +12,12 @@
 
 @implementation MyApplication
 + (MyApplication*)sharedInstance {
-    static Application *sharedApplication = nil;
+    static MyApplication *sharedApplication = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedApplication = [[self alloc] init];
     });
-    return sharedApplication;
+    wreturn sharedApplication;
 }
 
 - (id)init {

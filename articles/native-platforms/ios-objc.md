@@ -90,6 +90,13 @@ A0Lock *lock = [[MyApplication sharedInstance] lock];
 [lock applicationLaunchedWithOptions:launchOptions];
 ```
 
+Add the following import:
+
+```objc
+#import <Lock/Lock.h>
+#import “MyApplication.h"
+```
+
 Then to allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method:
 
 ```objc
@@ -117,7 +124,7 @@ First, add the following entries to the `Info.plist`:
     </tr>
   </thead>
   <tr>
-    <td>FacebookAppId</td>
+    <td>FacebookAppID</td>
     <td>YOUR_FACEBOOK_APP_ID</td>
   </tr>
   <tr>
@@ -128,7 +135,7 @@ First, add the following entries to the `Info.plist`:
 
 Then, register a custom URL Type with the format `fb<FacebookAppId>`.
 
-> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started) and [Obtaining an App ID and App Secret for Facebook](/connections/social/facebook).
 
 > **Note:** The Facebook app should be the same as the one set in Facebook's Connection settings on your Auth0 account
 
@@ -142,11 +149,17 @@ Then add Lock Facebook's Pod
 pod 'Lock-Facebook', '~> 2.0'
 ```
 
+Add to the import:
+
+```objc
+#import <Lock-Facebook/A0FacebookAuthenticator.h>
+```
+
 And register it after initializing `A0Lock`:
 
 ```objc
 A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
-[self.lock registerAuthenticators:@[facebook]];
+[lock registerAuthenticators:@[facebook]];
 ```
 
 #### Twitter
@@ -157,26 +170,34 @@ First add Lock Twitter's Pod
 pod 'Lock-Twitter', '~> 1.0'
 ```
 
+Add to the import:
+
+```objc
+#import <Lock-Twitter/A0TwitterAuthenticator.h>
+```
+
 And configure Auth0 Twitter authenticator after you initialize `A0Lock`:
 
 ```objc
 NSString *twitterApiKey = ... //Remember to obfuscate your api key
 NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey andSecret:twitterApiSecret];
-[self.lock registerAuthenticators:@[twitter]];
+A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
+[lock registerAuthenticators:@[twitter]];
 }
 ```
+
+> For more information on how to configure this, please check [Obtaining Consumer and Secret Keys for Twitter](/connections/social/twitter).
 
 ### 4. Let's implement the login
 
 Now we're ready to implement the Login using Lock, you only need to instantiate and present it from any of your UIViewControllers like this:
 
-${snippet(meta.snippets.setup)}
+${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
-> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#8) or [TouchID](/libraries/lock-ios#7)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
