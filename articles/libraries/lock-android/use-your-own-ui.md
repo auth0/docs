@@ -57,27 +57,27 @@ lodash: true
   public class AuthenticationEvent {
       private final UserProfile profile;
       private final Token token;
-  
+
       public AuthenticationEvent(UserProfile profile, Token token) {
           this.profile = profile;
           this.token = token;
       }
-  
+
       public Token getToken() { return token; }
-  
+
       public UserProfile getProfile() { return profile; }
   }
-  
+
   public class ErrorEvent {
       private Dialog dialog;
       private int title;
       private int message;
       private Throwable throwable;
-  
+
       public ErrorEvent(Dialog dialog) {
           this.dialog = dialog;
       }
-  
+
       public ErrorEvent(int title, int message, Throwable throwable) {
           this.title = title;
           this.message = message;
@@ -178,7 +178,7 @@ lodash: true
       @Override
       public void onFailure(Dialog dialog) {
           //Authentication failed and a Error dialog is provided
-          bus.post(new ErrorEvent(dialog)); 
+          bus.post(new ErrorEvent(dialog));
       }
 
       @Override
@@ -267,7 +267,7 @@ lodash: true
     this.facebook = new FacebookIdentityProvider(this);
     this.facebook.setCallback(callback);
   ```
-  > **Note**: You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook 
+  > **Note**: You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook
 
 1. Configure Google+ Native integrationApplication class)
   ```java

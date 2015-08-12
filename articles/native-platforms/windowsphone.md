@@ -31,17 +31,6 @@ alias:
   pkgType: 'none' + account.clientParam
 }) %>
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/Auth0.WindowsPhone/master/create-package?path=examples/WindowsPhoneSilverlight&amp;type=none${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-        <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
 
 ### 1. Install the Auth0.WindowsPhone package
