@@ -171,3 +171,5 @@ function (user, context, callback) {
 ## Additional notes
 
 > Multifactor authentication does not work with the `/ro` (Resource Owner) endpoint. If using MFA for database connections that use popup mode, `sso: true` needs to be added to the options for auth0.js or Lock. Failing to do so will result in users being able to log in without MFA checks. [More information on `sso` parameter](https://github.com/auth0/auth0.js#popup-mode).
+
+> In addition, if using multifactor authentication after authentication against social providers, it may be necessary to use your own application id and secret for the social connection instead of the default Auth0 development credentials.  Instructions for how to get these credentials for each social provider can be found via "Connections" - "Social" - "NAME-OF-PROVIDER".
