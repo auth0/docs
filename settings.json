@@ -159,7 +159,7 @@
           { "title": "Link Accounts", "url": "/link-accounts" },
 
           { "title": "Password Policies", "url": "/password-strength"},
-          { "title": "Multifactor Auth (beta)", "url": "/mfa" },
+          { "title": "Multifactor Auth", "url": "/mfa" },
 
           { "title": "Users search", "url":"/users-search"},
           { "title": "CMS Integrations", "url":"/cms"}
@@ -171,7 +171,7 @@
         "items": [
           { "title": "Protocols", "url":"/protocols"},
           { "title": "Custom Signup", "url": "/custom-signup" },
-          { "title": "User Migration (beta)", "url": "/migrating"}
+          { "title": "User Migration", "url": "/migrating"}
         ]
       }
     ],
