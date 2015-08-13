@@ -36,7 +36,7 @@ __Note:__ These requests occur over HTTP, not HTTPS. The content is protected fr
 
 ### Configure Auth0 Server
 
-1. Go to Auth0 Server Configuration section, which will contain a new _Update Proxy_ field:
+1. Go to Auth0 Dashboard, Configuration section, which will contain a new _Update Proxy_ field:
   
   ![Update Proxy field](/media/articles/appliance/proxy-updater/auth0-proxy-updater-update-proxy-field.png)
   __Note:__ If the _Update Proxy_ field does not appear and you are running an Auth0 appliance version 1911 or later, restart the server. Contact [Auth0 support](https://auth0.com/support) if the problem persists.
