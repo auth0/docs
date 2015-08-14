@@ -269,4 +269,4 @@ This will show them the Auth0 login page after which they'll be redirected to Of
 
 ![Different connections enabled for Office 365](/media/articles/integrations/office-365/office-365-different-connections.png)
 
-In this example Fabrikam enabled a few social accounts and a database connection for their Office 365 Third Pary application in Auth0.
+In this example Fabrikam enabled a few social accounts and a database connection for their Office 365 Third Party application in Auth0.
