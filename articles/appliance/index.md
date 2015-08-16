@@ -50,7 +50,7 @@ If the Auth0 appliance does not perform as expected, contact Auth0 support.
 
 ##Additional information:
 
--  [Updating an Auth0 Cluster](/appliance/update)
+-  [Update an Auth0 Cluster](/appliance/update)
 -  [Verify Update Package Integrity](/appliance/checksum)
 -  [Time synchronization](/appliance/clock)
 -  [Auth0 Proxy Updater](/appliance/proxy-updater)
