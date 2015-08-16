@@ -8,7 +8,7 @@ Auth0 provides a plugin to enable JWT authentication for your APIs. It is compat
 1. Install **WordPress JWT Authentication** from the WordPress Store or download the zip file from [WordPress JWT Authentication](https://wordpress.org/plugins/wp-jwt-auth/) and upload the `wp-jwt-auth` folder to the `/wp-content/plugins/` directory your WordPress installation.
 2. Activate the plugin through the **Plugins** menu in WordPress.
 
-## Setup
+## Settings
 
 - **Aud:** Usually your *Client Id*. Verifies that the token was intended for you.
 - **Secret:** Your *Client Secret*. Verifies the token signature.
