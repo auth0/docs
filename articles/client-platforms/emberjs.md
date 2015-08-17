@@ -38,7 +38,7 @@ To install this add-on and its dependencies, `cd` to your project directory and 
 
 ```
 ember install auth0-ember-simple-auth
-ember generate simple-lock
+ember generate scaffold-auth0
 ```
 
 __Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
@@ -48,7 +48,7 @@ __Note:__ If you are not already using ember-cli, see [ember-cli migration](http
 ```js
 // config/environment.js
 ENV['simple-auth'] = {
-  authorizer: 'simple-auth-authenticator:lock',
+  authorizer: 'simple-auth-authorizer:jwt',
   authenticationRoute: 'sign_in',
   routeAfterAuthentication: 'home',
   routeIfAlreadyAuthenticated: 'home'
