@@ -212,7 +212,13 @@ end
 ```
 #### Troubleshooting "failure message=invalid_credentials"
 
-This issue isn't presented while working on your local (development). After deployment on your staging or production envrinoment and after hitting your callback this issue may appear.
+This issue isn't presented while working on your local (development). After deployment on your staging or production environment and after hitting your callback this issue may appear.
+
+Example of an error message that may occur:
+
+```
+omniauth: (auth0) Authentication failure! invalid_credentials: OAuth2::Error, server_error: The redirect URI is wrong. You send [wrong url], and we expected [callback url set in your app settings]
+```
 
 To fix the above error, add the following at your config/environments/staging.rb or production.rb
 
