@@ -74,7 +74,8 @@ lock.show({
 
 ### dict {String|Object}
 
-`dict` can be a string matching the language (`'en'`, `'es'`, `'it'`, [etc.](/libraries/lock/i18n)) or an object containing your customized text labels. To learn how to customize error messages, you can [read more here](/libraries/lock/customizing-error-messages).
+The `dict` option can be either a string matching any [supported language][lock-i18n] (`'en'`, `'es'`, `'it'`, ...) or an object containing your customized text labels. By using the last approach you can modify [any text label][lock-i18n] or even [customize error messages][lock-custom-errors].
+
 
 ```js
 // select a supported language
@@ -480,3 +481,6 @@ Internally set from `callback` parameter
 [popupoptions-image]: https://cloudup.com/cqvq_Gz5VUZ+
 [gravatar-image]: https://cldup.com/yt3vJ2UQzq.png
 [defaultadusernamefromemailprefix-image]: https://cldup.com/IWdks93Oh5.png
+
+[lock-i18n]: /libraries/lock/i18n
+[lock-custom-errors]: /libraries/lock/customizing-error-messages
