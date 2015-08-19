@@ -190,23 +190,29 @@ categories:
         name: "Connecting Active Directory"
         icon: "icon-budicon-754"
         href: "/connections/enterprise/active-directory"
+        description: "Learn how to use Auth0 with Active Directory."
       -
         name: "Using and Configuring SAML"
         icon: "icon-budicon-754"
         href: "/saml-configuration"
+        description: "Get your SAML application set up for authentication and single sign-on."
       -
         name: "User Profile"
         icon: "icon-budicon-754"
         href: "/user-profile"
+        description: "Information about the contents of the user profile object."
       -
-        name: "Setup and Use the Connector"
+        name: "Set up and Use the Connector"
         icon: "icon-budicon-754"
         href: "/connector"
+        description: "Learn how to get the Connector running on your network."
       -
         name: "Custom Password Strength"
         icon: "icon-budicon-754"
         href: "/password-strength"
+        description: "Set the password strength to enhance your app's security."
       -
         name: "Configure Emails"
         icon: "icon-budicon-778"
         href: "/email"
+        description: "Learn how to configure the account management emails that Auth0 sends."
