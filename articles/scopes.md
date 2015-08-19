@@ -39,3 +39,8 @@ The attributes included in the issued token can be controlled with the `scope` p
 * `scope=openid profile` (not recommended): will return all the user attributes in the token.
 This can cause problems when sending or receiving tokens in URLs (e.g. when using `response_type=token`) and will likely create an unnecessarily large token.
 Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
+
+
+## Further reading
+
+* [Sending a `scope` parameter with Lock](https://auth0.com/docs/libraries/lock/sending-authentication-parameters#2)
