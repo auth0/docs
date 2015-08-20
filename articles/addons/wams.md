@@ -14,5 +14,4 @@ alias:
   - azure
   - azure-mobile
   - azure-mobile-services
-  - WAMS
 ---
