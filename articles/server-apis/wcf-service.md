@@ -1,8 +1,6 @@
 ---
 title: WCF Service Tutorial
 name: .NET WCF
-alias:
-  - wcf
 languages:
   - C#
   - Visual Basic .Net
@@ -15,7 +13,7 @@ snippets:
   setup: server-apis/wcf-service/setup
   use: server-apis/wcf-service/use
 alias:
-  - wfc
+  - wcf
   - windows-communication-foundation
 ---
 

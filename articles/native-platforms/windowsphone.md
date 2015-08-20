@@ -4,7 +4,7 @@ title: Windows Phone Tutorial
 name: Windows Phone
 alias:
   - windows phone
-language: 
+language:
   - Javascript
   - C#
 hybrid: false
@@ -16,6 +16,7 @@ snippets:
   setup: native-platforms/windows-phone/setup
   use: native-platforms/windows-phone/use
 alias:
+  - win8
   - wp8
   - windows-phone
   - windows-phone-8

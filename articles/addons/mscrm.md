@@ -5,4 +5,6 @@ title: Dynamics CRM
 logo_class: MicrosoftDynamicsCRM
 configRoute: /add-ons/mscrm
 sitemap: false
+alias:
+  - dynamics-crm
 ---
