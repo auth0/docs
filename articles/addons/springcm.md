@@ -5,4 +5,5 @@ title: SpringCM
 logo_class: SpringCM
 configRoute: /add-ons/springcm
 sitemap: false
+image: /media/addons/springcm.svg
 ---
