@@ -36,7 +36,6 @@ DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh
 To obtain a refresh token, the [`offline_access` scope](/scopes) and an arbitrary `device` name must be included when initiating an authentication request through the [`/authorize` endpoint](/auth-api#!#get--offline-access).
 For example:
 
-:
 ```
 GET https://@@account.namespace@@/authorize?
     response_type=token
