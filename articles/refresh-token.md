@@ -75,10 +75,24 @@ Content-Type: 'application/json'
 {
   "client_id":       "@@account.clientId@@",
   "grant_type":      "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  "refresh_token":   "your_refresh_token",
+  "refresh_token":   "Cqp...Mwe",
   "api_type":        "app"
 }
 ```
+
+A response from this request could be as follows:
+
+```
+{
+  "token_type": "Bearer",
+  "expires_in": 30000,
+  "id_token": "eyJ..."
+}
+```
+
+The `expires_in` parameter indicates the lifetime of the new JWT in seconds.
+It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
+
 
 ## SDK support
 
