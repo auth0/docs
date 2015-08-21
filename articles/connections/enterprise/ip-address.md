@@ -5,6 +5,5 @@ image: /media/connections/open-id.png
 alias:
   - ip-based-auth
   - ip
-  - ip-address
   - address-authentication
 ---

@@ -1,9 +1,7 @@
 ---
 title: Xamarin Tutorial
 name: Xamarin
-alias:
-  - Xamarin
-language: 
+language:
   - C#
 framework:
   - Xamarin

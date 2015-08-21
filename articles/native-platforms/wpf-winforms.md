@@ -2,12 +2,7 @@
 title: WPF and Winforms Tutorial
 name: WPF / Winforms
 hybrid: false
-alias:
-  - wpf
-  - windows forms
-  - win forms
-  - winforms
-language: 
+language:
   - Javascript
   - C#
 framework:

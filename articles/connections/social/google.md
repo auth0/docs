@@ -3,7 +3,6 @@ connection: Google / Gmail
 image: /media/connections/google.png
 alias:
  - gmail
- - google
  - google-oauth
  - google-oauth2
 ---
