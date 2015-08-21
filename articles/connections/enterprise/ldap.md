@@ -1,5 +1,5 @@
 ---
 title: Using LDAP Authentication with Auth0
 connection: LDAP
-image: 
+image: /media/connections/windows.svg
 ---
