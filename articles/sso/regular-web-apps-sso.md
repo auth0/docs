@@ -93,7 +93,7 @@ If the user was already logged in before, then Auth0 will automatically redirect
 
 ## Case 3: The user has never logged in
 
-The user has never logged in in any app. In these case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not and in case he's not, you'd redirect the user to the following url:
+The user has never logged in to any app. In this case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not, and in the case he's not, redirects the user to the following url:
 
 ```
 https://YOURS.auth0.com/authorize?client_id=…&response_type=code&redirect_uri=http://urlTo/callback
