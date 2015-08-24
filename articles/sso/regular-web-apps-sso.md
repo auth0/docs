@@ -91,7 +91,7 @@ app.get('/',
 
 If the user was already logged in before, then Auth0 will automatically redirect back to the application with a new token. If not, it will show the Auth0 Login Page.
 
-## Case 3: The user never logged in yet
+## Case 3: The user has never logged in
 
 The user has never logged in in any app. In these case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not and in case he's not, you'd redirect the user to the following url:
 
