@@ -30,4 +30,4 @@ function(user, context, callback){
 
 Very likely this URL will change from development to production. This will make your code more portable.
 
-You can also maintain the source code of the rules in a GitHub repository. If you choose the GitHub integration route, the rules in your Auth0 account will be automatically updated whenever a change is submitted to the GitHub repository. To configure this integration see [here](/rules#8).
+You can also maintain the source code of the rules in a GitHub repository. If you choose the GitHub integration route, the rules in your Auth0 account will be automatically updated whenever a change is submitted to the GitHub repository. To configure this integration see [here](/source-control).
