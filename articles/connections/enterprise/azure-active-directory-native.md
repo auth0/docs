@@ -3,12 +3,6 @@ title: Native Azure Active Directory applications with Auth0
 connection: Azure Active Directory
 image: /media/connections/azure.png
 alias:
-  - azure-ad
-  - waad
-  - windows-azure-ad
-  - windows-azure-active-directory
-  - microsoft-azure-ad
-  - microsoft-azure-active-directory
   - azure-ad-native-resource-owner
   - waad-native-resource-owner
   - windows-azure-ad-native-resource-owner
