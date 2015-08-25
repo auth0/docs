@@ -6,7 +6,7 @@ alias:
 languages:
   - Ruby
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/rails.png
+image: /media/platforms/rails.png
 lodash: true
 tags:
   - quickstart

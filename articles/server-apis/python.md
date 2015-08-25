@@ -6,7 +6,7 @@ alias:
 languages:
   - Python
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/python.png
+image: /media/platforms/python.png
 lodash: true
 tags:
   - quickstart

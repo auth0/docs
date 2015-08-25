@@ -9,7 +9,7 @@ language:
   - Javascript
 framework:
   - Socket.io
-image: //auth0.com/lib/platforms-collection/img/socketio.svg
+image: /media/platforms/socketio.svg
 tags:
   - quickstart
 snippets:

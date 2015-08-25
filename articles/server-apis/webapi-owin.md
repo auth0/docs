@@ -9,7 +9,7 @@ languages:
 thirdParty: false
 framework:
   - OWIN
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 lodash: true
 tags:
   - quickstart

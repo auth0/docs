@@ -9,7 +9,7 @@ language:
   - Javascript
 framework:
   - EmberJS
-image: //auth0.com/lib/platforms-collection/img/emberjs.png
+image: /media/platforms/emberjs.png
 tags:
   - quickstart
 ---

@@ -2,7 +2,7 @@
 lodash: true
 title: ASP Classic Tutorial
 name: ASP Classic
-image: //auth0.com/lib/platforms-collection/img/asp-classic.jpg
+image: /media/platforms/asp-classic.jpg
 tags:
   - quickstart
 snippets:

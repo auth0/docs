@@ -9,7 +9,7 @@ language:
   - Javascript
 framework:
   - React
-image: //auth0.com/lib/platforms-collection/img/react.png
+image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:

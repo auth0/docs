@@ -6,7 +6,7 @@ language:
 framework:
   - Xamarin
 hybrid: false
-image: //auth0.com/lib/platforms-collection/img/xamarin.png
+image: /media/platforms/xamarin.png
 tags:
   - quickstart
 snippets:

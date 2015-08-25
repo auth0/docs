@@ -8,7 +8,7 @@ alias:
   - node.js
 languages:
   - Javascript
-image: //auth0.com/lib/platforms-collection/img/node.png
+image: /media/platforms/node.png
 lodash: true
 tags:
   - quickstart

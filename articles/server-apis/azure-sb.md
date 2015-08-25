@@ -4,7 +4,7 @@ name: Azure Service Bus
 thirdParty: true
 alias:
   - Azure Service Bus
-image: //auth0.com/lib/platforms-collection/img/azure.png
+image: /media/platforms/azure.png
 lodash: true
 tags:
   - quickstart
