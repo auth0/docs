@@ -50,3 +50,15 @@ If that was succesful, the user would be automatically created in Auth0's databa
 The next time that user attempts to log in, their credentials and information would be retrieved from Auth0 and not your MySQL database.
 
 > Note: Password resets will only affect the users stored in Auth0, and new users will be stored in Auth0 only.
+
+## Get User script
+
+The Get User script will be executed whenever a user performs any of the following actions:
+
+* Attempts to sign up
+* Clicks on a valid [password change confirmation](https://auth0.com/docs/email#11) link
+
+This script is needed because none of these actions require authentication; the Get User provides a way of verifying whether a user exists in a legacy database without needing their password.
+
+If an unmigrated user confirms a password change, their user profile will be created in Auth0 with the new password they have just confirmed.
+This user profile will contain all the information returned in the Get User script, and any following logins will be performed in Auth0 directly.
