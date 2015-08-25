@@ -10,6 +10,14 @@ Validation must be done from an Auth0 rule when logging in, or with custom logic
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
+## Overview
+
+We can describe a custom signup flow with the following steps:
+
+1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
+2. [Log them in programatically](https://auth0.com/docs/auth-api#!#post--oauth-ro) and [get back a JWT](https://auth0.com/docs/scopes)
+3. [Call API v2 with the user's JWT](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](https://auth0.com/docs/api/v2/changes#9)
+
 ## 1. Signup form
 
 ```html
