@@ -9,7 +9,7 @@ alias:
   - ipad
 language: 
   - Objective C
-image: //auth0.com/lib/platforms-collection/img/ios.png
+image: /media/platforms/ios.png
 tags:
   - quickstart
 snippets:

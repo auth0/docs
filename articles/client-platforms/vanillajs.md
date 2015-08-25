@@ -7,7 +7,7 @@ alias:
   - vanillajs
 language: 
   - Javascript
-image: //auth0.com/lib/platforms-collection/img/html5.png
+image: /media/platforms/html5.png
 tags:
   - quickstart
 snippets:

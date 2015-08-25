@@ -8,7 +8,7 @@ alias:
 language: 
   - Javascript
   - C#
-image: //auth0.com/lib/platforms-collection/img/windows-8.png
+image: /media/platforms/windows-8.png
 tags:
   - quickstart  
 snippets:

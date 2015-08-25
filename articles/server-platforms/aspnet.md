@@ -1,7 +1,7 @@
 ---
 title: ASP.NET Tutorial
 name: ASP.NET
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 tags:
   - quickstart
 snippets:

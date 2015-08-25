@@ -11,7 +11,7 @@ language:
 framework:
   - WebAPI
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 lodash: true
 tags:
   - quickstart

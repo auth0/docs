@@ -7,7 +7,7 @@ alias:
   - golang
 languages:
   - Go
-image: //auth0.com/lib/platforms-collection/img/golang.png
+image: /media/platforms/golang.png
 lodash: true
 tags:
   - quickstart

@@ -2,7 +2,7 @@
 title: Azure Mobile Services Tutorial
 name: Azure Mobile Services
 thirdParty: true
-image: //auth0.com/lib/platforms-collection/img/azure.png
+image: /media/platforms/azure.png
 lodash: true
 tags:
   - quickstart

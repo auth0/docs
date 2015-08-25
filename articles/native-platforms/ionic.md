@@ -10,7 +10,7 @@ framework:
   - AngularJS
   - Cordova
 hybrid: true
-image: //auth0.com/lib/platforms-collection/img/phonegap.png
+image: /media/platforms/phonegap.png
 tags:
   - quickstart
 snippets:

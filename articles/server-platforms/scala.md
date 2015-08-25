@@ -2,7 +2,7 @@
 lodash: true
 title: Play 2 Scala Tutorial
 name: Play 2 Scala
-image: //auth0.com/lib/platforms-collection/img/play.png
+image: /media/platforms/play.png
 tags:
   - quickstart
 snippets:

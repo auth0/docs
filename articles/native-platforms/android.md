@@ -8,7 +8,7 @@ language:
   - Java
   - C
 hybrid: false
-image: //auth0.com/lib/platforms-collection/img/android.png
+image: /media/platforms/android.png
 tags:
   - quickstart
 snippets:

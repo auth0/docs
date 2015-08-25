@@ -6,7 +6,7 @@ alias:
 languages:
   - PHP
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/php.png
+image: /media/platforms/php.png
 lodash: true
 tags:
   - quickstart

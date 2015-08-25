@@ -5,7 +5,7 @@ languages:
   - C#
   - Visual Basic .Net
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/wcf.png
+image: /media/platforms/wcf.png
 tags:
   - quickstart
 snippets:

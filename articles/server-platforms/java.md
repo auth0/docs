@@ -2,7 +2,7 @@
 lodash: true
 title: Java Web App Tutorial
 name: Java
-image: //auth0.com/lib/platforms-collection/img/java.png
+image: /media/platforms/java.png
 tags:
   - quickstart
 snippets:

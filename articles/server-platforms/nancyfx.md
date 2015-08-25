@@ -2,7 +2,7 @@
 lodash: true
 title: NancyFX Tutorial
 name: NancyFX
-image: //auth0.com/lib/platforms-collection/img/nancyfx.png
+image: /media/platforms/nancyfx.png
 tags:
   - quickstart
 snippets:

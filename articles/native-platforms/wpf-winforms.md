@@ -8,7 +8,7 @@ language:
 framework:
   - WPF
   - WinForms
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 tags:
   - quickstart
 snippets:

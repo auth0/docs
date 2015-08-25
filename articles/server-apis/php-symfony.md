@@ -8,7 +8,7 @@ languages:
   - PHP
 framework:
   - Symfony
-image: //auth0.com/lib/platforms-collection/img/php.png
+image: /media/platforms/php.png
 tags:
   - quickstart
 snippets:

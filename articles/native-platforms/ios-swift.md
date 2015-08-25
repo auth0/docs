@@ -11,7 +11,7 @@ alias:
 language: 
   - Swift
 hybrid: false
-image: //auth0.com/lib/platforms-collection/img/ios.png
+image: /media/platforms/ios.png
 tags:
   - quickstart
 snippets:
