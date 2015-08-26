@@ -38,7 +38,7 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     // Initialize and render `TutorialNavigator`
     var TutorialNavigator = require('tutorial-navigator');
     var tutorial = new TutorialNavigator({
-      docsDomain:      document.location.origin + BASE_URL,
+      docsDomain:      '',
       apptypes:        @@JSON.stringify(quickstart.apptypes)@@,
       clientplatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
       hybridplatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
@@ -224,4 +224,3 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
   })()
 </script>
-
