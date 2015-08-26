@@ -68,7 +68,19 @@ ConfigureAuth(container);
 
 And then uncomment and edit the `ConfigureAuth` method to look like this:
 
-@@snippet(meta.snippets.dependencies)@@
+```c#
+private void ConfigureAuth(Funq.Container container)
+{
+	var appSettings = new AppSettings();
+
+    Plugins.Add(new AuthFeature(
+                    () => new Auth0UserSession(),
+                    new IAuthProvider[] {
+                    new Auth0Provider(appSettings, appSettings.GetString("oauth.auth0.OAuthServerUrl"))
+                }));
+
+}
+```
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
