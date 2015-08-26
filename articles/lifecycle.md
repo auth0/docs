@@ -8,7 +8,7 @@ The example above uses a simple naming convention to distinguish one environment
 
 Through the API you can automate migrating assets between one account and the other (e.g. rules, database connections, etc.).
 
-One caveat to keep in mind is that if you are using the AD/LDAP Connector for authentication against AD or an LDAP directory, you will need to set up one AD/LDAP connector per Auth0 account that needs this form of authentication.  Multiple AD/LDAP connectors can point to the same AD or LDAP directory, but for now, there must be one AD/LDAP connector per Auth0 account.
+If you set up multiple Auth0 accounts, one caveat to keep in mind is that if you are using the AD/LDAP Connector for authentication against AD or an LDAP directory, you will need to create an AD/LDAP connection and set up an AD/LDAP connector for each Auth0 account that needs this form of authentication.  An AD/LDAP Connector is tied to a specific Connection within an Auth0 account.  It is possible to have multiple AD/LDAP Connectors within one Auth0 account.  This is needed if you have multiple AD/LDAP directories against which users will authenticate, for example to support different departments or customers, each with their own directory. In addition, multiple AD/LDAP connectors can point to the same AD or LDAP directory, but an AD/LDAP connector can only be used by one connection within one Auth0 account.
 
 For easier configuration management we recommend you use settings kept in the dashboard as opposed to hardcoded in your __rules__ or __db connections__ scripts.
 
