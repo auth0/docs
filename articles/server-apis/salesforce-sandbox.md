@@ -4,7 +4,7 @@ name: Salesforce (sandbox)
 thirdParty: true
 alias:
   - salesforce
-image: //auth0.com/lib/saas-collection/img/salesforce.png
+image: /media/addons/salesforce_sandbox_api.svg
 lodash: true
 tags:
   - quickstart

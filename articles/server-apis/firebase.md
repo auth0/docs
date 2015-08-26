@@ -4,7 +4,7 @@ name: Firebase
 thirdParty: true
 alias:
   - Firebase
-image: //auth0.com/lib/saas-collection/img/firebase.png
+image:  /media/addons/firebase.svg
 lodash: true
 tags:
   - quickstart
