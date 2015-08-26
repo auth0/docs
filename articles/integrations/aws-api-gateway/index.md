@@ -757,7 +757,11 @@ You'll need to create two files, run **npm install**, and zip up the result. Cre
 }
 ```
 
+<<<<<<< HEAD
 Next, create a new file, `index.js`, where we will put the code for purchasing a pet:
+=======
+Next create a new file, index.js, where we will put the code for purchasing a pet. The code adds extracting and validating the JWT. By default Auth0 uses a symmetric key, although there is also an option to use asymmetric keys, in which case you'd only need to put your public key into the function. In this case we are showing the use of a symmetric key (client secret) for validating the token:
+>>>>>>> ef5753cb38fc3ae54fb653bf38ca26df583e67eb
 
 ```js
 var AWS = require('aws-sdk');
@@ -765,7 +769,7 @@ var DOC = require('dynamodb-doc');
 var dynamo = new DOC.DynamoDB();
 var jwt = require('jsonwebtoken');
 
-var secret = 'FmNiqzWfE74mUK88F_bSj9kyR2p4nyHGBAEkmW3MKGPuT_I7a8TLKPSQSoPqY-xM';
+var secret = '<your client secret>';
 var tokenRegex = /bearer (.*)/;
     
 exports.handler = function(event, context) {
@@ -848,9 +852,18 @@ exports.handler = function(event, context) {
 
 Now run **npm install** from the directory, zip up the contents, and upload it for the PurchasePet lambda function.
 
+<<<<<<< HEAD
 The final step is to pass the JWT to the method from the browser client. The standard method is with an **Authorization** header as a **bearer** token. If API gateway directly incorporates OpenId authentication, this is how the token will be passed. However, in our case, we're checking the token earlier in the lamda function, so we'll need to pass it in the body of the post. Update the *buyPet* method in `home.js` by removing the *userName* from the body, and adding authToken as follows:
+=======
+The final step is to pass the JWT to the method from the browser client. The standard method to do this is with an **Authorization** header as a **bearer** token. If you are using IAM, then the AWS API Gateway uses the **Authorization** header to contain the signature of the message, and you will break the authentication by inserting the JWT in that header. We could either add a custom header for the JWT, or put it into the body of the message. Since we're checking it further back in the lamda function, we'll pass it in the body of the post. To do this we simply update the buyPet method in home.js by removing the userName from the body, and adding authToken as follows:
+>>>>>>> ef5753cb38fc3ae54fb653bf38ca26df583e67eb
 
 ```js
+  function getBearerToken() {
+    var token = store.get('token');
+    return "bearer " + token;
+  }
+
   function buyPet(user, id) {
     var apigClient = getSecureApiClient();
     var body = {
