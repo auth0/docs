@@ -5,7 +5,7 @@ alias:
   - sap
   - sap odata
 thirdParty: true
-image: //auth0.com/lib/saas-collection/img/sap.png
+image: /media/addons/sap_api.svg
 lodash: true
 tags:
   - quickstart
