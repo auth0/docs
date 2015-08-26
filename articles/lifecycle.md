@@ -8,6 +8,8 @@ The example above uses a simple naming convention to distinguish one environment
 
 Through the API you can automate migrating assets between one account and the other (e.g. rules, database connections, etc.).
 
+One caveat to keep in mind is that if you are using the AD/LDAP Connector for authentication against AD or an LDAP directory, you will need to set up one AD/LDAP connector per Auth0 account that needs this form of authentication.  Multiple AD/LDAP connectors can point to the same AD or LDAP directory, but for now, there must be one AD/LDAP connector per Auth0 account.
+
 For easier configuration management we recommend you use settings kept in the dashboard as opposed to hardcoded in your __rules__ or __db connections__ scripts.
 
 For example, in this __rule__ it is always better to write:
