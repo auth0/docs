@@ -8,8 +8,8 @@ The connector can be installed and configured behind a __proxy server__ but we d
 
 > You can enable a proxy through the environment variable `HTTP_PROXY`.
 
-## One Connector per Auth0 Account
-If you establish multiple Auth0 accounts, perhaps to isolate development and production environments, you will need to set up one AD/LDAP connector per Auth0 account that will use AD/LDAP connections.  Multiple AD/LDAP connectors can point to the same AD or LDAP directory (or different instances, if appropriate), but there must be one AD/LDAP connector per Auth0 account.
+## One Connector per Auth0 Account/Connection
+If you establish multiple Auth0 accounts, perhaps to isolate development and production environments, you will need to set up an AD/LDAP Connection and set up an AD/LDAP Connector for each Auth0 account that needs this form of authentication.  An AD/LDAP Connector is tied to a specific Connection within an Auth0 account.  It is possible to have multiple AD/LDAP Connectors within one Auth0 account.  This is needed if you have multiple AD/LDAP directories against which users will authenticate, for example to support different departments or customers, each with their own directory. In addition, multiple AD/LDAP Connectors can point to the same AD or LDAP directory, but an AD/LDAP Connector can only be used by one Auth0 Connection within one Auth0 account.
 
 ## Special cases requiring connectivity from browsers 
 
