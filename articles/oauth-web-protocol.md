@@ -9,23 +9,23 @@ The steps are quite simple though:
   <div class="setup-callback">
   <p>After authenticating the user on Auth0, we will do a GET to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
 
-  <pre><code>@@account.callback@@</pre></code>
+  <pre><code>${account.callback}</pre></code>
   </div>
 
 2. Triggering login manually or integrating the Auth0Lock
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
+  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/authorize/?
           response_type=code
-          &client_id=@@account.clientId@@
-          &redirect_uri=@@account.callback@@
+          &client_id=${account.clientId}
+          &redirect_uri=${account.callback}
           &state=VALUE_THAT_SURVIVES_REDIRECTS
           &scope=openid</code></pre>
 
-@@lockSDK@@
+${lockSDK}
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 
-  <pre style="word-wrap:break-word"><code>GET @@account.callback@@?
+  <pre style="word-wrap:break-word"><code>GET ${account.callback}?
         code=AUTHORIZATION_CODE
         &state=VALUE_THAT_SURVIVES_REDIRECTS</code></pre>
 
@@ -33,12 +33,12 @@ The steps are quite simple though:
 
 4. Your app will have to send the `code` to the Auth0 server through a POST
 
-    <pre style="word-wrap:break-word"><code>POST https://@@account.namespace@@/oauth/token
+    <pre style="word-wrap:break-word"><code>POST https://${account.namespace}/oauth/token
     Content-type: application/x-www-form-urlencoded
 
-    client_id=@@account.clientId@@
-    &redirect_uri=@@account.callback@@
-    &client_secret=@@account.clientSecret@@
+    client_id=${account.clientId}
+    &redirect_uri=${account.callback}
+    &client_secret=${account.clientSecret}
     &code=AUTHORIZATION_CODE
     &grant_type=authorization_code</code></pre>
 
@@ -54,7 +54,7 @@ The steps are quite simple though:
 
 6. Finally, you can get the user profile by calling
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/userinfo/?access_token=2YotnF..........1zCsicMWpAA</code></pre>
+  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/userinfo/?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 
   The `userinfo` endpoint will return something like this
 

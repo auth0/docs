@@ -5,7 +5,6 @@ thirdParty: true
 alias:
   - Firebase
 image:  /media/addons/firebase.svg
-lodash: true
 tags:
   - quickstart
 snippets:
@@ -13,5 +12,4 @@ snippets:
   setup: server-apis/firebase/setup
   use: server-apis/firebase/use
 ---
-<% configuration.thirdParty = 'Firebase' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}

@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Symfony Tutorial
 name: PHP (Symfony)
 image: /media/platforms/php.png
@@ -19,14 +18,14 @@ If you have used [Symfony](http://symfony.com) before, you are probably already 
 
 ### 1. Add HWIOAuthBundle to your composer.json
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 and run `composer update`
 
 
 ### 2. Enable the bundle
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Configure the routes
 
@@ -46,7 +45,7 @@ Add the following routes at the beginning of `app/config/routing.yml`
 
 ### 4. Configure Auth0
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -63,9 +62,9 @@ Add this to your `app/config/config.yml`
         resource_owners:
             auth0:
                 type:                auth0
-                base_url:            https://@@account.namespace@@
-                client_id:           @@account.clientId@@
-                client_secret:       @@account.clientSecret@@
+                base_url:            https://${account.namespace}
+                client_id:           ${account.clientId}
+                client_secret:       ${account.clientSecret}
 
 ### 6. User provider
 
@@ -106,4 +105,4 @@ Notice that we need to identify the user provided selected in step 6 both in the
 
 ### 8. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}

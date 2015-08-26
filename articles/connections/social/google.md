@@ -63,8 +63,8 @@ Enter your account's information. That means replacing the appearances of **"YOU
 
 When prompted, use the following settings:
 
-* Authorized JavaScript Origins: `https://@@account.namespace@@`
-* Authorized Redirect URI: `https://@@account.namespace@@/login/callback`
+* Authorized JavaScript Origins: `https://${account.namespace}`
+* Authorized Redirect URI: `https://${account.namespace}/login/callback`
 
 ![](/media/articles/connections/social/google/goog-api-client-creation.png)
 

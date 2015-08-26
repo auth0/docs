@@ -38,19 +38,19 @@ The integration consists of adding a `ServiceAuthorizationManager` (which is an 
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 > This package creates the `ServiceAuthorizationManager` and will add a set of configuration settings.
 
 ###2. Completing your app Web.Config with Auth0 settings
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ###3. Accessing user information
 
 Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` or `Thread.CurrentPrincipal` properties:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ###4. Attaching a token on the client
 
@@ -75,8 +75,8 @@ Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF reque
     string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
 
     // create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
-    var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "@@account.namespace@@");
-    var result = auth0.GetDelegationToken(token, "@@account.clientClient@@");
+    var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "${account.namespace}");
+    var result = auth0.GetDelegationToken(token, "${account.clientClient}");
 
     // attach token to WCF request
     client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(result));

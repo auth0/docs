@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: PHP Web App Tutorial
 name: PHP
 image: /media/platforms/php.png
@@ -13,22 +12,19 @@ snippets:
 
 ##  PHP Web App Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-PHP/master/create-package?path=examples/basic-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-PHP',
+  pkgBranch: 'master',
+  pkgPath: 'examples/basic-webapp',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
 
 ### 1. Add Needed dependencies dependencies
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
@@ -38,10 +34,10 @@ snippets:
 use Auth0SDK\Auth0;
 
 $auth0 = new Auth0(array(
-    'domain'        => '@@account.namespace@@',
-    'client_id'     => '@@account.clientId@@',
-    'client_secret' => '@@account.clientSecret@@',
-    'redirect_uri'  => '@@account.callback@@'
+    'domain'        => '${account.namespace}',
+    'client_id'     => '${account.clientId}',
+    'client_secret' => '${account.clientSecret}',
+    'redirect_uri'  => '${account.callback}'
 ));
 ```
 
@@ -67,7 +63,7 @@ if (!$userInfo) {
 
 Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUser()` it will retrieve the information from the Session.
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -77,7 +73,7 @@ http://yourUrl/callback.php
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

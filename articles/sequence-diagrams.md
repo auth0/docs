@@ -10,9 +10,9 @@ The following sequence diagram shows the typical authentication flow of a single
 
 1. Initiate the login transaction by redirecting the user to:
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
+  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/authorize/?
         response_type=token
-        &client_id=@@account.clientId@@
+        &client_id=${account.clientId}
         &redirect_uri=YOUR_CALLBACK_URL
         &state=VALUE_THAT_SURVIVES_REDIRECTS
         &scope=openid</code></pre>
@@ -30,7 +30,7 @@ The following sequence diagram shows the typical authentication flow of a single
   
 4. Call the Auth0 API to validate the token and get back the user profile
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/api/users/:userid
+  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/api/users/:userid
         Authorization: Bearer ...id_token...</code></pre>
 
 5. Finally, you can call your API

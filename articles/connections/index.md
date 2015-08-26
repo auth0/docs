@@ -1,6 +1,5 @@
 ---
 url: /identityproviders
-lodash: true
 ---
 
 # Identity Providers supported by Auth0
@@ -57,6 +56,6 @@ Auth0 sits in between your app and the system that authenticates your users (any
 
 > The relationship between Auth0 and each of these authentication providers is called a 'connection'
 
-Auth0 is a multi-tenant service. When you register in Auth0 you get your own namespace (@@account.namespace@@). Many of these identity providers require registration and you will need to configure a `return url`. This will always be:
+Auth0 is a multi-tenant service. When you register in Auth0 you get your own namespace (${account.namespace}). Many of these identity providers require registration and you will need to configure a `return url`. This will always be:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback

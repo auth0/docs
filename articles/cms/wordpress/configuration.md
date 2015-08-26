@@ -6,7 +6,7 @@ Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app'
 
 #### Existing App
 1. While logged in as an administrator of your WordPress installation, in the **Plugins** section of the dashboard, click *Settings* under *WordPress Auth0 Integration* to open the *Auth0 Settings* page.
-2. In the separate browser window, navigate to your Auth0 account. Under the [**Apps / APIs**](@@uiURL@@/#/applications) section, select the *Settings* icon for the app you wish to use with WordPress.
+So, go to your account and under the [Apps section](${uiURL}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
 3. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Settings* page of the WordPress dashboard.
 
 #### New App

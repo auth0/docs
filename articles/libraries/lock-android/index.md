@@ -1,6 +1,5 @@
 ---
 url: /libraries/lock-android
-lodash: true
 ---
 
 # Lock for Android

@@ -74,11 +74,11 @@ When the domain does not exist or is unreachable `nltest` will return an error m
 
 ### No internet connectivity
 
-`https://@@account.namespace@@` should be reachable from the server.
+`https://${account.namespace}` should be reachable from the server.
 
 If proxies are installed, make sure they are configured correctly.
 
-A quick test for this is to open a browser pointing to [https://@@account.namespace@@/test](https://@@account.namespace@@/test).
+A quick test for this is to open a browser pointing to [https://${account.namespace}/test](https://${account.namespace}/test).
 
 We don't recommend using Proxies for the connector, but if you need to use one, you can setup an environment variable `HTTP_PROXY=http://your_proxy`.
 

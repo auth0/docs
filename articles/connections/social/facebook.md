@@ -28,7 +28,7 @@ Copy the App ID and App Secret to the clipboard:
 
 On app **Settings > Advanced**, enter the following URL on the "Valid OAuth redirect URIs":
 
-    https://@@account.namespace@@/login/callback
+    https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/facebook/facebook-3b.png)
 

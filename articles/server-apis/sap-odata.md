@@ -6,14 +6,12 @@ alias:
   - sap odata
 thirdParty: true
 image: /media/addons/sap_api.svg
-lodash: true
 tags:
   - quickstart
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.
 
-<% configuration.thirdParty = 'SAP OData' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

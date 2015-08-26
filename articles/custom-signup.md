@@ -53,8 +53,8 @@ Notice that `name` and `color` are custom fields.
 
 ```js
 window.auth0 = new Auth0({
-  domain: '@@account.namespace@@',
-  clientID: '@@account.clientId@@'
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}'
 });
 ```
 
@@ -130,10 +130,10 @@ please refer to this document](https://auth0.com/docs/libraries/lock/authenticat
 
 ```js
 window.auth0 = new Auth0({
-  domain: '@@account.namespace@@',
-  clientID: '@@account.clientId@@',
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
   // Callback made to your server's callback endpoint
-  callbackURL: '@@account.callback@@',
+  callbackURL: '${account.callback}',
 });
 ```
 
@@ -148,7 +148,7 @@ For more information, [check out the documentation](password-strength).
 
 The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
 
-    https://cdn.auth0.com/client/@@account.clientId@@.js
+    https://cdn.auth0.com/client/${account.clientId}.js
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).

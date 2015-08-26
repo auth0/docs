@@ -6,7 +6,7 @@ If you are using the public cloud version of Auth0 we recommend you subscribe to
 
 You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
 
-	https://@@account.namespace@@/test
+	https://${account.namespace}/test
 
 This should return a Json object with a single property:
 
@@ -18,7 +18,7 @@ content-type: application/json
 
 This other one:
 
-	https://@@account.namespace@@/testall
+	https://${account.namespace}/testall
 
 returns a simple text:
 
@@ -33,7 +33,7 @@ Each of these tests verifies correct functioning of various components of the se
 If you extended Auth0 through [rules](/rules) or [a custom db connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimick what a user would do (e.g. follow redirects, input username/password on a form, etc.).
 
 ```
-POST https://@@account.namespace@@/oauth/ro
+POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
   "client_id":   "{An app registered in Auth0 for monitoring}",

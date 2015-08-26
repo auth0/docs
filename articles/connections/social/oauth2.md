@@ -13,7 +13,7 @@ To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API
 
 
 ```
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @google-oauth-connection.json https://@@account.namespace@@/api/connections
+curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @google-oauth-connection.json https://${account.namespace}/api/connections
 ```
 
 ```
@@ -94,7 +94,7 @@ You can use any of the Auth0 standard mechanisms to login a user with the new co
 
 A direct link would look like:
 
-    https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
+    https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
 
 
 ##Other resources

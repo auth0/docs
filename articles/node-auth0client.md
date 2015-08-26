@@ -11,14 +11,14 @@ Source is available [here](https://github.com/auth0/node-auth0). Clone it in you
 
 ## Usage
 
-To initialize the client, you will need the __clientID__, the __clientSecret__ and __domain__ of your Auth0 account. See the [settings section](@@uiURL@@/#/settings) of the dashboard.
+To initialize the client, you will need the __clientID__, the __clientSecret__ and __domain__ of your Auth0 account. See the [settings section](${uiURL}/#/settings) of the dashboard.
 
 	var Auth0 = require('auth0');
 
 	var client = new Auth0({
-		domain:       '@@account.namespace@@',
-		clientID:     '@@account.clientId@@',
-		clientSecret: '@@account.clientSecret@@'
+		domain:       '${account.namespace}',
+		clientID:     '${account.clientId}',
+		clientSecret: '${account.clientSecret}'
 	});
 
 ## Operations

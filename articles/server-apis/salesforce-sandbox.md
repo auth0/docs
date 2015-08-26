@@ -5,12 +5,10 @@ thirdParty: true
 alias:
   - salesforce
 image: /media/addons/salesforce_sandbox_api.svg
-lodash: true
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'Salesforce (Sandbox)' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

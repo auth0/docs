@@ -24,7 +24,7 @@ For this example, we will use the standard template that ships with Visual Studi
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
@@ -68,14 +68,14 @@ ConfigureAuth(container);
 
 And then uncomment and edit the `ConfigureAuth` method to look like this:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
 ### 4. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="@@uiAppSettingsURL@@">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
 
 <pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
 </div>
@@ -85,9 +85,9 @@ And then uncomment and edit the `ConfigureAuth` method to look like this:
 Open your `web.config` file and change the three Auth0's parameters under `<appSettings>`:
 
 ```
-<add key="oauth.auth0.AppId" value="@@account.clientId@@" />
-<add key="oauth.auth0.AppSecret" value="@@account.clientSecret@@" />
-<add key="oauth.auth0.OAuthServerUrl" value="https://@@account.namespace@@" />
+<add key="oauth.auth0.AppId" value="${account.clientId}" />
+<add key="oauth.auth0.AppSecret" value="${account.clientSecret}" />
+<add key="oauth.auth0.OAuthServerUrl" value="https://${account.namespace}" />
 ```
 
 
@@ -139,7 +139,7 @@ public class HelloService : ServiceBase<Hello>
 
 ### 7. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 ### 8. Add UI code to Login and invoke the `HelloService`
 

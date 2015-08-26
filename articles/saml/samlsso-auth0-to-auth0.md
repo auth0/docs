@@ -54,7 +54,7 @@ Log into **Account 2**
 
 7. Scroll down and click on the **"Advanced Settings"** link.
 
-8. In the expanded window, scroll down to the **"CERTIFICATES"** section and click on the **"DOWNLOAD CERTIFICATES"** button.  In the popup which appears, select "PEM" to select a PEM-formatted certificate.  The certificate will be downloaded to a file called "@@account.tenant@@.pem".  Save this file as you will need to upload this file when configuring the other Auth0 account, account 1.
+8. In the expanded window, scroll down to the **"CERTIFICATES"** section and click on the **"DOWNLOAD CERTIFICATES"** button.  In the popup which appears, select "PEM" to select a PEM-formatted certificate.  The certificate will be downloaded to a file called "${account.tenant}.pem".  Save this file as you will need to upload this file when configuring the other Auth0 account, account 1.
 
 9. Scroll down further to the **"ENDPOINTS"** section and click on the blue **"SAML"** tab within that section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as in the next step you will need to paste it into the other Auth0 account, account 1.
 
@@ -119,7 +119,7 @@ Click on the **"CONTINUE"** button.
 
 In the window that appears, metadata about this SAML provider (account 1) is displayed.  You will need to collect two pieces of information about this Auth0 account (the service provider) that you will then paste into the other Auth0 account you set up (the identity provider).
 
-First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:@@account.tenant@@:@@connectionName@@__.  
+First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:${connectionName}__.  
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.
 
@@ -129,13 +129,13 @@ Copy the URL below that line into your browser address bar.  The picture below s
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-4.png)
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 account 1 (service provider side of the federation. It will look something like the following with your account name in place of the 'xxxxx':
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-5.png)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://@@account.tenant@@.auth0.com/login/callback?connection=@@connectionName@@__.
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.tenant}.auth0.com/login/callback?connection=${connectionName}__.
 
 Copy and save this URL.  This is the URL on account 1 that will receive the SAML assertion from the IDP.  In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
@@ -169,7 +169,7 @@ Then remove the "//" at the beginning of the line to uncomment it.
 Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
 
 ```
-    "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
+    "audience":"urn:auth0:${account.tenant}:${connectionName}"
 ```
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen
@@ -266,7 +266,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
 <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@account.namespace@@');
+  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
 
   function signin() {
     lock.show({

@@ -7,12 +7,10 @@ alias:
   - amazon webservices
   - aws
 image: /media/addons/aws.svg
-lodash: true
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'AWS' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

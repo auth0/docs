@@ -1,10 +1,8 @@
 ---
 title: Litmos SAML Configuration
-template: saml/saml-apps/_template
 ---
 
-
-@@block:samlconfig@@
+${include('./\_header')}
 
 ```json
 {
@@ -29,11 +27,6 @@ template: saml/saml-apps/_template
  ]
 }
 ```
-
-@@endblock@@
-
-
-@@block:notes@@
 
 ## Application Callback URL
 
@@ -129,5 +122,3 @@ template: saml/saml-apps/_template
     </saml:Assertion>
 </samlp:Response>
 ```
-
-@@endblock@@

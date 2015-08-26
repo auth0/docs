@@ -30,11 +30,11 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 
 **App Domain**: 
 	
-	@@account.namespace@@
+	${account.namespace}
 
 **Redirect URI**:
 
-	https://@@account.namespace@@/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
+	https://${account.namespace}/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
 
 * `connection` is just the name you will use in Auth0's connections (e.g. "sharepoint").
 * `client_id` identifies your app in Auth0 (created in steps 1).

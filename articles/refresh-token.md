@@ -23,7 +23,7 @@ Refresh tokens can be issued and revoked for each combination of __app__, __user
 To revoke a __refresh token__, you can call the **[revoke refresh token](/api/v1#delete--api-users--user_id--refresh_tokens--refresh_token-)** endpoint:
 
 ```
-DELETE https://@@account.namespace@@/api/users/<user id>/refresh_tokens/<refresh token>
+DELETE https://${account.namespace}/api/users/<user id>/refresh_tokens/<refresh token>
 
 {
   "Authorization":   "Bearer <your access token>",
@@ -37,9 +37,9 @@ To obtain a refresh token, the [`offline_access` scope](/scopes) and an arbitrar
 For example:
 
 ```
-GET https://@@account.namespace@@/authorize?
+GET https://${account.namespace}/authorize/?
     response_type=token
-    &client_id=@@account.clientId@@
+    &client_id=${account.clientId}
     &redirect_uri=YOUR_CALLBACK_URL
     &state=VALUE_THAT_SURVIVES_REDIRECTS
     &scope=openid%20offline_access
@@ -69,12 +69,12 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 To obtain a new `id_token`, the **[delegation endpoint](/auth-api#!#post--delegation)** is used:
 
 ```
-POST https://@@account.namespace@@/delegation
+POST https://${account.namespace}/delegation
 Content-Type: 'application/json'
 {
-  "client_id":       "@@account.clientId@@",
+  "client_id":       "${account.clientId}",
   "grant_type":      "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  "refresh_token":   "Cqp...Mwe",
+  "refresh_token":   "your_refresh_token",
   "api_type":        "app"
 }
 ```

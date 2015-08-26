@@ -71,7 +71,7 @@ In the window that appears, metadata about this SAML  service provider  is displ
 
 The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL.  This is the URL to which the Identity Provider will sent Authentication Assertions after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
 
-The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:@@account.tenant@@:@@connectionName@@__.  
+The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:${connectionName}__.  
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.  Use this value if the Identity Provider asks for Entity ID or SAML Audience.
 
@@ -83,7 +83,7 @@ The nameid format is the format for the attribute that will be used to identify 
 
 In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 Make a note of this metadata URL as you may be able to use it to configure the Identity Provider in the next step.
 
@@ -108,7 +108,7 @@ If the Identity Provider has a field called "Audience" or "Entity ID", you shoul
 
 
 ```
-    "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
+    "audience":"urn:auth0:${account.tenant}:${connectionName}"
 ```
 
 If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.

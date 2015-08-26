@@ -2,9 +2,9 @@ The NuGet package will create three empty settings under the `<appSettings>` sec
 
 ```xml
 <appSettings>
-  <add key="jwt:SymmetricKey" value="@@account.clientSecret@@" />
-  <add key="jwt:AllowedAudience" value="@@account.clientId@@" />
-  <add key="jwt:AllowedIssuer" value="https://@@account.namespace@@/" />
+  <add key="jwt:SymmetricKey" value="${account.clientSecret}" />
+  <add key="jwt:AllowedAudience" value="${account.clientId}" />
+  <add key="jwt:AllowedIssuer" value="https://${account.namespace}/" />
 </appSettings>
 ```
 

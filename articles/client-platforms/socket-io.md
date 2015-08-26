@@ -1,11 +1,10 @@
 ---
-lodash: true
 title: Socket.io Tutorial
 name: Socket.io
 alias:
   - socketio
   - socket.io
-language: 
+language:
   - Javascript
 framework:
   - Socket.io

@@ -5,25 +5,23 @@ thirdParty: true
 alias:
   - Azure Service Bus
 image: /media/platforms/azure.png
-lodash: true
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'Azure Service Bus' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 
 Here's a sample call to the delegation endpoint to get the SAS:
 
 ```text
-POST https://@@account.namespace@@/delegation
+POST https://${account.namespace}/delegation
 Content-Type: 'application/json'
 {
-  "client_id":   "@@account.clientId@@",
+  "client_id":   "${account.clientId}",
   "grant_type":  "urn:ietf:params:oauth:grant-type:jwt-bearer",
   "id_token":    "{YOUR_ID_TOKEN}",
-  "target":      "@@account.clientId@@",
+  "target":      "${account.clientId}",
   "api_type":    "azure_sb",
   "scope":       "openid"
 }

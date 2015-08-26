@@ -28,7 +28,7 @@ Create a new application and complete the form:
 
 ##3. Setup your callback URL into Auth0:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-4.png)
 

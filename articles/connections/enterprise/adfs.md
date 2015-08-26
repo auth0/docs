@@ -11,8 +11,8 @@ alias:
 
 This is the data you should give to the ADFS admin:
 
-* Realm Identifier: `urn:auth0:@@account.tenant@@`
-* Endpoint: `https://@@account.namespace@@/login/callback`
+* Realm Identifier: `urn:auth0:${account.tenant}`
+* Endpoint: `https://${account.namespace}/login/callback`
 
 > If you want to use the [/oauth/ro](/auth-api#post--oauth-ro) endpoint make sure to enable `/adfs/services/trust/13/usernamemixed`.
 
@@ -21,7 +21,7 @@ This is the data you should give to the ADFS admin:
 For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a Relying Party that will issue the following claims: __email__, __upn__, __given name__ and __surname__ for the authenticated user.
 
     (new-object Net.WebClient -property @{Encoding = [Text.Encoding]::UTF8}).DownloadString("https://raw.github.com/auth0/adfs-auth0/master/adfs.ps1") | iex
-    AddRelyingParty "urn:auth0:@@account.tenant@@" "https://@@account.namespace@@/login/callback"
+    AddRelyingParty "urn:auth0:${account.tenant}" "https://${account.namespace}/login/callback"
 
 Copy & Paste the script above on Windows PowerShell.
 
@@ -33,8 +33,8 @@ Copy & Paste the script above on Windows PowerShell.
 
 #####1. Creates the Relying Party on ADFS
 
-    $realm = "urn:auth0:@@account.tenant@@";
-    $webAppEndpoint = "https://@@account.namespace@@/login/callback";
+    $realm = "urn:auth0:${account.tenant}";
+    $webAppEndpoint = "https://${account.namespace}/login/callback";
 
     Add-PSSnapin Microsoft.Adfs.Powershell
     Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
@@ -72,7 +72,7 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 ![](/media/articles/connections/enterprise/adfs/adfs-importmanual.png)
 
-5- Enter an arbitrary name (e.g. "@@account.appName@@") and click `Next`
+5- Enter an arbitrary name (e.g. "${account.appName}") and click `Next`
 
 6- Leave the default selection (ADFS 2.0 profile) and click `Next`
 
@@ -80,13 +80,13 @@ If you don't feel comfortable executing the script, you can follow these manual 
 
 8- Check `Enable support for the WS-Federation...`, enter the following value in the textbox and click `Next`
 
-    https://@@account.namespace@@/login/callback
+    https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/enterprise/adfs/adfs-url.png)
 
 9- Add a relying party identifier with the following value and click `Add` and then `Next`
 
-    urn:auth0:@@account.tenant@@
+    urn:auth0:${account.tenant}
 
 ![](/media/articles/connections/enterprise/adfs/adfs-identifier.png)
 

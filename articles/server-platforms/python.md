@@ -13,22 +13,19 @@ snippets:
 
 ## Python Web App Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-python/master/create-package?path=examples/flask-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-python',
+  pkgBranch: 'master',
+  pkgPath: 'examples/flask-webapp',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing Python WebApp to use it with Auth0.**
 
 ### 1. Add dependencies
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 This example uses `flask` but it could work with any server
 
@@ -36,11 +33,11 @@ This example uses `flask` but it could work with any server
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Specify the callback on Auth0 Dashboard
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -49,7 +46,7 @@ http://yourUrl/callback
 ```
 ### 4. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

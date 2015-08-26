@@ -22,7 +22,7 @@ Go to the [developer portal](https://developer.paypal.com/), and log in with you
 
 * Your return URL is:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 > Note that you can control the scope of access through Auth0 (currently: profile, email, address, phone). But you will also need to enable that access in the portal checking the right attributes.
 

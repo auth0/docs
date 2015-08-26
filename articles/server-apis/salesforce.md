@@ -9,8 +9,7 @@ lodash: true
 tags:
   - quickstart
 ---
-<% configuration.thirdParty = 'Salesforce' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

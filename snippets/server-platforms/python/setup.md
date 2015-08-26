@@ -13,12 +13,12 @@ def callback_handling():
 
   json_header = {'content-type': 'application/json'}
 
-  token_url = "https://{domain}/oauth/token".format(domain='@@account.namespace@@')
+  token_url = "https://{domain}/oauth/token".format(domain='${account.namespace}')
 
   token_payload = {
-    'client_id':     '@@account.clientId@@',
-    'client_secret': '@@account.clientSecret@@',
-    'redirect_uri':  '@@account.callback@@',
+    'client_id':     '${account.clientId}',
+    'client_secret': '${account.clientSecret}',
+    'redirect_uri':  '${account.callback}',
     'code':          code,
     'grant_type':    'authorization_code'
   }
@@ -26,7 +26,7 @@ def callback_handling():
   token_info = requests.post(token_url, data=json.dumps(token_payload), headers = json_header).json()
 
   user_url = "https://{domain}/userinfo?access_token={access_token}" \
-      .format(domain='@@account.namespace@@', access_token=token_info['access_token'])
+      .format(domain='${account.namespace}', access_token=token_info['access_token'])
 
   user_info = requests.get(user_url).json()
 

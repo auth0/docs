@@ -92,7 +92,7 @@ Storing the folders you have access to as part of the user profile in this case,
 
 ### Authentication:
 
-* Auth0 has a single dashboard for all the tenants and it is accesible through <@@uiURL@@>. 
+* Auth0 has a single dashboard for all the tenants and it is accesible through <${uiURL}>. 
 * It supports Google, GitHub, Live and User/Passwords authentication.
 * It also supports Enterprise connections (you can request this through <support@auth0.com>)
 * Auth0 uses email domains for home realm discovery (see screen below). Making it very similar to the Dropbox experience.

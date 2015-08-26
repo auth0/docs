@@ -42,7 +42,7 @@ Enter the __From__ phone number your users will receive the SMS (also configurab
 The first step is to __register a user__ using the Auth0 `Users` API:
 
 ```
-POST https://@@account.namespace@@/api/users/
+POST https://${account.namespace}/api/users/
 Authorization: Bearer {Auth0 API Token}
 Content-Type: 'application/json'
 
@@ -62,10 +62,10 @@ Auth0 will send the SMS message configured on the dashboard to the `phone-number
 Your application will capture the one-time-password and validate it with Auth0 using the __[Resource Owner](/auth-api#!#post--oauth-ro)__ authentication endpoint:
 
 ```
-POST https://@@account.namespace@@/oauth/ro
+POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id":   "@@account.clientId@@",
+  "client_id":   "${account.clientId}",
   "username":    "+14251112222",
   "password":    "ONE-TIME-CODE",
   "connection":  "sms",

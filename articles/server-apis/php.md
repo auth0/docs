@@ -7,7 +7,6 @@ languages:
   - PHP
 thirdParty: false
 image: /media/platforms/php.png
-lodash: true
 tags:
   - quickstart
 snippets:
@@ -18,16 +17,13 @@ snippets:
 
 ## PHP API Tutorial
 
-<div class="package">
-  <blockquote>
-    <a href="/auth0-PHP/master/create-package?path=examples/basic-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-PHP',
+  pkgBranch: 'master',
+  pkgPath: 'examples/basic-api',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP app to use it with Auth0.**
 
@@ -38,7 +34,7 @@ We need 2 dependencies to make this work:
 * **php-jwt**: this will take care of checking the JWT
 * **router**: we'll use this for creating simple routes
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 >>>>>>> Extracted snippets from tutorials
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
@@ -47,13 +43,13 @@ We need 2 dependencies to make this work:
 
 Now, you need to validate the [JWT](/jwt). For that, we'll create a filter that will run in the routes we need.
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Create a /secured route that will use this filter
 
 Now, you can just create routes under /secured route which will check the JWT
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ### 4. You're done!
 

@@ -58,10 +58,10 @@ For example, if your users have an email domain of 'abc-example.com', you would 
 
 **Sign In URL:** enter the URL copied in step **#5** in section 1:
 It should probably be:
-https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle
+`https://idp.ssocircle.com:443/sso/SSORedirect/metaAlias/ssocircle`
 
 **Sign Out URL:** enter the URL copied in step **#6** in section 1:
-https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle
+`https://idp.ssocircle.com:443/sso/IDPSloRedirect/metaAlias/ssocircle`
 
 **Certificate:**  Add a "BEGIN CERTIFICATE" and "END CERTIFICATE" statement to the ssocirclecert.pem file created earlier.  Make sure the file looks like the following:
 
@@ -84,7 +84,7 @@ eL2MoDNqJyQ0fXC6Ze3f79CKy/WjeU5FLwDZR0Q=
 
 
 When you paste the certificate into your file, line breaks may get replaced with spaces.  You need to restore the original line breaks and make sure that the line breaks are **exactly** as shown above (or as shown on the ssocircle public IDP metadata page if changed) and the BEGIN CERTIFICATE and END CERTIFICATE
-lines are on their own line, with preceeding and following dashes and the first and last lines of the file, respectively.
+lines are on their own line, with preceding and following dashes and the first and last lines of the file, respectively.
 
 6. In the Auth0 screen, click on the red **"UPLOAD CERTIFICATE"** button and select the `.pem` file you just created.
 
@@ -97,15 +97,15 @@ Here is an example of what the filled-out screen would look like:
 ![](/media/articles/saml/identity-providers/ssocircle/ssocircle-1.png)
 
 
-After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button.  
+After pressing the **"SAVE"** button, A window will appear with a red **"CONTINUE"** button.
 
-8. Click on the **"CONTINUE"** button. In the window that appears, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
+8. Click on the **"CONTINUE"** button. In the window that appears, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.
 
 9. Copy the URL below that line into your browser address bar.  The picture below shows the screen on which this URL will appear and where to find it:
 
 ![](/media/articles/saml/identity-providers/ssocircle/ssocircle-2.png)
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 side of the federation. It will look something like the following with your tenant name in place of the 'xxxxx':
 
@@ -194,7 +194,7 @@ In this step, you will register an application in Auth0 that will use the SAML c
 
 * Scroll down to the section near the bottom where it says **"ENTERPRISE"**.
 
-* Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
+* Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.
 
 ![](/media/articles/saml/identity-providers/ssocircle/ssocircle-6.png)
 
@@ -213,7 +213,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
     <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@acount.namespace@@');
+      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
 
       function signin() {
         lock.show({
@@ -231,7 +231,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
 ```
 
-Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 4.  
+Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 4.
 
 The client ID for your application can be found in the **Auth0 dashboard** by going to __"Apps/APIs"__ link and clicking on the __"Settings"__ (gear) icon to the right of your application name.
 
