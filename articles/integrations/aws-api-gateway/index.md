@@ -100,9 +100,9 @@ Now that we got our API running, we need to add security. AWS API Gateway provid
 
 For our scenario, we’ll build a serverless, single page application, that will rely on federating identity with other identity sources to determine which users are allowed access. You can achieve this using a combination of the API gateway, IAM integration and IAM’s identity federation. The following diagram illustrates an example flow using a SAML based identity provider:
 
-TODO: INSERT IMAGE FOR FEDERATED
+![](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
-We’ll implement this in two ways, using Auth0 delegation with AWS and using identity tokens.
+We’ll implement this in two ways, using Auth0 delegation with AWS IAM and later layering on an identity token.
 
 ### Configure IAM and Auth0 for SAML integration and the API Gateway
 The IAM integration with SAML lets the identity provider specify the IAM role for a user. This model is powerful since the identity provider can provide different levels of access based on a user's authentication and profile information, for example based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. granting  users authenticated from a database connection higher privileges than users autheniticated by a social provider like Facebook).
@@ -717,7 +717,7 @@ Now you can setup debugging. Click the **Debug Rule** button and follow the inst
 ### Use An Identity Token
 Often, you will want to do the processing of a user's role based on the users identity in the logic of your lambda. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a java web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on having it passed in as a parameter.
 
-TODO: insert an image here for this flow.
+![](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
 There are several ways of causing the email to be added into the JWT.  One way is to use another rule, which is a good approach if you want make sure this value is always in the JWT for an authenticating client:
 
