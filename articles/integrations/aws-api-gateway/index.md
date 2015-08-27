@@ -7,7 +7,7 @@ This tutorial demonstrates how to use API gateway with IAM and the Auth0 AWS del
 
 ### Setup the AWS API Gateway
 You will need to have node.js already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
-1. In the DynamoDB console, create a table “Pets” with a string hash key, “username”.
+1. In the DynamoDB console, create a table `Pets` with a string hash key, `username`.
 2. Create the APIGatewayLamdaExecRole as outlined in [Walkthrough: Lambda Functions, step 4](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-models.html#getting-started-models-lambda), and expand the additional policy for dynamodb access as shown below:
 ```js
 {
@@ -31,7 +31,7 @@ You will need to have node.js already installed. Perform the following steps to 
             	"Resource": ["<your dynamodb pets table arn>"]
      }]}
 ```
-3. In the AWS API Gateway console, create a new API named “Secured Pets”. Select ***Resources>Models***.
+3. In the AWS API Gateway console, create a new API named “Secured Pets”. Select **Resources > Models**.
 4. In the AWS Lamda console, select **Create a Lamda function**. Click **Skip** for the blueprint, and enter “GetPetInfo” for the *Name*. Select *Node.js* for the runtime, and paste the following code to read pets from the dynamodb table:
 ```js
 var AWS = require('aws-sdk');
@@ -54,7 +54,7 @@ exports.handler = function(event, context) {
     dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, cb);
 };
 ```
-For *Role*, select the role you just created (*APIGatewayLambdaExecRole*) and leave the default for all other settings. Click **Next**, and then select **Create function**. Select **Test**, and then **Submit**. You should see an empty output (`{}`) since the table is empty.
+For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leave the default for all other settings. Click **Next**, and then select **Create function**. Select **Test**, and then **Submit**. You should see an empty output (`{}`) since the table is empty.
 5. Repeat the previous step, naming the new function “UpdatePetInfo” and paste this code:
 ```js
 var AWS = require('aws-sdk');
@@ -83,9 +83,9 @@ exports.handler = function(event, context) {
 ```
 You should see an empty return result (`{}`). Go to your GetPetInfo lambda, and click **Test** again. You should now see a single pet.
 7. One more AWS Lambda function is required that does nothing. This is needed by the OPTIONS method for CORS as described in the following section. Repeat the steps for creating a Lambda function and name it “NoOp”. For the code simply call `context.succeed('');`.
-8. Back in the AWS API Gateway console, select **Models>Resources**. Click **Create Resource**. Name the resource “Pets”, and click **Create Resource** again.
-9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select `GetPetInfo` for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
-10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select `UpdatePetInfo` for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
+8. Back in the AWS API Gateway console, select **Models > Resources**. Click **Create Resource**. Name the resource “Pets”, and click **Create Resource** again.
+9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *GetPetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
+10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
 ```js
 {"pets": [ {"id": 1, "type": "dog", "price": 249.99},
 {"id": 2, "type": "cat", "price": 124.99}]}
@@ -94,35 +94,35 @@ You should see an empty return result (`{}`). Go back to the *GET* API, and clic
 
 ## Secure your AWS API Gateway APIs
 
-Now that we got our API running, we need to add security. AWS API Gateway provides a two different methods to secure your APIs - API keys, and IAM. Using API keys is typically appropriate for a service to service interaction as illustrated below. However, putting a long lived secret on a client is risky since clients are easier to compromise. Also, creating a framework to issue and manage API keys requires a secure implementation that may be challenging to develop.
+Now that you have your API running, you need to add security. AWS API Gateway provides a two different methods to secure your APIs - API keys, and IAM. Using API keys is typically appropriate for a service to service interaction as illustrated below. However, putting a long lived secret on a client is risky since clients are easier to compromise. Also, creating a framework to issue and manage API keys requires a secure implementation that may be challenging to develop.
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-key.png)
 
-For our scenario, we’ll build a serverless, single page application, that will rely on federating identity with other identity sources to determine which users are allowed access. You can achieve this using a combination of the API gateway, IAM integration and IAM’s identity federation. The following diagram illustrates an example flow using a SAML based identity provider:
+For this tutorial, you’ll build a serverless, single page application, that will rely on federating identity with other identity sources to determine which users are allowed access. You can achieve this using a combination of the API gateway, IAM integration and IAM’s identity federation. The following diagram illustrates an example flow using a SAML based identity provider:
 
 ![](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
-We’ll implement this in two ways, using Auth0 delegation with AWS IAM and later layering on an identity token.
+You’ll implement this in two ways, using Auth0 delegation with AWS IAM and afterward layering on an identity token.
 
 ### Configure IAM and Auth0 for SAML integration and the API Gateway
-The IAM integration with SAML lets the identity provider specify the IAM role for a user. This model is powerful since the identity provider can provide different levels of access based on a user's authentication and profile information, for example based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. granting  users authenticated from a database connection higher privileges than users autheniticated by a social provider like Facebook).
+The IAM integration with SAML lets the identity provider specify the IAM role for a user. This model is powerful since the identity provider can provide different levels of access based on a user's authentication and profile information, for example based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. granting users authenticated from a database connection higher privileges than users authenticated by a social provider like Facebook).
 
 To configure Auth0 with SAML, do the following:
 1. Sign up for a free Auth0 developer account, and sign in.
 2. In the left menu, select **Apps and APIs**, then click **New App and API**. Call the new app “AWS Api Gateway”.
-3. Click on the *Settings* tab. 
+3. Click on the **Settings** tab. 
 4. Follow the [How to Setup AWS to do Delegated Authentication with APIs](https://auth0.com/docs/aws-api-setup) walkthrough to configure AWS for delegated access, which uses SAML behind the scenes. Name the AWS IAM role you create “auth0-api-role”.
 
-Once the AWS IAM role is configured, add a policy to the “auth0-api-role” role that lets you execute your API gateway methods. This is described in [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
+Once the AWS IAM role is configured, add a policy to the `auth0-api-role` role that lets you execute your API gateway methods. This is described in [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
  The following paragraphs summarize the steps required.
 
 The Amazon Resource Name (arn) that controls access to your APIs will look something like:
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets
 ```
-The wildcard (\*) enables permissions for all stages for your API. You can deploy different stages (for example dev, test, prod). You can see the arn by selecting the *Method Request* definition for one of your API methods.
+The wildcard (`*`) enables permissions for all stages for your API. You can deploy different stages (for example dev, test, prod). You can see the arn by selecting the *Method Request* definition for one of your API methods.
 
-Select the role you just created, and expand **Inline Policies**, and click the **click here** link. Select **Custom Policy**, click the **Select** button, and pick a name like “api-gateway-policy”. To enable access to your api methods after updating the arn with the one for your api, add the following and then click **Apply Policy**.
+Select the role you just created, and expand **Inline Policies**, and click the **click here** link. Select **Custom Policy**, click the **Select** button, and pick a name like “api-gateway-policy”. To enable access to your api methods after updating the arn with the one for your API, add the following and then click **Apply Policy**.
 ```js
 {
     "Version": "2012-10-17",
@@ -139,7 +139,7 @@ Select the role you just created, and expand **Inline Policies**, and click the 
     ]
 }
 ```
-You’ll need to make one additional change. Since the api gateway will assume this role on a user’s behalf, the trust policy needs to permit this action. Click on **Edit Trust Relationship** and add the policy statement for gateway. The final trust relationship should look similar to the following:
+You’ll need to make one additional change. Since the API gateway will assume this role on a user’s behalf, the trust policy needs to permit this action. Click on **Edit Trust Relationship** and add the policy statement for gateway. The final trust relationship should look similar to the following:
 ```js
 {
   "Version": "2012-10-17",
@@ -168,14 +168,14 @@ You’ll need to make one additional change. Since the api gateway will assume t
   ]
 }
 ```
-At this point you are finished with IAM. Go back to the API gateway. In the **Resources** view, select the **POST** method under `/pets`. Click the **Method Request** link. Click the edit icon beside the **Authorization Type**, and select **AWS_IAM**. Now click the **Check Button** beside the field to save the setting.
+At this point you are finished with IAM. Go back to the API gateway. In the **Resources** view, select the *POST* method under `/pets`. Click the **Method Request** link. Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now click the **Check Button** beside the field to save the setting.
 
 ##Set up CORS and Deploy the API
 
 Our single page app will access web API methods from a different domain than the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to permit access to the AWS API Gateway site. Typically, a browser will first issue an OPTIONS request to see what the site will permit. See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details. Here is a summary of the steps:
-1. Select /pets in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
+1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
 2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda and then select *NoOp* for the method.
-3. Click on ***Method Response***, expand **200**, and then add these three headers:
+3. Click on **Method Response**, expand **200**, and then add these three headers:
 ```
 'Access-Control-Allow-Headers', 'Access-Control-Allow-Methods',  'Access-Control-Allow-Origin'
 ```
@@ -188,15 +188,15 @@ Select the **DEPLOY API** button from the **RESOURCES** view. Select **New Stage
 
 ## Create the Client Application
 
-The client application will be a single page, serverless application based on the AngularJS framework that we will serve out of an S3 bucket configured as a website. To start, create a bucket for the application, and configure it as a website with a home page of "index.html". You can find instructions at [Hosting a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html).
+The client application will be a single page, serverless application based on the AngularJS framework that you will serve out of an S3 bucket configured as a website. To begin, create a bucket for the application and configure it as a website with a home page of `index.html`. You can find instructions at [Hosting a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html).
 
-For a simple starter app, download a seed project from [Auth0 for AngularJS](https://auth0.com/docs/client-platforms/angularjs). Go to the application you created in Auth0, and click on the **Quick Start** tab. Here you will see options for different types of application models. Select **Single Page App**, then select **Angular**. For the backend platform, select the **NO, SKIP THIS** button. You can now download a seed project that has your account settings pre-configured. Copy the contents of this seed project to a local folder. We will use `pets` for the folder in the remainder of this tutorial. From the `pets` directory, copy the contents to your S3 bucket for the website. An easy way to do this is with the [AWS CLI](https://aws.amazon.com/cli/).
+For a simple starter app, download a seed project from [Auth0 for AngularJS](https://auth0.com/docs/client-platforms/angularjs). Go to the application you created in Auth0, and click on the **Quick Start** tab. Here you will see options for different types of application models. Select **Single Page App**, then select **Angular**. For the back-end platform, select the **NO, SKIP THIS** button. You can now download a seed project that has your account settings pre-configured. Copy the contents of this seed project to a local folder. You will be using the `pets` folder for the remainder of this tutorial. From the `pets` directory, copy the contents to your S3 bucket for the website. An easy way to do this is with the [AWS CLI](https://aws.amazon.com/cli/).
 ```
 aws s3 cp --recursive --acl "public-read" ./ s3://your-bucket/
 ```
-Although the sample project is functional, we need to make a few configuration changes for it to work with your AWS API Gateway APIs. First, get an *OpenId* identity token based on your credentials. With Auth0, you can use many different sources of users to authenticate called connections and grant access to applications like AWS. Begin with using the users of the built-in Auth0 database “Username-Password-Authentication” that was created when you opened your account. From the Auth0 console, click on the ***Connections*** tab of your application, you should see this connection enabled for you. Click on ***Users*** in the left column, and click **New User**. Fill in the information for the user, and click **Save**. You now have one user available to authenticate.
+Although the sample project is functional, you need to make a few configuration changes for it to work with your AWS API Gateway APIs. First, get an *OpenId* identity token based on your credentials. With Auth0, you can use many different sources of users to authenticate called connections and grant access to applications like AWS. Begin with using the users of the built-in Auth0 database “Username-Password-Authentication” that was created when you opened your account. From the Auth0 console, click on the **Connections** tab of your application and you should see that this connection is enabled. Click on **Users** in the left column, and click **New User**. Fill in the information for the user, and click **Save**. You now have one user available to authenticate.
 
-There is one last step to get authentication to work. The website runs at a url like `http://your-bucket-domain/index.html`, which is shown under the properties of your S3 bucket. To tell Auth0 that it is ok to permit authentication from your website, add `http://your-bucket-domain` to the ***Allowed Origins*** in the Auth0 application settings.
+There is one last step to get authentication to work. The website runs at a url like `http://your-bucket-domain/index.html`, which is shown under the properties of your S3 bucket. To tell Auth0 that it is OK to permit authentication from your website, add `http://your-bucket-domain` to the **Allowed Origins** in the Auth0 application settings.
 
 Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in with the user you just created you should see a welcome screen with a big blue button, **CALL API**.
 
@@ -206,7 +206,7 @@ At this point you have authenticated with Auth0, and you have an OpenId token. H
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the previous section [Configure IAM and Auth0 for SAML integration and the API Gateway](#5). You need to make a simple extension to `login.js` to obtain a delegation token from the identity token:
+You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the previous section [Configure IAM and Auth0 for SAML integration and the API Gateway](#Configure-IAM-and-Auth0-for-SAML-integration-and-the-API-Gateway). You need to make a simple extension to `login.js` to obtain a delegation token from the identity token:
 
 ```js
 angular.module( 'sample.login', ['auth0'])
@@ -225,14 +225,14 @@ angular.module( 'sample.login', ['auth0'])
 
 ```
 
-You need to make one more call by modifying the callback function for *auth.signin* to the following code:
+You need to make one more call by modifying the callback function for `auth.signin` to the following code:
 
 ```js
       store.set('profile', profile);
       store.set('token', token);
 
       var options = {
-        "id_token": token,        // the token we just obtained
+        "id_token": token,        // the token you just obtained
         "role":"<the arn for the  auth0-api-role role created to execute APIs>",
         "principal": "<the arn of the auth0 STS>"
       };
@@ -248,7 +248,7 @@ You need to make one more call by modifying the callback function for *auth.sign
       });
 ```
 
-If you set a breakpoint in the browser and inspect delegation.Credentials, you will see a familiar looking values like **AccessKeyId** and **SecretAccessKey** if you've accessed AWS AWS APIs programmatically before:
+If you set a breakpoint in the browser and inspect `delegation.Credentials`, you will see a familiar values like *AccessKeyId* and *SecretAccessKey* if you've accessed AWS APIs programmatically before:
 
 ```js
   {
@@ -261,7 +261,7 @@ If you set a breakpoint in the browser and inspect delegation.Credentials, you w
 
 ### Display Pets with the AWS API Service
 
-First, let’s show the pets to end users. To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you previously downloaded to the `pets` directory. The contents should include `apiClient.js`, a `lib` folder, and a `README.md`. There is already a `README.md` in the `pets` directory, so just keep both. (The `README.md` for the API gateway explains how to use the api client from your application.) Open `index.html`, and add all of the scripts listed at the top of the API readme to `index.html`. For example:
+First, show the pets to end users. To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you previously downloaded to the `pets` directory. The contents should include `apiClient.js`, a `lib` folder, and a `README.md`. There is already a `README.md` in the `pets` directory, so just keep both. (The `README.md` for the API gateway explains how to use the api client from your application.) Open `index.html`, and add all of the scripts listed at the top of the API readme to `index.html`. For example:
 
 ```html
     <!-- scripts for aws api gateway -->
@@ -279,7 +279,7 @@ First, let’s show the pets to end users. To add the API code for adding a call
     <script type="text/javascript" src="apigClient.js"></script>
 ```
 
-If you open `apiClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. We won't modify this generated code. Open `home.js` and replace the contents of `callApi` with `alert('not implemented');` and rename `callApi` to `putPets`. Add a method for getting pets as follows:
+If you open `apiClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. Don't modify this generated code. Open `home.js` and replace the contents of `callApi` with `alert('not implemented');` and rename `callApi` to `putPets`. Add a method for getting pets as follows:
 
 ```js
   function showError(response) {
@@ -329,11 +329,11 @@ Finally,add the code to show the pets. Open `home.html` and replace the content 
 </div>
 ```
 
-If you refresh the page, you should see two animals listed (assuming you ran the previously described test on your API’s that created the pets).
+If you refresh the page, you should see two animals listed (assuming you ran the previously described test on your API’s that created these pets).
 
 ### Update Pets with the AWS API Service
 
-Now that you have a working application with the API Gateway, let's add a method for updating the pets. First we’ll try it without authentication, and then add it.
+Now that you have a working application with the API Gateway, add a method for updating the pets. First try it without authentication, and then add it in.
 
 To add a *delete* button for each line, and an *add* button and an *add* section, update your home view to the following:
 
@@ -371,7 +371,7 @@ We have a {{pet.type}} is for sale for {{pet.price}}
   <button class="btn btn-warning sm-btn" ng-click="logout()">Logout</button>
 </div>
 ```
-Now add handlers for the buttons in your controller. First, add the handlers for adding a pet (we’ll only allow admins to do that, and we’ll assume that anyone authenticated from the *Username-Password-Authentication* store is an admin). Add this code above the call to `getPets()` in your controller.
+Now add handlers for the buttons in your controller. First, add the handlers for adding a pet (only allowing admins to do that, and assuming that anyone authenticated from the *Username-Password-Authentication* store is an admin). Add this code above the call to `getPets()` in your controller.
 
 ```js
   $scope.isAdmin = store.get('profile').isAdmin;
@@ -431,14 +431,14 @@ Now add handlers for the buttons in your controller. First, add the handlers for
   }
 ```
 
-You need to make a small modification to the login. While you could determine if a user is an admin by adding a property when the user is authenticated by Auth0 with a rule, we'll simply decide that a user is an admin if they don't use a social login. That logic belongs in the login controller. Add the following to your login function before you set the profile in the store:
+You need to make a small modification to the login. While you could determine if a user is an admin by using a rule to add a property when the user is authenticated by Auth0, you could simply decide that a user is an admin if they don't use a social login. That logic belongs in the login controller. Add the following to your login function before you set the profile in the store:
 
 ```js
    profile.isAdmin = !profile.identities[0].isSocial;
    store.set('profile', profile);
 ```
 
-The update logic will fail because you are not yet authenticating the AWS API Gateway method using IAM for **petsPost**, but let's test it. Add a frog for 4.99. You should see a failure occurring when you try to save. The error code is likely a failure due to the absence of the `Access-Control-Allow-Origin` header. When we setup CORS, we only set it up for a *200* status code. You’ll need to set this up for each status code you want to go through to the end user. If you look in the browser debugger, you’ll see that the underlying status is a 403.
+The update logic will fail because you are not yet authenticating the AWS API Gateway method using IAM for *petsPost*, but you should test it. Add a frog for 4.99. You should see a failure occurring when you try to save. The error code is likely a failure due to the absence of the `Access-Control-Allow-Origin` header. When you setup CORS, it was only configured up for a *200* status code. You’ll need to set this up for each status code you want to go through to the end user. If you look in the browser debugger, you’ll see that the underlying status is a 403.
 
 Now add security by providing the token information to the API at the start of the `putPets` method:
 
@@ -460,11 +460,11 @@ The update should now succeed.
 
 ## Discriminate between types of users
 
-For many applications, you’ll want different users to have different levels of access, and often you’ll want more information about an identity to use in your service logic. For cases where it’s sufficient to lock down access at the API level, you can use different IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). For cases where you want to make decisions within your code, (a credit check of a user buying a pet) you will want to flow idenity as well, and we will show how to do that later in the *Use An Identity Token* section.
+For many applications, you’ll want different users to have different levels of access, and often you’ll want more information about an identity to use in your service logic. For cases where it’s sufficient to lock down access at the API level, you can use different IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated later in the [Use An Identity Token](#Use-An-Identity-Token) section.
 
 ### Create the PetPurchase API resource
 
-From the API Gateway console, repeat the process [outlined above](#3) to create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource “purchase”. Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets`. Create a new AWS Lamda function for purchasing a pet called “PetPurchase”, which adds a `isSold` and `soldTo` attribute to a pet as follows:
+From the API Gateway console, repeat the process [outlined above](#Setup-the-AWS-API-Gateway) to create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource “purchase”. Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets`. Create a new AWS Lamda function for purchasing a pet called “PetPurchase”, which adds a `isSold` and `soldTo` attribute to a pet as follows:
 
 ```js
 var AWS = require('aws-sdk');
@@ -535,21 +535,21 @@ Once the lambda function is defined, add another method, *POST*, to the `purchas
 
 #### Update IAM
 
-To secure your new API, follow the same process for adding a new role that you performed above [Configuring IAM and Auth0 for SAML integration and the API Gateway](#5). Call the new role “auth0-api-social-role”. The arn for the method being secured should look something like:
+To secure your new API, follow the same process for adding a new role that you performed above ([Configure IAM and Auth0 for SAML integration and the API Gateway](#Configure-IAM-and-Auth0-for-SAML-integration-and-the-API-Gateway)). Call the new role “auth0-api-social-role”. The arn for the method being secured should look something like:
 
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets/purchase
 ```
 
-Go to the API Gateway console, and select the *POST* method for the `/pets/purchase` resource. Select **Method Request** and change **Authorization Type** to **AWS_IAM**. Click the check to save the setting.
+Go to the API Gateway console, and select the *POST* method for the `/pets/purchase` resource. Select **Method Request** and change **Authorization Type** to *AWS_IAM*. Click the check to save the setting.
 
-At this point, we have defined two roles that we can use with the API gateway. The first, `auth0-api-role`, permits updating the pets (`/pets`, *POST* method) and the second, `auth0-api-social-role`, permits purchasing a pet.
+At this point, you have defined two roles that you can use with the API gateway. The first, `auth0-api-role`, permits updating the pets (`/pets`, *POST* method) and the second, `auth0-api-social-role`, permits purchasing a pet.
 
 #### Configure Login with Amazon and Update Auth0
 
-To create a social role, we’ll use Login with Amazon(LWA). Go back to the Auth0 console, and select **Connections** then **Social** in the right menu. Turn on the connection for Amazon. A wizard pops up to lead you through the process. Click **Continue**, and you’ll see a configuration page for entering the *client id* and *client secret*. If you haven’t used Login with Amazon before, there is also a link for “how to obtain a client id”. Click on this link to obtain the *client id* and *client secret* and copy this information into the configuration page. Once you’ve entered your *client id* and *client secret*, you can test it from the Auth0 console. When you configure LWA make sure to enter into **Allowed Return URLs** the callback to your Auth0, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page shows you specifically what to enter.
+To create a social role, use Login with Amazon(LWA). Go back to the Auth0 console, and select **Connections** then **Social** in the right menu. Turn on the connection for Amazon. A wizard pops up to lead you through the process. Click **Continue**, and you’ll see a configuration page for entering the *client id* and *client secret*. If you haven’t used Login with Amazon before, there is also a link for “how to obtain a client id”. Click on this link to obtain the *client id* and *client secret* and copy this information into the configuration page. Once you’ve entered your *client id* and *client secret*, you can test it from the Auth0 console. When you configure LWA make sure to enter into **Allowed Return URLs** the callback to your Auth0, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page shows you specifically what to enter.
 
-In Auth0 console, go back to your **Apps/APIs**, select your application, then select the **Connections** tab. Make sure that `amazon` is enabled for social. While this tutorial uses LWA, you can choose to use any other social provider and follow similar steps. The remainder of the tutorial will work fine once your social authentication functions.
+In Auth0 console, go back to your **Apps/APIs**, select your application, then select the **Connections** tab. Make sure that *amazon* is enabled for social. While this tutorial uses LWA, you can choose to use any other social provider and follow similar steps. The remainder of the tutorial will work once your social authentication is functioning.
 
 ### Deploy the API and update the single page application
 
@@ -561,14 +561,14 @@ First, update the login controller logic to select different roles for different
   function getOptionsForRole(isAdmin, token) {
     if(isAdmin) {
       return {
-          "id_token": token,        // the token we just obtained
+          "id_token": token,        // the token you just obtained
           "role":"arn:aws:iam::<your account id>:role/auth0-api-role",
           "principal": "arn:aws:iam::<your account id>:saml-provider/auth0-api"
         };
       }
     else {
       return {
-          "id_token": token,        // the token we just obtained
+          "id_token": token,        // the token you just obtained
           "role":"arn:aws:iam::<your account id>:role/auth0-api-social-role",
           "principal": "arn:aws:iam::<your account id>:saml-provider/auth0-api"
         };
@@ -657,13 +657,13 @@ Now you can log in as a social user. When you log in as an Amazon user, you’ll
 
 ### Use Auth0 rules to enforce role assignment
 
-In some cases, determining the role in the browser application is appropriate as shown here, but often you will want to determine user privileges on the server-side to prevent a user from assuming a more privileged role then they are permitted by hacking the client code. With Auth0, you can do this with a rule. Rules are service logic defined by developers/administrators that run during the authentication process within Auth0. You could eliminate passing role information altogether from the client, and only implement it in a rule. Rules can override and add settings. For example, you can create a rule to insert the role information into the delegation request based on the authentication source. For more on rules see [Rules](https://auth0.com/docs/rules).
+In some cases, determining the role in the browser application is appropriate as shown here, but often you will want to determine user privileges on the server-side to prevent a user from assuming a more privileged role then they are permitted by hacking the client code. With Auth0, you can do this with a rule. Rules are service logic defined by developers/administrators that run during the authentication process within Auth0. You could eliminate passing role information from the client and only implement it in a rule. Rules can override and add settings. For example, you can create a rule to insert role information into the delegation request based on the authentication source. For more on rules see: [Rules](https://auth0.com/docs/rules).
 
-Let’s add a rule that will check if the role requested is allowed for this user depending on whether they have a social or an administrative login. Go to the Auth0 console, and click **Rules** in the left menu. Click the **New Rule** button. You can see a lot of pre-built templates for common rules. In this case select empty rule. Put the following into the rule body (make sure the clientID matches the clientID of your Auth0 application):
+Add a rule that will check if the role requested is allowed for this user depending on whether they have a social or an administrative login. Go to the Auth0 console, and click **Rules** in the left menu. Click the **New Rule** button. You can see a lot of pre-built templates for common rules. In this case select an empty rule. Put the following code into the rule body (make sure the *clientID* matches the *clientID* of your Auth0 application):
 
 ```js
 function (user, context, callback) {
-  if(context.clientID === '${account.clientId}') {    
+  if(context.clientID === '${@@account.clientId@@}') {    
     var socialRoleInfo = {
       role:"arn:aws:iam::<your account>:role/auth0-api-social-role",
       principal: "arn:aws:iam::your account>:saml-provider/auth0-api"
@@ -710,7 +710,7 @@ A few characteristics to point out:
 - A lot of information is passed into the rule with *context* and *user*.
 - You can extend the objects passed in. In the code above, the rule checks the body of the request for the role information passed and, if present, allows the requested role by matching it to the allowed role. The role is then set into the context *addonConfiguration* (which always overrides settings in the request body) of the allowed role. 
 
-Adjust the role and principal values above for the ones in your account and save. You can read more on rules at [Rules](https://auth0.com/docs/rules). 
+Adjust the role and principal values above for the ones in your account and save. You can read more on rules at: [Rules](https://auth0.com/docs/rules). 
 
 Now you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
 
@@ -723,14 +723,14 @@ There are several ways of causing the email to be added into the JWT.  One way i
 
 ```js
    function (user, context, callback) {
-     if(context.clientID === '${account.clientId}') {   
+     if(context.clientID === '${@@account.clientId@@}') {   
   	context.jwtConfiguration.scopes = { 'openid': ['email'] };
 	callback(null, user, context);
      }
    }
 ```
 
-Another way is to request the information like the user's email as part of the scope when you login in the browser client. We'll use this approach. Open `login.js` and update the login method as follows to instruct Auth0 to include the email:
+Another way is to request the information like the user's email as part of the scope when you login in the browser client. We will use this approach. Open `login.js` and update the login method as follows to instruct Auth0 to include the email:
 
 ```js
  $scope.login = function() {
@@ -748,7 +748,7 @@ You can request up to the full profile of the user to be contained within the JW
 
 The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
 
-You'll need to create two files, then run **npm install**, and zip up the result. Create a directory for your definition, and add the following package.json definition:
+You'll need to create two files, and then run **npm install**, and zip up the result. Create a directory for your definition, and add the following `package.json` definition:
 
 ```js
 {
@@ -765,7 +765,7 @@ You'll need to create two files, then run **npm install**, and zip up the result
 }
 ```
 
-Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key (although there is an option to use asymmetric keys, where you'd only need to put your public key into the function). We are using a symmetric key (client secret) for validating the token:
+Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key (although there is an option to use asymmetric keys, where you'd only need to put your public key into the function). You will be using a symmetric key (client secret) for validating the token:
 
 ```js
 var AWS = require('aws-sdk');
@@ -845,9 +845,9 @@ exports.handler = function(event, context) {
 };
 ```
 
-Now run **npm install** from the directory, zip up the contents, and upload it for the PurchasePet lambda function.
+Now run **npm install** from the directory, zip up the contents, and upload it for the `PurchasePet` lambda function.
 
-The final step is to pass the JWT to the method from the browser client. The standard method is with an **Authorization** header as a **bearer** token. If you are using IAM, then the AWS API Gateway uses the **Authorization** header to contain the signature of the message, and you will break the authentication by inserting the JWT in that header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use custom header, you'll need to also do some mapping for the **Integration Request** of the *POST* method for *pets/purchase*. To keep it simpler, we'll simply pass it in the body of the post and it will pass through to the AWS Lambda function. To do this update the *buyPet* method in `home.js` by removing the *userName* from the body, and adding authToken as follows:
+The final step is to pass the JWT to the method from the browser client. The standard method is with an **Authorization** header as a **bearer** token. If you are using IAM, then the AWS API Gateway uses the **Authorization** header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the **Integration Request** of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
 
 ```js
 
@@ -871,4 +871,4 @@ The final step is to pass the JWT to the method from the browser client. The sta
 ```
 
 ## Summary
-In this tutorial you have created AWS API Gateway methods using AWS Lamda functions, and have secured access to the APIs using IAM. You integrated a SAML identity provider with IAM to tie access to the API to your user base. You then provided different levels of access based on whether a user authenticated from the built in database, or with a social identity, and used an Auth0 rule to enforce the role assignment. Finally, you used a JWT to provide a further authorization context, and pass identity information into the Lambda function.
+In this tutorial, you have created AWS API Gateway methods using AWS Lamda functions, and have secured access to the APIs using IAM. You integrated a SAML identity provider with IAM to tie access to the API to your user base. You then provided different levels of access based on whether a user authenticated from the built in database, or with a social identity, and used an Auth0 rule to enforce the role assignment. Finally, you used a JWT to provide further authorization context, and to pass identity information into the lambda function.
