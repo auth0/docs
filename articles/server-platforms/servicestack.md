@@ -91,11 +91,11 @@ Open your `web.config` file and change the three Auth0's parameters under `<appS
 ```
 
 
-###6. Add backend code to test the app
+### 6. Add backend code to test the app
 
 Open the the `WebServiceExamples.cs` file.
 
-####6.1. Add the `Authenticate` attribute to the `Hello` DTO:
+#### 6.1. Add the `Authenticate` attribute to the `Hello` DTO:
 
 ```c#
 [Authenticate]
@@ -105,7 +105,7 @@ public class Hello
 }
 ```
 
-####6.2. Add an `IAuthSession` property to the `HelloResponse` DTO:
+#### 6.2. Add an `IAuthSession` property to the `HelloResponse` DTO:
 
 ```c#
 public class HelloResponse
@@ -116,7 +116,7 @@ public class HelloResponse
 }
 ```
 
-####6.3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
+#### 6.3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
 
 ```c#
 public class HelloService : ServiceBase<Hello>
@@ -160,7 +160,7 @@ Add a section to display the `UserInfo`:
 </div>
 ```
 
-###9. Run the app
+### 9. Run the app
 
 After successful authentication, the `UserProfile` will be displayed on the page.
 
