@@ -48,7 +48,7 @@ __Note:__ If you are not already using ember-cli, see [ember-cli migration](http
 ```js
 // config/environment.js
 ENV['simple-auth'] = {
-  authorizer: 'simple-auth-authenticator:lock',
+  authorizer: 'simple-auth-authorizer:jwt',
   authenticationRoute: 'sign_in',
   routeAfterAuthentication: 'home',
   routeIfAlreadyAuthenticated: 'home'
