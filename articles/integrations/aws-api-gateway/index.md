@@ -206,7 +206,7 @@ At this point you have authenticated with Auth0, and you have an OpenId token. H
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the previous section [Configure IAM and Auth0 for SAML integration and the API Gateway](#Configure-IAM-and-Auth0-for-SAML-integration-and-the-API-Gateway). You need to make a simple extension to `login.js` to obtain a delegation token from the identity token:
+You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway). You need to make a simple extension to `login.js` to obtain a delegation token from the identity token:
 
 ```js
 angular.module( 'sample.login', ['auth0'])
@@ -460,11 +460,11 @@ The update should now succeed.
 
 ## Discriminate between types of users
 
-For many applications, you’ll want different users to have different levels of access, and often you’ll want more information about an identity to use in your service logic. For cases where it’s sufficient to lock down access at the API level, you can use different IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated later in the [Use An Identity Token](#Use-An-Identity-Token) section.
+For many applications, you’ll want different users to have different levels of access, and often you’ll want more information about an identity to use in your service logic. For cases where it’s sufficient to lock down access at the API level, you can use different IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Use An Identity Token](#use-an-identity-token) section.
 
 ### Create the PetPurchase API resource
 
-From the API Gateway console, repeat the process [outlined above](#Setup-the-AWS-API-Gateway) to create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource “purchase”. Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets`. Create a new AWS Lamda function for purchasing a pet called “PetPurchase”, which adds a `isSold` and `soldTo` attribute to a pet as follows:
+From the API Gateway console, repeat the process [outlined above](#setup-the-aws-api-gateway) to create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource “purchase”. Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets`. Create a new AWS Lamda function for purchasing a pet called “PetPurchase”, which adds a `isSold` and `soldTo` attribute to a pet as follows:
 
 ```js
 var AWS = require('aws-sdk');
@@ -535,7 +535,7 @@ Once the lambda function is defined, add another method, *POST*, to the `purchas
 
 #### Update IAM
 
-To secure your new API, follow the same process for adding a new role that you performed above ([Configure IAM and Auth0 for SAML integration and the API Gateway](#Configure-IAM-and-Auth0-for-SAML-integration-and-the-API-Gateway)). Call the new role “auth0-api-social-role”. The arn for the method being secured should look something like:
+To secure your new API, follow the same process for adding a new role that you [performed above](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway). Call the new role “auth0-api-social-role”. The arn for the method being secured should look something like:
 
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets/purchase
