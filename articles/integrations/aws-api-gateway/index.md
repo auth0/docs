@@ -663,7 +663,7 @@ Add a rule that will check if the role requested is allowed for this user depend
 
 ```js
 function (user, context, callback) {
-  if(context.clientID === '${@@account.clientId@@}') {    
+  if(context.clientID === '${account.clientId}') {    
     var socialRoleInfo = {
       role:"arn:aws:iam::<your account>:role/auth0-api-social-role",
       principal: "arn:aws:iam::your account>:saml-provider/auth0-api"
@@ -723,7 +723,7 @@ There are several ways of causing the email to be added into the JWT.  One way i
 
 ```js
    function (user, context, callback) {
-     if(context.clientID === '${@@account.clientId@@}') {   
+     if(context.clientID === '${account.clientId}') {   
   	context.jwtConfiguration.scopes = { 'openid': ['email'] };
 	callback(null, user, context);
      }
