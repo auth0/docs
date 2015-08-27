@@ -36,7 +36,7 @@ ${snippet(meta.snippets.dependencies)}
 
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
-${snippet(meta.snippets.dependencies)}
+${snippet(meta.snippets.setup)}
 
 ### 3. Add the Auth0 callback handler
 
