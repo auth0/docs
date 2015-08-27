@@ -53,12 +53,13 @@ The next time that user attempts to log in, their credentials and information wo
 
 ## Get User script
 
-The Get User script will be executed whenever a user performs any of the following actions:
+The Get User script will be executed whenever any of the following actions are performed:
 
-* Attempts to sign up
-* Clicks on a valid [password change confirmation](https://auth0.com/docs/email#11) link
+* A user attempts to sign up
+* A user clicks on a valid [password change confirmation](https://auth0.com/docs/email#11) link
+* An [API call is made](/api/v2#!/Users/patch_users_by_id) to update a user's email
 
-This script is needed because none of these actions require authentication; the Get User provides a way of verifying whether a user exists in a legacy database without needing their password.
+This script is needed because none of these actions require authentication on the user's behalf; the Get User must provide a way of verifying whether a user exists in a legacy database without needing their password.
 
 If an unmigrated user confirms a password change, their user profile will be created in Auth0 with the new password they have just confirmed.
 This user profile will contain all the information returned in the Get User script, and any following logins will be performed in Auth0 directly.
