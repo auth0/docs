@@ -9,21 +9,22 @@ This tutorial demonstrates how to use API gateway with IAM and the Auth0 AWS del
 You will need to have node.js already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
 
 1. In the DynamoDB console, create a table `Pets` with a string hash key, `username`.
-2. Create the APIGatewayLamdaExecRole as outlined in [Walkthrough: Lambda Functions, step 4](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-models.html#getting-started-models-lambda), and expand the additional policy for dynamodb access as shown below:
-```js
-{
+2. Create the *APIGatewayLamdaExecRole* as outlined in [Walkthrough: Lambda Functions, step 4](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-models.html#getting-started-models-lambda), and expand the additional policy for dynamodb access as shown below:
+    ```js
+
+    {
     "Version": "2012-10-17",
     "Statement": [
-{
-"Sid": "AccessCloudwatchLogs",
+    {
+    "Sid": "AccessCloudwatchLogs",
 		      	"Action": ["logs:*"],
 		      	"Effect": "Allow", 
 		      	"Resource": "arn:aws:logs:*:*:*"
 		},
        {
-"Sid": "PetsDynamoDBReadWrite",
+    "Sid": "PetsDynamoDBReadWrite",
             	"Effect": "Allow",
-"Action": [
+    "Action": [
                 "dynamodb:DeleteItem",
                 "dynamodb:GetItem",
                 "dynamodb:PutItem",
@@ -31,14 +32,16 @@ You will need to have node.js already installed. Perform the following steps to 
             	],
             	"Resource": ["<your dynamodb pets table arn>"]
      }]}
-```
+    ```
 3. In the AWS API Gateway console, create a new API named “Secured Pets”. Select **Resources > Models**.
 4. In the AWS Lamda console, select **Create a Lamda function**. Click **Skip** for the blueprint, and enter “GetPetInfo” for the *Name*. Select *Node.js* for the runtime, and paste the following code to read pets from the dynamodb table:
-```js
-var AWS = require('aws-sdk');
-var DOC = require('dynamodb-doc');
-var dynamo = new DOC.DynamoDB();
-exports.handler = function(event, context) {
+    ```js
+
+    var AWS = require('aws-sdk');
+    var DOC = require('dynamodb-doc');
+    var dynamo = new DOC.DynamoDB();
+
+    exports.handler = function(event, context) {
     var cb = function(err, data) {
         if(err) {
             console.log('error on GetPetsInfo: ',err);
@@ -53,15 +56,16 @@ exports.handler = function(event, context) {
     };
 
     dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, cb);
-};
-```
+    };
+    ```
 For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leave the default for all other settings. Click **Next**, and then select **Create function**. Select **Test**, and then **Submit**. You should see an empty output (`{}`) since the table is empty.
 5. Repeat the previous step, naming the new function “UpdatePetInfo” and paste this code:
-```js
-var AWS = require('aws-sdk');
-var DOC = require('dynamodb-doc');
-var dynamo = new DOC.DynamoDB();
-exports.handler = function(event, context) {
+    ```js
+
+    var AWS = require('aws-sdk');
+    var DOC = require('dynamodb-doc');
+    var dynamo = new DOC.DynamoDB();
+    exports.handler = function(event, context) {
     var item = { username:"default",
                  pets: event.pets || {}
             };
@@ -76,21 +80,23 @@ exports.handler = function(event, context) {
         }
     };
     dynamo.putItem({TableName:"Pets", Item:item}, cb);
-};
-```
+    };
+    ```
 6. Test the function by supplying the following as the input and clicking **Submit**:
-```js
-{"pets": [ {"id": 1, "type": "dog", "price": 249.99}]}
-```
+    ```js
+
+    {"pets": [ {"id": 1, "type": "dog", "price": 249.99}]}
+    ```
 You should see an empty return result (`{}`). Go to your GetPetInfo lambda, and click **Test** again. You should now see a single pet.
 7. One more AWS Lambda function is required that does nothing. This is needed by the OPTIONS method for CORS as described in the following section. Repeat the steps for creating a Lambda function and name it “NoOp”. For the code simply call `context.succeed('');`.
 8. Back in the AWS API Gateway console, select **Models > Resources**. Click **Create Resource**. Name the resource “Pets”, and click **Create Resource** again.
 9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *GetPetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
 10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
-```js
-{"pets": [ {"id": 1, "type": "dog", "price": 249.99},
-{"id": 2, "type": "cat", "price": 124.99}]}
-```
+    ```js
+
+    {"pets": [ {"id": 1, "type": "dog", "price": 249.99},
+    {"id": 2, "type": "cat", "price": 124.99}]}
+    ```
 You should see an empty return result (`{}`). Go back to the *GET* API, and click **Test** again to see 2 pets. At this point both API methods are defined with no security.
 
 ## Secure your AWS API Gateway APIs
@@ -171,18 +177,18 @@ You’ll need to make one additional change. Since the API gateway will assume t
 ```
 At this point you are finished with IAM. Go back to the API gateway. In the **Resources** view, select the *POST* method under `/pets`. Click the **Method Request** link. Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now click the **Check Button** beside the field to save the setting.
 
-##Set up CORS and Deploy the API
+## Set up CORS and Deploy the API
 
 Our single page app will access web API methods from a different domain than the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to permit access to the AWS API Gateway site. Typically, a browser will first issue an OPTIONS request to see what the site will permit. See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details. Here is a summary of the steps:
 
 1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
 2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda and then select *NoOp* for the method.
 3. Click on **Method Response**, expand **200**, and then add these three headers:
-```
-'Access-Control-Allow-Headers', 'Access-Control-Allow-Methods',  'Access-Control-Allow-Origin'
-```
+    ```
+    'Access-Control-Allow-Headers', 'Access-Control-Allow-Methods',  'Access-Control-Allow-Origin'
+    ```
 4. Now you need to map values. Click the **Method Execution** link and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `POST, GET, OPTIONS`.
-5. For the POST and GET methods, follow the same process as above to add a single header, *Access-Control-Allow-Origin*, with the value `'*'`.
+5. For the *POST* and *GET* methods, follow the same process as above to add a single header, *Access-Control-Allow-Origin*, with the value `'*'`.
 
 ### Deploy the API
 
