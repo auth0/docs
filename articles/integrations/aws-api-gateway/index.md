@@ -3,7 +3,7 @@
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, AWS API Gateway, and a Javascript client. 
 
-This tutorial demonstrates how to use API gateway with IAM and the Auth0 AWS delegation and OpenId capabilties to tie permissions of your AWS API Gateway methods to your existing user base.
+This tutorial demonstrates how to use API gateway with IAM and the Auth0 AWS delegation and OpenId capabilities to tie permissions of your AWS API Gateway methods to your existing user base.
 
 ### Setup the AWS API Gateway
 You will need to have node.js already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
@@ -856,7 +856,7 @@ exports.handler = function(event, context) {
 
 Now run **npm install** from the directory, zip up the contents, and upload it for the `PurchasePet` lambda function.
 
-The final step is to pass the JWT to the method from the browser client. The standard method is with an Authorization header as a *bearer* token. If you are using IAM, then the AWS API Gateway uses the Authorization header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the *Integration Request* of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
+The final step is to pass the JWT to the method from the browser client. The standard method is with an `Authorization` header as a *bearer* token. If you are using IAM, then the AWS API Gateway uses the `Authorization` header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the *Integration Request* of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
 
 ```js
 
