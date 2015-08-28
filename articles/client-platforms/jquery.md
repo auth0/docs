@@ -48,7 +48,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](https://auth0.com/docs/libraries/lock#6).
+To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/lock#6).
 
 ${browser}
 
@@ -132,7 +132,7 @@ $('.nick').text(userProfile.nickname);
 <p>His name is <span class="nick"></span></p>
 ```
 
-To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](https://auth0.com/docs/user-profile). Note that the properties available depend on the social provider used.
+To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Log out
 
