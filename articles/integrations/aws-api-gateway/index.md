@@ -7,6 +7,7 @@ This tutorial demonstrates how to use API gateway with IAM and the Auth0 AWS del
 
 ### Setup the AWS API Gateway
 You will need to have node.js already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
+
 1. In the DynamoDB console, create a table `Pets` with a string hash key, `username`.
 2. Create the APIGatewayLamdaExecRole as outlined in [Walkthrough: Lambda Functions, step 4](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-models.html#getting-started-models-lambda), and expand the additional policy for dynamodb access as shown below:
 ```js
@@ -173,6 +174,7 @@ At this point you are finished with IAM. Go back to the API gateway. In the **Re
 ##Set up CORS and Deploy the API
 
 Our single page app will access web API methods from a different domain than the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to permit access to the AWS API Gateway site. Typically, a browser will first issue an OPTIONS request to see what the site will permit. See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details. Here is a summary of the steps:
+
 1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
 2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda and then select *NoOp* for the method.
 3. Click on **Method Response**, expand **200**, and then add these three headers:
