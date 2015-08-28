@@ -723,7 +723,7 @@ Adjust the role and principal values above for the ones in your account and save
 Now you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
 
 ### Use An Identity Token
-Often, you will want to do the processing of a user's role based on the users identity in the logic of your lambda. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a java web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on having it passed in as a parameter.
+Often, you will want to do the processing of a user's role based on the users identity in the logic of your lambda. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on having it passed in as a parameter.
 
 ![](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
