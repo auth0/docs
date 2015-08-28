@@ -1,4 +1,4 @@
-# Auth0 API Reference
+## Auth0 API Reference
 
 ### API endpoint
 
@@ -38,7 +38,7 @@ The `Authorization` header is the only accepted header and is used in place of t
 
 ## Connections
 
-### Connection Methods
+### Connection methods
 | Verb | URL |
 |:-----|:----|
 |`GET` | https://${account.namespace}/api/connections |
