@@ -110,7 +110,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Keep the user logged in after a page refresh
 
