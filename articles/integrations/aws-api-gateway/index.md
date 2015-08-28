@@ -90,8 +90,8 @@ For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leav
 You should see an empty return result (`{}`). Go to your GetPetInfo lambda, and click **Test** again. You should now see a single pet.
 7. One more AWS Lambda function is required that does nothing. This is needed by the OPTIONS method for CORS as described in the following section. Repeat the steps for creating a Lambda function and name it “NoOp”. For the code simply call `context.succeed('');`.
 8. Back in the AWS API Gateway console, select **Models > Resources**. Click **Create Resource**. Name the resource “Pets”, and click **Create Resource** again.
-9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *GetPetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
-10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
+9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *GetPetInfo* for the lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
+10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *UpdatePetInfo* for the lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
     ```js
 
     {"pets": [ {"id": 1, "type": "dog", "price": 249.99},
@@ -115,6 +115,7 @@ You’ll implement this in two ways, using Auth0 delegation with AWS IAM and aft
 The IAM integration with SAML lets the identity provider specify the IAM role for a user. This model is powerful since the identity provider can provide different levels of access based on a user's authentication and profile information, for example based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. granting users authenticated from a database connection higher privileges than users authenticated by a social provider like Facebook).
 
 To configure Auth0 with SAML, do the following:
+
 1. Sign up for a free Auth0 developer account, and sign in.
 2. In the left menu, select **Apps and APIs**, then click **New App and API**. Call the new app “AWS Api Gateway”.
 3. Click on the **Settings** tab. 
@@ -202,9 +203,9 @@ For a simple starter app, download a seed project from [Auth0 for AngularJS](htt
 ```
 aws s3 cp --recursive --acl "public-read" ./ s3://your-bucket/
 ```
-Although the sample project is functional, you need to make a few configuration changes for it to work with your AWS API Gateway APIs. First, get an *OpenId* identity token based on your credentials. With Auth0, you can use many different sources of users to authenticate called connections and grant access to applications like AWS. Begin with using the users of the built-in Auth0 database “Username-Password-Authentication” that was created when you opened your account. From the Auth0 console, click on the **Connections** tab of your application and you should see that this connection is enabled. Click on **Users** in the left column, and click **New User**. Fill in the information for the user, and click **Save**. You now have one user available to authenticate.
+Although the sample project is functional, you need to make a few configuration changes for it to work with your AWS API Gateway APIs. First, get an *OpenId* identity token based on your credentials. With Auth0, you can use many different sources of users to authenticate called connections and grant access to applications like AWS. Begin with using the users of the built-in Auth0 database *Username-Password-Authentication* that was created when you opened your account. From the Auth0 console, click on the **Connections** tab of your application and you should see that this connection is enabled. Click on **Users** in the left column, and click **New User**. Fill in the information for the user, and click **Save**. You now have one user available to authenticate.
 
-There is one last step to get authentication to work. The website runs at a url like `http://your-bucket-domain/index.html`, which is shown under the properties of your S3 bucket. To tell Auth0 that it is OK to permit authentication from your website, add `http://your-bucket-domain` to the **Allowed Origins** in the Auth0 application settings.
+There is one last step to get authentication to work. The website runs at a url like `http://your-bucket-domain/index.html`, which is shown under the properties of your S3 bucket. To tell Auth0 that it is OK to permit authentication from your website, add `http://your-bucket-domain` to the *Allowed Origins* in the Auth0 application settings.
 
 Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in with the user you just created you should see a welcome screen with a big blue button, **CALL API**.
 
@@ -738,7 +739,7 @@ There are several ways of causing the email to be added into the JWT.  One way i
    }
 ```
 
-Another way is to request the information like the user's email as part of the scope when you login in the browser client. We will use this approach. Open `login.js` and update the login method as follows to instruct Auth0 to include the email:
+Another way is to request the information like the user's email as part of the scope when you login in the browser client. You will be using this approach. Open `login.js` and update the login method as follows to instruct Auth0 to include the email:
 
 ```js
  $scope.login = function() {
@@ -855,7 +856,7 @@ exports.handler = function(event, context) {
 
 Now run **npm install** from the directory, zip up the contents, and upload it for the `PurchasePet` lambda function.
 
-The final step is to pass the JWT to the method from the browser client. The standard method is with an **Authorization** header as a **bearer** token. If you are using IAM, then the AWS API Gateway uses the **Authorization** header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the **Integration Request** of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
+The final step is to pass the JWT to the method from the browser client. The standard method is with an Authorization header as a *bearer* token. If you are using IAM, then the AWS API Gateway uses the Authorization header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the *Integration Request* of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
 
 ```js
 
