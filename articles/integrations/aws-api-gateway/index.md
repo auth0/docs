@@ -3,7 +3,7 @@
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a Javascript client. A serverless application runs custom code as a service without the need to maintain an operating the environment to host your service. Instead, a compute service like [AWS Lambda](https://aws.amazon.com/lambda/) or [webtask.io](https://webtask.io) executes your code on your behalf. Amazon API Gateway extends the capabilities of AWS Lambda by adding a service layer in front of your Lambda functions to extend security, manage input and output message transformations, and provide capabilities like throttling and auditing. A serverless approach simplifies your operational demands since concerns like scaling out and fault tolerance are now the responsibility of the compute service that is executing your code.
 
-However, you may still want to tie your APIs to existing users, either from social providers like Twitter and Facebook, or within your own organization from Active Directory or a customer database. This tutorial demonstrates how to authorize access of your Amazon API Gateway methods for your existing users using Auth0 delegation for AWS and integration with AWS Identity and Access Management (IAM), and assign different permissions to several classes of users, like internal versus social users.
+However, you may still want to tie your APIs to existing users, either from social providers like Twitter and Facebook, or within your own organization from Active Directory or a customer database. This tutorial demonstrates how to authorize access of your Amazon API Gateway methods for your existing users using Auth0 delegation for AWS and integration with AWS Identity and Access Management (IAM), and assign different permissions to various classes of users, like internal versus social users.
 
 ## Setup the AWS API Gateway
 You will need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
@@ -556,7 +556,7 @@ Go to the API Gateway console, and select the *POST* method for the `/pets/purch
 
 At this point, you have defined two roles that you can use with the API gateway. The first, `auth0-api-role`, permits updating the pets (`/pets`, *POST* method) and the second, `auth0-api-social-role`, permits purchasing a pet.
 
-#### Configure Login with Amazon and u****pdate Auth0
+#### Configure Login with Amazon and update Auth0
 
 To create a social role, use Login with Amazon(LWA). Go back to the Auth0 console, and select **Connections** then **Social** in the right menu. Turn on the connection for Amazon. A wizard pops up to lead you through the process. Click **Continue**, and you’ll see a configuration page for entering the *client id* and *client secret*. If you haven’t used Login with Amazon before, there is also a link for “how to obtain a client id”. Click on this link to obtain the *client id* and *client secret* and copy this information into the configuration page. Once you’ve entered your *client id* and *client secret*, you can test it from the Auth0 console. When you configure LWA make sure to enter into **Allowed Return URLs** the callback to your Auth0, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page shows you specifically what to enter.
 
