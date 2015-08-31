@@ -28,7 +28,6 @@ The user profile information is cached in Auth0 for several reasons, including t
 
 There are several components to the profile data in Auth0.
 
-(**TODO:** illustration)
 
 The structure of the user profile can be viewed by clicking on "Users" in the Auth0 dashboard and then on a particular user.  
 
@@ -60,11 +59,10 @@ Auth0 provides a REST API that allows applications and services to access and ma
 
 There is an [API Explorer](/api/v2) that allows users to interactively explore the API, view the API calls available, the information required for each call and the information returned by each call.  The explorer allows users to try out each call in the explorer UI or via a CuRL command on the command line.   To try out one of the API commands, simply select the access needed under **Scopes** under that command, such as `update:users`, and then click on "TRY".
 
-There is an [older version of the API](/api/v1) (v1) that is still being used by some customers today.  However, we recommend that everyone migrate to v2 (the current version) as soon as they can, since future support for v1 will be limited.  If you're using v1 and would like to see the differences between the two version, see the [API v1 vs v2](/api/v2/changes) article.
+There is an [older version of the API](/api/v1) (v1) that is still being used by some customers today.  However, it is recommended that customers migrate to v2 (the current version), since future support for v1 will be limited.  If you're using v1 and would like to see the differences between the two version, see the [API v1 vs v2](/api/v2/changes) article.
 
-Finally, there is an API specifically used for authentication flows, whose documentation can be found [here](/auth-api).  Most of these endpoints are used by the various Auth0 SDK's and typically not your own code.  However, one endpoint that is particularly important for user profile is [`/userinfo`](/auth-api#!#get--userinfo), which we will discuss later in this article.
+Finally, there is an API specifically used for authentication flows. The documentation for these authentication API calls can be found [here](/auth-api).  Most of these endpoints are used by the various Auth0 SDK's and typically not your own code.  However, one endpoint that is particularly important for user profile is [`/userinfo`](/auth-api#!#get--userinfo), which  will be discussed later in this article.
 
-**TODO:** Hints on how to use the explorer are at: To be written
 
 ## User Profile vs Tokens
 
@@ -72,15 +70,13 @@ In addition to the user profile object which is usually returned to a variable c
 
 One of the tokens that can be returned to an application is the Auth0 `id_token`.  This is a [JSON Web Token](http://jwt.io), often abbreviated "JWT" and sometimes pronounced as “jot”. A JWT is an industry standard, URL-friendly, signed token useful for conveying information about users between web properties.  The information in the JWT is in the form of "claims" and the specific claims included in the Auth0 `id_token` are governed by a parameter to the Auth0 endpoints which return the `id_token`. For further information on controlling the claims returned in a JWT see the [Scopes](#scopes) section below.
 
-There are three other types of tokens, namely an Auth0 access token, a 3rd party provider access token, and a refresh token.  For more information on tokens and claims see: (**TODO**: Token ABCs doc - to be written)
+There are three other types of tokens, namely an Auth0 access token, a 3rd party provider access token, and a refresh token. For more information on tokens and claims see: [Token Overview](tokens).
 
 ## Modification of User Profiles
 
 The information contained in a user profile and in an `id_token` can be modified in a number of ways, as described below.
 
 ### Scopes
-
-(**TODO:** Is this better on token writeup?)
 
 In the authentication calls for the Auth0 Lock or UI-less auth0.js library, there is an optional parameter that allows you to specify a scope which controls the user profile information (claims) included in the `id_token` (JWT). Examples of different scopes are discussed [here](/protocols).
 
@@ -104,10 +100,7 @@ The [`/userinfo`](/auth-api#!#get--userinfo) endpoint takes as input the Auth0 `
 
 The [`/tokeninfo`](/auth-api#!#post--tokeninfo) endpoint takes as input the Auth0 `id_token` and returns user profile information. This endpoint will return a result that does not include the results of any rules that alter the user profile. This endpoint also requires an `id_token` that is not expired.
 
-(**TODO:** Sounds like there is disagreement on whether this is a bug.
-Maybe this should just be for validation of token and make /userinfo also accept a JWT instead of just access_token)
 
-(**TODO:** Explain the difference - Mention that the id_token JWT would allow a user to alter user_metadata but not app_metadata?  Verify this is true)
 
 ### Creating users in custom DB
 
@@ -120,9 +113,6 @@ The custom DB templates are accessed via
 
 If additional attributes need to be added to the profile, this can be done with Rules, as explained below.
 
-(**TODO**: Right now, it is not possible to set app_metadata or user_metadata from the custom DB Login script.  If this is fixed, add a note here that this could be done.
-
-@twistedstream: correction, it actually is possible to at least set `app_metadata`.  Need to test `user_metadata`.)
 
 ### Rules
 
@@ -153,14 +143,11 @@ The impact of rules which alter user profile information will be visible in some
 
 When the profile is viewed outside the context of the user login transaction, the results of rules will not be included.  This is the case when using APIv2, the /tokeninfo endpoint or the Auth) Dashboard.
 
- (check this)
-
 ## Mapping user profile attributes in AD/LDAP connector
 
 For Active Directory or any other LDAP connections that use the Auth0 AD/LDAP connector, there is a mechanism for mapping user profile attributes in the directory service to the Auth0 user profile.  This mapping takes place when a user authenticates via such a connection and attributes specified in this mapping are reflected in the Auth0 user profile.
 
 This mapping is implemented in a file called profileMapper.js located in the installation directory of the AD/LDAP connector.
-(Add a link for info on this)
 
 ## Mapping user profile attributes in SAML assertions
 
@@ -169,13 +156,8 @@ If the SAML protocol is used, there are two places where user attribute mapping 
 When Auth0 is serving as a SAML Service Provider, the "Mappings" tab for a SAML connection is used to map attributes coming from an IDP to attributes in the Auth0 user profile.
 Connections -> Enterprise -> SAMLP -> {Name of Connection} -> Settings -> Mappings
 
-(give example - explain the left and right side of the mapping)
-
 When Auth0 is serving as a SAML Identity Provider, the Settings tab of Application AddOns is used to map attributes from the Auth0 user profile to attributes in the SAML Assertion sent back to the Service Provider.
 Apps/APIs -> {name of app} - Addons -> SAML2 Web App -> Settings
-
-(give example - explain the left and right side of the mapping)
-
 
 
 ## User profile with account linking:
@@ -184,25 +166,7 @@ Users may log into an application initially via one authentication provider, and
 
 Information on linking accounts and examples of profiles in this case is [here](/link-accounts).
 
-## Where to put this? Does it belong in this doc?
-
-Applications that integrate with Auth0 using the OAuth or OpenID Connect protocol can request and receive a token called the id_token that contains user profile attributes in JSON Web Token format. Applications that integrate with Auth0 using the SAML protocol will receive a SAML Authentication Response with user profile attributes in a SAML Assertion.
-
-(Someone said that auth0.js can be used with SAML also, not just OIDC.  I don't see any mention of this.  Confirm if Lock and auth0.js support SAML.)
 
 More information on the protocols is [here](/protocols).
 
-## Best Practices for Handling User Profiles
 
-### Client-specific attributes
-
-### Testing
-
-Auth0 stores a cache of user profile data and this cache may be used to return profile information in the event that a AD/LDAP, Database or web service IDP is temporarily unavailable.  This may mask an issue with a provider because a login will appear to succeed, implying that the provider is working when it isn't.  It is a best practice therefore, when testing, to manually remove a user profile in Auth0 before the account owning that profile is used for testing.  If you remove a profile, then any issues with the provider will be evident when attempting to log in using that profile, because there is no cache, so if the login does not succeed, an error will be returned.
-
-### Trust (is this useful or just pedantic blabbering)
-
-The information from social providers is typically set by the end user and the end user is considered to be the authoritative source for such data.
-The information from enterprise providers is often controlled by the enterprise rather than the user. Some attributes, such as firstname and lastname are basic information about a user.  Other attributes, such as the groups/roles to which a user belongs are typically controlled by the enterprise.  
-
-(explain relevance - this is relevant because it guides what can be edited in the profile).
