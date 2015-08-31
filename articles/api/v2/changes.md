@@ -1,8 +1,8 @@
-# API v1 vs v2
+## API v1 vs v2
 
 This document describes the major differences between Auth0's API v1 and the new API v2, and details the reasons for each change.
 
-## tl;dr
+### tl;dr
 * v2 uses JWTs instead of opaque tokens.
 * v2 allows you to send an `id_token` to perform operations on the user to which the `id_token` refers.
 * v2 includes `user_metadata` for trivial data about users and `app_metadata` for data that affects how your application functions. Unlike `metadata` in API v1, these fields are not merged into the root `user` object.
@@ -45,7 +45,7 @@ This document describes the major differences between Auth0's API v1 and the new
 | [POST /api/clients](/api/v1#!#post--api-clients) | None. | [POST /api/v2/clients](/api/v2#!/clients/post_clients) |
 | [PUT /api/clients/{client-id}](/api/v1#!#put--api-clients--client-id-) | Not available. | [PUT /api/v2/clients/{id}](/api/v2#!/clients/patch_clients_by_id) |
 | [PATCH /api/clients/{client-id}](/api/v1#!#patch--api-clients--client-id-) | None. | [PATCH /api/v2/clients/{id}](/api/v2#!/clients/patch_clients_by_id) |
-| [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-) | None. | [DELETE /api/v2/clients/{id}](/api/v2#!/clients/delete_clients_by_id) |
+| [DELETE /api/clients/{client-id}](/api/v1#!#delete--api-clients--client-id-)  | None. | [DELETE /api/v2/clients/{id}](/api/v2#!/clients/delete_clients_by_id) |
 
 ### Connection endpoints
 | v1 Endpoint | Change | v2 Endpoint |
@@ -62,12 +62,12 @@ This document describes the major differences between Auth0's API v1 and the new
 | [GET /api/rules](/api/v1#!#get--api-rules-) | None. | [GET /api/v2/rules](/api/v2#!/rules/get_rules) |
 | [POST /api/rules](/api/v1#!#post--api-rules) | None. | [POST /api/v2/rules](/api/v2#!/rules/post_rules-) |
 | [PUT /api/rules/{rule-name}](/api/v1#!#put--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [PATCH /api/v2/rules/{id}](/api/v2#!/Rules/patch_rules_by_id) |
-| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-) | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
+| [DELETE /api/rules/{rule-name}](/api/v1#!#delete--api-rules--rule-name-)  | Uses `{id}` instead of `rule-name`. | [DELETE /api/v2/rules/{id}](/api/v2#!/Rules/delete_rules_by_id) |
 
 ### Logs endpoints
 Logs endpoints have not been implemented in API v2. Logs must first be indexed in Elastic Search.
 
-## Authentication mechanism
+### Authentication mechanism
 Auth0's API v1 requires sending an `access_token` obtained by performing a [`POST /oauth/token`](/api/v1#!#post--oauth-token) request along with the `clientId` and `clientSecret`. All subsequent requests must include the `access_token` in the `Authorization` header:
 ```
 Authorization: Bearer {access_token}
@@ -81,7 +81,7 @@ Authorization: Bearer {api_jwt_token}
 ### Scopes
 To use an endpoint, at least one of its available scopes (as listed in [API v2 explorer](/api/v2)) must be specified for the JWT. The actions available on an endpoint depend on the JWT scope. For example, if a JWT has the `update:users_app_metadata` scope, the [PATCH users `app_metadata`](/api/v2#!/users/patch_users_by_id) action is available, but not other properties.
 
-### The `id_token` and special scopes
+#### The `id_token` and special scopes
 An `id_token` is a JWT containing information about a particular user. When a user logs into an application through Auth0, an `id_token` listing their claims is returned. Here is an example of an `id_token`, although more claims may be included:
 ```
 {
@@ -107,7 +107,7 @@ the following scopes will be granted automatically:
 
 Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
 
-## User metadata
+### User metadata
 In API v1, [`user.metadata`](/api/v1#!#patch--api-users--user_id--metadata) provides additional information about a user which is not part of the default user claims. When working with rules and other API endpoints, `metadata` is merged into the root user. For example, if the following data is stored for a user with `email` "jane.doe@gmail.com":
 ```javascript
 {
@@ -128,7 +128,7 @@ This automatic merging caused confusion for our customers. Also, having a single
 * You may want to store information in `metadata` that was core to your application's functionality.
 * You may want to allow your users to update their own metadata.
 
-### app\_metadata and user\_metadata
+#### app\_metadata and user\_metadata
 In API v2 the concept of `metadata` is divided into:
 
 * `app_metadata`: Data related to the user that affects the application's core functionality.
@@ -153,7 +153,7 @@ console.log(user.app_metadata.plan); // "full"
 ```
 **Note:** User data previously stored under `metadata` will be available under `app_metadata`.
 
-## Connections
+### Connections
 
 For every tenant-created, named connection, API v1 exposes an individual connection for each of the tenant's clients.
 
@@ -172,10 +172,10 @@ curl -H "Authorization: Bearer {API_TOKEN}"
 https://login.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
 ```
 
-## Endpoints
+### Endpoints
 Some of the changes to endpoints are detailed below.
 
-### Consolidation
+#### Consolidation
 In API v1, different endpoints are used to update the various user properties. For example, changing the following user properties requires using these separate endpoints:
 
 * [`PUT /api/users/{user_id}/email`](/api/v1#!#put--api-users--user_id--email)
@@ -184,13 +184,13 @@ In API v1, different endpoints are used to update the various user properties. F
 
 In API v2, these are simplified into the single endpoint [`PATCH /api/v2/users/{id}`](/api/v2#!/users/patch_users_by_id) which allows you to modify these (and other) user properties.
 
-### All endpoints require ids
+#### All endpoints require ids
 
 All endpoints receive an id. This change affects **Rules** and **Connections** particularly.
 
 Some endpoints, such as [`PUT /api/users/{email}/password`](/api/v1#!#put--api-users--email--password), are no longer available.
 
-### Improved input validation and error messages
+#### Improved input validation and error messages
 
 In API v2, all endpoints use [JSON schemas](http://json-schema.org) to validate input. Also, descriptive error messages are returned when a schema's constraints are not met.
 
