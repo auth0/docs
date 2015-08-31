@@ -1,12 +1,12 @@
 ## AWS API Gateway Tutorial
 ##### Building a Serverless Application using Token based Authentication with AWS API Gateway and Lambda
 
-With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, AWS API Gateway, and a Javascript client. 
+With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a Javascript client. A serverless application has custom code that runs as a service, however you don't need worry about operating the environment within which your service executes. Instead a compute service like [AWS Lambda](https://aws.amazon.com/lambda/) or [webtask.io](https://webtask.io) executes your code on your behalf. Amazon API Gateway extends the capabilities of AWS Lambda by adding a service layer in front of your Lambda functions to extend security, manage input and output message transformations, and provide capabilities like throttling and auditing. Using a serverless approach simplifies your operational demands since areas like like scaling out and fault tolerance are now the responsiblity of the compute service executing your code.
 
-This tutorial demonstrates how to use API gateway with IAM and the Auth0 AWS delegation and OpenId capabilities to tie permissions of your AWS API Gateway methods to your existing user base.
+Often you will still want to tie your APIs to existing users, either from social providers like Twitter and Facebook, or within your own organization from Active Directory or a customer database. This tutorial demonstrates how to authorize access of your Amazon API Gateway methods for your existing users using Auth0 delegation for AWS and integration with AWS Identity and Access Management (IAM), and provide differentiate permissions for classes of users, like internal versus social users.
 
 ### Setup the AWS API Gateway
-You will need to have node.js already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
+You will need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
 
 1. In the DynamoDB console, create a table `Pets` with a string hash key, `username`.
 2. Create the *APIGatewayLamdaExecRole* as outlined in [Walkthrough: Lambda Functions, step 4](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-models.html#getting-started-models-lambda), and expand the additional policy for dynamodb access as shown below:
@@ -105,14 +105,14 @@ Now that you have your API running, you need to add security. AWS API Gateway pr
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-key.png)
 
-For this tutorial, you’ll build a serverless, single page application, that will rely on federating identity with other identity sources to determine which users are allowed access. You can achieve this using a combination of the API gateway, IAM integration and IAM’s identity federation. The following diagram illustrates an example flow using a SAML based identity provider:
+For this tutorial, you’ll build a serverless, single page application, that will rely on federating identity with other identity sources to determine which users are allowed access. You can achieve this using a combination of the Amazon API Gateway IAM integration and AWS IAM’s identity federation with Auth0. The following diagram illustrates an example flow using a SAML based identity provider:
 
 ![](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
-You’ll implement this in two ways, using Auth0 delegation with AWS IAM and afterward layering on an identity token.
+You’ll implement this in two ways, first using Auth0 delegation with AWS IAM and then adding an identity token to flow identity to the Lambda function.
 
 ### Configure IAM and Auth0 for SAML integration and the API Gateway
-The IAM integration with SAML lets the identity provider specify the IAM role for a user. This model is powerful since the identity provider can provide different levels of access based on a user's authentication and profile information, for example based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. granting users authenticated from a database connection higher privileges than users authenticated by a social provider like Facebook).
+The IAM integration with SAML lets the SAML identity provider (IDP) specify the IAM role for a user within the issued SAML token exchanged for an AWS token. This model is powerful since it lets the IDP control the level of access for your users by issuing SAML tokens with different IAM roles. For example group the IDP could select the IAM role based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. a database connection or a social provider like Facebook). Using this approach you differentiate the access a user has to your Amazon API Gateway methods when secured using IAM.
 
 To configure Auth0 with SAML, do the following:
 
@@ -224,7 +224,9 @@ angular.module( 'sample.login', ['auth0'])
     auth.signin({}, function(profile, token) {
       store.set('profile', profile);
       store.set('token', token);
+      
       // obtain a delegation token here!!!
+      
       $location.path("/");
     }, function(error) {
       console.log("There was an error logging in", error);
@@ -234,7 +236,7 @@ angular.module( 'sample.login', ['auth0'])
 
 ```
 
-You need to make one more call by modifying the callback function for `auth.signin` to the following code:
+You need to make one more call by modifying the callback function for `auth.signin` to the following code, and make sure to update the role and principal to the values for your account:
 
 ```js
       store.set('profile', profile);
@@ -242,8 +244,8 @@ You need to make one more call by modifying the callback function for `auth.sign
 
       var options = {
         "id_token": token,        // the token you just obtained
-        "role":"<the arn for the  auth0-api-role role created to execute APIs>",
-        "principal": "<the arn of the auth0 STS>"
+        "role":"arn:aws:iam::<your account id>:role/auth0-api-role",
+        "principal": "arn:aws:iam::<your account id>:saml-provider/auth0-api"
       };
 
       auth.getToken(options)
@@ -609,7 +611,6 @@ Now update the home view to show a buy button if the user is not an administrato
 
   <div ng-repeat="pet in pets track by pet.id">
     <div class="row">
-	   <!--"id": 1, "type": "dog", "price": 249.99-->
         <div class="col-md-6 col-md-offset-3">We have a {{pet.type}} is for sale for {{pet.price}}</div>
         <div class="col-md-2" style='text-align:left;'>
             <button ng-show="isAdmin" class="btn delete-btn" ng-click="removePet(pet.id)">remove</button>
@@ -774,7 +775,7 @@ You'll need to create two files, and then run **npm install**, and zip up the re
 }
 ```
 
-Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key (although there is an option to use asymmetric keys, where you'd only need to put your public key into the function). You will be using a symmetric key (client secret) for validating the token:
+Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key (although there is an option to use asymmetric keys, where you'd only need to put your public key into the function). If you need let third parties validate your token, then you should use a asymmetric key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols), You will be using a symmetric key (client secret) for validating the token:
 
 ```js
 var AWS = require('aws-sdk');
