@@ -3,10 +3,10 @@
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a Javascript client. A serverless application runs custom code as a service without the need to maintain an operating the environment to host your service. Instead, a compute service like [AWS Lambda](https://aws.amazon.com/lambda/) or [webtask.io](https://webtask.io) executes your code on your behalf. Amazon API Gateway extends the capabilities of AWS Lambda by adding a service layer in front of your Lambda functions to extend security, manage input and output message transformations, and provide capabilities like throttling and auditing. A serverless approach simplifies your operational demands since concerns like scaling out and fault tolerance are now the responsibility of the compute service that is executing your code.
 
-However, you may still want to tie your APIs to existing users, either from social providers like Twitter and Facebook, or within your own organization from Active Directory or a customer database. This tutorial demonstrates how to authorize access of your Amazon API Gateway methods for your existing users using Auth0 delegation for AWS and integration with AWS Identity and Access Management (IAM), and assign different permissions to various classes of users, like internal versus social users.
+However, you may still want to tie your APIs to existing users, either from social providers like Twitter and Facebook, or within your own organization from Active Directory or a customer database. This tutorial demonstrates how to authorize access of your Amazon API Gateway methods for your existing users using Auth0 delegation for AWS and integration with AWS Identity and Access Management (IAM), and assign different permissions to various classes of users, like internal database or social users.
 
 ## Setup the AWS API Gateway
-You will need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the lambda functions and APIs for getting and putting pets.
+You will need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create a [DynamoDB](https://aws.amazon.com/dynamodb) table and the Lambda functions and APIs for getting and putting pets.
 
 1. In the DynamoDB console, create a table `Pets` with a string hash key, `username`.
 2. Create the *APIGatewayLamdaExecRole* as outlined in [Walkthrough: Lambda Functions, step 4](http://docs.aws.amazon.com/apigateway/latest/developerguide/getting-started-models.html#getting-started-models-lambda), and expand the additional policy for dynamodb access as shown below:
@@ -87,11 +87,11 @@ For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leav
 
     {"pets": [ {"id": 1, "type": "dog", "price": 249.99}]}
     ```
-You should see an empty return result (`{}`). Go to your GetPetInfo lambda, and click **Test** again. You should now see a single pet.
+You should see an empty return result (`{}`). Go to your GetPetInfo Lambda, and click **Test** again. You should now see a single pet.
 7. One more AWS Lambda function is required that does nothing. This is needed by the OPTIONS method for CORS as described in the following section. Repeat the steps for creating a Lambda function and name it “NoOp”. For the code simply call `context.succeed('');`.
 8. Back in the AWS API Gateway console, select **Models > Resources**. Click **Create Resource**. Name the resource “Pets”, and click **Create Resource** again.
-9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *GetPetInfo* for the lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
-10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *UpdatePetInfo* for the lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
+9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *GetPetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
+10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select **Lambda Function** for integration type, select the region you are in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
     ```js
 
     {"pets": [ {"id": 1, "type": "dog", "price": 249.99},
@@ -533,7 +533,7 @@ exports.handler = function(event, context) {
 };
 ```
 
-Once the lambda function is defined, add another method, *POST*, to the `purchase` resource which calls the `PetPurchase` lambda. Be sure to also add the `Access-Control-Allow-Origin` header with a value of `*` to the *POST* method using the method response/integration response configuration. Test the API gateway method, providing as input a message similar to this: 
+Once the Lambda function is defined, add another method, *POST*, to the `purchase` resource which calls the `PetPurchase` Lambda. Be sure to also add the `Access-Control-Allow-Origin` header with a value of `*` to the *POST* method using the method response/integration response configuration. Test the API gateway method, providing as input a message similar to this: 
 
 ```js
  {
@@ -669,6 +669,8 @@ Now you can log in as a social user. When you log in as an Amazon user, you’ll
 
 In some cases, determining the role in the browser application is appropriate as shown here, but often you will want to determine user privileges on the server-side to prevent a user from assuming a more privileged role then they are permitted by hacking the client code. With Auth0, you can do this with a rule. Rules are service logic defined by developers/administrators that run during the authentication process within Auth0. You could eliminate passing role information from the client and only implement it in a rule. Rules can override and add settings. For example, you can create a rule to insert role information into the delegation request based on the authentication source. For more on rules see: [Rules](https://auth0.com/docs/rules).
 
+![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
+
 Add a rule that will check if the role requested is allowed for this user depending on whether they have a social or an administrative login. Go to the Auth0 console, and click **Rules** in the left menu. Click the **New Rule** button. You can see a lot of pre-built templates for common rules. In this case select an empty rule. Put the following code into the rule body (make sure the *clientID* matches the *clientID* of your Auth0 application):
 
 ```js
@@ -725,7 +727,7 @@ Adjust the role and principal values above for the ones in your account and save
 Now you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
 
 ## Use An Identity Token
-Often, you will want to do the processing of a user's role based on the users identity in the logic of your lambda. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on having it passed in as a parameter.
+Often, you will want to do the processing of a user's role based on the users identity in the logic of your Lambda function. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on having it passed in as a parameter.
 
 ![](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
@@ -756,7 +758,7 @@ Another way is to request the information like the user's email as part of the s
 
 You can request up to the full profile of the user to be contained within the JWT. However, since the JWT is typically passed on every request, you'll want to only include what you need to keep the token lightweight.
 
-The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
+The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the Lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
 
 You'll need to create two files, and then run **npm install**, and zip up the result. Create a directory for your definition, and add the following `package.json` definition:
 
@@ -764,7 +766,7 @@ You'll need to create two files, and then run **npm install**, and zip up the re
 {
   "name": "purchase-pet-example",
   "version": "0.1.0",
-  "description": "Example for creating a lambda with json web token logic",
+  "description": "Example for creating a Lambda with json web token logic",
   "license": "MIT",
   "main": "purchasepet.js",
    "dependencies": {
@@ -855,7 +857,7 @@ exports.handler = function(event, context) {
 };
 ```
 
-Now run **npm install** from the directory, zip up the contents, and upload it for the `PurchasePet` lambda function.
+Now run **npm install** from the directory, zip up the contents, and upload it for the `PurchasePet` Lambda function.
 
 The final step is to pass the JWT to the method from the browser client. The standard method is with an `Authorization` header as a *bearer* token. If you are using IAM, then the AWS API Gateway uses the `Authorization` header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the *Integration Request* of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
 
@@ -881,4 +883,4 @@ The final step is to pass the JWT to the method from the browser client. The sta
 ```
 
 ## Summary
-In this tutorial, you have created AWS API Gateway methods using AWS Lamda functions, and have secured access to the APIs using IAM. You integrated a SAML identity provider with IAM to tie access to the API to your user base. You then provided different levels of access based on whether a user authenticated from the built in database, or with a social identity, and used an Auth0 rule to enforce the role assignment. Finally, you used a JWT to provide further authorization context, and to pass identity information into the lambda function.
+In this tutorial, you have created AWS API Gateway methods using AWS Lamda functions, and have secured access to the APIs using IAM. You integrated a SAML identity provider with IAM to tie access to the API to your user base. You then provided different levels of access based on whether a user authenticated from the built in database, or with a social identity, and used an Auth0 rule to enforce the role assignment. Finally, you used a JWT to provide further authorization context, and to pass identity information into the Lambda function.
