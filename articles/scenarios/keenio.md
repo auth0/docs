@@ -10,7 +10,7 @@ Implementing this with Auth0 is very easy, only taking a few lines of code.
 
 ![](https://docs.google.com/drawings/d/165a3-8aYTnOHQqBX-bGFFLfNcSJBfNmNuB_fnXX9-Fk/pub?w=833&amp;h=372)
 
-###1. Recording a __SignUp__ event in Keen IO:
+### 1. Recording a __SignUp__ event in Keen IO:
 
 This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume return immediately, otherwise we assume a new `signup`. 
 

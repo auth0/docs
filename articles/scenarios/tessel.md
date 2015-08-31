@@ -8,7 +8,7 @@ It finally arrived and were able to write our first program: get a token from Au
 
 > Tessel aims for full compatibility with Javascript. Most of core node modules also work, but not all of them. See [the docs for full details](https://github.com/tessel/docs/blob/master/compatibility.md).
 
-##The sample
+## The sample
 
 This example is straight-forward:
 
@@ -114,12 +114,12 @@ Noteworthy highlights of the code:
 
 The `Resource Owner` endpoint requires credentials (e.g. username/password), so the backend user store connected to Auth0 needs to support this (like a Database connection or Active Directory).
 
-##Tessel Setup
+## Tessel Setup
 
 * Run `tessel update` to make sure you install the latest firmware with SSL support.
 * You will obviously need connection to the web. You can setup WiFi with the `tessel wifi` command.
 
-##Summary
+## Summary
 Tessel is awesome. We see a lot of potential. This sample shows how easy it is to connect it with Auth0.
 
 > Always send credentials (e.g. `username`/`password`) over secured networks.

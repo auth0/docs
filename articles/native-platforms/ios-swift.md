@@ -170,7 +170,7 @@ let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
 lock.registerAuthenticators([facebook])
 ```
 
-####Twitter
+#### Twitter
 
 First add Lock Twitter's Pod
 

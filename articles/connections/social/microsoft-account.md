@@ -12,14 +12,14 @@ alias:
 
 To configure Microsoft Account OAuth connections you need to register an application in the Live Connect Developer Center.
 
-##1. Log in into Live Connect Developer Center
+## 1. Log in into Live Connect Developer Center
 Log into [the Developer Center](https://account.live.com/developers/applications), then select __My Apps__:
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-1.png)
 
 ---
 
-##2. Create an application
+## 2. Create an application
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-2.png)
 

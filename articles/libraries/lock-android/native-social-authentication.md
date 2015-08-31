@@ -16,7 +16,7 @@ compile 'com.auth0.android:lock-googleplus:1.1.+'
 
 > Before following these steps, please check our [README](https://github.com/auth0/Lock.Android/blob/master/README.md#install)
 
-###Facebook
+### Facebook
 
 Lock uses Facebook Android SDK to obtain the user's credentials and use them to login with your Auth0 application.  
 
@@ -45,7 +45,7 @@ public void onCreate() {
 }
 ```
 
-###Google+
+### Google+
 
 For Google+ login we use Android G+ library that is part of Google Play Services.
 Before starting you'll need to register your application in Google+ so follow the instructions in Step 1 of [this guide](https://developers.google.com/+/mobile/android/getting-started).

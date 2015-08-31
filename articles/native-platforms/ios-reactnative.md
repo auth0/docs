@@ -132,7 +132,7 @@ Finally, you need to register Auth0 Facebook authenticator somewhere in your app
 }
 ```
 
-####Twitter
+#### Twitter
 
 To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
 

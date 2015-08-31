@@ -8,7 +8,7 @@ Custom authentication with Auth0 usually involves deploying and running a piece 
 
 > Note: to make the installation easier, this tutorial will provide real time feedback every time you complete a step. You should see a green check besides the headings for every step accomplished. This tutorial is intended to be used by a developer.
 
-##Prerequisites
+## Prerequisites
 
 In order to install the __Auth0 Custom Authentication Connector__ you need to first install node.js.
 
@@ -52,7 +52,7 @@ Once node.js has been installed, download and unzip the source code for the __Au
   </ul>
 </div>
 
-##1. Run the connector
+## 1. Run the connector
 
 Open a shell console, access the uncompressed folder and execute the following command:
 
@@ -64,7 +64,7 @@ When prompted for the ticket url, paste the following:
 
 > After entering the ticket, the connector will exchange trust information (like URLs, endpoints, etc.) with the server to complete the setup on Auth0.
 
-##2. Let's try to login!
+## 2. Let's try to login!
 
 Now that you have a running authentication server, let's try to login with a test user.
 

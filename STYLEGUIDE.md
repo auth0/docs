@@ -3,7 +3,7 @@
 This style guide will cover the terminology and content specific to Auth0, along with some comments on common writing issues.
 For general software-industry styles and terminology, see the [Microsoft Manual of Style](https://eucalyptus.atlassian.net/wiki/download/attachments/76611622/microsoft_manual_of_style_fourth_edition.pdf?version=2&modificationDate=1424379604164&api=v2).
 
-##Voice##
+## Voice
 
 It is important to speak to the reader directly, to engage in a conversation with the reader. This is the most effective way to communicate. In order to do this, address the reader as "you." Do not use such indirect language as "one" or other passive ways of addressing the user.
 
@@ -17,14 +17,14 @@ Abbreviations should be avoided. Avoid the use of e.g., for example. Instead, us
 
 The use of should versus must and other ambivalent statements must be avoided. If something is required, be definite about it and tell the user it "must" be performed.
 
-##Compound words##
+## Compound words
 
 Compound words may be used in three forms: one word, two words, and hyphenated. As an example, let's look at runtime.
 When referring to something that happens at run time, the proper format is two words. When referring to the runtime engine that runs or translates the code, the proper format is a single word. Finally, when using run time as an adjective, such as run-time execution, the proper format is the hyphenated form.
 
 Other commonly encountered compound words include server side and client side. The same rules apply. When you write code for the client side, you use two words. When you write client-side code, because client-side is an adjective here, use the hyphenated form. Client side and server side are never single words (clientside).
 
-##Punctuation##
+## Punctuation
 
 <b>Colons</b>
 Colons are useful when you are directly referring to an example, such as "here is the relevant code:"
@@ -33,11 +33,8 @@ Colons are useful when you are directly referring to an example, such as "here i
 Hyphens are used between adjectives and the verb they modify if and only if the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
 
 <b>Punctuation and quotes</b>
-In American English, but not British English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with perionds inside the quotation marks," you would construct the quotation as you see here, with the comma inside the quotation marks.
+In American English, but not British English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with periods inside the quotation marks," you would construct the quotation as you see here, with the comma inside the quotation marks.
 If this becomes an issue when quoting code because the code does not include the punction mark in question, do not place the punctuation mark inside the quotes.
 
-##Formatting##
+## Formatting
 Do not use block quote style for notes or warnings. It makes the note or warning too prominent.
-
-
-

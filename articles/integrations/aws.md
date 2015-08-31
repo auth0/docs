@@ -5,7 +5,7 @@ Auth0 ships with AWS IAM integration out of the box that allows you to:
 1. Login to AWS Dashboard with any of the [supported Identity Providers](/identityproviders).
 2. Obtain AWS Tokens to securely call AWS APIs and resources.
 
-###SSO with AWS Dashboard
+### SSO with AWS Dashboard
 
 It's straight forward to configure Auth0 for federation with AWS using SAML.
 
@@ -72,7 +72,7 @@ More information on roles, policies see [here](http://docs.aws.amazon.com/IAM/la
 
 ---
 
-###Delegation Scenarios
+### Delegation Scenarios
 
 This second scenario is even more powerful. Auth0 can interact with __AWS STS__ directly, and obtain an __AWS token__ that can be used to call any AWS API.
 
@@ -111,7 +111,7 @@ This is a *dynamic* policy that gives access to a folder in a bucket. The folder
 The `<%= "${saml:sub}" %>` will be automagically mapped from the authenticated user (`sub` means `subject`, that will equal to the user identifier). This means that the __original__ identity of the user can be used throughout the system: your app, S3, etc.
 
 
-###Getting the AWS Token for an authenticated user
+### Getting the AWS Token for an authenticated user
 
 When a user authenticates with Auth0 you will get back an `id_token` (a [JWT](/jwt)). You would then use this `id_token` to request Auth0 and AWS Token using the delegation endpoint:
 
@@ -146,7 +146,7 @@ The Response will contain the AWS Token:
 
 > The Auth0 client libraries simplify calling these endpoint. Check [our GitHub repo](https://github.com/auth0/) for the latest SDKs. Here's [one for client side JavaScript](https://github.com/auth0/auth0.js#delegation-token-request).
 
-###Client Side sample code
+### Client Side sample code
 
 ```
   var targetClientId = "{TARGET_CLIENT_ID}";

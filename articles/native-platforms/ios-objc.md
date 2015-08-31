@@ -149,7 +149,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 [self.lock registerAuthenticators:@[facebook]];
 ```
 
-####Twitter
+#### Twitter
 
 First add Lock Twitter's Pod
 

@@ -16,7 +16,7 @@ There are **5 sections**, including a troubleshooting section at the end.
 5. Troubleshooting
 
 
-##1. Obtain information from IDP
+## 1. Obtain information from IDP
 
 You will need to obtain some information from the Identity Provider.  The instructions here will be generic.  You will have to locate this information in your specific Identity Provider.
 
@@ -27,7 +27,7 @@ You will need to obtain some information from the Identity Provider.  The instru
 * Signing certificate - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions.  There should be a place to download the signing certificate from the Identity Provider.   If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
 
 
-##2. Configure Auth0 as Service Provider
+## 2. Configure Auth0 as Service Provider
 
 In this section you will configure Auth0 to serve as a SAML Service Provider.
 
@@ -88,7 +88,7 @@ In general, you can access the metadata for a SAML connection in Auth0 here: `ht
 Make a note of this metadata URL as you may be able to use it to configure the Identity Provider in the next step.
 
 
-##3. Add your Service Provider metadata to the Identity Provider
+## 3. Add your Service Provider metadata to the Identity Provider
 
 In this section you will add some information to the Identity Provider  so the Identity Provider knows how to receive and respond to SAML-based authentication requests from the Auth0 Service Provider.  The instructions provided here are generic.  You will need to find the appropriate screens and fields on the Identity Provider.
 
@@ -116,7 +116,7 @@ If the Identity Provider provides a choice for bindings, you should select HTTP-
 If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.
 
 
-##4. Test the connection from Service Provider to Identity Provider
+## 4. Test the connection from Service Provider to Identity Provider
 
 In this section, you will test to make sure the SAML configuration between Auth0, the Service Provider, and the remote SAML Identity Provider is working.
 
@@ -142,7 +142,7 @@ Here is a sample of the **"It Works"** screen:
 ![](/media/articles/saml/saml-sp-generic/saml-auth0-9.png)
 
 
-##5. Troubleshooting.
+## 5. Troubleshooting.
 
 This section has a few ideas for things to check if your sample doesn't work.
 

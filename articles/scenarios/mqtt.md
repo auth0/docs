@@ -18,9 +18,9 @@ This article shows an integration between nodejs based MQTT broker: [mosca](http
 
 ![](https://docs.google.com/drawings/d/1hMahWH3Q0YBs5vT8Ubl-uLgvkcoo5f6Q0crMHbAqi6k/pub?w=854&amp;h=521) 
 
-##Components of the solution
+## Components of the solution
 
-###The Broker
+### The Broker
 
 __mosca__ is straightforward to host and can be embedded in other servers. For the purpose of this sample, we simply self-host a __mosca__ server:
 
@@ -60,7 +60,7 @@ This creates a server listening for MQTT messages on port 9999. __mosca__ allows
 
 In this sample, we are using a very simple module `auth0mosca` to perform these functions. Auth0 is wired up to __mosca__.
 
-###The Auth0Mosca module
+### The Auth0Mosca module
 
 This little [module](https://www.npmjs.org/package/auth0mosca) provides the 4 functions used by __mosca__, `authenticateWithCredentials`, `authenticateWithJWT`, `authorizePublish` and `authorizeSubscribe`:
 
@@ -171,7 +171,7 @@ The `authenticateWithJWT` expects a JWT in the `password` field. The flow in thi
 
 Publishers and subscribers will obtain the JWT through some means. Notice that the broker doesn't need to communicate with Auth0 anymore. JWTs are self-contained artifacts that can be validated with the secret used to sign them. 
 
-###The Publisher
+### The Publisher
 
 For this sample, the publisher is a simple nodejs program that uses the `mqtt` module, and adds the right credentials:
 
@@ -206,7 +206,7 @@ function sendTemperature(client){
 
 Of course `username` & `password` here will have to match whatever is stored in Auth0.
 
-###The subscriber
+### The subscriber
 The subscriber is very similar to the publisher:
 
 ```
@@ -238,12 +238,12 @@ client.on('message', function(topic, message) {
 });
 ```
 
-##Summary
+## Summary
 This shows how easy it is to use Auth0 in various scenarios. Auth0's user store is being used to manage devices. Of course much more sophisticated authorization rules could be written based on other conditions: time, location, device_id, etc. All these would be very simple to implement, either through additional profile attributes or through [Auth0 Rules](/rules). This also shows how the flexible Auth0 Profile can be extended to support arbitrary artifacts (e.g. `topics` in the example). 
 
 > Caveats: it is never a good idea to send credentials (`username`/`password`) over unsecured networks. There are other implementations that provide transport level security that would prevent message contents to be revealed. __mosca__ supports TLS as an example. Likely a production deployment would favor this, unless all traffic happens in a closed network.
 
-###Acknowledgements
+### Acknowledgements
 Many thanks to [Matteo Collina](http://www.matteocollina.com/) for the review of this article, and for building the awesome __mosca__.
 
 

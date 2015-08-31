@@ -34,7 +34,7 @@ For this tutorial, we will assume the standard WCF template with a `basicHttpBin
 
 The integration consists of adding a `ServiceAuthorizationManager` (which is an extensibility point offered by WCF). This class intercepts all calls to a specific service and extracts the HTTP `Authorization` header that contains the JsonWebToken. Then it validates the token using a symmetric or asymmetric key, checks that it's not expired, and finally verifies that the `audience` is correct. If all these are correct, control is transfered to the user code with a `ClaimsPrincipal` object set for the app to use.
 
-###1. Install Auth0-WCF-Service-JWT NuGet package
+### 1. Install Auth0-WCF-Service-JWT NuGet package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
 
@@ -42,17 +42,17 @@ ${snippet(meta.snippets.dependencies)}
 
 > This package creates the `ServiceAuthorizationManager` and will add a set of configuration settings.
 
-###2. Completing your app Web.Config with Auth0 settings
+### 2. Completing your app Web.Config with Auth0 settings
 
 ${snippet(meta.snippets.setup)}
 
-###3. Accessing user information
+### 3. Accessing user information
 
 Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` or `Thread.CurrentPrincipal` properties:
 
 ${snippet(meta.snippets.use)}
 
-###4. Attaching a token on the client
+### 4. Attaching a token on the client
 
 Install the NuGet package on the client side
 

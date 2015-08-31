@@ -65,7 +65,7 @@ To get an Access Token, you would send a POST request to the token endpoint in A
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
 
-#####Sample Access Token Response:
+##### Sample Access Token Response:
 
 	{
        "access_token":".....Access Token.....",
@@ -211,7 +211,7 @@ These protocols are implemented mostly when interacting with well-known [identit
 
 WS-Federation is supported both for apps (e.g. any WIF based app) and for identity providers (e.g. ADFS or ACS).
 
-###For apps
+### For apps
 All registered apps in Auth0 get a WS-Fed endpoint of the form:
 
 	https://${account.namespace}/wsfed/${account.clientId}
@@ -235,7 +235,7 @@ https://${account.namespace}/wsfed/${account.clientId}?whr=google-oauth2
 ```
 
 
-###For IdP
+### For IdP
 If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are examples), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, etc.
 
 > You can also upload a Federation Metadata file.

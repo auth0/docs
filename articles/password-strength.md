@@ -47,7 +47,7 @@ The response also has additional information that can be used to guide the user 
 
 > Some rules are composites: a rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format` if required.
 
-###Samples
+### Samples
 
 This is the `description` reported with a `good` policy, and using the string `hello` as the password:
 

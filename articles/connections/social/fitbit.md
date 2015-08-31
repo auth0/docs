@@ -7,14 +7,14 @@ image: /media/connections/fitbit.png
 
 To configure a Fitbit connection you will need to register a new application in Fitbit.
 
-##1. Log in into Fitbit's Developers site
+## 1. Log in into Fitbit's Developers site
 Log in into [Fitbit's Developer site](https://dev.fitbit.com), select __REGISTER AN APP__:
 
 ![](/media/articles/connections/social/fitbit/fitbit-register-1.png)
 
 ---
 
-##2. Complete information about your instance of Auth0
+## 2. Complete information about your instance of Auth0
 
 Your callback URL into Auth0 is:
 
@@ -22,7 +22,7 @@ Your callback URL into Auth0 is:
 
 ---
 
-##4. Get your Consumer Key and Consumer Secret
+## 4. Get your Consumer Key and Consumer Secret
 
 Once the application is registered, enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
 

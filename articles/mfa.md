@@ -69,7 +69,7 @@ function (user, context, callback) {
 
 ## Examples of common conditions to trigger MFA
 
-###Access a critical app from extranet
+### Access a critical app from extranet
 
 In this example, Auth0 will evaluate both the name of the app the user is trying to access, and the originating IP address. If the app is a critical one, and the request originates from outside the corporate network, then the user is challenged with MFA.
 
@@ -98,7 +98,7 @@ function (user, context, callback) {
 }
 ```
 
-###Access an app from a different device/location
+### Access an app from a different device/location
 
 Auth0 computes a hash with the request IP address and the `userAgent` string. If the hash changes from the last time the user logged in, MFA is triggered.
 

@@ -34,7 +34,7 @@ url: /libraries/lock-android
 Android API level 14+ is required in order to use Lock's UI.
 If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.7.+`, the minimum required API level is 9.
 
-##Install
+## Install
 
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
@@ -204,7 +204,7 @@ And you'll see SMS login screen
 
 [![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Android-Screenshot.png)](https://auth0.com)
 
-##Proguard
+## Proguard
 In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock and its dependencies.
 By default you should at least use the following files:
 * `proguard-android-async-http.pro`
@@ -231,11 +231,11 @@ buildTypes {
 }
 ```
 
-##API
+## API
 
-###Lock
+### Lock
 
-####Constants
+#### Constants
 
 ```java
 public static final String AUTHENTICATION_ACTION;
@@ -262,7 +262,7 @@ public static final String CANCEL_ACTION;
 ```
 Action sent when the user change its password
 
-####Properties
+#### Properties
 ```java
 public boolean shouldUseWebView();
 public void setUseWebView(boolean useWebView);
@@ -311,7 +311,7 @@ public boolean isFullscreen();
 ```
 If Lock's activities should be displayed in Fullscreen. Default is `false`
 
-####Methods
+#### Methods
 
 ```java
 public void setProvider(String serviceName, IdentityProvider provider);
@@ -323,10 +323,10 @@ public void resetAllProviders();
 ```
 Removes all session information the Identity Provider handlers might have.
 
-###LockBuilder
+### LockBuilder
 A simple builder to help you create and configure Lock in your  application.
 
-####Constants
+#### Constants
 
 ```java
 public static final String CLIENT_ID_KEY = "com.auth0.lock.client-id";
@@ -345,7 +345,7 @@ public static final String CONFIGURATION_URL_KEY = "com.auth0.lock.configuration
 ```
 Key value used by Lock to search in your application's meta-data for configuration Url.
 
-####Methods
+#### Methods
 
 ```java
 public LockBuilder clientId(String clientId);

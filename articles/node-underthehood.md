@@ -6,7 +6,7 @@ We've built a [simple strategy for passport](https://github.com/auth0/passport-a
 
 > 'Strategy' is the name __passport__ gives to its plugins. This is the main extensibility point in the framework.
 
-#####If Auth0 supports OAuth2, why do you have a custom strategy?
+##### If Auth0 supports OAuth2, why do you have a custom strategy?
 
 Most of the heavy lifting of OAuth2 is actually done by __passport__ for us. If you explore ther code for the Auth0 strategy you will see:
 

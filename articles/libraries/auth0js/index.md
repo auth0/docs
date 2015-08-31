@@ -233,9 +233,9 @@ After a successful login, `auth0.js` will auto login the user. If you do not wan
   });
 ```
 
-##Advanced operations
+## Advanced operations
 
-###Delegation Token Request
+### Delegation Token Request
 
 A delegation token is a new token for a different service or app/API.
 

@@ -7,7 +7,7 @@ image: /media/connections/twitter.png
 
 To configure a Twitter connection you will need to register Auth0 with Twitter.
 
-##1. Create a new Twitter application
+## 1. Create a new Twitter application
 
 Log in to Twitter, and [create a new Twitter application](https://apps.twitter.com/app/new):
 
@@ -21,7 +21,7 @@ Once the application is created, go to Settings tab and make sure to check the _
 
 ---
 
-##2. Complete information about your instance of Auth0
+## 2. Complete information about your instance of Auth0
 
 To reveal your consumer secret, click on **manage keys and access tokens**:
 

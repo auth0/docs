@@ -44,7 +44,7 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectAuthenticationOptions
 ## Notes on this middleware
 Currently, the OpenID Connect middleware does not support JWT tokens signed with symmetric keys. Make sure you configure your app to use the RSA algorithm using public/private keys:
 
-###On the Auth0 dashboard:
+### On the Auth0 dashboard:
 
 1. Go to ${uiURL}/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
 2. Click on `Show Advanced Settings`.

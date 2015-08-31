@@ -14,17 +14,17 @@ Most options are the default values. You will just need to press __Next__ in mos
 
 > If you want **IdP-Initiated SSO**, please make sure to include the connection parameter in the Assertion Consumer Service URL: `https://${account.namespace}/login/callback?connection=${connectionName}`
 
-###1. Download Auth0 Metadata File
+### 1. Download Auth0 Metadata File
 
 Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=${connectionName}). This will be used in [step 3](ping7#3) and it is used to automatically import information about your partner.
 
-###2. Create a new __SP Connection__
+### 2. Create a new __SP Connection__
 
 Login to _PingFederate_ as an administrator (the URL would be something like __https://{your ping server}:{port}/pingfederate/app__). Select __Create New__ from the __SP Connections__ section on the left:
 
 ![](/media/articles/saml/identity-providers/ping7/ping-1.png)
 
-###3. Configure the __SP Connection__
+### 3. Configure the __SP Connection__
 
 Select the __Browser SSO Profles__ as the __Connection Type__:
 
@@ -38,7 +38,7 @@ Upload the [__metadata file__](https://${account.namespace}/samlp/metadata?conne
 
 ![](/media/articles/saml/identity-providers/ping7/ping-4.png)
 
-###4. Configure __Browser SSO__
+### 4. Configure __Browser SSO__
 
 Select __SP-Initiated SSO__ and __SP-Initiated SLO__ in __SAML Profiles__:
 
@@ -63,7 +63,7 @@ In this example, we are just using the `username` from a simple HTML IdP Adapter
 
 ![](/media/articles/saml/identity-providers/ping7/ping-10.png)
 
-###5. Configure __Protocol Settings__
+### 5. Configure __Protocol Settings__
 
 All important values for __Protocol Settings__ are imported from the __Metadata File__. You should see the __Assertion Consumer Service URL__:
 
@@ -82,7 +82,7 @@ Make sure __SAML Assertion__ is always signed and move on to the end of this sec
 ![](/media/articles/saml/identity-providers/ping7/ping-14.png)
 
 
-###6. Configure __Credentials__
+### 6. Configure __Credentials__
 
 This is the last step for configuring __Browser SSO__. On __Digital Signature Settings__, select your signing certificate and make sure you check the option to include it in the `<KeyInfo>` element:
 
@@ -93,7 +93,7 @@ The last two options to configure are the certificate used to sign incoming requ
 ![](/media/articles/saml/identity-providers/ping7/ping-16.png)
 ![](/media/articles/saml/identity-providers/ping7/ping-17.png)
 
-###7. Activation of the __SP Connection__
+### 7. Activation of the __SP Connection__
 
 In the last step, you'll see the summary of all your previous settings and an option to set is as __Active__ or __Inactive__:
 

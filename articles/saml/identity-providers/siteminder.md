@@ -14,7 +14,7 @@ Most options are the default values. These are the most important configuration 
 
 The instructions below will guide you into where these values need to be entered in SiteMinder.
 
-###1. Open the SAML Service Provider Dialog
+### 1. Open the SAML Service Provider Dialog
 
 Provide an appropriate name for this Service Provider. We suggest using:
 
@@ -22,13 +22,13 @@ Provide an appropriate name for this Service Provider. We suggest using:
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-users.png)
 
-###2. Defining NameIdentifier
+### 2. Defining NameIdentifier
 
 You can define many ways of generating a `NameIdentifier` for users authenticating with SiteMinder. Typically you will map this value to one of the user properties in the User Directory as `uid` in the example blow:
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-nameids.png)
 
-###3. Configure the Service Provider General SAML properties
+### 3. Configure the Service Provider General SAML properties
 
 Use the following values for this configuration screen:
 
@@ -38,7 +38,7 @@ Use the following values for this configuration screen:
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-general.png)
 
-###4. Configure the Assertion Consumer Service URL
+### 4. Configure the Assertion Consumer Service URL
 
 The __Assertion Consumer Service URL__ is the location where SiteMinder will POST back the SAML Token. This Service Provider (${account.tenant}) only supports the `HTTP-POST` binding for SAML Responses. Use these values:
 
@@ -47,19 +47,19 @@ The __Assertion Consumer Service URL__ is the location where SiteMinder will POS
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-sso.png)
 
-###5. Configure additional user properties to send in the token
+### 5. Configure additional user properties to send in the token
 
 Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in [step 2](/siteminder#2) as a unique handle of the user. These attributes will be treated as reference information:
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-attributes.png)
 
-###6. Enter the Single Sign Out URL
+### 6. Enter the Single Sign Out URL
 
 * __SLO Location URL:__ `https://${account.namespace}/logout`
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-slo.png)
 
-###7. Optional Assertion Encryption
+### 7. Optional Assertion Encryption
 
 The Service Provider supports encryption of Assertions.
 To use this option, do the following to download the Service Provider public key certificate.

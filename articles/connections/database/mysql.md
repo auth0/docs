@@ -96,7 +96,7 @@ After you have enabled the database connection, Auth0's widget will automaticall
 
 The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
 
-###Utilities
+### Utilities
 * [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) _(~0.7.5)_
 * [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
 * [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
@@ -108,7 +108,7 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_
 * [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
 
-###Databases
+### Databases
 * [cassandra](https://www.npmjs.org/package/node-cassandra-cql) _(^0.4.4)_
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
 * [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
@@ -124,7 +124,7 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 
-###Errors
+### Errors
 
 To return an error simple call the callback with an error as the first parameter:
 

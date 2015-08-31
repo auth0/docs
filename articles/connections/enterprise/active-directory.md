@@ -19,7 +19,7 @@ You can install multiple instances of the connector for high availability and lo
 
 Configuring an AD/LDAP connection in Auth0 requires two simple steps:
 
-###1. Creating an AD/LDAP Connection in Auth0
+### 1. Creating an AD/LDAP Connection in Auth0
 
 The first step is creating a new Connection on the dashboard:
 

@@ -2,7 +2,7 @@
 
 ## Component configuration
 
-###Set up your *Auth0 Domain*, *Client Id* and *Client Secret*
+### Set up your *Auth0 Domain*, *Client Id* and *Client Secret*
 
 Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app's *Application Settings* page on Auth0 to the *Auth0 Setup* page of your Joomla installation.
 

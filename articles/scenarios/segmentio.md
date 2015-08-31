@@ -8,7 +8,7 @@ Implementing this with Auth0 is very easy, only taking a few lines of code.
 
 ![](https://docs.google.com/drawings/d/1oTFVNwjRuX8WEp7TeDLgkcTUlIYVMAtvoNbO9xfAdyw/pub?w=835&amp;h=496">)
 
-###1. Recording a __SignUp__ or __Login__ event in segment.io:
+### 1. Recording a __SignUp__ or __Login__ event in segment.io:
 
 This rule checks whether the user has already signed up before or not. This is tracked by the `user.signedUp` property. If the property is present then we assume this is a `login` event, otherwise we assume a new `signup`. 
 

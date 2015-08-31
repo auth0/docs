@@ -18,11 +18,11 @@ There are **9 sections** to this sample and a troubleshooting section at the end
 8. Create the HTML page for a test application.
 9. Test your creation.
 
-##1. Establish two Auth0 accounts
+## 1. Establish two Auth0 accounts
 
 If you do not already have two Auth0 accounts, you will need to create them.
 
-###In the Auth0 dashboard:
+### In the Auth0 dashboard:
 
 In the upper right corner, click on the name of your account and in the popup menu which appears, select **"New Account"**.  
 
@@ -32,7 +32,7 @@ You can switch back and forth between the accounts by going to the upper right c
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-1.png)
 
-##2. Set up the Auth0 IDP (account 2)
+## 2. Set up the Auth0 IDP (account 2)
 
 In this section you will configure one Auth0 account (account 2) to serve as an Identity Provider.  You will do this by registering an application, but in this case, the 'application' you register is really a representation of account 1, the SAML Service Provider.
 
@@ -76,7 +76,7 @@ Next, create a user to use in testing the SAML SSO sequence.
 6. Press the blue **"SAVE"** button.
 
 
-##3. Set up the Auth0 service provider (account 1)
+## 3. Set up the Auth0 service provider (account 1)
 
 In this section you will configure another Auth0 account (account 1) so it knows how to communicate with the second Auth0 account (account 2) for single sign on via the SAML protocol.
 

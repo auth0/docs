@@ -113,7 +113,7 @@ lock = new Lock.Builder()
         .build();
 ```
 
-####Google+
+#### Google+
 
 To support Google+ native authentication you need to add the following permissions and meta-data to your `AndroidManifest.xml`:
 

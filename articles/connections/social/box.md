@@ -7,7 +7,7 @@ image: /media/connections/box.png
 
 To configure a Box OAuth2 connection you will need to register your Auth0 tenant on their [developer portal](https://developers.box.com/).
 
-##1. Log in into the developer portal and register a new App:
+## 1. Log in into the developer portal and register a new App:
 
 ![](/media/articles/connections/social/box/box-register-1.png)
 
@@ -15,7 +15,7 @@ To configure a Box OAuth2 connection you will need to register your Auth0 tenant
 
 ---
 
-##2. Edit your App Properties
+## 2. Edit your App Properties
 
 After the app is created, click on __Edit__ and review the (long) form. There're a number of properties that you can change (e.g. contact information, logos, etc.).
 

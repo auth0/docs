@@ -31,7 +31,7 @@ Copy & Paste the script above on Windows PowerShell.
 
 #### What does the script do?
 
-#####1. Creates the Relying Party on ADFS
+##### 1. Creates the Relying Party on ADFS
 
     $realm = "urn:auth0:${account.tenant}";
     $webAppEndpoint = "https://${account.namespace}/login/callback";
@@ -40,7 +40,7 @@ Copy & Paste the script above on Windows PowerShell.
     Add-ADFSRelyingPartyTrust -Name $realm -Identifier $realm -WSFedEndpoint $webAppEndpoint
     $rp = Get-ADFSRelyingPartyTrust -Name $realm
 
-#####2. Creates the rules to output the most common Active Directory attributes (email, UPN, given name, surname)
+##### 2. Creates the rules to output the most common Active Directory attributes (email, UPN, given name, surname)
 
     $rules = @'
     @RuleName = "Store: ActiveDirectory -> Mail (ldap attribute: mail), Name (ldap attribute: displayName), Name ID (ldap attribute: userPrincipalName), GivenName (ldap attribute: givenName), Surname (ldap attribute: sn)"
