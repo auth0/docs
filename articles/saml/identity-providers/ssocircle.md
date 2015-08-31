@@ -1,6 +1,6 @@
 ---
 title: ssocircle
-layout: doc.nosidebar
+layout: doc-nosidebar
 ---
 # SAML SSO with SSOCircle as an Identity Provider
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), authenticating users against the __SSOCircle__ Identity Provider.

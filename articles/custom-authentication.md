@@ -1,6 +1,6 @@
 ---
 title: Custom Authentication
-layout: doc.nosidebar
+layout: doc-nosidebar
 ---
 # Custom Authentication
 

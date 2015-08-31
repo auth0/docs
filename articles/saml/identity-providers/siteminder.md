@@ -1,6 +1,6 @@
 ---
 title: SiteMinder
-layout: doc.nosidebar
+layout: doc-nosidebar
 ---
 # Configuring SiteMinder as an Identity Provider
 

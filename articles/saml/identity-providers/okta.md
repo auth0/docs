@@ -1,6 +1,6 @@
 ---
 title: Okta
-layout: doc.nosidebar
+layout: doc-nosidebar
 ---
 
 # Configuring Okta as an Identity Provider

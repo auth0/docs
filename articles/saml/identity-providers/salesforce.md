@@ -1,5 +1,5 @@
 ---
-layout: doc.nosidebar
+layout: doc-nosidebar
 ---
 # SAML SSO with SalesForce as an Identity Provider
 This describes how to configure Auth0 to use __SalesForce__ as an Identity Provider.
