@@ -471,7 +471,11 @@ The update should now succeed.
 
 ## Discriminate between types of users
 
-For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Use An Identity Token](#use-an-identity-token) section.
+For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). The following diagram illustrates AWS IAM role assignments for different user classes, social and database authenticated users. It also illustrates that AWS IAM roles can be assigned to other entities, like the AWS Lamdba functions, to control the permissions they have to operate within an account. The best way to think about an IAM role is just a group of permissions to AWS capabilities defined by one or more policies and assigned to an entity.
+
+![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
+
+For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Use An Identity Token](#use-an-identity-token) section.
 
 ### Create the PetPurchase API resource
 
@@ -668,8 +672,6 @@ Now you can log in as a social user. When you log in as an Amazon user, you'll s
 ### Use Auth0 rules to enforce role assignment
 
 In some cases, determining the role in the browser application is appropriate as shown here, but often you will want to determine user privileges on the server-side to prevent a user from assuming a more privileged role then they are permitted by hacking the client code. With Auth0, you can do this with a rule. Rules are service logic defined by developers/administrators that run during the authentication process within Auth0. You could eliminate passing role information from the client and only implement it in a rule. Rules can override and add settings. For example, you can create a rule to insert role information into the delegation request based on the authentication source. For more on rules see: [Rules](https://auth0.com/docs/rules).
-
-![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
 Add a rule that will check if the role requested is allowed for this user depending on whether they have a social or an administrative login. Go to the Auth0 console, and click **Rules** in the left menu. Click the **New Rule** button. You can see a lot of pre-built templates for common rules. In this case select an empty rule. Put the following code into the rule body (make sure the *clientID* matches the *clientID* of your Auth0 application):
 
