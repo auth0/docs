@@ -19,8 +19,6 @@ There are six primary tokens used in Auth0's token based authentication scenario
 * The Auth0 APIv2 Token 
 
 
-(Editing question: In the logs file, (authN via SAML connection) there is an entry for “exchange” and it says exchange of “authorization code for access token” - Is the “authorization code” that is referenced there yet another “token” that should be documented here?)
-
 ### id_token (JWT)
 
 The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a mechanism for transferring claims about a user from Identity Providers, who are authoritative sources of such information, to other relying parties, such as websites or web services, also known as service providers, who need such information.  The claims included in a JWT can be basic profile attributes such as a name or email address as well as security information such as a group membership or the support plan a user is entitled to use.
