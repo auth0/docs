@@ -398,7 +398,8 @@ The Auth0 Authentication API endpoints provide a rich set of features for authen
 
 ##Calling an API developed by a customer
 This is best done by registering the API in Auth0 and obtaining a delegation token with which to call the API.
-https://auth0.com/docs/sequence-diagrams
+
+* [Sequence Diagrams illustrating flow](/sequence-diagrams)
 
 ##Logout
 
