@@ -1,5 +1,5 @@
 ---
-title: Connect Active Directory to Auth0
+title: Connect Active Directory with Auth0
 connection: Active Directory
 image: /media/connections/windows.png
 alias:
@@ -7,7 +7,7 @@ alias:
 ---
 
 
-# Connect Active Directory to Auth0
+# Connect Active Directory with Auth0
 
 Auth0 integrates with Active Directory/LDAP through the **Active Directory/LDAP Connector** that you install on your network.
 
