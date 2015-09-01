@@ -471,7 +471,9 @@ The update should now succeed.
 
 ## Discriminate between types of users
 
-For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). The following diagram illustrates AWS IAM role assignments for different user classes, social and database authenticated users. It also illustrates that AWS IAM roles can be assigned to other entities, like the AWS Lamdba functions, to control the permissions they have to operate within an account. The best way to think about an IAM role is just a group of permissions to AWS capabilities defined by one or more policies and assigned to an entity.
+For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). 
+
+The following diagram illustrates AWS IAM role assignments for two different user classes, social and database authenticated users. It also illustrates that AWS IAM roles can be assigned to other entities, like AWS Lamdba functions, to control the permissions these entities are assigned for an account. In short, an IAM role is as a group of permissions to AWS capabilities defined by one or more policies and assigned to an entity.
 
 ![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
