@@ -1,5 +1,5 @@
 ---
-title: Connect ADFS to Auth0
+title: Connect ADFS with Auth0
 connection: ADFS
 image: /media/connections/windows.png
 alias:
@@ -7,7 +7,7 @@ alias:
   - adfs-2
 ---
 
-# Connect ADFS to Auth0
+# Connect ADFS with Auth0
 
 Provide this information to your ADFS administrator:
 
