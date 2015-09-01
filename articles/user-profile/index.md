@@ -135,7 +135,6 @@ More info:
 * [Rules](/rules)
 * [User profile metadata in rules](/rules/metadata-in-rules)
 * [Altering SAML authentication assertion attributes/claims for a SAML app](https://github.com/auth0/rules/blob/master/rules/saml-attribute-mapping.md)
-* Altering SAML authentication assertion attributes/claims for a connection (Make a new sample based on this response... https://auth0.zendesk.com/agent/tickets/1590)
 
 ### When Rules are used and when they are not
 
