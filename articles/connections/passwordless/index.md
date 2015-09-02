@@ -30,12 +30,14 @@ This __Passwordless connection__ uses SMS (sent via [Twilio](http://www.twilio.c
 
 You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the credentials for the Twilio API that Auth0 will use to send the SMS to the user.
 
-#### 2. Configure the Connection on the Dashboard
+#### 2. Configure the connection
+
+Passwordless connections can be configured in the Auth0 dashboard, under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless).
 
 Enter the __Twilio Account SID__ and __Auth Token__.
-Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password that will be inserted in the text message received by the user.
+Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__.
 
-![](/media/articles/connections/passwordless/index/Cz-QfQvjm6.png)
+The `@@password@@` placeholder in the message template will be replaced with the actual one-time password that will be received in the text message sent to the user.
 
 ### How to use it
 
