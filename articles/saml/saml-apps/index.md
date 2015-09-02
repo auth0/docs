@@ -124,7 +124,7 @@ url: /saml-apps
 
 ---
 
-##Tableau Server
+## Tableau Server
 
 ```
 {
@@ -153,7 +153,7 @@ url: /saml-apps
 
 ---
 
-##Datadog
+## Datadog
 
 ```
 {
