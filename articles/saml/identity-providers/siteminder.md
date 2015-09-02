@@ -49,7 +49,7 @@ The __Assertion Consumer Service URL__ is the location where SiteMinder will POS
 
 ### 5. Configure additional user properties to send in the token
 
-Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in [step 2](/siteminder#2) as a unique handle of the user. These attributes will be treated as reference information:
+Add any other properties you wish to share about the authenticated user to this Service Provider. Common values are: `name`, `lastname`, `e-mail address`, etc. This Service Provider will use the `NameIdentifier` defined in [step 2](#2-defining-nameidentifier) as a unique handle of the user. These attributes will be treated as reference information:
 
 ![](/media/articles/saml/identity-providers/siteminder/siteminder-attributes.png)
 

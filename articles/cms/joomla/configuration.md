@@ -20,7 +20,7 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 3. In the new browser window, login to Auth0. (If you don't already have an Auth0 account, you can [create one](https://auth0.com).)
 4. Select the **Apps / APIs** menu item then click on *+ New App / API*.
 5. On the *Apps / APIs* page, name the new app and click *Save*.
-6. On the new app's *Quick Settings* page, click *Settings*. 
+6. On the new app's *Quick Settings* page, click *Settings*.
 7. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Setup* page of the Joomla interface.
 8. Click on *Save & Close*.
 9. Select the *Test* menu option to check that the Auth0 app data is complete.
@@ -53,7 +53,7 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 
 ### Advanced Settings
 
-- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#4).
+- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
 - **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
-- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#19).
+- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
 - **Widget URL:** The URL of to the latest available widget in the CDN.

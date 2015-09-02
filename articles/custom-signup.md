@@ -16,7 +16,7 @@ We can describe a custom signup flow with the following steps:
 
 1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
 2. [Log them in programatically](https://auth0.com/docs/auth-api#!#post--oauth-ro) and [get back a JWT](https://auth0.com/docs/scopes)
-3. [Call API v2 with the user's JWT](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](https://auth0.com/docs/api/v2/changes#9)
+3. [Call API v2 with the user's JWT](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](https://auth0.com/docs/api/v2/changes#user-metadata)
 
 ## 1. Signup form
 
@@ -66,7 +66,7 @@ a call to `PATCH users/{user_id}` is made, which adds the custom fields to the
 
 > This call to APIv2 is allowed from the client because all JWTs for logged-in
 users implicitly include the `update:current_user_metadata` scope by default.
-[This document describes how implicit scopes work when using APIv2](https://auth0.com/docs/api/v2/changes#7).
+[This document describes how implicit scopes work when using APIv2](https://auth0.com/docs/api/v2/changes#scopes).
 
 ```js
 $('#signup').submit(function (e) {
@@ -152,4 +152,3 @@ The configured password policies, along with other connection information, can b
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
-
