@@ -1,6 +1,5 @@
 ---
 title: OneLogin
-layout: doc-nosidebar
 ---
 # Configuring OneLogin as an Identity Provider
 

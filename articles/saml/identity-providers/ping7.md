@@ -1,6 +1,5 @@
 ---
 title: PingFederate
-layout: doc-nosidebar
 ---
 # Configuring PingFederate 7 as an Identity Provider
 
