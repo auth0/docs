@@ -42,15 +42,15 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 - **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0.
 - **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
 - **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
-- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization/libraries/lock/customization#rememberlastlogin-boolean-9).
+- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
 - **Login redirection URL:** If set, forces redirection to the specified URL after the user logs in.
 - **Requires verified email:** If set, requires the user to have a verified email to login.
 - **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
 - **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
 - **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
 - **Widget URL:** The URL of to the latest available widget in the CDN.
-- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#5) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
-- **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#3). The following code adds a *Fabrikam Azure AD* button to the widget:
+- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
+- **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
 ```
 lock.once('signin ready', function() {
