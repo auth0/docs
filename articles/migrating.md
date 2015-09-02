@@ -56,7 +56,7 @@ The next time that user attempts to log in, their credentials and information wo
 The Get User script will be executed whenever any of the following actions are performed:
 
 * A user attempts to sign up
-* A user clicks on a valid [password change confirmation](https://auth0.com/docs/email#11) link
+* A user clicks on a valid [password change confirmation](https://auth0.com/docs/email/libraries/lock/customization#rememberlastlogin-boolean-1) link
 * An [API call is made](/api/v2#!/Users/patch_users_by_id) to update a user's email
 
 This script is needed because none of these actions require authentication on the user's behalf; the Get User must provide a way of verifying whether a user exists in a legacy database without needing their password.

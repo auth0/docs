@@ -30,7 +30,7 @@ The __Run__ button on the __Troubleshooting__ page will run the troubleshooting 
 
 ![](https://cdn.auth0.com/docs/img/connector-admin-console-troubleshooter.png)
 
-+**Note:** in order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#1). 
++**Note:** in order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
 
 The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to [support](mailto:support@auth0.com) if you're experiencing problems with the connector.
 

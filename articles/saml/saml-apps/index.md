@@ -122,6 +122,8 @@ url: /saml-apps
 
 **Callback URL**: `https://{FD Domain}.freshdesk.com/login/saml`
 
+---
+
 ## Tableau Server
 
 ```
@@ -148,5 +150,29 @@ url: /saml-apps
 ```
 
 **Callback URL**: `http://{YOUR TABLEAU SERVER}/wg/saml/SSO/index.html`
+
+---
+
+## Datadog
+
+```
+{
+  "audience": "https://app.datadoghq.com/account/saml/metadata.xml",
+   "mappings": {
+   },
+   "createUpnClaim":       false,
+   "passthroughClaimsWithNoMapping": false,
+   "mapUnknownClaimsAsIs": false,
+   "mapIdentities":        false,
+   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+   "nameIdentifierProbes": [
+     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+   ],
+}
+```
+
+**Callback URL**: `https://app.datadoghq.com/account/saml/assertion`
+
+Notice that Datadog has an option to automatically provision new users. Check [here](http://docs.datadoghq.com/guides/saml/) for more details.
 
 ---

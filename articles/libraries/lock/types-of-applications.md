@@ -55,7 +55,7 @@ To learn more about `parseHash` please [read this](https://github.com/auth0/auth
 
 ## Regular Webapp
 
-When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an `access_token` to get the user information](/protocols#4).
+When you're doing a Regular web app, you need that after a successful login through Auth0, your app is redirected to a callback endpoint that you've created in your server. That callback endpoint will receive the `code` from Auth0 which must then [be exchanged for an `access_token` to get the user information](/protocols#3-getting-the-access-token).
 
 This means that in this case, only [redirect mode](/libraries/lock/authentication-modes#redirect-mode) makes sense.
 
