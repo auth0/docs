@@ -2,9 +2,13 @@
 lodash: true
 title: Apache Tutorial
 name: Apache
-image: //auth0.com/lib/platforms-collection/img/apache.jpg
+image: /media/platforms/apache.jpg
 tags:
   - quickstart
+snippets:
+  dependencies: server-platforms/apache/dependencies
+  setup: server-platforms/apache/setup
+  use: server-platforms/apache/use
 ---
 
 ## Apache Tutorial
@@ -13,15 +17,14 @@ tags:
 
 ### 1. Install and enable `mod_auth_openidc` module
 
+${snippet(meta.snippets.dependencies)}
 First, you need to install the `mod_auth_openidc` module for Apache.
 
 You can get the binaries from [Github](https://github.com/pingidentity/mod_auth_openidc/releases) and install them for your OS. If your OS isn't compatible with any of the binaries, you can still [build it from source](https://github.com/pingidentity/mod_auth_openidc/blob/master/INSTALL)
 
 Once you've installed it, you just need to enable it for Apache
 
-```bash
-sudo a2enmod mod_auth_openidc
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure the module with your Auth0 Account information
 
@@ -29,31 +32,7 @@ Now, you should get a new configuration file under the `/etc/apache2/mods-availa
 
 In there, you must add the following configuration for the `mod_auth_openidc` module
 
-```
-OIDCProviderIssuer https://@@account.namespace@@
-OIDCProviderAuthorizationEndpoint https://@@account.namespace@@/authorize
-OIDCProviderTokenEndpoint https://@@account.namespace@@/oauth/token
-OIDCProviderTokenEndpointAuth client_secret_post
-OIDCProviderUserInfoEndpoint https://@@account.namespace@@/userinfo
-
-OIDCClientID @@account.clientId@@
-OIDCClientSecret @@account.clientSecret@@
-
-OIDCScope "openid profile"
-OIDCRedirectURI https://your_apache_server/your_path/redirect_uri/
-OIDCCryptoPassphrase <passwordToEncryptTheSessionInformationOnTheCookie>
-OIDCCookiePath /your_path/
-
-SSLEngine on
-SSLCertificateFile /home/your_cert.crt
-SSLCertificateKeyFile /home/your_key.key
-
-<Location /your_path/>
-   AuthType openid-connect
-   Require valid-user
-   LogLevel debug
-</Location>
-```
+${snippet(meta.snippets.setup)}
 
 ### 3. Configuring Auth0 secret
 
@@ -62,7 +41,7 @@ Auth0 `clientSecret` is by default Base64 encoded which isn't compatible with th
 Just do the following `curl` from your terminal. Make sure to change `ACCESS_TOKEN` with a token obtained here </api/v1#!#post--oauth-token>
 
 ```bash
-curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 'authorization: Bearer ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
+curl 'https://${account.namespace}/api/clients/${account.clientId}' -X PUT -H 'authorization: Bearer ACCESS_TOKEN' -H 'content-type: application/json' --data-binary $'{ "jwtConfiguration": {"lifetimeInSeconds": "36000", "secretNotEncoded": true  }}'
 ```
 
 > Please note that you can get your `access_token` by clicking on `Try Me` in [this endpoint of the Api Explorer](/api/v1#!#post--oauth-token)
@@ -71,19 +50,7 @@ curl 'https://@@account.namespace@@/api/clients/@@account.clientId@@' -X PUT -H 
 
 You can configure Apache to protect a certain location based on an attribute of the user. Here is an example:
 
-```xml
-<Location /example/>
-   AuthType openid-connect
-   #Require valid-user
-   Require claim folder:example
-</Location>
-
-<Location /example2>
-   AuthType openid-connect
-   #Require valid-user
-   Require claim folder:example2
-</Location>
-```
+${snippet(meta.snippets.use)}
 
 Then you can write a rule in Auth0 that would return the `folder` attribute:
 

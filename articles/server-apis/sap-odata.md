@@ -1,14 +1,17 @@
 ---
-title: SAP OData
+title: SAP OData Tutorial
 name: SAP OData
+alias:
+  - sap
+  - sap odata
 thirdParty: true
-image: //auth0.com/lib/saas-collection/img/sap.png
-lodash: true
+image: /media/addons/sap_api.svg
+tags:
+  - quickstart
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.
 
-<% configuration.thirdParty = 'SAP OData' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

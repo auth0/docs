@@ -6,7 +6,7 @@ Auth0 can help radically simplify the authentication process for SharePoint. In 
 
 ### 1. Adding the Integration to your account
 
-The first thing you need to do is go to the [Third Party Apps](@@uiURL@@/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
+The first thing you need to do is go to the [Third Party Apps](${uiURL}/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
 
 ![Create a new Third Party Application](/media/articles/integrations/sharepoint/sharepoint-new-app.png)
 
@@ -16,7 +16,19 @@ On the Settings tab you'll need to enter the URL of the SharePoint Web Applicati
 
 ![Tutorial](/media/articles/integrations/sharepoint/sharepoint-app-tutorial.png)
 
-The Live Documentation will ask you to execute the installation script to install our custom Claims Provider after which you'll need to enable it and complete the configuration in Central Administration:
+The Live Documentation will first start with the installation of the Auth0 CmdLets for SharePoint:
+
+![Auth0 CmdLets for SharePoint](/media/articles/integrations/sharepoint/sharepoint-cmdlets-installation.png)
+
+Once these have been installed you'll be able to enable/disable Auth0 and the Claims Provider for the different Web Applications. You'll first enable authentication with Auth0:
+
+![Auth0 Authentication for SharePoint](/media/articles/integrations/sharepoint/sharepoint-auth-installation.png)
+
+And as a last step you'll also install the Claims Provider, to make sure the People Picker, permissions, ... work correctly:
+
+![Claims Provider for SharePoint](/media/articles/integrations/sharepoint/sharepoint-cp-installation.png)
+
+Once these scripts have been executed you'll complete the configuration in Central Administration:
 
 ![Central Administration](/media/articles/integrations/sharepoint/sharepoint-central-admin.png)
 
@@ -40,7 +52,6 @@ Enable-Auth0
     "Given Name|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname", 
     "Surname|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname", "Picture|http://schemas.auth0.com/picture") 
   -allowWindowsAuth 
-  -Verbose
 ```
 
 ### 3. You've nailed it.
@@ -65,7 +76,7 @@ When David logs in using his Azure AD account (and the Security Groups attribute
 
 ![User Groups](/media/articles/integrations/sharepoint/sharepoint-profile-groups.png)
 
-If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](@@uiURL@@/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
+If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${uiURL}/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
 
 ```
 function (user, context, callback) {
@@ -126,11 +137,20 @@ After adding this claim value to the Contributors group David will be able to ac
 
 ## Troubleshooting
 
+When working with additional claims and authorization it can always be useful to view the claims for the current user. [Liam Clearly](https://www.helloitsliam.com)'s [Claims Viewer Web Part](https://sharepointobservations.wordpress.com/2013/08/21/sharepoint-2013-and-adfs-2-0-test-with-claims-viewer-web-part/) can be used to troubleshoot any issues with the user's claims:
+
+![Claims Webpart](/media/articles/integrations/sharepoint/sharepoint-claims-webpart.png)
+
+### Logs in SP2010
+
 Errors and warnings are logged to SharePoint's Unified Logging Service and tools like the [ULS Viewer](http://www.microsoft.com/en-us/download/details.aspx?id=44020) can be used to troubleshoot any issues you might have when using the Claims Provider.
 
 ![ULS](/media/articles/integrations/sharepoint/sharepoint-uls-logs.png)
 
-And when working with additional claims and authorization it can always be useful to view the claims for the current user. [Liam Clearly](https://www.helloitsliam.com)'s [Claims Viewer Web Part](https://sharepointobservations.wordpress.com/2013/08/21/sharepoint-2013-and-adfs-2-0-test-with-claims-viewer-web-part/) can be used to troubleshoot any issues with the user's claims:
+### Logs in SP2013
 
-![Claims Webpart](/media/articles/integrations/sharepoint/sharepoint-claims-webpart.png)
+For SharePoint 2013 we no longer use the Unified Logging Service for our logs, but we've moved to Event Tracing for Windows instead. This delivers more performance and gives you multiple ways of capturing all the logged events.
 
+To view the logs in real-time you can download [the Logs Processor](https://github.com/auth0/auth0-sharepoint/releases). Run this tool on your SharePoint Server(s) to see every call SharePoint is making to the Claims Provider:
+
+![ETW](/media/articles/integrations/sharepoint/sharepoint-logs-real-time.png)

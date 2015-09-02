@@ -2,9 +2,24 @@
 title: WPF and Winforms Tutorial
 name: WPF / Winforms
 hybrid: false
-image: //auth0.com/lib/platforms-collection/img/asp.png
+language:
+  - Javascript
+  - C#
+framework:
+  - WPF
+  - WinForms
+image: /media/platforms/asp.png
 tags:
   - quickstart
+snippets:
+  dependencies: native-platforms/wpf-winforms/dependencies
+  setup: native-platforms/wpf-winforms/setup
+  use: native-platforms/wpf-winforms/use
+alias:
+  - wpf
+  - wiforms
+  - rich-client-application
+  - rich-client
 ---
 
 # WPF and Winforms Tutorial
@@ -17,20 +32,20 @@ This tutorial explains how to integrate Auth0 with a WPF or Winforms application
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WinformsOrWPF package, running the command:
 
-<pre><code>Install-Package Auth0.WinformsOrWPF</pre></code>
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+<pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
 
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using [Auth0 Lock](/login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using [Auth0 Lock](/lock) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 
@@ -39,22 +54,9 @@ There are three options to do the integration:
 To start with, we'd recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
-```cs
-using Auth0.Windows;
+${snippet(meta.snippets.setup)}
 
-var auth0 = new Auth0Client(
-	"@@account.namespace@@",
-	"@@account.clientId@@");
-
-var user = await auth0.LoginAsync(this);
-/*
-    Use this object to do wonderful things, e.g.:
-      - get user email => user.Profile["email"].ToString()
-      - get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
-      - get Windows Azure AD groups => user.Profile["groups"]
-      - etc.
-*/
-```
+${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 

@@ -2,23 +2,29 @@
 lodash: true
 title: NodeJS Web App Tutorial
 name: Node.js
-image: //auth0.com/lib/platforms-collection/img/node.png
+image: /media/platforms/node.png
 tags:
   - quickstart
+snippets:
+  dependencies: server-platforms/nodejs/dependencies
+  setup: server-platforms/nodejs/setup
+  use: server-platforms/nodejs/use
+alias:
+  - node
+  - express
+  - node-connect
+  - passport
 ---
 
 ## NodeJS Web App Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/node-auth0/master/create-package?path=examples/nodejs-regular-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'node-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/nodejs-regular-webapp',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing NodeJS WebApp to use it with Auth0.**
 
@@ -26,43 +32,13 @@ tags:
 
 Just run the following code to install the dependencies and add them to your `package.json`
 
-```js
-npm install passport passport-auth0 --save
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure passport-auth0
 
 We need to configure Passport to use Auth0 strategy.
 
-```js
-var passport = require('passport');
-var Auth0Strategy = require('passport-auth0');
-
-var strategy = new Auth0Strategy({
-    domain:       '@@account.namespace@@',
-    clientID:     '@@account.clientId@@',
-    clientSecret: '@@account.clientSecret@@',
-    callbackURL:  '/callback'
-  }, function(accessToken, refreshToken, extraParams, profile, done) {
-    // accessToken is the token to call Auth0 API (not needed in the most cases)
-    // extraParams.id_token has the JSON Web Token
-    // profile has all the information from the user
-    return done(null, profile);
-  });
-
-passport.use(strategy);
-
-// This is not a best practice, but we want to keep things simple for now
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
-
-module.exports = strategy;
-```
+${snippet(meta.snippets.setup)}
 
 ### 3. Add needed requires & initialize passport configuration
 
@@ -109,7 +85,7 @@ app.get('/callback',
   });
 ```
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -119,7 +95,7 @@ http://yourUrl/callback
 
 ### 6. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

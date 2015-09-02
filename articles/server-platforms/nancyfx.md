@@ -1,21 +1,24 @@
 ---
-lodash: true
 title: NancyFX Tutorial
 name: NancyFX
-image: //auth0.com/lib/platforms-collection/img/nancyfx.png
+image: /media/platforms/nancyfx.png
 tags:
   - quickstart
+snippets:
+  dependencies: server-platforms/nancyfx/dependencies
+  setup: server-platforms/nancyfx/setup
+  use: server-platforms/nancyfx/use
 ---
 
 ## NancyFX Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/Auth0.NancyFx.SelfHost/master/create-package?path=sample&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'Auth0.NancyFx.SelfHost',
+  pkgBranch: 'master',
+  pkgPath: 'sample',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
 
@@ -23,29 +26,14 @@ tags:
 
 Install Auth0 NancyFX dependency with `NuGet`
 
-```bash
-PM> Install-Package Auth0.NancyFx.SelfHost
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Auth0
 
 In your Nancy self hosted application add the following to your BootStrapper:
 
-```cs
-protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-{
-  // ...
+${snippet(meta.snippets.setup)}
 
-  Auth0Authentication.Enable(pipelines, new AuthenticationConfig
-  {
-    RedirectOnLoginFailed = "login",
-    CookieName = "_auth0_userid",
-    UserIdentifier = "userid"
-  });
-
-  // ...
-}
-```
 The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when he tries to access a restricted view.
 
 The `CookieName` allows you to set the name of the cookie that will be used to save the User information.
@@ -66,10 +54,10 @@ You need to configure your Auth0 keys in the `app.config`
 ```xml
 <appSettings>
     <!-- Auth0 configuration -->
-    <add key="auth0:ClientId" value="@@account.clientId@@" />
-    <add key="auth0:ClientSecret" value="@@account.clientSecret@@" />
-    <add key="auth0:Domain" value="@@account.namespace@@" />
-    <add key="auth0:CallbackUrl" value="@@account.callback@@" />
+    <add key="auth0:ClientId" value="${account.clientId}" />
+    <add key="auth0:ClientSecret" value="${account.clientSecret}" />
+    <add key="auth0:Domain" value="${account.namespace}" />
+    <add key="auth0:CallbackUrl" value="${account.callback}" />
 </appSettings>
 ```
 
@@ -118,7 +106,7 @@ public class Authentication : NancyModule
 
 ### 6. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

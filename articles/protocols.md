@@ -11,7 +11,7 @@ This protocol is best suited for web sites that need:
 - Authenticated users
 - Access to 3rd party APIs on behalf of the logged in user
 
-> In the literature you might find this flow refered to as __Authorization Code Grant__. The full spec of this flow is [here](http://tools.ietf.org/html/rfc6749#section-4.1).
+> In the literature you might find this flow referred to as __Authorization Code Grant__. The full spec of this flow is [here](http://tools.ietf.org/html/rfc6749#section-4.1).
 
 ![](https://docs.google.com/drawings/d/1RZYKxbO5LM3fBhL8hs5-wefUkwDgPo-lOuoHWBdc0RI/pub?w=793&amp;h=437)
 
@@ -19,13 +19,13 @@ This protocol is best suited for web sites that need:
 
 Someone using a browser hits a protected resource in your web app (a page that requires users to be authenticated). Your website redirects the user to the Authorization Server (Auth0).  The URL for this is:
 
-    https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+    https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
  `connection` is the only parameter that is Auth0 specific. The rest you will find in the spec. Its purpose is to instruct Auth0 where to send the user to authenticate. If you omit it, you will get an error.
 
 > A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-The `redirect_uri` __must__ match what is defined in your [settings](@@uiURL@@/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
+The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
 
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
@@ -57,7 +57,7 @@ Your web site will then call Auth0 again with a request to obtain an "Access Tok
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret` (step 5 in the diagram).
 
-	POST https://@@account.namespace@@/oauth/token
+	POST https://${account.namespace}/oauth/token
 
 	Content-type: application/x-www-form-urlencoded
 
@@ -65,7 +65,7 @@ To get an Access Token, you would send a POST request to the token endpoint in A
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
 
-#####Sample Access Token Response:
+##### Sample Access Token Response:
 
 	{
        "access_token":".....Access Token.....",
@@ -81,7 +81,7 @@ Notice that the call to exchange the `code` for an `access_token` is __server to
 
 This protocol is best suited for mobile native apps and javascript running in a browser that need to access an API that expects an Access Token.
 
-> The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2) and it is refered to as the __Implicit Flow__.
+> The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2) and it is referred to as the __Implicit Flow__.
 
 ![](https://docs.google.com/drawings/d/1S_p6WdsOno50aKlr08SueWL25a86l86e8CQLMyDQx_8/pub?w=752&amp;h=282)
 
@@ -89,9 +89,9 @@ This protocol is best suited for mobile native apps and javascript running in a 
 
 The client requests authorization to Auth0 endpoint:
 
-	https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=token&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=token&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
-The `redirect_uri` __must__ match one of the addresses defined in your [settings](@@uiURL@@/#/settings) page.
+The `redirect_uri` __must__ match one of the addresses defined in your [settings](${uiURL}/#/settings) page.
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
@@ -122,10 +122,10 @@ This endpoint is used by clients to obtain an access token (and optionally a [JS
 It receives a `client_id`, `client_secret`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
 
 	POST /oauth/ro HTTP/1.1
-	Host: @@account.namespace@@
+	Host: ${account.namespace}
 	Content-Type: application/x-www-form-urlencoded
 
-	grant_type=password&username=johndoe&password=abcdef&client_id=@@account.clientId@@&connection=YOUR CONNECTION
+	grant_type=password&username=johndoe&password=abcdef&client_id=${account.clientId}&connection=YOUR CONNECTION
 
 Currently, Auth0 implements the following connections for a resource owner grant:
 
@@ -140,7 +140,7 @@ As optional parameter, you can include <code>scope=openid</code>. It will return
 
 #### Sample Request
 
-	curl --data "grant_type=password&username=johndoe&password=abcdef&client_id=@@account.clientId@@&connection=<YOUR CONNECTION>&scope=openid" https://@@account.namespace@@/oauth/ro
+	curl --data "grant_type=password&username=johndoe&password=abcdef&client_id=${account.clientId}&connection=<YOUR CONNECTION>&scope=openid" https://${account.namespace}/oauth/ro
 
 ### Login Response
 In response to a login request, Auth0 will return either an HTTP 200, if login succeeded, or an HTTP error status code, if login failed.
@@ -205,22 +205,22 @@ If the JWT has been tampered with or has expired, this endpoint will return a 40
 
 These protocols are implemented mostly when interacting with well-known [identity providers](identityproviders). Most of the __social identity providers__ implement one or the other. The default protocol in Auth0 is OpenID Connect (see above).
 
-`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the the `connection_scopes` parameter. (See [this topic](/login-widget2#8) for more details)
+`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the `connection_scopes` parameter. (See [this topic](/login-widget2#8) for more details)
 
 ## WS-Federation
 
 WS-Federation is supported both for apps (e.g. any WIF based app) and for identity providers (e.g. ADFS or ACS).
 
-###For apps
+### For apps
 All registered apps in Auth0 get a WS-Fed endpoint of the form:
 
-	https://@@account.namespace@@/wsfed/@@account.clientId@@
+	https://${account.namespace}/wsfed/${account.clientId}
 
 The metadata endpoint that you can use to configure the __Relying Party__:
 
-	https://@@account.namespace@@/wsfed/@@account.clientId@@/FederationMetadata/2007-06/FederationMetadata.xml
+	https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
 
-All options for WS-Fed are available under the [advanced settings](@@uiURL@@/#/applications/@@account.clientId@@/settings) for an App.
+All options for WS-Fed are available under the [advanced settings](${uiURL}/#/applications/${account.clientId}/settings) for an App.
 
 Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](/saml-configuration).
 
@@ -231,16 +231,16 @@ The following optional parameters can be used when redirecting to the WS-Fed end
 * `whr`: The name of the connection (to skip the login page)
 
 ```
-https://@@account.namespace@@/wsfed/@@account.clientId@@?whr=google-oauth2
+https://${account.namespace}/wsfed/${account.clientId}?whr=google-oauth2
 ```
 
 
-###For IdP
+### For IdP
 If you are connecting a WS-Fed IdP (e.g. ADFS, Azure ACS and IdentityServer are examples), then the easiest is to use the __ADFS__ connection type. Using this you just enter the server address. Auth0 will probe for the __Federation Metadata__ endpoint and import all the required parameters: certificates, URLs, etc.
 
 > You can also upload a Federation Metadata file.
 
-If a primary and a secondary certificates are present in the __Federation Metadata__, then both would work. Connection parameters can be updated anytime (by clicking on __Edit__ and __Save__). This allows simple certificate rollover.
+If both primary and secondary certificates are present in the __Federation Metadata__, then both would work. Connection parameters can be updated anytime (by clicking on __Edit__ and __Save__). This allows simple certificate rollover.
 
 ## Redirect protocol in Rules
 
@@ -250,7 +250,7 @@ The __Redirect__ protocol allows you to interrupt the normal flow, and send the 
 
 ```
 function(user,context,callback){
-	
+
 	if( someCondition() ){
 		context.redirect = {
 			url: "https://some_location"
@@ -263,19 +263,20 @@ function(user,context,callback){
 
 if `context.redirect` is set, and after all rules are executed, the user will be redirected to the `url`, with at least one additional query string parameter `state`.
 
-What happens in that location is up to the developer. Typical uses of this facility include: 
+What happens in that location is up to the developer. Typical uses of this facility include:
 
 * Generic MFA
 * Profile enrichment.
 * User enrollment.
 * Consent & legal terms acceptance.
+* User claims consent pages.
 
-To resume the transaction, user needs to `POST` or `GET` to the url: `https://@@account.namespace@@/continue`:
+To resume the transaction, user needs to `POST` or `GET` to the url: `https://${account.namespace}/continue`:
 
 
 
 	POST /continue&state={the state value} HTTP/1.1
-	Host: @@account.namespace@@
+	Host: ${account.namespace}
 	Content-Type: application/x-www-form-urlencoded
 
 	{body}
@@ -286,7 +287,7 @@ Transactions that are resumed can be easily be identified with the `protocol=red
 
 ```
 function(user,context,callback){
-	
+
 	if( context.protocol === 'redirect-callback' ){
 		//Resuming from a redirect
 	}

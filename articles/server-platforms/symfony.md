@@ -1,10 +1,13 @@
 ---
-lodash: true
 title: Symfony Tutorial
 name: PHP (Symfony)
-image: //auth0.com/lib/platforms-collection/img/php.png
+image: /media/platforms/php.png
 tags:
   - quickstart
+snippets:
+  dependencies: server-platforms/symfony/dependencies
+  setup: server-platforms/symfony/setup
+  use: server-platforms/symfony/use
 ---
 
 # Symfony Tutorial
@@ -15,30 +18,18 @@ If you have used [Symfony](http://symfony.com) before, you are probably already 
 
 ### 1. Add HWIOAuthBundle to your composer.json
 
-    {
-        "require": {
-            "hwi/oauth-bundle": "0.4.*@dev"
-        }
-    }
+${snippet(meta.snippets.dependencies)}
 
 and run `composer update`
 
 
 ### 2. Enable the bundle
 
-    // app/AppKernel.php
-
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
-        );
-    }
+${snippet(meta.snippets.setup)}
 
 ### 3. Configure the routes
 
-Add the following routes at the begining of `app/config/routing.yml`
+Add the following routes at the beginning of `app/config/routing.yml`
 
     hwi_oauth_redirect:
         resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
@@ -54,7 +45,7 @@ Add the following routes at the begining of `app/config/routing.yml`
 
 ### 4. Configure Auth0
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -71,9 +62,9 @@ Add this to your `app/config/config.yml`
         resource_owners:
             auth0:
                 type:                auth0
-                base_url:            https://@@account.namespace@@
-                client_id:           @@account.clientId@@
-                client_secret:       @@account.clientSecret@@
+                base_url:            https://${account.namespace}
+                client_id:           ${account.clientId}
+                client_secret:       ${account.clientSecret}
 
 ### 6. User provider
 
@@ -114,4 +105,4 @@ Notice that we need to identify the user provided selected in step 6 both in the
 
 ### 8. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}

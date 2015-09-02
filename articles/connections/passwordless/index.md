@@ -26,11 +26,11 @@ This __Passwordless connection__ uses SMS (sent via [Twilio](http://www.twilio.c
 
 ### Setup
 
-####1. Get an account with Twilio
+#### 1. Get an account with Twilio
 
 You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the credentials for the Twilio API that Auth0 will use to send the SMS to the user.
 
-####2. Configure the Connection on the Dashboard
+#### 2. Configure the Connection on the Dashboard
 
 Enter the __Twilio Account SID__ and __Auth Token__.
 Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password.
@@ -42,7 +42,7 @@ Enter the __From__ phone number your users will receive the SMS (also configurab
 The first step is to __register a user__ using the Auth0 `Users` API:
 
 ```
-POST https://@@account.namespace@@/api/users/
+POST https://${account.namespace}/api/users/
 Authorization: Bearer {Auth0 API Token}
 Content-Type: 'application/json'
 
@@ -62,10 +62,10 @@ Auth0 will send the SMS message configured on the dashboard to the `phone-number
 Your application will capture the one-time-password and validate it with Auth0 using the __[Resource Owner](/auth-api#!#post--oauth-ro)__ authentication endpoint:
 
 ```
-POST https://@@account.namespace@@/oauth/ro
+POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
-  "client_id":   "@@account.clientId@@",
+  "client_id":   "${account.clientId}",
   "username":    "+14251112222",
   "password":    "ONE-TIME-CODE",
   "connection":  "sms",

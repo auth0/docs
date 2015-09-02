@@ -17,7 +17,7 @@ Add the script tag to your page to get started with __Auth0 Login Widget__.
 
 ## Playground
 
-@@widgetSDK2@@
+${widgetSDK2}
 
 ## Single Page Applications
 
@@ -25,9 +25,9 @@ You can handle the authorization process client-side as follows:
 
     <script type="text/javascript">
         var widget = new Auth0Widget({
-            domain:                 '@@account.namespace@@',
-            clientID:               '@@account.clientId@@',
-            callbackURL:            '@@account.callback@@',
+            domain:                 '${account.namespace}',
+            clientID:               '${account.clientId}',
+            callbackURL:            '${account.callback}',
             callbackOnLocationHash: true
         });
 
@@ -46,7 +46,7 @@ You can handle the authorization process client-side as follows:
         widget.signin();
     </script>
 
-> When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `@@account.callback@@#access_token=...&id_token=...`.
+> When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `${account.callback}#access_token=...&id_token=...`.
 
 ## Customizing the Widget
 
@@ -64,14 +64,14 @@ The Widget can be customized through the `options` parameter sent to the `signin
 * __userPwdConnectionName__: Specify which Database/AD-LDAP connection should be used with the Email/Password fields. Default: the first Database connection found (if it exists) or the first AD-LDAP connection found.
 * __username_style__: Specify the format of the username. Options: `email` or `username`.
 
-> Is there an option that you think would be useful? Just <a target="_blank" href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
+> Is there an option that you think would be useful? Just <a href="https://github.com/auth0/widget/issues">open an issue on GitHub</a> and we'll look into adding it.
 
 This example shows how to work with only specified connections and display the labels in Spanish:
 
     var widget = new Auth0Widget({
-        domain:         '@@account.namespace@@',
-        clientID:       '@@account.clientId@@',
-        callbackURL:    '@@account.callback@@',
+        domain:         '${account.namespace}',
+        clientID:       '${account.clientId}',
+        callbackURL:    '${account.callback}',
         dict:           'es'
     });
 
@@ -84,7 +84,7 @@ This example shows how to work with only specified connections and display the l
       // The Auth0 Widget is now loaded.
     });
 
-> `dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a target="_new" href="https://github.com/auth0/widget/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
+> `dict` constructor parameter is a string matching the language (`'en'`, `'es'`, `'it'`, <a href="https://github.com/auth0/widget/tree/master/i18n">etc.</a>) or object containing all your customized text labels.
 
 Resulting in:
 
@@ -110,7 +110,7 @@ There are other extra parameters that will depend on the provider. For example, 
         }
     });
 
-> Note: this would be analogous to trigger the login with `https://@@account.namespace@@/authorize?state=foo&access_type=offline&...`.
+> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&access_type=offline&...`.
 
 ### Scope
 

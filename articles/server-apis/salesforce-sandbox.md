@@ -1,12 +1,14 @@
 ---
-title: Salesforce (Sandbox) API
+title: Salesforce (Sandbox) API Tutorial
 name: Salesforce (sandbox)
 thirdParty: true
-image: //auth0.com/lib/saas-collection/img/salesforce.png
-lodash: true
+alias:
+  - salesforce
+image: /media/addons/salesforce_sandbox_api.svg
+tags:
+  - quickstart
 ---
-<% configuration.thirdParty = 'Salesforce (Sandbox)' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

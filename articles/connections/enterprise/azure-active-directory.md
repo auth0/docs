@@ -1,5 +1,5 @@
 ---
-title: Connecting Azure Active Directory with Auth0
+title: Connect Azure Active Directory with Auth0
 connection: Azure Active Directory
 image: /media/connections/azure.png
 alias:
@@ -11,80 +11,82 @@ alias:
   - microsoft-azure-active-directory
 ---
 
-# Obtaining a ClientId and Client Secret for a Microsoft Azure Active Directory
+# Obtain a *ClientId* and *Client Secret* for a Microsoft Azure Active Directory
 
-To allow users to login using a Microsoft Azure Active Directory account you have to register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can signup for one, free, here <http://www.windowsazure.com/en-us/pricing/free-trial>.
+To allow users to login using a Microsoft Azure Active Directory account, you must register your application through the Microsoft Azure portal. If you don't have a Microsoft Azure account, you can [signup](http://www.windowsazure.com/en-us/pricing/free-trial) for free.
 
-> NOTE: there is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
+**NOTE:** There is no way to create an application that integrates with Microsoft Azure AD without having **your own** Microsoft Azure AD instance.
 
 ## 1. Create a new Microsoft Azure Active Directory instance
 
-After signing up on Microsoft Azure, click on **Active Directory** item on the Dashboard.
+Login to Microsoft Azure and click on **Active Directory** on the Dashboard.
 
-<img src="https://cdn.auth0.com/docs/img/waad-0.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-0.png)
 
-Click on **ADD+** at the bottom of the screen:
+Click on **ADD+** at the bottom of the screen.
 
-<img src="https://cdn.auth0.com/docs/img/waad-1.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-1.png)
 
-Enter a subdomain, e.g.: **@@account.tenant@@** (this could be anything, does not have to match with Auth0 subdomain and it will be used in the next step). Enter also your country and a friendly name for the organization.
+Enter a *subdomain*, e.g.: **${account.tenant}**. This can be any text. (It does not have to match the Auth0 subdomain and it will be used in the next step.) Also enter your country and a friendly name for your organization.
 
-<img src="https://cdn.auth0.com/docs/img/waad-2.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-2.png)
 
-## 2. Create a new Application
+## 2. Create a new application
 
-Once the Microsoft Azure AD was created, go to **APPLICATIONS** and click on **ADD AN APPLICATION**:
+Once the Microsoft Azure AD instance has been created, you need to create an application. Go to **APPLICATIONS** and click on **ADD AN APPLICATION**.
 
-<img src="https://cdn.auth0.com/docs/img/waad-3.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-3.png)
 
-Select "Add an application my organization is developing":
+Select **Add an application my organization is developing**.
 
-<img src="https://cdn.auth0.com/docs/img/waad-3b.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-3b.png)
 
-Enter a friendly name for the application and select "WEB APPLICATION AND/OR WEB API":
+Enter a friendly name for the application and select **WEB APPLICATION AND/OR WEB API**.
 
-<img src="https://cdn.auth0.com/docs/img/waad-4.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-4.png)
 
 Proceed to the next screen and enter the following:
 
 * **SIGN-ON URL**: your application URL (completely arbitrary)
-* **APP ID URI**: https://**@@account.tenant@@**.onmicrosoft.com/yourapp
+* **APP ID URI**: https://**${account.tenant}**.onmicrosoft.com/yourapp
 
-> NOTE: The APP ID URI is just a logical identifier, not a real URL. It is important to use the value as specified above in APP ID URI. For instance, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, here you would enter https://**myorg.onmicrosoft.com**/yourapp.
+**NOTE:** The **APP ID URI** is just a logical identifier, not a real URL. It is important to use the value as specified above in the **APP ID URI** field. For example, if the Microsoft Azure AD you've just created is **myorg.onmicrosoft.com**, you would enter https://**myorg.onmicrosoft.com***/yourapp* here.
 
-<img src="https://cdn.auth0.com/docs/img/waad-5.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-5.png)
 
-## 3. Configure the Application
+## 3. Configure the application
 
-Once the application has been created, you will have to configure a couple of things. Click **CONFIGURE** to continue. On this screen you can customize the logo and the application URL that you entered before if needed.
+Once the application has been created, you have to configure it. Click **CONFIGURE** to continue. On this screen you can customize the logo and the application URL that you entered before, if needed.
 
 Enter the following values on **KEYS** and **REPLY URL**, and click **Save**.
 
-* **KEYS**: Select 1 or 2 years (when you save it will show the key)
-* **REPLY URL**: https://@@account.namespace@@/login/callback
+* **KEYS**: Select 1 or 2 years (the key will be displayed when these settings are saved)
+* **REPLY URL**: https://${account.namespace}/login/callback
 
-<img src="https://cdn.auth0.com/docs/img/waad-8.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-8.png)
 
-The last step: modify permissions so your app can read the directory and click on **SAVE** at the bottom of the screen.
+The next step is to modify permissions so your app can read the directory. Select the *Read Directory Data* and *Enable sign-on and read users' profiles* delegated permissions.
 
-<img src="https://cdn.auth0.com/docs/img/waad-8b.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-8b.png)
 
-> NOTE: If you want to enable some extended attributes (like `Extended Profile` or `Security Groups`) you need also to enable the following permissions: **Application Permissions: Read directory data**, **Delegated Permissions: Access your organization's directory**.
+**NOTE:** If you want to enable extended attributes (like *Extended Profile* or *Security Groups*) you will also need to enable the following permissions: **Application Permissions:** *Read directory data*, **Delegated Permissions:** *Access your organization's directory*.
 
-Make sure to copy the value of the secret before leaving this screen.
+Click **SAVE** at the bottom of the screen and the key will be displayed. Make sure to copy the value of this key before leaving this screen.
 
-<img src="https://cdn.auth0.com/docs/img/waad-9.png" style="width: 60%;  border: 2px solid #eee;" />
+![](/media/articles/connections/enterprise/azure-active-directory/waad-9.png)
 
-## 4. Copy the Client ID and Secret Auth0
+## 4. Copy the Client ID and Secret to Auth0
 
-Finally, copy and paste the Client ID and the Key in Auth0.
+Login to your [Auth0 Dashboard](https://manage.auth0.com), and select the **Connections > Enterprise** menu option. Select **Windows Azure AD**.
 
-<img src="https://cdn.auth0.com/docs/img/waad-10.png" style="width: 60%;  border: 2px solid #eee;" />
+Copy the Client ID and the Key generated by Microsoft Azure in the [previous step](#configure-the-application) into the *Client ID* and *Client Secret* fields in Auth0.
+
+![](/media/articles/connections/enterprise/azure-active-directory/waad-10.png)
 
 **Congratulations!** You are now ready to accept Microsoft Azure AD users.
 
-## Troubleshooting
+## Troubleshoot
 
-* Make sure to use an Incognito/InPrivate window when granting access and use a Global Administrator user.
+* When granting access, make sure to use an *Incognito/InPrivate* window  and a Global Administrator user.
 
-* If you get _Access cannot be granted to this service because the service listing is not properly configured by the publisher._ try turning on the **Application is Multi Tenant** option in the Windows Azure AD application on the Azure dashboard.
+* If you get *Access cannot be granted to this service because the service listing is not properly configured by the publisher*, try selecting the **Application is Multi Tenant** option in the Windows Azure AD application on the Azure dashboard.

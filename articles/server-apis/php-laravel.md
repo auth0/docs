@@ -1,34 +1,41 @@
 ---
+title: PHP (Laravel) API Tutorial
 name: PHP (Laravel) API
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/php.png
-lodash: true
+alias:
+  - laravel
+languages:
+  - PHP
+framework:
+  - Laravel
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/php-laravel/dependencies
+  setup: server-apis/php-laravel/setup
+  use: server-apis/php-laravel/use
 ---
 
 ## PHP Laravel API Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/laravel-auth0/master/create-package?path=examples/laravel-api&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'laravel-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/laravel-api',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP Laravel app to use it with Auth0.**
 
 ### 1. Add the needed dependencies and configure `composer.json`
 
-We need to add **laravel-auth0** dependency to your composer.json. As it depends on some packages that don't yet have tags (firebase/php-jwt for example), you need to first change your `composer.json` `minimum-stability` property to dev.
+We need to add **laravel-auth0** dependency to your composer.json.
 
 Once that's done, just run the following:
 
-```bash
-composer require auth0/login:~2.1
-```
+${snippet(meta.snippets.dependencies)}
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
@@ -36,12 +43,7 @@ composer require auth0/login:~2.1
 
 Add the following in the list of the services providers, located in `app/config/app.php`
 
-```php
-'providers' => array(
-    // ...
-    'Auth0\Login\LoginServiceProvider',
-);
-```
+${snippet(meta.snippets.setup)}
 
 Optionally, if you want to use the [facade](http://laravel.com/docs/facades) called `Auth0` you should also add an alias in the same file
 
@@ -109,11 +111,7 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 Now you can secure your REST calls like this:
 
-```php
-Route::get('/api/protected', array('middleware' => 'auth0.jwt', function() {
-    return "Hello " . Auth0::jwtuser()->name;
-}));
-```
+${snippet(meta.snippets.use)}
 
 You can run the server by doing `php artisan serve --port=3001` to try all this out.
 

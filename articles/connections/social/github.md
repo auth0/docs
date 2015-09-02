@@ -7,24 +7,24 @@ image: /media/connections/github.png
 
 To configure a GitHub connection you will need to register Auth0 with GitHub.
 
-##1. Add a new Application
+## 1. Add a new Application
 Log in into GitHub and [register an new Application](https://github.com/settings/applications/new):
 
 ![](/media/articles/connections/social/github/github-addapp-1.png)
 
 ---
 
-##2. Complete information about your instance of Auth0
+## 2. Complete information about your instance of Auth0
 
 ![](/media/articles/connections/social/github/github-addapp-2.png)
 
 The callback address for your app should be:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ---
 
-##3. Get your ClientId and ClientSecret
+## 3. Get your ClientId and ClientSecret
 
 Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
 

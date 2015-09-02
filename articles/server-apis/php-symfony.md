@@ -1,31 +1,36 @@
 ---
+title: PHP (Symfony) API Tutorial
 name: PHP (Symfony) API
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/php.png
+alias:
+  - symfony
+languages:
+  - PHP
+framework:
+  - Symfony
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/php-symfony/dependencies
+  setup: server-apis/php-symfony/setup
+  use: server-apis/php-symfony/use
 ---
 
 # Symfony Auth0 JWT Bundle
 This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example of usage [here](https://github.com/auth0/jwt-auth-bundle/tree/master/example)
 
-##Tutorial
+## Tutorial
 
-###1. Install dependencies
+### 1. Install dependencies
 
 We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to install the library.
 
 Modify your `composer.json` to add the following dependencies and run `composer update`.
 
-```json
-{
-    "require": {
-        "firebase/php-jwt": "dev-master",
-        "adoy/oauth2": "dev-master",
-        "auth0/jwt-auth-bundle": "~1.2"
-    }
-}
-```
+${snippet(meta.snippets.dependencies)}
 
-###2. Add the bundle to your AppKernell.php file
+### 2. Add the bundle to your AppKernell.php file
 
 ```php
 
@@ -50,18 +55,13 @@ class AppKernel extends Kernel
 
 ```
 
-###3. Configure your Auth0 app data
+### 3. Configure your Auth0 app data
 
 Modify the file /app/config/config.yml
 
-```yml
-jwt_auth:
-    client_id:     YOURCLIENTID
-    client_secret: YOURCLIENTSECRET
-    secret_base64_encoded: true
-```
+${snippet(meta.snippets.setup)}
 
-###4. Setup your User and UserProvider
+### 4. Setup your User and UserProvider
 
 Create your User and UserProvider.
 
@@ -81,7 +81,7 @@ services:
         arguments: ["@jwt_auth.auth0_service"]
 ```
 
-###5. Setup the SecurityProvider
+### 5. Setup the SecurityProvider
 
 Modify the file /app/config/security.yml:
 
@@ -89,25 +89,7 @@ Modify the file /app/config/security.yml:
 - define your secured area that want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-```yml
-security:
-    providers:
-        a0:
-            id:
-                a0_user_provider
-
-    firewalls:
-        secured_area:
-            pattern: ^/api
-            stateless: true
-            simple_preauth:
-                authenticator: jwt_auth.jwt_authenticator
-
-    access_control:
-        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: ROLE_OAUTH_USER }
-```
-
+${snippet(meta.snippets.dependencies)}
 
 ## Issue Reporting
 

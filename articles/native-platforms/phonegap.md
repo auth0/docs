@@ -1,55 +1,54 @@
 ---
-lodash: true
 title: Phonegap Tutorial
 name: Phonegap
+alias:
+  - phonegap
+language:
+  - Javascript
+framework:
+  - Cordova
 hybrid: true
-image: //auth0.com/lib/platforms-collection/img/phonegap.png
+image: /media/platforms/phonegap.png
 tags:
   - quickstart
+snippets:
+  dependencies: native-platforms/phonegap/dependencies
+  setup: native-platforms/jquery/setup
+  use: native-platforms/jquery/use
 ---
 
 ## Phonegap tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
+# To Run the example
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-cordova/master/create-package?path=examples/phonegap-basic-sample&type=js&filePath=examples/phonegap-basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+In order to run the project, you need to have `node`, `cordova` and `ios-sim` installed.
+Once you have that, just clone the project and run the following:
 
-<% } else  { %>
+`cordova build ios`
+`cordova emulate ios`
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-cordova/master/create-package?path=examples/phonegap-basic-sample&type=js&filePath=examples/phonegap-basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-cordova',
+  pkgBranch: 'master',
+  pkgPath: 'examples/phonegap-basic-sample',
+  pkgFilePath: 'examples/phonegap-basic-sample/www/js' + account.clientParam,
+  pkgType: 'js'
+}) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 0. Setting up the callback URL in Auth0
 
-<div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+
+<div class="setup-callback">
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+
+<pre><code>https://${account.namespace}/mobile</pre></code>
 
 <p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
 
-<pre><code>file://*</code></pre>
+<pre><code>file://\*</code></pre>
 
 </div>
 
@@ -57,9 +56,7 @@ tags:
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
-```bash
-phonegap plugin add org.apache.cordova.inappbrowser
-```
+${snippet(meta.snippets.dependencies)}
 
 > **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using `<gap:plugin`. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
 

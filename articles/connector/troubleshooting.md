@@ -30,6 +30,8 @@ The __Run__ button on the __Troubleshooting__ page will run the troubleshooting 
 
 ![](https://cdn.auth0.com/docs/img/connector-admin-console-troubleshooter.png)
 
++**Note:** in order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#1). 
+
 The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to [support](mailto:support@auth0.com) if you're experiencing problems with the connector.
 
 ## Troubleshooting Tool
@@ -72,11 +74,11 @@ When the domain does not exist or is unreachable `nltest` will return an error m
 
 ### No internet connectivity
 
-`https://@@account.namespace@@` should be reachable from the server.
+`https://${account.namespace}` should be reachable from the server.
 
 If proxies are installed, make sure they are configured correctly.
 
-A quick test for this is to open a browser pointing to [https://@@account.namespace@@/test](https://@@account.namespace@@/test).
+A quick test for this is to open a browser pointing to [https://${account.namespace}/test](https://${account.namespace}/test).
 
 We don't recommend using Proxies for the connector, but if you need to use one, you can setup an environment variable `HTTP_PROXY=http://your_proxy`.
 

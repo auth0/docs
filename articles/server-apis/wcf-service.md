@@ -1,8 +1,20 @@
 ---
-title: Using Auth0 with a WCF Service
+title: WCF Service Tutorial
 name: .NET WCF
+languages:
+  - C#
+  - Visual Basic .Net
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/wcf.png
+image: /media/platforms/wcf.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/wcf-service/dependencies
+  setup: server-apis/wcf-service/setup
+  use: server-apis/wcf-service/use
+alias:
+  - wcf
+  - windows-communication-foundation
 ---
 
 # Using Auth0 with a WCF Service
@@ -18,48 +30,29 @@ The first scenario usually happens on trusted clients (e.g. a script, a desktop 
 
 For this tutorial, we will assume the standard WCF template with a `basicHttpBinding`.
 
-##Using Auth0 generated JsonWebTokens with WCF services
+## Using Auth0 generated JsonWebTokens with WCF services
 
 The integration consists of adding a `ServiceAuthorizationManager` (which is an extensibility point offered by WCF). This class intercepts all calls to a specific service and extracts the HTTP `Authorization` header that contains the JsonWebToken. Then it validates the token using a symmetric or asymmetric key, checks that it's not expired, and finally verifies that the `audience` is correct. If all these are correct, control is transfered to the user code with a `ClaimsPrincipal` object set for the app to use.
 
-###1. Install Auth0-WCF-Service-JWT NuGet package
+### 1. Install Auth0-WCF-Service-JWT NuGet package
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-MVC** package, running the command:
 
-    Install-Package Auth0-WCF-Service-JWT
+${snippet(meta.snippets.dependencies)}
 
 > This package creates the `ServiceAuthorizationManager` and will add a set of configuration settings.
 
-###2. Completing your app Web.Config with Auth0 settings
+### 2. Completing your app Web.Config with Auth0 settings
 
-The NuGet package will create three empty settings under the `<appSettings>` section. Replace them with the following values:
+${snippet(meta.snippets.setup)}
 
-    <appSettings>
-      <add key="jwt:SymmetricKey" value="@@account.clientSecret@@" />
-      <add key="jwt:AllowedAudience" value="@@account.clientId@@" />
-      <add key="jwt:AllowedIssuer" value="https://@@account.namespace@@/" />
-    </appSettings>
-
-Make sure to add the `<serviceAuthorization>` element as well:
-
-    <serviceAuthorization principalPermissionMode="Custom" serviceAuthorizationManagerType="....ValidateJsonWebToken, ..." />
-
-###3. Accessing user information
+### 3. Accessing user information
 
 Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `User` or `Thread.CurrentPrincipal` properties:
 
-    public class Service1 : IService1
-    {
-        public string DoWork()
-        {
-            var claims = ((ClaimsIdentity)Thread.CurrentPrincipal.Identity).Claims
-            string email = claims.SingleOrDefault(c => c.ClaimType == "email");
+${snippet(meta.snippets.use)}
 
-            return "Hello from WCF " + User.Identity.Name +  " (" + email + ")";
-        }
-    }
-
-###4. Attaching a token on the client
+### 4. Attaching a token on the client
 
 Install the NuGet package on the client side
 
@@ -82,8 +75,8 @@ Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF reque
     string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
 
     // create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
-    var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "@@account.namespace@@");
-    var result = auth0.GetDelegationToken(token, "@@account.clientClient@@");
+    var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "${account.namespace}");
+    var result = auth0.GetDelegationToken(token, "${account.clientClient}");
 
     // attach token to WCF request
     client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(result));

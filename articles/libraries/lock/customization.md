@@ -20,34 +20,34 @@ lock.showReset(options);
 #### Table of Contents
 
 **For display customization**:
-- [connections](#connections-array)
-- [dict](#dict-stringobject)
-- [container](#container-string)
-- [icon](#icon-string)
-- [closable](#closable-boolean)
-- [socialBigButtons](#socialbigbuttons-boolean)
-- [focusInput](#focusinput-boolean)
-- [usernameStyle](#usernamestyle-string)
-- [gravatar](#gravatar-boolean)
-- [disableSignupAction](#disablesignupaction-boolean)
-- [signupLink](#signuplink-string)
-- [disableResetAction](#disableresetaction-boolean)
-- [resetLink](#resetlink-string)
-- [popup](#popup-boolean)
-- [popupOptions](#popupoptions-object)
-- [loginAfterSignup](#loginaftersignup-boolean)
-- [rememberLastLogin](#rememberlastlogin-boolean)
-- [integratedWindowsLogin](#integratedwindowslogin-boolean)
-- [defaultUserPasswordConnection](#defaultuserpasswordconnection-string)
-- [defaultADUsernameFromEmailPrefix](#defaultadusernamefromemailprefix-boolean)
-- [theme](#theme-string)
+- [connections](#3)
+- [dict](#4)
+- [container](#5)
+- [icon](#6)
+- [closable](#7)
+- [socialBigButtons](#8)
+- [focusInput](#9)
+- [usernameStyle](#10)
+- [gravatar](#11)
+- [disableSignupAction](#12)
+- [signupLink](#13)
+- [disableResetAction](#14)
+- [resetLink](#15)
+- [popup](#16)
+- [popupOptions](#17)
+- [loginAfterSignup](#18)
+- [rememberLastLogin](#19)
+- [integratedWindowsLogin](#20)
+- [defaultUserPasswordConnection](#21)
+- [defaultADUsernameFromEmailPrefix](#22)
+- [theme](#23)
 
 **For authentication setup**:
-- [callbackURL](#callbackurl-string)
-- [responseType](#responsetype-string)
-- [forceJSONP](#forcejsonp-boolean)
-- [authParams](#authparams-object)
-- [sso](#sso-boolean)
+- [callbackURL](#24)
+- [responseType](#25)
+- [forceJSONP](#26)
+- [authParams](#27)
+- [sso](#28)
 
 ### connections {Array}
 Array of connections that will be used for the `signin|signup|reset` actions. Defaults to all enabled connections.
@@ -74,7 +74,8 @@ lock.show({
 
 ### dict {String|Object}
 
-`dict` can be a string matching the language (`'en'`, `'es'`, `'it'`, [etc.][/libraries/lock/i18n]) or an object containing your customized text labels. To learn how to customize error messages, you can [read more here](/libraries/lock/customizing-error-messages).
+The `dict` option can be either a string matching any [supported language][lock-i18n] (`'en'`, `'es'`, `'it'`, ...) or an object containing your customized text labels. By using the last approach you can modify [any text label][lock-i18n] or even [customize error messages][lock-custom-errors].
+
 
 ```js
 // select a supported language
@@ -480,3 +481,6 @@ Internally set from `callback` parameter
 [popupoptions-image]: https://cloudup.com/cqvq_Gz5VUZ+
 [gravatar-image]: https://cldup.com/yt3vJ2UQzq.png
 [defaultadusernamefromemailprefix-image]: https://cldup.com/IWdks93Oh5.png
+
+[lock-i18n]: /libraries/lock/i18n
+[lock-custom-errors]: /libraries/lock/customizing-error-messages

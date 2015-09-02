@@ -1,55 +1,46 @@
 ---
-lodash: true
 title: Cordova Tutorial
 name: Cordova
+alias:
+  - cordova
+language:
+  - Javascript
+framework:
+  - Cordova
 hybrid: true
-image: //auth0.com/lib/platforms-collection/img/phonegap.png
+image: /media/platforms/phonegap.png
 tags:
   - quickstart
+snippets:
+  dependencies: native-platforms/cordova/dependencies
+  setup: native-platforms/jquery/setup
+  use: native-platforms/jquery/use
+alias:
+  - apache-cordova
 ---
 
 ## Cordova Tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-cordova/master/create-package?path=examples/basic-sample&type=js&filePath=examples/basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-cordova/master/create-package?path=examples/basic-sample&type=js&filePath=examples/basic-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-cordova',
+  pkgBranch: 'master',
+  pkgPath: 'examples/basic-sample',
+  pkgFilePath: 'examples/basic-sample/www/js' + account.clientParam,
+  pkgType: null
+}) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+<pre><code>https://${account.namespace}/mobile</pre></code>
 
 <p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
 
-<pre><code>file://*</code></pre>
+<pre><code>file://\*</code></pre>
 
 </div>
 
@@ -57,9 +48,7 @@ tags:
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
-```bash
-cordova plugin add org.apache.cordova.inappbrowser
-```
+${snippet(meta.snippets.dependencies)}
 
 and then add the following configuration to the `config.xml` file:
 

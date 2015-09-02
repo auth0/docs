@@ -13,7 +13,7 @@ To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API
 
 
 ```
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @google-oauth-connection.json https://@@account.namespace@@/api/connections
+curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @google-oauth-connection.json https://${account.namespace}/api/connections
 ```
 
 ```
@@ -88,16 +88,16 @@ Notice that you can manipulate the profile returned from the provider to filter/
 
 >One advantage of using Rules is that they apply to __any__ connection.
 
-##Using your new connection
+## Using your new connection
 
 You can use any of the Auth0 standard mechanisms to login a user with the new connection (e.g. direct links, [Auth0 Lock](/lock), [auth0.js](/auth0js), etc.).
 
 A direct link would look like:
 
-    https://@@account.namespace@@/authorize/?client_id=@@account.clientId@@&response_type=code&redirect_uri=@@account.callback@@&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
+    https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
 
 
-##Other resources
+## Other resources
 
 * [Custom OAuth2/OAuth1 Connections samples](/oauth2-examples)
 * [Identity Providers in Auth0](/identityproviders)

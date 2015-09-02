@@ -1,9 +1,8 @@
 ---
 title: Freshdesk SAML Configuration
-template: saml/saml-apps/_template
 ---
 
-@@block:samlconfig@@
+${include('./\_header')}
 
 ```json
 {
@@ -24,12 +23,6 @@ template: saml/saml-apps/_template
 }
 ```
 
-@@endblock@@
-
-@@block:notes@@
-
 With the following callback:
 
 `https://{FD Domain}.freshdesk.com/login/saml`
-
-@@endblock@@

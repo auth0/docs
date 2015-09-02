@@ -1,62 +1,45 @@
 ---
-lodash: true
 title: Android Tutorial
 name: Android
+alias:
+  - Android
+language:
+  - Java
+  - C
 hybrid: false
-image: //auth0.com/lib/platforms-collection/img/android.png
+image: /media/platforms/android.png
 tags:
   - quickstart
+snippets:
+  dependencies: native-platforms/android/dependencies
+  setup: native-platforms/android/setup
+  use: native-platforms/android/use
 ---
 
 ## Android Tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=Android/basic-sample&type=replace&filePath=Android/basic-sample/app/src/main/res/values/auth0.xml@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=Android/basic-sample&type=replace&filePath=Android/basic-sample/app/src/main/res/values/auth0.xml@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'native-mobile-samples',
+  pkgBranch: 'master',
+  pkgPath: 'Android/basic-sample',
+  pkgFilePath: 'Android/basic-sample/app/src/main/res/values/auth0.xml' + account.clientParam,
+  pkgType: 'replace'
+}) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
-
-<pre><code>a0@@account.clientId@@://*.auth0.com/authorize</pre></code>
+  <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+  <pre><code>a0${account.clientId}://\*.auth0.com/authorize</code></pre>
 </div>
 
 ### 1. Adding Auth0 Lock to your project
 
 Add the following to the `build.gradle`:
 
-```gradle
-compile 'com.auth0.android:lock:1.5.+'
-compile 'com.auth0.android:lock-facebook:2.0.+'
-compile 'com.auth0.android:lock-googleplus:2.0.+'
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 
@@ -79,43 +62,24 @@ Then add the following entries to `AndroidManifest.xml` inside the `<application
     <action android:name="android.intent.action.VIEW"/>
     <category android:name="android.intent.category.DEFAULT"/>
     <category android:name="android.intent.category.BROWSABLE"/>
-    <data android:scheme="a0@@account.clientId@@" android:host="@@account.namespace@@"/>
+    <data android:scheme="a0${account.clientId}" android:host="${account.namespace}"/>
   </intent-filter>
 </activity>
-<meta-data android:name="com.auth0.lock.client-id" android:value="@@account.clientId@@"/>
-<meta-data android:name="com.auth0.lock.domain-url" android:value="@@account.namespace@@"/>
+<meta-data android:name="com.auth0.lock.client-id" android:value="${account.clientId}"/>
+<meta-data android:name="com.auth0.lock.domain-url" android:value="${account.namespace}"/>
 <!--Auth0 Lock End-->
 ```
 
 
-### 3. Initialise Lock
+### 3. Initialize Lock
 
 First make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add these lines of code:
 
-```java
-public class MyApplication extends Application implements LockProvider {
-
-  private Lock lock;
-
-  public void onCreate() {
-    super.onCreate();
-    lock = new Lock.Builder()
-      .loadFromApplication(this)
-      /** Other configuration goes here */
-      .closable(true)
-      .build();
-  }
-
-  @Override
-  public Lock getLock() {
-    return lock;
-  }
-}
-```
+${snippet(meta.snippets.setup)}
 
 ### 3. Register Native Authentication Handlers
 
-You can configure Lock to use other native Android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialised.
+You can configure Lock to use other native Android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialized.
 
 > If you don't want to use Facebook nor Google+ native authentication, please go directly to the [next step](#9)
 
@@ -149,7 +113,7 @@ lock = new Lock.Builder()
         .build();
 ```
 
-####Google+
+#### Google+
 
 To support Google+ native authentication you need to add the following permissions and meta-data to your `AndroidManifest.xml`:
 
@@ -174,10 +138,7 @@ Now we're ready to implement the Login.
 
 We can show the Login Dialog by starting the activity `LockActivity`.
 
-```java
-Intent lockIntent = new Intent(this, LockActivity.class);
-startActivity(lockIntent);
-```
+${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/android/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 

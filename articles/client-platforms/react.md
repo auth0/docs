@@ -1,86 +1,60 @@
 ---
-lodash: true
 title: React Tutorial
 name: React
-image: //auth0.com/lib/platforms-collection/img/react.png
+alias:
+  - react
+  - reactjs
+language:
+  - Javascript
+framework:
+  - React
+image: /media/platforms/react.png
 tags:
   - quickstart
+snippets:
+  dependencies: client-platforms/react/dependencies
+  setup: client-platforms/react/setup
+  use: client-platforms/react/use
 ---
 
 ## React Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-react/gh-pages/create-package?path=examples/redirect-lock-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-react',
+  pkgBranch: 'gh-pages',
+  pkgPath: 'examples/redirect-lock-with-api',
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
-**Otherwise, if you already have an existing application, please follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 
-@@includes.callback@@
+${include('./\_callback')}
 
-### 1. Adding the Auth0 scripts and setting the right viewport
+### 1. Add the Auth0 scripts and set the viewport
 
-```html
-<!-- Auth0Lock script -->
-<script src="@@widget_url_no_scheme@@"></script>
+Add the code below to the `index.html` file to include the Auth0 script and set the viewport:
 
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+${snippet(meta.snippets.dependencies)}
 
-We're including the Auth0 lock script to the `index.html`
+### 2. Configure Auth0Lock
 
-### 2. Create the Auth0Lock instance
+To have your app work with Auth0, configure Auth0Lock by creating an instance of the service in the `componentWillMount` lifecycle event of your component:
 
-Configuring the Auth0Lock will let your app work with Auth0. We recommend creating it in the `componentWillMount` lifecycle event of your Component.
+${snippet(meta.snippets.setup)}
 
-```js
-var App = React.createClass({
-  // ...
-  componentWillMount: function() {
-      this.lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-  },
-  // ...
-});
-```
+### 3. Implement the login
 
-### 3. Let's implement the login
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
 
-Now we're ready to implement the Login. Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
+${snippet(meta.snippets.use)}
 
-```jsx
-var Home = React.createClass({
-  // ...
-  showLock: function() {
-    // We receive lock from the parent component in this case
-    // If you instantiate it in this component, just do this.lock.show()
-    this.props.lock.show();
-  },
+To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
 
-  render: function() {
-    return (
-    <div className="login-box">
-      <a onClick={this.showLock}>Sign In</a>
-    </div>);
-  }
-});
-```
+After authentication, Auth0 will redirect the user back to your application with an identifying `idToken` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `idToken`. This `idToken` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-> If you want to check all the available arguments for the show method, check the [Auth0Lock](/lock) documentation.
-
-After authentication, Auth0 will redirect your user back to your application. You'll get the `token` as a `hash` parameter. You can use `lock` to parse the `hash` and get the `token`. This `token` will be used for two things:
-
--  Retrieve the profile from Auth0
--  Call your backend APIs
-
-In this example we are going to store the `token` in `localStorage`. We do this so that the user doesn't have to authenticate every time.
+In this example, the `token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
 ```js
 var App = React.createClass({
@@ -107,9 +81,9 @@ var App = React.createClass({
 });
 ```
 
-### 4. Get the user profile and show information about the user
+### 4. Retrieve the user profile and display user information
 
-Now that we have the `token` (either from `localStorage` or by parsing the `hash`), we can use it to grab the user profile and display some information.
+Use the `token` to retrieve the user profile and display the user's nickname:
 
 ```jsx
 var LoggedIn = React.createClass({
@@ -120,8 +94,8 @@ var LoggedIn = React.createClass({
   },
 
   componentDidMount: function() {
-    // In this case, we receive lock and the token from the parent component
-    // If you hav them locally, just use `this.lock` and `this.idToken`
+    // In this case, the lock and token are retrieved from the parent component
+    // If these are available locally, use `this.lock` and `this.idToken`
     this.props.lock.getProfile(this.props.idToken, function (err, profile) {
       if (err) {
         console.log("Error loading the Profile", err);
@@ -146,11 +120,11 @@ var LoggedIn = React.createClass({
 
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
 
-### 5. Performing secure calls to your API
+### 5. Perform secure calls to your API
 
-As we're going to call an API we're going to make <%= configuration.api ? ('on ' + configuration.api) : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request in the `Authorization` header.
+To perform secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return on each request the [JWT token](/jwt) received on the login in the `Authorization` header:
 
 ```js
 var getFoos = fetch('/api/foo', {
@@ -168,15 +142,15 @@ getFoos.then(function (response) {
 });
 ```
 
-### 6. Logging out
+### 6. Log out
 
-In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
+In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
 localStorage.removeItem('userToken');
 // Go to home with your React Router
 ```
 
-### 7. You're done!
+### 7. All done!
 
-You've implemented Login and Signup with Auth0 and React.
+You have completed the implementation of Login and Signup with Auth0 and React.

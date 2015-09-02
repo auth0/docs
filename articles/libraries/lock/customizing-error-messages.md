@@ -4,7 +4,7 @@ You can customize the error messages that will be displayed on certain situation
 
 ```js
 // Initialize the Auth0Lock instance
-var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
 // Customize your error messages in a dictionary
 var dict = {

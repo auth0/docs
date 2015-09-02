@@ -1,12 +1,16 @@
 ---
-title: AWS
+title: AWS Tutorial
 name: AWS
 thirdParty: true
-image: //auth0.com/lib/saas-collection/img/aws.png
-lodash: true
+alias:
+  - Amazon web services
+  - amazon webservices
+  - aws
+image: /media/addons/aws.svg
+tags:
+  - quickstart
 ---
-<% configuration.thirdParty = 'AWS' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional information
 

@@ -1,16 +1,20 @@
 ---
 title: Laravel Tutorial
 name: PHP (Laravel)
-image: //auth0.com/lib/platforms-collection/img/php.png
+image: /media/platforms/php.png
 tags:
   - quickstart
+snippets:
+  dependencies: server-platforms/laravel/dependencies
+  setup: server-platforms/laravel/setup
+  use: server-platforms/laravel/use
 ---
 
 # Laravel Tutorial
 
 This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-5-auth0-sample).
 
-##Laravel Compatibility
+## Laravel Compatibility
 
 The last version (2.x) targets Laravel 5 compatibility.
 
@@ -18,30 +22,12 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 
 ### 1. Install the plugin and its dependencies
 
-To install this plugin add the following dependency to your composer.json
-
-```js
-"auth0/login" : "~2.1"
-```
-
-and run `composer update`
-
-NOTE: Some plugin dependencies are not tagged, so you have to either change the `minimum-stability` to `dev` or you have to add the dependencies manually.
-
-```js
-"adoy/oauth2": "dev-master",
-"firebase/php-jwt" : "dev-master"
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Enable it in Laravel
 Add the following in the list of the services providers, located in `app/config/app.php`
 
-```php
-'providers' => array(
-    // ...
-    'Auth0\Login\LoginServiceProvider',
-);
-```
+${snippet(meta.snippets.setup)}
 
 Optionally, if you want to use the [facade](http://laravel.com/docs/facades) called `Auth0` you should also add an alias in the same file
 
@@ -97,7 +83,7 @@ To publish the example configuration file use this command
 
 The plugin works with the [Laravel security system](http://laravel.com/docs/security), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
-In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](@@uiURL@@/#/applications/) and also, add it as a route in Laravel
+In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications/) and also, add it as a route in Laravel
 
 ```php
 Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
@@ -107,26 +93,7 @@ Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
 
 You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
-```html
-
-<script src="https://cdn.auth0.com/js/lock-7.min.js"></script>
-<script type="text/javascript">
-
-    var lock = new Auth0Lock('{{ $auth0Config['client_id'] }}', '{{ $auth0Config['domain'] }}');
-
-    function signin() {
-        lock.show({
-            callbackURL: '{{ $auth0Config['redirect_uri'] }}'
-            , responseType: 'code'
-            , authParams: {
-                scope: 'openid profile'
-            });
-    }
-</script>
-
-<button onclick="signin()">Login</button>
-
-```
+${snippet(meta.snippets.use)}
 
 ### 6. Defining a user and a user provider
 

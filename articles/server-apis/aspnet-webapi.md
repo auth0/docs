@@ -1,32 +1,43 @@
 ---
 title: ASP.NET Web API Tutorial
 name: ASP.NET Web API
+alias:
+  - webapi
+  - asp.net webapi
+  - aspnet webapi
+language:
+  - Visual Basic .Net
+  - C#
+framework:
+  - WebAPI
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 lodash: true
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/aspnet-webapi/dependencies
+  setup: server-apis/aspnet-webapi/setup
+  use: server-apis/aspnet-webapi/use
 ---
 
 ## ASP.NET Web API Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0.net/master/create-package?path=examples/webapi&filePath=examples/webapi/Api/Web.config&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-        <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0.net',
+  pkgBranch: 'master',
+  pkgPath: 'examples/webapi',
+  pkgFilePath: 'examples/webapi/Api/Web.config',
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
 
-### 1. Install the WebApi.JsonWebToken package
+### 1. Install the WebApi.JsonWebToken &amp; Auth0-ASPNET packages
 
-You can either run the following command or install it via **Package Manager**.
-```Powershell
-Install-Package WebApi.JsonWebToken
-```
+You can either run the following commands or install them via **Package Manager**.
+
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure the JsonWebToken message handler
 
@@ -37,25 +48,15 @@ using System.Web.Configuration;
 ```
 
 Add the following code snippet inside the `Register` method.
-```cs
-var clientID = WebConfigurationManager.AppSettings["Auth0ClientID"];
-var clientSecret = WebConfigurationManager.AppSettings["Auth0ClientSecret"];
 
-config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
-{
-    Audience = clientID,
-    SymmetricKey = clientSecret
-});
-```
+${snippet(meta.snippets.use)}
 
 ### 3. Update the web.config file with your app's credentials
 Open the **web.config** file located at the solution's root.
 
 Add the following entries as children of the `<appSettings>` element.
-```xml
-<add key="Auth0ClientID" value="<%= account.clientId %>"/>
-<add key="Auth0ClientSecret" value="<%= account.clientSecret %>"/>
-```
+
+${snippet(meta.snippets.setup)}
 
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
@@ -68,4 +69,8 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 ### Optional Steps
 #### Configuring CORS
 
-You can follow [this article](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) to configure CORS in your application.
+One of the requirements is package Microsoft.AspNet.WebApi.Cors. You can use the following command from VS2013 Package Manager Console:
+
+`Install-Package Microsoft.AspNet.WebApi.Cors`
+
+For more details, you can follow [this article](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) to configure CORS in your application.

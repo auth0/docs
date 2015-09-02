@@ -2,7 +2,9 @@
 
 ## Standard JWT
 
-When using the `scope=openid`, Auth0 will generate both an `access_token` and a `JsonWebToken` (JWT). The former is just an opaque value that can be sent in subsequent API calls to Auth0. The JWT on the other hand, is a richer data structure with two characteristics:
+Application programs or Web APIs can invoke Auth0's authentication sequences in a few different ways, such as via the Lock widget or calling a library for the language in which their program is written. Each of these mechanisms allows the calling program to specify a `scope` parameter which can be used to request the return of an `access_token` and, optionally, an id_token.
+
+When using the `scope=openid`, Auth0 will generate both an `access_token` and an `id_token`.   The `access_token` is just an opaque value that can be sent in subsequent API calls to Auth0. The `id_token` is a JSON Web Token, (abbreviated JWT), and is a rich data structure with two characteristics:
 
 1. It contains properties about the logged in user, your Auth0 account and the app.
 2. It is digitally signed to prevent tampering.
@@ -11,21 +13,21 @@ When using the `scope=openid`, Auth0 will generate both an `access_token` and a 
 
 A JWT consists of 3 segments:
 
-###1. Header
+### 1. Header
 ```javascript
 {
 	typ: 'JWT',
 	alg: 'HS256'
 }
 ```
-###2. Body
+### 2. Body
 The minimum information will be:
 
 ```javascript
 {
- 	iss: "https://@@account.namespace@@",
+ 	iss: "https://${account.namespace}",
     sub: "{connection}|{user_id}",
-    aud: "@@account.clientId@@",
+    aud: "${account.clientId}",
     exp: 1372674336,
     iat: 1372638336
 }
@@ -41,7 +43,7 @@ If the `scope` in the authorization request is set to `scope=openid profile`, th
 
 > __Beware!__ If you are using the `implicit flow`, as you would if you are issuing the authorization request from a device, the JWT is returned in the URL, not in the response body. Some browsers have restrictions on URL lengths and can give you unexpected results.
 
-###3. Signature
+### 3. Signature
 The signature is computed as:
 
 ```javascript
@@ -58,7 +60,7 @@ Where:
 
 ---
 
-##When using Microsoft Azure Mobile Services
+## When using Microsoft Azure Mobile Services
 Microsoft Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAMS compatible JWT have an additional property in the body:
 
 	uid: "{connection}|{user_id}"

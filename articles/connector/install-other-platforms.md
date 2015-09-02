@@ -20,6 +20,6 @@
         .text('adldap-' + data.version);
 
     $('.curl-example')
-      .text('curl -Lo /tmp/adldap.tar.gz \\\n    https://github.com/auth0/ad-ldap-connector/archive/' + data.version + '.tar.gz');
+      .text('curl -Lo /tmp/adldap.tar.gz \\\n    https://github.com/auth0/ad-ldap-connector/archive/v' + data.version + '.tar.gz');
   })
 </script>

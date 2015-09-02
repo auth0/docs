@@ -2,9 +2,19 @@
 title: Windows Store App in C# Tutorial
 name: Windows Store (C#)
 hybrid: false
-image: //auth0.com/lib/platforms-collection/img/windows-8.png
+alias:
+  - windows app
+  - windows
+language: 
+  - Javascript
+  - C#
+image: /media/platforms/windows-8.png
 tags:
-  - quickstart
+  - quickstart  
+snippets:
+  dependencies: native-platforms/windows-store-csharp/dependencies
+  setup: native-platforms/windows-store-csharp/setup
+  use: native-platforms/windows-store-csharp/use
 ---
 
 # Windows Store App in C# Tutorial
@@ -17,14 +27,14 @@ This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.W
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Cs package, running the command:
 
-<pre><code>Install-Package Auth0.Windows8.Cs</pre></code>
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@" target="_new">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+<pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
 
 ### 3. Integration
@@ -39,22 +49,9 @@ There are three options to do the integration:
 To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
-```cs
-using Auth0.SDK;
+${snippet(meta.snippets.setup)}
 
-var auth0 = new Auth0Client(
-	"@@account.namespace@@",
-	"@@account.clientId@@");
-
-var user = await auth0.LoginAsync();
-/*
-    Use this object to do wonderful things, e.g.:
-      - get user email => user.Profile["email"].ToString()
-      - get facebook/google/twitter/etc access token => user.Profile["identities"][0]["access_token"]
-      - get Windows Azure AD groups => user.Profile["groups"]
-      - etc.
-*/
-```
+${snippet(meta.snippets.use)}
 
 ![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
 
@@ -63,7 +60,7 @@ var user = await auth0.LoginAsync();
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
 ```cs
-var user = await auth0.LoginAsync("auth0waadtests.onmicrosoft.com")' // connection name here
+var user = await auth0.LoginAsync("auth0waadtests.onmicrosoft.com") // connection name here
 ```
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.

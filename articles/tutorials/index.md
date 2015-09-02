@@ -8,7 +8,7 @@ lodash: true
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('tutorials').items, 'title'), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.title %></a>
+    <a href="<%- env.BASE_URL + article.url %>"><%- article.title %></a>
     <p><%- article.description %></p>
   </li>
 <% }); %>
@@ -19,10 +19,12 @@ lodash: true
 # Quickstarts
 
 <ul>
-<% _.forEach(_.sortBy(tags.quickstart, 'title'), function(article) { %>
+<% _.forEach(_.sortBy(tags.quickstart, function(a) { return a.title.toUpperCase(); }), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.title %></a>
-    <p><%- article.description %></p>
+    <% if (article.title) { %>
+      <a href="<%- env.BASE_URL + article.url %>"><%- article.title %></a>
+      <p><%- article.description %></p>
+    <% } else { throw 'ERROR: No title for ' + article.url; } %>
   </li>
 <% }); %>
 </ul>

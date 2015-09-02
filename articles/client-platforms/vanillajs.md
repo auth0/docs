@@ -1,41 +1,47 @@
 ---
-lodash: true
 title: Generic SPA / Vanilla JS Tutorial
 name: Vanilla JS
-image: //auth0.com/lib/platforms-collection/img/html5.png
+alias:
+  - vanilla
+  - vanillajs
+language: 
+  - Javascript
+image: /media/platforms/html5.png
 tags:
   - quickstart
+snippets:
+  dependencies: client-platforms/vanillajs/dependencies
+  setup: client-platforms/vanillajs/setup
+  use: client-platforms/vanillajs/use
+alias:
+  - spa
+  - single-page-app
+  - html5
+  - backendless
+  - javascript-app
 ---
 
 ## Generic SPA / Vanilla JS Tutorial
 
-Please follow the steps below to configure your JS app to use Auth0.
+Follow the steps below to configure your JS app to use Auth0.
 
-@@includes.callback@@
+${include('./\_callback')}
 
-### 1. Adding the Auth0 scripts and setting the right viewport
+### 1. Add the Auth0 scripts and set the viewport
 
-```html
-<!-- Auth0Lock script -->
-<script src="@@widget_url_no_scheme@@"></script>
+Add the code below to the `index.html` file to include the Auth0 `lock` script and set the viewport:
 
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+${snippet(meta.snippets.dependencies)}
 
-We're including the Auth0 lock script to the `index.html`
+### 2. Configure Auth0Lock
 
-### 2. Create the Auth0Lock instance
+To have your app work with Auth0, configure Auth0Lock by creating an instance of the service:
 
-Configuring the Auth0Lock will let your app work with Auth0
+${snippet(meta.snippets.setup)}
 
-```js
-var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
-```
+### 3. Implement the login
 
-### 3. Let's implement the login
-
-Now we're ready to implement the Login.
+Create a login button:
 
 ```html
 <!-- ... -->
@@ -43,24 +49,15 @@ Now we're ready to implement the Login.
 <!-- ... -->
 ```
 
-Once the user clicks on the login button, we'll call the `.show()` method of Auth0's `lock` we've just created.
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks on the login button.
 
-```js
-var userProfile = null;
+${snippet(meta.snippets.use)}
 
-document.getElementById('btn-login').addEventListener('click', function() {
-  lock.show({ authParams: { scope: 'openid' } });
-});
-```
+To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
 
-If you want to check all the available arguments for the show method, check the [Auth0Lock](/lock) documentation.
+After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-After authentication, the page will be reloaded and you will get the token in a window.location.hash. This token can be parsed with Lock and it will be used for two things:
-
--  retrieve the profile from auth0
--  call your backend APIs
-
-In this example we are going to store the `id_token` in local storage. We do this so users don't have to authenticate every time they open the application.
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
 ```js
 var hash = lock.parseHash(window.location.hash);
@@ -75,7 +72,9 @@ if (hash && hash.error) {
 }
 ```
 
-### 4. Get the user profile and display the user's information
+### 4. Retrieve the user profile and display user information
+
+Use the `id_token` to retrieve the user profile and display the user's name:
 
 ```js
   //retrieve the profile:
@@ -94,9 +93,11 @@ if (id_token) {
 <p>Name: <span id="name"></span></p>
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
 
-### 5. Use the id_token to call your api
+### 5. Use the token to call your api
+
+To perform secure calls to your API, include the `id_token` in the `Authorization` header:
 
 ```js
 var getFoos = fetch('/api/foo', {
@@ -114,17 +115,17 @@ getFoos.then(function (response) {
 });
 ```
 
-Note: [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a quite new and experimental browser api not yet supported by all browsers. Fortunately there is a polyfill [here](https://github.com/github/fetch).
+__Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, Auth0 has created a [polyfill](https://github.com/github/fetch).
 
-### 6. Logging out
+### 6. Log out
 
-In our case, logout means just deleting the saved token from localStorage and redirecting the user to the home page.
+In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
 localStorage.removeItem('id_token');
 window.location.href = "/";
 ```
 
-### 7. You're done!
+### 7. All done!
 
-You've implemented Login and Signup with Auth0 and VanillaJS.
+You have completed the implementation of Login and Signup with Auth0 and VanillaJS.

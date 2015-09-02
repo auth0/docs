@@ -1,32 +1,34 @@
 ---
 title: Authenticating Users on a MySQL with username and password
 connection: MySQL
-image: /media/connections/mysql.png
+image: /media/connections/mysql.svg
 ---
 
-# Authenticating Users on a database with username and password
+# Authenticate Database Users with Username and Password
 
-Often times, applications rely on user databases for authentication. ASP.NET Membership is an example of a commonly used one.
+Applications often rely on user databases for authentication. Auth0 allows you to easily connect to these repositories and reuse them as identity providers, while preserving user credentials, and adding the many features Auth0 provides.
 
-Auth0 allows you to easily connect with these repositories, reuse them as identity providers, preserving their existing credentials, but also adding all the other awesome features Auth0 has.
+In this tutorial, you will be guided through a series of steps to connect your user database to Auth0.
 
-In this tutorial we will guide you through a series of steps to plug your users database to Auth0.
+## Create a database connection
 
-## Create the database connection
-
-Log in into Auth0, select the __Connections__ menu option, and then __Database__. Create a new name for the database connection. You can choose any name. It is not important at this time.
+Log into Auth0, and select the **Connections > Database** menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created previously.
 
 ![](/media/articles/connections/database/mysql/db-connection-create.png)
 
 ## Customize the database connection
 
-Auth0 ships with multiple templates to connect with common and widely used database systems: __MySQL__, __SQL Server__, __SQL Azure__, __MongoDb__, __Couchbase__, __Postgres__, among others.
+Auth0 ships with multiple templates to connect to commonly used database systems like **MySQL**, **SQL Server**, **SQL Azure,** **MongoDb**, **Couchbase**, **Postgres**, **ASP.NET Membership**, and others.
 
-In this tutorial, we will use __MySQL__. Select __MySQL__ from one of the templates available:
+In this tutorial, you will be using **MySQL**. 
+
+Click **Custom Database** and enable *Use my own database*.
+
+In the **Templates** drop-down, select **MySQL**.
 
 ![](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
-The following code will be generated for you in the editor below:
+The following code is generated for you in the connection editor:
 
     function login (email, password, callback) {
       var connection = mysql({
@@ -60,17 +62,15 @@ The following code will be generated for you in the editor below:
 
     }
 
-As you can see, this script connects to a __MySQL__ database and executes a query to retrieve the first user with `email == user.email`. It then validates that the passwords match (with the `bcrypt.compareSync` method), and if successful, it will finally return an object with some user profile information: `id`, `nickname`, `email`.
-
-This script assumes you have a `users` table with all these columns. You can of course tweak this script in order to adjust it to your own requirements.
+This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
 ## Configuration
 
-At the bottom of the editor you will find a way of storing parameters securely. This is convenient for storing the credentials used to connect to the database:
+In the **Settings** section at the bottom of the page, you can securely store the credentials needed to connect to your database.
 
 ![](/media/articles/connections/database/mysql/db-connection-configurate.png)
 
-In the script you would refer to these parameters as: ```configuration.PARAMETER_NAME```. For example, you could write:
+In the connection script, refer to these parameters as: `configuration.PARAMETER_NAME`. For example, you could enter:
 
 	function login (username, password, callback) {
 	  var connection = mysql({
@@ -80,23 +80,23 @@ In the script you would refer to these parameters as: ```configuration.PARAMETER
 	    database : 'mydb'
 	  });
 
-## Debugging and troubleshooting
+## Debug and troubleshoot
 
-You can test the script using the ```try``` button. If the result is okay you will see the resulting profile:
+Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 
 ![](/media/articles/connections/database/mysql/db-connection-try-ok.png)
 
 ## Auth0 Login Widget
 
-After you have enabled the database connection, Auth0's widget will automatically change the appearance to allow users to enter `username` and `password`. These will be inputs to your script.
+After you have enabled the database connection, Auth0's widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed into your script.
 
 ![](/media/articles/connections/database/mysql/db-connection-widget.png)
 
 ## How it works
 
-The script runs in a JavaScript sandbox where you can use the full power of the language and selected libraries. The current API supports:
+The script runs in a JavaScript sandbox where you can use the full power of the JavaScript language and selected libraries. The current API supports:
 
-###Utilities
+### Utilities
 * [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) _(~0.7.5)_
 * [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
 * [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
@@ -108,7 +108,7 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_
 * [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
 
-###Databases
+### Databases
 * [cassandra](https://www.npmjs.org/package/node-cassandra-cql) _(^0.4.4)_
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
 * [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
@@ -124,20 +124,20 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 
-###Errors
+### Errors
 
-To return an error simple call the callback with an error as the first parameter:
+To return an error, call the callback with an error as the first parameter:
 
 	callback(error);
 
-There are three different types of errors you can return from a DB Connection:
+There are three different errors you can return from a DB Connection:
 
-- `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: Use this error when you know who is the user and you want to keep track of the wrong password.
-- `new ValidationError(<error code>, <message>)`: Generic error with an error code.
+- `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: For when you know who the user is and you want to keep track of a wrong password.
+- `new ValidationError(<error code>, <message>)`: A generic error with an error code.
 - `new Error(<message>)`: Simple errors (no error code).
 
 Example:
 
 	callback(new ValidationError('email-too-long', 'Email is too long.'));
 
-> Do you need support for other libraries? Contact us: [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection)
+**Note:** Do you require support for other libraries? Contact us at [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection).

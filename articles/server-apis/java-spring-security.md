@@ -1,19 +1,32 @@
 ---
+title: Spring Security Java API Tutorial
 name: Spring Security Java API
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/java.png
-lodash: true
+alias:
+  - spring security
+  - spring
+languages:
+  - Java
+framework:
+  - Spring
+image: /media/platforms/java.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/java-spring-security/dependencies
+  setup: server-apis/java-spring-security/setup
+  use: server-apis/java-spring-security/use
 ---
 
 ## Java API Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/spring-security-auth0/master/create-package?path=examples/api-example&filePath=examples/api-example/src/main/resources/auth0.properties&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-    </a> 
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'spring-security-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/api-example',
+  pkgFilePath: 'examples/api-example/src/main/resources/auth0.properties',
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.**
 
@@ -23,13 +36,7 @@ You need to add the `spring-security-auth0` dependency.
 
 For that, you can just add it to your `pom.xml` if you're using maven.
 
-```xml
-<dependency>
-  <groupId>com.auth0</groupId>
-  <artifactId>spring-security-auth0</artifactId>
-  <version>0.2</version>
-</dependency>
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Spring to use Auth0
 
@@ -50,29 +57,13 @@ For that, just add the following to the `application-context.xml`
 
 and create the `auth0.properties` file with the following information:
 
-```properties
-auth0.clientSecret=@@account.clientSecret@@
-auth0.clientId=@@account.clientId@@
-auth0.domain=@@account.namespace@@
-# This is the path to secure. 
-auth0.securedRoute=/secured/**
-```
+${snippet(meta.snippets.setup)}
 
 ### 3. Create the controllers
 
 Now, you can create the controllers. Every controller that has a route inside `/secured/` in this case will ask for the JWT
 
-```java
-@Controller
-public class SecuredPingController {
-
- @RequestMapping(value = "/secured/ping")
-  @ResponseBody
-  public String securedPing() {
-    return "All good. You only get this message if you're authenticated";
-  }
-}
-```
+${snippet(meta.snippets.use)}
 
 ### 4. You're done!
 
