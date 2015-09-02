@@ -3,7 +3,7 @@
 While Auth0's Active Directory/LDAP integration is powerful and relatively easy to set up, it does require you have access to an existing directory service and sufficient privileges to [install and configure the Connector](/connector/install) - which is something that is usually done by a network administrator.  But what if you'd just like to try out the Connector or maybe set up a separate dev or test environment?  The following steps will guide you in creating a minimal Active Directory Domain Controller installation on your own cloud-deployed virtual machine for just that purpose.
 
 In these instructions you will:
-* [Create a new Windows Server VM on Azure](#1)
+* [Create a new Windows Server VM on Azure](/libraries/lock/customization#rememberlastlogin-boolean-)
 * [Install Active Directory Domain Services](#2)
 * [Promote the server to a Domain Controller](#3)
 * [Add a few test groups and users](#4)

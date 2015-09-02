@@ -51,7 +51,7 @@ Upon successful authentication, the user will eventually return to your web site
 
     http://CALLBACK/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
 
-`CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1.
+`CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step /libraries/lock/customization#rememberlastlogin-boolean-.
 
 Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's API.
 

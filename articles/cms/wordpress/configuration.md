@@ -14,7 +14,7 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 2. On the *Auth0 Settings* page, click *create an application*.
 3. In the new browser window select *+ New App / API*.
 4. On the *Apps / APIs* page, name the new app and click *Save*.
-5. On the new app's *Quick Settings* page, click *Settings*. 
+5. On the new app's *Quick Settings* page, click *Settings*.
 6. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Settings* page of the WordPress dashboard.
 7. Click *Save Changes* at the bottom of the page.
 
@@ -40,9 +40,9 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 ### Advanced
 
 - **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0.
-- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#4).
+- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
 - **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
-- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#19).
+- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization/libraries/lock/customization#rememberlastlogin-boolean-9).
 - **Login redirection URL:** If set, forces redirection to the specified URL after the user logs in.
 - **Requires verified email:** If set, requires the user to have a verified email to login.
 - **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
@@ -79,10 +79,9 @@ The plugin provides the `auth0_user_login` action to get notified each time a us
 
 To hook to this action, include the following code:
 ```
-    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 ); 
+    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
 
     function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
         ...
     }
 ```
-
