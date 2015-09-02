@@ -205,7 +205,7 @@ If the JWT has been tampered with or has expired, this endpoint will return a 40
 
 These protocols are implemented mostly when interacting with well-known [identity providers](identityproviders). Most of the __social identity providers__ implement one or the other. The default protocol in Auth0 is OpenID Connect (see above).
 
-`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the `connection_scopes` parameter. (See [this topic](/login-widget2#8) for more details)
+`scopes` for each identity provider can be configured on the Auth0 dashboard, but these can also be sent on-demand on each authentication request through the `connection_scopes` parameter. (See [this topic](/lock/sending-authentication-parameters#connection_scopes-object-) for more details)
 
 ## WS-Federation
 

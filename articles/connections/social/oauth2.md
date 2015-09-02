@@ -7,7 +7,7 @@ image: /media/connections/oauth2.png
 
 The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any __OAuth2 Authorization Server__ to Auth0 as an identity provider.
 
-> Auth0 implements the standard __[Authorization Code Grant flow](/protocols/libraries/lock/customization#rememberlastlogin-boolean-)__.
+> Auth0 implements the standard __[Authorization Code Grant flow](/protocols#oauth-server-side)__.
 
 To create an arbitrary __OAuth2__ connection, you use __[Auth0's Connections API](/api/v1#!#post--api-connections)__. The example below, creates a new __Google__ custom connection:
 

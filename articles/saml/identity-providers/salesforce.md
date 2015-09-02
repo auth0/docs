@@ -1,6 +1,3 @@
----
-layout: doc-nosidebar
----
 # SAML SSO with SalesForce as an Identity Provider
 This describes how to configure Auth0 to use __SalesForce__ as an Identity Provider.
 
@@ -154,7 +151,7 @@ In this step, you will test to make sure the SAML configuration between Auth0 an
 
 * In the Auth0 dashboard, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
 
-* Click on the triangular **"Try"** button for the SAML connection you created earlier.    You should be redirected from Auth0 to the SalesForce login page.  
+* Click on the triangular **"Try"** button for the SAML connection you created earlier.    You should be redirected from Auth0 to the SalesForce login page.
 
 * Once you are at the **SalesForce login screen**, login with the credentials you provided when you created the SalesForce account.
 

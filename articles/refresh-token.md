@@ -62,7 +62,7 @@ GET https://YOUR_CALLBACK_URL#
 
 The refresh token is returned as part of the URL, in the form of an opaque string.
 
-> In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#5) was used (`response_type=token`).
+> In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) was used (`response_type=token`).
 
 ## Using a refresh token
 

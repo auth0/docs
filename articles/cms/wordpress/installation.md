@@ -2,8 +2,8 @@
 
 There are two ways to install the Auth0 Single Sign On plugin.
 
-- [WordPress plugin repository](/libraries/lock/customization#rememberlastlogin-boolean-)
-- [Upload the plugin zip file](#2)
+- [WordPress plugin repository](#the-wordpress-plugin-repository)
+- [Upload the plugin zip file](#upload-the-plugin-zip-file-manually)
 
 ## The WordPress plugin repository
 

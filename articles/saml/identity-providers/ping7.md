@@ -1,6 +1,5 @@
 ---
 title: PingFederate
-layout: doc-nosidebar
 ---
 # Configuring PingFederate 7 as an Identity Provider
 
@@ -16,7 +15,7 @@ Most options are the default values. You will just need to press __Next__ in mos
 
 ### 1. Download Auth0 Metadata File
 
-Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=${connectionName}). This will be used in [step 3](ping7#3) and it is used to automatically import information about your partner.
+Download the metadata file from [here](https://${account.namespace}/samlp/metadata?connection=${connectionName}). This will be used in [step 3](#3-configure-the-__sp-connection__) and it is used to automatically import information about your partner.
 
 ### 2. Create a new __SP Connection__
 
