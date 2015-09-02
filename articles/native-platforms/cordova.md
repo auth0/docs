@@ -26,7 +26,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/basic-sample',
   pkgFilePath: 'examples/basic-sample/www/js' + account.clientParam,
-  pkgType: null
+  pkgType: 'js'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
