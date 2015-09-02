@@ -56,7 +56,7 @@ Content-Type: 'application/json'
 ```
 
 APIv2 tokens can be generated [at the APIv2 explorer](https://auth0.com/docs/api/v2).
-The token must have include the `create:users` scope.
+The token must include the `create:users` scope.
 
 Auth0 will send the SMS message configured on the dashboard to the specified phone number, with a one-time password that expires in 10 minutes.
 
