@@ -1,19 +1,22 @@
 ---
 url: /identityproviders
-lodash: true
 ---
 
 # Identity Providers supported by Auth0
 
-Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: OAuth2, WS-Federation, etc.
+Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: **OAuth2**, **WS-Federation**, etc.
 
-Out of the box, Auth0 supports the following:
+Auth0 supports the following identity providers:
 
 ## Enterprise
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.connection %></a>
+    <% if (article.sitemap === false) { %>
+      <%- article.connection %>
+    <% } else { %>
+      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+    <% } %>
   </li>
 <% }); %>
 </ul>
@@ -25,7 +28,11 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.connection %></a>
+    <% if (article.sitemap === false) { %>
+      <%- article.connection %>
+    <% } else { %>
+      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+    <% } %>
   </li>
 <% }); %>
 </ul>
@@ -35,7 +42,11 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/database').items, 'connection'), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.connection %></a>
+    <% if (article.sitemap === false) { %>
+      <%- article.connection %>
+    <% } else { %>
+      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+    <% } %>
   </li>
 <% }); %>
 </ul>
@@ -45,7 +56,11 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/passwordless').items, 'connection'), function(article) { %>
   <li>
-    <a href="<%- article.url %>"><%- article.connection %></a>
+    <% if (article.sitemap === false) { %>
+      <%- article.connection %>
+    <% } else { %>
+      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+    <% } %>
   </li>
 <% }); %>
 </ul>
@@ -53,10 +68,10 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 ## Additional Information
 
-Auth0 sits in between your app and the system that authenticates your users (any of the above.) Through this level of abstraction, Auth0 keeps your app isolated from changes in each provider's implementation and idiosyncracies. An additional benefit is the [normalized user profile](/user-profile) that simpifies user management.
+Auth0 sits between your app and the identity provider that authenticates your users. Through this level of abstraction, Auth0 keeps your app isolated from any changes to and idiosyncrasies of each provider's implementation. In addition, Auth0's [normalized user profile](/user-profile) simpifies user management.
 
-> The relationship between Auth0 and each of these authentication providers is called a 'connection'
+**Note:** The relationship between Auth0 and any of these authentication providers is called a 'connection'
 
-Auth0 is a multi-tenant service. When you register in Auth0 you get your own namespace (@@account.namespace@@). Many of these identity providers require registration and you will need to configure a `return url`. This will always be:
+Auth0 is a multi-tenant service. When you register with Auth0, you get your own namespace (${account.namespace}). Many of these identity providers require registration and you will need to provide a `return url`. This will always be:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback

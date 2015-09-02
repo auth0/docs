@@ -6,10 +6,10 @@ The steps are quite simple though:
 
 1. Redirect the user to:
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/authorize/?
+  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/authorize/?
         response_type=token
-        &client_id=@@account.clientId@@
-        &redirect_uri=@@account.callback@@
+        &client_id=${account.clientId}
+        &redirect_uri=${account.callback}
         &state=VALUE_THAT_SURVIVES_REDIRECTS
         &nonce=RANDOM_VALUE
         &scope=openid</code></pre>
@@ -19,7 +19,7 @@ The steps are quite simple though:
 
 2. After the user authenticates, your app will be called to this endpoint with a `GET`
 
-  <pre style="word-wrap:break-word"><code>GET @@account.callback@@#
+  <pre style="word-wrap:break-word"><code>GET ${account.callback}#
         access_token=2YotnF..........1zCsicMWpAA
         &id_token=......Json Web Token......
         &token_type=bearer
@@ -34,7 +34,7 @@ The steps are quite simple though:
 
 3. Finally, you can get the user profile by calling
 
-  <pre style="word-wrap:break-word"><code>GET https://@@account.namespace@@/userinfo?access_token=2YotnF..........1zCsicMWpAA</code></pre>
+  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/userinfo?access_token=2YotnF..........1zCsicMWpAA</code></pre>
 
 6. The `userinfo` endpoint will return something like this
 

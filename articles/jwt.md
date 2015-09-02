@@ -13,21 +13,21 @@ When using the `scope=openid`, Auth0 will generate both an `access_token` and an
 
 A JWT consists of 3 segments:
 
-###1. Header
+### 1. Header
 ```javascript
 {
 	typ: 'JWT',
 	alg: 'HS256'
 }
 ```
-###2. Body
+### 2. Body
 The minimum information will be:
 
 ```javascript
 {
- 	iss: "https://@@account.namespace@@",
+ 	iss: "https://${account.namespace}",
     sub: "{connection}|{user_id}",
-    aud: "@@account.clientId@@",
+    aud: "${account.clientId}",
     exp: 1372674336,
     iat: 1372638336
 }
@@ -43,7 +43,7 @@ If the `scope` in the authorization request is set to `scope=openid profile`, th
 
 > __Beware!__ If you are using the `implicit flow`, as you would if you are issuing the authorization request from a device, the JWT is returned in the URL, not in the response body. Some browsers have restrictions on URL lengths and can give you unexpected results.
 
-###3. Signature
+### 3. Signature
 The signature is computed as:
 
 ```javascript
@@ -60,7 +60,7 @@ Where:
 
 ---
 
-##When using Microsoft Azure Mobile Services
+## When using Microsoft Azure Mobile Services
 Microsoft Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAMS compatible JWT have an additional property in the body:
 
 	uid: "{connection}|{user_id}"

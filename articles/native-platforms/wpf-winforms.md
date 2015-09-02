@@ -2,17 +2,13 @@
 title: WPF and Winforms Tutorial
 name: WPF / Winforms
 hybrid: false
-alias:
-  - wpf
-  - windows forms
-  - win forms
-language: 
+language:
   - Javascript
   - C#
 framework:
   - WPF
   - WinForms
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 tags:
   - quickstart
 snippets:
@@ -36,14 +32,14 @@ This tutorial explains how to integrate Auth0 with a WPF or Winforms application
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.WinformsOrWPF package, running the command:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+<pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
 
 ### 3. Integration
@@ -58,9 +54,9 @@ There are three options to do the integration:
 To start with, we'd recommend using __Lock__. Here is a snippet of code to copy & paste on your project.
 Since we are using `await` (.NET 4.5 or greater), your method needs to be `async`:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 

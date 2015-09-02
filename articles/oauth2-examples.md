@@ -5,7 +5,7 @@ The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to sup
 Here are a few examples of OAuth2/OAuth1 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
 
 ```
-curl -vX POST https://@@account.namespace@@/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
+curl -vX POST https://${account.namespace}/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
 ```
 
 After the call completes successfully, you will be able to login using these new providers.
@@ -13,7 +13,7 @@ After the call completes successfully, you will be able to login using these new
 ## Dropbox
 
 * [Create an application](https://www.dropbox.com/developers/apps/create)
-* Set `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `App Key` and `App Secret`:
 
 ```
@@ -33,10 +33,10 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
-##Uber
+## Uber
 
 * [Create an application](https://developer.uber.com/apps/new)
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Client ID` and `Secret` to config file below
 
 ```
@@ -55,7 +55,7 @@ After the call completes successfully, you will be able to login using these new
   }
 }
 ```
-##DigitalOcean
+## DigitalOcean
 
 * [Create an application](https://cloud.digitalocean.com/settings/applications/new)
 * Copy `Client Id` and `Client Secret` to config file below
@@ -77,7 +77,7 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
-##Imgur
+## Imgur
 
 * [Create an application](https://api.imgur.com/oauth2/addclient)
 * Copy `Client ID` and `Client Secret` to config file below
@@ -99,7 +99,7 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
-##Xing
+## Xing
 
 * [Create an application](https://developer.xing.com/applications/dashboard)
 * Copy `Consumer Key` and `Consumer Secret` to config file below
@@ -121,7 +121,7 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
-##Twitch
+## Twitch
 
 * [Create an application](http://www.twitch.tv/kraken/oauth2/clients/new)
 * Copy `Client ID` and `Client Secret` to config file below
@@ -142,10 +142,10 @@ After the call completes successfully, you will be able to login using these new
   }
 ```
 
-##Bitbucket
+## Bitbucket
 
 * Register a new Consumer in Bitbucket
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Consumer Key` and `Consumer Secret` to config file below
 
 ```
@@ -165,10 +165,10 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
-##Dribbble
+## Dribbble
 
 * [Register a new Consumer in Dribbble](https://dribbble.com/account/applications/new)
-* Set the `Redirect URI` to [https://@@account.namespace@@/login/callback](https://@@account.namespace@@/login/callback).
+* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
 * Copy `Client ID` and `Client Secret` to config file below
 
 ```
@@ -188,7 +188,7 @@ After the call completes successfully, you will be able to login using these new
 }
 ```
 
-##Vimeo
+## Vimeo
 
 * [Create an application](https://developer.vimeo.com/apps/new)
 * Copy `Client Identifier` and `Client Secrets` to config file below

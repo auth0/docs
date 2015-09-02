@@ -16,7 +16,7 @@ The user logs in on app1.com and tries to access app2.com. Since app2.com is a S
 document.body.style.display = 'none';
 
 // instantiate Lock
-var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
 
 

@@ -9,7 +9,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
     {
       //Adding Auth0
       //Login User
-      var auth0 = new Auth0Client("@@account.namespace@@", "@@account.clientId@@");
+      var auth0 = new Auth0Client("${account.namespace}", "${account.clientId}");
 
       var appUser = await auth0.LoginAsync(); //This call presents user with all available options
 

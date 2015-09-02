@@ -1,10 +1,9 @@
 ---
-lodash: true
 title: jQuery Tutorial
 name: jQuery
 alias:
   - jquery
-language: 
+language:
   - Javascript
 framework:
   - jQuery
@@ -19,62 +18,39 @@ snippets:
 
 ## jQuery Tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-thirdparty-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-jquery/gh-pages/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-jquery',
+  pkgBranch: 'gh-pages',
+  pkgPath: (configuration.api && configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 **If you have an existing application, follow the steps below.**
 
-@@includes.callback@@
+${include('./\_callback')}
 
 ### 1. Add the Auth0 scripts and set the viewport
 
 Add the code below to the `index.html` file to include Auth0's jQuery module and its dependencies and set the viewport:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure the Auth0Lock
 
 Configure Auth0Lock with your `client-ID` and `domain`:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [user-profile](/lock#5).
+To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/lock#6).
 
-This is how it will appear in the browser:
-
-@@browser@@
+${browser}
 
 <% if (configuration.api && configuration.thirdParty) { %>
 
@@ -82,7 +58,7 @@ This is how it will appear in the browser:
 
 To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
-Modify the login code in [Step 3](#3) by adding a call to get the new token:
+Modify the login code in [Step 3](#3-implement-the-login) by adding a call to get the new token:
 
 ```js
 var userProfile;
@@ -127,7 +103,7 @@ The code above will function once the <%= configuration.api %> add-on is activat
 
 ### 5. Configure secure calls to your API
 
-To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, implement `$.ajaxSetup` to send on each request, in the `Authorization` header with every ajax call, the [JWT token](/jwt) received on the login and saved to `localStorage` as shown in [Step 3](#3).
+To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, implement `$.ajaxSetup` to send on each request, in the `Authorization` header with every ajax call, the [JWT token](/jwt) received on the login and saved to `localStorage` as shown in [Step 3](#3-implement-the-login).
 
 ```js
 $.ajaxSetup({
@@ -156,7 +132,7 @@ $('.nick').text(userProfile.nickname);
 <p>His name is <span class="nick"></span></p>
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Log out
 

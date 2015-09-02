@@ -1,12 +1,12 @@
 ```
-OIDCProviderIssuer https://@@account.namespace@@
-OIDCProviderAuthorizationEndpoint https://@@account.namespace@@/authorize
-OIDCProviderTokenEndpoint https://@@account.namespace@@/oauth/token
+OIDCProviderIssuer https://${account.namespace}
+OIDCProviderAuthorizationEndpoint https://${account.namespace}/authorize
+OIDCProviderTokenEndpoint https://${account.namespace}/oauth/token
 OIDCProviderTokenEndpointAuth client_secret_post
-OIDCProviderUserInfoEndpoint https://@@account.namespace@@/userinfo
+OIDCProviderUserInfoEndpoint https://${account.namespace}/userinfo
 
-OIDCClientID @@account.clientId@@
-OIDCClientSecret @@account.clientSecret@@
+OIDCClientID ${account.clientId}
+OIDCClientSecret ${account.clientSecret}
 
 OIDCScope "openid profile"
 OIDCRedirectURI https://your_apache_server/your_path/redirect_uri/

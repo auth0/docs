@@ -6,19 +6,19 @@ Connections represent a relationship between Auth0 and an identity provider. Aut
 
 This tutorial will use the simplest identity provider (Google OAuth2) that requires minimal configuration.
 
-##1. Login into Auth0
+## 1. Login into Auth0
 Login and select the __Social__ option under the __Connections__ tab:
 
 ![](/media/articles/enable-simple-connection/connection-add.png)
 
-##2. Enable the Connection
+## 2. Enable the Connection
 Choose _Google/Gmail_ and change status to __Enabled__. Notice all attributes about the user that are supplied by Google, select the ones you are interested in:
 
 ![](/media/articles/enable-simple-connection/connection-add-idp-attributes.png)
 
 Save the connection. You are done!
 
-##3. Test the new connection
+## 3. Test the new connection
 Click on the __Test__ button:
 
 ![](/media/articles/enable-simple-connection/connection-add-idp-test.png)

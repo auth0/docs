@@ -4,7 +4,7 @@ url: /saml-apps
 
 # SAML Configurations for 3rd party apps
 
-##Google Apps
+## Google Apps
 
 ```
 {
@@ -26,7 +26,7 @@ url: /saml-apps
 
 ---
 
-##Litmos
+## Litmos
 
 ```
 {
@@ -56,7 +56,7 @@ url: /saml-apps
 
 ---
 
-##Cisco WebEx
+## Cisco WebEx
 
 ```
 {
@@ -76,7 +76,7 @@ url: /saml-apps
 
 ---
 
-##SproutVideo
+## SproutVideo
 
 ```
 {
@@ -99,7 +99,7 @@ url: /saml-apps
 
 ---
 
-##FreshDesk
+## FreshDesk
 
 ```
 {

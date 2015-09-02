@@ -7,7 +7,7 @@ image: /media/connections/linkedin.png
 
 To configure LinkedIn OAuth2 connections you will need to register Auth0 with LinkedIn on their [developer portal](http://developer.linkedin.com/).
 
-##1. Log in into the developer portal
+## 1. Log in into the developer portal
 Go to the [developer portal](http://developer.linkedin.com/) and login with your LinkedIn credentials:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-1.png)
@@ -18,7 +18,7 @@ Then select __API Keys__ under the support menu option:
 
 ---
 
-##2. Complete information about your instance of Auth0
+## 2. Complete information about your instance of Auth0
 
 Create a new application and complete the form:
 
@@ -26,14 +26,14 @@ Create a new application and complete the form:
 
 ---
 
-##3. Setup your callback URL into Auth0:
+## 3. Setup your callback URL into Auth0:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-4.png)
 
 ---
 
-##4. Get your API Key and Key Secret
+## 4. Get your API Key and Key Secret
 
 Once the application is registered, enter your new `API Key` and `Key Secret` into the connection settings in Auth0.

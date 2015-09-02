@@ -7,13 +7,13 @@ image: /media/connections/baidu.png
 
 To configure a Baidu OAuth2 connection you will need to register your Auth0 tenant on their [integration portal](https://developer.baidu.com/dev).
 
-##1. Log in into the integration portal and register a new App:
+## 1. Log in into the integration portal and register a new App:
 
 ![](/media/articles/connections/social/baidu/baidu-register-1.png)
 
 ---
 
-##2. Get your API Key and Secret Key
+## 2. Get your API Key and Secret Key
 
 Once the application is registered, enter your new `API Key` and `Secret Key` into the connection settings in Auth0.
 
@@ -21,11 +21,11 @@ Once the application is registered, enter your new `API Key` and `Secret Key` in
 
 ---
 
-##3. Enter the callback URL:
+## 3. Enter the callback URL:
 
 Use the following value for the callback URL:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 Select your application on the console, and then click on `API 管理 -> 安全设置`
 

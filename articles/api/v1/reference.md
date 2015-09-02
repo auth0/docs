@@ -1,24 +1,24 @@
-#Auth0 API Reference
+# Auth0 API Reference
 
-###API endpoint
+### API endpoint
 
-	https://@@account.namespace@@/api
+	https://${account.namespace}/api
 
-###Authentication
+### Authentication
 Each API request must include an access token, either inside the query string:
 
-	https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
+	https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
 
 or in an ```Authorization``` header:
 
-	GET https://@@account.namespace@@/api/connections
+	GET https://${account.namespace}/api/connections
 	Authorization: bearer {ACCESS-TOKEN}
 
 A token is obtained using the POST method:
 
-	POST https://@@account.namespace@@/oauth/token
+	POST https://${account.namespace}/oauth/token
 	Content-type: application/x-www-form-urlencoded
-	client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials
+	client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials
 
 The response body of this POST is a JSON object:
 
@@ -29,34 +29,34 @@ The response body of this POST is a JSON object:
 
 Here is a simple example using `curl`:
 
-	curl https://@@account.namespace@@/oauth/token --data "client_id=@@account.clientId@@&client_secret=@@account.clientSecret@@&type=web_server&grant_type=client_credentials"
+	curl https://${account.namespace}/oauth/token --data "client_id=${account.clientId}&client_secret=${account.clientSecret}&type=web_server&grant_type=client_credentials"
 
-###Headers
+### Headers
 The `Authorization` header is the only accepted header and is used in place of the query string to send the access_token. All content is  returned in JSON. The `Accept` header is ignored for now.
 
 	Authorization: bearer {ACCESS-TOKEN}
 
-##Connections
+## Connections
 
-###Connection Methods
+### Connection Methods
 | Verb | URL |
 |:-----|:----|
-|`GET` | https://@@account.namespace@@/api/connections |
-|`GET` | https://@@account.namespace@@/api/connections/{connectionName} |
-|`POST` | https://@@account.namespace@@/api/connections |
-|`DELETE`| https://@@account.namespace@@/api/connections/{connectionName} |
-|`PUT` | https://@@account.namespace@@/api/connections/{connectionName} |
+|`GET` | https://${account.namespace}/api/connections |
+|`GET` | https://${account.namespace}/api/connections/{connectionName} |
+|`POST` | https://${account.namespace}/api/connections |
+|`DELETE`| https://${account.namespace}/api/connections/{connectionName} |
+|`PUT` | https://${account.namespace}/api/connections/{connectionName} |
 
-####List all Connections
+#### List all Connections
 
 To return a list of all defined connections in Auth0, use this syntax:
 
-	GET https://@@account.namespace@@/api/connections/?access_token={ACCESS-TOKEN}
+	GET https://${account.namespace}/api/connections/?access_token={ACCESS-TOKEN}
 
 The body of the response is a `connection` object formatted as follows:
 
 	{
-		"client_id": "@@account.clientId@@",
+		"client_id": "${account.clientId}",
 		"name": YOUR-CONNECTION-NAME,
 		"options":
 		{
@@ -66,17 +66,17 @@ The body of the response is a `connection` object formatted as follows:
 		"strategy": STRATEGY
 	}
 
-####Parameters
+#### Parameters
 | Parameter  | Description |
 |:-----------|:------------|
-| `client_id`| Your client_id (@@account.clientId@@), used to obtain the authentication token.					 |
+| `client_id`| Your client_id (${account.clientId}), used to obtain the authentication token.					 |
 | `name` | The unique name you gave to the connection. 									  					 |
 | `status` | Defines whether the connection is active `1` or not `0`. |
 | `strategy` | The type of identity provider associated with this connection. See below for supported strategies.|
 | `options` | An object with properties that are dependent on the strategy selected. |
 
 
-####Strategies
+#### Strategies
 
 | Strategy | For Customers Using |
 |:---------|:--------------------|
@@ -96,20 +96,20 @@ The `provisioning_ticket_url` is sent to the identity provider administrator and
 
 A GET on `connections` with a specified {connectionName} in the path will return the matching connection object only.
 
-######Here are two `curl` sample scripts: 
+###### Here are two `curl` sample scripts:
 This script returns a specific connection:
 
-	curl https://@@account.namespace@@/api/connections/?access_token={YOUR ACCESS TOKEN}
+	curl https://${account.namespace}/api/connections/?access_token={YOUR ACCESS TOKEN}
 
 This script returns all connections:
 
-	curl https://@@account.namespace@@/api/connections/{YOUR-CONNECTION-NAME}?access_token={YOUR ACCESS TOKEN}
+	curl https://${account.namespace}/api/connections/{YOUR-CONNECTION-NAME}?access_token={YOUR ACCESS TOKEN}
 
-#####Options
+##### Options
 
-The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](@@uiURL@@/#/connections) screen.
+The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](${uiURL}/#/connections) screen.
 
-######ADFS Strategy
+###### ADFS Strategy
 
 	{
 		tenant_domain: A-DOMAIN,
@@ -130,7 +130,7 @@ The `options` object returned in the `connection` will be different for each str
 | `adfs_server` | (for example: _the-adfs-server.domain.com/FederationMetadata/2007-06/FederationMetadata.xml_). |
 | `signInEndpoint`| The URL of the ADFS server where Auth0 will redirect users for login. (for example: _the-adfs-server.company.com/adfs/ls_). |
 
-######Google Apps Strategy
+###### Google Apps Strategy
 
 	{
 		client_id: GOOG-CLIENT-ID,
@@ -149,7 +149,7 @@ The `options` object returned in the `connection` will be different for each str
 
 To obtain `client_id` and `client_secret` for Google Apps connections, see [Google connections](/connections/social/google).
 
-######Google OAuth2 Strategy
+###### Google OAuth2 Strategy
 
 	{
 		client_id: 'GOOG-CLIENT-ID',
@@ -185,7 +185,7 @@ To obtain `client_id` and `client_secret` for Google Apps connections, see [Goog
 		scope: []
 	}
 
-######Office 365 Strategy
+###### Office 365 Strategy
 
 	{
 		client_id: 'OFFICE-365-CLIENT-ID',
@@ -196,14 +196,14 @@ To obtain `client_id` and `client_secret` for Google Apps connections, see [Goog
 		ext_groups: true/false,
 		ext_assigned_plans: true/false,
 		api_enable_users: true/false,
-		app_domain: '@@account.namespace@@',
+		app_domain: '${account.namespace}',
 		thumbprints: []
 	}
 
 To obtain `client_id` and `client_secret` for Office 365 connections, see [o365-clientid](/o365-clientid).
 
 
-######Microsoft Account Strategy
+###### Microsoft Account Strategy
 
 	{
 		client_id: 'MSFT-ACCOUNT-CLIENT-ID',
@@ -236,15 +236,15 @@ To obtain `client_id` and `client_secret` for Office 365 connections, see [o365-
 
 To obtain `client_id` and `client_secret` for Microsoft Accounts, see [Microsoft Account Client ID](/ms-account-clientid).
 
-####Get a specific Connection
+#### Get a specific Connection
 
-	GET https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
+	GET https://${account.namespace}/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
 
-####Delete a connection
+#### Delete a connection
 A Delete operation on the `connections` object will eliminate the connection definition permanently. The parameter for this operation is the name of the connection to delete.
 
-	DELETE https://@@account.namespace@@/api/connections/{A-CONNECTION-NAME}/?access_token=...
+	DELETE https://${account.namespace}/api/connections/{A-CONNECTION-NAME}/?access_token=...
 
 
 If successful, the response body will contain a confirmation object:
@@ -255,11 +255,11 @@ If successful, the response body will contain a confirmation object:
 
 __Note:__ Batch operations are not yet supported.
 
-####Create a new Connection
+#### Create a new Connection
 
 To create a new connection, POST a connection object to the `connections` resource:
 
-	POST https://@@account.namespace@@/connections
+	POST https://${account.namespace}/connections
 	Content-Type: application/json
 
 The body of the request is formatted as a `connection` object. For example, the following will create a new connection to Google Apps, initially inactive (status=0):
@@ -281,18 +281,18 @@ Once again, the `options` object is dependent on the strategy specified.
 
 If successful, the response body will contain a complete `connection` object. This will include additional fields (e.g. the entity `id`, etc.).
 
-####Updating a Connection
+#### Updating a Connection
 
 For updates, use the PUT method. A PUT works on a specific `connection`, therefore the connection `name` must be specified. All object parameters must be included, not only those which have changed.
 
 ### Users
 | Verb | URL | Description |
 |:-----|:----|:------------|
-|`GET` |https://@@account.namespace@@/api/users |Gets all users who have logged in through any of your connections. |
-|`GET` |https://@@account.namespace@@/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance: ADFS), this will return users who have logged in through that connection.|
-|`GET` |https://@@account.namespace@@/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
+|`GET` |https://${account.namespace}/api/users |Gets all users who have logged in through any of your connections. |
+|`GET` |https://${account.namespace}/api/connections/{connection}/users|Gets all users from an enterprise directory like Office365 / Microsoft Azure Active Directory or a Google Apps domain. *Note:* If the connection does not support querying for users (for instance: ADFS), this will return users who have logged in through that connection.|
+|`GET` |https://${account.namespace}/api/socialconnections/users |Gets all users who have logged in through any of the enabled social connections. |
 
-####The User Object
+#### The User Object
 
 	{
 		_id: '7eb1ae32568910b0f46e981aa99b56556',
@@ -318,6 +318,6 @@ Most attributes in the `user` object are self-explanatory. Some comments are bel
 |`picture` | The URL of the user's gravatar, if available. |
 |`user_id` | A "friendly" unique identifier composed of the strategy plus a unique identifier from the `issuer` (for example: e-mail, etc.). |
 
-####Other resources
+#### Other resources
 
 * [Auth0 node module](/node-auth0client). A simple client library for Node.js apps.

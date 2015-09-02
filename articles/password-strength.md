@@ -15,7 +15,7 @@ With this feature, Auth0 allows to customize the level of complexity of the pass
 
 ## Changing your policy
 
-To change the password strength policy, go to [Database connections](@@uiURL@@/#/connections/database), click on the `Security` button on the connection you want to apply it:
+To change the password strength policy, go to [Database connections](${uiURL}/#/connections/database), click on the `Security` button on the connection you want to apply it:
 
 ![Password Strength Panel in Auth0](/media/articles/password-strength/jH0kabJPoi.png)
 
@@ -47,7 +47,7 @@ The response also has additional information that can be used to guide the user 
 
 > Some rules are composites: a rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format` if required.
 
-###Samples
+### Samples
 
 This is the `description` reported with a `good` policy, and using the string `hello` as the password:
 

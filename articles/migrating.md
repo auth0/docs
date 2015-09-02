@@ -4,13 +4,13 @@ Our focus has always been not only greenfield projects but also existing applica
 
 We have released a new feature that enables the gradual migration of users from an existing **Database Connection** to Auth0.
 
-## How to enable it?
+## Enabling automatic migration
 
 Check the "Import Users to Auth0" option in the connection settings:
 
 ![](/media/articles/migrating/migrating-1.png)
 
-## How does it work?
+## Login script
 
 When you write a **login script** in the database connection to authenticate users, for instance:
 
@@ -19,7 +19,7 @@ function (email, password, callback) {
 
   // validate user/password against your existing database
   request.get({
-    url:  'https://myapp.com/existingdatabase/login',
+    url:  'https://example.com/existingdatabase/login',
     auth: {
       username: email,
       password: password
@@ -44,6 +44,22 @@ Then when a user authenticates, the following process takes place:
 
 ![](/media/articles/migrating/migrating-2.png)
 
-So for example, let's say you have a MySQL database and you are hashing passwords with SHA1. You would define the script that connects to MySQL, gets the user from the DB and then uses `crypto.createHash('sha1')` to hash the password and check against the stored password. If that was succesful, the user will be automatically created in Auth0 database and his/her password will be hashed using `bcrypt` with 12 iterations (our default hashing algorithm). Next time a user logs in, we will check against OUR database and our hash.
+For example, suppose you have an existing MySQL database and you are hashing passwords with SHA1.
+You would define the script that connects to MySQL, gets the user from the DB and then uses `crypto.createHash('sha1')` to hash the password and check against the stored password.
+If that was succesful, the user would be automatically created in Auth0's database.
+The next time that user attempts to log in, their credentials and information would be retrieved from Auth0 and not your MySQL database.
 
 > Note: Password resets will only affect the users stored in Auth0, and new users will be stored in Auth0 only.
+
+## Get User script
+
+The Get User script will be executed whenever any of the following actions are performed:
+
+* A user attempts to sign up
+* A user clicks on a valid [password change confirmation](https://auth0.com/docs/email/libraries/lock/customization#rememberlastlogin-boolean-1) link
+* An [API call is made](/api/v2#!/Users/patch_users_by_id) to update a user's email
+
+This script is needed because none of these actions require authentication on the user's behalf; the Get User must provide a way of verifying whether a user exists in a legacy database without needing their password.
+
+If an unmigrated user confirms a password change, their user profile will be created in Auth0 with the new password they have just confirmed.
+This user profile will contain all the information returned in the Get User script, and any following logins will be performed in Auth0 directly.

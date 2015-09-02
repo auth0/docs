@@ -19,7 +19,7 @@ url: /
 
 # Getting started with Auth0
 
-Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
+Hello${account.userName ? ' ' + account.userName : ''}! Ready to test drive Auth0? All tutorials have been tailored to your account. So in most cases, all you need to do is copy the code snippets and paste them into your projects and tools.
 
 <!-- Tutorial Navigator -->
 
@@ -39,12 +39,12 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
     var TutorialNavigator = require('tutorial-navigator');
     var tutorial = new TutorialNavigator({
       docsDomain:      document.location.origin + BASE_URL,
-      apptypes:        @@JSON.stringify(quickstart.apptypes)@@,
-      clientplatforms: @@JSON.stringify(quickstart.clientPlatforms)@@,
-      hybridplatforms: @@JSON.stringify(quickstart.hybridPlatforms)@@,
-      nativeplatforms: @@JSON.stringify(quickstart.nativePlatforms)@@,
-      serverplatforms: @@JSON.stringify(quickstart.serverPlatforms)@@,
-      serverapis:      @@JSON.stringify(quickstart.serverApis)@@
+      apptypes:        ${JSON.stringify(quickstart.apptypes)},
+      clientplatforms: ${JSON.stringify(quickstart.clientPlatforms)},
+      hybridplatforms: ${JSON.stringify(quickstart.hybridPlatforms)},
+      nativeplatforms: ${JSON.stringify(quickstart.nativePlatforms)},
+      serverplatforms: ${JSON.stringify(quickstart.serverPlatforms)},
+      serverapis:      ${JSON.stringify(quickstart.serverApis)}
     });
 
     function eqlPath (url) {
@@ -224,4 +224,3 @@ Hello@@account.userName ? ' ' + account.userName : ''@@! Ready to test drive Aut
 
   })()
 </script>
-

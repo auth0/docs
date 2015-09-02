@@ -8,7 +8,7 @@ languages:
   - PHP
 framework:
   - Symfony
-image: //auth0.com/lib/platforms-collection/img/php.png
+image: /media/platforms/php.png
 tags:
   - quickstart
 snippets:
@@ -20,17 +20,17 @@ snippets:
 # Symfony Auth0 JWT Bundle
 This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example of usage [here](https://github.com/auth0/jwt-auth-bundle/tree/master/example)
 
-##Tutorial
+## Tutorial
 
-###1. Install dependencies
+### 1. Install dependencies
 
 We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to install the library.
 
 Modify your `composer.json` to add the following dependencies and run `composer update`.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
-###2. Add the bundle to your AppKernell.php file
+### 2. Add the bundle to your AppKernell.php file
 
 ```php
 
@@ -55,13 +55,13 @@ class AppKernel extends Kernel
 
 ```
 
-###3. Configure your Auth0 app data
+### 3. Configure your Auth0 app data
 
 Modify the file /app/config/config.yml
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
-###4. Setup your User and UserProvider
+### 4. Setup your User and UserProvider
 
 Create your User and UserProvider.
 
@@ -81,7 +81,7 @@ services:
         arguments: ["@jwt_auth.auth0_service"]
 ```
 
-###5. Setup the SecurityProvider
+### 5. Setup the SecurityProvider
 
 Modify the file /app/config/security.yml:
 
@@ -89,7 +89,7 @@ Modify the file /app/config/security.yml:
 - define your secured area that want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ## Issue Reporting
 

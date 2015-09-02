@@ -8,7 +8,7 @@ Implementing this with Auth0 is very easy, only taking a few lines of code.
 
 ![](https://docs.google.com/drawings/d/14L8PGy6obMZEvTgyzZOGsjW_sdEjTd_Vvrs0TPIkL6c/pub?w=833&amp;h=372)
 
-###1. Recording a __SignUp__ or __Login__ event in Splunk:
+### 1. Recording a __SignUp__ or __Login__ event in Splunk:
 
 This Auth0 rule uses the [Splunk REST API](http://dev.splunk.com/view/rest-api-overview/SP-CAAADP8) to record `signup` and `login` events from users to your apps. This is tracked with the `user.signedUp` property. If the property is present then we assume this is a `login` event, otherwise we assume a new `signup`.
 

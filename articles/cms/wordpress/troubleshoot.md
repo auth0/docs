@@ -1,9 +1,9 @@
 # WordPress Troubleshoot
 
-## My configuration is wrong and I can't authenticate using Auth0
+### My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
-The plugin provides you an URL to access through the regular WordPress login, using a WordPress valid credentials. To access it, you need to add `?wle` to the login url, for example: `http://yourdomain.com/wp-login.php?wle`.
+The plugin can be accessed using valid WordPress credentials through the regular WordPress login by adding `?wle` to the login url. For example: `http://yourdomain.com/wp-login.php?wle`.
 
-## I am having problems when a user logs in and I can't find what happens
+### I am having problems when a user logs in. Where can I find a log of what is happening?
 
-The plugin provides an error log where you can check what has happened. You can access it going to the *Error Log* subitem in the *Auth0* menu. 
+The plugin provides an error log where you can check what has happened. Access it through the **Error Log** sub-item of the **Auth0** menu. 

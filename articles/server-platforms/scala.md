@@ -2,7 +2,7 @@
 lodash: true
 title: Play 2 Scala Tutorial
 name: Play 2 Scala
-image: //auth0.com/lib/platforms-collection/img/play.png
+image: /media/platforms/play.png
 tags:
   - quickstart
 snippets:
@@ -13,28 +13,25 @@ snippets:
 
 ## Play 2 Scala Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-scala/master/create-package?path=examples/regular-webapp&filePath=examples/regular-webapp/conf/application.conf&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-scala',
+  pkgBranch: 'master',
+  pkgPath: 'examples/regular-webapp',
+  pkgFilePath: 'examples/regular-webapp/conf/application.conf',
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing Play2 Scala WebApp to use it with Auth0.**
 
 ### 1. Add configuration keys from Auth0
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Add Auth0 callback handler
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ```scala
 // controllers/Callback.scala
@@ -56,22 +53,22 @@ object Callback extends Controller {
             .withSession(
               "idToken" -> idToken,
               "accessToken" -> accessToken
-            )  
+            )
       }
 
       }.recover {
         case ex: IllegalStateException => Unauthorized(ex.getMessage)
-      }  
+      }
     }).getOrElse(Future.successful(BadRequest("No parameters supplied")))
   }
 
   def getToken(code: String): Future[(String, String)] = {
-    val tokenResponse = WS.url(String.format("https://%s/oauth/token", "@@account.namespace@@"))(Play.current).
+    val tokenResponse = WS.url(String.format("https://%s/oauth/token", "${account.namespace}"))(Play.current).
       withHeaders(HeaderNames.ACCEPT -> MimeTypes.JSON).
       post(
         Json.obj(
-          "client_id" -> "@@account.clientId@@",
-          "client_secret" -> "@@account.clientSecret@@",
+          "client_id" -> "${account.clientId}",
+          "client_secret" -> "${account.clientSecret}",
           "redirect_uri" -> "http://localhost:9000/callback",
           "code" -> code,
           "grant_type"-> "authorization_code"
@@ -100,7 +97,7 @@ object Callback extends Controller {
 }
 ```
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -110,7 +107,7 @@ http://yourUrl/callback
 
 ### 3. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

@@ -4,8 +4,7 @@ name: Firebase
 thirdParty: true
 alias:
   - Firebase
-image: //auth0.com/lib/saas-collection/img/firebase.png
-lodash: true
+image:  /media/addons/firebase.svg
 tags:
   - quickstart
 snippets:
@@ -13,5 +12,4 @@ snippets:
   setup: server-apis/firebase/setup
   use: server-apis/firebase/use
 ---
-<% configuration.thirdParty = 'Firebase' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}

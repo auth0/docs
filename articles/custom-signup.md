@@ -10,6 +10,14 @@ Validation must be done from an Auth0 rule when logging in, or with custom logic
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
+## Overview
+
+We can describe a custom signup flow with the following steps:
+
+1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
+2. [Log them in programatically](https://auth0.com/docs/auth-api#!#post--oauth-ro) and [get back a JWT](https://auth0.com/docs/scopes)
+3. [Call API v2 with the user's JWT](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](https://auth0.com/docs/api/v2/changes#9)
+
 ## 1. Signup form
 
 ```html
@@ -45,8 +53,8 @@ Notice that `name` and `color` are custom fields.
 
 ```js
 window.auth0 = new Auth0({
-  domain: '@@account.namespace@@',
-  clientID: '@@account.clientId@@'
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}'
 });
 ```
 
@@ -122,10 +130,10 @@ please refer to this document](https://auth0.com/docs/libraries/lock/authenticat
 
 ```js
 window.auth0 = new Auth0({
-  domain: '@@account.namespace@@',
-  clientID: '@@account.clientId@@',
+  domain: '${account.namespace}',
+  clientID: '${account.clientId}',
   // Callback made to your server's callback endpoint
-  callbackURL: '@@account.callback@@',
+  callbackURL: '${account.callback}',
 });
 ```
 
@@ -140,7 +148,7 @@ For more information, [check out the documentation](password-strength).
 
 The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
 
-    https://cdn.auth0.com/client/@@account.clientId@@.js
+    https://cdn.auth0.com/client/${account.clientId}.js
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).

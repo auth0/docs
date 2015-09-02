@@ -69,7 +69,7 @@ function (user, context, callback) {
 
 ## Examples of common conditions to trigger MFA
 
-###Access a critical app from extranet
+### Access a critical app from extranet
 
 In this example, Auth0 will evaluate both the name of the app the user is trying to access, and the originating IP address. If the app is a critical one, and the request originates from outside the corporate network, then the user is challenged with MFA.
 
@@ -98,7 +98,7 @@ function (user, context, callback) {
 }
 ```
 
-###Access an app from a different device/location
+### Access an app from a different device/location
 
 Auth0 computes a hash with the request IP address and the `userAgent` string. If the hash changes from the last time the user logged in, MFA is triggered.
 
@@ -171,3 +171,5 @@ function (user, context, callback) {
 ## Additional notes
 
 > Multifactor authentication does not work with the `/ro` (Resource Owner) endpoint. If using MFA for database connections that use popup mode, `sso: true` needs to be added to the options for auth0.js or Lock. Failing to do so will result in users being able to log in without MFA checks. [More information on `sso` parameter](https://github.com/auth0/auth0.js#popup-mode).
+
+> In addition, if using multifactor authentication after authentication against social providers, it may be necessary to use your own application id and secret for the social connection instead of the default Auth0 development credentials.  Instructions for how to get these credentials for each social provider can be found via "Connections" - "Social" - "NAME-OF-PROVIDER".
