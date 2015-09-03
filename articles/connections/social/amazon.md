@@ -6,31 +6,30 @@ alias:
   - amazon-web-services
 ---
 
-# Obtaining a ClientId and Client Secret for Amazon
+# Obtain a *Client Id* and *Client Secret* for Amazon
 
-To configure an Amazon connection you will need to register Auth0 on the Amazon portal.
+To configure an Amazon connection with Auth0, you will need to register your app on the Amazon portal.
 
-## 1. Add a new Application
-Log in into [Amazon](http://login.amazon.com) and select __App Console__:
+### 1. Add a new Application
+Log into [Login with Amazon](http://login.amazon.com) and select **App Console**.
 
 ![](/media/articles/connections/social/amazon/amazon-login-1.png)
 
----
+### 2. Register a new application
 
-## 2. Register a new application
-
-Click on the __Register New Application__ button and complete the form:
+Click on the **Register New Application** button and enter a **Name**, **Description**, and **Privacy Notice URL** for your app. Click **Save**.
 
 ![](/media/articles/connections/social/amazon/amazon-register-app.png)
 
-The callback address for your app should be:
+### 3. Enter your callback URL
 
-	https://${account.namespace}/login/callback
+Expand the **Web Settings** section. Enter your Auth0 callback URL in the **Allowed Return URLs** field. The callback address for your app should be:
 
----
+    https://${account.namespace}/login/callback
 
-## 3. Get your ClientId and ClientSecret
+### 4. Copy your *Client Id* and *Client Secret*
 
-Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
+Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Amazon**. Copy the `Client Id` and `Client Secret` from the **Web Settings** of your app on Amazon into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/amazon/amazon-add-connection.png)
+
