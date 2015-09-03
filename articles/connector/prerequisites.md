@@ -6,7 +6,7 @@ Typically the AD/LDAP Connector needs to be installed by a sys admin or an opera
 
 The Connector can be install on an existing server, even a Domain Controller. However, more often its installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
 
-### Hardware Requirements
+#### Hardware Requirements
 
 -  **Architecture**: x86 or x86-64
 -  **CPU cores**: min. 1, recommended 2
@@ -14,12 +14,12 @@ The Connector can be install on an existing server, even a Domain Controller. Ho
 -  **Operating System**: The connector can run on Windows or Linux.  Windows is required if Kerberos authentication will be used.
 -  **RAM**: min. 2GB
 
-### Windows Version
+#### Windows Version
 
 We recommend use of Windows Server 2012.
 The connector can run on Windows 7+ or Windows 2008R2+ 
 
-### Time Synchronization
+#### Time Synchronization
 
 It is very important to have the Connector host server clock automatically synchronized with an NTP server. Otherwise the connector will fail to start and report __clock skew error__.
 
@@ -27,7 +27,7 @@ It is very important to have the Connector host server clock automatically synch
 
 The host server requires outbound network connectivity to the following services:
 
-### Auth0
+#### Auth0
 
 The connector must be installed on a server with outbound connectivity to the Auth0 service at:  `https://${account.namespace}` on port **443**.
 
@@ -35,7 +35,7 @@ The connector can be installed and configured behind a __proxy server__ but we d
 
 > You can enable a proxy through the environment variable `HTTP_PROXY`.
 
-### LDAP
+#### LDAP
 
 The Connector must be installed on a server with access to the LDAP server on port **389 for ldap** or **636 for ldaps**. Before installing the Connector you should know the **LDAP Connection String** and the **Base DN** required to connect to your LDAP directory ([more infomation](/connector/install#link-to-ldap)).
 
