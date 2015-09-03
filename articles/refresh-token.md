@@ -3,7 +3,7 @@
 A **refresh token** is a special kind of token that can be used to obtain a renewed `id_token` ([JWT](/jwt)) at any time.
 Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
 
-> For more information on all the types of access tokens used by Auth0, see [Tokens Overview](/tokens).
+> For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
 
 ## Introduction
 
