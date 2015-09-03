@@ -48,9 +48,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [user-profile](/lock#5).
-
-This is how it will appear in the browser:
+To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/lock#-show-options-callback-).
 
 ${browser}
 
@@ -60,7 +58,7 @@ ${browser}
 
 To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
-Modify the login code in [Step 3](#3) by adding a call to get the new token:
+Modify the login code in [Step 3](#3-implement-the-login) by adding a call to get the new token:
 
 ```js
 var userProfile;
@@ -105,7 +103,7 @@ The code above will function once the <%= configuration.api %> add-on is activat
 
 ### 5. Configure secure calls to your API
 
-To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, implement `$.ajaxSetup` to send on each request, in the `Authorization` header with every ajax call, the [JWT token](/jwt) received on the login and saved to `localStorage` as shown in [Step 3](#3).
+To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, implement `$.ajaxSetup` to send on each request, in the `Authorization` header with every ajax call, the [JWT token](/jwt) received on the login and saved to `localStorage` as shown in [Step 3](#3-implement-the-login).
 
 ```js
 $.ajaxSetup({
@@ -134,7 +132,7 @@ $('.nick').text(userProfile.nickname);
 <p>His name is <span class="nick"></span></p>
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Log out
 

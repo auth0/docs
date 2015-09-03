@@ -2,6 +2,14 @@
 public: false
 ---
 
+<%
+  var absoluteUrl = env.DOMAIN_URL_DOCS;
+  if (env.BASE_URL && env.BASE_URL !== '') {
+    absoluteUrl += '/' + env.BASE_URL;
+  }
+%>
+
+
 <div id="package" class="package">
   <div class="row">
     <div class="info">
@@ -13,7 +21,7 @@ public: false
     <% } %>
     </div>
     <div class="button-area">
-      <a href="/${pkgRepo}/${pkgBranch}/create-package?path=${pkgPath}&filePath=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success">Get Seed Project</a>
+      <a href="${env.DOMAIN_URL_DOCS}/${pkgRepo}/${pkgBranch}/create-package?path=${pkgPath}&filePath=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success">Get Seed Project</a>
     </div>
   </div>
 </div>

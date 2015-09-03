@@ -1,5 +1,7 @@
 # JsonWebTokens in Auth0
 
+> For more information on all the types of access tokens used by Auth0, see [Tokens Overview](/tokens).
+
 ## Standard JWT
 
 Application programs or Web APIs can invoke Auth0's authentication sequences in a few different ways, such as via the Lock widget or calling a library for the language in which their program is written. Each of these mechanisms allows the calling program to specify a `scope` parameter which can be used to request the return of an `access_token` and, optionally, an id_token.

@@ -3,6 +3,8 @@
 A **refresh token** is a special kind of token that can be used to obtain a renewed `id_token` ([JWT](/jwt)) at any time.
 Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
 
+> For more information on all the types of access tokens used by Auth0, see [Tokens Overview](/tokens).
+
 ## Introduction
 
 The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0.
@@ -62,7 +64,7 @@ GET https://YOUR_CALLBACK_URL#
 
 The refresh token is returned as part of the URL, in the form of an opaque string.
 
-> In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#5) was used (`response_type=token`).
+> In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) was used (`response_type=token`).
 
 ## Using a refresh token
 
