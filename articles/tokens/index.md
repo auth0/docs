@@ -15,10 +15,10 @@ First there are a couple different categories of tokens:
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
 
-- [Auth0 `id_token` (JWT)](#auth0-idtoken-jwt)
-- [Auth0 `access_token`](#auth0-accesstoken)
+- [Auth0 `id_token` (JWT)](#auth0-id_token-jwt-)
+- [Auth0 `access_token`](#auth0-access_token-)
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
-- [Auth0 `refresh_token`](#auth0-refreshtoken)
+- [Auth0 `refresh_token`](#auth0-refresh_token-)
 - [Delegation Tokens](#delegation-tokens)
 - [Auth0 APIv2 Token](#auth0-apiv2-token)
 
