@@ -24,7 +24,7 @@ Following are topics which will help us gain a better understanding of the User 
 - [Mapping User Profile Attributes in SAML Assertions](#mapping-user-profile-attributes-in-saml-assertions)
 - [User Profile with Account Linking](#user-profile-with-account-linking)
 
-> If you're interested in a deeper dive into the various access tokens used by Auth0, see [Tokens Overview](/tokens).
+> If you're interested in a deeper dive into the various access tokens used by Auth0, see [Tokens](/tokens).
 
 ## Sources of User Profile Data
 

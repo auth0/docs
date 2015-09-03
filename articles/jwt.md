@@ -1,6 +1,6 @@
 # JsonWebTokens in Auth0
 
-> For more information on all the types of access tokens used by Auth0, see [Tokens Overview](/tokens).
+> For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
 
 ## Standard JWT
 

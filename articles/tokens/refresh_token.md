@@ -1,3 +1,7 @@
+---
+title: Auth0 refresh_token
+---
+
 # Auth0 `refresh_token`
 
 ## Overview

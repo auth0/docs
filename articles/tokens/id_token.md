@@ -1,3 +1,7 @@
+---
+title: Auth0 id_token
+---
+
 # Auth0 `id_token`
 
 ## Overview

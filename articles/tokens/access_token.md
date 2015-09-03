@@ -1,3 +1,7 @@
+---
+title: Auth0 access_token
+---
+
 # Auth0 `access_token`
 
 ## Overview
