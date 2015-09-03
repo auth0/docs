@@ -20,6 +20,8 @@ Following are topics which will help us gain a better understanding of the User 
 - [Mapping User Profile Attributes in SAML Assertions](#mapping-user-profile-attributes-in-saml-assertions)
 - [User Profile with Account Linking](#user-profile-with-account-linking)
 
+> If you're interested in a deeper dive into the various access tokens used by Auth0, see [Tokens Overview](/tokens).
+
 ## Sources of User Profile Data
 
 As implied above, User Profile attributes may come from multiple sources.  A core set of attributes will come from the service that authenticates a user.  The authentication service might be a social provider such as Facebook or LinkedIn.  Alternatively, the authentication service might be an enterprise provider, such as Active Directory, ADFS or a SAML-compliant authentication service operated by a business or other organization.  In such a case, the user is typically acting on behalf of the business or organization and the business is the authoritative source of information for the profile data.  Additional types of authentication services are custom databases, web services and the database that is included as part of the Auth0 service.  In general, these authentication services are also called providers, authentication providers or identity providers (often referred to as IDP's).  In the context of the Auth0, they are called **Connections** because Auth0 connects to them to authenticate a user.

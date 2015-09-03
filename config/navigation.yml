@@ -182,11 +182,6 @@ categories:
         href: "/logout"
         description: "Learn about clearing sso cookies and other logout operations."
       -
-        name: "Tokens"
-        icon: "icon-budicon-754"
-        href: "/tokens"
-        description: "Understand more about the different types of tokens used by Auth0."
-      -
         name: "Cookies vs. Tokens"
         icon: "icon-budicon-754"
         href: "/apps-apis"
