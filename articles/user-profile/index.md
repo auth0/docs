@@ -1,3 +1,7 @@
+---
+url: /user-profile
+---
+
 # User profile
 
 ## Overview

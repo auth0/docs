@@ -1,3 +1,7 @@
+---
+url: /tokens
+---
+
 # Tokens
 
 ## Overview
