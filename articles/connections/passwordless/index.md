@@ -10,40 +10,39 @@ alias:
 
 # Passwordless Connections
 
-These connections allow users to log in without needing to remember a password. They work by using a different authentication channel, such as SMS messages or emails.
+Passwordless connections allow users to login without the need of a password. These connections work by using an authentication channel like SMS messages or emails.
 
-Using these connections requires two steps:
+Passwordless authentication requires two steps:
 
-* First the app must create a __user__ in Auth0, registering the artifact used to authenticate them (e.g. a `phone_number` or an `email`). A one-time code will be sent to them, which must be validated in your application by sending it to Auth0.
+1. Your app creates a **user** in Auth0 by registering an artifact (e.g. `phone_number` or `email`) provided by the user. A one-time **code** is then sent to the user by Auth0.
 
-* Second, the app will validate the __code__ with Auth0, using either `email` or `phone_number` as the _username_ and the _code_ entered by the user.
-
-Auth0 ships with the following channels today:
+2. Your app validates the **code** entered by the user with Auth0, using the `phone_number` or `email` as the **username**.
 
 ## Passwordless with SMS and Twilio
 
-This __Passwordless connection__ uses SMS (sent via [Twilio](http://www.twilio.com)) as the authentication mechanism.
+This Passwordless connection uses SMS (sent via [Twilio](http://www.twilio.com)) as the authentication mechanism.
 
 ### Setup
 
-#### 1. Get an account with Twilio
+#### 1. Open an account with Twilio
 
-You will need the [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the credentials for the Twilio API that Auth0 will use to send the SMS to the user.
+You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
 
 #### 2. Configure the connection
 
 Passwordless connections can be configured in the Auth0 dashboard, under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless).
 
-Enter the __Twilio Account SID__ and __Auth Token__.
-Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__.
+On the **SMS (Twilio)** page on Auth0, enter your **Twilio Account SID** and **Auth Token**. Enter the **From** phone number users will see as the sender of the SMS (also configurable in Twilio) and a **message**.
 
-The `@@password@@` placeholder in the message template will be replaced with the actual one-time password that will be received in the text message sent to the user.
+The `@@password@@` placeholder in the message template will be replaced with the one-time password that is sent in a text message to the user.
 
-### How to use it
+### Implementation 
 
-The first step is to __register a user__ using the [Auth0 serverside API](https://auth0.com/docs/api/v2#!/Users/post_users):
+To implement passwordless login, code your app to follow these steps:
 
-```
+1. Register the user using the [Auth0 serverside API](https://auth0.com/docs/api/v2#!/Users/post_users):
+
+    ```
 POST https://${account.namespace}/api/v2/users/
 Authorization: Bearer {Auth0 APIv2 Token}
 Content-Type: 'application/json'
@@ -53,16 +52,14 @@ Content-Type: 'application/json'
   "email_verified": false,
   "phone_number":   "+14251112222"
 }
-```
+    ```
+An APIv2 token can be generated with the [APIv2 explorer](https://auth0.com/docs/api/v2). The token must include the `create:users` scope.
 
-APIv2 tokens can be generated [at the APIv2 explorer](https://auth0.com/docs/api/v2).
-The token must include the `create:users` scope.
+2. Auth0 sends the SMS message you configured in the Auth0 dashboard to the specified phone number, including a one-time password that expires in 10 minutes.
 
-Auth0 will send the SMS message configured on the dashboard to the specified phone number, with a one-time password that expires in 10 minutes.
+3. Capture the one-time password submitted by the user and validate it with Auth0 using the [Resource Owner](/auth-api#!#post--oauth-ro) authentication endpoint:
 
-Your application will capture the one-time password submitted by the user and validate it with Auth0 using the __[Resource Owner](/auth-api#!#post--oauth-ro)__ authentication endpoint:
-
-```
+    ```
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
@@ -73,18 +70,18 @@ Content-Type: 'application/json'
   "grant_type":  "password",
   "scope":       "openid" //or "openid profile"
 }
-```
+    ```
 
-A successful authentication will result in a JWT sent back in the response:
+4. A successful authentication will result in a JWT sent in the response:
 
-```
+    ```
 {
   "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXJuYW1lc3BhY2UuYXV0aDAuY29tLyIsInN1YiI6InNtc3w1NDRiZWJiODg3NjIzNDQ1NjcxZjVmN2ExIiwiYXVkIjoiaWNJTVBNamRmaGl1NDNuZWtqZjNqcjRlbmZpT2t5TkZ4dSIsImV4cCI6MTQxNDgxOTUyOSwiaWF0IjoxNDE0NzgzNTI5fQ.y4sIFl82DHFzli3GgT8Q2voZSADVQbcwpOx-DoAwmK4",
   "access_token": "eJ0ck9754nf46f9",
   "token_type": "Bearer"
 }
-```
+    ```
 
-### Further reading
+### Additional Information
 
 * [Using the `scope` parameter to control which claims are returned in the token](/scopes)
