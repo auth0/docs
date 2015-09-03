@@ -6,18 +6,18 @@ alias:
   - office365
 ---
 
-# Obtaining a ClientId and Client Secret for an Office 365 connection
+# Obtain a *ClientId* and *Client Secret* for an Office 365 connection
 
-To configure Microsoft Office 365 connections you need to a register an application in the Seller Dashboard.
+To configure Microsoft Office 365 connections, you need to a register an application in the Seller Dashboard.
 
-## 1. Log in into the Seller Dashboard
-Log into [the Seller Dashboard](https://sellerdashboard.microsoft.com), then select __client ids__:
+## 1. Log into the Seller Dashboard
+Log into the [Seller Dashboard](https://sellerdashboard.microsoft.com), then select **client ids**.
 
 ![](/media/articles/connections/enterprise/o365-deprecated/o365-portal-1.png)
 
----
-
 ## 2. Create a new OAuth client id
+
+Select **Add a new oauth client id**.
 
 ![](/media/articles/connections/enterprise/o365-deprecated/o365-portal-2.png)
 
@@ -29,8 +29,16 @@ Complete the form with your app information:
 
 ![](/media/articles/connections/enterprise/o365-deprecated/o365-portal-3.png)
 
-## 3. Generate the ClientId and ClientSecret
+## 3. Generate the *ClientId* and *ClientSecret*
 
-Copy the `ClientId` and `ClientSecret` into your connection settings. This is your last chance to copy the `ClientSecret` in Office 365! It is not shown anywhere else once you close this window.
+Once you have completed the form, click **GENERATE CLIENT ID**. Your `ClientId` and `ClientSecret` will appear on the page.
+
+This is your only opportunity in Office 365 to copy the `ClientSecret`, it is not shown anywhere else once this window is closed.
 
 ![](/media/articles/connections/enterprise/o365-deprecated/o365-portal-4.png)
+
+In your Auth0 dashboard, select **Connections > Enterprise**, then select **Office 365**.
+
+Copy the `ClientId` and `ClientSecret` from the Seller Dashboard into your Office 365 connection settings on this page.
+
+
