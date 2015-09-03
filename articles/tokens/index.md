@@ -4,7 +4,7 @@
 
 This document is designed to clarify and disambiguate the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.  
 
-First there are a couple different categories of tokens 
+First there are a couple different categories of tokens
 
 * JSON Web Tokens (JWT) - These are tokens that conform to the JSON Web Token standard and contain information about an identity.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
 * Opaque tokens - Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
@@ -15,8 +15,8 @@ There are six primary tokens used in Auth0's token based authentication scenario
 * The Auth0 access_token (Auth0 APIv1 token)
 * Identity Provider access tokens from other providers
 * The Auth0 refresh token
-* A Delegation token 
-* The Auth0 APIv2 Token 
+* A Delegation token
+* The Auth0 APIv2 Token
 
 
 ### id_token (JWT)
@@ -26,7 +26,7 @@ The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a
 ### Auth0 access token
 The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API ( APIv1) and the /userinfo endpoint within the Auth0 Authentication API.  
 
-### Identity Provider access tokens 
+### Identity Provider access tokens
 When a user authenticates via Auth0 with another social provider's authentication service, such as Facebook or LinkedIn, the social provider will return an access token that can be used by the client program to call that social provider's API.
 
 ### Refresh tokens
@@ -36,7 +36,7 @@ The Refresh token is a long-lived token that is used to obtain a new id_token af
 The Auth0 `id_token` can be exchanged for another token, called a Delegation token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.  
 
 ### Auth0 APIv2 token
-The Auth0 APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant. 
+The Auth0 APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant.
 
 The following sections will discuss each token in greater detail and provide information on how to get each token, any options to control the contents of the token, the duration of the token's validity, any options for terminating the token and how to use it.
 
@@ -124,7 +124,7 @@ The `id_token` can be used to call the /tokeninfo endpoint within the Auth0 auth
 
 The `id_token` can also be used to call the /delegation endpoint within the Auth0 authentication API to obtain another token for another API.  See the [/delegation endpoint documentation](/auth-api#delegated) for more information.
 
-The `id_token` can also be used to call other APIs. 
+The `id_token` can also be used to call other APIs.
 
 The [Delegation token request sample](https://github.com/auth0/auth0.js#delegation-token-request) provides further examples of using the id_token for other APIs.
 
@@ -142,8 +142,8 @@ If there is any sensitive information included in the JWT, it should be encrypte
 
 
 ## Auth0 access token
-The Auth0 access token, usually called `access_token` in the code samples, is an opaque string which is returned by calls that invoke the Auth0 authentication process and is only used to call the Auth0 API.  The Auth0 access token does not contain any claims, cannot be decoded, does not conform with any standard and is not signed. 
-   
+The Auth0 access token, usually called `access_token` in the code samples, is an opaque string which is returned by calls that invoke the Auth0 authentication process and is only used to call the Auth0 API.  The Auth0 access token does not contain any claims, cannot be decoded, does not conform with any standard and is not signed.
+
 The [Auth0.js documentation](https://auth0.com/docs/libraries/auth0js) shows a sample of how to get the `access_token`.
 
 ###How to get Auth0 access token
@@ -163,7 +163,7 @@ Calls to Lock or library functions that invoke authentication will return the `a
 It is not possible at this time to control the contents of the Auth0 access token.
 
 ###Validity
-The Auth0 access token remains valid for 24 hours. 
+The Auth0 access token remains valid for 24 hours.
 
 ###Renewing the token
 There is currently no way to renew the Auth0 access token without triggering authentication by the user.  To get a new access token, simply follow the process for getting an access token as described above in the How to Get an Access Token section.
@@ -185,7 +185,7 @@ The Auth0 access token is only used to call Auth0 Management APIv1 and as such A
 
 ## Identity Provider Access Tokens
 Third Party Access Tokens are issued by third party social providers, such as Facebook or LinkedIn, when a user authenticates with the provider.  These third party access tokens can be used to call the API of the third party provider that issued the token.
- 
+
 ###How to get Identity Provider access tokens
 
 Identity Provider access tokens can be obtained in one of two ways.  First, if a user authenticates to a social Identity Provider, such as Facebook, an Identity Provider access token for that social Identity Provider will be returned in the first element of the `identities` array within the user profile object returned by Auth0.  
@@ -229,7 +229,7 @@ For additional information see:
 
 ###Best practices
 ####Validation
-In general, Identity Provider access tokens are passed to the issuing provider, and the issuing provider is responsible for validation of the token. 
+In general, Identity Provider access tokens are passed to the issuing provider, and the issuing provider is responsible for validation of the token.
 
 ## Refresh Token
 The Auth0 refresh token is used to get a new `id_token` without requiring the user to re-authenticate.  This is primarily useful for mobile applications that are installed on a device.  
@@ -258,10 +258,10 @@ There is no need to renew the refresh token as it is valid forever.  If the refr
 ###Termination of Refresh tokens
 Refresh tokens can be revoked either through the Auth0 Dashboard or the Auth0 API.
 
-To revoke a refresh token in the Dashboard, navigate to “Users” -> {Name of user} -> “Devices” 
+To revoke a refresh token in the Dashboard, navigate to “Users” -> {Name of user} -> “Devices”
 
 To use the APIv2, navigate to “Documentation” -> “APIv2” and use the Device Credentials calls.
- 
+
 Further information is at the "Using a refresh token" section of the [Refresh Token](/refresh-token#2) page.
 
 ###Uses
@@ -324,7 +324,7 @@ Tokens should be issued with a short timeframe for expiration, where configurabl
 
 ## The Auth0 APIv2 access token
 
-The Auth0 APIv2 token is required to call v2 of the Auth0 Management API, frequently referred to as APIv2.  This token is used by a specific tenant in Auth0 to call Auth0 APIv2 to access or update records for that tenant.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant. 
+The Auth0 APIv2 token is required to call v2 of the Auth0 Management API, frequently referred to as APIv2.  This token is used by a specific tenant in Auth0 to call Auth0 APIv2 to access or update records for that tenant.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant.
 
 ###How to get a APIv2 token
 
@@ -374,13 +374,13 @@ The Auth0 APIv2 access token is used to call the Auth0 Management APIv2.  This t
 
 ##Getting user profile info from other providers
 
-Some basic user profile information from third party providers is made available in the Auth0 user profile object.   
+Some basic user profile information from third party providers is made available in the Auth0 user profile object.
 
 * [User profile overview](/user-profile)
 
 ##Calling the Auth0 APIv2
 
-The Auth0 APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 APIv2 endpoints.   
+The Auth0 APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 APIv2 endpoints.
 
 * [APIv2 Explorer page](/api/v2)
 * [APIv2 vs APIv1 and some discussion of authorization and scopes](/api/v2/changes)
@@ -422,5 +422,3 @@ This is best done by registering the API in Auth0 and obtaining a delegation tok
 * [Blog Post: Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Description of the JWT expiration](/applications)
 * [Discussion of web apps vs apis, cookies vs tokens](/apps-apis)
-
-
