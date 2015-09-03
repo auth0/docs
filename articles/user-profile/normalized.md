@@ -1,6 +1,6 @@
 # Auth0 Normalized User Profile
 
-Not all the identity providers will supply the same amount of information about the user. They might even choose different properties to convey the same meaning (e.g. `last_name` vs `family_name`). Auth0 normalizes the profile of the user regardless of the identity provider the user is authenticating with. This of course greatly simplifies the development experience, as you just need to be concerned with one schema. 
+Not all the identity providers (Connections) will supply the same amount of information about the user. They might even choose different properties to convey the same meaning (e.g. `last_name` vs `family_name`). Auth0 normalizes the profile of the user regardless of the identity provider the user is authenticating with. This of course greatly simplifies the development experience, as you just need to be concerned with one schema.
 
 These are the attributes that Auth0 will provide:
 
@@ -26,14 +26,14 @@ When outsourcing user authentication there is no more a Users/Passwords table, b
 
 But the next question is, how do you uniquely identify a user coming from Auth0? There are two options:
 
-1. Using the `user_id` property which is unique per user per identity provider. 
+1. Using the `user_id` property which is unique per user per identity provider.
 2. Using the `email` property. In this case it's very important to turn on Email Verification and also check that `email_verified` is `true`, otherwise you would be open to some edge case where a user might signup using an identity provider that provides email but it doesn't verify it. Also, in some cases like Twitter, email is not provided.
 
 ## Sample User Profiles
 
 This is a sample user profile from a user that logged in through **Google**:
 
-```
+```json
 {
   "email": "johnfoo@gmail.com",
   "email_verified": true,
@@ -59,7 +59,7 @@ This is a sample user profile from a user that logged in through **Google**:
 
 This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
 
-```
+```json
 {
   "email": "bobdoe@outlook.com",
   "email_verified": true,
@@ -88,7 +88,7 @@ This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
 
 This is a sample profile from **Office 365 (Microsoft Azure Active Directory)**:
 
-```
+```json
 {
   "email": "jeff@foo.onmicrosoft.com",
   "family_name": "Jeff",
@@ -112,7 +112,7 @@ This is a sample profile from **Office 365 (Microsoft Azure Active Directory)**:
 
 This is a sample profile from **ADFS (Active Directory Federation Services)**:
 
-```
+```json
 {
   "email": "john@fabrikam.com",
   "family_name": "Fabrikam",
