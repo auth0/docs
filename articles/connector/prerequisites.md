@@ -1,10 +1,10 @@
 # Prerequisites
 
-Typically the AD/LDAP Connector needs to be installed by a sys admin or an operations engineer vs. a developer, since it often requires access to a production resources. Following is a checklist of things they should consider ahead of the actual install:
+Typically the AD/LDAP Connector needs to be installed by a sys admin or an operations engineer vs. a developer, since it often requires access to production resources. Following is a checklist of things they should consider ahead of the actual install:
 
 ## Host Servers
 
-The Connector can be install on an existing server, even a Domain Controller. However, more often its installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
+The Connector can be install on an existing server, even a Domain Controller. However, more often it's installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
 
 #### Hardware Requirements
 
@@ -45,7 +45,7 @@ You do not need inbound connectivity enabled to the Connector unless **Kerberos*
 
 ## Service Account
 
-The Connector will be run using a service account that must be a domain user that at minimum has read access to the directory. You will need the username/password of this account when performing the install.
+The Connector will be run using a service account that must be a domain user that at a minimum has read access to the directory. You will need the username/password of this account when performing the install.
 
 ## One Connector per Auth0 Account/Connection
 
@@ -53,4 +53,4 @@ If you establish multiple Auth0 accounts, perhaps to isolate development and pro
 
 ## High Availability
 
-The Connector can be installed on multiple host servers for redundancy in case one server becomes unavailable (most organizations install two). Each server will have the same requirements listed above. No load balancer is required as that is performed by the Auth0 server itself.
+The Connector can be installed on multiple host servers for redundancy (most organizations privision two) in case one server becomes unavailable. Each server will have the same requirements listed above. No load balancer is required as that is performed by the Auth0 server itself.
