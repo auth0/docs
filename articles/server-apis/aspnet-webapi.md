@@ -43,9 +43,10 @@ ${snippet(meta.snippets.dependencies)}
 
 Open the **WebApiConfig.cs** file located in the **App_Start** folder and add the following `using` statements:
 ```cs
-using Api.App_Start;
+using YOUR_WEBAPI_PROJECT_NAME.App_Start;
 using System.Web.Configuration;
 ```
+Remember to replace the placeholder for your project name in the first `using` statement.
 
 Add the following code snippet inside the `Register` method.
 
