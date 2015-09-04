@@ -49,7 +49,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 
 ${snippet(meta.snippets.dependencies)}
 
-### 3. Add the references to the scripts in the `index.html`
+### 3. Add the references to the scripts in the `www/index.html` file
 
 ```html
 <!-- Auth0 Lock -->
