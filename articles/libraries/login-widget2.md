@@ -15,10 +15,6 @@ Add the script tag to your page to get started with __Auth0 Login Widget__.
 
     <script src="https://cdn.auth0.com/w2/auth0-widget-5.js"></script>
 
-## Playground
-
-${widgetSDK2}
-
 ## Single Page Applications
 
 You can handle the authorization process client-side as follows:
