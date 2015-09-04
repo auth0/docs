@@ -52,11 +52,13 @@ Add the following code snippet inside the `Register` method.
 ${snippet(meta.snippets.use)}
 
 ### 3. Update the web.config file with your app's credentials
-Open the **web.config** file located at the solution's root.
+Open the **Web.config** file located at the project's root.
 
-Add the following entries as children of the `<appSettings>` element.
+Locate the following entries inside the `<appSettings>` section.
 
 ${snippet(meta.snippets.setup)}
+
+Set the respective values.
 
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
