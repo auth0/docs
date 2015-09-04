@@ -31,3 +31,5 @@ Once your app is registered, a `Client Id` and `Client Secret` are generated for
 ![](/media/articles/connections/social/37signals/37signals-register-4.png)
 
 Go to your Auth0 Dashboard and select **Connections > Social**, then choose **37Signals**. Copy the `Client Id` and `Client Secret` from the Integration Portal into the fields on this page.
+
+![](/media/articles/connections/social/37signals/37signals-add-connection.png)
