@@ -3,17 +3,14 @@ connection: AOL
 image: /media/connections/aol.png
 ---
 
-# Obtaining an Client Id and Client Secret for AOL
+# Obtain an *Client Id* and *Client Secret* for AOL Reader
 
-Contact [technical support](http://help.reader.aol.com/knowledgebase) and provide them with the following information:
+To configure an AOL Reader connection with Auth0, contact [AOL Reader Support](http://help.reader.aol.com/knowledgebase) and provide the following information:
 
 * Your name
 * Your e-mail address
 * The name of your app
-* The callback URL:
+* Your callback URL:
 
-```
-https://${account.namespace}/login/callback
-```
+    `https://${account.namespace}/login/callback`
 
----
