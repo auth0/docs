@@ -8,7 +8,7 @@
   pkgType: 'js' + account.clientParam
 }) %>
 
-*This seed project is a starting point for this tutorial. You can see it builds off of the pet theme if you  already tried the Amazon API Gateway tutorials. It includes the Client ID for your Auth0 application.
+*This seed project is the starting point for this tutorial. It builds on the pet theme from the Amazon API Gateway tutorials and automatically includes the `Client ID` for your Auth0 application.*
 
 ### Building a Serverless Application using Token-based Authentication with AWS API Gateway and Lambda
 
@@ -209,7 +209,7 @@ Select the **DEPLOY API** button from the **RESOURCES** view. Select **New Stage
 
 The client application will be a single page, serverless application based on the AngularJS framework that you will serve out of an S3 bucket configured as a website. To begin, create a bucket for the application and configure it as a website with a home page of `index.html`. You can find instructions at [Hosting a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html).
 
-For a simple starter app, download a seed project at the top of this article to download a seed project that has your account settings pre-configured. Copy the contents of this seed project to a local folder called `pets`. You will be using the `pets` folder for the remainder of this tutorial. From the `pets` folder, copy the contents to your S3 bucket for the website. An easy way to do this is with the [AWS CLI](https://aws.amazon.com/cli/).
+For a simple starter app, download the seed project at the top of this article that has your account settings pre-configured. Copy the contents of this seed project to a local folder called `pets`. You will be using the `pets` folder for the remainder of this tutorial. From the `pets` folder, copy the contents to your S3 bucket for the website. An easy way to do this is with the [AWS CLI](https://aws.amazon.com/cli/).
 ```
 aws s3 cp --recursive --acl "public-read" ./ s3://your-bucket/
 ```
@@ -225,40 +225,42 @@ At this point you have authenticated with Auth0, and you have an OpenId token. H
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway). You need to make a simple extension to `login.js` to obtain a delegation token from the identity token. Update `pets/login/login.js` to get an AWS delegation token after a successful signin as follows for `auth.signin` to the following code, (be sure to modify the role and principal strings in the `getOptionsForRole` function to contain your actual account id value - don't worry about the second role, we'll get to that later). Note that you are treating any user not logged in using a social connection as an admin (we'll show better ways to enforce that later):
+You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway). 
+
+Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Make sure to modify the `role` and `principal` strings in the `getOptionsForRole` function to contain your actual account id value. Note that you are treating any user not logged in using a social connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 
 ```js
-    auth.signin(params, function(profile, token) {
-      store.set('profile', profile);
-      store.set('token', token);
+auth.signin(params, function(profile, token) {
+    store.set('profile', profile);
+    store.set('token', token);
 
-      // set admin and get delegation token from identity token.
-      profile.isAdmin = !profile.identities[0].isSocial;
-      var options = getOptionsForRole(profile.isAdmin, token);
+// set admin and get delegation token from identity token.
+profile.isAdmin = !profile.identities[0].isSocial;
+var options = getOptionsForRole(profile.isAdmin, token);
 
-      auth.getToken(options)
-        .then(
-          function(delegation)  {
-            store.set('awstoken', delegation.Credentials);  //add to local storage
-            $location.path("/");
-          }, 
-        function(err) {
-           console.log('failed to acquire delegation token', err);
-      });
-    }, function(error) {
-      console.log("There was an error logging in", error);
-    });
+auth.getToken(options)
+    .then(
+      function(delegation)  {
+        store.set('awstoken', delegation.Credentials);  //add to local storage
+        $location.path("/");
+      }, 
+    function(err) {
+       console.log('failed to acquire delegation token', err);
+  });
+}, function(error) {
+  console.log("There was an error logging in", error);
+});
 ```
 
 If you set a breakpoint in the browser and inspect `delegation.Credentials`, you will see a familiar values like *AccessKeyId* and *SecretAccessKey* if you've accessed AWS APIs programmatically before:
 
 ```js
-  {
-	AccessKeyId: "ASIAJB...BNQ", 
-	SecretAccessKey: "vS+b6...2Noav", 
-	SessionToken: "AQoDYBqsivOV...DdQW0gsKr8rgU=", 
-	Expiration: "2015-08-27T14:48:32.000Z"
-  }
+{
+    AccessKeyId: "ASIAJB...BNQ", 
+    SecretAccessKey: "vS+b6...2Noav", 
+    SessionToken: "AQoDYBqsivOV...DdQW0gsKr8rgU=", 
+    Expiration: "2015-08-27T14:48:32.000Z"
+}
 ```
 
 ### Display Pets with the AWS API Service
@@ -266,25 +268,25 @@ If you set a breakpoint in the browser and inspect `delegation.Credentials`, you
 First, show the pets to end users. To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you previously downloaded to the `pets` directory. The contents should include `apiClient.js`, a `lib` folder, and a `README.md`. There is already a `README.md` in the `pets` directory, so just keep both. (The `README.md` for the API gateway explains how to use the api client from your application.) Open `index.html`, and add all of the scripts listed at the top of the API readme to `index.html`. For example:
 
 ```html
-    <!-- scripts for aws api gateway -->
-    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
-    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
-    <script type="text/javascript" src="lib/moment/moment.js"></script>
-    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
-    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
-    <script type="text/javascript" src="apigClient.js"></script>
+<!-- scripts for aws api gateway -->
+<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/moment/moment.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="apigClient.js"></script>
 ```
 
-If you open `apiClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. Don't modify this generated code. Open `home.js` and update the contents of `getPets` with  method for getting pets as follows:
+If you open `apiClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. Don't modify this generated code. Open `home.js` and update the contents of `getPets` with a method for getting pets as follows:
 
 ```js
-   function getPets() {
+function getPets() {
     // this is unauthenticated
     var apigClient = apigClientFactory.newClient({
         region: 'us-east-1' // The region where the API is deployed
@@ -298,8 +300,8 @@ If you open `apiClient.js`, you can see that the downloaded library has created 
       }).catch(function (response) {
         alert('pets get failed');
         showError(response);
-     });
-   }
+    });
+}
 ```
 If you refresh the page, you should see two animals listed (assuming you ran the previously described test on your API's that created these pets).
 
@@ -307,10 +309,10 @@ If you refresh the page, you should see two animals listed (assuming you ran the
 
 Now that you have a working application with the API Gateway, add a method for updating the pets. First try it without authentication, and then add it in.
 
-Add code for adding a pet (as you saw in the previous updates to `auth.signin`, we are assuming that anyone that is not a social user is admin incluing users authenticated from the *Username-Password-Authentication* store). Update `putPets` logic to update pets using your API function. Both removing and adding pets will use this function.
+Append code for adding a pet. As in the previous modifications to `auth.signin`, you are assuming that anyone that is not a social user is an admin, including users authenticated from the *Username-Password-Authentication* store). Modify the `putPets` logic to update pets using your API function. This function will be used for both adding and removing pets  .
 
 ```js
- function putPets(updatedPets) {
+function putPets(updatedPets) {
     var body = {pets: updatedPets};
  
     var apigClient = apigClientFactory.newClient({
@@ -324,7 +326,7 @@ Add code for adding a pet (as you saw in the previous updates to `auth.signin`, 
         alert('pets update failed');
         showError(response);
       });
-  }
+}
 ```
 
 The update logic will fail because you are not yet authenticating the AWS API Gateway method using IAM for *petsPost*, but you should test it. Add a frog for 4.99. You should see a failure occurring when you try to save. The error code is likely a failure due to the absence of the `Access-Control-Allow-Origin` header. When you setup CORS, it was only configured up for a *200* status code. You'll need to set this up for each status code you want to go through to the end user. If you look in the browser debugger, you'll see that the underlying status is a 403.
@@ -332,7 +334,7 @@ The update logic will fail because you are not yet authenticating the AWS API Ga
 Now add security by providing the token information to the API at the start of the `putPets` method:
 
 ```js
-  function getSecureApiClient() {
+function getSecureApiClient() {
     var awstoken = store.get('awstoken');
     return apigClientFactory.newClient({
         accessKey: awstoken.AccessKeyId,
@@ -340,9 +342,10 @@ Now add security by providing the token information to the API at the start of t
         sessionToken: awstoken.SessionToken,
         region: 'us-east-1' // OPTIONAL: by default this parameter is set to us-east-1
     });
-  }
-  function putPets(updatedPets) {
+}
+function putPets(updatedPets) {
      var apigClient = getSecureApiClient();
+}
 ```
 
 The update should now succeed.
@@ -450,17 +453,17 @@ In Auth0 console, go back to your **Apps/APIs**, select your application, then s
 
 In the AWS API Gateway console, deploy the API again and generate a new javascript SDK. At this point everything is set to purchase pets with the AWS API Gateway and Auth0. You can copy that SDK over the previous one in the client code.
 
-The login controller logic uses `getOptionsForRole` to select different roles for different users. When you obtain the delegation token, you can tell Auth0 which role to use if the user is an admin or not. In the `pets/login/login.js` file update the `role` and `principal` values for the non-admin user for the social user IAM role you just created.
+The login controller logic uses `getOptionsForRole` to select different roles for different users. When you obtain the delegation token, you can tell Auth0 which role to use if the user is an admin or if not. In the `pets/login/login.js` file, modify the `role` and `principal` values for the non-admin user for the social user IAM role you just created.
 
-At this point, you should be able to login using your Amazon credentials, or using the database user you previously created. Notice that the UI lets a social user buy pets, while an admin user can add and remove pets. If you want test it out, you can disable the hiding the remove button in the UI by removing `ng-show="isAdmin"` for this line in `/pets/home/home.html`, and try to remove a pet when logged in as a social user:
+At this point, you should be able to login using Amazon credentials, or the database user you previously created. Notice that the UI lets a social user buy pets, while an admin user can add and remove pets. To test it, you can hide the remove button in the UI by removing `ng-show="isAdmin"` in this line of `/pets/home/home.html`, then attempt to remove a pet while logged in as a social user:
 
 ```
  <button ng-show="isAdmin" class="btn delete-btn" ng-click="removePet(pet.id)">remove</button>
 ```
-In the controller, update the `buyPet` function to make the pet purchase. The following snippets show updated code in the `HomeController`.
+In `HomeController`, modify the `buyPet` function to make the pet purchase:
 
 ```js
-  function buyPet(user, id) {
+function buyPet(user, id) {
     var apigClient = getSecureApiClient();
 
     apigClient.petsPurchasePost({},{userName:user, petId:id})
@@ -472,11 +475,11 @@ In the controller, update the `buyPet` function to make the pet purchase. The fo
         alert('buy pets failed');
         showError(response);
     });
-  }
-  … 
+}
+… 
 ```
 
-Now you can log in as a social user. When you log in as an Amazon user, you'll see that you can buy a pet but not add or remove pets. If you log in with the database account, you should still be able to add and remove pets, but not buy pets.
+Now, you can log in as a social user. Note that as an Amazon user, you can buy a pet, but not add or remove pets. If you log in with the database account, you should still be able to add and remove pets, but not buy pets.
 
 ### Use Auth0 rules to enforce role assignment
 
@@ -533,20 +536,20 @@ A few characteristics to point out:
 - A lot of information is passed into the rule with *context* and *user*.
 - You can extend the objects passed in. In the code above, the rule checks the body of the request for the role information passed and, if present, allows the requested role by matching it to the allowed role. The role is then set into the context *addonConfiguration* (which always overrides settings in the request body) of the allowed role. 
 
-Adjust the role and principal values above for the ones already created for your account and save. You can read more on rules at: [Rules](https://auth0.com/docs/rules). 
+Adjust the role and principal values above for the ones already created for your account and click **Save**. You can read more on rules at: [Rules](https://auth0.com/docs/rules). 
 
-Now you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
+Now, you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
 
 ## Use An Identity Token
-Often, you will want to do the processing of a user's role based on the users identity in the logic of your Lambda function. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on a plain text parameter that could be tampered. You could use the JWT for authorization as well and bypass IAM integration with the Amazon API Gateway. However by using the Gateway you have the advantage of halting the API call before your Lambda function is even invoked.  
+Often, you will want to do the processing of a user's role based on the users identity in the logic of your Lambda function. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on a plain-text parameter that could be tampered with. You could also use the JWT for authorization and bypass the IAM integration with the Amazon API Gateway. However, by using the API Gateway for authorization, you have the opportunity of halting the API call before your Lambda function is ever invoked.
 
 ![](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
-There are several ways of causing the email to be added into the JWT.  One way is to use another rule, which is a good approach if you want make sure this value is always in the JWT for an authenticating client. The provided sample includes the email as part of the scope when you login in the browser client. You will be using this approach. In `login.js` you can see this specified in the parameters passed to auth.signin:
+There are several ways of causing the email to be added to the JWT. One way is to use another rule, which is a good approach if you want make sure this value is always in the JWT for an authenticating client. Since the provided sample includes the email as part of the scope when you login in the browser client, you will be using this approach. In `login.js` you can see this scope specified in the parameters passed to `auth.signin`:
 
 ```js
- $scope.login = function() {
-     var params = {
+$scope.login = function() {
+    var params = {
         authParams: {
           scope: 'openid email' 
         }
@@ -577,7 +580,7 @@ You'll need to create two files, and then run **npm install**, and zip up the re
 }
 ```
 
-Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key for signing hte JWT, although there is an option to use asymmetric keys. If you need to let third parties validate your token as well then you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols). You will be using a symmetric key (client secret) for validating the token.
+Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key for signing the JWT, although there is an option to use asymmetric keys. If you need to allow third parties to validate your token as well, you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols). You will be using a symmetric key (client secret) for validating the token.
 
 ```js
 var AWS = require('aws-sdk');
@@ -663,7 +666,7 @@ The final step is to pass the JWT to the method from the browser client. The sta
 
 ```js
 
-  function buyPet(user, id) {
+function buyPet(user, id) {
     var apigClient = getSecureApiClient();
     var body = {
       petId:id, 
@@ -679,7 +682,7 @@ The final step is to pass the JWT to the method from the browser client. The sta
         alert('buy pets failed');
         showError(response);
     });
-  }
+}
 ```
 
 ## Summary
