@@ -12,7 +12,7 @@ angular.module('starter', ['ionic',
 
   $stateProvider
   // This is the state where you'll show the login
-  .state('login', {
+  .state('login', { // Notice: this state name matches the loginState property value to set in authProvider.init({...}) below...
     url: '/login',
     templateUrl: 'templates/login.html',
     controller: 'LoginCtrl',
@@ -34,7 +34,7 @@ angular.module('starter', ['ionic',
   authProvider.init({
     domain: '<%= account.namespace %>',
     clientID: '<%= account.clientId %>',
-    loginState: 'login'
+    loginState: 'login' // This is the name of the state where you'll show the login, which is defined above...
   });
 
   ...
