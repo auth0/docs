@@ -6,11 +6,11 @@ The following diagram illustrates AWS IAM role assignments for two different use
 
 ![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
-For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Use An Identity Token](#use-an-identity-token) section.
+For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway-5) section.
 
 ### Create the PetPurchase API resource
 
-From the API Gateway console, repeat the process [outlined above](#setup-the-aws-api-gateway) to create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource "purchase". Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets`. Create a new AWS Lambda function for purchasing a pet called "PetPurchase", which adds a `isSold` and `soldTo` attribute to a pet as follows:
+From the Amazon API Gateway console, create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource "purchase". Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets` in [Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway-2) in the *Set up CORS* section. Create a new AWS Lambda function for purchasing a pet called "PetPurchase", which adds a `isSold` and `soldTo` attribute to a pet as follows:
 
 ```js
 var AWS = require('aws-sdk');
@@ -18,53 +18,53 @@ var DOC = require('dynamodb-doc');
 var dynamo = new DOC.DynamoDB();
     
 exports.handler = function(event, context) {
-    var petId = event.petId;
-    var user = event.userName;
-    var pets = {};
-    console.log('start PetsPurchase, petId', petId, ' userName', user);
-    
-    var writecb = function(err, data) {
-        if(!err) {
-            context.done(null, pets);
-        } else {
-            console.log('error on GetPetsInfo: ',err);
-            context.done('failed on update', null);
-        }
-    };
+   var petId = event.petId;
+   var user = event.userName;
+   var pets = {};
+   console.log('start PetsPurchase, petId', petId, ' userName', user);
+   
+   var writecb = function(err, data) {
+      if(!err) {
+          context.done(null, pets);
+      } else {
+          console.log('error on GetPetsInfo: ',err);
+          context.done('failed on update', null);
+      }
+   };
 
-    var readcb = function(err, data) {
-        if(err) {
-            console.log('error on GetPetsInfo: ',err);
-            context.done('failed to retrieve pet information', null);
-        } else {
-            // make sure we have pets
-            if(data.Item && data.Item.pets) {
-                pets = data.Item.pets;
-                var found = false;
-                
-                for(var i = 0; i < pets.length && !found; i++) {
-                    if(pets[i].id === petId) {
-                        if(!pets[i].isSold) {
-                            pets[i].isSold = true;
-                            pets[i].soldTo = user;
-                            var item = { username:"default",pets: pets};
-                            dynamo.putItem({TableName:"Pets", Item:item}, writecb);
-                            found = true;
-                        }
-                    }
-                }
-                if(!found) {
-                    console.log('pet not found');
-                    context.done('That pet is not available.', null);
-                }
-            } else {
-               console.log('pet already sold');
-               context.done('That pet is not available.', null);           
-            }
-        }
-    };
+   var readcb = function(err, data) {
+      if(err) {
+          console.log('error on GetPetsInfo: ',err);
+          context.done('failed to retrieve pet information', null);
+      } else {
+          // make sure we have pets
+          if(data.Item && data.Item.pets) {
+              pets = data.Item.pets;
+              var found = false;
+              
+              for(var i = 0; i < pets.length && !found; i++) {
+                  if(pets[i].id === petId) {
+                     if(!pets[i].isSold) {
+                        pets[i].isSold = true;
+                        pets[i].soldTo = user;
+                        var item = { username:"default",pets: pets};
+                        dynamo.putItem({TableName:"Pets", Item:item}, writecb);
+                        found = true;
+                     }
+                  }
+               }
+               if(!found) {
+                 console.log('pet not found');
+                 context.done('That pet is not available.', null);
+               }
+           } else {
+              console.log('pet already sold');
+              context.done('That pet is not available.', null);           
+           }
+       }
+   };
 
-    dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, readcb);
+   dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, readcb);
 };
 ```
 
@@ -77,23 +77,37 @@ Once the Lambda function is defined, add another method, *POST*, to the `purchas
  }
 ```
 
+In the response to the test you should see the pet with id 1 is now sold to fred flintstone:
+```js
+[
+  {
+    "id": 1,
+    "price": 249.99,
+    "type": "dog",
+    "isSold": true,
+    "soldTo": "fred flintstone"
+  },
+
+  ...
+```
+
 ### Use IAM to Secure the PurchasePet API
 
 #### Update IAM
 
-To secure your new API, follow the same process for adding a new role that you [performed above](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway). Call the new role "auth0-api-social-role". The arn for the method being secured should look something like:
+To secure your new API, follow the same process for adding a new role that you [performed in step 2](/integrations/aws-api-gateway-2). Call the new role "auth0-api-social-role". The arn for the method you will secure in the IAM policy should look something like:
 
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets/purchase
 ```
 
-Go to the API Gateway console, and select the *POST* method for the `/pets/purchase` resource. Select **Method Request** and change **Authorization Type** to *AWS_IAM*. Click the check to save the setting.
+Don't forget to update the trust policy as well. Go to the API Gateway console, and select the *POST* method for the `/pets/purchase` resource. Select **Method Request** and change **Authorization Type** to *AWS_IAM*. Click the check to save the setting.
 
 At this point, you have defined two roles that you can use with the API gateway. The first, `auth0-api-role`, permits updating the pets (`/pets`, *POST* method) and the second, `auth0-api-social-role`, permits purchasing a pet.
 
 #### Configure Login with Amazon and update Auth0
 
-To create a social role, use Login with Amazon(LWA). Go back to the Auth0 console, and select **Connections** then **Social** in the right menu. Turn on the connection for Amazon. A wizard pops up to lead you through the process. Click **Continue**, and you'll see a configuration page for entering the *client id* and *client secret*. If you haven't used Login with Amazon before, there is also a link for "how to obtain a client id". Click on this link to obtain the *client id* and *client secret* and copy this information into the configuration page. Once you've entered your *client id* and *client secret*, you can test it from the Auth0 console. When you configure LWA make sure to enter into **Allowed Return URLs** the callback to your Auth0, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page shows you specifically what to enter.
+To create a social role, use Login with Amazon(LWA) (if you want to use another social provider, that will also work, it doesn't need to be LWA). Go back to the Auth0 console, and select **Connections** then **Social** in the right menu. Turn on the connection for Amazon. A wizard pops up to lead you through the process. Click **Continue**, and you'll see a configuration page for entering the *client id* and *client secret*. If you haven't used Login with Amazon before, there is also a link for "how to obtain a client id". Click on this link and follow the process to obtain the *client id* and *client secret*. Once you've entered your *client id* and *client secret*, you can test it from the Auth0 console. When you configure LWA make sure to enter into **Allowed Return URLs** the callback to your Auth0, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page shows you specifically what to enter.
 
 In Auth0 console, go back to your **Apps/APIs**, select your application, then select the **Connections** tab. Make sure that *amazon* is enabled for social. While this tutorial uses LWA, you can choose to use any other social provider and follow similar steps. The remainder of the tutorial will work once your social authentication is functioning.
 
@@ -103,12 +117,13 @@ In the AWS API Gateway console, deploy the API again and generate a new javascri
 
 The login controller logic uses `getOptionsForRole` to select different roles for different users. When you obtain the delegation token, you can tell Auth0 which role to use if the user is an admin or if not. In the `pets/login/login.js` file, modify the `role` and `principal` values for the non-admin user for the social user IAM role you just created.
 
-At this point, you should be able to login using Amazon credentials, or the database user you previously created. Notice that the UI lets a social user buy pets, while an admin user can add and remove pets. To test it, you can hide the remove button in the UI by removing `ng-show="isAdmin"` in this line of `/pets/home/home.html`, then attempt to remove a pet while logged in as a social user:
+At this point, you should be able to login using Amazon credentials, or the database user you previously created. Notice that the UI lets a social user buy pets, while an admin user can add and remove pets. To test it, you can temporarily hide the remove button in the UI by removing `ng-show="isAdmin"` in this line of `/pets/home/home.html`, then attempt to remove a pet while logged in as a social user:
 
 ```
  <button ng-show="isAdmin" class="btn delete-btn" ng-click="removePet(pet.id)">remove</button>
 ```
-In `HomeController`, modify the `buyPet` function to make the pet purchase:
+
+Now add the logic for a social user to buy a pet. In `HomeController`, modify the `buyPet` function to make the pet purchase:
 
 ```js
 function buyPet(user, id) {
@@ -127,25 +142,25 @@ function buyPet(user, id) {
 … 
 ```
 
-Now, you can log in as a social user. Note that as an Amazon user, you can buy a pet, but not add or remove pets. If you log in with the database account, you should still be able to add and remove pets, but not buy pets.
+Now copy the code to your S3 bucket, log out, and then log in as a social user by clicking on the Amazon icon in the Lock login dialog. You may need to click **show all** so Lock forgets your previous login name. Note that as an Amazon user, you can buy a pet, but not add or remove pets. If you log in with the database account, you should still be able to add and remove pets, but not buy pets. Try to buy a pet, and it should succeed.
 
 ### Use Auth0 rules to enforce role assignment
 
-In some cases, determining the role in the browser application is appropriate as shown here, but often you will want to determine user privileges on the server-side to prevent a user from assuming a more privileged role then they are permitted by hacking the client code. With Auth0, you can do this with a rule. Rules are service logic defined by developers/administrators that run during the authentication process within Auth0. You could eliminate passing role information from the client and only implement it in a rule. Rules can override and add settings. For example, you can create a rule to insert role information into the delegation request based on the authentication source. For more on rules see: [Rules](https://auth0.com/docs/rules).
+In some cases, determining the role in the browser application is appropriate as shown here, but often you will want to determine user privileges on the server-side to prevent a user from assuming a more privileged role then they are permitted by hacking the client code. With Auth0, you can do this with a rule. Rules are service logic defined by developers/administrators that run during the authentication process within Auth0. You could eliminate passing role information from the client and only implement it in a rule. Rules can override and add settings. For example, you can create a rule to insert role information into the delegation request based on the authentication source. For more on rules see: [Rules](/rules).
 
-Add a rule that will check if the role requested is allowed for this user depending on whether they have a social or an administrative login. Go to the Auth0 console, and click **Rules** in the left menu. Click the **New Rule** button. You can see a lot of pre-built templates for common rules. In this case select an empty rule. Put the following code into the rule body (make sure the *clientID* matches the *clientID* of your Auth0 application):
+Add a rule that will check if the role requested is allowed for this user depending on whether they have a social or an administrative login. Go to the Auth0 console, and click **Rules** in the left menu. Click the **New Rule** button (or **Create your First Rule** if this is your first time). You can see a lot of pre-built templates for common rules. In this case select an empty rule. Put the following code into the rule body (make sure the *clientID* matches the *clientID* of your Auth0 application) and name the rule *AWS Pets Rule*:
 
 ```js
 function (user, context, callback) {
   if(context.clientID === '${account.clientId}') {    
     var socialRoleInfo = {
       role:"arn:aws:iam::<your account>:role/auth0-api-social-role",
-      principal: "arn:aws:iam::your account>:saml-provider/auth0-api"
+      principal: "arn:aws:iam::your account>:saml-provider/auth0"
     };
     
     var adminRoleInfo = {
       role:"arn:aws:iam::<your account>:role/auth0-api-role",
-      principal: "arn:aws:iam::<your account>:saml-provider/auth0-api"
+      principal: "arn:aws:iam::<your account>:saml-provider/auth0"
     };
     
     var requestRole = context.request.body.role;
@@ -177,15 +192,14 @@ function (user, context, callback) {
   } 
 }
 ```
+Adjust the role and principal values above for the ones already created for your account and click **Save**. 
 
 A few characteristics to point out:
 
 - Rules run at a global scope for every authentication. Unless you want to run logic on every request, it's best to only run your logic if it is your application. The check for *clientID* at the top of this code restricts running to only this Auth0 application.
 - A lot of information is passed into the rule with *context* and *user*.
-- You can extend the objects passed in. In the code above, the rule checks the body of the request for the role information passed and, if present, allows the requested role by matching it to the allowed role. The role is then set into the context *addonConfiguration* (which always overrides settings in the request body) of the allowed role. 
-
-Adjust the role and principal values above for the ones already created for your account and click **Save**. You can read more on rules at: [Rules](https://auth0.com/docs/rules). 
+- You can extend the objects passed in. In the code above, the rule checks the body of the request for the role information passed and, if present, it logs a warning if the role isn't an allowed role, and overrides the role. The role is set into the context *addonConfiguration* (which always overrides settings in the request body) of the allowed role. 
 
 Now, you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
 
-  [Prev](/integrations/aws-api-gateway-3) ----- [Next](/integrations/aws-api-gateway-5)
+[Prev](/integrations/aws-api-gateway-3) ----- [Next](/integrations/aws-api-gateway-5)

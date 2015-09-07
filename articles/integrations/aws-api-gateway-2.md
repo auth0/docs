@@ -4,31 +4,31 @@ Now that you have your API running, you need to add security. AWS API Gateway pr
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-key.png)
 
-For this tutorial, you'll build a serverless, single page application, that will rely on federating identity with other identity sources to determine which users are allowed access. You can achieve this using a combination of the Amazon API Gateway IAM integration and AWS IAM's identity federation with Auth0. The following diagram illustrates an example flow using a SAML based identity provider:
+For this tutorial, you'll build a serverless, single page application, that relies on federating identity with common identity sources to determine which users are allowed access. You can achieve this using a combination of the Amazon API Gateway IAM integration and AWS IAM's identity federation with Auth0. The following diagram illustrates an the flow using a SAML based identity provider and Auth0 SAML federation and delegation for AWS:
 
 ![](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
-You'll implement this in two ways, first using Auth0 delegation with AWS IAM and then adding an identity token to flow identity to the Lambda function.
+You'll implement this in two ways, first using Auth0 delegation with AWS IAM and then adding an identity token to flow identity to the Lambda function. Delegation makes it easy for you to obtain tokens from AWS to access AWS services in your application.
 
 ### Configure IAM and Auth0 for SAML integration and the API Gateway
-The IAM integration with SAML lets the SAML identity provider (IDP) specify the IAM role for a user within the issued SAML token which is exchanged for an AWS token. This model is powerful because it lets the IDP control the level of access for your users by issuing SAML tokens with different IAM roles. For example, the IDP could select the IAM role based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. a database connection or a social provider like Facebook). This approach lets your service differentiate user access to your Amazon API Gateway methods when secured using IAM.
+The AWS IAM SAML integration lets the trusted identity provider (IDP) specify an AWS IAM role in the SAML token used to obtain an AWS token. The returned token has the AWS access permissions of that role. Your SAML IDP controls the level of access for your users by issuing SAML tokens with different AWS IAM roles. For example, the IDP could specify the IAM role based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. a database connection or a social provider like Facebook). This approach lets you differentiate user access to your Amazon API Gateway methods when secured with AWS IAM.
 
 To configure Auth0 with SAML, do the following:
 
 1. Sign up for a free Auth0 developer account, and sign in.
-2. In the left menu, select **Apps and APIs**, then click **New App and API**. Call the new app "AWS Api Gateway".
+2. In the left menu, select **Apps / APIs**, then click **New App and API** (or **Create your First APP/API** if this is your first time). Call the new app "AWS Api Gateway".
 3. Click on the **Settings** tab.
-4. Follow the [How to Setup AWS to do Delegated Authentication with APIs](https://auth0.com/docs/aws-api-setup) walkthrough to configure AWS for delegated access, which uses SAML behind the scenes. Name the AWS IAM role you create "auth0-api-role".
+4. Follow the [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup) walkthrough to configure AWS for delegated access, which uses SAML behind the scenes. Don't worry about attaching a policy for additional permissions. Name the SAML provider you create `auth0`, and the AWS IAM role `auth0-api-role`.
 
-Once the AWS IAM role is configured, add a policy to the `auth0-api-role` role that lets you execute your API gateway methods. This is described in [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html). The following paragraphs summarize the steps required.
+Once the AWS IAM role is configured, you will add a policy to the `auth0-api-role` role that lets you execute your API gateway methods. This is described in [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html). The following paragraphs summarize the steps required.
 
 The Amazon Resource Name (arn) that controls access to your APIs will look something like:
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets
 ```
-The wildcard (`*`) enables permissions for all stages for your API. You can deploy different stages (for example dev, test, prod). You can see the arn by selecting the *Method Request* definition for one of your API methods.
+You can see the arn by selecting for one of your API methods by selecting the *Method Request* definition in the Amazon API Gateway console (make sure the arn does not include the method, it should look like the above only with  your account and api gateway identifier). The wildcard (`*`) in the example above enables permissions for all stages for your API. You can deploy different stages (for example dev, test, prod). 
 
-Select the role you just created, and expand **Inline Policies**, and click the **click here** link. Select **Custom Policy**, click the **Select** button, and pick a name like "api-gateway-policy". To enable access to your api methods after updating the arn with the one for your API, add the following and then click **Apply Policy**.
+Select the role you just created, and expand **Inline Policies**, and click the **click here** link. Select **Custom Policy**, click the **Select** button, and pick a name like "api-gateway-policy". To enable access to allow of your api methods for the role, apply the following policy after updating the arn with the one for your API. Click **Apply Policy**.
 ```js
 {
     "Version": "2012-10-17",
@@ -81,12 +81,9 @@ At this point you are finished with IAM. Go back to the API gateway. In the **Re
 Our single page app will access web API methods from a different domain than the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to permit access to the AWS API Gateway site. Typically, a browser will first issue an OPTIONS request to see what the site will permit. See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details. Here is a summary of the steps:
 
 1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
-2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda and then select *NoOp* for the method.
-3. Click on **Method Response**, expand **200**, and then add these three headers:
-    ```
-    'Access-Control-Allow-Headers', 'Access-Control-Allow-Methods',  'Access-Control-Allow-Origin'
-    ```
-4. Now you need to map values. Click the **Method Execution** link and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `POST, GET, OPTIONS`.
+2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda, select your region, and then select *NoOp* for the *Lambda Function*. Click on **Save**.
+3. Click on **Method Response**, expand **200**, and then three headers: *Access-Control-Allow-Headers*, *Access-Control-Allow-Methods*,  *Access-Control-Allow-Origin*.
+4. Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`. 
 5. For the *POST* and *GET* methods, follow the same process as above to add a single header, *Access-Control-Allow-Origin*, with the value `'*'`.
 
 ### Deploy the API

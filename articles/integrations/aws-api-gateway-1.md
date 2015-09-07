@@ -1,35 +1,35 @@
 ### Amazon API Gateway Tutorial - Step 1 - Setting up the Amazon API Gateway
 
-You will need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create an Amazon [DynamoDB](https://aws.amazon.com/dynamodb) table and the AWS Lambda functions and Amazon API Gateway APIs for getting and putting pets. Log into the AWS console to perform the following steps.
+You need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create an Amazon [DynamoDB](https://aws.amazon.com/dynamodb) table and the AWS Lambda functions and Amazon API Gateway APIs for getting and putting pets. Log into the AWS console to perform the following steps.
 
-1. First you will create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *Hash*, and specify a *Hash Attribute Name* string type of `username`. Press **Continue**, then press **Continue** for Indices to skip. On the next page enter *3* for read and write units, and then press **Continue**. Uncheck *Use Basic Alarms* and press **Continue** one more time. Press **Create** to finish.
+1. First create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *Hash*, and specify a *Hash Attribute Name* string type of `username`. Press **Continue**, then press **Continue** for Indices to skip. On the next page enter *3* for read and write units, and then press **Continue**. Uncheck *Use Basic Alarms* and press **Continue** one more time. Press **Create** to finish.
 
-2. Next you will create a policy that allows your AWS Lambda functions to access CloudWatch logs and the Pets table. Select the AWS IAM console. Click on **Roles** in the left menu, and then click the **Create New Role** button. Name the role `APIGatewayLambdaExecRole` and click **Next Step**. Under *AWS Service Roles*, select *AWS Lambda*. For Attach Policy just skip by clicking **Next Step**. Click **Create Role**. Now select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **click here** link. Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following for the policy document (first update the amazon resource name (arn) for your DynamoDB table). Click **Apply Policy**.
+2. Next create a policy that allows your AWS Lambda functions to access CloudWatch logs and the Pets table. Select the AWS IAM console. Click on **Roles** in the left menu, and then click the **Create New Role** button. Name the role `APIGatewayLambdaExecRole` and click **Next Step**. Under *AWS Service Roles*, select *AWS Lambda*. For Attach Policy just skip by clicking **Next Step**. Click **Create Role**. Now select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **click here** link. Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following for the policy document (first update the amazon resource name (arn) for your DynamoDB table). Click **Apply Policy**.
 
-```js
-{
-    "Version": "2012-10-17",
-    "Statement": [
+    ```js
+    {
+      "Version": "2012-10-17",
+      "Statement": [
         {
-            "Sid": "AccessCloudwatchLogs",
-            "Action": ["logs:*"],
-            "Effect": "Allow", 
-            "Resource": "arn:aws:logs:*:*:*"
+          "Sid": "AccessCloudwatchLogs",
+          "Action": ["logs:*"],
+          "Effect": "Allow", 
+          "Resource": "arn:aws:logs:*:*:*"
         },
         {
-            "Sid": "PetsDynamoDBReadWrite",
-                        "Effect": "Allow",
-            "Action": [
-                        "dynamodb:DeleteItem",
-                        "dynamodb:GetItem",
-                        "dynamodb:PutItem",
-                        "dynamodb:UpdateItem"
-                        ],
-            "Resource": ["arn:aws:dynamodb:us-east-1:0123456789012:table/Pets"]
-         }
-     ]
-}
-```
+          "Sid": "PetsDynamoDBReadWrite",
+                      "Effect": "Allow",
+          "Action": [
+                      "dynamodb:DeleteItem",
+                      "dynamodb:GetItem",
+                      "dynamodb:PutItem",
+                      "dynamodb:UpdateItem"
+                      ],
+          "Resource": ["arn:aws:dynamodb:us-east-1:0123456789:table/Pets"]
+        }
+       ]
+    }
+    ```
 
 3. The next three steps create the AWS Lambda functions for getting and putting pet information. In the AWS Lambda console, select **Create a Lambda function** (if you have not created an AWS Lambda function before, you will click **Get Started Now**). Click **Skip** for selecting a blueprint, and enter `GetPetInfo` for the *Name*. Select *Node.js* for the runtime, and paste the following code to read pets from the dynamodb table:
 
@@ -39,20 +39,20 @@ You will need to have [node.js](https://nodejs.org/) already installed. Perform 
     var dynamo = new DOC.DynamoDB();
 
     exports.handler = function(event, context) {
-        var cb = function(err, data) {
-            if(err) {
-                console.log('error on GetPetsInfo: ',err);
-                context.done('Unable to retrieve pet information at this time', null);
-            } else {
-                if(data.Item && data.Item.pets) {
-                    context.done(null, data.Item.pets);
-                } else {
-                     context.done(null, {});               
-                }
-            }
-        };
+       var cb = function(err, data) {
+          if(err) {
+             console.log('error on GetPetsInfo: ',err);
+             context.done('Unable to retrieve pet information', null);
+          } else {
+             if(data.Item && data.Item.pets) {
+                 context.done(null, data.Item.pets);
+             } else {
+                  context.done(null, {});               
+             }
+          }
+       };
 
-        dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, cb);
+       dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, cb);
     };
     ```
 For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leave the default for all other settings. Click **Next**, and then click **Create function**. Click **Test**. You should see an empty output (`{}`) in the *Execution Results* section since the table is empty.

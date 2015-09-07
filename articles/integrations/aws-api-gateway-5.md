@@ -21,7 +21,7 @@ $scope.login = function() {
 
 You can request up to the full profile of the user to be contained within the JWT. However, since the JWT is typically passed on every request, you'll want to only include what you need to keep the token lightweight.
 
-The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the Lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html).
+The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the Lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html). The following seed project contains the code you'll need for your updated AWS Lambda function.
 
 <%= include('../_includes/package', {
   pkgRepo: 'auth0-aws',
@@ -31,105 +31,44 @@ The AWS Lambda console has access to a relatively limited number of node modules
   pkgType: 'server' + account.clientParam
 }) %>
 
-You'll need to create two files, and then run **npm install**, and zip up the result. Create a directory for your definition, and add the following `package.json` definition:
+You'll see a two Javascript files, `index.js` which is expected by the AWS Lambda service to contain your main code, and `auth0-variables` which contains the only code you need to update. There is also a standard nodejs `package.json` file. 
+
+This code adds extraction and validation of the JWT and uses several modules to help with that process. By default, Auth0 uses a symmetric key for signing the JWT, although there is an option to use asymmetric keys. If you need to allow third parties to validate your token as well, you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols).
+
+Update `auth0-variables.js` with your secret key which can be found on the settings tab of your application in the Auth0 console:
 
 ```js
-{
-  "name": "purchase-pet-example",
-  "version": "0.1.0",
-  "description": "Example for creating a Lambda with json web token logic",
-  "license": "MIT",
-  "main": "purchasepet.js",
-   "dependencies": {
-        "aws-sdk":"*",
-        "dynamodb-doc":"*",
-        "jsonwebtoken": "*"
-    }
-}
+var env={};
+env.AUTH0_SECRET='ADD-YOUR-SECRET';
+module.exports = env;
 ```
 
-Next, create a new file, `index.js`, to contain the code for purchasing a pet. This code adds extraction and validation of the JWT. By default, Auth0 uses a symmetric key for signing the JWT, although there is an option to use asymmetric keys. If you need to allow third parties to validate your token as well, you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols). You will be using a symmetric key (client secret) for validating the token.
+Now run **npm install** from the directory, zip up the contents (`index.js` must be at the root of the zip), and upload it for the `PurchasePet` Lambda function. You can try testing it, and you should see an authorization failure since there is not JWT in the message body.
 
-
+Take a look at the logic in index.js. You will see logic around line 60 that validates the token, and extracts the decoded information that contains the identity information that is used then for the purchase logic:
 ```js
-var AWS = require('aws-sdk');
-var DOC = require('dynamodb-doc');
-var dynamo = new DOC.DynamoDB();
-var jwt = require('jsonwebtoken');
-
-var secret = '<client secret for your Auth0 application>';
-
-exports.handler = function(event, context) {
-    var petId = event.petId;
-    var userEmail = '';
-    var pets = {};
-
-    // callback for reading pet info from dynamodb
-    var readcb = function(err, data) {
-        if(err) {
-            console.log('error on GetPetsInfo: ',err);
-            context.done('failed to retrieve pet information', null);
-        } else {
-            // make sure we have pets
-            if(data.Item && data.Item.pets) {
-                pets = data.Item.pets;
-                var found = false;
-                
-                for(var i = 0; i < pets.length && !found; i++) {
-                    if(pets[i].id === petId) {
-                        if(!pets[i].isSold) {
-                            pets[i].isSold = true;
-                            pets[i].soldTo = userEmail;
-                            var item = { username:"default",pets: pets};
-                            dynamo.putItem({TableName:"Pets", Item:item}, writecb);
-                            found = true;
-                        }
-                    }
-                }
-                if(!found) {
-                    console.log('pet not found or is sold');
-                    context.done('That pet is not available.', null);
-                }
-            } else {
-               console.log('pet already sold');
-               context.done('That pet is not available.', null);           
-            }
-        }
-    };
-
-    // callback for writing pet info back to dynamddb.
-    var writecb = function(err, data) {
-        if(!err) {
-            context.done(null, pets);
-        } else {
-            console.log('error on GetPetsInfo: ',err);
-            context.done('failed on update', null);
-        }
-    };
-
-   // purchase execution logic.
-    if(event.authToken) {
-    jwt.verify(event.authToken, new Buffer(secret, 'base64'), function(err, decoded) {
-           if(err) {
-        console.log('err, failed jwt verification: ', err, 'auth: ', event.authToken);
-            context.done('authorization failure', null);
-        } else if(!decoded.email) {
-            console.log('err, email missing in jwt', 'jwt: ', decoded);
-            context.done('authorization failure', null);
-        } else {
-            userEmail = decoded.email;
-            console.log('start PetsPurchase, petId', petId, 'userEmail:', userEmail);
-            dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, readcb);
-        }
-    });
-    } else {
-        console.log('missing authorization token');
-        context.done('authorization failure', null);
-    }
-};
+ if(event.authToken) {
+     var secretBuf = new Buffer(secret, 'base64');
+     jwt.verify(event.authToken, secretBuf, function(err, decoded) {
+         if(err) {
+           console.log('failed jwt verify: ', err, 'auth: ', event.authToken);
+           context.done('authorization failure', null);
+         } else if(!decoded.email)
+         {
+           console.log('err, email missing in jwt', 'jwt: ', decoded);
+           context.done('authorization failure', null);
+         } else {
+           userEmail = decoded.email;
+           console.log('authorized, petId', petId, 'userEmail:', userEmail);
+           dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, readcb);
+         }
+     });
+  } else {
+     console.log('invalid authorization token', event.authToken);
+     context.done('authorization failure', null);
+  }
+    ...
 ```
-
-Now run **npm install** from the directory, zip up the contents (`index.js` must be at the root of the zip), and upload it for the `PurchasePet` Lambda function.
 
 The final step is to pass the JWT to the method from the browser client. The standard method is with an `Authorization` header as a *bearer* token, and you can use this method if you turn off IAM authorization and rely solely upon the OpenID token for authorization (you will also need to map the Authorization header into the event data passed to the AWS Lambda function). If you are using IAM, then the AWS API Gateway uses the `Authorization` header to contain the signature of the message, and you will break the authentication by inserting the JWT into this header. You could either add a custom header for the JWT, or put it into the body of the message. If you choose to use a custom header, you'll also need to do some mapping for the *Integration Request* of the *POST* method for `pets/purchase`. To keep it simple, pass it in the body of the post and it will pass through to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
 
@@ -153,6 +92,8 @@ function buyPet(user, id) {
     });
 }
 ```
+
+Now upload your code to your S3 bucket, and try to purchase a pet. You will see the email of the purchaser in the resulting message. If you have any errors, double check that you have properly set your secret key. One useful tool for checking issues with your token decoding is [jwt.io](http://jwt.io/).
 
 ## Summary
 In this tutorial, you have created AWS API Gateway methods using AWS Lamdba functions, and have secured access to the APIs using IAM. You integrated a SAML identity provider with IAM to tie access to the API to your user base. You then provided different levels of access based on whether a user authenticated from the built in database, or with a social identity, and used an Auth0 rule to enforce the role assignment. Finally, you used a JWT to provide further authorization context, and to pass identity information into the Lambda function.
