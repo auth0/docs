@@ -21,7 +21,7 @@ public: false
     <% } %>
     </div>
     <div class="button-area">
-      <a href="${env.DOMAIN_URL_DOCS}/${pkgRepo}/${pkgBranch}/create-package?path=${pkgPath}&filePath=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success">Get Seed Project</a>
+      <a href="${env.DOMAIN_URL_DOCS}/${pkgRepo}/${pkgBranch}/create-package?path=${pkgPath}&filePath=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Get Seed Project</a>
     </div>
   </div>
 </div>
