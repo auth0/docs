@@ -152,3 +152,4 @@ The script runs in a JavaScript sandbox for security reasons which is based on [
 ## Further reading
 
 * [Managing rules using source control with GitHub](source-control)
+* [Redirecting users from within rules](rules/redirect)
