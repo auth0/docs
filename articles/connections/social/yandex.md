@@ -7,7 +7,7 @@ image: /media/connections/yandex.png
 
 To configure an Yandex connection you will need to register your Auth0 instance as a Yandex application.
 
-##1. Create a new Application in Yandex:
+## 1. Create a new Application in Yandex:
 
 Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
 
@@ -15,7 +15,7 @@ Log in into Yandex and [create a new app](https://oauth.yandex.ru/client/new):
 
 ---
 
-##2. Register a new application
+## 2. Register a new application
 
 Complete the form:
 
@@ -23,14 +23,14 @@ Complete the form:
 
 The callback address for your app should be:
 
-	https://@@account.namespace@@/login/callback
+	https://${account.namespace}/login/callback
 
 
 Notice that `scopes` in Yandex are defined in this screen. Select what kind of information you are requesting for your app.
 
 ---
 
-##3. Get your Application ID and Application Password
+## 3. Get your Application ID and Application Password
 
 Once the application is registered, enter your new `Application ID` and `Application Password` into the connection settings in Auth0.
 

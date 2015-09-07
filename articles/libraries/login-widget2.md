@@ -15,19 +15,15 @@ Add the script tag to your page to get started with __Auth0 Login Widget__.
 
     <script src="https://cdn.auth0.com/w2/auth0-widget-5.js"></script>
 
-## Playground
-
-@@widgetSDK2@@
-
 ## Single Page Applications
 
 You can handle the authorization process client-side as follows:
 
     <script type="text/javascript">
         var widget = new Auth0Widget({
-            domain:                 '@@account.namespace@@',
-            clientID:               '@@account.clientId@@',
-            callbackURL:            '@@account.callback@@',
+            domain:                 '${account.namespace}',
+            clientID:               '${account.clientId}',
+            callbackURL:            '${account.callback}',
             callbackOnLocationHash: true
         });
 
@@ -46,7 +42,7 @@ You can handle the authorization process client-side as follows:
         widget.signin();
     </script>
 
-> When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `@@account.callback@@#access_token=...&id_token=...`.
+> When `callbackOnLocationHash: true` is specified, Auth0 will send the response back as a redirect to your site passing the tokens after the hash sign: `${account.callback}#access_token=...&id_token=...`.
 
 ## Customizing the Widget
 
@@ -69,9 +65,9 @@ The Widget can be customized through the `options` parameter sent to the `signin
 This example shows how to work with only specified connections and display the labels in Spanish:
 
     var widget = new Auth0Widget({
-        domain:         '@@account.namespace@@',
-        clientID:       '@@account.clientId@@',
-        callbackURL:    '@@account.callback@@',
+        domain:         '${account.namespace}',
+        clientID:       '${account.clientId}',
+        callbackURL:    '${account.callback}',
         dict:           'es'
     });
 
@@ -110,7 +106,7 @@ There are other extra parameters that will depend on the provider. For example, 
         }
     });
 
-> Note: this would be analogous to trigger the login with `https://@@account.namespace@@/authorize?state=foo&access_type=offline&...`.
+> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&access_type=offline&...`.
 
 ### Scope
 

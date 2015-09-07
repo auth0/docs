@@ -14,25 +14,25 @@ This is often not possible if you are testing a connection that belongs to someo
 
 Having your partners test the new connection is very easy nevertheless:
 
-##1. Create a Test app
+## 1. Create a Test app
 
-Register a new application on Auth0: __[Dashboard > Apps/APIs > Create](@@uiURL@@/#/applications/create)__. You can give it any name: __Test App__
+Register a new application on Auth0: __[Dashboard > Apps/APIs > Create](${uiURL}/#/applications/create)__. You can give it any name: __Test App__
 
 In the settings of the newly created app, configure __Allowed Callback Urls__ to __[http://jwt.io](http://jwt.io)__.
 
 Click on __SAVE CHANGES__.
 
 
-##2. Send your Partner the link to login
+## 2. Send your Partner the link to login
 
-	https://@@account.namespace@@/authorize?response_type=token&scope=openid%20profile&client_id={THE_APP_CLIENT_ID}&redirect_uri=http://jwt.io&connection={THE_CONNECTION_YOU_WANT_TO_TEST}
+	https://${account.namespace}/authorize?response_type=token&scope=openid%20profile&client_id={THE_APP_CLIENT_ID}&redirect_uri=http://jwt.io&connection={THE_CONNECTION_YOU_WANT_TO_TEST}
 
 Make sure you replace these two parameters:
 
 * __client_id__: the app client_id created in __Step 1__.
 * __connection__: the name of the connection you want to test.
 
-##3. Test it!
+## 3. Test it!
 
 When your partner follows the link above, she will be redirected to their configured Identity Provider (the __connection__). After successful authentication, she will be sent back to __[http://jwt.io](http://jwt.io)__ where all user properties will be decoded from the token. 
 

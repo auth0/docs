@@ -1,16 +1,15 @@
 ---
-lodash: true
 title: Ionic Framework Tutorial
 name: Ionic
 alias:
   - ionic
-language: 
+language:
   - Javascript
 framework:
   - AngularJS
   - Cordova
 hybrid: true
-image: //auth0.com/lib/platforms-collection/img/phonegap.png
+image: /media/platforms/phonegap.png
 tags:
   - quickstart
 snippets:
@@ -21,25 +20,22 @@ snippets:
 
 ## Ionic Framework Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-ionic/master/create-package?path=examples/refresh-token-sample&type=js&filePath=examples/refresh-token-sample/www/js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-ionic',
+  pkgBranch: 'master',
+  pkgPath: 'examples/refresh-token-sample',
+  pkgFilePath: 'examples/refresh-token-sample/www/js' + account.clientParam,
+  pkgType: 'js'
+}) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 1. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+<pre><code>https://${account.namespace}/mobile</pre></code>
 
 <p>Also, if you are testing your application locally, make sure to add your local URL as an Allowed Callback URL and the following as an Allowed Origin (CORS):</p>
 
@@ -51,9 +47,9 @@ snippets:
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
-### 3. Add the references to the scripts in the `index.html`
+### 3. Add the references to the scripts in the `www/index.html` file
 
 ```html
 <!-- Auth0 Lock -->
@@ -71,7 +67,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
 ```bash
-ionic plugin add org.apache.cordova.inappbrowser
+ionic plugin add cordova-plugin-inappbrowser
 ```
 
 and then add the following configuration to the `config.xml` file:
@@ -87,14 +83,14 @@ and then add the following configuration to the `config.xml` file:
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 6. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
 In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile, token and [refresh token](/refresh-token) into `localStorage`
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 > Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 

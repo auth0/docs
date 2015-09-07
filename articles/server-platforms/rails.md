@@ -1,8 +1,7 @@
 ---
-lodash: true
 title: Ruby On Rails Web App Tutorial
 name: Ruby On Rails
-image: //auth0.com/lib/platforms-collection/img/rails.png
+image: /media/platforms/rails.png
 tags:
   - quickstart
 snippets:
@@ -17,16 +16,13 @@ alias:
 
 ## Ruby On Rails Web App Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/omniauth-auth0/master/create-package?path=examples/ruby-on-rails-webapp&type=server@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-ruby-samples',
+  pkgBranch: 'master',
+  pkgPath: 'examples/ruby-on-rails-webapp',
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 **Otherwise, Please follow the steps below to configure your existing Ruby On Rails WebApp to use it with Auth0.**
 
@@ -34,13 +30,13 @@ alias:
 
 Add the following dependencies to your `Gemfile` and run `bundle install`
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Initialize Omniauth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Add the Auth0 callback handler
 
@@ -79,7 +75,7 @@ get "/auth/failure" => "auth0#failure"
 
 ### 4. Specify the callback on Auth0 Dashboard
 
-@@includes.callbackRegularWebapp@@
+${include('./_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
@@ -88,7 +84,7 @@ http://yourUrl/auth/auth0/callback
 ```
 ### 5. Triggering login manually or integrating the Auth0Lock
 
-@@lockSDK@@
+${lockSDK}
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 

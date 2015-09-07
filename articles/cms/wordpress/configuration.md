@@ -1,12 +1,12 @@
 #WordPress Configuration
 
-###Set up your *Auth0 Domain*, *Client Id* and *Client Secret*
+### Set up your *Auth0 Domain*, *Client Id* and *Client Secret*
 
 Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app's *Application Settings* page on Auth0 to the *Auth0 Settings* page of your WordPress account.
 
 #### Existing App
 1. While logged in as an administrator of your WordPress installation, in the **Plugins** section of the dashboard, click *Settings* under *WordPress Auth0 Integration* to open the *Auth0 Settings* page.
-2. In the separate browser window, navigate to your Auth0 account. Under the [**Apps / APIs**](@@uiURL@@/#/applications) section, select the *Settings* icon for the app you wish to use with WordPress.
+So, go to your account and under the [Apps section](${uiURL}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
 3. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Settings* page of the WordPress dashboard.
 
 #### New App
@@ -14,7 +14,7 @@ Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app'
 2. On the *Auth0 Settings* page, click *create an application*.
 3. In the new browser window select *+ New App / API*.
 4. On the *Apps / APIs* page, name the new app and click *Save*.
-5. On the new app's *Quick Settings* page, click *Settings*. 
+5. On the new app's *Quick Settings* page, click *Settings*.
 6. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Settings* page of the WordPress dashboard.
 7. Click *Save Changes* at the bottom of the page.
 
@@ -40,17 +40,17 @@ Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app'
 ### Advanced
 
 - **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0.
-- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#4).
+- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
 - **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
-- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#19).
+- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
 - **Login redirection URL:** If set, forces redirection to the specified URL after the user logs in.
 - **Requires verified email:** If set, requires the user to have a verified email to login.
 - **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
 - **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
 - **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
 - **Widget URL:** The URL of to the latest available widget in the CDN.
-- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#5) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
-- **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#3). The following code adds a *Fabrikam Azure AD* button to the widget:
+- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
+- **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
 ```
 lock.once('signin ready', function() {
@@ -79,10 +79,9 @@ The plugin provides the `auth0_user_login` action to get notified each time a us
 
 To hook to this action, include the following code:
 ```
-    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 ); 
+    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
 
     function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
         ...
     }
 ```
-

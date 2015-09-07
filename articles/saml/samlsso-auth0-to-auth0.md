@@ -18,11 +18,11 @@ There are **9 sections** to this sample and a troubleshooting section at the end
 8. Create the HTML page for a test application.
 9. Test your creation.
 
-##1. Establish two Auth0 accounts
+## 1. Establish two Auth0 accounts
 
 If you do not already have two Auth0 accounts, you will need to create them.
 
-###In the Auth0 dashboard:
+### In the Auth0 dashboard:
 
 In the upper right corner, click on the name of your account and in the popup menu which appears, select **"New Account"**.  
 
@@ -32,7 +32,7 @@ You can switch back and forth between the accounts by going to the upper right c
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-1.png)
 
-##2. Set up the Auth0 IDP (account 2)
+## 2. Set up the Auth0 IDP (account 2)
 
 In this section you will configure one Auth0 account (account 2) to serve as an Identity Provider.  You will do this by registering an application, but in this case, the 'application' you register is really a representation of account 1, the SAML Service Provider.
 
@@ -54,7 +54,7 @@ Log into **Account 2**
 
 7. Scroll down and click on the **"Advanced Settings"** link.
 
-8. In the expanded window, scroll down to the **"CERTIFICATES"** section and click on the **"DOWNLOAD CERTIFICATES"** button.  In the popup which appears, select "PEM" to select a PEM-formatted certificate.  The certificate will be downloaded to a file called "@@account.tenant@@.pem".  Save this file as you will need to upload this file when configuring the other Auth0 account, account 1.
+8. In the expanded window, scroll down to the **"CERTIFICATES"** section and click on the **"DOWNLOAD CERTIFICATES"** button.  In the popup which appears, select "PEM" to select a PEM-formatted certificate.  The certificate will be downloaded to a file called "${account.tenant}.pem".  Save this file as you will need to upload this file when configuring the other Auth0 account, account 1.
 
 9. Scroll down further to the **"ENDPOINTS"** section and click on the blue **"SAML"** tab within that section.  Copy the entire contents of the **"SAML Protocol URL"** field and save it as in the next step you will need to paste it into the other Auth0 account, account 1.
 
@@ -76,7 +76,7 @@ Next, create a user to use in testing the SAML SSO sequence.
 6. Press the blue **"SAVE"** button.
 
 
-##3. Set up the Auth0 service provider (account 1)
+## 3. Set up the Auth0 service provider (account 1)
 
 In this section you will configure another Auth0 account (account 1) so it knows how to communicate with the second Auth0 account (account 2) for single sign on via the SAML protocol.
 
@@ -119,7 +119,7 @@ Click on the **"CONTINUE"** button.
 
 In the window that appears, metadata about this SAML provider (account 1) is displayed.  You will need to collect two pieces of information about this Auth0 account (the service provider) that you will then paste into the other Auth0 account you set up (the identity provider).
 
-First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:@@account.tenant@@:@@connectionName@@__.  
+First, look for the second bullet in the list of information that tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:${connectionName}__.  
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.
 
@@ -129,13 +129,13 @@ Copy the URL below that line into your browser address bar.  The picture below s
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-4.png)
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 Once you go to that metadata URL, it will display the metadata for the Auth0 account 1 (service provider side of the federation. It will look something like the following with your account name in place of the 'xxxxx':
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-5.png)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://@@account.tenant@@.auth0.com/login/callback?connection=@@connectionName@@__.
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.tenant}.auth0.com/login/callback?connection=${connectionName}__.
 
 Copy and save this URL.  This is the URL on account 1 that will receive the SAML assertion from the IDP.  In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
@@ -169,7 +169,7 @@ Then remove the "//" at the beginning of the line to uncomment it.
 Next, replace the original value (urn:foo) with the **Entity ID** value you saved and copied in step 3 above. The new line 2 should look something like:
 
 ```
-    "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
+    "audience":"urn:auth0:${account.tenant}:${connectionName}"
 ```
 
 7. Click on the blue **"SAVE"** button at the bottom of the screen
@@ -266,7 +266,7 @@ Create an HTML page and insert the following HTML and javascript code:
 
 <script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '@@account.namespace@@');
+  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
 
   function signin() {
     lock.show({
@@ -318,7 +318,7 @@ If sufficient time has passed, or if you delete your browser cookies before init
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 
-#10. Troubleshooting.
+/libraries/lock/customization#rememberlastlogin-boolean-0. Troubleshooting.
 
 This section has a few ideas for things to check if your sample doesn't work.
 

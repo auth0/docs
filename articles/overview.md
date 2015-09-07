@@ -23,7 +23,7 @@ Auth0 also supports other common identity protocols too, such as WS-Federation a
 
 Developers can extend Auth0 using any JavaScript or C# code through [rules](/rules). Rules are custom functions that are executed just after successful authentication and can be used for __Access Control__, __Web-hooks__, __Profile Enrichment__, __Multi-factor Authentication__ and many other things.
 
-Auth0 is offered as a service, running in the [public cloud](@@uiURL@@).
+Auth0 is offered as a service, running in the [public cloud](${uiURL}).
 
 It can also be deployed in __Private Instances__ (PI). PIs are dedicated installations of Auth0. Customers can choose to run PIs in Auth0's datacenters (separate from the multi-tenant service), in their own cloud environments (e.g. AWS, Azure, Rackspace, DigitalOcean) or even on-premises. There's no difference in functionality or features.
 

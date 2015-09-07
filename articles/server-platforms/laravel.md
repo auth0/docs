@@ -1,7 +1,7 @@
 ---
 title: Laravel Tutorial
 name: PHP (Laravel)
-image: //auth0.com/lib/platforms-collection/img/php.png
+image: /media/platforms/php.png
 tags:
   - quickstart
 snippets:
@@ -14,7 +14,7 @@ snippets:
 
 This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-5-auth0-sample).
 
-##Laravel Compatibility
+## Laravel Compatibility
 
 The last version (2.x) targets Laravel 5 compatibility.
 
@@ -22,12 +22,12 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 
 ### 1. Install the plugin and its dependencies
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Enable it in Laravel
 Add the following in the list of the services providers, located in `app/config/app.php`
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 Optionally, if you want to use the [facade](http://laravel.com/docs/facades) called `Auth0` you should also add an alias in the same file
 
@@ -83,7 +83,7 @@ To publish the example configuration file use this command
 
 The plugin works with the [Laravel security system](http://laravel.com/docs/security), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
-In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](@@uiURL@@/#/applications/) and also, add it as a route in Laravel
+In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications/) and also, add it as a route in Laravel
 
 ```php
 Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
@@ -93,7 +93,7 @@ Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
 
 You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ### 6. Defining a user and a user provider
 

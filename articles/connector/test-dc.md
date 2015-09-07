@@ -3,12 +3,12 @@
 While Auth0's Active Directory/LDAP integration is powerful and relatively easy to set up, it does require you have access to an existing directory service and sufficient privileges to [install and configure the Connector](/connector/install) - which is something that is usually done by a network administrator.  But what if you'd just like to try out the Connector or maybe set up a separate dev or test environment?  The following steps will guide you in creating a minimal Active Directory Domain Controller installation on your own cloud-deployed virtual machine for just that purpose.
 
 In these instructions you will:
-* [Create a new Windows Server VM on Azure](#1)
-* [Install Active Directory Domain Services](#2)
-* [Promote the server to a Domain Controller](#3)
-* [Add a few test groups and users](#4)
-* [Install and configure the AD/LDAP Connector](#5)
-* [Test an authentication flow from Auth0](#6)
+* [Create a new Windows Server VM on Azure](#create-a-new-windows-server-vm-on-azure)
+* [Install Active Directory Domain Services](#install-active-directory-domain-services)
+* [Promote the server to a Domain Controller](#promote-the-server-to-a-domain-controller)
+* [Add a few test groups and users](#add-a-few-test-groups-and-users)
+* [Install and configure the AD/LDAP Connector](#add-a-few-test-groups-and-users)
+* [Test an authentication flow from Auth0](#test-an-authentication-flow-from-auth0)
 
 ## Create a new Windows Server VM on Azure
 
@@ -94,14 +94,14 @@ Install-ADDSForest –DomainName mycompany.local
 
 To easily test that everything is working using your Auth0 account, we're going to configure your **Default App** in Auth0 to use your new **Active Directory / LDAP** connection and then use the `/authorize` endpoint to initiate an authentication flow.
 
-1. In Auth0's Management Dashboard, browse to [your applications](@@uiURL@@/#/applications).
+1. In Auth0's Management Dashboard, browse to [your applications](${uiURL}/#/applications).
 1. Click the **Settings** gear of your **Default App**
 1. Make sure that `http://jwt.io` is in the list of the app's **Allowed Callback URLs**.
 1. Click the **Connections** tab.
 1. Under **Enterprise** make sure the `auth0-test-ad` **Active Directory / LDAP** connection is enabled.
 1. Test the authentication flow by opening the following link in your browser:  
 ```
-https://@@account.namespace@@/authorize?response_type=token&scope=openid%20profile&client_id=@@account.clientId@@&redirect_uri=http://jwt.io&connection=auth0-test-ad
+https://${account.namespace}/authorize?response_type=token&scope=openid%20profile&client_id=${account.clientId}&redirect_uri=http://jwt.io&connection=auth0-test-ad
 ```
 
 1. Log in with one of the test users that was created in the directory.  For example:

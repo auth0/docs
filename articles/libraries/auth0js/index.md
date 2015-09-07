@@ -24,8 +24,8 @@ Construct a new instance of the Auth0 client as follows:
 <script src="http://cdn.auth0.com/w2/auth0-4.js"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
-    domain:       '@@account.namespace@@',
-    clientID:     '@@account.clientId@@',
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
     callbackURL:  '{YOUR APP URL}',
     callbackOnLocationHash: true
   });
@@ -233,9 +233,9 @@ After a successful login, `auth0.js` will auto login the user. If you do not wan
   });
 ```
 
-##Advanced operations
+## Advanced operations
 
-###Delegation Token Request
+### Delegation Token Request
 
 A delegation token is a new token for a different service or app/API.
 
@@ -318,8 +318,8 @@ Auth0.js version 6 fallbacks to JSONP when CORS is not available. In this mode t
 
 ```
 var auth0 = new Auth0({
-  domain:      '@@account.namespace@@',
-  clientID:    '@@account.clientId@@',
+  domain:      '${account.namespace}',
+  clientID:    '${account.clientId}',
   callbackURL: '{YOUR APP URL}',
   forceJSONP:  false
 });

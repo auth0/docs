@@ -10,7 +10,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-   <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+   <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download iOS Custom UI Sample</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -22,7 +22,7 @@ lodash: true
 
 <div class="package" style="text-align: center;">
   <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
+    <a href="/native-mobile-samples/master/create-package?path=iOS/custom-ui-sample-swift&type=replace&filePath=iOS/custom-ui-sample-swift/Evilation/Info.plist${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
       <span style="display: block">Download iOS Custom UI Sample</span>
       <% if (account.userName) { %>
       <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
@@ -42,7 +42,7 @@ pod "Lock-Facebook", "~> 2.0" #If you need FB native integration
 pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
     ```
 
-2. Open your app's `Info.plist` file and add two new entries `Auth0ClientId` and `Auth0Domain` with the following values `@@account.clientId@@` and `@@account.namespace@@`
+2. Open your app's `Info.plist` file and add two new entries `Auth0ClientId` and `Auth0Domain` with the following values `${account.clientId}` and `${account.namespace}`
 
 3. Create a new instantiate of `A0Lock` and store it where is easily accessible:
   ```objc
@@ -126,7 +126,7 @@ After that, you may want to save the user's token to be able to use them later, 
   let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
   lock.registerAuthenticators([facebook])
   ```
-  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](/libraries/lock-ios/native-social-authentication#2) for more information.
+  > **Note**: You need to configure your iOS App for Facebook, please check [this guide](/libraries/lock-ios/native-social-authentication#facebook) for more information.
 
 4. Configure Twitter Native Integration
   ```objc

@@ -4,13 +4,13 @@ Auth0 can help radically simplify the authentication process for SharePoint Apps
 
 You won't need any special libraries. You can use any of the SDKs supported by Auth0.
 
-##1. Register your app in Auth0
+## 1. Register your app in Auth0
 
 Just register a new app in Auth0 as you would normally do: __Applications > NEW__. Pick up any of the SDKs available for detailed instructions. Keep the `client_id` handy, as you will need it in the next step.
 
 ---
 
-##2. Create a Package for your app
+## 2. Create a Package for your app
 
 You need to obtain a __Client ID__ and a __Client Secret__ for your app. There are many ways of registering your app depending on the expected usage. 
 
@@ -30,11 +30,11 @@ Since Auth0 is in between your app and the Office 365 infrastructure, you need t
 
 **App Domain**: 
 	
-	@@account.namespace@@
+	${account.namespace}
 
 **Redirect URI**:
 
-	https://@@account.namespace@@/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
+	https://${account.namespace}/login/callback?{SpAppToken}&connection={CONNECTION NAME}&client_id={YOUR APP CLIENT ID}&redirect_uri={YOUR REDIRECT URL}
 
 * `connection` is just the name you will use in Auth0's connections (e.g. "sharepoint").
 * `client_id` identifies your app in Auth0 (created in steps 1).
@@ -56,7 +56,7 @@ Click on __Package__ and upload the resulting file to SharePoint.
 
 ---
 
-##3. Create the Connection in Auth0
+## 3. Create the Connection in Auth0
 
 The last step in the integration is to add a SharePoint connection in Auth0:
 

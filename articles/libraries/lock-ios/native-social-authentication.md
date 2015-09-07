@@ -38,7 +38,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWi
 [lock registerAuthenticators:@[facebook]];
 ```
 
-###Twitter
+### Twitter
 
 Twitter authentication is done using [Reverse Auth](https://dev.twitter.com/docs/ios/using-reverse-auth) in order to obtain a valid access_token that can be sent to Auth0 Server and validate the user. By default we use iOS Twitter Integration but we support OAuth Web Flow (with Safari) as a fallback mechanism in case a user has no accounts configured in his/her Apple Device.
 

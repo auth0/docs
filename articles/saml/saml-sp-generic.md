@@ -16,7 +16,7 @@ There are **5 sections**, including a troubleshooting section at the end.
 5. Troubleshooting
 
 
-##1. Obtain information from IDP
+## 1. Obtain information from IDP
 
 You will need to obtain some information from the Identity Provider.  The instructions here will be generic.  You will have to locate this information in your specific Identity Provider.
 
@@ -27,7 +27,7 @@ You will need to obtain some information from the Identity Provider.  The instru
 * Signing certificate - The Identity Provider will digitally sign authentication assertions and the signing certificate is needed by the Service Provider to validate the signature of the signed assertions.  There should be a place to download the signing certificate from the Identity Provider.   If the certificate is not in .pem or .cer format, you should convert it to one of those formats.
 
 
-##2. Configure Auth0 as Service Provider
+## 2. Configure Auth0 as Service Provider
 
 In this section you will configure Auth0 to serve as a SAML Service Provider.
 
@@ -71,7 +71,7 @@ In the window that appears, metadata about this SAML  service provider  is displ
 
 The first bullet is the post-back URL or Assertion Consumer Service (ACS) URL.  This is the URL to which the Identity Provider will sent Authentication Assertions after authenticating a user.  Enter this value where the Identity Provider asks for Assertion Consumer Service URL.  It may just call this a Service Provider URL.
 
-The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:@@account.tenant@@:@@connectionName@@__.  
+The second bullet tells you the **"Entity ID"**.  It will be of the form __urn:auth0:${account.tenant}:${connectionName}__.  
 
 Copy and save this entire Entity ID field from "urn" all the way to the end of the connection name.  Use this value if the Identity Provider asks for Entity ID or SAML Audience.
 
@@ -83,12 +83,12 @@ The nameid format is the format for the attribute that will be used to identify 
 
 In that same window, near the bottom, there is a line that says, _"You can access the metadata for your connection in Auth0 here:"_.  
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 Make a note of this metadata URL as you may be able to use it to configure the Identity Provider in the next step.
 
 
-##3. Add your Service Provider metadata to the Identity Provider
+## 3. Add your Service Provider metadata to the Identity Provider
 
 In this section you will add some information to the Identity Provider  so the Identity Provider knows how to receive and respond to SAML-based authentication requests from the Auth0 Service Provider.  The instructions provided here are generic.  You will need to find the appropriate screens and fields on the Identity Provider.
 
@@ -108,7 +108,7 @@ If the Identity Provider has a field called "Audience" or "Entity ID", you shoul
 
 
 ```
-    "audience":"urn:auth0:@@account.tenant@@:@@connectionName@@"
+    "audience":"urn:auth0:${account.tenant}:${connectionName}"
 ```
 
 If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.
@@ -116,7 +116,7 @@ If the Identity Provider provides a choice for bindings, you should select HTTP-
 If the Identity Provider provides a choice for bindings, you should select HTTP-Redirect for Authentication Requests.
 
 
-##4. Test the connection from Service Provider to Identity Provider
+## 4. Test the connection from Service Provider to Identity Provider
 
 In this section, you will test to make sure the SAML configuration between Auth0, the Service Provider, and the remote SAML Identity Provider is working.
 
@@ -142,7 +142,7 @@ Here is a sample of the **"It Works"** screen:
 ![](/media/articles/saml/saml-sp-generic/saml-auth0-9.png)
 
 
-##5. Troubleshooting.
+## 5. Troubleshooting.
 
 This section has a few ideas for things to check if your sample doesn't work.
 

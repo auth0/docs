@@ -8,7 +8,7 @@ alias:
 language: 
   - Javascript
   - C#
-image: //auth0.com/lib/platforms-collection/img/windows-8.png
+image: /media/platforms/windows-8.png
 tags:
   - quickstart
 snippets:
@@ -32,18 +32,18 @@ This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.W
 
 Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Js package, running the command:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 And add reference to the JavaScript code in the __default.html__, include the following line in the `<head>` element:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section on Auth0 Admin app and make sure that <b>App Callbacks URLs</b> has the following value:</p>
 
-<pre><code>https://@@account.namespace@@/mobile</pre></code>
+<pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
 
 ### 3. Integration
@@ -57,7 +57,7 @@ There are three options to do the integration:
 
 To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
 

@@ -5,13 +5,13 @@ alias:
   - webapi
   - asp.net webapi
   - aspnet webapi
-language: 
+language:
   - Visual Basic .Net
   - C#
 framework:
   - WebAPI
 thirdParty: false
-image: //auth0.com/lib/platforms-collection/img/asp.png
+image: /media/platforms/asp.png
 lodash: true
 tags:
   - quickstart
@@ -23,16 +23,13 @@ snippets:
 
 ## ASP.NET Web API Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0.net/master/create-package?path=examples/webapi&filePath=examples/webapi/Api/Web.config&type=replace@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-        <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0.net',
+  pkgBranch: 'master',
+  pkgPath: 'examples/webapi',
+  pkgFilePath: 'examples/webapi/Api/Web.config',
+  pkgType: 'replace' + account.clientParam
+}) %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
 
@@ -40,26 +37,29 @@ snippets:
 
 You can either run the following commands or install them via **Package Manager**.
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure the JsonWebToken message handler
 
 Open the **WebApiConfig.cs** file located in the **App_Start** folder and add the following `using` statements:
 ```cs
-using Api.App_Start;
+using YOUR_WEBAPI_PROJECT_NAME.App_Start;
 using System.Web.Configuration;
 ```
+Remember to replace the placeholder for your project name in the first `using` statement.
 
 Add the following code snippet inside the `Register` method.
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 ### 3. Update the web.config file with your app's credentials
-Open the **web.config** file located at the solution's root.
+Open the **Web.config** file located at the project's root.
 
-Add the following entries as children of the `<appSettings>` element.
+Locate the following entries inside the `<appSettings>` section.
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
+
+Set the respective values.
 
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.

@@ -1,6 +1,3 @@
----
-layout: doc.nosidebar
----
 # SAML SSO with SalesForce as an Identity Provider
 This describes how to configure Auth0 to use __SalesForce__ as an Identity Provider.
 
@@ -94,7 +91,7 @@ You can ignore the rest of the fields for now.
  ![](https://cdn.auth0.com/docs/img/salesforceidp-7.png)
 
 
-In general, you can access the metadata for a SAML connection in Auth0 here: `https://@@account.namespace@@/samlp/metadata?connection=@@connectionName@@`.
+In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
 
 # 3. Configure the SalesForce Identity Provider
@@ -111,15 +108,15 @@ In this step you will configure SalesForce with the metadata from Auth0 so it kn
 
 4. Create a new Connected App and fill out the following fields:
 
-**Entity ID:** urn:auth0:@@account.namespace@@:@@connectionName@@
+**Entity ID:** `urn:auth0:${account.namespace}:${connectionName}``
 
-**ACS URL:** https://@@account.namespace@@/login/callback
+**ACS URL:** `https://${account.namespace}/login/callback`
 
-**Subject Type:** "Persistent ID"
+**Subject Type:** `Persistent ID`
 
 **Name ID Format:** Choose the one with emailAddress
 
-**Issuer:** https://{your-saleforce-domain}.my.salesforce.com
+**Issuer:** `https://{your-saleforce-domain}.my.salesforce.com`
 
 5. Then press  **“Save”** to complete the configuration of the IDP
 
@@ -154,7 +151,7 @@ In this step, you will test to make sure the SAML configuration between Auth0 an
 
 * In the Auth0 dashboard, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
 
-* Click on the triangular **"Try"** button for the SAML connection you created earlier.    You should be redirected from Auth0 to the SalesForce login page.  
+* Click on the triangular **"Try"** button for the SAML connection you created earlier.    You should be redirected from Auth0 to the SalesForce login page.
 
 * Once you are at the **SalesForce login screen**, login with the credentials you provided when you created the SalesForce account.
 

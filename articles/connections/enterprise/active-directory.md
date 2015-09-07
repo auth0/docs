@@ -1,5 +1,5 @@
 ---
-title: Connecting Active Directory with Auth0
+title: Connect Active Directory with Auth0
 connection: Active Directory
 image: /media/connections/windows.png
 alias:
@@ -7,38 +7,41 @@ alias:
 ---
 
 
-# Connecting Active Directory with Auth0
+# Connect Active Directory with Auth0
 
-Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network.
+Auth0 integrates with Active Directory/LDAP through the **Active Directory/LDAP Connector** that you install on your network.
 
-The __AD/LDAP Connector (1)__, is a bridge between your __Active Directory (2)__  and the __Auth0 Service (3)__. This bridge is necessary because AD is typically locked down to your internal network, and Auth0 is a cloud service running on a completely different context.
+The **AD/LDAP Connector** (1), is a bridge between your **Active Directory** (2)  and the **Auth0 Service** (3). This bridge is necessary because AD is typically restricted to your internal network, and Auth0 is a cloud service running in a completely different context.
 
-<img src="https://docs.google.com/drawings/d/1X30jQAsatQTibLXgxKgDanbCH1RJ9ZAfoDmHV33jdBY/pub?w=630&amp;h=526">
+![](/media/articles/connections/enterprise/active-directory/ldap-connect.png)
 
-You can install multiple instances of the connector for high availability and load balancing. Also, all connections are out-bound: from the connector to the Auth0 Server, so in general no changes to the firewall need to be applied.
+For high availability and load balancing, you can install multiple instances of the connector. All connections are out-bound from the connector to the Auth0 Server, so changes to your firewall are generally unnecessary.
 
-Configuring an AD/LDAP connection in Auth0 requires two simple steps:
+Configuring an AD/LDAP connection in Auth0 requires two steps:
 
-###1. Creating an AD/LDAP Connection in Auth0
+1. Create an AD/LDAP Connection in Auth0 and download the installer.
+2. Install the connector on your network.
 
-The first step is creating a new Connection on the dashboard:
+### Create an AD/LDAP Connection in Auth0
 
-__Connections > Enterprise > AD/LDAP__
+Select **Connections > Enterprise > AD/LDAP** from the Auth0 dashboard menu. Click the **+ CREATE NEW CONNECTION** button and name the connection.
 
 ![](/media/articles/connections/enterprise/active-directory/ldap-create.png)
 
-Name the connection and check whether you want `Kerberos` enabled for this connection. If you enable this, you need to enter the range of IP addresses from where `Kerberos` authentication will be enabled. These would typically be the intranet where `Kerberos` would work.
+In the *Email domains* field, list the user email domains that will be allowed to login to this particular AD/LDAP connection.
 
-In addition, the `Email domains` field, whitelists email suffixes that will be recognized before redirecting users to this particular AD/LDAP connection.
+If you want to use **Kerberos** with this connection, enter a range of IP addresses where **Kerberos** authentication will be enabled from. Typically, these would be intranet addresses.
 
 ![](/media/articles/connections/enterprise/active-directory/ldap-create-2.png)
 
-__Save__ the configuration. You are done on the Auth0 side! You will then be prompted to download the __AD/LDAP Connector__ to your machine.
+Click **Save**. You are done on the Auth0 side. Click the button on the next page to download the **AD/LDAP Connector** installer to your machine.
 
 ![](/media/articles/connections/enterprise/active-directory/ldap-create-3.png)
 
-> We ship different versions of the Connector to install it on multiple platforms: Windows and Linux.
+**Note:** We ship different versions of the connector to install on Windows or Linux platforms.
 
-Keep the __TICKET URL__ at hand as you will need it later.
+Keep the **TICKET URL** on hand as you will need it later.
 
-[Continue to the instructions to install the connector.](/connector).
+### Install the connector on your network
+
+Continue to the instructions on how to [Install the Connector](/connector).

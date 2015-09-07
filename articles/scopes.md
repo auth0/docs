@@ -1,10 +1,10 @@
 # Scopes
 
-When initiating an authorization transaction through the [`/authorize` endpoint](https://auth0.com/docs/auth-api#!#get--authorize_social),
+When initiating a [client-side authorization transaction](https://auth0.com/docs/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](https://auth0.com/docs/auth-api#!#get--authorize_social),
 only an opaque `access_token` will be returned by default.
 To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
-## Example ([implicit flow](https://auth0.com/docs/protocols#5))
+## Example ([implicit flow](https://auth0.com/docs/protocols#oauth-for-native-clients-and-javascript-in-the-browser))
 
 The following URL logs a user in using Google and requests a JWT that authenticates the user.
 
@@ -40,7 +40,11 @@ The attributes included in the issued token can be controlled with the `scope` p
 This can cause problems when sending or receiving tokens in URLs (e.g. when using `response_type=token`) and will likely create an unnecessarily large token.
 Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
 
+> The `scope` parameter can used in the same way when calling the [Resource Owner endpoint](/auth-api#!#post--oauth-ro).
+
 
 ## Further reading
 
-* [Sending a `scope` parameter with Lock](https://auth0.com/docs/libraries/lock/sending-authentication-parameters#2)
+* [Sending a `scope` parameter with Lock](/libraries/lock/sending-authentication-parameters#scope-string-)
+* [Retrieving the full user profile with an `access_token`](/auth-api#!#get--userinfo)
+* [Validating a JWT and obtaining the full user profile](/auth-api#!#post--tokeninfo)

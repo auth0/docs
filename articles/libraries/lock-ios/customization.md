@@ -33,36 +33,36 @@ You can either configure some type of properties which are:
 
 This is the list of properties that can be customized:
 
-###Primary Button
+### Primary Button
 * A0ThemePrimaryButtonNormalColor
 * A0ThemePrimaryButtonHighlightedColor
 * A0ThemePrimaryButtonFont
 * A0ThemePrimaryButtonTextColor
 
-###Secondary Button
+### Secondary Button
 * A0ThemeSecondaryButtonBackgroundColor
 * A0ThemeSecondaryButtonTextColor
 * A0ThemeSecondaryButtonTextColor
 
-###TextField
+### TextField
 * A0ThemeTextFieldFont
 * A0ThemeTextFieldTextColor
 * A0ThemeTextFieldPlaceholderTextColor
 * A0ThemeTextFieldIconColor
 
-###Title
+### Title
 * A0ThemeTitleFont
 * A0ThemeTitleTextColor
 
-###Icon
+### Icon
 * A0ThemeIconBackgroundColor
 * A0ThemeIconImageName
 
-###Background
+### Background
 * A0ThemeScreenBackgroundColor
 * A0ThemeScreenBackgroundImageName
 
-###Message & Description
+### Message & Description
 * A0ThemeSeparatorTextColor
 * A0ThemeDescriptionFont
 * A0ThemeDescriptionTextColor

@@ -8,14 +8,14 @@ While advanced MBaaS, like __Parse__, do not offer this out-of-the-box, they hav
 
 Auth0 is also designed with great extensibility features. In this article we show how easy it is to integrate Auth0 with Parse, and enable user authentication with __LDAP__, __Active Directory__, __Google Apps__, __Office365__, or any of the [supported Identity Providers](/identityproviders).
 
-##How it works?
+## How it works?
 
 ![](https://docs.google.com/drawings/d/1E8pGVnDjuLw_eh4TPw-JvOB8BHBzWUJLGG1nwCC2CxU/pub?w=831&amp;h=372)
 
-###1. Authenticate users
+### 1. Authenticate users
 In the first step, users are authenticated. You can use any of Auth0's supported identity systems. All these are available through a single, simple to use, standards based API.
 
-###2. Get a Parse Session Token
+### 2. Get a Parse Session Token
 After successful authentication, Auth0 will call [Parse's user APIs](https://parse.com/docs/rest#users-login) and get a session token associated with this user. This is done by calling the `login` endpoint. If the user doesn't exist (signaled by the 404 response from the login method), Auth0 will provision a new User in Parse.
 
 The result of this, is a `Session Token` associated with the user, that can be used to call Parse's API.
@@ -88,7 +88,7 @@ function rule(user, context, callback) {
 
 The `Session Token` is returned to the app as part of the User Profile in the `user.parse_session_token` property.
 
-###3. Call Parse hosted API
+### 3. Call Parse hosted API
 Equipped with the new User Profile object (containing the `Session Token`), the app can now call Parse's API. Parse offers an API's to _become a User_ with a `Session Token`, so the call will be executed in the context of this particular user:
 
 ```

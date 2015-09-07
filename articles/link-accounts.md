@@ -5,13 +5,13 @@ Auth0 supports the association of different accounts. Applications often support
 **Linking through Auth0 Login Widget**
 
 ```
-<script src="@@widget_url@@"></script>
+<script src="${widget_url}"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('@@account.clientId@@', '@@account.namespace@@');
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
   function signin () {
     lock.show({
-      callbackURL:  '@@account.callback@@',
+      callbackURL:  '${account.callback}',
       dict: {
         signin: {
           title: 'Link with another account'
@@ -31,9 +31,9 @@ Auth0 supports the association of different accounts. Applications often support
 
 **Manually initiating the authentication transaction**
 
-`https://@@account.namespace@@/authorize?response_type=code&scope=openid`
-`&client_id=@@account.clientId@@`
-`&redirect_uri=@@account.callback@@`
+`https://${account.namespace}/authorize?response_type=code&scope=openid`
+`&client_id=${account.clientId}`
+`&redirect_uri=${account.callback}`
 `&access_token=...LOGGED_IN_USER_ACCESS_TOKEN...`
 
 All linked identities will show up in the `User Profile` like in this example:
@@ -75,7 +75,7 @@ All linked identities will show up in the `User Profile` like in this example:
 The SDKs should make this very easy. The SDK for your platform will make it available in the most natural way for said platform. As an example, if you are using ASP.NET, the `access_token` is available as a claim:
 
 ```
-<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>
+${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
 ```
 
 If you are rolling your own implementation, it will be available through the standard OAuth2 flow:
@@ -89,7 +89,7 @@ The details of these exchanges are available in the [protocols section](protocol
 
 To unlink a specific account, POST request to the following url:
 
-`https://@@account.namespace@@/unlink`
+`https://${account.namespace}/unlink`
 
 Body should be:
 
@@ -101,4 +101,3 @@ Body should be:
 ```
 
 Using the sample `User Profile` above, to __unlink__ the Windows Live Id identity, you would send, `user_id: 'windowslive|9876543210987654321'`.
-

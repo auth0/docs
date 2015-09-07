@@ -41,12 +41,12 @@ def requires_auth(f):
         payload = jwt.decode(
             token,
             base64.b64decode(client_secret.replace("_","/").replace("-","+")),
-            audience=@@account.clientId@@
+            audience=${account.clientId}
         )
     except jwt.ExpiredSignature:
         return authenticate({'code': 'token_expired', 'description': 'token is expired'})
     except jwt.InvalidAudienceError:
-        return authenticate({'code': 'invalid_audience', 'description': 'incorrect audience, expected: @@account.clientId@@'})
+        return authenticate({'code': 'invalid_audience', 'description': 'incorrect audience, expected: ${account.clientId}'})
     except jwt.DecodeError:
         return authenticate({'code': 'token_invalid_signature', 'description': 'token signature is invalid'})
 

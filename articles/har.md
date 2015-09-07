@@ -4,7 +4,7 @@ Sometimes during development the authentication flow doesn't work as expected.
 
 The fastest way to identify the underlying issue is to export a `HAR` file from Google Chrome Dev Tools. An **HTTP Archive (HAR) format** file, is a JSON formatted log file of all web browser interactions with web servers.
 
-###Generating a HAR file:
+### Generating a HAR file:
 
 1.  Close all __incognito__ windows from Google Chrome.
 2.  Open a __new incognito__ tab on Google Chrome.

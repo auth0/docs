@@ -2,8 +2,7 @@
 title: Azure Mobile Services Tutorial
 name: Azure Mobile Services
 thirdParty: true
-image: //auth0.com/lib/platforms-collection/img/azure.png
-lodash: true
+image: /media/platforms/azure.png
 tags:
   - quickstart
 snippets:
@@ -16,8 +15,7 @@ alias:
   - azure-websites
   - azure-vm
 ---
-<% configuration.thirdParty = 'Azure Mobile Services' %>
-@@includes.thirdpartyapi@@
+${include('./_thirdPartyApi')}
 
 ### Additional Information
 
@@ -34,7 +32,7 @@ A very good starting point is any of the samples you can download from the Azure
 Changing the samples to use Auth0 is very simple. As an example, if you followed the Windows 8 sample (C#), you will end up with an `AuthenticateAsync` method that adds one of the standard WAMS authentication mechanisms.
 
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 These 6 new lines of code do all the work for you. The important aspects:
 

@@ -1,6 +1,6 @@
 ```cs
-var clientID = WebConfigurationManager.AppSettings["Auth0ClientID"];
-var clientSecret = WebConfigurationManager.AppSettings["Auth0ClientSecret"];
+var clientID = WebConfigurationManager.AppSettings["auth0:ClientId"];
+var clientSecret = WebConfigurationManager.AppSettings["auth0:ClientSecret"];
 
 config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
 {

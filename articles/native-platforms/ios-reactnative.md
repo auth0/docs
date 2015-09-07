@@ -1,16 +1,15 @@
 ---
-lodash: true
 title: iOS React Native Tutorial
 name: iOS - React Native
 alias:
   - reactnative
   - react native
-language: 
+language:
   - Javascript
 framework:
   - React Native
 hybrid: true
-image: //auth0.com/lib/platforms-collection/img/react.png
+image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
@@ -21,49 +20,29 @@ snippets:
 
 ## iOS React Native Tutorial
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=iOS/basic-sample-reactnative&type=replace&filePath=iOS/basic-sample-reactnative/iOS/Info.plist@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../_includes/package', {
+  pkgRepo: 'native-mobile-samples',
+  pkgBranch: 'master',
+  pkgPath: 'iOS/basic-sample-reactnative',
+  pkgFilePath: 'iOS/basic-sample-reactnative/iOS/Info.plist' + account.clientParam,
+  pkgType: 'replace'
+}) %>
 
 **Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
 ### Before Starting
 
 <div class="setup-callback">
-<p>Go to the <a href="@@uiAppSettingsURL@@">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>a0@@account.clientId@@://\*.auth0.com/authorize</pre></code>
+<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
 ### 1. Adding the Auth0 dependencies
 
 Inside your project create a file named `Podfile` with these contents:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 and run `pod install`
 
@@ -82,16 +61,16 @@ Add the following entries to your app's `Info.plist`:
   </thead>
   <tr>
     <td>Auth0ClientId</td>
-    <td>@@account.clientId@@</td>
+    <td>${account.clientId}</td>
   </tr>
   <tr>
     <td>Auth0Domain</td>
-    <td>@@account.namespace@@</td>
+    <td>${account.namespace}</td>
   </tr>
 </table>
 
 Also you'll need to register a new _URL Type_ with the following scheme
-`a0@@account.clientId@@`. You can do it from your app's target Info section.
+`a0${account.clientId}`. You can do it from your app's target Info section.
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
@@ -153,7 +132,7 @@ Finally, you need to register Auth0 Facebook authenticator somewhere in your app
 }
 ```
 
-####Twitter
+#### Twitter
 
 To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
 
@@ -226,11 +205,11 @@ RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSende
 
 Now we're ready to implement the Login. First we need to require the native module we've just created:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 Then we can show _Lock_:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/ios-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
 

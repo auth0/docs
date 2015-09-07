@@ -52,13 +52,25 @@ An object containing contextual information of the current authentication transa
 * `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
   * `lifetimeInSeconds`: expiration of the token.
   * `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
-* `protocol`: the authentication protocol. Possible values: `oidc-basic-profile` (most used, web based login), `oidc-implicit-profile` (used on mobile devices and single page apps), `oauth2-resource-owner` (user/password login typically used on database connections), `oauth2-resource-owner-jwt-bearer` (login using a bearer JWT signed with user's private key), `samlp` (SAML protocol used on SaaS apps), `wsfed` (WS-Federation used on Microsoft products like Office365), `wstrust-usernamemixed` (WS-trust user/password login used on CRM and Office365), and `delegation` (when calling the [Delegation endpoint](/auth-api#delegated)).
+* `protocol`: the authentication protocol. Possible values: 
+  * `oidc-basic-profile`: most used, web based login
+  * `oidc-implicit-profile`: used on mobile devices and single page apps
+  * `oauth2-resource-owner`: user/password login typically used on database connections
+  * `oauth2-resource-owner-jwt-bearer`: login using a bearer JWT signed with user's private key
+  * `samlp`: SAML protocol used on SaaS apps
+  * `wsfed`: WS-Federation used on Microsoft products like Office365
+  * `wstrust-usernamemixed`: WS-trust user/password login used on CRM and Office365
+  * `delegation`: when calling the [Delegation endpoint](/auth-api#delegated)
+  * `redirect-callback`: when a redirect rule is resumed 
 * `request`: an object containing useful information of the request. It has the following properties:
   * `query`: querystring of the login transaction sent by the application
   * `body`: the body of the POST request on login transactions used on `oauth2-resource-owner`, `oauth2-resource-owner-jwt-bearer` or `wstrust-usernamemixed` protocols.
   * `userAgent`: the user-agent of the client that is trying to log in.
   * `ip`: the originating IP address of the user trying to log in.
 * `samlConfiguration`: an object that controls the behavior of the SAML and WS-Fed endpoints. Useful for advanced claims mapping and token enrichment (only available for `samlp` and `wsfed` protocol).
+* `sso`: this object will contain information about the SSO transaction (if available)
+  * `with_auth0`: when a user signs in with SSO to an application where the `Use Auth0 instead of the IdP to do Single Sign On` setting is enabled.
+  * `with_dbconn`: an SSO login for a user that logged in through a database connection.
 * `stats`: an object containing specific user stats, like `stats.loginsCount`.
 
 
@@ -131,39 +143,12 @@ We have an open source repository for common rules here:
 
 <div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a href="https://github.com/auth0/rules">https://github.com/auth0/rules</a></div>
 
-## Available Modules
+## Available modules
 
 The script runs in a JavaScript sandbox for security reasons which is based on [webtask.io](https://webtask.io). You can use the full power of the language (ECMAScript 5). The current sandbox supports:
 
 <div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a href="https://tehsis.github.io/webtaskio-canirequire/">Modules Supported by the Sandbox</a></div>
 
-## Source Control with GitHub
+## Further reading
 
-You can maintain the source code of the rules through the Auth0 dashboard or integrate a GitHub repository with your Auth0 account. If you choose the GitHub integration route, the rules in your Auth0 account will be automatically updated whenever a change is submitted to the GitHub repository.
-
-The GitHub repository must follow a prescriptive pattern of storing and naming your rules:
-
-    /rules/{rule_name}.js
-
-All rules must be stored as individual `*.js` files in the `/rules` directory. The name of the file excluding the extension corresponds to the name of the Auth0 rule.
-
-To enable automatic integration of the GitHub repository with the configuration of your Auth0 account, you must add a [GitHub webhook](https://developer.github.com/webhooks/) to your repository. The webhook URL must be specified as follows:
-
-    https://sandbox.it.auth0.com/auth0-webhook?webtask_no_cache&key=eyJhbGciOiJIUzI1NiIsImtpZCI6IjEifQ.eyJqdGkiOiIyZTMxN2NmMjMwZjg0YzIzYTJjMDRkODA4Zjg2MTQ4ZSIsImlhdCI6MTQyNTU4NDc5MiwidXJsIjoiaHR0cDovL2JpdC5seS8xQTF3a0MzIiwidGVuIjoiYXV0aDAtd2ViaG9vayJ9.0-q71r2-RizjCRqNJpU3mWVG_SrN52FJiXHYhTyHHCA&auth0_account={auth0_account}&auth0_client_id={auth0_client_id}&auth0_client_secret={auth0_client_secret}&branch={branch_name}
-
-Take note you need to customize the value of the following URL query parameters:
-
-* `auth0_account` (required) must specify your Auth0 account name  
-* `auth0_client_id` (required) must specify the Auth0 client ID
-* `auth0_client_secret` (required) must specify the Auth0 client secret  
-* `branch` (optional) may specify the branch of the GitHub repository to integrate with Auth0 configuration; if not specified, `master` is assumed.  
-
-Currently only public repositories are supported.
-
-Once the webhook is configured in your GitHub repository, this is what you can expect:
-
-* any deleted `/rules/*.js` file will result in deletion of the corresponding Auth0 rule,  
-* any added or modified `/rules/*.js` file will result in adding or modifying of the corresponding Auth0 rule,  
-* all added or modified rules are automatically enabled.
-
-> Looking for something not listed here? Write to us at [support@auth0.com](mailto:support@auth0.com)
+* [Managing rules using source control with GitHub](source-control)

@@ -1,15 +1,14 @@
 ---
-lodash: true
 title: AngularJS Tutorial
 name: Angular.js
 alias:
   - angular
   - angularjs
-language: 
+language:
   - Javascript
 framework:
   - AngularJS
-image: //auth0.com/lib/platforms-collection/img/angular.png
+image: /media/platforms/angular.png
 tags:
   - quickstart
 snippets:
@@ -22,32 +21,29 @@ alias:
 
 ## AngularJS Tutorial
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/auth0-angular/master/create-package?path=examples/widget-with-api&type=js@@account.clientParam@@" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a Seed project</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-angular',
+  pkgBranch: 'master',
+  pkgPath: 'examples/widget-with-api',
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 **If you have an existing application, follow the steps below.**
 
-@@includes.callback@@
+${include('./\_callback')}
 
 ### 1. Add the Auth0 scripts and set the viewport
 
 Add the code below to the `index.html` file to include Auth0's angular module and its dependencies and set the viewport:
 
-@@snippet(meta.snippets.dependencies)@@
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Add the module dependency and configure the service
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`:
 
-@@snippet(meta.snippets.setup)@@
+${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
@@ -55,11 +51,9 @@ To implement the login, inject the `auth` service into any controller and call t
 
 In the following code, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`:
 
-@@snippet(meta.snippets.use)@@
+${snippet(meta.snippets.use)}
 
-This is how it will appear in the browser:
-
-@@browser@@
+${browser}
 
 __Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
@@ -116,7 +110,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Keep the user logged in after a page refresh
 
@@ -147,9 +141,9 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
 You have completed the implementation of Login and Signup with Auth0 and AngularJS.
 
 ### Optional Steps
-####Add routing
+#### Add routing
 
-Most apps will need to authenticate users to enable access certain routes. 
+Most apps will need to authenticate users to enable access certain routes.
 
 To enable access to a route:
 
