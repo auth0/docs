@@ -1,4 +1,5 @@
 ### AWS API Gateway Tutorial - Step 2 - Securing and Deploying the Amazon API Gateway
+[Prev](/integrations/aws-api-gateway-1) ----- [Next](/integrations/aws-api-gateway-3)
 
 Now that you have your API running, you need to add security. AWS API Gateway provides a two different methods to secure your APIs - API keys, and IAM. Using API keys is typically appropriate for a service to service interaction as illustrated below. However, putting a long lived secret on a client is risky since clients are easier to compromise. Also, creating a framework to issue and manage API keys requires a secure implementation that may be challenging to develop.
 

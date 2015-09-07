@@ -1,4 +1,5 @@
 ### Amazon API Gateway Tutorial - Step 1 - Setting up the Amazon API Gateway
+[Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway-2)
 
 You need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create an Amazon [DynamoDB](https://aws.amazon.com/dynamodb) table and the AWS Lambda functions and Amazon API Gateway APIs for getting and putting pets. Log into the AWS console to perform the following steps.
 

@@ -1,4 +1,5 @@
 ### AWS API Gateway Tutorial - Step 4 - Using Multiple Roles with Amazon API Gateway
+[Prev](/integrations/aws-api-gateway-3) ----- [Next](/integrations/aws-api-gateway-5)
 
 For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). 
 

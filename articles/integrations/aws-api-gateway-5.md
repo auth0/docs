@@ -1,4 +1,5 @@
-# AWS API Gateway Tutorial - Step 5 - Using Identity Tokens to Flow Identity
+### AWS API Gateway Tutorial - Step 5 - Using Identity Tokens to Flow Identity
+[Prev](/integrations/aws-api-gateway-4)
 
 ## Use An Identity Token
 Often, you will want to do the processing of a user's role based on the users identity in the logic of your Lambda function. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on a plain-text parameter that could be tampered with. You could also use the JWT for authorization and bypass the IAM integration with the Amazon API Gateway. However, by using the API Gateway for authorization, you have the opportunity of halting the API call before your Lambda function is ever invoked.
