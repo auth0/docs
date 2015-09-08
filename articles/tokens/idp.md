@@ -21,7 +21,7 @@ lock.show({
 });
 ```
 
-More information is available at [User Profile](/user-profile) and [Normalized User Profile](/articles/user-profile/normalized) contains examples of the `identities` array and profiles as returned by various social providers.
+More information is available at [User Profile](/user-profile) and [Normalized User Profile](/user-profile/normalized) contains examples of the `identities` array and profiles as returned by various social providers.
 
 ## How to control contents of Identity Provider access tokens
 
