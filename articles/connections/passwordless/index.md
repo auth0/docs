@@ -46,7 +46,6 @@ To implement passwordless login, code your app to follow these steps:
 POST https://${account.namespace}/api/v2/users/
 Authorization: Bearer {Auth0 APIv2 Token}
 Content-Type: 'application/json'
-
 {
   "connection":     "sms",
   "email_verified": false,
