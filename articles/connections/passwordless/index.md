@@ -36,13 +36,13 @@ On the **SMS (Twilio)** page on Auth0, enter your **Twilio Account SID** and **A
 
 The `@@password@@` placeholder in the message template will be replaced with the one-time password that is sent in a text message to the user.
 
-### Implementation 
+### Implementation
 
 To implement passwordless login, code your app to follow these steps:
 
 1. Register the user using the [Auth0 serverside API](https://auth0.com/docs/api/v2#!/Users/post_users):
 
-    ```
+```
 POST https://${account.namespace}/api/v2/users/
 Authorization: Bearer {Auth0 APIv2 Token}
 Content-Type: 'application/json'
@@ -52,14 +52,15 @@ Content-Type: 'application/json'
   "email_verified": false,
   "phone_number":   "+14251112222"
 }
-    ```
+```
+
 An APIv2 token can be generated with the [APIv2 explorer](https://auth0.com/docs/api/v2). The token must include the `create:users` scope.
 
 2. Auth0 sends the SMS message you configured in the Auth0 dashboard to the specified phone number, including a one-time password that expires in 10 minutes.
 
 3. Capture the one-time password submitted by the user and validate it with Auth0 using the [Resource Owner](/auth-api#!#post--oauth-ro) authentication endpoint:
 
-    ```
+```
 POST https://${account.namespace}/oauth/ro
 Content-Type: 'application/json'
 {
@@ -70,17 +71,17 @@ Content-Type: 'application/json'
   "grant_type":  "password",
   "scope":       "openid" //or "openid profile"
 }
-    ```
+```
 
 4. A successful authentication will result in a JWT sent in the response:
 
-    ```
+```
 {
   "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXJuYW1lc3BhY2UuYXV0aDAuY29tLyIsInN1YiI6InNtc3w1NDRiZWJiODg3NjIzNDQ1NjcxZjVmN2ExIiwiYXVkIjoiaWNJTVBNamRmaGl1NDNuZWtqZjNqcjRlbmZpT2t5TkZ4dSIsImV4cCI6MTQxNDgxOTUyOSwiaWF0IjoxNDE0NzgzNTI5fQ.y4sIFl82DHFzli3GgT8Q2voZSADVQbcwpOx-DoAwmK4",
   "access_token": "eJ0ck9754nf46f9",
   "token_type": "Bearer"
 }
-    ```
+```
 
 ### Additional Information
 
