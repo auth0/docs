@@ -1,15 +1,17 @@
 ### AWS API Gateway Tutorial - Step 2 - Securing and Deploying the Amazon API Gateway
 [Prev](/integrations/aws-api-gateway-1) ----- [Next](/integrations/aws-api-gateway-3)
 
-Now that you have your API running, you need to add security. AWS API Gateway provides a two different methods to secure your APIs - API keys, and IAM. Using API keys is typically appropriate for a service to service interaction as illustrated below. However, putting a long lived secret on a client is risky since clients are easier to compromise. Also, creating a framework to issue and manage API keys requires a secure implementation that may be challenging to develop.
+Now that you have your API running, you need to add security. In this step you will secure the update API to limit access to authenticated users in a specific AWS IAM role. You will configure Auth0 delegation to use AWS IAM federation capabilities and obtain an AWS access token that uses that AWS IAM role.
+
+AWS API Gateway provides a two different methods to secure your APIs - API keys, and IAM. Using API keys is typically appropriate for a service to service interaction as illustrated below. However, putting a long lived secret on a client is risky since clients are easier to compromise. Also, creating a framework to issue and manage API keys requires a secure implementation that may be challenging to develop.
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-key.png)
 
-For this tutorial, you'll build a serverless, single page application, that relies on federating identity with common identity sources to determine which users are allowed access. You can achieve this using a combination of the Amazon API Gateway IAM integration and AWS IAM's identity federation with Auth0. The following diagram illustrates an the flow using a SAML based identity provider and Auth0 SAML federation and delegation for AWS:
+In the remainder of this tutorial you'll build a serverless, single page application, that relies on federating identity to determine which users are allowed access. By combining AWS IAM integration for Amazon API Gateway, AWS IAM's identity federation for SAML, and Auth0 delegation for AWS, you can enable users from many different sources, including social sources like Facebook, LinkedIn and Amazon, or enterprise sources like Active Directory, LDAP, ADFS, or SAML to access your APIs. The following diagram illustrates an the flow using a SAML based identity provider and Auth0 SAML federation and delegation for AWS:
 
 ![](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
-You'll implement this in two ways, first using Auth0 delegation with AWS IAM and then adding an identity token to flow identity to the Lambda function. Delegation makes it easy for you to obtain tokens from AWS to access AWS services in your application.
+You'll implement this in two ways, first using Auth0 delegation with AWS IAM and then in a later step by adding an identity token to flow identity to the Lambda function. Delegation makes it easy for you to obtain tokens from AWS to access AWS services in your application.
 
 ### Configure IAM and Auth0 for SAML integration and the API Gateway
 The AWS IAM SAML integration lets the trusted identity provider (IDP) specify an AWS IAM role in the SAML token used to obtain an AWS token. The returned token has the AWS access permissions of that role. Your SAML IDP controls the level of access for your users by issuing SAML tokens with different AWS IAM roles. For example, the IDP could specify the IAM role based on group membership (e.g. administrator in Active Directory), or authentication source (e.g. a database connection or a social provider like Facebook). This approach lets you differentiate user access to your Amazon API Gateway methods when secured with AWS IAM.
