@@ -6,7 +6,7 @@ Third Party Access Tokens are issued by third party social providers, such as Fa
 
 ## How to get Identity Provider access tokens
 
-Identity Provider access tokens can be obtained in one of two ways.  First, if a user authenticates to a social Identity Provider, such as Facebook, an Identity Provider access token for that social Identity Provider will be returned in the first element of the `identities` array within the user profile object returned by Auth0.  
+Identity Provider access tokens can be obtained in one of two ways.  First, if a user authenticates to a social Identity Provider, such as Facebook, an Identity Provider access token for that social Identity Provider will be returned in the first element of the `identities` array within the user profile object returned by Auth0.
 
 For example, if authentication is invoked via a call to the Lock widget’s .show method, the following code would be used to put the Identity Provider access token into a variable called `identityProviderAccessToken`. .
 
@@ -21,11 +21,11 @@ lock.show({
 });
 ```
 
-More information is available at [User Profile](/user-profile) and [Normalized User Profile](/articles/user-profile/normalized.md) contains examples of the `identities` array and profiles as returned by various social providers.
+More information is available at [User Profile](/user-profile) and [Normalized User Profile](/articles/user-profile/normalized) contains examples of the `identities` array and profiles as returned by various social providers.
 
 ## How to control contents of Identity Provider access tokens
 
-The contents of third party access tokens will vary by the issuing Identity Provider.  
+The contents of third party access tokens will vary by the issuing Identity Provider.
 
 ## Validity
 
