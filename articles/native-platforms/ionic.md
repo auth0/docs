@@ -160,14 +160,19 @@ function UserInfoCtrl($scope, auth) {
 
 You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 10. Keeping the user logged in after page refreshes
+### 10. Keeping the user logged in after app switching
 
-We already saved the user profile and tokens into `localStorage`. We just need to fetch them on page refresh and let `auth0-angular` know that the user is already authenticated.
+When the user exits your app, the mobile OS (iOS or Android) may unload your app at will to recover some RAM.
+
+We already saved the user profile and tokens into `localStorage`. We just need to check for their existence and, if possible, fetch them when your app loads and let `auth0-angular` know that the user is already authenticated.
 
 ```js
-angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
-.run(function($rootScope, auth, store, jwtHelper, $location) {
-  // This events gets triggered on refresh or URL change
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'auth0', 'angular-storage', 'angular-jwt'])
+.run(function($ionicPlatform, $rootScope, auth, store, jwtHelper, $location) {
+  $ionicPlatform.ready(function() {...});
+  //This hooks all auth avents
+  auth.hookEvents();
+  //This event gets triggered on URL change
   var refreshingToken = null;
   $rootScope.$on('$locationChangeStart', function() {
     var token = store.get('token');
@@ -180,20 +185,19 @@ angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
       } else {
         if (refreshToken) {
           if (refreshingToken === null) {
-              refreshingToken =  auth.refreshIdToken(refreshToken).then(function(idToken) {
-                store.set('token', idToken);
-                auth.authenticate(store.get('profile'), idToken);
-              }).finally(function() {
-                  refreshingToken = null;
-              });
+            refreshingToken = auth.refreshIdToken(refreshToken).then(function(idToken) {
+              store.set('token', idToken);
+              auth.authenticate(store.get('profile'), idToken);
+            }).finally(function() {
+              refreshingToken = null;
+            });
           }
           return refreshingToken;
         } else {
-          $location.path('/login');
-        }
+          $location.path('/login');// Notice: this url must be the one defined 
+        }                          // in your login state. Refer to step 5.
       }
     }
-
   });
 });
 ```
