@@ -79,10 +79,19 @@ Also you'll need to register a new _URL Type_ with the following scheme
 To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.m` file.
 
 ```objc
-#import <Lock/Lock.h>
+#import <LockReact/A0LockReact.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[A0IdentityProviderAuthenticator sharedInstance] handleURL:url sourceApplication:sourceApplication];
+    return [[A0LockReact sharedInstance].lock handleURL:url sourceApplication:sourceApplication];
+}
+```
+
+Also add Lock configuration to the beginning of application:didFinishLaunchingWithOptions method:
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[A0LockReact sharedInstance].lock registerAuthenticators:@[twitter]];
+    //...
 }
 ```
 
@@ -102,7 +111,7 @@ First, add the following entries to the `Info.plist`:
     </tr>
   </thead>
   <tr>
-    <td>FacebookAppId</td>
+    <td>FacebookAppID</td>
     <td>YOUR_FACEBOOK_APP_ID</td>
   </tr>
   <tr>
@@ -111,7 +120,7 @@ First, add the following entries to the `Info.plist`:
   </tr>
 </table>
 
-Then, register a custom URL Type with the format `fb<FacebookAppId>`.
+Then, register a custom URL Type with the format `fb<FacebookAppID>`.
 
 > For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
 
@@ -121,29 +130,41 @@ Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
+Then add Lock Facebook's Pod
+
+```ruby
+pod 'Lock-Facebook', '~> 2.1'
+```
+
 Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate.m` file, for example:
 
 ```objc
-#import <Lock/Lock.h>
+#import <Lock-Facebook/A0FacebookAuthenticator.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
-    [[A0IdentityProviderAuthenticator sharedInstance] registerSocialAuthenticatorProvider:facebook];
+    A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
+    [[A0LockReact sharedInstance].lock registerAuthenticators:@[facebook]];
 }
 ```
 
 #### Twitter
 
+First add Lock Twitter's Pod
+
+```ruby
+pod 'Lock-Twitter', '~> 1.0'
+```
+
 To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
 
 ```objc
-#import <Lock/Lock.h>
+#import <Lock-Twitter/A0TwitterAuthenticator.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSString *twitterApiKey = ... //Remember to obfuscate your api key
-  NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-  A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
-  [[A0IdentityProviderAuthenticator sharedInstance] registerSocialAuthenticatorProvider:twitter];
+    NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
+    A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
+    [[A0LockReact sharedInstance].lock registerAuthenticators:@[twitter]];
 }
 ```
 
@@ -177,29 +198,27 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(show:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    A0LockReact *lock = [[A0LockReact alloc] init];
+    A0LockReact *lock = [A0LockReact sharedInstance];
     [lock showWithOptions:options callback:callback];
   });
 }
 
 RCT_EXPORT_METHOD(showSMS:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    A0LockReact *lock = [[A0LockReact alloc] init];
+    A0LockReact *lock = [A0LockReact sharedInstance];
     [lock showSMSWithOptions:options callback:callback];
   });
 }
 
 RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
   dispatch_async(dispatch_get_main_queue(), ^{
-    A0LockReact *lock = [[A0LockReact alloc] init];
+    A0LockReact *lock = [A0LockReact sharedInstance];
     [lock showTouchIDWithOptions:options callback:callback];
   });
 }
 
 @end
 ```
-
-> You can also download [LockReactModule.h](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/Modules/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/Modules/LockReactModule.m) and add them to your Xcode project.
 
 ### 5. Let's implement the login
 
