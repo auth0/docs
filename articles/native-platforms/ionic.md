@@ -85,6 +85,8 @@ Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your
 
 ${snippet(meta.snippets.setup)}
 
+> Note: there are more properties available in `authProvider.init({...})`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#authproviderinitoptions--authinitoptions).
+
 ### 6. Let's implement the login
 
 Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
