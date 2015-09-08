@@ -1,7 +1,9 @@
 ### Amazon API Gateway Tutorial - Step 1 - Setting up the Amazon API Gateway
 [Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway-2)
 
-You need to have [node.js](https://nodejs.org/) already installed. Perform the following steps to create an Amazon [DynamoDB](https://aws.amazon.com/dynamodb) table and the AWS Lambda functions and Amazon API Gateway APIs for getting and putting pets. Log into the AWS console to perform the following steps.
+After completing this step you will have created two unauthenticated REST service methods for getting and updating a list of pets. You will set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an Amazon DynamoDB [DynamoDB](https://aws.amazon.com/dynamodb) table. You need to have [node.js](https://nodejs.org/) already installed. 
+
+Perform the following steps to create an Amazon table and the AWS Lambda functions and Amazon API Gateway APIs after logging into the AWS console.
 
 1. First create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *Hash*, and specify a *Hash Attribute Name* string type of `username`. Press **Continue**, then press **Continue** for Indices to skip. On the next page enter *3* for read and write units, and then press **Continue**. Uncheck *Use Basic Alarms* and press **Continue** one more time. Press **Create** to finish.
 
