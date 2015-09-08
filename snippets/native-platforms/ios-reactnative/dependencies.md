@@ -1,3 +1,3 @@
 ```ruby
-pod 'LockReact', '~> 0.2'
+pod 'LockReact', '~> 0.4'
 ```
