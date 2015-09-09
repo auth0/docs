@@ -52,7 +52,7 @@ We can write a rule that would have the following behavior:
 1. User attempts to log in and needs to change their password
 2. User is redirected to an application-specific page with a JWT in the query string.
 This JWT ensures that only this user's password can be changed, and **must be validated** by the application.
-3. User changes their password in the application-specific page by [calling Auth0's API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id)
+3. User changes their password in the application-specific page by having the application [call the Auth0 API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id)
 4. Application redirects back to `/continue`, with a JWT in the query string.
 This token must be issued for the same user that is attempting to log in, and must contain a `passwordChanged: true` claim.
 
