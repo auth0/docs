@@ -220,6 +220,8 @@ RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSende
 @end
 ```
 
+> You can also download [LockReactModule.h](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/LockReactModule.m) and add them to your Xcode project.
+
 ### 5. Let's implement the login
 
 Now we're ready to implement the Login. First we need to require the native module we've just created:
