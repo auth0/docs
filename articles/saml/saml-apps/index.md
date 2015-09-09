@@ -8,18 +8,18 @@ url: /saml-apps
 
 ```
 {
-"audience": "https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs",
-"mappings": {
-"nickname": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-},
-"createUpnClaim": false,
-"passthroughClaimsWithNoMapping": false,
-"mapUnknownClaimsAsIs": false,
-"mapIdentities": false,
-"nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:email",
-"nameIdentifierProbes": [
-"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-],
+  "audience": "https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs",
+  "mappings": {
+    "nickname": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+  },
+  "createUpnClaim": false,
+  "passthroughClaimsWithNoMapping": false,
+  "mapUnknownClaimsAsIs": false,
+  "mapIdentities": false,
+  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:email",
+  "nameIdentifierProbes": [
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
+  ],
 }
 ```
 **Callback URL**: `https://www.google.com/a/{YOUR-GOOGLE-DOMAIN}/acs`
@@ -81,7 +81,7 @@ url: /saml-apps
 ```
 {
  "audience":  "https://{YOUR SPROUT VIDEO ACCOUNT}.vids.io",
- "mappings": {  
+ "mappings": {
        "user_id":     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier",
        "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
  },
@@ -176,3 +176,24 @@ url: /saml-apps
 Notice that Datadog has an option to automatically provision new users. Check [here](http://docs.datadoghq.com/guides/saml/) for more details.
 
 ---
+
+
+## Egencia
+
+```json
+{
+  "audience": "https://{YOUR_ACCOUNT_NAME}.egencia.com",
+   "mappings": {
+   },
+   "createUpnClaim":       false,
+   "passthroughClaimsWithNoMapping": false,
+   "mapUnknownClaimsAsIs": false,
+   "mapIdentities":        false,
+   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+   "nameIdentifierProbes": [
+     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+   ],
+}
+```
+
+***Callback URL**: `https://www.egencia.com/auth/v1/artifactConsumer`
