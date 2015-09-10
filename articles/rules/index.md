@@ -52,7 +52,7 @@ An object containing contextual information of the current authentication transa
 * `jwtConfiguration`: an object to configure how Json Web Tokens (JWT) will be generated:
   * `lifetimeInSeconds`: expiration of the token.
   * `scopes`: predefined scopes values (e.g.: `{ 'images': ['picture', 'logo'] }` this scope value will request access to the picture and logo claims).
-* `protocol`: the authentication protocol. Possible values: 
+* `protocol`: the authentication protocol. Possible values:
   * `oidc-basic-profile`: most used, web based login
   * `oidc-implicit-profile`: used on mobile devices and single page apps
   * `oauth2-resource-owner`: user/password login typically used on database connections
@@ -61,7 +61,7 @@ An object containing contextual information of the current authentication transa
   * `wsfed`: WS-Federation used on Microsoft products like Office365
   * `wstrust-usernamemixed`: WS-trust user/password login used on CRM and Office365
   * `delegation`: when calling the [Delegation endpoint](/auth-api#delegated)
-  * `redirect-callback`: when a redirect rule is resumed 
+  * `redirect-callback`: when a redirect rule is resumed
 * `request`: an object containing useful information of the request. It has the following properties:
   * `query`: querystring of the login transaction sent by the application
   * `body`: the body of the POST request on login transactions used on `oauth2-resource-owner`, `oauth2-resource-owner-jwt-bearer` or `wstrust-usernamemixed` protocols.
@@ -152,3 +152,4 @@ The script runs in a JavaScript sandbox for security reasons which is based on [
 ## Further reading
 
 * [Managing rules using source control with GitHub](source-control)
+* [Redirecting users from within rules](rules/redirect)

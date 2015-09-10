@@ -10,10 +10,6 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
-## Playground
-
-${widgetSDK}
-
 ## Anatomy of the Auth0 Login Widget
 
 ![](/media/articles/login-widget/widget-numbered.png)

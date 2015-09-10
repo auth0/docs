@@ -61,7 +61,7 @@ and then add the following configuration to the `config.xml` file:
 
 ### 3. Follow the guide specific to the FrontEnd technology you're using
 
-Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](/new/client-platforms/jquery), [AngularJS](/new/client-platforms/angularjs) and [Vanilla JS](/new/client-platforms/vanillajs).
+Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](/client-platforms/jquery), [AngularJS](/client-platforms/angularjs) and [Vanilla JS](/client-platforms/vanillajs).
 
 > **Warning**: Cordova doesn't support getting dependencies from a CDN, so you're going to have to download the JS and CSS dependencies locally and then point to the downloaded files.
 

@@ -1,6 +1,6 @@
 ---
-title: Connecting WS-Federate Providers with Auth0
-connection: WS-Federate
+title: Connecting WS-Federation Providers with Auth0
+connection: WS-Federation
 image: /media/connections/windows.svg
 sitemap: false
 ---

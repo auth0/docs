@@ -458,5 +458,17 @@
   {
     "from": "/quickstart/native-mobile/windows8/:client",
     "to": "/quickstart/native-mobile/windows-store-javascript/:client"
+  },
+  {
+    "from": "/quickstart/spa/angular/:client",
+    "to": "/quickstart/spa/angularjs/:client"
+  },
+  {
+    "from": "/quickstart/spa/javascript/:client",
+    "to": "/quickstart/spa/vanillajs/:client"
+  },
+  {
+    "from": "quickstart/native-mobile/wpf-winforms/aspnetweb-api",
+    "to": "quickstart/native-mobile/wpf-winforms/aspnet-webapi"
   }
 ]
