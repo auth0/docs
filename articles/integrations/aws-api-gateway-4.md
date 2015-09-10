@@ -1,6 +1,8 @@
 ### AWS API Gateway Tutorial - Step 4 - Using Multiple Roles with Amazon API Gateway
 [Prev](/integrations/aws-api-gateway-3) ----- [Next](/integrations/aws-api-gateway-5)
 
+In this step you'll assign different AWS IAM roles to users based upon authentication information. Users that authenticate with social sources will be treated as buyers, while users authenticated with a database source will be treated as admins. You will perform this role assignment logic using client side Javascript code as well as service side by using Auth0 rules.
+
 For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). 
 
 The following diagram illustrates AWS IAM role assignments for two different user classes, social and database authenticated users. It also illustrates that AWS IAM roles can be assigned to other entities, like AWS Lamdba functions, to control the permissions these entities are assigned for an account. In short, an IAM role is as a group of permissions to AWS capabilities defined by one or more policies and assigned to an entity.
