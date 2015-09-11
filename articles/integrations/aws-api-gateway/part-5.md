@@ -14,12 +14,12 @@ There are several ways of causing the email to be added to the JWT. One way is t
 $scope.login = function() {
     var params = {
         authParams: {
-          scope: 'openid email' 
+          scope: 'openid email'
         }
       };
 
     auth.signin(params, function(profile, token) {
-      … 
+      …
 ```
 
 You can request up to the full profile of the user to be contained within the JWT. However, since the JWT is typically passed on every request, you'll want to only include what you need to keep the token lightweight.
@@ -34,7 +34,7 @@ The AWS Lambda console has access to a relatively limited number of node modules
   pkgType: 'server' + account.clientParam
 }) %>
 
-You'll see a two Javascript files, `index.js` which is expected by the AWS Lambda service to contain your main code, and `auth0-variables` which contains the only code you need to update. There is also a standard nodejs `package.json` file. 
+You'll see a two Javascript files, `index.js` which is expected by the AWS Lambda service to contain your main code, and `auth0-variables` which contains the only code you need to update. There is also a standard nodejs `package.json` file.
 
 This code adds extraction and validation of the JWT and uses several modules to help with that process. By default, Auth0 uses a symmetric key for signing the JWT, although there is an option to use asymmetric keys. If you need to allow third parties to validate your token as well, you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols).
 
@@ -80,7 +80,7 @@ The final step is to pass the JWT to the method from the browser client. The sta
 function buyPet(user, id) {
     var apigClient = getSecureApiClient();
     var body = {
-      petId:id, 
+      petId:id,
       authToken: store.get('token')
     };
 
@@ -101,4 +101,4 @@ Now upload your code to your S3 bucket, and try to purchase a pet. You will see 
 ## Summary
 In this tutorial, you have created AWS API Gateway methods using AWS Lamdba functions, and have secured access to the APIs using IAM. You integrated a SAML identity provider with IAM to tie access to the API to your user base. You then provided different levels of access based on whether a user authenticated from the built in database, or with a social identity, and used an Auth0 rule to enforce the role assignment. Finally, you used a JWT to provide further authorization context, and to pass identity information into the Lambda function.
 
-[Prev](/integrations/aws-api-gateway-4)
+[Prev](/integrations/aws-api-gateway/part-4)

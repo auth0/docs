@@ -3,7 +3,7 @@
 
 In this step you'll assign different AWS IAM roles to users based upon authentication information. Users that authenticate with social sources will be treated as buyers, while users authenticated with a database source will be treated as admins. You will perform this role assignment logic using client side Javascript code as well as service side by using Auth0 rules.
 
-For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets). 
+For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets).
 
 The following diagram illustrates AWS IAM role assignments for two different user classes, social and database authenticated users. It also illustrates that AWS IAM roles can be assigned to other entities, like AWS Lamdba functions, to control the permissions these entities are assigned for an account. In short, an IAM role is as a group of permissions to AWS capabilities defined by one or more policies and assigned to an entity.
 
@@ -19,13 +19,13 @@ From the Amazon API Gateway console, create a new API resource by selecting `pet
 var AWS = require('aws-sdk');
 var DOC = require('dynamodb-doc');
 var dynamo = new DOC.DynamoDB();
-    
+
 exports.handler = function(event, context) {
    var petId = event.petId;
    var user = event.userName;
    var pets = {};
    console.log('start PetsPurchase, petId', petId, ' userName', user);
-   
+
    var writecb = function(err, data) {
       if(!err) {
           context.done(null, pets);
@@ -44,7 +44,7 @@ exports.handler = function(event, context) {
           if(data.Item && data.Item.pets) {
               pets = data.Item.pets;
               var found = false;
-              
+
               for(var i = 0; i < pets.length && !found; i++) {
                   if(pets[i].id === petId) {
                      if(!pets[i].isSold) {
@@ -62,7 +62,7 @@ exports.handler = function(event, context) {
                }
            } else {
               console.log('pet already sold');
-              context.done('That pet is not available.', null);           
+              context.done('That pet is not available.', null);
            }
        }
    };
@@ -71,7 +71,7 @@ exports.handler = function(event, context) {
 };
 ```
 
-Once the Lambda function is defined, add another method, *POST*, to the `purchase` resource which calls the `PetPurchase` Lambda. Be sure to also add the `Access-Control-Allow-Origin` header with a value of `*` to the *POST* method using the method response/integration response configuration. Test the API gateway method, providing as input a message similar to this: 
+Once the Lambda function is defined, add another method, *POST*, to the `purchase` resource which calls the `PetPurchase` Lambda. Be sure to also add the `Access-Control-Allow-Origin` header with a value of `*` to the *POST* method using the method response/integration response configuration. Test the API gateway method, providing as input a message similar to this:
 
 ```js
  {
@@ -142,7 +142,7 @@ function buyPet(user, id) {
         showError(response);
     });
 }
-… 
+…
 ```
 
 Now copy the code to your S3 bucket, log out, and then log in as a social user by clicking on the Amazon icon in the Lock login dialog. You may need to click **show all** so Lock forgets your previous login name. Note that as an Amazon user, you can buy a pet, but not add or remove pets. If you log in with the database account, you should still be able to add and remove pets, but not buy pets. Try to buy a pet, and it should succeed.
@@ -155,27 +155,27 @@ Add a rule that will check if the role requested is allowed for this user depend
 
 ```js
 function (user, context, callback) {
-  if(context.clientID === '${account.clientId}') {    
+  if(context.clientID === '${account.clientId}') {
     var socialRoleInfo = {
       role:"arn:aws:iam::<your account>:role/auth0-api-social-role",
       principal: "arn:aws:iam::your account>:saml-provider/auth0"
     };
-    
+
     var adminRoleInfo = {
       role:"arn:aws:iam::<your account>:role/auth0-api-role",
       principal: "arn:aws:iam::<your account>:saml-provider/auth0"
     };
-    
+
     var requestRole = context.request.body.role;
     var requestPrincipal = context.request.body.principal;
     var allowedRole = null;
-    
+
     if(user.identities[0].isSocial === false) {
       allowedRole = adminRoleInfo;
     } else {
       allowedRole = socialRoleInfo;
     }
-    
+
     if((requestRole && requestRole !== allowedRole.role) ||
        (requestPrincipal && requestPrincipal !== allowedRole.principal)) {
         console.log('mismatch in requested role:',requestRole, ':', requestPrincipal);
@@ -183,26 +183,26 @@ function (user, context, callback) {
     } else {
       console.log('valid or no role requested for delegation');
     }
-    
+
     context.addonConfiguration = context.addonConfiguration || {};
     context.addonConfiguration.aws = context.addonConfiguration.aws || {};
     context.addonConfiguration.aws.role = allowedRole.role;
     context.addonConfiguration.aws.principal = allowedRole.principal;
     callback(null, user, context);
-    
+
   } else {
     callback(null, user, context);
-  } 
+  }
 }
 ```
-Adjust the role and principal values above for the ones already created for your account and click **Save**. 
+Adjust the role and principal values above for the ones already created for your account and click **Save**.
 
 A few characteristics to point out:
 
 - Rules run at a global scope for every authentication. Unless you want to run logic on every request, it's best to only run your logic if it is your application. The check for *clientID* at the top of this code restricts running to only this Auth0 application.
 - A lot of information is passed into the rule with *context* and *user*.
-- You can extend the objects passed in. In the code above, the rule checks the body of the request for the role information passed and, if present, it logs a warning if the role isn't an allowed role, and overrides the role. The role is set into the context *addonConfiguration* (which always overrides settings in the request body) of the allowed role. 
+- You can extend the objects passed in. In the code above, the rule checks the body of the request for the role information passed and, if present, it logs a warning if the role isn't an allowed role, and overrides the role. The role is set into the context *addonConfiguration* (which always overrides settings in the request body) of the allowed role.
 
 Now, you can setup debugging. Click the **Debug Rule** button and follow the instructions to see the logged output. You can test switching roles in the client, or just removing the role definitions in the client code. You can see that the roles are now being enforced by the service.
 
-[Prev](/integrations/aws-api-gateway-3) ----- [Next](/integrations/aws-api-gateway-5)
+[Prev](/integrations/aws-api-gateway/part-3) ----- [Next](/integrations/aws-api-gateway/part-5)

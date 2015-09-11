@@ -29,7 +29,7 @@ The Amazon Resource Name (arn) that controls access to your APIs will look somet
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets
 ```
-You can see the arn by selecting for one of your API methods by selecting the *Method Request* definition in the Amazon API Gateway console (make sure the arn does not include the method, it should look like the above only with  your account and api gateway identifier). The wildcard (`*`) in the example above enables permissions for all stages for your API. You can deploy different stages (for example dev, test, prod). 
+You can see the arn by selecting for one of your API methods by selecting the *Method Request* definition in the Amazon API Gateway console (make sure the arn does not include the method, it should look like the above only with  your account and api gateway identifier). The wildcard (`*`) in the example above enables permissions for all stages for your API. You can deploy different stages (for example dev, test, prod).
 
 Select the role you just created, and expand **Inline Policies**, and click the **click here** link. Select **Custom Policy**, click the **Select** button, and pick a name like "api-gateway-policy". To enable access to allow of your api methods for the role, apply the following policy after updating the arn with the one for your API. Click **Apply Policy**.
 ```js
@@ -86,11 +86,11 @@ Our single page app will access web API methods from a different domain than the
 1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
 2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda, select your region, and then select *NoOp* for the *Lambda Function*. Click on **Save**.
 3. Click on **Method Response**, expand **200**, and then three headers: *Access-Control-Allow-Headers*, *Access-Control-Allow-Methods*,  *Access-Control-Allow-Origin*.
-4. Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`. 
+4. Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`.
 5. For the *POST* and *GET* methods, follow the same process as above to add a single header, *Access-Control-Allow-Origin*, with the value `'*'`.
 
 ### Deploy the API
 
 Select the **DEPLOY API** button from the **RESOURCES** view. Select **New Stage** for deploy state, and name the stage "test". Click the **Deploy** button. On the result page, you will see a tab for **SDK Generation**. Click the tab, and select *JavaScript* for the platform. Click the **Generate SDK** button. Save the downloaded zip file for later use.
 
-  [Prev](/integrations/aws-api-gateway-1) ----- [ Next](/integrations/aws-api-gateway-3)
+  [Prev](/integrations/aws-api-gateway/part-1) ----- [ Next](/integrations/aws-api-gateway/part-3)

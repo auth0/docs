@@ -3,7 +3,7 @@
 
 The client application will be a single page, serverless application based on the AngularJS framework that you will serve out of an S3 bucket configured as a website. To begin, create a bucket for the application and configure it as a website with a home page of `index.html`. You can find instructions at [Hosting a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html).
 
-For a simple starter app, download this seed project which pre-configures your account settings. 
+For a simple starter app, download this seed project which pre-configures your account settings.
 
 <%= include('../_includes/package', {
   pkgRepo: 'auth0-aws',
@@ -29,7 +29,7 @@ At this point you have authenticated with Auth0, and you have an OpenId JWT. Her
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway). 
+You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway).
 
 Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Modify the `role` and `principal` strings in the `getOptionsForRole` function for `auth0-api-role` to contain your actual account id value. Note that you are treating any user not logged in using a social connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 
@@ -47,7 +47,7 @@ auth.getToken(options)
       function(delegation)  {
         store.set('awstoken', delegation.Credentials);  //add to local storage
         $location.path("/");
-      }, 
+      },
     function(err) {
        console.log('failed to acquire delegation token', err);
   });
@@ -60,9 +60,9 @@ Copy the updated files to your S3 bucket for your web site. Optionally set a bre
 
 ```js
 {
-    AccessKeyId: "ASIAJB...BNQ", 
-    SecretAccessKey: "vS+b6...2Noav", 
-    SessionToken: "AQoDYBqsivOV...DdQW0gsKr8rgU=", 
+    AccessKeyId: "ASIAJB...BNQ",
+    SecretAccessKey: "vS+b6...2Noav",
+    SessionToken: "AQoDYBqsivOV...DdQW0gsKr8rgU=",
     Expiration: "2015-08-27T14:48:32.000Z"
 }
 ```
@@ -118,14 +118,14 @@ Append code for adding a pet. Remember that when you modified `auth.signin`, you
 ```js
 function putPets(updatedPets) {
     var body = {pets: updatedPets};
- 
+
     var apigClient = apigClientFactory.newClient({
         region: 'us-east-1' // set this to the region you are running in.
     });
 
     apigClient.petsPost({},body)
       .then(function(response) {
-        console.log(response);      
+        console.log(response);
        }).catch(function (response) {
         alert('pets update failed');
         showError(response);
@@ -161,4 +161,4 @@ The `getSecureApiClient` function provided for you retrieves the AWS token from 
   }
 ```
 
-[Prev](/integrations/aws-api-gateway-2) ----- [Next](/integrations/aws-api-gateway-4)
+[Prev](/integrations/aws-api-gateway/part-2) ----- [Next](/integrations/aws-api-gateway/part-4)

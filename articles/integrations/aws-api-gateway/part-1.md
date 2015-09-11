@@ -1,7 +1,7 @@
 ### Amazon API Gateway Tutorial - Step 1 - Setting up the Amazon API Gateway
 [Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway-2)
 
-After completing this step you will have created two unauthenticated REST service methods for getting and updating a list of pets. You will set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an Amazon DynamoDB [DynamoDB](https://aws.amazon.com/dynamodb) table. You need to have [node.js](https://nodejs.org/) already installed. 
+After completing this step you will have created two unauthenticated REST service methods for getting and updating a list of pets. You will set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an Amazon DynamoDB [DynamoDB](https://aws.amazon.com/dynamodb) table. You need to have [node.js](https://nodejs.org/) already installed.
 
 Perform the following steps to create an Amazon table and the AWS Lambda functions and Amazon API Gateway APIs after logging into the AWS console.
 
@@ -16,7 +16,7 @@ Perform the following steps to create an Amazon table and the AWS Lambda functio
         {
           "Sid": "AccessCloudwatchLogs",
           "Action": ["logs:*"],
-          "Effect": "Allow", 
+          "Effect": "Allow",
           "Resource": "arn:aws:logs:*:*:*"
         },
         {
@@ -50,7 +50,7 @@ Perform the following steps to create an Amazon table and the AWS Lambda functio
              if(data.Item && data.Item.pets) {
                  context.done(null, data.Item.pets);
              } else {
-                  context.done(null, {});               
+                  context.done(null, {});
              }
           }
        };
@@ -111,4 +111,4 @@ You should see an empty return result (`{}`). Go to your `GetPetInfo` Lambda, an
 
 You should see an empty return result (`{}`). Go back to the *GET* API, and click **Test** again to see 2 pets. At this point the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
-[Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway-2)
+[Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway/part-2)
