@@ -1,8 +1,9 @@
 ---
 url: /integrations/aws-api-gateway
+title: Amazon API Gateway Tutorial Intro
 ---
 
-# AWS API Gateway Tutorial
+# Amazon API Gateway Tutorial
 
 ## Building a Serverless Application using Token-based Authentication with AWS API Gateway and Lambda
 
