@@ -1,5 +1,5 @@
 ### AWS API Gateway Tutorial - Step 2 - Securing and Deploying the Amazon API Gateway
-[Prev](/integrations/aws-api-gateway-1) ----- [Next](/integrations/aws-api-gateway-3)
+[Prev](/integrations/aws-api-gateway/part-1) ----- [Next](/integrations/aws-api-gateway/part-3)
 
 Now that you have your API running, you need to add security. In this step you will secure the update API to limit access to authenticated users in a specific AWS IAM role. You will configure Auth0 delegation to use AWS IAM federation capabilities and obtain an AWS access token that uses that AWS IAM role.
 

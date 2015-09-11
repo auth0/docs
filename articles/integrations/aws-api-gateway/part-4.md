@@ -1,5 +1,5 @@
 ### AWS API Gateway Tutorial - Step 4 - Using Multiple Roles with Amazon API Gateway
-[Prev](/integrations/aws-api-gateway-3) ----- [Next](/integrations/aws-api-gateway-5)
+[Prev](/integrations/aws-api-gateway/part-3) ----- [Next](/integrations/aws-api-gateway/part-5)
 
 In this step you'll assign different AWS IAM roles to users based upon authentication information. Users that authenticate with social sources will be treated as buyers, while users authenticated with a database source will be treated as admins. You will perform this role assignment logic using client side Javascript code as well as service side by using Auth0 rules.
 

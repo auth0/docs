@@ -1,5 +1,5 @@
 ### AWS API Gateway Tutorial - Step 3 - Building the Client Application
-[Prev](/integrations/aws-api-gateway-2) ----- [Next](/integrations/aws-api-gateway-4)
+[Prev](/integrations/aws-api-gateway/part-2) ----- [Next](/integrations/aws-api-gateway/part-4)
 
 The client application will be a single page, serverless application based on the AngularJS framework that you will serve out of an S3 bucket configured as a website. To begin, create a bucket for the application and configure it as a website with a home page of `index.html`. You can find instructions at [Hosting a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html).
 
