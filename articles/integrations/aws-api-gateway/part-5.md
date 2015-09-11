@@ -1,4 +1,9 @@
-### AWS API Gateway Tutorial - Step 5 - Using Identity Tokens to Flow Identity
+---
+title: Amazon API Gateway Tutorial - Flowing Identity
+---
+
+# AWS API Gateway Tutorial
+## Step 5 - Using Identity Tokens to Flow Identity
 [Prev](/integrations/aws-api-gateway/part-4)
 
 In this final step you will flow identity to the service by passing your OpenID JSON Web Token (JWT). You will validate the token, and extract profile information to assign a buyer for a pet.
