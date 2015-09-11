@@ -1,6 +1,6 @@
 ---
 url: /integrations/aws-api-gateway
-title: Amazon API Gateway Tutorial Intro
+title: Amazon API Gateway Tutorial Introduction
 ---
 
 # Amazon API Gateway Tutorial

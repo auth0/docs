@@ -1,5 +1,5 @@
 ---
-title: Amazon API Gateway Tutorial - Setup
+title: Amazon API Gateway Tutorial - Setup the Amazon API Gateway
 ---
 
 # Amazon API Gateway Tutorial

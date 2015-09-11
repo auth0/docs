@@ -1,5 +1,5 @@
 ---
-title: Amazon API Gateway Tutorial - Multiple Roles
+title: Amazon API Gateway Tutorial - Using Multiple Roles
 ---
 
 # AWS API Gateway Tutorial

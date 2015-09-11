@@ -1,5 +1,5 @@
 ---
-title: Amazon API Gateway Tutorial - Building Client
+title: Amazon API Gateway Tutorial - Building the Client App
 ---
 
 # AWS API Gateway Tutorial
