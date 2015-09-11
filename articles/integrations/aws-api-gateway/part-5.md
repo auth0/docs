@@ -26,7 +26,7 @@ You can request up to the full profile of the user to be contained within the JW
 
 The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the Lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html). The following seed project contains the code you'll need for your updated AWS Lambda function.
 
-<%= include('../_includes/package', {
+<%= include('../../_includes/package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
   pkgPath: 'examples/api-gateway/lambda',

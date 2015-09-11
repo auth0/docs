@@ -12,10 +12,10 @@ However, you often you want to tie your APIs to existing users, either from soci
 
 You will be taken through the following steps:
 
-[Step 1 - Setting up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
-[Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
-[Step 3 - Building the Client Application](/integrations/aws-api-gateway/part-3)
-[Step 4 - Using Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
-[Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
+* [Step 1 - Setting up the AWS API Gateway](/integrations/aws-api-gateway/part-1)
+* [Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway/part-2)
+* [Step 3 - Building the Client Application](/integrations/aws-api-gateway/part-3)
+* [Step 4 - Using Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
+* [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
 
   [Next](/integrations/aws-api-gateway/part-1)
