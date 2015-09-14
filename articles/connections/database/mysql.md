@@ -30,37 +30,39 @@ In the **Templates** drop-down, select **MySQL**.
 
 The following code is generated for you in the connection editor:
 
-    function login (email, password, callback) {
-      var connection = mysql({
-        host     : 'localhost',
-        user     : 'me',
-        password : 'secret',
-        database : 'mydb'
-      });
+```js
+function login (email, password, callback) {
+  var connection = mysql({
+    host     : 'localhost',
+    user     : 'me',
+    password : 'secret',
+    database : 'mydb'
+  });
 
-      connection.connect();
+  connection.connect();
 
-      var query = "SELECT id, nickname, email, password " +
-                 "FROM users WHERE email = ?";
+  var query = "SELECT id, nickname, email, password " +
+             "FROM users WHERE email = ?";
 
-      connection.query(query, [email], function (err, results) {
-        if (err) return callback(err);
-        if (results.length === 0) return callback();
-        var user = results[0];
+  connection.query(query, [email], function (err, results) {
+    if (err) return callback(err);
+    if (results.length === 0) return callback();
+    var user = results[0];
 
-        if (!bcrypt.compareSync(password, user.password)) {
-          return callback();
-        }
-
-        callback(null,   {
-          id:          user.id.toString(),
-          nickname:    user.nickname,
-          email:       user.email
-        });
-
-      });
-
+    if (!bcrypt.compareSync(password, user.password)) {
+      return callback();
     }
+
+    callback(null,   {
+      id:          user.id.toString(),
+      nickname:    user.nickname,
+      email:       user.email
+    });
+
+  });
+
+}
+```
 
 This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
@@ -72,13 +74,15 @@ In the **Settings** section at the bottom of the page, you can securely store th
 
 In the connection script, refer to these parameters as: `configuration.PARAMETER_NAME`. For example, you could enter:
 
-	function login (username, password, callback) {
-	  var connection = mysql({
-	    host     : 'localhost',
-	    user     : 'me',
-	    password : configuration.MYSQL_PASSWORD,
-	    database : 'mydb'
-	  });
+```js
+function login (username, password, callback) {
+  var connection = mysql({
+    host     : 'localhost',
+    user     : 'me',
+    password : configuration.MYSQL_PASSWORD,
+    database : 'mydb'
+  });
+```
 
 ## Debug and troubleshoot
 
@@ -140,4 +144,4 @@ Example:
 
 	callback(new ValidationError('email-too-long', 'Email is too long.'));
 
-**Note:** Do you require support for other libraries? Contact us at [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection).
+**NOTE:** Do you require support for other libraries? Contact us at [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection).
