@@ -42,7 +42,7 @@ To implement passwordless login, code your app to follow these steps:
 
 1. Register the user using the [Auth0 serverside API](https://auth0.com/docs/api/v2#!/Users/post_users):
 
-  ```
+  ```js
   POST https://${account.namespace}/api/v2/users/
   Authorization: Bearer {Auth0 APIv2 Token}
   Content-Type: 'application/json'
@@ -60,7 +60,7 @@ To implement passwordless login, code your app to follow these steps:
 
 3. Capture the one-time password submitted by the user and validate it with Auth0 using the [Resource Owner](/auth-api#!#post--oauth-ro) authentication endpoint:
 
-  ```
+  ```js
   POST https://${account.namespace}/oauth/ro
   Content-Type: 'application/json'
 
@@ -76,7 +76,7 @@ To implement passwordless login, code your app to follow these steps:
 
 4. A successful authentication will result in a JWT sent in the response:
 
-  ```
+  ```JSON
   {
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3lvdXJuYW1lc3BhY2UuYXV0aDAuY29tLyIsInN1YiI6InNtc3w1NDRiZWJiODg3NjIzNDQ1NjcxZjVmN2ExIiwiYXVkIjoiaWNJTVBNamRmaGl1NDNuZWtqZjNqcjRlbmZpT2t5TkZ4dSIsImV4cCI6MTQxNDgxOTUyOSwiaWF0IjoxNDE0NzgzNTI5fQ.y4sIFl82DHFzli3GgT8Q2voZSADVQbcwpOx-DoAwmK4",
     "access_token": "eJ0ck9754nf46f9",
