@@ -45,10 +45,14 @@ public void onCreate() {
 }
 ```
 
-### Google+
+### Google
 
-For Google+ login we use Android G+ library that is part of Google Play Services.
-Before starting you'll need to register your application in Google+ so follow the instructions in Step 1 of [this guide](https://developers.google.com/+/mobile/android/getting-started).
+For Google login we use Google Signin library that is part of Google Play Services.
+
+Before we start, you'll need to register your application in Google Developers and create a OAuth 2.0 client, to do that follow this [wizard](https://developers.google.com/mobile/add?platform=android)
+
+The next step is to configure your Google connection in Auth0 Dashboard with the newly created OAuth 2.0 client information. Just go to [Social Connections](https://manage.auth0.com/#/connections/social) and in the field named `Allowed Mobile Client IDs` add the ID of the OAuth 2.0 client.
+
 Then in your `AndroidManifest.xml` add these permissions and meta-data value for Google Play Services:
 
 ```xml
@@ -57,7 +61,7 @@ Then in your `AndroidManifest.xml` add these permissions and meta-data value for
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 ```
 
-And finally register Google+ Identity Provider with Lock in your Application object `onCreate`:
+And finally register Google Identity Provider with Lock in your Application object `onCreate`:
 
 ```java
 @Override
