@@ -24,10 +24,10 @@ alias:
 ## iOS Objective-C Tutorial
 
 <%= include('../_includes/package', {
-  pkgRepo: 'auth0-ionic',
+  pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'examples/refresh-token-sample',
-  pkgFilePath: 'examples/refresh-token-sample/www/js' + account.clientParam,
+  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist' + account.clientParam,
   pkgType: 'js'
 }) %>
 
