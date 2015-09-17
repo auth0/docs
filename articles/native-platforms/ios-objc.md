@@ -28,7 +28,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/refresh-token-sample',
   pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist' + account.clientParam,
-  pkgType: 'js'
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
