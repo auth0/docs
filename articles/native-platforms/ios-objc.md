@@ -26,7 +26,7 @@ alias:
 <%= include('../_includes/package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/refresh-token-sample',
+  pkgPath: 'iOS/basic-sample',
   pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist' + account.clientParam,
   pkgType: 'replace'
 }) %>
