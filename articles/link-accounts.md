@@ -91,7 +91,7 @@ The SDKs should make this very easy. The SDK for your platform will make it avai
       passport = require('passport');
 
   var strategy = new Auth0Strategy({
-     domain:       '${account.namespace},
+     domain:       '${account.namespace}',
      clientID:     '${account.clientId}',
      clientSecret: '${account.clientSecret}',
      callbackURL:  '${account.callback}',
