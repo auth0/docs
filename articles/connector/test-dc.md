@@ -66,7 +66,7 @@ Install-ADDSForest –DomainName mycompany.local
   New-ADGroup -Name "Accounting" -GroupScope "DomainLocal"
   New-ADGroup -Name "IT" -GroupScope "DomainLocal"
 
-  New-ADUser -GivenName Bob -Surname Johnson -Name "Bob Johnson" -SamAccountName bob.johnson -Enable d $True -AccountPassword (ConvertTo-SecureString "Pass@word1!" -AsPlainText -force) -PasswordNeverExpires $True
+  New-ADUser -GivenName Bob -Surname Johnson -Name "Bob Johnson" -SamAccountName bob.johnson -Enabled $True -AccountPassword (ConvertTo-SecureString "Pass@word1!" -AsPlainText -force) -PasswordNeverExpires $True
   New-ADUser -GivenName Mary -Surname Smith -Name "Mary Smith" -SamAccountName mary.smith -Enabled $True -AccountPassword (ConvertTo-SecureString "Pass@word1!" -AsPlainText -force) -PasswordNeverExpires $True
 
   Add-ADGroupMember -Identity Accounting -Members "bob.johnson", "mary.smith"
