@@ -5,7 +5,7 @@
 Delegation tokens are tokens used to call another API.  
 The Auth0 `id_token` can be exchanged for another token, called a Delegation token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
 
-The type of the delegation token will vary depending on the target API with which it will be used.  For example, if it will be used for an application/API registered in Auth0, it will be a JWT token.  If the delegation token is for an application AddOn, it will vary by provider.  For exampke, if issued for Azure blob storage, it will be a SAS (Shared Access Signature).  If the delegation token is for the Firebase add on , it will be a JWT.
+The type of the delegation token will vary depending on the target API with which it will be used.  For example, if it will be used for an application/API registered in Auth0, it will be a JWT token.  If the delegation token is for an application AddOn, it will vary by provider.  For example, if issued for Azure blob storage, it will be a SAS (Shared Access Signature).  If the delegation token is for the Firebase add on , it will be a JWT.
 https://github.com/auth0/auth0.js#delegation-token-request
 
 ## How to get a delegation token
