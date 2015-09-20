@@ -105,7 +105,7 @@ Auth0 computes a hash with the request IP address and the `userAgent` string. If
 ```
 function (user, context, callback) {
 
-  var deviceFingerPrint = deviceFingerPrint();
+  var deviceFingerPrint = getDeviceFingerPrint();
 
   if( user.lastLoginDeviceFingerPrint !== deviceFingerPrint ){
 
