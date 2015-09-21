@@ -3,31 +3,31 @@ connection: Github
 image: /media/connections/github.png
 ---
 
-# Obtaining a ClientId and Client Secret for GitHub
+# Obtain a *Client Id* and *Client Secret* for GitHub
 
-To configure a GitHub connection you will need to register Auth0 with GitHub.
+To configure a GitHub connection, you will need to register Auth0 with GitHub.
 
-## 1. Add a new Application
-Log in into GitHub and [register an new Application](https://github.com/settings/applications/new):
+## 1. Add a new application
+Log into GitHub and go to [Register new application](https://github.com/settings/applications/new):
 
 ![](/media/articles/connections/social/github/github-addapp-1.png)
 
----
+## 2. Register your new app
 
-## 2. Complete information about your instance of Auth0
-
-![](/media/articles/connections/social/github/github-addapp-2.png)
-
-The callback address for your app should be:
+Complete the information on this page then click **Register application**. The callback address for your app will be:
 
 	https://${account.namespace}/login/callback
 
----
+![](/media/articles/connections/social/github/github-addapp-2.png)
 
-## 3. Get your ClientId and ClientSecret
+## 3. Get your *Client Id* and *Client Secret*
 
-Once the application is registered, enter your new `ClientId` and `ClientSecret` into the connection settings in Auth0.
+Once the application is registered, your app's `Client Id` and `Client Secret` will be displayed on the following page:
 
 ![](/media/articles/connections/social/github/github-addapp-3.png)
+
+### 4. Copy your *Client Id* and *Client Secret*
+
+Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Github**. Copy the `Client Id` and `Client Secret` from the **Developer Applications** of your app on Github into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/github/github-addapp-4.png)
