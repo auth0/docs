@@ -71,7 +71,8 @@ lock.$auth0.getSSOData(true, function(err, data) {
       lock.$auth0.signin({
         connection: data.connection,
         state: getParameterByName('state'),
-        protocol: getParameterByName('protocol') || 'oauth2'
+        protocol: getParameterByName('protocol') || 'oauth2',
+        scope: getParameterByName('scope') || 'openid'
       });
     }
   }
