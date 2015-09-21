@@ -50,20 +50,23 @@ Using [Lock](/lock)'s [support for customization and extensibility](/libraries/l
 ```
 var lock = new Auth0Lock(cid, domain);
 lock.once('signin ready', function() {
-    var link = $('<a class="a0-zocial a0-waad" href="#">' +
-        '<span>Login with Fabrikam Azure AD</span></a>');
-    link.on('click', function () {
-        lock.getClient().login({
-            connection: 'fabrikamdirectory.onmicrosoft.com' });
+  var link = $('<a class="a0-zocial a0-waad" href="#">' +
+    '<span>Login with Fabrikam Azure AD</span></a>');
+  link.on('click', function() {
+    lock.getClient().login({
+      connection: 'fabrikamdirectory.onmicrosoft.com'
     });
+    return false;
+  });
 
-    $('.a0-iconlist', this.$container)
-        .append(link)
-        .removeClass('a0-hide');
+
+  $('.a0-iconlist', this.$container)
+    .append(link)
+    .removeClass('a0-hide');
 });
 
 lock.show({
-    connections: ['facebook', 'google-oauth2', 'windows-live']
+  connections: ['facebook', 'google-oauth2', 'windows-live']
 });
 ```
 
