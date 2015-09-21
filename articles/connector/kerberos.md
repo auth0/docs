@@ -40,3 +40,42 @@ Users that are not in the corporate network will need to enter their AD credenti
 
 ![Login External](/media/articles/connector/kerberos/office-365-idp-login-external.gif)
 
+## Auto-login with Lock
+
+When an application is using the Login Page hosted by Auth0 (typicaly used for SAML/WS-Federation protocols and Third Party applications) the Lock will show a button which allows users to authenticate using "Windows Authentication". If they don't want to use this they can continue and have the Lock show all other available connections.
+
+In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page (or to your own page hosting the Lock) to automatically sign in the user if Kerberos is possible:
+
+```js
+/*
+ * Helper to get a querystring value.
+ */
+function getParameterByName( name ){
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+/*
+ * Verify if Kerberos is possible (based on the IP address).
+ * If it is, try to authenticate the user.
+ */
+lock.$auth0.getSSOData(true, function(err, data) {
+  if (!err) {
+    if (data.connection && data.strategy === 'ad') {
+      lock.$auth0.signin({
+        connection: data.connection,
+        state: getParameterByName('state'),
+        protocol: getParameterByName('protocol') || 'oauth2'
+      });
+    }
+  }
+});
+```
+
+
