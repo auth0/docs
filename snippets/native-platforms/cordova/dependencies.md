@@ -1,3 +1,3 @@
 ```bash
-cordova plugin add org.apache.cordova.inappbrowser
+cordova plugin add cordova-plugin-inappbrowser
 ```
