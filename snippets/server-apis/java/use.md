@@ -6,7 +6,7 @@ public class JWTFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         jwtVerifier = new JWTVerifier(
-          new Base64(true).decodeBase64("<%= account.clientSecret %>"),
+          new Base64(true).decode("<%= account.clientSecret %>"),
           "<%= account.clientId %>");
     }
 
