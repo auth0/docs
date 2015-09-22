@@ -77,9 +77,26 @@ var App = React.createClass({
       }
     }
     return idToken;
+  },
+  render: function() {
+    if (this.state.idToken) {
+      return (<LoggedIn lock={this.lock} idToken={this.state.idToken} />);
+    } else {
+      return (<Home lock={this.lock} />);
+    }
   }
 });
 ```
+
+Finally, call `React.render()` method to display the `App` component:
+
+```js
+React.render(
+  <App />,
+  document.getElementById('container-id')
+);
+```
+
 
 ### 4. Retrieve the user profile and display user information
 
