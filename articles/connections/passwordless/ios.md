@@ -80,7 +80,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 When this code runs it will start by asking the users for their phone number:
 
-![](/media/articles/connections/passwordless/passwordless-sms-request-code-ios.png)
+![](/media/articles/connections/passwordless/passwordless-sms-request-ios.png)
 
 Then Auth0 will use Twilio to send an SMS to the user containing the one time code:
 
