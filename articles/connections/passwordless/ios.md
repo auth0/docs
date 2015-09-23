@@ -91,3 +91,44 @@ Finally the users can enter the one time password in the Lock and, if correct, t
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-ios.png)
 
 #### Using your own UI
+
+If you choose to build your own UI you'll need to start by asking your users for their phone number and call `startPasswordlessWithPhoneNumber` on the `A0APIClient`
+
+
+```
+void(^onFailure)(NSError *) = ^(NSError *error) {
+    NSLog(@"Failed to send SMS code with error %@", error);
+};
+
+A0Lock *lock = ...;
+A0APIClient *client = [lock apiClient];
+[client startPasswordlessWithPhoneNumber:phoneNumber success:^{
+    NSLog(@"SMS code sent to phone %@", phoneNumber);
+    
+    // Navigate to the next view.
+
+} failure:onFailure];
+```
+
+After having started the passwordless login you will need to ask the user for the one time code and authenticate using that code:
+
+```
+void(^failureBlock)(NSError *) = ^(NSError *error) {
+    NSLog(@"Failed to send SMS code with error %@", error);
+};
+
+void(^authenticatedBlock)(NSError *) = ^(A0UserProfile *profile, A0Token *token) {
+
+    // Store token.idToken, token.refresh_token and profile
+    // Continue to the authenticated part of your application
+};
+
+A0Lock *lock = ...;
+A0APIClient *client = [lock apiClient];
+[client loginWithPhoneNumber:phoneNumber
+                    passcode:passcode
+                     success:authenticatedBlock
+                     failure:failureBlock];
+```
+
+Finally when the user is authenticated you'll be able to access the user profile and the tokens returned by Auth0.
