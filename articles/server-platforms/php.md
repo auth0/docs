@@ -31,7 +31,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Configure Auth0 PHP Plugin
 
 ```php
-use Auth0SDK\Auth0;
+use Auth0\SDK\Auth0;
 
 $auth0 = new Auth0(array(
     'domain'        => '${account.namespace}',
