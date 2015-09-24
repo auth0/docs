@@ -8,6 +8,24 @@ This is the repository for the Auth0 documentation.
 * Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image_name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
 * Try to keep images to no more than 750 pixels wide
 
+## Contributing
+
+### Reusing content
+You can create document fragments that can be reused in other documents in order to avoid duplication of content. The process of including another document is shown below.
+
+First, create your fragment document. The convention for this is to name fragments with an underscore like `_mydocument.md`.
+
+After you create your markdown document you can reference it another document with the relative path.
+
+```
+<%= include('../_mydocument.md') %>
+```
+
+Additionally, you can send a context to the included document.
+
+```
+<%= include('../_mydocument.md', { key: 'value', something: true }) %>
+```
 
 ## Test Procedures
 When testing a document or tutorial below are several areas to look for.
