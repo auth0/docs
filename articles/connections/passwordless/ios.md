@@ -121,7 +121,7 @@ void(^failureBlock)(NSError *) = ^(NSError *error) {
 
 void(^authenticatedBlock)(NSError *) = ^(A0UserProfile *profile, A0Token *token) {
 
-    // Store token.idToken, token.refresh_token and profile
+    // Store token.idToken, token.refreshToken and profile
     // Continue to the authenticated part of your application
 };
 
@@ -196,7 +196,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 [lock presentEmailController:controller fromController:self];
 ```
 
-When this code runs it will start by asking the users for their phone number:
+When this code runs it will start by asking the users for their email address:
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-ios.png)
 
@@ -212,7 +212,7 @@ Finally the users can enter the one time password in the Lock and, if correct, t
 
 #### Using your own UI
 
-If you choose to build your own UI you'll need to start by asking your users for their phone number and call `startPasswordlessWithEmail` on the `A0APIClient`
+If you choose to build your own UI you'll need to start by asking your users for their email address and call `startPasswordlessWithEmail` on the `A0APIClient`
 
 
 ```
@@ -239,7 +239,7 @@ void(^failureBlock)(NSError *) = ^(NSError *error) {
 
 void(^authenticatedBlock)(NSError *) = ^(A0UserProfile *profile, A0Token *token) {
 
-    // Store token.idToken, token.refresh_token and profile
+    // Store token.idToken, token.refreshToken and profile
     // Continue to the authenticated part of your application
 };
 
