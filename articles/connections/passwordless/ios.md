@@ -265,6 +265,8 @@ The next version of the iOS library will support these links through custom sche
 
 A feature specific to iOS is the support for Touch ID, which allows users to authenticate with their fingerprint (biometric authentication). 
 
+![](/media/articles/connections/passwordless/passwordless-touchid-start.png)
+
 During sign up the library will create a user in Auth0, create a key pair on the device and then upload the public key in the user. 
 
 The private key is stored in the keystore of the device. Each time the users try to authenticate, their fingerprint is used to retrieve fhe private key from the keystore, create a token, sign it with the private key and send it to Auth0. Auth0 will then return an `id_token`, the profile and optionally also a `refresh_token`.
