@@ -7,7 +7,7 @@ url: /samlsso-auth0-to-auth0
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 account (account 1) as a SAML Service Provider(SP), authenticating users against a second Auth0 account (account 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML account (account 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
 There are **9 sections** to this sample and a troubleshooting section at the end.
-
+CLI
 1. Establish two Auth0 accounts.
 2. Set up the Auth0 Identity Provider (IDP) (account 2).
 3. Set up the Auth0 Service Provider (SP) (account 1).
@@ -264,16 +264,17 @@ Create an HTML page and insert the following HTML and javascript code:
 <BODY>
 <p> Click on the button to log in </p>
 
-<script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock-7.9.min.js"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
+  var lock = new Auth0Lock('YOUR-APP-CLIENT-ID', '${account.namespace}');
 
   function signin() {
     lock.show({
         callbackURL: 'http://jwt.io'
       , responseType: 'token'
       , authParams: {
-        scope: 'openid profile'
+        // see https://auth0.com/docs/scopes
+        scope: 'openid'
       }
     });
   }
@@ -283,7 +284,7 @@ Create an HTML page and insert the following HTML and javascript code:
 </BODY>
 ```
 
-Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 7 above.  
+Make sure you replace `YOUR-APP-CLIENT-ID` with the actual value of the app you registered in step 7 above.  
 
 The client ID for your application can be found in the **Auth0 dashboard** for **Account 1** by going to __"Apps/APIs"__ link and clicking on the __"Settings"__ (gear) icon to the right of your application name.
 
