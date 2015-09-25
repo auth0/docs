@@ -66,7 +66,6 @@ Then just call the activity:
 
 ```java
 Intent emailIntent = new Intent(this, LockEmailActivity.class);
-emailIntent.putExtra(LockEmailActivity.REQUEST_EMAIL_CODE_JWT, "API v2 JWT");
 startActivity(emailIntent);
 ```
 

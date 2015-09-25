@@ -64,7 +64,6 @@ Then just call the activity:
 
 ```java
 Intent smsIntent = new Intent(this, LockSMSActivity.class);
-smsIntent.putExtra(LockSMSActivity.REQUEST_SMS_CODE_JWT, "API v2 JWT");
 startActivity(smsIntent);
 ```
 
