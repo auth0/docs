@@ -15,5 +15,4 @@ alias:
 
  - [Authenticate users with a one time code via SMS](ios-sms)
  - [Authenticate users with a one time code via e-mail](ios-email)
- - [Authenticate users with Touch ID (Objective-C)](ios-touchid-objc)
- - [Authenticate users with Touch ID (Swift)](ios-touchid-swift)
+ - Authenticate users with Touch ID [ [Swift](ios-touch-id-swift) | [Objective-C](ios-touch-id-objc) ]

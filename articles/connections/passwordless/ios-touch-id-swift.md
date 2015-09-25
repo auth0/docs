@@ -7,4 +7,4 @@ alias:
   - ios
 ---
 
-<%= include('./_using-lock-ios-touchid', { language: 'objc' }) %>
+<%= include('./_using-lock-ios-touchid', { language: 'swift' }) %>
