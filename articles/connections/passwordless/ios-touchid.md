@@ -28,40 +28,14 @@ The private key is stored in the keystore of the device. Each time the users try
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 ```
-- (void)showLogin {
-    A0TouchIDLockViewController *controller = [[A0TouchIDLockViewController alloc] init];
-    controller.closable = NO;
-    @weakify(self);
-    controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-        @strongify(self);
-        [self.keychain setString:token.idToken forKey:@"id_token"];
-        [self onSuccess];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    };
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navController animated:YES completion:nil];
-}
-
-- (NSString *)publicKeyTag {
-    return [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@".pubkey"];
-}
-
-- (NSString *)privateKeyTag {
-    return [[[NSBundle mainBundle] bundleIdentifier] stringByAppendingString:@".key"];
-}
-
-- (void)onSuccess {
-    NSString *idToken = [self.keychain stringForKey:@"id_token"];
-    if (idToken) {
-        self.jwtLabel.text = idToken;
-        A0RSAKeyExporter *exporter = [[A0RSAKeyExporter alloc] init];
-        A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"TouchIDAuthentication"];
-        NSData *pubKey = [keychain dataForRSAKeyWithTag:[self publicKeyTag]];
-        NSData *privKey = [keychain dataForRSAKeyWithTag:[self privateKeyTag]];
-        self.publicKeyTextView.text = [[NSString alloc] initWithData:[exporter exportPublicKey:pubKey] encoding:NSUTF8StringEncoding];
-        self.privateKeyTextView.text = [privKey base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength|NSDataBase64EncodingEndLineWithCarriageReturn];
-    }
-}
+A0Lock *lock = ... //Fetch Lock instance from where you stored it
+A0TouchIDLockViewController *controller = [lock newTouchIDViewController];
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+    // Your user is now authenticated with Auth0
+    // You'd probably want to store somewhere safe the tokens stored in "token" parameter
+    [self dismissViewControllerAnimated:YES completion:nil];
+};
+[lock presentTouchIDController:controller fromController:self];
 ```
 
 > A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/TouchID).
@@ -73,7 +47,8 @@ If you choose to build your own UI you'll also need to use our [TouchIDAuth](htt
 You will first start by signing up a user in a Database Connection:
 
 ```
-A0APIClient *client = [self a0_apiClientFromProvider:self.lock];
+A0Lock *lock = ... //Fetch Lock instance from where you stored it
+A0APIClient *client = [lock apiClient];
 [client signUpWithUsername:username
                   password:password
             loginOnSuccess:YES
@@ -87,57 +62,78 @@ A0APIClient *client = [self a0_apiClientFromProvider:self.lock];
 
 ```
 
-After the user signed up, you should use the `idToken` to register the public key with the user:
+> You can generate a random password to avoid asking one to the user. He can later change it.
+
+After the user signed up, you will use the `idToken` to register the public key for the user. First you need to create a Auth0 API client with the token and store it until you register the key:
 
 ```
-    NSString *deviceName = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
-    NSString *userId = profile.userId;
+@property (strong, nonatomic) A0UserAPIClient *userClient;
+```
 
-    A0TouchIDAuthentication *authentication = [[A0TouchIDAuthentication alloc] init];
-    authentication.registerPublicKey = ^(NSData *pubKey, A0RegisterCompletionBlock completed, A0ErrorBlock errored) {
-        void(^registerBlock)() = ^{
-            [userClient registerPublicKey:pubKey device:deviceName user:userId success:^{
-                completed();
-            } failure:^(NSError *error) {
-                NSLog(@"Failed to add pk with error %@", error);
-                errored(error);
-            }];
-        };
-        [userClient removePublicKeyOfDevice:deviceName user:userId success:^{
-            registerBlock();
+```
+A0Lock *lock = ... //Fetch Lock instance from where you stored it
+self.userClient = [lock newUserAPIClientWithIdToken:token.idToken]
+```
+
+Now let's configure our TouchID Authentication component, first declare the following property
+
+```
+@property (strong, nonatomic) A0TouchIDAuthentication *authentication;
+```
+
+and here is how you need to configure the authentication component
+
+```
+NSString *device = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+NSString *userId = profile.userId;
+
+A0TouchIDAuthentication *authentication = [[A0TouchIDAuthentication alloc] init];
+authentication.registerPublicKey = ^(NSData *pubKey, A0RegisterCompletionBlock completed, A0ErrorBlock errored) {
+    void(^registerBlock)() = ^{
+        [self.userClient registerPublicKey:pubKey device:device user:userId success:^{
+            completed();
         } failure:^(NSError *error) {
-            NSLog(@"Failed to remove with error %@", error);
-            registerBlock();
+            errored(error);
         }];
     };
-    
-    authentication.jwtPayload = ^{
-        return @{
-                 @"iss": userId,
-                };
-    };
+    [self.userClient removePublicKeyOfDevice:device user:userId success:^{
+        registerBlock();
+    } failure:^(NSError *error) {
+        registerBlock();
+    }];
+};
 
-    authentication.authenticate = ^(NSString *jwt, A0ErrorBlock block) {
-        A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{      
-           A0ParameterConnection: @"{NAME_OF_MY_DB_CONNECTION}",
-           A0ScopeProfile: @"openid name email nickname"
-        }];
+authentication.jwtPayload = ^{
+    return @{
+             @"iss": userId,
+             @"device": device,
+            };
+};
 
-        [client loginWithIdToken:jwt deviceName:deviceName parameters:parameters success:^(A0UserProfile *profile, A0Token *token) {
-            NSLog(@"Authenticated with JWT & TouchID!");
-            self.user = [[User alloc] initWithTokens:token andProfile:profile];
-            [self performSegueWithIdentifier:@"ShowLoginCompleteScreen" sender:self];
-        } failure:^(NSError *error){
-            NSLog(@"Failed to authenticate with error %@", error);
-            block(error);
-        }];
-    };
-    authentication.onError = ^(NSError *error) {
-        NSLog(@"Authentication with TouchID has failed!");
-    };
-    self.authentication = authentication;
-    [self.authentication start];
+authentication.authenticate = ^(NSString *jwt, A0ErrorBlock block) {
+    A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{      
+       A0ParameterConnection: @"{NAME_OF_MY_DB_CONNECTION}",
+       A0ScopeProfile: @"openid name email nickname"
+    }];
+
+    [client loginWithIdToken:jwt deviceName:deviceName parameters:parameters success:^(A0UserProfile *profile, A0Token *token) {
+        // User is authenticated with Auth0 & TouchID
+    } failure:^(NSError *error){
+        block(error);
+    }];
+};
+authentication.onError = ^(NSError *error) {
+    // Handle authentication error
+};
+
+self.authentication = authentication;
 ```
+
+Then to start authentication, just add this line
+
+```
+[self.authentication start];
+``` 
 
 > [The Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Pod/Classes/TouchID) shows in detail how the same flow was used to build the UI of the Lock.iOS - you can use this as an example if you wish to build your own UI for Touch ID authentication.
 
