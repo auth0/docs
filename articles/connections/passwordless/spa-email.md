@@ -11,38 +11,17 @@ alias:
 
 ## Authenticate users with a one time code via e-mail
 
-With the e-mail connection users are requested to enter their e-mail address after which Auth0 will send an email to the user containing the one time code. 
-
-After entering the code in your application, the user will be created in the `email` connection and then authenticated. 
-
-![](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
-
-If the user already exists, we will just authenticate the user:
-
-![](/media/articles/connections/passwordless/passwordless-authenticated-flow.png)
-
+<%= include('./_introduction-email', { isMobile: false }) %>
 
 ### Setup
 
-#### 1. Optional: Configure an Email Provider
-
-By default Auth0 will send out the emails from its own infrastructure but optionally you can [configure your own Email Provider](/articles/email/providers) to better monitor and troubleshoot the email communication
-
-#### 2. Configure the connection
-
-On the **Email** page under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless) you are able to configure the behavior and the contents of the email.
-
-![](/media/articles/connections/passwordless/passwordless-email-config.png)
-
-The email contents can be writting in HTML with the Liquid syntax, allowing you to conditionally shape the contents of the email. The following macros are available when defining the template:
-
- - `{{ application.name }}`
- - `{{ code }}` (the one time code)
-
+<%= include('./_setup-email') %>
 
 ### 3. Configure Callback URL
 
 [TODO: include client-platforms/_callback.md]
+
+## Implementation
 
 ### Use Auth0 UI widget (Lock)
 

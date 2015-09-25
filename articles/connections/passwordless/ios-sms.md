@@ -7,37 +7,17 @@ alias:
   - ios
 ---
 
-## Passwordless Authentication with a one time code via SMS
+# Authenticate users with a one time code via SMS
 
-With the SMS connection users are requested to enter their phone number. After entering their phone number, Auth0 will use [Twilio](http://www.twilio.com) to send a one time code to the user. 
+<%= include('./_introduction-sms', { isMobile: true }) %>
 
-After entering the code in your application, the user will be created in the `sms` connection and then authenticated. 
+## Setup
 
-![](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
+<%= include('./_setup-sms-twilio') %>
 
-If the user already exists, we will just authenticate the user:
+## Implementation
 
-![](/media/articles/connections/passwordless/passwordless-authenticated-flow.png)
-
-On mobile platform authentication means your application will receive an `id_token`, the user profile and optionally also a `refresh_token`.
-
-### Setup
-
-#### 1. Open an account with Twilio
-
-You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
-
-#### 2. Configure the connection
-
-On the **SMS (Twilio)** page under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless), enter your **Twilio Account SID** and **Auth Token**. Enter the **From** phone number users will see as the sender of the SMS (also configurable in Twilio) and a **message**.
-
-The `@@password@@` placeholder in the message template will be replaced with the one-time password that is sent in a text message to the user.
-
-![](/media/articles/connections/passwordless/passwordless-sms-config.png)
-
-### Implementation
-
-#### Using the Auth0 Lock
+### Using the Auth0 Lock
 
 The [Lock](https://github.com/auth0/Lock.iOS-OSX) is a widget allowing you to easily integrate Auth0's Passwordless Authentication in your iOS applications.
 
@@ -78,7 +58,7 @@ Finally the users can enter the one time password in the Lock and, if correct, t
 
 > A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Lock/A0HomeViewController.m).
 
-#### Using your own UI
+### Using your own UI
 
 If you choose to build your own UI you'll need to start by asking your users for their phone number and call `startPasswordlessWithPhoneNumber` on the `A0APIClient`
 
