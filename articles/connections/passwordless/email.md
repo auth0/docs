@@ -20,7 +20,7 @@ alias:
  - [Single Page Applications](spa-email)
  - [Regular Web Applications](regular-web-app-email)
 
- ## Mobile Tutorials
+## Mobile Tutorials
 
  - [iOS](ios-email)
  - [Android](android-email)

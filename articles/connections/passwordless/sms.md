@@ -20,7 +20,7 @@ alias:
  - [Single Page Applications](spa-sms)
  - [Regular Web Applications](regular-web-app-sms)
 
- ## Mobile Tutorials
+## Mobile Tutorials
 
  - [iOS](ios-sms)
  - [Android](android-sms)

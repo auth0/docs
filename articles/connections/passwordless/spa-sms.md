@@ -40,7 +40,7 @@ function signin () {
 
 This will open a dialog that asks the user for a phone number.
 
-![](/media/articles/connections/passwordless/passwordles-sms-enter-phone-web.png)
+![](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png)
 
 Then Auth0 will use Twilio to send an SMS to the user containing the one time code:
 
@@ -52,7 +52,7 @@ Lock will ask for the code that has been sent over the text message to the given
 
 If the code is correct, the user will be authenticated. This will call the callback of the `lock.sms` function where you'll typically store the `id_token`, `refresh_token` and user profile after which the user will be able to continue to the authenticated part of the application. 
 
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample/blob/master/lock-sms.html).
+> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).
 
 ### Use your own UI
 
@@ -98,4 +98,4 @@ function login(){
 };
 ```
 
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample/blob/master/custom-sms.html).
+> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).

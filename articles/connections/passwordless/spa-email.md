@@ -106,6 +106,7 @@ function login(){
     });
 }
 ```
+> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).
 
 ## Authenticate users with Magic Link via e-mail
 
@@ -185,3 +186,5 @@ function sendMagicLink(){
 ```
 
 After the user clicks the magic link and is successfully authenticated, he is redirected to your callback URL, where you need to parse the token with `auth0.parseHash`. The code snippet is the same as for the [Passwordless Lock Widget](#magic-link).
+
+> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).
