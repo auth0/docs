@@ -6,6 +6,7 @@ alias:
   - sms
   - email
   - spa
+  - single-page-app
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>
