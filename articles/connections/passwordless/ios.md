@@ -13,6 +13,6 @@ alias:
 
 ## Tutorials for iOS
 
- - [Authenticate users with a one time code via SMS](ios-sms)
- - [Authenticate users with a one time code via e-mail](ios-email)
+ - Authenticate users with a one time code via SMS [ [Swift](ios-sms-swift) | [Objective-C](ios-sms-objc) ]
+ - Authenticate users with a one time code via e-mail [ [Swift](ios-email-swift) | [Objective-C](ios-email-objc) ]
  - Authenticate users with Touch ID [ [Swift](ios-touch-id-swift) | [Objective-C](ios-touch-id-objc) ]
