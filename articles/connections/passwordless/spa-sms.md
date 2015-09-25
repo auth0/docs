@@ -11,7 +11,15 @@ alias:
 # Passwordless Authentication with a one time code via SMS
 # Authenticate users with a one time code via SMS in a SPA
 
-## Use Auth0 UI widget (Lock)
+<%= include('./_introduction-sms', { isMobile: true }) %>
+
+## Setup
+
+<%= include('./_setup-sms-twilio') %>
+
+## Implementation
+
+### Use Auth0 UI widget (Lock)
 
 #### Initialize
 
@@ -56,7 +64,7 @@ Then, it will ask for a code that has been sent over a text message to the given
 
 After the code is validated, the callback of the `lock.sms` function is invoked. If there are any errors, they will be displayed in the UI widget. Otherwise the user will be successfully authenticated.
 
-## Use your own UI
+### Use your own UI
 
 You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 

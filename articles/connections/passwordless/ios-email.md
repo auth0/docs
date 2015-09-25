@@ -7,43 +7,17 @@ alias:
   - ios
 ---
 
-## Passwordless Authentication via e-mail
+# Authenticate users with a one time code via e-mail
 
-## Authenticate users with a one time code via e-mail
+<%= include('./_introduction-email', { isMobile: true }) %>
 
-With the e-mail connection users are requested to enter their e-mail address after which Auth0 will send an email to the user containing the one time code. 
+## Setup
 
-After entering the code in your application, the user will be created in the `email` connection and then authenticated. 
+<%= include('./_setup-email') %>
 
-![](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
+## Implementation
 
-If the user already exists, we will just authenticate the user:
-
-![](/media/articles/connections/passwordless/passwordless-authenticated-flow.png)
-
-On mobile platform authentication means your application will receive an `id_token`, the user profile and optionally also a `refresh_token`.
-
-### Setup
-
-#### 1. Optional: Configure an Email Provider
-
-By default Auth0 will send out the emails from its own infrastructure but optionally you can [configure your own Email Provider](/articles/email/providers) to better monitor and troubleshoot the email communication
-
-#### 2. Configure the connection
-
-On the **Email** page under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless) you are able to configure the behavior and the contents of the email.
-
-![](/media/articles/connections/passwordless/passwordless-email-config.png)
-
-The email contents can be writting in HTML with the Liquid syntax, allowing you to conditionally shape the contents of the email. The following macros are available when defining the template:
-
- - `{{ application.name }}`
- - `{{ code }}` (the one time code)
-
-
-### Implementation
-
-#### Using the Auth0 Lock
+### Using the Auth0 Lock
 
 The [Lock](https://github.com/auth0/Lock.iOS-OSX) is a widget allowing you to easily integrate Auth0's Passwordless Authentication in your iOS applications.
 
@@ -84,7 +58,7 @@ Finally the users can enter the one time password in the Lock and, if correct, t
 
 > A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Lock/A0HomeViewController.m).
 
-#### Using your own UI
+### Using your own UI
 
 If you choose to build your own UI you'll need to start by asking your users for their email address and call `startPasswordlessWithEmail` on the `A0APIClient`
 
@@ -127,9 +101,7 @@ A0APIClient *client = [lock apiClient];
 
 ## Authenticate users with a Magic Link via e-mail
 
-In addition to sending the user a one time code it's also possible to send a magic link to the users. This is a clickable link which will automatically sign in the user. 
-
-MAGIC_LINK IMAGE
+<%= include('./_introduction-email-magic-link') %>
 
 The next version of the iOS library will support these links through iOS 9 Universal Links. When users click the magic link they receive on their device it will automatically open your application and sign in the user (instead of opening the browser when clicking the link).
 

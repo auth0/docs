@@ -7,7 +7,7 @@ alias:
   - ios
 ---
 
-## Authenticate users with Touch ID
+# Authenticate users with Touch ID
 
 A feature specific to iOS is the support for Touch ID, which allows users to authenticate with their fingerprint (biometric authentication). 
 
@@ -21,9 +21,9 @@ The private key is stored in the keystore of the device. Each time the users try
 
 > You can use Touch ID with an iPhone 5s or later, iPad Air 2, or iPad mini 3 or later.
 
-### Implementation
+## Implementation
 
-#### Using the Auth0 Lock
+### Using the Auth0 Lock
 
 The [Lock](https://github.com/auth0/Lock.iOS-OSX) is a widget allowing you to easily integrate Auth0's Passwordless Authentication in your iOS applications.
 
@@ -68,7 +68,7 @@ After [installing and configuring](/articles/libraries/lock-ios#install) the Loc
 
 > A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/TouchID).
 
-#### Using your own UI
+### Using your own UI
 
 If you choose to build your own UI you'll also need to use our [TouchIDAuth](https://github.com/auth0/TouchIDAuth) library which will take care of the Touch ID specific features.
 
