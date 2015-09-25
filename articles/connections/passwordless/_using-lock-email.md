@@ -6,4 +6,4 @@ Then Auth0 will send an email to the user containing the one time code:
 
 ![](/media/articles/connections/passwordless/passwordless-email-receive-code-<%= platform %>.png)
 
-Finally the users can enter the one time password in the Lock and, if correct, the user will be authenticated.
+Finally the users can enter the one time password in the Lock and, if correct, they will be authenticated.
