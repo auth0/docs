@@ -10,7 +10,7 @@ alias:
 
 <%= include('./_introduction', { withFingerprint: false }) %>
 
-## Tutorials
+## Tutorials for Single Page Applications
 
  - [Authenticate users with a one time code via SMS](spa-sms)
  - [Authenticate users with a one time code via e-mail](spa-email)

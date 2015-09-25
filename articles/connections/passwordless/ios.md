@@ -11,7 +11,7 @@ alias:
 
 <%= include('./_introduction', { withFingerprint: true }) %>
 
-## Tutorials
+## Tutorials for iOS
 
  - [Authenticate users with a one time code via SMS](ios-sms)
  - [Authenticate users with a one time code via e-mail](ios-email)
