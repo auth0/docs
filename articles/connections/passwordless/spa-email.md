@@ -17,29 +17,13 @@ alias:
 
 <%= include('./_setup-email') %>
 
-### 3. Configure Callback URL
-
-[TODO: include client-platforms/_callback.md]
+<%= include('../../client-platforms/_callback') %>
 
 ## Implementation
 
 ### Use Auth0 UI widget (Lock)
 
-Auth0 Lock Passwordless is a professional looking dialog that allows users to log in by receiving a one-time password via email or text message.
-
-After installing [Lock Passwordless](https://github.com/auth0/lock-passwordless) you will have to initialize it with your clientId and domain. You can find this information at your [application settings](${uiAppSettingsURL}).
-
-
-```html
-<script src="${lock_passwordless_url}"></script>
-<script type="text/javascript">
-  
-  // Initialize Passwordless Lock instance
-  const lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-  //...
-
-</script>  
-```
+<%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the login like this:
 
@@ -62,11 +46,11 @@ function login(){
 
 This will first open a dialog that asks the user for an email address. 
 
-![](/media/articles/connections/passwordless/spa-email-1.png)
+![](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
 
 Then, it will ask for a code that has been sent in an email to the given address. The code will be used as a one-time password to log in.
 
-![](/media/articles/connections/passwordless/spa-email-2.png)
+![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
 After the user enters the code he received by email, lock will authenticate it and call the callback function, where you will have the the id_token and profile available.
 
@@ -74,34 +58,17 @@ After the user enters the code he received by email, lock will authenticate it a
 
 You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
-#### Initialize
+<%= include('./_init-auth0js') %>
 
-Construct a new instance of the Auth0 client as follows:
-
-```
-<script src="${auth0js_url}"></script>
-<script type="text/javascript">
-  'use strict';
-  const auth0 = new Auth0({
-    clientID: '${account.clientId}',
-    domain: '${account.namespace}'
-  });
-  //...
-</script>
-```
-
-#### Send Code by Email
-
-After the user fills in the email to send the one time authentication code in your custom UI, you can start the passwordless authentication like this:
-
+You will have to provide a way for the user to enter the emali to which the one time code will be sent. Then you can start the passwordless authentication like this:
 
 ```js
 
 function sendEmail(){
   const email = $('input.email').val();
-  auth0.startPasswordless({ email, send: 'code' }, err => {
+  auth0.startPasswordless({ email: email, send: 'code' }, function(err) {
     if (err) {
-      alert(`error sending e-mail: <%= "${err.error_description}" %>`);
+      alert('error sending e-mail: '+ err.error_description);
       return;
     }
     // the request was successful and you should 
@@ -111,12 +78,7 @@ function sendEmail(){
 }
 ```
 
-This will send an email containg the one time code.
-
-[EMAIL SCREENSHOT]
-
-The user must now fill the code in your custom UI. After that you can continue with the login as follows:
-
+This will send an email containg the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
 
 ```js
 function login(){
@@ -126,80 +88,62 @@ function login(){
   //submit the passcode to complete authentication
   auth0.login(
     {
-      connection:'email',
-      username,
-      password,
-      'sso':false
-    },(err, profile, id_token, access_token) => {
+      connection: 'email',
+      username: username,
+      password: password,
+      sso: false
+    }, function(err, profile, id_token, access_token) {
       if (err){
-        alert(`Couldn't login <%= "${err.message}"%>`);
+        alert('Couldn\'t login '+ err.message);
       } else {
 
         //save id_token to local storage
         localStorage.setItem('userToken', id_token);
         
         //use profile
-        alert(`Welcome <%= "${profile.name}!"%>`);
+        alert('Welcome '+ profile.name);
       }
     });
 }
 ```
 
 ## Authenticate users with Magic Link via e-mail
-Diagram: flow
+
+<%= include('./_introduction-email-magic-link') %>
 
 ### Use Auth0 UI widget (Lock)
 
-#### Initialize Lock
-
-After installing [Lock Passwordless](https://github.com/auth0/lock-passwordless) you will have to initialize it with your clientId and domain:
-
-
-```html
-<script src="${lock_passwordless_url}"></script>
-<script type="text/javascript">
-  
-  // Initialize Passwordless Lock instance
-  const lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
-  //...
-
-</script>  
-```
-
-#### Login
+<%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the passwordless authentication using a magic like like this:
-
 
 ```js
 function login(){
   lock.magiclink();
 }
 ```
+#### Magic Link
 
-#### Process the magic link callback
-
-The magic link has the following format:
+The user will receive an email with the magic link. The magic link has the following format:
 
 ```
-https://${account.namespace}/authorize?scope=openid&response_type=token&redirect_uri=${account.callback}&email=someone%40yourcompany.com&verification_code=738402&connection=email&client_id=${account.clientId}
+https://${account.namespace}/authorize?scope=openid&response_type=token&redirect_uri=${account.callback}&email=someone%40company.com&verification_code=738402&connection=email&client_id=${account.clientId}
 ```
 
 When the user clicks on the magic link received by email and he is authenticated, he will be redirected to your callback url.
 
-| Notice that if you have more than one allowed callback urls configured in your dashboard, it will use the first one.
+> Notice that if you have more than one allowed callback urls configured in your dashboard, it will use the first one.
 
 Once the user clicks the magic link and he is succesfully authenticated, Auth0 will redirect him to the callback url. Auth0 will append a few extra parameters after a hash on the URL. These include: an access_token and an id_token (a JWT). You can parse the hash and retrieve the full user profile as follows:
 
 ```js
-//this should be supported by lock instead
-const auth0 = new Auth0({
+var auth0 = new Auth0({
   clientID: ${account.clientId},
   domain: ${account.namespace}
 });
 //parse hash on page load
-$(document).ready(() => {
-	const hash = auth0.parseHash(window.location.hash);
+$(document).ready(function(){
+	var hash = auth0.parseHash(window.location.hash);
 
   if (hash && hash.error) {
     alert('There was an error: ' + hash.error + '\n' + hash.error_description);
@@ -215,7 +159,6 @@ $(document).ready(() => {
       }
     });
   }
-  
 });
 ```
 
@@ -223,31 +166,16 @@ $(document).ready(() => {
 
 You can perform passwordless authentication with a magic link in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
-#### Initialize
+<%= include('./_init-auth0js') %>
 
-Construct a new instance of the Auth0 client as follows:
-
-```
-<script src="${auth0js_url}"></script>
-<script type="text/javascript">
-	'use strict';
-	const auth0 = new Auth0({
-	  clientID: '${account.clientId}',
-	  domain: '${account.namespace}'
-	});
-	//...
-</script>
-```
-
-#### Login
-Trigger the passwordless login using a magic link
+You can then trigger the passwordless login using a magic link like this:
 
 ```js
 function sendMagicLink(){
-  const email = $('input.email').val();
-  auth0.startPasswordless({email}, err => {
+  var email = $('input.email').val();
+  auth0.startPasswordless({email:email}, function(err) {
     if (err) {
-      alert(`error sending e-mail: <%= "${err.error_description}" %>`);
+      alert('error sending e-mail: '+ err.error_description);
       return;
     }
     // the request was successful and you should 
@@ -256,40 +184,4 @@ function sendMagicLink(){
 } 
 ```
 
-#### Process the magic link callback
-
-The magic link has the following format:
-
-```
-https://${account.namespace}/authorize?scope=openid&response_type=token&redirect_uri=${account.callback}&email=someone%40yourcompany.com&verification_code=738402&connection=email&client_id=${account.clientId}
-```
-
-When the user clicks on the magic link received by email and he is authenticated, he will be redirected to your callback url.
-
-| Notice that if you have more than one allowed callback urls configured in your dashboard, it will use the first one.
-
-Once the user clicks the magic link and is succesfully authenticated, Auth0 will redirect him to the callback url. Auth0 will append a few extra parameters after a hash on the URL. These include: an access_token and an id_token (a JWT). You can parse the hash and retrieve the full user profile as follows:
-
-```js
-$(document).ready(() => {
-  var hash = auth0.parseHash(window.location.hash);
-
-  if (hash && hash.id_token) {
-
-  	//use result.id_token to call your rest api
-
-    //retrieve profile
-    auth0.getProfile(hash.id_token, function (err, profile) {
-      if (err){
-        alert(`There was an error retrieving your profile: <%= "${err.message}" %>`);
-      } else {
-        //user profile
-      }
-    });
-
-  } else if (hash && hash.error) {
-    alert(`There was an error: <%= " ${hash.error} "%> '\n' <%= "${hash.error_description}" %>`);
-  }
-
-});
-```
+After the user clicks the magic link and is successfully authenticated, he is redirected to your callback URL, where you need to parse the token with `auth0.parseHash`. The code snippet is the same as for the [Passwordless Lock Widget](#magic-link).
