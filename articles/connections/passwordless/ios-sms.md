@@ -19,9 +19,7 @@ alias:
 
 ### Using the Auth0 Lock
 
-The [Lock](https://github.com/auth0/Lock.iOS-OSX) is a widget allowing you to easily integrate Auth0's Passwordless Authentication in your iOS applications.
-
-After [installing and configuring](/articles/libraries/lock-ios#install) the Lock.iOS you will be able to use it as follows:
+<%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 ```
 A0Lock *lock = [[A0LockApplication sharedInstance] lock];
@@ -44,15 +42,9 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 [lock presentSMSController:controller fromController:self];
 ```
 
-When this code runs it will start by asking the users for their phone number:
+<%= include('./_using-lock-sms', { platform: 'ios' }) %>
 
-![](/media/articles/connections/passwordless/passwordless-sms-request-ios.png)
-
-Then Auth0 will use Twilio to send an SMS to the user containing the one time code:
-
-![](/media/articles/connections/passwordless/passwordless-sms-receive-code.png)
-
-Finally the users can enter the one time password in the Lock and, if correct, the user will be authenticated. This will call the `onAuthenticationBlock` where you'll typically store the `id_token`, `refresh_token` and user profile after which the user will be able to continue to the authenticated part of the application.
+This will call the `onAuthenticationBlock` where you'll typically store the `id_token`, `refresh_token` and user profile after which the user will be able to continue to the authenticated part of the application.
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-ios.png)
 

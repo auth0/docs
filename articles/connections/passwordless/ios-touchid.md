@@ -25,9 +25,7 @@ The private key is stored in the keystore of the device. Each time the users try
 
 ### Using the Auth0 Lock
 
-The [Lock](https://github.com/auth0/Lock.iOS-OSX) is a widget allowing you to easily integrate Auth0's Passwordless Authentication in your iOS applications.
-
-After [installing and configuring](/articles/libraries/lock-ios#install) the Lock.iOS you will be able to use it as follows:
+<%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 ```
 - (void)showLogin {
