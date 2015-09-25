@@ -20,7 +20,7 @@ Passwordless authentication requires two steps:
 
 ## Passwordless with SMS and Twilio
 
-This Passwordless connection uses SMS (sent via [Twilio](http://www.twilio.com)) as the authentication mechanism.
+This __Passwordless connection__ uses SMS (sent via [Twilio](http://www.twilio.com)) as the authentication mechanism. This type of connection is particulary useful for native mobile applications.
 
 ### Setup
 
@@ -53,6 +53,19 @@ To implement passwordless login, code your app to follow these steps:
     "phone_number":   "+14251112222"
   }
   ```
+Go to Connections -> Passwordless -> Enable Twilio SMS. Click in Twilio SMS. Notice that the connection name is __sms__.
+Enter the __Twilio Account SID__ and __Auth Token__.
+Enter the __From__ phone number your users will receive the SMS (also configurable in Twilio) and finally a __message__. Notice you can enter the placeholder `password` that refers to the one-time password.
+
+![](/media/articles/connections/passwordless/index/Cz-QfQvjm7.png)
+
+### How to use it with Auth0 APIs:
+#### First step: __registering a user__
+
+```
+POST https://@@account.namespace@@/api/v2/users/
+Authorization: Bearer {Auth0 API Token}
+Content-Type: 'application/json'
 
   An APIv2 token can be generated with the [APIv2 explorer](https://auth0.com/docs/api/v2). The token must include the `create:users` scope.
 
@@ -73,6 +86,8 @@ To implement passwordless login, code your app to follow these steps:
     "scope":       "openid" //or "openid profile"
   }
   ```
+#### Second Step: Verifying the one-time-password
+Your application needs to capture the one-time-password and validate it with Auth0 using the __[Resource Owner](/auth-api#!#post--oauth-ro)__ authentication endpoint:
 
 4. A successful authentication will result in a JWT sent in the response:
 
@@ -87,3 +102,58 @@ To implement passwordless login, code your app to follow these steps:
 ### Additional Information
 
 * [Using the `scope` parameter to control which claims are returned in the token](/scopes)
+
+### How to use it with our client SDKs
+#### [Auth0.js (The JavaScript SDK)](/libraries/auth0js#12)
+#### [iOS](/libraries/lock-ios)
+#### [Android](/libraries/lock-android)
+#### [Lock](/libraries/lock)
+
+## Passwordless with email
+
+This __Passwordless connection__ uses a link sent by email as the authentication mechanism. This type of connection is particulary useful for a web based application. The user enter his email address, he receives and email with a link. The user clicks on the link and he is automatically logged in to the application.
+
+### Setup
+
+#### Configure the Connection on the Dashboard
+
+Go to Connections -> Passwordless -> email. Click in email connection. Notice that the connection name is __email__.
+Enter the __From__, the __Subject__ and the __body__ of the mail.
+
+(insert screenshot)
+
+### How to use it with Auth0 APIs:
+
+```
+POST https://@@account.namespace@@/api/v2/users/
+Authorization: Bearer {Auth0 API Token}
+Content-Type: 'application/json'
+
+{
+  "client_id":  "{AUTH0_CLIENT_ID}",  // mandatory
+  "connection": "email",              // mandatory
+  "email":      "{USER_EMAIL}",       // mandatory
+  "send":       "code"                // optional (used as a decision parameter in conn.options.email.*)
+}
+```
+> You can also send other user attributes (`name`, `picture`, `nickname` and `username`)
+
+> Use [this endpoint](/api/v1#authentication) to obtain the __{Auth0 API Token}__.
+
+Auth0 will send a magic link in the email (according to the email template configured in the connection). This link has a 10 minutes expiration policy. The link has the following format:
+
+```
+https://@@account.namespace@@/authorize?
+  &email={USER_EMAIL}
+  &verification_code={USER_VERIFICATION_CODE}
+  &connection=email
+  &client_id={AUTH0_CLIENT_ID}
+  &scope=openid%20profile
+  &redirect_uri=https://contoso.com
+```
+
+### How to use it with our client SDKs
+#### [Auth0.js (The JavaScript SDK)](/libraries/auth0js#15)
+#### [iOS](/libraries/lock-ios)
+#### [Android](/libraries/lock-android)
+#### [Lock](/libraries/lock)
