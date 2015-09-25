@@ -17,7 +17,7 @@ And this also means that the email address or phone number used for authenticati
 
 ## Configuration
 
-These connections work by using an authentication channel like SMS messages, emails our Touch ID. These connections are configured in the dashboard under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless).
+These connections work by using an authentication channel like SMS messages, emails our Touch ID. These connections are configured in the dashboard under [Connections > Passwordless](${uiURL}/#/connections/passwordless).
 
 ![](/media/articles/connections/passwordless/passwordless-connections.png)
 

@@ -1,4 +1,15 @@
-# Authenticate users with a one time code via SMS in Single Page Apps
+---
+title: Using Passwordless Authentication in SPA with SMS
+connection: SMS
+image:
+alias:
+  - sms
+  - spa
+  - single-page-app
+---
+
+# Passwordless Authentication with a one time code via SMS
+# Authenticate users with a one time code via SMS in a SPA
 
 ## Use Auth0 UI widget (Lock)
 
