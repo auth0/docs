@@ -14,11 +14,6 @@ alias:
 
 Checkout the following tutorials for a step by step guide on how to implement passwordless authentication in the different scenarios:
 
-### Passwordless on Regular Web Apps
-
- - [Authenticate users with a one time code via SMS](/connections/passwordless/regular-web-app-sms)
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/regular-web-app-email)
-
 ### Passwordless on Single Page Apps
 
  - [Authenticate users with a one time code via SMS](/connections/passwordless/spa-sms)
