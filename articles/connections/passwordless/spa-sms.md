@@ -26,11 +26,11 @@ You can then trigger the login widget with the following code:
 
 ```js
 function signin () {
-	var appearanceOpts = {
-		autoclose:true
+  var appearanceOpts = {
+		autoclose: true
 	};
   // Open the lock in SMS mode with the ability to handle the authentication in page
-	lock.sms(appearanceOpts,function(error, profile, id_token, access_token, state, refresh_token) {
+	lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
 	  if (!error) {
 	    //usually save profile and id_token
 	  }
@@ -65,7 +65,7 @@ You will have to provide a way for the user to enter the phone number to which t
 ```js
 function sendSMS(){
   const phoneNumber = $('input.phone-number').val();
-  auth0.startPasswordless({phoneNumber:phoneNumber}, function(err) {
+  auth0.requestSMSCode({ phoneNumber:phoneNumber }, function(err) {
     if (err) {
       alert('error sending SMS: '+ err.error_description);
       return;
@@ -83,16 +83,16 @@ This will send an SMS to the specified phone number. The user must now fill the 
 ```js
 function login(){
   const phone = $('input.phone-number').val();
-  const passcode = $('input.code').val();
+  const code = $('input.code').val();
   //submit the passcode to authenticate the phone
-  auth0.login({phone,passcode},function(err, profile, id_token, access_token){
+  auth0.verifySMSCode({ phoneNumber: phone, code: code }, function (err, profile, id_token, access_token) {
     if (err){
       alert('Couldn\'t login ' + err.message);
     } else {
-	    // the authentication was successful 
-	    // you can use profile, id_token and access_token
+      // the authentication was successful 
+      // you can use profile, id_token and access_token
       localStorage.setItem('userToken', id_token);
-      alert.show('Welcome '+ profile.name );
+      alert('Welcome ' + profile.name );
     }
   });
 };
