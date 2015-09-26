@@ -66,9 +66,9 @@ You will have to provide a way for the user to enter the emali to which the one 
 
 function sendEmail(){
   const email = $('input.email').val();
-  auth0.startPasswordless({ email: email, send: 'code' }, function(err) {
+  auth0.requestEmailCode({ email: email }, function(err) {
     if (err) {
-      alert('error sending e-mail: '+ err.error_description);
+      alert('error sending e-mail: ' + err.error_description);
       return;
     }
     // the request was successful and you should 
@@ -82,18 +82,12 @@ This will send an email containg the one time code. The user must now fill the c
 
 ```js
 function login(){
-  const username = $('input.email').val();
-  const password= $('input.code').val();
+  const email = $('input.email').val();
+  const code = $('input.code').val();
 
   //submit the passcode to complete authentication
-  auth0.login(
-    {
-      connection: 'email',
-      username: username,
-      password: password,
-      sso: false
-    }, function(err, profile, id_token, access_token) {
-      if (err){
+  auth0.verifyEmailCode({ email: email, code: code }, function(err, profile, id_token, access_token) {
+      if (err) {
         alert('Couldn\'t login '+ err.message);
       } else {
 
@@ -123,28 +117,15 @@ function login(){
   lock.magiclink();
 }
 ```
+
 #### Magic Link
 
-The user will receive an email with the magic link. The magic link has the following format:
-
-```
-https://${account.namespace}/authorize?scope=openid&response_type=token&redirect_uri=${account.callback}&email=someone%40company.com&verification_code=738402&connection=email&client_id=${account.clientId}
-```
-
-When the user clicks on the magic link received by email and he is authenticated, he will be redirected to your callback url.
-
-> Notice that if you have more than one allowed callback urls configured in your dashboard, it will use the first one.
-
-Once the user clicks the magic link and he is succesfully authenticated, Auth0 will redirect him to the callback url. Auth0 will append a few extra parameters after a hash on the URL. These include: an access_token and an id_token (a JWT). You can parse the hash and retrieve the full user profile as follows:
+The user will receive an email with the magic link. When the user clicks on this link, Auth0 will do the authentication and redirect back to the application with the token in the hash location. You can parse the hash and retrieve the full user profile as follows:
 
 ```js
-var auth0 = new Auth0({
-  clientID: ${account.clientId},
-  domain: ${account.namespace}
-});
 //parse hash on page load
 $(document).ready(function(){
-	var hash = auth0.parseHash(window.location.hash);
+  var hash = lock.parseHash(window.location.hash);
 
   if (hash && hash.error) {
     alert('There was an error: ' + hash.error + '\n' + hash.error_description);
@@ -152,7 +133,7 @@ $(document).ready(function(){
     //use id_token for retrieving profile.
     localStorage.setItem('id_token', hash.id_token);
     //retrieve profile
-    auth0.getProfile(hash.id_token, function (err, profile) {
+    lock.getProfile(hash.id_token, function (err, profile) {
       if (err){
         //handle err
       } else {
@@ -165,7 +146,7 @@ $(document).ready(function(){
 
 ### Use your own UI
 
-You can perform passwordless authentication with a magic link in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
+You can perform passwordless authentication with a magic link in your single page application using your own UI with [auth0-js](/libraries/auth0js).
 
 <%= include('./_init-auth0js') %>
 
@@ -174,9 +155,9 @@ You can then trigger the passwordless login using a magic link like this:
 ```js
 function sendMagicLink(){
   var email = $('input.email').val();
-  auth0.startPasswordless({email:email}, function(err) {
+  auth0.requestMagiclink({ email: email }, function(err) {
     if (err) {
-      alert('error sending e-mail: '+ err.error_description);
+      alert('error sending e-mail: ' + err.error_description);
       return;
     }
     // the request was successful and you should 
@@ -185,6 +166,6 @@ function sendMagicLink(){
 } 
 ```
 
-After the user clicks the magic link and is successfully authenticated, he is redirected to your callback URL, where you need to parse the token with `auth0.parseHash`. The code snippet is the same as for the [Passwordless Lock Widget](#magic-link).
+After the user clicks the magic link, it will be redirected to the application callback URL, where you need to parse the token with `auth0.parseHash`. The code snippet is the same as for the [Passwordless Lock Widget](#magic-link) but replacing `lock` with `auth0`.
 
 > A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).
