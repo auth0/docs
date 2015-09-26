@@ -65,7 +65,7 @@ You will have to provide a way for the user to enter the emali to which the one 
 ```js
 
 function sendEmail(){
-  const email = $('input.email').val();
+  var email = $('input.email').val();
   auth0.requestEmailCode({ email: email }, function(err) {
     if (err) {
       alert('error sending e-mail: ' + err.error_description);
@@ -82,8 +82,8 @@ This will send an email containg the one time code. The user must now fill the c
 
 ```js
 function login(){
-  const email = $('input.email').val();
-  const code = $('input.code').val();
+  var email = $('input.email').val();
+  var code = $('input.code').val();
 
   //submit the passcode to complete authentication
   auth0.verifyEmailCode({ email: email, code: code }, function(err, profile, id_token, access_token) {
