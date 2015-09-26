@@ -27,14 +27,14 @@ You can then trigger the login widget with the following code:
 ```js
 function signin () {
   var appearanceOpts = {
-		autoclose: true
-	};
+    autoclose: true
+  };
   // Open the lock in SMS mode with the ability to handle the authentication in page
-	lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
-	  if (!error) {
-	    //usually save profile and id_token
-	  }
-	});
+  lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
+    if (!error) {
+      //usually save profile and id_token
+    }
+  });
 };
 ```
 
