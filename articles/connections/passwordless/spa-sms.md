@@ -64,7 +64,7 @@ You will have to provide a way for the user to enter the phone number to which t
 
 ```js
 function sendSMS(){
-  const phoneNumber = $('input.phone-number').val();
+  var phoneNumber = $('input.phone-number').val();
   auth0.requestSMSCode({ phoneNumber:phoneNumber }, function(err) {
     if (err) {
       alert('error sending SMS: '+ err.error_description);
@@ -82,8 +82,8 @@ This will send an SMS to the specified phone number. The user must now fill the 
 
 ```js
 function login(){
-  const phone = $('input.phone-number').val();
-  const code = $('input.code').val();
+  var phone = $('input.phone-number').val();
+  var code = $('input.code').val();
   //submit the passcode to authenticate the phone
   auth0.verifySMSCode({ phoneNumber: phone, code: code }, function (err, profile, id_token, access_token) {
     if (err){
