@@ -46,6 +46,10 @@ function login(){
 
 This will first open a dialog that asks the user for an email address. 
 
+![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
+
+Then Auth0 will send an email to the user containing the one time code:
+
 ![](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
 
 Then, it will ask for a code that has been sent in an email to the given address. The code will be used as a one-time password to log in.
@@ -60,7 +64,7 @@ You can perform passwordless authentication in your SPA with your own custom UI 
 
 <%= include('./_init-auth0js') %>
 
-You will have to provide a way for the user to enter the emali to which the one time code will be sent. Then you can start the passwordless authentication like this:
+You will have to provide a way for the user to enter the email to which the one time code will be sent. Then you can start the passwordless authentication like this:
 
 ```js
 
@@ -73,7 +77,8 @@ function sendEmail(){
     }
     // the request was successful and you should 
     // receive the code to the specified email
-    $(".enter-code").show();
+    $('.enter-email').hide();
+    $('.enter-code').show();
   });
 }
 ```
@@ -88,7 +93,7 @@ function login(){
   //submit the passcode to complete authentication
   auth0.verifyEmailCode({ email: email, code: code }, function(err, profile, id_token, access_token) {
       if (err) {
-        alert('Couldn\'t login '+ err.message);
+        alert('Couldn\'t login ' + err.message);
       } else {
 
         //save id_token to local storage
@@ -155,7 +160,7 @@ You can then trigger the passwordless login using a magic link like this:
 ```js
 function sendMagicLink(){
   var email = $('input.email').val();
-  auth0.requestMagiclink({ email: email }, function(err) {
+  auth0.requestMagicLink({ email: email }, function(err) {
     if (err) {
       alert('error sending e-mail: ' + err.error_description);
       return;
