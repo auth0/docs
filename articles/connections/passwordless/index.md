@@ -17,7 +17,14 @@ Checkout the following tutorials for a step by step guide on how to implement pa
 ### Passwordless on Single Page Apps
 
  - [Authenticate users with a one time code via SMS](/connections/passwordless/spa-sms)
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/spa-email)
+ - [Authenticate users with a one time code via e-mail](/connections/passwordless/spa-email-code)
+ - [Authenticate users with a magic link via e-mail](/connections/passwordless/spa-email-link)
+
+### Passwordless on Regular Web Apps
+
+ - [Authenticate users with a one time code via SMS](/connections/passwordless/regular-web-app-sms)
+ - [Authenticate users with a one time code via e-mail](/connections/passwordless/regular-web-app-email-code)
+ - [Authenticate users with a magic link via e-mail](/connections/passwordless/regular-web-app-email-link)
 
 ### Passwordless on iOS
 
