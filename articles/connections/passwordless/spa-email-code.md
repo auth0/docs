@@ -1,57 +1,104 @@
-# auth0-node-passwordless-sample
+---
+title: Using Passwordless Authentication with a one time code via email on SPA
+connection: Email
+image:
+alias:
+  - email
+  - spa
+---
 
-This sample will show how to use passwordless authentication within a Node.js Regular Web App
+# Authenticate users with a one time code via e-mail on SPA
 
-## Install Locally
+<%= include('./_introduction-email', { isMobile: false }) %>
 
-In order to run the example locally you would need to:
+## Setup
 
-* Install Node.js v4.0.0 or later
-* Add a .env file containing your credentials. You can use sample.env as template.
-* Run:
+<%= include('./_setup-email') %>
 
-	```
-	npm install 
-	npm run start
-	```
+<%= include('../../client-platforms/_callback') %>
 
-* Go to http://localhost:3000 and you'll see the app running :).
+## Use Auth0 UI widget (Lock)
 
-## Usage
+<%= include('./_init-passwordless-lock') %>
 
-Go to http://localhost:3000 and press the button that corresponds to the feature you want to test. Available options include:
+Then you can trigger the login like this:
 
-* Login with a **one time code** via **sms** using **Lock**
-* Login with a **one time code** via **email** using **Lock**
-* Login with a **magic link** via **email** using **Lock**
-* Login with a **one time code** via **sms** using your **own UI**
-* Login with a **one time code** via **email** using your **own UI**
-* Login with a **magic link** via **email** using your **own UI**
+```js
+function login(){
+  // Open the lock in Email Code mode with the ability to handle
+  // the authentication in page
+  lock.emailcode((err, profile, id_token, state) => {
+    if (!err) {
+      
+      // Save the JWT token.
+      localStorage.setItem('userToken', id_token);
+      
+      //use profile
 
-## What is Auth0?
+    }
+  });
+}
+```
 
-Auth0 helps you to:
+This will first open a dialog that asks the user for an email address. 
 
-* Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, amont others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
-* Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
-* Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when and where users are logging in.
-* Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
-## Create a free Auth0 Account
+Then Auth0 will send an email to the user containing the one time code:
 
-1. Go to [Auth0](https://auth0.com) and click Sign Up.
-2. Use Google, GitHub or Microsoft Account to login.
+![](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
 
-## Issue Reporting
+Then, it will ask for a code that has been sent in an email to the given address. The code will be used as a one-time password to log in.
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-## Author
+After the user enters the code he received by email, lock will authenticate it and call the callback function, where you will have the the id_token and profile available.
 
-[Auth0](auth0.com)
+## Use your own UI
 
-## License
+You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
-This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+<%= include('./_init-auth0js') %>
+
+You will have to provide a way for the user to enter the email to which the one time code will be sent. Then you can start the passwordless authentication like this:
+
+```js
+
+function sendEmail(){
+  var email = $('input.email').val();
+  auth0.requestEmailCode({ email: email }, function(err) {
+    if (err) {
+      alert('error sending e-mail: ' + err.error_description);
+      return;
+    }
+    // the request was successful and you should 
+    // receive the code to the specified email
+    $('.enter-email').hide();
+    $('.enter-code').show();
+  });
+}
+```
+
+This will send an email containg the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
+
+```js
+function login(){
+  var email = $('input.email').val();
+  var code = $('input.code').val();
+
+  //submit the passcode to complete authentication
+  auth0.verifyEmailCode({ email: email, code: code }, function(err, profile, id_token, access_token) {
+      if (err) {
+        alert('Couldn\'t login ' + err.message);
+      } else {
+
+        //save id_token to local storage
+        localStorage.setItem('userToken', id_token);
+        
+        //use profile
+        alert('Welcome '+ profile.name);
+      }
+    });
+}
+```
+> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).
