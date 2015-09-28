@@ -7,7 +7,7 @@ alias:
   - email
 ---
 
-# Authenticate users with a one time code via Email
+# Authenticate users with using Passwordless Authentication via Email
 
 <%= include('./_introduction-email', { isMobile: false }) %>
 
@@ -15,10 +15,15 @@ alias:
 
 <%= include('./_setup-email') %>
 
-## Web Tutorials
+## Single Page Apps Tutorials
 
- - [Single Page Applications](spa-email)
- - [Regular Web Applications](regular-web-app-email)
+ - [Authenticate users with a one time code via e-mail](spa-email-code)
+ - [Authenticate users with a magic link via e-mail](spa-email-link)
+
+## Regular Web Apps Tutorials
+
+ - [Authenticate users with a one time code via e-mail](regular-web-app-email-code)
+ - [Authenticate users with a magic link via e-mail](regular-web-app-email-link)
 
 ## Mobile Tutorials
 
