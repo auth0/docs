@@ -41,6 +41,10 @@ On Mac OS X screenshots need to be taken with Chrome, taking into account the fo
  1. Screenshots should use the complete browser window (Control + Shift + 4, then press Space)
  1. Highlighting should use color #0099CC
 
+ Example:
+
+ ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
+
 
 ## Test Procedures
 When testing a document or tutorial below are several areas to look for.
