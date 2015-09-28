@@ -27,6 +27,21 @@ Additionally, you can send a context to the included document.
 <%= include('../_mydocument.md', { key: 'value', something: true }) %>
 ```
 
+### Screenshots
+On Mac OS X screenshots need to be taken with Chrome, taking into account the following:
+
+ 1. The browser cannot show any plugins, customizations, or bookmarks
+ 1. The browser cannot be in incognito mode
+ 1. The browser needs to be resized to the standard size. Using the below script:
+  ```bash
+  #!/usr/bin/env osascript
+
+  tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}
+  ```
+ 1. Screenshots should use the complete browser window (Control + Shift + 4, then press Space)
+ 1. Highlighting should use color #0099CC
+
+
 ## Test Procedures
 When testing a document or tutorial below are several areas to look for.
 
