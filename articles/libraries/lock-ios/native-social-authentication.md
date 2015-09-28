@@ -55,7 +55,7 @@ A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithK
 
 We need your twitter app's key & secret in order to sign the reverse auth request. For more info please read the Twitter documentation related to [Authorizing Requests](https://dev.twitter.com/docs/auth/authorizing-request) and [Reverse Auth](https://dev.twitter.com/docs/ios/using-reverse-auth).
 
-###Google
+### Google
 
 Google authentication uses [Google Sign-In](https://developers.google.com/identity/sign-in/ios/) iOS library, so you'll need to register your iOS application in [Google Developer Console](https://console.developers.google.com/project) and get your clientId.
 
