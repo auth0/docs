@@ -29,10 +29,10 @@ function login(){
   // the authentication in page
   lock.emailcode((err, profile, id_token, state) => {
     if (!err) {
-      
+
       // Save the JWT token.
       localStorage.setItem('userToken', id_token);
-      
+
       //use profile
 
     }
@@ -40,7 +40,7 @@ function login(){
 }
 ```
 
-This will first open a dialog that asks the user for an email address. 
+This will first open a dialog that asks the user for an email address.
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
@@ -71,7 +71,7 @@ function sendEmail(){
       alert('error sending e-mail: ' + err.error_description);
       return;
     }
-    // the request was successful and you should 
+    // the request was successful and you should
     // receive the code to the specified email
     $('.enter-email').hide();
     $('.enter-code').show();
@@ -79,7 +79,7 @@ function sendEmail(){
 }
 ```
 
-This will send an email containg the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
+This will send an email containing the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
 
 ```js
 function login(){
@@ -94,7 +94,7 @@ function login(){
 
         //save id_token to local storage
         localStorage.setItem('userToken', id_token);
-        
+
         //use profile
         alert('Welcome '+ profile.name);
       }

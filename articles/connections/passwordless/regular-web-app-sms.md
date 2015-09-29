@@ -68,7 +68,7 @@ function sendSMS(){
 }
 ```
 
-This will send an email containg the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
+This will send an email containing the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
 
 ```js
 function login(){

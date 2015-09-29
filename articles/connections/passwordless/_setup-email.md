@@ -8,7 +8,7 @@ On the **Email** page under [Connections > Passwordless](https://manage.auth0.co
 
 ![](/media/articles/connections/passwordless/passwordless-email-config.png)
 
-The email contents can be writting in HTML with the Liquid syntax, allowing you to conditionally shape the contents of the email. The following macros are available when defining the template:
+The email contents can be written in HTML with the Liquid syntax, allowing you to conditionally shape the contents of the email. The following macros are available when defining the template:
 
  - `{{ application.name }}`
  - `{{ code }}` (the one time code)

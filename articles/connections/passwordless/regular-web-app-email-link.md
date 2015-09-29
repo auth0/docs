@@ -29,7 +29,7 @@ function loginEmailLink() {
 }
 ```
 
-This will first open a dialog that asks the user for an email address. 
+This will first open a dialog that asks the user for an email address.
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
@@ -53,14 +53,14 @@ function sendEmail(){
       alert('error sending e-mail: ' + err.error_description);
       return;
     }
-    // the request was successful and you should 
+    // the request was successful and you should
     // receive the magic link in the specified email
     alert('email sent!');
   });
 }
 ```
 
-This will send an email containg the magic link.
+This will send an email containing the magic link.
 
 After clicking the link, the user will be signed in automatically in the application, and will be redirected to the `callbackURL` specified in the Auth0 constructor. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
 
