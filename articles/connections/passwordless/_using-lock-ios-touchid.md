@@ -1,10 +1,12 @@
 # Authenticate users with Touch ID
 
-A feature specific to iOS is the support for Touch ID, which allows users to authenticate with their fingerprint (biometric authentication). 
+<%= include('./_ios-language-picker') %>
+
+A feature specific to iOS is the support for Touch ID, which allows users to authenticate with their fingerprint (biometric authentication).
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-start.png)
 
-During sign up the library will create a user in Auth0, create a key pair on the device and then upload the public key in the user. 
+During sign up the library will create a user in Auth0, create a key pair on the device and then upload the public key in the user.
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-flow.png)
 
@@ -40,7 +42,7 @@ You will first start by signing up a user in a Database Connection:
 
 > You can generate a random password to avoid asking one to the user. He can later change it.
 
-After the user signed up, you will use the `idToken` to register the public key for the user, that's what 
+After the user signed up, you will use the `idToken` to register the public key for the user, that's what
 
 First you need to a place to store a Auth0 API client with the token until you register the key, and a place to store the TouchID component:
 
@@ -58,7 +60,7 @@ Now we'll implement the following method to perform TouchID authentication
 <%= include('./_touchid-login-method-swift') %>
 <% } %>
 
-First let's create and store the API client 
+First let's create and store the API client
 
 <% if (language === "objc") { %>
 <%= include('./_touchid-init-client-objc') %>
@@ -88,4 +90,3 @@ Then to start authentication, just add this line
 self.authentication.start()
 ```
 <% } %>
-
