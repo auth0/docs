@@ -12,7 +12,7 @@ alias:
 
 ## Tutorials
 
-Checkout the following tutorials for a step by step guide on how to implement passwordless authentication in the different scenarios:
+See the following tutorials for a step-by-step guide on how to implement passwordless authentication for each of these scenarios:
 
 ### Passwordless on Single Page Apps
 
