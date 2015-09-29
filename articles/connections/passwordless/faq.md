@@ -2,138 +2,140 @@
 
 ## General Questions
 
-### Q: For what types of use cases is passwordless authentication best? When does this feature really make things better?
+### Q: When is passwordless authentication the best option for login? How does this feature improve the user experience?
 
-**A:** The number of passwords that users must remember and use has become overwhelming, and passwords that aren’t used very frequently are often forgotten. When a user forgets their password, they must recover it through email, using a process much more cumbersome than Auth0’s simple passwordless user experience. For less frequently used sites and apps, recovering a lost password might be the normal, unpleasant experience for many users. To avoid the password recovery scramble, [nearly 60%](https://www.passwordboss.com/password-habits-survey-part-1/) of users admit to reusing passwords to "help" their memory, exposing them to much more risk. 
+**A:** The number of passwords that users must remember has become overwhelming, and passwords that aren’t used frequently are often forgotten. When a user forgets their password, they must recover it through email using a process more cumbersome than Auth0’s simple, passwordless user experience. For less frequently used sites and apps, recovering a lost password might be a normal, unpleasant experience for many users. To avoid the password recovery scramble, [nearly 60%](https://www.passwordboss.com/password-habits-survey-part-1/) of users admit to reusing passwords to help their memory, exposing them to risk.
 
-So passwordless login works best for those sites and apps on which users want to maintain a presence, but do not visit so often that they can remember a unique password. That describes most of the Internet! For such sites, passwordless login leads to a much better user experience, and better security: no password resets and no password to reuse. And no password database acting as an attractive target for hackers!
+Passwordless login is best for sites and apps where users maintain a presence, but don’t visit often enough that they can remember a unique password. This could describe most of the Internet. For these sites, passwordless login creates a much better user experience and better security: no password resets or reuse, and no password database as a target for hackers.
 
-But even for frequently visited sites, passwordless authentication can offer a streamlined and simple user experience. Many forward-thinking companies such as Slack and [Medium](https://medium.com/the-story/signing-in-to-medium-by-email-aacc21134fcd) have embraced passwordless logins as just a better way to guard the door.
+For frequently visited sites, passwordless authentication offers a streamlined and simple user experience. Many companies, such as Slack and [Medium](https://medium.com/the-story/signing-in-to-medium-by-email-aacc21134fcd), have embraced the passwordless login as a better way to guard the door.
 
 ### Q: When is passwordless login not a good idea? What are its limitations?
 
-**A:** For sites and apps that users access every day, the passwordless flow may feel slower than the "muscle memory" of quickly entering a password they have memorized. And just like username/password logins, if someone hacks your email account or steals your phone and unlocks it, your passwordless login is compromised (but so is every other site not using multi-factor authentication).
+**A:** For sites and apps that users access every day, the passwordless flow may feel slower than the muscle memory of quickly entering a memorized password. As with a username/password login, if an email account is hacked or a phone is stolen and unlocked, the passwordless login is compromised, but so is every site not using multi-factor authentication.
 
-We are seeing a trend that websites and web applications are moving to longer session expirations so that users are not asked to log in frequently - like a native app on a mobile device. Then, whenever a user asks to perform a sensitive operation, they’re asked for "step up" authentication - perhaps a one-time password, or a code from an authentication app like Google Authenticator. The same approach works with Auth0’s passwordless authentication. Think of it like the “sudo” command on Linux - when you’re doing something that requires elevated privilege, you get an extra “challenge”. Simple and effective, and eliminates the hassle of multi-factor authentication except when it is needed.
+Websites and web applications are trending toward longer session expirations so that users are not asked to login frequently, behaving more like a native app on a mobile device. Then, when a user initiates a sensitive operation, they are asked for step-up authentication such as a one-time password or a code from an authentication app like Google Authenticator. Auth0’s passwordless authentication takes the same approach. Like the `sudo` command on Linux, when you are doing something that requires elevated privileges, you get an extra challenge. Simple and effective, this procedure eliminates the hassle of multi-factor authentication except when necessary.
 
-### Q: How hard is it for users to get used to passwordless sign in?
+### Q: Is it difficult for users to become used to passwordless sign in?
 
-**A:** Passwordless is so simple that we think most users will immediately "get it". Especially with “magic links” in emails or Apple Touch ID, the user experience is nearly effortless. But in all cases, passwordless logins are simpler to manage for most end users than using a hard-to-remember password.
+**A:** Passwordless login is so simple that most users will immediately get it. The user experience is nearly effortless, especially with *magic links* in emails or Apple *Touch ID*. For most end-users, a passwordless login is easier than recalling a hard-to-remember password.
 
-### Q: How is passwordless login different from social logins?
+### Q: How is passwordless login different from a social login?
 
-**A:** With social logins you’re letting another account that the user owns authenticate that user - users need to remember and protect fewer passwords, and you, the site or app owner, don’t need to manage passwords yourself. 
+**A:** With a social login, the user is authenticated through a separate account that the user owns. Users need to remember and protect fewer passwords, and the site or app owner doesn’t need to manage any passwords.
 
-Social logins are appropriate when your users are likely to have accounts on popular social providers, and when your application can gain additional features by interacting with the social provider’s API. Auth0 supports a wide range of social providers out of the box, with just a few lines of code. Social logins can be confusing or worrying to some users however, because of the need to login to a different site, and the grant page asking for additional permissions to share data. When users are confused or nervous about something like this, they might abandon their sign-up. Passwordless has the advantage for some users that they do not need to share anything except for their email or phone number for SMS.
+Social logins are appropriate when users are likely to have accounts on popular social providers, and when your application can gain additional features by interacting with the social provider’s API. Auth0 supports a wide range of social providers out-of-the-box with just a few lines of code. However, social logins can be confusing to some users because of the need to login to a different site, and of the grant page which asks for additional permissions to share data. When users are confused or worried, they might abandon their sign-up. For these users, passwordless login has the advantage of not asking them to share anything except for their email, or phone number for SMS.
 
-One design pattern we have seen is to offer your users several popular social logins, but if they do not have or prefer not to use their social accounts, offer passwordless email as an alternative.
+One design option is to offer users several popular social logins, and offer passwordless email as an alternative if they don’t have any social accounts or prefer not to use them.
 
-### Q: How much does passwordless authentication from Auth0 cost? Is it an added-cost feature?
+### Q: How much does passwordless authentication from Auth0 cost?
 
-**A:** There is no extra charge to use this feature. It is included free with every Auth0 developer account, subscription, and custom plan.
+**A:** There is no extra charge to use this feature. Passwordless authentication is included free with every Auth0 developer account, subscription, or custom plan.
 
 ##How to use and configure Passwordless
 
-### Q: What are the advantages of using emailed "magic links"?
+### Q: What are the advantages of using *magic links*?
 
-**A:** "Magic links" are links sent to the user’s email inbox that with a single click, logs the user into your site or application. They provide the simplest possible user experience and make your login process smooth and friction-free.
+**A:** A *magic link* is a link sent to a user’s email that logs the user into your site or application with a single click. It provides the simplest user experience and makes your login process smooth and friction-free.
 
 ### Q: What are the advantages of using emailed codes?
 
-**A:** Emailed codes are only a little more effort for end-users than magic links - a numeric code is sent to the user’s email inbox. The user then types this code into a response field on the authentication dialog at your site - the Auth0 passwordless lock widget handles this part automatically. Once entered and matched, the user is logged in.
+**A:** An emailed code requires slightly more effort for end-users than a magic link. A numeric code is sent to the user’s email. The user then types this code into a response field of the Auth0 passwordless lock widget on your site, which handles this part automatically. Once entered and validated, the user is logged in.
 
 ### Q: What are the advantages of using codes delivered through SMS?
 
-**A:** Since users almost always have their phone nearby even when not at their desk or traveling, SMS messages are more likely to be delivered right to the user’s hand or pocket no matter what they’re doing. In addition, it typically isn’t possible to steal SMS service without physically being in possession of a phone or SIM hard-coded with a wireless phone number. This eliminates the potential for malicious access through stolen email credentials, making SMS logins potentially a bit more secure.
+**A:** Since users often have their phone nearby, SMS messages are likely to be delivered to the user’s hand or pocket. Typically, it’s impossible to steal SMS service without being in possession of the phone or SIM hard-coded with the wireless number. This eliminates the potential for malicious access through stolen email credentials, making SMS logins more secure.
 
-SMS logins, like emailed codes, are a small amount of extra effort for end-users than magic links. And depending on a user’s mobile subscription plan, there may be a fee for them to receive SMS messages or those messages may count against a pool of available free messages. For such users, the added cost of using the SMS side-channel may be seen as more trouble than it is worth.
+An SMS login, like an emailed code, requires slightly more effort for end-users than a magic link. Depending on the user’s mobile subscription plan, there may be a fee for them to receive SMS messages or those messages may count against a pool of available free messages. For such users, the added cost of using the SMS side-channel may not be seen as worthwhile.
 
-### Q: How can I use both email and SMS modes at the same time - depending on whether the user provides an email or a phone number?
+### Q: Can I offer both email and SMS options at the same time?
 
-**A:** Using [Auth0’s Javascript SDK](https://github.com/auth0/auth0.js), you have complete control of how passwordless authentication works with your site or application. It is simple to implement a mixed mode user experience using the SDK, and building your own UI. The passwordless lock widget does not yet support this sort of mixed-mode interface. We’ll be looking into adding such a mode to a future version of the widget.
+**A:** Using [Auth0’s Javascript SDK](https://github.com/auth0/auth0.js), you have complete control of how passwordless authentication works with your site or application. It is easy to implement a mixed-mode user experience and build your own UI using the SDK. However, the passwordless lock widget does not yet support this sort of mixed-mode interface. We will consider adding such a mode to future versions of the widget.
 
-### Q: How do I sign in to an application using emailed links on a device for which I don’t have access to the registered email account?
+### Q: How would a user sign-in to your application using a *magic link* from a device that doesn’t have access to the registered email account?
 
-**A:** Let’s say you signed up for a service using passwordless login with your personal email, but you need to use that service at work and don’t have your personal email account on your work PC. You visit the service on your work PC and ask to log in, giving your personal email address. But the magic link goes to your personal email account, and you cannot access that account from the PC where you initiated the login request.
+**A:** If a user signed up for your service using passwordless login with their personal email, but needs to use that service at work but doesn’t have their personal email account on their work PC. They visit the service on their work PC and ask to log in, providing their personal email address. The *magic link* is sent to their personal email account that they cannot access from this PC.
 
-The simplest way to solve this problem would be to forward the magic link email to your work email account, and then click the link from your work PC. If this is likely to be a common scenario for your end-users, you might want to consider using emailed codes, or codes sent through SMS rather than emailed links. You could also create an account with your work email address and link the two accounts, logging in with either of them.
+The simplest way to solve this problem would be for the user to forward the *magic link* email to their work email account, and click the link from their work PC. They could also create an account with their work email address and link the two accounts, logging in with either of them.
+
+If this is likely to be a common scenario for your end-users, you might want to consider using emailed codes, or codes sent through SMS, rather than emailed links. 
 
 ### Q: How do I style the passwordless lock widget to my own brand identity?
 
-**A:** The passwordless lock widget accepts two parameters to change its appearance: the primaryColor option and the icon option to change background color and add your brand’s icon, respectively. In addition, you can further style the widget by changing the CSS stylesheet.
+**A:** The passwordless lock widget accepts two parameters to change its appearance: the *primaryColor* option to change background color and the *icon* option to add your brand’s icon. Also, you can further style the widget by modifying the CSS stylesheet.
 
 If you need more control, you can implement your own UI and call any of the passwordless connections through the [Auth0 JavaScript SDK](https://github.com/auth0/auth0.js).
 
-### Q: How do I select the high-volume messaging provider that Passwordless sign ins will use? What are my options?
+### Q: How do I select which high-volume messaging provider passwordless sign-ins will use? What are my options?
 
-**A:** By default, your passwordless connections will be set up to use Auth0’s messaging provider. This works but limits your ability to monitor and manage deliverability, troubleshoot issues, and connect to analytics. Accordingly, we recommend that you set up your own high-volume email or SMS provider.
+**A:** By default, your passwordless connections will be set-up to use Auth0’s messaging provider. However, this limits your ability to monitor and manage deliverability, troubleshoot issues, and connect to analytics. Accordingly, we recommend that you set up your own high-volume email or SMS provider.
 
-Auth0 supports Twilio SMS for passwordless login with codes sent via SMS, and supports SendGrid, Mandrill, and Amazon SES for email-based passwordless authentication. These providers are all supported within the Auth0 dashboard - all you need are your API credentials.
+Auth0 supports **Twilio SMS** for passwordless login with codes sent via SMS, and supports **SendGrid**, **Mandrill**, and **Amazon SES** for email-based passwordless authentication. These providers are all supported in the Auth0 dashboard, and all you need are your API credentials.
 
 ### Q: Can I configure a different messaging provider than the ones you support directly?
 
-**A:** At this time, no. If you have a need to integrate with other messaging services please contact Auth0’s customer success team for advice and assistance.
+**A:** Not at this time. If you have a need to integrate with other messaging services please contact Auth0’s customer success team for advice and assistance.
 
-### Q: How can I use Passwordless as another factor in multifactor authentication?
+### Q: How can I use Passwordless as another factor in multi-factor authentication?
 
-**A:** While at this time, Auth0’s passwordless connections including SMS, email, and Apple Touch ID are not built-in to the dashboard MFA capability, Auth0’s flexible [rules execution pipeline](https://auth0.com/docs/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of Javascript that execute on the Auth0 server as part of the authentication pipeline and that give you a lot of flexibility to call APIs or perform arbitrary computations to implement customized authentication logic. Just call the passwordless connection using a redirect rule, treating it as a [custom MFA provider](https://auth0.com/docs/mfa).
+**A:** While Auth0’s passwordless connections (including SMS, email, and Apple *Touch ID*) are not built into the dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](https://auth0.com/docs/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of Javascript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Just call the passwordless connection using a redirect rule, treating it as a [custom MFA provider](https://auth0.com/docs/mfa).
 
-In a future version of passwordless connections, we plan to add them as built-in, supported MFA providers.
+In future versions of passwordless connections, supported MFA providers will be built-in.
 
-### Q: What are the advantages of Apple Touch ID for passwordless authentication?
+### Q: What are the advantages of Apple *Touch ID* for passwordless authentication?
 
-**A:** Apple’s Touch ID fingerprint identity system is a very easy way for users to identify themselves to their iPhone or iPad equipped with a fingerprint scanner. To the user, the application unlocks with the touch of a finger. Nothing could be easier!
+**A:** Apple’s *Touch ID* fingerprint identity system is an easy way for users to identify themselves to their iPhone or iPad equipped with a fingerprint scanner. To the user, the application unlocks with the touch of a finger.
 
-After a one-time enrollment process, each time the user logs in on your app, the Touch ID passwordless library uses the matched fingerprint to retrieve a private key saved in the IOS key store. It then generates and signs a JWT with that private key and sends it to Auth0. Auth0 validates the JWT with the user’s saved public key, and returns a token authenticating the user.
+After a one-time enrollment process, each time the user logs into your app, the *Touch ID* passwordless library uses the matched fingerprint to retrieve a private key saved in the IOS key store. It then generates and signs a JWT with that private key and sends it to Auth0. Auth0 validates the JWT with the user’s saved public key, and returns a token authenticating the user.
 
-The only real disadvantages to Touch ID as a means of authenticating users is that it works only on native IOS apps installed on later-model iPhones and iPads. It doesn’t work on other devices like Android, nor can it protect a website or web application. And there must be a backup password authentication mechanism to handle lost devices or to change devices. Auth0 makes it simple to link accounts so that you can offer Touch ID on Apple devices, and SMS or email based passwordless logins for web or other mobile platforms.
+The disadvantage to *Touch ID* as a means of authenticating users is that it only works on native IOS apps installed on later-model iPhones and iPads. It doesn’t work on other devices, like Android, nor can it protect a website or web application. Also, a backup password authentication mechanism must be available to handle lost or new devices. Auth0 makes it simple to link accounts so that you can offer *Touch ID* on Apple devices, and SMS or email-based passwordless logins for the web and other mobile platforms.
 
-Auth0’s standard Lock widget for IOS fully supports Touch ID with a very simple UI easily styled to your brand identity. You can implement passwordless logins for your IOS app in just a few lines of code.
+Auth0’s standard Lock widget for IOS fully supports *Touch ID* with a very simple UI easily styled to your brand identity. You can implement passwordless logins for your IOS app with just a few lines of code.
 
-### Q: Does the Passwordless Lock Widget support Apple Touch ID?
+### Q: Does the Passwordless Lock Widget support Apple *Touch ID*?
 
-**A:** No. For Touch ID passwordless logins, you use the standard Auth0 IOS lock widget to get all the same benefits. The web-based passwordless lock widget doesn’t support Touch ID.
+**A:** No. For *Touch ID* passwordless logins, the standard Auth0 IOS lock widget provides all the same benefits. The web-based passwordless lock widget doesn’t support *Touch ID*.
 
-### Q: Can I combine email or SMS Passwordless authentication with Apple Touch ID?
+### Q: Can I combine email or SMS Passwordless authentication with Apple *Touch ID*?
 
-**A:** Instead of using a backup password to handle lost or changed devices, you can use email or SMS passwordless logins and link the two user identities through Auth0’s account linking feature, so that your application sees the same authenticated user whether logged in through Touch ID, or through email or SMS.
+**A:** Instead of using a backup password to handle lost or new devices, you can use the email or SMS passwordless login and link the two user identities through Auth0’s account linking feature, so that your application recognizes the same authenticated user whether they log in through *Touch ID*, or through email or SMS.
 
 ### Q: What happens if a user changes email or phone number?
 
-**A:** In this version of Passwordless authentication, we have not included a self-service method to change email or phone. An administrator can change this information using the Auth0 Dashboard.
+**A:** A self-service method for changing email or phone is not included in this version of Passwordless authentication. An administrator can change this information using the Auth0 Dashboard.
 
 ## Security
 
-### Q: What if someone gains access to my email address?
+### Q: What if someone gains access to a user’s email address?
 
-**A:** If someone gains access to your email account, they will be able to log in as you using passwordless email logins either with a link or a code. This is no different than for password protected accounts which use email as the back channel for password resets. Typically, you protect against this risk by enabling multifactor authentication when you detect something that appears risky - logging in from a new device, an unknown IP address, or from outside the user’s country of residence, for example.
+**A:** If someone gains access to a user’s email account, they will be able to log in with the user’s passwordless email login either with a link or a code. This is no different than for password-protected accounts which use email as the back channel for password resets. Typically, you protect against this risk by enabling multi-factor authentication when your application detects something that appears suspicious such as logging in from a new device, an unknown IP address, or outside the user’s country of residence.
 
-### Q: What if someone gains access to my SMS messages (steals my phone or another way)?
+### Q: What if someone gains access to a user’s SMS messages?
 
-**A:** As with email, if your SMS messages are compromised, someone can log in as you using SMS codes. Many phones now have built-in protections against theft, such as fingerprint readers, complex unlock codes, and remote disable and wipe features. The best protection against this risk on your site or application is to use multifactor authentication - perhaps requiring additional "step up" authentication when the user tries to access sensitive data or perform sensitive actions.
+**A:** As with email, if a user’s SMS messages are compromised, someone can log in as the user with SMS codes. Many phones now have built-in protections against theft, such as fingerprint readers, complex unlock codes, and remote disable and wipe features. The best protection against this risk on your site or application is to use multi-factor authentication, requiring additional *step-up* authentication when the user tries to access sensitive data or perform sensitive actions.
 
 ### Q: How does the system prevent an intercepted one-time code or link from being used to establish an unauthorized session?
 
-**A:** Think of an intercepted code or link as the result of a compromised email account or stolen phone. Once the link or code is in the wrong hands, they can use it to log in as you. But codes and links have a short time-to-live - typically 5 minutes - and can only be used once. This limits the opportunity for a hacker to use an intercepted communication to a short window of time. Security experts strongly recommend using encrypted end-to-end communication between email servers and clients to prevent easy interception of email, and you might recommend this safeguard to your end users as part of your documentation. And multifactor "step-up" authentication for sensitive data or actions works to reduce this risk as well.
+**A:** Think of an intercepted code or link as similar to a compromised email account or stolen phone. Once the link or code is in the wrong hands, it can be used to log in as that user. But codes and links have a short time-to-live (typically 5 minutes) and can only be used once. This limits the opportunity for a hacker to use an intercepted communication to a brief window. Security experts strongly recommend using encrypted end-to-end communication between email servers and clients to prevent the easy interception of email, and you might recommend this safeguard to your end users as part of your documentation. Implementation of multi-factor *step-up* authentication for sensitive data or actions will reduce this risk as well.
 
-### Q: How could I use Passwordless sign in with step-up multifactor authentication to improve security for more sensitive data or actions?
+### Q: How could I use Passwordless sign in with *step-up* multi-factor authentication to improve security for more sensitive data or actions?
 
-**A:** Auth0 features powerful [rules](https://auth0.com/docs/rules) - Javascript snippets which run during the authentication process on the Auth0 server, and which allow you to insert additional authentication elements when you detect potentially higher-risk logins. For instance, if you detect a user logging in from a previously unknown IP address with a location outside of the user’s home country, you might request a password, or ask a security question from inside of Auth0’s authentication flow.
+**A:** Auth0 features powerful [rules](https://auth0.com/docs/rules) - JavaScript snippets which run during the authentication process on the Auth0 server, and allow you to insert additional authentication elements when potentially higher-risk logins are detected. For instance, if your application detects a user logging in from a previously unknown IP address with a location outside of the user’s home country, you might request a password, or ask a security question from inside of Auth0’s authentication flow.
 
-In a future version of passwordless logins, we’ll be adding support for multifactor step-up authentication as part of the configuration options for passwordless, rather than using rules to implement this security enhancement.
+In future versions of passwordless logins, support for multi-factor *step-up* authentication will be added as part of the configuration options for passwordless, replacing the use of rules to implement this security enhancement.
 
-### Q: Since users can click a link to sign in, how can I prevent a phishing attack in which my user receives a fraudulent email that looks legitimate, but that has a link to a site that tricks them into giving up their credentials?
+### Q: Since users can click a link to sign in, how can I prevent a phishing attack in which the user receives a fraudulent email that looks legitimate, but contains a link to a site that tricks them into giving up their credentials?
 
-**A:** Phishing attacks are all about stealing credentials - i.e. usernames and passwords - through trickery. If there are no passwords to steal then ultimately these attacks become much less prevalent.  Passwordless logins are a big step in that direction!
+**A:** Phishing attacks are about stealing credentials (user-names and passwords) through trickery. If there are no passwords to steal, these attacks ultimately become much less prevalent. Passwordless logins are a big step in reducing the prevalence of phishing.
 
-But because passwordless email logins with magic links include a link in the email that logs a user into your site, a hacker could use it to create a fraudulent imitation of your legitimate email to trick unsuspecting users into divulging their account credentials for some other site - say, their email account.
+Since passwordless email logins with *magic links* include a link in the email that logs a user into your site, a hacker could use it to create a fraudulent imitation of your legitimate email to trick unsuspecting users into divulging their account credentials for some other site like their email account.
 
-There are several effective ways to reduce this risk. One is through education: your email to your users might include the warnings to not click the link unless they just requested to log in, and that they will never be asked for any password when logging into your site.
+There are several effective ways to reduce this risk. One is through education. The email to your users might include a warning not to click the link unless they recently requested to log in, and a notice that they will never be asked for any password when logging into your site.
 
-Another important step is to use best practices for email authentication when using this feature. There are popular and effective standards for verifying email authenticity including SPF, DKIM, and DMARC. We strongly recommend utilizing these capabilities by [configuring your own email provider](https://auth0.com/docs/email) when you set up passwordless logins, including setting up [SPF and DKIM records](https://auth0.com/docs/email#spf-configuration). Your email provider may have more detailed information on email authentication and deliverability for you to investigate.
+Another way is to use best practices for email authentication when using this feature. There are popular and effective standards for verifying email authenticity including **SPF**, **DKIM**, and **DMARC**. We strongly recommend utilizing these capabilities by [configuring your own email provider](https://auth0.com/docs/email) when you set up passwordless logins, including setting up [SPF and DKIM records](https://auth0.com/docs/email#spf-configuration). Your email provider may have more detailed information on email authentication and deliverability for you to explore.
 
-The good news is that since you’re using Auth0 passwordless logins, you have no passwords to phish. This means that phishing attacks cannot compromise credentials to your site or application. But whenever email is a component of an authentication flow, there is the potential for phishing - in this case, aimed at harvesting other credentials. Using email authentication helps protect your brand and online reputation, while foiling scammers. Highly recommended.
+Since you are using Auth0 passwordless logins, you have no passwords to phish, which means that phishing attacks cannot compromise the credentials to your site or application. This is great news. Whenever email is a component of an authentication flow however, there is always the potential for phishing (if only for harvesting the credentials of other sites, as in this case). Using email authentication helps protect your brand and online reputation, while foiling scammers. Highly recommended.
 
-### Q: How does the system protect against brute-force attacks (guessing codes)?
+### Q: How does the system protect against brute-force attacks (code guessing)?
 
-**A:** 6-digit numeric codes are one-time use and expire in only a short time - 5 minutes by detault. In addition, Auth0 includes rate limiting and IP address blocking for too many failed attempts. Accordingly it is not practical to brute-force guess these codes. If someone tries, the application owner will be notified by email of the attempt, and in case it is a legitimate user, the owner can unblock that IP address again.
+**A:** 6-digit numeric codes are one-time use and expire in a short time (5 minutes by default). In addition, Auth0 includes rate limiting and IP address blocking after several failed attempts. Accordingly, it is not practical to brute-force guess these codes. The application owner will be notified by email of any attempt and, if it is the legitimate user, can unblock that IP address.
