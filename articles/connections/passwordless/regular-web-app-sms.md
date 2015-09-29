@@ -26,7 +26,7 @@ You can then trigger the login widget with the following code:
 function loginSMS() {
   lock.sms( {callbackURL: '${account.callback}'} );
 }
-```	
+```
 
 This will open a dialog that asks the user for a phone number.
 
@@ -40,7 +40,7 @@ Lock will ask for the code that has been sent over the text message to the given
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-After the user enters the code he received by sms, lock will authenticate him and redirect him to the `callbackURL` you specified before. You can follow any of the [Regular Web App Quickstarts](/aquickstart/webapp) to see how to handle the authentication callback server side.
+After the user enters the code he received by sms, lock will authenticate him and redirect him to the `callbackURL` you specified before. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
 
 > A sample application is available in [the Node.js Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-node-passwordless-sample).
 
@@ -60,7 +60,7 @@ function sendSMS(){
       alert('error sending SMS: '+ err.error_description);
       return;
     }
-    // the request was successful and you should 
+    // the request was successful and you should
     // receive the passcode to the specified phone
     $('.enter-phone').hide();
     $('.enter-code').show();
