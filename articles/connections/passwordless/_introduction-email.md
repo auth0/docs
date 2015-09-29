@@ -1,13 +1,13 @@
-With the e-mail connection users are requested to enter their e-mail address after which Auth0 will send an email to the user containing the one time code. 
+With the e-mail connection, the user is requested to enter their e-mail address. Auth0 then sends an email to that address containing a one-time code.
 
-After entering the code in your application, the user will be created in the `email` connection and then authenticated. 
+Once the user enters this code into your application, a new user will be created in the `email` connection. The user is then authenticated by Auth0.
 
 ![](/media/articles/connections/passwordless/passwordless-create-user-flow.png)
 
-If the user already exists, we will just authenticate the user:
+If the e-mail address matches an existing user, Auth0 just authenticates the user:
 
 ![](/media/articles/connections/passwordless/passwordless-authenticated-flow.png)
 
 <% if (isMobile) { %> 
-On mobile platforms this means your application will receive an `id_token`, the user profile and optionally also a `refresh_token`.
+On mobile platforms, your application will receive an `id_token`, the user profile and, optionally, a `refresh_token`.
 <% } %>
