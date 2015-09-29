@@ -34,7 +34,7 @@ As implied above, User Profile attributes may come from multiple sources.  A cor
 
 Auth0 supports a wide variety of Connections (authentication providers).  Each connection may return a somewhat different set of attributes about the user and each provider may use different names for the same basic attribute, such as *surname*, *last name* and *family name*.  This would add a lot of complexity to programs but fortunately Auth0 provides a normalized User Profile.  This means that Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve specific information such as `user_id`, `name`, `nickname`, and `picture`.  If available from the Connection, additional attributes such as `given_name` and `family_name` are also included in the normalized Auth0 User Profile.
 
-More information on the normalized Auth0 User Profile and the additional attributes returned by different Connection can be found on the [Normalized User Profile](/user-profile) page. You can also check out a [recent blog post](https://auth0.com/blog/2015/04/15/update-of-the-user-details-section/) that describes the User Profile.
+More information on the normalized Auth0 User Profile and the additional attributes returned by different Connection can be found on the [Normalized User Profile](normalized) page. You can also check out a [recent blog post](https://auth0.com/blog/2015/04/15/update-of-the-user-details-section/) that describes the User Profile.
 
 ## Caching of the User Profile in Auth0
 
