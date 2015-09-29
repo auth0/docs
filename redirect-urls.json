@@ -468,15 +468,15 @@
     "to": "/quickstart/spa/vanillajs/:client"
   },
   {
-    "from": "quickstart/native-mobile/wpf-winforms/aspnetweb-api",
-    "to": "quickstart/native-mobile/wpf-winforms/aspnet-webapi"
+    "from": "/quickstart/native-mobile/wpf-winforms/aspnetweb-api",
+    "to": "/quickstart/native-mobile/wpf-winforms/aspnet-webapi"
   },
   {
-    "from": "quickstart/native-mobile/:platform/laravel-api",
-    "to": "quickstart/native-mobile/:platform/php-laravel"
+    "from": "/quickstart/native-mobile/:platform/laravel-api",
+    "to": "/quickstart/native-mobile/:platform/php-laravel"
   },
   {
-    "from": "quickstart/native-mobile/:platform/rails-api",
-    "to": "quickstart/native-mobile/:platform/rails"
+    "from": "/quickstart/native-mobile/:platform/rails-api",
+    "to": "/quickstart/native-mobile/:platform/rails"
   }
 ]
