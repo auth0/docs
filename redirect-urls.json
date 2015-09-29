@@ -470,5 +470,9 @@
   {
     "from": "quickstart/native-mobile/wpf-winforms/aspnetweb-api",
     "to": "quickstart/native-mobile/wpf-winforms/aspnet-webapi"
+  },
+  {
+    "from": "quickstart/native-mobile/:platform/laravel-api",
+    "to": "quickstart/native-mobile/:platform/php-laravel"
   }
 ]
