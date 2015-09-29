@@ -34,7 +34,7 @@ As implied above, User Profile attributes may come from multiple sources.  A cor
 
 Auth0 supports a wide variety of Connections (authentication providers).  Each connection may return a somewhat different set of attributes about the user and each provider may use different names for the same basic attribute, such as *surname*, *last name* and *family name*.  This would add a lot of complexity to programs but fortunately Auth0 provides a normalized User Profile.  This means that Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve specific information such as `user_id`, `name`, `nickname`, and `picture`.  If available from the Connection, additional attributes such as `given_name` and `family_name` are also included in the normalized Auth0 User Profile.
 
-More information on the normalized Auth0 User Profile and the additional attributes returned by different Connection can be found on the [Normalized User Profile](normalized) page. You can also check out a [recent blog post](https://auth0.com/blog/2015/04/15/update-of-the-user-details-section/) that describes the User Profile.
+More information on the normalized Auth0 User Profile and the additional attributes returned by different Connection can be found on the [Normalized User Profile](/user-profile/normalized) page. You can also check out a [recent blog post](https://auth0.com/blog/2015/04/15/update-of-the-user-details-section/) that describes the User Profile.
 
 ## Caching of the User Profile in Auth0
 
@@ -44,7 +44,7 @@ The User Profile information is cached in Auth0 for several reasons, including t
 
 ## Structure of User Profile Data
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](https://manage.auth0.com/#/users) in the Auth0 Dashboard and then on a particular user.  
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](https://manage.auth0.com/#/users) in the Auth0 Dashboard and then on a particular user.
 
 At the top of "Details" will be the core User Profile object with basic information such as name, email, country (if available), latest login and a few other fields.  The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.  For example, the Google Social Connection also returns the gender attribute.
 
@@ -171,6 +171,6 @@ Apps/APIs -> {name of app} - Addons -> SAML2 Web App -> Settings
 
 ## User Profile with Account Linking
 
-Users may log into an application initially via one Connection (example: a Database), and then at a later time, via another Connection (example: Facebook).  In this case, the `user_id` for the second  authentication will be different from that for the first authentication.  Auth0 provides a mechanism to link the two accounts.  If this is done, the `identities` array portion of the User Profile will have multiple elements, one for each provider for which account linking has been done.  Note that the User Profile attributes from the multiple providers are not merged.  The core User Profile attributes will be sourced from the first provider used.  
+Users may log into an application initially via one Connection (example: a Database), and then at a later time, via another Connection (example: Facebook).  In this case, the `user_id` for the second  authentication will be different from that for the first authentication.  Auth0 provides a mechanism to link the two accounts.  If this is done, the `identities` array portion of the User Profile will have multiple elements, one for each provider for which account linking has been done.  Note that the User Profile attributes from the multiple providers are not merged.  The core User Profile attributes will be sourced from the first provider used.
 
 Information on linking accounts and examples of profiles in this case is [here](/link-accounts).
