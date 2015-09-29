@@ -16,7 +16,7 @@ For frequently visited sites, passwordless authentication offers a streamlined a
 
 Websites and web applications are trending toward longer session expirations so that users are not asked to login frequently, behaving more like a native app on a mobile device. Then, when a user initiates a sensitive operation, they are asked for step-up authentication such as a one-time password or a code from an authentication app like Google Authenticator. Auth0’s passwordless authentication takes the same approach. Like the `sudo` command on Linux, when you are doing something that requires elevated privileges, you get an extra challenge. Simple and effective, this procedure eliminates the hassle of multi-factor authentication except when necessary.
 
-### Q: Is it difficult for users to become used to passwordless sign in?
+### Q: Is it difficult for users to become used to passwordless login?
 
 **A:** Passwordless login is so simple that most users will immediately get it. The user experience is nearly effortless, especially with *magic links* in emails or Apple *Touch ID*. For most end-users, a passwordless login is easier than recalling a hard-to-remember password.
 
@@ -66,7 +66,7 @@ If this is likely to be a common scenario for your end-users, you might want to 
 
 If you need more control, you can implement your own UI and call any of the passwordless connections through the [Auth0 JavaScript SDK](https://github.com/auth0/auth0.js).
 
-### Q: How do I select which high-volume messaging provider passwordless sign-ins will use? What are my options?
+### Q: How do I select which high-volume messaging provider passwordless logins will use? What are my options?
 
 **A:** By default, your passwordless connections will be set-up to use Auth0’s messaging provider. However, this limits your ability to monitor and manage deliverability, troubleshoot issues, and connect to analytics. Accordingly, we recommend that you set up your own high-volume email or SMS provider.
 
@@ -124,7 +124,7 @@ Auth0’s standard Lock widget for IOS fully supports *Touch ID* with a very sim
 
 In future versions of passwordless logins, support for multi-factor *step-up* authentication will be added as part of the configuration options for passwordless, replacing the use of rules to implement this security enhancement.
 
-### Q: Since users can click a link to sign in, how can I prevent a phishing attack in which the user receives a fraudulent email that looks legitimate, but contains a link to a site that tricks them into giving up their credentials?
+### Q: Since users can click a link to log in, how can I prevent a phishing attack in which the user receives a fraudulent email that looks legitimate, but contains a link to a site that tricks them into giving up their credentials?
 
 **A:** Phishing attacks are about stealing credentials (user-names and passwords) through trickery. If there are no passwords to steal, these attacks ultimately become much less prevalent. Passwordless logins are a big step in reducing the prevalence of phishing.
 
