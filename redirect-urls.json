@@ -474,5 +474,9 @@
   {
     "from": "quickstart/native-mobile/:platform/laravel-api",
     "to": "quickstart/native-mobile/:platform/php-laravel"
+  },
+  {
+    "from": "quickstart/native-mobile/:platform/rails-api",
+    "to": "quickstart/native-mobile/:platform/rails"
   }
 ]
