@@ -15,18 +15,27 @@ alias:
 
 <%= include('./_setup-email') %>
 
-<%= include('../../client-platforms/_callback') %>
+<%= include('./_setup-callback', {spa:false} )%>
 
-## Use Auth0 UI widget (Lock)
+## Implementation
+
+### Use Auth0 UI widget (Lock)
 
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the login, using the callbackURL option for specifying the endpoint that will handle the authentication server side:
 
-```js
-function login(){
-  lock.emailcode( {callbackURL: '#{env.AUTH0_CALLBACK_URL}'} );
-}
+```
+<script src="${lock_passwordless_url}"></script>
+<script type="text/javascript">
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open Lock in Email Code mode
+    lock.emailcode( {callbackURL: '${account.callback}'} );
+  }
+</script>
+<a href="javascript:login()">Login</a>
 ```
 
 This will first open a dialog that asks the user for an email address. 
@@ -45,11 +54,11 @@ After the user enters the code he received by email, lock will authenticate him 
 
 > A sample application is available in [the Node.js Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-node-passwordless-sample).
 
-## Use your own UI
+### Use your own UI
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
-<%= include('./_init-auth0js') %>
+<%= include('./_init-auth0js', {withCallbackURL:true} ) %>
 
 You will have to provide a way for the user to enter the email to which the one time code will be sent. Then you can start the passwordless authentication like this:
 

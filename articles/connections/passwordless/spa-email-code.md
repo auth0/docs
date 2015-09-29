@@ -15,29 +15,35 @@ alias:
 
 <%= include('./_setup-email') %>
 
-<%= include('../../client-platforms/_callback') %>
+<%= include('./_setup-cors') %>
 
-## Use Auth0 UI widget (Lock)
+## Implementation
+
+### Use Auth0 UI widget (Lock)
 
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the login like this:
 
-```js
-function login(){
-  // Open the lock in Email Code mode with the ability to handle
-  // the authentication in page
-  lock.emailcode((err, profile, id_token, state) => {
-    if (!err) {
 
-      // Save the JWT token.
-      localStorage.setItem('userToken', id_token);
-
-      //use profile
-
-    }
-  });
-}
+```
+<script src="${lock_passwordless_url}"></script>
+<script type="text/javascript">
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Code mode with the ability to handle
+    // the authentication in page
+    lock.emailcode( function (err, profile, id_token, state) {
+      if (!err) {
+        // Save the JWT token.
+        localStorage.setItem('userToken', id_token);
+        //use profile
+      }
+    });
+  }
+</script>
+<a href="javascript:login()">Login</a>
 ```
 
 This will first open a dialog that asks the user for an email address.
@@ -54,11 +60,11 @@ Then, it will ask for a code that has been sent in an email to the given address
 
 After the user enters the code he received by email, lock will authenticate it and call the callback function, where you will have the the id_token and profile available.
 
-## Use your own UI
+### Use your own UI
 
 You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
-<%= include('./_init-auth0js') %>
+<%= include('./_init-auth0js', {withCallbackURL:false} ) %>
 
 You will have to provide a way for the user to enter the email to which the one time code will be sent. Then you can start the passwordless authentication like this:
 
