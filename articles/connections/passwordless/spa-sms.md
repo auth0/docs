@@ -16,6 +16,8 @@ alias:
 
 <%= include('./_setup-sms-twilio') %>
 
+<%= include('./_setup-cors') %>
+
 ## Implementation
 
 ### Use Auth0 UI widget (Lock)
@@ -58,7 +60,7 @@ If the code is correct, the user will be authenticated. This will call the callb
 
 You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
-<%= include('./_init-auth0js') %>
+<%= include('./_init-auth0js', {withCallbackURL:false} ) %>
 
 You will have to provide a way for the user to enter the phone number to which the SMS will be sent. Then you can start the passwordless authentication like this:
 

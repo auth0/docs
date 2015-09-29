@@ -6,8 +6,8 @@ Construct a new instance of the Auth0 client as follows:
   'use strict';
   const auth0 = new Auth0({
     clientID: '${account.clientId}',
-    domain: '${account.namespace}',
-    callbackURL: '${account.callback}'
+    domain: '${account.namespace}'<% if (withCallbackURL) { %>,
+    callbackURL: '${account.callback}'<%}%>
   });
   //...
 </script>

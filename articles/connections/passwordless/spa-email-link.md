@@ -14,9 +14,11 @@ alias:
 
 <%= include('./_setup-email') %>
 
-<%= include('../../client-platforms/_callback') %>
+<%= include('./_setup-callback', {spa:true} ) %>
 
-## Use Auth0 UI widget (Lock)
+## Implementation
+
+### Use Auth0 UI widget (Lock)
 
 <%= include('./_init-passwordless-lock') %>
 
@@ -52,11 +54,11 @@ $(document).ready(function(){
 });
 ```
 
-## Use your own UI
+### Use your own UI
 
 You can perform passwordless authentication with a magic link in your single page application using your own UI with [auth0-js](/libraries/auth0js).
 
-<%= include('./_init-auth0js') %>
+<%= include('./_init-auth0js', {withCallbackURL:false} ) %>
 
 You can then trigger the passwordless login using a magic link like this:
 
