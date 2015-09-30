@@ -33,7 +33,7 @@ alias:
 
 Then you can trigger the login like this:
 
-```
+```html
 <script src="${lock_passwordless_url}"></script>
 <script type="text/javascript">
   function login(){

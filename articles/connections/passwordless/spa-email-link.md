@@ -32,10 +32,17 @@ alias:
 
 Then you can trigger the passwordless authentication using a magic like this:
 
-```js
-function login(){
-  lock.magiclink();
-}
+```html
+<script src="${lock_passwordless_url}"></script>
+<script type="text/javascript">
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Magic Link mode
+    lock.magiclink();
+  }
+</script>
+<a href="javascript:login()">Login</a>
 ```
 
 The user will receive an email with the magic link. When the user clicks on this link, Auth0 will do the authentication and redirect back to the application with the token in the hash location. You can parse the hash and retrieve the full user profile as follows:

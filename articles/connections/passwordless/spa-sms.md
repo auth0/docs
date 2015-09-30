@@ -34,18 +34,26 @@ alias:
 
 You can then trigger the login widget with the following code:
 
-```js
-function signin () {
-  var appearanceOpts = {
-    autoclose: true
-  };
-  // Open the lock in SMS mode with the ability to handle the authentication in page
-  lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
-    if (!error) {
-      //usually save profile and id_token
-    }
-  });
-};
+```html
+<script src="${lock_passwordless_url}"></script>
+<script type="text/javascript">
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Code mode with the ability to handle
+    // the authentication in page
+    var appearanceOpts = {
+      autoclose: true
+    };
+    // Open the lock in SMS mode with the ability to handle the authentication in page
+    lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
+      if (!error) {
+        //usually save profile and id_token
+      }
+    });
+  }
+</script>
+<a href="javascript:login()">Login</a>
 ```
 
 This will open a dialog that asks the user for a phone number.
