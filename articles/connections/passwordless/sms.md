@@ -22,5 +22,5 @@ alias:
 
 ## Mobile Tutorials
 
- - iOS [ [Swift](ios-sms-swift) | [Objective-C](ios-sms-objc) ]
+ - [iOS](ios-sms-swift)
  - [Android](android-sms)

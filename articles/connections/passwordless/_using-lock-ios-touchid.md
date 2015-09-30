@@ -90,3 +90,5 @@ Then to start authentication, just add this line
 self.authentication.start()
 ```
 <% } %>
+
+<%= include('./_sample-link-ios') %>

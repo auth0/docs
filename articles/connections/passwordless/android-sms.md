@@ -108,3 +108,4 @@ client.smsLogin(phoneNumber, passcode, authenticationParameters, new Authenticat
     }
 });
 ```
+<%= include('./_sample-link-android') %>

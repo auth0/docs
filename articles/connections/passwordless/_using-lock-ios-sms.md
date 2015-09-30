@@ -47,3 +47,5 @@ After having started the passwordless login you will need to ask the user for th
 <% } %>
 
 Finally when the user is authenticated you'll be able to access the user profile and the tokens returned by Auth0.
+
+<%= include('./_sample-link-ios') %>

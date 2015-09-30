@@ -28,9 +28,9 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 
 ### Passwordless on iOS
 
- - [Authenticate users with a one time code via SMS](/connections/passwordless/ios-sms-objc) ([Swift](/connections/passwordless/ios-sms-swift) | [ObjC](/connections/passwordless/ios-sms-objc))
- - [Authenticate users with a one time code via e-mail](/connections/passwordless/ios-email-objc) ([Swift](/connections/passwordless/ios-email-swift) | [ObjC](/connections/passwordless/ios-email-objc))
- - [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-objc) ([Swift](/connections/passwordless/ios-touch-id-swift) | [ObjC](/connections/passwordless/ios-touch-id-objc))
+ - [Authenticate users with a one time code via SMS](/connections/passwordless/ios-sms-swift)
+ - [Authenticate users with a one time code via e-mail](/connections/passwordless/ios-email-swift)
+ - [Authenticate users with Touch ID](/connections/passwordless/ios-touch-id-swift)
 
 ### Passwordless on Android
 

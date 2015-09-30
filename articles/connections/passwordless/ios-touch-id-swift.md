@@ -1,5 +1,5 @@
 ---
-title: Passwordless Authentication on iOS with Touch ID (Objective-C)
+title: Passwordless Authentication on iOS with Touch ID (Swift)
 connection: iOS Touch ID
 image: /media/connections/touchid.svg
 alias:

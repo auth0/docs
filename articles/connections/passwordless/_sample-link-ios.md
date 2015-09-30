@@ -1,0 +1,1 @@
+> Sample applications are available in [the Auth0 iOS Samples repository on GitHub](https://github.com/auth0/Mobile-Samples.ios).

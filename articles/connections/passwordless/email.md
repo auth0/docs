@@ -27,5 +27,5 @@ alias:
 
 ## Mobile Tutorials
 
- - iOS [ [Swift](ios-email-swift) | [Objective-C](ios-email-objc) ]
+ - [iOS](ios-email-swift)
  - [Android](android-email)

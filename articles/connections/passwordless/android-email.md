@@ -116,3 +116,5 @@ client.emailLogin(email, passcode, authenticationParameters, new AuthenticationC
 <%= include('./_introduction-email-magic-link') %>
 
 The next version of the Android library will also support this.
+
+<%= include('./_sample-link-android') %>
