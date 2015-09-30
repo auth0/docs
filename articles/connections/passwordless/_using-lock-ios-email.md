@@ -1,4 +1,4 @@
-# Authenticate users with a one time code via e-mail
+# Authenticate users with a one-time code via e-mail
 
 <%= include('./_ios-language-picker') %>
 
@@ -10,7 +10,7 @@
 
 ## Implementation
 
-### Using the Auth0 Lock
+### Using Auth0 Lock
 
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
@@ -22,15 +22,15 @@
 
 <%= include('./_using-lock-email', { platform: 'ios' }) %>
 
-This will call the `onAuthenticationBlock` where you'll typically store the `id_token`, `refresh_token` and user profile after which the user will be able to continue to the authenticated part of the application.
+This code will call `onAuthenticationBlock`, where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-ios.png)
 
-> A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Lock/A0HomeViewController.m).
+**NOTE:** A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Lock/A0HomeViewController.m).
 
 ### Using your own UI
 
-If you choose to build your own UI you'll need to start by asking your users for their email address and call the following method
+If you choose to build your own UI, your code will need to ask the user for their email address first. Then call the following method:
 
 <% if (language === "objc") { %>
 <%= include('./_email-send-code-objc') %>
@@ -38,7 +38,7 @@ If you choose to build your own UI you'll need to start by asking your users for
 <%= include('./_email-send-code-swift') %>
 <% } %>
 
-After having started the passwordless login you will need to ask the user for the one time code and authenticate using that code:
+After the passwordless login process begins, ask the user for the one-time code. Then authenticate using that code:
 
 <% if (language === "objc") { %>
 <%= include('./_email-login-objc') %>
@@ -50,6 +50,6 @@ After having started the passwordless login you will need to ask the user for th
 
 <%= include('./_introduction-email-magic-link') %>
 
-The next version of the iOS library will support these links through iOS 9 Universal Links. When users click the magic link they receive on their device it will automatically open your application and sign in the user (instead of opening the browser when clicking the link).
+The next version of the iOS library will support magic links through iOS 9 Universal Links. When a user clicks a magic link they have received on their device, the link will automatically open your application (instead of opening in the browser) and sign in the user.
 
-Finally when the user is authenticated you'll be able to access the user profile and the tokens returned by Auth0.
+Lastly, once the user is authenticated, your app will be able to access the user profile and tokens returned by Auth0.
