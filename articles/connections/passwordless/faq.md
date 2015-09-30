@@ -32,7 +32,7 @@ One option is to offer users several popular social logins, and offer passwordle
 
 **A:** There is no extra charge to use this feature. Passwordless authentication is included free with every Auth0 developer account, subscription, and custom plan.
 
-##How to use and configure Passwordless
+## How to use and configure Passwordless
 
 ### Q: What are the advantages of using *magic links*?
 
