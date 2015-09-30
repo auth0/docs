@@ -7,17 +7,17 @@ alias:
   - android
 ---
 
-## Passwordless Authentication with a one time code via SMS
+# Authenticate users with a one-time code via SMS
 
 <%= include('./_introduction-sms', { isMobile: true }) %>
 
-### Setup
+## Setup
 
 <%= include('./_setup-sms-twilio') %>
 
-### Implementation
+## Implementation
 
-### Using the Auth0 Lock
+### Using Auth0 Lock
 
 <%= include('../../_includes/package', {
   pkgRepo: 'Mobile-Samples.Android',
@@ -29,13 +29,13 @@ alias:
 
 <%= include('./_introduction-lock', { repository: 'Lock.Android', platform: 'Android', docsUrl: 'lock-android' }) %>
 
-Start by adding the Lock SMS library to your `build.gradle` file:
+Begin by adding the Lock SMS library to your `build.gradle` file:
 
 ```
 compile 'com.auth0.android:lock-sms:1.10.+'
 ```
 
-When a user authenticates successfully, LockActivity will send an Action using LocalBroadcaster manager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
+Once the user is successfully authenticated, LockActivity will send an Action using LocalBroadcasterManager and then end itself by calling finish(). The activity that will receive this Action and will show Lock needs to register a listener in the LocalBroadcastManager:
 
 ```java
 // This activity will show Lock
@@ -81,7 +81,7 @@ startActivity(smsIntent);
 
 ### Using your own UI
 
-If you choose to build your own UI you'll need to start by asking your users for their phone number and call `requestSMSVerificationCode` on the `APIClient`
+If you choose to build your own UI, first ask the user for their phone number. Then call `requestSMSVerificationCode` on the `APIClient`
 
 ```java
 final APIClient client = lock.getAPIClient();
@@ -98,7 +98,7 @@ client.requestSMSVerificationCode(phoneNumber, new BaseCallback<Void>() {
 });
 ```
 
-After having started the passwordless login you will need to ask the user for the one time code and authenticate using that code:
+Once the passwordless login process begins, ask the user for the one-time code. Then authenticate using that code:
 
 ```java
 final APIClient client = lock.getAPIClient();
