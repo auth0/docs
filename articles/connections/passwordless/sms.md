@@ -7,7 +7,7 @@ alias:
   - sms
 ---
 
-# Authenticate users with a one time code via SMS
+# Authenticate users with a one-time code via SMS
 
 <%= include('./_introduction-sms', { isMobile: false }) %>
 
@@ -17,7 +17,7 @@ alias:
 
 ## Web Tutorials
 
- - [Single Page Applications](spa-sms)
+ - [Single-page Applications](spa-sms)
  - [Regular Web Applications](regular-web-app-sms)
 
 ## Mobile Tutorials
