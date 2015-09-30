@@ -2,6 +2,6 @@
 public: false
 ---
 
-Auth0 Lock Passwordless is a professional looking dialog that allows users to log in by receiving a one-time password via email or text message.
+Auth0 Lock Passwordless is a professional-looking dialog that allows users to log in after receiving a one-time password via email or text message.
 
-After installing [Lock Passwordless](https://github.com/auth0/lock-passwordless) you will have to initialize it with your clientId and domain. You can find this information at your [application settings](${uiAppSettingsURL}).
+After installing [Lock Passwordless](https://github.com/auth0/lock-passwordless), you must initialize it with your `Client Id` and `domain`. You can find this information on your [application settings](${uiAppSettingsURL}) page.
