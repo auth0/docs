@@ -21,12 +21,19 @@ alias:
 
 ### Use Auth0 UI widget (Lock)
 
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
+
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the login like this:
 
-
-```
+```html
 <script src="${lock_passwordless_url}"></script>
 <script type="text/javascript">
   function login(){
@@ -61,6 +68,14 @@ Then, it will ask for a code that has been sent in an email to the given address
 After the user enters the code he received by email, lock will authenticate it and call the callback function, where you will have the the id_token and profile available.
 
 ### Use your own UI
+
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
@@ -107,4 +122,3 @@ function login(){
     });
 }
 ```
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).

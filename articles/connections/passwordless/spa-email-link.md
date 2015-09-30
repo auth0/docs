@@ -20,14 +20,29 @@ alias:
 
 ### Use Auth0 UI widget (Lock)
 
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
+
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the passwordless authentication using a magic like this:
 
-```js
-function login(){
-  lock.magiclink();
-}
+```html
+<script src="${lock_passwordless_url}"></script>
+<script type="text/javascript">
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Magic Link mode
+    lock.magiclink();
+  }
+</script>
+<a href="javascript:login()">Login</a>
 ```
 
 The user will receive an email with the magic link. When the user clicks on this link, Auth0 will do the authentication and redirect back to the application with the token in the hash location. You can parse the hash and retrieve the full user profile as follows:
@@ -55,6 +70,14 @@ $(document).ready(function(){
 ```
 
 ### Use your own UI
+
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 You can perform passwordless authentication with a magic link in your single page application using your own UI with [auth0-js](/libraries/auth0js).
 
@@ -99,5 +122,3 @@ $(document).ready(function(){
   }
 });
 ```
-
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).

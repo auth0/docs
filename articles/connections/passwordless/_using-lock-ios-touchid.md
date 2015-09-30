@@ -18,6 +18,24 @@ The private key is stored in the keystore of the device. Each time a user initia
 
 ### Using the Auth0 Lock
 
+<% if (language === "objc") { %>
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.iOS',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-TouchID/Lock/ObjC',
+  pkgFilePath: 'Passwordless-TouchID/Lock/ObjC/Passwordless-TouchID/Info.plist',
+  pkgType: 'replace' + account.clientParam
+}) %>
+<% } else { %>
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.iOS',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-TouchID/Lock/Swift',
+  pkgFilePath: 'Passwordless-TouchID/Lock/Swift/Passwordless-TouchID/Info.plist',
+  pkgType: 'replace' + account.clientParam
+}) %>
+<% } %>
+
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 <% if (language === "objc") { %>
@@ -90,5 +108,3 @@ Then, to begin authentication, add this line:
 self.authentication.start()
 ```
 <% } %>
-
-<%= include('./_sample-link-ios') %>

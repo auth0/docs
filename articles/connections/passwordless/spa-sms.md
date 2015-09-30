@@ -22,22 +22,38 @@ alias:
 
 ### Use Auth0 UI widget (Lock)
 
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
+
 <%= include('./_init-passwordless-lock') %>
 
 You can then trigger the login widget with the following code:
 
-```js
-function signin () {
-  var appearanceOpts = {
-    autoclose: true
-  };
-  // Open the lock in SMS mode with the ability to handle the authentication in page
-  lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
-    if (!error) {
-      //usually save profile and id_token
-    }
-  });
-};
+```html
+<script src="${lock_passwordless_url}"></script>
+<script type="text/javascript">
+  function login(){
+    // Initialize Passwordless Lock instance
+    var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+    // Open the lock in Email Code mode with the ability to handle
+    // the authentication in page
+    var appearanceOpts = {
+      autoclose: true
+    };
+    // Open the lock in SMS mode with the ability to handle the authentication in page
+    lock.sms(appearanceOpts,function (error, profile, id_token, access_token, state, refresh_token) {
+      if (!error) {
+        //usually save profile and id_token
+      }
+    });
+  }
+</script>
+<a href="javascript:login()">Login</a>
 ```
 
 This will open a dialog that asks the user for a phone number.
@@ -54,9 +70,15 @@ Lock will ask for the code that has been sent over the text message to the given
 
 If the code is correct, the user will be authenticated. This will call the callback of the `lock.sms` function where you'll typically store the `id_token`, `refresh_token` and user profile after which the user will be able to continue to the authenticated part of the application. 
 
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).
-
 ### Use your own UI
+
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
@@ -99,5 +121,3 @@ function login(){
   });
 };
 ```
-
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).

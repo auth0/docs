@@ -19,6 +19,14 @@ alias:
 
 ### Using the Auth0 Lock
 
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.Android',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-SMS/Lock',
+  pkgFilePath: 'Passwordless-SMS/Lock/app/src/main/res/values/auth0.xml',
+  pkgType: 'replace' + account.clientParam
+}) %>
+
 <%= include('./_introduction-lock', { repository: 'Lock.Android', platform: 'Android', docsUrl: 'lock-android' }) %>
 
 Start by adding the Lock SMS library to your `build.gradle` file:
@@ -71,8 +79,6 @@ startActivity(smsIntent);
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-android.png)
 
-> A sample application is available in [the Lock.Android repository on GitHub](https://github.com/auth0/Lock.Android/tree/master/app/src/main).
-
 ### Using your own UI
 
 If you choose to build your own UI you'll need to start by asking your users for their phone number and call `requestSMSVerificationCode` on the `APIClient`
@@ -108,4 +114,3 @@ client.smsLogin(phoneNumber, passcode, authenticationParameters, new Authenticat
     }
 });
 ```
-<%= include('./_sample-link-android') %>

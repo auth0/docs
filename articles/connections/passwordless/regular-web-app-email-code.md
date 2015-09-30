@@ -21,6 +21,14 @@ alias:
 
 ### Use Auth0 UI widget (Lock)
 
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-node-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
+
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the login, using the callbackURL option for specifying the endpoint that will handle the authentication server side:
@@ -55,6 +63,14 @@ After the user enters the code he received by email, lock will authenticate him 
 > A sample application is available in [the Node.js Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-node-passwordless-sample).
 
 ### Use your own UI
+
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-node-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
+}) %>
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
 
@@ -94,5 +110,3 @@ function login(){
 ```
 
 If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
-
-> A sample application is available in [the Node.js Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-node-passwordless-sample).
