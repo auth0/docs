@@ -12,6 +12,24 @@
 
 ### Using Auth0 Lock
 
+<% if (language === "objc") { %>
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.iOS',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-Email/Lock/ObjC',
+  pkgFilePath: 'Passwordless-Email/Lock/ObjC/Passwordless-Email/Info.plist',
+  pkgType: 'replace' + account.clientParam
+}) %>
+<% } else { %>
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.iOS',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-Email/Lock/Swift',
+  pkgFilePath: 'Passwordless-Email/Lock/Swift/Passwordless-Email/Info.plist',
+  pkgType: 'replace' + account.clientParam
+}) %>
+<% } %>
+
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 <% if (language === "objc") { %>
@@ -25,8 +43,6 @@
 This code will call `onAuthenticationBlock`, where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-ios.png)
-
-**NOTE:** A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Lock/A0HomeViewController.m).
 
 ### Using your own UI
 
@@ -53,5 +69,3 @@ After the passwordless login process begins, ask the user for the one-time code.
 The next version of the iOS library will support magic links through iOS 9 Universal Links. When a user clicks a magic link they have received on their device, the link will automatically open your application (instead of opening in the browser) and sign in the user.
 
 Lastly, once the user is authenticated, your app will be able to access the user profile and tokens returned by Auth0.
-
-<%= include('./_sample-link-ios') %>

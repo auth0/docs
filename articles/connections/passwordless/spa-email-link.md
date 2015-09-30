@@ -20,6 +20,14 @@ alias:
 
 ### Use Auth0 UI widget (Lock)
 
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
+
 <%= include('./_init-passwordless-lock') %>
 
 Then you can trigger the passwordless authentication using a magic like this:
@@ -55,6 +63,14 @@ $(document).ready(function(){
 ```
 
 ### Use your own UI
+
+<%= include('../../_includes/package', {
+  pkgRepo: 'auth0-jquery-passwordless-sample',
+  pkgBranch: 'master',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
 
 You can perform passwordless authentication with a magic link in your single page application using your own UI with [auth0-js](/libraries/auth0js).
 
@@ -99,5 +115,3 @@ $(document).ready(function(){
   }
 });
 ```
-
-> A sample application is available in [the jQuery Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-jquery-passwordless-sample).

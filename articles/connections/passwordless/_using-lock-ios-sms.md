@@ -12,6 +12,24 @@
 
 ### Using Auth0 Lock
 
+<% if (language === "objc") { %>
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.iOS',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-SMS/Lock/ObjC',
+  pkgFilePath: 'Passwordless-SMS/Lock/ObjC/Passwordless-SMS/Info.plist',
+  pkgType: 'replace' + account.clientParam
+}) %>
+<% } else { %>
+<%= include('../../_includes/package', {
+  pkgRepo: 'Mobile-Samples.iOS',
+  pkgBranch: 'master',
+  pkgPath: 'Passwordless-SMS/Lock/Swift',
+  pkgFilePath: 'Passwordless-SMS/Lock/Swift/Passwordless-SMS/Info.plist',
+  pkgType: 'replace' + account.clientParam
+}) %>
+<% } %>
+
 <%= include('./_introduction-lock', { repository: 'Lock.iOS-OSX', platform: 'iOS', docsUrl: 'lock-ios' }) %>
 
 <% if (language === "objc") { %>
@@ -25,8 +43,6 @@
 This code will call `onAuthenticationBlock`, where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-ios.png)
-
-**NOTE:** A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Lock/A0HomeViewController.m).
 
 ### Using your own UI
 
@@ -47,5 +63,3 @@ After the passwordless login process begins, ask the user for the one-time code.
 <% } %>
 
 Lastly, once the user is authenticated, your app will be able to access the user profile and tokens returned by Auth0.
-
-<%= include('./_sample-link-ios') %>
