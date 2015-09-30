@@ -2,17 +2,17 @@
 
 <%= include('./_ios-language-picker') %>
 
-A feature specific to iOS is the support for Touch ID, which allows users to authenticate with their fingerprint (biometric authentication).
+A feature specific to iOS is the support for *Touch ID*, which allows users to authenticate with their fingerprint (biometric authentication).
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-start.png)
 
-During sign up the library will create a user in Auth0, create a key pair on the device and then upload the public key in the user.
+During sign-up, the library will generate a key pair on the device, create a user in Auth0, and register the public key for the user:
 
 ![](/media/articles/connections/passwordless/passwordless-touchid-flow.png)
 
-The private key is stored in the keystore of the device. Each time the users try to authenticate, their fingerprint is used to retrieve fhe private key from the keystore, create a token, sign it with the private key and send it to Auth0. Auth0 will then return an `id_token`, the profile and optionally also a `refresh_token`.
+The private key is stored in the keystore of the device. Each time a user initiates authentication with a valid fingerprint, *Touch ID* retrieves the private key from the keystore, creates a token, signs it with the private key and sends it to Auth0. Auth0 then returns an `id_token`, the user profile and, optionally, a `refresh_token`.
 
-> You can use Touch ID with an iPhone 5s or later, iPad Air 2, or iPad mini 3 or later.
+**NOTE:** You can use Touch ID with an iPhone 5s or later, an iPad Air 2, or an iPad mini 3 or later.
 
 ## Implementation
 
@@ -26,13 +26,13 @@ The private key is stored in the keystore of the device. Each time the users try
 <%= include('./_touchid-controller-swift') %>
 <% } %>
 
-> A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/TouchID).
+**NOTE:** A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/TouchID).
 
 ### Using your own UI
 
-If you choose to build your own UI you'll also need to use our [TouchIDAuth](https://github.com/auth0/TouchIDAuth) library which will take care of the Touch ID specific features.
+If you choose to build your own UI, you must install our [TouchIDAuth](https://github.com/auth0/TouchIDAuth) library to handle the features specific to *Touch ID*.
 
-You will first start by signing up a user in a Database Connection:
+Begin by signing up a user in a Database Connection:
 
 <% if (language === "objc") { %>
 <%= include('./_touchid-signup-objc') %>
@@ -40,11 +40,11 @@ You will first start by signing up a user in a Database Connection:
 <%= include('./_touchid-signup-swift') %>
 <% } %>
 
-> You can generate a random password to avoid asking one to the user. He can later change it.
+**NOTE:** You can generate a random password to avoid asking the user for one at this time. The user can change it later.
 
-After the user signed up, you will use the `idToken` to register the public key for the user, that's what
+Once the user has signed up, use the `idToken` to register the public key for the user.
 
-First you need to a place to store a Auth0 API client with the token until you register the key, and a place to store the TouchID component:
+First, you will need a place to store an Auth0 API client with the token until you register the key, and a place to store the TouchID component:
 
 <% if (language === "objc") { %>
 <%= include('./_touchid-properties-objc') %>
@@ -52,7 +52,7 @@ First you need to a place to store a Auth0 API client with the token until you r
 <%= include('./_touchid-properties-swift') %>
 <% } %>
 
-Now we'll implement the following method to perform TouchID authentication
+Now implement the following method to perform TouchID authentication:
 
 <% if (language === "objc") { %>
 <%= include('./_touchid-login-method-objc') %>
@@ -60,7 +60,7 @@ Now we'll implement the following method to perform TouchID authentication
 <%= include('./_touchid-login-method-swift') %>
 <% } %>
 
-First let's create and store the API client
+Then create and store the API client:
 
 <% if (language === "objc") { %>
 <%= include('./_touchid-init-client-objc') %>
@@ -68,7 +68,7 @@ First let's create and store the API client
 <%= include('./_touchid-init-client-swift') %>
 <% } %>
 
-Now let's configure our TouchID Authentication component
+Now configure the TouchID Authentication component:
 
 <% if (language === "objc") { %>
 <%= include('./_touchid-configure-component-objc') %>
@@ -76,14 +76,14 @@ Now let's configure our TouchID Authentication component
 <%= include('./_touchid-configure-component-swift') %>
 <% } %>
 
-Then to start authentication, just add this line
+Then, to begin authentication, add this line:
 
 <% if (language === "objc") { %>
 ```objc
 [self.authentication start];
 ```
 
-> [The Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Pod/Classes/TouchID) shows in detail how the same flow was used to build the UI of the Lock.iOS - you can use this as an example if you wish to build your own UI for Touch ID authentication.
+**NOTE:** [The Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Pod/Classes/TouchID) shows in detail how this same flow was used to build the UI of the Lock.iOS. You can use this as an example to build your own UI for *Touch ID* authentication.
 
 <% } else { %>
 ```swift
