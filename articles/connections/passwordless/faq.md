@@ -4,11 +4,13 @@
 
 ### Q: When is passwordless authentication the best option for login? How does this feature improve the user experience?
 
-**A:** The number of passwords that users must remember has become overwhelming, and passwords that aren’t used frequently are often forgotten. When a user forgets their password, they must recover it through email using a process more cumbersome than Auth0’s simple, passwordless user experience. For less frequently used sites and apps, recovering a lost password is a normal, unpleasant experience for many users. To avoid the password recovery scramble, [nearly 60%](https://www.passwordboss.com/password-habits-survey-part-1/) of users admit to reusing passwords to help their memory, exposing them to risk.
+**A:** The number of passwords that users must remember has become overwhelming, and passwords that aren’t used frequently are often forgotten. When a user forgets their password, they must recover it through email using a process more cumbersome than Auth0’s simple, passwordless user experience. For many users, recovering a lost password for infrequently visited sites and apps is a common and unpleasant experience. 
+
+In a [recent survey](https://www.passwordboss.com/password-habits-survey-part-1/), 59% of users admit to reusing passwords because it is too difficult to remember them all. Although this habit avoids the password recovery scramble, it exposes these users to risk.
 
 Passwordless login is best for sites and apps where users maintain a presence but don’t visit often enough that they remember a unique password. This could encompass most of the Internet. For these sites, passwordless login creates a much better user experience and better security: no password resets or reuse, and no password database as a target for hackers.
 
-For frequently visited sites, passwordless authentication offers a streamlined and simple user experience. Many companies, such as Slack and [Medium](https://medium.com/the-story/signing-in-to-medium-by-email-aacc21134fcd), have embraced the passwordless login as a better way to guard the door.
+For frequently visited sites, passwordless authentication offers a streamlined and simple user experience. Many companies, such as Slack and [Medium](https://medium.com/the-story/signing-in-to-medium-by-email-aacc21134fcd), have embraced the passwordless login as more secure than passwords.
 
 ### Q: When is passwordless login not a good idea? What are its limitations?
 
