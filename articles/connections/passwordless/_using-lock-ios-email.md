@@ -53,3 +53,5 @@ After having started the passwordless login you will need to ask the user for th
 The next version of the iOS library will support these links through iOS 9 Universal Links. When users click the magic link they receive on their device it will automatically open your application and sign in the user (instead of opening the browser when clicking the link).
 
 Finally when the user is authenticated you'll be able to access the user profile and the tokens returned by Auth0.
+
+<%= include('./_sample-link-ios') %>
