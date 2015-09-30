@@ -31,7 +31,7 @@ alias:
 
 <%= include('./_init-passwordless-lock') %>
 
-Then you can trigger the login, using the callbackURL option for specifying the endpoint that will handle the authentication server side:
+Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the authentication on the server-side:
 
 ```html
 <script src="${lock_passwordless_url}"></script>
@@ -46,11 +46,13 @@ Then you can trigger the login, using the callbackURL option for specifying the 
 <a href="javascript:login()">Login</a>
 ```
 
-This will first open a dialog that asks the user for an email address.
+This will open a dialog that asks the user for their email address.
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
-Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in automatically in the application, and will be redirected to the specified `callbackURL`. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in to your application automatically and redirected to the specified `callbackURL`. 
+
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
 
 ### Use your own UI
 
@@ -62,11 +64,11 @@ Then Auth0 will send an email to the user containing the magic link. After click
   pkgType: 'server' + account.clientParam
 }) %>
 
-You can perform passwordless authentication in your regular web app with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
+You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('./_init-auth0js', {withCallbackURL:true} ) %>
 
-You will have to provide a way for the user to enter the email to which the magic link will be sent. Then you can start the passwordless authentication like this:
+You must provide a way for the user to enter an email to which the magic link will be sent. Then you can begin the passwordless authentication as follows:
 
 ```js
 function sendEmail(){
@@ -85,4 +87,6 @@ function sendEmail(){
 
 This will send an email containing the magic link.
 
-After clicking the link, the user will be signed in automatically in the application, and will be redirected to the `callbackURL` specified in the Auth0 constructor. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+After clicking the link, the user will be automatically signed in to your application and redirected to the `callbackURL` specified in the Auth0 constructor. 
+
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
