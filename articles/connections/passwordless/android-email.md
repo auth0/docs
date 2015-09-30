@@ -26,7 +26,7 @@ alias:
 Start by adding the Lock e-mail library to your `build.gradle` file:
 
 ```
-compile 'com.auth0.android:lock-email:1.7.+'
+compile 'com.auth0.android:lock-email:1.10.+'
 ```
 
 When a user authenticates successfully, LockActivity will send an Action using LocalBroadcaster manager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
