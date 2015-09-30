@@ -39,4 +39,4 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 
 ## Have Questions?
 
-You may find the answers on the [Auth0 Passwordless FAQ](/connection/passwordless/faq).
+You may find the answers on the [Auth0 Passwordless FAQ](/connections/passwordless/faq).
