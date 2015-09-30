@@ -8,7 +8,7 @@ alias:
   - single-page-app
 ---
 
-# Authenticate users with a one time code via SMS in a Regular Web App
+# Authenticate users with a one-time code via SMS in a Regular Web App
 
 <%= include('./_introduction-sms', { isMobile: false }) %>
 
@@ -32,7 +32,7 @@ alias:
 
 <%= include('./_init-passwordless-lock') %>
 
-You can then trigger the login widget with the following code:
+Then you can trigger the login widget with the following code:
 
 ```html
 <script src="${lock_passwordless_url}"></script>
@@ -47,19 +47,21 @@ You can then trigger the login widget with the following code:
 <a href="javascript:login()">Login</a>
 ```
 
-This will open a dialog that asks the user for a phone number.
+This will open a dialog that asks the user for their phone number.
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-phone-web.png)
 
-Then Auth0 will use Twilio to send an SMS to the user containing the one time code:
+Then Auth0 will use Twilio to send an SMS to the user containing the one-time code:
 
 ![](/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png)
 
-Lock will ask for the code that has been sent over the text message to the given number. The code will be used as a one-time password to log in:
+Lock will ask for the code that has been sent to the provided number via SMS. The code can then be used as a one-time password to log in:
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-After the user enters the code he received by sms, lock will authenticate him and redirect him to the `callbackURL` you specified before. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+Once the user enters the code received via SMS, Lock will authenticate the user and redirect to the specified `callbackURL`.
+
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback.
 
 ### Use your own UI
 
@@ -71,11 +73,11 @@ After the user enters the code he received by sms, lock will authenticate him an
   pkgType: 'server' + account.clientParam
 }) %>
 
-You can perform passwordless authentication in your regular web app with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
+You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('./_init-auth0js', {withCallbackURL:true} ) %>
 
-You will have to provide a way for the user to enter the phone number to which the one time code will be sent over SMS. Then you can start the passwordless authentication like this:
+You must provide a way for the user to enter a phone number to which the one-time code will be sent via SMS. Then you can begin the passwordless authentication as follows:
 
 ```js
 function sendSMS(){
@@ -93,7 +95,7 @@ function sendSMS(){
 }
 ```
 
-This will send an email containing the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
+This will send an email containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
 
 ```js
 function login(){
@@ -106,4 +108,6 @@ function login(){
 };
 ```
 
-If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. 
+
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.

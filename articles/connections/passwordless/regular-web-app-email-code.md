@@ -1,5 +1,5 @@
 ---
-title: Using Passwordless Authentication with a one time code via email on Regular Web Apps
+title: Using Passwordless Authentication with a one-time code via email on Regular Web Apps
 connection: Email
 image:
 alias:
@@ -7,7 +7,7 @@ alias:
   - regular-web-app
 ---
 
-# Passwordless Authentication with a one time code via e-mail on Regular Web Apps
+# Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
 
 <%= include('./_introduction-email', { isMobile: false }) %>
 
@@ -31,7 +31,7 @@ alias:
 
 <%= include('./_init-passwordless-lock') %>
 
-Then you can trigger the login, using the callbackURL option for specifying the endpoint that will handle the authentication server side:
+Then you can trigger the login using the `callbackURL` option to specify the endpoint that will handle the server-side authentication:
 
 ```
 <script src="${lock_passwordless_url}"></script>
@@ -46,21 +46,21 @@ Then you can trigger the login, using the callbackURL option for specifying the 
 <a href="javascript:login()">Login</a>
 ```
 
-This will first open a dialog that asks the user for an email address. 
+This will open a dialog that asks the user for their email address:
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
-Then Auth0 will send an email to the user containing the one time code:
+Then Auth0 will send an email to the user containing the one-time code:
 
 ![](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
 
-Then, it will ask for a code that has been sent in an email to the given address. The code will be used as a one-time password to log in.
+Lock will ask for the code that has been emailed to the provided address. The code can then be used as a one-time password to log in:
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-After the user enters the code he received by email, lock will authenticate him and redirect him to the `callbackURL` you specified before. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+Once the user enters the code received by email, Lock will authenticate the user and redirect to the specified `callbackURL`. 
 
-> A sample application is available in [the Node.js Passwordless Authentication repository on GitHub](https://github.com/auth0/auth0-node-passwordless-sample).
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.
 
 ### Use your own UI
 
@@ -72,11 +72,11 @@ After the user enters the code he received by email, lock will authenticate him 
   pkgType: 'server' + account.clientParam
 }) %>
 
-You can perform passwordless authentication in your regular web app with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
+You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('./_init-auth0js', {withCallbackURL:true} ) %>
 
-You will have to provide a way for the user to enter the email to which the one time code will be sent. Then you can start the passwordless authentication like this:
+You must provide a way for the user to enter an email to which the one-time code will be sent. Then you can begin the passwordless authentication as follows:
 
 ```js
 function sendEmail(){
@@ -94,7 +94,7 @@ function sendEmail(){
 }
 ```
 
-This will send an email containg the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
+This will send an email containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
 
 ```js
 function login(){
@@ -109,4 +109,6 @@ function login(){
 };
 ```
 
-If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
+If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. 
+
+**NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.
