@@ -30,7 +30,7 @@ alias:
 
 <%= include('./_init-passwordless-lock') %>
 
-Then you can trigger the passwordless authentication using a magic like this:
+Then you can trigger the passwordless authentication using a magic link with the following code:
 
 ```html
 <script src="${lock_passwordless_url}"></script>
@@ -45,7 +45,7 @@ Then you can trigger the passwordless authentication using a magic like this:
 <a href="javascript:login()">Login</a>
 ```
 
-The user will receive an email with the magic link. When the user clicks on this link, Auth0 will do the authentication and redirect back to the application with the token in the hash location. You can parse the hash and retrieve the full user profile as follows:
+The user will receive an email with the magic link. Once the user clicks on this link, Auth0 will handle the authentication and redirect back to the application with the token as the hash location. You can parse the hash and retrieve the full user profile as follows:
 
 ```js
 //parse hash on page load
@@ -79,11 +79,11 @@ $(document).ready(function(){
   pkgType: 'js' + account.clientParam
 }) %>
 
-You can perform passwordless authentication with a magic link in your single page application using your own UI with [auth0-js](/libraries/auth0js).
+You can perform passwordless authentication with a magic link in your single-page application using your own UI with the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('./_init-auth0js', {withCallbackURL:false} ) %>
 
-You can then trigger the passwordless login using a magic link like this:
+You can then trigger the passwordless login using a magic link with the following code:
 
 ```js
 function sendMagicLink(){
@@ -99,7 +99,7 @@ function sendMagicLink(){
 } 
 ```
 
-After the user clicks the magic link, it will be redirected to the application callback URL, where you need to parse the token with `auth0.parseHash`. 
+Once the user clicks the magic link, they will be redirected to the application callback URL, where you will need to parse the token with `auth0.parseHash`:
 
 ```js
 //parse hash on page load

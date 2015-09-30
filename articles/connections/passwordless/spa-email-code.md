@@ -1,5 +1,5 @@
 ---
-title: Using Passwordless Authentication with a one time code via email on SPA
+title: Using Passwordless Authentication with a one-time code via email on SPA
 connection: Email
 image:
 alias:
@@ -7,7 +7,7 @@ alias:
   - spa
 ---
 
-# Authenticate users with a one time code via e-mail on SPA
+# Authenticate users with a one-time code via e-mail on SPA
 
 <%= include('./_introduction-email', { isMobile: false }) %>
 
@@ -31,7 +31,7 @@ alias:
 
 <%= include('./_init-passwordless-lock') %>
 
-Then you can trigger the login like this:
+Then you can trigger the login with the following code:
 
 ```html
 <script src="${lock_passwordless_url}"></script>
@@ -53,19 +53,19 @@ Then you can trigger the login like this:
 <a href="javascript:login()">Login</a>
 ```
 
-This will first open a dialog that asks the user for an email address.
+First, this will open a dialog that asks the user for their email address:
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
-Then Auth0 will send an email to the user containing the one time code:
+Then Auth0 will send an email to the user containing the one-time code:
 
 ![](/media/articles/connections/passwordless/passwordless-email-receive-code-web.png)
 
-Then, it will ask for a code that has been sent in an email to the given address. The code will be used as a one-time password to log in.
+Lock will ask for the code that has been emailed to the provided address. The code can then be used as a one-time password to log in.
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-After the user enters the code he received by email, lock will authenticate it and call the callback function, where you will have the the id_token and profile available.
+Once the user enters the code received by email, Lock will authenticate them and call the callback function where the `id_token` and profile will be available.
 
 ### Use your own UI
 
@@ -77,11 +77,11 @@ After the user enters the code he received by email, lock will authenticate it a
   pkgType: 'js' + account.clientParam
 }) %>
 
-You can perform passwordless authentication in your SPA with your own custom UI using the Auth0 javascript client library [auth0-js](/libraries/auth0js).
+You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
 
 <%= include('./_init-auth0js', {withCallbackURL:false} ) %>
 
-You will have to provide a way for the user to enter the email to which the one time code will be sent. Then you can start the passwordless authentication like this:
+You must provide a way for the user to enter the email to which the one-time code will be sent. Then you can begin the passwordless authentication with the following code:
 
 ```js
 
@@ -100,7 +100,7 @@ function sendEmail(){
 }
 ```
 
-This will send an email containing the one time code. The user must now fill the code in your custom UI. After that you can continue with the login as follows:
+This will send an email containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
 
 ```js
 function login(){
