@@ -142,3 +142,31 @@ Response:
   ]
 }
 ```
+
+## Parameter Aliases
+When writing docs you can use the following variables instead of hard coding these values. Within any markdown document simply use `${variableName}` to reference the value.
+
+### Common Variables
+
+| Variable  | Description | Default Value |
+| :---------------------------- | :----------------------------------------- | :-------------------------------------- |
+| `uiURL`                       | The url to the management portal.          | `https://manage.auth0.com`              |
+| `auth0js_url`                 | The url to the auth0.js CDN location.      | |
+| `auth0js_url_no_scheme`       | The url to the auth0.js CDN location without the 'https:'. | |
+| `auth0_angular_url`           | The url to the auth0 angular script CDN location. | |
+| `auth0_angular_url_no_scheme` |  The url to the auth0 angular script in the CDN location without the 'https://'. | |
+| `widget_url`                  | The url to the Lock script CDN location.   | |
+| `widget_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
+| `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
+
+
+### User Specific Variables
+
+| Variable  | Description | Default Value |
+| :--------------------- | :------------------------------------------------- | :------------------------------------- |
+| `account.appName`      | The name of the current Auth0 app.                 | `YOUR_APP_NAME'                        |
+| `account.tenant`       | The name of the current Auth0 tenant.              | `YOUR_TENANT'                          |
+| `account.namespace`    | The name of the current Auth0 namespace.           | `YOUR_NAMESPACE`                       |
+| `account.clientId`     | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
+| `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
+| `account.callback`     | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
