@@ -2,6 +2,7 @@
 sitemap: false
 
 image: "/media/landings/compliance-with-standards/bg-standard.png"
+imagePosition: "center"
 budicon: 338
 color: "#5C666F"
 title: "Compliance with Standards"
