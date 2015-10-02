@@ -1,5 +1,6 @@
 ---
 title: Using Passwordless SMS & Email Authentication with Auth0
+url: /connections/passwordless
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>
