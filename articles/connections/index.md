@@ -58,8 +58,10 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 </ul>
 
 ## Passwordless
+Full documentation on Passwordless authentication can be found [here](/connections/passwordless).
 
 <ul>
+<li><a href="/connections/passwordless">Passwordless Overview</a></li>
 <% _.forEach(_.sortBy(articles.findByHash('connections/passwordless').items, 'connection'), function(article) { %>
   <% if (article.connection) { %>
     <li>
