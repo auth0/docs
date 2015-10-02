@@ -2,6 +2,7 @@
 sitemap: false
 
 image: "/media/landings/login/bg-login.png"
+imagePosition: "center"
 budicon: 285
 color: "#222228"
 title: "Log In. Just Once."
