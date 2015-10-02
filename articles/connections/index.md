@@ -11,13 +11,15 @@ Auth0 supports the following identity providers:
 ## Enterprise
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
-  <li>
-    <% if (article.sitemap === false) { %>
-      <%- article.connection %>
-    <% } else { %>
-      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
-    <% } %>
-  </li>
+  <% if (article.connection) { %>
+    <li>
+      <% if (article.sitemap === false) { %>
+        <%- article.connection %>
+      <% } else { %>
+        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+      <% } %>
+    </li>
+  <% } %>
 <% }); %>
 </ul>
 
@@ -27,13 +29,15 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
-  <li>
-    <% if (article.sitemap === false) { %>
-      <%- article.connection %>
-    <% } else { %>
-      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
-    <% } %>
-  </li>
+  <% if (article.connection) { %>
+    <li>
+      <% if (article.sitemap === false) { %>
+        <%- article.connection %>
+      <% } else { %>
+        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+      <% } %>
+    </li>
+  <% } %>
 <% }); %>
 </ul>
 
@@ -41,13 +45,15 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/database').items, 'connection'), function(article) { %>
-  <li>
-    <% if (article.sitemap === false) { %>
-      <%- article.connection %>
-    <% } else { %>
-      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
-    <% } %>
-  </li>
+  <% if (article.connection) { %>
+    <li>
+      <% if (article.sitemap === false) { %>
+        <%- article.connection %>
+      <% } else { %>
+        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+      <% } %>
+    </li>
+  <% } %>
 <% }); %>
 </ul>
 
@@ -55,13 +61,15 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/passwordless').items, 'connection'), function(article) { %>
-  <li>
-    <% if (article.sitemap === false) { %>
-      <%- article.connection %>
-    <% } else { %>
-      <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
-    <% } %>
-  </li>
+  <% if (article.connection) { %>
+    <li>
+      <% if (article.sitemap === false) { %>
+        <%- article.connection %>
+      <% } else { %>
+        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+      <% } %>
+    </li>
+  <% } %>
 <% }); %>
 </ul>
 
