@@ -7,7 +7,9 @@ pages:
     description: Say goodbye to multiple credentials.
     banner:
       image: "/media/landings/banner/bg-hero.png"
-
+    meta:
+      title: Single Sign On
+      description: Say goodbye to multiple credentials.
     modules:
       - implementation
       - login
