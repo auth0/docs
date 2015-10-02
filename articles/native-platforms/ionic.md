@@ -150,12 +150,14 @@ Now, you can regularly call your API with `$http`, `$resource` or any rest clien
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
 ```html
+<!-- user-info.tpl.html -->
 <span>His name is {{auth.profile.nickname}}</span>
 ```
 
 ```js
-// UserInfoCtrl.js
-function UserInfoCtrl($scope, auth) {
+angular.module('starter.controllers', [])
+
+.controller('UserInfoCtrl', function($scope, auth) {
   $scope.auth = auth;
 }
 ```

@@ -18,9 +18,10 @@ angular.module('starter', ['ionic',
     controller: 'LoginCtrl',
   })
   // Your app states
-  .state('dashboard', {
-    url: '/dashboard',
-    templateUrl: 'templates/dashboard.html',
+  .state('userInfo', {
+    url: '/userInfo',
+    templateUrl: 'templates/user-info.tpl.html',
+    controller: 'UserInfoCtrl',
     data: {
       // This tells Auth0 that this state requires the user to be logged in.
       // If the user isn't logged in and he tries to access this state
