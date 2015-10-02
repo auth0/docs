@@ -1,4 +1,4 @@
-# Multi-factor Authentication with YubiKey-NEO	
+# Multi-factor Authentication with YubiKey-NEO
 
 This tutorial shows how to implement multi-factor with a [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
 
@@ -8,11 +8,11 @@ Enabling this functionality relies on three core features available in Auth0:
 * The [redirect protocol](/protocols#21)
 * [Auth0 Webtasks](https://webtask.io)
 
-__Rules__ are used to evaluate a condition that will trigger the multifactor challenge. The __redirect protocol__ is used to direct the user to a web site that will actually perform the 2nd authentication factor with YubiKey and __Webtasks__ to host that website. 
+__Rules__ are used to evaluate a condition that will trigger the multifactor challenge. The __redirect protocol__ is used to direct the user to a web site that will actually perform the 2nd authentication factor with YubiKey and __Webtasks__ to host that website.
 
 ## Configuring the Webtask
 
-Auth0 Webtasks allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for __rules__ and __custom db connections__. 
+Auth0 Webtasks allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for __rules__ and __custom db connections__.
 
 In this example, we will use Webtasks to implement a simple website that that captures the YubiKey-NEO input, and then backend code that calls the Yubico API. After validation completes, we return the result back to Auth0, resuming the login transaction originally initiated by the user.
 
@@ -46,7 +46,7 @@ return function (context, req, res) {
       return callback();
     },
 
-    /* 
+    /*
      * 2. Validate OTP
      */
     function(callback) {
@@ -62,7 +62,7 @@ return function (context, req, res) {
           var token = jwt.sign({
                 status: resp.status,
                 otp: resp.otp
-                }, 
+                },
                 new Buffer(context.data.yubikey_secret, 'base64'),
                       {
                 subject: context.data.user,
@@ -76,7 +76,7 @@ return function (context, req, res) {
         }
         return callback([resp.status]);
       });
-    
+
     return callback();
      }
     },
@@ -104,7 +104,7 @@ return function (context, req, res) {
         nonce: uid(16)
       };
 
-    request.get('http://api.yubico.com/wsapi/2.0/verify', 
+    request.get('http://api.yubico.com/wsapi/2.0/verify',
     {
       qs: params
     },function(e,r,b){
@@ -151,8 +151,8 @@ return function (context, req, res) {
         <meta charset="UTF-8">
         <title>Auth0 - Yubikey MFA</title>
         <style>
-        
-        <!-- 
+
+        <!--
 
         All styling of this HTML form is omitted for brevity. Please see the full source code here: https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md
         -->
@@ -165,12 +165,12 @@ return function (context, req, res) {
             <div class="modal">
               <form onsubmit="showSpinner();" action="" method="POST" enctype="application/x-www-form-urlencoded">
                 <div class="head"><img src="https://cdn.auth0.com/styleguide/2.0.9/lib/logos/img/badge.png" class="logo auth0"><span class="first-line">Yubikey 2FA</span></div>
-                <div class="errors <%- (errors.length === 0 ? 'hidden' : '') %>">
-                  <% errors.forEach(function(error){ %>
-                  <div class="p"><%= error %></div>
-                  <%})%>
+                <div class="errors <${'%'}- (errors.length === 0 ? 'hidden' : '') ${'%'}>">
+                  <${'%'} errors.forEach(function(error){ ${'%'}>
+                  <div class="p"><${'%'}= error ${'%'}></div>
+                  <${'%'}})${'%'}>
                 </div>
-                <div class="body"><span class="description">Hi <strong><%- user || "" %></strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
+                <div class="body"><span class="description">Hi <strong><${'%'}- user || "" ${'%'}></strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
                     <input type="text" autocomplete="off" name="otp" required autofocus id="otp"></span></div>
                 <div id="ok-button" class="ok-cancel">
                   <button class="ok full-width">
@@ -210,9 +210,9 @@ Save the code above in a file somewhere in your file system. This tutorial assum
 
 ###1. Initialize Webtask CLI
 
-Code in __rules__ is automatically packaged as Webtasks by Auth0. Because this is a custom Webtask, it needs to be created with the Webtask CLI. 
+Code in __rules__ is automatically packaged as Webtasks by Auth0. Because this is a custom Webtask, it needs to be created with the Webtask CLI.
 
-All instructions are available under __Account Settings__ on the [dashboard](${uiUrl}/#/account/webtasks). 
+All instructions are available under __Account Settings__ on the [dashboard](${uiURL}/#/account/webtasks).
 
 Once the Webtask CLI is installed, run:
 
@@ -238,25 +238,25 @@ This sample uses a single rule that handles both the initial redirect to the Web
 function (user, context, callback) {
 
   var yubikey_secret = configuration.YUBIKEY_SECRET;
-  
+
   //Returning from OTP validation
   if(context.protocol === 'redirect-callback') {
     var decoded = jwt.verify(context.request.query.id_token,
                                new Buffer(yubikey_secret,'base64'));
     if(!decoded) return callback(new Error('Invalid OTP'));
     if(decoded.status !== 'OK') return callback(new Error('Invalid OTP Status'));
-    
+
     user.otp = decoded.otp;
-    
-    return callback(null,user,context);  
+
+    return callback(null,user,context);
   }
 
   //Trigger MFA
-  context.redirect = { 
+  context.redirect = {
         url: config.WEBTASK_URL + "?user=" + user.name
   }
 
-  callback(null,user,context); 
+  callback(null,user,context);
 }
 ```
 
