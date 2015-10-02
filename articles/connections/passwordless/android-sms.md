@@ -1,10 +1,5 @@
 ---
 title: Using Passwordless Authentication on Android with SMS
-connection: SMS
-image:
-alias:
-  - sms
-  - android
 ---
 
 # Authenticate users with a one-time code via SMS

@@ -1,10 +1,5 @@
 ---
 title: Using Passwordless Authentication on Anroid with e-mail
-connection: Email
-image:
-alias:
-  - email
-  - android
 ---
 
 # Authenticate users with a one-time code via e-mail

@@ -1,10 +1,5 @@
 ---
 title: Using Passwordless Authentication with a one-time code via email on Regular Web Apps
-connection: Email
-image:
-alias:
-  - email
-  - regular-web-app
 ---
 
 # Passwordless Authentication with a one-time code via e-mail on Regular Web Apps
@@ -58,7 +53,7 @@ Lock will ask for the code that has been emailed to the provided address. The co
 
 ![](/media/articles/connections/passwordless/passwordless-email-enter-code-web.png)
 
-Once the user enters the code received by email, Lock will authenticate the user and redirect to the specified `callbackURL`. 
+Once the user enters the code received by email, Lock will authenticate the user and redirect to the specified `callbackURL`.
 
 **NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the server-side authentication callback. A sample application is available in the [Node.js Passwordless Authentication repository](https://github.com/auth0/auth0-node-passwordless-sample) on GitHub.
 
@@ -86,7 +81,7 @@ function sendEmail(){
       alert('error sending e-mail: '+ err.error_description);
       return;
     }
-    // the request was successful and you should 
+    // the request was successful and you should
     // receive the passcode to the specified email
     $('.enter-email').hide();
     $('.enter-code').show();
@@ -103,12 +98,12 @@ function login(){
   //submit the passcode to authenticate the phone
   auth0.verifyEmailCode({ email: email, code: code }, function(err){
   	if (err){
-	    alert('code verification failed. ' + err.statusCode + ' '+ err.error);  	
+	    alert('code verification failed. ' + err.statusCode + ' '+ err.error);
   	}
   });
 };
 ```
 
-If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. 
+If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor.
 
 **NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.

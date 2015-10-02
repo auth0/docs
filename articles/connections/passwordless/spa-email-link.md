@@ -1,9 +1,5 @@
 ---
 title: Using Passwordless Authentication with a Magic Link via email on SPA
-image:
-alias:
-  - email
-  - spa
 ---
 
 # Authenticate users with a Magic Link via e-mail on SPA
@@ -93,10 +89,10 @@ function sendMagicLink(){
       alert('error sending e-mail: ' + err.error_description);
       return;
     }
-    // the request was successful and you should 
+    // the request was successful and you should
     // receive the magic link in the specified email
   });
-} 
+}
 ```
 
 Once the user clicks the magic link, they will be redirected to the application callback URL, where you will need to parse the token with `auth0.parseHash`:

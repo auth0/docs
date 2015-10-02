@@ -1,11 +1,5 @@
 ---
 title: Using Passwordless Authentication in a Regular Web App with SMS
-connection: SMS
-image:
-alias:
-  - sms
-  - spa
-  - single-page-app
 ---
 
 # Authenticate users with a one-time code via SMS in a Regular Web App
@@ -18,7 +12,7 @@ alias:
 
 <%= include('./_setup-callback', {spa:false} ) %>
 
-## Implementation 
+## Implementation
 
 ### Use Auth0 UI widget (Lock)
 
@@ -108,6 +102,6 @@ function login(){
 };
 ```
 
-If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor. 
+If authentication is successful, the user will be redirected to the `callbackURL` specified in the Auth0 constructor.
 
 **NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.

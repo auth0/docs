@@ -1,11 +1,5 @@
 ---
 title: Using Passwordless Authentication in SPA with SMS
-connection: SMS
-image:
-alias:
-  - sms
-  - spa
-  - single-page-app
 ---
 
 # Authenticate users with a one-time code via SMS in a SPA
@@ -68,7 +62,7 @@ Lock will ask for the code that has been sent via SMS to the provided number. Th
 
 ![](/media/articles/connections/passwordless/passwordless-sms-enter-code-web.png)
 
-If the code is correct, the user will be authenticated. This will call the callback of the `lock.sms` function where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application. 
+If the code is correct, the user will be authenticated. This will call the callback of the `lock.sms` function where the `id_token`, `refresh_token` and user profile are typically stored. Then the user will be allowed to continue to the authenticated part of the application.
 
 ### Use your own UI
 
@@ -94,7 +88,7 @@ function sendSMS(){
       alert('error sending SMS: '+ err.error_description);
       return;
     }
-    // the request was successful and you should 
+    // the request was successful and you should
     // receive the passcode to the specified phone
     $('.enter-phone').hide();
     $('.enter-code').show();
@@ -113,7 +107,7 @@ function login(){
     if (err){
       alert('Couldn\'t login ' + err.message);
     } else {
-      // the authentication was successful 
+      // the authentication was successful
       // you can use profile, id_token and access_token
       localStorage.setItem('userToken', id_token);
       alert('Welcome ' + profile.name );

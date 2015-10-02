@@ -1,10 +1,5 @@
 ---
 title: Using Passwordless Authentication with a magic link via email on Regular Web Apps
-connection: Email
-image:
-alias:
-  - email
-  - regular-web-app
 ---
 
 # Passwordless Authentication with a magic link via e-mail on Regular Web Apps
@@ -50,7 +45,7 @@ This will open a dialog that asks the user for their email address.
 
 ![](/media/articles/connections/passwordless/passwordless-email-request-web.png)
 
-Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in to your application automatically and redirected to the specified `callbackURL`. 
+Then Auth0 will send an email to the user containing the magic link. After clicking the link, the user will be signed in to your application automatically and redirected to the specified `callbackURL`.
 
 **NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback server side.
 
@@ -87,6 +82,6 @@ function sendEmail(){
 
 This will send an email containing the magic link.
 
-After clicking the link, the user will be automatically signed in to your application and redirected to the `callbackURL` specified in the Auth0 constructor. 
+After clicking the link, the user will be automatically signed in to your application and redirected to the `callbackURL` specified in the Auth0 constructor.
 
 **NOTE:** You can follow any of the [Regular Web App Quickstarts](/quickstart/webapp) to see how to handle the authentication callback on the server-side.

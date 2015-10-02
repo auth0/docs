@@ -1,10 +1,5 @@
 ---
 title: Using Passwordless Authentication with a one-time code via email on SPA
-connection: Email
-image:
-alias:
-  - email
-  - spa
 ---
 
 # Authenticate users with a one-time code via e-mail on SPA

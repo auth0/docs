@@ -1,11 +1,5 @@
 ---
 title: Using Passwordless Authentication on a Regular Web Application
-connection: SMS, Email
-image:
-alias:
-  - sms
-  - email
-  - node
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>

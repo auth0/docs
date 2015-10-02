@@ -1,11 +1,5 @@
 ---
 title: Using Passwordless Authentication on Android
-connection: SMS, Email
-image:
-alias:
-  - sms
-  - email
-  - androd
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>

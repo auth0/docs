@@ -1,12 +1,5 @@
 ---
 title: Using Passwordless Authentication on a Single Page Application
-connection: SMS, Email
-image:
-alias:
-  - sms
-  - email
-  - spa
-  - single-page-app
 ---
 
 <%= include('./_introduction', { withFingerprint: false }) %>
