@@ -1,11 +1,15 @@
+---
+url: /multi-factor-authentication
+---
+
 # Multi-factor Authentication in Auth0
 
-Auth0 offers built-in support for OTP multi-factor authentication via Google Authenticator and Duo. 
+Auth0 offers built-in support for OTP multi-factor authentication via Google Authenticator and Duo.
 
 * [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator)
 * [Duo Security](https://www.duosecurity.com/)
 
-In addition to these built-in integrations, Auth0 supports **contextual MFA** and **custom providers**. 
+In addition to these built-in integrations, Auth0 supports **contextual MFA** and **custom providers** such as [Yubikey](/multi-factor-authentication/yubikey)
 
 Contextual MFA allows you to define arbitrary conditions that will trigger additional authentication challenges to your users for increased security, for example:
 
@@ -14,7 +18,7 @@ Contextual MFA allows you to define arbitrary conditions that will trigger addit
 * Time of day, day of the week.
 * Change in the location or device used to login.
 
-Custom provider allows you to integrate **any** multi-factor provider through Auth0's extensibility. 
+Custom provider allows you to integrate **any** multi-factor provider through Auth0's extensibility.
 
 ## Google Authenticator
 
@@ -76,8 +80,8 @@ In this example, Auth0 will evaluate both the name of the app the user is trying
 ```
 function (user, context, callback) {
 
-  // If authentication is happening from 
-  // outside the intranet and on a critical app 
+  // If authentication is happening from
+  // outside the intranet and on a critical app
   // then request MFA
   if( IsCriticalApp() && IsExtranet() ){
     context.multifactor = {

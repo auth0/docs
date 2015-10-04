@@ -478,5 +478,9 @@
   {
     "from": "/quickstart/native-mobile/:platform/rails-api",
     "to": "/quickstart/native-mobile/:platform/rails"
+  },
+  {
+    "from": "/mfa",
+    "to": "/multi-factor-authentication"
   }
 ]
