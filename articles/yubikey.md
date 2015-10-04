@@ -208,7 +208,7 @@ Notice __no secrets are hardcoded__ in the Webtask code. They are referred to by
 
 Save the code above in a file somewhere in your file system. This tutorial assumes `yubico-mfa-wt.js` for the file.
 
-###1. Initialize Webtask CLI
+### 1. Initialize Webtask CLI
 
 Code in __rules__ is automatically packaged as Webtasks by Auth0. Because this is a custom Webtask, it needs to be created with the Webtask CLI.
 
@@ -230,7 +230,7 @@ https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_ca
 
 Keep this URL handy.
 
-##Configuring the Rule
+## Configuring the Rule
 
 This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned back result. "Returning" is indicated by the `protocol` property in the `context` object.
 
@@ -274,7 +274,7 @@ Of course you can add any logic to the rule to decide the condition under which 
 * The Application the user is logging in to.
 * The type of authentication used (e.g. AD, LDAP, social, etc.)
 
-##See also:
+## See also:
 
 * [Rules](/rules)
 * [Multi-factor in Auth0](/mfa)
