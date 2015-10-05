@@ -3,6 +3,7 @@ This is the repository for the Auth0 documentation.
 
 ## Contributing Guidelines
 * Read and follow the [STYLEGUIDE](STYLEGUIDE.md)
+* Consult the [WORDS](WORDS.md) document for Auth0 specific spellings and definitions
 * Always use absolute links from the root of the site. Note, that your links should NOT start with `/docs` or any other base path. If the site is hosted with a base like on `auth0.com/docs` the links will be corrected at runtime.
 * Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use variables instead such as `${uiUrl}`
 * Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image_name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
