@@ -1,6 +1,6 @@
-# Multi-factor Authentication with YubiKey-NEO
+# Multifactor Authentication with YubiKey-NEO
 
-This tutorial shows how to implement multi-factor with a [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+This tutorial shows how to implement multifactor with a [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
 
 Enabling this functionality relies on three core features available in Auth0:
 

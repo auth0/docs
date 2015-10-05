@@ -1,15 +1,15 @@
 ---
-url: /multi-factor-authentication
+url: /multifactor-authentication
 ---
 
-# Multi-factor Authentication in Auth0
+# Multifactor Authentication in Auth0
 
-Auth0 offers built-in support for OTP multi-factor authentication via Google Authenticator and Duo.
+Auth0 offers built-in support for OTP multifactor authentication via Google Authenticator and Duo.
 
 * [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator)
 * [Duo Security](https://www.duosecurity.com/)
 
-In addition to these built-in integrations, Auth0 supports **contextual MFA** and **custom providers** such as [Yubikey](/multi-factor-authentication/yubikey)
+In addition to these built-in integrations, Auth0 supports **contextual MFA** and **custom providers** such as [Yubikey](/multifactor-authentication/yubikey)
 
 Contextual MFA allows you to define arbitrary conditions that will trigger additional authentication challenges to your users for increased security, for example:
 
@@ -18,7 +18,7 @@ Contextual MFA allows you to define arbitrary conditions that will trigger addit
 * Time of day, day of the week.
 * Change in the location or device used to login.
 
-Custom provider allows you to integrate **any** multi-factor provider through Auth0's extensibility.
+Custom provider allows you to integrate **any** multifactor provider through Auth0's extensibility.
 
 ## Google Authenticator
 
@@ -148,11 +148,11 @@ If you are using a different MFA provider or want to build your own, you can use
 
 Using this facility you can interrupt the authentication transaction; redirect the user to an arbitrary URL where the additional authentication factor can happen. After this completes (successfully or not), the transaction can then resume in Auth0 for further processing.
 
-Using this mechanism it is very easy to implement popular multi-factor options like:
+Using this mechanism it is very easy to implement popular multifactor options like:
 
 * One-time codes sent on SMS.
 * Questions (e.g. your mother's name, your childhood friend, etc.).
-* e-mail based multi-factor.
+* e-mail based multifactor.
 * Integration with specialized providers like hardware tokens, etc.
 
 ```
