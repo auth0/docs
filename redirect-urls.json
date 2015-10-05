@@ -486,7 +486,7 @@
   {
     "from": "/multi-factor-authentication",
     "to": "/multifactor-authentication"
-  }
+  },
   {
     "from": "/multi-factor-authentication/yubikey",
     "to": "/multifactor-authentication/yubikey"
