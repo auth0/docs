@@ -1,6 +1,7 @@
 ```js
-// LoginCtrl.js
-function LoginCtrl(store, $scope, $location, auth) {
+angular.module('starter.controllers', [])
+
+.controller('LoginCtrl', function(store, $scope, $location, auth) {
   $scope.login = function() {
     auth.signin({
       authParams: {
