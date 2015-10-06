@@ -1,9 +1,9 @@
 ```js
 var express       = require('express');
-var app           = express();
+var graphqlHttp   = require('express-graphql');
+var schema        = require('./schema/schema');
 var jwt           = require('express-jwt');
-var falcorExpress = require('falcor-express');
-var Router        = require('falcor-router');
+var dotenv        = require('dotenv');
 
 var authenticate = jwt({
   secret: new Buffer('<%= account.clientSecret %>', 'base64'),
