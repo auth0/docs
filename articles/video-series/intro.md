@@ -1,17 +1,23 @@
 ---
 name: Auth0 Intro video
 description: "In this video, within 6 minutes you'll go from having no app, to having an application that has authentication working with Twitter, Github, Google and Username and Password using Auth0."
-timeInSeconds: 389
-videoId: 27i80efy8c
+
+video:
+  series: creating-your-first-app
+  video: register-an-application
+
+series:
+  - creating-your-first-app
+
 ---
 In this video, we'll look at how quickly we can have authentication up and running with Auth0.
-We’ll start by Creating an account, which is free for development and testing.  
+We’ll start by Creating an account, which is free for development and testing.
 
 ## Initial setup
 After signing in for the first time, we’ll need to perform a few simple setup steps.
-First choosing an Auth0 domain, which our applications will use for api calls, and then the Authentication Providers we wish to use. 
+First choosing an Auth0 domain, which our applications will use for api calls, and then the Authentication Providers we wish to use.
 The initial setup shows the most commonly used providers, we’ll look at a more comprehensive list in a few moments.
-After saving our initial setup, we’re forwarded to the quick start page, of the Default Application, which is automatically created for us. 
+After saving our initial setup, we’re forwarded to the quick start page, of the Default Application, which is automatically created for us.
 
 ## Connections - Identity Providers
 
@@ -23,7 +29,7 @@ Auth0 has many choices, which are grouped into 4 general categories:
 * Passwordless connections allow your users to authenticate via SMS using twilio, just like WhatsApp does,  and using apple’s touch id.
 
 For this video, we’ll use Github and Twitter, in addition to regular username based authentication for our app, but keep in mind, it’s always easy to add more options later.
-We’ll need to provide Auth0 a Consumer Key & Secret, which are supplied by twitter.  You’ll find simple instructions on how to get your consumer key, by clicking the ‘How to obtain a Consumer Key?’ link. 
+We’ll need to provide Auth0 a Consumer Key & Secret, which are supplied by twitter.  You’ll find simple instructions on how to get your consumer key, by clicking the ‘How to obtain a Consumer Key?’ link.
 
 ## Create an app
 
@@ -40,18 +46,18 @@ For our app, we’ll select ‘Single Page App’ using Angularjs,  and Node.js.
 
 ## The docs
 
-The first thing you’ll notice after choosing your prefered application and platform, is a completely personalized seed projects, to helps bootstrap the startup process. 
+The first thing you’ll notice after choosing your prefered application and platform, is a completely personalized seed projects, to helps bootstrap the startup process.
 
 We can download and run the seed projects.
 
 Or, if you already have an existing application, that you would like to start using Auth0 in, you can follow the simple, step by step instructions, that include personalized code snippets, that you can copy and paste into your existing project.
 
 ## Downloading & Running the seed
-For now, lets download and run each of the seed projects:  
-* The Angular.js based seed project 
+For now, lets download and run each of the seed projects:
+* The Angular.js based seed project
 * The node.js based seed project.
 
-There is one final thing, that we'll need to set up for our new app: the ‘allowed callback urls’.  
+There is one final thing, that we'll need to set up for our new app: the ‘allowed callback urls’.
 For security reasons, we’ll need to enter the URLs that Auth0 can redirect to, after authenticating a user.
 We’ll enter `http://localhost:3000`, which allows us to run the seed projects on our local machine.
 
@@ -66,13 +72,13 @@ You’ll notice were redirected to the login page, this is because the root path
 
 Clicking the Signin button will display a login form we call [Lock](https://auth0.com/lock).  Lock is a simple, clean embeddable login form that just works on all platforms.
 
-We’re shown a list of the authentication options we set up for our app: 
+We’re shown a list of the authentication options we set up for our app:
 Github, Twitter as well as username and password.
 
-In this video, we login using twitter, which after completing, redirects us to the root of our application.  
+In this video, we login using twitter, which after completing, redirects us to the root of our application.
 
 ## The JWT: JSON Web Token
-You’ll notice a security Token, has been assigned to us, which is saved in `localStorage`.  
+You’ll notice a security Token, has been assigned to us, which is saved in `localStorage`.
 
 To take a look at the token we received in the video, we can just paste it into [jwt.io](http://jwt.io/).
 The debugger will allow us to easily identify the component parts of the token.
@@ -83,11 +89,11 @@ Now this token will get sent to our server, when requests are made, then our ser
 
 ## Calling an API
 
-Now If we click the `call api` button from the seed project, an api call is attempted against a secured rest endpoint. 
+Now If we click the `call api` button from the seed project, an api call is attempted against a secured rest endpoint.
 
 As you can see by the alert box response, our api call was successful.
 
-If we look at the request headers, you’ll see the token that we just saw saved in localStorage, was sent in the Authorization header.  
+If we look at the request headers, you’ll see the token that we just saw saved in localStorage, was sent in the Authorization header.
 
 When the server receives the request, the provided token will be checked, and the server will respond accordingly: either fulfilling the request if the token is verified or returning an error.
 
@@ -95,5 +101,5 @@ So here is the cool thing, if we want to add another provider, such as Google, w
 
 Now when we logout, refresh the page, then click the Signin button again, we immediately see google as a new login choice.
 
-That's all it takes to get up and running with Auth0, 
+That's all it takes to get up and running with Auth0,
 stay tuned for future screencasts, where we’ll dive a little bit deeper, and gain a better understanding of the authentication process and JWT’s.
