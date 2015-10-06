@@ -1,6 +1,6 @@
 ---
 sitemap: false
-
+image: "/media/landings/last-mile-integration/rules.png"
 budicon: 342
 color: "#EB5424"
 title: "Last mile integration through JavaScript"
