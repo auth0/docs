@@ -1,7 +1,7 @@
 ---
 sitemap: false
 
-image: "/media/landings/implementation/bg-code.png"
+image: "/media/landings/implementation/codesample.png"
 color: "#2F383D"
 budicon: 342
 title: "Easy to implement."
