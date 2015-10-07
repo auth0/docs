@@ -1,6 +1,6 @@
 # Linking Accounts using Authentication API (Deprecated) 
 
-> This way of linking accounts using the linking endpoint of the [Authentication API](https://auth0.com/docs/auth-api#!#get--link), is **deprecated** and should not be used anymore.
+> This way of linking accounts using the linking endpoint of the [Authentication API](https://auth0.com/docs/auth-api#!#get--link), either through **Lock** or manually calling the API, is **deprecated** and should not be used anymore.
 
 ## Linking through Auth0 Login Widget
 
@@ -85,4 +85,19 @@ The SDKs should make this very easy. The SDK for your platform will make it avai
 	1. User logs in and returns to the app with a `code`
 	2. The app exchanges the `code` for the `access_token`
 
-  The details of these exchanges are available in the [protocols section](protocols).
+  The details of these exchanges are available in the [protocols section](/protocols).
+
+## Unlinking Accounts
+
+To unlink a specific account, POST request to the following url:
+
+`https://${account.namespace}/unlink`
+
+Body should be:
+
+```
+{
+    access_token: "LOGGED_IN_USER_ACCESS_TOKEN", // Primary identity access_token
+    user_id: "LINKED_USER_ID" // (provider|id)
+}
+```
