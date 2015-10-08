@@ -15,11 +15,11 @@ The following diagram illustrates AWS IAM role assignments for two different use
 
 ![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
-For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway-5) section.
+For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5) section.
 
 ### Create the PetPurchase API resource
 
-From the Amazon API Gateway console, create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource "purchase". Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets` in [Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway-2) in the *Set up CORS* section. Create a new AWS Lambda function for purchasing a pet called "PetPurchase", which adds a `isSold` and `soldTo` attribute to a pet as follows:
+From the Amazon API Gateway console, create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource "purchase". Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets` in [Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway/part-2) in the *Set up CORS* section. Create a new AWS Lambda function for purchasing a pet called "PetPurchase", which adds a `isSold` and `soldTo` attribute to a pet as follows:
 
 ```js
 var AWS = require('aws-sdk');
@@ -104,7 +104,7 @@ In the response to the test you should see the pet with id 1 is now sold to fred
 
 #### Update IAM
 
-To secure your new API, follow the same process for adding a new role that you [performed in step 2](/integrations/aws-api-gateway-2). Call the new role "auth0-api-social-role". The arn for the method you will secure in the IAM policy should look something like:
+To secure your new API, follow the same process for adding a new role that you [performed in step 2](/integrations/aws-api-gateway/part-2). Call the new role "auth0-api-social-role". The arn for the method you will secure in the IAM policy should look something like:
 
 ```
 arn:aws:execute-api:us-east-1:your-accountid:your-api-id/*/pets/purchase
