@@ -9,7 +9,7 @@ fourKeyConcepts:
     icon: budicon-77
   -
     text: How Auth0 works
-    icon: budicon-328
+    icon: budicon-328q
   -
     text: Advantages of using Auth0
     icon: budicon-267
