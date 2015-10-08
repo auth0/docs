@@ -50,7 +50,7 @@ ENV['simple-auth'] = {
   routeIfAlreadyAuthenticated: 'home'
 }
 
-ENV['simple-lock'] = {
+ENV['auth0-ember-simple-auth'] = {
   clientID: "<%= account.clientId %>",
   domain: "<%= account.namespace %>"
 }
@@ -64,7 +64,7 @@ If using a content security policy, add
 ENV['contentSecurityPolicy'] = {
   'font-src': "'self' data: https://cdn.auth0.com",
   'style-src': "'self' 'unsafe-inline'",
-  'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://cdn.auth0.com",
+  'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://cdn.auth0.com <%= account.namespace %>",
   'connect-src': "'self' http://localhost:* <%= account.namespace %>"
 };
 ```
