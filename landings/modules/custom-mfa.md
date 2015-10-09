@@ -4,7 +4,7 @@ sitemap: false
 image: "/media/landings/custom-mfa/custom-mfa.png"
 imagePosition: "right"
 budicon: 329
-color: "#E9C93F"
-title: "Custom Multi-factor Authentication"
-content: "You can even use a different MFA provider or build your own, and integrate it using Auth0's redirect protocol."
+color: "#2F383D"
+title: "Adaptive Context-aware Multi Factor"
+content: "Adaptative Context-aware MFA allows you to enforce additional layers of authentication based on different conditions such as: geographic location, time of day/week, type of network, custom domains or certain IPs."
 ---
