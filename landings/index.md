@@ -22,7 +22,7 @@ pages:
     title: Multi-factor Authentication 
     description: Increased security for your critical systems.
     banner:
-      image: "/media/landings/banner/bg-hero.png"
+      image: "/media/landings/banner/bg-hero-mfa.png"
     meta:
       title: Multi-factor Authentication
       description: Get started with Multi-factor Authentication and increase security of your critical systems.
