@@ -91,13 +91,17 @@ class Auth0Client {
   }
 ```
 
-## 3. The App displays the matches and suggests the user to link the accounts:
+## 3. App displays matches and suggests the user to link the accounts:
 
 ![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
 
-## 4. The user accepts linking an account
+At this point the user can choose which account to Link to.
 
-On the server side, we are exposing an endpoint for linking accounts. At this point you are free to implement any desired verification before linking, or grab the secondary account metadata for merging. Otherwise, it will be lost after the linking occurs.
+## 4. Verify and merge metadata before linking
+
+When the user clicks on the Link button, our custom endpoint for linking accounts is invoked. This is the point were we are free to implement any desired verification before linking or grab the secondary account metadata for merging. Otherwise, it will be lost after the linking occurs.
+
+We can also **choose which identity to use as primary and which as secondary on account linking**. This decision will depend of the attributes we want to have available in the primary profile.
 
 ```js
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
@@ -105,32 +109,68 @@ const Auth0Client = require('../Auth0Client');
 const express = require('express');
 const router = express.Router();
 
-router.post('/link-accounts/:targetUserId',ensureLoggedIn, (req,res,next) => {
-  // Fetch target user to verify email address matches again
-  // (this is needed because targetUserId comes from client side)
+router.post('/link-accounts/:targetUserId', ensureLoggedIn, (req,res,next) => {
+  // Fetch target user to make verifications and merge metadata
   Auth0Client.getUser(req.params.targetUserId)
-    .then( targetUser => {
-      if(! targetUser.email_verified || targetUser.email !== req.user._json.email){
-        throw new Error('User not valid for linking');
-      }
-      // At this point we can apply any other verification 
-      // or save target user's metadata for merging
-    })
-    .then(() => {
-      return Auth0Client.linkAccounts(req.user.id,req.params.targetUserId);
-    })
-    .then( identities => {
-      req.user.identities = req.user._json.identities = identities;
-      res.send(identities);
-    })
-    .catch( err => {
-      console.log('Error linking accounts!',err);
-      next(err);
-    });
+  .then( targetUser => {
+    // verify email (this is needed because targetUserId came from client side)
+    if(! targetUser.email_verified || targetUser.email !== req.user._json.email){
+      throw new Error('User not valid for linking');
+    }
+    //merge metadata
+    return _mergeMetadata(req.user._json,targetUser);
+  })
+  .then(() => {
+    return Auth0Client.linkAccounts(req.user.id,req.params.targetUserId);
+  })
+  .then( identities => {
+    req.user.identities = req.user._json.identities = identities;
+    res.send(identities);
+  })
+  .catch( err => {
+    console.log('Error linking accounts!',err);
+    next(err);
+  });
 });
 ```
+In this case we are verifying the email again because the targetUserId could have been tampered from client side.
 
-Our API in turn calls the [Auth0 API V2 endpoint for linking accounts](https://auth0.com/docs/api/v2#!/Users/post_identities). In order to call the endpoint we require an [API V2 token](/tokens/apiv2) with `update:users` scope. 
+We are also merging the user_metada and app_metadata from the secondary account into the primary account. We are then using the [node Auth0 SDK for API v2](https://github.com/auth0/node-auth0/tree/v2) for updating the metadata on the primary profile.
+
+```js
+const _ = require('lodash');
+const auth0 = require('auth0')({
+  token: process.env.AUTH0_APIV2_TOKEN
+});
+
+/*
+* Recursively merges user_metadata and app_metadata from secondary into primary account.
+* Data of primary user takes preponderance.
+* Array fields are joined.
+*/
+function _mergeMetadata(primaryUser, secondaryUser){
+  const customizerCallback = function(objectValue, sourceValue){
+    if (_.isArray(objectValue)){
+      return sourceValue.concat(objectValue);
+    }
+  };
+  const mergedUserMetadata = _.merge({}, secondaryUser.user_metadata, primaryUser.user_metadata, customizerCallback);
+  const mergedAppMetadata = _.merge({}, secondaryUser.app_metadata, primaryUser.app_metadata, customizerCallback);
+  
+  return Promise.all([
+    auth0.users.updateUserMetadata(primaryUser.user_id, mergedUserMetadata),
+    auth0.users.updateAppMetadata(primaryUser.user_id, mergedAppMetadata)
+  ]).then(result => {
+    //save result in primary user in session
+    primaryUser.user_metadata = result[0].user_metadata;
+    primaryUser.app_metadata = result[1].app_metadata;
+  });
+}
+```
+
+## 5. Link the Accounts
+
+For linking the accounts we call the [Auth0 API V2 endpoint](https://auth0.com/docs/api/v2#!/Users/post_identities) using an [API V2 token](/tokens/apiv2) with `update:users` scope in the Authorization header. 
 
 ```js
 const request = require('request');
@@ -170,9 +210,9 @@ class Auth0Client {
 module.exports = new Auth0Client();
 ```
 
-## 5. Unlinking Accounts
+## 6. Unlinking Accounts
 
-For unlinking accounts from server side code within a Regular Web App we provide a custom endpoint:
+For unlinking accounts from server side code within a Regular Web App we provide a custom endpoint. This way we can update the user in session with the new array of identities:
 
 ```js
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
