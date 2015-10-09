@@ -6,9 +6,7 @@ url: /link-accounts
 
 Auth0 supports the association of different accounts. Applications often support multiple identity providers. Through linking, a user can authenticate with one identity provider and later on with another, but appear to the app as being the same.
 
-## Scenarios
-
-Some of the most typicall use cases for linking accounts are:
+## Benefits
 
 * Give users the flexibility to log in with any identity provider without accidentally creating separate profiles.
 
@@ -16,76 +14,204 @@ Some of the most typicall use cases for linking accounts are:
 
 * Give users that registered using a Passwordless connection the ability to link to an account with more richer profile data.
 
-* Having an App with the ability to gather and leverage user’s profile data from more than one connection.
+* Give your Apps the ability to gather and leverage user’s profile data from more than one connection.
 
-* Having an App that interacts with several identity provider's APIs, like sharing a status over Twitter & Facebook, or invite user's contacts from different social networks to your App. In this case the App will use the `access_token` of each Identity to access other identity provider's APIs. You can read [Calling an API from an IdP (Facebook, Twitter, Google)](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) for more details.
+* Give your App the possibility to interact with several identity provider's APIs, like sharing a status over Twitter & Facebook. [Lear more...](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
 
-## Who initiates account linking?
+* Expand engagement opportunities by inviting user's contacts from different social networks to your App.
 
-Typically the account linking will be a manual process initiated by an authenticated user, and the Application will have to provide a proper UI for doing so. Like a button in the user's profile page with the option to link another accounts.
+## The Linking Process
 
-![](/media/articles/link-accounts/regular-web-app-user-settings.png)
+The linking account process will take two existing users and merge them into a single account. When linking the accounts you have to specify a **primary account** and a **secondary account**.
 
-You can also search for users with same verified email address from within your App's code and suggest the user to link the accounts if results are found.
+Suppose this is the profile of the **primary account**:
 
-![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
-
-**Auth0 does not support automatic account linking**. However, you can implement automatic linking by setting up a [Rule](/rules) that link accounts with same e-mail address. It is a good practice to link accounts **only if both e-mails are verified**. There is a sample [Link Users by Email Rule](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md) which you can use as starting point.
-
-## Implementation
-
-The Auth0 API V2 provides [an endpoint for linking accounts](https://auth0.com/docs/api/v2#!/Users/post_identities), which can be invoked in two ways. One requires the JWT of the authenticated user and the JWT of the target account to link to, and is meant to use by client-side code (Single Page Apps or mobile Apps). The other method requires an API V2 Token and is thus intended to use from server side code.
-
-Both methods are explained in detail in these sections:
-
-* [Linking Accounts from Client Side Code (Single Page App)](/link-accounts/client-side)
-* [Linking Accounts from Server Side Code (Regular Web App)](/link-accounts/server-side)
-
-> You can find implementation examples of Linking Accounts within both Single Page Apps and Regular Web Apps in [this github repository](https://github.com/auth0/auth0-link-accounts-sample)
-
-There is also a [deprecated way of linking accounts](/link-accounts/auth-api) using the [Authentication API](https://auth0.com/docs/auth-api#!#get--link), but this method should not be used anymore.
-
-## Resulting Profile
-
-All linked identities will show up in the `User Profile` like in this example:
-
-```
+```js
 {
-  "clientID": "FnMZ8gwv39....ZAeKc",
-  "email": "your@mail.com",
-  "family_name": "Pace",
-  "given_name": "Eugenio",
+  "email": "your0@email.com",
+  "email_verified": true,
+  "name": "John Doe",
+  "given_name": "John",
+  "family_name": "Doe",
+  "picture": "https://lh3.googleusercontent..../photo.jpg",
+  "gender": "male",
+  "locale": "en",
+  "user_id": "google-oauth2|115015401343387192604",
   "identities": [
     {
-      "access_token": "ya29.AHES6.......iNkgkE_ryDsTE",
+        "provider": "google-oauth2",
+        "access_token": "ya29.BgIckzs2irmP...moC2xqsGbTRWI1ZSIBSTLQZw",
+        "expires_in": 3596,
+        "user_id": "115015401343387192604",
+        "connection": "google-oauth2",
+        "isSocial": true
+    }
+  ],
+  "user_metadata": {
+    "color": "red"
+  },
+  "app_metadata": {
+    "roles": [
+        "Admin"
+    ]
+  },
+  ...
+}
+```
+
+And suppose this is the profile of the **secondary account**:
+
+```js 
+{
+  "phone_number": "+14258831929",
+  "phone_verified": true,
+  "name": "+14258831929",
+  "updated_at": "2015-10-08T18:35:18.102Z",
+  "user_id": "sms|560ebaeef609ee1adaa7c551",
+  "identities": [
+    {
+        "user_id": "560ebaeef609ee1adaa7c551",
+        "provider": "sms",
+        "connection": "sms",
+        "isSocial": false
+    }
+  ],
+  "user_metadata": {
+      "color": "blue"
+  },
+  "app_metadata": {
+      "roles": [
+          "AppAdmin"
+      ]
+  },
+  ...
+}
+```
+
+After linking the accounts the **resulting profile** is:
+
+```js
+{
+  "email": "your@email.com",
+  "email_verified": true,
+  "name": "John Doe",
+  "given_name": "John",
+  "family_name": "Doe",
+  "picture": "https://lh3.googleusercontent.../photo.jpg",
+  "gender": "male",
+  "locale": "en",
+  "user_id": "google-oauth2|115015401343387192604",
+  "identities": [
+    {
       "provider": "google-oauth2",
-      "user_id": "12345678901234567890",
+      "access_token": "ya29.BgIckzs2irmP...moC2xqsGbTRWI1ZSIBSTLQZw",
+      "expires_in": 3599,
+      "user_id": "115015401343387192604",
       "connection": "google-oauth2",
       "isSocial": true
     },
     {
-      "access_token": "EwAwAq1DBAAUGCC....qJQloRoZbmCAAA",
-      "provider": "windowslive",
-      "user_id": "9876543210987654321",
-      "connection": "windowslive",
-      "isSocial": true
+      "profileData": {
+          "phone_number": "+14258831929",
+          "phone_verified": true,
+          "name": "+14258831929"
+      },
+      "user_id": "560ebaeef609ee1adaa7c551",
+      "provider": "sms",
+      "connection": "sms",
+      "isSocial": false
     }
   ],
-  "locale": "en",
-  "name": "Eugenio Pace",
-  "nickname": "eugeniop",
-  "user_id": "google-oauth2|12345678901234567890"
+  "user_metadata": {
+      "color": "red"
+  },
+  "app_metadata": {
+      "roles": [
+          "Admin"
+      ]
+  },
+  ...
 }
-
 ```
 
-Notice that the primary `user_id` is referring to the first identity the user authenticated with (Google in the example). Also, all user properties will continue to be those of the primary identity. There's no automatic merging of user profiles with associated identities.
+As a result of linking the accounts you will notice that:
+ 
+* The `user_id` and all other main profile properties will continue to be those of the primary identity. 
+* The secondary account is now embeded in the `identities` array of the primary profile.
+* The **identity provider attributes** of the secondary account are placed inside the `profileData` field of the corresponding identity inside the array.
+* `user_metadata` and `app_metadata` of the primary account remains the same.
+* `user_metadata` and `app_metadata` associated to the secondary account is lost.
+* There's no automatic merging of user profiles with associated identities.
+* The secondary account is removed from the users list.
 
-> You can go through the [Linking Accounts Walthrough](/link-accounts/link-accounts-walkthrough) for a step by step guide on how to test account linking/unlinking using the API Explorer.
+## The API
+
+The Auth0 API V2 provides [an endpoint for linking accounts](https://auth0.com/docs/api/v2#!/Users/post_identities), which can be invoked in two ways:
+
+  1. With the primary and secondary accounts' JWTs
+
+  ```
+  POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
+  Authorization: 'Bearer PRIMARY_ACCOUNT_JWT'
+  {
+    link_with: 'SECONDARY_ACCOUNT_JWT'
+  }
+  ```
+  This method requires a token with `update:current_user_identities` scope (which the authenticated user's JWT already has) and is suitable for the scenarios where the user initiates the linking process. By requiring the two JWTs you can make sure that the user was able to authenticate to both accounts, and has the right to merge them. 
+
+  2. With the primary and secondary accounts' user ids
+
+  ```
+  POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
+  Authorization: 'Bearer YOUR_API_V2_TOKEN'
+  { 
+    provider: 'SECONDARY_ACCOUNT_PROVIDER', 
+    user_id: 'SECONDARY_ACCOUNT_USER_ID' 
+  } 
+  ```
+  This method requires an [API V2 token](/tokens/apiv2) with `update:users` scope and is intended to use from server side code, where you can make sure that both users correspond to the same person.
+
+## Scenarios
+
+You can find implementation details of calling the Linking Account API for the different scenarios:
+
+* [Automatic Account Linking](#automatic-account-linking)
+* [User Initiated Account Linking](#user-initiated-account-linking)
+* [Suggested Account Linking](#suggested-account-linking)
+
+### Automatic Account Linking
+
+**Auth0 does not support automatic linking per se**. However, you can implement automatic linking by setting up a [Rule](/rules) that link accounts with same e-mail address. For security purposes, it is a good practice to link accounts **only if both e-mails are verified**. 
+
+The rule is an example of linking accounts from server side code using the [Auth0 API Link Accounts endpoint](https://auth0.com/docs/api/v2#!/Users/post_identities), where you have the primary and secondary user ids and an [API V2 token](/tokens/apiv2) with `update:users` scope. 
+
+> There is a sample [Link Users by Email Rule](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md) which you can use as starting point.
+
+### User Initiated Account Linking
+
+Typically the account linking will be a manual process initiated by an authenticated user, and the Application will have to provide a proper UI for doing so, like a button in the user's profile page with the option to link to other accounts.
+
+![](/media/articles/link-accounts/spa-user-settings.png)
+
+> You can follow the [User Initiated Account Linking within a Single Page App Tutorial](/link-accounts/user-initiated-linking) or view the [jQuery Single Page App Linking Accounts Sample](https://github.com/auth0/auth0-link-accounts-sample/SPA) on Github to see implementation details.
+
+### Suggested Account Linking
+
+In this scenario we search for users with same verified email address on authentication (like in the automatic linking rule), but instead of automatically linking the accounts we suggest the user to link the identities.
+
+![](/media/articles/link-accounts/regular-web-app-suggest-linking.png)
+
+> You can follow the [Suggested Account Linking within a Regular Web App Tutorial](/link-accounts/suggested-linking) or view the [Suggested Account Linking Sample](https://github.com/auth0/auth0-link-accounts-sample/RegularWebApp) on Github for more implementation details.
 
 ## Unlinking Accounts
 
-The Auth0 API V2 provides also [an endpoint for unlinking accounts](https://auth0.com/docs/api/v2#!/Users/delete_provider_by_user_id). Again you can invoke within client side code using the JWT of the authenticated user and the JWT of the account to unlink, or you can invoke if from server side code using an API V2 Token with the proper scope. See:
+The Auth0 API V2 also provides an [endpoint for unlinking accounts](https://auth0.com/docs/api/v2#!/Users/delete_provider_by_user_id), which can be used with any of these two **scopes** for authorization:
+* `update:current_user_identities`: Used in the case of calling the endpoint **from client side code**, where you have the primary user's JWT which counts with this scope.
+* `update:users`: Used in the case of calling the endpoint **from server side code**, where you need to generate an [API V2 TOKEN](/tokens/apiv2) having this scope.
 
-* [Unlinking Accounts from Client Side Code (Single Page App)](/link-accounts/client-side#unlinking-accounts)
-* [Unlinking Accounts from Server Side Code (Regular Web App)](/link-accounts/server-side#unlinking-accounts)
+```
+DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
+Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
+```
+
+The endpoint will return the updated array of identities.
