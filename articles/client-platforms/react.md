@@ -102,7 +102,7 @@ React.render(
 
 Use the `token` to retrieve the user profile and display the user's nickname:
 
-```jsx
+```js
 var LoggedIn = React.createClass({
   getInitialState: function() {
     return {
