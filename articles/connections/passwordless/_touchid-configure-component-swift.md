@@ -14,7 +14,7 @@ authentication.registerPublicKey = { (pubKey, completed, errored) in
     self.userClient.removePublicKeyOfDevice(device,
         user:userId,
         success: { registerBlock() },
-        failure: { error in registerBlock() })
+        failure: { _ in registerBlock() })
 }
 
 authentication.jwtPayload = {
@@ -26,17 +26,16 @@ authentication.jwtPayload = {
 
 authentication.authenticate = { (jwt, block) in
     let parameters = A0AuthParameters.newWithDictionary([      
-       A0ParameterConnection: "{NAME_OF_MY_DB_CONNECTION}",
        A0ScopeProfile: "openid name email nickname"
     ])
 
     client.loginWithIdToken(jwt, 
-        deviceName: deviceName,
+        deviceName: device,
         parameters: parameters,
         success: { (profile, token) in
             // User is authenticated with Auth0 & TouchID
         },
-        failure: { (error) in block(error) })
+        failure: { error in block(error) })
 }
 authentication.onError = { error in 
     // Handle authentication error
