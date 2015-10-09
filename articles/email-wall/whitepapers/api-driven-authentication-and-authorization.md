@@ -43,6 +43,8 @@ Simple enough, but how do you manage those metadata fields? You might want to cr
 
 You can see this model in action with the sample [Roles and Permissions Dashboard](https://github.com/auth0/auth0-roles-permissions-dashboard-sample) application - open source software from Auth0, on GitHub. 
 
+![](/media/articles/email-wall/whitepapers/api-driven-authentication-and-authorization/Roles-Permissions-Sample.png)
+
 **Figure 1: Roles and Permissions Sample Application**
 
 You can fork this project and use the sample code as the foundation of a solution customized to your unique situation.
@@ -93,7 +95,9 @@ In the past, such an application might require a custom, hand-built IAM solution
 
 Auth0 includes broad support for enterprise identity standards such as SAML, ADFS, WS-Federation, and Google Apps, and can handle SSO between your app and your customers’ identity systems, no matter which enterprise IdP they prefer. So you can rely on Auth0’s experts to build, secure, and maintain these integrations as standards evolve.
 
-**Figure 3: Example Multi-Party Authentication ****Workflow**
+![](/media/articles/email-wall/whitepapers/api-driven-authentication-and-authorization/AirBnB-UseCase.png)
+
+**Figure 3: Example Multi-Party Authentication Workflow**
 
 Even better, Auth0’s sophisticated rules engine lets your developers implement a one-time on-boarding workflow for AirBnB. This rule detects a user’s first login to your application, and redirects to AirBnB’s grant page. The user then grants Auth0 permission to acquire and securely store a user-specific, long-lived API token in the user’s profile. Your travel application can call Auth0’s API to retrieve (user.airbnb_token) and do AirBnB  lookups and bookings on behalf of a user. The user retains full control - able to revoke this access at any time. AirBnB could limit the duration of the access token, and another rule could automatically refresh the token before it expires.
 
