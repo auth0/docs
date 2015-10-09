@@ -27,7 +27,7 @@ shortTagline: When you have a rich API for Identity Management, even complex aut
 * * *
 <div class="toc-box"></div>
 
-## OVERVIEW / EXECUTIVE SUMMARY
+## <a href="#toc-1">OVERVIEW / EXECUTIVE SUMMARY</a>
 
 Almost by definition, users are at the heart of any identity management system. You need to add them, remove them, let them log in and authorize them to access appropriate resources. You need to monitor, log, audit and manage them. When you add in privacy and regulatory compliance concerns, what seems like an easy bit of software quickly spirals into a big challenge. 
 
@@ -35,7 +35,7 @@ Auth0 has a unique, developer-centric approach. Some IAM products build every po
 
 Other solutions lock you into inflexible approaches they’ve developed in a vacuum, but with Auth0, you can integrate your own identity requirements directly into your application and quickly get into production. In this white paper, we’ll look at some common use cases that go beyond the core features found in the Auth0 Dashboard, and see how an API-driven approach delivers more flexibility, and ultimately the best user experience.
 
-## DYNAMIC ROLES AND AUTHORIZATIONS
+## <a href="#toc-2">DYNAMIC ROLES AND AUTHORIZATIONS</a>
 
 With Auth0, you have the ability to add users from a wide range of connected identity providers, and grant them access to your applications. But what if you need more fine-grain control over which applications users may access, and the specific rights they have within those applications? With Auth0, you can handle this common use case by storing a set of permissions as part of the user metadata associated with each account. Your applications can check the appropriate metadata field to grant or deny access as appropriate.
 
@@ -51,7 +51,7 @@ You can fork this project and use the sample code as the foundation of a solutio
 
 Another option: if your organization represents these roles as groups within an enterprise IdP such as Active Directory, when a user authenticates to your AD, Auth0 can execute a rule which computes the union of permissions across all of the user’s group memberships and add those permissions to the outgoing authentication token dynamically. An enterprise CMS like SharePoint could allow or restrict access to specific internal sites based on this computed permission data. This dynamic "chaining" of group permissions is only possible with Auth0’s powerful, flexible rules. Other tools do simple authorization. But Auth0 orchestrates complex authorization workflows with just a few lines of code, executed within the authentication pipeline. You have the power to handle authorization according to your needs, not limited by inflexible tools.
 
-## ON THE FLY ANALYTICS AND PROFILE ENHANCEMENT
+## <a href="#toc-3">ON THE FLY ANALYTICS AND PROFILE ENHANCEMENT</a>
 
 Rules are not just for authorization. The ability to reliably execute arbitrary code in the authentication pipeline can power advanced, server side features that would be difficult or impossible to implement unless you start from a blank slate and build your IAM solution from scratch.
 
@@ -85,7 +85,7 @@ This executes every time a user authenticates but returns immediately except for
 
 Another example: you can call an external service such as FullContact to enrich a user profile with social, location, and demographic data automatically when a new user signs up for your service. Or add a new user to Salesforce as a prospect. Or [all of the above](https://auth0.com/docs/scenarios/mixpanel-fullcontact-salesforce) - limited only by your imagination.
 
-## PUTTING IT TOGETHER - DIFFICULT USE CASES MADE EASY WITH APIs
+## <a href="#toc-4">PUTTING IT TOGETHER - DIFFICULT USE CASES MADE EASY WITH APIs</a>
 
 When your business depends on quickly getting your custom applications into production, you need an IAM platform that is designed by developers, for developers. Let’s look at a more complex case, and explore how Auth0 makes even sophisticated IAM workflows easy to implement, and getting your applications into production more quickly, more securely, and with less on-going maintenance.
 
@@ -109,7 +109,7 @@ When it comes time to implement your IOS and Android native applications, your d
 
 This example just scratches the surface of how Auth0 may be tightly integrated with your applications to simplify even the most challenging use cases.
 
-## CONCLUSION
+## <a href="#toc-5">CONCLUSION</a>
 
 At the core of any IAM platform you’ll find authentication and authorization. Auth0 makes these critical functions easy for developers to integrate, and easy for end users to navigate - and pass the gate to your business value.
 
