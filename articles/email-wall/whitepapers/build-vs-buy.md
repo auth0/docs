@@ -1,6 +1,7 @@
 ---
 title: "Dollars and Sense: Why Buying Your Identity Infrastructure Is Good Busines"
 type: whitepaper
+sitemap: false
 description: It is tempting to build your own identity management. But it does not make good economic sense. This white paper looks in detail at the costs to build a trustworthy identity solution in today’s high-risk environment, what it costs to purchase a subscription to the developer-friendly Auth0 platform, and for several typical scenarios, determines the payback period for using Auth0.
 hash: build-vs-buy
 pdf: http://google.com/link-to.pdf
