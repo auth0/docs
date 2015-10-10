@@ -1,6 +1,7 @@
 ---
 title: Mock whitepaper
 type: whitepaper
+sitemap: false
 description: Shalalala, shalala in the morning. Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.Shalalala, shalala in the morning.
 hash: mock-whitepaper-url-part
 pdf: http://google.com/link-to.pdf
