@@ -4,6 +4,9 @@
   "description": "This is the repository for the Auth0 documentation.",
   "author": "Auth0 Inc.",
   "devDependencies": {
-    "commander": "^2.8.1"
+    "commander": "^2.8.1",
+    "dotenv": "^1.2.0",
+    "lsr": "^1.0.0",
+    "tinify": "^1.1.1"
   }
 }

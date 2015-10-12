@@ -1,5 +1,12 @@
+require('dotenv').load();
 var program = require('commander');
 var fs = require('fs');
+var lsr = require('lsr');
+var tinify = require('tinify');
+var path = require('path');
+
+tinify.key = process.env.TINYPNG_KEY;
+var mediaPath = path.join(__dirname, '/media');
 
 var redirectFilePath = './redirect-urls.json';
  var addRedirect = function(oldUrl, newUrl, callback) {
@@ -19,10 +26,10 @@ var redirectFilePath = './redirect-urls.json';
 
 
 program
-  .version('0.0.1')
+  .version('0.0.1');
 
 
-  .command('mv <oldUrl> <newUrl>')
+program.command('mv <oldUrl> <newUrl>')
   .action(function (oldUrl, newUrl) {
     if (oldUrl[0] !== '/') {
       oldUrl = '/' + oldUrl;
@@ -41,6 +48,24 @@ program
         console.log('File renamed');
       });
     });
+  })
+
+
+program.command('img')
+  .action(function() {
+    lsr
+    .sync(mediaPath)
+    .forEach(function(fileStat) {
+      var filepath = fileStat.path;
+      console.log('compressing ' + filepath);
+      // Skip non PNG files
+      if (!/\.png$/.test(filepath)) return;
+
+      var fullPath = path.join(mediaPath, filepath);
+      var source = tinify.fromFile(fullPath);
+      source.toFile(fullPath);
+    });
+
   });
 
 
