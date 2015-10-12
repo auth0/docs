@@ -1,6 +1,6 @@
 ---
 title: Native Azure Active Directory applications with Auth0
-connection: Azure Active Directory
+connection: Azure Active Directory (for Native Apps)
 image: /media/connections/azure.png
 alias:
   - azure-ad-native-resource-owner
