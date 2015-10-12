@@ -61,7 +61,7 @@ Suppose this is the profile of the **primary account**:
 
 And suppose this is the profile of the **secondary account**:
 
-```js 
+```js
 {
   "phone_number": "+14258831929",
   "phone_verified": true,
@@ -135,8 +135,8 @@ After linking the accounts the **resulting profile** is:
 ```
 
 As a result of linking the accounts you will notice that:
- 
-* The `user_id` and all other main profile properties will continue to be those of the primary identity. 
+
+* The `user_id` and all other main profile properties will continue to be those of the primary identity.
 * The secondary account is now embeded in the `identities` array of the primary profile.
 * The **identity provider attributes** of the secondary account are placed inside the `profileData` field of the corresponding identity inside the array.
 * `user_metadata` and `app_metadata` of the primary account remains the same.
@@ -157,17 +157,17 @@ The Auth0 API V2 provides [an endpoint for linking accounts](https://auth0.com/d
     link_with: 'SECONDARY_ACCOUNT_JWT'
   }
   ```
-  This method requires a token with `update:current_user_identities` scope (which the authenticated user's JWT already has) and is suitable for the scenarios where the user initiates the linking process. By requiring the two JWTs you can make sure that the user was able to authenticate to both accounts, and has the right to merge them. 
+  This method requires a token with `update:current_user_identities` scope (which the authenticated user's JWT already has) and is suitable for the scenarios where the user initiates the linking process. By requiring the two JWTs you can make sure that the user was able to authenticate to both accounts, and has the right to merge them.
 
   2. With the primary and secondary accounts' user ids
 
   ```
   POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
   Authorization: 'Bearer YOUR_API_V2_TOKEN'
-  { 
-    provider: 'SECONDARY_ACCOUNT_PROVIDER', 
-    user_id: 'SECONDARY_ACCOUNT_USER_ID' 
-  } 
+  {
+    provider: 'SECONDARY_ACCOUNT_PROVIDER',
+    user_id: 'SECONDARY_ACCOUNT_USER_ID'
+  }
   ```
   This method requires an [API V2 token](/tokens/apiv2) with `update:users` scope and is intended to use from server side code, where you can make sure that both users correspond to the same person.
 
@@ -181,9 +181,9 @@ You can find implementation details of calling the Linking Account API for the d
 
 ### Automatic Account Linking
 
-**Auth0 does not support automatic linking per se**. However, you can implement automatic linking by setting up a [Rule](/rules) that link accounts with same e-mail address. For security purposes, it is a good practice to link accounts **only if both e-mails are verified**. 
+**Auth0 does not support automatic linking per se**. However, you can implement automatic linking by setting up a [Rule](/rules) that link accounts with same e-mail address. For security purposes, it is a good practice to link accounts **only if both e-mails are verified**.
 
-The rule is an example of linking accounts from server side code using the [Auth0 API Link Accounts endpoint](https://auth0.com/docs/api/v2#!/Users/post_identities), where you have the primary and secondary user ids and an [API V2 token](/tokens/apiv2) with `update:users` scope. 
+The rule is an example of linking accounts from server side code using the [Auth0 API Link Accounts endpoint](https://auth0.com/docs/api/v2#!/Users/post_identities), where you have the primary and secondary user ids and an [API V2 token](/tokens/apiv2) with `update:users` scope.
 
 > There is a sample [Link Users by Email Rule](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md) which you can use as starting point.
 
@@ -193,7 +193,7 @@ Typically the account linking will be a manual process initiated by an authentic
 
 ![](/media/articles/link-accounts/spa-user-settings.png)
 
-> You can follow the [User Initiated Account Linking within a Single Page App Tutorial](/link-accounts/user-initiated-linking) or view the [jQuery Single Page App Linking Accounts Sample](https://github.com/auth0/auth0-link-accounts-sample/SPA) on Github to see implementation details.
+> You can follow the [User Initiated Account Linking within a Single Page App Tutorial](/link-accounts/user-initiated-linking) or view the [jQuery Single Page App Linking Accounts Sample](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github to see implementation details.
 
 ### Suggested Account Linking
 
