@@ -64,7 +64,29 @@ Depending on which claims have been mapped when installing the claims provider t
 
 ![SharePoint User Info](/media/articles/integrations/sharepoint/sharepoint-user-info.png)
 
-## Authorization
+## Troubleshooting
+
+When working with additional claims and authorization it can always be useful to view the claims for the current user. [Liam Clearly](https://www.helloitsliam.com)'s [Claims Viewer Web Part](https://sharepointobservations.wordpress.com/2013/08/21/sharepoint-2013-and-adfs-2-0-test-with-claims-viewer-web-part/) can be used to troubleshoot any issues with the user's claims:
+
+![Claims Webpart](/media/articles/integrations/sharepoint/sharepoint-claims-webpart.png)
+
+### Logs in SP2010
+
+Errors and warnings are logged to SharePoint's Unified Logging Service and tools like the [ULS Viewer](http://www.microsoft.com/en-us/download/details.aspx?id=44020) can be used to troubleshoot any issues you might have when using the Claims Provider.
+
+![ULS](/media/articles/integrations/sharepoint/sharepoint-uls-logs.png)
+
+### Logs in SP2013
+
+For SharePoint 2013 we no longer use the Unified Logging Service for our logs, but we've moved to Event Tracing for Windows instead. This delivers more performance and gives you multiple ways of capturing all the logged events.
+
+To view the logs in real-time you can download [the Logs Processor](https://github.com/auth0/auth0-sharepoint/releases). Run this tool on your SharePoint Server(s) to see every call SharePoint is making to the Claims Provider:
+
+![ETW](/media/articles/integrations/sharepoint/sharepoint-logs-real-time.png)
+
+## Next Steps
+
+### Authorization
 
 The claims being passed through from Auth0 can also be used for authorization in SharePoint. For example, a user with the Role claim containing **Fabrikam HR** should have access or be a Contributor on a specific site.
 
@@ -135,22 +157,62 @@ $group.AddUser($user)
 
 After adding this claim value to the Contributors group David will be able to access the site and edit its contents.
 
-## Troubleshooting
+### User Profile Synchronization
 
-When working with additional claims and authorization it can always be useful to view the claims for the current user. [Liam Clearly](https://www.helloitsliam.com)'s [Claims Viewer Web Part](https://sharepointobservations.wordpress.com/2013/08/21/sharepoint-2013-and-adfs-2-0-test-with-claims-viewer-web-part/) can be used to troubleshoot any issues with the user's claims:
+By default SharePoint is able to synchronize user profile information originating from Active Directory. Now with Auth0 users can come from different types of connections (from social to enterprise) which will require a different approach to synchronize user profiles.
 
-![Claims Webpart](/media/articles/integrations/sharepoint/sharepoint-claims-webpart.png)
+A first approach would be to create a timer job that runs every few hours, queries the Auth0 Users Endpoint and synchronizes the profile information for those users.
 
-### Logs in SP2010
+```cs
+using System;
 
-Errors and warnings are logged to SharePoint's Unified Logging Service and tools like the [ULS Viewer](http://www.microsoft.com/en-us/download/details.aspx?id=44020) can be used to troubleshoot any issues you might have when using the Claims Provider.
+using Microsoft.SharePoint;
+using Microsoft.SharePoint.Administration;
 
-![ULS](/media/articles/integrations/sharepoint/sharepoint-uls-logs.png)
+using Microsoft.Office.Server;
+using Microsoft.Office.Server.UserProfiles;
 
-### Logs in SP2013
+namespace UserProfileSync
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Call the Auth0 API - https://docs.auth0.com/api/v2
 
-For SharePoint 2013 we no longer use the Unified Logging Service for our logs, but we've moved to Event Tracing for Windows instead. This delivers more performance and gives you multiple ways of capturing all the logged events.
+            using (var site = new SPSite("http://servername"))
+            {
+                var context = SPServiceContext.GetContext(site);
+                var profileManager = new UserProfileManager(context);
 
-To view the logs in real-time you can download [the Logs Processor](https://github.com/auth0/auth0-sharepoint/releases). Run this tool on your SharePoint Server(s) to see every call SharePoint is making to the Claims Provider:
+                var accountName = "i:05.t|auth0|john@example.org";
+                var userProfile = profileManager.GetUserProfile(accountName);
+                userProfile[PropertyConstants.HomePhone].Value = "+1 594 9392";
+                userProfile.Commit();
+            }
+        }
+    }
+}
+```
 
-![ETW](/media/articles/integrations/sharepoint/sharepoint-logs-real-time.png)
+Alternatively this logic could also be implemented as an HttpModule which runs each time the user logs in:
+
+```cs
+public class PersistUserClaimsHttpModule : IHttpModule
+{
+    private SPFederationAuthenticationModule FederationModule 
+    {
+        get { return HttpContext.Current.ApplicationInstance.Modules["FederatedAuthentication"] as SPFederationAuthenticationModule; }   
+    }
+    
+    public void Init(HttpApplication context)
+    {
+        FederationModule.SecurityTokenValidated += OnFederationSecurityTokenValidated;
+    }
+
+    private void OnFederationSecurityTokenValidated(object sender, SecurityTokenValidatedEventArgs e)
+    {
+        // Use e.ClaimsPrincipal
+    }
+}
+```
