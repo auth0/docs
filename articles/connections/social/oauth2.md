@@ -52,7 +52,7 @@ The **options** object:
 A custom script will have the following signature:
 
 ```js
-function(ctx, access_token, callback){
+function(access_token, ctx, callback){
 
   var profile = {
     user_id: '123',
@@ -72,7 +72,7 @@ The `access_token` parameter can be used for authenticating requests to the prov
 For example, the following code will retrieve the user profile from **GitHub**:
 
 ```js
-function(ctx, access_token, callback) {
+function(access_token, ctx, callback) {
   request.get('https://api.github.com/user', {
       'headers': {\
           'Authorization': 'Bearer ' + access_token,
