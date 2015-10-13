@@ -44,7 +44,7 @@ The User Profile information is cached in Auth0 for several reasons, including t
 
 ## Structure of User Profile Data
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](https://manage.auth0.com/#/users) in the Auth0 Dashboard and then on a particular user.
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${uiURL}/#/users) in the Auth0 Dashboard and then on a particular user.
 
 At the top of "Details" will be the core User Profile object with basic information such as name, email, country (if available), latest login and a few other fields.  The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.  For example, the Google Social Connection also returns the gender attribute.
 

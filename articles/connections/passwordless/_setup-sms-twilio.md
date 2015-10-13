@@ -4,7 +4,7 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 #### 2. Configure the connection
 
-In the Dashboard, on the **SMS (Twilio)** page under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless), enter your **Twilio Account SID** and **Auth Token**. Enter the **From** phone number that users will see as the sender of the SMS (also configurable in Twilio) and a **message**.
+In the Dashboard, on the **SMS (Twilio)** page under [Connections > Passwordless](${uiURL}/#/connections/passwordless), enter your **Twilio Account SID** and **Auth Token**. Enter the **From** phone number that users will see as the sender of the SMS (also configurable in Twilio) and a **message**.
 
 The `@@password@@` placeholder in the message template will be replaced with the one-time password that is sent in a text message to the user.
 

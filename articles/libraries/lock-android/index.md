@@ -150,7 +150,7 @@ And you'll see our native login screen
 
 ### SMS
 
-`LockSMSActivity` authenticates users by sending them an SMS (Similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](https://manage.auth0.com/#/connections/passwordless).
+`LockSMSActivity` authenticates users by sending them an SMS (Similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${uiURL}/#/connections/passwordless).
 
 `LockSMSActivity` is not included in `com.auth0:lock:aar` but you can add it with this line in your `build.gradle`:
 ```gradle
