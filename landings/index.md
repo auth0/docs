@@ -32,4 +32,20 @@ pages:
       - mfa-easy-to-implement
       - custom-mfa
       - compliance-with-standards
+  get-started-with-mfa:
+    title: Multi-factor Authentication (MFA) 
+    description: Learn everything about Multi-factor Authentication (MFA) and how you can start using it right now on your application.
+    banner:
+      image: "/media/landings/banner/bg-hero-mfa.png"
+    meta:
+      title: Multi-factor Authentication
+      description: Get started with Multi-factor Authentication and increase security of your critical systems.
+    modules:
+      - what-is-mfa-depth
+      - why-is-mfa-necessary-depth
+      - multi-factor-options
+      - mfa-easy-to-implement-depth
+      - adaptative-context-aware-mfa
+      - custom-mfa-providers
+      - compliance-with-standards
 ---
