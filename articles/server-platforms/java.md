@@ -21,7 +21,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/java-regular-webapp',
   pkgFilePath: 'examples/java-regular-webapp/src/main/webapp/WEB-INF/web.xml',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'none' //'replace' + account.clientParam
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Java WebApp to use it with Auth0.**
