@@ -21,7 +21,7 @@ snippets:
   pkgBranch: 'master',
   pkgPath: 'examples/java-api',
   pkgFilePath: null,
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'none`
 }) %>
 
 Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-java/blob/master/examples/java-api/README.md#running-the-example)
