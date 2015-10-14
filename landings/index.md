@@ -38,8 +38,8 @@ pages:
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
     meta:
-      title: Multi-factor Authentication
-      description: Get started with Multi-factor Authentication and increase security of your critical systems.
+      title: Multi-factor Authentication (MFA)
+      description: Learn everything about Multi-factor Authentication (MFA) and how you can start using it right now on your application.
     modules:
       - what-is-mfa-depth
       - why-is-mfa-necessary-depth
