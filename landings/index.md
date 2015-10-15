@@ -9,7 +9,7 @@ pages:
       image: "/media/landings/banner/bg-hero.png"
     meta:
       title: Single Sign On Authentication
-      description: Get started with Single Sign On and say goodbye to multiple credentials.
+      description: Get started with single sign on and say goodbye to multiple credentials.
     modules:
       - implementation
       - login
@@ -34,7 +34,7 @@ pages:
       - compliance-with-standards
   get-started-with-mfa:
     title: Multi-factor Authentication (MFA) 
-    description: Learn everything about Multi-factor Authentication (MFA) and how you can start using it right now on your application.
+    description: Learn everything about Multi-factor Authentication (MFA) and how you can start using it right now in your application.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
     meta:
