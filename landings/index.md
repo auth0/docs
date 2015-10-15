@@ -39,7 +39,7 @@ pages:
       image: "/media/landings/banner/bg-hero-mfa.png"
     meta:
       title: Getting started with Multi-factor Authentication (MFA)
-      description: Learn how to secure your mission-critical systmes with Multi-factor Authentication (MFA).
+      description: Learn how to secure your mission-critical systems with Multi-factor Authentication (MFA).
     modules:
       - what-is-mfa-depth
       - why-is-mfa-necessary-depth
