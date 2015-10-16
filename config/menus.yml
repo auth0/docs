@@ -330,7 +330,7 @@ menus:
           url: "/custom-signup"
         -
           title: "User Migration (beta)"
-          url: "/migrating"
+          url: "/conections/database/migrating"
   footer:
     -
       title: "Home"

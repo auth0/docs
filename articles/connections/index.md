@@ -43,19 +43,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 ## Database and Custom Connections
 
-<ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections/database').items, 'connection'), function(article) { %>
-  <% if (article.connection) { %>
-    <li>
-      <% if (article.sitemap === false) { %>
-        <%- article.connection %>
-      <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
-      <% } %>
-    </li>
-  <% } %>
-<% }); %>
-</ul>
+Auth0 provides [Database Connections](/connections/database) to authenticate your users with Username and Password. You can store users' credentials securely in Auth0 user store, or use your own database. Full documentation on Database Connections can be found [here](/connections/database).
 
 ## Passwordless
 Full documentation on Passwordless authentication can be found [here](/connections/passwordless).

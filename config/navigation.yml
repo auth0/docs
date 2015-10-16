@@ -164,7 +164,7 @@ categories:
       -
         name: "Importing and Migrating Users to Auth0"
         icon: "icon-budicon-754"
-        href: "/migrating"
+        href: "/connections/database/migrating"
         description: "Import users from existing applications into Auth0."
       -
         name: "Customizing Sign Up Forms"
