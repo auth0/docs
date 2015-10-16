@@ -41,6 +41,6 @@ On the same page, your `Client ID` and `Client Secret` will be displayed:
 
 ## 6. Copy your *Client Id* and *Client Secret*
 
-Go to your [Auth0 Dashboard](https://manage.auth0.com) and select **Connections > Social**, then choose **LinkedIn**. Copy the `Client Id` and `Client Secret` from the **Authentication** page of your app on LinkedIn into the fields on this page on Auth0:
+Go to your [Auth0 Dashboard](${uiURL}) and select **Connections > Social**, then choose **LinkedIn**. Copy the `Client Id` and `Client Secret` from the **Authentication** page of your app on LinkedIn into the fields on this page on Auth0:
 
 ![](/media/articles/connections/social/linkedin/linkedin-devportal-6.png)
