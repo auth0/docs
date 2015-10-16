@@ -14,7 +14,7 @@ To quickly implement MFA perform the following steps:
 
 2. Flip the **Enable Multifactor Auth** switch to enable the feature.
 
-3. Select one of the out-of-the-box providers (**Google Authenticator** or **Duo**).
+3. Select one of the built-in providers (**Google Authenticator**, **Duo**, or others) or plug your own writing a few lines of code in the extensible Auth0 platform.
 
 	![Enabling MFA](https://cdn.auth0.com/content/multi-factor-authentication/enabling-mfa.png)
 

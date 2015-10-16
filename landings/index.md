@@ -9,7 +9,7 @@ pages:
       image: "/media/landings/banner/bg-hero.png"
     meta:
       title: Single Sign On Authentication
-      description: Get started with single sign on and say goodbye to multiple credentials.
+      description: Get started with Single Sign On and say goodbye to multiple credentials.
     modules:
       - implementation
       - login
@@ -19,13 +19,13 @@ pages:
       - last-mile-integration
       - compliance-with-standards
   multi-factor-authentication:
-    title: Multi-factor Authentication 
-    description: Increased security for your critical systems.
+    title: Multifactor Authentication 
+    description: Increased security for your mission-critical systems.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
     meta:
-      title: Multi-factor Authentication
-      description: Get started with Multi-factor Authentication and increase security of your critical systems.
+      title: Multifactor Authentication
+      description: Increased security for your mission-critical systems.
     modules:
       - what-is-mfa
       - why-is-mfa-necessary
@@ -33,13 +33,13 @@ pages:
       - custom-mfa
       - compliance-with-standards
   get-started-with-mfa:
-    title: Multi-factor Authentication (MFA) 
-    description: Learn everything about Multi-factor Authentication (MFA) and how you can start using it right now in your application.
+    title: Multifactor Authentication (MFA) 
+    description: Learn everything about Multifactor Authentication (MFA) and how you can start using it right now in your application.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
     meta:
-      title: Getting started with Multi-factor Authentication (MFA)
-      description: Learn how to secure your mission-critical systmes with Multi-factor Authentication (MFA).
+      title: Multifactor Authentication (MFA)
+      description: Learn everything about Multifactor Authentication (MFA) and how you can start using it right now in your application.
     modules:
       - what-is-mfa-depth
       - why-is-mfa-necessary-depth

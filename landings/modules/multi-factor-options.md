@@ -5,7 +5,7 @@ image: "/media/landings/mfa-options/mfa-options.png"
 imagePosition: "center"
 budicon: 288
 color: "#44C7F4"
-title: "Multi-factor Options"
+title: "Multifactor Options"
 ---
 
 Some of the most used multifactor options are:
