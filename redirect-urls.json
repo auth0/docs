@@ -452,6 +452,10 @@
     "to": "/connections/database/mysql"
   },
   {
+    "from": "/migrating",
+    "to": "/connections/database/migrating"
+  },
+  {
     "from": "/quickstart/native-mobile/windows8-cp/:client",
     "to": "/quickstart/native-mobile/windows-store-csharp/:client"
   },
