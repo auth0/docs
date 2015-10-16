@@ -12,7 +12,7 @@ You can create a new Database Connection or manage existing ones within the [Adm
 
 ## Scenarios
 
-Typicall scenarios concerning database connections include:
+Typical scenarios concerning database connections include:
 * [Using Auth0 User Store](#using-auth0-user-store)
 * [Using a Custom User Store](#using-a-custom-user-store)
 * [Migrating from a Custom User Store to Auth0](#migrating-from-a-custom-user-store-to-the-auth0-database)
@@ -25,18 +25,18 @@ The Auth0 hosted database is highly secure. Users' passwords are never stored in
 
 ### Using a Custom User Store
 
-In the case you already have an existant user store, or you just want to store users' credentials in your own server, Auth0 allows you to easily connect to custom repositories and reuse them as identity providers.
+In the case you already have an existing user store, or you just want to store users' credentials in your own server, Auth0 allows you to easily connect to custom repositories and reuse them as identity providers.
 
 ![](/media/articles/connections/database/custom-database.png)
 
 In this scenario you have to provide a login script that will be executed each time a user attempts to login to validate the authenticity of the user. You can optionally provide scripts for sign up, email verification, password reset and delete user functionality. 
 
-The custom scripts are pieces of Node.js code that run in the tenant's sandbox. Auth0 provides templates for the most common databases: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer** and **Windows Azure SQL Database**, and for a **Web Service accessed by Basic Auth** as well. But you can esencially connect to any kind of database or web service using this powerfull extensibility point.
+The custom scripts are pieces of Node.js code that run in the tenant's sandbox. Auth0 provides templates for the most common databases: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQL Server** and **Windows Azure SQL Database**, and for a **Web Service accessed by Basic Auth** as well. Essentially, you can connect to any kind of database or web service using this powerful extensibility point.
 
 The only caveats to have in mind are that:
 * Latency will be greater than with Auth0 store
-* The custom dabase or service must be reachable from Auth0 servers. You will have to open some inbound connections if your store is behind a firewall.
-* The custom database scripts run in the same container where the rest of the tenant's extensibility points run (i.e. rules, webtasks or other databases). So you must be carefull with error handling and throttling.
+* The custom database or service must be reachable from Auth0 servers. You will have to open some inbound connections if your store is behind a firewall.
+* The custom database scripts run in the same container where the rest of the tenant's extensibility points run (i.e. rules, webtasks or other databases). So you must be careful with error handling and throttling.
 
 You can follow the [Custom Database Connection Tutorial](/connections/database/mysql) for detail steps on how to configure your custom user store.
 
