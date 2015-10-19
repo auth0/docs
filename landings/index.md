@@ -6,7 +6,7 @@ pages:
     title: Single Sign On 
     description: Say goodbye to multiple credentials.
     banner:
-      image: "/media/landings/banner/bg-hero.png"
+      image: "/media/landings/banner/hero-image-single-sign-on.png"
     meta:
       title: Single Sign On Authentication
       description: Get started with Single Sign On and say goodbye to multiple credentials.
