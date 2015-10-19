@@ -2,6 +2,7 @@
 sitemap: false
 
 image: "/media/landings/custom-mfa/custom-mfa.png"
+imageAlt: "Adaptative Context Aware Multifactor Authentication (MFA) allows you to define arbitrary conditions on when to trigger additional layers of authentication"
 imagePosition: "right"
 budicon: 329
 color: "#2F383D"

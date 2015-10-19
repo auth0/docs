@@ -2,6 +2,7 @@
 sitemap: false
 
 image: "/media/landings/mfa-easy-to-implement/mfa-easy-to-implement.png"
+imageAlt: "Multifactor Autnetication (MFA) is easy to implement with Auth0."
 imagePosition: "right"
 budicon: 693
 color: "#44C7F4"
