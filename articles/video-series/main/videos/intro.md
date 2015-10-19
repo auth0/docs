@@ -1,4 +1,5 @@
 ---
+public: false
 name: Auth0 Intro video
 description: "In this video, within 6 minutes you'll go from having no app, to having an application that has authentication working with Twitter, Github, Google and Username and Password using Auth0."
 videoId: 27i80efy8c
