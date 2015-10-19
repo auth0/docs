@@ -1,4 +1,5 @@
 ---
+public: false
 name: Setup Username and Password authentication
 description: "In this video you'll leran how you can configure a Username and Password authentication with users stored in Auth0's database"
 timeInSeconds: 154

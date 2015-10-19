@@ -1,4 +1,5 @@
 ---
+public: false
 video:
   series: main
   video: intro
