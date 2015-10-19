@@ -47,9 +47,9 @@ The **options** object:
 * **scope**: the scope parameters that you want to request consent for (e.g. `profile`, etc.).
 * **fetchUserProfile**: a custom script that returns a JSON object with user info.
 
-### Custom script
+### Custom fetchUserProfile script
 
-A custom script will have the following signature:
+A custom `fetchUserProfile` script can be included in the `scripts` parameter to retrieve the user profile:
 
 ```js
 function(access_token, ctx, callback){
