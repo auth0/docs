@@ -1,6 +1,7 @@
 ---
 sitemap: false
 image: "/media/landings/last-mile-integration/rules.png"
+imageAlt: "Create your own rules to customize your authentication pipeline."
 budicon: 342
 color: "#EB5424"
 title: "Last mile integration through JavaScript"

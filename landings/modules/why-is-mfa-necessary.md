@@ -2,6 +2,7 @@
 sitemap: false
 
 image: "/media/landings/why-is-mfa-necessary/why-is-mfa-necessary.png"
+imageAlt: "Multifactor Authentication (MFA) allows you to enforce security on your mission-critical systems."
 imagePosition: "center"
 budicon: 288
 color: "#1CB38F"

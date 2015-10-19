@@ -2,6 +2,7 @@
 sitemap: false
 
 image: "/media/landings/mfa-options/mfa-options.png"
+imageAlt: "Multifactor Authentication (MFA) options."
 imagePosition: "center"
 budicon: 288
 color: "#44C7F4"

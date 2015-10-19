@@ -23,6 +23,7 @@ pages:
     description: Increased security for your mission-critical systems.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
+      socialmediaimage: "/media/landings/banner/bg-hero-mfa-sm.png"
     meta:
       title: Multifactor Authentication
       description: Increased security for your mission-critical systems.
@@ -37,6 +38,7 @@ pages:
     description: Learn everything about Multifactor Authentication (MFA) and how you can start using it right now in your application.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
+      socialmediaimage: "/media/landings/banner/bg-hero-mfa-sm.png"
     meta:
       title: Multifactor Authentication (MFA)
       description: Learn everything about Multifactor Authentication (MFA) and how you can start using it right now in your application.
