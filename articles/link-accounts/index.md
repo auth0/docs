@@ -6,7 +6,7 @@ url: /link-accounts
 
 Auth0 supports the association of different accounts. Applications often support multiple identity providers. Through linking, a user can authenticate with one identity provider and later on with another, but appear to the app as being the same.
 
-## Advantages of linking accounts
+## Benefits
 
 * Give users the flexibility to log in with any identity provider without accidentally creating separate profiles.
 
