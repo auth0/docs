@@ -158,13 +158,13 @@ Using this mechanism it is very easy to implement popular multifactor options li
 ```
 function (user, context, callback) {
 
-  if( condition() && context.protocol !== 'redirect' ){
+  if( condition() && context.protocol !== 'redirect-callback' ){
     context.redirect = {
       url: 'https://your_custom_mfa'
     };
   }
 
-  if( context.protocol === 'redirect'){
+  if( context.protocol === 'redirect-callback'){
     //TODO: handle the result of the MFA step
   }
 
