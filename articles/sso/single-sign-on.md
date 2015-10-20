@@ -1,4 +1,4 @@
-# What is SSO?
+# What is SSO (Single Sign On)?
 
 SSO (Single Sign On) means that when a user logs in to one application he will be "automatically" signed in to every other application, regardless of the platform, technology and domain.
 
