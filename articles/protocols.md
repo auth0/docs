@@ -2,8 +2,6 @@
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation, LDAP). In most cases you won't need to go this deep to use Auth0.
 
-> This article is meant as an introduction. See the references section below for more information.
-
 ## OAuth Server Side
 
 This protocol is best suited for web sites that need:
