@@ -3,7 +3,7 @@ title: "API-Powered Authentication and Authorization for the Win"
 type: whitepaper
 sitemap: false
 description: Learn how you can solve custom and complex authentication scenarios with just a few lines of code, using Auth0's powerful, easy-to-use APIs.
-hash: build-vs-buy
+hash: api-driven-authentication
 pdf: http://google.com/link-to.pdf
 fourKeyConcepts:
   -
