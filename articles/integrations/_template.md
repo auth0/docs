@@ -24,4 +24,4 @@ Now you will be directed to a tutorial for this integration containing informati
 
 ### 4. Configuration complete
 
-You have successfully configured <%= meta.title %> to use Auth0 as the SSO Broker.
+You have successfully configured <%= meta.title %> to use Auth0 as the SSO broker.
