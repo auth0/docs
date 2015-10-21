@@ -1,5 +1,4 @@
 ---
-public: false
 name: Register an application
 description: "In this video, you'll learn how to register a new application in Auth0 and how to configure it."
 timeInSeconds: 241
