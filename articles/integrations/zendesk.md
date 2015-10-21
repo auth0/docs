@@ -1,4 +1,4 @@
 ---
-title: ZenDesk
+title: Zendesk
 ---
 ${include('./_template')}
