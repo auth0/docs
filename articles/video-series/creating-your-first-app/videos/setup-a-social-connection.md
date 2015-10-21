@@ -1,5 +1,4 @@
 ---
-public: false
 name: Setup a Social Connection
 description: "In this video, you'll learn how you can configure any Social Identity Provider with Auth0."
 timeInSeconds: 177
