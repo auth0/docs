@@ -47,6 +47,8 @@ On Mac OS X screenshots need to be taken with Chrome, taking into account the fo
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
 
+ > Note that the exception to showing the full browser window is in the case you are showing a detailed instruction as part of a tutorial. i.e. "Enter text in this field" and you are showing the field. In that case it likely isn't appropriate to show the entire page.
+
 
 ## Test Procedures
 When testing a document or tutorial below are several areas to look for.
