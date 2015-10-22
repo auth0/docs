@@ -7,6 +7,7 @@ pages:
     description: Say goodbye to multiple credentials.
     banner:
       image: "/media/landings/banner/hero-image-single-sign-on.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-single-sign-on.png"
     meta:
       title: Single Sign On Authentication
       description: Get started with Single Sign On and say goodbye to multiple credentials.
@@ -17,6 +18,23 @@ pages:
       - integration-cloud-apps
       - device-agnostic
       - last-mile-integration
+      - compliance-with-standards
+  how-to-implement-single-sign-on:
+    title: How to Implement Single Sign On 
+    description: Implement Single Sign On to allow users to login with just one set of credentials to multiple systems.
+    banner:
+      image: "/media/landings/banner/bg-hero.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-single-sign-on.png"
+    meta:
+      title: Implement Single Sign On Authentication
+      description: Implement Single Sign On to allow users to login with just one set of credentials to multiple systems.
+    modules:
+      - sso-login-just-once-depth
+      - sso-how-it-works-depth
+      - sso-easy-to-implement-depth
+      - sso-integration-cloud-apps-depth
+      - sso-single-log-out-depth
+      - sso-last-mile-integration-depth
       - compliance-with-standards
   multi-factor-authentication:
     title: Multifactor Authentication 
