@@ -10,11 +10,11 @@ In this tutorial, you will learn how to add Single Sign On (SSO) to ${meta.title
 
 Navigate to the [Third party apps](${uiURL}/#/externalapps/create) section of the dashboard and choose ${meta.title} from the list of apps:
 
-![](/media/articles/integrations/third-party-apps/create.png)
+![](/media/articles/integrations/third-party-apps-create.png)
 
 ### 2. Name your app and click **Save**:
 
-![](/media/articles/integrations/third-party-apps/save.png)
+![](/media/articles/integrations/third-party-apps-save.png)
 
 ### 3. Follow the live documentation
 
