@@ -20,8 +20,10 @@ Navigate to the [Third party apps](${uiURL}/#/externalapps/create) section of th
 
 Now you will be directed to a tutorial for this integration containing information customized for your account. You may need to enter information from ${meta.title}. Simply follow each of the steps as shown:
 
-![](${image1})
+![](/media/articles/integrations/third-party-apps/${image1})
 
 ### 4. Configuration complete
 
 You have successfully configured ${meta.title} to use Auth0 as the SSO broker.
+
+
