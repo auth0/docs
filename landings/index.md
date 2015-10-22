@@ -21,9 +21,9 @@ pages:
       - compliance-with-standards
   how-to-implement-single-sign-on:
     title: How to Implement Single Sign On 
-    description: Implement Single Sign On to allow users to login with just one set of credentials to multiple systems.
+    description: Implement Single Sign On to allow users to login to multiple systems with just one set of credentials.
     banner:
-      image: "/media/landings/banner/bg-hero.png"
+      image: "/media/landings/banner/hero-image-single-sign-on.png"
       socialmediaimage: "/media/landings/banner/twitter-card-single-sign-on.png"
     meta:
       title: Implement Single Sign On Authentication
