@@ -172,7 +172,7 @@ function _mergeMetadata(primaryUser, secondaryUser){
 
 ## 5. Link the accounts
 
-To link accounts, call the Auth0 API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using an [API V2 token](/tokens/apiv2) with `update:users` scope in the Authorization header:
+To link accounts, call the Auth0 API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using an [API V2 token](/api/v2/tokens) with `update:users` scope in the Authorization header:
 
 ```js
 const request = require('request');
@@ -235,7 +235,7 @@ router.post('/unlink-accounts/:targetUserProvider/:targetUserId',ensureLoggedIn,
 });
 ```
 
-Then invoke the API V2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [API V2 token](/tokens/apiv2) with `update:users` scope for authorization:
+Then invoke the API V2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [API V2 token](/api/v2/tokens) with `update:users` scope for authorization:
 
 ```js
 const request = require('request');
