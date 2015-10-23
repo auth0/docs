@@ -171,7 +171,7 @@ The Auth0 API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_
   }
   ```
 
-  This method requires an [API V2 token](/tokens/apiv2) with `update:users` scope and is intended for use in server-side code where you can make sure that both accounts correspond to the same person.
+  This method requires an [API V2 token](/api/v2/tokens) with `update:users` scope and is intended for use in server-side code where you can make sure that both accounts correspond to the same person.
 
 ## Scenarios
 
@@ -185,7 +185,7 @@ Below are implementation details for calling the Linking Account API in these sc
 
 **Auth0 does not support automatic linking**, per se. However, you can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address. For security purposes, it is best to link accounts **only if both e-mails are verified**.
 
-The rule is an example of linking accounts in server-side code using the Auth0 API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [API V2 token](/tokens/apiv2) with `update:users` scope.
+The rule is an example of linking accounts in server-side code using the Auth0 API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [API V2 token](/api/v2/tokens) with `update:users` scope.
 
 **NOTE:** For starting point, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md).
 
@@ -210,7 +210,7 @@ As with automatic linking, in this scenario you will set up a [Rule](/rules) tha
 The Auth0 API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
 
 * `update:current_user_identities`: when calling the endpoint from client-side code where you have the primary user's JWT (which comes with this scope).
-* `update:users`: when calling the endpoint from server-side code where you need to generate an [API V2 TOKEN](/tokens/apiv2) having this scope.
+* `update:users`: when calling the endpoint from server-side code where you need to generate an [API V2 TOKEN](/api/v2/tokens) having this scope.
 
 ```
 DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID

@@ -432,6 +432,10 @@
     "to": "/api/v2"
   },
   {
+    "from": "/tokens/apiv2",
+    "to": "/api/v2/tokens"
+  },
+  {
     "from": "/metadata-in-rules",
     "to": "/rules/metadata-in-rules"
   },
