@@ -16,7 +16,15 @@ For each email type the **From address**, the **Subject**, the **URL Lifetime** 
 
 ### From Address
 
-The **From address** is the address the end user will see when receiving an email from Auth0. If you leave this field empty the **From address** will be set to the email address of the Auth0 account owner (in case there are multiple account users the system will use the email address of the first owner).
+The **From address** is the address the end user will see when receiving an email from Auth0.
+
+If you haven't configured a **From address** for your emails, the following will occur:
+
+* If your email templates are not customized, they will be sent from `no-reply@auth0.com`.
+* Otherwise, they will be sent from the email address of the first owner of your Auth0 account.
+
+> Because of security reasons, it is not possible to send customized emails from any `@auth0.com` address.
+> Appliance users can configure a similar domain blacklist as well.
 
 This field supports the following macros:
 
