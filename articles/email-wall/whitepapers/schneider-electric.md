@@ -8,7 +8,7 @@ pdf: http://google.com/link-to.pdf
 fourKeyConcepts:
   -
     text: 'Challenge: Flexible Enterprise SSO'
-    icon: budicon-57
+    icon: budicon-573
   -
     text: 'Solution: Scalable Federated Identity With Auth0'
     icon: budicon-347
