@@ -8,17 +8,17 @@ pdf: http://google.com/link-to.pdf
 fourKeyConcepts:
   -
     text: Leveraging the Auth0 Rules Pipeline
-    icon: css-class-bud-icon
+    icon: budicon-342
   -
     text: Creating Dynamic Roles and Authorizations
-    icon: css-class-bud-icon
+    icon: budicon-285
   -
     text: Profile Enhancement On The Fly
-    icon: css-class-bud-icon
+    icon: budicon-292
   -
     text: Multi-party Authentication Flows Made Simple
-    icon: css-class-bud-icon
-  
+    icon: budicon-328
+
 longDescription: >
  In this white paper, we’ll look at some common use cases that go beyond the core features found in the Auth0 Dashboard, and see how an API-driven approach delivers more flexibility, and ultimately the best user experience.
 shortTagline: When you have a rich API for Identity Management, even complex authentication flows become easy to implement.
@@ -30,7 +30,7 @@ shortTagline: When you have a rich API for Identity Management, even complex aut
 
 ## OVERVIEW / EXECUTIVE SUMMARY
 
-Almost by definition, users are at the heart of any identity management system. You need to add them, remove them, let them log in and authorize them to access appropriate resources. You need to monitor, log, audit and manage them. When you add in privacy and regulatory compliance concerns, what seems like an easy bit of software quickly spirals into a big challenge. 
+Almost by definition, users are at the heart of any identity management system. You need to add them, remove them, let them log in and authorize them to access appropriate resources. You need to monitor, log, audit and manage them. When you add in privacy and regulatory compliance concerns, what seems like an easy bit of software quickly spirals into a big challenge.
 
 Auth0 has a unique, developer-centric approach. Some IAM products build every possible scenario for provisioning and managing the user population into a complex, hard-to-use and inflexible user interface managed by IT admins. Auth0 is different. The platform exposes a flexible, easy to use developer API that hides complexity behind a normalized and simple set of endpoints and schemas and a simple but powerful rules engine. Coupled with convenient SDKs for nearly any stack, the Auth0 API enables developers to build unique customizations.
 
@@ -42,7 +42,7 @@ With Auth0, you have the ability to add users from a wide range of connected ide
 
 Simple enough, but how do you manage those metadata fields? You might want to create a set of "roles" for your organization, and assign application permissions to those roles. Each user would then be assigned one or more roles and gain the corresponding permissions for their roles.
 
-You can see this model in action with the sample [Roles and Permissions Dashboard](https://github.com/auth0/auth0-roles-permissions-dashboard-sample) application - open source software from Auth0, on GitHub. 
+You can see this model in action with the sample [Roles and Permissions Dashboard](https://github.com/auth0/auth0-roles-permissions-dashboard-sample) application - open source software from Auth0, on GitHub.
 
 ![](/media/articles/email-wall/whitepapers/api-driven-authentication-and-authorization/Roles-Permissions-Sample.png)
 
@@ -56,7 +56,7 @@ Another option: if your organization represents these roles as groups within an 
 
 Rules are not just for authorization. The ability to reliably execute arbitrary code in the authentication pipeline can power advanced, server side features that would be difficult or impossible to implement unless you start from a blank slate and build your IAM solution from scratch.
 
-Creating an account using Auth0’s self-service signup is a powerful signal of engagement. What if you could record that data in your data warehouse, or using an analytics tool such as Mixpanel? You can, with a rule: 
+Creating an account using Auth0’s self-service signup is a powerful signal of engagement. What if you could record that data in your data warehouse, or using an analytics tool such as Mixpanel? You can, with a rule:
 ```javascript
 function (user, context, callback) {
 
