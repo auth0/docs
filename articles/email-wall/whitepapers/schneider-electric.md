@@ -7,16 +7,16 @@ hash: schneider-electric
 pdf: http://google.com/link-to.pdf
 fourKeyConcepts:
   -
-    text: Challenge: Flexible Enterprise SSO
+    text: 'Challenge: Flexible Enterprise SSO'
     icon: css-class-bud-icon
   -
-    text: Solution: Scalable Federated Identity With Auth0
+    text: 'Solution: Scalable Federated Identity With Auth0'
     icon: css-class-bud-icon
   -
-    text: Benefits: Enhanced Security, Risk Management, Happy Employees, Reduced Costs
+    text: 'Benefits: Enhanced Security, Risk Management, Happy Employees, Reduced Costs'
     icon: css-class-bud-icon
   -
-    text: Result: Seamless, Quick Implementation, Flexibility For Future 
+    text: 'Result: Seamless, Quick Implementation, Flexibility For Future'
     icon: css-class-bud-icon
   
 longDescription: >
