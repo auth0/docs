@@ -71,9 +71,6 @@ Led by Stephen Berard, ‎senior global software architect at Schneider Electric
  
 “We were impressed by the predictable pricing and easy ability to build exactly what we need,” said Berard. “At first the discussions were around ‘whose corporate card is this going to go on?’ Then it became about, ‘how are we going to get corporate to sign-off on a new and emerging technology?’ It was quickly evident how efficient and effective Auth0 was at meeting our IAM existing and future needs, and how this translated to more of our precious resources being spent for the good of the company and our customers. They got it.”
 
-> *It was quickly evident how efficient and effective Auth0 was at meeting our IAM existing and future needs, and how this translated to more of our precious resources being spent for the good of the company and our customers. They got it.*
-> **- Stephen Berard, ‎Schneider Electric**
-
 ## BENEFITS
 
 | Realized Benefits | |
@@ -106,6 +103,9 @@ Led by Stephen Berard, ‎senior global software architect at Schneider Electric
 - Through SSO, Schneider Electric eliminates the burden of additional log-in prompts – one less password for valuable customers to manage; increasing security and reducing friction
  
 “We were very impressed with how fast the Auth0 team gets back to us when we have a question. We have a different relationship with them compared to our other vendors. We feel they are one of us – solution and developer minded – always open to our questions, talking out an idea, and even adapting their service to our specific needs,” said Manu Cohen-Yashar, specialized tech architect, Schneider Electric.
+
+> *It was quickly evident how efficient and effective Auth0 was at meeting our IAM existing and future needs, and how this translated to more of our precious resources being spent for the good of the company and our customers. They got it.*
+> **- Stephen Berard, ‎Schneider Electric**
 
 - Flexible and patient through contract discussions
 - Comprehensive, easily understood documentation and code samples, and attentive, quick-responding customer service – especially through convenient online chat
