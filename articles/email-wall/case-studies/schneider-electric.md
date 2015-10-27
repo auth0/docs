@@ -20,7 +20,7 @@ fourKeyConcepts:
     icon: css-class-bud-icon
   
 longDescription: >
-Schneider Electric needed an Identity Management solution that could take on their rapid growth to over 170,000 employees worldwide, and their expansion into new markets. The goal - implement Single Sign-On across the whole company, breaking down organizational silos, simplifying employee access to resources, reducing IT costs, and improving security. Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
+ Schneider Electric needed an Identity Management solution that could take on their rapid growth to over 170,000 employees worldwide, and their expansion into new markets. The goal - implement Single Sign-On across the whole company, breaking down organizational silos, simplifying employee access to resources, reducing IT costs, and improving security. Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
 ---
 
 # Schneider Electric: Streamlining Identity Management
