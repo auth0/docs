@@ -1,63 +1,71 @@
-# Importing users to Auth0
+# Import users to Auth0
 
-Our focus has always been not only greenfield projects but also existing applications that want to extend their Authentication capabilities.  In this case it is possible that you want to migrate your existing users from a legacy user store to Auth0.
+At Auth0, the focus has always been not only on greenfield projects but also on existing applications that would benefit from an extension to their authentication capabilities. For these added features, you may wish to migrate your existing users to Auth0 from a legacy user store.
 
-We have released a new feature that enables migration of users from a **custom database connection** to Auth0. This migration is useful when you don't want to have all your users resetting their passwords at once, but rather migrating them gradually as they login over time.
+Auth0 has released a new feature that enables the automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time.
 
-You can read more about Database Connections, and the different user store options [here](/connections/database).
+You can read more about database connections and the several user store options at [Database Identity Providers](/connections/database).
 
-## Migration Process
+## The migration process
 
 When a user authenticates using a custom database connection marked for **import to Auth0**, the following process takes place:
 
 ![](/media/articles/connections/database/migrating-diagram.png)
 
-If user is already migrated to Auth0, it is authenticated against Auth0 database. If not, your custom login script is executed. If it is successful, the user would be automatically created in Auth0's database.
-The next time that user attempts to log in, their credentials and information would be retrieved from Auth0 and not from your custom database.
+If a user has already been migrated to Auth0, they are authenticated against the Auth0 database; if not, your custom login script is executed. When the login is successful, the user is automatically added to the Auth0 database.
 
-> Note: New users will be registered to Auth0 directly, and password resets will affect the users stored in Auth0 only.
+The next time that user attempts to log in, their credentials and profile are retrieved from Auth0 and not from your custom database.
 
-## Enabling automatic migration
+New users are registered to Auth0 directly.
 
-### 1. Create a new Custom Database
-You can create a new Database Connection or configure an existing one within the [Admin Dashboard > Connections > Database](${uiURL}/#/connections/database) section.
+**NOTE:** The password reset procedure is only available for users stored in the Auth0 database.
 
-A custom database connection will have the **Use my own database** flag turned on:
+## Enable automatic migration
+
+### 1. Create a new custom database
+
+You can create a new database connection or configure an existing one in the [Connections > Database](${uiURL}/#/connections/database) section of the Dashboard.
+
+On the **Custom Database** page, enable the **Use my own database** option:
 
 ![](/media/articles/connections/database/custom-database.png)
 
-### 2. Check the "Import Users to Auth0" option under connection settings:
+### 2. Turn on automatic migration:
+
+On the **Settings** page for your database, enable the **Import Users to Auth0** option:
 
 ![](/media/articles/connections/database/import-users.png)
 
-### 3. Configure the **Login** and **GetUser** scripts
+### 3. Configure the database action scripts
 
-Notice that after turning on the **Import Users to Auth0** flag, you will have two scripts to complete under the Custom Database section:
+On the **Custom Database** page, under *Database Action Scripts*, you will see the *Login* and *GetUser* scripts that you will need to complete.
 
 ![](/media/articles/connections/database/import-scripts.png)
 
-The custom scripts are Node.js scripts that run in the tenant's sandbox. Auth0 provides templates for the most common databases: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer** and **Windows Azure SQL Database**, and for "a Web Service accessed by Basic Auth" as well. You can read more about how to implement these scripts in the [custom database connection](/connections/database/mysql) doc.
+These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. For more information on implementing these scripts, see the tutorial at: [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql).
 
-The **Login** script will be executed each time a user which is not found within Auth0 Database attempts to login, to validate the authenticity of the user.
+The **Login** script to authenticate the user will execute each time a user that is not found in Auth0 database attempts to log in.
 
-The **Get User** script will be executed whenever any of the following actions are performed:
+The **Get User** script will execute when any of the following actions are performed:
 
-* A user attempts to **sign up**
-* A user clicks on a valid [password change confirmation](/libraries/lock/customization#rememberlastlogin-boolean-1) link
-* An [API call is made](/api/v2#!/Users/patch_users_by_id) to update a user's email
+* A user attempts to *sign-up*.
+* A user clicks on a valid [password change confirmation](/libraries/lock/customization#rememberlastlogin-boolean-) link.
+* An API call is made to [update a user's email](/api/v2#!/Users/patch_users_by_id).
 
-This script is needed because none of these actions require authentication on the user's behalf; the Get User must provide a way of verifying whether a user exists in a legacy database without needing their password.
+This script is needed because none of these actions require authentication on the user's behalf. The **Get User** script must provide a way of verifying that a user exists in the legacy database without requiring their password.
 
-If an unmigrated user confirms a password change, their user profile will be created in Auth0 with the new password they have just confirmed. This user profile will contain all the information returned in the Get User script, and any following logins will be performed in Auth0 directly.
+If an un-migrated user confirms a password change, their user profile will be created in Auth0 with the new password. This user profile will contain all the information returned in the **Get User** script. All subsequent logins of this user will be performed in Auth0 directly.
 
-### 4. Turn off import after all users are migrated
+### 4. Complete the migration
 
-After you've been importing users for a while, it is probably that all (or most of) the users are migrated to the Auth0 database. You can check it out using the [API](/api/v2#!/Users/get_users) or looking at the Users list within the [dashboard](${uiURL}/#/users):
+After importing users for a time, many of your users will have been migrated to the Auth0 database. You can verify this with the [List or search users](/api/v2#!/Users/get_users) API endpoint or by reviewing the [Users](${uiURL}/#/users) list on the Dashboard.
 
 ![](/media/articles/connections/database/migrated-users.png)
 
-In this case you are ready to turn off the users import and convert the database to an Auth0 one. Go to your custom database connection and:
-* Turn off the **User my own database** switch under Custom Database 
-* Turn off the **Import Users to Auth0** switch under Settings
+Once all your users are in the Auth0 database, you are ready to turn off the import users feature and convert the database to Auth0.
 
-Migration is completed!
+Go to your custom database connection on the [Dashboard](${uiURL}/#/connections/database) and:
+
+* Disable the **Import Users to Auth0** option under **Settings** page.
+* Disable the **Use my own database** option on the **Custom Database** page.
+

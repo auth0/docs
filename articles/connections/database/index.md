@@ -4,44 +4,44 @@ url: /connections/database
 
 # Database Identity Providers
 
-Auth0 provides **Database Connections** to authenticate your users with an email/username and password. You can store users' credentials securely in Auth0's user store, or use your own database. 
+Auth0 provides database connections to authenticate users with an email or username and a password and securely store these credentials in the Auth0 user store, or in your own database.
 
-You can create a new Database Connection or manage existing ones within the [Admin Dashboard](${uiURL}/#/connections/database):
+You can create a new database connection or manage existing ones in the [Dashboard](${uiURL}/#/connections/database):
 
 ![](/media/articles/connections/database/database-connections.png)
 
 ## Scenarios
 
-Typical scenarios concerning database connections include:
-* [Using Auth0 User Store](#using-auth0-user-store)
-* [Using a Custom User Store](#using-a-custom-user-store)
-* [Migrating from a Custom User Store to Auth0](#migrating-from-a-custom-user-store-to-the-auth0-database)
+Typical database connection scenarios include:
 
-### Using Auth0 User Store
+* [Using the Auth0 user store](#using-the-auth0-user-store)
+* [Using a custom user store](#using-a-custom-user-store)
+* [Migrating to Auth0 from a custom user store](#migrating-to-auth0-from-a-custom-user-store)
 
-By default, Auth0 will provide the infrastructure to store users on Auth0 directly. This will probably be the use case for greenfield projects, where you can take advantage of using Auth0's infrastructure out of the box and not having to provision your own store. Also, the authentication process will be more performant since all data is already within Auth0.
+### Using the Auth0 user store
 
-The Auth0 hosted database is highly secure. Passwords are never stored or logged in plain text, they are hashed with **bcrypt**. [Varying levels of password security requirements can also be enforced](/password-strength).
+Auth0 provides the database infrastructure to store your users by default. This scenario provides the best performance for the authentication process since all data is stored in Auth0.
 
-### Using a Custom User Store
+The Auth0-hosted database is highly secure. Passwords are never stored or logged in plain text but are hashed with **bcrypt**. Varying levels of password security requirements can also be enforced (see: [Password Strength in Auth0 Database Connections](/password-strength)).
 
-In the case you already have an existing user store, or you just want to store users' credentials in your own server, Auth0 allows you to easily connect to custom repositories and reuse them as identity providers.
+### Using a custom user store
+
+If you have an existing user store, or wish to store user credentials on your own server, Auth0 enables you to easily connect to a custom repository and use it as the identity provider.
 
 ![](/media/articles/connections/database/custom-database.png)
 
-In this scenario you have to provide a login script that will be executed each time a user attempts to login to validate the authenticity of the user. You can optionally provide scripts for sign up, email verification, password reset and delete user functionality. 
+In this scenario, you provide the login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
-The custom scripts are pieces of Node.js code that run in a sandbox isolated per Auth0 domain. Auth0 provides templates for the most common databases: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQL Server** and **Windows Azure SQL Database**, and for a **Web Service accessed by Basic Auth** as well. Essentially, you can connect to any kind of database or web service using this powerful extensibility point.
+These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQL Server**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
-Some caveats to keep in mind are:
+Some specifics to keep in mind:
+
 * Latency will be greater compared to Auth0-hosted user stores
-* The database or service must be reachable from Auth0 servers. You will have to open some inbound connections if your store is behind a firewall.
-* The database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibilty points (i.e. rules, webtasks or other databases) belonging to the same Auth0 domain. So you must be careful with error handling and throttling.
+* The database or service must be reachable from the Auth0 servers. You will need to configure inbound connections if your store is behind a firewall.
+* Database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibilty points (i.e. rules, webtasks or other databases) belonging to the same Auth0 domain. Therefore, you must carefully code for error handling and throttling.
 
-You can follow the [Custom Database Connection Tutorial](/connections/database/mysql) for detail steps on how to configure your custom user store.
+**NOTE:** See the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure a custom user store.
 
-### Migrating from a custom user store to the Auth0 database
+### Migrating to Auth0 from a custom user store
 
-This is the scenario where you already have a legacy user store and you want to start using Auth0 store, but you don't want to have all your users resetting their passwords at once, but rather migrating them gradually as they login over a period of time.
-
-Auth0 provides a migration feature for this scenario. [You can read more about it here](/connections/database/migrating).
+In this scenario, you have a legacy user store and wish to switch to the Auth0 store. Auth0 provides an automatic migration feature that adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time. For a detailed guide to this feature see [Importing users to Auth0](/connections/database/migrating).
