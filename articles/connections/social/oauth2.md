@@ -5,17 +5,20 @@ image: /media/connections/oauth2.png
 
 # Add a generic OAuth2 Authorization Server to Auth0
 
-The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can use [Auth0's Connections API](/api/v1#!#post--api-connections) to add any **OAuth2 Authorization Server** as an identity provider.
+The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can use [Auth0's Connections API](/api/v2#!/Connections/post_connections) to add any **OAuth2 Authorization Server** as an identity provider.
 
 **NOTE:**  Auth0 implements the standard [Authorization Code Grant flow](/protocols#oauth-server-side).
 
 ## Create a custom connection
 
-The example below creates a new **Google** custom connection:
+You will require an [API V2 token](/api/v2/tokens) with `create:connections` scope in order to invoke the  [Create Connection](/api/v2#!/Connections/post_connections) endpoint. 
+
+The example below creates a new **Google** custom connection. 
 
 ```
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @google-oauth-connection.json https://${account.namespace}/api/connections
+curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @google-oauth-connection.json https://${account.namespace}/api/v2/connections
 ```
+With the **google-oauth-connection.json** file having:
 
 ```
 {
@@ -30,7 +33,8 @@ curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_
     "scripts": {
       "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://www.googleapis.com/userinfo/v2/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); cb(null, JSON.parse(b)); }); }"
     }
-  }
+  },
+  "enabled_clients":["${account.clientId}"]
 }
 ```
 
@@ -39,13 +43,17 @@ The key parameters for a connection are:
 * **name**: how the connection will be referenced in Auth0 or in your app.
 * **strategy**: defines the protocol implemented by the provider. This should always be `oauth2`.
 
-The **options** object:
+You can optionally add:
 
-* **client_id** and **client_secret**: obtained from your provider.
-* **authorizationURL**: the URL where the transaction begins. Usually similar to `https://your.oauth2.server/oauth2/authorize`.
-* **tokenURL**: the URL Auth0 will use to exchange the `code` for an `access_token`. Usually similar to `https://your.oauth2.server/oauth2/token`.
-* **scope**: the scope parameters that you want to request consent for (e.g. `profile`, etc.).
-* **fetchUserProfile**: a custom script that returns a JSON object with user info.
+* **options**: object containing:
+
+  * **client_id** and **client_secret**: obtained from your provider.
+  * **authorizationURL**: the URL where the transaction begins. Usually similar to `https://your.oauth2.server/oauth2/authorize`.
+  * **tokenURL**: the URL Auth0 will use to exchange the `code` for an `access_token`. Usually similar to `https://your.oauth2.server/oauth2/token`.
+  * **scope**: the scope parameters that you want to request consent for (e.g. `profile`, etc.).
+  * **fetchUserProfile**: a custom script that returns a JSON object with user info.
+
+* **enabled_clients**: array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
 
 ### Custom fetchUserProfile script
 
