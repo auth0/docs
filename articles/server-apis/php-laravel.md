@@ -41,7 +41,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Enable Auth0 in Laravel API
 
-Add the following in the list of the services providers, located in `app/config/app.php`
+Add the following in the list of the services providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -90,7 +90,7 @@ public function register()
 
 ### 3. Configure it
 
-To configure the plugin, you need to publish the plugin configuration and complete the file `app/config/laravel-auth0.php` using the information of your Auth0 account.
+To configure the plugin, you need to publish the plugin configuration and complete the file `config/laravel-auth0.php` using the information of your Auth0 account.
 
 To publish the example configuration file use this command
 

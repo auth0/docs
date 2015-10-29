@@ -25,7 +25,7 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 ${snippet(meta.snippets.dependencies)}
 
 ### 2. Enable it in Laravel
-Add the following in the list of the services providers, located in `app/config/app.php`
+Add the following in the list of the services providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -73,7 +73,7 @@ public function register()
 
 ### 3. Configure it
 
-To configure the plugin, you need to publish the plugin configuration and complete the file `app/config/laravel-auth0.php` using the information of your Auth0 account.
+To configure the plugin, you need to publish the plugin configuration and complete the file `config/laravel-auth0.php` using the information of your Auth0 account.
 
 To publish the example configuration file use this command
 
@@ -86,7 +86,7 @@ The plugin works with the [Laravel security system](http://laravel.com/docs/secu
 In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications/) and also, add it as a route in Laravel
 
 ```php
-Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
+Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 ```
 
 ### 5. Triggering login manually or integrating the Auth0 widget
