@@ -1,14 +1,14 @@
 ---
-title: Authenticating Users on a MySQL with username and password
+title: Authenticate Users with Username and Password using a Custom Database
 connection: MySQL
 image: /media/connections/mysql.svg
 ---
 
 # Authenticate Users with Username and Password using a Custom Database
 
-Applications often rely on user databases for authentication. Auth0 allows you to easily connect to these repositories and reuse them as identity providers, while preserving user credentials, and adding the many features Auth0 provides.
+Applications often rely on user databases for authentication. Auth0 enables you to easily connect to these repositories and use them as identity providers while preserving user credentials and providing many additional features. You can read more about database connections and the different user store options at [Database Identity Providers](/connections/database).
 
-You can read more about Database Connections, and the different user store options [here](/connections/database). In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0.
+In this tutorial, you will be guided through a series of steps to connect your custom user store to Auth0.
 
 ## 1. Create a database connection
 
@@ -18,17 +18,17 @@ Log into Auth0, and select the [Connections > Database](${uiURL}/#/connections/d
 
 ## 3. Customize the database connection
 
-Click **Custom Database** and turn on the *Use my own database* switch.
+Click **Custom Database** and turn on the **Use my own database** switch.
 
 ![](/media/articles/connections/database/custom-database.png)
 
-## 4. Provide Action Scripts
+## 4. Provide action scripts
 
-You have to provide a **login script** that will be executed each time a user attempts to login to validate the authenticity of the user. You can optionally provide scripts for sign up, email verification, password reset and delete user functionality. 
+You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
-The custom scripts are pieces of Node.js code that run in the tenant's sandbox. Auth0 provides templates for the most common databases: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer** and **Windows Azure SQL Database**, and for a **Web Service accessed by Basic Auth** as well. But you can esencially connect to any kind of database or web service using this powerfull extensibility point.
+These custom scripts are *Node.js* code that run in the tenant's sandbox. Auth0 provides templates for most common databases, such as: **ASP.NET Membership Provider**, **MongoDB**, **MySQL**, **PostgreSQL**, **SQLServer**, **Windows Azure SQL Database**, and for a web service accessed by **Basic Auth**. Essentially, you can connect to any kind of database or web service with a custom script.
 
-In this tutorial, we will be using **MySQL** as an example. So in the **Templates** drop-down, select **MySQL**:
+This tutorial uses **MySQL** as an example. In the **Templates** drop-down, select **MySQL**:
 
 ![](/media/articles/connections/database/mysql/db-connection-login-script.png)
 
@@ -68,11 +68,11 @@ function login (email, password, callback) {
 }
 ```
 
-This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
+This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
-## 5. Add Configuration Params
+## 5. Add configuration parameters
 
-In the **Settings** section at the bottom of the page, you can securely store the credentials needed to connect to your database.
+You can securely store the credentials needed to connect to your database in the **Settings** section at the bottom of the page.
 
 ![](/media/articles/connections/database/mysql/db-connection-configurate.png)
 
@@ -88,7 +88,7 @@ function login (username, password, callback) {
   });
 ```
 
-## 6. Handle Errors
+## 6. Error handling
 
 To return an error, call the callback with an error as the first parameter:
 
@@ -98,23 +98,23 @@ callback(error);
 
 There are three different errors you can return from a DB Connection:
 
-* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: For when you know who the user is and you want to keep track of a wrong password.
-* `new ValidationError(<error code>, <message>)`: A generic error with an error code.
-* `new Error(<message>)`: Simple errors (no error code).
+* `new WrongUsernameOrPasswordError(<email or user_id>, <message>)`: when you know who the user is and want to keep track of a wrong password.
+* `new ValidationError(<error code>, <message>)`: a generic error with an error code.
+* `new Error(<message>)`: simple errors (no error code).
 
-Example:
+For example:
 
 ```js
 callback(new ValidationError('email-too-long', 'Email is too long.'));
 ```
 
-## 7. Debug and Troubleshoot
+## 7. Debug and troubleshoot
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 
 ![](/media/articles/connections/database/mysql/db-connection-try-ok.png)
 
-If you add any ``console.log`` statement in the script you will be able to see the output printed here as well.
+If you add a `console.log` statement to the script you will be able to see the output here.
 
 
 ## The script container
@@ -149,10 +149,10 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 
-> Do you require support for other libraries? Contact us at [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection).
+**NOTE:** If you require support for other libraries, email Auth0 at [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection).
 
-## Auth0 Login Widget
+## Auth0 Login widget
 
-After you have enabled the database connection, Auth0's widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed into your scripts.
+After you have enabled the database connection, the Auth0 Login widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed to your scripts.
 
 ![](/media/articles/connections/database/mysql/db-connection-widget.png)
