@@ -24,11 +24,13 @@ This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.c
 
 ### 1. Install dependencies
 
-We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to install the library.
+We need to add **jwt-auth-bundle** dependency to your composer.json.
 
-Modify your `composer.json` to add the following dependencies and run `composer update`.
+Once that's done, just run the following:
 
 ${snippet(meta.snippets.dependencies)}
+
+> This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Add the bundle to your AppKernell.php file
 
@@ -89,7 +91,7 @@ Modify the file /app/config/security.yml:
 - define your secured area that want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-${snippet(meta.snippets.dependencies)}
+${snippet(meta.snippets.use)}
 
 ## Issue Reporting
 
