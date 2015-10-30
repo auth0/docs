@@ -541,6 +541,6 @@
   },
   {
     "from": "/connections/passwordless/ios-sms",
-    "to": "/connections/passwordless/ios-sms-obj-c"
+    "to": "/connections/passwordless/ios-sms-objc"
   }
 ]
