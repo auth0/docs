@@ -337,7 +337,7 @@
   },
   {
     "from": "/singlepageapp-tutorial",
-    "to": "/client-platforms/vinillajs"
+    "to": "/client-platforms/vanillajs"
   },
   {
     "from": "/wcf-tutorial",
@@ -502,5 +502,45 @@
   {
     "from": "/quickstart",
     "to": "/"
+  },
+  {
+    "from": "/link-accounts/user-initiated",
+    "to": "/link-accounts/user-initiated-linking"
+  },
+  {
+    "from": "/libraries/lock/using-refresh-tokens",
+    "to": "/libraries/lock/using-a-refresh-token"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/node-api",
+    "to": "/quickstart/native-mobile/:client/nodejs"
+  },
+  {
+    "from": "/quickstart/webapp/play-2-scala",
+    "to": "/quickstart/webapp/scala"
+  },
+  {
+    "from": "/quickstart/hybrid/:client/python-api",
+    "to": "/quickstart/hybrid/:client/python"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/ruby-api",
+    "to": "/quickstart/native-mobile/:client/ruby"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/aspnetweb-owin-api",
+    "to": "/quickstart/native-mobile/:client/webapi-owin"
+  },
+  {
+    "from": "/quickstart/native-mobile/ios-reactnative",
+    "to": "/quickstart/native-mobile/ios-react-native"
+  },
+  {
+    "from": "/quickstart/native-mobile/ios-reactnative/:backend",
+    "to": "/quickstart/native-mobile/ios-react-native/:backend"
+  },
+  {
+    "from": "/connections/passwordless/ios-sms",
+    "to": "/connections/passwordless/ios-sms-obj-c"
   }
 ]
