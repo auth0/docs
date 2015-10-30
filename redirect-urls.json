@@ -498,5 +498,9 @@
   {
     "from": "/multi-factor-authentication/yubikey",
     "to": "/multifactor-authentication/yubikey"
+  },
+  {
+    "from": "/quickstart",
+    "to": "/"
   }
 ]
