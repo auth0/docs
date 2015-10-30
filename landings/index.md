@@ -68,4 +68,21 @@ pages:
       - adaptative-context-aware-mfa
       - custom-mfa-providers
       - compliance-with-standards
+  json-web-tokens:
+    title: Get Started with JSON Web Tokens
+    description: All you wanted to know about JSON Web Tokens but were afraid to ask.
+    banner:
+      image: "/media/landings/banner/jwt-hero.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-jwt.png"
+    meta:
+      title: Get Started with JSON Web Tokens
+      description: All you wanted to know about JSON Web Tokens but were afraid to ask.
+    modules:
+      - jwt-what-is
+      - jwt-when-should-you-use
+      - jwt-which-is-the-structure
+      - jwt-how-they-work
+      - jwt-why-should-you-use
+      - jwt-how-we-use-in-Auth0
 ---
+
