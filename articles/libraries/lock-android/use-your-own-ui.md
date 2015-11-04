@@ -272,6 +272,7 @@ lodash: true
 1. Configure Google+ Native integrationApplication class)
   ```java
     this.googleplus = new GooglePlusIdentityProvider(this);
+    this.googleplus.setCallback(callback);
   ```
   > **Note**: Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
 
