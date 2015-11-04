@@ -11,75 +11,96 @@ To configure Auth0 for federation with AWS using SAML, follow the steps below:
 
 1. On the Auth0 [Dashboard](${uiURL}/#/applications), add a new app. In the **Addons** tab of the app settings page, enable the **SAML2 Web App** add-on.
 
-  ![Addons](/media/articles/integrations/aws/addons.png)
+  ![](/media/articles/integrations/aws/addons.png)
 
 2. Under the **Settings** tab of the **SAML2 Web App Addon** page, enter `https://signin.aws.amazon.com/saml` for the **Application Callback URL** and paste the following default SAML configuration code into the *Settings* box:
 
   ```
-  {
-   "audience":  "https://signin.aws.amazon.com/saml",
-   "mappings": {
+    {
+     "audience":  "https://signin.aws.amazon.com/saml",
+     "mappings": {
      "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
      "name":        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-   },
-   "createUpnClaim":       false,
-   "passthroughClaimsWithNoMapping": false,
-   "mapUnknownClaimsAsIs": false,
-   "mapIdentities":        false,
-   "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
-   "nameIdentifierProbes": [
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
-   ],
-  }
+     },
+    "createUpnClaim":       false,
+    "passthroughClaimsWithNoMapping": false,
+    "mapUnknownClaimsAsIs": false,
+    "mapIdentities":        false,
+    "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+    "nameIdentifierProbes": [
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+    ]
+    }
   ```
 
   Scroll to the bottom of the page and click **Save**:
 
-  ![Addons](/media/articles/integrations/aws/configure.png)
+  ![](/media/articles/integrations/aws/configure.png)
 
-3. Auth0 needs to be configured as the identity provider (IdP) for AWS. (For more information, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html) in the AWS Identity and Access Management IAM User Guide.)
+3. Auth0 needs to be configured as the identity provider (IdP) for AWS. AWS requires an **IdP Metadata** file to import.
+Select the **Usage** tab and click the **Identity Provider Metadata** download link to save the file:
 
-  AWS requires an **IdP Metadata** file to import. Select the **Usage** tab and click the **Identity Provider Metadata** download link to save the file:
+  ![](/media/articles/integrations/aws/idp-download.png)
 
-  ![Addons](/media/articles/integrations/aws/idp-download.png)
+4. Create a SAML provider. 
+    1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Identity Providers** in the left menu.
+    2. Select **SAML** in the **Provider Type** dropdown, enter a name for your provider and browse for the metadata document you downloaded in the previous step. Click **Next Step**.
 
-5. Send **AWS roles** or write a Rule to map values to it, like this example:
+      ![](/media/articles/integrations/aws/aws-configure-provider.png)
+    3. Verify your settings and click **Create**:
+
+4. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. (For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
+The steps are:
+
+    1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Roles** in the left menu, then click **Create New Role**:
+    ![](/media/articles/integrations/aws/iam-new-role.png)
+    2. Enter a name for the role and click **Next Step**.
+    3. Select **Role for Identity Provider Access**  then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
+    ![](/media/articles/integrations/aws/iam-role-type.png)
+    5. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
+    6. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
+    7. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
+    8. Review the role information, then click **Create Role**:
+    ![](/media/articles/integrations/aws/iam-review-role.png)
+
+5. Write a [Rule](/rules) to map the AWS role to a user.
+
+  The **AWS roles** you send will be associated to an **AWS IAM Policy** that will enforce the type of access allowed for a resource, including the AWS dashboard. (For more information on roles and policies, see [Creating IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html)) Notice the **AWS Role** has a structure of `{Fully qualified Role name},{Fully qualified identity provider}`. The IdP is identified as `arn:aws:iam::951887872838:saml-provider/MyAuth0` in the sample below:
 
   ```js
 function (user, context, callback) {
 
 	user.awsRole = 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::951887872838:saml-provider/MyAuth0';
-  user.awsRoleSession = 'eugeniop';
+    user.awsRoleSession = 'eugeniop';
 
-  context.samlConfiguration.mappings = {
+    context.samlConfiguration.mappings = {
       "https://aws.amazon.com/SAML/Attributes/Role": "awsRole",
       "https://aws.amazon.com/SAML/Attributes/RoleSessionName": "awsRoleSession"
-  };
-  callback(null, user, context);
-}
+    };
+    callback(null, user, context);
+    }
   ```
 
-Notice that how you obtain these 2 values in multiple ways. The above, just hardcodes them. You could store these in the __User Profile__, or you could also derive them from other attributes. For example, you might use Active Directory and have properties already associated with users (e.g. `groups`). You can then define a map between `groups` and `AWS roles`:
+  Notice that how you obtain these 2 values in multiple ways. The above example hardcodes them. You could store these in the *User Profile*, or you could derive them from other attributes. For example, you might use Active Directory and have properties already associated with users (e.g. `groups`). You can then define a map between `groups` and `AWS roles`:
 
-```
-...
-var awsRoles = {
-  'DomainUser': 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::95123456838:saml-provider/MyAuth0',
-  'DomainAdmins': arn:aws:iam::957483571234:role/SysAdmins,arn:aws:iam::95123456838:saml-provider/MyAuth0'
-};
+  ```
+    ...
+    var awsRoles = {
+    'DomainUser': 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::95123456838:saml-provider/MyAuth0',
+    'DomainAdmins': arn:aws:iam::957483571234:role/SysAdmins,arn:aws:iam::95123456838:saml-provider/MyAuth0'
+    };
 
-context.samlConfiguration.mappings = {
+    context.samlConfiguration.mappings = {
     "https://aws.amazon.com/SAML/Attributes/Role": awsRoles[user.group],
     "https://aws.amazon.com/SAML/Attributes/RoleSessionName": user.name,
 
-};
-...
-```
+    };
+    ...
+  ```
 
-The __AWS roles__ you send will be associated to an __AWS IAM Policy__ that will enforce the type of access allowed for a resource, including the AWS dashboard. Notice the __AWS Role__ has structure of `{Fully qualified Role name},{Fully qualified identity provider}`. In the sample above the IdP is identified as `arn:aws:iam::951887872838:saml-provider/MyAuth0`.
-
-More information on roles, policies see [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html).
-
+7. You are now setup for single sign-on to AWS. You can find the `Identity Provider Login URL` on the Auth0 Dashboard. Go to the **SAML2 Addon** settings page of your app, and select the **Usage** tab.
+  ![](/media/articles/integrations/aws/idp-url.png)
+  To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
 ## Delegation Scenarios
 
