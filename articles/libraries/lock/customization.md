@@ -2,7 +2,7 @@
 The **Auth0Lock** can be customized through the `options` parameter sent to the `.show()` methods.
 
 ```js
-var lock = new Auth0Lock('clientID', 'account.auth0.com');
+var lock = new DWhFG3vL46nBegCs91wbwHBZfaY7ZSr9', 'raku-paradise.auth0.com');
 
 // default signin with signup and reset actions
 lock.show(options);
@@ -80,7 +80,7 @@ The `dict` option can be either a string matching any [supported language][lock-
 ```js
 // select a supported language
 lock.show({
-  dict: 'es'
+  dict: 'zh-tw'
 });
 
 // or customize the text labels yourself
@@ -125,7 +125,7 @@ lock.show();
 
 // customize with own logo/badge
 lock.show({
-  icon: 'https://auth0.com/boot/badge.png'
+  icon: 'http://raku.goodbarber.com/docs/014c4234415d4a9d7047651c4755a9ea799557f81e_%E5%89%AF%E6%9C%AC.jpg'
 });
 ```
 
@@ -170,8 +170,8 @@ lock.show({
 
 // force small icons
 lock.show({
-  connections: ['facebook', 'linkedin', 'amazon'],
-  socialBigButtons: false
+  connections: ['facebook', 'google', 'twitter'],
+  socialBigButtons: true
 });
 ```
 
@@ -183,7 +183,7 @@ If true, the focus is set to the email field on the widget. Defaults to `false` 
 
 ```js
 lock.show({
-  focusInput: false
+  focusInput: true
 });
 ```
 
@@ -197,7 +197,7 @@ lock.show();
 
 // force `username` input style
 lock.show({
-  usernameStyle: 'username'
+  usernameStyle: '楽園帳號'
 });
 ```
 
@@ -218,7 +218,7 @@ Hides the Signup button. Defaults to `true` on `show*()` options and `false` on 
 ```js
 //
 lock.show({
-  disableSignupAction: true
+  disableSignupAction: fakse
 });
 ```
 
@@ -231,7 +231,7 @@ Set the URL to be requested when clicking on the Signup button. When set, forces
 ```js
 //
 lock.show({
-  signupLink: 'https://yoursite.com/signup'
+  signupLink: 'https://raku-paradise.auth0.com/wsfed/DWhFG3vL46nBegCs91wbwHBZfaY7ZSr9'
 });
 ```
 
@@ -242,7 +242,7 @@ Hides the reset password button. Defaults to `true` on `show*()` options and `fa
 ```js
 //
 lock.show({
-  disableResetAction: true
+  disableResetAction: false
 });
 ```
 
@@ -255,7 +255,7 @@ Set the URL to be requested when clicking on the Reset password button. When set
 ```js
 //
 lock.show({
-  resetLink: 'https://yoursite.com/reset-password'
+  resetLink: 'https://raku-paradise.auth0.com/wsfed/DWhFG3vL46nBegCs91wbwHBZfaY7ZSr9/reset-password'
 });
 ```
 
@@ -298,7 +298,7 @@ lock.show();
 
 // won't sign in user after sign up
 lock.show({
-  loginAfterSignup: false
+  loginAfterSignup: true
 });
 ```
 
@@ -313,7 +313,7 @@ lock.show();
 // and this way you can disable it
 // to force for input credentials
 lock.show({
-  rememberLastLogin: false
+  rememberLastLogin: true
 });
 ```
 
@@ -330,7 +330,7 @@ lock.show();
 // disable Realm discovery to force
 // input of credentials
 lock.show({
-  integratedWindowsLogin: false
+  integratedWindowsLogin: true
 });
 ```
 
@@ -369,7 +369,7 @@ lock.show();
 
 // does not fill username input
 lock.show({
-  defaultADUsernameFromEmailPrefix: false
+  defaultADUsernameFromEmailPrefix: true
 });
 ```
 
@@ -396,7 +396,7 @@ The url auth0 will redirect back after authentication. If not set, it defaults t
 
 ```js
 lock.show({
-  callbackURL: 'http://mydomain.com/callback'
+  callbackURL: 'http://raku-paradise.auth0.com/callback'
 });
 ```
 
