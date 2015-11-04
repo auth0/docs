@@ -43,25 +43,26 @@ Select the **Usage** tab and click the **Identity Provider Metadata** download l
   ![](/media/articles/integrations/aws/idp-download.png)
 
 4. Create a SAML provider. 
-    1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Identity Providers** in the left menu.
+    1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Identity Providers** in the left menu and click **Create Provider**.
     2. Select **SAML** in the **Provider Type** dropdown, enter a name for your provider and browse for the metadata document you downloaded in the previous step. Click **Next Step**.
 
       ![](/media/articles/integrations/aws/aws-configure-provider.png)
-    3. Verify your settings and click **Create**:
+    3. Verify your settings and click **Create**.
 
 4. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. (For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
-The steps are:
+
+  The steps are:
 
     1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Roles** in the left menu, then click **Create New Role**:
-    ![](/media/articles/integrations/aws/iam-new-role.png)
+      ![](/media/articles/integrations/aws/iam-new-role.png)
     2. Enter a name for the role and click **Next Step**.
     3. Select **Role for Identity Provider Access**  then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
-    ![](/media/articles/integrations/aws/iam-role-type.png)
+      ![](/media/articles/integrations/aws/iam-role-type.png)
     5. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
     6. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
     7. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
     8. Review the role information, then click **Create Role**:
-    ![](/media/articles/integrations/aws/iam-review-role.png)
+      ![](/media/articles/integrations/aws/iam-review-role.png)
 
 5. Write a [Rule](/rules) to map the AWS role to a user.
 
@@ -81,7 +82,7 @@ function (user, context, callback) {
     }
   ```
 
-  Notice that how you obtain these 2 values in multiple ways. The above example hardcodes them. You could store these in the *User Profile*, or you could derive them from other attributes. For example, you might use Active Directory and have properties already associated with users (e.g. `groups`). You can then define a map between `groups` and `AWS roles`:
+  Notice that you can obtain these 2 values in multiple ways. The above example hardcodes them. You could store these in the *User Profile*, or you could derive them from other attributes. For example, you might use Active Directory and have properties already associated with users (e.g. `groups`). You can then define a map between `groups` and `AWS roles`:
 
   ```
     ...
