@@ -59,10 +59,10 @@ Select the **Usage** tab and click the **Identity Provider Metadata** download l
     3. Select **Role for Identity Provider Access**.
     4. Select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
       ![](/media/articles/integrations/aws/iam-role-type.png)
-    4. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
-    5. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
-    6. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
-    7. Review the role information, then click **Create Role**:
+    5. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
+    6. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
+    7. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
+    8. Review the role information, then click **Create Role**:
       ![](/media/articles/integrations/aws/iam-review-role.png)
 
 6. Write a [Rule](/rules) to map the AWS role to a user.
