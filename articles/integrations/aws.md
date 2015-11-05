@@ -56,7 +56,8 @@ Select the **Usage** tab and click the **Identity Provider Metadata** download l
     1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Roles** in the left menu, then click **Create New Role**:
       ![](/media/articles/integrations/aws/iam-new-role.png)
     2. Enter a name for the role and click **Next Step**.
-    3. Select **Role for Identity Provider Access**.  Then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
+    3. Select **Role for Identity Provider Access**.
+    4. Select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
       ![](/media/articles/integrations/aws/iam-role-type.png)
     4. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
     5. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
