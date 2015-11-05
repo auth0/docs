@@ -102,11 +102,11 @@ function (user, context, callback) {
     ...
   ```
 
-7. You are now setup for single sign-on to AWS. You can find the `Identity Provider Login URL` on the Auth0 Dashboard. Go to the **SAML2 Addon** settings page of your app, and select the **Usage** tab.
+You are now setup for single sign-on to AWS. You can find the `Identity Provider Login URL` on the Auth0 Dashboard. Go to the **SAML2 Addon** settings page of your app, and select the **Usage** tab.
 
-  To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
+![](/media/articles/integrations/aws/idp-url.png)
 
-  ![](/media/articles/integrations/aws/idp-url.png)
+To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
 ## Delegation scenarios
 
