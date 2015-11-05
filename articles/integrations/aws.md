@@ -108,21 +108,35 @@ You are now setup for single sign-on to AWS. You can find the `Identity Provider
 
 To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
-## Delegation scenarios
+**NOTE:** For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway). 
 
-This second scenario is even more powerful. Auth0 can interact with **AWS STS** directly and obtain an **AWS token** that can be used to call any AWS API.
+## Delegation
 
-This works with any supported [Identity Provider](/identityproviders) in Auth0:
+This delegation scenario is more versatile. Auth0 interacts with **AWS STS** directly to obtain an **AWS token** that can be used to call the AWS API of any Auth0-supported [Identity Provider](/identityproviders).
 
 ![](/media/articles/integrations/aws/aws-sts.png)
 
-In the example above, a web application authenticates users with social providers (e.g. GitHub, LinkedIn, Facebook, Twitter) or with corporate credentials (e.g. Active Directory, Office365 and Salesforce) in step 1.
+In **Step 1** of the example above, a web application authenticates users with social providers (e.g. GitHub, LinkedIn, Facebook, Twitter) or with corporate credentials (e.g. Active Directory, Office365 and Salesforce).
 
-It then calls the **Identity delegation** endpoint in Auth0 (step 2) and requests an AWS Token. Auth0 obtains the token from AWS STS (step 3).
+In **Step 2**, the app calls the **Identity delegation** endpoint in Auth0 and requests an AWS Token. Auth0 obtains the token from AWS STS in **Step 3**.
 
 The app can then use the AWS Token to connect with S3 or EC2 or any AWS API.
 
-As an example of an IAM policy:
+### The AWS add-on
+
+A brief description of the AWS add-on...
+
+### Setup delegation
+
+On the Auth0 [Dashboard](${uiURL}/#/applications), select your app. In the **Addons** tab of the app settings page, enable the **Amazon Web Services** add-on.
+
+![](/media/articles/integrations/aws/aws-addon.png)
+
+**NOTE:** For more detailed instructions on delegation, see [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup).
+
+### IAM policy
+
+Here is an example of an IAM policy:
 
     {  
       "Version": "2012-10-17",
@@ -142,15 +156,15 @@ As an example of an IAM policy:
       ]
     }
 
-This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of a SAML token digitally signed that Auth0 exchanges with AWS on your behalf (step 3).
+This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of the digitally signed SAML token that Auth0 exchanges with AWS on your behalf (**Step 3** in the graphic).
 
-The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject`, that will equal the user identifier). This means that the **original** identity of the user can be used throughout the system: your app, S3, etc.
+The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject`, and is equal to the user identifier). This means that the *original* identity of the user can be used throughout the system (in your app, S3, etc.).
 
-## Getting the AWS token for an authenticated user
+## Get the AWS token for an authenticated user
 
-When a user authenticates with Auth0, you will get back an `id_token` (as a [JWT](/jwt)). You then use this `id_token` to request an Auth0 and AWS Token using the delegation endpoint.
+When a user authenticates with Auth0, an `id_token` (as a [JWT](/jwt)) is returned. This `id_token` is then used to request an Auth0 and AWS token using the delegation endpoint.
 
-This is a sample Request on the delegation endpoint:
+Here is a sample request on the delegation endpoint:
 
     POST https://${account.namespace}/delegation
 
@@ -166,7 +180,9 @@ Notice the 2 additional parameters used for AWS:
     &role=arn:aws:iam::010616021751:role/foo
     &principal=arn:aws:iam::010616021751:saml-provider/idpname
 
-The Response will contain the AWS Token:
+**NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
+
+The Response will contain the AWS token:
 
 ```
 {
@@ -179,9 +195,9 @@ The Response will contain the AWS Token:
 }
 ```
 
-**NOTE:** The Auth0 client libraries simplify calling these endpoints. See our [GitHub repo](https://github.com/auth0/) for the latest SDKs. Here is an example for client-side JavaScript: [Delegation Token Request](https://github.com/auth0/auth0.js#delegation-token-request).
+**NOTE:** The Auth0 client libraries simplify calling these endpoints. See our [GitHub repo](https://github.com/auth0/) for the latest SDKs. See an example for client-side JavaScript at: [Delegation Token Request](https://github.com/auth0/auth0.js#delegation-token-request).
 
-## Client-side sample code
+Here is an example of client-side code used to obtain the token:
 
 ```
   var targetClientId = "{TARGET_CLIENT_ID}";
@@ -213,3 +229,4 @@ The Response will contain the AWS Token:
     });
   }
 ```
+
