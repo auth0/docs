@@ -5,7 +5,7 @@ Auth0 ships with AWS IAM integration that allows you to:
  * Login to the AWS Dashboard with any of the supported [Identity Providers](/identityproviders).
  * Obtain AWS Tokens to securely call AWS APIs and resources.
 
-## SSO with AWS Dashboard
+## SSO with the AWS Dashboard
 
 To configure Auth0 for federation with AWS using SAML, follow the steps below:
 
@@ -49,7 +49,7 @@ Select the **Usage** tab and click the **Identity Provider Metadata** download l
       ![](/media/articles/integrations/aws/aws-configure-provider.png)
     3. Verify your settings and click **Create**.
 
-4. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. (For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
+5. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. (For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
 
   The steps are:
 
@@ -58,13 +58,13 @@ Select the **Usage** tab and click the **Identity Provider Metadata** download l
     2. Enter a name for the role and click **Next Step**.
     3. Select **Role for Identity Provider Access**  then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
       ![](/media/articles/integrations/aws/iam-role-type.png)
-    5. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
-    6. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
-    7. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
-    8. Review the role information, then click **Create Role**:
+    4. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
+    5. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
+    6. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
+    7. Review the role information, then click **Create Role**:
       ![](/media/articles/integrations/aws/iam-review-role.png)
 
-5. Write a [Rule](/rules) to map the AWS role to a user.
+6. Write a [Rule](/rules) to map the AWS role to a user.
 
   The **AWS roles** you send will be associated to an **AWS IAM Policy** that will enforce the type of access allowed for a resource, including the AWS dashboard. (For more information on roles and policies, see [Creating IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html)) Notice the **AWS Role** has a structure of `{Fully qualified Role name},{Fully qualified identity provider}`. The IdP is identified as `arn:aws:iam::951887872838:saml-provider/MyAuth0` in the sample below:
 
@@ -100,20 +100,22 @@ function (user, context, callback) {
   ```
 
 7. You are now setup for single sign-on to AWS. You can find the `Identity Provider Login URL` on the Auth0 Dashboard. Go to the **SAML2 Addon** settings page of your app, and select the **Usage** tab.
-  ![](/media/articles/integrations/aws/idp-url.png)
+
   To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
-## Delegation Scenarios
+  ![](/media/articles/integrations/aws/idp-url.png)
 
-This second scenario is even more powerful. Auth0 can interact with __AWS STS__ directly, and obtain an __AWS token__ that can be used to call any AWS API.
+## Delegation scenarios
+
+This second scenario is even more powerful. Auth0 can interact with **AWS STS** directly, and obtain an **AWS token** that can be used to call any AWS API.
 
 This works with any supported [Identity Provider](/identityproviders) in Auth0:
 
-<img src="https://docs.google.com/drawings/d/1fNzgOGyONXBnj2Oe197N2ZdLNNs6W5gfQWyMHNNQEc4/pub?w=960&amp;h=720"/>
+![](/media/articles/integrations/aws/aws-sts.png)
 
 In the example above, a web application authenticates users with social providers (e.g. GitHub, LinkedIn, Facebook, Twitter) or with corporate credentials (e.g. Active Directory, Office365 and Salesforce) in step 1.
 
-It then calls the __Identity delegation__ endpoint in Auth0 (step 2), and requests an AWS Token. Auth0 obtains the token from AWS STS (step 3).
+It then calls the **Identity delegation** endpoint in Auth0 (step 2) and requests an AWS Token. Auth0 obtains the token from AWS STS (step 3).
 
 The app can then use the AWS Token to connect with S3 or EC2 or any AWS API.
 
@@ -139,14 +141,13 @@ As an example of an IAM policy:
 
 This is a *dynamic* policy that gives access to a folder in a bucket. The folder name will be set based on an attribute of a SAML token digitally signed that Auth0 exchanges with AWS on your behalf (step 3).
 
-The `<%= "${saml:sub}" %>` will be automagically mapped from the authenticated user (`sub` means `subject`, that will equal to the user identifier). This means that the __original__ identity of the user can be used throughout the system: your app, S3, etc.
+The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject`, that will equal the user identifier). This means that the **original** identity of the user can be used throughout the system: your app, S3, etc.
 
+## Getting the AWS token for an authenticated user
 
-## Getting the AWS Token for an authenticated user
+When a user authenticates with Auth0, you will get back an `id_token` (as a [JWT](/jwt)). You then use this `id_token` to request an Auth0 and AWS Token using the delegation endpoint.
 
-When a user authenticates with Auth0 you will get back an `id_token` (a [JWT](/jwt)). You would then use this `id_token` to request Auth0 and AWS Token using the delegation endpoint:
-
-This is a sample Request on the delegation endpoint
+This is a sample Request on the delegation endpoint:
 
     POST https://${account.namespace}/delegation
 
@@ -175,9 +176,9 @@ The Response will contain the AWS Token:
 }
 ```
 
-**NOTE:** The Auth0 client libraries simplify calling these endpoint. Check [our GitHub repo](https://github.com/auth0/) for the latest SDKs. Here's [one for client side JavaScript](https://github.com/auth0/auth0.js#delegation-token-request).
+**NOTE:** The Auth0 client libraries simplify calling these endpoints. See our [GitHub repo](https://github.com/auth0/) for the latest SDKs. Here is an example for client-side JavaScript: [Delegation Token Request](https://github.com/auth0/auth0.js#delegation-token-request).
 
-## Client Side sample code
+## Client-side sample code
 
 ```
   var targetClientId = "{TARGET_CLIENT_ID}";
