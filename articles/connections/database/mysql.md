@@ -16,13 +16,13 @@ Log into Auth0, and select the [Connections > Database](${uiURL}/#/connections/d
 
 ![](/media/articles/connections/database/database-connections.png)
 
-## 3. Customize the database connection
+## 2. Customize the database connection
 
 Click **Custom Database** and turn on the **Use my own database** switch.
 
 ![](/media/articles/connections/database/custom-database.png)
 
-## 4. Provide action scripts
+## 3. Provide action scripts
 
 You have to provide a login script to authenticate the user that will execute each time a user attempts to log in. Optionally, you can create scripts for sign-up, email verification, password reset and delete user functionality.
 
@@ -70,7 +70,7 @@ function login (email, password, callback) {
 
 This script connects to a **MySQL** database and executes a query to retrieve the first user with `email == user.email`. With the `bcrypt.compareSync` method, it then validates that the passwords match, and if successful, returns an object containing the user profile information including `id`, `nickname`, and `email`. This script assumes that you have a `users` table containing these columns. You can tweak this script in the editor to adjust it to your own requirements.
 
-## 5. Add configuration parameters
+## 4. Add configuration parameters
 
 You can securely store the credentials needed to connect to your database in the **Settings** section at the bottom of the page.
 
@@ -88,7 +88,7 @@ function login (username, password, callback) {
   });
 ```
 
-## 6. Error handling
+## 5. Error handling
 
 To return an error, call the callback with an error as the first parameter:
 
@@ -108,7 +108,7 @@ For example:
 callback(new ValidationError('email-too-long', 'Email is too long.'));
 ```
 
-## 7. Debug and troubleshoot
+## 6. Debug and troubleshoot
 
 Test the script using the **TRY** button. If your settings are correct you should see the resulting profile:
 
