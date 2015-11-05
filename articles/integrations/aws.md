@@ -118,7 +118,9 @@ This delegation scenario is more versatile. Auth0 interacts with **AWS STS** dir
 
 In **Step 1** of the example above, a web application authenticates users with social providers (e.g. GitHub, LinkedIn, Facebook, Twitter) or with corporate credentials (e.g. Active Directory, Office365 and Salesforce).
 
-In **Step 2**, the app calls the **Identity delegation** endpoint in Auth0 and requests an AWS Token. Auth0 obtains the token from AWS STS in **Step 3**.
+In **Step 2**, the app calls the **Identity delegation** endpoint in Auth0 and requests an AWS Token.
+
+Auth0 obtains the token from AWS STS in **Step 3**.
 
 The app can then use the AWS Token to connect with S3 or EC2 or any AWS API.
 
