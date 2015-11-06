@@ -24,7 +24,7 @@ Auth0 provides the database infrastructure to store your users by default. This 
 
 The Auth0-hosted database is highly secure. Passwords are never stored or logged in plain text but are hashed with **bcrypt**. Varying levels of password security requirements can also be enforced (see: [Password Strength in Auth0 Database Connections](/password-strength)).
 
-**NOTE:** For database connections, Auth0 limits the number of repeat login attempts per user and IP address. For more information, see: [Rate Limits on User/Password Authentication](/connections/database/rate-limits.md).
+**NOTE:** For database connections, Auth0 limits the number of repeat login attempts per user and IP address. For more information, see: [Rate Limits on User/Password Authentication](/connections/database/rate-limits).
 
 ### Using a custom user store
 
