@@ -16,7 +16,7 @@ Auth0 supports the following identity providers:
       <% if (article.sitemap === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+        <a href="<%- article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>
@@ -34,7 +34,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
       <% if (article.sitemap === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+        <a href="<%- article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>
@@ -56,7 +56,7 @@ Full documentation on Passwordless authentication can be found [here](/connectio
       <% if (article.sitemap === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+        <a href="<%- article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>
