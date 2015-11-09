@@ -9,12 +9,14 @@ After a successful authentication, you can request credentials to access third p
 
 Here's an example
 ```objc
-NSString *idToken = ...;
+A0Lock *lock = ...; // your shared, single instance of A0Lock
+A0Token *token = ...; // a parameter in Lock's onAuthenticationBlock
+NSString *idToken = token.idToken;
 A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{
                                                                      @"id_token": idToken,
                                                                      A0ParameterAPIType: @"firebase",
                                                                      }];
-[[A0APIClient sharedClient] fetchDelegationTokenWithParameters:parameters success:^(NSDictionary *delegationToken) {
+[[lock apiClient] fetchDelegationTokenWithParameters:parameters success:^(NSDictionary *delegationToken) {
     NSLog(@"Firebase credentials %@", delegationToken);
 } failure:^(NSError *error) {
     NSLog(@"Something went wrong");
