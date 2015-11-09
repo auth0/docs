@@ -5,7 +5,7 @@ color: "#EB5424"
 title: "Which is the JSON Web Token structure?"
 ---
 
-JSON Web Tokens consist of three parts separated by dots (`.`), which are:
+JWTs consist of three parts separated by dots (`.`), which are:
 
 - **Header**
 - **Payload**
@@ -57,7 +57,7 @@ An example of payload could be:
 
 ```
 
-The payload is then **Base64Url** encoded to form the second part of the JSON Web Token.
+The payload is then **Base64Url** encoded to form the second part of the JWT.
 
 ### Signature
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that.
