@@ -1,5 +1,4 @@
 ---
-public: false
 sitemap: false
 title: OAuth2-as-a-Service Use Case: Server to Server Authentication
 url: /oauth2-as-a-service
