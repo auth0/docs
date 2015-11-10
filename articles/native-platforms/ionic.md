@@ -240,3 +240,7 @@ cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]
 #### Get a blank page with an OK after signin
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. See the previous section to learn how to solve this.
+
+#### Lock is displaying errors when using ionic serve command or Ionic View app
+
+Please debug your app inside the simulator for your platform or an actual device. Running Lock from inside a browser using `ionic serve` or through the `Ionic View` app is not supported at this time.
