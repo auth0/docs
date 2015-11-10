@@ -2,18 +2,25 @@
 
 ## Overview
 
-The Auth0 APIv2 token is required to call v2 of the Auth0 Management API, frequently referred to as APIv2.  This token is used by a specific tenant in Auth0 to call Auth0 APIv2 to access or update records for that tenant.  This APIv2 token is a JWT, and contains various scopes, such as “read users” or “update clients”, and is signed with a client API key and secret for the entire tenant.
+The Auth0 APIv2 token is required to call v2 of the Auth0 Management API, frequently referred to as APIv2.  This token is used by a specific tenant in Auth0 to call Auth0 APIv2 to access or update records for that tenant.  This APIv2 token is a JWT, and contains various scopes, such as `read:users` or `update:clients`, and is signed with a client API key and secret for the entire tenant.
 
-## How to get a APIv2 Token
+## How to get an APIv2 Token
 
-An Auth0 APIv2 token can be generated on the Auth0 APIv2 explorer page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant api key/secret.  
+An Auth0 APIv2 token can be generated on the [Auth0 APIv2 explorer](/api/v2) page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant api key/secret.  
 
-The [Auth0 APIv2 explorer page](/api/v2) is very useful to experiment with Auth0 APIv2.
-Use the “SCOPES” section to select the scopes needed for the API call to be made.  For example, to make a call to the “List or search users” API call, one would need to select the “read:users” scope by selecting the entity “users”, then the action “read” and then clicking “->”.
-The above steps would be repeated for additional scopes if multiple scopes are needed.
-Once all necessary scopes have been specified, the field underneath “TOKEN GENERATOR” will contain the APIv2 token to pass to the APIv2 endpoint(s).
+The [Auth0 APIv2 explorer page](/api/v2) is very useful to experiment with Auth0 APIv2. Each endpoint shows its required scopes. By clicking the scope, it is automatically added to the token. For example, to make a call to the “List or search users” endpoint, one would click on the `read:users` scope to generate the token before invoking it:
 
-To generate an APIv2 token programmatically, build a JSON Web  Token (JWT) containing the necessary information and sign it with the tenant API Secret.   To build the JWT, it is helpful to use the APIv2 explorer, specify the desired scopes, and then click “Debug in jwt.io”.  This will create the JWT with the scopes you specified and display it in JWT format.  To get the API secret with which to sign the JWT, click on “API Key/Secret” in the Auth0 APIv2 API explorer.
+![](/media/articles/api/tokens/endpoint-scope.png)
+
+You can see the generated token in the **TOKEN GENERATOR** section. You can also manage scopes from this section to generate tokens. For adding new scopes you need to select an entity, an action and then press the arrow. Once all necessary scopes have been specified, the field underneath **TOKEN GENERATOR** will contain the APIv2 token to pass to the APIv2 endpoint(s).
+
+![](/media/articles/api/tokens/token-generator.png)
+
+To generate an APIv2 token programmatically, build a JSON Web  Token (JWT) containing the necessary information and sign it with the tenant API Secret. To build the JWT, it is helpful to use the APIv2 explorer, specify the desired scopes, and then click **Debug in jwt.io**. This will create the JWT with the scopes you specified and display it in JWT format. To get the API secret with which to sign the JWT, click on **API Key/Secret** in the Auth0 APIv2 API explorer.
+
+### Special Scopes
+
+Notice that within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](https://auth0.com/docs/api/v2/changes#the-id_token-and-special-scopes) in the id_token, which are granted automatically to the logged in user, so it makes no sense to click on them to generate an APIv2 token that will be used from server side code.
 
 ## How to control contents of APIv2 token
 
