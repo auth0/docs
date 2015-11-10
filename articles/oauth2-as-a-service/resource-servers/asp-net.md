@@ -17,7 +17,7 @@ public class Startup
 {
     public void Configuration(IAppBuilder app)
     {
-        var issuer = "https://${account.namespace}";
+        var issuer = "https://${account.namespace}/";
         var audience = "{RESOURCE_SERVER_IDENTIFIER}";
 
         app.UseActiveDirectoryFederationServicesBearerAuthentication(

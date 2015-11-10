@@ -27,7 +27,7 @@ var publicKey = fs.readFileSync('./key.pem');
 var jwtCheck = jwt({
   secret: publicKey,
   audience: '{RESOURCE_SERVER_IDENTIFIER}',
-  issuer: 'https://${account.namespace}'
+  issuer: 'https://${account.namespace}/'
 });
 
 // All endpoints under /api should validate token
