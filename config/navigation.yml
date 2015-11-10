@@ -136,10 +136,6 @@ categories:
         slug: "ruby"
         href: "/server-apis/ruby"
       -
-        name: "Scala"
-        slug: "scala"
-        href: "/server-platforms/scala"
-      -
         name: ".NET"
         slug: "net"
         href: "/server-platforms/aspnet-owin"

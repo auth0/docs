@@ -40,7 +40,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using the [Auth0 Login Widget](/login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using the [Auth0 Login Widget](/libraries/lock) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 

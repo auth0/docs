@@ -13,7 +13,7 @@ An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes t
 Here are a few examples. You could:
 
 * Bring information from your own databases and add it to the user profile object.
-* Create authorization rules based on complex logic (anything that can be written with node.js).
+* Create authorization rules based on complex logic (anything that can be written with JavaScript).
 * Normalize attributes from different providers besides to what we provide out of the box.
 * Reuse information from existing databases or APIs in migration scenarios.
 * Keep a white-list of users in a file and deny access based on email.
