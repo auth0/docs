@@ -120,6 +120,10 @@ categories:
         slug: "jquery"
         href: "/client-platforms/jquery"
       -
+        name: "Vanilla JS"
+        slug: "vanillajs"
+        href: "/client-platforms/vanillajs"
+      -
         name: "iOS"
         slug: "ios"
         href: "/native-platforms/ios-objc"

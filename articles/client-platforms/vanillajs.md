@@ -23,7 +23,15 @@ alias:
 
 ## Generic SPA / Vanilla JS Tutorial
 
-Follow the steps below to configure your JS app to use Auth0.
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-vanillajs-api-sample',
+  pkgBranch: 'gh-pages',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
+
+**If you have an existing application, follow the steps below.**
 
 ${include('./\_callback')}
 
