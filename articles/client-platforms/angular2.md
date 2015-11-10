@@ -12,12 +12,14 @@ image: /media/platforms/angular.png
 tags:
   - quickstart
 snippets:
-  install: client-platforms/angular2/install
   dependencies: client-platforms/angular2/dependencies
-  setup: client-platforms/angular2/setup
-  use: client-platforms/angular2/use
+  install: client-platforms/angular2/install
+  observable: client-platforms/angular2/observable
   request: client-platforms/angular2/request
   router: client-platforms/angular2/router
+  setup: client-platforms/angular2/setup
+  system-map: client-platforms/angular2/system-map
+  use: client-platforms/angular2/use
 alias:
   - angular
 ---
@@ -25,9 +27,9 @@ alias:
 ## Angular 2 Tutorial
 
 <%= include('../_includes/package', {
-  pkgRepo: 'auth0-angular',
+  pkgRepo: 'auth0-angular2',
   pkgBranch: 'master',
-  pkgPath: 'examples/widget-with-api',
+  pkgPath: null,
   pkgFilePath: null,
   pkgType: 'js' + account.clientParam
 }) %>
@@ -36,61 +38,67 @@ alias:
 
 ${include('./\_callback')}
 
-### 1. Add the Auth0 scripts and set the viewport
+### 1. Add the Auth0 Scripts and Install angular2-jwt
 
-Add **Lock** and **angular2-jwt** to your project in your `index.html` file and set the viewport.
-
-${snippet(meta.snippets.dependencies)}
-
-You can also install **angular2-jwt** with **npm**.
+Install **angular2-jwt** with **npm**.
 
 ${snippet(meta.snippets.install)}
 
-### 2. Import Dependencies
+Add **Lock** in your `index.html` file and set the viewport.
+
+${snippet(meta.snippets.dependencies)}
+
+### 2. Set Up SystemJS Configuration to Map angular2-jwt
+
+If you're using SystemJS, set up `System.config` to map **angular-jwt** so that it can be imported.
+
+${snippet(meta.snippets.system-map)}
+
+### 3. Import Dependencies
 
 To set up a simple component, you'll need some standard Angular 2 imports, as well as the `AuthHttp` class and `tokenNotExpired` function from **angular2-jwt**.
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Implement the Login and Logout
+### 4. Implement Login and Logout
 
-To implement login, create a new `Auth0Lock` instance in your component. In this example, we are implementing the login in the app's root component, but it could also be placed in a child component.
+To implement login, create a new `Auth0Lock` instance in your component. In this example, login is implemented in the app's root component, but it could also be placed in a child component.
 
 ${snippet(meta.snippets.use)}
 
 ${browser}
 
-In the `login` method, we call `lock.show` which will display the login widget. On a successful login, we save the user's profile object (as a string) and token in local storage.
+In the `login` method, call `lock.show` to display the login widget. On a successful login, you can save the user's profile object (as a string) and token in local storage.
 
-To log the user out, we simply remove the profile and token from local storage.
+To log the user out, simply remove the profile and token from local storage.
 
-We use the `tokenNotExpired` function in the `loggedIn` method to conditionally show and hide the **Login** and **Logout** buttons.
+You can use the `tokenNotExpired` function in the `loggedIn` method to conditionally show and hide the **Login** and **Logout** buttons.
 
 __Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`.
 
-### 4. Make an Authenticated HTTP Request
+### 5. Make an Authenticated HTTP Request
 
-The `AuthHttp` class is used to make authenticated HTTP requests. The class uses Angular 2's **Http** module but includes the `Authorization` header for you.
+The `AuthHttp` class is used to make authenticated HTTP requests. `AuthHttp` uses Angular 2's **Http** class but includes the `Authorization` header for you on requests.
 
 ${snippet(meta.snippets.request)}
 
-We inject the `AuthHttp` class as `authHttp` and use the `get` method to make an authenticated `GET` request. `AuthHttp` supports all HTTP verbs, so we can just as easily do `POST`, `PUT`, and `DELTE` requests. We can provide an object as the second argument to the call if we want to include a body.
+Inject the `AuthHttp` class as `authHttp`. This example uses the `get` method to make an authenticated `GET` request. `AuthHttp` supports all HTTP verbs, so you can just as easily do `POST`, `PUT`, and `DELTE` requests. You can provide an object as the second argument to the call if you want to include a body.
 
-### 5. Check the Token to Protect Routes
+### 6. Limit Certain Routes to Authenticated Users
 
-Although data from the API will be protected and require a valid JWT to access, users that aren't authenticated will be able to get to any route by default. We can use the `@CanActivate` life-cycle hook from Angular 2's router to limit navigation on certain routes to only those with a non-expired JWT.
+Although data from the API will be protected and require a valid JWT to access, users that aren't authenticated will be able to get to any route by default. You can use the `@CanActivate` life-cycle hook from Angular 2's router to limit navigation on certain routes to only those with a non-expired JWT.
 
-${snippet(meta.snippets.use)}
+${snippet(meta.snippets.router)}
 
-We use the `tokenNotExpired` function within the `@CanActivate` life-cycle hook to determine if the user can navigate to the private route. If the token isn't expired, the function will return `true` and navigation will be permitted.
+Use the `tokenNotExpired` function within the `@CanActivate` life-cycle hook to determine if the user can navigate to the private route. If the token isn't expired, the function will return `true` and navigation will be permitted.
 
-### 6. All done!
+### 7. All done!
 
 You have completed the implementation of Login and Signup with Auth0 and Angular 2.
 
 ### Optional: Use JWT as an Observable
 
-The `Auth0Service` sets a property, `token`, to be an observable stream from the user's JWT. This stream can be used with other streams and can be combined to make authenticated requests. This can be used as an alternative to the explicit `AuthHttp` class.
+The `AuthHttp` class sets a property, `tokenStream`, as an observable stream from the user's JWT. This stream can be used with other streams and can be combined to make authenticated requests. This can be used as an alternative to the explicit methods in the `AuthHttp` class.
 
 ${snippet(meta.snippets.observable)}
 

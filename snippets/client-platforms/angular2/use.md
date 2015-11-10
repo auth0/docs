@@ -13,16 +13,26 @@
 
 export class AuthApp {
 
-  auth: Auth0Service = new Auth0Service('<%= account.clientId %>', '<%= account.namespace %>');
+  lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 
   constructor() {}
 
   login() {
-    this.auth.login();
+    this.lock.show(function(err:string, profile:string, id_token:string) {
+
+      if(err) {
+        throw new Error(err);
+      }
+
+      localStorage.setItem('profile', JSON.stringify(profile));
+      localStorage.setItem('id_token', id_token);
+
+    });
   }
 
   logout() {
-    this.auth.logout();
+    localStorage.removeItem('profile');
+    localStorage.removeItem('id_token');
   }
 
   loggedIn() {
