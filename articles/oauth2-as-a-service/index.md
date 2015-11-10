@@ -1,5 +1,4 @@
 ---
-public: false
 sitemap: false
 title: OAuth2-as-a-Service
 url: /oauth2-as-a-service
@@ -31,7 +30,7 @@ The first time this happens the **Resource Owner** will also be presented with a
 
 Use case:
 
- - Allow the Client to make calls to the Resource Server on behalf of the Resource Owner
+ - Allow the Client to make calls to the Resource Server on behalf of the Resource Owner (Delegation)
  - The Client is typically a traditional web application
 
 ## Implicit Grant
@@ -42,7 +41,7 @@ The first time this happens the **Resource Owner** will also be presented with a
 
 Use case:
 
-- Allow the Client to make calls to the Resource Server on behalf of the Resource Owner
+- Allow the Client to make calls to the Resource Server on behalf of the Resource Owner (Delegation)
 - The Client is typically a Single Page Application or a Mobile Application
 
 ## Client Credentials Grant
@@ -56,6 +55,12 @@ Use case:
 - Allow the Client to make calls to the Resource Server on its own behalf (machine to machine)
 - APIs and services that are not user centric
 
+# Use Cases
+
+## Delegation
+
+## Server to Server
+
 # Tutorials
 
 See the following tutorials for a step-by-step guide on how to implement the OAuth 2.0 authorization framework within your applications using Auth0:
@@ -65,15 +70,18 @@ See the following tutorials for a step-by-step guide on how to implement the OAu
  - [Configuring the Resource Servers](/oauth2-as-a-service/resource-servers)
  - [Configuring the Clients](/oauth2-as-a-service/clients)
 
+### Resource Server
+
+ - [Creating a Resource Server in Node.js](/oauth2-as-a-service/resource-servers/node-js)
+ - [Creating a Resource Server using the ASP.NET Web API](/oauth2-as-a-service/resource-servers/asp-net)
+
 ### Authorization Code Grant
 
- - [Example use case: 'Foo'](/oauth2-as-a-service/authorization-code-grant/use-case-foo)
  - [Using the Authorization Code Grant from a Node.js application](/oauth2-as-a-service/authorization-code-grant/node-js)
  - [Using the Authorization Code Grant from an ASP.NET MVC application](/oauth2-as-a-service/authorization-code-grant/asp-net)
 
 ### Implicit Grant
 
- - [Example use case: 'Foo'](/oauth2-as-a-service/implicit-grant/use-case-foo)
  - [Using the Implicit Grant from a Node.js application](/oauth2-as-a-service/implicit-grant/node-js)
  - [Using the Implicit Grant from an iOS application](/oauth2-as-a-service/authorization-code-grant/asp-net)
 
