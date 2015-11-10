@@ -1,5 +1,5 @@
 ---
-name: Auth0 Intro video
+name: Create your first app
 videos:
   - intro
 ---
