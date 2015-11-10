@@ -58,7 +58,7 @@ You must install the `InAppBrowser` plugin from Cordova to be able to show the L
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using `<gap:plugin`. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
+> **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using the `<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />` tag between the `<widget>` tags inside your __config.xml__ file. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
 
 ### 2. Follow the guide specific to the FrontEnd technology you're using
 
