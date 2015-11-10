@@ -1,5 +1,4 @@
 ---
-public: false
 sitemap: false
 title: OAuth2-as-a-Service: Configuring the Clients
 ---

@@ -1,5 +1,4 @@
 ---
-public: false
 sitemap: false
 title: OAuth2-as-a-Service: Configuring the Resource Servers
 url: /oauth2-as-a-service/resource-servers
