@@ -532,12 +532,12 @@
     "to": "/quickstart/native-mobile/:client/webapi-owin"
   },
   {
-    "from": "/quickstart/native-mobile/ios-reactnative",
-    "to": "/quickstart/native-mobile/ios-react-native"
+    "from": "/quickstart/:platform/ios-reactnative",
+    "to": "/quickstart/:platform/ios-react-native"
   },
   {
-    "from": "/quickstart/native-mobile/ios-reactnative/:backend",
-    "to": "/quickstart/native-mobile/ios-react-native/:backend"
+    "from": "/quickstart/:platform/ios-reactnative/:backend",
+    "to": "/quickstart/:platform/ios-react-native/:backend"
   },
   {
     "from": "/connections/passwordless/ios-sms",

@@ -143,7 +143,7 @@ The only case where it would make sense to use different DB connections is if yo
 
 Typically yes, one account for all tenants would be ok and it would allow you to manage everything from the same place. The only case in which it would make sense to have a **new** Auth0 account per tenant, would be if you want to share access to the Dashbord to the tenant. Notice that if you do that you would have to leverage the (restricted) API to create a new account. You can use the normal API to add applications and connections. 
 
-> If you need access to the __account__ API, please contact us: [support@auth0.com](mailto:support@auth0.com)
+> You can find a sample multi-tenant app where each tenant has its own Auth0 account in [Github](https://github.com/auth0/auth0-multitenant-spa-api-sample).
 
 ## How do I store different roles for each tenant?
 
