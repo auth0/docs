@@ -18,7 +18,7 @@ snippets:
   request: client-platforms/angular2/request
   router: client-platforms/angular2/router
   setup: client-platforms/angular2/setup
-  system-map: client-platforms/angular2/system-map
+  system_map: client-platforms/angular2/system-map
   use: client-platforms/angular2/use
 alias:
   - angular
@@ -52,7 +52,7 @@ ${snippet(meta.snippets.dependencies)}
 
 If you're using SystemJS, set up `System.config` to map **angular-jwt** so that it can be imported.
 
-${snippet(meta.snippets.system-map)}
+${snippet(meta.snippets.system_map)}
 
 ### 3. Import Dependencies
 
@@ -101,5 +101,3 @@ You have completed the implementation of Login and Signup with Auth0 and Angular
 The `AuthHttp` class sets a property, `tokenStream`, as an observable stream from the user's JWT. This stream can be used with other streams and can be combined to make authenticated requests. This can be used as an alternative to the explicit methods in the `AuthHttp` class.
 
 ${snippet(meta.snippets.observable)}
-
-
