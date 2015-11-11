@@ -208,7 +208,7 @@ ${snippet(meta.snippets.use)}
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
-> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#8) or [TouchID](/libraries/lock-ios#touchid)
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
