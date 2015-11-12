@@ -4,19 +4,19 @@ To enable delegated authentication with AWS APIs, you must create a **SAML Provi
 
 ## Create a SAML Provider
 
-For this one-time setup, follow these steps:
+To create a SAML provider, follow these steps:
 
-1. Go to the [AWS IAM Console](https://console.aws.amazon.com/iam/home#home) and click on **Identity Providers** and then click **Create Provider**:
+1. Go to the [AWS IAM Console](https://console.aws.amazon.com/iam/home#home). Click on **Identity Providers** in the left menu and then click **Create Provider**:
 
   ![](/media/articles/aws-api-setup/aws-api-setup-1.png)
 
-2. Select **Saml** as the **Provider Type** and enter a name for your provider:
+2. Select **SAML** as the **Provider Type** and enter a name for your provider:
 
   ![](/media/articles/aws-api-setup/aws-api-setup-2.png)
 
-3. Download the metadata document from <% if (account.userName) { %><https://${account.namespace}/samlp/metadata/${account.clientId}><% } else { %>`https://${account.namespace}/samlp/metadata/${account.clientId}`<% } %>.
+3. Download your metadata document from <% if (account.userName) { %><https://${account.namespace}/samlp/metadata/${account.clientId}><% } else { %>`https://${account.namespace}/samlp/metadata/${account.clientId}`<% } %>.
 
-  Click **Choose File** and select the metadata document you just downloaded and click **Next Step**:
+  Click **Choose File** and browse to the metadata document you just downloaded. Click **Next Step**:
 
   ![](/media/articles/aws-api-setup/aws-api-setup-3.png)
 
@@ -28,7 +28,7 @@ For this one-time setup, follow these steps:
 
 Now create a role with one or more associated policies. (You can create as many roles as required.)
 
-1. On the AWS IAM Console, click on **Roles** and then click **Create New Role**:
+1. On the AWS IAM Console, click on **Roles** in the left menu and then click **Create New Role**:
 
   ![](/media/articles/aws-api-setup/aws-api-setup-5.png)
 
