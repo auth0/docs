@@ -19,7 +19,7 @@ url: /libraries/lock-android
 <% _.forEach(_.sortBy(articles.findByHash('libraries/lock-android').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
-    <span><a href="/docs<%- article.url %>"><%- article.toc_title %></a>
+    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
     <% if (article.description) { %>
       - <%- article.description %>
     <% } %>
