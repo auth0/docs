@@ -42,7 +42,7 @@ snippets:
 
 First you need to run the following command to install **react-native-lock-ios**
 
-```
+```bash
 npm install --save react-native-lock-ios
 ```
 
@@ -74,7 +74,6 @@ And then inside the method `application:didFinishLaunchingWithOptions` the follo
 
 ```objc
   [[[A0LockReact sharedInstance] lock] applicationLaunchedWithOptions:launchOptions];
-}
 ```
 
 > If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
@@ -172,7 +171,7 @@ On successful authentication, the callback function will yield the user's profil
 
 After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
 
-```js
+```jsx
   <Text>Welcome {this.state.profile.name}</Text>
   <Text>Your email is: {this.state.profile.email}</Text>
 ```
