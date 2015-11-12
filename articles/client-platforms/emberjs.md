@@ -71,7 +71,7 @@ ENV['contentSecurityPolicy'] = {
 
 ### 3. Extend routes
 
-Extend a route and set [user-configurable options](https://auth0.com/docs/libraries/lock/customization):
+Extend a route and set [user-configurable options](/libraries/lock/customization):
 
 ```js
 // app/routes/application.js
@@ -142,7 +142,7 @@ You can access this session information in the ember templates by using `{{sessi
 
 ### 6. Using a JWT token to make API requests
 
-To make an API request, add the user's [JWT token](https://auth0.com/docs/jwt) to an `Authorization` HTTP header:
+To make an API request, add the user's [JWT token](/jwt) to an `Authorization` HTTP header:
 
 ```js
 fetch('/api/foo', {
