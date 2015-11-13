@@ -48,7 +48,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](https://auth0.com/docs/libraries/lock#-show-options-callback-).
+To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
 ${browser}
 
