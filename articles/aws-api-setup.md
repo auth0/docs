@@ -70,7 +70,7 @@ In this example, you will create a policy that grants full access to the S3 reso
 
   ![](/media/articles/aws-api-setup/aws-api-setup-11.png)
 
-3. Name your policy and enter the following code in the **Policy Document** field:
+2. Name your policy and enter the following code in the **Policy Document** field:
 
   ```
     {
@@ -87,7 +87,7 @@ In this example, you will create a policy that grants full access to the S3 reso
     }
   ```
 
-4. Click **Validate Policy** to check your syntax, then click **Create Policy**.
+3. Click **Validate Policy** to check your syntax, then click **Create Policy**.
 
   ![](/media/articles/aws-api-setup/aws-api-setup-12.png)
 
