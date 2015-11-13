@@ -50,7 +50,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
+To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](https://auth0.com/docs/libraries/lock).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying `idToken` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `idToken`. This `idToken` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
