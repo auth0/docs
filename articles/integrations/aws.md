@@ -2,12 +2,12 @@
 
 Auth0 ships with AWS IAM integration that allows you to:
 
- * Login to the AWS Dashboard with any of the supported [Identity Providers](/identityproviders).
- * Obtain AWS Tokens to securely call AWS APIs and resources.
+ * [Perform SSO with the AWS Dashboard](#sso-with-the-aws-dashboard)
+ * [Obtain AWS Tokens to securely call AWS APIs and resources](#obtain-aws-tokens-to-securely-call-aws-apis-and-resources)
 
 ## SSO with the AWS Dashboard
 
-To configure Auth0 for federation with AWS using SAML, follow the steps below:
+By integrating Auth0 and AWS you will be able to login to the AWS Dashboard with any of the supported [Auth0 Identity Providers](/identityproviders). To configure Auth0 for federation with AWS using SAML, follow the steps below:
 
 1. On the Auth0 [Dashboard](${uiURL}/#/applications), add a new app. In the **Addons** tab of the app settings page, enable the **SAML2 Web App** add-on.
 
@@ -15,22 +15,22 @@ To configure Auth0 for federation with AWS using SAML, follow the steps below:
 
 2. Under the **Settings** tab of the **SAML2 Web App Addon** page, enter `https://signin.aws.amazon.com/saml` for the **Application Callback URL** and paste the following default SAML configuration code into the *Settings* box:
 
-  ```
-    {
-     "audience":  "https://signin.aws.amazon.com/saml",
-     "mappings": {
-     "email":       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
-     "name":        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-     },
-    "createUpnClaim":       false,
+  ```js
+  {
+    "audience": "https://signin.aws.amazon.com/saml",
+    "mappings": {
+      "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+      "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+    },
+    "createUpnClaim": false,
     "passthroughClaimsWithNoMapping": false,
     "mapUnknownClaimsAsIs": false,
-    "mapIdentities":        false,
+    "mapIdentities": false,
     "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
     "nameIdentifierProbes": [
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
     ]
-    }
+  }
   ```
 
   Scroll to the bottom of the page and click **Save**:
@@ -38,32 +38,41 @@ To configure Auth0 for federation with AWS using SAML, follow the steps below:
   ![](/media/articles/integrations/aws/configure.png)
 
 3. Auth0 needs to be configured as the identity provider (IdP) for AWS. AWS requires an **IdP Metadata** file to import.
-Select the **Usage** tab and click the **Identity Provider Metadata** download link to save the file:
+  Select the **Usage** tab and click the **Identity Provider Metadata** download link to save the file:
 
   ![](/media/articles/integrations/aws/idp-download.png)
 
 4. Create a SAML provider. 
-    1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Identity Providers** in the left menu and click **Create Provider**.
-    2. Select **SAML** in the **Provider Type** dropdown, enter a name for your provider and browse for the metadata document you downloaded in the **Step 3**. Click **Next Step**.
+    
+    4.1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Identity Providers** in the left menu and click **Create Provider**.
+
+    4.2. Select **SAML** in the **Provider Type** dropdown, enter a name for your provider and browse for the metadata document you downloaded in the **Step 3**. Click **Next Step**.
 
       ![](/media/articles/integrations/aws/aws-configure-provider.png)
-    3. Verify your settings and click **Create**.
 
-5. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. (For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
+    4.3. Verify your settings and click **Create**.
+
+5. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
 
   The steps are:
 
-    1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Roles** in the left menu, then click **Create New Role**:
+    5.1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Roles** in the left menu, then click **Create New Role**:
 
       ![](/media/articles/integrations/aws/iam-new-role.png)
-    2. Enter a name for the role and click **Next Step**.
-    3. Select **Role for Identity Provider Access**. Then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
+    
+    5.2. Enter a name for the role and click **Next Step**.
+    
+    5.3. Select **Role for Identity Provider Access**. Then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
 
       ![](/media/articles/integrations/aws/iam-role-type.png)
-    4. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
-    5. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
-    6. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
-    7. Review the role information, then click **Create Role**:
+    
+    5.4. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
+
+    5.5. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
+
+    5.6. Choose an appropriate access policy for this role. This defines the permissions that the user granted this role will have with AWS. For example, to only let users read information in the console, select the `ReadOnlyAccess` policy. Click **Next Step**.
+
+    5.7. Review the role information, then click **Create Role**:
 
       ![](/media/articles/integrations/aws/iam-review-role.png)
 
@@ -72,34 +81,33 @@ Select the **Usage** tab and click the **Identity Provider Metadata** download l
   The **AWS roles** you send will be associated to an **AWS IAM Policy** that will enforce the type of access allowed for a resource, including the AWS dashboard. (For more information on roles and policies, see [Creating IAM Roles](http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-creatingrole.html)) Notice the **AWS Role** has a structure of `{Fully qualified Role name},{Fully qualified identity provider}`. The IdP is identified as `arn:aws:iam::951887872838:saml-provider/MyAuth0` in the sample below:
 
   ```js
-function (user, context, callback) {
+  function (user, context, callback) {
 
-	user.awsRole = 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::951887872838:saml-provider/MyAuth0';
+    user.awsRole = 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::951887872838:saml-provider/MyAuth0';
     user.awsRoleSession = 'eugeniop';
 
     context.samlConfiguration.mappings = {
-      "https://aws.amazon.com/SAML/Attributes/Role": "awsRole",
-      "https://aws.amazon.com/SAML/Attributes/RoleSessionName": "awsRoleSession"
+      'https://aws.amazon.com/SAML/Attributes/Role': 'awsRole',
+      'https://aws.amazon.com/SAML/Attributes/RoleSessionName': 'awsRoleSession'
     };
+
     callback(null, user, context);
-    }
+
+  }
   ```
 
   Notice that you can obtain these 2 values in multiple ways. The above example hardcodes them. You could store these in the *User Profile*, or you could derive them from other attributes. For example, you might use Active Directory and have properties already associated with users (e.g. `groups`). You can then define a map between `groups` and `AWS roles`:
 
-  ```
-    ...
-    var awsRoles = {
+  ```js
+  var awsRoles = {
     'DomainUser': 'arn:aws:iam::951887872838:role/TestSAML,arn:aws:iam::95123456838:saml-provider/MyAuth0',
-    'DomainAdmins': arn:aws:iam::957483571234:role/SysAdmins,arn:aws:iam::95123456838:saml-provider/MyAuth0'
-    };
+    'DomainAdmins': 'arn:aws:iam::957483571234:role/SysAdmins,arn:aws:iam::95123456838:saml-provider/MyAuth0'
+  };
 
-    context.samlConfiguration.mappings = {
-    "https://aws.amazon.com/SAML/Attributes/Role": awsRoles[user.group],
-    "https://aws.amazon.com/SAML/Attributes/RoleSessionName": user.name,
-
-    };
-    ...
+  context.samlConfiguration.mappings = {
+    'https://aws.amazon.com/SAML/Attributes/Role': awsRoles[user.group],
+    'https://aws.amazon.com/SAML/Attributes/RoleSessionName': user.name,
+  };
   ```
 
 You are now setup for single sign-on to AWS. You can find the `Identity Provider Login URL` on the Auth0 Dashboard. Go to the **SAML2 Addon** settings page of your app, and select the **Usage** tab.
@@ -110,7 +118,7 @@ To use the single sign-on, navigate to that URL, and you will be brought to the 
 
 **NOTE:** For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway). 
 
-## Delegation
+## Obtain AWS Tokens to securely call AWS APIs and resources
 
 This delegation scenario is more versatile. Auth0 interacts with **AWS STS** directly to obtain an **AWS token** that can be used to call the AWS API of any Auth0-supported [Identity Provider](/identityproviders).
 
@@ -123,10 +131,6 @@ In **Step 2**, the app calls the **Identity delegation** endpoint in Auth0 and r
 Auth0 obtains the token from AWS STS in **Step 3**.
 
 The app can then use the AWS Token to connect with S3 or EC2 or any AWS API.
-
-### The AWS add-on
-
-A brief description of the AWS add-on...
 
 ### Setup delegation
 
@@ -162,38 +166,57 @@ This is a *dynamic* policy that gives access to a folder in a bucket. The folder
 
 The `<%= "${saml:sub}" %>` will be automatically mapped from the authenticated user (`sub` means `subject`, and is equal to the user identifier). This means that the *original* identity of the user can be used throughout the system (in your app, S3, etc.).
 
-## Get the AWS token for an authenticated user
+### Get the AWS token for an authenticated user
 
 When a user authenticates with Auth0, an `id_token` (as a [JWT](/jwt)) is returned. This `id_token` is then used to request an Auth0 and AWS token using the delegation endpoint.
 
 Here is a sample request on the delegation endpoint:
 
-    POST https://${account.namespace}/delegation
+```sh
+POST https://${account.namespace}/delegation
+Content-Type: 'application/json'
+{
+  "client_id":   "${account.clientId}",
+  "grant_type":  "urn:ietf:params:oauth:grant-type:jwt-bearer",
+  "id_token":    "{YOUR_ID_TOKEN}",
+  "target":      "${account.clientId}",
+  "api_type":    "aws",
+  "role":        "arn:aws:iam::010616021751:role/access-to-s3-per-user"
+  "principal":   "arn:aws:iam::010616021751:saml-provider/auth0-provider"
+}
+```
 
-    grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-    &id_token=THE_ID_TOKEN_OF_LOGGED_IN_USER
-    &target=CLIENT_ID_OF_API_TO_CALL
-    &client_id=THE_CLIENT_ID_OF_CALLER
-    &role=arn:aws:iam::010616021751:role/foo
-    &principal=arn:aws:iam::010616021751:saml-provider/idpname
+Where:
 
-Notice the 2 additional parameters used for AWS:
-
-    &role=arn:aws:iam::010616021751:role/foo
-    &principal=arn:aws:iam::010616021751:saml-provider/idpname
+* **client_id** identifies the requesting app (e.g. your website) 
+* **id_token** identifies the user you are requesting this on behalf-of
+* **target** identifies this API endpoint in Auth0 (often the same as client_id).
+* **api_type** must be aws
+* **role** and **principal** are two additional parameters used for AWS
 
 **NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
 
-The Response will contain the AWS token:
+The result of calling the delegation endpoint will contain the AWS token in the `Credentials` field. i.e.:
 
-```
+```js
 {
-  Credentials: {
-    SessionToken: 'AQoDYXdzENf//////...Pz02lt4FSCY6L+WBQ==',
-    SecretAccessKey: 'zYaN30nMf/9uV....Zx9Em7xQzcCc9/PPl',
-    Expiration: Fri Jan 10 2014 11:22:32 GMT-0300 (ART),
-    AccessKeyId: 'ASIAI5PCTTOC6APKKXLQ'
-  }
+  "ResponseMetadata":{
+    "RequestId":"ec4cb90f-8a17-11e5-84bf-a9c4083f50c5"
+  },
+  "Credentials":{
+    "AccessKeyId":"ASIAIJGOICAGFNVWAENA",
+    "SecretAccessKey":"mRXhJySQHYZVg8...iCh+JeyBQ==",
+    "Expiration":"2015-11-13T16:05:05.000Z"
+  },
+  "AssumedRoleUser":{
+    "AssumedRoleId":"AROAID6UVEPILQXDCMMWK:johndoe",
+    "Arn":"arn:aws:sts::010616021751:assumed-role/access-to-s3-per-user/johndoe"
+  },
+  "Subject":"google-oauth2|113015401123457192604",
+  "SubjectType":"persistent",
+  "Issuer":"urn:matugit.auth0.com",
+  "Audience":"https://signin.aws.amazon.com/saml",
+  "NameQualifier":"z32keR+u/IrT0MrUVEfqYUGiqvE="
 }
 ```
 
@@ -201,34 +224,30 @@ The Response will contain the AWS token:
 
 Here is an example of client-side code used to obtain the token:
 
-```
-  var targetClientId = "{TARGET_CLIENT_ID}";
+```html
+<script src="${auth0js_url}"></script>
+<script type="text/javascript">
 
-  var options = {
-    "id_token":  "USER_ID_TOKEN",        // MANDATORY!
-    "client_id": "THE_CLIENT_ID_OF_CALLER",
-    "role":      "arn:aws:iam::010616021751:role/foo",
-    "principal": "arn:aws:iam::010616021751:saml-provider/idpname"
-  };
-
-  auth0.getDelegationToken(targetClientId, options, function (err, delegationResult) {
-    uploadFileToS3(delegationResult.Credentials, done);
+  var auth0 = new Auth0({
+    clientID: '${account.clientId}',
+    domain: '${account.namespace}',
+    callbackURL: 'dummy'
   });
 
-  function uploadFileToS3 (awsToken, callback) {
-    $('#upload').on('click', function() {
-      var params = {
-          Key: user.id + '/' + file.name,
-          ContentType: fileChooser.files[0].type,
-          Body: fileChooser.files[0]};
+  var options = { 
+    id_token: LOGGED_IN_USER_ID_TOKEN, 
+    api: 'aws', 
+    role: AWS_ROLE_ARN,  
+    principal: AWS_SAML_PROVIDER_ARN 
+  };
 
-      var bucket = new AWS.S3({params: {Bucket: 'THE_BUCKET'}});
-      bucket.config.credentials =
-        new AWS.Credentials(awsToken.AccessKeyId,
-                            awsToken.SecretAccessKey,
-                            awsToken.SessionToken);
-      bucket.putObject(params, callback);
-    });
-  }
+  auth0.getDelegationToken(options, function(err,delegationResult){
+    if (!err){
+      //use delegationResult.Credentials to access AWS API
+    }
+  });
+}
+</script>
 ```
 
+> Checkout a complete sample for S3 on GitHub: [https://github.com/auth0/auth0-s3-sample](https://github.com/auth0/auth0-s3-sample).
