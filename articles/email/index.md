@@ -153,7 +153,12 @@ The following macros are available in this template:
 
 The Auth0 shared email provider restricts your account from sending more than 10 emails per minute total, including all email types (welcome, verification, password reset, etc.).
 
-Although Auth0 makes its best effort to deliver all emails for our customers, if you want guaranteed delivery, or anticipate a high volume that will exceed these shared email limits, or wish to have direct access to logs or desire more control over the email service (for example: the IP address from which your emails are sent), you can configure your own email provider for use with Auth0.
+Auth0 makes its best effort to deliver all emails for our customers. However, you may wish to configure your own email provider for use with Auth0, especially if you:
+
+* want guaranteed delivery
+* anticipate a high volume that will exceed the shared email limits
+* wish to have direct access to logs
+* desire more control over the email service (for example: the IP address from which your emails are sent)
 
 For more information on setting up your own email provider, see:
 * [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
