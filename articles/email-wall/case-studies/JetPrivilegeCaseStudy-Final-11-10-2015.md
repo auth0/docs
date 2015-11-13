@@ -22,7 +22,7 @@ fourKeyConcepts:
 longDescription: >
 JetPrivilege, the internationally acclaimed, award winning loyalty and rewards program and the frequent flyer program of Jet Airways, had to engineer a secure, seamless login and account management user experience for members and partners across multiple sites. After a comprehensive selection process, Auth0 was the only vendor that could meet all of JetPrivilege's technical requirements. Good choice - JetPrivilege's new identity management solution was built and deployed to production in only a few months, and today is handling identity for the program's millions of engaged members. Learn from JetPrivilege's experience, and discover how Auth0's developer-centric platform handles a massive consumer SSO challenge.
 ---
-
+![JetPrivilege Logo](/media/articles/email-wall/case-studies/JetPrivilegeCaseStudy-Final-11-10-2015/logo-JetPrivilege.png)
 # JetPrivilege: SSO Makes For A Seamless Travel Experience
 
 * * *
