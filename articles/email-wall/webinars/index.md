@@ -1,4 +1,5 @@
 ---
-friendly_name: 'Webinars'
+category_name: 'Webinars'
+friendly_name: 'Webinar'
 base_path: '/webinars/<%= hash %>'
 ---

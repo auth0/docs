@@ -16,9 +16,9 @@ fourKeyConcepts:
     text: Benefits: Enhanced Security, Risk Management, Happy Employees, Reduced Costs
     icon: css-class-bud-icon
   -
-    text: Result: Seamless, Quick Implementation, Flexibility For Future 
+    text: Result: Seamless, Quick Implementation, Flexibility For Future
     icon: css-class-bud-icon
-  
+
 longDescription: >
  Schneider Electric needed an Identity Management solution that could take on their rapid growth to over 170,000 employees worldwide, and their expansion into new markets. The goal - implement Single Sign-On across the whole company, breaking down organizational silos, simplifying employee access to resources, reducing IT costs, and improving security. Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
 ---
@@ -65,10 +65,10 @@ Schneider Electric needed a single sign-on system that could let users log in on
 ## THE SOLUTION
 ### SCALABLE FEDERATED IDENTITY
 Frustrated by the limitations of proprietary solutions, Schneider Electric leveraged Auth0 to create a scalable federated identity management system that is easy to build upon and easy to manage. Auth0 integrates across all widely adopted identity standards and providers, so now Schneider Electric can collaborate with external partners and services, and its external website users can authenticate with social logins such as Facebook. The Digital Services Platform team can give each user a single set of credentials and corresponding authorizations, and enterprise applications use federated identity protocols to authenticate users and grant allowed access across the whole business, and beyond.
- 
+
 ### START SMALL, AND ITERATE
-Led by Stephen Berard, ‎senior global software architect at Schneider Electric, Kenneth Carroll, VP of software platform and software architect, Manu Cohen-Yashar, the Digital Services Platform team started small with early-stage Auth0 pilot projects. Building upon success and gaining confidence in the platform with experience, the team’s on-going subscription contract has expanded with use, remaining flexible and improving overall business efficiency, meeting Schneider Electric’s growing needs.  
- 
+Led by Stephen Berard, ‎senior global software architect at Schneider Electric, Kenneth Carroll, VP of software platform and software architect, Manu Cohen-Yashar, the Digital Services Platform team started small with early-stage Auth0 pilot projects. Building upon success and gaining confidence in the platform with experience, the team’s on-going subscription contract has expanded with use, remaining flexible and improving overall business efficiency, meeting Schneider Electric’s growing needs.
+
 “We were impressed by the predictable pricing and easy ability to build exactly what we need,” said Berard. “At first the discussions were around ‘whose corporate card is this going to go on?’ Then it became about, ‘how are we going to get corporate to sign-off on a new and emerging technology?’ It was quickly evident how efficient and effective Auth0 was at meeting our IAM existing and future needs, and how this translated to more of our precious resources being spent for the good of the company and our customers. They got it.”
 
 ## BENEFITS
@@ -84,13 +84,13 @@ Led by Stephen Berard, ‎senior global software architect at Schneider Electric
 
 ### ENHANCED SECURITY, RISK MANAGEMENT
 “Before any news sites reported on last year’s Heartbleed zero day vulnerability, Auth0 emailed us to alert us to the situation. There was already a patch to eliminate the Heartbleed threat from Auth0’s systems, followed by a confirmation email that Auth0 had already installed this patch on the Schneider Electric instance of Auth0’s service,” said Berard. “Auth0 helps our platform team look really good. In this scenario, not only had the security issue been patched, our IT team was able to save valuable time by leveraging the detailed steps on how the issues were mitigated to report directly to our internal team. What’s more, Auth0 cycled the certificates, something else that would have been very labor intensive for the team to do on its own.
- 
+
 - Eliminates need to run an identity store, saving limited employee resources
 - Reduces risk associated with authentication and authorization
 - Quick and thorough security patching against vulnerabilities
 
 “Security is often misunderstood, and when it is an afterthought, left to the end, it tends to bite you in the butt. We didn’t have to kick the proverbial can down the road every time a new security or authentication question came up, whether the question was  hypothetical, practical or mission critical,” said Berard. “With the Auth0 platform, we can plan and integrate identity architecture early to save critical time and ensure a secure system is in place when a project gets off the ground.”
- 
+
 - Empowers IT team to invest into strategic business and customer demands, and innovation
 - IT team is able to plan identity scenarios early and make any necessary integrations quickly
 - Provide both traditional enterprise SSO as well serve as the ultimate accelerator to integrate the same identity management into custom applications and APIs
@@ -101,7 +101,7 @@ Led by Stephen Berard, ‎senior global software architect at Schneider Electric
 - Implementation was quick, seamless and easy
 - As Schneider Electric grows and company needs evolve, Auth0 works with the team to help address new and emerging identity needs
 - Through SSO, Schneider Electric eliminates the burden of additional log-in prompts – one less password for valuable customers to manage; increasing security and reducing friction
- 
+
 “We were very impressed with how fast the Auth0 team gets back to us when we have a question. We have a different relationship with them compared to our other vendors. We feel they are one of us – solution and developer minded – always open to our questions, talking out an idea, and even adapting their service to our specific needs,” said Manu Cohen-Yashar, specialized tech architect, Schneider Electric.
 
 > *It was quickly evident how efficient and effective Auth0 was at meeting our IAM existing and future needs, and how this translated to more of our precious resources being spent for the good of the company and our customers. They got it.*

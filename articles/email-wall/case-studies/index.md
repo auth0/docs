@@ -1,3 +1,4 @@
 ---
-  friendly_name: 'Case studies'
+category_name: 'Case studies'
+friendly_name: 'Case study'
 ---
