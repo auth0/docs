@@ -1,6 +1,6 @@
 ---
 title: "Schneider Electric: Streamlining Identity Management"
-type: case-study
+type: whitepaper
 sitemap: false
 description: Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
 hash: schneider-electric
