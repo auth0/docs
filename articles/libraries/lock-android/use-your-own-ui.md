@@ -39,7 +39,7 @@ lodash: true
 
 1.  Add the following dependencies to your project:
   ```gradle
-  compile 'com.auth0.android:core:1.9.+'
+  compile 'com.auth0.android:core:1.11.+'
   compile 'de.greenrobot:eventbus:2.4.+'
   ```
 
