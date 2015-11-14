@@ -23,7 +23,15 @@ alias:
 
 ## Generic SPA / Vanilla JS Tutorial
 
-Follow the steps below to configure your JS app to use Auth0.
+<%= include('../_includes/package', {
+  pkgRepo: 'auth0-vanillajs-api-sample',
+  pkgBranch: 'gh-pages',
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'js' + account.clientParam
+}) %>
+
+**If you have an existing application, follow the steps below.**
 
 ${include('./\_callback')}
 
@@ -53,7 +61,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
+To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 

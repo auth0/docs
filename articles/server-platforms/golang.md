@@ -56,7 +56,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
     ClientID:     os.Getenv("AUTH0_CLIENT_ID"),
     ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET"),
     RedirectURL:  os.Getenv("AUTH0_CALLBACK_URL"),
-    Scopes:       []string{"openid", "profile"},
+    Scopes:       []string{"openid", "name", "email", "nickname"},
     Endpoint: oauth2.Endpoint{
       AuthURL:  "https://" + domain + "/authorize",
       TokenURL: "https://" + domain + "/oauth/token",

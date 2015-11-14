@@ -144,6 +144,12 @@ Note that as a result of linking these accounts:
 * There is no automatic merging of user profiles with associated identities.
 * The secondary account is removed from the users list.
 
+#### Merging Metadata
+
+As stated above, [user_metadata and app_metadata](/api/v2/changes#app-_metadata-and-user-_metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id).
+
+The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) is also available. You can find sample code for merging metadata before linking using this SDK [here](/link-accounts/suggested-linking#4-verify-and-merge-metadata-before-linking).
+
 ## The API
 
 The Auth0 API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways:
@@ -217,4 +223,6 @@ DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identit
 Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 ```
 
-The endpoint will return an updated array of identities.
+As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account. The endpoint returns the updated array of identities.
+
+The unlinked account was never removed from the identity provider, so you can still use it to authenticate. When you login again with that account, it will be re-created in Auth0 as a new separate user.

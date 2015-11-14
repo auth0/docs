@@ -38,6 +38,8 @@ ${snippet(meta.snippets.dependencies)}
 
 We need to configure Passport to use Auth0 strategy.
 
+Create a file called `setup-passport.js` and add these contents to it:
+
 ${snippet(meta.snippets.setup)}
 
 ### 3. Add needed requires & initialize passport configuration

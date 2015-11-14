@@ -12,7 +12,7 @@ snippets:
 
 # Laravel Tutorial
 
-This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-5-auth0-sample).
+This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-auth0-sample).
 
 ## Laravel Compatibility
 
@@ -81,7 +81,7 @@ To publish the example configuration file use this command
 
 ### 4. Setup the callback action
 
-The plugin works with the [Laravel security system](http://laravel.com/docs/security), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
+The plugin works with the [Laravel security system](http://laravel.com/docs/4.2/security), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
 In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications/) and also, add it as a route in Laravel
 

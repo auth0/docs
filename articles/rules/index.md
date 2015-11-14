@@ -13,7 +13,7 @@ An App initiates an authentication request to Auth0 (__Step 1__), Auth0 routes t
 Here are a few examples. You could:
 
 * Bring information from your own databases and add it to the user profile object.
-* Create authorization rules based on complex logic (anything that can be written with node.js).
+* Create authorization rules based on complex logic (anything that can be written with JavaScript).
 * Normalize attributes from different providers besides to what we provide out of the box.
 * Reuse information from existing databases or APIs in migration scenarios.
 * Keep a white-list of users in a file and deny access based on email.
@@ -35,7 +35,7 @@ This rule will add a `hello` attribute to all users authenticating through any p
       callback(null, user, context)
     }
 
-> **HINT**: You can try the rule while editing and you can see the output and any `console.log` output. Useful for debugging ![](/media/articles/rules/index/rules.png)
+> **HINT**: You can add `console.log` lines for [debugging](#debugging).
 
 A __Rule__ takes the following arguments:
 
@@ -97,33 +97,38 @@ All authenticated users will get a __guest__ role, but `johnfoo@gmail.com` will 
 
 John's `user` object at the beginning of the rules pipeline will be:
 
-    {
-      email: "johnfoo@gmail.com",
-      family_name: "Foo",
-      user_id: "google-oauth2|103547991597142817347"
-      ... other props ...
-    }
+```js
+{
+  "email": "johnfoo@gmail.com",
+  "family_name": "Foo",
+  "user_id": "google-oauth2|103547991597142817347"
+  //... other props ...
+}
+```
 
 The `context` object will be:
 
-      {
-        clientID: "...client_id_of_the_app...",
-        clientName: "my app",
-        connection: "google-oauth2"
-      }
+```js
+{
+  "clientID": "...client_id_of_the_app...",
+  "clientName": "my app",
+  "connection": "google-oauth2"
+}
+```
 
 After the rule executes, the output and what the application will receive is the following `user` object:
 
-    {
-      email: "johnfoo@gmail.com",
-      family_name: "Foo",
-      user_id: "google-oauth2|103547991597142817347",
+```js
+{
+  "email": "johnfoo@gmail.com",
+  "family_name": "Foo",
+  "user_id": "google-oauth2|103547991597142817347",
 
-      ... other props ...
+  //... other props ...
 
-      roles: ["guest", "admin"]  // NEW PROPERTY ADDED BY THE RULE
-    }
-
+  "roles": ["guest", "admin"]  // NEW PROPERTY ADDED BY THE RULE
+}
+```
 ### Deny access based on a condition
 
 In addition to adding and removing properties from the user object, you can return an "access denied" error.
@@ -142,6 +147,28 @@ This will cause a redirect to your callback url with an `error` querystring para
 We have an open source repository for common rules here:
 
 <div style="font-size: 18px;border: 3px dashed #767677;padding: 16px;text-align: center;background-color: #FCFCFC;"><a href="https://github.com/auth0/rules">https://github.com/auth0/rules</a></div>
+
+## Debugging
+
+You can add `console.log` lines in the rule's code for debugging. The Rule editor provides two ways for seeing the output:
+
+![](/media/articles/rules/rule-editor.png)
+
+1. **TRY THIS RULE**: Opens a popup where you can edit the **user** and **context** that will be used as arguments, and then press **TRY** to see the Rule execution result, as long as any `console.log` output.
+
+  ![](/media/articles/rules/try-rule.png)
+
+2. **DEBUG RULE**: Displays the instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging the rules. You have to copy and paste those commands into a terminal, and you will see any `console.log` output or unhandled exception that may occur while executing the rules. For example:
+
+  ```sh
+  ~  npm install -g wt-cli
+  ~  wt init --container "youraccount" --url "https://sandbox.it.auth0.com" --token "eyJhbGci...WMPGI" -p "youraccount-default-logs"
+  ~  wt logs -p "youraccount-default-logs"
+  [18:45:38.179Z]  INFO wt: connected to streaming logs (container=youraccount)
+  [18:47:37.954Z]  INFO wt: webtask container assigned
+  [18:47:38.167Z]  INFO wt: ---- checking email_verified for some-user@mail.com! ----
+  ```
+  This debugging method will work both for rules that where tried from the dashboard or that were actually run during users authentication.
 
 ## Available modules
 

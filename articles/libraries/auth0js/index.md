@@ -247,7 +247,7 @@ var options = {
   id_token: 'your-id-token',    // The id_token you have now
   targetClientId: 'The-ClientId-Of-The-App-you-are-getting-a-JWT-for'
   api: 'firebase',              // The type of app (Auth0 can generate multiple token formats)
-  scope: "openid profile"		    // default: openid
+  scope: "openid name email nickname"   // default: openid. Add any other scopes you need, i.e. "openid {scope1} {scope2}"
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {

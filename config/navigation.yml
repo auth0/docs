@@ -120,6 +120,10 @@ categories:
         slug: "jquery"
         href: "/client-platforms/jquery"
       -
+        name: "Vanilla JS"
+        slug: "vanillajs"
+        href: "/client-platforms/vanillajs"
+      -
         name: "iOS"
         slug: "ios"
         href: "/native-platforms/ios-objc"
@@ -131,10 +135,6 @@ categories:
         name: "Ruby"
         slug: "ruby"
         href: "/server-apis/ruby"
-      -
-        name: "Scala"
-        slug: "scala"
-        href: "/server-platforms/scala"
       -
         name: ".NET"
         slug: "net"

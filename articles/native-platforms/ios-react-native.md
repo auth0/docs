@@ -38,64 +38,45 @@ snippets:
 <pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
-### 1. Adding the Auth0 dependencies
+### 1. Adding the Lock to your project
 
-Inside your project create a file named `Podfile` with these contents:
+First you need to run the following command to install **react-native-lock-ios**
+
+```bash
+npm install --save react-native-lock-ios
+```
+
+Then create a file name `Podfile` with the following content
 
 ${snippet(meta.snippets.dependencies)}
 
-and run `pod install`
+Now run from the same folder the command pod install. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them. From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now pulled in via CocoaPods. Another necessary step you need to do is remove the React, RCTImage, etc. subprojects from your app's Xcode project
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
-### 2. Configuring Auth0 Credentials & Callbacks
+### 2. Register Native Authentication Handlers
 
-Add the following entries to your app's `Info.plist`:
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tr>
-    <td>Auth0ClientId</td>
-    <td>${account.clientId}</td>
-  </tr>
-  <tr>
-    <td>Auth0Domain</td>
-    <td>${account.namespace}</td>
-  </tr>
-</table>
-
-Also you'll need to register a new _URL Type_ with the following scheme
-`a0${account.clientId}`. You can do it from your app's target Info section.
-
-![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
-
-### 3. Register Native Authentication Handlers
-
-To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your `AppDelegate.m` file.
+To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following methods to your `AppDelegate` class.
 
 ```objc
-#import <LockReact/A0LockReact.h>
+#import <LockReactNative/A0LockReact.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [[A0LockReact sharedInstance].lock handleURL:url sourceApplication:sourceApplication];
+  return [[[A0LockReact sharedInstance] lock] handleURL:url sourceApplication:sourceApplication];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+  return [[[A0LockReact sharedInstance] lock] continueUserActivity:userActivity restorationHandler:restorationHandler];
 }
 ```
 
-Also add Lock configuration to the beginning of application:didFinishLaunchingWithOptions method:
+And then inside the method `application:didFinishLaunchingWithOptions` the following line
 
 ```objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[A0LockReact sharedInstance].lock registerAuthenticators:@[twitter]];
-    //...
-}
+  [[[A0LockReact sharedInstance] lock] applicationLaunchedWithOptions:launchOptions];
 ```
 
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #4__
+> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
 
 #### Facebook
 
@@ -136,12 +117,13 @@ Then add Lock Facebook's Pod
 pod 'Lock-Facebook', '~> 2.1'
 ```
 
-Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate.m` file, for example:
+Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate` class, for example:
 
 ```objc
 #import <Lock-Facebook/A0FacebookAuthenticator.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Other app initialization, e.g. creating RCTRootView
     A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
     [[A0LockReact sharedInstance].lock registerAuthenticators:@[facebook]];
 }
@@ -161,94 +143,41 @@ To support Twitter native authentication you need to configure Auth0 Twitter aut
 #import <Lock-Twitter/A0TwitterAuthenticator.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  NSString *twitterApiKey = ... //Remember to obfuscate your api key
+    // Other app initialization, e.g. creating RCTRootView
+    NSString *twitterApiKey = ... //Remember to obfuscate your api key
     NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
     A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
     [[A0LockReact sharedInstance].lock registerAuthenticators:@[twitter]];
 }
 ```
 
-### 4. Add Native Module for Lock to your project
+### 3. Let's implement the login
 
-Create an Objective-C class (LockReactModule in this case) that will allow your JS code to call Lock.
-
-[![Create Class Xcode](/media/articles/native-platforms/ios-reactnative/CreateNativeModuleClass.gif)](https://auth0.com)
-
-`LockReactModule.h`
-
-```objc
-// LockReactModule.h file
-#import <Foundation/Foundation.h>
-#import "RCTBridgeModule.h"
-
-@interface LockReactModule : NSObject<RCTBridgeModule>
-
-@end
-```
-
-`LockReactModule.m`
-
-```objc
-#import "LockReactModule.h"
-#import <LockReact/A0LockReact.h>
-
-@implementation LockReactModule
-
-RCT_EXPORT_MODULE();
-
-RCT_EXPORT_METHOD(show:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    A0LockReact *lock = [A0LockReact sharedInstance];
-    [lock showWithOptions:options callback:callback];
-  });
-}
-
-RCT_EXPORT_METHOD(showSMS:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    A0LockReact *lock = [A0LockReact sharedInstance];
-    [lock showSMSWithOptions:options callback:callback];
-  });
-}
-
-RCT_EXPORT_METHOD(showTouchID:(NSDictionary *)options callback:(RCTResponseSenderBlock)callback) {
-  dispatch_async(dispatch_get_main_queue(), ^{
-    A0LockReact *lock = [A0LockReact sharedInstance];
-    [lock showTouchIDWithOptions:options callback:callback];
-  });
-}
-
-@end
-```
-
-> You can also download [LockReactModule.h](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/LockReactModule.h) and [LockReactModule.m](https://raw.githubusercontent.com/auth0/native-mobile-samples/master/iOS/basic-sample-reactnative/iOS/LockReactModule.m) and add them to your Xcode project.
-
-### 5. Let's implement the login
-
-Now we're ready to implement the Login. First we need to require the native module we've just created:
+Now we're ready to implement the Login. First we need to require react-native-lock-ios:
 
 ${snippet(meta.snippets.setup)}
 
-Then we can show _Lock_:
+Then we can show **Lock**:
 
 ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/ios-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/Lock.ReactNative#sms) or [TouchID](https://github.com/auth0/Lock.ReactNative#touchid)
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [TouchID](https://github.com/auth0/react-native-lock-ios#touchid)
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 
-### 5. Showing user information
+### 4. Showing user information
 
 After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
 
-```js
+```jsx
   <Text>Welcome {this.state.profile.name}</Text>
   <Text>Your email is: {this.state.profile.email}</Text>
 ```
 
 > You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 6. We're done
+### 5. We're done
 
 You've implemented Authentication with Auth0 in iOS & React Native. You're awesome!

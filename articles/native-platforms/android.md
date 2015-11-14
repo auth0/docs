@@ -43,13 +43,13 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 
-Add the `android.permission.INTERNET` permission:
+Add the `android.permission.INTERNET` permission to `AndroidManifest.xml` inside the `<manifest>` tag:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Then add the following entries to `AndroidManifest.xml` inside the `<application>` tag:
+Then add the following entries inside the `<application>` tag in the same file:
 
 ```xml
 <!--Auth0 Lock-->
@@ -177,7 +177,7 @@ After the user has logged in, we can use the `UserProfile` object to display the
   emailTextView.setText(profile.getEmail());
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/android-core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
 
 ### 6. We're done
 

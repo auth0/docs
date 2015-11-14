@@ -57,7 +57,7 @@ Lastly you will also notice a special property called `identities`, which is an 
 
 There are cases where you might want to augment the user profile with custom profile information like the user's favourite color or phone number. We encourage to use the `user_profile` to store this kind of information. 
 
-Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) you can use to let the user to update his profile info.
+Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) you can use to let the user to update their profile info.
 
 ## Application Access to User Profile
 

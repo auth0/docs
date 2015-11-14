@@ -1,5 +1,5 @@
 ```js
-Lock.show({}, (err, profile, token) => {
+lock.show({}, (err, profile, token) => {
   if (err) {
     console.log(err);
     return;
