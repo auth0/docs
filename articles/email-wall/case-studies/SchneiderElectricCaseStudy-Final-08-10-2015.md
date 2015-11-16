@@ -2,21 +2,20 @@
 title: "Schneider Electric: Streamlining Identity Management"
 type: case-study
 sitemap: false
-description: Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
-hash: schneider-electric
-pdf: http://google.com/link-to.pdf
+description: "Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management."
+hash: "schneider-electric"
 fourKeyConcepts:
   -
-    text: 'Challenge: Flexible Enterprise SSO'
+    text: "Challenge: Flexible Enterprise SSO"
     icon: budicon-573
   -
-    text: 'Solution: Scalable Federated Identity With Auth0'
+    text: "Solution: Scalable Federated Identity With Auth0"
     icon: budicon-347
   -
-    text: 'Benefits: Enhanced Security, Risk Management, Happy Employees, Reduced Costs'
+    text: "Benefits: Enhanced Security, Risk Management, Happy Employees, Reduced Costs"
     icon: budicon-255
   -
-    text: 'Result: Seamless, Quick Implementation, Flexibility For Future'
+    text: "Result: Seamless, Quick Implementation, Flexibility For Future"
     icon: budicon-540
 
 longDescription: >
