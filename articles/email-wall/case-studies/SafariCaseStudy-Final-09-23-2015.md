@@ -67,7 +67,7 @@ Safari’s technical criteria included:
 
 -   Security and privacy safeguards that meet enterprise customer requirements.
 
-###Build or Buy?
+### Build or Buy?
 At the outset, Safari considered building its own authentication service. Safari Engineering Manager Cris Concepcion and his team researched several open source identity and access management (IAM) and SSO technologies. This was a natural path to take, as Safari’s parent company, O’Reilly Media, is a thought leader in OSS communities and the founder of OSCON, a popular open source conference.
 > *"Compared to the costs and resources required to build, host, and secure a custom solution, the investment associated with a third-party authentication service like Auth0 was a sensible choice."*
 > **– Cris Concepcion, ‎Engineering Manager at Safari**
@@ -76,15 +76,15 @@ Concepcion and his team soon realized that building their own authentication mid
 
 Safari realized that building and maintaining their own authentication infrastructure would require one or two full-time engineering resources dedicated to support and customization. “I am proud of working with a bunch of smart people at an excellent company, but part of that excellence is derived from knowing what our core business is,” said Concepcion. “Compared to the costs and resources required to build, host, and secure a custom solution, the investment associated with a third-party authentication service like Auth0 was a sensible choice.”
 
-##THE SOLUTION
-###The Proof is in the POC
+## THE SOLUTION
+### The Proof is in the POC
 Safari’s Proof of Concept used the Django OAuth toolkit to leverage OAuth2 for both authentication and authorization. Auth0 delivers a complete, compatible OAuth2 implementation right out of the box, and in the POC, Safari leveraged the Python Social Auth SDK they were already using. No additional coding was needed: the POC proved Auth0’s simplicity and compatibility with Safari’s existing software.
 
 Safari’s system handles B2C and enterprise users differently, routing logins by comparing the user’s email to a known list of SSO email domains. If there is a match, Safari routes the request to Auth0 with the corporate account’s connection string. Auth0 then authenticates the user to the enterprise IdP. When the user is authenticated, Auth0 routes the user back to the Safari system.
 
 After the POC, it took Safari just three weeks to complete a pilot with a customer. The customer sent users to Safari from a corporate landing page rather than from the Web. The pilot users didn’t have to log in to Safari if they were already logged into their company’s system. Safari’s SSO, enabled by Auth0, invisibly authenticated them and redirected them automatically to Safari’s content with just a click.
 
-###A Quick and Seamless Path to Mobile SSO
+### A Quick and Seamless Path to Mobile SSO
 At first, Safari focused on SSO for corporate users accessing content from their desks. But users also like to read on mobile devices, so Safari also has powerful mobile applications on both IOS and Android—a major differentiator for the company in the B2B market.
 
 The mobile development team quickly got up to speed, and mobile integration required only a few changes. “The Auth0 solution was used pretty much as is for our mobile implementation,” said Concepcion. “It all came together within the timeframe that we expected, with no major surprises or roadblocks. Auth0 made it easy to provision new users right within our mobile app. There’s no need for a user to go to the Web first to create an account and then download the app.”
@@ -110,7 +110,7 @@ Auth0 rules and mapping also provided Safari with a high degree of flexibility, 
 
 “The combination of the rules and mapping capabilities in the Auth0 platform makes it easy for us to work with any data in any format. Best of all, we don’t have to ask our customers to send data in a different format, and we can customize the SSO to meet their needs,” remarked Concepcion. Rules also come in handy if customers want to monitor usage by logging user access to an application. Auth0 also makes it possible to redirect users to specified URLs after logout, such as a corporate homepage.
 
-###A Collaborative Partner
+### A Collaborative Partner
 Concepcion appreciates Auth0’s commitment to its customers, the collaborative spirit of its support team, and its responsiveness. “We are grateful for the help Auth0 provided while we were working through the initial integration points. The Customer Success team was always accommodating and made time for us when we had an issue,” noted Concepcion. “Having Auth0 around to provide immediate answers to our questions saved our developers a great deal of time.” He found the whole experience “quick and efficient,” largely because the Auth0 Customer Success team worked side by side with the Safari developer team and truly spoke their language.
 
 | What To Look For In An IAM Partner
@@ -123,7 +123,7 @@ Concepcion appreciates Auth0’s commitment to its customers, the collaborative 
 
 In one instance, a large Safari customer wanted to use their own signing certificate rather than use the Auth0’s certificate to validate the authentication flow, including SAML assertions. This was a feature not yet part of Auth0, but the company quickly jumped on this requirement. In a four-hour, three-way working videoconference between Auth0, Safari, and the customer, the new feature was implemented and verified against Auth0, Safari, and customer test environments. Additional tests proved that the SAML assertion signing was working correctly in production. “Even if there is something Auth0 can’t currently do, the company provides workarounds or implements new functionality. It was a very happy ending for all of us,” said Concepcion.
 
-##CONCLUSION: A BRIGHT FUTURE
+## CONCLUSION: A BRIGHT FUTURE
 > *“Having Auth0 around to provide immediate answers to our questions saved our developers a great deal of time.”*
 > **– Cris Concepcion, ‎Engineering Manager at Safari**
 
