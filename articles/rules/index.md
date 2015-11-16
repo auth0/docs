@@ -50,7 +50,7 @@ function (user, context, callback) {
 }
 ```
 
-**HINT:** You can add `console.log` lines for [debugging](#debugging).
+**NOTE:** You can add `console.log` lines for [debugging](#debugging).
 
 ### Add roles to a user
 
