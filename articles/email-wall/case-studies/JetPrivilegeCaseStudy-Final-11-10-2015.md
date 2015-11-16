@@ -2,21 +2,20 @@
 title: "JetPrivilege: SSO Makes For A Seamless Travel Experience"
 type: case-study
 sitemap: false
-description: JetPrivilege, the award-winning loyalty program for Jet Airways, must deliver a superb user experience for its millions of members, secure valuable personal information and rewards points, and help hundreds of partners integrate with the program. SSO with hand-off among multiple sites is central to this mission. JetPrivilege entrusts Auth0 to meet these challenges - learn how the companies worked together to deploy in mere months, propelling JetPrivilege to new heights.
-hash: jetprivilege
-pdf: http://google.com/link-to.pdf
+description: "JetPrivilege, the award-winning loyalty program for Jet Airways, must deliver a superb user experience for its millions of members, secure valuable personal information and rewards points, and help hundreds of partners integrate with the program. SSO with hand-off among multiple sites is central to this mission. JetPrivilege entrusts Auth0 to meet these challenges - learn how the companies worked together to deploy in mere months, propelling JetPrivilege to new heights."
+hash: "jetprivilege"
 fourKeyConcepts:
   -
-    text: 'Goal: Secure, Scalable, Consumer SSO'
+    text: "Goal: Secure, Scalable, Consumer SSO"
     icon: budicon-334
   -
-    text: 'Selection: Meeting The Technical And Business Challenges'
+    text: "Selection: Meeting The Technical And Business Challenges"
     icon: budicon-360
   -
-    text: 'Collaboration: The Story, The Success'
+    text: "Collaboration: The Story, The Success"
     icon: budicon-792
   -
-    text: 'Conclusion: Not Even The Sky Is The Limit'
+    text: "Conclusion: Not Even The Sky Is The Limit"
     icon: budicon-323
 
 longDescription: "JetPrivilege, the internationally acclaimed, award winning loyalty and rewards program and the frequent flyer program of Jet Airways, had to engineer a secure, seamless login and account management user experience for members and partners across multiple sites. After a comprehensive selection process, Auth0 was the only vendor that could meet all of JetPrivilege's technical requirements. Good choice - JetPrivilege's new identity management solution was built and deployed to production in only a few months, and today is handling identity for the program's millions of engaged members. Learn from JetPrivilege's experience, and discover how Auth0's developer-centric platform handles a massive consumer SSO challenge."
