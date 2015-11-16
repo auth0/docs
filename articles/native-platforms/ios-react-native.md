@@ -38,6 +38,20 @@ snippets:
 <pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
+#### CocoaPods
+
+You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project. 
+
+> Currently this is the **only** way to make `react-native-lock-ios` work since we don't provide a `.xcodeproj` file in the npm library.
+
+To install CocoaPods just run the following command:
+
+```bash
+gem install cocoapods
+```
+
+> If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
+
 ### 1. Adding the Lock to your project
 
 First you need to run the following command to install **react-native-lock-ios**
@@ -46,13 +60,24 @@ First you need to run the following command to install **react-native-lock-ios**
 npm install --save react-native-lock-ios
 ```
 
-Then create a file name `Podfile` with the following content
+Then open your app's `.xcodeproj` file with Xcode, e.g:
+
+```bash
+open <YourAppName>.xcodeproj
+```
+
+and make sure the react native project can be run in Xcode and remove all the subprojects under Libraries/ in Xcode. This is because React Native's iOS code will be pulled in via CocoaPods from your `node_modules` directory.
+
+> Make sure you only **Remove Reference** instead of **Moving to Trash**, if you pick the later you'll have to re-install react-native with npm since it will move your previous installation to the Trash.
+
+Then create a file name `Podfile` with the following content inside the folder `<project name>/ios`
 
 ${snippet(meta.snippets.dependencies)}
 
-Now run from the same folder the command pod install. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them. From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now pulled in via CocoaPods. Another necessary step you need to do is remove the React, RCTImage, etc. subprojects from your app's Xcode project
+Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them. 
+From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now integrated to your project via CocoaPods instead of subprojects.
 
-> If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
+> If you are seeing some warnings after your running `pod install` or you get some linker error when building the Xcode project, please check the [FAQs section](#FAQs)
 
 ### 2. Register Native Authentication Handlers
 
@@ -181,3 +206,8 @@ After the user has logged in, we can use the `profile` object which has all the 
 ### 5. We're done
 
 You've implemented Authentication with Auth0 in iOS & React Native. You're awesome!
+
+### FAQs
+
+* When running `pod install`, I am getting a warning like `The 'YourAppName [Debug]' target overrides the 'OTHER_LDFLAGS' build setting ...`.
+    This is because CocoaPods was not able to override some flags in order to correctly build your project and its native dependencies. To solve this, go to Xcode's target Build Setting section, find `Other Linker Flags` and replace it's value with `$(inherited)` for all Configurations.
