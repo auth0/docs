@@ -6,6 +6,6 @@ pod 'React', :subspecs => [
   'RCTNetwork', 
   'RCTText', 
   'RCTWebSocket'
-  ], :path => 'node_modules/react-native'
-pod 'LockReactNative', :path => 'node_modules/react-native-lock-ios'
+  ], :path => '../node_modules/react-native'
+pod 'LockReactNative', :path => '../node_modules/react-native-lock-ios'
 ```
