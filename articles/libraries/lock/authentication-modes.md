@@ -14,6 +14,8 @@ You can [click here](/libraries/lock/types-of-applications#redirect-mode) to lea
 
 If after you click on the IdP button (Facebook for example), a popup (new tab or window) is openned, it means you're using Popup Mode. In that popup, you'll see that Facebook page is displayed. Once you successfully login to Facebook, the popup will be closed and your WebApp will recognize that the user has been authenticated. The WebApp has **never been redirected to any other page. This means that you won't lose any state in memory that your application had**. This is why we can **handle successful login with a callback** in this case.
 
+> WARNING: There is a known bug in Chrome for iOS that prevents popup mode from functioning properly. As such we recommend either only using redirect mode or detecting Chrom on iOS and selectively enabling redirect mode.
+
 ![Widget Popup](https://cloudup.com/cg8u9kVV5Vh+)
 
 You can [click here](/libraries/lock/types-of-applications#popup-mode) to learn how to implement Popup mode with Single Page Apps.
