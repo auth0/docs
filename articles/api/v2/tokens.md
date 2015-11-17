@@ -36,7 +36,7 @@ There is no mechanism for renewing an APIv2 token.  A new token should be create
 
 ## Termination of tokens
 
-There is no mechanism for terminating an APIv2 token.
+You can terminate the APIv2 tokens calling the [blacklist endpoint](https://auth0.com/docs/api/v2#!/Blacklists/post_tokens).
 
 ## Uses
 
