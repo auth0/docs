@@ -56,7 +56,7 @@ categories:
     sections:
       auth-endpoints:
         name: "Authentication API"
-        description: "Perform enterprise authentication or OpenID operations asing these APIs."
+        description: "Perform enterprise authentication or OpenID operations using these APIs."
         href: "/auth-api/"
       explorer:
         name: "Management API"
