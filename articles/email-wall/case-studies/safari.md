@@ -2,6 +2,8 @@
 title: "Safari: Auth0 SSO Drives B2B Expansion"
 type: case-study
 sitemap: false
+logoUrl: "/media/articles/email-wall/case-studies/safari/logo.svg"
+iconUrl: "/media/articles/email-wall/case-studies/safari/logo.svg"
 description: "Safari needed a flexible SSO platform to simplify enterprise customer integrations. Auth0 provided just the ticket - enabling Safari's enterprise ambitions, adding a critical new feature to their platform and lowering support costs. Find out how."
 hash: "safari"
 fourKeyConcepts:
@@ -17,10 +19,9 @@ fourKeyConcepts:
   -
     text: "Result: Fast Customer On-boarding, More Enterprise Opportunity"
     icon: budicon-362
+
 longDescription: "Safari saw an opportunity to deliver their unique content to enterprise customers but these customers expected their employees to access that content using their already established credentials. Safari needed an SSO solution that could handle a broad range of SSO standards such as SAML, ADFS, and Google Apps, eliminating the need to do custom integrations and making new customer on-boarding a snap. Auth0's developer-centric design and built-in standards support handled this SSO challenge without a hitch, and as an added benefit, made Safari's mobile apps for Android and IOS instantly enterprise-aware. Read the case study and learn how Auth0 partnered with Safari to help them build out their enterprise business."
 ---
-![Safari Logo](/media/articles/email-wall/case-studies/SafariCaseStudy-Final-09-23-2015/logo-safari-books.svg)
-# Safari: Auth0 SSO Drives B2B Expansion
 
 * * *
 <div class="toc-box"></div>
