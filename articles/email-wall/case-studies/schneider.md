@@ -2,7 +2,7 @@
 title: "Schneider Electric: Streamlining Identity Management"
 type: case-study
 sitemap: false
-imageUrl: "/media/articles/email-wall/case-studies/SchneiderElectricCaseStudy-Final-08-10-2015/logo-schneider-electric.png"
+imageUrl: "/media/articles/email-wall/case-studies/schneider-electric/logo.png"
 description: "Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management."
 hash: "schneider-electric"
 fourKeyConcepts:
@@ -22,8 +22,6 @@ fourKeyConcepts:
 longDescription: >
  Schneider Electric needed an Identity Management solution that could take on their rapid growth to over 170,000 employees worldwide, and their expansion into new markets. The goal - implement Single Sign-On across the whole company, breaking down organizational silos, simplifying employee access to resources, reducing IT costs, and improving security. Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
 ---
-![Schneider Electric Logo](/media/articles/email-wall/case-studies/SchneiderElectricCaseStudy-Final-08-10-2015/logo-schneider-electric.png)
-# Schneider Electric: Streamlining Identity Management
 
 * * *
 <div class="toc-box"></div>
