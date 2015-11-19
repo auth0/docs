@@ -4,6 +4,7 @@ type: case-study
 sitemap: false
 logoUrl: "/media/articles/email-wall/case-studies/safari/logo.svg"
 iconUrl: "/media/articles/email-wall/case-studies/safari/logo.svg"
+bgColor: "#F5A623"
 description: "Safari needed a flexible SSO platform to simplify enterprise customer integrations. Auth0 provided just the ticket - enabling Safari's enterprise ambitions, adding a critical new feature to their platform and lowering support costs. Find out how."
 hash: "safari"
 fourKeyConcepts:
