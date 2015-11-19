@@ -2,8 +2,8 @@
 title: "JetPrivilege: SSO Makes For A Seamless Travel Experience"
 type: case-study
 sitemap: false
-logoUrl: "/media/articles/email-wall/case-studies/jet-priviledge/logo.png"
-iconUrl: "/media/articles/email-wall/case-studies/jet-priviledge/logo.png"
+logoUrl: "/media/articles/email-wall/case-studies/jet-priviledge/logo-white.png"
+iconUrl: "/media/articles/email-wall/case-studies/jet-priviledge/logo-white.png"
 bgColor: "#0B113D"
 description: "JetPrivilege, the award-winning loyalty program for Jet Airways, must deliver a superb user experience for its millions of members, secure valuable personal information and rewards points, and help hundreds of partners integrate with the program. SSO with hand-off among multiple sites is central to this mission. JetPrivilege entrusts Auth0 to meet these challenges - learn how the companies worked together to deploy in mere months, propelling JetPrivilege to new heights."
 hash: "jetprivilege"
