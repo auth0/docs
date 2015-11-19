@@ -4,7 +4,7 @@ type: case-study
 sitemap: false
 logoUrl: "/media/articles/email-wall/case-studies/schneider-electric/logo-white.png"
 iconUrl: "/media/articles/email-wall/case-studies/schneider-electric/logo-white.png"
-bgColor: "#009F49"
+bgColor: "#003d1d"
 description: "Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management."
 hash: "schneider-electric"
 fourKeyConcepts:
