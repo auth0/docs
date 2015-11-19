@@ -1,10 +1,10 @@
 # Scopes
 
-When initiating a [client-side authorization transaction](https://auth0.com/docs/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](https://auth0.com/docs/auth-api#!#get--authorize_social),
+When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/auth-api#!#get--authorize_social),
 only an opaque `access_token` will be returned by default.
 To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
-## Example ([implicit flow](https://auth0.com/docs/protocols#oauth-for-native-clients-and-javascript-in-the-browser))
+## Example ([implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser))
 
 The following URL logs a user in using Google and requests a JWT that authenticates the user.
 

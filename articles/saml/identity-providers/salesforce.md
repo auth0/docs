@@ -171,7 +171,7 @@ This section has a few ideas for things to check if your sample doesn't work.
 
 When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction and save it in a .har file.
 
- **[har file instructions](https://auth0.com/docs/har)**
+ **[har file instructions](/har)**
 
 Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the callback URL.  The .har file will also contain the SAML response.
 

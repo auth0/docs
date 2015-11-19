@@ -145,7 +145,7 @@ Common parameters are:
 * `state`: arbitrary state value that will be mantained across redirects (useful for XSRF)
 * `scope`: there are various possible values for scope:
     * `scope=openid`: it will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
-    * `scope=openid {attr1} {attr2}`: if you want specific user profile properties returned.(For example: `__scope: "openid name email picture"`). You can get more information about this in the [Scopes documentation](https://auth0.com/docs/scopes).
+    * `scope=openid {attr1} {attr2}`: if you want specific user profile properties returned.(For example: `__scope: "openid name email picture"`). You can get more information about this in the [Scopes documentation](/scopes).
 * `redirect_uri`: by setting this value you can choose what callback url to use if you have multiple registered. Useful when you have multiple environments (e.g. Dev & Test), and a single application in Auth0.
 * `authorize_url`: if specified, it will start the login transaction at that url. This is useful if you want to do something on the server, before redirecting to Auth0. For instance, this is used when integrating with ASP.NET MVC4 which uses DotNetOpenAuth and generates a proprietary "state" parameter that can only be generated on the server side.
 * `protocol`: this could be `oauth2` (default), `samlp` or `wsfed`.

@@ -1,6 +1,6 @@
 # Custom Multifactor Authentication Provider
 
-If you are using a different MFA provider or want to build your own, you can use the `redirect` protocol in Auth0. For example, you can use **YubiKey**; if you want to read more about how to integrate it, click [here](https://auth0.com/docs/multifactor-authentication/yubikey).
+If you are using a different MFA provider or want to build your own, you can use the `redirect` protocol in Auth0. For example, you can use **YubiKey**; if you want to read more about how to integrate it, click [here](/multifactor-authentication/yubikey).
 
 
 ![YubiKey Custom Provider](https://cdn.auth0.com/content/multi-factor-authentication/yubikey.png)
