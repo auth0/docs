@@ -146,7 +146,7 @@ Note that as a result of linking these accounts:
 
 #### Merging Metadata
 
-As stated above, [user_metadata and app_metadata](/api/v2/changes#app-_metadata-and-user-_metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id).
+As stated above, [user_metadata and app_metadata](/api/v2/changes#app-_metadata-and-user-_metadata) are not automatically merged during account linking. If you want to merge them you have to do it manually, using the [Auth0 APIv2 Update User endpoint](/api/v2#!/Users/patch_users_by_id).
 
 The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) is also available. You can find sample code for merging metadata before linking using this SDK [here](/link-accounts/suggested-linking#4-verify-and-merge-metadata-before-linking).
 

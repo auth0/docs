@@ -80,7 +80,7 @@ Auth0 supports **Twilio SMS** for passwordless login with codes sent via SMS, an
 
 ### Q: How can I use Passwordless as another factor in multi-factor authentication?
 
-**A:** While Auth0’s passwordless connections (including SMS, email, and Apple *Touch ID*) are not built into the dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](https://auth0.com/docs/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](https://auth0.com/docs/mfa).
+**A:** While Auth0’s passwordless connections (including SMS, email, and Apple *Touch ID*) are not built into the dashboard MFA capability at this time, Auth0’s flexible [rules execution pipeline](/rules) make it easy to use these passwordless authentication methods as part of an MFA flow. Rules are snippets of JavaScript that execute on the Auth0 server as part of the authentication pipeline and give you the flexibility to call APIs or perform arbitrary computations in order to implement customized authentication logic. Simply call the passwordless connection using a redirect rule, and treat it as a [custom MFA provider](/mfa).
 
 In future versions of passwordless connections, supported MFA providers will be built-in.
 
@@ -122,7 +122,7 @@ Auth0’s standard Lock widget for IOS fully supports *Touch ID* with a very sim
 
 ### Q: How could I use Passwordless sign in with *step-up* multi-factor authentication to improve security for more sensitive data or actions?
 
-**A:** Auth0 features powerful [rules](https://auth0.com/docs/rules) - JavaScript snippets which run during the authentication process on the Auth0 server, and allow you to insert additional authentication elements when potentially high-risk logins are detected. For instance, if your application detects a user logging in from a previously unknown IP address with a location outside of the user’s home country, your application might request a password, or ask a security question from inside of Auth0’s authentication flow.
+**A:** Auth0 features powerful [rules](/rules) - JavaScript snippets which run during the authentication process on the Auth0 server, and allow you to insert additional authentication elements when potentially high-risk logins are detected. For instance, if your application detects a user logging in from a previously unknown IP address with a location outside of the user’s home country, your application might request a password, or ask a security question from inside of Auth0’s authentication flow.
 
 In future versions of passwordless logins, support for multi-factor *step-up* authentication will be added as part of the passwordless configuration options, replacing the use of rules to implement this security enhancement.
 
@@ -134,7 +134,7 @@ Since passwordless email logins with *magic links* include a link in the email t
 
 There are several effective ways to reduce this risk. One is through education. The email to your users might include a warning not to click the link unless they recently requested to log in, and a notice that they will never be asked for any password when logging into your site.
 
-Another way is to apply best practices for email authentication when using this feature. There are popular and effective standards for verifying email authenticity including **SPF**, **DKIM**, and **DMARC**. We strongly recommend utilizing these capabilities by [configuring your own email provider](https://auth0.com/docs/email) when you set up passwordless logins, including setting up [SPF and DKIM records](https://auth0.com/docs/email#spf-configuration). Your email provider may have more detailed information on email authentication and availability for you to explore.
+Another way is to apply best practices for email authentication when using this feature. There are popular and effective standards for verifying email authenticity including **SPF**, **DKIM**, and **DMARC**. We strongly recommend utilizing these capabilities by [configuring your own email provider](/email) when you set up passwordless logins, including setting up [SPF and DKIM records](/email#spf-configuration). Your email provider may have more detailed information on email authentication and availability for you to explore.
 
 Since you are using Auth0 passwordless logins, there are no passwords to phish, and phishing attacks cannot compromise the credentials to your site or application. This is great news. Whenever email is a component of an authentication flow however, there is always the potential for phishing (if only for harvesting the credentials of other sites). Passwordless email authentication protects your brand and online reputation, while foiling scammers.
 

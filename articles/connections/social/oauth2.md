@@ -104,11 +104,11 @@ A direct link would look like:
 
     https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
 
-> To add a custom connection in lock, you can add a custom button following [this doc](https://auth0.com/docs/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript) and using this link as the button `href`.
+> To add a custom connection in lock, you can add a custom button following [this doc](/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript) and using this link as the button `href`.
 
 ## Other resources
 
-* [Adding custom connections to lock](https://auth0.com/docs/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript)
+* [Adding custom connections to lock](/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript)
 * [Generic OAuth2 or OAuth1 examples](/oauth2-examples)
 * [Identity Providers supported by Auth0](/identityproviders)
 * [Identity Protocols supported by Auth0](/protocols)

@@ -166,7 +166,7 @@ Once you have succesfully authenticated, Auth0 will redirect to the `callbackURL
 ```
 
 Or just parse the hash (if loginOption.scope is `openid`, then the profile will only contain the `user_id`):
-Taking this into consideration: " 'openid': It will return, not only the access_token, but also an id_token which is a Json Web Token (JWT). The JWT will only contain the user id (sub claim). You can use the ParameterBuilder.SCOPE_OPENID constant". You can get more information about scopes in the [Scopes documentation](https://auth0.com/docs/scopes).
+Taking this into consideration: " 'openid': It will return, not only the access_token, but also an id_token which is a Json Web Token (JWT). The JWT will only contain the user id (sub claim). You can use the ParameterBuilder.SCOPE_OPENID constant". You can get more information about scopes in the [Scopes documentation](/scopes).
 
 ```js
   $(function () {
