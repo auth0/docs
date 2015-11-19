@@ -84,5 +84,21 @@ pages:
       - jwt-how-they-work
       - jwt-why-should-you-use
       - jwt-how-we-use-in-Auth0
+  social-login:
+    title: Social Login - Time to implement it in your apps
+    description: Implement Social Login in a heartbeat with Auth0 and increase your registrations.
+    banner:
+      image: "/media/landings/banner/social-login-hero.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-social-login.png"
+    meta:
+      title: Social Login - Time to implement it in your apps
+      description: Implement Social Login in a heartbeat with Auth0 and increase your registrations.
+    modules:
+      - sl-what-is
+      - sl-why
+      - sl-how-it-works
+      - sl-supported-providers
+      - sl-with-auth0-in-a-few-steps
+      - sl-add-custom-social-connection
 ---
 
