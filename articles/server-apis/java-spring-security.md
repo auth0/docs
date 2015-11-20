@@ -14,6 +14,7 @@ tags:
   - quickstart
 snippets:
   dependencies: server-apis/java-spring-security/dependencies
+  dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
 ---
@@ -40,7 +41,7 @@ ${snippet(meta.snippets.dependencies)}
 
 Or, if you're using Gradle, add it to the dependencies block:
 
-${snippet(meta.snippets.dependencies-gradle)}
+${snippet(meta.snippets.dependenciesGradle)}
 
 ### 2. Configure Spring to use Auth0
 
