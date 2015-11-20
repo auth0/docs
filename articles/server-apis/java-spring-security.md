@@ -38,6 +38,10 @@ For that, you can just add it to your `pom.xml` if you're using maven.
 
 ${snippet(meta.snippets.dependencies)}
 
+Or, if you're using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependencies-gradle)}
+
 ### 2. Configure Spring to use Auth0
 
 Now you need to configure Spring to use Spring Security with Auth0.
