@@ -1,4 +1,4 @@
 ```ruby
-pod 'Lock', '~> 1.16'
-pod 'JWTDecode', '~> 0.2.2'
+pod 'Lock', '~> 1.21'
+pod 'JWTDecode', '~> 1.0'
 ```
