@@ -151,15 +151,56 @@ Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
+Then add the following keys to the `Info.plist` inside the main `<dict>` key. To open this file in Source Code mode within Xcode, **Control-Click** (or right click) on it, select **Open As**, **Source Code**.
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>facebook.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>                
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>fbcdn.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>akamaihd.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+    </dict>
+</dict>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+</array>
+```
+> **Note:** this entries enable compatibility with iOS 9. You can get more information about this in Facebook's developer portal: [Preparing your apps for iOS 9](https://developers.facebook.com/docs/ios/ios9)
+
 Then add Lock Facebook's Pod
 
 ```ruby
-pod 'Lock-Facebook', '~> 2.0'
+pod 'Lock-Facebook', '~> 2.1'
+post_install do |installer|
+    installer.pods_project.build_configurations.each { |bc|
+        bc.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+    }
+end
 ```
-
-Click on the `Pods` project and select `Lock-Facebook` target and set `Allow Non-modular Includes In Framework Modules` to Yes:
-
-![Lock.png](/media/articles/native-platforms/ios-swift/Facebook-Config-Screenshot.png)
 
 After that, where you initialize `A0Lock`, import `LockFacebook` module
 
