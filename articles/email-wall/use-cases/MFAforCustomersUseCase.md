@@ -35,13 +35,13 @@ MFA can be requested at initial login to ensure the identity of the customer who
 ## THE BIG PICTURE
 Auth0 can be used to enhance both existing applications, for which there may be no source code, and new applications, for which source code is available. For existing applications, change the setting that is used to get to the Identity Provider (IdP) for the customers from the existing identity provider to Auth0. This allows Auth0 to operate as a broker between the application and the original customer IdP or external user database. New applications will use the Auth0 APIs through the convenient SDKs that are specific to each device or application framework, along with the renowned Auth0 code samples and customized step-by-step guidance for each specific scenario that developers rave about.
 
- ![Auth0 is introduced between the applications and existing customers IDP](big-picture-how-auth0-fits-in.png) 
+ ![Auth0 is introduced between the applications and existing customers IDP](/media/articles/email-wall/use-cases/mfa-for-customers/big-picture-how-auth0-fits-in.png) 
 
 Auth0 adds MFA capability and more to both existing and new applications
 
 Once the applications are using Auth0 as their IdP, Auth0 enables you to service existing customers without them having to change their passwords or take any action whatsoever. Customers can be given the choice to log in with any of the standards-based or popular social and commercial IdPs such as Windows Live, Google, Facebook, Amazon, Salesforce, as a few examples. 
 
-![](mfa-for-customers-dashboard-switches.png)
+![](/media/articles/email-wall/use-cases/mfa-for-customers/mfa-for-customers-dashboard-switches.png)
 
 Auth0 federates with any OpenID Connect, OAuth or popular IdP
 
@@ -56,14 +56,14 @@ It is easy to add contextual multi-factor authentication where and when it is ap
 
 (iii) With the flip of a switch in the Auth0 dashboard, add the popular Google Authenticator MFA experience ([https://en.wikipedia.org/wiki/Google_Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator)) or the Duo Security MFA experience ([https://www.duosecurity.com/](https://www.duosecurity.com/)) into the authentication flow for any applications.
  
- ![Auth0 Dashboard method of adding or deleting Google Authenticator or Duo Security](mfa-dashboard-switch.png)
+ ![Auth0 Dashboard method of adding or deleting Google Authenticator or Duo Security](/media/articles/email-wall/use-cases/mfa-for-customers/mfa-dashboard-switch.png)
 
 Enable MFA for any application with the flip of a switch
 
 ## EXTENSIBILITY WITH RULES
 Auth0 allows you to customize and extend the authentication flow through JavaScript functions called rules (https://auth0.com/docs/rules), which run in a secure sandbox and allow Auth0 to be extended easily. Rules run after the existing IdP has authenticated the customer and before control is returned to the application that called Auth0.
 
- ![After authenticating the user, Auth0 can run any number of custom rules](auth-pipeline-with-rules-customers.png)
+ ![After authenticating the user, Auth0 can run any number of custom rules](/media/articles/email-wall/use-cases/mfa-for-customers/auth-pipeline-with-rules-customers.png)
 
 
 Rules are run after the user is authenticated and before control is returned to the application
