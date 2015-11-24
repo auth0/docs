@@ -90,27 +90,25 @@ Also you'll need to register a new _URL Type_ with the following scheme
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
-The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
+You can access an instance of `A0Lock` using the `sharedLock()` method provided by the `Lock` pod.
 
 ${snippet(meta.snippets.setup)}
 
-> You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
+> You can access `A0Lock` in any class, even in your AppDelegate, the only requirement is that you reference to it using `import Lock`.
 
 ### 4. Register Native Authentication Handlers
 
 First in your AppDelegate method `application:didFinishLaunchingWithOptions:` add the following lines:
 
 ```swift
-let lock = MyApplication.sharedInstance.lock
-lock.applicationLaunchedWithOptions(launchOptions)
+A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
 ```
 
 Then to allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method:
 
 ```swift
 func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    let lock = MyApplication.sharedInstance.lock
-    return lock.handleURL(url, sourceApplication: sourceApplication)
+    return return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
 }
 ```
 
@@ -171,7 +169,7 @@ And register it with `A0Lock`:
 
 ```swift
 let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
-lock.registerAuthenticators([facebook])
+A0Lock.sharedLock().registerAuthenticators([facebook])
 ```
 
 #### Twitter
@@ -194,14 +192,14 @@ And register it with `A0Lock`:
 let apiKey = ... //Remember to obfuscate your api key
 let apiSecret = ... //Remember to obfuscate your api secret
 let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(apiKey, andSecret:apiSecret)
-lock.registerAuthenticators([twitter])
+A0Lock.sharedLock().registerAuthenticators([twitter])
 }
 ```
 
 > For more information on how to configure this, please check [Obtaining Consumer and Secret Keys for Twitter](/connections/social/twitter).
 
 ### 5. Let's implement the login
-Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
+Now we're ready to implement the Login. We can get an instance of `A0LockController` by calling the `newLockViewController()` method of the `A0Lock` shared instance and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
 ${snippet(meta.snippets.use)}
 

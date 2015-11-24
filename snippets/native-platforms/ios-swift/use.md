@@ -1,6 +1,7 @@
 ```swift
-let lock = MyApplication.sharedInstance.lock
-let controller = lock.newLockViewController()
+import Lock
+
+let controller = A0Lock.sharedLock().newLockViewController()
 controller.closable = true
 controller.onAuthenticationBlock = { (profile, token) in
   // Do something with token & profile. e.g.: save them.
