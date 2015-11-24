@@ -131,3 +131,5 @@ For users without Kerberos this will immediately show the login page:
 Users on a domain-joined machine will immediately be signed in to Office 365:
 
 ![IdP Login Kerberos](/media/articles/integrations/office-365/office-365-idp-login-kerberos.gif)
+
+<%= include('./_office-365-deep-linking') %>
