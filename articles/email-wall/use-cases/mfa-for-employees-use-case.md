@@ -1,5 +1,5 @@
 ---
-description: "Auth0 can be used as the Identity Provider for both existing and new applications and can provide multifactor authentication on a per-application basis based on who the user is and what they are doing. And Auth0 puts into place a solid foundation for additional functionality that may be required in the future."
+description: "Given that your employees’ passwords are often used across dozens of sites so they can be remembered, there is not enough security for your organization's Web-accessible applications unless you require multiple factors of authentication. Fortunately, with Auth0, you can easily add multifactor authentication to your existing and new Web and mobile applications to increase your security posture."
 fourKeyConcepts: 
   - 
     icon: css-class-bud-icon
