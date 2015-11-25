@@ -32,7 +32,7 @@ snippets:
 ### 1. Set up the Allowed Origin (CORS) in Auth0
 
 <div class="setup-origin">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>, if you're testing it locally, it should contain the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>. If you're testing it locally, it should contain the following value:</p>
 
 <pre><code>https://localhost:3001</pre></code>
 
@@ -103,8 +103,10 @@ To discover all the available arguments for `lock.show`, see [.show\(\[options, 
 
 ### 6. Set Authorization for Socket.io
 
+Add the following to your `index.js` file.
+
 ```javascript
-//index.js
+
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
@@ -123,21 +125,22 @@ io.
 
 ### 7. Load the socket.io-client
 
-Add the following snippet before the `</body>`
+Add the following snippet before the `</body>` on `index.html`
 
 ```html
 <script src="/socket.io/socket.io.js"></script>
 <script>
-  var socket = io(); //No URL is specified when calling io(), since it defaults to trying to connect to the host that serves the page.
+  var socket = io(); 
   socket.on('connect', function () {
 	socket.on('authenticated', function () {
 	//Do 
 						
 	})
 	.emit('authenticate', {token: userToken}); // send the jwt
-	});
+  });
 </script>
 ```
+No URL is specified when calling io(), since it tries to connect to the host that serves the page by default.
 
 ### 8. All done!
 
