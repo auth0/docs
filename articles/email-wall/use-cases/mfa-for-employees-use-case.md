@@ -15,7 +15,6 @@ fourKeyConcepts:
     text: "Result: Quick Implementation, Solid Foundation for Future"
 hash: MFA
 longDescription: "As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more to both existing and new applications is easier than you think."
-pdf: MFAforEmployeesUseCase.pdf
 sitemap: false
 title: "Multifactor Authentication for Employees"
 type: case-study
