@@ -73,7 +73,7 @@ app.use(passport.session());
 
 ### 5. Add Auth0 callback handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information.
 
 ```js
 // Auth0 callback handler
