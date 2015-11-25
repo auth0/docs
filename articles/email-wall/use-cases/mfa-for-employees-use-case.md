@@ -1,26 +1,24 @@
 ---
+description: "Auth0 can be used as the Identity Provider for both existing and new applications and can provide multifactor authentication on a per-application basis based on who the user is and what they are doing. And Auth0 puts into place a solid foundation for additional functionality that may be required in the future."
+fourKeyConcepts: 
+  - 
+    icon: css-class-bud-icon
+    text: "Challenge: Username/Password is No Longer Secure"
+  - 
+    icon: css-class-bud-icon
+    text: "Solution: Add Multifactor Authentication"
+  - 
+    icon: css-class-bud-icon
+    text: "Benefits: Provide True Security for Employees"
+  - 
+    icon: css-class-bud-icon
+    text: "Result: Quick Implementation, Solid Foundation for Future"
+hash: MFA
+longDescription: "As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more to both existing and new applications is easier than you think."
+pdf: MFAforEmployeesUseCase.pdf
+sitemap: false
 title: "Multifactor Authentication for Employees"
 type: case-study
-sitemap: false
-description: Auth0 can be used as the Identity Provider for both existing and new applications and can provide multifactor authentication on a per-application basis based on who the user is and what they are doing. And Auth0 puts into place a solid foundation for additional functionality that may be required in the future.
-hash: MFA
-pdf: MFAforEmployeesUseCase.pdf
-fourKeyConcepts:
-  -
-    text: Challenge: Username/Password is No Longer Secure
-    icon: css-class-bud-icon
-  -
-    text: Solution: Add Multifactor Authentication
-    icon: css-class-bud-icon
-  -
-    text: Benefits: Provide True Security for Employees
-    icon: css-class-bud-icon
-  -
-    text: Result: Quick Implementation, Solid Foundation for Future 
-    icon: css-class-bud-icon
-  
-longDescription: >
- As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more to both existing and new applications is easier than you think.
 ---
 
 # Multifactor Authentication for Employees
