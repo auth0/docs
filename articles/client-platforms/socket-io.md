@@ -140,7 +140,7 @@ Add the following snippet before the `</body>` on `index.html`
   });
 </script>
 ```
-No URL is specified when calling io(), since it tries to connect to the host that serves the page by default.
+No URL is specified when doing `var socket = io();`, because the default behaviour is to connect to the host that serves the page.
 
 ### 8. All done!
 
