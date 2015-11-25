@@ -1,5 +1,5 @@
 ---
-description: "Auth0 can be used as the Identity Provider for both existing and new customers and can provide contextual multifactor authentication on a per-application basis. Beyond multifactor authentication, Auth0 provides a solid foundation for additional authentication and authorization features that may be required in the future."
+description: "Multifactor authentication has become the new minimum level required to ensure that your customers are who they say they are, in light of the massive security breaches of usernames and passwords that appear in the headlines each week. Even if your Web site or mobile application does not perform financial transactions you should add multifactor authentication. It's easier than you think with Auth0."
 fourKeyConcepts: 
   - 
     icon: css-class-bud-icon
