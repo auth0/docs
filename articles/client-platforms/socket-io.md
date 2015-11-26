@@ -22,8 +22,8 @@ snippets:
 <%= include('../_includes/package', {
   pkgRepo: 'socketio-jwt',
   pkgBranch: 'master',
-  pkgPath: 'example',
-  pkgFilePath: 'example' + account.clientParam,
+  pkgPath: 'example/socketsio-auth0-sample',
+  pkgFilePath: 'example/socketsio-auth0-sample' + account.clientParam,
   pkgType: 'js' 
 }) %>
 
