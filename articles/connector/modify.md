@@ -68,6 +68,7 @@ The `config.json` file is the AD/LDAP Connector's configuration file.  It can be
  - `GROUP_PROPERTY`: The attribute of the group object that will be used when adding the groups to a user. Default: `cn`.
  - `GROUPS_CACHE_SECONDS`: Total time in seconds to cache a user's groups. Default: 600 seconds.
  - `GROUPS_TIMEOUT_SECONDS`: The timeout in seconds for searching all groups a user belongs to. Default: 20 seconds.
+  - `HTTP_PROXY`: The URL for a proxy, if used to access internet.
  - `KERBEROS_AUTH`: Specifies if **Kerberos Authentication** is enabled or not. This value is configured in Auth0 and maintained by the connector.
  - `LAST_SENT_THUMBPRINT`: Thumbprint of the last certificate which was sent to Auth0.
  - `LDAP_BASE`: Defines the location in the directory from which the LDAP search begins. Eg: `DC=fabrikam,DC=local`
