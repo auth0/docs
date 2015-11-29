@@ -2,9 +2,9 @@
 title: "Safari: Auth0 SSO Drives B2B Expansion"
 type: case-study
 sitemap: false
-logoUrl: "/media/articles/email-wall/case-studies/safari/logo-circle.png"
-iconUrl: "/media/articles/email-wall/case-studies/safari/logo-circle.png"
-bgColor: "#ea940b"
+logoUrl: "/media/articles/email-wall/case-studies/safari/logo.png"
+iconUrl: "/media/articles/email-wall/case-studies/safari/logo.png"
+bgColor: "#4A3C31"
 description: "Safari needed a flexible SSO platform to simplify enterprise customer integrations. Auth0 provided just the ticket - enabling Safari's enterprise ambitions, adding a critical new feature to their platform and lowering support costs. Find out how."
 hash: "safari"
 fourKeyConcepts:
@@ -20,24 +20,36 @@ fourKeyConcepts:
   -
     text: "Result: Fast Customer On-boarding, More Enterprise Opportunity"
     icon: budicon-362
-
+keyMetrics:
+  -
+    label: "Origin"
+    content: "Launched in 2001."
+  -
+    label: "Parent"
+    content: "A wholly owned subsidiary of O’Reilly Media, Inc."
+  -
+    label: "Purpose"
+    content: "A digital learning platform that offers 30,000 books, videos, training courses, and conference resources on technology, business, and design."
+  -
+    label: "Location"
+    content: "Global presence with four offices worldwide."
 longDescription: "Safari saw an opportunity to deliver their unique content to enterprise customers but these customers expected their employees to access that content using their already established credentials. Safari needed an SSO solution that could handle a broad range of SSO standards such as SAML, ADFS, and Google Apps, eliminating the need to do custom integrations and making new customer on-boarding a snap. Auth0's developer-centric design and built-in standards support handled this SSO challenge without a hitch, and as an added benefit, made Safari's mobile apps for Android and IOS instantly enterprise-aware. Read the case study and learn how Auth0 partnered with Safari to help them build out their enterprise business."
 ---
 
 * * *
 <div class="toc-box"></div>
-> *"Setting up our application to integrate with one partner and then having that partner act as a service hub for dozens of identity systems helps simplify work for our core development teams, while allowing our customer base to grow exponentially."*
-> **– Cris Concepcion, ‎Engineering Manager at Safari Books Online**
-
 ## OVERVIEW
 Safari, a subsidiary of O’Reilly Media, Inc., provides online and mobile access to a vast array of technical, business, and design resources—from books to training to videos. This unique learning portal has hundreds of corporate clients including Amazon, Tesla, Blizzard Entertainment, Yahoo! and Google, who purchase subscriptions to enable access by small teams or by users company-wide.
 
-| Safari At A Glance
+> *"Setting up our application to integrate with one partner and then having that partner act as a service hub for dozens of identity systems helps simplify work for our core development teams, while allowing our customer base to grow exponentially."*
+> **– Cris Concepcion, ‎Engineering Manager at Safari Books Online**
+
+<!-- | Safari At A Glance
 | ------------------
 | *	A wholly owned subsidiary of O’Reilly Media, Inc.
 | *	Launched in 2001.
 | *	A digital learning platform that offers 30,000 books, videos, training courses, and conference resources on technology, business, and design.
-| *	Global presence with four offices worldwide.
+| *	Global presence with four offices worldwide. -->
 
 
 Safari started out as a digital library platform focused on individual developers and corporate teams, with cutting-edge technical books and content drawn from a wide array of publishers aimed at accelerating developer productivity.  As their offerings branched out to include more diverse titles for design, business, and strategy, and as software becomes central to nearly every business, Safari saw the opportunity to expand their user base into all levels of the enterprise.

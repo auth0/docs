@@ -20,25 +20,43 @@ fourKeyConcepts:
   -
     text: "Conclusion: Not Even The Sky Is The Limit"
     icon: budicon-323
+keyMetrics:
+  -
+    label: "Position"
+    content: "One of the most trusted and respected loyalty and rewards programs in India."
+  -
+    label: "Awards"
+    content: "Freddie Award for best frequent flyer program."
+  -
+    label: "Members"
+    content: "Millions of highly engaged members."
+  -
+    label: "Partnerships"
+    content: "+150 program partners."
+  -
+    label: "Origin"
+    content: "Joint venture of Jet Airways and Ethiad Airways, spun off in 2014."
 
 longDescription: "JetPrivilege, the internationally acclaimed, award winning loyalty and rewards program and the frequent flyer program of Jet Airways, had to engineer a secure, seamless login and account management user experience for members and partners across multiple sites. After a comprehensive selection process, Auth0 was the only vendor that could meet all of JetPrivilege's technical requirements. Good choice - JetPrivilege's new identity management solution was built and deployed to production in only a few months, and today is handling identity for the program's millions of engaged members. Learn from JetPrivilege's experience, and discover how Auth0's developer-centric platform handles a massive consumer SSO challenge."
 ---
 
 * * *
 <div class="toc-box"></div>
->*“Auth0 blew our minds. The solution was development friendly, it was implemented quickly, and infrastructure requirements were held to a minimum. Their simple demo and expertise made Auth0 exceedingly attractive”*
-> **– Amol Date, Product Manager, Jet Privilege Private Limited**
+![Jet Airways](/media/articles/email-wall/case-studies/jet-priviledge/plane.png)
 
 ## OVERVIEW
 Jet Privilege Private Limited (JPPL) is a specialized loyalty and rewards management company, a joint venture between Jet Airways and Etihad Airways, established to develop, manage, operate and market JetPrivilege – an internationally acclaimed, award winning loyalty and rewards program and the frequent flyer program of Jet Airways. After the formation of the joint venture, one of the challenges the company faced was engineering a secure, seamless login and account management user experience for members and partners across multiple sites.
 
+>*“Auth0 blew our minds. The solution was development friendly, it was implemented quickly, and infrastructure requirements were held to a minimum. Their simple demo and expertise made Auth0 exceedingly attractive”*
+> **– Amol Date, Product Manager, Jet Privilege Private Limited**
+<!--
 | JetPrivilege At A Glance
 | ------------------------
 | * One of the most trusted and respected loyalty and rewards programs in India.
 | * Winner of the coveted Freddie Award for best frequent flyer program.
 | * Millions of highly engaged members.
 | * Over 150 program partners.
-| * A joint venture of Jet Airways and Ethiad Airways, spun off in 2014.
+| * A joint venture of Jet Airways and Ethiad Airways, spun off in 2014. -->
 
 JPPL needed an identity management solution and partner that was up to this challenge. They chose Auth0 after a comprehensive selection process that winnowed over a dozen potential vendors down to just one. In the end, Auth0 was the only vendor considered that met all of JetPrivilege’s technical requirements. Their new identity management solution was built and deployed to production in only a few months and is today delivering on its promise, including:
 
