@@ -4,7 +4,7 @@ type: case-study
 sitemap: false
 logoUrl: "/media/articles/email-wall/case-studies/schneider-electric/logo-white.png"
 iconUrl: "/media/articles/email-wall/case-studies/schneider-electric/logo-white.png"
-bgColor: "#003d1d"
+bgColor: "#02A34F"
 description: "Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management."
 hash: "schneider-electric"
 fourKeyConcepts:
@@ -20,26 +20,38 @@ fourKeyConcepts:
   -
     text: "Result: Seamless, Quick Implementation, Flexibility For Future"
     icon: budicon-540
-
+keyMetrics:
+  -
+    label: "Revenue"
+    content: "€24.9 B ($30.1 B)"
+  -
+    label: "Position"
+    content: "In top 10 most sustainable corporations in the world"
+  -
+    label: "Employees"
+    content: "170,000+ employees"
+  -
+    label: "Location"
+    content: "In over 100 countries"
 longDescription: >
  Schneider Electric needed an Identity Management solution that could take on their rapid growth to over 170,000 employees worldwide, and their expansion into new markets. The goal - implement Single Sign-On across the whole company, breaking down organizational silos, simplifying employee access to resources, reducing IT costs, and improving security. Learn why Schneider Electric chose Auth0 as the foundation of their identity infrastructure, and the benefits of Auth0's developer-centric platform for this global leader in energy management.
 ---
 
 * * *
 <div class="toc-box"></div>
-> *The Auth0 platform makes it easier for our developers and engineers to swiftly implement something ordinarily complicated. We’ve saved time, money, manpower (and a headache or two) when it comes to federated identity management. More importantly, Auth0 provides a value which translates to direct security and efficiency benefits for our company and a better user experience for our customers.*
-> **- Stephen Berard, ‎Senior Global Software Architect at Schneider Electric**
-
 ## OVERVIEW
 On the heels of significant growth and new partnerships, Schneider Electric, the world’s leading supplier of integrated energy solutions,  faced a major update to its IT infrastructure. With over 170,000 employees across more than 100 countries, the company needed an Identity and Authorization Management (IAM) strategy that could scale with the company’s next phase of growth while maximizing efficient use of resources.
 Schneider Electric specializes in energy management. Not IAM. The goal: implement an IAM system with single sign-on (SSO) across the whole company. A system that could reuse identities and streamline disjointed “islands of data.
 
-|Schneider Electric At A Glance
+> *The Auth0 platform makes it easier for our developers and engineers to swiftly implement something ordinarily complicated. We’ve saved time, money, manpower (and a headache or two) when it comes to federated identity management. More importantly, Auth0 provides a value which translates to direct security and efficiency benefits for our company and a better user experience for our customers.*
+> **- Stephen Berard, ‎Senior Global Software Architect at Schneider Electric**
+
+<!-- |Schneider Electric At A Glance
 |------------------------------
 | * Revenue: €24.9 B ($30.1 B)
 | * In top 10 most sustainable corporations in the world
 | * 170,000+ employees
-| * In over 100 countries
+| * In over 100 countries -->
 
 ## THE CHALLENGE
 ### INITIAL CHALLENGE - FIND THE RIGHT PARTNER
