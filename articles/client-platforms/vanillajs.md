@@ -137,3 +137,10 @@ window.location.href = "/";
 ### 7. All done!
 
 You have completed the implementation of Login and Signup with Auth0 and VanillaJS.
+
+
+### Troubleshooting
+
+#### Window.location.hash contains an empty string after the user is logged in
+
+Programatically setting a value to `window.location.href` will cause this. Please avoid writing to `window.location.href` while the user is logged in.
