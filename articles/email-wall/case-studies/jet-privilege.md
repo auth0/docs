@@ -42,10 +42,10 @@ longDescription: "JetPrivilege, the internationally acclaimed, award winning loy
 
 * * *
 <div class="toc-box"></div>
-![Jet Airways](/media/articles/email-wall/case-studies/jet-priviledge/plane.png)
-
 ## OVERVIEW
 Jet Privilege Private Limited (JPPL) is a specialized loyalty and rewards management company, a joint venture between Jet Airways and Etihad Airways, established to develop, manage, operate and market JetPrivilege – an internationally acclaimed, award winning loyalty and rewards program and the frequent flyer program of Jet Airways. After the formation of the joint venture, one of the challenges the company faced was engineering a secure, seamless login and account management user experience for members and partners across multiple sites.
+
+![Jet Airways](/media/articles/email-wall/case-studies/jet-priviledge/plane.png)
 
 >*“Auth0 blew our minds. The solution was development friendly, it was implemented quickly, and infrastructure requirements were held to a minimum. Their simple demo and expertise made Auth0 exceedingly attractive”*
 > **– Amol Date, Product Manager, Jet Privilege Private Limited**
