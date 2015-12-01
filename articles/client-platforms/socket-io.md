@@ -23,8 +23,8 @@ snippets:
   pkgRepo: 'socketio-jwt',
   pkgBranch: 'master',
   pkgPath: 'example/socketsio-auth0-sample',
-  pkgFilePath: 'example/socketsio-auth0-sample' + account.clientParam,
-  pkgType: 'js' 
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
 }) %>
 
 **If you have an existing application, follow the steps below.**
