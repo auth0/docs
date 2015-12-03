@@ -59,58 +59,46 @@ Create a login button:
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks on the login button.
 
-${snippet(meta.snippets.use)}
+```js
+lock.show(function(err, profile, token) {
+  if (err) {
+    // Error callback
+    console.error("Something went wrong: ", err);
+    alert("Something went wrong, check the Console errors");
+  } else {
+    // Success calback
+
+    // Save the JWT token.
+    localStorage.setItem('userToken', token);
+
+    // Save the profile
+    userProfile = profile;
+
+    document.getElementById('nick').textContent = profile.nickname;
+  }
+});
+
+```
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
 
-After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
-
-```js
-var hash = lock.parseHash(window.location.hash);
-
-if (hash && hash.id_token) {
-  //save the token in the session:
-  localStorage.setItem('id_token', hash.id_token);
-}
-
-if (hash && hash.error) {
-  alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-}
-```
-
-### 4. Retrieve the user profile and display user information
-
-Use the `id_token` to retrieve the user profile and display the user's name:
-
-```js
-  //retrieve the profile:
-var id_token = localStorage.getItem('id_token');
-if (id_token) {
-  lock.getProfile(id_token, function (err, profile) {
-    if (err) {
-      return alert('There was an error geting the profile: ' + err.message);
-    }
-    document.getElementById('name').textContent = profile.name;
-  });
-}
-```
+Now you can retrieve the user profile and display user information
 
 ```html
-<p>Name: <span id="name"></span></p>
+<p>Welcome <span id="nick"></span></p>
 ```
 
 To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
 
-### 5. Use the token to call your api
+### 4. Use the token to call your api
 
-To perform secure calls to your API, include the `id_token` in the `Authorization` header:
+To perform secure calls to your API, include the `userToken` in the `Authorization` header:
 
 ```js
 var getFoos = fetch('/api/foo', {
   headers: {
-    'Authorization': 'Bearer ' + localStorage.getItem('id_token')
+    'Authorization': 'Bearer ' + localStorage.getItem('userToken')
   },
   method: 'GET',
   cache: false
@@ -125,15 +113,15 @@ getFoos.then(function (response) {
 
 __Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, you should use a [polyfill](https://github.com/github/fetch).
 
-### 6. Log out
+### 5. Log out
 
 In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
-localStorage.removeItem('id_token');
+localStorage.removeItem('userToken');
 window.location.href = "/";
 ```
 
-### 7. All done!
+### 6. All done!
 
 You have completed the implementation of Login and Signup with Auth0 and VanillaJS.
