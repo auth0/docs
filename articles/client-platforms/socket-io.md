@@ -50,54 +50,19 @@ npm install --save socketio-jwt
 
 Add the code below to the `index.html` file to include the Auth0 `lock` script and set the viewport:
 
-```html
-<!-- Auth0Lock script -->
-<script src="${widget_url_no_scheme}"></script>
-
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 4. Configure Auth0Lock
 
 Configure Auth0Lock with your `clientId` and `domain`:
 
-```js
-var lock = null;
-$(document).ready(function() {
-   lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-});
-```
+${snippet(meta.snippets.setup)}
 
 ### 5. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
-```js
-var userProfile;
-var userToken;
-$('#login button').click(function(e){
-	e.preventDefault();
-	lock.show(function(err, profile, token) {
-		if (err) {
-			//Error callback
-			alert('There was an error');
-			alert(err);
-		} else {
-			//Success callback
-			userToken = token;
-
-			//Save the JWT token
-			localStorage.setItem('userToken', token);
-
-			//Save the profile
-			userProfile = profile;
-
-						
-		}
-	})
-});
-```
+${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
