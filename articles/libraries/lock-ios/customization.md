@@ -29,19 +29,28 @@ You can either configure some type of properties which are:
 
 * Color: `UIColor` instance.
 * Image: `NSString` with image name.
-* Font: `UIFont` instance.
+* Font: `UIFont` instance. 
+
+Example Usage
+```
+myAwesomeTheme.registerColorForKey(UIColor.redColor(), "A0ThemePrimaryButtonNormalColor");
+```
 
 This is the list of properties that can be customized:
 
 ### Primary Button
 * A0ThemePrimaryButtonNormalColor
 * A0ThemePrimaryButtonHighlightedColor
+* A0ThemePrimaryButtonNormalImageName
+* A0ThemePrimaryButtonHighlightedImageName
 * A0ThemePrimaryButtonFont
 * A0ThemePrimaryButtonTextColor
 
 ### Secondary Button
 * A0ThemeSecondaryButtonBackgroundColor
-* A0ThemeSecondaryButtonTextColor
+* A0ThemeSecondaryButtonNormalImageName
+* A0ThemeSecondaryButtonHighlightedImageName
+* A0ThemeSecondaryButtonFont
 * A0ThemeSecondaryButtonTextColor
 
 ### TextField
@@ -63,6 +72,15 @@ This is the list of properties that can be customized:
 * A0ThemeScreenBackgroundImageName
 
 ### Message & Description
-* A0ThemeSeparatorTextColor
 * A0ThemeDescriptionFont
 * A0ThemeDescriptionTextColor
+* A0ThemeSeparatorTextFont
+* A0ThemeSeparatorTextColor
+
+### CredentialBox
+* A0ThemeCredentialBoxBorderColor
+* A0ThemeCredentialBoxSeparatorColor
+* A0ThemeCredentialBoxBackgroundColor
+
+### Close Button
+* A0ThemeCloseButtonTintColor
