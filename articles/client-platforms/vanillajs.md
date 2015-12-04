@@ -51,29 +51,9 @@ Create a login button:
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks on the login button.
 
-```js
-lock.show(function(err, profile, token) {
-  if (err) {
-    // Error callback
-    console.error("Something went wrong: ", err);
-    alert("Something went wrong, check the Console errors");
-  } else {
-    // Success calback
-
-    // Save the JWT token.
-    localStorage.setItem('userToken', token);
-
-    // Save the profile
-    userProfile = profile;
-
-    document.getElementById('nick').textContent = profile.nickname;
-  }
-});
-
-```
+${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
-
 
 Now you can retrieve the user profile and display user information
 
