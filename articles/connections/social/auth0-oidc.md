@@ -4,19 +4,19 @@ connection: Auth0 OpenIDConnect
 
 # Authenticate using OpenIDConnect to another Auth0 account
 
-It is possible to use an App on another Auth0 account (from now on the **child account**) as an identity provider in your current Auth0 account (the **master account**).
+You can use an App on another Auth0 account (referred to below as the **child account**) as an identity provider in your current Auth0 account (the **master account**).
 
 ## Configure the Child Auth0 Account
 
 1. Create an App or edit an existing one.
-2. Take note of its **clientID** and **clientSecret**, you will need them to create the connection in the master account.
+2. Take note of its **clientID** and **clientSecret**. You will need these to create the connection in the master account.
 3. Add the master account's login callback to the list of **Allowed Callback URLs**: `https://${account.namespace}/login/callback`
 
 ![](/media/articles/connections/social/auth0-oidc/child-app.png)
 
 ## Configure the Master Auth0 Account
 
-The Auth0-to-Auth0 connection is not supported in the Dashboard yet. You need to create it using the [Auth0 APIv2](/api/v2#!/Connections/post_connections), and you will require an [API V2 token](/api/v2/tokens) with `create:connections` scope for that.
+The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Auth0 APIv2](/api/v2#!/Connections/post_connections) which will require an [API V2 token](/api/v2/tokens) with `create:connections` scope.
 
 Here is a sample request:
 
@@ -24,7 +24,7 @@ Here is a sample request:
 curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/v2/connections
 ```
 
-With the **auth-oidc-connection.json** file having:
+With the **auth-oidc-connection.json** file containing:
 
 ```js
 {
@@ -44,32 +44,32 @@ The required parameters for this connection are:
 
 * **name**: how the connection will be referenced in Auth0 or in your app.
 * **strategy**: defines the protocol implemented by the provider. This should always be `auth0-oidc`.
-* **options.client_id**: the clientID of the target App in the child Auth0 account.
-* **options.client_secret**: the cliendSecret of the target App in the child Auth0 account.
+* **options.client_id**: the `clientID` of the target App in the child Auth0 account.
+* **options.client_secret**: the `cliendSecret` of the target App in the child Auth0 account.
 * **options.domain**: the domain of the child Auth0 account.
 
-You can optionally add:
+Optionally, you can add:
 
-* **options.scope**: the scope parameters that you want to request consent for (i.e. `profile`, `identities`, etc.).
-* **enabled_clients**: array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
+* **options.scope**: the scope parameters for which you wish to request consent (i.e. `profile`, `identities`, etc.).
+* **enabled_clients**: an array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
 
 ## Use the Auth0 connection
 
-You can use any of the Auth0 standard mechanisms (e.g. direct links, [Auth0 Lock](/lock), [auth0.js](/auth0js), etc.) to login a user with the auth0-oidc connection.
+You can use any of the standard Auth0 mechanisms (e.g. direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/auth0js), etc.) to login a user with the auth0-oidc connection.
 
 A direct link would look like:
 
   https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR-AUTH0-CONNECTION-NAME
 
-> To add a custom connection in lock, you can add a custom button following [this doc](https://auth0.com/docs/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript) and using this link as the button `href`.
+**NOTE:** To add a custom connection in lock, you can add a custom button as described in [Adding a new UI element using JavaScript](/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript) and use the direct link as the button `href`.
 
-The user will be redirected to the built in login page of the child Auth0 account to choose the identity provider (from all the enabled connections of the target App) and enter the credentials. 
+The user will be redirected to the built-in login page of the child Auth0 account where they can choose their identity provider (from the enabled connections of the target App) and enter their credentials. 
 
 ![](/media/articles/connections/social/auth0-oidc/login-page.png)
 
 ## The resulting profile
 
-Once authenticated, the resulting profile will contain the [normalized profile fields](/user-profile/normalized). For example:
+Once the user is authenticated, the resulting profile will contain the [Auth0 Normalized User Profile](/user-profile/normalized) fields. For example:
 
 ```js
 {
@@ -96,7 +96,7 @@ Once authenticated, the resulting profile will contain the [normalized profile f
 }
 ```
 
-Notice that the generated `user_id` has the following format: 
+Note that the generated `user_id` has the following format: 
 
 ```sh
 auth0-oidc|YOUR_AUTH0_CONNECTION_NAME|THE_CHILD_AUTH0_CONNECTION|THE_CHILD_USER_ID

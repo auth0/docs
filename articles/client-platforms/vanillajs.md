@@ -123,7 +123,7 @@ getFoos.then(function (response) {
 });
 ```
 
-__Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, Auth0 has created a [polyfill](https://github.com/github/fetch).
+__Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, you should use a [polyfill](https://github.com/github/fetch).
 
 ### 6. Log out
 

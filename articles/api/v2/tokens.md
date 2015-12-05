@@ -20,7 +20,7 @@ To generate an APIv2 token programmatically, build a JSON Web  Token (JWT) conta
 
 ### Special Scopes
 
-Notice that within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](https://auth0.com/docs/api/v2/changes#the-id_token-and-special-scopes) in the id_token, which are granted automatically to the logged in user, so it makes no sense to click on them to generate an APIv2 token that will be used from server side code.
+Notice that within the Users API some endpoints have scopes related to the current user (like `read:current_user` or `update:current_user_identities`). These are [special scopes](/api/v2/changes#the-id_token-and-special-scopes) in the id_token, which are granted automatically to the logged in user, so it makes no sense to click on them to generate an APIv2 token that will be used from server side code.
 
 ## How to control contents of APIv2 token
 
@@ -36,7 +36,7 @@ There is no mechanism for renewing an APIv2 token.  A new token should be create
 
 ## Termination of tokens
 
-There is no mechanism for terminating an APIv2 token.
+You can terminate the APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Blacklists/post_tokens).
 
 ## Uses
 

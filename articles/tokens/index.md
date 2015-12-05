@@ -108,7 +108,7 @@ This is best done by registering the API in Auth0 and obtaining a delegation tok
 
 ### Logout
 
-* [Discussion of clearing cookies set by auth0, use of the returnTo parm](https://auth0.com/docs/logout)
+* [Discussion of clearing cookies set by auth0, use of the returnTo parm](/logout)
 
 ### Account Linking
 

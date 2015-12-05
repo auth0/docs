@@ -212,7 +212,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   self.emailLabel.text = profile.email;
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
 
 ### 6. We're done
 

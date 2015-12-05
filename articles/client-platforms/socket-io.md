@@ -2,12 +2,11 @@
 title: Socket.io Tutorial
 name: Socket.io
 alias:
-  - socketio
   - socket.io
-language:
+language: 
   - Javascript
 framework:
-  - Socket.io
+  - socket.io
 image: /media/platforms/socketio.svg
 tags:
   - quickstart
@@ -19,95 +18,130 @@ snippets:
 
 ## Socket.io Tutorial
 
-When using Realtime frameworks like Socket.io, authentication is very important. If handled incorrectly, improper authentication could allow a malicious user to hijack the stream and obtain all user information.
 
-For best security, configure Socket.io to work with JWT and particularly with Auth0.
+<%= include('../_includes/package', {
+  pkgRepo: 'socketio-jwt',
+  pkgBranch: 'master',
+  pkgPath: 'example/socketsio-auth0-sample',
+  pkgFilePath: 'example/socketsio-auth0-sample' + account.clientParam,
+  pkgType: 'js' 
+}) %>
 
-Here is sample project that uses [Express](http://expressjs.com/), and [Socket.io](http://socket.io) and handles authentication using Json Web Tokens (JWT).
+**If you have an existing application, follow the steps below.**
 
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="https://github.com/auth0/socketio-jwt/tree/master/example" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download a working sample</span>
-    </a>
-  </blockquote>
+### 1. Set up the Allowed Origin (CORS) in Auth0
+
+<div class="setup-origin">
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>. If you're testing it locally, it should contain the following value:</p>
+
+<pre><code>https://localhost:3001</pre></code>
+
 </div>
 
-### Server-side code
+### 2. Installation
 
-Create a `token` containing the user's profile information:
+Install [socketio-jwt](https://github.com/auth0/socketio-jwt) from npm and save it to your `package.json` using
 
-    var jwt = require('jsonwebtoken');
-    // other requires
+```
+npm install --save socketio-jwt
+``` 
 
-    app.post('/login', function (req, res) {
+### 3. Add the Auth0 script and set the viewport
 
-      // TODO: validate the user
-      var profile = {
-        first_name: 'John',
-        last_name: 'Doe',
-        email: 'john@doe.com',
-        id: 123
-      };
+Add the code below to the `index.html` file to include the Auth0 `lock` script and set the viewport:
 
-      // send the profile in the token
-      var token = jwt.sign(profile, jwtSecret, { expiresInMinutes: 60*5 });
+```html
+<!-- Auth0Lock script -->
+<script src="${widget_url_no_scheme}"></script>
 
-      res.json({token: token});
-    });
+<!-- Setting the right viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+```
 
-    var server = http.createServer(app);
+### 4. Configure Auth0Lock
 
-For authentication, use the [global authorization callback](https://github.com/LearnBoost/socket.io/wiki/Authorizing) on Socket.io:
+Configure Auth0Lock with your `clientId` and `domain`:
 
-    var socketioJwt = require('socketio-jwt');
+```js
+var lock = null;
+$(document).ready(function() {
+   lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+});
+```
 
-    var sio = socketIo.listen(server);
+### 5. Implement the login
 
-    sio.set('authorization', socketioJwt.authorize({
-      secret: jwtSecret,
-      handshake: true
-    }));
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
-    sio.sockets
-      .on('connection', function (socket) {
-         console.log(socket.handshake.decoded_token.email, 'connected');
-         //socket.on('event');
-      });
+```js
+var userProfile;
+var userToken;
+$('#login button').click(function(e){
+	e.preventDefault();
+	lock.show(function(err, profile, token) {
+		if (err) {
+			//Error callback
+			alert('There was an error');
+			alert(err);
+		} else {
+			//Success callback
+			userToken = token;
 
-    server.listen(9000, function () {
-      console.log('listening on http://localhost:9000');
-    });
+			//Save the JWT token
+			localStorage.setItem('userToken', token);
 
-This example uses a simple module ([socketio-jwt](https://github.com/auth0/socketio-jwt)) for handling JWT. This module expects the JWT in the querystring during the handshake. The JWT is signed with the `jwtSecret` which is stored only on the server.
+			//Save the profile
+			userProfile = profile;
 
-If the client sends a valid JWT, the handshake completes successfully and the `connection` event is triggered.
+						
+		}
+	})
+});
+```
 
+To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
-### Client-side code
+### 6. Set Authorization for Socket.io
 
-Here is js client-side code that uses the Socket.io server:
+Add the following to your `index.js` file.
 
-    function connect_socket (token) {
-      var socket = io.connect('', {
-        query: 'token=' + token
-      });
+```javascript
 
-      socket.on('connect', function () {
-        console.log('authenticated');
-      }).on('disconnect', function () {
-        console.log('disconnected');
-      });
-    }
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var socketioJwt = require('socketio-jwt');
 
-    $('#login').submit(function (e) {
-      e.preventDefault();
-      $.post('/login', {
-        username: $('username').val(),
-        password: $('password').val()
-      }).done(function (result) {
-        connect_socket(result.token);
-      });
-    });
+io.
+  .on('connection', socketioJwt.authorize({
+    secret: Buffer('${account.clientSecret}', 'base64'),
+    timeout: 15000 // 15 seconds to send the authentication message
+  })).on('authenticated', function(socket) {
+    //this socket is authenticated, we are good to handle more events from it.
+    console.log('hello! ' + JSON.stringify(socket.decoded_token));
+  });
+```
+**Note:** If you are not using a base64-encoded secret, then you don't need to convert it to a Buffer, so you can use: `secret: 'your secret or public key'`.
 
-This method is much simpler than using cookies and sessions, and it is much easier to implement across different technologies.
+### 7. Load the socket.io-client
+
+Add the following snippet before the `</body>` on `index.html`
+
+```html
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io(); 
+  socket.on('connect', function () {
+	socket.on('authenticated', function () {
+	//Do 
+						
+	})
+	.emit('authenticate', {token: userToken}); // send the jwt
+  });
+</script>
+```
+No URL is specified when doing `var socket = io();`, because the default behaviour is to connect to the host that serves the page.
+
+### 8. All done!
+
+You have completed the implementation of Login and Signup with Auth0 and Socket.io.
