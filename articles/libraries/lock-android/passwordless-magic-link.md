@@ -2,7 +2,7 @@
 toc_title: Passwordless with Magic Link
 ---
 
-# Passwordless authentication with Magic Link
+# Lock Android: Passwordless with Magic Link
 
 In order to avoid asking the user to input the one-time password sent for passwordless authentication in Android apps, we introduced the ability to send a link that the user can tap to login without any code input involved. 
 
@@ -54,7 +54,7 @@ In the *id* field we must introduce the *client_id* of our Auth0 App, and the *b
 }
 ```
 
-> Don't forget to change the body to use your package name and fingerprint!
+> Don't forget to change the body to use your package name and keystore fingerprint!
 
 Next we'll have to configure either the SMS or Email connection. This is available from the dashboard, so we'll show how to do it from there.
 
