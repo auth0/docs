@@ -27,7 +27,11 @@ Auth0 will generate the [Digital Asset Links](https://developers.google.com/digi
 We'll have to configure/add some field to our Auth0 client. The fields we need to configure are:
 
 - **app\_package\_name**: This is the package name, as declared in the app's manifest. An example would be *com.example.android.myapp*
-- **sha256\_cert\_fingerprints**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary lenght array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints. You can use the following command to generate the fingerprint via the Java keytool:
+- **sha256\_cert\_fingerprints**: This is an array of the SHA256 fingerprints of our android app’s signing certificates. This is an arbitrary lenght array, it can include all the fingerprints we want, so for example we could add both our release and debug fingerprints. 
+
+#### Getting your signing certificates fingerprint
+
+You can use the following command to generate the fingerprint via the Java keytool:
 
 ```bash
 $ keytool -list -v -keystore my-release-key.keystore
@@ -38,6 +42,8 @@ or to obtain the default debug key:
 ```bash
 $ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
 ```
+
+#### Configure Auth0 via API
 
 Once we have the package name and the SHA256 fingerprint, we'll update our Auth0 client via API with [patch\_clients\_by\_id](https://auth0.com/docs/api/v2#!/Clients/patch_clients_by_id) (they aren't yet available in the dashboard).
 
