@@ -10,7 +10,7 @@ __auth0.js__ is a UI-less client-side library for [Auth0](http://auth0.com). It 
 
 First, you need to import the library in your page. You have various options:
 
-1.  Import the library from [our CDN](http://cdn.auth0.com/w2/auth0-6.js).
+1.  Import the library from [our CDN](http://cdn.auth0.com/w2/auth0-6.7.js).
 2.  If you are using browserify, install with `npm i auth0-js --production --save`.
 3.  [Download the file from releases](https://github.com/auth0/auth0.js/releases).
 
@@ -21,7 +21,7 @@ First, you need to import the library in your page. You have various options:
 Construct a new instance of the Auth0 client as follows:
 
 ```
-<script src="http://cdn.auth0.com/w2/auth0-4.js"></script>
+<script src="http://cdn.auth0.com/w2/auth0-6.7.js"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
