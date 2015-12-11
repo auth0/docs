@@ -100,5 +100,21 @@ pages:
       - sl-supported-providers
       - sl-with-auth0-in-a-few-steps
       - sl-add-custom-social-connection
+  angular-authentication:
+    title: AngularJS Authentication, the Easy Way
+    description: Add token authentication to your Angular 1.x or Angular 2 app in minutes with ready-to-go tools.
+    banner:
+      image: "/media/landings/banner/angular-hero.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-angular.png"
+    meta:
+      title: AngularJS Authentication, the Easy Way
+      description: Add token authentication to your Angular 1.x or Angular 2 app in minutes with ready-to-go tools.
+    modules:
+      - angular-what-is
+      - angular-tokens-work-best
+      - angular-jwt
+      - angular-auth0-how-it-works
+      - angular-lock
+      - angular-2-support
 ---
 
