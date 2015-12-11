@@ -11,6 +11,18 @@ This is the repository for the Auth0 documentation.
 * Try to keep images to no more than 750 pixels wide
 * Run all images through [TinyPNG](https://tinypng.com/).
 
+## Commit Messages
+Commit messages should be meaningful and reflect not only what content was edited, but what the edit was. For example, instead of just "Changed document.md" you should write "Added new section about XYZ in document.md" or "Fixed config code snippet in lock.md". Additionally, please use the following commit format going forward:
+
+"[tag] Commit message"
+
+Tags are the following:
+
+[bug] - use for changes that fix a bug in a doc
+[edit] - use for changes that fix spelling, grammar or just reword the same content, but do not substantially change the meaning of the doc.
+[update] - Content update or change to a doc that adds or changes the meaning of the doc.
+[new] - New content
+
 ## Contributing
 
 ### Reusing content
