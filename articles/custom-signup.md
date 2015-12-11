@@ -47,7 +47,7 @@ Notice that `name` and `color` are custom fields.
 ## 2. Auth0.js and dependencies
 
 ```html
-<script src="https://cdn.auth0.com/w2/auth0-6.js"></script>
+<script src="https://cdn.auth0.com/w2/auth0-6.7.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 ```
 

@@ -74,7 +74,7 @@ To log the user out, simply remove the profile and token from local storage.
 
 You can use the `tokenNotExpired` function in the `loggedIn` method to conditionally show and hide the **Login** and **Logout** buttons.
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`.
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`.
 
 ### 5. Make an Authenticated HTTP Request
 
