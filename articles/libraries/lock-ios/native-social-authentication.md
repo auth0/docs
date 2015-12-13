@@ -49,7 +49,7 @@ To support Twitter authentication you need to register `A0TwitterAuthenticator` 
 A0Lock *lock = ...//Get your Lock instance
 NSString *twitterApiKey = ... //Remember to obfuscate your api key
 NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
+A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
 [lock registerAuthenticators:@[twitter]];
 ```
 
