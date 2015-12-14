@@ -1,6 +1,6 @@
 ---
-title: Android React Native Tutorial
-name: Android - React Native
+title: React Native Android Tutorial
+name: React Native - Android
 alias:
   - reactnative
   - react native
@@ -13,9 +13,9 @@ image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
-  dependencies: native-platforms/android-reactnative/dependencies
-  setup: native-platforms/android-reactnative/setup
-  use: native-platforms/android-reactnative/use
+  dependencies: native-platforms/reactnative-android/dependencies
+  setup: native-platforms/reactnative-android/setup
+  use: native-platforms/reactnative-android/use
 ---
 
 ## Android React Native Tutorial
@@ -200,7 +200,7 @@ Then we can show **Lock**:
 
 ${snippet(meta.snippets.use)}
 
-[![Lock.png](/media/articles/native-platforms/android-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
+[![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-android#sms-passwordless) or [Email](https://github.com/auth0/react-native-lock-android#email-passwordless)
 
