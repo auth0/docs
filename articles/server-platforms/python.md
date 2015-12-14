@@ -85,7 +85,7 @@ You can add the following annotation to your `Flask` app to check if the user is
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
-    if not session.has_key('profile'):
+    if 'profile' not in session:
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)
