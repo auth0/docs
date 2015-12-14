@@ -21,10 +21,10 @@ snippets:
 ## Android React Native Tutorial
 
 <%= include('../_includes/package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
-  pkgPath: 'Android/basic-sample-reactnative',
-  pkgFilePath: 'iOS/basic-sample-reactnative/iOS/Info.plist' + account.clientParam,
+  pkgPath: 'Classic/Lock',
+  pkgFilePath: 'Classic/Lock/auth0_credentials.js' + account.clientParam,
   pkgType: 'replace'
 }) %>
 
@@ -59,25 +59,25 @@ Next you must add the following entries inside the `<application>` tag of the sa
   android:theme="@style/Lock.Theme"
   android:screenOrientation="portrait"
   android:launchMode="singleTask">
-  <intent-filter>
-    <action android:name="android.intent.action.VIEW"/>
-    <category android:name="android.intent.category.DEFAULT"/>
-    <category android:name="android.intent.category.BROWSABLE"/>
-    <data android:scheme="a0${account.clientId}" android:host="${account.namespace}"/>
-  </intent-filter>
 </activity>
-<meta-data android:name="com.auth0.lock.client-id" android:value="${account.clientId}"/>
-<meta-data android:name="com.auth0.lock.domain-url" android:value="${account.namespace}"/>
 <!--Auth0 Lock End-->
+<!--Auth0 Lock Embedded WebView-->
+<activity 
+    android:name="com.auth0.identity.web.WebViewActivity" 
+    android:theme="@style/Lock.Theme">
+</activity>
+<!--Auth0 Lock Embedded WebView End-->
 <!--Auth0 Lock Passwordless-->
 <activity
-  android:name="com.auth0.lock.passwordless.LockPasswordlessActivity"
-  android:theme="@style/Lock.Theme"
-  android:screenOrientation="portrait"
-  android:launchMode="singleTask"/>
+    android:name="com.auth0.lock.passwordless.LockPasswordlessActivity"
+    android:theme="@style/Lock.Theme"
+    android:screenOrientation="portrait"
+    android:launchMode="singleTask">
+</activity>
 <activity 
-  android:name="com.auth0.lock.passwordless.CountryCodeActivity" 
-  android:theme="@style/Lock.Theme"/>
+    android:name="com.auth0.lock.passwordless.CountryCodeActivity" 
+    android:theme="@style/Lock.Theme">
+</activity>
 <!--Auth0 Lock Passwordless End-->
 ```
 
@@ -89,7 +89,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ...
+        ...        
         mReactInstanceManager = ReactInstanceManager.builder()
                 /* ... */
                 .addPackage(new LockReactPackage())
@@ -165,6 +165,7 @@ The value `@string/facebook_app_id` is your Facebook Application ID that you can
 
 > For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
 
+> For more information and configuration options you should see the Lock-Facebook.Android [docs](https://github.com/auth0/Lock-Facebook.Android)
 
 #### Google+
 
@@ -185,6 +186,8 @@ Finally in your project's `AndroidManifest.xml` add the following entries:
 <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 ```
+
+> For more information and configuration options you should see the Lock-GooglePlus.Android [docs](https://github.com/auth0/Lock-GooglePlus.Android)
 
 
 ### 3. Let's implement the login
@@ -217,3 +220,45 @@ After the user has logged in, we can use the `profile` object which has all the 
 ### 5. We're done
 
 You've implemented Authentication with Auth0 in Android & React Native. You're awesome!
+
+
+### API
+
+####.show(options, callback)
+Show Lock's authentication screen as a modal screen using the connections configured for your applications or the ones specified in the `options` parameter. This is the list of valid options:
+
+* **closable** (`boolean`): If Lock screen can be dismissed. Default is `false`.
+* **connections** (`[string]`): List of enabled connections to use for authentication. Must be enabled in your app's dashboard first. If you leave it empty, Lock will use all the enabled connections.
+* **useMagicLink** (`boolean`): When using a passwordless connection, activate this option to send a Magic/App link instead of the code. Default is `false`.
+* **authParams** (`object`): Object with the parameters to be sent to the Authentication API, e.g. `scope`.
+
+The callback will have the error if anything went wrong or after a successful authentication, it will yield the user's profile info and tokens.
+
+### FAQ
+
+#### Error: duplicate files during packaging of APK
+
+If you observe an error like this when trying to run the project:
+
+```
+Error: duplicate files during packaging of APK /<PATH>/android/app/build/outputs/apk/app-debug-unaligned.apk
+  Path in archive: META-INF/NOTICE
+  Origin 1: /<PATH>/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.4.1/f07c773f7b3a03c3801d405cadbdc93f7548e321/jackson-databind-2.4.1.jar
+  Origin 2: /<PATH>/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.4.1/b130bcfb5a9c410c3cbd2e0adec9437e69a39e2c/jackson-core-2.4.1.jar
+You can ignore those files in your build.gradle:
+  android {
+    packagingOptions {
+      exclude 'META-INF/NOTICE'
+    }
+  }
+:app:packageDebug FAILED
+```
+
+You must follow the advice and ignore the files adding the following to the `build.gradle` of the `app` module, inside the `android` section:
+
+```
+packagingOptions {
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/NOTICE'
+}
+```
