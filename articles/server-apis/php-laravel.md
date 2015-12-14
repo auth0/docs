@@ -15,6 +15,7 @@ snippets:
   dependencies: server-apis/php-laravel/dependencies
   setup: server-apis/php-laravel/setup
   use: server-apis/php-laravel/use
+  request: server-apis/php-laravel/request
 ---
 
 ## PHP Laravel API Tutorial
@@ -114,6 +115,10 @@ Now you can secure your REST calls like this:
 ${snippet(meta.snippets.use)}
 
 You can run the server by doing `php artisan serve --port=3001` to try all this out.
+
+Then, just make sure to send the `Authorization` header in your requests like this:
+
+${snippet(meta.snippets.request)}
 
 ### 6. You're done!
 

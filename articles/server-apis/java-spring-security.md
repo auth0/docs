@@ -13,6 +13,7 @@ image: /media/platforms/java.png
 tags:
   - quickstart
 snippets:
+  configure: server-apis/java-spring-security/configure
   dependencies: server-apis/java-spring-security/dependencies
   dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security/setup
@@ -60,7 +61,11 @@ For that, just add the following to the `application-context.xml`
 <context:property-placeholder location="classpath:auth0.properties" />
 ```
 
-and create the `auth0.properties` file with the following information:
+Or, alternately, add these annotations to your application class:
+
+${snippet(meta.snippets.configure)}
+
+Once you've done either of those, then create the `auth0.properties` file with the following information:
 
 ${snippet(meta.snippets.setup)}
 

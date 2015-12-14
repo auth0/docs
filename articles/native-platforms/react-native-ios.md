@@ -1,6 +1,6 @@
 ---
-title: iOS React Native Tutorial
-name: iOS - React Native
+title: React Native iOS Tutorial
+name: React Native - iOS
 alias:
   - reactnative
   - react native
@@ -13,18 +13,18 @@ image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
-  dependencies: native-platforms/ios-reactnative/dependencies
-  setup: native-platforms/ios-reactnative/setup
-  use: native-platforms/ios-reactnative/use
+  dependencies: native-platforms/reactnative-ios/dependencies
+  setup: native-platforms/reactnative-ios/setup
+  use: native-platforms/reactnative-ios/use
 ---
 
 ## iOS React Native Tutorial
 
 <%= include('../_includes/package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-reactnative',
-  pkgFilePath: 'iOS/basic-sample-reactnative/iOS/Info.plist' + account.clientParam,
+  pkgPath: 'Classic/Lock',
+  pkgFilePath: 'Classic/Lock/auth0_credentials.js' + account.clientParam,
   pkgType: 'replace'
 }) %>
 
@@ -186,7 +186,7 @@ Then we can show **Lock**:
 
 ${snippet(meta.snippets.use)}
 
-[![Lock.png](/media/articles/native-platforms/ios-reactnative/Lock-Widget-Screenshot.png)](https://auth0.com)
+[![Lock.png](/media/articles/native-platforms/reactnative-ios/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [TouchID](https://github.com/auth0/react-native-lock-ios#touchid)
 
