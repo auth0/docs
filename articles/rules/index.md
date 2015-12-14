@@ -46,7 +46,7 @@ This rule will add a `hello` attribute to all users authenticating through any p
 function (user, context, callback) {
   user.hello = 'world';
   console.log('===> set "hello" for ' + user.name);
-  callback(null, user, context)
+  callback(null, user, context);
 }
 ```
 
