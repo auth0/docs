@@ -21,10 +21,10 @@ snippets:
 ## iOS React Native Tutorial
 
 <%= include('../_includes/package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-reactnative',
-  pkgFilePath: 'iOS/basic-sample-reactnative/iOS/Info.plist' + account.clientParam,
+  pkgPath: 'Classic/Lock',
+  pkgFilePath: 'Classic/Lock/auth0_credentials.js' + account.clientParam,
   pkgType: 'replace'
 }) %>
 
