@@ -79,7 +79,7 @@ You have configured your Python Webapp to use Auth0. Congrats, you're awesome!
 
 #### Checking if the user is authenticated
 
-You can add the following annotation to your `Flask` app to check if the user is authenticated
+You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
 
 ```python
 def requires_auth(f):
