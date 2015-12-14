@@ -532,12 +532,20 @@
     "to": "/quickstart/native-mobile/:client/webapi-owin"
   },
   {
-    "from": "/quickstart/:platform/ios-reactnative",
-    "to": "/quickstart/:platform/ios-react-native"
+    "from": "/quickstart/:platform/reactnative-ios",
+    "to": "/quickstart/:platform/react-native-ios"
   },
   {
-    "from": "/quickstart/:platform/ios-reactnative/:backend",
-    "to": "/quickstart/:platform/ios-react-native/:backend"
+    "from": "/quickstart/:platform/reactnative-ios/:backend",
+    "to": "/quickstart/:platform/react-native-ios/:backend"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-android",
+    "to": "/quickstart/:platform/react-native-android"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-android/:backend",
+    "to": "/quickstart/:platform/react-native-android/:backend"
   },
   {
     "from": "/connections/passwordless/ios-sms",
