@@ -224,7 +224,7 @@ You've implemented Authentication with Auth0 in Android & React Native. You're a
 
 ### API
 
-####.show(options, callback)
+#### .show(options, callback)
 Show Lock's authentication screen as a modal screen using the connections configured for your applications or the ones specified in the `options` parameter. This is the list of valid options:
 
 * **closable** (`boolean`): If Lock screen can be dismissed. Default is `false`.
