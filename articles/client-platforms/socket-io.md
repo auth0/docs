@@ -34,7 +34,7 @@ snippets:
 <div class="setup-origin">
 <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>. If you're testing it locally, it should contain the following value:</p>
 
-<pre><code>https://localhost:3001</pre></code>
+<pre><code>http://localhost:3001</pre></code>
 
 </div>
 
