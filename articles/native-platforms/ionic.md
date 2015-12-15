@@ -221,8 +221,8 @@ This means that the `InAppBrowser` plugin wasn't installed successfully by Cordo
 * Reinstall the `InAppBrowser` plugin
 
 ```bash
-ionic plugin remove org.apache.cordova.inappbrowser
-ionic plugin add org.apache.cordova.inappbrowser
+ionic plugin remove cordova-plugin-inappbrowser
+ionic plugin add cordova-plugin-inappbrowser
 ```
 * Remove the platform and re add it
 
@@ -234,7 +234,7 @@ ionic platform add ios
 * Copy the contents from the plugin to the platform plugins
 
 ```bash
-cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/org.apache.cordova.inappbrowser/
+cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
 ```
 
 #### Get a blank page with an OK after signin
