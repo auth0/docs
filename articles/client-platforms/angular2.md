@@ -1,6 +1,6 @@
 ---
 title: Angular 2 Tutorial
-name: Angular2
+name: Angular 2
 alias:
   - angular2
   - angularjs
@@ -54,6 +54,10 @@ If you're using SystemJS, set up `System.config` to map **angular-jwt** so that 
 
 ${snippet(meta.snippets.system_map)}
 
+### 2.1 Using Webpack
+
+**If you are using Webpack, please see the [auth0-angular2 Webpack example](https://github.com/auth0/auth0-angular2/tree/master/webpack) for configuration.**
+
 ### 3. Import Dependencies
 
 To set up a simple component, you'll need some standard Angular 2 imports, as well as the `AuthHttp` class and `tokenNotExpired` function from **angular2-jwt**.
@@ -82,7 +86,7 @@ The `AuthHttp` class is used to make authenticated HTTP requests. `AuthHttp` use
 
 ${snippet(meta.snippets.request)}
 
-Inject the `AuthHttp` class as `authHttp`. This example uses the `get` method to make an authenticated `GET` request. `AuthHttp` supports all HTTP verbs, so you can just as easily do `POST`, `PUT`, and `DELTE` requests. You can provide an object as the second argument to the call if you want to include a body.
+Inject the `AuthHttp` class as `authHttp`. This example uses the `get` method to make an authenticated `GET` request. `AuthHttp` supports all HTTP verbs, so you can just as easily do `POST`, `PUT`, and `DELETE` requests. You can provide an object as the second argument to the call if you want to include a body.
 
 ### 6. Limit Certain Routes to Authenticated Users
 

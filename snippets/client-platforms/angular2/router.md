@@ -22,16 +22,16 @@ class PublicRoute {}
 class PrivateRoute {}
 
 @Component({
-  directives: [ CORE_DIRECTIVES, ROUTER_DIRECTIVES, NgIf ],
+  directives: [ ROUTER_DIRECTIVES ],
   selector: 'app',
   template: `
     <h1>Welcome to Angular2 with Auth0</h1>
-    <button *ng-if="!loggedIn()" (click)="login()">Login</button>
-    <button *ng-if="loggedIn()" (click)="logout()">Logout</button>
+    <button *ngIf="!loggedIn()" (click)="login()">Login</button>
+    <button *ngIf="loggedIn()" (click)="logout()">Logout</button>
     <hr>
     <div>
-      <button [router-link]="['./PublicRoute']">Public Route</button>
-      <button *ng-if="loggedIn()" [router-link]="['./PrivateRoute']">Private Route</button>
+      <button [routerLink]="['./PublicRoute']">Public Route</button>
+      <button *ngIf="loggedIn()" [routerLink]="['./PrivateRoute']">Private Route</button>
       <router-outlet></router-outlet>
     </div>
 
