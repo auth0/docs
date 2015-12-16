@@ -2,12 +2,11 @@
 // app.ts
 
 @Component({
-  directives: [ CORE_DIRECTIVES, NgIf ],
   selector: 'app',
   template: `
     <h1>Welcome to Angular2 with Auth0</h1>
-    <button *ng-if="!loggedIn()" (click)="login()">Login</button>
-    <button *ng-if="loggedIn()" (click)="logout()">Logout</button>
+    <button *ngIf="!loggedIn()" (click)="login()">Login</button>
+    <button *ngIf="loggedIn()" (click)="logout()">Logout</button>
   `
 })
 
