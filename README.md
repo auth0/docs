@@ -163,6 +163,11 @@ Response:
 ## Parameter Aliases
 When writing docs you can use the following variables instead of hard coding these values. Within any markdown document simply use `${variableName}` to reference the value.
 
+## Documents metadata properties
+
+- `sitemap`: (Boolean) Instruct when to skip indexation into the `sitemap.xml`. Defaults to `true`.
+- `public`: (Boolean) Disables the document from being rendered through a public url or showing in the sitemap. Document still available in the APIs, etc.. Defaults to `true`.
+
 ### Common Variables
 
 | Variable  | Description | Default Value |

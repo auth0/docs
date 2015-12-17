@@ -4,7 +4,7 @@ name: rms
 title: AD RMS
 logo_class: Windows Server Active Directory RMS
 configRoute: /add-ons/rms
-sitemap: false
+public: false
 image: /media/addons/rms.svg
 alias:
   - active-directory-rms

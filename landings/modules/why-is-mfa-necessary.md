@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/why-is-mfa-necessary/why-is-mfa-necessary.png"
 imageAlt: "Multifactor Authentication (MFA) allows you to enforce security on your mission-critical systems."

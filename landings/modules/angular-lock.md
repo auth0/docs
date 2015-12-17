@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/sl-what-is/what-is-social-login.png"
 imageAlt: "Our Lock widget is beautifully designed"

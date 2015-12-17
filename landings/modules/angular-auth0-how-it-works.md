@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 budicon: 330
 color: "#4E92DF"
 title: "AngularJS Authentication with Auth0 - How It Works"

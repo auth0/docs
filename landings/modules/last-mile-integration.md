@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 image: "/media/landings/last-mile-integration/rules.png"
 imageAlt: "Create your own rules to customize your authentication pipeline."
 budicon: 342

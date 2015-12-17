@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/what-is-mfa/mfa.png"
 imageAlt: "Multifactor Authentication (MFA) allows you to provide different layers of authentication to increase security."

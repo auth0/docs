@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/sso-how-it-works/diagram-single-sign-on.png"
 imageAlt: "Single Sign On allows you to login just once."

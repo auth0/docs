@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/compliance-with-standards/bg-standard.png"
 imageAlt: "Compliance with HIPPA and SOC2 standards."

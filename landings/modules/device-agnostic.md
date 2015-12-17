@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/device-agnostic/bg-device.png"
 imageAlt: "Single Sign On is device independent."

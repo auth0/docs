@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/mfa-options/mfa-options.png"
 imageAlt: "Multifactor Authentication (MFA) options."

@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/integration-existing-users/bg-integration.png"
 imageAlt: "You can integrate Single Sign On with your existing user database or directory."

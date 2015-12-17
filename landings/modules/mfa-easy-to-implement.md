@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/mfa-easy-to-implement/mfa-easy-to-implement.png"
 imageAlt: "Multifactor Autnetication (MFA) is easy to implement with Auth0."

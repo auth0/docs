@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 image: "/media/landings/jwt-how-it-works/jwt-how-it-works.png"
 imageAlt: "How JSON Web Tokens work"
 imageExtraClass: "code"

@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 color: "#2F383D"
 budicon: 342
 title: "It's Easy to Implement Single Sign On in your Custom Applications"

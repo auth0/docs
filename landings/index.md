@@ -1,9 +1,9 @@
 ---
-sitemap: false
+public: false
 
 pages:
   single-sign-on:
-    title: Single Sign On 
+    title: Single Sign On
     description: Say goodbye to multiple credentials.
     banner:
       image: "/media/landings/banner/hero-image-single-sign-on.png"
@@ -20,7 +20,7 @@ pages:
       - last-mile-integration
       - compliance-with-standards
   how-to-implement-single-sign-on:
-    title: How to Implement Single Sign On 
+    title: How to Implement Single Sign On
     description: Implement Single Sign On to allow users to login to multiple systems with just one set of credentials.
     banner:
       image: "/media/landings/banner/hero-image-single-sign-on.png"
@@ -37,7 +37,7 @@ pages:
       - sso-last-mile-integration-depth
       - compliance-with-standards
   multi-factor-authentication:
-    title: Multifactor Authentication 
+    title: Multifactor Authentication
     description: Increased security for your mission-critical systems.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
@@ -52,7 +52,7 @@ pages:
       - custom-mfa
       - compliance-with-standards
   get-started-with-mfa:
-    title: Multifactor Authentication (MFA) 
+    title: Multifactor Authentication (MFA)
     description: Learn everything about Multifactor Authentication (MFA) and how you can start using it right now in your application.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
@@ -117,4 +117,3 @@ pages:
       - angular-lock
       - angular-2-support
 ---
-

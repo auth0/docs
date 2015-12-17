@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/custom-mfa/custom-mfa.png"
 imageAlt: "Adaptative Context Aware Multifactor Authentication (MFA) allows you to define arbitrary conditions on when to trigger additional layers of authentication"

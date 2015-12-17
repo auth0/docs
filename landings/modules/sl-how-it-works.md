@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 budicon: 330
 image: "/media/landings/sl-how-it-works/sl-how-it-works.png"
 imageAlt: "How Social Login works"
