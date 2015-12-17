@@ -7,9 +7,8 @@ constructor(public authHttp:AuthHttp) {}
 
 getSecretThing() {
   this.authHttp.get('http://example.com/api/secretthing')
-    .map(res => res.json())
     .subscribe(
-      data => console.log(data),
+      data => console.log(data.json()),
       err => console.log(err),
       () => console.log('Complete')
     );
