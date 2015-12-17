@@ -22,7 +22,7 @@ snippets:
 
 ## Java API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'spring-security-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/api-example',

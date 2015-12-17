@@ -21,7 +21,7 @@ alias:
 
 ## AngularJS Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
   pkgPath: 'examples/widget-with-api',

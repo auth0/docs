@@ -19,7 +19,7 @@ snippets:
 
 ## React Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-react',
   pkgBranch: 'gh-pages',
   pkgPath: 'examples/redirect-lock-with-api',

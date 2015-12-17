@@ -13,7 +13,7 @@ snippets:
 
 ## Python Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-python',
   pkgBranch: 'master',
   pkgPath: 'examples/flask-webapp',

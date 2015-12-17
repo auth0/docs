@@ -14,7 +14,7 @@ tags:
 ---
 ## EmberJS Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-ember-simple-auth',
   pkgBranch: 'master',
   pkgPath: 'examples/simple',

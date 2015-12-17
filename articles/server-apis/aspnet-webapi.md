@@ -23,7 +23,7 @@ snippets:
 
 ## ASP.NET Web API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0.net',
   pkgBranch: 'master',
   pkgPath: 'examples/webapi',

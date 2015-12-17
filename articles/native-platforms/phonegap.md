@@ -27,7 +27,7 @@ Once you have that, just clone the project and run the following:
 `phonegap build ios`
 `phonegap run ios`
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/phonegap-basic-sample',

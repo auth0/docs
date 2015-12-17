@@ -12,7 +12,7 @@ snippets:
 
 ## Go Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-golang',
   pkgBranch: 'master',
   pkgPath: 'examples/regular-web-app',

@@ -20,7 +20,7 @@ snippets:
 
 ## PHP Laravel API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'laravel-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/laravel-api',

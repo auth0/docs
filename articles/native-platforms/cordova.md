@@ -21,7 +21,7 @@ alias:
 
 ## Cordova Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-sample',

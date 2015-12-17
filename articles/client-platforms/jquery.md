@@ -18,7 +18,7 @@ snippets:
 
 ## jQuery Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-jquery',
   pkgBranch: 'gh-pages',
   pkgPath: (configuration.api && configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',

@@ -24,7 +24,7 @@ alias:
 
 ## Windows Phone Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'Auth0.WindowsPhone',
   pkgBranch: 'master',
   pkgPath: 'examples/WindowsPhoneSilverlight',

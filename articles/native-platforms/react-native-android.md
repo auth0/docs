@@ -20,7 +20,7 @@ snippets:
 
 ## Android React Native Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',

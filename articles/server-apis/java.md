@@ -16,7 +16,7 @@ snippets:
 
 ## Java API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-java',
   pkgBranch: 'master',
   pkgPath: 'examples/java-api',

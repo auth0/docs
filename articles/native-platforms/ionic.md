@@ -20,7 +20,7 @@ snippets:
 
 ## Ionic Framework Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
   pkgPath: 'examples/refresh-token-sample',

@@ -13,7 +13,7 @@ snippets:
 
 ## Play 2 Scala Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-scala',
   pkgBranch: 'master',
   pkgPath: 'examples/regular-webapp',

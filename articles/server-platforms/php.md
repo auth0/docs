@@ -12,7 +12,7 @@ snippets:
 
 ##  PHP Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-webapp',

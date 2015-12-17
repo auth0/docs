@@ -23,7 +23,7 @@ alias:
 
 ## iOS Swift Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',

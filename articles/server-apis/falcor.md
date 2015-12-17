@@ -18,7 +18,7 @@ snippets:
 
 ## Falcor API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/falcor-api',

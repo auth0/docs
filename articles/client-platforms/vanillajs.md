@@ -23,7 +23,7 @@ alias:
 
 ## Generic SPA / Vanilla JS Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-vanillajs-api-sample',
   pkgBranch: 'gh-pages',
   pkgPath: null,

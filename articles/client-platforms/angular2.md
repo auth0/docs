@@ -26,7 +26,7 @@ alias:
 
 ## Angular 2 Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular2',
   pkgBranch: 'master',
   pkgPath: null,

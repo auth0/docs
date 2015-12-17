@@ -19,7 +19,7 @@ snippets:
 ## Socket.io Tutorial
 
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'socketio-jwt',
   pkgBranch: 'master',
   pkgPath: 'example/socketsio-auth0-sample',

@@ -16,7 +16,7 @@ alias:
 
 ## Ruby On Rails Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/ruby-on-rails-webapp',

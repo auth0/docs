@@ -16,7 +16,7 @@ title: Using Passwordless Authentication in a Regular Web App with SMS
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-node-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
@@ -59,7 +59,7 @@ Once the user enters the code received via SMS, Lock will authenticate the user 
 
 ### Use your own UI
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-node-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,

@@ -18,7 +18,7 @@ alias:
 
 ## NodeJS Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',

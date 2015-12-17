@@ -14,7 +14,7 @@ title: Using Passwordless Authentication on Android with SMS
 
 ### Using Auth0 Lock
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.Android',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-SMS/Lock',

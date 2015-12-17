@@ -13,7 +13,7 @@
 ### Using Auth0 Lock
 
 <% if (language === "objc") { %>
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.iOS',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-SMS/Lock/ObjC',
@@ -21,7 +21,7 @@
   pkgType: 'replace' + account.clientParam
 }) %>
 <% } else { %>
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.iOS',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-SMS/Lock/Swift',
