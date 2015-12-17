@@ -20,7 +20,7 @@ lock.show(function(err, profile, id_token) {
   }
 
   console.log("Hey dude", profile);
-})
+});
 ````
 ### Redirect mode
 
