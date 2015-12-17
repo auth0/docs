@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/sl-why/social-login-increase-registrations.png"
 imageAlt: "Adding Social Login to your apps increase registrations"

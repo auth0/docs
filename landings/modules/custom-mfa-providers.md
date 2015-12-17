@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 budicon: 329
 color: "#EACA2C"
 title: "Custom MFA providers"

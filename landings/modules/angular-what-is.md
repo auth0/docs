@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/angular-what-is/angular-what-is.png"
 imageAlt: "What is Angular?"

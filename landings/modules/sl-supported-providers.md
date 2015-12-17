@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 image: "/media/landings/sl-supported-providers/sl-supported-providers.png"
 imageAlt: "Auth0 Supported Providers"
 imageExtraClass: "code"

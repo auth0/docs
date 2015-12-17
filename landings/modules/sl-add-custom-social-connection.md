@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 image: "/media/landings/sl-custom-social-connection/sl-custom-social-connection.png"
 imageAlt: "Adding your custom social connection"
 imagePosition: "center"

@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/integration-cloud-apps/bg-cloud.png"
 budicon: 156

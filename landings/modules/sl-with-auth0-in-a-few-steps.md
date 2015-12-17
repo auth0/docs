@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 budicon: 646
 color: "#EACA2C"
 title: "Social Login with Auth0 in a few steps"

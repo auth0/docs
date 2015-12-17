@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/what-is-jwt/what-is-jwt.png"
 imageAlt: "JSON Web Tokens are a compact and self-contained way of transmitting information."

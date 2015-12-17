@@ -1,5 +1,5 @@
 ---
 connection: Yammer
 image: /media/connections/yammer.png
-sitemap: false
+public: false
 ---

@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 image: "/media/landings/jwt-in-auth0/jwt-in-auth0.png"
 imageAlt: "How JSON Web Tokens are used in Auth0."
 imagePosition: "center"

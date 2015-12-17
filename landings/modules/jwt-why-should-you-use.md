@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/why-should-you-use-jwt/why-should-you-use-jwt.png"
 imageAlt: "Comparing the lenght of an encoded JWT and an encoded SAML"

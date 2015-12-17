@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/sso-single-log-out/single-log-out.png"
 imageAlt: "Single Log Out of your applications too."

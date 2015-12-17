@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 imagePosition: "right"
 budicon: 693

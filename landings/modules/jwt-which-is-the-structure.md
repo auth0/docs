@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 budicon: 546
 color: "#EB5424"
 title: "Which is the JSON Web Token structure?"

@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/jwt-when-to-use/jwt-when-to-use.png"
 imageAlt: "JSON Web Tokens are useful for Authentication and Information Exchange"

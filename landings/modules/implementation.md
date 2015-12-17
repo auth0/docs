@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/implementation/codesample.png"
 imageAlt: "Implementing Single Sign On is easy."

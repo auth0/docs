@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/angular-tokens-work-best/angular-tokens-work-best.png"
 imageAlt: "Tokens offer a better way to add authentication to your AngularJS application"
