@@ -117,7 +117,7 @@ To discover all the available properties of a user's profile, see [Auth0 Normali
 The user's profile and tokens are already saved to `localStorage`. To keep the user logged in, retrieve the token from `localStorage` on each page refresh and let `auth0-angular` know the user is already authenticated:
 
 ```js
-angular.module('myApp', ['auth0', 'angular-storage', 'angular-jwt'])
+angular.module('YOUR-APP-NAME', ['auth0', 'angular-storage', 'angular-jwt'])
 .run(function($rootScope, auth, store, jwtHelper, $location) {
   // This events gets triggered on refresh or URL change
   $rootScope.$on('$locationChangeStart', function() {
