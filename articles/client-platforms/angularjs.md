@@ -55,7 +55,7 @@ ${snippet(meta.snippets.use)}
 
 ${browser}
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#using-your-own-login-ui).
 
 ### 4. Add a logout button
 
@@ -110,7 +110,7 @@ function UserInfoCtrl($scope, auth) {
 }
 ```
 
-To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile#normalized-user-profile). Note that the properties available depend on the social provider used.
 
 ### 7. Keep the user logged in after a page refresh
 
