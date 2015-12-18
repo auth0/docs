@@ -139,7 +139,7 @@ Here's an example of how the entries should look like:
 Then add Lock Facebook's Pod
 
 ```ruby
-pod 'Lock-Facebook', '~> 2.1'
+pod 'Lock-Facebook', '~> 2.2'
 ```
 
 Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate` class, for example:
@@ -159,7 +159,7 @@ Finally, you need to register Auth0 Facebook authenticator somewhere in your app
 First add Lock Twitter's Pod
 
 ```ruby
-pod 'Lock-Twitter', '~> 1.0'
+pod 'Lock-Twitter', '~> 1.1'
 ```
 
 To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
