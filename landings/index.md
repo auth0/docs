@@ -1,9 +1,9 @@
 ---
-public: false
+sitemap: false
 
 pages:
   single-sign-on:
-    title: Single Sign On
+    title: Single Sign On 
     description: Say goodbye to multiple credentials.
     banner:
       image: "/media/landings/banner/hero-image-single-sign-on.png"
@@ -20,7 +20,7 @@ pages:
       - last-mile-integration
       - compliance-with-standards
   how-to-implement-single-sign-on:
-    title: How to Implement Single Sign On
+    title: How to Implement Single Sign On 
     description: Implement Single Sign On to allow users to login to multiple systems with just one set of credentials.
     banner:
       image: "/media/landings/banner/hero-image-single-sign-on.png"
@@ -37,7 +37,7 @@ pages:
       - sso-last-mile-integration-depth
       - compliance-with-standards
   multi-factor-authentication:
-    title: Multifactor Authentication
+    title: Multifactor Authentication 
     description: Increased security for your mission-critical systems.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
@@ -52,7 +52,7 @@ pages:
       - custom-mfa
       - compliance-with-standards
   get-started-with-mfa:
-    title: Multifactor Authentication (MFA)
+    title: Multifactor Authentication (MFA) 
     description: Learn everything about Multifactor Authentication (MFA) and how you can start using it right now in your application.
     banner:
       image: "/media/landings/banner/bg-hero-mfa.png"
@@ -116,4 +116,20 @@ pages:
       - angular-auth0-how-it-works
       - angular-lock
       - angular-2-support
+  refresh-tokens:
+    title: Understanding Refresh Tokens
+    description: Learn about refresh tokens and how they fit in the authentication process.
+    banner:
+      image: "/media/landings/banner/refresh-tokens-hero.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-refresh-tokens.png"
+    meta:
+      title: Understanding Refresh Tokens
+      description: Learn about refresh tokens and how they fit in the authentication process.
+    modules:
+      - rtokens-what-is
+      - rtokens-how-they-work
+      - rtokens-using-them
+      - rtokens-security-considerations
+      - rtokens-in-auth0
+
 ---

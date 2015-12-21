@@ -3,7 +3,6 @@ public: false
 image: "/media/landings/angular-2-support/angular-2-support.png"
 imageAlt: "Angular 2.0 support"
 imagePosition: "center"
-imageExtraClass: "code"
 budicon: 500
 color: "#0B74D5"
 title: "Support for Angular 2"

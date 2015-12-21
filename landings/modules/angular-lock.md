@@ -4,6 +4,7 @@ public: false
 image: "/media/landings/sl-what-is/what-is-social-login.png"
 imageAlt: "Our Lock widget is beautifully designed"
 imagePosition: "center"
+imageExtraClass: "code"
 budicon: 285
 color: "#EACA2C"
 title: "Lock - The Login Box Done Right"
