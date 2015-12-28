@@ -160,7 +160,7 @@ OmniAuth.config.on_failure = Proc.new { |env|
 
 #### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
 
-If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K.
+If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K. Also, if you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, please try this solution aswell. 
 
 You can change to use In-Memory store for development as follows.
 
