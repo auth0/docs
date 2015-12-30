@@ -26,6 +26,8 @@ tags:
 
 ${include('./\_callback')}
 
+__Note:__ This quickstart and seed project are for Ember >= 2.x.x. 
+
 ### 1. Install the add-on
 
 Auth0 Ember simple-auth is an add-on for the [simple-auth](http://ember-simple-auth.com) library, and is installed via [ember-cli](http://www.ember-cli.com).
@@ -158,7 +160,7 @@ fetch('/api/foo', {
 
 ### 7. All done!
 
-You have completed the implementation of Login and Signup with Auth0 and and Ember.
+You have completed the implementation of Login and Signup with Auth0 and Ember.
 
 #### Additional information
 
