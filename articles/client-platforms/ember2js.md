@@ -30,7 +30,7 @@ __Note:__ This quickstart and seed project are for Ember >= 2.x.x.
 
 ### 1. Install the add-on
 
-Auth0 Ember simple-auth is an add-on for the [simple-auth](http://ember-simple-auth.com) library, and its installed via [ember-cli](http://www.ember-cli.com).
+Auth0 Ember simple-auth is an add-on for the [simple-auth](http://ember-simple-auth.com) library, and it's installed via [ember-cli](http://www.ember-cli.com).
 
 To install this add-on and its dependencies, `cd` to your project directory and execute the following commands:
 
