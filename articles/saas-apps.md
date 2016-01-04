@@ -27,21 +27,21 @@ Let's start by enumerating some multi tenant applications and understand how the
 
 This `User Profile` can perfectly capture the intent in the requirements described above:
 
-```
+```json
 {
-	email: 'matias@auth0.com'
-    permissions: [
-    	"auth0": 
-        {
-        	role: "admin",
-        	channels: ["*"]
-        },
-        "another-company": 
-        {
-        	role: "single-channel",
-        	channels: [ "some-channel" ] 
-        }
-    ]
+  "email": "matias@auth0.com",
+  "app_metadata": {
+    "permissions": {
+      "auth0": {
+        "role": "admin",
+        "channels": ["*"]
+      },
+      "another-company": {
+        "role": "single-channel",
+        "channels": [ "some-channel" ]
+      }
+    }
+  }
 }
 ```
 
@@ -63,23 +63,22 @@ This `User Profile` can perfectly capture the intent in the requirements describ
 
 ### Modeling this in Auth0
 
-```
+```json
 {
-	email: 'foo@bar.com'
-	permissions: [
-	    	"personal": 
-	        {
-	        	role: "full",
-	        },
-	        "company1": 
-	        {
-	        	role: "user",
-	        },
-	        "company2": 
-	        {
-	        	role: "admin",
-	        }
-    	]
+  "email": "foo@bar.com",
+  "app_metadata": {
+    "permissions": {
+      "personal": {
+        "role": "full",
+      },
+      "company1": {
+        "role": "user",
+      },
+      "company2": {
+        "role": "admin",
+      }
+    }
+  }
 }
 ```
 
@@ -153,21 +152,21 @@ Metadata in Auth0's user profile is a generic way of associating information to 
 
 Here is an example that would model a simplified a chat system like "Slack":
 
-```
+```json
 {
-	email: "matias@auth0.com"
-    permissions: [
-    	"auth0": 
-        {
-        	role: "admin",
-        	channels: ["*"]
-        },
-        "another-company": 
-        {
-        	role: "single-channel",
-        	channels: [ "some-channel" ] 
-        }
-    ]
+  "email": "matias@auth0.com",
+  "app_metadata": {
+    "permissions": {
+      "auth0": {
+        "role": "admin",
+        "channels": ["*"]
+      },
+      "another-company": {
+        "role": "single-channel",
+        "channels": [ "some-channel" ]
+      }
+    }
+  }
 }
 ```
 
