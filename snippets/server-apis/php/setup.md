@@ -22,7 +22,7 @@
     // // validate the token
     $token = str_replace('Bearer ', '', $authorizationHeader);
     $secret = '${account.clientSecret}';
-	  $client_id = '${account.clientId}';
+    $client_id = '${account.clientId}';
     $decoded_token = null;
     try {
       $decoded_token = \Auth0\SDK\Auth0JWT::decode($token,$client_id,$secret );
