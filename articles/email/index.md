@@ -42,13 +42,13 @@ When SPF and DKIM are not configured, users may see the **From address** as "on 
 
 The SPF is configured by adding a TXT record to your domain. The host name should be set to @ (or empty, depending on the provider). If this is the first time you are setting up an SPF record, you will need to declare it as follows:
 
-```
+```text
 v=spf1 include:spf.auth0.com ~all
 ```
 
 If you are already sending emails from this domain and wish to add the Auth0 domain to the SPF configuration, simply add it after your existing definitions, as follows:
 
-```
+```text
 v=spf1 include:outlook.com include:spf.auth0.com ~all
 ```
 
@@ -56,7 +56,7 @@ v=spf1 include:outlook.com include:spf.auth0.com ~all
 
 The DKIM configuration is also added using a TXT record to the domain from which you are sending. The host name for this record should be set to `mandrill._domainkey` and the value set to:
 
-```
+```text
 v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;
 ```
 
@@ -87,7 +87,7 @@ The lifetime of this link can be modified for security reasons. The default valu
 
 When users click the expired link and a **Redirect To** URL is configured, they will be redirected to this URL and the following information will be appended to the querystring:
 
-```
+```text
 http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
 ```
 
@@ -105,7 +105,7 @@ The following macros are available in this template:
 
 When a **Redirect To** URL is configured, users will be redirected to this URL after the email address has been verified. The following information will be appended to the querystring:
 
-```
+```text
 http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.&success=true
 ```
 
@@ -131,7 +131,7 @@ The following macros are available in this template:
 
 When a **Redirect To** URL is configured, users will be redirected to this URL after their email address has been verified. The following information will be appended to the querystring:
 
-```
+```text
 http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
 ```
 
