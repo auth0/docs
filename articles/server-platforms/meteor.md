@@ -3,7 +3,7 @@ title: Meteor Tutorial
 name: Meteor
 alias:
   - Meteor
-language: 
+language:
   - Javascript
 framework:
   - Meteor
@@ -19,7 +19,7 @@ snippets:
 ## Meteor Tutorial
 
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'meteor-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-meteor-sample',
@@ -51,7 +51,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance on 
 
 ${snippet(meta.snippets.use)}
 
-In this case we are using a Meteor Template called `Auth0Login`.  
+In this case we are using a Meteor Template called `Auth0Login`.
 
 To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
@@ -83,7 +83,7 @@ To discover all the available properties of a user's profile, see [user-profile]
 
 ### 5. Log out
 
-To log out you can just call `Meteor.logout();` on the client side of your application. 
+To log out you can just call `Meteor.logout();` on the client side of your application.
 
 ```js
 'click button.logout': function () {
