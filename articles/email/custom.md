@@ -18,7 +18,8 @@ Using a [Rule](/rules) you can call out to one of your APIs when the user logs i
 
 ```
 function (user, context, callback) {
-  if (user.email_verified || user.verification_email_sent) {
+  user.app_metadata = user.app_metadata || {};
+  if (user.email_verified || user.app_metadata.verification_email_sent) {
     return callback(null, user, context);
   }
 
@@ -35,17 +36,27 @@ function (user, context, callback) {
       return callback(new Error(err));
 
     // Email sent flag persisted in the user's profile.
-    user.persistent.verification_email_sent = true;
+    user.app_metadata.verification_email_sent = true;
+    auth0.users.updateUserMetadata(user.user_id, user.app_metadata)
+      .then(function() {
+        callback(null, user, context);
+      })
+      .catch(function(err) {
+        callback(err);
+      });
     return callback(null, user, context);
   });
 }
 ```
 
-After calling the API you'll add a flag to the user which specifies that the verification email has already been sent to make sure the email is only sent once.
+After calling the API you'll [add a flag to the user's profile](https://auth0.com/docs/rules/metadata-in-rules) which specifies that the verification email has already been sent to make sure the email is only sent once.
 
 Since the email will be sent by your own API you now have complete control over the verification email. The only thing you need to keep in mind is that the users still need to click the verification link to verify their email address.
 
-The Auth0 API exposes [the verification endpoint](/api/v1#!#post--api-users--user_id--verification_ticket) which makes it possible to generate the email verification link for a specific user. The endpoint also allows you to specify the `resultUrl` which is the URL to which your users will be sent after they validated their email address.
+The Auth0 API exposes [the verification endpoint](https://auth0.com/docs/api/v2#!/Tickets/post_email_verification) which makes it possible to generate the email verification link for a specific user. The endpoint also allows you to specify the `resultUrl` which is the URL to which your users will be sent after they validated their email address.
+
+It's also possible to use the Auth0 API to [send verification emails directly](https://auth0.com/docs/api/v2#!/Jobs/post_verification_email), but this will always redirect users to the same URL after clicking on the verification link.
+This URL is configurable [in the dashboard](${uiURL}/#/emails).
 
 As a result you now also have complete control over the URL the users will be redirected to after validation. This can be useful when users need to be redirected to specific pages based on their account, on their subscription, on the tenant, ...
 
