@@ -13,7 +13,7 @@ fourKeyConcepts:
   - 
     icon: css-class-bud-icon
     text: "The Result: Fast, Flexible Implementation In Just A Few Dozen Lines Of Code"
-hash: multiparty-authentication-flow
+hash: multiparty-authentication
 longDescription: "The emergence of web APIs for diverse services across the web brings new opportunities to mash-up these services into innovative new applications. But along with these opportunities come some big challenges: how do you implement complex, multi-party authentication flows that can secure applications built on the API Economy? In this Use Case we explore a specific example of Find out how Auth0's developer-centered features make even the most complex authentication flows easy to implement, and get you to market that much faster with your advanced, API-driven appications."
 sitemap: false
 title: "Multi-Party Authentication Flow"
