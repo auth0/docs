@@ -13,14 +13,14 @@ fourKeyConcepts:
   -
     icon: css-class-bud-icon
     text: "Result: Quick Implementation, Solid Foundation for Future" 
-hash: migrate-an-existing-user-database
+hash: migrate-a-user-database
 longDescription: "When Auth0 is used to upgrade the existing Identity Provider (IdP), it can be deployed in such a way that it uses an existing external user database. Most customers want to migrate the user identities from their existing external database to the built-in, enterprise-class database of Auth0 while having minimal impact on operations and avoiding the hassle of password resets."
 sitemap: false
-title: "Migrate An Existing User Database to Auth0"
+title: "Migrate A User Database to Auth0"
 type: case-study
 ---
 
-# Migrate An Existing User Database to Auth0
+# Migrate A User Database to Auth0
 ## THE PROBLEM
 Auth0 is commonly used to upgrade the existing Identity Provider (IdP) to one that provides modern features such as contextual multifactor authentication, federated logins for business partners, password-less authentication, biometrics, customer logins using their existing social accounts, Single Sign-on (SSO) and more with an enterprise-class, developer-friendly IdP. Auth0 can be deployed in such a way that it uses the existing user database, to minimize any disruptions or inconveniences for users, such as the requirement for them to reset their passwords. However, it is common for the existing user database to be in need of an upgrade as well to increase its scalability, performance, availability, security or scope. How can Auth0 be deployed to use the existing user database, ensure a smooth migration of all user data to its built-in, enterprise-class database, and avoid the hassle of password resets? 
 
