@@ -94,7 +94,7 @@ In this case, we'll add the call in the `login` method of the `LoginCtrl` contro
 
 ${snippet(meta.snippets.use)}
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="lib/auth0-lock/build/auth0-lock.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#using-auth0-lock-no-need-to-build-a-custom-ui).
 
 ### 7. Adding a logout button
 
@@ -198,7 +198,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           }
           return refreshingToken;
         } else {
-          $location.path('/login');// Notice: this url must be the one defined 
+          $location.path('/login');// Notice: this url must be the one defined
         }                          // in your login state. Refer to step 5.
       }
     }
