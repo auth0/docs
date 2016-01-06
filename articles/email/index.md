@@ -151,9 +151,11 @@ The following macros are available in this template:
 
 ## Email Limits
 
-The Auth0 shared email provider restricts your account from sending more than 10 emails per minute total, including all email types (welcome, verification, password reset, etc.).
+The Auth0 shared email provider restricts your account from sending more than 10 emails per minute total, including all email types (welcome, verification, password reset, etc.). 
 
-Auth0 makes its best effort to deliver all emails for our customers. However, you may wish to configure your own email provider for use with Auth0, especially if you:
+Auth0 makes its best effort to deliver all emails for our customers. Product of our anti-spam policies, high bounce rates will produce a temporary block on the emails sent by the acocunt until the behaviour is corrected.
+
+However, you may wish to configure your own email provider for use with Auth0, especially if you:
 
 * want guaranteed delivery
 * anticipate a high volume that will exceed the shared email limits
