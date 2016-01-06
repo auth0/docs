@@ -104,12 +104,12 @@ To discover all the available properties of a user's profile, see [user-profile]
 
 ### 5. Use the token to call your api
 
-To perform secure calls to your API, include the `userToken` in the `Authorization` header:
+To perform secure calls to your API, include the `id_token` in the `Authorization` header:
 
 ```js
 var getFoos = fetch('/api/foo', {
   headers: {
-    'Authorization': 'Bearer ' + localStorage.getItem('userToken')
+    'Authorization': 'Bearer ' + localStorage.getItem('id_token')
   },
   method: 'GET',
   cache: false
@@ -129,7 +129,7 @@ __Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Usi
 In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
-localStorage.removeItem('userToken');
+localStorage.removeItem('id_token');
 window.location.href = "/";
 ```
 
