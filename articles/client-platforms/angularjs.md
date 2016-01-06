@@ -21,7 +21,7 @@ alias:
 
 ## AngularJS Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
   pkgPath: 'examples/widget-with-api',
@@ -55,7 +55,7 @@ ${snippet(meta.snippets.use)}
 
 ${browser}
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
 
 ### 4. Add a logout button
 

@@ -12,7 +12,7 @@ snippets:
 
 ## NancyFX Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'Auth0.NancyFx.SelfHost',
   pkgBranch: 'master',
   pkgPath: 'sample',

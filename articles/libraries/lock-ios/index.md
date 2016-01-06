@@ -108,7 +108,7 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 <% _.forEach(_.sortBy(articles.findByHash('libraries/lock-ios').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
-    <span><a href="<%- env.BASE_URL + article.url %>"><%- article.toc_title %></a>
+    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
     <% if (article.description) { %>
       - <%- article.description %>
     <% } %>

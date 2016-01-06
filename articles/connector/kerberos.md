@@ -20,9 +20,9 @@ But when Auth0 is running in the cloud, it won't be able to see your user's inte
 
 Depending on the location of the user the authentication flow will be different when Kerberos is enabled. Let's take Fabrikam as an example. Since Fabrikam uses the SaaS version of Auth0 they configured their Public IP Address (`24.12.34.56/32`) in the connection.
 
-Users connecting from within the building will all originate from `24.12.34.56` (as configured on the connection). When they authenticate, the users can follow the Kerberos flow and have a SSO experience.
+Users connecting from within the building will all originate from `24.12.34.56` (as configured on the connection). When they authenticate, the users can follow the Kerberos flow and have a seamless SSO experience.
 
-**Note:** For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file.
+**Note:** For this to work, the network must allow the users to connect to the AD/LDAP Connector on the port configured in the `config.json` file. In [highly available](/connector/high-availability) deployments of the connector, the address users will be connecting to is the network load balancer in front of all connectors instances.
 
 ![](/media/articles/connector/kerberos/connector-kerberos-flow.png)
 

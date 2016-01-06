@@ -101,9 +101,14 @@ Authorization: Bearer {id_token}
 the following scopes will be granted automatically:
 
 * read:current\_user
+* update:current\_user\_identities
+* create:current\_user\_metadata
 * update:current\_user\_metadata
 * delete:current\_user\_metadata
-* create:current\_user\_metadata
+* create:current\_user\_devices\_credentials
+* read:current\_user\_devices\_credentials
+* update:current\_user\_devices\_credentials
+* delete:current\_user\_devices\_credentials
 
 Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
 
@@ -163,13 +168,13 @@ For example, to create a connection that is enabled for clients `AaiyAPdpYddboKn
 ```
 curl -H "Authorization: Bearer {API_TOKEN}" -X POST -H "Content-Type: application/json"
 -d '{"name":"new-connection","strategy":"auth0","enabled_clients":["AaiyAPdpYddboKnqNS8HJqRn4T5ti3BQ","DaM8bokEXBWrTUFZiXjWn50jei6ardyV"]}'
-https://login.auth0.com/api/v2/connections
+https://{YOUR_TENANT}.auth0.com/api/v2/connections
 ```
 
 Connection names cannot be used to manage connections. Instead use the new `id` property. For example, to retrieve the connection with id `'con_UITxoKznrqb1oxIU'`:
 ```
 curl -H "Authorization: Bearer {API_TOKEN}"
-https://login.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
+https://{YOUR_TENANT}.auth0.com/api/v2/connections/con_UITxoKznrqb1oxIU
 ```
 
 ## Endpoints

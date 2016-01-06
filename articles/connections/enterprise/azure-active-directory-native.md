@@ -1,6 +1,6 @@
 ---
 title: Native Azure Active Directory applications with Auth0
-connection: Azure Active Directory
+connection: Azure Active Directory (for Native Apps)
 image: /media/connections/azure.png
 alias:
   - azure-ad-native-resource-owner
@@ -50,6 +50,6 @@ After creating both applications in Azure Active Directory, the Auth0 connection
 
 ## Test the connection
 
-To test the complete setup, you can use the [Resource Owner endpoint](https://auth0.com/docs/auth-api#!#post--oauth-ro). Enter the username and password of a user and choose the connection. Click **Try Me!** to sign in as that user.
+To test the complete setup, you can use the [Resource Owner endpoint](/auth-api#!#post--oauth-ro). Enter the username and password of a user and choose the connection. Click **Try Me!** to sign in as that user.
 
 ![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-login.png)

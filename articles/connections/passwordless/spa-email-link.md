@@ -16,7 +16,7 @@ title: Using Passwordless Authentication with a Magic Link via email on SPA
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-jquery-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
@@ -67,7 +67,7 @@ $(document).ready(function(){
 
 ### Use your own UI
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-jquery-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,

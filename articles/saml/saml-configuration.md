@@ -8,7 +8,7 @@ url: /saml-configuration
 
 In a SAML federation there is a Service Provider and an Identity Provider.  The Service Provider agrees to trust the Identity Provider to authenticate users.  The Identity Provider authenticates users and provides to Service Providers an Authentication Assertion that indicates a user has been authenticated.
 
-Auth0 supports the SAML protocol and can serve in either a SAML Service Provider (SP) role, a SAML Identity Provider (IDP) role, or both.
+Auth0 supports the SAML protocol and can serve in either a SAML Service Provider (SP) role, a SAML Identity Provider (IDP) role or both.
 
 
 ### SAML Identity Provider
@@ -101,12 +101,14 @@ An alternative sequence is called Identity-Provider-Initiated Single Sign On whe
 If Auth0 is acting as a Service Provider, the following is needed to support IDP-Initiated Single Sign On.
 
 * Ensure the IDP includes the connection parameter in the ACS (Assertion Consumer Service) URL.
-* In the connection configuration, use the IDP-Initiated tab to specify the application to which the user will be redirected.
+* In the connection configuration, use the IDP-Initiated tab to specify 1) the application to which the user will be redirected after IDP login, 2) the protocol by which to return to that application and 3) any query parameters to pass to the application.
 
 #### Auth0 as Identity Provider
 If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
 
-* In the Apps/APIs -> Addons -> SAML2 WEB APP -> Settings, specify a query parameter can be added at the end of the Application Callback URL, if needed, to indicate where the user should be sent.
+
+* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://{accountname}.auth0.com/samlp/{client_id}`
+* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response. Example: `https://{accountname}.auth0.com/samlp/{client_id}?RelayState=http://{final_destination_URL}`
 
 
 ### Signing and Encryption

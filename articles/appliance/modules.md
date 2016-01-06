@@ -4,14 +4,16 @@ For security reasons, rules and custom database connections for Auth0 appliances
 
 The current sandbox supports:
 
-* [async](https://github.com/caolan/async) _(~0.1.22)_
+* [async](https://github.com/caolan/async) _(~0.9.0)_
+* [auth0](https://github.com/auth0/node-auth0) _(2.0.0-alpha.5)_
 * [azure_storage](https://github.com/Azure/azure-storage-node) _(~0.4.1)_
-* [bcrypt](https://github.com/ncb000gt/node.bcrypt.js) _(~0.7.5)_
+* [bcrypt](https://github.com/ncb000gt/node.bcrypt.js) _(~0.8.3)_
 * [Buffer](http://nodejs.org/docs/v0.10.24/api/buffer.html)
 * [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
+* [cql](https://github.com/jorgebay/node-cassandra-cql) _(~0.4.4)_
 * [crypto](http://nodejs.org/docs/v0.10.24/api/crypto.html)
 * [ip](https://github.com/keverw/range_check) _(0.0.1)_
-* [jwt](https://github.com/auth0/node-jsonwebtoken) _(~0.1.0)_
+* [jwt](https://github.com/auth0/node-jsonwebtoken) _(~0.4.1)_
 * [knex](http://knexjs.org) _(~0.6.3)_
  * The function returned by `require('knex')` is available as `Knex`.
 * [lodash](https://github.com/lodash/lodash) _(~2.4.1)_
@@ -29,6 +31,7 @@ The current sandbox supports:
 * [querystring](http://nodejs.org/api/querystring.html) _(0.10.28)_
 * [request](https://github.com/mikeal/request) _(~2.27.0)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
+* [uuid](https://github.com/broofa/node-uuid) _(~2.0.1)_
 * [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
 * [xmldom](https://github.com/jindw/xmldom) _(~0.1.13)_
 * [xpath](https://github.com/goto100/xpath) _(0.0.5)_

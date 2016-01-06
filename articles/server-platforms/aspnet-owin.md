@@ -16,7 +16,7 @@ alias:
 
 # ASP.NET (OWIN) Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-mvc-sample',

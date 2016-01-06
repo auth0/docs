@@ -1,7 +1,9 @@
 ---
-sitemap: false
+public: false
 
-image: "/media/landings/implementation/bg-code.png"
+image: "/media/landings/implementation/codesample.png"
+imageAlt: "Implementing Single Sign On is easy."
+imageExtraClass: "code"
 color: "#2F383D"
 budicon: 342
 title: "Easy to implement."

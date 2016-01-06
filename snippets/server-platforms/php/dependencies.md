@@ -1,8 +1,5 @@
-Add the following dependencies to your `composer.json` and run `composer update`
+To install dependencies, run the following
 
-```json
-"require": {
-  "auth0/auth0-php": "~1.0",
-  "vlucas/phpdotenv": "dev-master"
-}
+```bash
+composer require auth0/auth0-php:"~1.0"
 ```

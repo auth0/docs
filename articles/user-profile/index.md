@@ -16,6 +16,7 @@ Following are topics which will help us gain a better understanding of the User 
 - [Normalized User Profile](#normalized-user-profile)
 - [Caching of the User Profile in Auth0](#caching-of-the-user-profile-in-auth0)
 - [Structure of User Profile Data](#structure-of-user-profile-data)
+- [Storing custom Profile Data](#storing-custom-profile-data)
 - [Application Access to User Profile](#application-access-to-user-profile)
 - [API Access to User Profiles](#api-access-to-user-profiles)
 - [User Profile vs Tokens](#user-profile-vs-tokens)
@@ -44,13 +45,19 @@ The User Profile information is cached in Auth0 for several reasons, including t
 
 ## Structure of User Profile Data
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](https://manage.auth0.com/#/users) in the Auth0 Dashboard and then on a particular user.
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${uiURL}/#/users) in the Auth0 Dashboard and then on a particular user.
 
 At the top of "Details" will be the core User Profile object with basic information such as name, email, country (if available), latest login and a few other fields.  The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.  For example, the Google Social Connection also returns the gender attribute.
 
 The User Profile object then has two **metadata** sub-objects, one called `user_metadata` and the other `app_metadata`.  The metadata objects can be used to store additional User Profile information to augment what comes from the Connections.  The `user_metadata` object should be used to store user attributes, such as user preferences, that don't impact what a user can access.  The `app_metadata` object should be used for user attributes, such as a support plan, security roles, or access control groups, which can impact how an application functions and/or what the user can access. It should also be noted that an authenticated user can modify data in their profile's `user_metadata` but they can't modify anything in their `app_metadata`.
 
 Lastly you will also notice a special property called `identities`, which is an array of identity providers (Connections).  It will always contain at least one identity provider and that one represents the Connection that the user originally authenticated against.  However, Auth0 supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities (Connections) show up in this array.  The contents of an individual identity provider object varies by provider, but will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
+
+## Storing custom Profile Data
+
+There are cases where you might want to augment the user profile with custom profile information like the user's favourite color or phone number. We encourage to use the `user_profile` to store this kind of information. 
+
+Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) you can use to let the user to update their profile info.
 
 ## Application Access to User Profile
 

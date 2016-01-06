@@ -1,4 +1,6 @@
 ---
 title: CloudBees
 ---
-${include('./_template')}
+<%= include('./_template', {
+  image1: "tutorial-cloudbees.png"
+}) %>

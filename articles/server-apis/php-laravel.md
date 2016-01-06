@@ -15,11 +15,12 @@ snippets:
   dependencies: server-apis/php-laravel/dependencies
   setup: server-apis/php-laravel/setup
   use: server-apis/php-laravel/use
+  request: server-apis/php-laravel/request
 ---
 
 ## PHP Laravel API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'laravel-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/laravel-api',
@@ -41,7 +42,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Enable Auth0 in Laravel API
 
-Add the following in the list of the services providers, located in `app/config/app.php`
+Add the following in the list of the services providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -90,7 +91,7 @@ public function register()
 
 ### 3. Configure it
 
-To configure the plugin, you need to publish the plugin configuration and complete the file `app/config/laravel-auth0.php` using the information of your Auth0 account.
+To configure the plugin, you need to publish the plugin configuration and complete the file `config/laravel-auth0.php` using the information of your Auth0 account.
 
 To publish the example configuration file use this command
 
@@ -114,6 +115,10 @@ Now you can secure your REST calls like this:
 ${snippet(meta.snippets.use)}
 
 You can run the server by doing `php artisan serve --port=3001` to try all this out.
+
+Then, just make sure to send the `Authorization` header in your requests like this:
+
+${snippet(meta.snippets.request)}
 
 ### 6. You're done!
 

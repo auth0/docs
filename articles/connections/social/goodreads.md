@@ -29,5 +29,4 @@ Once the application is registered, the `Key` and `Secret` for your new app will
 
 ### 4. Copy your *Consumer Key* and *Consumer Secret*
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Goodreads**. Copy the `Consumer Key` and `Consumer Secret` from the **Api Key** page of your app on Goodreads into the fields on this page on Auth0.
-
+Go to your Auth0 Dashboard and select **Connections > Social**, then choose [custom OAuth2 connections](/connections/social/oauth2) and add Goodreads (OAuth1) as a provider, you can check Bitbucket's [example](/oauth2-examples) since it also uses OAuth1. Copy the `Consumer Key` and `Consumer Secret` from the **Api Key** page of your app on Goodreads into the fields `client_id` and `client_secret`. The `requestTokenURL` would be http://www.goodreads.com/oauth/request_token, the `accessTokenURL` would be http://www.goodreads.com/oauth/access_token and the `userAuthorizationURL` would be http://www.goodreads.com/oauth/authorize.

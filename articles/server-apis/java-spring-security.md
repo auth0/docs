@@ -13,14 +13,16 @@ image: /media/platforms/java.png
 tags:
   - quickstart
 snippets:
+  configure: server-apis/java-spring-security/configure
   dependencies: server-apis/java-spring-security/dependencies
+  dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
 ---
 
 ## Java API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'spring-security-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/api-example',
@@ -37,6 +39,10 @@ You need to add the `spring-security-auth0` dependency.
 For that, you can just add it to your `pom.xml` if you're using maven.
 
 ${snippet(meta.snippets.dependencies)}
+
+Or, if you're using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependenciesGradle)}
 
 ### 2. Configure Spring to use Auth0
 
@@ -55,7 +61,11 @@ For that, just add the following to the `application-context.xml`
 <context:property-placeholder location="classpath:auth0.properties" />
 ```
 
-and create the `auth0.properties` file with the following information:
+Or, alternately, add these annotations to your application class:
+
+${snippet(meta.snippets.configure)}
+
+Once you've done either of those, then create the `auth0.properties` file with the following information:
 
 ${snippet(meta.snippets.setup)}
 

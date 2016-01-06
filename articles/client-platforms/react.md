@@ -19,7 +19,7 @@ snippets:
 
 ## React Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-react',
   pkgBranch: 'gh-pages',
   pkgPath: 'examples/redirect-lock-with-api',
@@ -102,7 +102,7 @@ React.render(
 
 Use the `token` to retrieve the user profile and display the user's nickname:
 
-```jsx
+```js
 var LoggedIn = React.createClass({
   getInitialState: function() {
     return {

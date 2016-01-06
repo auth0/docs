@@ -16,7 +16,7 @@ title: Using Passwordless Authentication with a magic link via email on Regular 
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-node-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
@@ -51,7 +51,7 @@ Then Auth0 will send an email to the user containing the magic link. After click
 
 ### Use your own UI
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-node-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,

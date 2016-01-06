@@ -19,7 +19,7 @@ The private key is stored in the keystore of the device. Each time a user initia
 ### Using the Auth0 Lock
 
 <% if (language === "objc") { %>
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.iOS',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-TouchID/Lock/ObjC',
@@ -27,7 +27,7 @@ The private key is stored in the keystore of the device. Each time a user initia
   pkgType: 'replace' + account.clientParam
 }) %>
 <% } else { %>
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.iOS',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-TouchID/Lock/Swift',

@@ -9,7 +9,7 @@ Auth0 offers built-in support for OTP multifactor authentication via Google Auth
 * [Google Authenticator](http://en.wikipedia.org/wiki/Google_Authenticator)
 * [Duo Security](https://www.duosecurity.com/)
 
-In addition to these built-in integrations, Auth0 supports **contextual MFA** and **custom providers** such as [Yubikey](/multifactor-authentication/yubikey)
+In addition to these built-in integrations, Auth0 supports **contextual MFA** and [custom providers](/multifactor-authentication/custom-provider) such as [Yubikey](/multifactor-authentication/yubikey)
 
 Contextual MFA allows you to define arbitrary conditions that will trigger additional authentication challenges to your users for increased security, for example:
 
@@ -158,13 +158,13 @@ Using this mechanism it is very easy to implement popular multifactor options li
 ```
 function (user, context, callback) {
 
-  if( condition() && context.protocol !== 'redirect' ){
+  if( condition() && context.protocol !== 'redirect-callback' ){
     context.redirect = {
       url: 'https://your_custom_mfa'
     };
   }
 
-  if( context.protocol === 'redirect'){
+  if( context.protocol === 'redirect-callback'){
     //TODO: handle the result of the MFA step
   }
 

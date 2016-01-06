@@ -4,6 +4,6 @@ name: zendesk
 title: Zendesk
 logo_class: Zendesk
 configRoute: /add-ons/zendesk
-sitemap: false
+public: false
 image: /media/addons/zendesk.svg
 ---

@@ -54,14 +54,14 @@ categories:
     name: "API"
     description: "The core Auth0 APIs for Authentication and Management"
     sections:
-      explorer:
-        name: "API Explorer"
-        description: "Read the full reference to Auth0’s API and try all endpoints using your own credentials."
-        href: "/api/v2/"
       auth-endpoints:
-        name: "Authentication Endpoints"
-        description: "Perform Enterprise Authentication or OpenID operations asing these APIs."
+        name: "Authentication API"
+        description: "Perform enterprise authentication or OpenID operations using these APIs."
         href: "/auth-api/"
+      explorer:
+        name: "Management API"
+        description: "Perform administrative tasks such as creating accounts or changing settings with the Management API."
+        href: "/api/v2/"
       announcements:
         name: "Announcements"
         links:
@@ -120,6 +120,10 @@ categories:
         slug: "jquery"
         href: "/client-platforms/jquery"
       -
+        name: "Vanilla JS"
+        slug: "vanillajs"
+        href: "/client-platforms/vanillajs"
+      -
         name: "iOS"
         slug: "ios"
         href: "/native-platforms/ios-objc"
@@ -131,10 +135,6 @@ categories:
         name: "Ruby"
         slug: "ruby"
         href: "/server-apis/ruby"
-      -
-        name: "Scala"
-        slug: "scala"
-        href: "/server-platforms/scala"
       -
         name: ".NET"
         slug: "net"
@@ -164,7 +164,7 @@ categories:
       -
         name: "Importing and Migrating Users to Auth0"
         icon: "icon-budicon-754"
-        href: "/migrating"
+        href: "/connections/database/migrating"
         description: "Import users from existing applications into Auth0."
       -
         name: "Customizing Sign Up Forms"

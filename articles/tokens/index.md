@@ -56,7 +56,7 @@ The Auth0 [`id_token`](#auth0-idtoken-jwt)'s can be exchanged for another token,
 
 The Auth0 APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scope claims, such as `read:users` or `update:clients`, and is signed with a client API key and secret for the entire tenant.
 
-[More information](/tokens/apiv2)
+[More information](/api/v2/tokens)
 
 ---
 
@@ -108,7 +108,7 @@ This is best done by registering the API in Auth0 and obtaining a delegation tok
 
 ### Logout
 
-* [Discussion of clearing cookies set by auth0, use of the returnTo parm](https://auth0.com/docs/logout)
+* [Discussion of clearing cookies set by auth0, use of the returnTo parm](/logout)
 
 ### Account Linking
 

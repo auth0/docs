@@ -2,10 +2,10 @@
 
 The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.
 
-Here are a few examples of OAuth2/OAuth1 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
+Here are a few examples of OAuth2/OAuth1 connections you can create through the [Auth0 API v2](/api/v2#!/Connections/post_connections). You will require an [API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
 
 ```
-curl -vX POST https://${account.namespace}/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
+curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @sample-connection.json
 ```
 
 After the call completes successfully, you will be able to login using these new providers.
@@ -205,6 +205,28 @@ After the call completes successfully, you will be able to login using these new
     "scope": ["public"],
     "scripts": {
       "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.vimeo.com/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uri; cb(null, profile); });}"
+    }
+  }
+}
+```
+
+## Tumblr
+
+* [Create an application](https://www.tumblr.com/oauth/apps)
+* Copy `OAuth Consumer Key` and `Secret Key` to config file below
+
+```
+{
+  "name": "tumblr",
+  "strategy": "oauth1",
+  "options": {
+    "client_id": "{YOUR-TUMBLR-CONSUMER-KEY}",
+    "client_secret": "{YOUR-TUMBLR-SECRET-KEY}",
+    "requestTokenURL": "https://www.tumblr.com/oauth/request_token",
+    "accessTokenURL": "https://www.tumblr.com/oauth/access_token",
+    "userAuthorizationURL": "https://www.tumblr.com/oauth/authorize",
+    "scripts": {
+        "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.tumblr.com/v2/user/info',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));var user = JSON.parse(b).response.user; user.user_id = user.name; cb(null, user);});}"
     }
   }
 }

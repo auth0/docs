@@ -13,7 +13,7 @@ snippets:
 
 ## Play 2 Scala Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-scala',
   pkgBranch: 'master',
   pkgPath: 'examples/regular-webapp',
@@ -31,11 +31,26 @@ ${snippet(meta.snippets.dependencies)}
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
 
-${snippet(meta.snippets.dependencies)}
-
 ```scala
 // controllers/Callback.scala
-object Callback extends Controller {
+package controllers
+
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
+
+import play.api.Play
+import play.api.Play.current
+import play.api.cache.Cache
+import play.api.http.HeaderNames
+import play.api.http.MimeTypes
+import play.api.libs.json.JsValue
+import play.api.libs.json.Json
+import play.api.libs.json.Json.toJsFieldJsValueWrapper
+import play.api.libs.ws.WS
+import play.api.mvc.Action
+import play.api.mvc.Controller
+
+class Callback extends Controller {
 
   // callback route
   def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async {
@@ -81,14 +96,13 @@ object Callback extends Controller {
         accessToken <- (response.json \ "access_token").asOpt[String]
       } yield {
         Future.successful((idToken, accessToken))
-      }).getOrElse(Future.failed[(String, String)](/new IllegalStateException("Tokens not sent")))
+      }).getOrElse(Future.failed[(String, String)](new IllegalStateException("Tokens not sent")))
     }
 
   }
 
   def getUser(accessToken: String): Future[JsValue] = {
-    val config = Auth0Config.get()
-    val userResponse = WS.url(String.format("https://%s/userinfo", config.domain))(Play.current)
+    val userResponse = WS.url(String.format("https://%s/userinfo", "${account.namespace}"))(Play.current)
       .withQueryString("access_token" -> accessToken)
       .get()
 
@@ -117,10 +131,38 @@ You can access the user information from the `cache`
 
 ```scala
 // controllers/User.scala
-def index = AuthenticatedAction { request =>
-  val idToken = request.session.get("idToken").get
-  val profile = Cache.getAs[JsValue](idToken + "profile").get
-  Ok(views.html.user(profile))
+package controllers
+
+import play.api._
+import play.api.mvc._
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
+import play.api.http.{MimeTypes, HeaderNames}
+import play.api.libs.ws.WS
+import play.api.mvc.{Results, Action, Controller}
+import play.api.libs.json._
+import play.api.cache.Cache
+import play.api.Play.current
+import play.mvc.Results.Redirect
+
+class User extends Controller {
+    def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
+      Action { request =>
+        (request.session.get("idToken").flatMap { idToken =>
+          Cache.getAs[JsValue](idToken + "profile")
+        } map { profile =>
+          f(request)
+        }).orElse {
+          Some(Redirect(controllers.routes.Application.index()))
+        }.get
+      }
+    }
+    
+    def index = AuthenticatedAction { request =>
+      val idToken = request.session.get("idToken").get
+      val profile = Cache.getAs[JsValue](idToken + "profile").get
+      Ok(views.html.user(profile))
+    }
 }
 ```
 
@@ -158,6 +200,7 @@ def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = 
 }
 
 def index = AuthenticatedAction { request =>
+  val idToken = request.session.get("idToken").get
   val profile = Cache.getAs[JsValue](idToken + "profile").get
   Ok(views.html.user(profile))
 }

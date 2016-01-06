@@ -28,6 +28,8 @@ This means that even if you use Auth0 for SSO support in Office 365, you will al
 
 When authentication is handed over to Auth0 it will use the AD Connector to authenticate the user. The link between the Auth0 user and the user in Azure AD is made using the `User Principal Name`. When Jack is synchronized to Azure AD his UPN will be `jack@fabrikamcorp.be` and when Jack authenticates using Auth0 the same UPN will be included in the SAML assertion to identify the authenticated user to the user stored in Azure AD. 
 
+> Note: If you're interested in providing SSO to Office 365 using other connections (like Database Connections, traditional AD, ...) you can [write a rule with custom provisioning logic](/articles/integrations/office-365-custom-provisioning)
+
 ## Configuring Synchronization With Office 365 / Azure AD
 
 The synchronization with your local LDAP directory can be configured in Office 365 or Azure AD (if you have an Azure Subscription). 
@@ -129,3 +131,5 @@ For users without Kerberos this will immediately show the login page:
 Users on a domain-joined machine will immediately be signed in to Office 365:
 
 ![IdP Login Kerberos](/media/articles/integrations/office-365/office-365-idp-login-kerberos.gif)
+
+<%= include('./_office-365-deep-linking') %>

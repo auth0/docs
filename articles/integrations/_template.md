@@ -2,22 +2,28 @@
 public: false
 ---
 
-## <%= meta.title %> integration
+## ${meta.title} integration
 
-In this tutorial, you'll learn how to add Single Sign On (SSO) to <%= meta.title %> using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, etc.), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, etc.) or with username and password.
+In this tutorial, you will learn how to add Single Sign On (SSO) to ${meta.title} using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders#social) (Facebook, Twitter, Github, etc.), [Enterprise Identity Providers](/identityproviders#enterprise) (LDAP, Active Directory, ADFS, etc.) or with a username and password.
 
-### 1. Adding the Integration to your account
+### 1. Create a new application
 
-The first thing you need to do is go to the [Third party apps](${uiURL}/#/externalapps/create) section in the dashboard and choose <%= meta.title %> from the list of apps.
+Navigate to the [Third party apps](${uiURL}/#/externalapps/create) section of the dashboard and choose ${meta.title} from the list of apps:
 
-![Choose the new app](https://cloudup.com/cs5kEnkFs9i+)
+![](/media/articles/integrations/third-party-apps/create.png)
 
-### 2. Follow the live documentation
+### 2. Name your app and click **Save**:
 
-Now, you should see a tutorial. This tutorial has all the information tailored for your account. It might ask you to enter information from <%= meta.title %>. Just follow each of the steps shown.
+![](/media/articles/integrations/third-party-apps/save.png)
 
-![Live doc](https://cloudup.com/iOFJHDb5M4O+)
+### 3. Follow the live documentation
 
-### 3. You've nailed it.
+Now you will be directed to a tutorial for this integration containing information customized for your account. You may need to enter information from ${meta.title}. Simply follow each of the steps as shown:
 
-You have configured <%= meta.title %> to use Auth0 as the SSO Broker. Congrats, you're awesome!
+![](/media/articles/integrations/third-party-apps/${image1})
+
+### 4. Configuration complete
+
+You have successfully configured ${meta.title} to use Auth0 as the SSO broker.
+
+

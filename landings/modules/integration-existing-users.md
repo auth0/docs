@@ -1,7 +1,8 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/integration-existing-users/bg-integration.png"
+imageAlt: "You can integrate Single Sign On with your existing user database or directory."
 budicon: 292
 color: "#4E92DF"
 title: "Integrate with your existing user directory or data"

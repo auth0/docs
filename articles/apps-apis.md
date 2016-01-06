@@ -10,7 +10,7 @@
 
 * **Token-based authentication** is implemented by generating a token when the user authenticates and then setting that token in the `Authorization` header of each subsequent request to your API. You want that token to be something standard, like JSON Web Tokens since you will find libraries in most of the platforms and you don't want to do your own crypto.
 
-* For both approaches you can get the **same amount of information from the user**. That's controlled by the `scope` parameter sent in the login request (either using the [Auth0Lock](/lock), our [JavaScript library](https://github.com/auth0/auth0.js) or a plain link). The `scope` is a parameter of the `.signin({scope: 'openid profile'})` method which ends up being part of the querystring in the login request. Specifying `scope=openid profile` will write the full user profile in the token. Specifying `scope=openid` without profile, will write only the `user_id`.
+* For both approaches you can get the **same amount of information from the user**. That's controlled by the `scope` parameter sent in the login request (either using the [Auth0Lock](/lock), our [JavaScript library](https://github.com/auth0/auth0.js) or a plain link). The `scope` is a parameter of the `.signin({scope: 'openid name email'})` method which ends up being part of the querystring in the login request. You can get more details about this in the [Scopes Documentation](/scopes).
 
 * By default we use `scope=openid` in **token-based authentication** to avoid having a huge token (since the token will be traveling in the `Authorization` header for each request as mentioned above). You can control the attributes that you want to get in the token by doing `scope=openid name email another_attribute`.
 

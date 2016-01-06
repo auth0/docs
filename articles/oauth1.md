@@ -2,7 +2,7 @@
 
 The most common [identity providers](identityproviders) are readily available on Auth0's dashboard. However, you can add any __OAuth1 Authorization Server__ to Auth0 as an identity provider.
 
-To create an arbitrary __OAuth1__ connection, you use __[Auth0's Connections API](api#!#post--api-connections)__. 
+To create an arbitrary __OAuth1__ connection, you use __[Auth0's Connections API](/api/v2#!/Connections/post_connections)__. 
 
 This example would create a custom Twitter connection:
 

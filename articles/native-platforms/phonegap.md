@@ -6,7 +6,7 @@ alias:
 language:
   - Javascript
 framework:
-  - Cordova
+  - Phonegap
 hybrid: true
 image: /media/platforms/phonegap.png
 tags:
@@ -21,13 +21,13 @@ snippets:
 
 # To Run the example
 
-In order to run the project, you need to have `node`, `cordova` and `ios-sim` installed.
+In order to run the project, you need to have `node`, `phonegap` and `ios-sim` installed.
 Once you have that, just clone the project and run the following:
 
-`cordova build ios`
-`cordova emulate ios`
+`phonegap build ios`
+`phonegap run ios`
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/phonegap-basic-sample',
@@ -54,11 +54,11 @@ Once you have that, just clone the project and run the following:
 
 ### 1. Add `InAppBrowser` plugin
 
-You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
+You must install the `InAppBrowser` plugin to be able to show the Login popup. For that, just run the following command:
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using `<gap:plugin`. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
+> **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using the `<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />` tag between the `<widget>` tags inside your __config.xml__ file. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
 
 ### 2. Follow the guide specific to the FrontEnd technology you're using
 
@@ -70,33 +70,33 @@ Now, you can just follow the tutorial for the FrontEnd technology that you're us
 
 ### 3. Sit back and relax
 
-Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Cordova.
+Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Phonegap.
 
 ### Troubleshooting
 
-#### Command failed with exit code 65 when running ionic build
+#### Command failed with exit code 65 when running Phonegap build
 
-This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. Try any of the followings to fix this.
+This means that the `InAppBrowser` plugin wasn't installed successfully. Try any of the followings to fix this.
 
 * Reinstall the `InAppBrowser` plugin
 
 ```bash
-ionic plugin remove org.apache.cordova.inappbrowser
-ionic plugin add org.apache.cordova.inappbrowser
+phonegap plugin remove cordova-plugin-inappbrowser
+phonegap plugin add cordova-plugin-inappbrowser
 ```
 * Remove the platform and re add it
 
 ```bash
-ionic platform remove ios
-ionic platform add ios
+phonegap platform remove ios
+phonegap platform add ios
 ```
 
 * Copy the contents from the plugin to the platform plugins
 
 ```bash
-cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/org.apache.cordova.inappbrowser/
+cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
 ```
 
 #### Get a blank page with an OK after signin
 
-This could mean that the `InAppBrowser` plugin wasn't installed successfully by Cordova. If you are seeing this error only when viewing your app in the ionic viewer app, <a href="http://forum.ionicframework.com/t/does-ionic-view-support-cordova-inappbrowser/18021/3">this article</a>  suggests that `InAppBrowser` is not yet supported. You can verify this by running the app in your emulator or in the browser. See the previous section to learn how to solve this.
+This could mean that the `InAppBrowser` plugin wasn't installed successfully.

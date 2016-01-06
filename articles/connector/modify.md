@@ -62,12 +62,13 @@ The `config.json` file is the AD/LDAP Connector's configuration file.  It can be
  - `CA_CERT`: An authority certificate or array of authority certificates to check the remote host against.
  - `CLIENT_CERT_AUTH`: Specifies if **Client Certificate Authentication** is enabled or not. This value is configured in Auth0 and maintained by the connector.
  - `CONNECTION`: The name of the connection in Auth0 which is linked to this instance of the connector. This value is maintained by the connector.
- - `CONNECTIONS_API_V2_KEY`: An APIv2 token which is used to [get information about the connection in Auth0](https://auth0.com/docs/apiv2#!/connections/get_connections). Set this when you need to troubleshoot the connector, this will compare the local certificate to the one configured in Auth0 and detect a possible mismatch.
+ - `CONNECTIONS_API_V2_KEY`: An APIv2 token which is used to [get information about the connection in Auth0](/apiv2#!/connections/get_connections). Set this when you need to troubleshoot the connector, this will compare the local certificate to the one configured in Auth0 and detect a possible mismatch.
  - `FIREWALL_RULE_CREATED`: Will be set to `true` once the Firewall rule has been created for the Kerberos Server (only when Kerberos is enabled).
  - `GROUPS`: Include the user's groups when enriching the profile. Default: `true`.
  - `GROUP_PROPERTY`: The attribute of the group object that will be used when adding the groups to a user. Default: `cn`.
  - `GROUPS_CACHE_SECONDS`: Total time in seconds to cache a user's groups. Default: 600 seconds.
  - `GROUPS_TIMEOUT_SECONDS`: The timeout in seconds for searching all groups a user belongs to. Default: 20 seconds.
+ - `HTTP_PROXY`: The URL of a proxy server if one is required to connect from the AD/LDAP Connector to Auth0.
  - `KERBEROS_AUTH`: Specifies if **Kerberos Authentication** is enabled or not. This value is configured in Auth0 and maintained by the connector.
  - `LAST_SENT_THUMBPRINT`: Thumbprint of the last certificate which was sent to Auth0.
  - `LDAP_BASE`: Defines the location in the directory from which the LDAP search begins. Eg: `DC=fabrikam,DC=local`

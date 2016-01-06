@@ -4,6 +4,6 @@ name: zoom
 title: Zoom
 logo_class: Zoom
 configRoute: /add-ons/zoom
-sitemap: false
+public: false
 image: /media/addons/zoom.svg
 ---

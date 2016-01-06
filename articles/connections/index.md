@@ -16,7 +16,7 @@ Auth0 supports the following identity providers:
       <% if (article.sitemap === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+        <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>
@@ -34,7 +34,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
       <% if (article.sitemap === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+        <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>
@@ -43,19 +43,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 
 ## Database and Custom Connections
 
-<ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections/database').items, 'connection'), function(article) { %>
-  <% if (article.connection) { %>
-    <li>
-      <% if (article.sitemap === false) { %>
-        <%- article.connection %>
-      <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
-      <% } %>
-    </li>
-  <% } %>
-<% }); %>
-</ul>
+Auth0 provides database connections to authenticate users with an email or username and a password and securely store these credentials in the Auth0 user store, or in your own database. See [Database Connections](/connections/database) for the full documentation.
 
 ## Passwordless
 Full documentation on Passwordless authentication can be found [here](/connections/passwordless).
@@ -68,7 +56,7 @@ Full documentation on Passwordless authentication can be found [here](/connectio
       <% if (article.sitemap === false) { %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- env.BASE_URL + article.url %>"><%- article.connection %></a>
+        <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
       <% } %>
     </li>
   <% } %>

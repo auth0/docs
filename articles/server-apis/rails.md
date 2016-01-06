@@ -20,7 +20,7 @@ snippets:
 
 ## Ruby on Rails API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-ruby-samples',
   pkgBranch: 'master',
   pkgPath: 'ruby-on-rails-api',

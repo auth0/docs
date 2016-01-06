@@ -1,7 +1,8 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/device-agnostic/bg-device.png"
+imageAlt: "Single Sign On is device independent."
 budicon: 243
 color: "#E9C93F"
 title: "Device Agnostic"

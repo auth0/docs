@@ -8,8 +8,8 @@ toc_title: Native Social Authentication
 We implemented native integration with Facebook and Google+ and bundled each of them in a separate Android Library (*aar* file), to start using them just add these lines in your `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock-facebook:1.1.+'
-compile 'com.auth0.android:lock-googleplus:1.1.+'
+compile 'com.auth0.android:lock-facebook:2.3.+'
+compile 'com.auth0.android:lock-googleplus:2.3.+'
 ```
 
 ## Configuration
@@ -23,7 +23,11 @@ Lock uses Facebook Android SDK to obtain the user's credentials and use them to 
 To get started, in your `AndroidManifest.xml` you need to add the following:
 
 ```xml
-<activity android:name="com.facebook.LoginActivity"/>
+<activity android:name="com.facebook.FacebookActivity"
+          android:configChanges=
+              "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+          android:theme="@android:style/Theme.Translucent.NoTitleBar"
+          android:label="@string/app_name" />
 <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 ```
 
@@ -37,11 +41,10 @@ Finally, you need to register Auth0 Facebook Provider with Lock so it can do all
 @Override
 public void onCreate() {
     super.onCreate();
-    lock = new LockBuilder()
+    lock = new Lock.Builder()
             .loadFromApplication(this)
+            .withIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this))
             .build();
-    FacebookIdentityProvider facebook = new FacebookIdentityProvider();
-    lock.setProvider(Strategies.Facebook.getName(), facebook);
 }
 ```
 
@@ -51,7 +54,7 @@ For Google login we use Google Signin library that is part of Google Play Servic
 
 Before we start, you'll need to register your application in Google Developers and create a OAuth 2.0 client, to do that follow this [wizard](https://developers.google.com/mobile/add?platform=android)
 
-The next step is to configure your Google connection in Auth0 Dashboard with the newly created OAuth 2.0 client information. Just go to [Social Connections](https://manage.auth0.com/#/connections/social), select **Google** and in the field named `Allowed Mobile Client IDs` add the ID of the OAuth 2.0 client.
+The next step is to configure your Google connection in Auth0 Dashboard with the newly created OAuth 2.0 client information. Just go to [Social Connections](${uiURL}/#/connections/social), select **Google** and in the field named `Allowed Mobile Client IDs` add the ID of the OAuth 2.0 client.
 
 Then in your `AndroidManifest.xml` add these permissions and meta-data value for Google Play Services:
 
@@ -69,8 +72,7 @@ public void onCreate() {
     super.onCreate();
     lock = new LockBuilder()
             .loadFromApplication(this)
+            .withIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this))
             .build();
-    GooglePlusIdentityProvider googleplus = new GooglePlusIdentityProvider(this);
-    lock.setProvider(Strategies.GooglePlus.getName(), googleplus);
 }
 ```

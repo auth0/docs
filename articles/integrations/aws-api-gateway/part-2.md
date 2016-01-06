@@ -26,7 +26,8 @@ To configure Auth0 with SAML, do the following:
 1. Sign up for a free Auth0 developer account, and sign in.
 2. In the left menu, select **Apps / APIs**, then click **New App and API** (or **Create your First APP/API** if this is your first time). Call the new app "AWS Api Gateway".
 3. Click on the **Settings** tab.
-4. Follow the [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup) walkthrough to configure AWS for delegated access, which uses SAML behind the scenes. Don't worry about attaching a policy for additional permissions. Name the SAML provider you create `auth0`, and the AWS IAM role `auth0-api-role`.
+4. Click the **Addons** tab, and enable **Amazon Web Services**. This turns on AWS delegation. 
+5. Follow the [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup) walkthrough to configure AWS for delegated access, which uses SAML behind the scenes. Don't worry about attaching a policy for additional permissions. Name the SAML provider you create `auth0`, and the AWS IAM role `auth0-api-role`.
 
 Once the AWS IAM role is configured, you will add a policy to the `auth0-api-role` role that lets you execute your API gateway methods. This is described in [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html). The following paragraphs summarize the steps required.
 

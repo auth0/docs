@@ -39,7 +39,7 @@ lodash: true
 
 1.  Add the following dependencies to your project:
   ```gradle
-  compile 'com.auth0.android:core:1.9.+'
+  compile 'com.auth0.android:core:1.11.+'
   compile 'de.greenrobot:eventbus:2.4.+'
   ```
 
@@ -272,6 +272,7 @@ lodash: true
 1. Configure Google+ Native integrationApplication class)
   ```java
     this.googleplus = new GooglePlusIdentityProvider(this);
+    this.googleplus.setCallback(callback);
   ```
   > **Note**: Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
 

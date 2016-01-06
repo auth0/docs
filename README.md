@@ -6,8 +6,22 @@ This is the repository for the Auth0 documentation.
 * Consult the [WORDS](WORDS.md) document for Auth0 specific spellings and definitions
 * Always use absolute links from the root of the site. Note, that your links should NOT start with `/docs` or any other base path. If the site is hosted with a base like on `auth0.com/docs` the links will be corrected at runtime.
 * Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use variables instead such as `${uiUrl}`
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image_name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
+* Name files with all lowercase using dashes (-) to seperate words. If using a year in the file name it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image-name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
 * Try to keep images to no more than 750 pixels wide
+* Run all images through [TinyPNG](https://tinypng.com/).
+
+## Commit Messages
+Commit messages should be meaningful and reflect not only what content was edited, but what the edit was. For example, instead of just "Changed document.md" you should write "Added new section about XYZ in document.md" or "Fixed config code snippet in lock.md". Additionally, please use the following commit format going forward:
+
+`"[tag] Commit message"`
+
+Tags are the following:
+
+* `[bug]` - use for changes that fix a bug in a doc
+* `[edit]` - use for changes that fix spelling, grammar or just reword the same content, but do not substantially change the meaning of the doc.
+* `[update]` - Content update or change to a doc that adds or changes the meaning of the doc.
+* `[new]` - New content
 
 ## Contributing
 
@@ -45,6 +59,8 @@ On Mac OS X screenshots need to be taken with Chrome, taking into account the fo
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
+
+ > Note that the exception to showing the full browser window is in the case you are showing a detailed instruction as part of a tutorial. i.e. "Enter text in this field" and you are showing the field. In that case it likely isn't appropriate to show the entire page.
 
 
 ## Test Procedures
@@ -146,6 +162,11 @@ Response:
 
 ## Parameter Aliases
 When writing docs you can use the following variables instead of hard coding these values. Within any markdown document simply use `${variableName}` to reference the value.
+
+## Documents metadata properties
+
+- `sitemap`: (Boolean) Instruct when to skip indexation into the `sitemap.xml`. Defaults to `true`.
+- `public`: (Boolean) Disables the document from being rendered through a public url or showing in the sitemap. Document still available in the APIs, etc.. Defaults to `true`.
 
 ### Common Variables
 

@@ -49,7 +49,7 @@ ${snippet(meta.snippets.setup)}
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using the [Auth0 Login Widget](/login-widget2) inside a Web View (this is the simplest with only a few lines of code required).
+1. Using the [Auth0 Login Widget](/libraries/lock) inside a Web View (this is the simplest with only a few lines of code required).
 2. Creating your own UI (more work, but higher control the UI and overall experience).
 3. Using specific user name and password.
 
@@ -105,7 +105,9 @@ auth0.Login({
 Optionally you can specify the `scope` parameter. There are two possible values for scope today:
 
 * __scope: "openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
-* __scope: "openid profile"__ - If you want the entire user profile to be part of the `id_token`.
+* __scope: "openid {attr1} {attr2} {attrN}"__ - If you want only specific user's attributes to be part of the `id_token` (For example: `__scope: "openid name email picture"`).
+
+You can get more information about this in the [Scopes documentation](/scopes).
 
 ## Accessing user information
 

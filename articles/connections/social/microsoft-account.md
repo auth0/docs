@@ -40,6 +40,6 @@ Select **App Settings** from the left menu. Your app's `Client Id` and `Client S
 
 ## 5. Copy your *Client Id* and *Client Secret*
 
-Go to your [Auth0 Dashboard](https://manage.auth0.com) and select **Connections > Social**, then choose **Windows Live**. Copy the `Client Id` and `Client Secret` from the **App Settings** section of the Microsoft account Developer Center into the fields on this page on Auth0 and click **Save**:
+Go to your [Auth0 Dashboard](${uiURL}) and select **Connections > Social**, then choose **Windows Live**. Copy the `Client Id` and `Client Secret` from the **App Settings** section of the Microsoft account Developer Center into the fields on this page on Auth0 and click **Save**:
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-5.png)

@@ -18,7 +18,7 @@ snippets:
 
 ## GoLang API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-golang',
   pkgBranch: 'master',
   pkgPath: 'examples/go-api',

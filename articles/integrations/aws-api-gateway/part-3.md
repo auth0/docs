@@ -10,7 +10,7 @@ The client application will be a single page, serverless application based on th
 
 For a simple starter app, download this seed project which pre-configures your account settings.
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
   pkgPath: 'examples/api-gateway/client',

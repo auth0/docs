@@ -2,8 +2,6 @@
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation, LDAP). In most cases you won't need to go this deep to use Auth0.
 
-> This article is meant as an introduction. See the references section below for more information.
-
 ## OAuth Server Side
 
 This protocol is best suited for web sites that need:
@@ -30,8 +28,9 @@ The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
 * `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (`sub` claim).
-* `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
+
+You can get more information about this in the [Scopes documentation](/scopes).
 
 ---
 

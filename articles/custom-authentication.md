@@ -67,7 +67,7 @@ When prompted for the ticket url, paste the following:
 
 Now that you have a running authentication server, let's try to login with a test user.
 
-<a href="${uiURL}/tester?ticket=${ticket}" class="btn btn-mid"><i class="icon icon-user"></i>&nbsp;<span class="text">Test Login</span></a>
+<a href="${uiURL}/tester?ticket=${ticket}" class="btn btn-mid"><i class="icon icon-user" rel="nofollow"></i>&nbsp;<span class="text">Test Login</span></a>
 
 -  Test User: __foo@bar.com__
 -  Test Password: __123__

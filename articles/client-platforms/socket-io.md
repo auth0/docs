@@ -19,12 +19,12 @@ snippets:
 ## Socket.io Tutorial
 
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'socketio-jwt',
   pkgBranch: 'master',
   pkgPath: 'example/socketsio-auth0-sample',
-  pkgFilePath: 'example/socketsio-auth0-sample' + account.clientParam,
-  pkgType: 'js' 
+  pkgFilePath: null,
+  pkgType: 'server' + account.clientParam
 }) %>
 
 **If you have an existing application, follow the steps below.**
@@ -34,7 +34,7 @@ snippets:
 <div class="setup-origin">
 <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure to add your URL as an <b>Allowed Origin (CORS)</b>. If you're testing it locally, it should contain the following value:</p>
 
-<pre><code>https://localhost:3001</pre></code>
+<pre><code>http://localhost:3001</pre></code>
 
 </div>
 
@@ -50,54 +50,19 @@ npm install --save socketio-jwt
 
 Add the code below to the `index.html` file to include the Auth0 `lock` script and set the viewport:
 
-```html
-<!-- Auth0Lock script -->
-<script src="${widget_url_no_scheme}"></script>
-
-<!-- Setting the right viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 4. Configure Auth0Lock
 
 Configure Auth0Lock with your `clientId` and `domain`:
 
-```js
-var lock = null;
-$(document).ready(function() {
-   lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-});
-```
+${snippet(meta.snippets.setup)}
 
 ### 5. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
-```js
-var userProfile;
-var userToken;
-$('#login button').click(function(e){
-	e.preventDefault();
-	lock.show(function(err, profile, token) {
-		if (err) {
-			//Error callback
-			alert('There was an error');
-			alert(err);
-		} else {
-			//Success callback
-			userToken = token;
-
-			//Save the JWT token
-			localStorage.setItem('userToken', token);
-
-			//Save the profile
-			userProfile = profile;
-
-						
-		}
-	})
-});
-```
+${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 

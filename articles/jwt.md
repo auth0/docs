@@ -41,7 +41,7 @@ The minimum information will be:
 * `exp` the __expiration__, set to 10 hours.
 * `iat` the __issued at timestamp__.
 
-If the `scope` in the authorization request is set to `scope=openid profile`, then all the properties of the [user profile](/user-profile) are added to the Body. You can also define specific attributes with the syntax: `scope: 'openid {attr1} {attr2} {attrN}'`. For example: `scope: 'openid name email picture'`.
+You can define specific attributes with the syntax: `scope: 'openid {attr1} {attr2} {attrN}'` which will add those properties of the [user profile](/user-profile) to the Body. For example: `scope: 'openid name email picture'`. More information about scopes can be found in the [Scopes documentation](/scopes).
 
 > __Beware!__ If you are using the `implicit flow`, as you would if you are issuing the authorization request from a device, the JWT is returned in the URL, not in the response body. Some browsers have restrictions on URL lengths and can give you unexpected results.
 

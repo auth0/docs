@@ -19,7 +19,7 @@ url: /libraries/lock-android
 <% _.forEach(_.sortBy(articles.findByHash('libraries/lock-android').items, 'toc_title'), function(article) { %>
   <% if (article.toc_title) { %>
   <li>
-    <span><a href="<%- env.BASE_URL + article.url %>"><%- article.toc_title %></a>
+    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
     <% if (article.description) { %>
       - <%- article.description %>
     <% } %>
@@ -31,15 +31,15 @@ url: /libraries/lock-android
 
 ## Requirements
 
-Android API level 14+ is required in order to use Lock's UI.
-If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.7.+`, the minimum required API level is 9.
+Android API level 15+ is required in order to use Lock's UI.
+If you'll create your own API and just call Auth0 API via the `com.auth0.android:core:1.11.+`, the minimum required API level is 9.
 
 ## Install
 
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:lock:1.7.+'
+compile 'com.auth0.android:lock:1.11.+'
 ```
 
 Once it's installed, you'll need to configure LockActivity in your`AndroidManifest.xml`, inside the `application` tag:
@@ -80,7 +80,7 @@ public class MyApplication extends Application implements LockProvider {
 
   public void onCreate() {
     super.onCreate();
-    lock = new LockBuilder()
+    lock = new Lock.Builder()
       .loadFromApplication(this)
       /** Other configuration goes here */
       .closable(true)
@@ -94,7 +94,7 @@ public class MyApplication extends Application implements LockProvider {
 }
 ```
 
-> You can check [here](#lockbuilder) for more configuration options
+> You can check [here](#lock.builder) for more configuration options
 
 ## Usage
 
@@ -150,11 +150,11 @@ And you'll see our native login screen
 
 ### SMS
 
-`LockSMSActivity` authenticates users by sending them an SMS (Similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](https://manage.auth0.com/#/connections/passwordless).
+`LockSMSActivity` authenticates users by sending them an SMS (Similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${uiURL}/#/connections/passwordless).
 
 `LockSMSActivity` is not included in `com.auth0:lock:aar` but you can add it with this line in your `build.gradle`:
 ```gradle
-compile 'com.auth0.android:lock-sms:1.7.+'
+compile 'com.auth0.android:lock-sms:1.11.+'
 ```
 
 When a user authenticates successfully, LockActivity will send an Action using LocalBroadcaster manager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
@@ -207,7 +207,7 @@ And you'll see SMS login screen
 ## Proguard
 In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock and its dependencies.
 By default you should at least use the following files:
-* `proguard-android-async-http.pro`
+* `proguard-square-okhttp.pro`
 * `proguard-jackson-2.pro`
 * `proguard-square-otto.pro`
 * `proguard-lock.pro`
@@ -222,7 +222,7 @@ buildTypes {
     minifyEnabled true
     proguardFile '../proguard/proguard-facebook.pro' //facebook native auth
     proguardFile '../proguard/proguard-google-play-services.pro' //G+ native auth
-    proguardFile '../proguard/proguard-android-async-http.pro' //Auth0 core
+    proguardFile '../proguard/proguard-square-okhttp.pro' //Auth0 core
     proguardFile '../proguard/proguard-jackson-2.pro' //Auth0 core
     proguardFile '../proguard/proguard-square-otto.pro' //Lock
     proguardFile '../proguard/proguard-lock.pro' //Lock
@@ -323,7 +323,7 @@ public void resetAllProviders();
 ```
 Removes all session information the Identity Provider handlers might have.
 
-### LockBuilder
+### Lock.Builder
 A simple builder to help you create and configure Lock in your  application.
 
 #### Constants
@@ -348,62 +348,62 @@ Key value used by Lock to search in your application's meta-data for configurati
 #### Methods
 
 ```java
-public LockBuilder clientId(String clientId);
+public Builder clientId(String clientId);
 ```
 Set the clientId of your application in Auth0. This value is mandatory.
 
 ```java
-public LockBuilder tenant(String tenant);
+public Builder tenant(String tenant);
 ```
 Set the tenant name of your application. This value is optional if you supply a domain url.
 
 ```java
-public LockBuilder domainUrl(String domain);
+public Builder domainUrl(String domain);
 ```
 Set the domain Url for Auth0's API. This value is optional if you provide a tenant name, it will default to Auth0 cloud API `https://tenant_name.auth0.com`.
 
 ```java
-public LockBuilder configurationUrl(String configuration);
+public Builder configurationUrl(String configuration);
 ```
 Set the Url where Lock fetches the App configuration. By default it asks Auth0 for this info.
 
 ```java
-public LockBuilder useWebView(boolean useWebView);
+public Builder useWebView(boolean useWebView);
 ```
 Make Lock use an embedded WebView for Social+Enterprise authentications.
 
 ```java
-public LockBuilder closable(boolean closable);
+public Builder closable(boolean closable);
 ```
 Allow the user to close Lock's activity by pressing back button.
 
 ```java
-public LockBuilder loginAfterSignUp(boolean loginAfterSignUp);
+public Builder loginAfterSignUp(boolean loginAfterSignUp);
 ```
 After a successful sign up of a user, sign him/her in too.
 
 ```java
-public LockBuilder authenticationParameters(Map<String, Object> parameters);
+public Builder authenticationParameters(Map<String, Object> parameters);
 ```
 Extra parameters sent to Auth0 Auth API during authentication. By default it has `scope` defined as `openid offline_access` and a device name stored in `device` parameter key.  For more information check out our [Wiki](/libraries/lock-android/sending-authentication-parameters)
 
 ```java
-public LockBuilder useEmail(boolean useEmail);
+public Builder useEmail(boolean useEmail);
 ```
 Lock will ask for an email for authentication, otherwise it will ask for a username. By default is `true`.
 
 ```java
-public LockBuilder useConnections(String ...connectionNames);
+public Builder useConnections(String ...connectionNames);
 ```
 Make Lock pick these connections for authentication from all the enabled connections in your app.
 
 ```java
-public LockBuilder defaultDatabaseConnection(String name);
+public Builder defaultDatabaseConnection(String name);
 ```
 Make Lock use the Database Connection whose name matches the one provided.
 
 ```java
-public LockBuilder loadFromApplication(Application application);
+public Builder loadFromApplication(Application application);
 ```
 Load ClientID, Tenant name, Domain and configuration URLs from the Android app's metadata (if available).
 These are the values that can be defined and it's keys:
@@ -413,7 +413,7 @@ These are the values that can be defined and it's keys:
 * __com.auth0.lock.configuration-url__: URL where Auth0 apps information is available. (Optional if you supply ClientID/Tenant and you use Auth0 in the cloud)
 
 ```java
-public LockBuilder fullscreen(boolean fullscreen);
+public Builder fullscreen(boolean fullscreen);
 ```
 Make Lock's activities fullscreen. Default is `false`
 

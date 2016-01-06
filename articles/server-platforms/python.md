@@ -13,7 +13,7 @@ snippets:
 
 ## Python Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-python',
   pkgBranch: 'master',
   pkgPath: 'examples/flask-webapp',
@@ -79,13 +79,13 @@ You have configured your Python Webapp to use Auth0. Congrats, you're awesome!
 
 #### Checking if the user is authenticated
 
-You can add the following annotation to your `Flask` app to check if the user is authenticated
+You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
 
 ```python
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
-    if not session.has_key('profile'):
+    if 'profile' not in session:
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)

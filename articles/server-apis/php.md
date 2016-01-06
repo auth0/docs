@@ -17,7 +17,7 @@ snippets:
 
 ## PHP API Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-api',
@@ -36,7 +36,6 @@ We need 2 dependencies to make this work:
 
 ${snippet(meta.snippets.dependencies)}
 
->>>>>>> Extracted snippets from tutorials
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Create the JWT Validation filter

@@ -1,7 +1,8 @@
 ---
-sitemap: false
+public: false
 
 image: "/media/landings/login/bg-login.png"
+imageAlt: "Single Sign On allows you to login just once."
 imagePosition: "center"
 budicon: 285
 color: "#222228"

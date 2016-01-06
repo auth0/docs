@@ -8,9 +8,9 @@ Please follow the steps below to configure your Auth0 account to work with <%= m
 
 ### 1. Activate the add-on.
 
-Go to <a href="<%= uiAppAddonsURL %>">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
+Go to <a href="${uiAppAddonsURL}">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
 
-<img src="https://cloudup.com/c8xbUL6QbJa+" />
+![](/media/articles/server-apis/addons.png)
 
 Each integration is different and requires different parameters and configuration. once the add-on is activated, you will see tailored instructions with details on how to get this done.
 

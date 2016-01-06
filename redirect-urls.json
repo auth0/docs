@@ -337,7 +337,7 @@
   },
   {
     "from": "/singlepageapp-tutorial",
-    "to": "/client-platforms/vinillajs"
+    "to": "/client-platforms/vanillajs"
   },
   {
     "from": "/wcf-tutorial",
@@ -432,6 +432,10 @@
     "to": "/api/v2"
   },
   {
+    "from": "/tokens/apiv2",
+    "to": "/api/v2/tokens"
+  },
+  {
     "from": "/metadata-in-rules",
     "to": "/rules/metadata-in-rules"
   },
@@ -450,6 +454,10 @@
   {
     "from": "/mysql-connection-tutorial",
     "to": "/connections/database/mysql"
+  },
+  {
+    "from": "/migrating",
+    "to": "/connections/database/migrating"
   },
   {
     "from": "/quickstart/native-mobile/windows8-cp/:client",
@@ -490,5 +498,57 @@
   {
     "from": "/multi-factor-authentication/yubikey",
     "to": "/multifactor-authentication/yubikey"
+  },
+  {
+    "from": "/quickstart",
+    "to": "/"
+  },
+  {
+    "from": "/link-accounts/user-initiated",
+    "to": "/link-accounts/user-initiated-linking"
+  },
+  {
+    "from": "/libraries/lock/using-refresh-tokens",
+    "to": "/libraries/lock/using-a-refresh-token"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/node-api",
+    "to": "/quickstart/native-mobile/:client/nodejs"
+  },
+  {
+    "from": "/quickstart/webapp/play-2-scala",
+    "to": "/quickstart/webapp/scala"
+  },
+  {
+    "from": "/quickstart/hybrid/:client/python-api",
+    "to": "/quickstart/hybrid/:client/python"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/ruby-api",
+    "to": "/quickstart/native-mobile/:client/ruby"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/aspnetweb-owin-api",
+    "to": "/quickstart/native-mobile/:client/webapi-owin"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-ios",
+    "to": "/quickstart/:platform/react-native-ios"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-ios/:backend",
+    "to": "/quickstart/:platform/react-native-ios/:backend"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-android",
+    "to": "/quickstart/:platform/react-native-android"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-android/:backend",
+    "to": "/quickstart/:platform/react-native-android/:backend"
+  },
+  {
+    "from": "/connections/passwordless/ios-sms",
+    "to": "/connections/passwordless/ios-sms-objc"
   }
 ]

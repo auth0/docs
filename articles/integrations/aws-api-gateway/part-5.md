@@ -31,7 +31,7 @@ You can request up to the full profile of the user to be contained within the JW
 
 The AWS Lambda console has access to a relatively limited number of node modules that can be accessed when you enter your node.js code using the browser console. In order to use the modules needed to process the identity token, you'll need to include additional modules and upload the Lambda function as a package (for details, see [Creating Deployment Package (Node.js)](http://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) and [Upload the Deployment Package and Test](http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-s3-events-adminuser-create-test-function-upload-zip-test.html). The following seed project contains the code you'll need for your updated AWS Lambda function.
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
   pkgPath: 'examples/api-gateway/lambda',
@@ -41,7 +41,7 @@ The AWS Lambda console has access to a relatively limited number of node modules
 
 You'll see a two Javascript files, `index.js` which is expected by the AWS Lambda service to contain your main code, and `auth0-variables` which contains the only code you need to update. There is also a standard nodejs `package.json` file.
 
-This code adds extraction and validation of the JWT and uses several modules to help with that process. By default, Auth0 uses a symmetric key for signing the JWT, although there is an option to use asymmetric keys. If you need to allow third parties to validate your token as well, you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols).
+This code adds extraction and validation of the JWT and uses several modules to help with that process. By default, Auth0 uses a symmetric key for signing the JWT, although there is an option to use asymmetric keys. If you need to allow third parties to validate your token as well, you should use an asymmetric key and only share your public key. For more information about token verification see [Identity Protocols supported by Auth0](/protocols).
 
 Update `auth0-variables.js` with your secret key which can be found on the settings tab of your application in the Auth0 console:
 

@@ -12,7 +12,7 @@ snippets:
 
 ##  PHP Web App Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-webapp',
@@ -22,7 +22,7 @@ snippets:
 
 **Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
 
-### 1. Add Needed dependencies dependencies
+### 1. Add Needed dependencies 
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -93,7 +93,7 @@ $userInfo = $auth0->getUser();
 </html>
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of these depend on the social provider being used.
 
 ### 6. You are done!
 

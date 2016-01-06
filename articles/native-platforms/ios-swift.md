@@ -23,7 +23,7 @@ alias:
 
 ## iOS Swift Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',
@@ -90,27 +90,25 @@ Also you'll need to register a new _URL Type_ with the following scheme
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
-The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
+You can access an instance of `A0Lock` using the `sharedLock()` method provided by the `Lock` pod.
 
 ${snippet(meta.snippets.setup)}
 
-> You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
+> You can access `A0Lock` in any class, even in your AppDelegate, the only requirement is that you reference to it using `import Lock`.
 
 ### 4. Register Native Authentication Handlers
 
 First in your AppDelegate method `application:didFinishLaunchingWithOptions:` add the following lines:
 
 ```swift
-let lock = MyApplication.sharedInstance.lock
-lock.applicationLaunchedWithOptions(launchOptions)
+A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
 ```
 
 Then to allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method:
 
 ```swift
 func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    let lock = MyApplication.sharedInstance.lock
-    return lock.handleURL(url, sourceApplication: sourceApplication)
+    return return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
 }
 ```
 
@@ -151,15 +149,56 @@ Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
+Then add the following keys to the `Info.plist` inside the main `<dict>` key. To open this file in Source Code mode within Xcode, **Control-Click** (or right click) on it, select **Open As**, **Source Code**.
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>facebook.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>                
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>fbcdn.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>akamaihd.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+    </dict>
+</dict>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+</array>
+```
+> **Note:** this entries enable compatibility with iOS 9. You can get more information about this in Facebook's developer portal: [Preparing your apps for iOS 9](https://developers.facebook.com/docs/ios/ios9)
+
 Then add Lock Facebook's Pod
 
 ```ruby
-pod 'Lock-Facebook', '~> 2.0'
+pod 'Lock-Facebook', '~> 2.1'
+post_install do |installer|
+    installer.pods_project.build_configurations.each { |bc|
+        bc.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+    }
+end
 ```
-
-Click on the `Pods` project and select `Lock-Facebook` target and set `Allow Non-modular Includes In Framework Modules` to Yes:
-
-![Lock.png](/media/articles/native-platforms/ios-swift/Facebook-Config-Screenshot.png)
 
 After that, where you initialize `A0Lock`, import `LockFacebook` module
 
@@ -171,7 +210,7 @@ And register it with `A0Lock`:
 
 ```swift
 let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
-lock.registerAuthenticators([facebook])
+A0Lock.sharedLock().registerAuthenticators([facebook])
 ```
 
 #### Twitter
@@ -194,21 +233,21 @@ And register it with `A0Lock`:
 let apiKey = ... //Remember to obfuscate your api key
 let apiSecret = ... //Remember to obfuscate your api secret
 let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(apiKey, andSecret:apiSecret)
-lock.registerAuthenticators([twitter])
+A0Lock.sharedLock().registerAuthenticators([twitter])
 }
 ```
 
 > For more information on how to configure this, please check [Obtaining Consumer and Secret Keys for Twitter](/connections/social/twitter).
 
 ### 5. Let's implement the login
-Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
+Now we're ready to implement the Login. We can get an instance of `A0LockController` by calling the `newLockViewController()` method of the `A0Lock` shared instance and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
 
 ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
-> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#8) or [TouchID](/libraries/lock-ios#7)
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 

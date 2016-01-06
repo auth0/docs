@@ -10,7 +10,7 @@ __auth0.js__ is a UI-less client-side library for [Auth0](http://auth0.com). It 
 
 First, you need to import the library in your page. You have various options:
 
-1.  Import the library from [our CDN](http://cdn.auth0.com/w2/auth0-6.js).
+1.  Import the library from [our CDN](http://cdn.auth0.com/w2/auth0-6.7.js).
 2.  If you are using browserify, install with `npm i auth0-js --production --save`.
 3.  [Download the file from releases](https://github.com/auth0/auth0.js/releases).
 
@@ -21,7 +21,7 @@ First, you need to import the library in your page. You have various options:
 Construct a new instance of the Auth0 client as follows:
 
 ```
-<script src="http://cdn.auth0.com/w2/auth0-4.js"></script>
+<script src="http://cdn.auth0.com/w2/auth0-6.7.js"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
@@ -165,7 +165,8 @@ Once you have succesfully authenticated, Auth0 will redirect to the `callbackURL
   });
 ```
 
-Or just parse the hash (if loginOption.scope is not `openid profile`, then the profile will only contains the `user_id`):
+Or just parse the hash (if loginOption.scope is `openid`, then the profile will only contain the `user_id`):
+Taking this into consideration: " 'openid': It will return, not only the access_token, but also an id_token which is a Json Web Token (JWT). The JWT will only contain the user id (sub claim). You can use the ParameterBuilder.SCOPE_OPENID constant". You can get more information about scopes in the [Scopes documentation](/scopes).
 
 ```js
   $(function () {
@@ -246,7 +247,7 @@ var options = {
   id_token: 'your-id-token',    // The id_token you have now
   targetClientId: 'The-ClientId-Of-The-App-you-are-getting-a-JWT-for'
   api: 'firebase',              // The type of app (Auth0 can generate multiple token formats)
-  scope: "openid profile"		    // default: openid
+  scope: "openid name email nickname"   // default: openid. Add any other scopes you need, i.e. "openid {scope1} {scope2}"
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {
