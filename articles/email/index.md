@@ -21,7 +21,7 @@ The **From address** is the address users will see as the sender when receiving 
 If you haven't configured a **From address** for your emails, the following will occur:
 
 * If your email templates are not customized, they will be sent from `no-reply@auth0.com`.
-* Otherwise, they will be sent from the email address of the first owner of your Auth0 account.
+* Otherwise, they will be sent **without customizations** from the email address of the first owner of your Auth0 account.
 
 **NOTE:** Because of security reasons, it is not possible to send customized emails from any `@auth0.com` address. Appliance users can configure a similar domain blacklist.
 
