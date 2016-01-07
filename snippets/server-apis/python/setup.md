@@ -40,8 +40,8 @@ def requires_auth(f):
     try:
         payload = jwt.decode(
             token,
-            base64.b64decode(client_secret.replace("_","/").replace("-","+")),
-            audience=${account.clientId}
+            base64.b64decode('${account.clientSecret}'.replace("_","/").replace("-","+")),
+            audience='${account.clientId}'
         )
     except jwt.ExpiredSignature:
         return authenticate({'code': 'token_expired', 'description': 'token is expired'})
