@@ -17,6 +17,7 @@ hash: mfa-for-employees
 longDescription: "As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more to both existing and new applications is easier than you think."
 public: false
 title: "Multifactor Authentication for Employees"
+seo_description: "Add multi-factor authentication to your web and mobile applications with just a few simple steps, to help secure your corporate assets."
 type: case-study
 ---
 

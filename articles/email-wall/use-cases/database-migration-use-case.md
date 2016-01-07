@@ -17,6 +17,7 @@ hash: migrate-a-user-database
 longDescription: "When Auth0 is used to upgrade the existing Identity Provider (IdP), it can be deployed in such a way that it uses an existing external user database. Most customers want to migrate the user identities from their existing external database to the built-in, enterprise-class database of Auth0 while having minimal impact on operations and avoiding the hassle of password resets."
 sitemap: false
 title: "Migrate A User Database to Auth0"
+seo_description: "Learn how you can migrate user data from your existing legacy user database to Auth0, without impacting your users."
 type: case-study
 ---
 

@@ -18,6 +18,7 @@ longDescription: "As username and password exploits continue to dominate the hea
 pdf: MFAforCustomersUseCase.pdf
 sitemap: false
 title: "Multifactor Authentication for Customers"
+seo_description: "Protect your customers' privacy and safeguardi their personal data, by easily enabling multi-factor authentication."
 type: case-study
 ---
 
