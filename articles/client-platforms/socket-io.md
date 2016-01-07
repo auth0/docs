@@ -77,7 +77,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var socketioJwt = require('socketio-jwt');
 
-io.
+io
   .on('connection', socketioJwt.authorize({
     secret: Buffer('${account.clientSecret}', 'base64'),
     timeout: 15000 // 15 seconds to send the authentication message
