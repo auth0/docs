@@ -54,7 +54,7 @@ Now create a role with one or more associated policies. (You can create as many 
 
   ![](/media/articles/aws-api-setup/aws-api-setup-9.png)
 
-6.  Skip the **Attach Policy** step for now. Click **Next Step**.
+6.  At **Attach Policy**, either select a pre-defined policy to attach or define a custom policy as defined in the [next section](#create-a-custom-policy). Click **Next Step**
 
 7. Review the information and click **Create Role**:
 
@@ -97,7 +97,7 @@ In this example, you will create a policy that grants full access to the S3 reso
 
   ![](/media/articles/aws-api-setup/aws-api-setup-13.png)
 
-2. From the summary page of the identity provider you created previously, copy the **Provider ARN** value. You will use this value later when calling the `/delegation` endpoint in Auth0.
+2. From the summary page of the identity provider you created previously, copy the **Provider ARN** value. You will use this value as the **Principal ARN** when calling the `/delegation` endpoint in Auth0.
 
   ![](/media/articles/aws-api-setup/aws-api-setup-14.png)
 
