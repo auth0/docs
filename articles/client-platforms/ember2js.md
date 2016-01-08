@@ -14,7 +14,7 @@ tags:
 ---
 ## EmberJS 2 Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-ember-simple-auth',
   pkgBranch: 'master',
   pkgPath: 'examples/ember2-auth0-sample',
@@ -26,7 +26,7 @@ tags:
 
 ${include('./\_callback')}
 
-__Note:__ This quickstart and seed project are for Ember >= 2.x.x. 
+__Note:__ This quickstart and seed project are for Ember >= 2.x.x.
 
 ### 1. Install the add-on
 
