@@ -7,7 +7,7 @@ language:
   - Javascript
 framework:
   - Electron
-hybrid: true
+hybrid: false
 image: /media/platforms/electron.png
 tags:
   - quickstart
@@ -37,21 +37,20 @@ alias:
 <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in your Auth0 dashboard and make sure that the <b>Allowed Callback URLs</b> field contains the following values:</p>
 
 ```
-https://${account.namespace}/mobile
-file:///
+https://${account.namespace}/mobile, file:///
 ```
 
 </div>
 
-### 2. Add `Auth0Lock` to Your Project
+### 2. Add Auth0Lock to Your Project
 
 Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
 
-### 3. Add the `auth0-electron` Script to Your Project
+### 3. Add the auth0-electron Script to Your Project
 
-You can copy `auth0-electron.js` [from GitHub](https://github.com/auth0/auth0-electron/blob/master/auth0-electron.js) or download it with the sample package from the link above.
+You can copy `auth0-electron.js` [from GitHub](https://github.com/auth0/auth0-electron/blob/master/auth0-electron.js) or download it with the seed project from the link above.
 
 ### 4. Follow the Guide Specific to the Front End Technology You're Using
 
