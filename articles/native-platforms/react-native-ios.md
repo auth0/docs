@@ -142,16 +142,28 @@ Then add Lock Facebook's Pod
 pod 'Lock-Facebook', '~> 2.2'
 ```
 
-Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate` class, for example:
+Finally, you need to register Auth0 Facebook integration when creating `Auth0Lock` :
 
-```objc
-#import <Lock-Facebook/A0FacebookAuthenticator.h>
+```js
+var lock = new Auth0Lock({
+  //Other Lock config options
+  integrations: {
+    facebook: {}
+  }
+});
+```
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Other app initialization, e.g. creating RCTRootView
-    A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
-    [[A0LockReact sharedInstance].lock registerAuthenticators:@[facebook]];
-}
+If you need to use other permissions besides the default:
+
+```js
+var lock = new Auth0Lock({
+  //Other Lock config options
+  integrations: {
+    facebook: {
+      permissions: "public_profile"
+    }
+  }
+});
 ```
 
 #### Twitter
@@ -162,18 +174,18 @@ First add Lock Twitter's Pod
 pod 'Lock-Twitter', '~> 1.1'
 ```
 
-To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
+Finally, you need to register Auth0 Twitter integration when creating `Auth0Lock` :
 
-```objc
-#import <Lock-Twitter/A0TwitterAuthenticator.h>
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Other app initialization, e.g. creating RCTRootView
-    NSString *twitterApiKey = ... //Remember to obfuscate your api key
-    NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-    A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
-    [[A0LockReact sharedInstance].lock registerAuthenticators:@[twitter]];
-}
+```js
+var lock = new Auth0Lock({
+  //Other Lock config options
+  integrations: {
+    twitter: {
+      api_key: "YOUR TWITTER API KEY",
+      api_secret: "YOUR TWITTER API SECRET"
+    }
+  }
+});
 ```
 
 ### 3. Let's implement the login
