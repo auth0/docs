@@ -11,7 +11,7 @@
     // This method will exist if you're using apache
     // If you're not, please go to the extras for a defintion of it.
     $requestHeaders = apache_request_headers();
-    $authorizationHeader = $requestHeaders['AUTHORIZATION'];
+    $authorizationHeader = $requestHeaders['Authorization'];
 
     if ($authorizationHeader == null) {
       header('HTTP/1.0 401 Unauthorized');
@@ -22,18 +22,11 @@
     // // validate the token
     $token = str_replace('Bearer ', '', $authorizationHeader);
     $secret = '${account.clientSecret}';
+    $client_id = '${account.clientId}';
     $decoded_token = null;
     try {
-      $decoded_token = JWT::decode($token, base64_decode(strtr($secret, '-_', '+/')) );
-    } catch(UnexpectedValueException $ex) {
-      header('HTTP/1.0 401 Unauthorized');
-      echo "Invalid token";
-      exit();
-    }
-
-
-    // // validate that this token was made for us
-    if ($decoded_token->aud != '${account.clientId}0') {
+      $decoded_token = \Auth0\SDK\Auth0JWT::decode($token,$client_id,$secret );
+    } catch(\Auth0\SDK\Exception\CoreException $e) {
       header('HTTP/1.0 401 Unauthorized');
       echo "Invalid token";
       exit();
