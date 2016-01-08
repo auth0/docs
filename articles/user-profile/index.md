@@ -89,7 +89,7 @@ In the authentication flows described above, a full User Profile is not returned
 
 Perhaps the most well known token is the `id_token`, which is a [JSON Web Token](/jwt) (or JWT) that contains User Profile attributes represented in the form of *claims*. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature (which was generated with the Auth0 app's Client Secret). The app can then use the JWT to securely call other API's as long as those API's can verify the JWT's signature, and trust and use the contained claims.
 
-The claims within a JWT can contain all of the properties of the User Profile. But more often than not they contain a subset of them in order minimize the overall size. For further information on controlling the claims returned in a JWT see the [Scopes](#scopes) section below.
+The claims within a JWT can contain all of the properties of the User Profile. But more often they contain a subset of them in order to minimize the overall size. For further information on controlling the claims returned in a JWT see the [Scopes](#scopes) section below.
 
 There are three other types of tokens that can be returned during authentication, namely an Auth0 `access_token`, a 3rd party provider access token, and a `refresh-token`. For more information on tokens and claims see the [Token Overview](/tokens).
 
