@@ -1,5 +1,5 @@
 ---
-description: "Multifactor authentication has become the new minimum level required to ensure that your customers are who they say they are, in light of the massive security breaches of usernames and passwords that appear in the headlines each week. Even if your Web site or mobile application does not perform financial transactions you should add multifactor authentication. It's easier than you think with Auth0."
+description: "Multifactor authentication has become the new minimum level required to ensure that your customers are who they say they are, in light of the massive security breaches of usernames and passwords that appear in the headlines each week. Even if your Web site or mobile application does not perform financial transactions you should add multifactor authentication for customers. It's easier than you think with Auth0."
 fourKeyConcepts: 
   - 
     icon: css-class-bud-icon

@@ -1,5 +1,5 @@
 ---
-description: "Given that your employees’ passwords are often used across dozens of sites so they can be remembered, there is not enough security for your organization's Web-accessible applications unless you require multiple factors of authentication. Fortunately, with Auth0, you can easily add multifactor authentication to existing and new Web and mobile applications to increase your security posture."
+description: "Given that your employees’ passwords are often used across dozens of sites so they can be remembered, there is not enough security for your organization's Web-accessible applications unless you require multiple factors of authentication. Fortunately, with Auth0, you can easily add multifactor authentication for employees to existing and new Web and mobile applications to increase your security posture."
 fourKeyConcepts:
   -
     icon: css-class-bud-icon
