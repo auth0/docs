@@ -131,5 +131,19 @@ pages:
       - rtokens-using-them
       - rtokens-security-considerations
       - rtokens-in-auth0
-
+  cloud-identity-access-management:
+    title: Cloud Identity and Access Management (IAM)
+    description: Understanding Cloud Identity and Access Management
+    banner:
+      image: "/media/landings/iam-what-is/iam-what-is.png"
+      socialmediaimage: "/media/landings/banner/twitter-card-iam.png"
+    meta:
+      title: Cloud Identity and Access Management (IAM)
+      description: Understanding Cloud Identity and Access Management
+    modules:
+      - iam-what-is
+      - iam-what-includes
+      - iam-why-you-need
+      - iam-how-can-help
+      - iam-auth0
 ---
