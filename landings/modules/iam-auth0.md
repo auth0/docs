@@ -7,7 +7,7 @@ budicon: 608
 color: "#2F383D"
 title: "Auth0 as a cloud IAM solution"
 ---
-Auth0 can authenticate your users with **any identity provider** running on any stack any device or cloud. It provides **Single Sign-On**, **Multifactor Authentication**, and **Social Login**, and several more features.
+Auth0 can authenticate your users with **any identity provider** running on any stack any device or cloud. It provides **Single Sign-On**, **Multifactor Authentication**, **Social Login**, and several more features.
 
 You can read more about Auth0 features here: [Why Auth0?](https://auth0.com/why-auth0).
 
