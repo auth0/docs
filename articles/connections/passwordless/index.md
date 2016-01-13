@@ -38,7 +38,7 @@ If you'd like to build your own implementation or understand how this works unde
 
 ## Advanced Topics
 
- - [Sending one time codes via your own SMS Gateway](/connections/passwordless/sms-gateway)
+ - [Send one time codes via your own SMS Gateway](/connections/passwordless/sms-gateway)
 
 ## Have Questions?
 

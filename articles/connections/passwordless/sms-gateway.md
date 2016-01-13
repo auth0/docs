@@ -1,14 +1,14 @@
 ---
-title: Sending one time codes via your own SMS Gateway
+title: Send one time codes via your own SMS Gateway
 ---
 
-# Sending one time codes via your own SMS Gateway
+# Send one time codes via your own SMS Gateway
 
 By default the SMS connection will use Twilio to send the one time code. If you already have your own infrasturucture to send text messages cannot or might not want to use Twilio.
 
 Instead you'll want your own infrastructure to handle the delivery of these one time codes.
 
-## Configuring your SMS Gateway
+## Configure your SMS Gateway
 
 The configuration of your own SMS Gateway currently needs to happen through the Management API. You would first need to get your connections (strategy: `sms`) from the [GET connections endpoint](https://auth0.com/docs/api/v2#!/Connections/get_connections).
 
@@ -79,7 +79,7 @@ After updating the connection for any user that signs up or authenticates using 
 }
 ```
 
-## Configuring an authenticated SMS Gateway
+## Configure an authenticated SMS Gateway
 
 The previous settings assume your SMS Gateway accepts non-authenticated requests. The `sms_gateway` provider also allows you to configure token based authentication (using `gateway_authentication`):
 
@@ -109,4 +109,4 @@ The previous settings assume your SMS Gateway accepts non-authenticated requests
 }
 ```
 
-With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`.With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`.
+With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`. With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`.
