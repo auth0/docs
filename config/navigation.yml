@@ -1,5 +1,9 @@
 categories:
   -
+    id: "toc"
+    name: "Guides & SDKs"
+    description: "References and documentation"
+  -
     id: "product"
     name: "Product"
     description: "Learn how to use the key features of Auth0"
@@ -72,85 +76,93 @@ categories:
             name: "Content & SDK Updates"
             href: "/updates"
   -
+    id: "platform"
+    name: "Platforms"
+    description: ""
+    links:
+      -
+        name: "Web Developers"
+        href: "/"
+      -
+        name: "Single Page App Developers"
+        href: "/"
+      -
+        name: "API Developers"
+        href: "/"
+      -
+        name: "Mobile Developers"
+        href: "/"
+
+  -
     id: "sdk"
-    name: "Libraries & SDKs"
+    name: "SDKs"
     description: "Explore content by language and platform"
     links:
       -
-        name: "AngularJS"
-        slug: "angular"
-        href: "/client-platforms/angularjs"
-      -
-        name: "NodeJS"
+        name: "Node SDK"
         slug: "node"
         href: "/server-platforms/nodejs"
       -
-        name: "Lock - iOS"
-        slug: "lock"
-        href: "/libraries/lock-ios"
-      -
-        name: "Lock - Android"
-        slug: "lock"
-        href: "/libraries/lock-android"
-      -
-        name: "Lock - Web"
-        slug: "lock"
-        href: "/libraries/lock"
-      -
-        name: "Ruby on Rails"
-        slug: "rails"
-        href: "/server-platforms/rails"
-      -
-        name: "React"
-        slug: "react"
-        href: "/client-platforms/react"
-      -
-        name: "Ember.js"
-        slug: "emberjs"
-        href: "/client-platforms/emberjs"
-      -
-        name: "Java"
-        slug: "java"
-        href: "/server-platforms/java"
-      -
-        name: "jQuery"
-        slug: "jquery"
-        href: "/client-platforms/jquery"
-      -
-        name: "Vanilla JS"
+        name: "Javascript SDK"
         slug: "vanillajs"
         href: "/client-platforms/vanillajs"
       -
-        name: "iOS"
+        name: "iOS SDK"
         slug: "ios"
         href: "/native-platforms/ios-objc"
       -
-        name: "Android"
+        name: "Android SDK"
         slug: "android"
         href: "/native-platforms/android"
       -
-        name: "Ruby"
+        name: "Ruby SDK"
         slug: "ruby"
         href: "/server-apis/ruby"
       -
-        name: ".NET"
+        name: ".NET SDK"
         slug: "net"
         href: "/server-platforms/aspnet-owin"
       -
-        name: "PHP"
-        slug: "php"
-        href: "/server-platforms/php"
-      -
-        name: "Python"
+        name: "Python SDK"
         slug: "python"
         href: "/server-platforms/python"
       -
-        name: "Go"
-        slug: "go"
-        href: "/server-platforms/golang"
+        name: "Java SDK"
+        slug: "java"
+        href: "/server-platforms/java"
+  -
+    id: "ui-component"
+    name: "UI Components"
+    links:
+      -
+        name: "Lock for Web"
+        description: "Auth UI for your web app"
+        href: "/libraries/lock"
+      -
+        name: "Lock for iOS"
+        description: "Native iOS Authentication UI"
+        href: "/libraries/lock-ios"
+      -
+        name: "Lock for Android"
+        description: "Native Android Authentication UI"
+        href: "/libraries/lock-android"
+  -
+    id: "web-frameworks"
+    name: "Web Frameworks"
+    description: ""
+    links:
+      -
+        name: "AngularJS"
+        href: "/"
+      -
+        name: "EmberJS"
+        href: "/"
+      -
+        name: "React"
+        href: "/"
   -
     id: "how-to"
-    name: "How To's"
+    name: "Guides"
     description: "Learn how to get the most out of Auth0"
     links:
       -
@@ -179,11 +191,6 @@ categories:
         href: "/logout"
         description: "Learn about clearing sso cookies and other logout operations."
       -
-        name: "Cookies vs. Tokens"
-        icon: "icon-budicon-754"
-        href: "/apps-apis"
-        description: "Learn token-based authentication design vs cookie-based authentication."
-      -
         name: "Connecting Active Directory"
         icon: "icon-budicon-754"
         href: "/connections/enterprise/active-directory"
@@ -194,16 +201,6 @@ categories:
         href: "/saml-configuration"
         description: "Get your SAML application set up for authentication and single sign-on."
       -
-        name: "User Profile"
-        icon: "icon-budicon-754"
-        href: "/user-profile"
-        description: "Information about the contents of the user profile object."
-      -
-        name: "Set up and Use the Connector"
-        icon: "icon-budicon-754"
-        href: "/connector"
-        description: "Learn how to get the Connector running on your network."
-      -
         name: "Custom Password Strength"
         icon: "icon-budicon-754"
         href: "/password-strength"
@@ -213,3 +210,19 @@ categories:
         icon: "icon-budicon-778"
         href: "/email"
         description: "Learn how to configure the account management emails that Auth0 sends."
+  -
+    id: "start"
+    name: "Getting Started"
+    links:
+      -
+        name: "Auth0 in 5 minutes"
+        href: "/"
+      -
+        name: "Auth0 in 30 minutes"
+        href: "/"
+      -
+        name: "Quickstart Tutorials"
+        href: "/quickstart"
+      -
+        name: "Best Practices"
+        href: "/"
