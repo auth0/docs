@@ -1,6 +1,6 @@
 # Users search
 
-You can search registered users using our [dashboard](${uiURL}/#/users) or [APIv2](/api/v2#!/users/get_users) using [Elastic Search Query string syntax](http://www.elastic.co/guide/en/elasticsearch/reference/1.x/query-dsl-query-string-query.html#query-string-syntax).
+You can search registered users using our [dashboard](${uiURL}/#/users) or [APIv2](/api/v2#!/users/get_users) using [Elastic Search Query string syntax](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.htm).
 
 Here are some examples:
 
