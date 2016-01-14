@@ -24,7 +24,7 @@ alias:
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
-  pkgPath: 'examples/widget-with-api',
+  pkgPath: 'examples/widget-redirect',
   pkgFilePath: null,
   pkgType: 'js' + account.clientParam
 }) %>
@@ -47,11 +47,27 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
-To implement the login, inject the `auth` service into any controller and call the `signin` method to show the Login / SignUp popup.
-
-In the following code, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`:
+To implement the login, inject the `auth` service into any controller to use Lock's redirect mode. 
 
 ${snippet(meta.snippets.use)}
+
+On login success, the user's profile and token are saved to `localStorage`:
+
+```js
+//app.js
+authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
+  console.log("Login Success");
+  profilePromise.then(function(profile) {
+    store.set('profile', profile);
+    store.set('token', idToken);
+  });
+  $location.path('/');
+});
+
+authProvider.on('loginFailure', function() {
+   // Error Callback
+});
+```
 
 ${browser}
 
