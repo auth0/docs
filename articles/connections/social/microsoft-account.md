@@ -1,6 +1,6 @@
 ---
 connection: Microsoft Account (formerly LiveID)
-image: /media/connections/microsoft-account.png
+image:
 alias:
  - live-id
  - microsoft-live

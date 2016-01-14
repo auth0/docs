@@ -1,6 +1,6 @@
 ---
 connection: Generic OAuth2 Provider
-image: /media/connections/oauth2.png
+image:
 ---
 
 # Add a generic OAuth2 Authorization Server to Auth0
