@@ -51,7 +51,7 @@ To implement the login, inject the `auth` service into any controller to use Loc
 
 ${snippet(meta.snippets.use)}
 
-On login success, the user's profile and token are saved to `localStorage`:
+On login success, save the user's profile and token to `localStorage`:
 
 ```js
 //app.js
@@ -71,7 +71,7 @@ authProvider.on('loginFailure', function() {
 
 ${browser}
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#using-your-own-login-ui).
 
 ### 4. Add a logout button
 
