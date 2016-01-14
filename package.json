@@ -6,7 +6,10 @@
   "devDependencies": {
     "commander": "^2.8.1",
     "dotenv": "^1.2.0",
+    "imagemin": "^4.0.0",
+    "imagemin-zopfli": "^4.1.0",
     "lsr": "^1.0.0",
-    "tinify": "^1.1.1"
+    "tinify": "^1.1.1",
+    "zopflipng-bin": "^3.0.1"
   }
 }
