@@ -1,6 +1,6 @@
 ---
 connection: Planning Center
-image: /media/connections/planning-center.png
+image:
 ---
 
 # Obtain a *Client ID* and *Secret* for Planning Center

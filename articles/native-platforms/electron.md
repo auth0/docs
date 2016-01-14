@@ -8,7 +8,7 @@ language:
 framework:
   - Electron
 hybrid: false
-image: /media/platforms/electron.png
+image:
 tags:
   - quickstart
   - electron

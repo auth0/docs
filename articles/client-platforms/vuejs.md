@@ -8,7 +8,7 @@ language:
   - Javascript
 framework:
   - Vue.js
-image: /media/platforms/vuejs.png
+image:
 tags:
   - quickstart
 snippets:
