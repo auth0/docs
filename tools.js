@@ -1,7 +1,7 @@
 var program = require('commander');
 var fs = require('fs');
 var Imagemin = require('imagemin');
-var imageminZopfli = require('imagemin-zopfli');
+var imageminOptipng = require('imagemin-optipng');
 
 var redirectFilePath = './redirect-urls.json';
  var addRedirect = function(oldUrl, newUrl, callback) {
@@ -51,6 +51,7 @@ program.command('img')
     new Imagemin()
       .src('media/**/*.png')
       .dest('media')
+      .use(imageminOptipng({optimizationLevel: 3}))
       .run((err, files) => {
         if (err) {
           console.error(err);
