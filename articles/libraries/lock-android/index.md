@@ -249,8 +249,8 @@ Passworless scenarios and types:
 
 | Channel \ Mode  | Code  | Magic Link      |
 | :-----: |:---------------:| :--------------: |
-| SMS   | LockPasswordlessActivity.MODE_SMS_CODE   | LockPasswordlessActivity.MODE_SMS_LINK   |
-| Email | LockPasswordlessActivity.MODE_EMAIL_CODE | LockPasswordlessActivity.MODE_EMAIL_LINK |
+| SMS   | `LockPasswordlessActivity.MODE_SMS_CODE`   | `LockPasswordlessActivity.MODE_SMS_LINK`   |
+| Email | `LockPasswordlessActivity.MODE_EMAIL_CODE` | `LockPasswordlessActivity.MODE_EMAIL_LINK` |
 
 You can find more information about Magic Links [here](/libraries/lock-android/passwordless-magic-link).
 
