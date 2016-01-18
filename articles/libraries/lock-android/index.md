@@ -71,7 +71,7 @@ Also, you'll need to add *Internet* permission to your application:
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Finally, Make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add the following code:
+Finally, make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add the following code:
 
 ```java
 public class MyApplication extends Application implements LockProvider {
@@ -93,7 +93,10 @@ public class MyApplication extends Application implements LockProvider {
   }
 }
 ```
-If you haven't already done so, add your Application class to the `AndroidManifest.xml`.
+
+> You can check [here](#lock.builder) for more configuration options
+
+You should also add your Application class to the `AndroidManifest.xml`.
 ```xml
 <application
         android:name=".MyApplication"
@@ -104,7 +107,18 @@ If you haven't already done so, add your Application class to the `AndroidManife
 </application>
 ```
 
-> You can check [here](#lock.builder) for more configuration options
+And include the following code in your `build.gradle` file.
+
+```gradle
+android {
+  //...
+  packagingOptions {
+      exclude 'META-INF/NOTICE'
+      exclude 'META-INF/LICENSE'
+  }
+}
+```  
+
 
 ## Usage
 
@@ -179,7 +193,7 @@ Then in your `AndroidManifest.xml` register the following activities:
 
     <activity android:name="com.auth0.lock.passwordless.CountryCodeActivity"
       android:theme="@style/Lock.Theme"/>
-    <!--Auth0 Lock Passwordless End-->
+<!--Auth0 Lock Passwordless End-->
 ```
 
 Just like `LockActivity`, when a user authenticates successfully, `LockPasswordlessActivity` will send an `Action` using `LocalBroadcastManager` and then finish itself (by calling `finish()`). The activity that is interested in receiving this `Action` (in this case the one that will show Lock) needs to register a listener in the `LocalBroadcastManager`:
