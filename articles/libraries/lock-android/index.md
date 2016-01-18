@@ -11,7 +11,7 @@ url: /libraries/lock-android
 * **Integrates** your Android app with **Auth0**.
 * Provides a **beautiful native UI** to log your users in.
 * Provides support for **Social Providers** (Facebook, Twitter, etc.), **Enterprise Providers** (AD, LDAP, etc.) and **Username & Password**.
-* Passwordless authentication using **SMS**.
+* Passwordless authentication using **SMS or Email**.
 
 ## Additional Documents
 
@@ -93,8 +93,7 @@ public class MyApplication extends Application implements LockProvider {
   }
 }
 ```
-
-If you haven't already done so, add your Application class to the manifest.
+If you haven't already done so, add your Application class to the `AndroidManifest.xml`.
 ```xml
 <application
         android:name=".MyApplication"
@@ -159,16 +158,31 @@ And you'll see our native login screen
 
 > By default all social authentication will be done using an external browser, if you want native integration please check this [wiki page](/libraries/lock-android/native-social-authentication).
 
-### SMS
+### Passwordless
 
-`LockSMSActivity` authenticates users by sending them an SMS (Similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${uiURL}/#/connections/passwordless).
+`LockPasswordlessActivity` authenticates users by sending them an Email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS/Email connection enabled and configured in your [dashboard](https://manage.auth0.com/#/connections/passwordless).
 
-`LockSMSActivity` is not included in `com.auth0:lock:aar` but you can add it with this line in your `build.gradle`:
+`LockPasswordlessActivity` is not included in `com.auth0:lock:aar` as it's part of the library `lock-passwordless`, but you can add it with this line in your `build.gradle`:
 ```gradle
-compile 'com.auth0.android:lock-sms:1.11.+'
+compile 'com.auth0.android:lock-passwordless:1.13.+'
 ```
 
-When a user authenticates successfully, LockActivity will send an Action using LocalBroadcaster manager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
+Then in your `AndroidManifest.xml` register the following activities:
+```xml
+    <!--Auth0 Lock Passwordless-->
+    <activity
+      android:name="com.auth0.lock.passwordless.LockPasswordlessActivity"
+      android:theme="@style/Lock.Theme"
+      android:label="@string/app_name"
+      android:screenOrientation="portrait"
+      android:launchMode="singleTask"/>
+
+    <activity android:name="com.auth0.lock.passwordless.CountryCodeActivity"
+      android:theme="@style/Lock.Theme"/>
+    <!--Auth0 Lock Passwordless End-->
+```
+
+Just like `LockActivity`, when a user authenticates successfully, `LockPasswordlessActivity` will send an `Action` using `LocalBroadcastManager` and then finish itself (by calling `finish()`). The activity that is interested in receiving this `Action` (in this case the one that will show Lock) needs to register a listener in the `LocalBroadcastManager`:
 
 ```java
 // This activity will show Lock
@@ -201,19 +215,30 @@ public class HomeActivity extends Activity {
 }
 ```
 
-Then just start `LockSMSActivity`
+Then just start `LockPasswordlessActivity` specifying the Passwordless type you want to use, so for **Email**
 
 ```java
-Intent smsIntent = new Intent(this, LockSMSActivity.class);
-smsIntent.putExtra(LockSMSActivity.REQUEST_SMS_CODE_JWT, "API v2 JWT");
-startActivity(smsIntent);
+LockPasswordlessActivity.showFrom(MyActivity.this, LockPasswordlessActivity.MODE_EMAIL_CODE);
 ```
 
-> The value for `LockSMSActivity.REQUEST_SMS_CODE_JWT` is an API Token used to register the  phone number and send the login code with SMS. This token can be generated in  [Auth0 API v2 page](/api/v2), just select the scope `create:users` and copy the generated API Token.
+or just for **SMS**
 
-And you'll see SMS login screen
+```java
+LockPasswordlessActivity.showFrom(MyActivity.this, LockPasswordlessActivity.MODE_SMS_CODE);
+```
+
+and you'll see the **SMS** login screen
 
 [![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Android-Screenshot.png)](https://auth0.com)
+
+Passworless scenarios and types:
+
+| Channel \ Mode  | Code  | Magic Link      |
+| :-----: |:---------------:| :--------------: |
+| SMS   | LockPasswordlessActivity.MODE_SMS_CODE   | LockPasswordlessActivity.MODE_SMS_LINK   |
+| Email | LockPasswordlessActivity.MODE_EMAIL_CODE | LockPasswordlessActivity.MODE_EMAIL_LINK |
+
+You can find more information about Magic Links [here](/libraries/lock-android/passwordless-magic-link).
 
 ## Proguard
 In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock and its dependencies.
