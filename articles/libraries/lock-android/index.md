@@ -102,7 +102,7 @@ public class MyApplication extends Application implements LockProvider {
 
 `LockActivity` will handle Email/Password, Enterprise & Social authentication based on your Application's connections enabled in your Auth0's Dashboard.
 
-When a user authenticates successfully, LockActivity will send an Action using LocalBroadcaster manager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
+When a user authenticates successfully, LockActivity will send an Action using LocalBroadcastManager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
 
 ```java
 // This activity will show Lock
@@ -113,8 +113,8 @@ public class HomeActivity extends Activity {
   private BroadcastReceiver authenticationReceiver = new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
-      UserProfile profile = intent.getParcelableExtra("profile");
-      Token token = intent.getParcelableExtra("token");
+      UserProfile profile = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_PROFILE_PARAMETER);
+      Token token = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_TOKEN_PARAMETER);
       Log.i(TAG, "User " + profile.getName() + " logged in");
     }
   };
