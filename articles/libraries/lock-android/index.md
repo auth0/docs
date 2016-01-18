@@ -94,6 +94,17 @@ public class MyApplication extends Application implements LockProvider {
 }
 ```
 
+If you haven't already done so, add your Application class to the manifest.
+```xml
+<application
+        android:name=".MyApplication"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name">
+        <!-- Other configuration goes here -->
+
+</application>
+```
+
 > You can check [here](#lock.builder) for more configuration options
 
 ## Usage
