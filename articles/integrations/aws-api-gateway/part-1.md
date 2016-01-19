@@ -6,7 +6,7 @@ title: Amazon API Gateway Tutorial - Setup the Amazon API Gateway
 ## Step 1 - Setting up the Amazon API Gateway
 [Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway/part-2)
 
-After completing this step you will have created two unauthenticated REST service methods for getting and updating a list of pets. You will set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an Amazon DynamoDB [DynamoDB](https://aws.amazon.com/dynamodb) table. You need to have [node.js](https://nodejs.org/) already installed.
+After completing this step you will have created two unauthenticated REST service methods for getting and updating a list of pets. You will set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table. You need to have [node.js](https://nodejs.org/) already installed.
 
 Perform the following steps to create an Amazon table and the AWS Lambda functions and Amazon API Gateway APIs after logging into the AWS console.
 
