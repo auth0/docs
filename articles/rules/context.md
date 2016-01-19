@@ -29,3 +29,4 @@ When creating [Rules](/rules), the following properties are available for the `c
   * `with_auth0`: when a user signs in with SSO to an application where the `Use Auth0 instead of the IdP to do Single Sign On` setting is enabled.
   * `with_dbconn`: an SSO login for a user that logged in through a database connection.
 * `stats`: an object containing specific user stats, like `stats.loginsCount`.
+* `hostname`: the hostname that is being used for the authentication flow.
