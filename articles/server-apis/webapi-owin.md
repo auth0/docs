@@ -49,9 +49,16 @@ using Microsoft.Owin.Security;
 using WebConfigurationManager = System.Web.Configuration.WebConfigurationManager;
 ```
 
-Update the `Configuration` method with the following code:
+Update the `Configuration` method with the following code, ensuring that it is placed *before* registering WebApi as the ordering of OWIN middleware is important.
+
+```cs
+// this should occur after the JWT handler has been registered
+app.UseWebApi(config);
+```
 
 ${snippet(meta.snippets.use)}
+
+
 
 ### 3. Update the web.config file with your app's credentials
 Open the **web.config** file located at the solution's root.
