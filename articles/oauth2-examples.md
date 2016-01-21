@@ -237,7 +237,7 @@ After the call completes successfully, you will be able to login using these new
 Generate an RSA keypair with the following command or any equivalent method:
 
 ```bash
-$ openssl genrsa -out EXAMPLE.key 2048 && openssl genrsa -keyout EXAMPLE.key -out EXAMPLE.pub
+$ openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
 ```
 
 From JIRA, create an [Application Link](https://confluence.atlassian.com/display/APPLINKS-050/Application+Links+Documentation) (under Administration > Applications > Application links) with the following settings:
