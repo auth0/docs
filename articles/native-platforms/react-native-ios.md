@@ -40,7 +40,7 @@ snippets:
 
 #### CocoaPods
 
-You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project. 
+You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project.
 
 > Currently this is the **only** way to make `react-native-lock-ios` work since we don't provide a `.xcodeproj` file in the npm library.
 
@@ -74,7 +74,7 @@ Then create a file name `Podfile` with the following content inside the folder `
 
 ${snippet(meta.snippets.dependencies)}
 
-Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them. 
+Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them.
 From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now integrated to your project via CocoaPods instead of subprojects.
 
 > If you are seeing some warnings after your running `pod install` or you get some linker error when building the Xcode project, please check the [FAQs section](#FAQs)
@@ -135,6 +135,12 @@ Then, register a custom URL Type with the format `fb<FacebookAppID>`.
 Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
+
+If you need have iOS 9 support for your app, then make sure to add the `LSApplicationQueriesSchemes` key to your Info.plist file and add the `fbauth2` value to it.
+
+Here's how the entries for `LSApplicationQueriesSchemes` should look like:
+
+![FB LSApplicationQueriesSchemes](https://i.stack.imgur.com/YkwEp.png)
 
 Then add Lock Facebook's Pod
 
