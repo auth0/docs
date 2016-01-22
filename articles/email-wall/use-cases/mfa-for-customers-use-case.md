@@ -1,5 +1,5 @@
 ---
-description: "Multifactor authentication has become the new minimum level required to ensure that your customers are who they say they are, in light of the massive security breaches of usernames and passwords that appear in the headlines each week. Even if your Web site or mobile application does not perform financial transactions you should add multifactor authentication. It's easier than you think with Auth0."
+description: "Multifactor authentication has become the new minimum level required to ensure that your customers are who they say they are, in light of the massive security breaches of usernames and passwords that appear in the headlines each week. Even if your Web site or mobile application does not perform financial transactions you should add multifactor authentication for customers. It's easier than you think with Auth0."
 fourKeyConcepts: 
   - 
     icon: css-class-bud-icon
@@ -13,11 +13,12 @@ fourKeyConcepts:
   - 
     icon: css-class-bud-icon
     text: "Result: Quick Implementation, Solid Foundation for Future"
-hash: multifactor-authentication-for-external-customers
+hash: mfa-for-customers
 longDescription: "As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more for your customers is easier than you think.\n"
 pdf: MFAforCustomersUseCase.pdf
 sitemap: false
 title: "Multifactor Authentication for Customers"
+seo_description: "Protect your customers' privacy and safeguardi their personal data, by easily enabling multi-factor authentication."
 type: case-study
 ---
 

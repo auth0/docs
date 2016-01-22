@@ -40,7 +40,7 @@ snippets:
 
 #### CocoaPods
 
-You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project. 
+You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project.
 
 > Currently this is the **only** way to make `react-native-lock-ios` work since we don't provide a `.xcodeproj` file in the npm library.
 
@@ -74,7 +74,7 @@ Then create a file name `Podfile` with the following content inside the folder `
 
 ${snippet(meta.snippets.dependencies)}
 
-Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them. 
+Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them.
 From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now integrated to your project via CocoaPods instead of subprojects.
 
 > If you are seeing some warnings after your running `pod install` or you get some linker error when building the Xcode project, please check the [FAQs section](#FAQs)
@@ -136,22 +136,40 @@ Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
+If you need have iOS 9 support for your app, then make sure to add the `LSApplicationQueriesSchemes` key to your Info.plist file and add the `fbauth2` value to it.
+
+Here's how the entries for `LSApplicationQueriesSchemes` should look like:
+
+![FB LSApplicationQueriesSchemes](https://i.stack.imgur.com/YkwEp.png)
+
 Then add Lock Facebook's Pod
 
 ```ruby
 pod 'Lock-Facebook', '~> 2.2'
 ```
 
-Finally, you need to register Auth0 Facebook authenticator somewhere in your application. You can do that in the `AppDelegate` class, for example:
+Finally, you need to register Auth0 Facebook integration when creating `Auth0Lock` :
 
-```objc
-#import <Lock-Facebook/A0FacebookAuthenticator.h>
+```js
+var lock = new Auth0Lock({
+  //Other Lock config options
+  integrations: {
+    facebook: {}
+  }
+});
+```
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Other app initialization, e.g. creating RCTRootView
-    A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
-    [[A0LockReact sharedInstance].lock registerAuthenticators:@[facebook]];
-}
+If you need to use other permissions besides the default:
+
+```js
+var lock = new Auth0Lock({
+  //Other Lock config options
+  integrations: {
+    facebook: {
+      permissions: "public_profile"
+    }
+  }
+});
 ```
 
 #### Twitter
@@ -162,18 +180,18 @@ First add Lock Twitter's Pod
 pod 'Lock-Twitter', '~> 1.1'
 ```
 
-To support Twitter native authentication you need to configure Auth0 Twitter authenticator:
+Finally, you need to register Auth0 Twitter integration when creating `Auth0Lock` :
 
-```objc
-#import <Lock-Twitter/A0TwitterAuthenticator.h>
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Other app initialization, e.g. creating RCTRootView
-    NSString *twitterApiKey = ... //Remember to obfuscate your api key
-    NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-    A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
-    [[A0LockReact sharedInstance].lock registerAuthenticators:@[twitter]];
-}
+```js
+var lock = new Auth0Lock({
+  //Other Lock config options
+  integrations: {
+    twitter: {
+      api_key: "YOUR TWITTER API KEY",
+      api_secret: "YOUR TWITTER API SECRET"
+    }
+  }
+});
 ```
 
 ### 3. Let's implement the login

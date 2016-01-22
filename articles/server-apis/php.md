@@ -31,7 +31,7 @@ snippets:
 
 We need 2 dependencies to make this work:
 
-* **php-jwt**: this will take care of checking the JWT
+* **auth0-php**: this will take care of checking the JWT
 * **router**: we'll use this for creating simple routes
 
 ${snippet(meta.snippets.dependencies)}
@@ -54,11 +54,11 @@ ${snippet(meta.snippets.use)}
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
 
-### Options Steps
+### Optional Steps
 #### Configure CORS
 
-You can configure CORS, by just adding [this lines](https://github.com/auth0/auth0-PHP/blob/master/examples/basic-api/index.php#L45-L54) to your `index.php`
+You can configure CORS, by just adding [these lines](https://github.com/auth0/auth0-PHP/blob/master/examples/basic-api/index.php#L45-L54) to your `index.php`
 
 #### Define `apache_request_headers` if not available
 
-If the function is not available, just [copy this lines](https://github.com/auth0/auth0-PHP/blob/master/examples/basic-api/index.php#L8-L29) to your `index.php`
+If the function is not available, just [copy these lines](https://github.com/auth0/auth0-PHP/blob/master/examples/basic-api/index.php#L8-L29) to your `index.php`

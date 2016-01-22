@@ -1,5 +1,5 @@
 ---
-description: "Given that your employees’ passwords are often used across dozens of sites so they can be remembered, there is not enough security for your organization's Web-accessible applications unless you require multiple factors of authentication. Fortunately, with Auth0, you can easily add multifactor authentication to existing and new Web and mobile applications to increase your security posture."
+description: "Given that your employees’ passwords are often used across dozens of sites so they can be remembered, there is not enough security for your organization's Web-accessible applications unless you require multiple factors of authentication. Fortunately, with Auth0, you can easily add multifactor authentication for employees to existing and new Web and mobile applications to increase your security posture."
 fourKeyConcepts:
   -
     icon: css-class-bud-icon
@@ -13,10 +13,11 @@ fourKeyConcepts:
   -
     icon: css-class-bud-icon
     text: "Result: Quick Implementation, Solid Foundation for Future"
-hash: multifactor-authentication-for-employees
+hash: mfa-for-employees
 longDescription: "As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more to both existing and new applications is easier than you think."
 public: false
 title: "Multifactor Authentication for Employees"
+seo_description: "Add multi-factor authentication to your web and mobile applications with just a few simple steps, to help secure your corporate assets."
 type: case-study
 ---
 

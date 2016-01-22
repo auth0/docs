@@ -58,7 +58,7 @@ You must install the `InAppBrowser` plugin to be able to show the Login popup. F
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using the `<gap:plugin name="cordova-plugin-inappbrowser" source="npm" />` tag between the `<widget>` tags inside your __config.xml__ file. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-native)
+> **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using the `<plugin name="cordova-plugin-inappbrowser" />` tag between the `<widget>` tags inside your __config.xml__ file. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-config)
 
 ### 2. Follow the guide specific to the FrontEnd technology you're using
 

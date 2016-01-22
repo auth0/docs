@@ -1,3 +1,3 @@
 ```bash
-composer require auth0/login:~2.1
+composer require auth0/login:~3.0
 ```

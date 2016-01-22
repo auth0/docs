@@ -1,4 +1,4 @@
-```jsx
+```js
 var Home = React.createClass({
   // ...
   showLock: function() {

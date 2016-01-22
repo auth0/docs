@@ -21,7 +21,7 @@ The **From address** is the address users will see as the sender when receiving 
 If you haven't configured a **From address** for your emails, the following will occur:
 
 * If your email templates are not customized, they will be sent from `no-reply@auth0.com`.
-* Otherwise, they will be sent from the email address of the first owner of your Auth0 account.
+* Otherwise, they will be sent **without customizations** from the email address of the first owner of your Auth0 account.
 
 **NOTE:** Because of security reasons, it is not possible to send customized emails from any `@auth0.com` address. Appliance users can configure a similar domain blacklist.
 
@@ -151,9 +151,9 @@ The following macros are available in this template:
 
 ## Email Limits
 
-The Auth0 shared email provider restricts your account from sending more than 10 emails per minute total, including all email types (welcome, verification, password reset, etc.).
+The Auth0 shared email provider restricts your account from sending more than 10 emails per minute total, including all email types (welcome, verification, password reset, etc.).  High bounce rates will reduce this rate, or may even temporarily block your ability to send email from your account.
 
-Auth0 makes its best effort to deliver all emails for our customers. However, you may wish to configure your own email provider for use with Auth0, especially if you:
+If these restrictions are problematic, you may wish to configure your own email provider for use with Auth0, especially if you:
 
 * want guaranteed delivery
 * anticipate a high volume that will exceed the shared email limits

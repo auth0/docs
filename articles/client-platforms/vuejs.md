@@ -8,16 +8,16 @@ language:
   - Javascript
 framework:
   - Vue.js
-image: /media/platforms/vuejs.png
+image:
 tags:
   - quickstart
 snippets:
   dependencies: client-platforms/vuejs/dependencies
   http: client-platforms/vuejs/http
-  http-call: client-platforms/vuejs/http-call
+  httpcall: client-platforms/vuejs/httpcall
   interceptors: client-platforms/vuejs/interceptors
   login: client-platforms/vuejs/login
-  login-logout: client-platforms/vuejs/login-logout
+  loginlogout: client-platforms/vuejs/loginlogout
   logout: client-platforms/vuejs/logout
   routing: client-platforms/vuejs/routing 
 alias:
@@ -64,7 +64,7 @@ ${snippet(meta.snippets.logout)}
 
 These methods can now be attached to elements in the template.
 
-${snippet(meta.snippets.login-logout)}
+${snippet(meta.snippets.loginlogout)}
 
 __Note:__ There are multiple ways of implementing login. The example above displays the Lock Widget. However you may implement your own login UI by changing the line `<script src="${widget_url_no_scheme}"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`.
 
@@ -74,9 +74,9 @@ To make secure calls to an API, attach the user's JWT as an `Authorization` head
 
 ${snippet(meta.snippets.http)}
 
-This function can then be used in your template.
+This method can then be used in your template to make the API call.
 
-${snippet(meta.snippets.http-call)}
+${snippet(meta.snippets.httpcall)}
 
 ### 4. Implement Routing
 

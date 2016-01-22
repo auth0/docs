@@ -36,6 +36,10 @@ See the following tutorials for a step-by-step guide on how to implement passwor
 
 If you'd like to build your own implementation or understand how this works under the hood, check out the [complete API reference](/auth-api#passwordless).
 
+## Advanced Topics
+
+ - [Send one time codes via your own SMS Gateway](/connections/passwordless/sms-gateway)
+
 ## Have Questions?
 
 You may find the answers on the [Auth0 Passwordless FAQ](/connections/passwordless/faq).

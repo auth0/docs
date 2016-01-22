@@ -4,7 +4,7 @@ name: Vanilla JS
 alias:
   - vanilla
   - vanillajs
-language: 
+language:
   - Javascript
 image: /media/platforms/html5.png
 tags:
@@ -26,7 +26,7 @@ alias:
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-vanillajs-api-sample',
   pkgBranch: 'gh-pages',
-  pkgPath: vanillajs-redirect-auth0-sample,
+  pkgPath: 'vanillajs-redirect-auth0-sample',
   pkgFilePath: null,
   pkgType: 'js' + account.clientParam
 }) %>
@@ -65,7 +65,7 @@ To discover all the available arguments for `lock.show`, see the [Auth0Lock docu
 
 After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh. 
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
 
 ```js
 var hash = lock.parseHash(window.location.hash);

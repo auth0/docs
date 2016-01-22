@@ -28,7 +28,7 @@ This means that even if you use Auth0 for SSO support in Office 365, you will al
 
 When authentication is handed over to Auth0 it will use the AD Connector to authenticate the user. The link between the Auth0 user and the user in Azure AD is made using the `User Principal Name`. When Jack is synchronized to Azure AD his UPN will be `jack@fabrikamcorp.be` and when Jack authenticates using Auth0 the same UPN will be included in the SAML assertion to identify the authenticated user to the user stored in Azure AD. 
 
-> Note: If you're interested in providing SSO to Office 365 using other connections (like Database Connections, traditional AD, ...) you can [write a rule with custom provisioning logic](/articles/integrations/office-365-custom-provisioning)
+> Note: If you're interested in providing SSO to Office 365 using other connections (like Database Connections, traditional AD, ...) you can [write a rule with custom provisioning logic](/integrations/office-365-custom-provisioning)
 
 ## Configuring Synchronization With Office 365 / Azure AD
 

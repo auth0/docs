@@ -1,12 +1,7 @@
-require('dotenv').load();
 var program = require('commander');
 var fs = require('fs');
-var lsr = require('lsr');
-var tinify = require('tinify');
-var path = require('path');
-
-tinify.key = process.env.TINYPNG_KEY;
-var mediaPath = path.join(__dirname, '/media');
+var Imagemin = require('imagemin');
+var imageminOptipng = require('imagemin-optipng');
 
 var redirectFilePath = './redirect-urls.json';
  var addRedirect = function(oldUrl, newUrl, callback) {
@@ -48,24 +43,22 @@ program.command('mv <oldUrl> <newUrl>')
         console.log('File renamed');
       });
     });
-  })
+  });
 
 
 program.command('img')
   .action(function() {
-    lsr
-    .sync(mediaPath)
-    .forEach(function(fileStat) {
-      var filepath = fileStat.path;
-      console.log('compressing ' + filepath);
-      // Skip non PNG files
-      if (!/\.png$/.test(filepath)) return;
-
-      var fullPath = path.join(mediaPath, filepath);
-      var source = tinify.fromFile(fullPath);
-      source.toFile(fullPath);
-    });
-
+    new Imagemin()
+      .src('media/**/*.png')
+      .dest('media')
+      .use(imageminOptipng({optimizationLevel: 3}))
+      .run((err, files) => {
+        if (err) {
+          console.error(err);
+        }
+        console.log('Minified ' + files.length + ' images.');
+        //=> {path: 'build/images/foo.jpg', contents: <Buffer 89 50 4e ...>}
+      });
   });
 
 

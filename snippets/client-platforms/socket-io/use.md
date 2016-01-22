@@ -1,25 +1,27 @@
 ```js
 var userProfile;
 var userToken;
+
+var hash = lock.parseHash();
+if(hash) {
+    if(hash.error) {
+        console.log("There was an error logging in", hash.error);
+    }
+    else {
+        lock.getProfile(hash.id_token, function(err, profile) {
+            if(err) { 
+                console.log('Cannot get user', err);
+                return;
+            }
+            userProfile = profile;
+            localStorage.setItem('userToken', hash.id_token);
+            userToken = hash.id_token;
+         });
+     }
+}
+
 $('#login button').click(function(e){
 	e.preventDefault();
-	lock.show(function(err, profile, token) {
-		if (err) {
-			//Error callback
-			alert('There was an error');
-			alert(err);
-		} else {
-			//Success callback
-			userToken = token;
-
-			//Save the JWT token
-			localStorage.setItem('userToken', token);
-
-			//Save the profile
-			userProfile = profile;
-
-						
-		}
-	})
+	lock.show();
 });
 ```
