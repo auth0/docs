@@ -30,7 +30,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (of an
 
 ### 1. Install Auth0-ASPNET-Owin NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
+Use the NuGet Package Manager (Tools -> NuGet Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
 
 ${snippet(meta.snippets.dependencies)}
 
