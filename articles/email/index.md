@@ -2,51 +2,50 @@
 url: /email
 ---
 
-# Emails in Auth0
+With Auth0, you can send emails to your users to 
 
-Auth0 can send emails to your users at sign up, to validate their email address, and to confirm a password change request.
+* validate their email address at sign up 
+* to confirm a password change request at a later date.
 
-The dashboard allows you to customize emails using Markdown templates and macros which include the context of the current application and the current user.
+The dashboard allows you to customize emails using Markdown templates and macros, which include the context of the current application and user.
 
 ![](/media/articles/email/index/emails-fields.png)
 
 ## Configuring *From*, *Subject* and *Redirect To*
 
-For each email type, the **From address**, the **Subject**, the **URL Lifetime** and the **Redirect To** URL can be customized.
+For each type of email, you can customize the **From address**, the **Subject**, the **URL Lifetime**, and the **Redirect To** URL.
 
 ### *From Address*
 
-The **From address** is the address users will see as the sender when receiving an email from Auth0.
+Users will see the sender's address in the **From address** field when receiving an email from Auth0.
 
-If you haven't configured a **From address** for your emails, the following will occur:
+If you do not configure a **From address** for your emails:
 
-* If your email templates are not customized, they will be sent from `no-reply@auth0.com`.
-* Otherwise, they will be sent **without customizations** from the email address of the first owner of your Auth0 account.
+* Without customized email templates, your emails will be sent from `no-reply@auth0.com`
+* With customized email tempates, your emails will be sent from the email address of the first owner of your Auth0 account
 
-**NOTE:** Because of security reasons, it is not possible to send customized emails from any `@auth0.com` address. Appliance users can configure a similar domain blacklist.
+**NOTE:** Because of security reasons, you may not send customized emails from any `@auth0.com` address. If you are an Appliance user, you may configure a similar domain blacklist.
 
-This field supports the following macros:
+The **From Address** field supports the following macros:
 
 - `{application.name}`
 - `{connection.name}`
 
-With these macros, you could set the display name of the **From address** as something specific to the current application for which the user signed up. Eg: `{application.name} <support@fabrikamcorp.com>`
+You can use these macros to set the display name of the **From Address** to something that relates to the application for which the user signed up. For example, the field could display `{application.name} <support@fabrikamcorp.com>`.
 
-To avoid emails ending up in your users' junk folder, add the required [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](http://en.wikipedia.org/wiki/DKIM) DNS records, allowing Auth0 to send digitally-signed emails on your behalf.
-
-When SPF and DKIM are not configured, users may see the **From address** as "on behalf of", depending on their email client:
+You must add the required [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](http://en.wikipedia.org/wiki/DKIM) DNS records, which allow Auth0 to send digitally-signed emails on your behalf. Without these records, the emails may end up in your users' junk folders. Additionally, your users may see the following as the **From Address**:
 
 `MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrikamcorp.com`
 
 #### SPF Configuration
 
-The SPF is configured by adding a TXT record to your domain. The host name should be set to @ (or empty, depending on the provider). If this is the first time you are setting up an SPF record, you will need to declare it as follows:
+You can configure the SPF by adding a TXT record to your domain. You should set the host name to @ or empty (depending on the provider). If this is the first time you are setting up an SPF record, you will need to declare it as follows:
 
 ```text
 v=spf1 include:spf.auth0.com ~all
 ```
 
-If you are already sending emails from this domain and wish to add the Auth0 domain to the SPF configuration, simply add it after your existing definitions, as follows:
+If you are already sending emails from this domain, and you would like to add the Auth0 domain to the SPF configuration, append the domain to your existing definition:
 
 ```text
 v=spf1 include:outlook.com include:spf.auth0.com ~all
@@ -54,7 +53,13 @@ v=spf1 include:outlook.com include:spf.auth0.com ~all
 
 #### DKIM Configuration
 
-The DKIM configuration is also added using a TXT record to the domain from which you are sending. The host name for this record should be set to `mandrill._domainkey` and the value set to:
+The DKIM configuration is configured by adding a TXT record to your domain. This domain should be the one you use to send emails. You must set the host name for this record to:
+
+```text
+mandrill._domainkey
+``` 
+
+and the value to:
 
 ```text
 v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;
@@ -62,30 +67,29 @@ v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSR
 
 ### Subject
 
-The **Subject** supports the following macros:
+You can use the following macros with the **Subject** field:
 
 - `{application.name}`
 - `{connection.name}`
 - `{user.email}`
 
-If this value is empty, the subject text will depend on the type of email being sent, for example: "*Verify your email*".
+If the **Subject** field is empty, Auth0 will auto-populate this text depending on what type of email you're sending. For example, one subject line might be "*Verify your email*".
 
 ### Redirect To
 
-The **Redirect To** field allows you to control the URL to which users will be redirected after clicking the link in the email:
+You can redirect users to a page on the *Allowed Callback URL* using the following:
 
-- `{application.callback_domain}`
-- `{application.name}`
+`{application.callback_domain}/result_page`
 
-You are then able to redirect users to a page on the *Allowed Callback URL*, for example: `{application.callback_domain}/result_page`. If the application has multiple *Allowed Callback URL*s configured, the first one will be used.
+If your application has multiple *Allowed Callback URL*s configured, Auth0 will use the first URL listed.
 
 ### URL Lifetime
 
-The **Verification Email** and **Change Password Confirmation Email** both contain a link which will allow users to verify their email address or confirm their password change.
+The **Verification Email** and **Change Password Confirmation Email** both contain a link which users can use to verify their email address when signing up or confirming their password change.
 
-The lifetime of this link can be modified for security reasons. The default value is 432000 seconds (5 days).
+You can modify the lifetime of this link for security reasons. By default, the lifetime is 432000 seconds (which is equivalent to five days).
 
-When users click the expired link and a **Redirect To** URL is configured, they will be redirected to this URL and the following information will be appended to the querystring:
+If users click on an expired link and a **Redirect To** URL is configured, he or she will be redirected to this URL, and the following text will be appended to the querystring:
 
 ```text
 http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
@@ -95,15 +99,15 @@ http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expire
 
 ### Verification Email
 
-This email will be sent when users sign up or log in for the first time. When users follow the verification link, the `email_verified` property will be changed to `true` in their user profile.
+When users sign up or log in for the first time, he or she will be sent a verification email. Clicking on the verification link contained in the email sets the 'email verified' property of his or her user profile to 'true.'
 
-The following macros are available in this template:
+The following macros are available in the **Verification Email** template:
 
 - `{application.name}`
 - `{connection.name}`
 - `{user.email}`
 
-When a **Redirect To** URL is configured, users will be redirected to this URL after the email address has been verified. The following information will be appended to the querystring:
+If you configure a **Redirect To** URL, the email directs the user to this URL after he or she verifies the email address. The following will be appended to the querystring sent:
 
 ```text
 http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.&success=true
@@ -111,9 +115,9 @@ http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%
 
 ### Welcome Email
 
-This email is sent once users verify their email address. If the **Verification Email** is turned off, this email will be sent when users sign up or log in for the first time.
+Once a user verifies his or her email address, he or she will receive a **Welcome Email**. If you turn off the **Verification Email** feature, the **Welcome Email** will be sent to the user when he or she signs up or logs in for the first time.
 
-The following macros are available in this template:
+The following macros are available in the **Welcome Email** template:
 
 - `{application.name}`
 - `{connection.name}`
@@ -121,15 +125,15 @@ The following macros are available in this template:
 
 ### Change Password Confirmation Email
 
-This email is sent when users requests a password change. The password is not changed until they follow the verification link in the email.
+If a user requests a password change, he or she will receive a **Change Password Confirmation Email**. Until the user follows the verification link contained in the email, the password remains unchanged.
 
-The following macros are available in this template:
+The following macros are available in the **Change Password Confirmation** email template:
 
 - `{application.name}`
 - `{connection.name}`
 - `{user.email}`
 
-When a **Redirect To** URL is configured, users will be redirected to this URL after their email address has been verified. The following information will be appended to the querystring:
+If you configure a **Redirect To** URL, the email directs the user to this URL after he or she verifies the email address. The following will be appended to the querystring sent:
 
 ```text
 http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
@@ -137,11 +141,11 @@ http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%2
 
 ### Blocked Account Email
 
-This email is sent when a user's account is has been blocked. Each time a login fails for a particular user at a specific IP address, the failed login count is incremented. When the count reaches 10, the user will be unable to log in again from that IP address until the link in the *Blocked Account Email* is clicked.
+If a user's account is blocked, he or she will receive an email saying so. The user's account will be blocked if, for a specific IP address, there are ten failed login attempts. Once the user receives a **Blocked Account** email, he or she will not be able to log in from that IP address again until he or she clicks on the linked contained in the email.
 
-If a user successfully logs in before the counter reaches 10, the failed login counter is reset to 0.
+If the user successfully logs in before the failed login counter reaches ten, the counter is reset to zero.
 
-The following macros are available in this template:
+The following macros are available in the **Blocked Account Email** template:
 
 - `user.source_ip`
 - `user.city`
@@ -151,15 +155,16 @@ The following macros are available in this template:
 
 ## Email Limits
 
-The Auth0 shared email provider restricts your account from sending more than 10 emails per minute total, including all email types (welcome, verification, password reset, etc.).  High bounce rates will reduce this rate, or may even temporarily block your ability to send email from your account.
+The Auth0 shared email provider restricts your account from sending more than ten emails per minute, regardless of email type. Your ability to send email from your account may be reduced, or even temporarily blocked, if your emails result in high bounce rates.
 
-If these restrictions are problematic, you may wish to configure your own email provider for use with Auth0, especially if you:
+If the restrictions on the number of emails you may send are problemative, you may configure your own email provider for use with Autho0. You may also wish to configure your own email provider if you:
 
 * want guaranteed delivery
-* anticipate a high volume that will exceed the shared email limits
-* wish to have direct access to logs
-* desire more control over the email service (for example: the IP address from which your emails are sent)
+* anticipate exceeding the shared email limits
+* want direct access to email logs
+* want greater control over the email server (for example, you may want to change the IP address from what your emails are sent)
 
-For more information on setting up your own email provider, see:
+For more information on setting up your own email provider, please consult the following resources:
+
 * [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
 * [Take control of the complete email flow](/email/custom)
