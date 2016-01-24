@@ -45,7 +45,11 @@ ${snippet(meta.snippets.setup)}
 
 Our meteor package reads this information and creates a Lock instance with these settings.
 
-### 3. Implement the login
+### 3. Specify the callback on Auth0 Dashboard
+
+${include('./_callbackRegularWebApp')}
+
+### 4. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance on the client of your Meteor project.
 
@@ -55,7 +59,7 @@ In this case we are using a Meteor Template called `Auth0Login`.
 
 To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
-### 4. Retrieve user information
+### 5. Retrieve user information
 
 You can retrieve information about the user's profile using the `currentUser` helper. The information will be under `currentUser.services.auth0`.
 
@@ -81,7 +85,7 @@ var userName = Meteor.user().services.auth0.name;
 
 To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
 
-### 5. Log out
+### 6. Log out
 
 To log out you can just call `Meteor.logout();` on the client side of your application.
 
@@ -91,6 +95,6 @@ To log out you can just call `Meteor.logout();` on the client side of your appli
  }
 ```
 
-### 6. All done!
+### 7. All done!
 
 You have completed the implementation of Login and Signup with Auth0 and Meteor.
