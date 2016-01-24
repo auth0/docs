@@ -2,10 +2,10 @@
 url: /email
 ---
 
-With Auth0, you can send emails to your users to 
+With Auth0, you can send emails to your users to: 
 
 * validate their email address at sign up 
-* to confirm a password change request at a later date.
+* confirm a password change request at a later date
 
 The dashboard allows you to customize emails using Markdown templates and macros, which include the context of the current application and user.
 
@@ -13,27 +13,27 @@ The dashboard allows you to customize emails using Markdown templates and macros
 
 ## Configuring *From*, *Subject* and *Redirect To*
 
-For each type of email, you can customize the **From address**, the **Subject**, the **URL Lifetime**, and the **Redirect To** URL.
+For each type of email, you can customize the **From Address**, the **Subject**, the **URL Lifetime**, and the **Redirect To** URL.
 
 ### *From Address*
 
-Users will see the sender's address in the **From address** field when receiving an email from Auth0.
+Users will see the sender's address in the **From Address** field when receiving an email from Auth0.
 
-If you do not configure a **From address** for your emails:
+If you do not configure a **From Address** for your emails:
 
-* Without customized email templates, your emails will be sent from `no-reply@auth0.com`
-* With customized email tempates, your emails will be sent from the email address of the first owner of your Auth0 account
+* your emails will be sent from `no-reply@auth0.com` if you do not use a customized email template
+* your emails will be sent from the email address of the first owner of your Auth0 account if you are using customized email templates
 
-**NOTE:** Because of security reasons, you may not send customized emails from any `@auth0.com` address. If you are an Appliance user, you may configure a similar domain blacklist.
+**NOTE:** Due to security, you may not send customized emails from any `@auth0.com` address. If you are an Appliance user, you may configure a similar domain blacklist.
 
 The **From Address** field supports the following macros:
 
 - `{application.name}`
 - `{connection.name}`
 
-You can use these macros to set the display name of the **From Address** to something that relates to the application for which the user signed up. For example, the field could display `{application.name} <support@fabrikamcorp.com>`.
+You can use these macros to set the display name of the **From Address** to something that relates to the application for which the user signed up. For example, the field could display `{application.name} <support@fabrikamcorp.com>`, as opposed to `<support@fabrikamcorp.com>`.
 
-You must add the required [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](http://en.wikipedia.org/wiki/DKIM) DNS records, which allow Auth0 to send digitally-signed emails on your behalf. Without these records, the emails may end up in your users' junk folders. Additionally, your users may see the following as the **From Address**:
+You must add the [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](http://en.wikipedia.org/wiki/DKIM) DNS records, which allow Auth0 to send digitally-signed emails on your behalf. Without these records, the emails may end up in your users' junk folders. Additionally, your users may see the following as the **From Address**:
 
 `MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrikamcorp.com`
 
@@ -73,11 +73,11 @@ You can use the following macros with the **Subject** field:
 - `{connection.name}`
 - `{user.email}`
 
-If the **Subject** field is empty, Auth0 will auto-populate this text depending on what type of email you're sending. For example, one subject line might be "*Verify your email*".
+If the **Subject** field is empty, Auth0 will auto-populate this text depending on what type of email you're sending. For example, one subject line might be "*Verify your email.*"
 
 ### Redirect To
 
-You can redirect users to a page on the *Allowed Callback URL* using the following:
+You can redirect users to a specific page on the *Allowed Callback URL* using the following:
 
 `{application.callback_domain}/result_page`
 
@@ -141,7 +141,7 @@ http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%2
 
 ### Blocked Account Email
 
-If a user's account is blocked, he or she will receive an email saying so. The user's account will be blocked if, for a specific IP address, there are ten failed login attempts. Once the user receives a **Blocked Account** email, he or she will not be able to log in from that IP address again until he or she clicks on the linked contained in the email.
+If a user attempts and fails to log in ten or more times from a specific IP address, the user's account becomes locked and he or she will receive a **Blocked Account** email. Once the user receives this email, he or she will not be able to log in from that IP address again until he or she clicks on the linked contained in the email.
 
 If the user successfully logs in before the failed login counter reaches ten, the counter is reset to zero.
 
@@ -155,9 +155,9 @@ The following macros are available in the **Blocked Account Email** template:
 
 ## Email Limits
 
-The Auth0 shared email provider restricts your account from sending more than ten emails per minute, regardless of email type. Your ability to send email from your account may be reduced, or even temporarily blocked, if your emails result in high bounce rates.
+The Auth0 shared email provider restricts your account from sending more than ten emails per minute, regardless of email type. Additionally, your ability to send email from your account may be reduced, or even temporarily blocked, if your emails result in high bounce rates.
 
-If the restrictions on the number of emails you may send are problemative, you may configure your own email provider for use with Autho0. You may also wish to configure your own email provider if you:
+If the restrictions on the number of emails you may send are problematic, you may configure your own email provider for use with Autho0. You may also wish to configure your own email provider if you:
 
 * want guaranteed delivery
 * anticipate exceeding the shared email limits
