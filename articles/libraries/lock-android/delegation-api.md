@@ -32,7 +32,9 @@ client
     });
 ```
 
-The only two parameters required are `id_token` and `api_type`, the former is the token returned by Auth0 after a successful authentication, the latter specifies the API credentials we want to retrieve, and these are it's supported values:
+> The delegation response is a generic Map since the structure of it will depend of the `api_type` used for delegation
+
+The only two parameters required are `id_token` and `api_type`, the former is the token returned by Auth0 after a successful authentication, the latter specifies the API credentials we want to retrieve, and these are its supported values:
 
 * app: Your Auth0 application. This will get a new JWT token.
 * aws: Amazon Web Services API.
