@@ -1,5 +1,5 @@
 ---
 name: Passwordless Authentication
 videos:
-	- passwordless-authentication
+ - passwordless-authentication
 ---
