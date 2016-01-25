@@ -57,7 +57,7 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 ### Optional Steps
 #### Configure CORS
 
-You can configure CORS, by just adding [these lines](https://github.com/auth0/auth0-PHP/blob/master/examples/basic-api/index.php#L45-L54) to your `index.php`
+You can configure CORS, by just adding [these lines](https://github.com/auth0/auth0-PHP/blob/master/examples/basic-api/index.php#L47-L58) to your `index.php`
 
 #### Define `apache_request_headers` if not available
 
