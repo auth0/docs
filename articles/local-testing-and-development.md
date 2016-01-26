@@ -34,5 +34,5 @@ If you need to simulate a user logging in to your application but don't have acc
 ## Auth0 and `localhost`
 
 If you need to develop an application locally, it's possible to use `localhost` or other domains which Auth0 cannot access (e.g. intranets) as callback URLs.
-Since Auth0 [uses OpenID Connect](https://auth0.com/docs/protocols) as its main identity protocol, it never makes a call directly to your application's server.
+Since Auth0 [uses OpenID Connect](/protocols) as its main identity protocol, it never makes a call directly to your application's server.
 Instead, it redirects users in a browser to an endpoint of your application (which must be listed in the "Allowed Callback URLs" list) with specific information in the query string or hash fragment, depending on the type of application.
