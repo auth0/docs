@@ -1,8 +1,8 @@
 ---
 name: "Setting up Passwordless Authentication using the Auth0 Dashboard"
 description: "This screencast show users how to configure, from the Auth0 dashboard, many types of passwordless authentication, that can then be used with libraries like lock-passwordless"
-videoId: 16n16z2ac9
 timeInSeconds: 334
+videoId: l8y4pxqehs
 ---
 Hi, this is Kassandra with Auth0, and what we're going to do today is talk about passwordless authentication and show you how to configure that via the Auth0 Dashboard.
 
