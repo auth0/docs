@@ -103,6 +103,7 @@ function (user, context, callback) {
 
 Auth0 computes a hash with the IP address of the request and the 'userAgent' string. If the hash changes the next time the user logs in, Auth0 requests MFA from the user.
 
+```
 function (user, context, callback) {
 
   var deviceFingerPrint = getDeviceFingerPrint();
