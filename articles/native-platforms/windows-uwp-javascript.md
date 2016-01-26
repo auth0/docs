@@ -1,36 +1,34 @@
 ---
-title: Windows Store App in Javascript Tutorial
-name: Windows Store (JS)
+title: Windows UWP App in Javascript Tutorial
+name: Windows UWP (JS)
 hybrid: false
 alias:
   - windows app
   - windows
 language: 
   - Javascript
-  - C#
 image: /media/platforms/windows-8.png
 tags:
   - quickstart
 snippets:
-  dependencies: native-platforms/windows-store-javascript/dependencies
-  setup: native-platforms/windows-store-javascript/setup
-  use: native-platforms/windows-store-javascript/use
+  dependencies: native-platforms/windows-uwp-javascript/dependencies
+  setup: native-platforms/windows-uwp-javascript/setup
+  use: native-platforms/windows-uwp-javascript/use
 alias:
-  - windows-8
-  - windows-81
+  - windows-10
   - windows-tablet
   - surface
 ---
 
-# Windows Store App in Javascript Tutorial
+# Windows UWP App in Javascript Tutorial
 
-This tutorial explains how to integrate Auth0 with a Windows App Store. `Auth0.Windows8.Js` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
+This tutorial explains how to integrate Auth0 with a Windows UWP application written in JavaScript. `Auth0.Windows.UWP.JavaScript` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 ## Tutorial
 
-### 1. Install Auth0.Windows8.Js NuGet package
+### 1. Install Auth0.Windows.UWP.JavaScript NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the Auth0.Windows8.Js package, running the command:
+Use the NuGet Package Manager Console (Tools -> Nuget Package Manager -> Package Manager Console) to install the Auth0.Windows.UWP.JavaScript package, running the command:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -49,19 +47,19 @@ ${snippet(meta.snippets.setup)}
 ### 3. Integration
 There are three options to do the integration:
 
-1. Using the [Auth0 Login Widget](/libraries/lock) inside a Web View (this is the simplest with only a few lines of code required).
-2. Creating your own UI (more work, but higher control the UI and overall experience).
-3. Using specific user name and password.
+1. Using the [Auth0 Login Widget](/libraries/lock) with the Web Authentication Broker (this is the simplest with only a few lines of code required).
+2. Using the [Auth0 Login Widget](/libraries/lock) with the Web Authentication Broker, but specifying a specific Connection.
+3. Custom user interface to ask username and password.
 
-#### Option 1: Authentication using Login Widget
+#### Option 1: Using the Auth0 Login Widget
 
 To start with, we'd recommend using the __Login Widget__. Here is a snippet of code to copy & paste on your project:
 
 ${snippet(meta.snippets.use)}
 
-![](//cdn.auth0.com/docs/img/win8-cs-step1.png)
+![](/media/articles/native-platforms/windows-uwp-javascript/lock-widget-screenshot.png)
 
-#### Option 2: Authentication with your own UI
+#### Option 2: Using the Auth0 Login Widget, but specifying a specific Connection.
 
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
@@ -80,7 +78,9 @@ auth0.Login({ connection: "auth0waadtests.onmicrosoft.com" }, function (err, res
 
 > connection names can be found on Auth0 dashboard. E.g.: `facebook`, `linkedin`, `somegoogleapps.com`, `saml-protocol-connection`, etc.
 
-#### Option 3: Authentication with specific user name and password (only for providers that support this)
+#### Option 3: Custom user interface to ask username and password.
+
+The third option is to create your own custom user interface to prompt the user for their username and password. You can then pass this, along with the connection name to the `LoginAsync` method:
 
 ```javascript
 auth0.Login({
