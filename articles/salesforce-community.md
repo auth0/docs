@@ -16,4 +16,4 @@ Auth0 will automatically construct much of the URL. This includes the required O
 
 For full details see [this Salesforce article](http://www.salesforce.com/us/developer/docs/chatterapi/Content/quickstart_communities.htm).
 
-It is common to customize the login page for __Community__ sites. Auth0's authentication will work fine with these customized pages as long as they remain a part of the login transaction and honor the OAuth2 flow. [This sample](https://github.com/salesforceidentity/basic-custom-login) provides details on how to make customized login pages properly.
+It is common to customize the login page for __Community__ sites. Auth0's authentication will work fine with these customized pages long as they remain a part of the login transaction and honor the OAuth2 flow. [This sample](https://github.com/salesforceidentity/basic-custom-login) provides details on how to properly make customized login pages.
