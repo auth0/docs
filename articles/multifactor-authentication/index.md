@@ -128,7 +128,7 @@ function (user, context, callback) {
 }
 ```
 
-## Custom MFA
+### Custom MFA
 
 You can use the "redirect" protocol in Auth0 if you are using another MFA provider or if you would like to build your own service.
 
@@ -159,7 +159,7 @@ function (user, context, callback) {
 }
 ```
 
-## Additional Notes
+### Additional Notes
 
 > MFA does not work with the Resource Owner ('/ro') endpoint. If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set "sso" to "true" when defining the options in auth0.js or Lock. If you fail to do this, users will be able to log in without MFA.
 
