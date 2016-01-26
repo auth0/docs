@@ -1,24 +1,22 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields other than email and password.
-[Lock](lock) has a `signup` mode but it does not support adding arbitrary fields,
-so you will have to implement your own UI for signup.
-Lock can still be used for logging in to your application.
+By default, [Lock](lock)'s `signup` mode does not support custom fields. Instead, add additional fields by implementing your own UI for signup around [Lock](lock). Lock will still be used for logging in to your application, while additional fields will be sent to the `user_metadata` field of the user's profile.
 
-> Note that there is currently no way to validate user-supplied custom fields when signing up.
-Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
+Note that there is currently no built-in method of validation for user-supplied custom fields. Validation must be done with an [Auth0 rule](/rules) or with custom logic in your application.
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
 ## Overview
 
-We can describe a custom signup flow with the following steps:
+The signup flow for custom forms always includes the following steps:
 
-1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
-2. [Log them in programatically](/auth-api#!#post--oauth-ro) and [get back a JWT](/scopes)
+1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password. **This endpoint only works for database connections**.
+2. [Log in the user](/auth-api#!#post--oauth-ro) by posting a user credentials object to the [/oauth/ro](/auth-api#!#post--oauth-ro) endpoint and [get back a JWT](/scopes) (JSON Web Token).
 3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata)
 
-## 1. Signup form
+## 1. Example Signup form
+
+In this example, `name` and `color` are custom fields.
 
 ```html
 <form id="signup">
@@ -28,8 +26,7 @@ We can describe a custom signup flow with the following steps:
       <input type="email" id="signup-email" placeholder="Email" required/>
     </p>
     <p>
-      <input type="password" id="signup-password" placeholder="Password"
-             required/>
+      <input type="password" id="signup-password" placeholder="Password" required/>
     </p>
     <p>
       <input type="text" id="name" placeholder="Full name" required/>
@@ -42,13 +39,20 @@ We can describe a custom signup flow with the following steps:
 </form>
 ```
 
-Notice that `name` and `color` are custom fields.
 
 ## 2. Auth0.js and dependencies
+
+Include the Auth0.js and jQuery libraries in the `<head>` of your document as CDN links...
 
 ```html
 <script src="https://cdn.auth0.com/w2/auth0-6.7.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+```
+
+...or as dependencies in a `package.json` file by running:
+
+```shell
+npm install --save auth0-js jquery
 ```
 
 ```js
