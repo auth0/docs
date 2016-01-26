@@ -1,5 +1,5 @@
 ---
-description: "Learn how Auth0 makes it simple to get analytics from your users to help with your decision-making process, and explore a specific example."
+description: "Learn how Auth0 helps with your decision-making process, and makes it easy to gather data about your users. Explore a specific example of User Analytics, including code snippets."
 fourKeyConcepts: 
   - 
     icon: css-class-bud-icon
@@ -16,11 +16,11 @@ fourKeyConcepts:
 hash: analytics
 longDescription: "Thanks to the rise of social networks and Big Data, every day it is easier to collect up-to-date and richer information about your customers. Information that can help your business with direct marketing, site selection, customer relationship management, and much more. Customer analytics help make key business decisions via market segmentation and predictive analysis, and Identity lies at the heart of this powerful business accelerator."
 sitemap: false
-title: "Getting Analytics about Your Users"
-seo_description: "Learn how Auth0 makes it simple to get analytics from your users to help with your decision-making process, and explore a specific example."
+title: "Powering User Analytics With Identity"
+seo_description: "Learn how Auth0 helps with your decision-making process, and makes it easy to gather data about your users. Explore a specific example of User Analytics, including code snippets."
 type: use-case
 ---
-# Use Case: Getting Analytics about Your Users
+# Use Case: Powering User Analytics With Identity
 
 * * *
 
