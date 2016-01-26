@@ -4,7 +4,7 @@ url: /multifactor-authentication
 
 # Multifactor Authentication in Auth0
 
-Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present at least two pieces of information, which provides additional layers of security to decrease the liklihood of aunauthorized access. This information is typically one of the following:
+Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present at least two pieces of information. This provides additional layers of security to decrease the liklihood of aunauthorized access. This information asked of the user is typically two or more of the following:
 
 * Knowledge: something he or she knows, such as a password
 * Possession: something he or she has, such as a cell phone
@@ -18,9 +18,9 @@ With Auth0, you have three options for implementing MFA:
 
 ## Using Auth0's Built-in Support 
 
-### Google Authenticator
+Auth0 provides built-in MFA support for Google Authenticator and Duo Security. To integrate with the appropriate service, include the provided functions in your code.
 
-Include the following function to utilize Auth0's built-in support for Google Authenticator:
+### Google Authenticator
 
 ```
 function (user, context, callback) {
@@ -36,8 +36,6 @@ function (user, context, callback) {
 ```
 
 ### Duo Security
-
-Include the following function to utilize Auth0's built-in support for Duo Security:
 
 ```
 function (user, context, callback) {
@@ -55,7 +53,7 @@ function (user, context, callback) {
 }
 ```
 
-## Setting Up the Requirements for Contextual MFA
+## Using Contextual MFA
 
 The exact requirements you need for setting up contextual MFA will vary. Below are sample snippets you might consider using as you customize your specific solution.
 
@@ -133,7 +131,7 @@ function (user, context, callback) {
 }
 ```
 
-## Custom MFA
+## Using a Custom MFA Service
 
 You can use the "redirect" protocol in Auth0 if you are using another MFA provider or if you would like to build your own service.
 
