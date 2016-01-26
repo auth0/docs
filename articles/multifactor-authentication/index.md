@@ -4,7 +4,7 @@ url: /multifactor-authentication
 
 # Multifactor Authentication in Auth0
 
-Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present at least two pieces of information. This information is typically one of the following:
+Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present at least two pieces of information, which provides additional layers of security to decrease the liklihood of aunauthorized access. This information is typically one of the following:
 
 * Knowledge: something he or she knows, such as a password
 * Possession: something he or she has, such as a cell phone
@@ -13,10 +13,12 @@ Multi-factor authentication (MFA) is a method of verifying a user's identify by 
 With Auth0, you have three options for implementing MFA:
 
 * Using built-in support for one-time password authentication services Google Authenticator or Duo Security
-* Setting up rules for Contentual MFA (which allows you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location, a specific time/day, or logins from an unrecognized device)
+* Setting up rules for Contextual MFA (which allows you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from an unrecognized device)
 * Integrating a custom provider such as Yubikey
 
-## Using Built-in Support for Google Authenticator
+## Using Auth0's Built-in Support 
+
+### Google Authenticator
 
 Include the following function to utilize Auth0's built-in support for Google Authenticator:
 
@@ -33,7 +35,7 @@ function (user, context, callback) {
 }
 ```
 
-## Duo Security
+### Duo Security
 
 Include the following function to utilize Auth0's built-in support for Duo Security:
 
@@ -54,6 +56,8 @@ function (user, context, callback) {
 ```
 
 ## Setting Up the Requirements for Contextual MFA
+
+The exact requirements you need for setting up contextual MFA will vary. Below are sample snippets you might consider using as you customize your specific solution.
 
 ### Changing the Frequency of Authentication Requests
 
@@ -129,7 +133,7 @@ function (user, context, callback) {
 }
 ```
 
-### Custom MFA
+## Custom MFA
 
 You can use the "redirect" protocol in Auth0 if you are using another MFA provider or if you would like to build your own service.
 
@@ -160,7 +164,7 @@ function (user, context, callback) {
 }
 ```
 
-### Additional Notes
+## Additional Notes
 
 > MFA does not work with the Resource Owner ('/ro') endpoint. If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set "sso" to "true" when defining the options in auth0.js or Lock. If you fail to do this, users will be able to log in without MFA.
 
