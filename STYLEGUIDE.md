@@ -27,12 +27,15 @@ Other commonly encountered compound words include server side and client side. T
 ## Punctuation
 
 <b>Colons</b>
+
 Colons are useful when you are directly referring to an example, such as "here is the relevant code:".
 
 <b>Adjectives</b>
+
 Hyphens are used between adjectives and the verb they modify if (and _only_ if) the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
 
 <b>Punctuation and Quotes</b>
+
 In American English (but not British English), punctuation belongs inside quotation marks. This is especially important when the quote is within or at the end of a sentence. For example: "You must end quotations with periods inside the quotation marks," said the editor, "with only one exception."
 
 That one exception is as follows: if you are quoting code, and the code does not include the punctuation mark in question, then do not place the punctuation mark inside the quotes.
