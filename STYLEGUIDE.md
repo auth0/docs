@@ -28,7 +28,7 @@ Other commonly encountered compound words include server side and client side. T
 
 <b>Colons</b>
 
-Colons are useful when you are directly referring to an example, such as "here is the relevant code:".
+Colons are useful when you are directly referring to an example, such as "here is the relevant code:"
 
 <b>Adjectives</b>
 
