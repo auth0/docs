@@ -16,8 +16,8 @@ snippets:
   pkgRepo: 'Auth0.NancyFx.SelfHost',
   pkgBranch: 'master',
   pkgPath: 'sample',
-  pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgFilePath: 'sample/App.config',
+  pkgType: 'replace' + account.clientParam
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
