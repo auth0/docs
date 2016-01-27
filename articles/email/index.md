@@ -4,8 +4,8 @@ url: /email
 
 With Auth0, you can send emails to your users to: 
 
-* validate their email address at sign up 
-* confirm a password change request at a later date
+* validate their email address at sign up;
+* confirm a password change request at a later date.
 
 The dashboard allows you to customize emails using Markdown templates and macros, which include the context of the current application and user.
 
@@ -21,15 +21,15 @@ Users will see the sender's address in the **From Address** field when receiving
 
 If you do not configure a **From Address** for your emails:
 
-* your emails will be sent from `no-reply@auth0.com` if you do not use a customized email template
-* your emails will be sent from the email address of the first owner of your Auth0 account if you are using customized email templates
+* your emails will be sent from `no-reply@auth0.com` if you do not use a customized email template;
+* your emails will be sent from the email address of the first owner of your Auth0 account if you are using customized email templates.
 
-**NOTE:** Due to security, you may not send customized emails from any `@auth0.com` address. If you are an Appliance user, you may configure a similar domain blacklist.
+**NOTE:** For security purposes, you may not send customized emails from any `@auth0.com` address. If you are an Appliance user, you may configure a similar domain blacklist.
 
 The **From Address** field supports the following macros:
 
-- `{application.name}`
-- `{connection.name}`
+* `{application.name}`
+* `{connection.name}`
 
 You can use these macros to set the display name of the **From Address** to something that relates to the application for which the user signed up. For example, the field could display `{application.name} <support@fabrikamcorp.com>`, as opposed to `<support@fabrikamcorp.com>`.
 
@@ -39,13 +39,13 @@ You must add the [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Se
 
 #### SPF Configuration
 
-You can configure the SPF by adding a TXT record to your domain. You should set the host name to @ or empty (depending on the provider). If this is the first time you are setting up an SPF record, you will need to declare it as follows:
+You can configure the SPF by adding a TXT record to your domain. You should set the host name to `@`, or leave it empty, depending on the provider. If this is the first time you are setting up an SPF record, you will need to declare it as follows:
 
 ```text
 v=spf1 include:spf.auth0.com ~all
 ```
 
-If you are already sending emails from this domain, and you would like to add the Auth0 domain to the SPF configuration, append the domain to your existing definition:
+If you are already sending emails from this domain and would like to add the Auth0 domain to the SPF configuration, append the domain to your existing definition:
 
 ```text
 v=spf1 include:outlook.com include:spf.auth0.com ~all
@@ -69,9 +69,9 @@ v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSR
 
 You can use the following macros with the **Subject** field:
 
-- `{application.name}`
-- `{connection.name}`
-- `{user.email}`
+* `{application.name}`
+* `{connection.name}`
+* `{user.email}`
 
 If the **Subject** field is empty, Auth0 will auto-populate this text depending on what type of email you're sending. For example, one subject line might be "*Verify your email.*"
 
@@ -85,11 +85,11 @@ If your application has multiple *Allowed Callback URL*s configured, Auth0 will 
 
 ### URL Lifetime
 
-The **Verification Email** and **Change Password Confirmation Email** both contain a link which users can use to verify their email address when signing up or confirming their password change.
+The **Verification Email** and **Change Password Confirmation Email** both contain links which allow users to verify their email address when signing up, or confirm their password change, respectively.
 
-You can modify the lifetime of this link for security reasons. By default, the lifetime is 432000 seconds (which is equivalent to five days).
+You can modify the lifetime of this link for security purposes. By default, the lifetime is 432000 seconds (which is equivalent to five days).
 
-If users click on an expired link and a **Redirect To** URL is configured, he or she will be redirected to this URL, and the following text will be appended to the querystring:
+If users click on an expired link in either case, and a **Redirect To** URL is configured, they will be redirected to the configured **Redirect To** URL. The following text will be appended to the querystring:
 
 ```text
 http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
@@ -99,15 +99,15 @@ http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expire
 
 ### Verification Email
 
-When users sign up or log in for the first time, he or she will be sent a verification email. Clicking on the verification link contained in the email sets the 'email verified' property of his or her user profile to 'true.'
+When users sign up or log in for the first time, they will be sent a verification email. Clicking on the verification link in the email sets the 'email verified' property of their user profile to `true`.
 
 The following macros are available in the **Verification Email** template:
 
-- `{application.name}`
-- `{connection.name}`
-- `{user.email}`
+* `{application.name}`
+* `{connection.name}`
+* `{user.email}`
 
-If you configure a **Redirect To** URL, the email directs the user to this URL after he or she verifies the email address. The following will be appended to the querystring sent:
+If you configure a **Redirect To** URL, the email directs the user to this URL after they visit the email address. The following will be appended to the querystring sent:
 
 ```text
 http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.&success=true
@@ -115,25 +115,25 @@ http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%
 
 ### Welcome Email
 
-Once a user verifies his or her email address, he or she will receive a **Welcome Email**. If you turn off the **Verification Email** feature, the **Welcome Email** will be sent to the user when he or she signs up or logs in for the first time.
+Once a user verifies their email address, they will receive a **Welcome Email**. If you turn off the **Verification Email** feature, the **Welcome Email** will be sent to the user when they sign up (or log in for the first time).
 
 The following macros are available in the **Welcome Email** template:
 
-- `{application.name}`
-- `{connection.name}`
-- `{user.email}`
+* `{application.name}`
+* `{connection.name}`
+* `{user.email}`
 
 ### Change Password Confirmation Email
 
-If a user requests a password change, he or she will receive a **Change Password Confirmation Email**. Until the user follows the verification link contained in the email, the password remains unchanged.
+If a user requests a password change, they will receive a **Change Password Confirmation Email**. Until the user follows the verification link contained in the email, the password will remain unchanged.
 
 The following macros are available in the **Change Password Confirmation** email template:
 
-- `{application.name}`
-- `{connection.name}`
-- `{user.email}`
+* `{application.name}`
+* `{connection.name}`
+* `{user.email}`
 
-If you configure a **Redirect To** URL, the email directs the user to this URL after he or she verifies the email address. The following will be appended to the querystring sent:
+If you configure a **Redirect To** URL, the email directs the user to this URL after they verify the email address. The following will be appended to the querystring sent:
 
 ```text
 http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
@@ -141,28 +141,28 @@ http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%2
 
 ### Blocked Account Email
 
-If a user attempts and fails to log in ten or more times from a specific IP address, the user's account becomes locked and he or she will receive a **Blocked Account** email. Once the user receives this email, he or she will not be able to log in from that IP address again until he or she clicks on the linked contained in the email.
+If a user attempts and fails to log in ten or more times from a specific IP address, the user's account becomes locked and they will receive a **Blocked Account** email. Once the user receives this email, they will not be able to log in from that IP address again until they click on the linked contained in the email.
 
-If the user successfully logs in before the failed login counter reaches ten, the counter is reset to zero.
+If the user successfully logs in before they exhaust their ten allowed attempts, the counter is reset to zero.
 
 The following macros are available in the **Blocked Account Email** template:
 
-- `user.source_ip`
-- `user.city`
-- `user.country`
-- `application.name`
-- `connection.name`
+* `user.source_ip`
+* `user.city`
+* `user.country`
+* `application.name`
+* `connection.name`
 
 ## Email Limits
 
 The Auth0 shared email provider restricts your account from sending more than ten emails per minute, regardless of email type. Additionally, your ability to send email from your account may be reduced, or even temporarily blocked, if your emails result in high bounce rates.
 
-If the restrictions on the number of emails you may send are problematic, you may configure your own email provider for use with Autho0. You may also wish to configure your own email provider if you:
+If these restrictions are problematic, you may configure your own email provider for use with Auth0. You may also wish to configure your own email provider if you:
 
-* want guaranteed delivery
-* anticipate exceeding the shared email limits
-* want direct access to email logs
-* want greater control over the email server (for example, you may want to change the IP address from what your emails are sent)
+* want guaranteed delivery;
+* anticipate exceeding the shared email limits;
+* want direct access to email logs;
+* want greater control over the email server (for example, you may want to change the IP address from where your emails are sent).
 
 For more information on setting up your own email provider, please consult the following resources:
 
