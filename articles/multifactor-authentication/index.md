@@ -10,10 +10,7 @@ Multi-factor authentication (MFA) is a method of verifying a user's identify by 
 * Possession: something he or she has, such as a cell phone
 * Inheritance: something he or she is, such as a fingerprint or retina scan
 
-
-This demo illustrates an app in which __Duo Security__ has been enabled.
 ![](/media/articles/mfa/duo.gif)
-
 
 With Auth0, you have three options for implementing MFA:
 
