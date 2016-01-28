@@ -4,7 +4,7 @@ url: /multifactor-authentication
 
 # Multi-factor Authentication in Auth0
 
-Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present more than one piece of information. This provides additional layers of security to decrease the liklihood of aunauthorized access. The information asked of the user is typically two or more of the following:
+Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present more than one piece of information. This provides additional layers of security to decrease the likelihood of unauthorized access. The information asked of the user is typically two or more of the following:
 
 * Knowledge: something he or she knows, such as a password;
 * Possession: something he or she has, such as a cell phone;
@@ -48,7 +48,7 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
-When you have finished editing the code snippet based on the requirements of your app, click 'Save'.
+When you have finished editing the code snippet based on the requirements of your app, click `Save`.
 
 ### Duo Security
 
@@ -88,7 +88,7 @@ function (user, context, callback) {
 }
 ```
 
-When you have finished editing the code snippet based on the requirements of your app, click 'Save'.
+When you have finished editing the code snippet based on the requirements of your app, click `Save`.
 
 ## Using Contextual MFA
 
@@ -96,7 +96,7 @@ The exact requirements you need for setting up contextual MFA will vary. Below a
 
 ### Changing the Frequency of Authentication Requests
 
-By default, Auth0 asks the user for MFA once per month. You can change this setting the 'ignoreCookie' field to 'true'
+By default, Auth0 asks the user for MFA once per month. You can change this setting the `ignoreCookie` field to `true`
 
 ```
 function (user, context, callback) {
@@ -178,7 +178,7 @@ Some MFA options you might want to implement using this option include:
 * Personally identifying questions (for example, questions about the user's parents, childhood friends, and so on)
 * Integration with specialized providers, such as those that work with hardware tokens
 
-To use the "redirect" protocol, edit the URL field of your redirect protocol:
+To use the `redirect` protocol, edit the relevant URL field:
 
 ```
 function (user, context, callback) {
@@ -201,6 +201,6 @@ function (user, context, callback) {
 
 > MFA does not work with the [Resource Owner](https://auth0.com/docs/protocols#oauth-resource-owner-password-credentials-grant) endpoint. 
 
->If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set 'sso' to 'true' when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or Lock. If you fail to do this, users will be able to log in without MFA.
+>If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set `sso` to `true` when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or Lock. If you fail to do this, users will be able to log in without MFA.
 
 > If you are using MFA after authentication against one or more social providers, you may need to use your own application ID and secret for the connection to the provider's site instead of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please see the [documentation](https://github.com/auth0/docs/tree/master/articles/connections/social) provided by Auth0.
