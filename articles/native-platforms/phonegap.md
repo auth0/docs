@@ -17,15 +17,7 @@ snippets:
   use: native-platforms/jquery/use
 ---
 
-## Phonegap tutorial
-
-# To Run the example
-
-In order to run the project, you need to have `node`, `phonegap` and `ios-sim` installed.
-Once you have that, just clone the project and run the following:
-
-`phonegap build ios`
-`phonegap run ios`
+## Phonegap Tutorial
 
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-cordova',
@@ -37,7 +29,7 @@ Once you have that, just clone the project and run the following:
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### 0. Setting up the callback URL in Auth0
+### 1. Setting up the callback URL in Auth0
 
 
 
@@ -52,7 +44,7 @@ Once you have that, just clone the project and run the following:
 
 </div>
 
-### 1. Add `InAppBrowser` plugin
+### 2. Add `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin to be able to show the Login popup. For that, just run the following command:
 
@@ -60,7 +52,7 @@ ${snippet(meta.snippets.dependencies)}
 
 > **Note**: If you're using __Phonegap Build__ service, you need to add the plugin using the `<plugin name="cordova-plugin-inappbrowser" />` tag between the `<widget>` tags inside your __config.xml__ file. Please check [this phonegap guide for more information](http://docs.build.phonegap.com/en_US/configuring_plugins.md.html#importing-config)
 
-### 2. Follow the guide specific to the FrontEnd technology you're using
+### 3. Follow the guide specific to the FrontEnd technology you're using
 
 Now, you can just follow the tutorial for the FrontEnd technology that you're using. We currently support applications using [jQuery](/client-platforms/jquery), [AngularJS](/client-platforms/angularjs) and [Vanilla JS](/client-platforms/vanillajs).
 
@@ -68,7 +60,7 @@ Now, you can just follow the tutorial for the FrontEnd technology that you're us
 
 > **Warning**: You must use `popup` mode when configuring an application with Phonegap. (All available guides currently do that by default)
 
-### 3. Sit back and relax
+### 4. Sit back and relax
 
 Now it's time to sit back, relax and open a beer. You've implemented Login and Signup with Auth0 and Phonegap.
 
