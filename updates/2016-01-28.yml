@@ -1,0 +1,9 @@
+added:
+  -
+    title: "Auth0 Node.JS SDK version 2.0.0 released"
+    tags:
+      - sdk
+      - node
+      - javascript
+    description: |
+      The new version of the Auth0 Node.js SDK has been refactored and updated to support the Auth0 Management API v2.0. See the [github project](https://github.com/auth0/node-auth0) for more details.
