@@ -66,7 +66,7 @@ categories:
         name: "Releases & Updates"
         links:
           -
-            name: "Platform Release"
+            name: "Platform Releases"
             href: "https://releases.auth0.com"
           -
             name: "Content & SDK Updates"
