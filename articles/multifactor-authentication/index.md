@@ -6,54 +6,89 @@ url: /multifactor-authentication
 
 Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present more than one piece of information. This provides additional layers of security to decrease the liklihood of aunauthorized access. The information asked of the user is typically two or more of the following:
 
-* Knowledge: something he or she knows, such as a password
-* Possession: something he or she has, such as a cell phone
-* Inheritance: something he or she is, such as a fingerprint or retina scan
+* Knowledge: something he or she knows, such as a password;
+* Possession: something he or she has, such as a cell phone;
+* Inheritance: something he or she is, such as a fingerprint or retina scan.
 
 ![](/media/articles/mfa/duo.gif)
 
 With Auth0, you have three options for implementing MFA:
 
-* Using built-in support for one-time password authentication services Google Authenticator or Duo Security
-* Setting up rules for Contextual MFA (which allows you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from an unrecognized device)
-* Integrating with a custom provider such as Yubikey
+* Using built-in support for one-time password authentication services Google Authenticator or Duo Security;
+* Setting up rules for Contextual MFA (which allows you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from an unrecognized device);
+* Integrating with a custom provider such as Yubikey.
 
 ## Using Auth0's Built-in Support 
 
-Auth0 provides built-in MFA support for Google Authenticator and Duo Security. To help integrate with the appropriate service, edit the provided function as necessary and include it in your code.
+Auth0 provides built-in MFA support for Google Authenticator and Duo Security. You can enable MFA via the Multifactor Auth page of the Auth0 Management Portal.
+
+![](/media/articles/mfa/mfa-config.PNG)
 
 ### Google Authenticator
 
+To integrate with Google Authenticator, click on its logo in the Multifactor Auth page of the Auth0 Management Portal. The Portal displays a code editing area containing the following code your use. 
+
 ```
 function (user, context, callback) {
 
-  if (conditionIsMet()) {
-    context.multifactor = {
-        provider: 'google-authenticator'
+  var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
+  // run only for the specified clients
+  if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
+    // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
+    // if (user.user_metadata && user.user_metadata.use_mfa){
+      context.multifactor = {
+        provider: 'google-authenticator',
+        // issuer: 'Label on Google Authenticator App', // optional
+        // key: '{YOUR_KEY_HERE}', //  optional, the key to use for TOTP. by default one is generated for you
+        // ignoreCookie: true // optional, force Google Authenticator everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
       };
+    // }
   }
 
   callback(null, user, context);
 }
 ```
+Edit the code per your requirements, and save.
 
 ### Duo Security
 
+If you would like to integrate with Duo Security, click on its logo in the Multifactor Auth page of the Auth0 Management Portal. The Portal displays a code editing area containing the following code your use. 
+
 ```
 function (user, context, callback) {
 
-  if (conditionIsMet()) {
-    context.multifactor = {
+  var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+  // run only for the specified clients
+  if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
+    // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
+    // if (user.user_metadata && user.user_metadata.use_mfa){
+      context.multifactor = {
+        //required
         provider: 'duo',
-        ikey: '{your Duo integration key}',
-        skey: '{your Duo secret key}',
-        host: '{your endpoint}.duosecurity.com'
+        ikey: 'DIXBMN...LZO8IOS8',
+        skey: 'nZLxq8GK7....saKCOLPnh',
+        host: 'api-3....049.duosecurity.com',
+
+        // optional. Force DuoSecurity everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
+        // ignoreCookie: true,
+
+        // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
+        // username: user.nickname,
+
+        // optional. Admin credentials. If you provide an Admin SDK type of credentials. auth0 will update the realname and email in DuoSecurity.
+        // admin: {
+        //  ikey: 'DIAN...NV6UM',
+        //  skey: 'YL8OVzvoeeh...I1uiYrKoHvuzHnSRj'
+        // },
       };
+    // }
   }
 
   callback(null, user, context);
 }
 ```
+
+Edit the code snippet per your requirements, and save.
 
 ## Using Contextual MFA
 
@@ -61,7 +96,7 @@ The exact requirements you need for setting up contextual MFA will vary. Below a
 
 ### Changing the Frequency of Authentication Requests
 
-By default, Auth0 asks the user for MFA once per month. You can change this setting the "irgnoreCookie" field to "true"
+By default, Auth0 asks the user for MFA once per month. You can change this setting the 'ignoreCookie' field to 'true'
 
 ```
 function (user, context, callback) {
@@ -77,14 +112,16 @@ function (user, context, callback) {
 }
 ```
 
-### Accessing a Critical App from Extranet
+### Accessing an App from Extranet
 
-If you indicate that the app is critical, Auth0 will request MFA from the user if his or her request comes from outside the corporate network
+Auth0 can request MFA from users whose requests originate from outside the corporate network.
+
+Auth0 enables 
 
 ```
 function (user, context, callback) {
 
-  if (IsCriticalApp() && IsExtranet()) {
+  if (IsExtranet()) {
     context.multifactor = {
       ignoreCookie: true,
       provider: 'google-authenticator'
@@ -92,10 +129,6 @@ function (user, context, callback) {
   }
 
   callback(null, user, context);
-
-  function IsCriticalApp() {
-    return context.clientName === 'A critical App';
-  }
 
   function IsExtranet() {
     return !rangeCheck.inRange(context.request.ip, '10.0.0.0/8');
@@ -105,7 +138,7 @@ function (user, context, callback) {
 
 ### Accessing an App from a Different Device or Location
 
-Auth0 computes a hash with the IP address of the request and the 'userAgent' string. If the hash changes the next time the user logs in, Auth0 requests MFA from the user.
+If a user makes a request from an IP address that Auth0 has not already associated with that particular user, Auth0 can request MFA.
 
 ```
 function (user, context, callback) {
@@ -137,9 +170,9 @@ function (user, context, callback) {
 
 ## Using a Custom MFA Service
 
-If you are using an MFA provider without Auth0 built-in support or if you are using a service you've built, you can use the "redirect" protocol for the integration.
+If you are using an MFA provider without Auth0 built-in support or if you are using a service you've built, you can use the [redirect](https://auth0.com/docs/protocols#redirect-protocol-in-rules) protocol for the integration.
 
-By using the "redirect" protocol, you can interrupt the authentication transaction and redirect the user to a specified URL where the user is asked for MFA. If authentication is successful, Auth0 will continue processing the request.
+By using the redirect protocol, you can interrupt the authentication transaction and redirect the user to a specified URL where the user is asked for MFA. If authentication is successful, Auth0 will continue processing the request.
 
 Some MFA options you might want to implement using this option include:
 
@@ -147,7 +180,7 @@ Some MFA options you might want to implement using this option include:
 * Personally identifying questions (for example, questions about the user's parents, childhood friends, and so on)
 * Integration with specialized providers, such as those that work with hardware tokens
 
-To use the "redirect" protocol, edit and include the following snippet in your code:
+To use the "redirect" protocol, edit the URL field of your redirect protocol:
 
 ```
 function (user, context, callback) {
@@ -168,6 +201,8 @@ function (user, context, callback) {
 
 ## Additional Notes
 
-> MFA does not work with the Resource Owner ('/ro') endpoint. If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set "sso" to "true" when defining the options in auth0.js or Lock. If you fail to do this, users will be able to log in without MFA.
+> MFA does not work with the [Resource Owner](https://auth0.com/docs/protocols#oauth-resource-owner-password-credentials-grant) endpoint. 
 
-> If you are using MFA after authentication against one or more social providers, you may need to use your own application ID and secret for the connection to the provider's site instead of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please go to "Connections" - "Social" - "NAME-OF-PROVIDER".
+>If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set 'sso' to 'true' when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or Lock. If you fail to do this, users will be able to log in without MFA.
+
+> If you are using MFA after authentication against one or more social providers, you may need to use your own application ID and secret for the connection to the provider's site instead of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please see the [documentation](https://github.com/auth0/docs/tree/master/articles/connections/social) provided by Auth0.
