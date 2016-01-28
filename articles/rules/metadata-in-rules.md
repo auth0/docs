@@ -35,8 +35,7 @@ function(user, context, callback){
   if (user.app_metadata.roles.indexOf('writer')){
     // this code would be executed for the user
   }
-
-  ...
+  callback(null, user, context);
 }
 ```
 
@@ -50,14 +49,16 @@ function(user, context, callback){
   if (user.user_metadata.preferences.color === 'black'){
     // this code would not be executed for the user
   }
-
-  ...
+  callback(null, user, context);
 }
 ```
 
 ## Updating
 
-All rules provide an `auth0` variable (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0/tree/v2) that can use API v2) which will have permissions to update users.
+All rules provide an `auth0` variable, which contains two properties:
+
+* `auth0.token`: An [APIv2 token](/api/v2) with permissions to read and update users
+* `auth0.domain`: Your Auth0 domain (${account.namespace})
 
 ### Updating app_metadata
 
@@ -65,13 +66,18 @@ To add the admin role to a user:
 
 ```js
 function(user, context, callback){
+  var Auth0 = require('auth0@2.0.0').ManagementClient;
+  var auth0api = new Auth0({
+    token: auth0.token,
+    domain: auth0.domain
+  });
   user.app_metadata = user.app_metadata || {};
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = user.app_metadata.roles || [];
   user.app_metadata.roles.push('admin');
 
   // persist the app_metadata update
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+  auth0api.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -104,13 +110,18 @@ To add the add a `fontSize` preference:
 
 ```js
 function(user, context, callback){
+  var Auth0 = require('auth0@2.0.0').ManagementClient;
+  var auth0api = new Auth0({
+    token: auth0.token,
+    domain: auth0.domain
+  });
   user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   user.user_metadata.preferences.fontSize = 12;
 
   // persist the user_metadata update
-  auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+  auth0api.users.updateUserMetadata(user.user_id, user.user_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -144,6 +155,12 @@ You can update both `user_metadata` and `app_metadata` in the same rule in paral
 
 ```js
 function(user, context, callback){
+  var q = require('q');
+  var Auth0 = require('auth0@2.0.0').ManagementClient;
+  var auth0api = new Auth0({
+    token: auth0.token,
+    domain: auth0.domain
+  });
   user.app_metadata = user.app_metadata || {};
   user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response
@@ -155,10 +172,10 @@ function(user, context, callback){
   user.app_metadata.roles.push('admin');
 
   // persist the app_metadata update
-  var appMetadataPromise  = auth0.users.updateAppMetadata(user.user_id, user.app_metadata);
+  var appMetadataPromise  = auth0api.users.updateAppMetadata(user.user_id, user.app_metadata);
 
   // persist the user_metadata update
-  var userMetadataPromise = auth0.users.updateUserMetadata(user.user_id, user.user_metadata);
+  var userMetadataPromise = auth0api.users.updateUserMetadata(user.user_id, user.user_metadata);
 
   // using q library to wait for all promises to complete
   q.all([userMetadataPromise, appMetadataPromise])
@@ -199,12 +216,17 @@ To delete a property, set it to the `null` value. For example, to delete the use
 
 ```js
 function(user, context, callback){
+  var Auth0 = require('auth0@2.0.0').ManagementClient;
+  var auth0api = new Auth0({
+    token: auth0.token,
+    domain: auth0.domain
+  });
   user.app_metadata = user.app_metadata || {};
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = null;
 
   // persist the app_metadata update
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+  auth0api.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -236,6 +258,11 @@ To delete the user's writer role:
 
 ```js
 function(user, context, callback){
+  var Auth0 = require('auth0@2.0.0').ManagementClient;
+  var auth0api = new Auth0({
+    token: auth0.token,
+    domain: auth0.domain
+  });
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.roles = user.app_metadata.roles || [];
 
@@ -247,7 +274,7 @@ function(user, context, callback){
   }
 
   // persist the app_metadata update
-  auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
+  auth0api.users.updateAppMetadata(user.user_id, user.app_metadata)
     .then(function(){
       callback(null, user, context);
     })
@@ -280,13 +307,18 @@ To delete the user's color preference:
 
 ```js
 function(user, context, callback){
+  var Auth0 = require('auth0@2.0.0').ManagementClient;
+  var auth0api = new Auth0({
+    token: auth0.token,
+    domain: auth0.domain
+  });
   user.user_metadata = user.user_metadata || {};
   // update the user_metadata that will be part of the response
   user.user_metadata.preferences = user.user_metadata.preferences || {};
   delete user.user_metadata.preferences.color;
 
   // persist the user_metadata update
-  auth0.users.updateUserMetadata(user.user_id, user.user_metadata)
+  auth0api.users.updateUserMetadata(user.user_id, user.user_metadata)
     .then(function(){
       callback(null, user, context);
     })
