@@ -14,6 +14,9 @@ fourKeyConcepts:
     icon: css-class-bud-icon
     text: "Result: Quick Implementation, Solid Foundation for Future" 
 hash: migrate-a-user-database
+logoUrl: "/media/articles/email-wall/use-cases/database-migration/logo.png"
+iconUrl: "/media/articles/email-wall/use-cases/database-migration/logo.png"
+bgColor: "#222228"
 longDescription: "When Auth0 is used to upgrade the existing Identity Provider (IdP), it can be deployed in such a way that it uses an existing external user database. Most customers want to migrate the user identities from their existing external database to the built-in, enterprise-class database of Auth0 while having minimal impact on operations and avoiding the hassle of password resets."
 sitemap: false
 title: "Migrate A User Database to Auth0"
