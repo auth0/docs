@@ -178,7 +178,7 @@ Some MFA options you might want to implement using this option include:
 * Personally identifying questions (for example, questions about the user's parents, childhood friends, and so on)
 * Integration with specialized providers, such as those that work with hardware tokens
 
-To use the `redirect` protocol, edit the relevant URL field:
+To use the redirect protocol, edit the relevant URL field:
 
 ```
 function (user, context, callback) {
