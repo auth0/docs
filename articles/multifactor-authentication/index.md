@@ -2,9 +2,9 @@
 url: /multifactor-authentication
 ---
 
-# Multi-factor Authentication in Auth0
+# Multifactor Authentication in Auth0
 
-Multi-factor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present more than one piece of information. This provides additional layers of security to decrease the likelihood of unauthorized access. The information asked of the user is typically two or more of the following:
+Multifactor authentication (MFA) is a method of verifying a user's identify by requiring him or her to present more than one piece of information. This provides additional layers of security to decrease the likelihood of unauthorized access. The information asked of the user is typically two or more of the following:
 
 * Knowledge: something he or she knows, such as a password;
 * Possession: something he or she has, such as a cell phone;
@@ -87,7 +87,7 @@ function (user, context, callback) {
         // admin: {
         //  ikey: 'DIAN...NV6UM',
         //  skey: 'YL8OVzvoeeh...I1uiYrKoHvuzHnSRj'
-        
+
         // },
       };
     // }
