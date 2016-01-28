@@ -63,17 +63,14 @@ categories:
         description: "Perform administrative tasks such as creating accounts or changing settings with the Management API."
         href: "/api/v2/"
       announcements:
-        name: "Announcements"
+        name: "Releases & Updates"
         links:
           -
-            name: "Supported Protocols"
-            href: "/protocols"
+            name: "Platform Release"
+            href: "https://releases.auth0.com"
           -
-            name: "API v1 vs v2"
-            href: "/api/v2/changes"
-          -
-            name: "Blacklisting JWT API Keys"
-            href: "https://auth0.com/blog/2015/03/10/blacklist-json-web-token-api-keys/"
+            name: "Content & SDK Updates"
+            href: "/updates"
   -
     id: "sdk"
     name: "Libraries & SDKs"
