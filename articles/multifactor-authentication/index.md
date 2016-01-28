@@ -26,7 +26,7 @@ Auth0 provides built-in MFA support for Google Authenticator and Duo Security. Y
 
 ### Google Authenticator
 
-To integrate with Google Authenticator, click on its logo in the Multifactor Auth page of the Auth0 Management Portal. The Portal displays a code editing area containing the following code your use. 
+To integrate with Google Authenticator, click on its logo in the Multifactor Auth page of the Auth0 Management Portal. The Portal displays a code editing area containing the following code snippet for you to use: 
 
 ```
 function (user, context, callback) {
@@ -48,11 +48,11 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
-Edit the code per your requirements, and save.
+When you have finished editing the code snippet based on the requirements of your app, click 'Save'.
 
 ### Duo Security
 
-If you would like to integrate with Duo Security, click on its logo in the Multifactor Auth page of the Auth0 Management Portal. The Portal displays a code editing area containing the following code your use. 
+To integrate with Duo Security, click on its logo in the Multifactor Auth page of the Auth0 Management Portal. The Portal displays a code editing area containing the following code snippet for you to use: 
 
 ```
 function (user, context, callback) {
@@ -88,7 +88,7 @@ function (user, context, callback) {
 }
 ```
 
-Edit the code snippet per your requirements, and save.
+When you have finished editing the code snippet based on the requirements of your app, click 'Save'.
 
 ## Using Contextual MFA
 
@@ -114,9 +114,7 @@ function (user, context, callback) {
 
 ### Accessing an App from Extranet
 
-Auth0 can request MFA from users whose requests originate from outside the corporate network.
-
-Auth0 enables 
+You can have Auth0 can request MFA from users whose requests originate from outside the corporate network.
 
 ```
 function (user, context, callback) {
@@ -138,7 +136,7 @@ function (user, context, callback) {
 
 ### Accessing an App from a Different Device or Location
 
-If a user makes a request from an IP address that Auth0 has not already associated with that particular user, Auth0 can request MFA.
+If a user makes a request from an IP address that Auth0 has not already associated with him or her, you can set Auth0 to request MFA.
 
 ```
 function (user, context, callback) {
