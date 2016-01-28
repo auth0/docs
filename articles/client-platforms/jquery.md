@@ -21,7 +21,7 @@ snippets:
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-jquery',
   pkgBranch: 'gh-pages',
-  pkgPath: (configuration.api && configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',
+  pkgPath: (configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',
   pkgFilePath: null,
   pkgType: 'js' + account.clientParam
 }) %>
@@ -52,7 +52,7 @@ To discover all the available arguments for `lock.show`, see [.show\(\[options, 
 
 ${browser}
 
-<% if (configuration.api && configuration.thirdParty) { %>
+<% if (configuration.thirdParty) { %>
 
 ### 4. Configure calls to a Third Party API
 
@@ -101,7 +101,7 @@ The code above will function once the <%= configuration.api %> add-on is activat
 
 <% } else { %>
 
-### 5. Configure secure calls to your API
+### 4. Configure secure calls to your API
 
 To configure secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, implement `$.ajaxSetup` to send on each request, in the `Authorization` header with every ajax call, the [JWT token](/jwt) received on the login and saved to `localStorage` as shown in [Step 3](#3-implement-the-login).
 
@@ -116,11 +116,11 @@ $.ajaxSetup({
 });
 ```
 
-<% } %>
-
 __Note:__ The settings specified in `ajaxSetup` will affect all calls to $.ajax or Ajax-based derivatives such as $.get(). This may cause undesirable behavior if other callers (for example: plugins) are expecting the default settings. Therefore, use of this API is not recommended. Instead, set the options explicitly in the call or define a simple plugin to do so. For more information, see [jQuery.ajaxSetup()](http://api.jquery.com/jQuery.ajaxSetup/).
 
-### 6. Display user information
+<% } %>
+
+### 5. Display user information
 
 Since the `userProfile` variable contains the user's information, it can be called on to diplay that information in a `span` tag:
 
@@ -134,7 +134,7 @@ $('.nick').text(userProfile.nickname);
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-### 7. Log out
+### 6. Log out
 
 In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
@@ -144,6 +144,6 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-### 8. All done!
+### 7. All done!
 
 You have completed the implementation of Login and Signup with Auth0 and jQuery.
