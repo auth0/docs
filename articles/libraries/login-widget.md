@@ -1,4 +1,6 @@
->! __WARNING:__ This version of the login widget has been deprecated. <br> Please use the [new version](/lock) instead.
+::: warning-banner
+__WARNING:__ This version of the login widget has been deprecated. <br> Please use the [new version](/lock) instead.
+:::
 
 # Auth0 Login Widget
 
