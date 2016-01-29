@@ -59,7 +59,7 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/windows-uwp-javascript/lock-widget-screenshot.png)
 
-#### Option 2: Using the Auth0 Login Widget, but specifying a specific Connection.
+#### Option 2: Using the Auth0 Login Widget, but specifying a connection.
 
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 
