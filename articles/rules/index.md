@@ -130,18 +130,18 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
   ![](/media/articles/rules/try-rule.png)
 
-2. **DEBUG RULE**: Displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution. 
+2. **DEBUG RULE**: Displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
   For example:
 
-    ```sh
+  ```sh
   ~  npm install -g wt-cli
   ~  wt init --container "youraccount" --url "https://sandbox.it.auth0.com" --token "eyJhbGci...WMPGI" -p "youraccount-default-logs"
   ~  wt logs -p "youraccount-default-logs"
   [18:45:38.179Z]  INFO wt: connected to streaming logs (container=youraccount)
   [18:47:37.954Z]  INFO wt: webtask container assigned
   [18:47:38.167Z]  INFO wt: ---- checking email_verified for some-user@mail.com! ----
-    ```
+  ```
 
   This debugging method works for rules tried from the dashboard and those actually running during user authentication.
 
