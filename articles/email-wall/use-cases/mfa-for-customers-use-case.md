@@ -14,6 +14,9 @@ fourKeyConcepts:
     icon: css-class-bud-icon
     text: "Result: Quick Implementation, Solid Foundation for Future"
 hash: mfa-for-customers
+logoUrl: "/media/articles/email-wall/use-cases/mfa-for-customers/logo.png"
+iconUrl: "/media/articles/email-wall/use-cases/mfa-for-customers/logo.png"
+bgColor: "#222228"
 longDescription: "As username and password exploits continue to dominate the headlines and threaten the security of even the strongest global companies and brands, security experts agree that adding multifactor authentication (MFA) to login flows can help mitigate this vulnerability and strengthen their security posture. With Auth0, adding MFA capability and more for your customers is easier than you think.\n"
 pdf: MFAforCustomersUseCase.pdf
 sitemap: false

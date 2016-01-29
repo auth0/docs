@@ -24,27 +24,31 @@ alias:
   pkgType: 'replace' + account.clientParam
 }) %>
 
-This tutorial explains how to integrate Auth0 with an ASP.NET application (of any kind: WebForms, MVC and even Web API) that uses the ASP.NET 4.5 Owin infrastructure.
+This tutorial explains how to integrate Auth0 with an ASP.NET application (WebForms, MVC and even Web API) that uses the ASP.NET 4.5 OWIN infrastructure.
 
 ## Tutorial
 
 ### 1. Install Auth0-ASPNET-Owin NuGet package
 
-Use the NuGet Package Manager (Tools -> Library Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
+Use the NuGet Package Manager (Tools -> NuGet Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
 
 ${snippet(meta.snippets.dependencies)}
+
+The NuGet package will install the Auth0 OWIN middleware library, update your web.config by adding Auth0-related settings, as well as add an `Auth0AccountController` class which handles the authentication response from Auth0. Customizing each of these are discussed in more detail below.
 
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to your website. The first POST will be to the built-in OWIN route <strong>"/signin-auth0"</strong> (For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section on Auth0 Dashboard). After that is successful, it will redirect again to <strong>"/Auth0Account/ExternalLoginCallback"</strong> (Please do not register this route on the dashboard).</p>
+<p>After the user has authenticated using Auth0, we will do an HTTP POST back to the <strong>/signin-auth0</strong> path of your website which will be intercepted by the Auth0 OWIN middleware. For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section of your Auth0 Dashboard.</p>
 
-<pre><code>http://localhost:PORT/signin-auth0</pre></code>
+<p>After the Auth0 OWIN middleware has processed the request, it will redirect to <strong>"/Auth0Account/ExternalLoginCallback"</strong> URL. (Please do not register this route on the dashboard).</p>
+
+So before proceeding further, be sure to register the URL <code>http://YOUR_WEBSITE_URL/signin-auth0</code> on the <a href="${uiAppSettingsURL}">Application Settings</a> section of your Auth0 Dashboard. (Replace "YOUR_WEBSITE_URL" with the actual base URL of your web application.)
 </div>
 
-### 3. Filling Web.Config with your Auth0 settings
+### 3. Populating Web.Config with your Auth0 settings
 
-The NuGet package also created three settings on `<appSettings>`. Replace those with the following settings:
+When you installed the NuGet package, it created three settings in `<appSettings>` section of the **web.config** file. Replace those with the following settings:
 
 ```xml
 <add key="auth0:ClientId" value="${account.clientId}" />
@@ -56,22 +60,36 @@ The NuGet package also created three settings on `<appSettings>`. Replace those 
 
 ${snippet(meta.snippets.setup)}
 
-The nuget provides a simple controller (_Auth0AccountController_) to process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter. For example, in order to use the implementation provided by Visual Studio templates, use the following: `redirectPath: "/Account/ExternalLoginCallback"`.
+The NuGet package provides a simple controller (`Auth0AccountController`) which will process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter when registering the Auth0 middleware. 
+
+For example, in order to use the implementation provided by the Visual Studio templates ("/Account/ExternalLoginCallback"), you can set the `redirectPath` parameter as follows: 
+
+```
+app.UseAuth0Authentication(
+    clientId: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
+    clientSecret: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
+    domain: System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"],
+    redirectPath: "/Account/ExternalLoginCallback");
+```
 
 ### 5. Triggering login manually or integrating the Auth0Lock
 
 ${lockSDK}
 
+> If you selected one of the Lock widgets or Passwordless authentication methods above, please ensure that the `callbackURL` setting contains the correct callback URL to the `/signin-auth0` path, e.g. `http://YOUR_WEBSITE_URL/signin-auth0`.
+
 ### 6. Accessing user information
 
-Once the user is successfully authenticated with the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
+Once the user has been successfully authenticated, you can access the user as a `ClaimsPrincipal` through the `ClaimsPrincipal.Current` property. You can then access information about the user through the various claims set by the Auth0 middleware. The following example demonstrates how you can access the user's email address through the **"email"** claim: 
 
-    public ActionResult Index()
-    {
-    	string email = ClaimsPrincipal.Current.FindFirst(ClaimTypes.Email).Value;
-    }
+```
+public ActionResult Index()
+{
+	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+}
+```
 
-The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](/user-profile).
+The user profile is normalized regardless of where the user came from, and the claims will typically include the `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](/user-profile).
 
 
 **Congratulations!**

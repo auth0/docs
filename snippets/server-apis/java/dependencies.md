@@ -2,7 +2,7 @@
 <dependency>
     <groupId>com.auth0</groupId>
     <artifactId>java-jwt</artifactId>
-    <version>2.0.1</version>
+    <version>2.1.0</version>
 </dependency>
 <dependency>
   <groupId>commons-codec</groupId>

@@ -102,6 +102,43 @@ After you publish the doc update, the new quickstart will automatically appear o
 
 Additionally, the quickstart configuration is also in this repository here: [quickstart.yml](/quickstart.yml).
 
+## Updates Feed
+Publishing content updates is fairly easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it here. Otherwise use changed or fixed.
+
+```
+added:
+  -
+    title: "Name of new thing"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+  -
+    title: "Name of update"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+changed:
+  -
+    title: "Name of thing that changed or was removed"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+fixed:
+  -
+    title: "Name of bug fixed"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+```
+
 ## API
 
 > WARNING: This API is for Auth0 internal use only. You should not rely on the docs API for anything. There is *NO SLA or support* for the document API.

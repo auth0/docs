@@ -1,5 +1,5 @@
 ```cs
-using Auth0.SDK;
+using Auth0.LoginClient;
 
 var auth0 = new Auth0Client(
 	"${account.namespace}",

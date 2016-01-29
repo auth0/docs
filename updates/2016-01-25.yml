@@ -1,0 +1,25 @@
+added:
+  -
+    title: "Auth0.net version 2.0.0 released"
+    tags:
+      - sdk
+      - dotnet
+    description: |
+      The new version of the Auth0.NET SDK has been refactored and updated to support the Auth0 Management API v2.0. Additionally, the library is now PCL so you can use it on a variety of platforms. See the [github project](https://github.com/auth0/auth0.net) for more details.
+  -
+    title: "Auth0 Python SDK version 2.0.0 released"
+    tags:
+      - sdk
+      - python
+    description: |
+      The new Python SDK supports the Auth0 Management API v2.0 as well as the Authentication API. See the [github project](https://github.com/auth0/auth0-python) for more details.
+
+  -
+    title: "Universal Windows Apps Support (C# & Javascript)"
+    tags:
+      - sdk
+      - tutorial
+      - dotnet
+      - windows
+    description: |
+      New tutorials for Windows UWP Apps for both [C#](https://auth0.com/docs/quickstart/native-mobile/windows-uwp-csharp/no-api) and [Javascript](https://auth0.com/docs/quickstart/native-mobile/windows-uwp-javascript/no-api) were published. Additionally, you can find [libraries and samples](https://github.com/auth0/Auth0.Windows.UWP) to make integrating Auth0 into your UWP app even easier.

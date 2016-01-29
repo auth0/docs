@@ -122,7 +122,7 @@ Add login and logout links. These routes are handled according to the simple-aut
 {{#if session.isAuthenticated}}
   <a {{ action 'invalidateSession' }}>Logout</a>
 {{else}}
-  <a {{ action 'authenticateSession' }}>Login</a>
+  <a {{ action 'sessionRequiresAuthentication' }}>Login</a>
 {{/if}}
 ```
 

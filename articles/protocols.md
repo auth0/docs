@@ -112,6 +112,27 @@ Clients typically extract the URI fragment with the __Access Token__ and cancel 
 
 > Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it. You can define specific attributes to return in the JWT (e.g. `scope=openid email name`).
 
+### 4. Calling your API with a JWT (optional)
+
+Once your application has a JWT (returned in the `id_token` part of the hash fragment), it can be used to make authenticated calls to your API.
+The way this is done depends on how your API is implemented, but the most common way (which is used by all Auth0 seed projects) is to use the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#section-2.1).
+For example:
+
+```
+GET /my-secured-endpoint HTTP/1.1
+Host: my-api.example.com
+Authorization: Bearer eyJ...
+```
+
+where `eyJ...` is the JWT obtained from Auth0.
+The `curl` equivalent would be as follows:
+
+```
+curl https://my-api.example.com/my-secured-endpoint -H "Authorization: Bearer eyJ..."
+```
+
+Note that the header name in this case is `Authorization`, and its value is `Bearer eyJ...` (separated by one space).
+
 ## OAuth Resource Owner Password Credentials Grant
 
 This endpoint is used by clients to obtain an access token (and optionally a [JSON Web Token](/jwt)) by presenting the resource owner's password credentials. These credentials are typically obtained directly from the user, by prompting them for input instead of redirecting the user to the identity provider.

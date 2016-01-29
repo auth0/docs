@@ -30,7 +30,7 @@ snippets:
 
 ### 1. Add express-jwt Dependency
 
-You need to add a few dependencies, including `express-jwt` and `dotenv`. Also, If you haven't already done so, you need to install `express-graphql`.
+You need to add  `express-jwt` as a dependency. Also, If you haven't already done so, you need to install `express-graphql`.
 
 Just run the following code to install the dependencies and add them to your `package.json`.
 
