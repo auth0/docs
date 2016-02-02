@@ -150,7 +150,7 @@ ${snippet(meta.snippets.use)}
 [![Lock.png](/media/articles/native-platforms/android/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
-> Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#sms)
+> Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#passwordless)
 
 Once the user logs in, we have to register to the `Lock.AUTHENTICATION_ACTION` from a `LocalBroadcastManager` to receive the user profile and tokens.
 
