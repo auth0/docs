@@ -16,7 +16,7 @@ The Auth0 access token can be obtained in several ways.
 Calls to Lock or library functions that invoke authentication will return the `access_token`.
 
 * Calls to the Lock widget will return `access_token` as shown in the [Lock documentation](/libraries/lock)
-* [Examples using auth0.js}(https://github.com/auth0/auth0.js)
+* [Examples using auth0.js](https://github.com/auth0/auth0.js)
 * The [/authorize endpoint in the authentication API](/auth-api) will return `access_token`
 * Check the [List of tutorials](/tutorials) to see how to make calls to libraries for other languages/SDKs.
 
