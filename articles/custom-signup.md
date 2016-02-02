@@ -11,8 +11,8 @@ You can find the [full source of this example on GitHub](https://github.com/auth
 The signup flow for custom forms always includes the following steps:
 
 1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password. **This endpoint only works for database connections**.
-2. [Log in the user](/auth-api#!#post--oauth-ro) by posting a user credentials object to the [/oauth/ro](/auth-api#!#post--oauth-ro) endpoint and [get back a JWT](/scopes) (JSON Web Token).
-3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata)
+2. [Log in the user](/auth-api#!#post--oauth-ro) by `POST`-ing a user credentials object to the [/oauth/ro](/auth-api#!#post--oauth-ro) endpoint in exchange for a [JWT](/scopes) (JSON Web Token).
+3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata).
 
 ## 1. Example Signup form
 
