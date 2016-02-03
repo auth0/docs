@@ -150,7 +150,7 @@ As explained above, the way to handle roles per tenant would be using [metadata]
 
 Metadata in Auth0's user profile is a generic way of associating information to __any__ authenticated user. __Permissions__, __Groups__, __Roles__ are all special cases of these attributes.
 
-Here is an example that would model a simplified a chat system like "Slack":
+Here is an example that would model a simplified chat system like "Slack":
 
 ```json
 {
