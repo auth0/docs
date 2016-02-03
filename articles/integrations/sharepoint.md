@@ -12,6 +12,8 @@ The first thing you need to do is go to the [Third Party Apps](${uiURL}/#/extern
 
 ### 2. Follow the Live Documentation
 
+> If your SharePoint server does not have Internet access, you will need to download the installation files to a SharePoint server manually. [Learn more](https://github.com/auth0/auth0-sharepoint/tree/master/auth0-authentication-provider#offline-installation)
+
 On the Settings tab you'll need to enter the URL of the SharePoint Web Application and the external URL (typically the internet endpoint in your Alternate Access Mappings).
 
 ![Tutorial](/media/articles/integrations/sharepoint/sharepoint-app-tutorial.png)
