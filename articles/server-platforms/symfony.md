@@ -31,16 +31,18 @@ ${snippet(meta.snippets.setup)}
 
 Add the following routes at the beginning of `app/config/routing.yml`
 
-    hwi_oauth_redirect:
-        resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-        prefix:   /connect
+```yml
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
 
-    hwi_oauth_login:
-        resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-        prefix:   /login
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
 
-    auth0_login:
-        pattern: /auth0/callback
+auth0_login:
+    pattern: /auth0/callback
+```
 
 
 ### 4. Configure Auth0
@@ -57,14 +59,16 @@ http://yourUrl/auth0/callback
 
 Add this to your `app/config/config.yml`
 
-    hwi_oauth:
-        firewall_name: secured_area
-        resource_owners:
-            auth0:
-                type:                auth0
-                base_url:            https://${account.namespace}
-                client_id:           ${account.clientId}
-                client_secret:       ${account.clientSecret}
+```yml
+hwi_oauth:
+    firewall_name: secured_area
+    resource_owners:
+        auth0:
+            type:                auth0
+            base_url:            https://${account.namespace}
+            client_id:           ${account.clientId}
+            client_secret:       ${account.clientSecret}
+```
 
 ### 6. User provider
 
@@ -79,27 +83,29 @@ This is a basic example that allows anonymous users and then restricts access to
 
 This file is `app/config/security.yml`:
 
-    security:
-        providers:
-            hwi:
-                id: hwi_oauth.user.provider
+```yml
+security:
+    providers:
+        hwi:
+            id: hwi_oauth.user.provider
 
-        firewalls:
-            secured_area:
-                anonymous: ~
-                oauth:
-                    resource_owners:
-                        auth0: "/auth0/callback"
-                    login_path:        /login
-                    use_forward:       false
-                    failure_path:      /login
+    firewalls:
+        secured_area:
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    auth0: "/auth0/callback"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
 
-                    oauth_user_provider:
-                        service: hwi_oauth.user.provider
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider
 
-        access_control:
-            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
+```
 
 Notice that we need to identify the user provided selected in step 6 both in the firewall and in the providers.
 
