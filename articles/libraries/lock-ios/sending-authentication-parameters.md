@@ -12,7 +12,7 @@ You can send parameters, before displaying `A0AuthenticationViewController` or w
 The following example adds a `scope` parameter with the value `login`.
 ```objc
 A0AuthParameters *parameters = [A0AuthParameters newDefaultParams];
-parameters.state = @"login";
+parameters.scope = @"login";
 ```
 
 The following parameters are supported:
