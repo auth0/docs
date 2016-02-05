@@ -35,6 +35,11 @@ Auth0 can also serve as an authentication hub between applications making a SAML
 
 ## Configuring Auth0 as a Service Provider
 
+We have a video with a quick overview of configuring Auth0 as a SAML service provider:
+
+<iframe src="//fast.wistia.net/embed/iframe/2xrll0d056" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="400"></iframe>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
 If Auth0 will serve as a SAML Service Provider, an Auth0 Connection is used to configure the Auth0 side (Service Provider) of each SAML federation.
 
 There are instructions for several specific providers below:
