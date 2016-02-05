@@ -28,28 +28,28 @@ snippets:
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### Before Starting
+### Prepare your App
 
 <div class="setup-callback">
-  <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+  <p>Navigate to the <a href="${uiAppSettingsURL}">Settings</a> section for your Application in the Auth0 dashboard and make sure that the <b>Allowed Callback URLs</b> field contains the following value (using your Client ID):</p>
   <pre><code>a0${account.clientId}://\*.auth0.com/authorize</code></pre>
 </div>
 
-### 1. Adding Auth0 Lock to your project
+### 1. Add Auth0 Lock to your Project
 
-Add the following to the `build.gradle`:
+Add the following to your `build.gradle` file:
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Configuring Auth0 Credentials & Callbacks
+### 2. Configure Auth0 Credentials & Callbacks
 
-Add the `android.permission.INTERNET` permission to `AndroidManifest.xml` inside the `<manifest>` tag:
+Add the `android.permission.INTERNET` permission to your `AndroidManifest.xml` file, inside the `<manifest>` element:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Then add the following entries inside the `<application>` tag in the same file:
+Next add the following elements, inside the `<application>` element in the same file:
 
 ```xml
 <!--Auth0 Lock-->
@@ -73,21 +73,27 @@ Then add the following entries inside the `<application>` tag in the same file:
 
 ### 3. Initialize Lock
 
-First make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add these lines of code:
+Your Android application will need to implement the Application class. If you do not have an existing implementation in your project, create a new class, extending `android.app.Application`. Your Application class name should match the name attribute for the `<application>` element in your `AndroidManifest.xml` file, for example:
+
+```xml
+<application android:name=".MyApplication">
+```
+
+Make your Application class implement the interface `com.auth0.lock.LockProvider` and add the following content:
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Register Native Authentication Handlers
+### 4. Register Native Authentication Handlers
 
-You can configure Lock to use other native Android apps to log the user in (e.g: Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialized.
+You can configure Lock to use other native Android apps to log the user in (Facebook, Google+, etc.). In order to do so, you'll need to register them with Lock after it's initialized.
 
-> If you don't want to use Facebook nor Google+ native authentication, please go directly to the [next step](#4-let-s-implement-the-login)
+*If you don't want to use Facebook nor Google+ native authentication you can skip to the [next step](#5-implement-the-login).*
 
 #### Facebook
 
-Lock uses the native Facebook SDK to obtain the user's access token. This means that you'll need to configure it for your app.
+Lock uses the native Facebook SDK to obtain the user's access token, so you need to configure it for your app.
 
-To get started, in your AndroidManifest.xml you need to add the following:
+First add the following to your `AndroidManifest.xml` file:
 
 ```xml
 <activity android:name="com.facebook.FacebookActivity"
@@ -98,13 +104,13 @@ To get started, in your AndroidManifest.xml you need to add the following:
 <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 ```
 
-Where `@string/facebook_app_id` is your Facebook Application ID that you can get from [Facebook Dev Site](https://developers.facebook.com/apps).
+Where `@string/facebook_app_id` is your Facebook Application ID from the [Facebook Developers App Dashboard](https://developers.facebook.com/apps). 
 
-> For more information on how to configure this, please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).
+*For more information on how to configure this, check out the [Facebook Getting Started Guide](https://developers.facebook.com/docs/android/getting-started).*
 
-> **Note:** The Facebook app should be the same as the one set in Facebook's Connection settings on your Auth0 account
+**Note**: The Facebook app should match the one set in Facebook's Connection settings in your Auth0 account.
 
-Finally, you need to register the Auth0 Facebook Identity Provider with Lock. This can be done when building `Lock` with `Lock.Builder`:
+Finally, you can register the Auth0 Facebook Identity Provider with Lock. You can do this in your application code when building `Lock`, using `Lock.Builder`:
 
 ```java
 lock = new Lock.Builder()
@@ -113,15 +119,15 @@ lock = new Lock.Builder()
         .build();
 ```
 
-### Google
+#### Google
 
-For Google login we use Google Signin library that is part of Google Play Services.
+For Google login we use the Google Play Services library.
 
-Before we start, you'll need to register your application in Google Developers and create a OAuth 2.0 client, to do that follow this [wizard](https://developers.google.com/mobile/add?platform=android)
+You'll need to register your application in the Google Developers console and create an OAuth 2.0 client. The [wizard](https://developers.google.com/mobile/add?platform=android) will guide you through the process.
 
-The next step is to configure your Google connection in Auth0 Dashboard with the newly created OAuth 2.0 client information. Just go to [Social Connections](${uiURL}/#/connections/social), select **Google** and in the field named `Allowed Mobile Client IDs` add the ID of the OAuth 2.0 client.
+The next step is to configure your Google connection in the Auth0 Dashboard with the information for your newly created OAuth 2.0 client. Navigate to [Social Connections](${uiURL}/#/connections/social), select **Google** and in the `Allowed Mobile Client IDs` field, add the ID of the OAuth 2.0 client.
 
-Then in your `AndroidManifest.xml` add these permissions and meta-data value for Google Play Services:
+Next, add the permissions and meta-data for Google Play Services to your `AndroidManifest.xml` file:
 
 ```xml
 <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -129,7 +135,7 @@ Then in your `AndroidManifest.xml` add these permissions and meta-data value for
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 ```
 
-And finally register Google Identity Provider with Lock like this
+Finally, register Google Identity Provider with Lock in your application code as follows:
 
 ```java
 lock = new LockBuilder()
@@ -139,20 +145,21 @@ lock = new LockBuilder()
 }
 ```
 
-### 4. Let's implement the login
+### 5. Implement the Login
 
-Now we're ready to implement the Login.
-
-We can show the Login Dialog by starting the activity `LockActivity`.
+We can show the Login Dialog in the app by starting `LockActivity`:
 
 ${snippet(meta.snippets.use)}
 
+**Note**: Your class will need to import `com.auth0.lock.LockActivity`.
+
 [![Lock.png](/media/articles/native-platforms/android/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
-> Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#passwordless)
+**Note**: There are multiple ways to implement the login box. What you see above is the Login Widget, but you can use your own UI if you prefer.
 
-Once the user logs in, we have to register to the `Lock.AUTHENTICATION_ACTION` from a `LocalBroadcastManager` to receive the user profile and tokens.
+*You can optionally try our Passwordless Login via [SMS](/connections/passwordless/android-sms) or [email](/connections/passwordless/android-email).*
+
+When the user logs in, we need to register the app to receive the `Lock.AUTHENTICATION_ACTION` from a `LocalBroadcastManager`, so that we can retrieve the user profile and tokens:
 
 ```java
 broadcastManager = LocalBroadcastManager.getInstance(this);
@@ -166,9 +173,11 @@ broadcastManager.registerReceiver(new BroadcastReceiver() {
     }, new IntentFilter(Lock.AUTHENTICATION_ACTION));
 ```
 
-### 5. Showing user information
+**Note**: Your class will need to import `com.auth0.lock.Lock.AUTHENTICATION_ACTION`.
 
-After the user has logged in, we can use the `UserProfile` object to display the user's information.
+### 6. Show User Information
+
+After the user is logged in, we can use the `UserProfile` object to display their information:
 
 ```java
   TextView usernameTextView = //find your TextView
@@ -177,8 +186,8 @@ After the user has logged in, we can use the `UserProfile` object to display the
   emailTextView.setText(profile.getEmail());
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
+For the available properties see the User Profile [documentation](/user-profile) and [source code](https://github.com/auth0/Lock.Android/blob/master/core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
 
-### 6. We're done
+### 7. Build your App
 
-You've implemented Login and Signup with Auth0 in Android. You're awesome!
+You've implemented Login and Signup with Auth0 in Android so now you can get on with building your awesome app!
