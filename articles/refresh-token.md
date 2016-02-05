@@ -94,7 +94,7 @@ A response from this request could be as follows:
 The `expires_in` parameter indicates the lifetime of the new JWT in seconds.
 It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
 
-> IMPORTANT ADVICE: obtaining new tokens using the `refresh_token` should happen only if the `id_token` has expired. For example, is a bad practice to call the endpoint to get a new token every time you do an API call. There are rate limits in Auth0 that will throttle the amount of requests that can be done using the same token from a certain IP to this endpoint.
+> IMPORTANT ADVICE: obtaining new tokens using the `refresh_token` should happen only if the `id_token` has expired. For example, it is a bad practice to call the endpoint to get a new token every time you do an API call. There are rate limits in Auth0 that will throttle the amount of requests that can be done using the same token from a certain IP to this endpoint.
 
 ## SDK support
 
