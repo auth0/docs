@@ -2,8 +2,6 @@
 public: false
 ---
 
-**If you have would like to download a preconfigured project, download the seed project.**
-
 <div id="package" class="package">
   <div class="row">
     <div class="info">

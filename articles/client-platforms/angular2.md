@@ -25,12 +25,12 @@ alias:
 ---
 
 ## Angular 2 Tutorial
-You can get started by either downloading the seed project below or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
-This tutorial and seed project were lasted updated on January 18, 2016 and have been tested with Angular 2 version 2.0.0-beta.1.
-
-While we try to support many languages, frameworks, and platforms as possible this tutorial or seed project may not work with dependancies or tooling of versions other than what we have tested.
+This tutorial and seed project have been tested with the following:
+* Angular2 2.0.0-beta.1
+* NodeJS 4.2
 :::
 
 <%= include('../_includes/_package', {
@@ -41,7 +41,7 @@ While we try to support many languages, frameworks, and platforms as possible th
   pkgType: 'js' + account.clientParam
 }) %>
 
-**Or, if you have an existing application, follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 ${include('./\_callback')}
 
