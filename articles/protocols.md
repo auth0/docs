@@ -62,7 +62,7 @@ To get an Access Token, you would send a POST request to the token endpoint in A
 
 	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code
 
-If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
+If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 API and get additional information such as the user profile.
 
 ##### Sample Access Token Response:
 
