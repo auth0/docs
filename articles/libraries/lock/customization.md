@@ -131,7 +131,7 @@ lock.show({
 
 ![][icon-image]
 
-> Note: To disable the header badge at all UI customizations are required. Read the wiki [[article|ui-customization]] on this topic.
+> Note: To disable the header badge entirely, [UI customizations][ui-customization] are required..
 
 ### closable {Boolean}
 
@@ -484,3 +484,4 @@ Internally set from `callback` parameter
 
 [lock-i18n]: /libraries/lock/i18n
 [lock-custom-errors]: /libraries/lock/customizing-error-messages
+[ui-customization]: /libraries/lock/ui-customization
