@@ -112,3 +112,9 @@ Notice that we need to identify the user provided selected in step 6 both in the
 ### 8. Triggering login manually or integrating the Auth0Lock
 
 ${lockSDK}
+
+### Troubleshooting
+
+#### SSL certificate problem: self signed certificate in certificate chain
+
+Seems to be an issue with CAs database in your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
