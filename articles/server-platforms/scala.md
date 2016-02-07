@@ -53,10 +53,9 @@ import play.api.mvc.Controller
 class Callback extends Controller {
 
   // callback route
-  def callback(codeOpt: Option[String] = None, stateOpt: Option[String] = None) = Action.async {
+  def callback(codeOpt: Option[String] = None) = Action.async {
     (for {
       code <- codeOpt
-      state <- stateOpt
     } yield {
       // Get the token
       getToken(code).flatMap { case (idToken, accessToken) =>
