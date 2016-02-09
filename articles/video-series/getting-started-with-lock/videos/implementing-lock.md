@@ -1,5 +1,5 @@
 ---
-name: "Setting up Passwordless Authentication using the Auth0 Dashboard"
+name: "Getting Started with Lock 1-- Implementing Lock"
 description: "This screencast shows how you can get started with Lock by implementing it in a web application."
 timeInSeconds: 233
 videoId: 3xs95vuwtb
