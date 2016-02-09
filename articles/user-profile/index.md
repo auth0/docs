@@ -91,7 +91,7 @@ Perhaps the most well known token is the `id_token`, which is a [JSON Web Token]
 
 The claims within a JWT can contain all of the properties of the User Profile. But more often they contain a subset of them in order to minimize the overall size. For further information on controlling the claims returned in a JWT see the [Scopes](#scopes) section below.
 
-There are three other types of tokens that can be returned during authentication, namely an Auth0 `access_token`, a 3rd party provider access token, and a `refresh-token`. For more information on tokens and claims see the [Token Overview](/tokens).
+There are three other types of tokens that can be returned during authentication, namely an Auth0 `access_token`, a 3rd party provider access token, and a `refresh_token`. For more information on tokens and claims see the [Token Overview](/tokens).
 
 ## Modification of User Profiles
 

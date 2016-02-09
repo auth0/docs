@@ -81,7 +81,7 @@ To publish the example configuration file use this command
 
 ### 4. Setup the callback action
 
-The plugin works with the [Laravel security system](http://laravel.com/docs/security), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.2/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
 In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications) and also, add it as a route in Laravel
 
@@ -97,7 +97,7 @@ ${lockSDK}
 
 ### 6. Defining a user and a user provider
 
-The [Laravel Security System](http://laravel.com/docs/security) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting an auth driver in `app/config/auth.php`. The default driver is Eloquent, which persists the User model in a database using the ORM.
+The [Laravel authentication system](https://laravel.com/docs/5.2/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting an auth driver in `app/config/auth.php`. The default driver is Eloquent, which persists the User model in a database using the ORM.
 
 #### 6.1. Using the auth0 driver
 

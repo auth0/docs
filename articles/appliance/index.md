@@ -10,11 +10,11 @@ See [Auth0 Deployment Models](/deployment) for details on the main differences b
 
 ### Auth0 installation and setup
 
-The initial deployment, setup, configuration, security patches, software upgrades, and overall maintenance of the Auth0 Appliance are the responsibilities of Auth0. Since all these activities run on your infrastructure (e.g. your network, servers, etc.), Auth0 must closely coordinate access with your operations team.
+The initial deployment, setup, configuration, security patches, software upgrades, and overall maintenance of the Auth0 Appliance are the responsibilities of Auth0. Since all these activities run on your infrastructure (e.g. your network, servers, etc.), Auth0 must closely coordinate access with your operations team. Depending on your team’s ability to prepare the infrastructure and its complexity, the Appliance project will typically take between 1-5 weeks.
 
 ### Server requirements
 
-The number of VMs required to host the Auth0 Appliance depends on the expected traffic and the desired availability. In some scenarios, a single node is sufficient. The minimum requirement for a highly available deployment is three network load balanced nodes. No special load balancing logic is needed (no sticky sessions).
+You will need to set up a Dev/Test non-production infrastructure as well as a production infrastructure. The number of VMs required to host the Auth0 Appliance depends on the expected traffic and the desired availability. In some scenarios, a single node is sufficient. The minimum requirement for a highly available deployment is three network load balanced nodes for the production infrastructure, in addition to 1 node for the dev/test non-production infrastructure. No special load balancing logic is needed (no sticky sessions). 
 
 ### Internet access
 

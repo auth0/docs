@@ -32,7 +32,7 @@ alias:
   pkgType: 'none' + account.clientParam
 }) %>
 
-**Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
+**Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 1. Install the Auth0.WindowsPhone package
 

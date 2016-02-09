@@ -21,7 +21,7 @@ snippets:
 
 ### 1. Install the `nginx-jwt` script into your Nginx server
 
-The [`nginx-jwt`](https://github.com/auth0/nginx-jwt) script is a Lua script that is designed to run on Nginx servers that have the [HttpLuaModule](http://wiki.nginx.org/HttpLuaModule) installed. But ultimately its dependencies require components available in the [OpenResty](http://openresty.org/) distribution of Nginx. Therefore, it is recommended that you use **OpenResty** as your Nginx server, and these instructions make that assumption.
+The [`nginx-jwt`](https://github.com/auth0/nginx-jwt) script is a Lua script that is designed to run on Nginx servers that have the [HttpLuaModule](https://github.com/openresty/lua-nginx-module#readme) installed. But ultimately its dependencies require components available in the [OpenResty](http://openresty.org/) distribution of Nginx. Therefore, it is recommended that you use **OpenResty** as your Nginx server, and these instructions make that assumption.
 
 1. Download the latest archive package from [releases](https://github.com/auth0/nginx-jwt/releases).
 1. Extract the archive and deploy its contents to a directory on your Nginx server.

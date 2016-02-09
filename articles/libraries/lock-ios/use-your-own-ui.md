@@ -36,11 +36,11 @@ lodash: true
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
 1.  Add the following dependencies to your project using Cocoapods:
-    ```ruby
-pod "Lock/Core", "~> 1.16"
-pod "Lock-Facebook", "~> 2.0" #If you need FB native integration
-pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
-    ```
+  ```ruby
+  pod "Lock/Core", "~> 1.16"
+  pod "Lock-Facebook", "~> 2.0" #If you need FB native integration
+  pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
+  ```
 
 2. Open your app's `Info.plist` file and add two new entries `Auth0ClientId` and `Auth0Domain` with the following values `${account.clientId}` and `${account.namespace}`
 
