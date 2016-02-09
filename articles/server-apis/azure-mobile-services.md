@@ -21,7 +21,7 @@ ${include('./_thirdPartyApi')}
 
 #### 1. Create a client for the application
 
-WAMS endpoints can be used from anywhere. For example: [Android](/native-platforms/android), [iOS](/native-platforms/ios-objc), [Windows UWP C#](/native-platforms/windows-uwp-csharp), [JavaScript](/client-platforms/) or [Windows Phone](/native-platforms/windowsphone). You can use any of these tutorials for configuring your app that will interact with WAMS.
+WAMS endpoints can be used from anywhere. For example: [Android](/native-platforms/android), [iOS](/native-platforms/ios-objc), [Windows UWP C#](/native-platforms/windows-uwp-csharp), [JavaScript](/client-platforms/vinillajs) or [Windows Phone](/native-platforms/windowsphone). You can use any of these tutorials for configuring your app that will interact with WAMS.
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 
