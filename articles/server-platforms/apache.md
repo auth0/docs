@@ -27,7 +27,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure the module with your Auth0 Account information
 
-Now, you should get a new configuration file under the `/apache2/mods-available` folder, where Apache modules are normally installed.
+Now, you should get a new configuration file under the `/etc/apache2/mods-available` folder, where Apache modules are normally installed (On Windows you need to use `/apache/conf/httpd.conf` file).
 
 In there, you must add the following configuration for the `mod_auth_openidc` module
 
