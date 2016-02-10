@@ -28,9 +28,9 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
     </tr>
     <tr>
       <th>Business Hours</th>
-      <td>M-F 7am-7pm PT</td>
-      <td>M-F 7am-7pm PT</td>
-      <td>6am-9pm PT</td>
+      <td>M-F 7am-7pm (UTC−8)</td>
+      <td>M-F 7am-7pm (UTC−8)</td>
+      <td>6am-9pm (UTC−8)</td>
       <td>24/7</td>
     </tr>
     <tr>
