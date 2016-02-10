@@ -145,7 +145,7 @@ end
 ### Optional steps
 #### Getting the error description on Failure
 
-In case of failure, you may want to get the description of the error. For that, in your `config/production.rb` add the following:
+In case of failure, you may want to get the description of the error. For that, in your `config/environments/production.rb` add the following:
 
 ```ruby
 OmniAuth.config.on_failure = Proc.new { |env|
