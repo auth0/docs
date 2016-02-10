@@ -85,17 +85,29 @@ cordova plugin add cordova-plugin-inappbrowser
 ```
 * Remove the platform and re add it
 
+iOS:
+
 ```bash
 cordova platform remove ios
 cordova platform add ios
 ```
+Android:
+
+```bash
+cordova platform remove android
+cordova platform add android
+```
 
 * Copy the contents from the plugin to the platform plugins
 
+iOS:
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
 ```
-
+Android:
+```bash
+cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
+```
 #### Get a blank page with an OK after signin
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. See the previous section to learn how to solve this.
