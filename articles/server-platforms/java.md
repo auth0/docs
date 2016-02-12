@@ -33,7 +33,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace' + account.clientParam
 }) %>
 
-**If you have an existing Java WebApp, follow the steps below.**
+**If you have an existing Java WebApp, please follow the steps below.**
 
 ### 1. Add Auth0 dependencies
 
