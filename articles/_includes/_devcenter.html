@@ -1,0 +1,42 @@
+<% if (meta.scenarios && meta.scenarios.length > 0) { %>
+ <h2>Key Scenarios</h2>
+ <ul class="list-scenarios">
+<% _.forEach(meta.scenarios, function(scenario) { %>
+   <li>
+    <a class="scenario" href="${scenario.link}">
+      <div class="content">
+        <i class="icon-budicon-754"></i>
+        <div class="title">${scenario.title}</div>
+      </div>
+      <div class="description">${scenario.description}</div>
+    </a>
+  </li>
+<% }); %>
+<% } %>
+</ul>
+
+<% if (meta.resources && meta.resources.length > 0) { %>
+ <h2>Other Resources</h2>
+ <ul class="list-scenarios">
+<% _.forEach(meta.resources, function(resource) { %>
+   <li>
+    <a class="scenario resource" href="${resource.link}">
+      <div class="content">
+        <% var iconClass = "icon-budicon-692";
+           switch(resource.type) {
+              case "sdk":
+                iconClass = "icon-budicon-333";
+                break;
+              case "sample":
+                iconClass = "icon-budicon-342";
+                break;
+           } %>
+        <i class="icon-budicon-342"></i>
+        <div class="title">${resource.title}</div>
+      </div>
+      <div class="description">${resource.subtitle}</div>
+    </a>
+  </li>
+<% }); %>
+<% } %>
+</ul>
