@@ -29,6 +29,14 @@ snippets:
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.2
+* Phonegap 5.5
+:::
+
+
 ### 1. Setting up the callback URL in Auth0
 
 
