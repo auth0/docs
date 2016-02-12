@@ -16,6 +16,15 @@ snippets:
 
 ## Java API Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Java 1.8
+* Maven 3.3
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-java',
   pkgBranch: 'master',
@@ -26,7 +35,7 @@ snippets:
 
 Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-java/blob/master/examples/java-api/README.md#running-the-example)
 
-**Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.**
+**If you have an existing application, please follow the steps below.**
 
 ### 1. Add java-jwt dependency
 
@@ -62,6 +71,6 @@ Please note that if you're using Servlets 2.5, you won't be able to use the `@We
 ```
 
 
-### 4. You're done!
+### 3. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
