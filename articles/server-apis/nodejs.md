@@ -25,6 +25,7 @@ You can get started by either downloading the seed project or if you would like 
 This tutorial and seed project have been tested with the following:
 
 * NodeJS 4.2
+* Express 4.11
 :::
 
 <%= include('../_includes/_package', {
