@@ -18,7 +18,14 @@ snippets:
   use: native-platforms/reactnative-ios/use
 ---
 
-## iOS React Native Tutorial
+## React Native iOS Tutorial
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* React Native 0.16.0
+* CocoaPods 0.39.0
+* NodeJS 4.2.4
+:::
 
 <%= include('../_includes/_package', {
   pkgRepo: 'Mobile-Samples.React',
