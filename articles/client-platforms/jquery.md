@@ -18,6 +18,14 @@ snippets:
 
 ## jQuery Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.2
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-jquery',
   pkgBranch: 'gh-pages',
