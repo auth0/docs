@@ -24,7 +24,7 @@ snippets:
 ## ASP.NET Web API Tutorial
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0.net',
+  pkgRepo: 'auth0-aspnet',
   pkgBranch: 'master',
   pkgPath: 'examples/webapi',
   pkgFilePath: 'examples/webapi/Api/Web.config',
