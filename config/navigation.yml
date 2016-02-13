@@ -12,7 +12,7 @@ categories:
       -
         name: "Applications"
         icon: "icon-budicon-349"
-        description: "Understanding an appliciation in the context of Auth0."
+        description: "Understanding an application in the context of Auth0."
         href: "/applications"
       -
         name: "Rules"
