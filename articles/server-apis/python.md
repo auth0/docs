@@ -18,6 +18,17 @@ snippets:
 
 ## Python API Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Python 2.7
+* Flask 0.10.1
+* Flask-Cors 2.1.0
+* PyJWT 1.4.0
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-python',
   pkgBranch: 'master',
@@ -26,7 +37,7 @@ snippets:
   pkgType: 'server' + account.clientParam
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Python app to use it with Auth0.**
+**If you have an existing application, please follow the steps below.**
 
 ### 1. Add the needed dependencies
 
