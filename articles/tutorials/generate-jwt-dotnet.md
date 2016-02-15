@@ -18,7 +18,7 @@ Suppose that you now want to add the ability for another app, or perhaps guest u
 
 ## Generating a JWT
 
-In order to generate a JWT we'll make use of a Nuget package called `jose-jwt`, so go ahead and install it:
+In order to generate a JWT we'll make use of a NuGet package called `jose-jwt`, so go ahead and install it:
 
 ```
 Install-Package jose-jwt
