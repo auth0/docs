@@ -2,7 +2,7 @@
 title: Generate a JSON Web Token (JWT) using .NET
 ---
 
-## Introduction 
+## Introduction
 
 JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with HMAC algorithm) or a public/private key pair using RSA.
 
@@ -14,7 +14,7 @@ When a user authenticates in your application using the [Auth0 Lock](https://aut
 
 There are however times when you may want to generate a JWT manually. Let us take an example where you have [secured your ASP.NET Web API using JWT](https://auth0.com/docs/quickstart/backend/webapi-owin/). Your users sign in using Lock and on every call to the API you pass along the JWT obtained during authentication.
 
-Suppose that you now want to add the ability for another app, or perhaps guest users, to be able to make calls to API methods which are secured. In this case you do not have a JWT since there was no user who authenticated. In instances like these you can easily generate a JWT yourself, and pass that along in the Authentication header to API calls.	
+Suppose that you now want to add the ability for another app, or perhaps guest users, to be able to make calls to API methods which are secured. In this case you do not have a JWT since there was no user who authenticated. In instances like these you can easily generate a JWT yourself, and pass that along in the Authentication header to API calls.
 
 ## Generating a JWT
 
@@ -41,7 +41,7 @@ private byte[] Base64UrlDecode(string arg){    string s = arg;    s = s.Repla
 And here is the code to generate the JWT:
 
 ```
-byte[] secretKey = Base64UrlDecode("${account.clientSecret}");DateTime issued = DateTime.Now;DateTime expire = DateTime.Now.AddHours(10);var payload = new Dictionary<string, object>(){    {"iss", "${account.namespace}"},    {"aud", "${account.clientId}"},    {"sub", "anonymous"},    {"iat", ToUnixTime(issued).ToString()},    {"exp", ToUnixTime(expire).ToString()}};            string token = JWT.Encode(payload, secretKey, JwsAlgorithm.HS256);```
+byte[] secretKey = Base64UrlDecode("${account.cientSecret}");DateTime issued = DateTime.Now;DateTime expire = DateTime.Now.AddHours(10);var payload = new Dictionary<string, object>(){    {"iss", "${account.namespace}"},    {"aud", "${account.clientId}"},    {"sub", "anonymous"},    {"iat", ToUnixTime(issued).ToString()},    {"exp", ToUnixTime(expire).ToString()}};string token = JWT.Encode(payload, secretKey, JwsAlgorithm.HS256);```
 
 Walking throught the code about, we first decode the Client Secret. Next we set the issued date to the current date and time, and the expiry date to 10 hours from now.
 
