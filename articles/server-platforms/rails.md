@@ -16,6 +16,12 @@ alias:
 
 ## Ruby On Rails Web App Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.1.8
+* Rails 4.2.5.1
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
   pkgBranch: 'master',
