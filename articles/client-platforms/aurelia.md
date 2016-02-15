@@ -29,6 +29,13 @@ alias:
 
 ## Aurelia Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.0.0
+* JSPM 0.16.27
+* Aurelia-framework 1.0.0-beta.1.1.0
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-aurelia',
   pkgBranch: 'master',
