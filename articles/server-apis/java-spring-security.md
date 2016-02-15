@@ -22,6 +22,15 @@ snippets:
 
 ## Java API Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Java 1.8
+* Maven 3.3
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'spring-security-auth0',
   pkgBranch: 'master',
@@ -30,7 +39,7 @@ snippets:
   pkgType: 'replace' + account.clientParam
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.**
+**If you have an existing application, please follow the steps below.**
 
 ### 1. Add Auth0 Spring Security dependency
 
