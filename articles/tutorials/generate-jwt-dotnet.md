@@ -75,4 +75,6 @@ Inside your Web API controller you may want to check the user id to see whether 
 This is as simple as retrieving the value of the **NameIdentifier** claim and checking whether the value is "anonymous". If it is you may have different logic executing for the anonymous user.
 
 ```cs
-ClaimsPrincipal principal =  User as ClaimsPrincipal;var userId = principal.FindFirst(ClaimTypes.NameIdentifier).Value;```
+ClaimsPrincipal principal =  User as ClaimsPrincipal;
+var userId = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+```
