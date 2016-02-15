@@ -20,6 +20,14 @@ snippets:
 
 ## Ionic Framework Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 4.3.0
+* Ionic 1.7.14
+* Cordova 6.0.0
+* ios-sim 5.0.6
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
