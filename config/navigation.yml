@@ -1,8 +1,26 @@
+## ------------------------------------------------------------
+## Quickstart Configuration
+## This document contains configuration for the quickstart
+##
+## ------------------------------------------------------------
+
 categories:
   -
-    id: "toc"
-    name: "Guides & SDKs"
-    description: "References and documentation"
+    id: "start"
+    name: "Getting Started"
+    links:
+      -
+        name: "Introduction to Auth0"
+        href: "https://auth0.com/video-tutorials/main/intro"
+      -
+        name: "Creating your first Application"
+        href: "https://auth0.com/video-tutorials/creating-your-first-app/register-an-application"
+      -
+        name: "Getting Started with Lock"
+        href: "https://auth0.com/video-tutorials/getting-started-with-lock/implementing-lock"
+      -
+        name: "Using Rules"
+        href: "https://auth0.com/video-tutorials/advanced-usage-of-auth0/using-rules"
   -
     id: "product"
     name: "Product"
@@ -92,7 +110,22 @@ categories:
       -
         name: "Mobile Developers"
         href: "/"
-
+  -
+    id: "ui-component"
+    name: "UI Components"
+    links:
+      -
+        name: "Lock for Web"
+        description: "Auth UI for your web app"
+        href: "/libraries/lock"
+      -
+        name: "Lock for iOS"
+        description: "Native iOS Authentication UI"
+        href: "/libraries/lock-ios"
+      -
+        name: "Lock for Android"
+        description: "Native Android Authentication UI"
+        href: "/libraries/lock-android"
   -
     id: "sdk"
     name: "SDKs"
@@ -130,22 +163,10 @@ categories:
         name: "Java SDK"
         slug: "java"
         href: "/server-platforms/java"
-  -
-    id: "ui-component"
-    name: "UI Components"
-    links:
       -
-        name: "Lock for Web"
-        description: "Auth UI for your web app"
-        href: "/libraries/lock"
-      -
-        name: "Lock for iOS"
-        description: "Native iOS Authentication UI"
-        href: "/libraries/lock-ios"
-      -
-        name: "Lock for Android"
-        description: "Native Android Authentication UI"
-        href: "/libraries/lock-android"
+        name: "More SDKs"
+        slug: "other"
+        href: "/libraries/sdks/more"
   -
     id: "web-frameworks"
     name: "Web Frameworks"
@@ -160,6 +181,10 @@ categories:
       -
         name: "React"
         href: "/"
+      -
+        name: "More Frameworks"
+        slug: "other"
+        href: "/libraries/web-frameworks/more"
   -
     id: "how-to"
     name: "Guides"
@@ -210,19 +235,3 @@ categories:
         icon: "icon-budicon-778"
         href: "/email"
         description: "Learn how to configure the account management emails that Auth0 sends."
-  -
-    id: "start"
-    name: "Getting Started"
-    links:
-      -
-        name: "Auth0 in 5 minutes"
-        href: "/"
-      -
-        name: "Auth0 in 30 minutes"
-        href: "/"
-      -
-        name: "Quickstart Tutorials"
-        href: "/quickstart"
-      -
-        name: "Best Practices"
-        href: "/"
