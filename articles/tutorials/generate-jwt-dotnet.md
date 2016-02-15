@@ -1,12 +1,8 @@
----
-title: Generate a JSON Web Token (JWT) using .NET
----
-
-## Introduction
+# Generate a JSON Web Token (JWT) using .NET
 
 JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with HMAC algorithm) or a public/private key pair using RSA.
 
-::: panel-info More infomation on JSON Web Tokens
+::: panel-info More information on JSON Web Tokens
 For a more detailed background on JSON Web Tokens and how they are used in Auth0, please refer to the documents [Get Started with JSON Web Tokens](https://auth0.com/learn/json-web-tokens/) and [JsonWebTokens in Auth0](https://auth0.com/docs/jwt) on the Auth0 website.
 :::
 
@@ -20,19 +16,19 @@ Suppose that you now want to add the ability for another app, or perhaps guest u
 
 In order to generate a JWT we'll make use of a NuGet package called `jose-jwt`, so go ahead and install it:
 
-```
+```bash
 Install-Package jose-jwt
 ```
 
 And import the namespace for the library:
 
-```
+```cs
 using Jose;
 ```
 
 Next up you will need to add two helper methods to your code. The first will allow you to decode the **Client Secret** which is BASE64 encoded, but we need to pass it as non-base64 encoded to the JWT generator. The second is to generate a UNIX timestamp from a `DateTime`:
 
-```
+```cs
 private byte[] Base64UrlDecode(string arg){    string s = arg;    s = s.Replace('-', '+'); // 62nd char of encoding    s = s.Replace('_', '/'); // 63rd char of encoding    switch (s.Length % 4) // Pad with trailing '='s    {        case 0: break; // No pad chars in this case        case 2: s += "=="; break; // Two pad chars        case 3: s += "="; break; // One pad char        default:            throw new System.Exception(        "Illegal base64url string!");    }    return Convert.FromBase64String(s); // Standard base64 decoder}private long ToUnixTime(DateTime dateTime){    return (int)(dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1))).TotalSeconds;}
 ```
 
@@ -40,8 +36,23 @@ private byte[] Base64UrlDecode(string arg){    string s = arg;    s = s.Repla
 
 And here is the code to generate the JWT:
 
+```cs
+byte[] secretKey = Base64UrlDecode("${account.cientSecret}");
+DateTime issued = DateTime.Now;
+DateTime expire = DateTime.Now.AddHours(10);
+
+var payload = new Dictionary<string, object>()
+{
+    {"iss", "${account.namespace}"},
+    {"aud", "${account.clientId}"},
+    {"sub", "anonymous"},
+    {"iat", ToUnixTime(issued).ToString()},
+    {"exp", ToUnixTime(expire).ToString()}
+};
+
+string token = JWT.Encode(payload, secretKey, JwsAlgorithm.HS256);
 ```
-byte[] secretKey = Base64UrlDecode("${account.cientSecret}");DateTime issued = DateTime.Now;DateTime expire = DateTime.Now.AddHours(10);var payload = new Dictionary<string, object>(){    {"iss", "${account.namespace}"},    {"aud", "${account.clientId}"},    {"sub", "anonymous"},    {"iat", ToUnixTime(issued).ToString()},    {"exp", ToUnixTime(expire).ToString()}};string token = JWT.Encode(payload, secretKey, JwsAlgorithm.HS256);```
+
 
 Walking throught the code about, we first decode the Client Secret. Next we set the issued date to the current date and time, and the expiry date to 10 hours from now.
 
@@ -63,5 +74,5 @@ Inside your Web API controller you may want to check the user id to see whether 
 
 This is as simple as retrieving the value of the **NameIdentifier** claim and checking whether the value is "anonymous". If it is you may have different logic executing for the anonymous user.
 
-```
+```cs
 ClaimsPrincipal principal =  User as ClaimsPrincipal;var userId = principal.FindFirst(ClaimTypes.NameIdentifier).Value;```
