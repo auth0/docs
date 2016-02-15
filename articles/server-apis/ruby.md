@@ -7,7 +7,6 @@ languages:
   - Ruby
 thirdParty: false
 image: /media/platforms/rails.png
-lodash: true
 tags:
   - quickstart
 snippets:
