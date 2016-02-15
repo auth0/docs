@@ -7,6 +7,7 @@ OIDCProviderUserInfoEndpoint https://${account.namespace}/userinfo
 
 OIDCClientID ${account.clientId}
 OIDCClientSecret ${account.clientSecret}
+OIDCProviderJwksUri https://${account.namespace}/.well-known/jwks.json
 
 OIDCScope "openid name email"
 OIDCRedirectURI https://your_apache_server/your_path/redirect_uri/

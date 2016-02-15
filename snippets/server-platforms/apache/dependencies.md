@@ -1,3 +1,3 @@
 ```bash
-sudo a2enmod auth_openidc
+a2enmod auth_openidc
 ```
