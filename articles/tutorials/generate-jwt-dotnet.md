@@ -43,17 +43,17 @@ And here is the code to generate the JWT:
 ```
 byte[] secretKey = Base64UrlDecode("${account.clientSecret}");DateTime issued = DateTime.Now;DateTime expire = DateTime.Now.AddHours(10);var payload = new Dictionary<string, object>(){    {"iss", "${account.namespace}"},    {"aud", "${account.clientId}"},    {"sub", "anonymous"},    {"iat", ToUnixTime(issued).ToString()},    {"exp", ToUnixTime(expire).ToString()}};            string token = JWT.Encode(payload, secretKey, JwsAlgorithm.HS256);```
 
-The code above does the following:
+Walking throught the code about, we first decode the Client Secret. Next we set the issued date to the current date and time, and the expiry date to 10 hours from now.
 
-* Firstly you need to decode the Client Secret
-* Next we set the issued date to the current date and time, and the expiry date to 10 hours from now
-* Generate the actual payload of the JWT by setting the following parameters:
-	* **iss** must be set to your Auth0 domain. Be sure to include the trailing slash at the end.
-	*  **aud** must be set to your Client ID
-	*  **sub** must be set to the user's identifier. In this case we use "anonymous", but you can basically use any identifier here. If the token is for another application, then use something which identifies that application.
-	* **iat** is set to the time the token was issued. We convert the actual `DatetTime` to a Unix timestamp.
-	* **exp** is set to the time the token expires, once again converted to a Unix timestamp
-*Finally we generate the actual token by by calling the `Encode` method of the `JWT` class, passing the payload, the secretkey and the JWT Signature Algorithm, in this case **HS256**.
+Then we generate the actual payload of the JWT by setting the following parameters:
+
+* **iss** must be set to your Auth0 domain. Be sure to include the trailing slash at the end.
+*  **aud** must be set to your Client ID
+*  **sub** must be set to the user's identifier. In this case we use "anonymous", but you can basically use any identifier here. If the token is for another application, then use something which identifies that application.
+* **iat** is set to the time the token was issued. We convert the actual `DatetTime` to a Unix timestamp.
+* **exp** is set to the time the token expires, once again converted to a Unix timestamp
+
+Finally we generate the actual token by by calling the `Encode` method of the `JWT` class, passing the payload, the secretkey and the JWT Signature Algorithm, in this case **HS256**.
 
 Now you can use that token to pass along as a bearer token in the Auth header for calls made to your API.
 
