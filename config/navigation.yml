@@ -100,16 +100,16 @@ categories:
     links:
       -
         name: "Web Developers"
-        href: "/"
+        href: "/platforms/web"
       -
         name: "Single Page App Developers"
-        href: "/"
+        href: "/platforms/spa"
       -
         name: "API Developers"
-        href: "/"
+        href: "/platforms/api"
       -
         name: "Mobile Developers"
-        href: "/"
+        href: "/platforms/mobile"
   -
     id: "ui-component"
     name: "UI Components"
@@ -127,64 +127,64 @@ categories:
         description: "Native Android Authentication UI"
         href: "/libraries/lock-android"
   -
-    id: "sdk"
-    name: "SDKs"
+    id: "dev-center"
+    name: "Developer Centers"
     description: "Explore content by language and platform"
     links:
       -
-        name: "Node SDK"
-        slug: "node"
-        href: "/server-platforms/nodejs"
-      -
-        name: "Javascript SDK"
-        slug: "vanillajs"
-        href: "/client-platforms/vanillajs"
-      -
-        name: "iOS SDK"
-        slug: "ios"
-        href: "/native-platforms/ios-objc"
-      -
-        name: "Android SDK"
+        name: "Android"
         slug: "android"
-        href: "/native-platforms/android"
+        href: "/dev-centers/android"
       -
-        name: "Ruby SDK"
-        slug: "ruby"
-        href: "/server-apis/ruby"
+        name: "iOS"
+        slug: "ios"
+        href: "/dev-centers/ios"
       -
-        name: ".NET SDK"
-        slug: "net"
-        href: "/server-platforms/aspnet-owin"
-      -
-        name: "Python SDK"
-        slug: "python"
-        href: "/server-platforms/python"
-      -
-        name: "Java SDK"
+        name: "Java"
         slug: "java"
-        href: "/server-platforms/java"
+        href: "/dev-centers/java"
       -
-        name: "More SDKs"
+        name: "Javascript"
+        slug: "Javascript"
+        href: "/dev-centers/javascript"
+      -
+        name: ".NET"
+        slug: "net"
+        href: "/dev-centers/dotnet"
+      -
+        name: "Node"
+        slug: "node"
+        href: "/dev-centers/node"
+      -
+        name: "Python"
+        slug: "python"
+        href: "/dev-centers/python"
+      -
+        name: "Ruby"
+        slug: "ruby"
+        href: "/dev-centers/ruby"
+      -
+        name: "More"
         slug: "other"
-        href: "/libraries/sdks/more"
+        href: "/dev-centers/all"
   -
-    id: "web-frameworks"
+    id: "web-framework"
     name: "Web Frameworks"
     description: ""
     links:
       -
         name: "AngularJS"
-        href: "/"
+        href: "/web-frameworks/angular"
       -
         name: "EmberJS"
-        href: "/"
+        href: "/web-frameworks/ember"
       -
         name: "React"
-        href: "/"
+        href: "/web-frameworks/react"
       -
-        name: "More Frameworks"
+        name: "More"
         slug: "other"
-        href: "/libraries/web-frameworks/more"
+        href: "/web-frameworks/all"
   -
     id: "how-to"
     name: "Guides"
