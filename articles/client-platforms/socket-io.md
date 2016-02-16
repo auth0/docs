@@ -20,7 +20,8 @@ snippets:
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 5.6.0
+* Socket.io 1.4.5
+* NodeJS 4.2.4
 :::
 
 <%= include('../_includes/_package', {
