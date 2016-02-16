@@ -21,7 +21,7 @@ ${include('./_thirdPartyApi')}
 
 #### 1. Create a client for the application
 
-WAMS endpoints can be used from anywhere: [Android](/android-tutorial), [iOS](/ios-tutorial), Windows 8 [C#](/win8-cs-tutorial) or [JavaScript](/win8-tutorial) and [Windows Phone](/windowsphone-tutorial). You can use any of these tutorials for configuring your app that will interact with WAMS.
+WAMS endpoints can be used from anywhere. For example: [Android](/native-platforms/android), [iOS](/native-platforms/ios-objc), [Windows UWP C#](/native-platforms/windows-uwp-csharp), [JavaScript](/client-platforms/vanillajs) or [Windows Phone](/native-platforms/windowsphone). You can use any of these tutorials for configuring your app that will interact with WAMS.
 
 A very good starting point is any of the samples you can download from the Azure Portal. Download and follow these:
 
@@ -29,7 +29,7 @@ A very good starting point is any of the samples you can download from the Azure
 
 #### 2. Changing the sample to use Auth0
 
-Changing the samples to use Auth0 is very simple. As an example, if you followed the Windows 8 sample (C#), you will end up with an `AuthenticateAsync` method that adds one of the standard WAMS authentication mechanisms.
+Changing the samples to use Auth0 is very simple. As an example, if you followed the Windows UWP sample (C#), you will end up with an `AuthenticateAsync` method that adds one of the standard WAMS authentication mechanisms.
 
 
 ${snippet(meta.snippets.use)}
@@ -44,8 +44,6 @@ These 6 new lines of code do all the work for you. The important aspects:
 The input for the `GetDelegationToken` method, is the clientID of the App / API where `Windows Azure Mobile Services (WAMS) API` addon was enable.
 
 You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect him to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.
-
-> The sample above is using Windows 8, C#. Clients on other platforms would use almost identical code.
 
 #### 3. Using the user identity in the WAMS backend
 The final step is to use the information on the token on the server code. You will likely have to do 2 things:

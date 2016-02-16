@@ -550,5 +550,9 @@
   {
     "from": "/connections/passwordless/ios-sms",
     "to": "/connections/passwordless/ios-sms-objc"
+  },
+  {
+    "from": "/premium-support",
+    "to": "/support"
   }
 ]

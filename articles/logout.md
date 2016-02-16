@@ -32,3 +32,13 @@ https://${account.namespace}/v2/logout?federated&
 ```
 
 > Make sure to properly encode the `returnTo` parameter.
+
+## SAML logout
+
+To logout users from an external SAML identity provider, a [SAML logout URL](https://auth0.com/docs/saml-sp-generic#1-obtain-information-from-idp) must be configured in the settings for the SAML connection.
+If a logout URL is not configured, Auth0 will use the SAML login URL instead.
+To log out a user from both Auth0 and their SAML identity provider, they must be redirected to the logout endpoint including the `federated` query string parameter as described above.
+
+Note that even if a logout URL has been configured correctly, it's possible that Auth0 will not be able to make a logout request to the SAML identity provider in some cases.
+When logging in, the SAML identity provider should uniquely identify the user's session with a `SessionIndex` attribute in the `AuthnStatement` element of the SAML assertion.
+This same `SessionIndex` value must be used when a user tries to log out; if it was not present in the initial login assertion, a logout request will not be made to the SAML identity provider.

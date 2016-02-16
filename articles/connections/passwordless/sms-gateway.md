@@ -110,3 +110,5 @@ The previous settings assume your SMS Gateway accepts non-authenticated requests
 ```
 
 With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`. With this configuration, when the payload is sent to the SMS Gateway a JWT will be added to the `Authorization` header which contains a token with the `subject` and `audience` configured in the connection and signed with the `secret`.
+
+Additionally, if you secret is base64 url encoded you can set `options.secret_base64_encoded` to `true`.

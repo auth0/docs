@@ -10,7 +10,7 @@ After completing this step you will have created two unauthenticated REST servic
 
 Perform the following steps to create an Amazon table and the AWS Lambda functions and Amazon API Gateway APIs after logging into the AWS console.
 
-1. First create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *Hash*, and specify a *Hash Attribute Name* string type of `username`. Press **Continue**, then press **Continue** for Indices to skip. On the next page enter *3* for read and write units, and then press **Continue**. Uncheck *Use Basic Alarms* and press **Continue** one more time. Press **Create** to finish.
+1. First create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *String*, and name the key `username`. Uncheck *Use default settings*, change the read and write units to *3*, and then press **Create**. While the table is being created, take note of the *Amazon Resource Name (ARN)* under the *Table details* section, you will need the table's ARN in the next step.
 
 2. Next create a policy that allows your AWS Lambda functions to access CloudWatch logs and the Pets table. Select the AWS IAM console. Click on **Roles** in the left menu, and then click the **Create New Role** button. Name the role `APIGatewayLambdaExecRole` and click **Next Step**. Under *AWS Service Roles*, select *AWS Lambda*. For Attach Policy just skip by clicking **Next Step**. Click **Create Role**. Now select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **click here** link. Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following for the policy document (first update the amazon resource name (arn) for your DynamoDB table). Click **Apply Policy**.
 
@@ -33,7 +33,7 @@ Perform the following steps to create an Amazon table and the AWS Lambda functio
                       "dynamodb:PutItem",
                       "dynamodb:UpdateItem"
                       ],
-          "Resource": ["arn:aws:dynamodb:us-east-1:0123456789:table/Pets"]
+          "Resource": ["DYNAMODB_TABLE_ARN_VALUE_FROM_PREVIOUS_STEP"]
         }
        ]
     }

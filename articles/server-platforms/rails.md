@@ -16,6 +16,12 @@ alias:
 
 ## Ruby On Rails Web App Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.1.8
+* Rails 4.2.5.1
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
   pkgBranch: 'master',
@@ -145,7 +151,7 @@ end
 ### Optional steps
 #### Getting the error description on Failure
 
-In case of failure, you may want to get the description of the error. For that, in your `config/production.rb` add the following:
+In case of failure, you may want to get the description of the error. For that, in your `config/environments/production.rb` add the following:
 
 ```ruby
 OmniAuth.config.on_failure = Proc.new { |env|

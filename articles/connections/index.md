@@ -13,7 +13,7 @@ Auth0 supports the following identity providers:
 <% _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
   <% if (article.connection) { %>
     <li>
-      <% if (article.sitemap === false) { %>
+      <% if (article.public === false) { %>
         <%- article.connection %>
       <% } else { %>
         <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
@@ -31,7 +31,7 @@ Auth0 supports the following social providers out of the box. Additionally, you 
 <% _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
   <% if (article.connection) { %>
     <li>
-      <% if (article.sitemap === false) { %>
+      <% if (article.public === false) { %>
         <%- article.connection %>
       <% } else { %>
         <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
@@ -53,7 +53,7 @@ Full documentation on Passwordless authentication can be found [here](/connectio
 <% _.forEach(_.sortBy(articles.findByHash('connections/passwordless').items, 'connection'), function(article) { %>
   <% if (article.connection) { %>
     <li>
-      <% if (article.sitemap === false) { %>
+      <% if (article.public === false) { %>
         <%- article.connection %>
       <% } else { %>
         <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>

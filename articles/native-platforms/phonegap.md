@@ -29,6 +29,14 @@ snippets:
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.2
+* Phonegap 5.5
+:::
+
+
 ### 1. Setting up the callback URL in Auth0
 
 
@@ -78,17 +86,30 @@ phonegap plugin add cordova-plugin-inappbrowser
 ```
 * Remove the platform and re add it
 
+iOS:
+
 ```bash
 phonegap platform remove ios
 phonegap platform add ios
 ```
+Android:
+
+```bash
+phonegap platform remove android
+phonegap platform add android
+```
 
 * Copy the contents from the plugin to the platform plugins
+
+iOS:
 
 ```bash
 cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
 ```
-
+Android:
+```bash
+cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
+```
 #### Get a blank page with an OK after signin
 
 This could mean that the `InAppBrowser` plugin wasn't installed successfully.

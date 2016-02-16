@@ -26,6 +26,11 @@ alias:
 
 ## Vue.js Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Vue.js 1.0.16
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-vue',
   pkgBranch: 'master',

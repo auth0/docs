@@ -19,6 +19,11 @@ snippets:
 
 ## React Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.6.0
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-react',
   pkgBranch: 'gh-pages',
@@ -88,10 +93,10 @@ var App = React.createClass({
 });
 ```
 
-Finally, call `React.render()` method to display the `App` component:
+Finally, call `ReactDOM.render()` method from `react-dom` library to display the `App` component:
 
 ```js
-React.render(
+ReactDOM.render(
   <App />,
   document.getElementById('container-id')
 );
@@ -129,7 +134,7 @@ var LoggedIn = React.createClass({
       );
     } else {
       return (
-        <div class="loading">Loading profile</div>
+        <div className="loading">Loading profile</div>
       );
     }
   }

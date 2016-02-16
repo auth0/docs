@@ -21,6 +21,12 @@ alias:
 
 ## Electron Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.0.0
+* Electron 0.36.7
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-electron',
   pkgBranch: 'master',

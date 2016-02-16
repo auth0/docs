@@ -16,6 +16,15 @@ alias:
 
 ## Java Web App Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Java 1.8
+* Maven 3.3
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-java',
   pkgBranch: 'master',
@@ -24,7 +33,7 @@ alias:
   pkgType: 'replace' + account.clientParam
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Java WebApp to use it with Auth0.**
+**If you have an existing Java WebApp, please follow the steps below.**
 
 ### 1. Add Auth0 dependencies
 

@@ -12,6 +12,11 @@ snippets:
 
 ## Go Web App Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Go 1.5.3
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-golang',
   pkgBranch: 'master',

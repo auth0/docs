@@ -107,8 +107,8 @@ A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
 To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your AppDelegate.swift file:
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    return return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
+func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
 }
 ```
 
