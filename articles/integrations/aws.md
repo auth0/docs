@@ -11,39 +11,39 @@ By integrating Auth0 and AWS you will be able to login to the AWS Dashboard with
 
 1. On the Auth0 [Dashboard](${uiURL}/#/applications), add a new app. In the **Addons** tab of the app settings page, enable the **SAML2 Web App** add-on.
 
-  ![](/media/articles/integrations/aws/addons.png)
+    ![](/media/articles/integrations/aws/addons.png)
 
 2. Under the **Settings** tab of the **SAML2 Web App Addon** page, enter `https://signin.aws.amazon.com/saml` for the **Application Callback URL** and paste the following default SAML configuration code into the *Settings* box:
 
-  ```js
-  {
-    "audience": "https://signin.aws.amazon.com/saml",
-    "mappings": {
-      "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
-      "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-    },
-    "createUpnClaim": false,
-    "passthroughClaimsWithNoMapping": false,
-    "mapUnknownClaimsAsIs": false,
-    "mapIdentities": false,
-    "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
-    "nameIdentifierProbes": [
-      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
-    ]
-  }
-  ```
+    ```js
+    {
+      "audience": "https://signin.aws.amazon.com/saml",
+      "mappings": {
+        "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+        "name": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+      },
+      "createUpnClaim": false,
+      "passthroughClaimsWithNoMapping": false,
+      "mapUnknownClaimsAsIs": false,
+      "mapIdentities": false,
+      "nameIdentifierFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent",
+      "nameIdentifierProbes": [
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress",
+      ]
+    }
+    ```
 
-  Scroll to the bottom of the page and click **Save**:
+    Scroll to the bottom of the page and click **Save**:
 
-  ![](/media/articles/integrations/aws/configure.png)
+    ![](/media/articles/integrations/aws/configure.png)
 
 3. Auth0 needs to be configured as the identity provider (IdP) for AWS. AWS requires an **IdP Metadata** file to import.
   Select the **Usage** tab and click the **Identity Provider Metadata** download link to save the file:
 
-  ![](/media/articles/integrations/aws/idp-download.png)
+    ![](/media/articles/integrations/aws/idp-download.png)
 
-4. Create a SAML provider. 
-    
+4. Create a SAML provider.
+
     4.1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Identity Providers** in the left menu and click **Create Provider**.
 
     4.2. Select **SAML** in the **Provider Type** dropdown, enter a name for your provider and browse for the metadata document you downloaded in the **Step 3**. Click **Next Step**.
@@ -54,18 +54,16 @@ By integrating Auth0 and AWS you will be able to login to the AWS Dashboard with
 
 5. Now you must create a role in AWS in a specific way to allow its use to gain access to AWS. For more information on creating roles, see [Creating SAML Identity Providers](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml.html).
 
-  The steps are:
-
     5.1. From the [IAM console](https://console.aws.amazon.com/iam/home#home), select **Roles** in the left menu, then click **Create New Role**:
 
       ![](/media/articles/integrations/aws/iam-new-role.png)
-    
+
     5.2. Enter a name for the role and click **Next Step**.
-    
+
     5.3. Select **Role for Identity Provider Access**. Then select **Grant Web Single Sign-On (WebSSO) access to SAML providers**:
 
       ![](/media/articles/integrations/aws/iam-role-type.png)
-    
+
     5.4. On the next screen, accept the default `SAML:aud` value of `https://signin.aws.amazon.com/saml`, and click **Next Step**.
 
     5.5. Accept the **Role Trust** proposed. (This policy tells IAM to trust the Auth0 SAML IDP.) Click **Next Step**.
@@ -116,7 +114,7 @@ You are now setup for single sign-on to AWS. You can find the `Identity Provider
 
 To use the single sign-on, navigate to that URL, and you will be brought to the Auth0 login. After signing in, you will be redirected to AWS.
 
-**NOTE:** For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway). 
+**NOTE:** For an example of how to define a server-side rule for assigning a role in an advanced-use case, see the [Amazon API Gateway tutorial](/integrations/aws-api-gateway).
 
 ## Obtain AWS Tokens to securely call AWS APIs and resources
 
@@ -144,7 +142,7 @@ On the Auth0 [Dashboard](${uiURL}/#/applications), select your app. In the **Add
 
 Here is an example of an IAM policy:
 
-    {  
+    {
       "Version": "2012-10-17",
       "Statement": [
           {
@@ -188,7 +186,7 @@ Content-Type: 'application/json'
 
 Where:
 
-* **client_id** identifies the requesting app (e.g. your website) 
+* **client_id** identifies the requesting app (e.g. your website)
 * **id_token** identifies the user you are requesting this on behalf-of
 * **target** identifies this API endpoint in Auth0 (often the same as client_id).
 * **api_type** must be aws
@@ -234,11 +232,11 @@ Here is an example of client-side code used to obtain the token:
     callbackURL: 'dummy'
   });
 
-  var options = { 
-    id_token: LOGGED_IN_USER_ID_TOKEN, 
-    api: 'aws', 
-    role: AWS_ROLE_ARN,  
-    principal: AWS_SAML_PROVIDER_ARN 
+  var options = {
+    id_token: LOGGED_IN_USER_ID_TOKEN,
+    api: 'aws',
+    role: AWS_ROLE_ARN,
+    principal: AWS_SAML_PROVIDER_ARN
   };
 
   auth0.getDelegationToken(options, function(err,delegationResult){
