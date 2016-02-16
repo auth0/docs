@@ -31,7 +31,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server' + account.clientParam
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Python WebApp to use it with Auth0.**
+**Otherwise, please follow the steps below to configure your existing Python WebApp to use it with Auth0.**
 
 ### 1. Add dependencies
 
