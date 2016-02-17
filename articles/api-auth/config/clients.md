@@ -12,7 +12,7 @@ In order for this to work you will need to generate a token for Auth0's API v2 y
 
 With this token you can call the `/api/v2/clients` endpoint to create a new **Client**:
 
-```
+```text
 POST https://${account.namespace}/api/v2/resource-servers
 
 Authorization: Bearer {APIV2_TOKEN}
@@ -38,7 +38,7 @@ When creating a **Clients** you'll need to specify the following:
 
 For example:
 
-```
+```text
 POST https://${account.namespace}/api/v2/clients
 
 Authorization: Bearer {APIV2_TOKEN}
