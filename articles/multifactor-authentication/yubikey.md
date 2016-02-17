@@ -216,7 +216,7 @@ Once the Webtask CLI is installed, run:
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --output url --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
-The `WEBTASK PROFILE` is the value obtained from the Account Settings page.
+**NOTE:** Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${uiURL}/#/account/webtasks) page.
 
 The `create` command will generate a URL that will look like:
 
