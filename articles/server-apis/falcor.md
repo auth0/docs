@@ -18,6 +18,11 @@ snippets:
 
 ## Falcor API Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.6.0
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
