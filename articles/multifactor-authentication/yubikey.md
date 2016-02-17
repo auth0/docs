@@ -1,23 +1,29 @@
 # Multifactor Authentication with YubiKey-NEO
 
-This tutorial shows how to implement multifactor with a [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
+This tutorial shows how to implement Multifactor Authentication with [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
 
 Enabling this functionality relies on three core features available in Auth0:
 
 * [Rules](/rules)
-* The [redirect protocol](/protocols#21)
-* [Auth0 Webtasks](https://webtask.io)
+* The [redirect protocol](/protocols#redirect-protocol-in-rules)
+* [Auth0 Webtask](https://webtask.io)
 
-__Rules__ are used to evaluate a condition that will trigger the multifactor challenge. The __redirect protocol__ is used to direct the user to a web site that will actually perform the 2nd authentication factor with YubiKey and __Webtasks__ to host that website.
+**Rules** are used to evaluate a condition that will trigger the multifactor challenge. The **redirect protocol** is used to direct the user to a website that will perform the 2nd authentication factor with YubiKey. **Webtask** hosts that website.
 
-## Configuring the Webtask
+## Configure the Webtask
 
-Auth0 Webtasks allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for __rules__ and __custom db connections__.
+Auth0 Webtask allows you to run arbitrary code on the Auth0 sandbox. It is the same underlying technology used for *rules* and *custom db connections*.
 
-In this example, we will use Webtasks to implement a simple website that that captures the YubiKey-NEO input, and then backend code that calls the Yubico API. After validation completes, we return the result back to Auth0, resuming the login transaction originally initiated by the user.
+This sample uses a single Webtask to handle 3 states:
+
+* **Render** the UI with the `otpForm` function.
+* **Capture** the YubiKey-NEO code and validate it with the Yubico API.
+* **Return** the result to Auth0. If validation succeeds, the result is returned to Auth0 to continue the login transaction.
+
+Save this code locally in a file named `yubico-mfa-wt.js`. The full source code is also available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md). 
 
 
-```javascript
+```JS
 var request = require('request');
 var qs = require('qs');
 var jwt = require('jsonwebtoken');
@@ -194,47 +200,41 @@ return function (context, req, res) {
 }
 ```
 
-> Full source code is available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
+**NOTE:** The redirect to Auth0 contains two querystring parameters: `id_token` and `state`. `id_token` is a convenient and secure way of transferring information back to Auth0. `state` is mandatory to protect against CSRF attacks.
 
-This sample, uses a single Webtask to handle 3 states:
-
-* __Rendering the UI__ for the first time (implemented in the `otpForm` function).
-* __Capturing the YubiKey-NEO__ code and validating it with the Yubico API.
-* __Returning the result to Auth0__. If validation succeeds, the result is returned to Auth0 to continue with the login transaction.
-
-> Notice the redirect back to Auth0 carries two query string values: an `id_token` and a `state` parameters. `id_token` is a convenient, and secure way of transferring information back to Auth0. `state` is mandatory to play back to protect against CSRF attacks.
-
-Notice __no secrets are hardcoded__ in the Webtask code. They are referred to by the variables `context.data.yubico_clientid` and `context.data.yubico_secret`. When the Webtask is created, these sensitive parameters are embedded in the Webtask token securely.
-
-Save the code above in a file somewhere in your file system. This tutorial assumes `yubico-mfa-wt.js` for the file.
+**NOTE:** No keys are hard-coded into the Webtask code. They are referred to by the variables `context.data.yubico_clientid` and `context.data.yubico_secret`. These parameters are securely embedded in the Webtask token when the Webtask is created.
 
 ### 1. Initialize Webtask CLI
 
-Code in __rules__ is automatically packaged as Webtasks by Auth0. Because this is a custom Webtask, it needs to be created with the Webtask CLI.
+*Rules* code is automatically packaged as Webtasks by Auth0. Since this is a custom Webtask, it must be created with the Webtask CLI.
 
-All instructions are available under __Account Settings__ on the [dashboard](${uiURL}/#/account/webtasks).
+Follow the instructions for installing Webtask CLI under [Account Settings > Webtasks](${uiURL}/#/account/webtasks) on the Auth0 dashboard.
 
 Once the Webtask CLI is installed, run:
 
-```
+```txt
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --output url --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
-The `WEBTASK PROFILE` is the value obtained from the __Account Settings__ above.
+**NOTE:** Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${uiURL}/#/account/webtasks) page.
 
-The `create` command will generate a URL that will look like this:
+The `create` command will generate a URL that will look like:
 
-```
+```txt
 https://sandbox.it.auth0.com/api/run/${account.tenant}/yubikey-mfa?webtask_no_cache=1
 ```
 
-Keep this URL handy.
+Keep a copy of this URL.
 
-## Configuring the Rule
+## Configure the Rule
 
-This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned back result. "Returning" is indicated by the `protocol` property in the `context` object.
+This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned result. 
 
-```
+ * The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app.
+
+ * Returning is indicated by the `protocol` property of the `context` object.
+
+```JS
 function (user, context, callback) {
 
   var yubikey_secret = configuration.YUBIKEY_SECRET;
@@ -260,22 +260,22 @@ function (user, context, callback) {
 }
 ```
 
-The `context.redirect` statement will instruct Auth0 to redirect the user to the Webtask URL instead of calling back the app.
+**NOTE:** The returning section of the rule validates the JWT issued by the Webtask. This prevents the result of the MFA part of the transaction from being tampered with because the payload is digitally signed with a shared secret.
 
-> Notice that the “returning” section of the rule, validates the JWT issued in the Webtask. This prevents the result of the MFA part of the transaction to be tampered with, because the payload is digitally signed (with a shared secret).
-
-Now, every time the user logs in, they will be redirected to the Webtask and will see this:
+Every time the user logs in they will be redirected to the Webtask and will see something like:
 
 ![](/media/articles/mfa/yubico-mfa.png)
 
-Of course you can add any logic to the rule to decide the condition under which the challenge will happen:
 
-* The IP address or location of the user.
-* The Application the user is logging in to.
+### Rule customizations
+You can add logic to the rule to decide under which  conditions the challenge will be triggered based on:
+
+* The IP address or location of the user
+* The application the user is logging into
 * The type of authentication used (e.g. AD, LDAP, social, etc.)
 
-## See also:
+## Additional Information:
 
 * [Rules](/rules)
-* [Multi-factor in Auth0](/mfa)
-* [Auth0 Webtasks](https://webtask.io/)
+* [Multi-factor in Auth0](/multifactor-authentication)
+* [Auth0 Webtask](https://webtask.io/)

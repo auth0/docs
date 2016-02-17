@@ -555,4 +555,8 @@
     "from": "/premium-support",
     "to": "/support"
   }
+  {
+    "from": "/multifactor-authentication/custom-provider",
+    "to": "/multifactor-authentication"
+  }
 ]
