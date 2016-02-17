@@ -556,7 +556,7 @@
     "to": "/support"
   }
   {
-    "from": "/multifactor-authentication/custom-provider.md",
-    "to": "/multifactor-authentication/index.md"
+    "from": "/multifactor-authentication/custom-provider",
+    "to": "/multifactor-authentication"
   }
 ]
