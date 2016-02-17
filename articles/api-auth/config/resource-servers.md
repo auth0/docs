@@ -10,7 +10,7 @@ The first step in the OAuth 2.0 setup is defining your own APIs as Resource Serv
 
 With this token you can call the `/api/v2/resource-servers` endpoint to create a new **Resource Server**:
 
-```
+```text
 POST https://${account.namespace}/api/v2/resource-servers
 
 Authorization: Bearer {APIV2_TOKEN}
@@ -32,7 +32,7 @@ When creating a **Resource Server** you'll need to specify the following:
 
 For example:
 
-```
+```text
 POST https://${account.namespace}/api/v2/resource-servers
 
 Authorization: Bearer {APIV2_TOKEN}
