@@ -2,19 +2,17 @@
 
 Applications that allow users to access different types of resources might require these user to authenticate with a stronger authentication mechanism if they to access sensitive resources.
 
-An application like Fabrikam's Intranet could require users to authenticate with their username and password if they want to access customer data. Now when they need access to employee data which contains sensitive information like a user's salary, a stronger authentication mechanism like MFA should be used.
+An application like Fabrikam's Intranet could require users to authenticate with their username and password if they want to access customer data. Now when they need access to employee data which contains sensitive information like a user's salary, a stronger authentication mechanism like multifactor authentication should be used.
 
-Auth0's extensible MFA support allows you to add support for step-up authentication to your application. An application can verify if the user logged in using MFA and if that's not the case require the user to do so before they can access sensitive resources.
+Auth0's extensible multifactor authentication support allows you to add support for step-up authentication to your application. An application can verify if the user logged in using multifactor authentication and if that's not the case require the user to do so before they can access sensitive resources.
 
 ![](/media/articles/step-up-authentication/flow.png)
 
-## Custom MFA Rule
+## Custom Multifactor Authentication Rule
 
-The following rule will modify the outgoing token and add an `authentication_level` to it. A regular login will be marked as `normal`.
+The following [rule](rules/index) will modify the outgoing token and add an `authentication_level` to it. A regular login will be marked as `normal`.
 
-This rule will also inspect the `scope`. If the login request was made with the `step_up` scope this means that the application wants us to trigger a step-up authentication (using MFA for example).
-
-In that case the rule force the user to additionally authenticate with MFA and will set the `authentication_level` to `mfa`.
+This rule will also inspect the `scope`. If the login request was made with the `step_up` scope this means that the application wants us to trigger a step-up authentication (using multifactor authentication for example). In that case the rule force the user to additionally authenticate with multifactor authentication and will set the `authentication_level` to `mfa`.
 
 ```js
 function (user, context, callback) {
@@ -63,20 +61,22 @@ var requireMultiFactor = function(req, res, next) {
 };
 ```
 
-This middleware will redirect the user to `/login/mfa` within the application if they are not authenticated or did not authenticate with MFA. This route would require the user to (re-)authenticate and would specify the `step_up` scope, which will trigger the custom logic in the rule:
+This middleware will redirect the user to `/login/mfa` within the application if they are not authenticated or did not authenticate with multifactor authentication. This route would require the user to (re-)authenticate and would specify the `step_up` scope, which will trigger the custom logic in the rule:
 
 ```js
 router.get('/login/mfa',
   passport.authenticate('auth0', { scope: 'openid step_up' }));
 ```
 
-As a last step the middleware to enforce a user to be logged in with MFA should be applied to all routes that expose sensitive data, like the employee directory:
+As a last step the middleware to enforce a user to be logged in with multifactor authentication should be applied to all routes that expose sensitive data, like the employee directory:
 
 ```js
 router.get('/employees', requireMultiFactor, function(req, res) {
   res.render('employees');
 });
 ```
+
+> Make sure to enable the **Use Auth0 instead of the IdP to do Single Sign On** option on your application in Auth0 or specify a connection when triggering the step-up authentication flow to make sure users don't have to authenticate all over again. By enabling the SSO setting or specifying a connection name you will trigger an SSO login which will only prompt the user for multifactor authentication.
 
 ## Sample Application
 
@@ -88,11 +88,11 @@ After they've authenticated they will have access to the customer data:
 
 ![](/media/articles/step-up-authentication/customers-page.png)
 
-The token in this case will state that the user logged in with a `normal` authentication level (no MFA).
+The token in this case will state that the user logged in with a `normal` authentication level (no multifactor authentication).
 
 ![](/media/articles/step-up-authentication/normal-authentication-level.png)
 
-When a user tries to access the Employees directory, they will be forced to authenticate using a higher authentication level (MFA).
+When a user tries to access the Employees directory, they will be forced to authenticate using a higher authentication level (multifactor authentication).
 
 ![](/media/articles/step-up-authentication/mfa.png)
 
