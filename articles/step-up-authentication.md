@@ -1,6 +1,6 @@
 # Step-Up Authentication
 
-Applications that allow users to access different types of resources might require these user to authenticate with a stronger authentication mechanism if they to access sensitive resources.
+Applications that allow users to access different types of resources might require these user to authenticate with a stronger authentication mechanism if they are to access sensitive resources.
 
 An application like Fabrikam's Intranet could require users to authenticate with their username and password if they want to access customer data. Now when they need access to employee data which contains sensitive information like a user's salary, a stronger authentication mechanism like multifactor authentication should be used.
 
@@ -82,7 +82,7 @@ router.get('/employees', requireMultiFactor, function(req, res) {
 
 ## Sample Application
 
-The Fabrikam Intranet sample is available [on GitHub](https://github.com/auth0/step-up-authentication-sample). In this sample users that try to access the Customers section will require to authenticate:
+The Fabrikam Intranet sample is available [on GitHub](https://github.com/auth0/step-up-authentication-sample). In this sample users that try to access the Customers section will be required to authenticate:
 
 ![](/media/articles/step-up-authentication/login-page.png)
 
