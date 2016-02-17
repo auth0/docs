@@ -1,11 +1,12 @@
 ---
 sitemap: false
-title: OAuth2-as-a-Service: Configuring the Clients
+title: API Auth: Configuring the Clients
+url: /api-auth/config/clients
 ---
 
-# OAuth2-as-a-Service: Configuring the Clients
+# API Auth: Configuring the Clients
 
-After having created the [Resource Servers](/oauth2-as-a-service/resource-servers) the next step is to define the **Clients** that will be able to get limited access to the **Resource Server**.
+After having created the [Resource Servers](/api-auth/config/resource-servers) the next step is to define the **Clients** that will be able to get limited access to the **Resource Server**.
 
 In order for this to work you will need to generate a token for Auth0's API v2 you will need to generate a token with the `create:clients` scope.
 

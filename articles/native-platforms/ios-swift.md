@@ -23,6 +23,13 @@ alias:
 
 ## iOS Swift Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* CocoaPods 0.39.0
+* XCode 7.2.1
+* Simulator - iOS 9.2 - iPhone 6
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',

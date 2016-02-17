@@ -18,6 +18,14 @@ snippets:
 
 ## Ruby API Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Ruby 2.1.7
+:::
+
 > Note: If you're creating a Ruby On Rails app, please check [this other tutorial](/server-apis/rails).
 
 Otherwise, Please follow the steps below to configure your existing Ruby app to use it with Auth0.

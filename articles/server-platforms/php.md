@@ -12,6 +12,12 @@ snippets:
 
 ##  PHP Web App Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Apache 2.4.4
+* Php 5.6.14
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',

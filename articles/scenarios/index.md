@@ -14,6 +14,7 @@
 
 * [Invite-only users](/invite-only)
 * [Multi-tenant SaaS applications with Azure AD](/scenarios/multi-tenant-saas-azure-ad)
+* [Step-up Authentication](/step-up-authentication)
 
 ---
 
