@@ -44,6 +44,8 @@ function (user, context, callback) {
 }
 ```
 
+> Note: In addtion to the supported mutlifactor authentication providers [you can plug in your own custom providers](https://auth0.com/docs/multifactor-authentication/custom-provider).
+
 ## Application Logic
 
 On the application side some logic will be required to asses if the user logged in with a higher authentication level when accessing sensitive resources.
