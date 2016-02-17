@@ -44,7 +44,7 @@ function (user, context, callback) {
 }
 ```
 
-> Note: In addtion to the supported mutlifactor authentication providers [you can plug in your own custom providers](https://auth0.com/docs/multifactor-authentication/custom-provider).
+> Note: In addition to the supported mutlifactor authentication providers [you can plug in your own custom providers](https://auth0.com/docs/multifactor-authentication/custom-provider).
 
 ## Application Logic
 
