@@ -25,7 +25,7 @@ Auth0 provides three ways of implementing MFA:
 
 Auth0 provides built-in MFA support for Google Authenticator and Duo Security. You can enable MFA via the Multifactor Auth page of the Auth0 Management Portal.
 
-![](/media/articles/mfa/mfa-config.PNG)
+![](/media/articles/mfa/mfa-provider.png)
 
 ### Google Authenticator
 
