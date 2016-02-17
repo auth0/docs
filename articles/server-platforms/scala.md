@@ -13,6 +13,13 @@ snippets:
 
 ## Play 2 Scala Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Scala 2.11.7
+* Typesafe Activator 1.3.7
+* Play framework 2.4.6
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-scala',
   pkgBranch: 'master',
