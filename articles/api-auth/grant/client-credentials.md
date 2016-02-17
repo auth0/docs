@@ -1,14 +1,14 @@
 ---
 sitemap: false
 title: API Authorization: Client Credentials Grant
-url: /api-authn-authz/grant/client-credentials
+url: /api-auth/grant/client-credentials
 ---
 
-# API Authorization: Client Credentials Grant
+# API Auth: Client Credentials Grant
 
 With [Client Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.4) a Client can directly request an `access_token` to the Authorization Server by using its Client Credentials (a Client Id and a Client Secret). Instead of identifying a Resource Owner, this token will represent the Client itself.
 
-![](/media/articles/api-authn-authz/client-credentials-grant.png)
+![](/media/articles/api-auth/client-credentials-grant.png)
 
  1. The Client authenticates with the Authorization Server using its Client Id and Client Secret
  2. The Authorization Server validates this information and returns an `access_token`

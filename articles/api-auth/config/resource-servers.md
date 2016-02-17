@@ -1,10 +1,10 @@
 ---
 sitemap: false
-title: OAuth2-as-a-Service: Configuring the Resource Servers
-url: /oauth2-as-a-service/resource-servers
+title: API Auth: Configuring the Resource Servers
+url: /api-auth/config/resource-servers
 ---
 
-# OAuth2-as-a-Service: Configuring the Resource Servers
+# API Auth: Configuring the Resource Servers
 
 The first step in the OAuth 2.0 setup is defining your own APIs as Resource Servers, which is done through Auth0's API v2. On the [API explorer](/api/v2) you will need to generate a token with the `create:resource_servers` scope.
 

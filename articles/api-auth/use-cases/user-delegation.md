@@ -1,7 +1,7 @@
 ---
 sitemap: false
-title: OAuth2-as-a-Service Use Case: User Delegation
-url: /oauth2-as-a-service
+title: API Auth Use Case: User Delegation
+url: /api-auth/use-cases/user-delegation
 ---
 
 > Organizer is a company that allows users to manage their appointments, contacts and tasks. They are now planning to open up their API and allow third party applications to integrate with this API.

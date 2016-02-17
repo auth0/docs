@@ -1,7 +1,7 @@
 ---
 sitemap: false
 title: API Authentication and Authorization
-url: /api-authn-authz
+url: /api-auth
 ---
 
 # API Authentication and Authorization
@@ -14,7 +14,7 @@ This would allow you to cover different requirements going from user consent to 
 
 ### User Consent: Organizer
 
-![](/media/articles/api-authn-authz/user-delegation.png)
+![](/media/articles/api-auth/user-delegation.png)
 
 Organizer is a company that allows users to manage their appointments, contacts and tasks. They are now planning to open up their API and allow third party applications to integrate with it.
 
@@ -34,7 +34,7 @@ Their customers will be able sign up for their service in order to access one or
 
 World Mappers decided to use a standards based approach instead of rolling their own authentication for their API. Using OAuth 2.0, their services are represented as Resource Owners and their consumers are the Clients. These Clients will interact with Auth0, the Authorization Server to get an access token which they can use to talk to the World Mapper API.
 
-![](/media/articles/api-authn-authz/server-to-server.png)
+![](/media/articles/api-auth/server-to-server.png)
 
 ## API Authorization
 
@@ -56,9 +56,9 @@ Using different grants (flows) these actors will start interacting with the fina
 
 Supported flows:
 
- - Tradition Web Applications: [Authorization Code Grant](/api-authn-authz/grant/authorization-code)
- - Single Page Applications/Mobile Applications: [Implicit Grant](/api-authn-authz/grant/implicit)
- - Server to Server Applications: [Client Credentials Grant](/api-authn-authz/grant/client-credentials)
+ - Tradition Web Applications: [Authorization Code Grant](/api-auth/grant/authorization-code)
+ - Single Page Applications/Mobile Applications: [Implicit Grant](/api-auth/grant/implicit)
+ - Server to Server Applications: [Client Credentials Grant](/api-auth/grant/client-credentials)
 
 ## API Authentication
 
@@ -70,28 +70,28 @@ See the following tutorials for a step-by-step guide on how to implement the OAu
 
 ### Configuration
 
- - [Configuring the Resource Servers](/oauth2-as-a-service/resource-servers)
- - [Configuring the Clients](/oauth2-as-a-service/clients)
+ - [Configuring the Resource Servers](/api-auth/config/resource-servers)
+ - [Configuring the Clients](/api-auth/config/clients)
 
 ### Resource Server
 
- - [Creating a Resource Server in Node.js](/oauth2-as-a-service/resource-servers/node-js)
- - [Creating a Resource Server using the ASP.NET Web API](/oauth2-as-a-service/resource-servers/asp-net)
+ - [Creating a Resource Server in Node.js](/api-auth/resource-servers/node-js)
+ - [Creating a Resource Server using the ASP.NET Web API](/api-auth/resource-servers/asp-net)
 
 ### Authorization Code Grant
 
- - [Using the Authorization Code Grant from a Node.js application](/oauth2-as-a-service/authorization-code-grant/node-js)
- - [Using the Authorization Code Grant from an ASP.NET MVC application](/oauth2-as-a-service/authorization-code-grant/asp-net)
+ - [Using the Authorization Code Grant from a Node.js application](/api-auth/authorization-code-grant/node-js)
+ - [Using the Authorization Code Grant from an ASP.NET MVC application](/api-auth/authorization-code-grant/asp-net)
 
 ### Implicit Grant
 
- - [Using the Implicit Grant from a Node.js application](/oauth2-as-a-service/implicit-grant/node-js)
- - [Using the Implicit Grant from an iOS application](/oauth2-as-a-service/authorization-code-grant/asp-net)
+ - [Using the Implicit Grant from a Node.js application](/api-auth/implicit-grant/node-js)
+ - [Using the Implicit Grant from an iOS application](/api-auth/implicit-grant/asp-net)
 
 ### Client Credentials Grant
 
- - [Example use case: 'Foo'](/oauth2-as-a-service/client-credentials-grant/use-case-foo)
+ - [Example use case: 'Foo'](/api-auth/client-credentials-grant/use-case-foo)
 
 ## Have Questions?
 
-You may find the answers on the [Auth0 OAuth2-as-a-Service FAQ](/oauth2-as-a-service/faq).
+You may find the answers on the [API Auth FAQ](/api-auth/faq).
