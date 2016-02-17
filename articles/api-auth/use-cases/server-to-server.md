@@ -1,7 +1,7 @@
 ---
 sitemap: false
-title: OAuth2-as-a-Service Use Case: Server to Server Authentication
-url: /oauth2-as-a-service
+title: API Auth Use Case: Server to Server Authentication
+url: /api-auth/use-cases/server-to-server
 ---
 
 > World Mappers is a company that has been collecting geospatial data for many years and they are now planning to expose this data to third parties through new services that offer geocoding and route planning.

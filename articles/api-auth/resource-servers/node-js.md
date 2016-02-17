@@ -1,11 +1,12 @@
 ---
 sitemap: false
-title: OAuth2-as-a-Service: Creating a Resource Server in Node.js
+title: API Auth: Creating a Resource Server in Node.js
+url: /api-auth/resource-servers/node-js
 ---
 
-# OAuth2-as-a-Service: Creating a Resource Server in Node.js
+# API Auth: Creating a Resource Server in Node.js
 
-After the [**Resource Server**](/oauth2-as-a-service/resource-servers) has been configured you can update your application by accepting the `access tokens` that have been issued by Auth0.
+After the [**Resource Server**](/api-auth/config/resource-servers) has been configured you can update your application by accepting the `access tokens` that have been issued by Auth0.
 
 These `access tokens` are JSON Web Tokens which have been signed using RS256 (assymetric signing). Your application will need the public key from your Auth0 account in order to validate these tokens. The following command shows how to download the public key from your account:
 

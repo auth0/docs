@@ -1,14 +1,14 @@
 ---
 sitemap: false
 title: API Authorization: Authorization Code Grant
-url: /api-authn-authz/grant/authorization-code
+url: /api-auth/grant/authorization-code
 ---
 
-# API Authorization: Authorization Code Grant
+# API Auth: Authorization Code Grant
 
 The [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) is a redirect-based flow where the User Agent receives an `authorization_code` from the Authorization Server and transfers this to the Client. The Client will then interact with the Authorization Server and exchange the `authorization_code` for an `access_token` (and optionally also a `refresh_token`). The Client can now use this `access_token` to call the Resource Server on behalf of the Resource Owner.
 
-![](/media/articles/api-authn-authz/authorization-code-grant.png)
+![](/media/articles/api-auth/authorization-code-grant.png)
 
  1. The Client initiates the flow and redirects the user to the Authorization Server
  2. The user authenticates

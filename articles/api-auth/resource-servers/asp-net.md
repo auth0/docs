@@ -1,11 +1,12 @@
 ---
 sitemap: false
-title: OAuth2-as-a-Service: Creating a Resource Server using the ASP.NET Web API
+title: API Auth: Creating a Resource Server using the ASP.NET Web API
+url: /api-auth/resource-servers/asp-net
 ---
 
-# OAuth2-as-a-Service: Creating a Resource Server using the ASP.NET Web API
+# API Auth: Creating a Resource Server using the ASP.NET Web API
 
-After the [**Resource Server**](/oauth2-as-a-service/resource-servers) has been configured you can update your application by accepting the `access tokens` that have been issued by Auth0.
+After the [**Resource Server**](/api-auth/config/resource-servers) has been configured you can update your application by accepting the `access tokens` that have been issued by Auth0.
 
 These `access tokens` are JSON Web Tokens which have been signed using RS256 (assymetric signing).
 
