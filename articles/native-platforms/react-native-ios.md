@@ -42,7 +42,7 @@ This tutorial and seed project have been tested with the following:
 <div class="setup-callback">
 <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
+<pre><code class="language-text">a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
 #### CocoaPods
