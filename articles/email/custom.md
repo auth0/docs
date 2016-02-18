@@ -57,7 +57,7 @@ A custom redirect is useful when you want to direct users to certain URLs based 
 
 The Auth0 API exposes a [verification endpoint](/api/v2#!/Tickets/post_email_verification) that generates the email verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 
-**NOTE:** You can call the [send a verifiy email address email](/api/v2#!/Jobs/post_verification_email) endpoint to send the verification email directly. However, this endpoint will redirect all users to the same URL which is specified in the `Redirect To` field under the **Verification Email** tab on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard.
+**NOTE:** You could call the [send a verifiy email address email](/api/v2#!/Jobs/post_verification_email) endpoint to send a verification email directly from Auth0, even when automatic emails are disabled. However, this endpoint will redirect all users to the same URL that is specified in the `Redirect To` field under the **Verification Email** tab on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard. Since you are already implementing your own email service, this endpoint may not provide all the functionality your app requires.
 
 ## Welcome Email
 
