@@ -1,24 +1,22 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields other than email and password.
-[Lock](lock) has a `signup` mode but it does not support adding arbitrary fields,
-so you will have to implement your own UI for signup.
-Lock can still be used for logging in to your application.
+By default, [Lock](lock)'s `signup` mode does not support custom fields. Instead, add additional fields by implementing your own UI for signup around [Lock](lock). Lock will still be used for logging in to your application, while additional fields will be sent to the `user_metadata` field of the user's profile.
 
-> Note that there is currently no way to validate user-supplied custom fields when signing up.
-Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
+Note that there is currently no built-in method of validation for user-supplied custom fields. Validation must be done with an [Auth0 rule](/rules) or with custom logic in your application.
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
 ## Overview
 
-We can describe a custom signup flow with the following steps:
+The signup flow for custom forms always includes the following steps:
 
-1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
-2. [Log them in programatically](/auth-api#!#post--oauth-ro) and [get back a JWT](/scopes)
-3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata)
+1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password. **This endpoint only works for database connections**.
+2. [Log in the user](/auth-api#!#post--oauth-ro) by `POST`-ing a user credentials object to the [/oauth/ro](/auth-api#!#post--oauth-ro) endpoint in exchange for a [JWT](/scopes) (JSON Web Token).
+3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata).
 
-## 1. Signup form
+## 1. Example Signup form
+
+In this example, `name` and `color` are custom fields.
 
 ```html
 <form id="signup">
@@ -28,8 +26,7 @@ We can describe a custom signup flow with the following steps:
       <input type="email" id="signup-email" placeholder="Email" required/>
     </p>
     <p>
-      <input type="password" id="signup-password" placeholder="Password"
-             required/>
+      <input type="password" id="signup-password" placeholder="Password" required/>
     </p>
     <p>
       <input type="text" id="name" placeholder="Full name" required/>
@@ -42,26 +39,40 @@ We can describe a custom signup flow with the following steps:
 </form>
 ```
 
-Notice that `name` and `color` are custom fields.
 
 ## 2. Auth0.js and dependencies
+
+Include the Auth0.js and jQuery libraries in the `<head>` of your document as CDN links...
 
 ```html
 <script src="https://cdn.auth0.com/w2/auth0-6.7.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 ```
 
+...or as dependencies in a `package.json` file by running:
+
+```shell
+npm install --save auth0-js jquery
+```
+
+You will also need to create an Auth0 Object. The Auth0 Object takes as an argument a configuration object that includes your Auth0 domain and ClientID. If you're logged in, your data should be populated in the examples below. 
+
 ```js
-window.auth0 = new Auth0({
+var auth0 = new Auth0({
   domain: '${account.namespace}',
   clientID: '${account.clientId}'
 });
 ```
 
-## 3. Submitting the form (popup mode)
+## 3. Submitting the form 
 
-Here we are first signing up the user through Auth0. If the signup is successful,
-a call to `PATCH users/{user_id}` is made, which adds the custom fields to the
+Forms can be submitted using Popup Mode or Redirect mode. To learn more about the differences between Popup and Redirect modes,
+please refer to [this document](/libraries/lock/authentication-modes).
+
+### Popup Mode
+
+First, you sign up a new user through Auth0. If the signup is successful,
+a call to the `users/{user_id}` endpoint is made with the `PATCH` method, which adds your custom fields to the
 `user_metadata` field of the user's profile.
 
 > This call to APIv2 is allowed from the client because all JWTs for logged-in
@@ -118,18 +129,16 @@ $('#signup').submit(function (e) {
 });
 ```
 
-## Redirect mode
+### Redirect mode
 
-Popup mode may be inappropriate for regular web apps or mobile apps. To
-use redirect mode, configure a callback URL when calling `auth0.signup`. After a
-successful login, Auth0 will redirect the user to the configured callback URL
+Popup mode may not be appropriate for some web apps or mobile apps. In fact, **Redirect mode is recommended whenever possible to avoid potential browser compatibility issues.** 
+
+To use redirect mode, configure a callback function available at an endpoint on your server. Use this endpoint (`callbackURL`) when calling `auth0.signup`. After a successful login, Auth0 will redirect the user to the configured callback URL
 with a JWT (`id_token`) in the query string.
 
-> [To learn more about the differences between popup and redirect modes,
-please refer to this document](/libraries/lock/authentication-modes).
 
 ```js
-window.auth0 = new Auth0({
+var auth0 = new Auth0({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
   // Callback made to your server's callback endpoint
