@@ -6,11 +6,11 @@ If there are multiple instances of the AD/LDAP Connector in a deployment, it is 
 
 Starting from version 2.17.0 the AD/LDAP Connector can be updated from the Admin Console. Open the Admin Console by navigating to [http://localhost:8357/](http://localhost:8357/). If the Admin Console has outbound access to the internet it will verify if a new version is available and show this on top of the page:
 
-![](https://cdn.auth0.com/docs/img/connector-update-available.png)
+![](/media/articles/connector/update/connector-update-available.png)
 
 The **Update** tab in the dashboard will allow you to update the installation on the current machine to the latest version. The update will take about 2 minutes and the updater logs will be displayed in the Admin Console.
 
-![](https://cdn.auth0.com/docs/img/connector-update-dashboard.png)
+![](/media/articles/connector/update/connector-update-dashboard.png)
 
 ## Updating using the updater script (Windows Only)
 
@@ -30,9 +30,9 @@ The updater script will update the AD/LDAP Connector from the command line by ru
  @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://cdn.auth0.com/connector/windows/update-connector.ps1'))"
  ```
 
-![](https://cdn.auth0.com/docs/img/connector-update-script.png)
+![](/media/articles/connector/update/connector-update-script.png)
  
-> Note: The updater script uses specific PowerShell commands that are only avaible in Windows PowerShell 3.0 and higher. If you're running on Windows 2008 and Windows 2008 R2 you might need to update your PowerShell version first: https://www.microsoft.com/en-us/download/details.aspx?id=34595
+**NOTE:** The updater script uses specific PowerShell commands that are only avaible in Windows PowerShell 3.0 and higher. If you're running on Windows 2008 and Windows 2008 R2 you might need to update your [PowerShell](https://www.microsoft.com/en-us/download/details.aspx?id=34595) version first.
 
 ## Updating manually (Windows/Linux)
 
@@ -64,7 +64,7 @@ Use the GitHub repository for other platforms: <a class="download-github" href="
 
 The configuration can be exported from the Admin Console. The **Download** button will generate a .zip file which contains the `config.json` file, the `certs` folder and the `lib\\profileMapper.js` file.
 
-![](https://cdn.auth0.com/docs/img/connector-import-export.png)
+![](/media/articles/connector/update/connector-import-export.png)
 
 #### Manually 
 

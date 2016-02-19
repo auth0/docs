@@ -10,9 +10,7 @@ There are **5 steps** to this sample
 5. Test the connection to the SalesForce IDP.
 6. Troubleshooting
 
-
-
-# 1. Obtain SalesForce Metadata
+## 1. Obtain SalesForce Metadata
 
 1. Go to **[SalesForce.com](http://SalesForce.com)** and register for an account (if you haven't already).  The account must be an account type that allows use of SalesForce as an Identity Provider.
 
@@ -22,27 +20,25 @@ There are **5 steps** to this sample
 
 4. At the left, expand **“Security Controls”** and select **"Identity Provider"**.
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-1.png)
-
+ ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-1.png)
 
 5. Create an Identity Provider, by clicking to enable SalesForce as an Identity Provider.
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-2.png)
+ ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-2.png)
 
 6. Choose the default certificate and Save.
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-3.png)
+ ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-3.png)
 
 7. Click on **"Download Certificate"** to download the Identity Provider certificate.  Save the file downloaded for use in step 2 below.
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-4.png)
+ ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-4.png)
 
-7. Click on **"Download Metadata"** to download the Identity Provider metadata.  Save the file downloaded for use in step 2 below.
+8. Click on **"Download Metadata"** to download the Identity Provider metadata.  Save the file downloaded for use in step 2 below.
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-5.png)
+ ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-5.png)
 
-
-# 2. Set up Auth0 as a Service Provider
+## 2. Set up Auth0 as a Service Provider
 
 In this step you will configure Auth0 as a Service Provider so it knows how to communicate with the __SalesForce__ Identity Provider for single sign on.
 
@@ -52,79 +48,61 @@ In this step you will configure Auth0 as a Service Provider so it knows how to c
 2. In the list of options below "Connections", click on **"Enterprise"**
 3. In the middle of the screen, click on **"SAMLP Identity Provider"**
 4. Click on **"Create New Connection"**
-
-
 5. In the "Create SAMLP Identity Provider" connection window, enter the following information into the "Configuration" tab.
 
-**Connection Name:** You can make up any name, such as "SFIDP"
+  **Connection Name:** You can make up any name, such as "SFIDP"
 
-**Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection.
-For example, if your users have an email domain of 'abc-example.com', you would enter that into this field. You can enter multiple email domains if needed.
+  **Email Domains:** In this example, we will use the Lock Widget, so in the Email Domains field enter the email domain name for the users that will log in via this connection. For example, if your users have an email domain of `abc-example.com`, you would enter that into this field. You can enter multiple email domains if needed.
 
-**Sign In URL:** Open the MetaData file downloaded from SalesForce and locate the line that contains the SingleSignOnService Binding. The value of the "Location" attribute on this line is the Sign In URL.  It will be something like:
+  **Sign In URL:** Open the MetaData file downloaded from SalesForce and locate the line that contains the SingleSignOnService Binding. The value of the "Location" attribute on this line is the Sign In URL. It will be something like:
 
- https://{sf-account-name}.my.salesforce.com/idp/endpoint/HttpRedirect
+  `https://{sf-account-name}.my.salesforce.com/idp/endpoint/HttpRedirect`
 
- where "{sf-account-name}" would be replaced by your SalesForce account domain name.
-
-
-**Sign Out URL:** enter the same URL that was entered for Sign In URL.
-
- ![](https://cdn.auth0.com/docs/img/salesforceidp-6.png)
+  where "{sf-account-name}" would be replaced by your SalesForce account domain name.
 
 
-**Certificate:**  The certificate downloaded from SalesForce is in .crt format.
+  **Sign Out URL:** enter the same URL that was entered for Sign In URL.
+
+  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-6.png)
+
+  **Certificate:**  The certificate downloaded from SalesForce is in .crt format.
 Convert this certificate to .pem format with the following command.
 
-openssl x509 -in original.crt -out sfcert.pem -outform PEM
-where "original.crt" is the downloaded .crt file from SalesForce.
+  `openssl x509 -in original.crt -out sfcert.pem -outform PEM`
 
-6. In the Auth0 screen, click on  **"UPLOAD CERTIFICATE"**  and select the `.pem` file you just created. (sfcert.pem in the example above)
+  where "original.crt" is the downloaded .crt file from SalesForce.
 
-You can ignore the rest of the fields for now.
+6. In the Auth0 screen, click on  **"UPLOAD CERTIFICATE"**  and select the `.pem` file you just created. (`sfcert.pem` in the example above). You can ignore the rest of the fields for now.
 
 7. **Save:** Click on  **"SAVE"**.
 
-
 8. Click on  **"CONTINUE"**. In the window that appears, SAML metadata for the Auth0 Service Provider will be displayed.  Keep this window as you will need to enter some of this information into SalesForce to finish the federation Configuration.
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-7.png)
-
+  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-7.png)
 
 In general, you can access the metadata for a SAML connection in Auth0 here: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
-
-# 3. Configure the SalesForce Identity Provider
+## 3. Configure the SalesForce Identity Provider
 
 In this step you will configure SalesForce with the metadata from Auth0 so it knows how to receive and respond to SAML-based authentication requests from Auth0.
 
 1. Go back to **[SalesForce.com](http://salesforce.com)**
-
 2. Click on **"Setup"** in upper right
-
 3. Click on  **“Manage Apps”**  on the left
+4. Click on  **“Connected Apps”**
+5. Create a new Connected App and fill out the following fields:
 
-3. Click on  **“Connected Apps”**
+  **Entity ID:** `urn:auth0:${account.namespace}:${connectionName}`
+  **ACS URL:** `https://${account.namespace}/login/callback`
+  **Subject Type:** `Persistent ID`
+  **Name ID Format:** Choose the one with emailAddress
+  **Issuer:** `https://{your-saleforce-domain}.my.salesforce.com`
 
-4. Create a new Connected App and fill out the following fields:
+6. Then press  **“Save”** to complete the configuration of the IDP
 
-**Entity ID:** `urn:auth0:${account.namespace}:${connectionName}``
+  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-8.png)
 
-**ACS URL:** `https://${account.namespace}/login/callback`
-
-**Subject Type:** `Persistent ID`
-
-**Name ID Format:** Choose the one with emailAddress
-
-**Issuer:** `https://{your-saleforce-domain}.my.salesforce.com`
-
-5. Then press  **“Save”** to complete the configuration of the IDP
-
- ![](https://cdn.auth0.com/docs/img/salesforceidp-8.png)
-
-
-
-#4. Grant Privileges to Users in SalesForce
+# 4. Grant Privileges to Users in SalesForce
 
 1. In SalesForce, click on Setup.
 2. Under **"Manage Users**, click on **"Profiles"**
@@ -133,15 +111,13 @@ In this step you will configure SalesForce with the metadata from Auth0 so it kn
 5. Scroll down to the **"Connected App Access"** section
 6. Check the box next to the name of your connected app to enable it for the profile
 
- ![](https://cdn.auth0.com/docs/img/salesforceidp-9.png)
+  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-9.png)
 
-7
-. Click on **"Save"**
+7. Click on **"Save"**
 8. Under **"Manage Users"** Click on **"Users"**
 9. Click on **"Edit"** to edit your test user and set the profile to **"Standard User"**
 
-
- ![](https://cdn.auth0.com/docs/img/salesforceidp-10.png)
+  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-10.png)
 
 If you wish to use a different SalesForce profile, be sure to enable the connected app for the profile, and ensure that all users who need to log in via the SalesForce Identity Provider have that profile.
 
@@ -160,14 +136,11 @@ This means the connection from Auth0 to the SalesForce IDP is working.
 
 If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
 
-> NOTE: the **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
+**NOTE:** The **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
 
-
-
-#6. Troubleshooting.
+# 6. Troubleshooting.
 
 This section has a few ideas for things to check if your sample doesn't work.
-
 
 When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction and save it in a .har file.
 
