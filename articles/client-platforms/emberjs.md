@@ -34,7 +34,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace' + account.clientParam
 }) %>
 
-**If you have an existing application, follow the steps below.**
+**If you have an existing application, please follow the steps below.**
 
 ${include('./\_callback')}
 
