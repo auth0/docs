@@ -1,22 +1,24 @@
-# Take control of the complete Email flow
+# Custom Email Handling
 
-The default email flow in Auth0 can address the requirements of most applications, but there might still be cases where you might need more flexibility:
+The default email flow in Auth0 can address the requirements of most applications, but there may be instances where more flexibility is required. For example:
 
- - Localization
- - Calculated **Redirect To** url based on user/tenant/...
- - Different email templates per application/tenant/...
+ * Localization
+ * Custom **Redirect To** URLs based on the user or tenant
+ * Different email templates per application or tenant
 
-Our extensiblity points, together with our API allow you to completely take over the email flow and control when and how emails are being sent out.
+The Auth0 API exposes endpoints that will allow you to completely manage email flow and control when and how emails are sent.
 
-To get started you will need to disable the Emails [in the dashboard](${uiURL}/#/emails) after which you will be able to implement the different email flows in your own environment.
+To begin, you will need to disable automatic emails by deselecting **Status** under the **Verification Email** and **Welcome Email** tabs on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard.
+
+![](/media/articles/email/custom/email-custom.png)
 
 ## Verification Email
 
-The verification email should be sent to every user for which the `email_verified` property is `false`. These are typically users in database connections and users authenticating with Social Providers that don't validate email addresses when users register for a new account.
+A verification email should be sent to every user for which the `email_verified` property is `false`. Typically, these are users in database connections or users authenticating with Social Providers that do not validate email addresses upon new user registration.
 
-Using a [Rule](/rules) you can call out to one of your APIs when the user logs in for the first time with an email address which hasn't been verified.
+Using a [Rule](/rules), you can call your API when a user logs in for the first time with an email address that has not been verified. After calling your API, [add a flag](/rules/metadata-in-rules) to the user's profile metadata that indicates that the verification email has been sent:
 
-```
+```js
 function (user, context, callback) {
   user.app_metadata = user.app_metadata || {};
   if (user.email_verified || user.app_metadata.verification_email_sent) {
@@ -49,22 +51,19 @@ function (user, context, callback) {
 }
 ```
 
-After calling the API you'll [add a flag to the user's profile](https://auth0.com/docs/rules/metadata-in-rules) which specifies that the verification email has already been sent to make sure the email is only sent once.
+### Custom redirect
 
-Since the email will be sent by your own API you now have complete control over the verification email. The only thing you need to keep in mind is that the users still need to click the verification link to verify their email address.
+A custom redirect is useful when you want to direct users to certain URLs based on user attributes or on the tenant.
 
-The Auth0 API exposes [the verification endpoint](https://auth0.com/docs/api/v2#!/Tickets/post_email_verification) which makes it possible to generate the email verification link for a specific user. The endpoint also allows you to specify the `resultUrl` which is the URL to which your users will be sent after they validated their email address.
+The Auth0 API exposes a [verification endpoint](/api/v2#!/Tickets/post_email_verification) that generates the email verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 
-It's also possible to use the Auth0 API to [send verification emails directly](https://auth0.com/docs/api/v2#!/Jobs/post_verification_email), but this will always redirect users to the same URL after clicking on the verification link.
-This URL is configurable [in the dashboard](${uiURL}/#/emails).
-
-As a result you now also have complete control over the URL the users will be redirected to after validation. This can be useful when users need to be redirected to specific pages based on their account, on their subscription, on the tenant, ...
+**NOTE:** You could call the [send a verifiy email address email](/api/v2#!/Jobs/post_verification_email) endpoint to send a verification email directly from Auth0, even when automatic emails are disabled. However, this endpoint will redirect all users to the same URL that is specified in the `Redirect To` field under the **Verification Email** tab on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard. Since you are already implementing your own email service, this endpoint may not provide all the functionality your app requires.
 
 ## Welcome Email
 
-The welcome email is an email we'll want to send to users with a verified email address and this can also be implemented using a rule.
+A welcome email is send to users once they have verified their email address. This can be implemented using a rule which sends the email only if the user's email address has been verified and the email has not been sent previously.
 
-```
+```js
 function (user, context, callback) {
   if (!user.email_verified || user.welcome_email_sent) {
     return callback(null, user, context);
@@ -89,19 +88,13 @@ function (user, context, callback) {
 }
 ```
 
-The rule only runs if the email is verified and if the email hasn't been sent before, to make sure it only runs once.
-
-Since the email will be sent by your own API you now have complete control over the verification email.
-
 ## Change Password Confirmation Email
 
-The Change Password functionality does not expose any extensiblity points that allow you to write custom code when users change their password. This means you'll just need to write some code after users changed their password.
+To handle password change requests, you will need to host a form to capture the user's new password and post it to the [change password ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) endpoint. Calling this endpoint will generate a "Change Password Confirmation" link.
 
-To handle this flow you'll need to host a "Change Password" form which captures the new password of the user and posts it to the [change password ticket endpoint](/api/v1#!#post--api-users--user_id--change_password_ticket). When calling this endpoint the password is not updated, but a "change password confirmation" link is generated.
+You can now send an email to the user containing this link. Only when the user clicks this link will their password be updated.
 
-You can now send an email to your users with this link and only when users click this link will their password be updated.
+## Additional Information
 
-## Other Topics
-
-- [Emails in Auth0](/email)
-- [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
+ * [Emails in Auth0](/email)
+ * [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
