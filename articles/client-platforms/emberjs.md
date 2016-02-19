@@ -14,6 +14,18 @@ tags:
 ---
 ## EmberJS Tutorial
 
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 0.12.7
+* Ember 1.12.0
+* Bower 1.5.3
+* Jquery 1.11.1
+* Ember Simple Auth 0.8.0
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-ember-simple-auth',
   pkgBranch: 'master',
@@ -22,7 +34,7 @@ tags:
   pkgType: 'replace' + account.clientParam
 }) %>
 
-**If you have an existing application, follow the steps below.**
+**If you have an existing application, please follow the steps below.**
 
 ${include('./\_callback')}
 
