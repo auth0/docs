@@ -20,7 +20,7 @@ In this article we'll show how Auth0 helps you set up your app to use app links 
 
 ## Auth0 account configuration
 
-Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically, all you need to do is configure the required parameters, some via API and others in your [dashboard](https://manage.auth0.com/#/connections/passwordless). We'll show you how to do it.
+Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically, all you need to do is configure the required parameters, some via API and others in your [dashboard](${uiURL}/#/connections/passwordless). We'll show you how to do it.
 
 ### Client configuration
 
@@ -45,7 +45,7 @@ $ keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -s
 
 #### Configure Auth0 via API
 
-Once we have the package name and the SHA256 fingerprint, we'll update our Auth0 client via API with [patch\_clients\_by\_id](https://auth0.com/docs/api/v2#!/Clients/patch_clients_by_id) (they aren't yet available in the dashboard).
+Once we have the package name and the SHA256 fingerprint, we'll update our Auth0 client via API with [patch\_clients\_by\_id](/api/v2#!/Clients/patch_clients_by_id) (they aren't yet available in the dashboard).
 
 In the *id* field we must introduce the *client_id* of our Auth0 App, and the *body* should look like this:
 
@@ -66,7 +66,7 @@ Next we'll have to configure either the SMS or Email connection. This is availab
 
 ### SMS
 
-In case we'll use a passwordless connection via SMS, we'll need to update the SMS message template from the [dashboard](https://manage.auth0.com/#/connections/passwordless).
+In case we'll use a passwordless connection via SMS, we'll need to update the SMS message template from the [dashboard](${uiURL}/#/connections/passwordless).
  
 All you need to do is choose **Liquid** as the SMS Syntax and make sure the message contains something like this:
 
@@ -94,7 +94,7 @@ Your verification code is: {{ code }}
 
 ## Application configuration
 
-Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](https://auth0.com/docs/libraries/lock-android#passwordless).
+Now that we have the Auth0 client configured, before we start with the android configuration we must follow the instructions and set up Lock.Android and LockPasswordlessActivity as seen in the [passwordless docs](/libraries/lock-android#passwordless).
 
 Now, in order to use App Links, there is an additional configuration step we must follow. We must declare an intent filter in the `AndroidManifest.xml`, inside the `LockPasswordlessActivity` activity tag. This filter will allow the app lo handle the links we'll send by Email or SMS.
 
@@ -148,8 +148,7 @@ LockPasswordlessActivity.showFrom(MyActivity.this,
 
 and we'll see the **Email** login screen
 
-[![Lock.png](https://cdn.auth0.com/mobile-sdk-lock/lock-android-pwdless-email.png)](https://auth0.com)
-
+![Email](/media/articles/libraries/lock-android/passwordless-magic-link/lock-android-pwdless-email.png)
 
 or for **SMS** the mode `MODE_SMS_MAGIC_LINK`:
 
@@ -160,8 +159,6 @@ LockPasswordlessActivity.showFrom(MyActivity.this,
 
 and we'll see the **SMS** login screen
 
-[![Lock.png](https://cdn.auth0.com/mobile-sdk-lock/lock-android-pwdless-sms.png)](https://auth0.com)
+![SMS](/media/articles/libraries/lock-android/passwordless-magic-link/lock-android-pwdless-sms.png)
 
 After requesting the magic link from Auth0, via SMS or Email, the next screen will indicate that in order to log in, the user should tap it. We also offer a backup option to enter the code manually, just in case the links don't work.
-
-

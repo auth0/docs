@@ -24,13 +24,13 @@ It is usually a good idea to keep the connector up to date. You can check the ve
 
 The __Troubleshooting__ section in the Admin Console will show the logs for the AD/LDAP Connector:
 
-![](https://cdn.auth0.com/docs/img/connector-admin-console-logs.png)
+![](/media/articles/connector/troubleshooting/connector-admin-console-logs.png)
 
 The __Run__ button on the __Troubleshooting__ page will run the troubleshooting tool to detect the most common problems related to the AD/LDAP Connector.
 
-![](https://cdn.auth0.com/docs/img/connector-admin-console-troubleshooter.png)
+![](/media/articles/connector/troubleshooting/connector-admin-console-troubleshooter.png)
 
-+**Note:** in order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
+**Note:** In order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
 
 The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to [support](mailto:support@auth0.com) if you're experiencing problems with the connector.
 
@@ -64,13 +64,13 @@ In a Windows Network with Active Directory you can try the `nltest` command. To 
 
 To see to which domain the current server is connected you can also try:
 
-```
-nltest /dsgetdc:
-```
+
+    nltest /dsgetdc:
+
 
 When the domain does not exist or is unreachable `nltest` will return an error message:
 
-> Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN
+    Getting DC name failed: Status = 1355 0x54b ERROR_NO_SUCH_DOMAIN
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
