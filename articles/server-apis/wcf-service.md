@@ -19,6 +19,11 @@ alias:
 
 # Using Auth0 with a WCF Service
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+:::
+
 This tutorial explains how to consume a WCF service, validating the identity of the caller.
 
 When calling a Web Service (or an API in general) there are two ways users are typically authenticated:
