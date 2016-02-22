@@ -14,8 +14,8 @@ There are 6 steps to this sample:
 ## 1. Obtain SalesForce Certificate and Metadata
 
 1. Register for a [SalesForce.com](http://SalesForce.com) account. You must select one of the account types that include Identity Provider support.
-2. Create your **[SalesForce Domain](https://help.salesforce.com/apex/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US)**.
-2. Go to your SalesForce domain AdminSetup page: `https://YOUR_DOMAIN.my.salesforce.com/ui/setup/Setup`.
+2. Create your [SalesForce Domain](https://help.salesforce.com/apex/HTViewHelpDoc?id=domain_name_setup.htm&language=en_US).
+2. Log into your SalesForce domain `https://YOUR_DOMAIN.my.salesforce.com` and click on **Setup** on the top right.
 4. In the left menu, expand **Security Controls** and select **Identity Provider**.
  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-1.png)
 
