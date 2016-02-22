@@ -12,6 +12,11 @@ snippets:
 
 ## NancyFX Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'Auth0.NancyFx.SelfHost',
   pkgBranch: 'master',
