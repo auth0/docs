@@ -94,6 +94,8 @@ To handle password change requests, you will need to host a form to capture the 
 
 You can now send an email to the user containing this link. Only when the user clicks this link will their password be updated.
 
+![](/media/articles/email/custom/change-password.png)
+
 ## Additional Information
 
  * [Emails in Auth0](/email)
