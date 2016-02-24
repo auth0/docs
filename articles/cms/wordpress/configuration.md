@@ -1,15 +1,17 @@
-#WordPress Configuration
+# WordPress Configuration
 
 ### Set up your *Auth0 Domain*, *Client Id* and *Client Secret*
 
 Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app's *Application Settings* page on Auth0 to the *Auth0 Settings* page of your WordPress account.
 
 #### Existing App
+
 1. While logged in as an administrator of your WordPress installation, in the **Plugins** section of the dashboard, click *Settings* under *WordPress Auth0 Integration* to open the *Auth0 Settings* page.
-So, go to your account and under the [Apps section](${uiURL}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
+So, go to your account and under the [Apps section](${uiURL}/#/applications) and access to the setting of the app you want to use (or create a new one).
 3. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Settings* page of the WordPress dashboard.
 
 #### New App
+
 1. While logged in as an administrator of your WordPress installation, in the **Plugins** section of the dashboard, click *Settings* under *WordPress Auth0 Integration* to open the *Auth0 Settings* page. (If you don't already have an Auth0 account, you can [create one](https://auth0.com).)
 2. On the *Auth0 Settings* page, click *create an application*.
 3. In the new browser window select *+ New App / API*.
@@ -18,7 +20,7 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 6. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Settings* page of the WordPress dashboard.
 7. Click *Save Changes* at the bottom of the page.
 
- <img src="https://cdn.auth0.com/docs/cms/wordpress/wp-auth0-initial-config.gif" alt="WP Auth0 initial configuration">
+![](/media/articles/cms/wordpress/wp-auth0-initial-config.gif)
 
 ## Settings
 
@@ -46,13 +48,9 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 - **Login redirection URL:** If set, forces redirection to the specified URL after the user logs in.
 - **Requires verified email:** If set, requires the user to have a verified email to login.
 - **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
-- **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
-- **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
-- **Widget URL:** The URL of to the latest available widget in the CDN.
-- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
 - **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
-```
+  ```js
 lock.once('signin ready', function() {
     var link = $('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
@@ -64,24 +62,34 @@ lock.once('signin ready', function() {
     var iconList = $(this.$container).find('.a0-iconlist');
     iconList.append(link);
 });
-```
+  ```
 
-**Note:** The variable `lock` refers to an instance of the Login Widget.
+  **Note:** The variable `lock` refers to an instance of the Login Widget.
+- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
+- **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
+- **Enable on IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the following textbox.
+- **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`
+- **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
+- **Widget URL:** The URL of to the latest available widget in the CDN.
 
 ## Integrate the plugin
 
 The plugin provides the `auth0_user_login` action to get notified each time a user logs in or is created in WordPress. This action accepts five parameters:
+
 1. $user_id (int): The id of the user logged in.
 2. $user_profile (stdClass): The Auth0 profile of the user.
 3. $is_new (boolean): If the user has created a new WordPress login, this is set to `true`, otherwise `false`. Not to be confused with Auth0 registration, this flag is `true` only if a new user is created in the WordPress database.
 4. $id_token (string): The user's JWT.
-5. $access_token (string): The user's access token. **Note:** An access token is not provided when using **Implicit Flow**.
+5. $access_token (string): The user's access token.
+
+  **Note:** An access token is not provided when using *Implicit Flow*.
 
 To hook to this action, include the following code:
-```
-    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
 
-    function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
-        ...
-    }
+```js
+add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
+
+function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
+    ...
+}
 ```

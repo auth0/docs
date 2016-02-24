@@ -2,13 +2,12 @@
 
 Auth0 provides a plugin to enable JWT authentication for your APIs. It is compatible with any API that uses the `determine_current_user` function to retrieve the logged in user (such as [WP REST API](https://wordpress.org/plugins/json-rest-api/)).
 
-
 ## Installation
 
 1. Install **WordPress JWT Authentication** from the WordPress Store or download the zip file from [WordPress JWT Authentication](https://wordpress.org/plugins/wp-jwt-auth/) and upload the `wp-jwt-auth` folder to the `/wp-content/plugins/` directory your WordPress installation.
 2. Activate the plugin through the **Plugins** menu in WordPress.
 
-## Settings
+### Settings
 
 - **Aud:** Usually your *Client Id*. Verifies that the token was intended for you.
 - **Secret:** Your *Client Secret*. Verifies the token signature.
@@ -23,13 +22,13 @@ If the WordPress JWT Authentication plugin is installed and enabled, the latest 
 
 To authenticate a request using JWT, add an `Authorization` header to the request:
 
-```
+```txt
 Authorization: Bearer YOUR-TOKEN
 ```
 
 for example:
 
-```
+```txt
 Authorization: Bearer eyJhbGciOiJIUzIsNiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoiVGhpcyBpcyB5b3VyIHVzZXIgSldUIHByb3ZpZGVkIGJ5IHRoZSBBdXRoMCBzZXJ2rXIifQ.b47GoWoY_5n4jIyGghPTLFEQtSegnVydcvl6gpWNeUE
 ```
 
