@@ -33,22 +33,22 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 
 ### Appearance
 
-- **Form Title:** Sets the Lock title.
-- **Show big social buttons:** Toggles the social buttons size between big and small.
-- **Icon URL:** Sets the Lock icon.
-- **Enable Gravatar integration:** When user enters their email, their associated gravatar picture is displayed in the Lock header.
-- **Customize the Login Widget CSS:** A valid CSS applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget)
+* **Form Title:** Sets the Lock title.
+* **Show big social buttons:** Toggles the social buttons size between big and small.
+* **Icon URL:** Sets the Lock icon.
+* **Enable Gravatar integration:** When user enters their email, their associated gravatar picture is displayed in the Lock header.
+* **Customize the Login Widget CSS:** A valid CSS applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget)
 
 ### Advanced
 
-- **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0.
-- **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
-- **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
-- **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
-- **Login redirection URL:** If set, forces redirection to the specified URL after the user logs in.
-- **Requires verified email:** If set, requires the user to have a verified email to login.
-- **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
-- **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
+* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0.
+* **Translation:** A valid JSON object representing the Lock's dict parameter. If set, will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
+* **Username style:** Set this to *username* if you don't wish to force a username to be a valid email.
+* **Remember last login:** Requests SSO data and enables *Last time you signed in with[...]* message. For more info see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
+* **Login redirection URL:** If set, forces redirection to the specified URL after the user logs in.
+* **Requires verified email:** If set, requires the user to have a verified email to login.
+* **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
+* **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
   ```js
 lock.once('signin ready', function() {
@@ -65,12 +65,12 @@ lock.once('signin ready', function() {
   ```
 
   **Note:** The variable `lock` refers to an instance of the Login Widget.
-- **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
-- **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
-- **Enable on IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the following textbox.
-- **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`
-- **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
-- **Widget URL:** The URL of to the latest available widget in the CDN.
+* **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
+* **Auto Login (no widget):** Skips the login page (a single login provider must be selected).
+* **Enable on IP Ranges:** Select to enable the Auth0 plugin only for the IP ranges you specify in the following textbox.
+* **IP Ranges:** Enter one range per line. Range format should be: `xx.xx.xx.xx - yy.yy.yy.y`
+* **Extra settings:** A valid JSON object that includes options to call Lock with. This overrides all other options set above. For a list of available options, see [Lock: User configurable options](/libraries/lock/customization) (e.g.: `{"disableResetAction": true }`).
+* **Widget URL:** The URL of to the latest available widget in the CDN.
 
 ## Integrate the plugin
 
