@@ -61,7 +61,7 @@ lodash: true
   A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
     NSLog(@"We did it!. Logged in with Auth0.");
   };
-  A0APIClientError *error = ^(NSError *error){
+  A0APIClientError error = ^(NSError *error){
     NSLog(@"Oops something went wrong: %@", error);
   };
   A0AuthParameters *params = [A0AuthParameters newDefaultParams];
