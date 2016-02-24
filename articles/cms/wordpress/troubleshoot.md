@@ -1,4 +1,4 @@
-# WordPress Troubleshooting
+w# WordPress Troubleshooting
 
 ### My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
@@ -11,6 +11,26 @@ The plugin provides an error log where you can check what has happened. Access i
 ### When using a plugin to force the login, the user is not logged in.
 
 Be sure to **whitelist** the Auth0 `callback_url`.
+
+#### The user is not logged in when using the `wp-force-login` plugin
+
+This is because the callback url is not being whitelisted, try adding this to the `my_forcelogin_whitelist`filter: 
+
+```php
+function my_forcelogin_whitelist( $whitelist ) {
+
+...
+
+  if( $_GET['auth0'] == 1 ) {
+    $whitelist[] = site_url($_SERVER['REQUEST_URI']);
+  }
+
+...
+
+  return $whitelist;
+}
+add_filter('v_forcelogin_whitelist', 'my_forcelogin_whitelist', 10, 1);
+```
 
 ### How can I redirect the users to a certain URL after login?
 
