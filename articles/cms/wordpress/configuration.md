@@ -50,7 +50,7 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 * **Allow signup:** User signup will be available only if WordPress' *Anyone can register* setting is enabled. You can find this setting under *Settings > General > Membership, Anyone can register*.
 * **Customize the Login Widget with custom JS:** Allows you to add custom JS to Lock, which is useful for adding custom buttons to the Login Widget. See [Add custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
-  ```js
+```js
 lock.once('signin ready', function() {
     var link = $('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
@@ -62,7 +62,7 @@ lock.once('signin ready', function() {
     var iconList = $(this.$container).find('.a0-iconlist');
     iconList.append(link);
 });
-  ```
+```
 
   **Note:** The variable `lock` refers to an instance of the Login Widget.
 * **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall. If this setting is enabled with **SSO**, you must add `http://your-domain/wp-login.php` as a valid callback in your Auth0 app.
