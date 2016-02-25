@@ -52,20 +52,20 @@ This tutorial and seed project have been tested with the following:
 
 </div>
 
-### 2. Adding the Auth0 dependencies
+### 2. Add the Auth0 dependencies
 
 Add the following dependencies to the `package.json` and run `npm install`:
 
 ${snippet(meta.snippets.dependencies)}
 
-### 3. Add the references to the scripts in the `www/index.html` file
+### 3. Add the reference to Lock in the `www/index.html` file
 
 ```html
 <!-- Auth0 Lock -->
 <script src="${widget_url_no_scheme}"></script>
 ```
 
-### 4. Add `InAppBrowser` plugin
+### 4. Add the `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
@@ -93,10 +93,27 @@ ${snippet(meta.snippets.setup)}
 
 ${snippet(meta.snippets.use)}
 
+### 7. Add a logout button
 
-### 8. Configuring secure calls to our API
+You can just remove the `id_token` from localStorage and set the `isAuthenticated` variable to `false`.
 
-As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to send the JWT
+```js
+logout() {
+    this.zone.run(() => {
+      localStorage.removeItem('id_token');
+      this.isAuthenticated = false;
+    });
+  }
+```
+
+```html
+<button full (click)="logout()">Logout</button>
+```
+
+### 8. Configure secure calls to your API
+
+As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to send the JWT on the Authorization Header. For that we can use the `AuthHttp` class of the [angular2-jwt](https://github.com/auth0/angular2-jwt) package, which will provide a default configuration that obtains the JWT token from localStorage and establishes aspects such as header name, prefix and token name.
+
 ```js
 // app.ts
 callSecuredApi() {
@@ -106,7 +123,7 @@ callSecuredApi() {
           .subscribe(
               data => {
                 console.log(data);
-				        this.showAlert("Success", data._body); //
+		this.showAlert("Success", data._body); //
               },
               err => {
                 console.log("There has been an error.");
@@ -125,11 +142,11 @@ callSecuredApi() {
   }
 ```
 
-Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
+If you want to call unsecured APIs you can simply make a `http.get` request.
 
-### 9. Showing user information
+### 9. Show user information
 
-After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
+We saved the user's information in the variable `userProfile`, 
 
 ```html
 <!-- user-info.tpl.html -->
