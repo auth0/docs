@@ -88,7 +88,7 @@ and then add the following configuration to the `config.xml` file:
 ${snippet(meta.snippets.setup)}
 
 
-### 6. Let's implement the login
+### 6. Implement the login
 
 
 ${snippet(meta.snippets.use)}
@@ -123,7 +123,7 @@ callSecuredApi() {
           .subscribe(
               data => {
                 console.log(data);
-		this.showAlert("Success", data._body); //
+                this.showAlert("Success", data._body);
               },
               err => {
                 console.log("There has been an error.");
@@ -146,19 +146,19 @@ If you want to call unsecured APIs you can simply make a `http.get` request.
 
 ### 9. Show user information
 
-We saved the user's information in the variable `userProfile`, 
-
-```html
-<!-- user-info.tpl.html -->
-<span>His name is {{auth.profile.nickname}}</span>
-```
+We saved the user's information in the variable `userProfile`, so we can show it when required. You can also save the profile in localStorage if needed.
 
 ```js
-angular.module('starter.controllers', [])
+//app.ts
+//Save the profile
+this.userProfile = profile;
+this.user_name = userProfile.name;
+this.user_email = userProfile.email;
+```
 
-.controller('UserInfoCtrl', function($scope, auth) {
-  $scope.auth = auth;
-}
+```html
+<!-- app.html -->
+<span>Hi {{user_name}}!<br/>Your e-mail is:{{user_email}}</span><br/>
 ```
 
 You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
@@ -172,3 +172,7 @@ Now it's time to sit back and relax. You've implemented Login and Signup with Au
 #### Get a blank page with an OK after signin
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. Please try to reinstall it.
+
+#### Get a completly blank page when launching the App
+
+This could mean that either you've built the seed project using Ionic 1, or that the device where you are testing it isn't entirely supported by Ionic 2 yet.
