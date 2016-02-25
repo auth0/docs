@@ -9,7 +9,7 @@ framework:
   - Angular2JS
   - Cordova
 hybrid: true
-image: /media/platforms/phonegap.png
+image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
