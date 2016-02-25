@@ -110,14 +110,13 @@ __Note:__ There are multiple ways of implementing a login. The example above dis
 
 ### 8. Add a logout button
 
-You can just remove the `id_token` and the `profile` from localStorage and set the `isAuthenticated` variable to `false`.
+You can just remove the `id_token` and the `profile` from localStorage.
 
 ```js
 logout() {
     this.zone.run(() => {
       localStorage.removeItem('profile');
       localStorage.removeItem('id_token');
-      this.isAuthenticated = false;
     });
   }
 ```
