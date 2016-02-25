@@ -12,7 +12,7 @@ login() {
 
         this.user_name = profile.name;
         this.user_email = profile.email;
-	this.isAuthenticated = true;
+		this.isAuthenticated = true;
 
     });
 
