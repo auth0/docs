@@ -81,25 +81,41 @@ and then add the following configuration to the `config.xml` file:
   <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
 </feature>
 ```
+### 5. Import dependencies
 
-### 5. Add the module dependency and configure the service
+To set up a simple component, you'll need some standard Angular 2 imports, as well as the `AuthHttp` class and `tokenNotExpired` function from `angular2-jwt` if you want to make secure calls to your API.
 
+```ts
+//app.ts
+import {Alert, NavController} from 'ionic-framework/ionic';
+import {NgZone} from 'angular2/core';
+import {Http} from 'angular2/http';
+import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
+
+```
+
+### 6. Configure Auth0Lock
+
+Create an instance of the service.
 
 ${snippet(meta.snippets.setup)}
 
+### 7. Implement the login
 
-### 6. Implement the login
-
+To implement the login, call the .show() method of Auth0's lock instance and then save the `id_token` and the `profile` in localStorage.
 
 ${snippet(meta.snippets.use)}
 
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script> to <script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>
+
 ### 7. Add a logout button
 
-You can just remove the `id_token` from localStorage and set the `isAuthenticated` variable to `false`.
+You can just remove the `id_token` and the `profile` from localStorage and set the `isAuthenticated` variable to `false`.
 
 ```js
 logout() {
     this.zone.run(() => {
+      localStorage.removeItem('profile');
       localStorage.removeItem('id_token');
       this.isAuthenticated = false;
     });
@@ -116,10 +132,13 @@ As we're going to call an API we did<%= configuration.api ? ' on ' + configurati
 
 ```js
 // app.ts
+
+constructor(public authHttp: AuthHttp) {}
+
 callSecuredApi() {
     console.log("callSecuredApi");
     try {
-      this.authHttp.get('http://localhost:3001/secured/ping')
+      this.authHttp.get('http://example.com/api/secret')
           .subscribe(
               data => {
                 console.log(data);
@@ -146,14 +165,10 @@ If you want to call unsecured APIs you can simply make a `http.get` request.
 
 ### 9. Show user information
 
-We saved the user's information in the variable `userProfile`, so we can show it when required. You can also save the profile in localStorage if needed.
-
 ```js
 //app.ts
-//Save the profile
-this.userProfile = profile;
-this.user_name = userProfile.name;
-this.user_email = userProfile.email;
+this.user_name = profile.name;
+this.user_email = profile.email;
 ```
 
 ```html
@@ -163,7 +178,7 @@ this.user_email = userProfile.email;
 
 You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 11. Sit back and relax
+### 10. Sit back and relax
 
 Now it's time to sit back and relax. You've implemented Login and Signup with Auth0 and Ionic 2.
 
