@@ -7,15 +7,12 @@ login() {
         throw new Error(err);
       }
 
-      //Save the token
-      localStorage.setItem('id_token', id_token);
-		
-	    //Save the profile
-	   	this.userProfile = profile;
+        localStorage.setItem('profile', JSON.stringify(profile));
+        localStorage.setItem('id_token', id_token);
 
-      this.user_name = profile.name;
-      this.user_email = profile.email;
-	    this.isAuthenticated = true;
+        this.user_name = profile.name;
+        this.user_email = profile.email;
+	this.isAuthenticated = true;
 
     });
 
