@@ -1,5 +1,5 @@
 ```ts
-
+public isAuthenticated = false;
 login() {
   this.lock.show((err: string, profile : Object, id_token: string) => {
     this.zone.run(() => {
