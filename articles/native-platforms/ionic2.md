@@ -108,7 +108,7 @@ ${snippet(meta.snippets.use)}
 
 __Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script> to <script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>
 
-### 7. Add a logout button
+### 8. Add a logout button
 
 You can just remove the `id_token` and the `profile` from localStorage and set the `isAuthenticated` variable to `false`.
 
@@ -126,7 +126,7 @@ logout() {
 <button full (click)="logout()">Logout</button>
 ```
 
-### 8. Configure secure calls to your API
+### 9. Configure secure calls to your API
 
 As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to send the JWT on the Authorization Header. For that we can use the `AuthHttp` class of the [angular2-jwt](https://github.com/auth0/angular2-jwt) package, which will provide a default configuration that obtains the JWT token from localStorage and establishes aspects such as header name, prefix and token name.
 
@@ -163,7 +163,7 @@ callSecuredApi() {
 
 If you want to call unsecured APIs you can simply make a `http.get` request.
 
-### 9. Show user information
+### 10. Show user information
 
 ```js
 //app.ts
@@ -178,7 +178,7 @@ this.user_email = profile.email;
 
 You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
 
-### 10. Sit back and relax
+### 11. Sit back and relax
 
 Now it's time to sit back and relax. You've implemented Login and Signup with Auth0 and Ionic 2.
 
