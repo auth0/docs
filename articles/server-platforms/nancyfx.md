@@ -15,6 +15,7 @@ snippets:
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015
+* .NET framework 4.5
 :::
 
 <%= include('../_includes/_package', {
