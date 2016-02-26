@@ -1,4 +1,4 @@
-w# WordPress Troubleshooting
+# WordPress Troubleshooting
 
 ### My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
@@ -7,6 +7,10 @@ The plugin can be accessed using valid WordPress credentials through the regular
 ### I am having problems when a user logs in. Where can I find a log of what is happening?
 
 The plugin provides an error log where you can check what has happened. Access it through the **Error Log** sub-item of the **Auth0** plugin menu.
+
+### How can I show the widget or shortcode in signup mode as default?
+
+You can use the widget `Extra configuration` setting (or the `extra_conf` attribute in the shortcode) and add this json `{"mode":"signup" }` that will force the plugin to be shown in this mode.
 
 ### When using a plugin to force the login, the user is not logged in.
 
@@ -42,25 +46,11 @@ You can also use the **Login redirection URL** setting in the Auth0 plugin setti
 
 #### Using the widget
 
-The widget does not provide a specific setting for redirection but you can use the `extra_conf` setting. This field allows you to set a JSON that will be sent to Lock. In this case, the JSON needs to look like this:
-
-```txt
-{
-	"state":"{\"redirect_to\":\"http://...\"}"
-} 
-```
-
-**NOTE:** The state attribute expects to receive a string, so you need to escape the quotes.
+The widget will automatically redirect to the same page where the user was before authentication. You can override this using the `Redirect after login:` setting.
 
 #### Using the shortcode
 
-As with the widget, the way to set the redirection URL in the shortcode is by using the `extra_conf` setting. In this case like this:
-
-```txt
-[auth0 extra_conf="{ \"state\" : \"{\\\"redirect_to\\\":\\\"http://...\\\"}\" }" ]
-``` 
-
-**NOTE:** You must double escape the state value, since the JSON is now enclosed in the shortcode quotes.
+The shortcode will automatically redirect to the same page where the user was before authentication. You can override this using the `redirect_to` attribute.
 
 ### How can I migrate my WordPress users to Auth0?
 
