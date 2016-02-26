@@ -4,7 +4,7 @@ name: Ionic 2
 alias:
   - ionic2
 language:
-  - Javascript
+  - Typescript
 framework:
   - Angular2JS
   - Cordova
@@ -127,7 +127,7 @@ logout() {
 
 ### 9. Configure secure calls to your API
 
-As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to send the JWT on the Authorization Header. For that we can use the `AuthHttp` class of the [angular2-jwt](https://github.com/auth0/angular2-jwt) package, which will provide a default configuration that obtains the JWT token from localStorage and establishes aspects such as header name, prefix and token name.
+As we're going to call an API we did <%= configuration.api ? ' on ' + configuration.api : '' %>, we need to send the JWT on the Authorization Header. For that we can use the `AuthHttp` class of the [angular2-jwt](https://github.com/auth0/angular2-jwt) package, which will provide a default configuration that obtains the JWT token from localStorage and establishes aspects such as header name, prefix and token name.
 
 ```js
 // app.ts
@@ -146,7 +146,7 @@ callSecuredApi() {
               err => {
                 console.log("There has been an error.");
                 console.log(err)
-                this.showAlert("Error", "You need to download the server seed and start it to call this API");
+                this.showAlert("Error");
               },
               () => {
                 console.log('Complete')
