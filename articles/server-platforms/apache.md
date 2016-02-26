@@ -13,6 +13,11 @@ snippets:
 
 ## Apache Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Apache 2.4
+:::
+
 **Please follow the steps below to configure your application using Apache to work with Auth0 and Open ID Connect.**
 
 ### 1. Install and enable `mod_auth_openidc` module
