@@ -12,6 +12,12 @@ snippets:
 
 # ServiceStack Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
 At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users.
 
 ## Before you start
