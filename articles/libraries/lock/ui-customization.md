@@ -33,7 +33,7 @@ Since all `Lock` animations are CSS animations the way to disable them is throug
 
 This code adds a new button to the widget. Since the widget runs as part of the same DOM of the page, you can manipulate it in the way you want.
 
-![](https://cdn.auth0.com/img/lock-add-btn.png)
+![](/media/articles/libraries/lock/ui-customization/lock-add-btn.png)
 
 ```js
 widget.once('signin ready', function() {
@@ -51,7 +51,7 @@ Here is a fiddle to play around with it <http://jsfiddle.net/auth0/2qws7nqz/>
 
 When Kerberos is available you can automatically trigger Windows Authentication. As a result the user will immediately be authenticated without having to click the **windows authentication** button.
 
-![](https://cdn.auth0.com/docs/img/windows-auth-button.png)
+![](/media/articles/libraries/lock/ui-customization/windows-auth-button.png)
 
 ```js
 lock.getClient().getSSOData(true, function (err, ssoData) {
@@ -85,14 +85,14 @@ Make sure to use the one that fits the best to your use case.
 
 ### Reflex theme
 
-![](https://cldup.com/ZgOKH8-5g9.png)
+![](/media/articles/libraries/lock/ui-customization/reflex-theme.png)
 
 - **repo**: https://github.com/auth0/lock-theme-reflex
 - **demo**: https://cdn.auth0.com/widget-theme-reflex/index.html
 
 ### Gradient theme
 
-![](https://cldup.com/p1nP0LDr3w.png)
+![](/media/articles/libraries/lock/ui-customization/gradient-theme.png)
 
 - **repo**: https://github.com/auth0/lock-theme-gradient
 - **demo**: https://cdn.auth0.com/widget-theme-gradient/index.html

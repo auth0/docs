@@ -5,8 +5,9 @@ In some cases, you may want to customize the user sign up form with more fields 
 so you will have to implement your own UI for signup.
 Lock can still be used for logging in to your application.
 
-> Note that there is currently no way to validate user-supplied custom fields when signing up.
-Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
+> Before implementing this, note that in most cases it's desirable to keep the signup process as friction-free as possible.
+It's a better UX to request only login information (e.g. email + password) and then ask for application-specific information as needed when a user logs in to your application.
+This also lets you ask for only the missing information that a third-party identity provider might not have provided, e.g. a Facebook user giving access to their full name but not their email address.
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
@@ -43,6 +44,9 @@ We can describe a custom signup flow with the following steps:
 ```
 
 Notice that `name` and `color` are custom fields.
+
+> Note that there is currently no way to validate user-supplied custom fields when signing up.
+Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
 
 ## 2. Auth0.js and dependencies
 

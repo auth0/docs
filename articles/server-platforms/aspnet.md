@@ -27,6 +27,14 @@ alias:
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET app (any kind: WebForms, MVC 1, 2, 3 or 4) to use it with Auth0.**
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Microsoft Visual Studio 2015
+* Auth0-ASPNET v1.4.0 
+:::
+
+
 ## Tutorial
 
 ### 1. Install Auth0-ASPNET NuGet package

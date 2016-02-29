@@ -50,7 +50,7 @@ The **Get User** script will execute when any of the following actions are perfo
 
 * A user attempts to *sign-up*.
 * A user clicks on a valid [password change confirmation](/libraries/lock/customization#rememberlastlogin-boolean-) link.
-* An API call is made to [update a user's email](/api/v2#!/Users/patch_users_by_id).
+* An API call is made to [update a user's email or username](/api/v2#!/Users/patch_users_by_id).
 
 This script is needed because none of these actions require authentication on the user's behalf. The **Get User** script must provide a way of verifying that a user exists in the legacy database without requiring their password.
 

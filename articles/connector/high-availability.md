@@ -14,7 +14,7 @@ Having a highly available deployment also allows updating the connector with zer
 4. Install the connector on a second server following the same instructions as above.
 5. When prompted for the __Ticket URL__, go to the __Import / Export__ tab and import the configuration there.
 
-![](https://cdn.auth0.com/docs/img/connector-high-avail-console.png)
+![](/media/articles/connector/high-availability/connector-high-avail-console.png)
 
 ## Instructions for Linux
 

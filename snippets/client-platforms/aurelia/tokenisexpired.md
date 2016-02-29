@@ -8,13 +8,11 @@ export function tokenIsExpired() {
     let expiryDate = new Date(0);
     expiryDate.setUTCSeconds(jwtExp);
     
-    if(expiryDate < new Date()) {
-      return true;
+    if(new Date() < expiryDate) {
+      return false;
     }
   }
 
-  else {
-    return false;
-  }
+  return true;
 }
 ```

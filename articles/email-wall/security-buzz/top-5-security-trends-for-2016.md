@@ -33,11 +33,11 @@ As more and more devices become tied into the Internet, the insufficient securit
 
 Through 2016, the growth of IoT devices will put pressure on manufacturers to implement the necessary security.
 
-> You can read more about IoT security here: [Surprised? Turns out, consumers don’t trust IoT security](https://auth0.com/blog/2015/11/06/surprised-turns-out-consumers-dont-trust-iot-security/).
+**NOTE:** You can read more about IoT security here: [Surprised? Turns out, consumers don’t trust IoT security](https://auth0.com/blog/2015/11/06/surprised-turns-out-consumers-dont-trust-iot-security/).
 
 Moreover, as cars, personal wearable devices, and household appliances become interconnected, the security risk of IoT will only increase.
 
-![Internet of Things](https://cdn.auth0.com/blog/security-trends-2016/iot.png)
+![Internet of Things](/media/articles/email-wall/security-buzz/top-5-security-trends/iot.png)
 
 ## 2 - Mobile Devices: App Attack
 Nowadays the dependence of people on their smartphones and tablets is huge. These devices contain a lot of personal information due to the huge number of operations that they can perform. People access their bank account, make purchases, and pay bills. We use these devices for everything and that makes them a target for cyber criminals.
@@ -46,9 +46,9 @@ Today's mobile apps collect a considerable amount of data, which means that thei
 
 In the next year, more companies will acknowledge this threat and take action to detect and fix potential security holes in networks and applications.
 
-> Remember that keeping your applications updated can help keep your devices and data secure.
+**NOTE:** Remember that keeping your applications updated can help keep your devices and data secure.
 
-![Mobile Devies](https://cdn.auth0.com/blog/security-trends-2016/mobile.png)
+![Mobile Devies](/media/articles/email-wall/security-buzz/top-5-security-trends/mobile.png)
 
 ## 3 - Cyber Extortion
 The old criminal methods will continue to evolve to the virtual world. The past few years have seen an increase in reported cases of **cyber extortion** (while many remain unreported), according to the [NYA Cyber Extortion Risk Report](http://www.nyainternational.com/sites/default/files/nya-publications/151027_Cyber_Extortion_Risk_Report_2015_0.pdf). 
@@ -59,7 +59,7 @@ In 2016, online threats will evolve to rely more on mastering the psychological 
 
 Companies can protect themselves and their users agains cyber extortion by developing a strong incident response capability to complement their traditional security measures. As prevention can not be successful everytime, being capable of detecting and responding to incidents faster will be crucial.
 
-![CryptoLocker](https://cdn.auth0.com/blog/security-trends-2016/criptolocker.png)
+![CryptoLocker](/media/articles/email-wall/security-buzz/top-5-security-trends/criptolocker.png)
 
 ## 4 - Machine Learning Prediction
 
@@ -69,12 +69,12 @@ Through the use of machine learning it is possible to build tools that analyze d
 
 The question is, will the bad guys start using machine learning for their own purposes, too?
 
-![Marchine Learning Prediction](https://cdn.auth0.com/blog/security-trends-2016/machine-learning.png)
+![Marchine Learning Prediction](/media/articles/email-wall/security-buzz/top-5-security-trends/machine-learning.png)
 
 ## 5 - Cloud Platforms
 Following the high rate of adoption of **Cloud Services platforms**, cyber criminals will increasingly focus on exploiting their customers and stealing valuable and confidential data. Cloud providers have implemented advanced technologies for data protection, network security, privacy, and authentication/authorization management. Many of them have infrastructure capabilities that better block attacks and have better contingency plans and accelerated incident response. Most users trust in the security of the big cloud platforms, and providers will be pressured to maintain high levels of security because they will likely be one of the most important targets of cyber attackers.
 
-![Cloud Platforms](https://cdn.auth0.com/blog/security-trends-2016/cloud-platform.png)
+![Cloud Platforms](/media/articles/email-wall/security-buzz/top-5-security-trends/cloud-platform.png)
 
 ## Conclusions
 One of the most important things we have to understand is that _money is no longer the sole motivator for cyber criminals_. Rather than hacking just for financial gain, in 2016 cybercriminals will sneak in to cause physical damage. During 2015 most hacktivist groups have already demonstrated that they are motivated not by money, but by causes that they believe in. When money is no longer the motivator, infrastructures, data, reputation, and more are put at risk.

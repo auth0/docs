@@ -103,7 +103,7 @@ Finally, you can add another rule that sends the Twitter handle of a user—if a
 
 To get near real-time statistics, you could buffer high-frequency authentication events using a queue component such as the open source RabbitMQ, and have a rule that sends the login information to it: the queue will then push the information into the data warehouse, analytics platform, or SaaS analytics solution. This is shown in the following diagram.
 
-![Use Case Architecture with Real-time analytics](http://cdn.auth0.com/use-cases/use-case-architecture-with-queue.png)
+![Use Case Architecture with Real-time analytics](/media/articles/email-wall/use-cases/analytics/use-case-architecture-with-queue.png)
 
 _Use Case Architecture with Real-time analytics_
 

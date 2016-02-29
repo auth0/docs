@@ -10,7 +10,7 @@ The Connector Admin screen can be launched by bringing up a browser on the AD/LD
 
 Once you have launched the Connector Admin Console  you can modify the LDAP settings:
 
-![](https://cdn.auth0.com/docs/img/connector-configuration.png)
+![](/media/articles/connector/modify/connector-configuration.png)
 
 Click **Save** when you are done modifying the LDAP configuration.
 
@@ -18,7 +18,7 @@ Click **Save** when you are done modifying the LDAP configuration.
 
 Once you submit the above information, the connector will perform a series of tests:
 
-![](https://cdn.auth0.com/docs/img/connector-configuration-saved.png)
+![](/media/articles/connector/modify/connector-configuration-saved.png)
 
 Make sure that all tests are in green.
 
