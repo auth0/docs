@@ -16,6 +16,12 @@ alias:
 
 # ASP.NET (OWIN) Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
