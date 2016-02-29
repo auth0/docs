@@ -3,30 +3,36 @@ connection: Salesforce
 image: /media/connections/salesforce.png
 ---
 
-# Obtaining an Client Id and Client Secret for Salesforce
+# Obtain a *Client Id* and *Client Secret* for Salesforce
 
-To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their __instance__.
+To configure a Salesforce OAuth2 connection you will need to register your Auth0 tenant on their **Administer** panel.
 
-## 1. Log in into Salesforce and register a new App:
+## 1. Register a New App
 
-Log into [login.salesforce.com](https://login.salesforce.com/), and click on the __New__ button of __Connected Apps__ in __Build | Create | Apps__:
+Log into [Salesforce](https://login.salesforce.com/). Click on **Setup** in the upper right, next to your account name. Navigate to **Build > Create > Apps**. Under **Connected Apps**, click **New**:
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-1.png)
 
----
+## 2. Complete the *New Connected App* form
 
-## 2. Complete the basic information about your app, define the scope of access and enter your callback URL:
+1. Enter the required basic information (*Connected App Name*, *API Name* and *Contact Email*). 
+2. Select **Enable OAuth Settings**  under **API (Enable OAuth Settings)**. 
+3. Enter your callback URL: `https://${account.namespace}/login/callback`
+4. Add *Access your basic information* to the **Selected OAuth Scopes**.
+5. Click **Save**.
 
-Complete the basic information about your app (Connected App Name, API Name and Contact Email), complete the callback URL and define Selected OAuth Scopes and click on __Save__:
+  ![](/media/articles/connections/social/salesforce/salesforce-register-2.png)
 
-![](/media/articles/connections/social/salesforce/salesforce-register-2.png)
+## 3. Get your *Consumer Key* and *Consumer Secret*
 
-	https://${account.namespace}/login/callback
-
----
-
-## 3. Get your Client Id and Client Secret
-
-Once the application is registered, enter your new `Consumer Key` and `Consumer Secret` into the connection settings in Auth0.
+Once your app is registered, the page will diplay your `Consumer Key` and `Consumer Secret`:
 
 ![](/media/articles/connections/social/salesforce/salesforce-register-3.png)
+
+## 4. Copy your *Consumer Key* and *Consumer Secret*
+
+Go to your Auth0 [Dashboard](${uiURL}/#/connections/social) and select **Connections > Social**, then choose **Salesforce**. 
+
+Copy the `Consumer Key` and `Consumer Secret` from the **Connected App** page of your app on Salesforce into the fields on this page on Auth0 and click **Save**:
+
+![](/media/articles/connections/social/salesforce/salesforce-register-4.png)
