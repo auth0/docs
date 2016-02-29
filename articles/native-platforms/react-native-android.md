@@ -38,7 +38,7 @@ snippets:
 <pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
-### 1. Adding the Lock to your project
+### 1. Adding Lock to your project
 
 Add the following dependency to the `build.gradle` of the android project:
 
