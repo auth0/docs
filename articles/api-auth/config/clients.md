@@ -45,12 +45,13 @@ Authorization: Bearer {APIV2_TOKEN}
 Content-Type: application/json
 
 {
-  "name": "Savings App",
+  "name": "Calendar App",
   "resource_servers": [
       {
-        "identifier": "urn:bank-api",
-        "scopes": [ "read:accounts" ]
+        "identifier": "urn:organizer-api",
+        "scopes": [ "appointments", "contacts" ]
       }
-  ]
+  ],
+  "callbacks": [ "http://localhost:7002" ]
 }
 ```

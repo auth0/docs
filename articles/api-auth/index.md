@@ -85,8 +85,8 @@ See the following tutorials for a step-by-step guide on how to implement the OAu
 
 ### Implicit Grant
 
- - [Using the Implicit Grant from a Node.js application](/api-auth/implicit-grant/node-js)
- - [Using the Implicit Grant from an iOS application](/api-auth/implicit-grant/asp-net)
+ - [Using the Implicit Grant from a Single Page application](/api-auth/implicit-grant/single-page)
+ - [Using the Implicit Grant from an iOS application](/api-auth/implicit-grant/ios)
 
 ### Client Credentials Grant
 
