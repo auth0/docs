@@ -59,7 +59,7 @@ gem install cocoapods
 
 > If you need help installing CocoaPods, please check this [guide](http://guides.cocoapods.org/using/getting-started.html)
 
-### 1. Adding the Lock to your project
+### 1. Adding Lock to your project
 
 First you need to run the following command to install **react-native-lock-ios**
 
@@ -84,7 +84,7 @@ ${snippet(meta.snippets.dependencies)}
 Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them.
 From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now integrated to your project via CocoaPods instead of subprojects.
 
-> If you are seeing some warnings after your running `pod install` or you get some linker error when building the Xcode project, please check the [FAQs section](#FAQs)
+> If you are seeing some warnings after your running `pod install` or you get some linker error when building the Xcode project, please check the [FAQs section](#faqs)
 
 ### 2. Register Native Authentication Handlers
 
