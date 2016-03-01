@@ -33,6 +33,13 @@ This tutorial and seed project have been tested with the following:
 This tutorial explains how to integrate Auth0 with an ASP.NET application (WebForms, MVC and even Web API) that uses the ASP.NET 4.5 OWIN infrastructure.
 
 ## Tutorial
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* MicroSoft Visual Studio 2015
+* Auth0-ASPNET-Owin NuGet Package v1.0.2
+
+:::
 
 ### 1. Install Auth0-ASPNET-Owin NuGet package
 
