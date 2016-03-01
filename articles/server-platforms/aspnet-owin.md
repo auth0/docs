@@ -31,7 +31,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (WebFo
 This tutorial and seed project have been tested with the following:
 
 * MicroSoft Visual Studio 2015
-* Auth0-ASPNET-Owin  v1.0.2
+* Auth0-ASPNET-Owin NuGet Package v1.0.2
 
 :::
 
