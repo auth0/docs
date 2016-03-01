@@ -20,6 +20,12 @@ snippets:
 
 ## PHP Laravel API Tutorial
 
+::: panel-info System Requirements This tutorial and seed project have been tested with the following:
+* Composer 1.0-dev
+* PHP 5.6.18
+* Laravel 5.1.31
+ :::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'laravel-auth0',
   pkgBranch: 'master',
