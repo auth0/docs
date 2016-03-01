@@ -1,12 +1,12 @@
 # Use your own SMTP Email Provider
 
-The Auth0 API v2 allows you to configure your own SMTP email provider instead of using Auth0's infrastructure for email communication with your users. This enables you to more completely manage, monitor and troubleshoot your email communications.
+The Auth0 allows you to configure your own SMTP email provider instead of using Auth0's infrastructure for email communication with your users. This enables you to more completely manage, monitor and troubleshoot your email communications.
 
 Auth0 currently supports the following providers:
 
- - [Amazon SES](#configure-amazon-ses-for-sending-email)
- - [Mandrill](#configure-mandrill-for-sending-email)
- - [SendGrid](#configure-sendgrid-for-sending-email)
+* [Amazon SES](#configure-amazon-ses-for-sending-email)
+* [Mandrill](#configure-mandrill-for-sending-email)
+* [SendGrid](#configure-sendgrid-for-sending-email)
 
 ## Configure Amazon SES for Sending Email
 
@@ -14,7 +14,7 @@ There are several steps to follow to configure Amazon SES for sending email.
 
 ### Amazon Web Services
 
-1. Sign up for an [Amazon AWS](http://aws.amazon.com) account, or login.
+1. Sign up for an [Amazon AWS](http://aws.amazon.com/ses/) account, or login.
 2. [Verify your domain](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
 
   ![](/media/articles/email/providers/ses-verify.png)
@@ -59,7 +59,7 @@ The [Amazon SES console](https://console.aws.amazon.com/ses) will now display al
 
 ## Configure Mandrill for Sending Email
 
-1. Login to your Mandrill account. Go to the [Settings page](https://mandrillapp.com/settings) and click **Add API key**. Save this key value.
+1. Sign up for a [Mandrill](https://www.mandrill.com/signup/) account, or login. Go to the [Settings page](https://mandrillapp.com/settings) and click **Add API key**. Save this key value.
 
   ![](/media/articles/email/providers/mandrill-keygen.png)
 
@@ -88,7 +88,7 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 
 ## Configure SendGrid for Sending Email
 
-1. Login to your SendGrid account. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace.) Go to [Manage User Credentials](https://app.sendgrid.com/settings/credentials) and create an API key.
+1. Sign up for a [SendGrid](https://sendgrid.com/pricing) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace.) Go to [Manage User Credentials](https://app.sendgrid.com/settings/credentials) and create an API key.
 
 2. Generate an API token with the correct scope (ie: to create or update your email provider) on the [API v2](/api/v2) page on Auth0.
 
