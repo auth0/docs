@@ -14,14 +14,12 @@ image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
-  authservice: native-platforms/ionic2/authservice
   configure: native-platforms/ionic2/configure
   configurerefresh: native-platforms/ionic2/configurerefresh
   dependencies: native-platforms/ionic2/dependencies
   http: native-platforms/ionic2/http
   profile: native-platforms/ionic2/profile
   profiletemplate: native-platforms/ionic2/profiletemplate
-  lock: native-platforms/ionic2/lock
   refresh: native-platforms/ionic2/refresh
   setup: native-platforms/ionic2/setup
   use: native-platforms/ionic2/use
@@ -73,7 +71,7 @@ ${snippet(meta.snippets.configure)}
 
 Add the Auth0Lock widget to your `index.html` file and set the viewport.
 
-${snippet(meta.snippets.lock)}
+${snippet(meta.snippets.setup)}
 
 ### 4. Create an Authentication Service and Configure Auth0Lock
 
@@ -81,7 +79,7 @@ It's best to set up an injectable authentication service that can be reused acro
 
 This is also where `Auth0Lock` can be configured with your Auth0 credentials.
 
-${snippet(meta.snippets.authservice)}
+${snippet(meta.snippets.use)}
 
 The service can now be injected wherever it is needed.
 
