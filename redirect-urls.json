@@ -558,5 +558,13 @@
   {
     "from": "/multifactor-authentication/custom-provider",
     "to": "/multifactor-authentication"
+  },
+  {
+      "from": "/native-platforms/windows-store-javascript",
+      "to": "/native-platforms/windows-uwp-javascript"
+  },
+  {
+      "from": "/native-platforms/windows-store-csharp",
+      "to": "/native-platforms/windows-uwp-csharp"
   }
 ]
