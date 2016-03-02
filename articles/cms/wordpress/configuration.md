@@ -38,7 +38,17 @@ You must first create an app in the Auth0 dashboard before you can configure the
 
 ### Features
 
-* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0.
+* **Password Policy:** Select the level of complexity you want to enforce for user passwords. For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength).
+* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso/single-sign-on).
+* **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-).
+* **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information.) You can enable other MFA providers on the [Auth0 dashboard](${uiURL}/#/multifactor).
+* **FullContact integration:** Enable this option to fill your user profiles with the data provided by FullContact. A valid API key is required. For more information, see [Augment User Profile with FullContact](/scenarios/mixpanel-fullcontact-salesforce#2-augment-user-profile-with-fullcontact-).
+* **Store geolocation:** Enable this option to store geolocation information based on the IP addresses saved in `user_metadata`.
+* **Store zip-code income:** Enable this option to store income data based on the zip-code calculated from each user's IP address.
+
+### Connections
+
+Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${uiURL}/#/connections/social).
 
 ### Appearance
 
@@ -68,10 +78,6 @@ lock.once('signin ready', function() {
 * **Remember last login:** Requests SSO data and enables the *Last time you signed in with[...]* option. For more information,  see [rememberLastLogin {Boolean}](/libraries/lock/customization#rememberlastlogin-boolean-).
 * **Translation:** A valid JSON object representing the Lock's dict parameter. The 'dict' parameter can be a string matching any supported language ('en', 'es', 'it', etc...) or an object containing customized label text. If set, this will override the Title setting. For more info see [dict {String|Object}](/libraries/lock/customization#dict-string-object-).
 
-### Connections
-
-Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${uiURL}/#/connections/social).
-
 ### Advanced
 
 * **Use passwordless login:** Enable this option to replace the login widget with Lock Passwordless.
@@ -84,7 +90,7 @@ Enable the supported social identity providers you want to allow users to login 
 * **Facebook app key:**
 * **Facebook app secret:**
 * **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${uiURL}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
-* **Migration IPs whitelist:**
+* **Migration IPs whitelist:** Only requests from listed IPs will be allowed access to the migration webservice.
 * **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
 * **Login redirection URL:** If set, redirects users to the specified URL after login.
 * **Requires verified email:** If set, requires the user to have a verified email to login.
