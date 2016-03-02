@@ -18,6 +18,12 @@ snippets:
 
 ## Android Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Android SDK 23
+* Build Tools 23.0.2
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
