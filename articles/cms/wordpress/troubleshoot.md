@@ -20,9 +20,9 @@ You can use the widget `Extra configuration` setting (or the `extra_conf` attrib
 
 Be sure to **whitelist** the Auth0 `callback_url`.
 
-#### The user is not logged in when using the `wp-force-login` plugin
+#### The user is not logged in when using the `wp-force-login` plugin.
 
-This is because the callback url is not being whitelisted, try adding this to the `my_forcelogin_whitelist`filter: 
+This is because the callback URL has not been whitelisted. Try adding this code to the `my_forcelogin_whitelist` filter:
 
 ```php
 function my_forcelogin_whitelist( $whitelist ) {
@@ -60,11 +60,11 @@ The shortcode will automatically redirect to the same page where the user was be
 
 The current version of the plugin does not provide a way to automatically migrate users to Auth0, but you have a few options:
 
-- The plugin exposes two endpoints to set up your custom db connection with import mode as decribed in [this doc](/connections/database/migrating). You can use the [plugin scripts](https://github.com/auth0/wp-auth0/blob/master/lib/WP_Auth0_CustomDBLib.php) to set up your connection.
+- The plugin exposes two endpoints to mark your custom database connection for **import to Auth0** mode as described in [Import users to Auth0](/connections/database/migrating). You can use these [plugin scripts](https://github.com/auth0/wp-auth0/blob/master/lib/WP_Auth0_CustomDBLib.php) to setup your connection.
 
 - Export your user data to a JSON file and upload it for batch-import into Auth0. Initially, your users will have to reset their passwords when logging in using Auth0 because there is no way for Auth0 to decrypt the WordPress passwords during migration. To generate the JSON file, follow the instructions at [Mass-importing users to Auth0](/bulk-import). Then you will need to upload the file using the [Import users](/api/v2#!/Jobs/post_users_imports) endpoint.
 
-- Use the [WordPress XML RPC](https://codex.wordpress.org/XML-RPC_Support) endpoint and set up the migration flow using a custom db connection (as decribed in [Import users to Auth0](/connections/database/migrating)) with [this script](https://gist.github.com/glena/b31716e3c8fe48927be2).
+- Use the [WordPress XML RPC](https://codex.wordpress.org/XML-RPC_Support) endpoint to setup the migration flow using a custom database connection as described in [Import users to Auth0](/connections/database/migrating) with [this script](https://gist.github.com/glena/b31716e3c8fe48927be2).
 
 
 ### Database migration does not work.
