@@ -102,7 +102,7 @@ In this case, we'll add the call in the `login` method of the `LoginCtrl` contro
 
 ${snippet(meta.snippets.use)}
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="lib/auth0-lock/build/auth0-lock.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#using-auth0-lock-no-need-to-build-a-custom-ui).
+> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="lib/auth0-lock/build/auth0-lock.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#using-auth0-lock-no-need-to-build-a-custom-ui).
 
 ### 7. Adding a logout button
 
