@@ -80,7 +80,7 @@ http://yourUrl/callback
 
 ${lockSDK}
 
-> **Warning:** Auth0 Java requires that you specify the `state` parameter in Auth0 Widget or [Auth0 Lock](/libraries/lock/customization#authparams-object). The Login servlet must propagate [the nonce](https://github.com/auth0/auth0-java/blob/2836d13c0a766e3a2fd28fc95bb582fa79e57c52/examples/java-regular-webapp/src/main/java/com/auth0/example/LoginServlet.java#L22) and pass it [to the JSP page](https://github.com/auth0/auth0-java/blob/master/examples/java-regular-webapp/src/main/webapp/login.jsp#L49). For an example of this, check the seed project above.
+> **Warning:** Auth0 Java requires that you specify the `state` parameter in Auth0 Widget or [Auth0 Lock](/libraries/lock/customization#authparams-object). The Login servlet must propagate [the nonce](https://github.com/auth0/auth0-java/blob/2836d13c0a766e3a2fd28fc95bb582fa79e57c52/examples/java-regular-webapp/src/main/java/com/auth0/example/LoginServlet.java#L22) and pass it [to the JSP page](https://github.com/auth0/auth0-java/blob/master/examples/java-regular-webapp/src/main/webapp/login.jsp#L45). For an example of this, check the seed project above.
 
 > **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
