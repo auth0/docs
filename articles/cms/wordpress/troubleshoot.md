@@ -1,8 +1,8 @@
 # WordPress Troubleshooting
 
-### The settings page shows me this warning `The current user is not authorized to manage the Auth0 account...`
+### The Auth0 settings page in WordPress displays the warning: "The current user is not authorized to manage the Auth0 account...".
 
-If you upgraded your plugin to the v2 or configured the plugin without the initial setup wizard, you might missed to setup the api token used by the plugin to update your account settings. You can create a new one [here](https://auth0.com/docs/api/v2) and enter this in the basic settings section (check there which scopes are required). You can also ignore this, some operations will not be available (like enabling rules or updating your auth0 application to enable sso and you will need to do it manually in the [auth0 dashboard](https://manage.auth0.com)).
+If you updated your plugin to version 2 or configured the plugin without following the initial setup wizard, you may have skipped entering your API token that the plugin uses to update your account settings. You can [generate a new token](/api/v2) and enter it into the **App Token** field of the the **Basic** settings page of the plugin. (The required scopes for the token are listed there.) You can also ignore this warning. Some operations will not be available from the plugin (like enabling rules or SSO). You will need to make these configuration changes manually in the [Auth0 dashboard](${uiURL}/#/applications)).
 
 ### My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
