@@ -2,7 +2,7 @@
 
 ### The settings page shows me this warning `The current user is not authorized to manage the Auth0 account...`
 
-If you upgraded your plugin to v2 or configured the plugin without the initial setup wizard, you might need to set up the api token used by the plugin to update your account settings. You can create a new one [here](https://auth0.com/docs/api/v2) and enter this in the basic settings section (check there which scopes are required). You can also ignore this, some operations will not be available (like enabling rules or updating your auth0 application to enable sso and you will need to do it manually in the [auth0 dashboard](https://manage.auth0.com)).
+If you upgraded your plugin to v2 or configured the plugin without the initial setup wizard, you might need to set up the API token used by the plugin to update your account settings. You can create a new one [here](https://auth0.com/docs/api/v2) and enter this in the basic settings section (check there which scopes are required). You can also ignore this, some operations will not be available (like enabling rules or updating your auth0 application to enable sso and you will need to do it manually in the [auth0 dashboard](https://manage.auth0.com)).
 
 ### My configuration is wrong and I can't authenticate using Auth0. Is there another way to access the plugin?
 
