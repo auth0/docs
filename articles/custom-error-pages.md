@@ -7,6 +7,7 @@ This document begins by covering the configuration options available to you via 
 ## Customizing Error Pages via the Management Portal
 
 To get to the error page settings:
+
 1. Go to the top right-hand side of the Auth0 Management Portal
 2. Click on your user name/icon
 3. Choose "Account Settings" in the menu the pops open.
@@ -16,6 +17,7 @@ To get to the error page settings:
 ### The Auth0 Default Error Page
 
 You can choose to display to your users the default Auth0 error page. This page can be minimally customized with the following pieces of information (all fields optional):
+
 -	Friendly Name: a user-friendly version of your company's name;
 -	Logo URL: the path to the logo you want to show to users;
 -	Support Email: the email address for your Support team;
