@@ -32,7 +32,7 @@ You must first create an app in the Auth0 dashboard before you can configure the
 * **Domain:** The app domain copied from the app settings in your dashboard.
 * **Client Id:** The app client id copied from the app settings in your dashboard.
 * **Client Secret:** The app client secret copied from the app settings in your dashboard.
-* **App token:** The token required to allow the plugin to communicate with Auth0 to update your account settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes, as listed here.
+* **App token:** The token required to allow the plugin to communicate with Auth0 to update your account settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes listed here.
 * **WordPress login enabled:** If enabled, displays a link on the login page to access the regular WordPress login.
 * **Allow signup:** User signup will be available only if the WordPress *Anyone can register* option is enabled. You can find this setting under **Settings > General > Membership**.
 
@@ -82,13 +82,12 @@ lock.once('signin ready', function() {
 
 * **Use passwordless login:** Enable this option to replace the login widget with Lock Passwordless.
 * **Widget URL:** The URL of to the latest available widget in the CDN.
-* **Connections:** List here each of the connections the Lock widget will allow users to select from. If blank, any connection choice will be allowed. If passwordless login is enabled, you must list all allowable connections here.
+* **Connections:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
+**NOTE:** If you have enabled passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
 * **Remember users session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
 * **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
-* **Twitter consumer key:**
-* **Twitter consumer secret:**
-* **Facebook app key:**
-* **Facebook app secret:**
+* **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
+* **Facebook app key and app secret:** The credentials from your Facebook app. For instructions on creating an app on Facebook, see [Obtain an App ID and App Secret for Facebook](/connections/social/facebook).
 * **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${uiURL}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
 * **Migration IPs whitelist:** Only requests from listed IPs will be allowed access to the migration webservice.
 * **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
