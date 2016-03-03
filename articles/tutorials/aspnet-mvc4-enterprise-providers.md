@@ -15,7 +15,7 @@ Auth0 creates many new posibilities for developers by providing them with the ab
 
 ### 1. Enable an enterprise provider
 
-Go to [Enterprise Connections](${uiURL}/#/connections/enterprise) in your dashboard and enable Google-Apps connections by providing the settings you used for Google OAuth2 in the previous tutorial.
+Go to [Enterprise Connections](${uiURL}/#/connections/enterprise) in your dashboard and enable the Google Apps connection.
 
 ### 2. Create a new provisioning route
 
