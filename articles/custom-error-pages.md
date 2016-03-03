@@ -223,6 +223,7 @@ cURL Example
 #### Redirecting Users to a Custom Error Page
 
 To redirect users to a custom error page:
+
 1. On the Account Settings page, scroll down to the Error Pages section.
 2. Select the option "redirect users to your own error page."
 3. Provide the URL of the error page you would like your users to see.
@@ -242,13 +243,14 @@ Instead of using the Management Portal, you may configure your error pages by ma
 
 ![](/media/articles/error-pages/patch-tenant-settings.png)
 
-1. Ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration.
-2. Navigate to the [APIv2 Explorer Page](/api/v2).
-3. Go to the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
-4. Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](api/v2/tokens).
-5. Populate the "body" field with the JSON snippet containing the changes you would like to make. Further details on what to include in this snippet is included below.
+Prior to beginning, please ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration.
 
-Please note that the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code to assist you.
+1. Navigate to the [APIv2 Explorer Page](/api/v2).
+2. Go to the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
+3. Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](api/v2/tokens).
+4. Populate the "body" field with the JSON snippet containing the changes you would like to make. Further details on what to include in this snippet is included below.
+
+To assist you in customizing the required JSON snippet, the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code:
 
 ```
 {
