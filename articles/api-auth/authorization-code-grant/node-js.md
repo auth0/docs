@@ -84,7 +84,6 @@ To Authenticate request you can write a `requiresLogin ` middleware function whi
 
 ```
 var requiresLogin = function(req, res, next) {
-  console.log(req.user);
   if (!req.isAuthenticated()) {
     return res.redirect('/');
   }
