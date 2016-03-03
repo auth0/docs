@@ -26,7 +26,7 @@ We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
 
 ### 1. Create a simple MVC3 website and install ServiceStack through NuGet
 
-For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> MVC 3 Web Application -> Empty"__
+For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> ASP.NET Web Application -> Empty"__ and choose MVC template.
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
@@ -34,13 +34,13 @@ ${snippet(meta.snippets.dependencies)}
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
-Add the following line to your `Global.asax` file (this is required for ServiceStack):
+Add the following line to your `App_Start/Route_Config.cs` file (this is required for ServiceStack):
 
 ```
 routes.IgnoreRoute("api/{*pathInfo}");
 ```
 
-Add a `HomeController` to return the `default.htm` page. Under the __Controllers__ folder add:
+Change `HomeController` to return the `default.htm` page. Under the __Controllers__ folder add:
 
 ```c#
 public class HomeController : Controller
@@ -127,7 +127,7 @@ public class HelloResponse
 ```c#
 public class HelloService : ServiceBase<Hello>
 {
-	protected override object Run(Hello request)
+	public object Run(Hello request)
 	{
         IAuthSession session = this.GetSession();
         var sb = new StringBuilder();
