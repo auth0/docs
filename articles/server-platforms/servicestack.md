@@ -74,7 +74,7 @@ ConfigureAuth(container);
 
 And then uncomment and edit the `ConfigureAuth` method to look like this:
 
-${snippet(meta.snippets.dependencies)}
+${snippet(meta.snippets.setup)}
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
