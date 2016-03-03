@@ -2,9 +2,11 @@
 
 In the event of an authorization error, you may choose to display to your users either the default Auth0 error page or a customized error page.
 
+This document begins by covering the configuration options available to you via the Management Portal and ends with information on performing the same actions by making the appropriate calls to the Management API.
+
 ## Customizing Error Pages via the Management Portal
 
-To begin:
+To get to the error page settings:
 1. Go to the top right-hand side of the Auth0 Management Portal
 2. Click on your user name/icon
 3. Choose "Account Settings" in the menu the pops open.
@@ -43,12 +45,12 @@ Instead of using the Management Portal, you may configure your error pages by ma
 ![](/media/articles/error-pages/patch-tenant-settings.png)
 
 1. Ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration.
-2. Navigate to the APIv2 Explorer Page.
-3. Go to the "Update Tenant Settings" section of the APIv2 Explorer Page.
-4. Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the token.
-5. Populate the "body" field with the JSON snippet containing the changes you would like to make.
+2. Navigate to the [APIv2 Explorer Page](/api/v2).
+3. Go to the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
+4. Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](api/v2/tokens).
+5. Populate the "body" field with the JSON snippet containing the changes you would like to make. Further details on what to include in this snippet is included below.
 
-Please note that the "Show samples" link in the upper right corner will display the following sample code to assist you.
+Please note that the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code to assist you.
 
 ```
 {
@@ -100,7 +102,7 @@ To provide the appropriate HTML, pass in a string containing the appropriate Liq
 
 ```
 "error_page": {
-  "html": "",
+  "html": "<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>",
   "show_log_link": false,
   "url": ""
 }
