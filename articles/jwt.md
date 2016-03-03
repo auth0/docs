@@ -27,7 +27,7 @@ The minimum information will be:
 
 ```javascript
 {
- 	iss: "https://${account.namespace}",
+    iss: "https://${account.namespace}",
     sub: "{connection}|{user_id}",
     aud: "${account.clientId}",
     exp: 1372674336,
