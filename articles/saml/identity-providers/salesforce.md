@@ -29,7 +29,6 @@ There are 6 steps to this sample:
  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-4.png)
 
 8. Click **Download Metadata** to download the Identity Provider metadata.
-
  ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-5.png)
 
 ## 2. Set up Auth0 as a Service Provider
@@ -41,22 +40,22 @@ In this step, you will configure Auth0 as a Service Provider to communicate with
 3. Click on **Create New Connection**
 4. In the **Create SAMLP Identity Provider connection** window, enter the following information into the **Configuration** tab:
 
-  **Connection Name:** You can choose any name, such as "SFIDP".
-  **Email Domains:** Enter the email domain name that your users will be logging in from. For example, if your users have an email domain of `abc-example.com`, you would enter that into this field. You can enter multiple email domains if needed.
-  **Sign In URL:** Open the metaData file you downloaded from SalesForce and locate the line that contains the `SingleSignOnService` binding. The value of the `Location` attribute on this line is your Sign In URL. It will be something like:
+    **Connection Name:** You can choose any name, such as "SFIDP".
+    **Email Domains:** Enter the email domain name that your users will be logging in from. For example, if your users have an email domain of `abc-example.com`, you would enter that into this field. You can enter multiple email domains if needed.
+    **Sign In URL:** Open the metaData file you downloaded from SalesForce and locate the line that contains the `SingleSignOnService` binding. The value of the `Location` attribute on this line is your Sign In URL. It will be something like:
 
-  `https://{sf-account-name}.my.salesforce.com/idp/endpoint/HttpRedirect`
+    `https://{sf-account-name}.my.salesforce.com/idp/endpoint/HttpRedirect`
 
-  where "{sf-account-name}" is your SalesForce account domain name.
+    where "{sf-account-name}" is your SalesForce account domain name.
 
-  **Sign Out URL:** enter the same URL that was entered for Sign In URL.
+    **Sign Out URL:** enter the same URL that was entered for Sign In URL.
   ![](/media/articles/saml/identity-providers/salesforce/salesforceidp-6.png)
 
-  **Certificate:**  The certificate downloaded from SalesForce is in .crt format. Convert this certificate to .pem format with the following command.
+    **Certificate:**  The certificate downloaded from SalesForce is in .crt format. Convert this certificate to .pem format with the following command.
 
-  `openssl x509 -in original.crt -out sfcert.pem -outform PEM`
+    `openssl x509 -in original.crt -out sfcert.pem -outform PEM`
 
-  where `original.crt` is the filename of the downloaded .crt file.
+    where `original.crt` is the filename of the downloaded .crt file.
 
 5. Click **UPLOAD CERTIFICATE**  and select the `.pem` file you just created. (`sfcert.pem` in the example above). You can ignore the rest of the fields for now.
 6. Click on **SAVE**.
@@ -76,11 +75,11 @@ In this step, you will configure SalesForce with the metadata from Auth0 so it c
 4. Click on **Connected Apps**.
 5. Create a new Connected App and fill out the following fields:
 
-  **Entity ID:** `urn:auth0:${account.namespace}:${connectionName}`
-  **ACS URL:** `https://${account.namespace}/login/callback`
-  **Subject Type:** `Persistent ID`
-  **Name ID Format:** Choose the one with emailAddress
-  **Issuer:** `https://{your-saleforce-domain}.my.salesforce.com`
+    **Entity ID:** `urn:auth0:${account.namespace}:${connectionName}`
+    **ACS URL:** `https://${account.namespace}/login/callback`
+    **Subject Type:** `Persistent ID`
+    **Name ID Format:** Choose the one with emailAddress
+    **Issuer:** `https://{your-saleforce-domain}.my.salesforce.com`
 6. Click **Save** to complete the configuration of the IDP.
 
 ## 4. Grant Privileges to Users in SalesForce
