@@ -13,15 +13,15 @@ The Authentication API exposes all of the identity functionality of Auth0 as wel
             <a href="/auth-api" class="illustration i-apiexplorer"></a>
             <h4>API Explorer</h4>
             <p>Learn about and use the Auth0 Authentication API in the browser.</p>
-            <p><a href="/auth-api">Open</a></p>
+            <p><a href="/auth-api">Open API Explorer</a></p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="wrapper-right">
-            <a href="#" class="illustration i-postman"></a>
+            <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Authentication API in Postman.</p>
-            <p><a href="#"><img src="https://s3.amazonaws.com/postman-static/run-button.png" /></a></p>
+            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="79dca0fe2efa704b9977"></div></p>
           </div>
         </div>
       </div>
@@ -40,16 +40,16 @@ The Auth0 Management API can be used to manage all aspects of your Auth0 account
           <div class="wrapper-left">
             <a href="/api/v2" class="illustration i-apiexplorer"></a>
             <h4>API Explorer</h4>
-            <p>Learn about and use the Auth0 Authentication API in the browser.</p>
-            <p><a href="/api/v2">Open</a></p>
+            <p>Learn about and use the Auth0 Management API in the browser.</p>
+            <p><a href="/api/v2">Open API Explorer</a></p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="wrapper-right">
-            <a href="#" class="illustration i-postman"></a>
+            <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
-            <p>Try the Auth0 Authentication API in Postman.</p>
-            <p><a href="#"><img src="https://s3.amazonaws.com/postman-static/run-button.png" /></a></p>
+            <p>Try the Auth0 Management API in Postman.</p>
+            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="79dca0fe2efa704b9977"></div></p>
           </div>
         </div>
       </div>
@@ -59,3 +59,13 @@ The Auth0 Management API can be used to manage all aspects of your Auth0 account
 
 ## Management API v1 (deprecated)
 The Auth0 Management API v1 contains various management functions for your Auth0 account. This API is **deprecated** and should not be used for new projects. If you have an existing app that uses the v1 Management API you can browse the [API explorer](/api/v1).
+
+<script type="text/javascript">
+  (function (p,o,s,t,m,a,n) {
+    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+      (n = o.createElement("script")),
+      (n.id = s+t), (n.async = 1), (n.src = m), n
+    ));
+  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+</script>
