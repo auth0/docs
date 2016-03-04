@@ -87,7 +87,7 @@ In this example, you will create a policy that grants full access to the S3 reso
     }
   ```
 
-3. Click **Validate Policy** to check your syntax, then click **Create Policy**.
+3. Click **Validate Policy** to check your syntax, then click **Apply Policy**.
 
   ![](/media/articles/aws-api-setup/aws-api-setup-12.png)
 
