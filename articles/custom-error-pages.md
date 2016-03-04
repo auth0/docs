@@ -1,3 +1,4 @@
+<<<<<<< a70fd07d44326033b0427ec55554fd55d9c88b14
 <<<<<<< c12ef8e55bb0712ca1b656a6c4ba302e83ccf245
 <<<<<<< fb3311ac924102cdcb2c9bb5d2b08d5ab8b817ea
 <<<<<<< 1a0c851189b7344cc4ad6bbe6e3617101c8deda3
@@ -76,6 +77,10 @@ You can choose to display to your users the default Auth0 error page. This page 
 >>>>>>> [update] Add sections on updates made via API
 =======
 # Customizing Error Pages
+=======
+Customizing Error Pages
+=======================
+>>>>>>> [edit] Add API call info
 
 <<<<<<< 52ab66c4ce926c545f7320e04238a3b1258d4e8a
 In the event of an authorization error, you may display to your users a customized error page, rather than the generic Auth0 error page.
@@ -83,15 +88,16 @@ In the event of an authorization error, you may display to your users a customiz
 =======
 In the event of an authorization error, you may choose to display to your users either the default Auth0 error page or a customized error page.
 
-This document begins by covering the configuration options available to you via the Management Portal and ends with information on performing the same actions by making the appropriate calls to the Management API.
+This document begins by covering the configuration options available to you via the Management Portal and ends with information on performing the same actions by making the appropriate calls to the Management API. If you choose to make updates via the Management API, you may use the APIv2 Explorer Page to make test calls and help generate the required HTTP PATCH call.
 
-## Customizing Error Pages via the Management Portal
+Customizing Error Pages via the Management Portal
+-------------------------------------------------
 
 To get to the error page settings:
 
-1. Go to the top right-hand side of the Auth0 Management Portal
-2. Click on your user name/icon
-3. Choose "Account Settings" in the menu the pops open.
+1.	Go to the top right-hand side of the Auth0 Management Portal
+2.	Click on your user name/icon
+3.	Choose "Account Settings" in the menu the pops open.
 
 ![](/media/articles/error-pages/account-settings.png)
 
@@ -433,12 +439,13 @@ cURL Example
 
 To redirect users to a custom error page:
 
-1. On the Account Settings page, scroll down to the Error Pages section.
-2. Select the option "redirect users to your own error page."
-3. Provide the URL of the error page you would like your users to see.
+1.	On the Account Settings page, scroll down to the Error Pages section.
+2.	Select the option "redirect users to your own error page."
+3.	Provide the URL of the error page you would like your users to see.
 
 ![](/media/articles/error-pages/redirect-error-page.png)
 
+<<<<<<< a70fd07d44326033b0427ec55554fd55d9c88b14
 <<<<<<< 28bb8df23942f1570dd54ab133a6e105fd964b3f
 <<<<<<< 52ab66c4ce926c545f7320e04238a3b1258d4e8a
 ## Rendering a Custom Error Page
@@ -449,17 +456,33 @@ To redirect users to a custom error page:
 =======
 ## Customizing Error Pages via the Management API
 Instead of using the Management Portal, you may configure your error pages by making the appropriate PATCH call to the Management API.
+=======
+Customizing Error Pages via the Management API
+----------------------------------------------
+
+Instead of using the Management Portal, you may configure your error pages by making a `PATCH /api/v2/tenants/settings` call to the Management API.
+
+To assist you in creating the appropriate request, you may use the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
+>>>>>>> [edit] Add API call info
 
 ![](/media/articles/error-pages/patch-tenant-settings.png)
 
-Prior to beginning, please ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration.
+Prior to beginning, please ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration. This will allow the API Explorer to dynamically generate the required [API token](api/v2/tokens) with the necessary API Key and Secret.
 
-1. Navigate to the [APIv2 Explorer Page](/api/v2).
-2. Go to the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
-3. Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](api/v2/tokens).
-4. Populate the "body" field with the JSON snippet containing the changes you would like to make. Further details on what to include in this snippet is included below.
+### Making a Test Call or Generating the cURL Command via the API Explorer Page
 
-To assist you in customizing the required JSON snippet, the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code:
+1.	Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](api/v2/tokens).
+2.	Populate the "body" field with the JSON snippet that contains the information that will be used to update your configuration.
+3.	Click on "TRY" to get a test response to your input.
+4.	If you are satisfied with the results of your test call to the API, click "get curl command" to get the constructed call.
+
+Sample cURL command:
+
+```
+curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{REQUEST BODY}' https://login0.myauth0.com/api/v2/tenants/settings
+```
+
+To assist you in customizing the required JSON snippet that you would include as the body parameter, the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code:
 
 ```
 {
@@ -476,6 +499,7 @@ To assist you in customizing the required JSON snippet, the "Show samples" link 
 ```
 
 ### The Auth0 Default Error Page
+
 Even if you choose to display the default Auth0 error page, you may customize the following fields:
 
 -	Friendly Name: a user-friendly version of your company's name;
@@ -483,37 +507,87 @@ Even if you choose to display the default Auth0 error page, you may customize th
 -	Support Email: the email address for your Support team;
 -	Support URL: the URL of your Support team's webpage.
 
-The following JSON will set the appropriate fields when included in your call to the API:
+METHOD === PATCH
 
 ```
-"friendly_name": "My Company",
-"picture_url": "https://mycompany.org/logo.png",
-"support_email": "support@mycompany.org",
-"support_url": "https://mycompany.org/support"
+PATCH https://login.auth0.com/api/v2/tenants/settings
+```
+
+Request Body:
+
+```
+{
+  "friendly_name": "My Company",
+  "picture_url": "https://mycompany.org/logo.png",
+  "support_email": "support@mycompany.org",
+  "support_url": "https://mycompany.org/support"
+}
+```
+
+Sample cURL Command:
+
+```
+curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"friendly_name":"My Company","picture_url":"https://mycompany.org/logo.png","support_email":"support@mycompany.org","support_url":"https://mycompany.org/support"}' https://login0.myauth0.com/api/v2/tenants/settings
 ```
 
 ### Customized Error Pages
 
 #### Redirecting Users to a Custom Error Page
-To redirect users to a custom error page, update the "url" field to point to the location of the error page:
+
+To redirect users to a custom error page, update the "url" field of your JSON body to point to the location of the error page.
+
+METHOD === PATCH
 
 ```
-"error_page": {
-  "html": "",
-  "show_log_link": false,
-  "url": "http://www.example.com"
+PATCH https://login.auth0.com/api/v2/tenants/settings
+```
+
+Request Body:
+
+```
+{
+  "error_page": {
+    "html": "",
+    "show_log_link": false,
+    "url": "http://www.example.com"
+  }
 }
+```
+
+cURL Example:
+
+```
+curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"error_page":{"html":"","show_log_link":false,"url":"http://www.example.com"}}' https://login.auth0.com/api/v2/tenants/settings
 ```
 
 #### Rendering a Custom Error Page
 
 To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the "html" element:
 
+METHOD === PATCH
+
 ```
-"error_page": {
-  "html": "<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>",
-  "show_log_link": false,
-  "url": ""
+PATCH https://login.auth0.com/api/v2/tenants/settings
+```
+
+Request Body:
+
+```
+{
+  "error_page": {
+    "html": "<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>",
+    "show_log_link": false,
+    "url": ""
+  }
 }
 ```
+<<<<<<< a70fd07d44326033b0427ec55554fd55d9c88b14
 >>>>>>> [update] Add sections on updates made via API
+=======
+
+cURL Example
+
+```
+
+```
+>>>>>>> [edit] Add API call info
