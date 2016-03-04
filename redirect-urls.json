@@ -445,7 +445,7 @@
   },
   {
     "from": "/api",
-    "to": "/api/v2"
+    "to": "/api/info"
   },
   {
     "from": "/oauth2",
@@ -554,17 +554,17 @@
   {
     "from": "/premium-support",
     "to": "/support"
-  }, 
+  },
   {
     "from": "/multifactor-authentication/custom-provider",
     "to": "/multifactor-authentication"
   },
   {
-      "from": "/native-platforms/windows-store-javascript",
-      "to": "/native-platforms/windows-uwp-javascript"
+    "from": "/native-platforms/windows-store-javascript",
+    "to": "/native-platforms/windows-uwp-javascript"
   },
   {
-      "from": "/native-platforms/windows-store-csharp",
-      "to": "/native-platforms/windows-uwp-csharp"
+    "from": "/native-platforms/windows-store-csharp",
+    "to": "/native-platforms/windows-uwp-csharp"
   }
 ]
