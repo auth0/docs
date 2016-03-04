@@ -73,18 +73,18 @@ In this example, you will create a policy that grants full access to the S3 reso
 2. Name your policy and enter the following code in the **Policy Document** field:
 
   ```
-    {
-      "Version": "2012-10-17",
-      "Statement": [{
-          "Effect": "Allow",
-          "Action": [
-            "*"
-          ],
-          "Resource": [
-          "arn:aws:s3:::YOUR_BUCKET/$[saml:sub}",
-          "arn:aws:s3:::YOUR_BUCKET/$[saml:sub}/*"]
-      }]
-    }
+  {
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": [
+          "*"
+        ],
+        "Resource": [
+        "arn:aws:s3:::YOUR_BUCKET/$[saml:sub}",
+        "arn:aws:s3:::YOUR_BUCKET/$[saml:sub}/*"]
+    }]
+  }
   ```
 
 3. Click **Validate Policy** to check your syntax, then click **Create Policy**.
