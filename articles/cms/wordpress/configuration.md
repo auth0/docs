@@ -59,7 +59,7 @@ Enable the supported social identity providers you want to allow users to login 
 * **Customize the Login Widget CSS:** A valid CSS that will be applied to the login page. For more information on customizing Lock, see [Can I customize the Login Widget?](https://github.com/auth0/wp-auth0#can-i-customize-the-login-widget)
 * **Customize the Login Widget with custom JS:** Allows you to add JavaScript that will customize the Lock widget (to add custom buttons, for example). For more information, see [Adding custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
-  ```js
+```js
 lock.once('signin ready', function() {
     var link = $('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
@@ -71,7 +71,7 @@ lock.once('signin ready', function() {
     var iconList = $(this.$container).find('.a0-iconlist');
     iconList.append(link);
 });
-  ```
+```
 
   **NOTE:** The variable `lock` refers to an instance of the Login Widget.
 * **Username style:** Selecting **Email** will require users to enter their email address to login. Set this to *username* if you do not want to force a username to be a valid email address.
