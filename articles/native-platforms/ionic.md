@@ -32,7 +32,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
   pkgPath: 'examples/refresh-token-sample',
-  pkgFilePath: 'examples/refresh-token-sample/www/js' + account.clientParam,
+  pkgFilePath: 'examples/refresh-token-sample/www/js',
   pkgType: 'js'
 }) %>
 

@@ -33,7 +33,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-sample',
-  pkgFilePath: 'examples/basic-sample/www/js' + account.clientParam,
+  pkgFilePath: 'examples/basic-sample/www/js',
   pkgType: 'js'
 }) %>
 

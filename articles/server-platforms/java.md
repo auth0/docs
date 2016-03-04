@@ -30,7 +30,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/java-regular-webapp',
   pkgFilePath: 'examples/java-regular-webapp/src/main/webapp/WEB-INF/web.xml',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **If you have an existing Java WebApp, please follow the steps below.**

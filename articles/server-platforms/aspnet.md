@@ -22,7 +22,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-aspnet-mvc4-sample/',
   pkgFilePath: 'examples/auth0-aspnet-mvc4-sample/aspnet4-sample1/Web.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET app (any kind: WebForms, MVC 1, 2, 3 or 4) to use it with Auth0.**

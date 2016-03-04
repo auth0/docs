@@ -34,7 +34,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample',
-  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist' + account.clientParam,
+  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist',
   pkgType: 'replace'
 }) %>
 

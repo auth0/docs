@@ -13,7 +13,11 @@ public: false
     <% } %>
     </div>
     <div class="button-area">
-      <a href="/${pkgRepo}/${pkgBranch}/create-package?path=${pkgPath}&filePath=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Get Seed Project</a>
+    <% if (account.clientId) { %>
+      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Get Seed Project</a>
+    <% } else { %>
+      <a href="/package/${pkgRepo}/${pkgBranch}/create-package?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Get Seed Project</a>
+    <% } %>
     </div>
   </div>
 </div>

@@ -31,7 +31,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'ruby-on-rails-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**

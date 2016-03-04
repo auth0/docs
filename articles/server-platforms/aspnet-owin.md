@@ -27,7 +27,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/basic-mvc-sample',
   pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 This tutorial explains how to integrate Auth0 with an ASP.NET application (WebForms, MVC and even Web API) that uses the ASP.NET 4.5 OWIN infrastructure.

@@ -26,7 +26,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/widget-with-api',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**

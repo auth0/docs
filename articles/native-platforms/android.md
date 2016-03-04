@@ -28,7 +28,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'Android/basic-sample',
-  pkgFilePath: 'Android/basic-sample/app/src/main/res/values/auth0.xml' + account.clientParam,
+  pkgFilePath: 'Android/basic-sample/app/src/main/res/values/auth0.xml',
   pkgType: 'replace'
 }) %>
 

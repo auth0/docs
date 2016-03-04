@@ -27,7 +27,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/ruby-on-rails-webapp',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Ruby On Rails WebApp to use it with Auth0.**

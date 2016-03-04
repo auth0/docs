@@ -25,7 +25,7 @@ snippets:
   pkgBranch: 'master',
   pkgPath: 'examples/WebApi',
   pkgFilePath: 'examples/WebApi/Api/Web.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API OWIN app to use it with Auth0.**

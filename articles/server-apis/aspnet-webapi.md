@@ -28,7 +28,7 @@ snippets:
   pkgBranch: 'master',
   pkgPath: 'examples/webapi',
   pkgFilePath: 'examples/webapi/Api/Web.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**

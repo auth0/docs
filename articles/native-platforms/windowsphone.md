@@ -29,7 +29,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/WindowsPhoneSilverlight',
   pkgFilePath: null,
-  pkgType: 'none' + account.clientParam
+  pkgType: 'none'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**

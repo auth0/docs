@@ -24,7 +24,7 @@ The private key is stored in the keystore of the device. Each time a user initia
   pkgBranch: 'master',
   pkgPath: 'Passwordless-TouchID/Lock/ObjC',
   pkgFilePath: 'Passwordless-TouchID/Lock/ObjC/Passwordless-TouchID/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } else { %>
 <%= include('../../_includes/_package', {
@@ -32,7 +32,7 @@ The private key is stored in the keystore of the device. Each time a user initia
   pkgBranch: 'master',
   pkgPath: 'Passwordless-TouchID/Lock/Swift',
   pkgFilePath: 'Passwordless-TouchID/Lock/Swift/Passwordless-TouchID/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } %>
 

@@ -30,7 +30,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/ember2-auth0-sample',
   pkgFilePath: 'examples/ember2-auth0-sample/config/auth0-variables.js',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **If you have an existing application, follow the steps below.**

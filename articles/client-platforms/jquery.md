@@ -32,7 +32,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'gh-pages',
   pkgPath: (configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**

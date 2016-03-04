@@ -36,7 +36,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**

@@ -31,7 +31,7 @@ snippets:
   pkgBranch: 'master',
   pkgPath: 'examples/laravel-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP Laravel app to use it with Auth0.**

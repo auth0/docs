@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/regular-webapp',
   pkgFilePath: 'examples/regular-webapp/conf/application.conf',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Play2 Scala WebApp to use it with Auth0.**

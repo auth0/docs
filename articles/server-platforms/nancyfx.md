@@ -17,7 +17,7 @@ snippets:
   pkgBranch: 'master',
   pkgPath: 'sample',
   pkgFilePath: 'sample/App.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
