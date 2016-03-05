@@ -45,12 +45,14 @@ Add this line to your application's Gemfile:
 ${snippet(meta.snippets.dependencies)}
 
 And then execute:
-
-    $ bundle install
+```
+bundle install
+```
 
 Finally, run the install generator:
-
-    $ rails generate knock:install
+```
+rails generate knock:install
+```
 
 It will create the following initializer `config/initializers/knock.rb`.
 This file contains all the informations about the existing configuration options.
