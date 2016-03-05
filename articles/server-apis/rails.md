@@ -123,3 +123,8 @@ config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.
 ### 4. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+
+### Optional Steps
+#### Configure CORS
+
+In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [this](https://github.com/cyu/rack-cors#rails) instructions. 
