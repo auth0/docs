@@ -119,7 +119,14 @@ config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
 ```ruby
-config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
+require 'base64'
+
+# extracted from original [method](http://www.rubydoc.info/github/jwt/ruby-jwt/JWT.base64url_decode)
+config.token_secret_signature_key = -> {
+    secret = Rails.application.secrets.auth0_client_secret
+    secret += '=' * (4 - secret.length.modulo(4))
+    Base64.decode64(secret.tr('-_', '+/'))
+  }
 ```
 
 ### 4. You're done!
