@@ -114,7 +114,7 @@ Aurelia's `canActivate` method can be used to check whether a route can be navig
 
 ${snippet(meta.snippets.routing)}
 
-This hook will redirect the user to some other route--'public' in this case--if the user's JWT has expired.
+This hook will redirect the user to some other route (`public` in this case) if the user's JWT has expired.
 
 ### 7. All done!
 
