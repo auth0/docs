@@ -1,0 +1,15 @@
+added:
+  -
+    title: "Customizing Error Pages"
+    tags:
+      - tutorial
+      - errors
+    description: |
+      A [new article](https://github.com/auth0/docs/blob/master/articles/custom-error-pages.md) on customizing error pages displayed to users in the event of an authorization error was added.
+  -
+    title: "API Rate Limits"
+    tags:
+      - api
+      - ratelimits
+    description: |
+      A [new article](https://github.com/auth0/docs/blob/master/articles/rate-limits.md) was added documenting API end point rate limiting.
