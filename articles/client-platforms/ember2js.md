@@ -18,8 +18,11 @@ You can get started by either downloading the seed project or if you would like 
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* Angular2 2.0.0-beta.1
-* NodeJS 4.2
+* Bower 1.7.7
+* NodeJS 5.6
+* Ember 2.1.0
+* jQuery 1.11.3
+* Ember Simple Auth 1.0.0
 :::
 
 <%= include('../_includes/_package', {
@@ -27,7 +30,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/ember2-auth0-sample',
   pkgFilePath: 'examples/ember2-auth0-sample/config/auth0-variables.js',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **If you have an existing application, follow the steps below.**

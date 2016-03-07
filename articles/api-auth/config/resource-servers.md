@@ -39,10 +39,11 @@ Authorization: Bearer {APIV2_TOKEN}
 Content-Type: application/json
 
 {
-  "identifier": "urn:bank-api",
+  "identifier": "urn:organizer-api",
   "scopes": [
-      { "value": "read:accounts", "description": "Allow the application to list my bank accounts." },
-      { "value": "read:accounts_balance", "description": "Allow the application to list the balance of my accounts." }
+      { "value": "contacts", "description": "Manage your contacts" },
+      { "value": "appointments", "description": "Manage your appointments" },
+      { "value": "tasks", "description": "Manage your tasks" }
   ]
 }
 ```

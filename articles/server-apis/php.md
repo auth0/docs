@@ -17,12 +17,18 @@ snippets:
 
 ## PHP API Tutorial
 
+::: Panel-info System Requirements​
+This tutorial and seed project have been tested with the following:
+* PHP 5.6.14
+* Composer 1.0-dev
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP app to use it with Auth0.**

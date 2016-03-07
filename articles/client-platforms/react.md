@@ -29,7 +29,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'gh-pages',
   pkgPath: 'examples/redirect-lock-with-api',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**

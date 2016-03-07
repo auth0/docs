@@ -36,7 +36,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/api-example',
   pkgFilePath: 'examples/api-example/src/main/resources/auth0.properties',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **If you have an existing application, please follow the steps below.**

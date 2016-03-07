@@ -37,7 +37,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'gh-pages',
   pkgPath: 'vanillajs-redirect-auth0-sample',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, please follow the steps below.**

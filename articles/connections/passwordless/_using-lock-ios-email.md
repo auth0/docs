@@ -18,7 +18,7 @@
   pkgBranch: 'master',
   pkgPath: 'Passwordless-Email/Lock/ObjC',
   pkgFilePath: 'Passwordless-Email/Lock/ObjC/Passwordless-Email/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } else { %>
 <%= include('../../_includes/_package', {
@@ -26,7 +26,7 @@
   pkgBranch: 'master',
   pkgPath: 'Passwordless-Email/Lock/Swift',
   pkgFilePath: 'Passwordless-Email/Lock/Swift/Passwordless-Email/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } %>
 

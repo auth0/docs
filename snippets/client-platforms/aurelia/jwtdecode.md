@@ -1,3 +1,3 @@
 ```bash
-npm install jwt-decode
+npm install jwt-decode --save
 ```
