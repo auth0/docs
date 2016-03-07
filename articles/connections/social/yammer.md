@@ -1,7 +1,7 @@
 ---
 connection: Yammer
 image: /media/connections/yammer.png
-public: false
+description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
 ---
 
 # Obtain an *App ID* and *App Secret* for Yammer
