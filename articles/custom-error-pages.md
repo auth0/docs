@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 <<<<<<< a70fd07d44326033b0427ec55554fd55d9c88b14
 <<<<<<< c12ef8e55bb0712ca1b656a6c4ba302e83ccf245
 <<<<<<< fb3311ac924102cdcb2c9bb5d2b08d5ab8b817ea
 <<<<<<< 1a0c851189b7344cc4ad6bbe6e3617101c8deda3
+=======
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
 Customizing Error Pages
 =======================
 
@@ -32,6 +35,7 @@ You can choose to display to your users the default Auth0 error page. This page 
 ![](/media/articles/error-pages/error-page-settings.png)
 
 ### Customized Error Pages
+<<<<<<< HEAD
 =======
 # Customizing Error Pages
 =======
@@ -118,10 +122,13 @@ You can choose to display to your users the default Auth0 error page. This page 
 =======
 ### Customized Error Pages
 >>>>>>> [update] Add sections on updates made via API
+=======
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
 
 If you choose to display a custom error page, you have two options:
 
 -	You may redirect the user to a custom error page;
+<<<<<<< HEAD
 <<<<<<< 28bb8df23942f1570dd54ab133a6e105fd964b3f
 <<<<<<< c12ef8e55bb0712ca1b656a6c4ba302e83ccf245
 <<<<<<< 18b4ffec44eef37c21a0a0ad9211dfdd5ae4b97c
@@ -434,6 +441,9 @@ cURL Example
 =======
 -	You may configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
 >>>>>>> [update] Add sections on updates made via API
+=======
+-	You may configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
 
 #### Redirecting Users to a Custom Error Page
 
@@ -445,6 +455,7 @@ To redirect users to a custom error page:
 
 ![](/media/articles/error-pages/redirect-error-page.png)
 
+<<<<<<< HEAD
 <<<<<<< a70fd07d44326033b0427ec55554fd55d9c88b14
 <<<<<<< 28bb8df23942f1570dd54ab133a6e105fd964b3f
 <<<<<<< 52ab66c4ce926c545f7320e04238a3b1258d4e8a
@@ -457,13 +468,18 @@ To redirect users to a custom error page:
 ## Customizing Error Pages via the Management API
 Instead of using the Management Portal, you may configure your error pages by making the appropriate PATCH call to the Management API.
 =======
+=======
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
 Customizing Error Pages via the Management API
 ----------------------------------------------
 
 Instead of using the Management Portal, you may configure your error pages by making a `PATCH /api/v2/tenants/settings` call to the Management API.
 
 To assist you in creating the appropriate request, you may use the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
+<<<<<<< HEAD
 >>>>>>> [edit] Add API call info
+=======
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
 
 ![](/media/articles/error-pages/patch-tenant-settings.png)
 
@@ -581,13 +597,19 @@ Request Body:
   }
 }
 ```
+<<<<<<< HEAD
 <<<<<<< a70fd07d44326033b0427ec55554fd55d9c88b14
 >>>>>>> [update] Add sections on updates made via API
 =======
+=======
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
 
 cURL Example
 
 ```
 
 ```
+<<<<<<< HEAD
 >>>>>>> [edit] Add API call info
+=======
+>>>>>>> 2203cc8ce3826f27809413d742359523683c99ab
