@@ -46,7 +46,7 @@ __Note:__  this package is designed to work with Meteor __1.2.1__, so please run
 
 ### 2. Before getting started
 
-Create an `.env` file on the root of your application folder, and configure it with the following contents:
+Create an `settings.json` file on the root of your application folder, and configure it with the following contents:
 
 ${snippet(meta.snippets.setup)}
 
