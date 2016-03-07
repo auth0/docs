@@ -80,13 +80,46 @@ Panel content
 :::
 ```
 
+#### HTTP Request Snippets
+You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing how to make the HTTP request in many languages.
+
+```har
+{
+    "method": "GET",
+    "url": "http://www.example.com/path/?param=value",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name" "Authorization", "value": "Bearer ABCD" }
+    ],
+    "queryString" : [],
+    "postData" : {},
+    "headersSize" : 150,
+    "bodySize" : 0,
+    "comment" : ""
+}
+```
+
+* method [string] - Request method (GET, POST, ...).
+* url [string] - Absolute URL of the request (fragments are not included).
+* httpVersion [string] - Request HTTP Version.
+* cookies [array] - List of cookie objects.
+* headers [array] - List of header objects.
+* queryString [array] - List of query parameter objects.
+* postData [object, optional] - Posted data info.
+* headersSize [number] - Total number of bytes from the start of the HTTP request message until (and including) the double CRLF before the body. Set to -1 if the info is not available.
+* bodySize [number] - Size of the request body (POST data payload) in bytes. Set to -1 if the info is not available.
+* comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
+
+
+
 ### Screenshots
 On Mac OS X screenshots need to be taken with Chrome, taking into account the following:
 
  1. The browser cannot show any plugins, customizations, or bookmarks
  1. The browser cannot be in incognito mode
  1. The browser needs to be resized to the standard size. Using the below script:
- 
+
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```

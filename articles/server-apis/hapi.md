@@ -54,10 +54,16 @@ ${snippet(meta.snippets.use)}
 
 You can now make requests against your secure API by providing the `Authorization` header in your requests with a valid JWT id_token.
 
-```bash
-curl -X GET -H "Authorization: Bearer YOUR_ID_TOKEN_HERE" "http://localhost:8000/path_to_your_api"
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:8000/path_to_your_api",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+  ]
+}
 ```
 
-### 4. You're done!
+### 5. You're done!
 
 Now you have both your Hapi API secured with Auth0. Congrats, you're awesome!
