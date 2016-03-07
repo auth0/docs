@@ -45,12 +45,14 @@ Add this line to your application's Gemfile:
 ${snippet(meta.snippets.dependencies)}
 
 And then execute:
-
-    $ bundle install
+```
+bundle install
+```
 
 Finally, run the install generator:
-
-    $ rails generate knock:install
+```
+rails generate knock:install
+```
 
 It will create the following initializer `config/initializers/knock.rb`.
 This file contains all the informations about the existing configuration options.
@@ -117,9 +119,21 @@ config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
 ```ruby
-config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
+require 'base64'
+
+# extracted from original [method](http://www.rubydoc.info/github/jwt/ruby-jwt/JWT.base64url_decode)
+config.token_secret_signature_key = -> {
+    secret = Rails.application.secrets.auth0_client_secret
+    secret += '=' * (4 - secret.length.modulo(4))
+    Base64.decode64(secret.tr('-_', '+/'))
+  }
 ```
 
 ### 4. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+
+### Optional Steps
+#### Configure CORS
+
+In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [this](https://github.com/cyu/rack-cors#rails) instructions. 
