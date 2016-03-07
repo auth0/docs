@@ -174,7 +174,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 First add Lock Twitter's Pod
 
 ```ruby
-pod 'Lock-Twitter', '~> 1.0'
+pod 'Lock-Twitter', '~> 1.1'
 ```
 
 Add to the import:
