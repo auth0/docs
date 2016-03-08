@@ -46,38 +46,36 @@ To redirect users to a custom error page:
 
 Instead of using the Management Portal, you may configure your error pages by making a `PATCH /api/v2/tenants/settings` call to the Management API.
 
-To assist you in creating the appropriate request, you may use the [Update Tenant Settings](api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
+To assist you in creating the appropriate request, you may use the [Update Tenant Settings](/api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
 
-![](/media/articles/error-pages/patch-tenant-settings.png)
-
-Prior to beginning, please ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration. This will allow the API Explorer to dynamically generate the required [API token](api/v2/tokens) with the necessary API Key and Secret.
+Prior to beginning, please ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration. This will allow the API Explorer to dynamically generate the required [API token](/api/v2/tokens) with the necessary API Key and Secret.
 
 ### Making a Test Call or Generating the cURL Command via the API Explorer Page
 
-1.	Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](api/v2/tokens).
-2.	Populate the "body" field with the JSON snippet that contains the information that will be used to update your configuration.
+1.	Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](/api/v2/tokens).
+2.	Populate the `body` field with the JSON snippet that contains the information that will be used to update your configuration.
 3.	Click on "TRY" to get a test response to your input.
 4.	If you are satisfied with the results of your test call to the API, click "get curl command" to get the constructed call.
 
 Sample cURL command:
 
-```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{REQUEST BODY}' https://login0.myauth0.com/api/v2/tenants/settings
+```text
+curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{REQUEST BODY}' https://${account.namespace}/api/v2/tenants/settings
 ```
 
-To assist you in customizing the required JSON snippet that you would include as the body parameter, the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code:
+To assist you in customizing the required JSON snippet that you would include as the `body` parameter, the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code:
 
-```
+```text
 {
   "error_page": {
     "html": "",
     "show_log_link": false,
-    "url": "https://mycompany.org/error"
+    "url": "https://www.example.com/error"
   },
-  "friendly_name": "My Company",
-  "picture_url": "https://mycompany.org/logo.png",
-  "support_email": "support@mycompany.org",
-  "support_url": "https://mycompany.org/support"
+  "friendly_name": "Example Company",
+  "picture_url": "https://example.com/logo.png",
+  "support_email": "support@example.com",
+  "support_url": "https://example.com/support"
 }
 ```
 
@@ -90,36 +88,30 @@ Even if you choose to display the default Auth0 error page, you may customize th
 -	Support Email: the email address for your Support team;
 -	Support URL: the URL of your Support team's webpage.
 
-METHOD === PATCH
-
-```
-PATCH https://login.auth0.com/api/v2/tenants/settings
-```
-
 Request Body:
 
-```
+```text
 {
-  "friendly_name": "My Company",
-  "picture_url": "https://mycompany.org/logo.png",
-  "support_email": "support@mycompany.org",
-  "support_url": "https://mycompany.org/support"
+  "friendly_name": "Example Company",
+  "picture_url": "https://example.com/logo.png",
+  "support_email": "support@example.com",
+  "support_url": "https://example.com/support"
 }
 ```
 
 HTTP Request
 
-```
+```text
 {
     "method": "PATCH",
-    "url": "https://login.auth0.com/api/v2/tenants/settings",
+    "url": "https://${account.namespace}/api/v2/tenants/settings",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
       { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
-    "postData" : {"friendly_name":"My Company","picture_url":"https://mycompany.org/logo.png","support_email":"support@mycompany.org","support_url":"https://mycompany.org/support"},
+    "postData" : {"friendly_name":"My Company","picture_url":"https://example.com/logo.png","support_email":"support@example.com","support_url":"https://example.com/support"},
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
@@ -132,15 +124,9 @@ HTTP Request
 
 To redirect users to a custom error page, update the "url" field of your JSON body to point to the location of the error page.
 
-METHOD === PATCH
-
-```
-PATCH https://login.auth0.com/api/v2/tenants/settings
-```
-
 Request Body:
 
-```
+```text
 {
   "error_page": {
     "html": "",
@@ -152,10 +138,10 @@ Request Body:
 
 HTTP Request
 
-```
+```text
 {
     "method": "PATCH",
-    "url": "https://login.auth0.com/api/v2/tenants/settings",
+    "url": "https://${account.namespace}/api/v2/tenants/settings",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
@@ -173,15 +159,9 @@ HTTP Request
 
 To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the "html" element:
 
-METHOD === PATCH
-
-```
-PATCH https://login.auth0.com/api/v2/tenants/settings
-```
-
 Request Body:
 
-```
+```text
 {
   "error_page": {
     "html": "<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>",
@@ -193,7 +173,7 @@ Request Body:
 
 HTTP Request
 
-```
+```text
 {
     "method": "PATCH",
     "url": "https://login.auth0.com/api/v2/tenants/settings",
