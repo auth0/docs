@@ -21,7 +21,7 @@ The Authentication API exposes all of the identity functionality of Auth0 as wel
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Authentication API in Postman.</p>
-            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="79dca0fe2efa704b9977"></div></p>
+            <p>COMING SOON!</p>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ The Auth0 Management API can be used to manage all aspects of your Auth0 account
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Management API in Postman.</p>
-            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="79dca0fe2efa704b9977"></div></p>
+            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="769f16d3a752d531781d"></div></p>
           </div>
         </div>
       </div>
@@ -68,4 +68,6 @@ The Auth0 Management API v1 contains various management functions for your Auth0
       (n.id = s+t), (n.async = 1), (n.src = m), n
     ));
   }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+
+  _pm('env.create', '${account.tenant}', { auth0_domain: '${account.namespace}' }); 
 </script>
