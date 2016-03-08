@@ -1,7 +1,3 @@
----
-public: false
----
-
 <div id="package" class="package">
   <div class="row">
     <div class="info">

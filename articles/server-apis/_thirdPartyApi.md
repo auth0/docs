@@ -1,7 +1,3 @@
----
-public: false
----
-
 # <%= meta.name %> API
 
 Please follow the steps below to configure your Auth0 account to work with <%= meta.name %>.
