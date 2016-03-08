@@ -5,11 +5,11 @@ added:
       - tutorial
       - errors
     description: |
-      A [new article](https://auth0.com/docs/custom-error-pages) on customizing error pages displayed to users in the event of an authorization error was added.
+      A [new article](/custom-error-pages) on customizing error pages displayed to users in the event of an authorization error was added.
   -
     title: "API Rate Limits"
     tags:
       - api
       - ratelimits
     description: |
-      A [new article](https://auth0.com/docs/rate-limits) was added documenting API end point rate limiting.
+      A [new article](/rate-limits) was added documenting API end point rate limiting.
