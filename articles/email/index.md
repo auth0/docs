@@ -2,11 +2,11 @@
 url: /email
 ---
 
+# Emails in Auth0
+
 ::: panel-danger Notice
 Auth0's email provider will no longer be supported for use in a production environment. You can use our built-in email service for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) before moving your apps to production.
 :::
-
-# Emails in Auth0
 
 You can use Auth0 built-in email services to communicate with your users to: 
 
