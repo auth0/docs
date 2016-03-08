@@ -88,18 +88,7 @@ Even if you choose to display the default Auth0 error page, you may customize th
 -	Support Email: the email address for your Support team;
 -	Support URL: the URL of your Support team's webpage.
 
-Request Body:
-
-```text
-{
-  "friendly_name": "Example Company",
-  "picture_url": "https://example.com/logo.png",
-  "support_email": "support@example.com",
-  "support_url": "https://example.com/support"
-}
-```
-
-HTTP Request
+HTTP Request:
 
 ```text
 {
@@ -124,19 +113,7 @@ HTTP Request
 
 To redirect users to a custom error page, update the "url" field of your JSON body to point to the location of the error page.
 
-Request Body:
-
-```text
-{
-  "error_page": {
-    "html": "",
-    "show_log_link": false,
-    "url": "http://www.example.com"
-  }
-}
-```
-
-HTTP Request
+HTTP Request:
 
 ```text
 {
@@ -159,19 +136,7 @@ HTTP Request
 
 To provide the appropriate HTML, pass in a string containing the appropriate Liquid syntax to the "html" element:
 
-Request Body:
-
-```text
-{
-  "error_page": {
-    "html": "<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>",
-    "show_log_link": false,
-    "url": ""
-  }
-}
-```
-
-HTTP Request
+HTTP Request:
 
 ```text
 {
