@@ -10,8 +10,8 @@ Auth0's email provider will no longer be supported for use in a production envir
 
 You can use Auth0 built-in email services to communicate with your users to: 
 
-* validate user email addresses at sign up;
-* confirm password change requests.
+* validate user email addresses at sign up
+* confirm password change requests
 
 The [Emails](${uiURL}/#/emails) dashboard allows you to customize your emails with markdown templates and macros, which can include references to the context of the current application or user.
 
