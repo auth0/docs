@@ -107,10 +107,23 @@ Request Body:
 }
 ```
 
-Sample cURL Command:
+HTTP Request
 
 ```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"friendly_name":"My Company","picture_url":"https://mycompany.org/logo.png","support_email":"support@mycompany.org","support_url":"https://mycompany.org/support"}' https://login0.myauth0.com/api/v2/tenants/settings
+{
+    "method": "PATCH",
+    "url": "https://login.auth0.com/api/v2/tenants/settings",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+    ],
+    "queryString" : [],
+    "postData" : {"friendly_name":"My Company","picture_url":"https://mycompany.org/logo.png","support_email":"support@mycompany.org","support_url":"https://mycompany.org/support"},
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
+}
 ```
 
 ### Customized Error Pages
@@ -137,10 +150,23 @@ Request Body:
 }
 ```
 
-cURL Example:
+HTTP Request
 
 ```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"error_page":{"html":"","show_log_link":false,"url":"http://www.example.com"}}' https://login.auth0.com/api/v2/tenants/settings
+{
+    "method": "PATCH",
+    "url": "https://login.auth0.com/api/v2/tenants/settings",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+    ],
+    "queryString" : [],
+    "postData" : {"error_page":{"html":"","show_log_link":false,"url":"http://www.example.com"}},
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
+}
 ```
 
 #### Rendering a Custom Error Page
@@ -165,8 +191,21 @@ Request Body:
 }
 ```
 
-cURL Example
+HTTP Request
 
 ```
-curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"error_page":{"html":"<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>","show_log_link":false,"url":""}}' https://login.auth0.com/api/v2/tenants/settings
+{
+    "method": "PATCH",
+    "url": "https://login.auth0.com/api/v2/tenants/settings",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+    ],
+    "queryString" : [],
+    "postData" : {"error_page":{"html":"<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>","show_log_link":false,"url":""}},
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
+}
 ```
