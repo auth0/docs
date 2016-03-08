@@ -28,7 +28,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 5.7
 * Jquery 2.1.1
 :::
 
