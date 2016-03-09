@@ -23,7 +23,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 4.3
 * Express 4.11
 :::
 
