@@ -1,4 +1,4 @@
-# Customizing Error Pages
+# Custom Error Pages
 
 In the event of an authorization error, you may choose to display to your users either the default Auth0 error page or a customized error page.
 
