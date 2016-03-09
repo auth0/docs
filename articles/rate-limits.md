@@ -27,7 +27,6 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 If you exceed the provided rate limit for a given API endpoint, you will receive the [429 Too Many Requests](http://tools.ietf.org/html/rfc6585#section-4) response.
 
-
 HTTP Response Headers
 ---------------------
 
