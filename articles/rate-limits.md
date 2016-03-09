@@ -1,7 +1,7 @@
 API Rate Limits
 ===============
 
-The Auth0 API is subject to rate limiting.
+To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.
 
 Limits
 ------
@@ -25,7 +25,17 @@ For some API endpoints, the rate limits are defined per bucket, so the origins o
 
 ## Exceeding the Rate Limit
 
-If you exceed the provided rate limit for a given API endpoint, you will receive the [429 Too Many Requests](http://tools.ietf.org/html/rfc6585#section-4) response.
+If you exceed the provided rate limit for a given API endpoint, you will receive the [429 Too Many Requests](http://tools.ietf.org/html/rfc6585#section-4) response with the following message:
+
+```text
+{
+    "message": "Too many requests. Check the X-RateLimit-Limit, X-RateLimit-Remaining and X-RateLimit-Reset headers."
+}
+```
+
+Actions such as rapidly updating configuration settings, aggressive polling, or making high-concurrency API calls may result in your app being rate limited.
+
+If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
 HTTP Response Headers
 ---------------------
