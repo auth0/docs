@@ -5,9 +5,8 @@ NOTE: On most platforms, you will need to run the following steps as root (e.g. 
 1.  [Install Git](https://git-scm.com/download/linux).
 2.  [Install node.js v0.10](https://nodejs.org).
 3.  [Install npm] (http://blog.npmjs.org/post/85484771375/how-to-install-npm)
-4.  Use the GitHub repository to download the package: <br>
-    <code>curl -Lo /tmp/adldap.tar.gz \
-    https://github.com/auth0/ad-ldap-connector/archive/v2.21.3.tar.gz</code>
+4.  Use the GitHub repository to download the package <a class="download-github" href=""></a> to `/tmp`: <br>
+    <code class="curl-example"></code>
 5.  Expand the package and install dependencies: <br>
 <code>
         mkdir /opt/auth0-adldap
@@ -24,7 +23,6 @@ NOTE: On most platforms, you will need to run the following steps as root (e.g. 
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
-    // https://github.com/auth0/ad-ldap-connector/archive/v2.10.4.tar.gz
     $('.download-github')
         .attr('href', 'https://github.com/auth0/ad-ldap-connector/releases/tag/v' + data.version)
         .text('adldap-' + data.version);
