@@ -6,9 +6,9 @@ If you are using the public cloud version of Auth0 we recommend you subscribe to
 
 You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
 
-	https://${account.namespace}/test
+	GET https://${account.namespace}/test
 
-This should return a Json object with a single property:
+This returns a JSON object with a single property:
 
 ```
 200
@@ -16,9 +16,12 @@ content-type: application/json
 {"clock":1417220191640}
 ```
 
+If the core Auth0 authentication service is up, the `/test` endpoint will return a 200 status code.
+Otherwise, it will return 5xx.
+
 This other one:
 
-	https://${account.namespace}/testall
+	GET https://${account.namespace}/testall
 
 returns a simple text:
 
@@ -28,9 +31,10 @@ content-type: text/plain
 OK
 ```
 
-Each of these tests verifies correct functioning of various components of the server, memory consumption, I/O operations, database, etc.
+The `/testall` endpoint checks that the core Auth0 authentication service is up as well as additional services such as the management dashboard and documentation pages.
+If any of those services are down, the response code from `/testall` will be 5xx.
 
-If you extended Auth0 through [rules](/rules) or [a custom db connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimick what a user would do (e.g. follow redirects, input username/password on a form, etc.).
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimic what a user would do (e.g. follow redirects, input username/password on a form, etc.).
 
 ```
 POST https://${account.namespace}/oauth/ro
