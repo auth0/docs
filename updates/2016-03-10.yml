@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Using Liquid Syntax in Email Templates"
+    tags:
+      - tutorial
+      - email
+    description: |
+      A [new article](/email/liquid-syntax) on customizing email templates using Liquid was added.
