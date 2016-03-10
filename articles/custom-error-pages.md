@@ -90,7 +90,7 @@ Even if you choose to display the default Auth0 error page, you may customize th
 
 HTTP Request:
 
-```text
+```har
 {
     "method": "PATCH",
     "url": "https://${account.namespace}/api/v2/tenants/settings",
@@ -115,7 +115,7 @@ To redirect users to a custom error page, update the "url" field of your JSON bo
 
 HTTP Request:
 
-```text
+```har
 {
     "method": "PATCH",
     "url": "https://${account.namespace}/api/v2/tenants/settings",
@@ -138,7 +138,7 @@ To provide the appropriate HTML, pass in a string containing the appropriate Liq
 
 HTTP Request:
 
-```text
+```har
 {
     "method": "PATCH",
     "url": "https://login.auth0.com/api/v2/tenants/settings",
