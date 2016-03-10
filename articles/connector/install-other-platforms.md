@@ -4,7 +4,7 @@ NOTE: On most platforms, you will need to run the following steps as root (e.g. 
 
 1.  [Install Git](https://git-scm.com/download/linux).
 2.  [Install node.js v0.10](https://nodejs.org).
-3.  [Install npm] (http://blog.npmjs.org/post/85484771375/how-to-install-npm)
+3.  [Install npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 4.  Use the GitHub repository to download the package <a class="download-github" href=""></a> to `/tmp`: <br>
     <code class="curl-example"></code>
 5.  Expand the package and install dependencies: <br>
