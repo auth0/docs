@@ -33,39 +33,6 @@ https://${account.namespace}/v2/logout?federated&
 
 > Make sure to properly encode the `returnTo` parameter.
 
-### Supported Providers
-
-Auth0 supports use of the `logout` parameter for the following providers:
-
-- AOL
-- Auth0
-    - AD/LDAP
-- Custom (Passport/WS-Fed/SAML)
-- Facebook
-- FitBit
-- GitHub
-- Google
-    - Apps
-    - OAuth2
-- LinkedIn
-- Microsoft
-    - Active Directory (AD)
-    - Active Directory Federation Services (ADFS)
-    - Office 365
-    - Windows Live
-- OAuth
-    - 1.0
-    - 2.0
-- Salesforce
-    - Salesforce Community
-    - Salesforce Sandbox
-- Sampl
-- Twitter
-- Waad
-- WS-Fed
-- Yahoo
-- Yammer
-
 ## SAML logout
 
 To logout users from an external SAML identity provider, a [SAML logout URL](https://auth0.com/docs/saml-sp-generic#1-obtain-information-from-idp) must be configured in the settings for the SAML connection.
