@@ -500,6 +500,10 @@
     "to": "/multifactor-authentication/yubikey"
   },
   {
+    "from": "/quickstart",
+    "to": "/"
+  },
+  {
     "from": "/link-accounts/user-initiated",
     "to": "/link-accounts/user-initiated-linking"
   },
