@@ -5,7 +5,6 @@ alias:
   - salesforce
 thirdParty: true
 image: /media/addons/salesforce.svg
-lodash: true
 tags:
   - quickstart
 ---

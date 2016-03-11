@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: NodeJS Web App Tutorial
 name: Node.js
 image: /media/platforms/node.png

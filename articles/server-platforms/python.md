@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Python Web App Tutorial
 name: Python
 image: /media/platforms/python.png

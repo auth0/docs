@@ -7,7 +7,6 @@ languages:
   - Python
 thirdParty: false
 image: /media/platforms/python.png
-lodash: true
 tags:
   - quickstart
 snippets:

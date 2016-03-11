@@ -12,7 +12,6 @@ framework:
   - WebAPI
 thirdParty: false
 image: /media/platforms/asp.png
-lodash: true
 tags:
   - quickstart
 snippets:

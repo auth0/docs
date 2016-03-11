@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Java Web App Tutorial
 name: Java
 image: /media/platforms/java.png

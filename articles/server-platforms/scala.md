@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Play 2 Scala Tutorial
 name: Play 2 Scala
 image: /media/platforms/play.png
@@ -163,7 +162,7 @@ class User extends Controller {
         }.get
       }
     }
-    
+
     def index = AuthenticatedAction { request =>
       val idToken = request.session.get("idToken").get
       val profile = Cache.getAs[JsValue](idToken + "profile").get
