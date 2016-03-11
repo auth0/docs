@@ -1,4 +1,5 @@
 ---
+sitemap: false
 title: Java Developer Center
 subtitle: Resources and documentation for Java developers
 logo: java

@@ -74,8 +74,12 @@ categories:
   -
     id: "api"
     name: "API"
-    description: "The core Auth0 APIs for Authentication and Management"
+    description: "The core Auth0 APIs for Authentication and Management."
     sections:
+      overview:
+        name: "API Overview"
+        description: "Learn about the various Auth0 APIs."
+        href: "/api/info"
       auth-endpoints:
         name: "Authentication API"
         description: "Perform enterprise authentication or OpenID operations using these APIs."
@@ -88,28 +92,31 @@ categories:
         name: "Releases & Updates"
         links:
           -
+            name: "API Overview"
+            href: "/api/info"
+          -
             name: "Platform Releases"
             href: "https://releases.auth0.com"
           -
             name: "Content & SDK Updates"
             href: "/updates"
-  -
-    id: "platform"
-    name: "Platforms"
-    description: ""
-    links:
-      -
-        name: "Web Developers"
-        href: "/platforms/web"
-      -
-        name: "Single Page App Developers"
-        href: "/platforms/spa"
-      -
-        name: "API Developers"
-        href: "/platforms/api"
-      -
-        name: "Mobile Developers"
-        href: "/platforms/mobile"
+  # -
+  #   id: "platform"
+  #   name: "Platforms"
+  #   description: ""
+  #   links:
+  #     -
+  #       name: "Web Developers"
+  #       href: "/platforms/web"
+  #     -
+  #       name: "Single Page App Developers"
+  #       href: "/platforms/spa"
+  #     -
+  #       name: "API Developers"
+  #       href: "/platforms/api"
+  #     -
+  #       name: "Mobile Developers"
+  #       href: "/platforms/mobile"
   -
     id: "ui-component"
     name: "UI Components"
@@ -126,65 +133,134 @@ categories:
         name: "Lock for Android"
         description: "Native Android Authentication UI"
         href: "/libraries/lock-android"
+  # -
+  #   id: "dev-center"
+  #   name: "Developer Centers"
+  #   description: "Explore content by language and platform"
+  #   links:
+  #     -
+  #       name: "Android"
+  #       slug: "android"
+  #       href: "/dev-centers/android"
+  #     -
+  #       name: "iOS"
+  #       slug: "ios"
+  #       href: "/dev-centers/ios"
+  #     -
+  #       name: "Java"
+  #       slug: "java"
+  #       href: "/dev-centers/java"
+  #     -
+  #       name: "Javascript"
+  #       slug: "Javascript"
+  #       href: "/dev-centers/javascript"
+  #     -
+  #       name: ".NET"
+  #       slug: "net"
+  #       href: "/dev-centers/dotnet"
+  #     -
+  #       name: "Node"
+  #       slug: "node"
+  #       href: "/dev-centers/node"
+  #     -
+  #       name: "Python"
+  #       slug: "python"
+  #       href: "/dev-centers/python"
+  #     -
+  #       name: "Ruby"
+  #       slug: "ruby"
+  #       href: "/dev-centers/ruby"
+  #     -
+  #       name: "More"
+  #       slug: "other"
+  #       href: "/dev-centers/all"
   -
-    id: "dev-center"
-    name: "Developer Centers"
+    id: "sdk"
+    name: "Libraries & SDKs"
     description: "Explore content by language and platform"
     links:
       -
-        name: "Android"
-        slug: "android"
-        href: "/dev-centers/android"
+        name: "NodeJS"
+        slug: "node"
+        href: "https://github.com/auth0/node-auth0"
       -
-        name: "iOS"
-        slug: "ios"
-        href: "/dev-centers/ios"
+        name: "Ruby"
+        slug: "rails"
+        href: "https://github.com/auth0/ruby-auth0"
       -
         name: "Java"
         slug: "java"
-        href: "/dev-centers/java"
-      -
-        name: "Javascript"
-        slug: "Javascript"
-        href: "/dev-centers/javascript"
+        href: "https://github.com/auth0/auth0-java"
       -
         name: ".NET"
         slug: "net"
-        href: "/dev-centers/dotnet"
+        href: "https://github.com/auth0/auth0.net"
       -
-        name: "Node"
-        slug: "node"
-        href: "/dev-centers/node"
+        name: "PHP"
+        slug: "php"
+        href: "https://github.com/auth0/auth0-php"
       -
         name: "Python"
         slug: "python"
-        href: "/dev-centers/python"
+        href: "https://github.com/auth0/auth0-python"
+  -
+    id: "plugin"
+    name: "Plugins"
+    description: "Integrate Auth0 into content management systems"
+    links:
       -
-        name: "Ruby"
-        slug: "ruby"
-        href: "/dev-centers/ruby"
+        name: "Wordpress"
+        slug: "wordpress"
+        href: "/cms#wordpress-plugin"
       -
-        name: "More"
-        slug: "other"
-        href: "/dev-centers/all"
+        name: "Joomla"
+        slug: "joomla"
+        href: "/cms#joomla-extension"
+      -
+        name: "SharePoint "
+        slug: "sharepoint"
+        href: "https://github.com/auth0/auth0-sharepoint"
   -
     id: "web-framework"
     name: "Web Frameworks"
     description: ""
     links:
+      # -
+      #   name: "AngularJS"
+      #   href: "/web-frameworks/angular"
+      # -
+      #   name: "EmberJS"
+      #   href: "/web-frameworks/ember"
+      # -
+      #   name: "React"
+      #   href: "/web-frameworks/react"
+      # -
+      #   name: "More"
+      #   slug: "other"
+      #   href: "/web-frameworks/all"
       -
         name: "AngularJS"
-        href: "/web-frameworks/angular"
+        href: "/client-platforms/angularjs"
+      -
+        name: "AngularJS 2"
+        href: "/client-platforms/angular2"
       -
         name: "EmberJS"
-        href: "/web-frameworks/ember"
+        href: "/client-platforms/emberjs"
+      -
+        name: "EmberJS 2"
+        href: "/client-platforms/ember2js"
       -
         name: "React"
-        href: "/web-frameworks/react"
+        href: "/client-platforms/react"
       -
-        name: "More"
-        slug: "other"
-        href: "/web-frameworks/all"
+        name: "jQuery"
+        slug: "jquery"
+        href: "/client-platforms/jquery"
+      -
+        name: "Vanilla JS"
+        slug: "vanillajs"
+        href: "/client-platforms/vanillajs"
   -
     id: "how-to"
     name: "Guides"
