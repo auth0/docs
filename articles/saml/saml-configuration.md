@@ -191,8 +191,7 @@ When Auth0 is acting as a SAML Identity Provider, it is possible for it to encry
 
 You will need to obtain the certificate and public key from the Service Provider.
 
-```
-
+```js
 function (user, context, callback) {
 
   context.samlConfiguration = (context.samlConfiguration || {});
@@ -202,6 +201,7 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
 ### Logout
 
 
@@ -252,40 +252,37 @@ Auth0 rules can also be used to add more extensive or dynamic customizations to 
 
 You can customize the SAML Assertion by creating a [rule](/rules) like this:
 
-```
+```js
+function (user, context, callback) {
+  // change SAML token lifetime to 10 hours
+  context.samlConfiguration.lifetimeInSeconds = 36000;
 
-    function (user, context, callback) {
-      // change SAML token lifetime to 10 hours
-      context.samlConfiguration.lifetimeInSeconds = 36000;
-
-      // if available, use upn as NameID
-      if (user.upn) {
-        context.samlConfiguration.mappings = {
-           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
-        }
-      }
-
-      callback(null, user, context)
+  // if available, use upn as NameID
+  if (user.upn) {
+    context.samlConfiguration.mappings = {
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
     }
+  }
+
+  callback(null, user, context);
+}
 ```
 
 To include user_metadata attributes in an assertion, you can create a [rule](/rules) like this:
 
-```
-  function (user, context, callback) {
+```js
+function (user, context, callback) {
+  user.user_metadata = user.user_metadata || {};
+  user.user_metadata.color2 = "purple";
+  context.samlConfiguration.mappings = {
+    //Attribute already in user_metadata
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
 
-     user.user_metadata = user.user_metadata || {};
-     user.user_metadata.color2 = "purple";
-     context.samlConfiguration.mappings = {
-
-     //Attribute already in user_metadata
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-
-     //Attribute dynamically added to user_metadata above
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-     };
-     callback(null, user, context);
-  }
+    //Attribute dynamically added to user_metadata above
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
+  };
+  callback(null, user, context);
+}
 ```
 
 
@@ -366,9 +363,7 @@ It may also be desirable to remove accounts at Auth0 if it is acting as Service 
 
 # Troubleshooting
 
-The following tools are useful for troubleshooting SAML authentication.
+The following tools are useful for troubleshooting SAML authentication:
 
-Can paste saml response from Auth0 logs straight into this decoder
-https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php
-
-FF SAML addon works even better!
+* SAML responses from Auth0's logs can be [pasted directly into this debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php)
+* [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
