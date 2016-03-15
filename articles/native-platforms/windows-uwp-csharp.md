@@ -84,6 +84,12 @@ Optionally you can specify the `scope` parameter. There are various possible val
 
 You can get more information about this in the [Scopes documentation](/scopes).
 
+### 4. (Optional) Capabilities
+
+In some cases Auth0 may not be able to connect to an identity provider. Showing nothing more than a "Can't connect to the service" message. A reason for this may be that the identity provider endpoint resolves to an Intranet (that has an authenticated domain controller), home or work network. In this case it is required to enable the "Private Networks (Client & Server)" capability.
+
+Use the Package Manifest (Solution Explorer > Package.appxmanifest) to enable the capability within the "Capabilities" tab.
+
 ## Accessing user information
 
 The `Auth0User` has the following properties:
