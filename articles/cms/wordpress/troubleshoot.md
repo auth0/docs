@@ -73,6 +73,6 @@ Your server needs to allow inbound connections from Auth0.
 
 ### The session expires too soon.
 
-The Auth0 plugin does not handle sessions, it uses the WordPress settings. By default, user sessions are kept alive for 2 hours. You can enable the `Remember users session` setting to allow sessions to remain live for up to 14 hours.
+The Auth0 plugin does not handle sessions, it uses the WordPress settings. By default, user sessions are kept alive for 2 days. You can enable the `Remember users session` setting to allow sessions to remain live for up to 14 hours.
 
 **NOTE:** This plugin leverages WordPress session handling and uses [wp_set_auth_cookie()](https://developer.wordpress.org/reference/functions/wp_set_auth_cookie/) to create the session cookie. This setting will send `true` as a second parameter to allow the session to last longer.
