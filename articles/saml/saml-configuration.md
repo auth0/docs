@@ -79,7 +79,7 @@ The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML pa
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
 
-## Configuration Auth0 as both Service Provider and Identity Provider
+## Configuring Auth0 as both Service Provider and Identity Provider
 
 In this situation, there are two federations to configure.  The federation between the application and Auth0 will follow the instructions above for Configuring Auth0 as an Identity Provider.   The federation between Auth0 and any backend SAML Identity providers would follow the instructions for Configuring Auth0 as a Service Provider.
 
@@ -211,7 +211,7 @@ For information on how to log out the user's session in Auth0, or in both Auth0 
 
 When Auth0 is serving as a SAML Identity Provider, it is necessary to specify a logout callback URL in the Application Addon Settings in order for logout to work.  To do this, go to:
 
-* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings 
+* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings
 
 In the "Settings" field, enter a specification for logout callback URL:
 
