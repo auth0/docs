@@ -53,7 +53,7 @@ When providing the URL list, you may:
 
 When validating URLs, querystrings and hash information are not taken into account.
 
-The returnTo parameter does not work for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
+The `returnTo` parameter does not work for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
 
 > If you are working with social identity providers such as Google or Facebook, you must set your Client ID and Secret in the Dashboard of the Auth0 Management Portal for the logout to function correctly.
 
