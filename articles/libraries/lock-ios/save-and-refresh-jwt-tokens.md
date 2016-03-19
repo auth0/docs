@@ -15,7 +15,7 @@ First thing we need to do is store the `id_token` and `refresh_token` in the iOS
 ```objc
 A0LockViewController *controller = ...;
 controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    SimpleKeychain *keychain = [SimpleKeychain keychainWithService:@"Auth0"];
+    A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
     [keychain setString:token.idToken forKey:@"id_token"];
     [keychain setString:token.refreshToken forKey:@"refresh_token"];
     [keychain setData:[NSKeyedArchiver archivedDataWithRootObject:profile] forKey:@"profile"];
@@ -44,7 +44,7 @@ Once you have those stored, you can at any point request a new `id_token` using 
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
-SimpleKeychain *keychain = [SimpleKeychain keychainWithService:@"Auth0"];
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
 NSString* token = [keychain stringForKey:@"refresh_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithIdToken:token parameters:nil success:^(A0Token *token) {
@@ -78,7 +78,7 @@ if let token = keychain.stringForKey("id_token") {
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
-SimpleKeychain *keychain = [SimpleKeychain keychainWithService:@"Auth0"];
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
 NSString* token = [keychain stringForKey:@"refresh_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithRefreshToken:refreshToken parameters:nil success:^(A0Token *token) {
@@ -113,7 +113,7 @@ if let token = keychain.stringForKey("refresh_token") {
 If you need to show profile information in your application, just retrieve the saved profile and pick what you need. For example:
 
 ```objc
-SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
 A0UserProfile *profile = [NSKeyedUnarchiver unarchiveObjectWithData:[keychain dataForKey:@"profile"]];
 self.nameLabel.text = profile.name;
 self.emailLabel.text = profile.email;
