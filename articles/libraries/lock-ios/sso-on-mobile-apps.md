@@ -27,21 +27,21 @@ In your project you'll need to add an entitlements file for each app declaring t
 
 To obtain a value form the Keychain:
 ```objc
-SimpleKeychain *keychain = [SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"ABC1234DEF.mysharedgroup"];
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"ABC1234DEF.mysharedgroup"];
 NSString *refreshToken = [keychain stringForKey:@"refresh_token"];
 ```
 ```swift
-let keychain = SimpleKeychain.keychainWithService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
+let keychain = A0SimpleKeychain.keychainWithService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
 let refreshToken = keychain.stringForKey("refresh_token")
 ```
 
 To store a value in the Keychain:
 ```objc
-SimpleKeychain *keychain = [SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"ABC1234DEF.mysharedgroup"];
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0" accessGroup:@"ABC1234DEF.mysharedgroup"];
 [keychain setString:auth0User.refreshToken forKey:@"refresh_token"];
 ```
 ```swift
-let keychain = SimpleKeychain.keychainWithService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
+let keychain = A0SimpleKeychain.keychainWithService("Auth0", accessGroup:"ABC1234DEF.mysharedgroup")
 keychain.setString(auth0User.refreshToken, forKey:"refresh_token")
 ```
 
