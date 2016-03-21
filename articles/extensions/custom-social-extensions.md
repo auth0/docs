@@ -1,12 +1,6 @@
 # Custom Social Connections
 
-Custom Social Connections allows you to easily manage multiple social connections. With this application, you may:
-
-- list custom connections;
-- create new custom connections;
-- configure a custom connection based on existing templates;
-- share custom connections;
-- try a custom connection.
+Custom Social Connections allows you to easily manage multiple social connections.
 
 ## Setting Up a New Social Connection
 

@@ -1,13 +1,15 @@
 # Auth0 Extension: Auth0 Management API Webhooks
 
-The Auth0 Management API Webhooks Extension allows you to define webhooks for the Auth0 Management API. The extension will go through the audit logs and call the appropriate webhook if specific event(s) occur.
+The Auth0 Management API Webhooks Extension allows you to use your own custom webhooks in conjunction with the Auth0 Management API. The extension will go through the audit logs and call the appropriate webhook if specific event(s) occur.
 
 When configuring this extension, you will be asked to provide information for the following configuration variables:
 
 - Schedule: The frequency with which the webhook runs;
 - Auth0_Domain: The domain of your Auth0 app;
-- Auth0_Global_Client_ID:
-- Auth0_Global_Client_Secret
+- Auth0_Global_Client_ID: The Auth0 Global Client ID;
+- Auth0_Global_Client_Secret: The Auth0 Global Client Secret;
 - Auth0_API_Endpoints: The specific Auth0 Management API endpoints you want to monitor/call;
 - Webhook URL: The URL of your webhook;
 - Webhook_Concurrent_Calls: The maximum number of concurrent calls that will be made to your webhook.
+
+Once you have provided the required pieces of information, click "Install" to finish installing the extension.
