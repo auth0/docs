@@ -32,7 +32,7 @@ ${snippet(meta.snippets.dependencies)}
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
-### 2. Add the bundle to your AppKernell.php file
+### 2. Add the bundle to your AppKernel.php file
 
 ```php
 
@@ -44,7 +44,7 @@ class AppKernel extends Kernel
 
             ...
 
-            new \Auth0\JWTAuthBundle\Auth0JWTAuthBundle(),
+            new \Auth0\JWTAuthBundle\JWTAuthBundle(),
 
             ...
 
