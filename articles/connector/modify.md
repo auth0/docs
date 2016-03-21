@@ -92,3 +92,25 @@ The `config.json` file is the AD/LDAP Connector's configuration file.  It can be
  - `SSL_PFX`: Base64 encoded certificate to use for SSL.
  - `TENANT_SIGNING_KEY`: Your Auth0 tenant used to verify JWTs (eg: when a user authenticates, we verify that the authentication request comes from Auth0 using a JWT).
  - `WSFED_ISSUER`: The issuer being set in the WS-Federation responses. If a connection is configured with email domains, the first email domain configured in Auth0 will be used as issuer. Default: `urn:auth0`.
+
+## Pointing your AD/LDAP Connector to a new Auth0 connection
+
+Sometimes you need to point your AD/LDAP Connector instance to a new connection in Auth0. Maybe you've migrated everything to a new Auth0 account (tenant). Or maybe you need to change the name of the Auth0 connection. 
+
+Since you can't rename connections in Auth0, you're only option is to create a new Active Directory / LDAP connection and point your existing Connector instances to it. Here's how:
+
+1. Create the new Active Directory / LDAP connection in the Auth0 dashboard and copy the resulting **TICKET URL**.
+2. On the AD/LDAP Connector host in the Connector Admin app, perform an export of the existing settings via the **Import/Export** tab. This is just a precaution in case something were to happen in the following steps that would accidentally overwrite your custom settings. If you're running the Connector on a host that doesn't have a web browser (and therefore you don't have access to the Connector Admin website), simply make a copy of your `config.json` file.
+3. On the AD/LDAP Connector host, edit the `config.json` file and change the value of the `PROVISIONING_TICKET` property to the **TICKET URL** you copied in step 1.
+4. If you moved from one Auth0 account to another, remove the property in the `config.json` file that has the name `urn:auth0:OLD_AUTH0_TENANT_NAME`. If this is not removed, the Connector will still function, but its old configuration data that doesn't need to remain.
+5. Restart the AD/LDAP Connector service (the **Auth0 ADLDAP** service in Windows).
+6. Take a look at the Connector logs (**Troubleshooting** tab in the Connector Admin tool or tail the `logs.log` file) and make sure there's a recent entry that looks something like this:  
+
+  ```
+   2016-03-10T22:47:32.970Z - debug: [2016-03-10 22:47:32] Loading settings from ticket: YOUR_TICKET_URL/info
+  ```
+  
+7. Make sure the new Active Directory / LDAP connection in the Auth0 dashboard is now showing as connected (the dot to the left of the new connection is green and not red). If not, then refer to the [Troubleshooting](/connector/troubleshooting) page.
+8. Perform a test authentication through your new connection and make sure you see activity in your Connector logs as well.
+
+If you have multiple AD/LDAP Connector instances that you need to point at the new Auth0 connection, follow the steps in the [High Availability](https://auth0.com/docs/connector/high-availability) docs page to update the remaining instances.

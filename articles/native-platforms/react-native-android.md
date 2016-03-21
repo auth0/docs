@@ -24,7 +24,7 @@ snippets:
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',
-  pkgFilePath: 'Classic/Lock/auth0_credentials.js' + account.clientParam,
+  pkgFilePath: 'Classic/Lock/auth0_credentials.js',
   pkgType: 'replace'
 }) %>
 

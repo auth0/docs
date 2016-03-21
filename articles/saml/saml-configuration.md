@@ -79,7 +79,7 @@ The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML pa
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
 
-## Configuration Auth0 as both Service Provider and Identity Provider
+## Configuring Auth0 as both Service Provider and Identity Provider
 
 In this situation, there are two federations to configure.  The federation between the application and Auth0 will follow the instructions above for Configuring Auth0 as an Identity Provider.   The federation between Auth0 and any backend SAML Identity providers would follow the instructions for Configuring Auth0 as a Service Provider.
 
@@ -191,8 +191,7 @@ When Auth0 is acting as a SAML Identity Provider, it is possible for it to encry
 
 You will need to obtain the certificate and public key from the Service Provider.
 
-```
-
+```js
 function (user, context, callback) {
 
   context.samlConfiguration = (context.samlConfiguration || {});
@@ -202,6 +201,7 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
 ### Logout
 
 
@@ -211,7 +211,7 @@ For information on how to log out the user's session in Auth0, or in both Auth0 
 
 When Auth0 is serving as a SAML Identity Provider, it is necessary to specify a logout callback URL in the Application Addon Settings in order for logout to work.  To do this, go to:
 
-* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings 
+* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings
 
 In the "Settings" field, enter a specification for logout callback URL:
 
@@ -252,40 +252,37 @@ Auth0 rules can also be used to add more extensive or dynamic customizations to 
 
 You can customize the SAML Assertion by creating a [rule](/rules) like this:
 
-```
+```js
+function (user, context, callback) {
+  // change SAML token lifetime to 10 hours
+  context.samlConfiguration.lifetimeInSeconds = 36000;
 
-    function (user, context, callback) {
-      // change SAML token lifetime to 10 hours
-      context.samlConfiguration.lifetimeInSeconds = 36000;
-
-      // if available, use upn as NameID
-      if (user.upn) {
-        context.samlConfiguration.mappings = {
-           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
-        }
-      }
-
-      callback(null, user, context)
+  // if available, use upn as NameID
+  if (user.upn) {
+    context.samlConfiguration.mappings = {
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
     }
+  }
+
+  callback(null, user, context);
+}
 ```
 
 To include user_metadata attributes in an assertion, you can create a [rule](/rules) like this:
 
-```
-  function (user, context, callback) {
+```js
+function (user, context, callback) {
+  user.user_metadata = user.user_metadata || {};
+  user.user_metadata.color2 = "purple";
+  context.samlConfiguration.mappings = {
+    //Attribute already in user_metadata
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
 
-     user.user_metadata = user.user_metadata || {};
-     user.user_metadata.color2 = "purple";
-     context.samlConfiguration.mappings = {
-
-     //Attribute already in user_metadata
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-
-     //Attribute dynamically added to user_metadata above
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-     };
-     callback(null, user, context);
-  }
+    //Attribute dynamically added to user_metadata above
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
+  };
+  callback(null, user, context);
+}
 ```
 
 
@@ -366,9 +363,7 @@ It may also be desirable to remove accounts at Auth0 if it is acting as Service 
 
 # Troubleshooting
 
-The following tools are useful for troubleshooting SAML authentication.
+The following tools are useful for troubleshooting SAML authentication:
 
-Can paste saml response from Auth0 logs straight into this decoder
-https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php
-
-FF SAML addon works even better!
+* SAML responses from Auth0's logs can be [pasted directly into this debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php)
+* [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)

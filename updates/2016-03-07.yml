@@ -1,0 +1,15 @@
+added:
+  -
+    title: "Customizing Error Pages"
+    tags:
+      - tutorial
+      - errors
+    description: |
+      A [new article](/custom-error-pages) on customizing error pages displayed to users in the event of an authorization error was added.
+  -
+    title: "API Rate Limits"
+    tags:
+      - api
+      - ratelimits
+    description: |
+      A [new article](/rate-limits) was added documenting API end point rate limiting.

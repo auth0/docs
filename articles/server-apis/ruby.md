@@ -7,7 +7,6 @@ languages:
   - Ruby
 thirdParty: false
 image: /media/platforms/rails.png
-lodash: true
 tags:
   - quickstart
 snippets:
@@ -26,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 * Ruby 2.1.7
 :::
 
-<%= include('../_includes/_package', { pkgRepo: 'auth0-ruby-samples', pkgBranch: 'master', pkgPath: 'ruby-api', pkgFilePath: null, pkgType: 'server' + account.clientParam }) %>
+<%= include('../_includes/_package', { pkgRepo: 'auth0-ruby-samples', pkgBranch: 'master', pkgPath: 'ruby-api', pkgFilePath: null, pkgType: 'server' }) %>
 
 > Note: If you're creating a Ruby On Rails app, please check [this other tutorial](/server-apis/rails).
 

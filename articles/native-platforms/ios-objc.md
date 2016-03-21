@@ -34,7 +34,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample',
-  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist' + account.clientParam,
+  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
@@ -174,7 +174,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 First add Lock Twitter's Pod
 
 ```ruby
-pod 'Lock-Twitter', '~> 1.0'
+pod 'Lock-Twitter', '~> 1.1'
 ```
 
 Add to the import:

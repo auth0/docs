@@ -1,4 +1,26 @@
+## ------------------------------------------------------------
+## Quickstart Configuration
+## This document contains configuration for the quickstart
+##
+## ------------------------------------------------------------
+
 categories:
+  -
+    id: "start"
+    name: "Getting Started"
+    links:
+      -
+        name: "Introduction to Auth0"
+        href: "https://auth0.com/video-tutorials/main/intro"
+      -
+        name: "Creating your first Application"
+        href: "https://auth0.com/video-tutorials/creating-your-first-app/register-an-application"
+      -
+        name: "Getting Started with Lock"
+        href: "https://auth0.com/video-tutorials/getting-started-with-lock/implementing-lock"
+      -
+        name: "Using Rules"
+        href: "https://auth0.com/video-tutorials/advanced-usage-of-auth0/using-rules"
   -
     id: "product"
     name: "Product"
@@ -52,8 +74,12 @@ categories:
   -
     id: "api"
     name: "API"
-    description: "The core Auth0 APIs for Authentication and Management"
+    description: "The core Auth0 APIs for Authentication and Management."
     sections:
+      overview:
+        name: "API Overview"
+        description: "Learn about the various Auth0 APIs."
+        href: "/api/info"
       auth-endpoints:
         name: "Authentication API"
         description: "Perform enterprise authentication or OpenID operations using these APIs."
@@ -66,52 +92,167 @@ categories:
         name: "Releases & Updates"
         links:
           -
+            name: "API Overview"
+            href: "/api/info"
+          -
             name: "Platform Releases"
             href: "https://releases.auth0.com"
           -
             name: "Content & SDK Updates"
             href: "/updates"
+  # -
+  #   id: "platform"
+  #   name: "Platforms"
+  #   description: ""
+  #   links:
+  #     -
+  #       name: "Web Developers"
+  #       href: "/platforms/web"
+  #     -
+  #       name: "Single Page App Developers"
+  #       href: "/platforms/spa"
+  #     -
+  #       name: "API Developers"
+  #       href: "/platforms/api"
+  #     -
+  #       name: "Mobile Developers"
+  #       href: "/platforms/mobile"
+  -
+    id: "ui-component"
+    name: "UI Components"
+    links:
+      -
+        name: "Lock for Web"
+        description: "Auth UI for your web app"
+        href: "/libraries/lock"
+      -
+        name: "Lock for iOS"
+        description: "Native iOS Authentication UI"
+        href: "/libraries/lock-ios"
+      -
+        name: "Lock for Android"
+        description: "Native Android Authentication UI"
+        href: "/libraries/lock-android"
+  # -
+  #   id: "dev-center"
+  #   name: "Developer Centers"
+  #   description: "Explore content by language and platform"
+  #   links:
+  #     -
+  #       name: "Android"
+  #       slug: "android"
+  #       href: "/dev-centers/android"
+  #     -
+  #       name: "iOS"
+  #       slug: "ios"
+  #       href: "/dev-centers/ios"
+  #     -
+  #       name: "Java"
+  #       slug: "java"
+  #       href: "/dev-centers/java"
+  #     -
+  #       name: "Javascript"
+  #       slug: "Javascript"
+  #       href: "/dev-centers/javascript"
+  #     -
+  #       name: ".NET"
+  #       slug: "net"
+  #       href: "/dev-centers/dotnet"
+  #     -
+  #       name: "Node"
+  #       slug: "node"
+  #       href: "/dev-centers/node"
+  #     -
+  #       name: "Python"
+  #       slug: "python"
+  #       href: "/dev-centers/python"
+  #     -
+  #       name: "Ruby"
+  #       slug: "ruby"
+  #       href: "/dev-centers/ruby"
+  #     -
+  #       name: "More"
+  #       slug: "other"
+  #       href: "/dev-centers/all"
   -
     id: "sdk"
     name: "Libraries & SDKs"
     description: "Explore content by language and platform"
     links:
       -
-        name: "AngularJS"
-        slug: "angular"
-        href: "/client-platforms/angularjs"
-      -
         name: "NodeJS"
         slug: "node"
-        href: "/server-platforms/nodejs"
+        href: "https://github.com/auth0/node-auth0"
       -
-        name: "Lock - iOS"
-        slug: "lock"
-        href: "/libraries/lock-ios"
-      -
-        name: "Lock - Android"
-        slug: "lock"
-        href: "/libraries/lock-android"
-      -
-        name: "Lock - Web"
-        slug: "lock"
-        href: "/libraries/lock"
-      -
-        name: "Ruby on Rails"
+        name: "Ruby"
         slug: "rails"
-        href: "/server-platforms/rails"
-      -
-        name: "React"
-        slug: "react"
-        href: "/client-platforms/react"
-      -
-        name: "Ember.js"
-        slug: "emberjs"
-        href: "/client-platforms/emberjs"
+        href: "https://github.com/auth0/ruby-auth0"
       -
         name: "Java"
         slug: "java"
-        href: "/server-platforms/java"
+        href: "https://github.com/auth0/auth0-servlet"
+      -
+        name: ".NET"
+        slug: "net"
+        href: "https://github.com/auth0/auth0.net"
+      -
+        name: "PHP"
+        slug: "php"
+        href: "https://github.com/auth0/auth0-php"
+      -
+        name: "Python"
+        slug: "python"
+        href: "https://github.com/auth0/auth0-python"
+  -
+    id: "plugin"
+    name: "Plugins"
+    description: "Integrate Auth0 into content management systems"
+    links:
+      -
+        name: "Wordpress"
+        slug: "wordpress"
+        href: "/cms#wordpress-plugin"
+      -
+        name: "Joomla"
+        slug: "joomla"
+        href: "/cms#joomla-extension"
+      -
+        name: "SharePoint "
+        slug: "sharepoint"
+        href: "https://github.com/auth0/auth0-sharepoint"
+  -
+    id: "web-framework"
+    name: "Web Frameworks"
+    description: ""
+    links:
+      # -
+      #   name: "AngularJS"
+      #   href: "/web-frameworks/angular"
+      # -
+      #   name: "EmberJS"
+      #   href: "/web-frameworks/ember"
+      # -
+      #   name: "React"
+      #   href: "/web-frameworks/react"
+      # -
+      #   name: "More"
+      #   slug: "other"
+      #   href: "/web-frameworks/all"
+      -
+        name: "AngularJS"
+        href: "/client-platforms/angularjs"
+      -
+        name: "AngularJS 2"
+        href: "/client-platforms/angular2"
+      -
+        name: "EmberJS"
+        href: "/client-platforms/emberjs"
+      -
+        name: "EmberJS 2"
+        href: "/client-platforms/ember2js"
+      -
+        name: "React"
+        href: "/client-platforms/react"
       -
         name: "jQuery"
         slug: "jquery"
@@ -120,37 +261,9 @@ categories:
         name: "Vanilla JS"
         slug: "vanillajs"
         href: "/client-platforms/vanillajs"
-      -
-        name: "iOS"
-        slug: "ios"
-        href: "/native-platforms/ios-objc"
-      -
-        name: "Android"
-        slug: "android"
-        href: "/native-platforms/android"
-      -
-        name: "Ruby"
-        slug: "ruby"
-        href: "/server-apis/ruby"
-      -
-        name: ".NET"
-        slug: "net"
-        href: "/server-platforms/aspnet-owin"
-      -
-        name: "PHP"
-        slug: "php"
-        href: "/server-platforms/php"
-      -
-        name: "Python"
-        slug: "python"
-        href: "/server-platforms/python"
-      -
-        name: "Go"
-        slug: "go"
-        href: "/server-platforms/golang"
   -
     id: "how-to"
-    name: "How To's"
+    name: "Guides"
     description: "Learn how to get the most out of Auth0"
     links:
       -
@@ -179,11 +292,6 @@ categories:
         href: "/logout"
         description: "Learn about clearing sso cookies and other logout operations."
       -
-        name: "Cookies vs. Tokens"
-        icon: "icon-budicon-754"
-        href: "/apps-apis"
-        description: "Learn token-based authentication design vs cookie-based authentication."
-      -
         name: "Connecting Active Directory"
         icon: "icon-budicon-754"
         href: "/connections/enterprise/active-directory"
@@ -193,16 +301,6 @@ categories:
         icon: "icon-budicon-754"
         href: "/saml-configuration"
         description: "Get your SAML application set up for authentication and single sign-on."
-      -
-        name: "User Profile"
-        icon: "icon-budicon-754"
-        href: "/user-profile"
-        description: "Information about the contents of the user profile object."
-      -
-        name: "Set up and Use the Connector"
-        icon: "icon-budicon-754"
-        href: "/connector"
-        description: "Learn how to get the Connector running on your network."
       -
         name: "Custom Password Strength"
         icon: "icon-budicon-754"

@@ -28,7 +28,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 4.3
 * Jquery 2.1.1
 :::
 
@@ -37,7 +37,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'gh-pages',
   pkgPath: 'vanillajs-redirect-auth0-sample',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, please follow the steps below.**

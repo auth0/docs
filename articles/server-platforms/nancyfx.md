@@ -12,12 +12,18 @@ snippets:
 
 ## NancyFX Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
 <%= include('../_includes/_package', {
   pkgRepo: 'Auth0.NancyFx.SelfHost',
   pkgBranch: 'master',
   pkgPath: 'sample',
   pkgFilePath: 'sample/App.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**

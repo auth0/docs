@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Apache Tutorial
 name: Apache
 image: /media/platforms/apache.jpg

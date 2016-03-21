@@ -7,7 +7,6 @@ languages:
   - Python
 thirdParty: false
 image: /media/platforms/python.png
-lodash: true
 tags:
   - quickstart
 snippets:
@@ -34,7 +33,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/flask-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **If you have an existing application, please follow the steps below.**

@@ -4,7 +4,7 @@ title: Send one time codes via your own SMS Gateway
 
 # Send one time codes via your own SMS Gateway
 
-By default the SMS connection will use Twilio to send the one time code. If you already have your own infrasturucture to send text messages cannot or might not want to use Twilio.
+By default the SMS connection will use Twilio to send the one time code. If you already have your own infrastructure to send text messages cannot or might not want to use Twilio.
 
 Instead you'll want your own infrastructure to handle the delivery of these one time codes.
 

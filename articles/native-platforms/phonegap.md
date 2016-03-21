@@ -23,7 +23,7 @@ snippets:
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/phonegap-basic-sample',
-  pkgFilePath: 'examples/phonegap-basic-sample/www/js' + account.clientParam,
+  pkgFilePath: 'examples/phonegap-basic-sample/www/js',
   pkgType: 'js'
 }) %>
 

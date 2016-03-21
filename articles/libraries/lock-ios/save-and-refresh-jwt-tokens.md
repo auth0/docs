@@ -123,6 +123,6 @@ self.emailLabel.text = profile.email;
 let keychain = A0SimpleKeychain(service: "Auth0")
 if let data = keychain.dataForKey("profile"), let profile = NSKeyedUnarchiver.unarchiveObjectWithData(data) {
   self.nameLabel.text = profile.name
-  self.emailLable.text = profile.email
+  self.emailLabel.text = profile.email
 }
 ```

@@ -1,19 +1,26 @@
 ---
-title: Ionic 2 Framework Tutorial
+title: Ionic 2 Tutorial
 name: Ionic 2
 alias:
   - ionic2
 language:
   - Typescript
 framework:
-  - Angular2JS
+  - Ionic2
+  - Angular2
   - Cordova
 hybrid: true
 image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
+  configure: native-platforms/ionic2/configure
+  configurerefresh: native-platforms/ionic2/configurerefresh
   dependencies: native-platforms/ionic2/dependencies
+  http: native-platforms/ionic2/http
+  profile: native-platforms/ionic2/profile
+  profiletemplate: native-platforms/ionic2/profiletemplate
+  refresh: native-platforms/ionic2/refresh
   setup: native-platforms/ionic2/setup
   use: native-platforms/ionic2/use
 ---
@@ -23,23 +30,21 @@ snippets:
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 4.2.0
-* Ionic 2.0.0-alpha.48
-* Angular 2.0.0-beta.0
-* Cordova 6.0.0
-* ios-sim 5.0.6
+* Ionic 2.0.0-beta.1
+* Angular 2.0.0-beta.6
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-ionic',
+  pkgRepo: 'auth0-ionic2',
   pkgBranch: 'master',
-  pkgPath: 'examples/ionic2-auth0-sample',
-  pkgFilePath: 'examples/ionic2-auth0-sample/app/auth0-variables.ts',
-  pkgType: 'replace' + account.clientParam
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### 1. Setting up the callback URL in Auth0
+### 1. Set Up the Callback URL
 
 <div class="setup-callback">
 <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
@@ -52,141 +57,72 @@ This tutorial and seed project have been tested with the following:
 
 </div>
 
-### 2. Add the Auth0 dependencies
+### 2. Install angular2-jwt
 
-Add the following dependencies to the `package.json` and run `npm install`:
+You can use **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to make authenticated HTTP requests.
 
 ${snippet(meta.snippets.dependencies)}
 
-### 3. Add the reference to Lock in the `www/index.html` file
+After installing **angular2-jwt**, configure it in the `@App` decorator.
 
-```html
-<!-- Auth0 Lock -->
-<script src="${widget_url_no_scheme}"></script>
-```
+${snippet(meta.snippets.configure)}
 
-### 4. Add the `InAppBrowser` plugin
+### 3. Add the Lock Widget
 
-You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
-
-```bash
-ionic plugin add cordova-plugin-inappbrowser
-```
-
-and then add the following configuration to the `config.xml` file:
-
-```xml
-<feature name="InAppBrowser">
-  <param name="ios-package" value="CDVInAppBrowser" />
-  <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-</feature>
-```
-### 5. Import dependencies
-
-To set up a simple component, you'll need some standard Angular 2 imports, as well as the `AuthHttp` class and `tokenNotExpired` function from `angular2-jwt` if you want to make secure calls to your API.
-
-```ts
-//app.ts
-import {Alert, NavController} from 'ionic-framework/ionic';
-import {NgZone} from 'angular2/core';
-import {Http} from 'angular2/http';
-import {AuthHttp, tokenNotExpired} from 'angular2-jwt';
-
-```
-
-### 6. Configure Auth0Lock
-
-Create an instance of the service.
+Add the Auth0Lock widget to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.setup)}
 
-### 7. Implement the login
+### 4. Create an Authentication Service and Configure Auth0Lock
 
-To implement the login, call the .show() method of Auth0's lock instance and then save the `id_token` and the `profile` in localStorage.
+It's best to set up an injectable authentication service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication status.
+
+This is also where `Auth0Lock` can be configured with your Auth0 credentials.
 
 ${snippet(meta.snippets.use)}
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script> to <script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>
+The service can now be injected wherever it is needed.
 
-### 8. Add a logout button
+### 5. Create a Profile Page
 
-You can just remove the `id_token` and the `profile` from localStorage.
+You will likely require some kind of profile area for users to see their information. Depending on your needs, this can also serve as the place for them to log in and out.
 
-```js
-logout() {
-    this.zone.run(() => {
-      localStorage.removeItem('profile');
-      localStorage.removeItem('id_token');
-    });
-  }
-```
+For the `profile` page component, simply inject the `AuthService`.
 
-```html
-<button full (click)="logout()">Logout</button>
-```
+${snippet(meta.snippets.profile)}
 
-### 9. Configure secure calls to your API
+The `AuthService` is now accessible in the view and can be used to conditionally hide and show elements depending on whether the user has a valid JWT in local storage.
 
-As we're going to call an API we did <%= configuration.api ? ' on ' + configuration.api : '' %>, we need to send the JWT on the Authorization Header. For that we can use the `AuthHttp` class of the [angular2-jwt](https://github.com/auth0/angular2-jwt) package, which will provide a default configuration that obtains the JWT token from localStorage and establishes aspects such as header name, prefix and token name.
+${snippet(meta.snippets.profiletemplate)}
 
-```js
-// app.ts
+![auth0 lock](https://cdn.auth0.com/blog/ionic2-auth/ionic2-auth-5.png)
 
-constructor(public authHttp: AuthHttp) {}
+### 6. Optional: Implement Refresh Tokens
 
-callSecuredApi() {
-    console.log("callSecuredApi");
-    try {
-      this.authHttp.get('http://example.com/api/secret')
-          .subscribe(
-              data => {
-                console.log(data);
-                this.showAlert("Success", data._body);
-              },
-              err => {
-                console.log("There has been an error.");
-                console.log(err)
-                this.showAlert("Error");
-              },
-              () => {
-                console.log('Complete')
-              }
-          );
-    } catch (e) {
-      console.log("There has been an error.\n" + e);
-      console.log(e);
-      this.showAlert("Error", e + ". Please authenticate so that you can call this API");
-    }
-  }
-```
+[Refresh tokens](https://auth0.com/docs/refresh-token) are special tokens that are used to retrieve a new JWT for the user so that they can remain authenticated.
 
-If you want to call unsecured APIs you can simply make a `http.get` request.
+In Angular 1.x, obtaining a new JWT with a refresh token can be accomplished using HTTP interceptors. However, Angular 2 doesn't have the concept of HTTP interceptors, so another approach is needed. There are several different ways to implement token refreshing in Angular 2, and one of them is to use observables.
 
-### 10. Show user information
+${snippet(meta.snippets.refresh)}
 
-```js
-//app.ts
-this.user_name = profile.name;
-this.user_email = profile.email;
-```
+When the user logs in, a refresh gets scheduled with an interval equal to the amount of time their JWT is valid for. If the user closes the application, their state will be lost and the scheduled refresh will no longer exist the next time they open it. We need a slightly different approach for setting up a refresh when the application is first opened again because the amount of time that the JWT is valid for (if there is still an unexpired JWT in local storage) will be less than that of a "fresh" token. We need to first check for an unexpired JWT, and if there is one, schedule a one-time refresh to take place when the JWT expires.
 
-```html
-<!-- app.html -->
-<span>Hi {{user_name}}!<br/>Your e-mail is:{{user_email}}</span><br/>
-```
+To run the token refresh when the application is started, call the `startupTokenRefresh` method when the app is ready.
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+${snippet(meta.snippets.configurerefresh)}
 
-### 11. Sit back and relax
+### 7. Make Authenticated HTTP Requests
 
-Now it's time to sit back and relax. You've implemented Login and Signup with Auth0 and Ionic 2.
+To make HTTP requests to a secure endpoint, simply use `AuthHttp` which will automatically attach the JWT as an `Authorization` header.
+
+${snippet(meta.snippets.http)}
+
+### 8. Done!
+
+Now it's time to sit back and relax. You've implemented authentication with Ionic 2 and Auth0.
 
 ### Troubleshooting
 
-#### Get a blank page with an OK after signin
+#### Completly blank page when launching the App
 
-This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. Please try to reinstall it.
-
-#### Get a completly blank page when launching the App
-
-This could mean that either you've built the seed project using Ionic 1, or that the device where you are testing it isn't entirely supported by Ionic 2 yet.
+This could either mean that you've built the seed project using Ionic 1, or that the device where you are testing it isn't entirely supported by Ionic 2 yet. Be sure to check the console for errors.

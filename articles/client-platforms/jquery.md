@@ -23,7 +23,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 4.3
 * Jquery 2.1.1
 :::
 
@@ -32,7 +32,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'gh-pages',
   pkgPath: (configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**

@@ -23,7 +23,7 @@ snippets:
   pkgBranch: 'master',
   pkgPath: 'examples/go-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Go Programming Language app to use it with Auth0.**

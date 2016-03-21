@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: 'examples/basic-webapp',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
@@ -55,7 +55,7 @@ Now, we can call `$auth0->getUser()` to retrieve the user information. If we cal
 // callback.php
 
 ...
-$auth0->getUser();
+$userInfo = $auth0->getUser();
 
 if (!$userInfo) {
     // We have no user info
@@ -109,7 +109,7 @@ You have configured your PHP Webapp to use Auth0. Congrats, you're awesome!
 
 #### Configure session data
 
-By default, the SDK will store the user information in the PHP Session and it will discard the access token and the id token. If you like to persist them as well, you can pass 'persist_access_token' => true and 'persist_id_token' => true to the SDK configuration in step 2. You can also disable session all together by passing 'store' => false.
+By default, the SDK will store the user information in the PHP Session and it will discard the access token and the id token. If you like to persist them as well, you can pass `'persist_access_token' => true` and `'persist_id_token' => true` to the SDK configuration in step 2. You can also disable session all together by passing `'store' => false`.
 
 If you want to change PHP Session and use Laravel, Zend, Symfony or other abstraction to the session, you can create a class that implements get, set, delete and pass it to the SDK as following.
 

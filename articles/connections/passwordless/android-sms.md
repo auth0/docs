@@ -19,7 +19,7 @@ title: Using Passwordless Authentication on Android with SMS
   pkgBranch: 'master',
   pkgPath: 'Passwordless-SMS/Lock',
   pkgFilePath: 'Passwordless-SMS/Lock/app/src/main/res/values/auth0.xml',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 <%= include('./_introduction-lock', { repository: 'Lock.Android', platform: 'Android', docsUrl: 'lock-android' }) %>

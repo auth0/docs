@@ -61,29 +61,35 @@ ${snippet(meta.snippets.use)}
 
 Install the NuGet package on the client side
 
-    Install-Package Auth0-WCF-Client
+```
+Install-Package Auth0-WCF-Client
+```
 
 Extract the `id_token` from the `ClaimsPrincipal` and attach it to the WCF request
 
-    // get JsonWebToken from logged in user
-    string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
+```cs
+// get JsonWebToken from logged in user
+string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
 
-    // attach token to WCF request
-    client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(token));
+// attach token to WCF request
+client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(token));
 
-    // call WCF service
-    // client.CallService();
+// call WCF service
+// client.CallService();
+```
 
 > **Note**: the above asumes that the WCF service is protected with the same client secret as the web site. If you want to call a service protected with a different secret you can obtain a delegation token as shown below:
 
-    // get JsonWebToken from logged in user
-    string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
+```cs
+// get JsonWebToken from logged in user
+string token = ClaimsPrincipal.Current.FindFirst("id_token").Value;
 
-    // create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
-    var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "${account.namespace}");
-    var result = auth0.GetDelegationToken(token, "${account.clientClient}");
+// create an Auth0 client to call the /delegation endpoint using the client id and secret of the caller application
+var auth0 = new Auth0.Client("...caller client id...", "...caller client secret...", "${account.namespace}");
+var result = auth0.GetDelegationToken(token, "${account.clientClient}");
 
-    // attach token to WCF request
-    client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(result));
+// attach token to WCF request
+client.ChannelFactory.Endpoint.Behaviors.Add(new AttachTokenEndpointBehavior(result));
+```
 
 **Congratulations!**

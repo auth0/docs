@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: ASP.NET (OWIN) Tutorial
 name: ASP.NET (OWIN)
 image: /media/platforms/asp.png
@@ -16,18 +15,12 @@ alias:
 
 # ASP.NET (OWIN) Tutorial
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Microsoft Visual Studio 2015
-* .NET Framework 4.5.2
-:::
-
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-mvc-sample',
   pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 This tutorial explains how to integrate Auth0 with an ASP.NET application (WebForms, MVC and even Web API) that uses the ASP.NET 4.5 OWIN infrastructure.
@@ -37,6 +30,7 @@ This tutorial explains how to integrate Auth0 with an ASP.NET application (WebFo
 This tutorial and seed project have been tested with the following:
 
 * MicroSoft Visual Studio 2015
+* .NET Framework 4.5.2
 * Auth0-ASPNET-Owin NuGet Package v1.0.2
 
 :::
@@ -73,9 +67,9 @@ When you installed the NuGet package, it created three settings in `<appSettings
 
 ${snippet(meta.snippets.setup)}
 
-The NuGet package provides a simple controller (`Auth0AccountController`) which will process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter when registering the Auth0 middleware. 
+The NuGet package provides a simple controller (`Auth0AccountController`) which will process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter when registering the Auth0 middleware.
 
-For example, in order to use the implementation provided by the Visual Studio templates ("/Account/ExternalLoginCallback"), you can set the `redirectPath` parameter as follows: 
+For example, in order to use the implementation provided by the Visual Studio templates ("/Account/ExternalLoginCallback"), you can set the `redirectPath` parameter as follows:
 
 ```
 app.UseAuth0Authentication(
@@ -93,7 +87,7 @@ ${lockSDK}
 
 ### 6. Accessing user information
 
-Once the user has been successfully authenticated, you can access the user as a `ClaimsPrincipal` through the `ClaimsPrincipal.Current` property. You can then access information about the user through the various claims set by the Auth0 middleware. The following example demonstrates how you can access the user's email address through the **"email"** claim: 
+Once the user has been successfully authenticated, you can access the user as a `ClaimsPrincipal` through the `ClaimsPrincipal.Current` property. You can then access information about the user through the various claims set by the Auth0 middleware. The following example demonstrates how you can access the user's email address through the **"email"** claim:
 
 ```
 public ActionResult Index()

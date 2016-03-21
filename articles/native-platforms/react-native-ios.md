@@ -31,7 +31,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',
-  pkgFilePath: 'Classic/Lock/auth0_credentials.js' + account.clientParam,
+  pkgFilePath: 'Classic/Lock/auth0_credentials.js',
   pkgType: 'replace'
 }) %>
 

@@ -15,7 +15,7 @@ The **AD/LDAP Connector** (1), is a bridge between your **Active Directory** (2)
 
 ![](/media/articles/connections/enterprise/active-directory/ldap-connect.png)
 
-For high availability and load balancing, you can install multiple instances of the connector. All connections are out-bound from the connector to the Auth0 Server, so changes to your firewall are generally unnecessary.
+For [high availability and load balancing](/connector/high-availability), you can install multiple instances of the connector. All connections are out-bound from the connector to the Auth0 Server, so changes to your firewall are generally unnecessary.
 
 Configuring an AD/LDAP connection in Auth0 requires two steps:
 

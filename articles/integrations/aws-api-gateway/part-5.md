@@ -36,7 +36,7 @@ The AWS Lambda console has access to a relatively limited number of node modules
   pkgBranch: 'master',
   pkgPath: 'examples/api-gateway/lambda',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 You'll see a two Javascript files, `index.js` which is expected by the AWS Lambda service to contain your main code, and `auth0-variables` which contains the only code you need to update. There is also a standard nodejs `package.json` file.

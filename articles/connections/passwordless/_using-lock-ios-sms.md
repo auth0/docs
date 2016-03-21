@@ -18,7 +18,7 @@
   pkgBranch: 'master',
   pkgPath: 'Passwordless-SMS/Lock/ObjC',
   pkgFilePath: 'Passwordless-SMS/Lock/ObjC/Passwordless-SMS/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } else { %>
 <%= include('../../_includes/_package', {
@@ -26,7 +26,7 @@
   pkgBranch: 'master',
   pkgPath: 'Passwordless-SMS/Lock/Swift',
   pkgFilePath: 'Passwordless-SMS/Lock/Swift/Passwordless-SMS/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } %>
 

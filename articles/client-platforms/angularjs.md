@@ -26,7 +26,7 @@ alias:
   pkgBranch: 'master',
   pkgPath: 'examples/widget-with-api',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**
@@ -34,7 +34,7 @@ alias:
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 4.3
 * Angular version 1.5.0-rc.0
 :::
 ${include('./\_callback')}

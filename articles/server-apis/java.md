@@ -26,14 +26,14 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-java',
+  pkgRepo: 'auth0-servlet',
   pkgBranch: 'master',
   pkgPath: 'examples/java-api',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
 
-Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-java/blob/master/examples/java-api/README.md#running-the-example)
+Then, you just need to specify your Auth0 account configuration as enviroment variables. [Check it here](https://github.com/auth0/auth0-servlet/blob/master/examples/java-api/README.md#running-the-example)
 
 **If you have an existing application, please follow the steps below.**
 

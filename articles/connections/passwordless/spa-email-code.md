@@ -21,7 +21,7 @@ title: Using Passwordless Authentication with a one-time code via email on SPA
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 <%= include('./_init-passwordless-lock') %>
@@ -69,7 +69,7 @@ Once the user enters the code received by email, Lock will authenticate them and
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).
