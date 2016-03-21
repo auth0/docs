@@ -30,7 +30,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Angular2 2.0.0-beta.1
-* NodeJS 4.2
+* NodeJS 4.3
 :::
 
 <%= include('../_includes/_package', {
