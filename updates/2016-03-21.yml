@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Auth0 .NET SDK version 3.1.0 released"
+    tags:
+      - sdk
+      - dotnet
+    description: |
+      New version of the Auth0 .NET SDK has been released. It adds support for offline tokens to the Authentication API, as well as removing a user's MFA provider via the Management API.
