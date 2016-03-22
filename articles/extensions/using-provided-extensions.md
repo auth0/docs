@@ -1,7 +1,10 @@
 # Using Auth0's Provided Extensions
 
-The following apps are provided via the Extensions page of the Management Portal. They have not, however, been fully installed. To use one or more of the following apps, you must provide the required configuration information and finish installing the extensions.
+The following apps/jobs are provided via the Extensions page of the Management Portal. They have not, however, been fully installed. To use one or more of the following apps, you must provide the required configuration information and finish installing the extensions.
 
+![](/media/articles/extensions/auth0-provided-extensions.png)
+
+## Provided Apps/Jobs:
 - [Custom Social Applications](/extensions/custom-social-extensions): social connection management
 - [Auth0 Management API Webhooks](/extensions/management-api-webhooks): webhooks definition for the Auth0 Management API; goes through the audit logs and calls the appropriate webhook for specific events
 - [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector): exposes endpoint for AD/LDAP connections monitoring
