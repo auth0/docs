@@ -59,9 +59,10 @@ lock.show({
   connections: ['Username-Password-Authentication']
 });
 
-// ... social connections only
+// ... social connections only. (Note the name for google authentication is "google-oauth2", not just "google")
+
 lock.show({
-  connections: ['twitter', 'facebook', 'linkedin']
+  connections: ['twitter', 'facebook', 'linkedin', 'google-oauth2']
 });
 
 // ... enterprise connections only
