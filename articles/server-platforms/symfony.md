@@ -12,6 +12,12 @@ snippets:
 
 # Symfony Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* PHP 5.3.9
+* Symfony 2.8
+:::
+
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
 ## Tutorial
