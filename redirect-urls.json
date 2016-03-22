@@ -566,5 +566,9 @@
   {
     "from": "/native-platforms/windows-store-csharp",
     "to": "/native-platforms/windows-uwp-csharp"
+  },
+  {
+      "from": "/tutorials/aspnet-mvc4-enterprise-providers",
+      "to": "/server-platforms/aspnet"
   }
 ]

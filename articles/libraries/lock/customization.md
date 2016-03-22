@@ -215,6 +215,8 @@ In `show`, `showSignin` and `showSignup` methods, when user types their email, t
 
 Hides the Signup button. Defaults to `true` on `show*()` options and `false` on `.show`.
 
+This option **only** controls client-side appearance, and does not completely stop new sign ups from determined anonymous visitors. If you are looking to fully prevent new users from signing up, you must use the **Disable Sign Ups** option in the dashboard, in the connection settings.
+
 ```js
 //
 lock.show({
