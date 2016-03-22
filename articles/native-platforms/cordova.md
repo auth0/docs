@@ -118,4 +118,13 @@ cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppN
 ```
 #### Get a blank page with an OK after signin
 
-This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. See the previous section to learn how to solve this.
+This may be caused by the default setting like below
+```
+lock.show(function(err, profile, token) {
+});
+```
+You must configure the lock as shown below, to avoid the blank screen popup with the OK button.
+```
+lock.show({sso: false},function(err, profile, token) {
+});
+```
