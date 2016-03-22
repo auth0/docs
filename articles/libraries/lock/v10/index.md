@@ -204,7 +204,7 @@ var lock = new AuthLock(
 
 ### Redirect Mode vs Popup Mode
 
-In this new version of Lock, redirect is the default [authentication mode](/libraries/lock/authentication-modes). In this mode, your app is redirected to the identity provider's (IdP) site and then, that IdP will redirect you back through Auth0 after authentication. This offers some advantages, such as:
+In this new version of Lock, redirect is the default [authentication mode](/libraries/lock/authentication-modes). In this mode, your app gets redirected to the identity provider's (IdP) site and then, after authentication, that IdP will redirect you back to your app through Auth0. This offers some advantages, such as:
 
 * Browser compatibility. Since there is a known bug in Chrome for iOS that prevents popup mode from functioning properly.
 * Avoid errors caused by popup blockers (since on popup mode, a popup window is used).
