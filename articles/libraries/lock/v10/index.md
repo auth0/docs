@@ -42,7 +42,7 @@ From [npm](https://npmjs.org)
 npm install auth0-lock-next
 ```
 
-After installing the `auth0-lock-next` module, you'll need bundle it up along with all of its dependencies. We have examples for [browserify](examples/bundling/browserify/) and [webpack](examples/bundling/webpack/).
+After installing the `auth0-lock-next` module, you'll need to bundle it up along with all of its dependencies. We have examples for [browserify](examples/bundling/browserify/) and [webpack](examples/bundling/webpack/).
 
 If you are targeting mobile audiences, it's recommended that you add:
 
@@ -51,7 +51,7 @@ If you are targeting mobile audiences, it's recommended that you add:
 ```
 ## What's new?
 
-* Redirect mode is used by default (and it's recommended - explain why somewhere) and popup mode needs to be enabled explicitly.
+* Redirect mode is used by default and popup mode needs to be enabled explicitly. You can review [this section](#redirect-mode-vs-popup-mode) for more information about why we decided this.
 * The public API has been changed to make it easier to use redirect mode and make both programming models look similar.
 * Foreign languages are not provided on the Beta 1 release but still dictionary custommization can be done through `dict`.
 * Simple theming capabilities through JavaScript (`primaryColor` and `logo`). Markup and CSS changes done by Auth0 will no longer be considered breaking.
@@ -69,7 +69,7 @@ We have planned two beta releases and a release candidate. The features currentl
 
 Start by [installing](#install) Lock 10. You can use our CDN, `NPM` or `bower`.
 
-Now, the new version of lock implements [Redirect mode](/libraries/lock/authentication-modes#redirect-mode) by default. If you'd like to use [Popup mode](/libraries/lock/authentication-modes#popup-mode), you can skip to [this section](#popup-mode). __Note:__ We recommend using redirect mode since it's less error-prone than popup mode (explain why).
+Now, the new version of lock implements [Redirect mode](/libraries/lock/authentication-modes#redirect-mode) by default. If you'd like to use [Popup mode](/libraries/lock/authentication-modes#popup-mode), you can skip to [this section](#popup-mode). __Note:__ We recommend using redirect mode since it's less error-prone than popup mode. You can review [this section](#redirect-mode-vs-popup-mode) for more information regarding this matter.
 
 ### Redirect mode
 
@@ -201,3 +201,12 @@ var lock = new AuthLock(
     // handle auth
 });
 ```
+
+### Redirect Mode vs Popup Mode
+
+In this new version of Lock, redirect is the default [authentication mode](/libraries/lock/authentication-modes). In this mode, your app gets redirected to the identity provider's (IdP) site and then, after authentication, that IdP will redirect you back to your app through Auth0. This offers some advantages, such as:
+
+* Browser compatibility. Since there is a known bug in Chrome for iOS that prevents popup mode from functioning properly.
+* Avoid errors caused by popup blockers (since on popup mode, a popup window is used).
+
+Therefore, we recommend using redirect mode, and only using popup mode if you must.
