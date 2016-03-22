@@ -5,17 +5,20 @@ sitemap: false
 
 # Lock 10 Preview
 
-Lock 10 is a new version of the authentication widget that provides:
+Lock 10 is a new version of the Auth0 authentication widget that provides:
 
-* Support for custom sign up fields!
-* Easier [Redirect mode](/libraries/lock/authentication-modes#redirect-mode) implementation.
-* Improved UX.
-* No support for foreign languages on the Beta 1 release (but we'll improve that soon).
+* support for custom sign up fields;
+* easier [redirect mode](/libraries/lock/authentication-modes#redirect-mode) implementation;
+* improved UX;
 
-Check [this section](#what's-new) to find out the key differences of the new Lock.
+Auth0 plans to have two beta releases and a release candidate.
 
-## Install
+Please note that the following features, which are available on Lock 9 (the current stable release), are not yet available with Lock 10:
+- Enterprise connection support;
+- Internationalization (i18n);
+- Widget lifecycle events.
 
+<<<<<<< HEAD
 ::: panel-warning Version Notice
 Since this is an early preview we recommend to install with full version (x.y.z).
 :::
@@ -172,22 +175,23 @@ var lock = new AuthLock(
 ### Initial screen
 
 If you want to initially show lock in a predefined way, you can use the `inistialScreen` option. Valid values are `"signUp"`, `"login"` and `"resetPassword"`.
+=======
+## What's new?
 
-```js
-var lock = new AuthLock(
-  '${account.clientId}',
-  '${account.namespace}',
-  {
-    initialScreen: "signUp" //"login" or "resetPassword"
-  },
-  function(error, result) {
-    // handle auth
-});
-```
-### Theming
+* Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly.
+* The Lock Public API has been updated so that the views are similar regardless of whether you are using Redirect Mode or Popup Mode. The Public API is also easier to use with Redirect Mode.
+* The Beta 1 release of Lock does not support foreign languages, but you can still customize the dictionary via `dict`.
+* You can create simple Lock themes using JavaScript to via `primaryColor` and `logo`. You may also make customizations using markup/CSS.
+* The improved Lock UX comes with smoother transitions and animations and is keyboard friendly.
+* Lock comes with support for pre-filled fields and custom avatar implementations.
+* Lock comes with support for custom sign up fields.
+>>>>>>> 8fa4aacf9531a53f7759debe64b7d5962f8cf872
 
-Currently, the only theme option available is `primaryColor`, but more will be added soon. You can set it up as follows.
+Please see [New Features in Lock 10](/libraries/lock/v19/new-features.md) for additional information.
 
+## Migrating to Lock 10
+
+<<<<<<< HEAD
 ```js
 var lock = new AuthLock(
   '${account.clientId}',
@@ -210,3 +214,6 @@ In this new version of Lock, redirect is the default [authentication mode](/libr
 * Avoid errors caused by popup blockers (since on popup mode, a popup window is used).
 
 Therefore, we recommend using redirect mode, and only using popup mode if you must.
+=======
+Please see [Migrating to Lock 10](/libraries/lock/v10/installation.md) for installation instructions.
+>>>>>>> 8fa4aacf9531a53f7759debe64b7d5962f8cf872
