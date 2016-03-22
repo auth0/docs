@@ -7,26 +7,29 @@ sitemap: false
 
 Lock 10 is a new version of the authentication widget that provides:
 
-* Support for custom sign up fields!
-* Easier [Redirect mode](/libraries/lock/authentication-modes#redirect-mode) implementation.
-* Improved UX.
-* No support for foreign languages on the Beta 1 release (but we'll improve that soon).
+* support for custom sign up fields;
+* easier [redirect mode](/libraries/lock/authentication-modes#redirect-mode) implementation;
+* improved UX;
 
-Check [this section](#what's-new) to find out the key differences of the new Lock.
+Currently, there is no support for foreign languages on the Beta 1 release (but we'll improve that soon).
 
-## Install
+Please see the [what's new](#what's-new) document for information about the differences between the old and new versions of Lock.
+
+## Installation
 
 ::: panel-warning Version Notice
-Since this is an early preview we recommend to install with full version (x.y.z).
+Because this is an early preview, we recommend installing the full version (x.y.z).
 :::
 
-From CDN
+You can get the required Lock installation package from several sources.
+
+CDN:
 
 ```html
 <script src="http://cdn.auth0.com/js/lock-next-2.2.1.min.js"></script>
 ```
 
-From [bower](http://bower.io)
+[Bower](http://bower.io):
 
 ```sh
 bower install auth0-lock-next
@@ -36,28 +39,29 @@ bower install auth0-lock-next
 <script src="bower_components/auth0-lock-next/dist/auth0-lock-next.min.js"></script>
 ```
 
-From [npm](https://npmjs.org)
+[npm](https://npmjs.org):
 
 ```sh
 npm install auth0-lock-next
 ```
 
-After installing the `auth0-lock-next` module, you'll need bundle it up along with all of its dependencies. We have examples for [browserify](examples/bundling/browserify/) and [webpack](examples/bundling/webpack/).
+After installing the `auth0-lock-next` module, you will need bundle it up along with all of its dependencies. We have examples for [browserify](examples/bundling/browserify/) and [webpack](examples/bundling/webpack/).
 
-If you are targeting mobile audiences, it's recommended that you add:
+If you are targeting mobile audiences, we recommend that you add the following to the `head` element of your HTML:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 ```
+
 ## What's new?
 
-* Redirect mode is used by default (and it's recommended - explain why somewhere) and popup mode needs to be enabled explicitly.
-* The public API has been changed to make it easier to use redirect mode and make both programming models look similar.
-* Foreign languages are not provided on the Beta 1 release but still dictionary custommization can be done through `dict`.
-* Simple theming capabilities through JavaScript (`primaryColor` and `logo`). Markup and CSS changes done by Auth0 will no longer be considered breaking.
-* Improved UX. We implemented smoother transitions, animations, keyboard friendly.
-* Support for pre-filled fields and custom avatar implementations.
-* Support for custom sign up fields.
+* By default, Lock uses redirect mode. Popup mode needs to be enabled explicitly.
+* The public API has been updated to make it easier to use redirect mode. Both programming models now look similar.
+* The Beta 1 release of Lock does not support foreign languages, but you can still customize the dictionary via `dict`.
+* You can use JavaScript to create simple themes via `primaryColor` and `logo`. You may also use Markup and make CSS changes via Auth0.
+* The improved UX comes with smoother transitions and animations and is keyboard friendly.
+* Lock comes with support for pre-filled fields and custom avatar implementations.
+* Lock comes with support for custom sign up fields.
 
 Learn [how to migrate to the new version of Lock](#how-to-migrate-to-lock-10)
 
