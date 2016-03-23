@@ -29,7 +29,7 @@ From CDN
 From [bower](http://bower.io)
 
 ```sh
-bower install auth0-lock-next
+bower install auth0-lock#10.0.0-beta.1
 ```
 
 ```html
