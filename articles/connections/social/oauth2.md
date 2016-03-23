@@ -5,63 +5,18 @@ image:
 
 # Add a generic OAuth2 Authorization Server to Auth0
 
-The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can use [Auth0's Connections API](/api/v2#!/Connections/post_connections) to add any **OAuth2 Authorization Server** as an identity provider.
+The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, can add any other OAuth2 provider using the **Custom Social Connections** [extension](https://manage.auth0.com/#/extensions).
 
-**NOTE:**  Auth0 implements the standard [Authorization Code Grant flow](/protocols#oauth-server-side).
+![](https://www.dropbox.com/s/dxx1lv0zqhc6kkf/Screenshot%202016-03-23%2012.09.19.png?dl=1)
 
-## Create a custom connection
+### The fetchUserProfile script
 
-You will require an [API V2 token](/api/v2/tokens) with `create:connections` scope in order to invoke the  [Create Connection](/api/v2#!/Connections/post_connections) endpoint. 
-
-The example below creates a new **Google** custom connection. 
-
-```
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @google-oauth-connection.json https://${account.namespace}/api/v2/connections
-```
-With the **google-oauth-connection.json** file having:
-
-```
-{
-  "name": "custom-google-oauth2",
-  "strategy": "oauth2",
-  "options": {
-    "client_id": "{YOUR_GOOGLE_CLIENT_ID}",
-    "client_secret": "{YOUR_GOOGLE_CLIENT_SECRET}",
-    "authorizationURL": "https://accounts.google.com/o/oauth2/auth",
-    "tokenURL": "https://accounts.google.com/o/oauth2/token",
-    "scope": ["profile", "email"],
-    "scripts": {
-      "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://www.googleapis.com/userinfo/v2/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); cb(null, JSON.parse(b)); }); }"
-    }
-  },
-  "enabled_clients":["${account.clientId}"]
-}
-```
-
-The key parameters for a connection are:
-
-* **name**: how the connection will be referenced in Auth0 or in your app.
-* **strategy**: defines the protocol implemented by the provider. This should always be `oauth2`.
-
-You can optionally add:
-
-* **options**: object containing:
-
-  * **client_id** and **client_secret**: obtained from your provider.
-  * **authorizationURL**: the URL where the transaction begins. Usually similar to `https://your.oauth2.server/oauth2/authorize`.
-  * **tokenURL**: the URL Auth0 will use to exchange the `code` for an `access_token`. Usually similar to `https://your.oauth2.server/oauth2/token`.
-  * **scope**: the scope parameters that you want to request consent for (e.g. `profile`, etc.).
-  * **fetchUserProfile**: a custom script that returns a JSON object with user info.
-
-* **enabled_clients**: array containing the identifiers of the clients for which the connection is to be enabled. If the array is empty or the property is not specified, no clients are enabled.
-
-### Custom fetchUserProfile script
-
-A custom `fetchUserProfile` script can be included in the `scripts` parameter to retrieve the user profile:
+A custom `fetchUserProfile` script will be called after the user logged in on the OAuth2 provider. It's a script that Auth0 will execute to call the OAuth2 provider API and get the user information.
 
 ```js
 function(access_token, ctx, callback){
-
+  // call the oauth2 provider and return a profile
+  // here we are returning a "mock" profile, you can use this to start with to test the flow.
   var profile = {
     user_id: '123',
     given_name: 'Eugenio',
@@ -77,7 +32,7 @@ The `access_token` parameter can be used for authenticating requests to the prov
 
 **NOTE:** We recommend using the field names from the [normalized profile](/user-profile#normalized-user-profile).
 
-For example, the following code will retrieve the user profile from **GitHub**:
+For example, the following code will retrieve the user profile from **GitHub** API:
 
 ```js
 function(access_token, ctx, callback) {
@@ -96,7 +51,7 @@ function(access_token, ctx, callback) {
 
 You can filter, add or remove anything from the profile returned from the provider. However, it is recommended that you keep this script as simple as possible. More sophisticated manipulation of user information can be achieved through the use of [Rules](/rules). One advantage of using **Rules** is that they apply to *any* connection.
 
-## Use your custom connection
+## Login using the custom connection
 
 You can use any of the Auth0 standard mechanisms (e.g. direct links, [Auth0 Lock](/lock), [auth0.js](/auth0js), etc.) to login a user with the your custom connection.
 
