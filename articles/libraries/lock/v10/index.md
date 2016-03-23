@@ -39,7 +39,7 @@ bower install auth0-lock-next
 From [npm](https://npmjs.org)
 
 ```sh
-npm install auth0-lock-next
+npm install auth0-lock@10.0.0-beta.1
 ```
 
 After installing the `auth0-lock-next` module, you'll need to bundle it up along with all of its dependencies. We have examples for [browserify](examples/bundling/browserify/) and [webpack](examples/bundling/webpack/).
