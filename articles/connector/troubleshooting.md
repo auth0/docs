@@ -4,7 +4,7 @@ We do our best to support many scenarios and different configurations.
 
 Unfortunately some issues are very hard to predict. Especially those that happen behind our customer's firewall. We have less control over that environment, and the related infrastructure dependencies (e.g. network, proxies, OS versions, etc).
 
-If you are experiencing problems with the connector, please send us an email to [support](mailto:support@auth0.com) with the following information:
+If you are experiencing problems with the connector, please [open a support ticket](https://support.auth0.com) with the following information:
 
 -  Symptoms, explain your problem
 -  the `config.json` from:
@@ -32,7 +32,7 @@ The __Run__ button on the __Troubleshooting__ page will run the troubleshooting 
 
 **Note:** In order to detect issues with certificates you'll need to set `CONNECTIONS_API_V2_KEY` in the `config.json` file as described [here](/connector/modify#using-the-configuration-file).
 
-The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to [support](mailto:support@auth0.com) if you're experiencing problems with the connector.
+The __Export__ button will create a .zip file containing the `config.json` file, the `lib\\profileMapper.js` file, the `certs` folder and the output of the troubleshooting tool. Send this troubleshooting package to us by opening a [support ticket](https://support.auth0.com) if you're experiencing problems with the connector.
 
 ## Troubleshooting Tool
 
@@ -74,7 +74,7 @@ When the domain does not exist or is unreachable `nltest` will return an error m
 
 ### UNABLE_TO_VERIFY_LEAF_SIGNATURE error message
 
-This error applies to the AD/LDAP Connector in combination with the Auth0 Appliance. 
+This error applies to the AD/LDAP Connector in combination with the Auth0 Appliance.
 
 When the connector will fail to start if unable to validate the SSL certificate configured in the appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
 

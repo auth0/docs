@@ -12,4 +12,4 @@ The fastest way to identify the underlying issue is to export a `HAR` file from 
 1. Proceed with the navigation that presents issues.
 1. When complete, go back to the __Network__ tab, right click and then select **Save as HAR**: ![docs/img/ss-2015-01-19T11-32-15.png](/media/articles/har/ss-2015-01-19T11-32-15.png)
 1. Before sending the HAR file to us, make sure to obfuscate any sensitive information using a text editor (e.g. remove passwords, client_secrets, etc).
-1. Send the file to [support](mailto://support@auth0.com?subject=HAR file)
+1. Send the file to support by opening a [support ticket](https://support.auth0.com)

@@ -149,8 +149,6 @@ The script runs in a JavaScript sandbox where you can use the full power of the 
 * [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
 * [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
 
-**NOTE:** If you require support for other libraries, email Auth0 at [support@auth0.com](mailto:support@auth0.com?subject=Libraries in custom connection).
-
 ## Auth0 Login widget
 
 After you have enabled the database connection, the Auth0 Login widget will automatically change its appearance to allow users to enter their `username` and `password`. Once entered, this data is passed to your scripts.
