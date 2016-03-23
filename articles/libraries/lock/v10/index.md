@@ -23,13 +23,13 @@ Since this is an early preview we recommend to install with full version (x.y.z)
 From CDN
 
 ```html
-<script src="http://cdn.auth0.com/js/lock-next-2.2.1.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.1/lock.min.js"></script>
 ```
 
 From [bower](http://bower.io)
 
 ```sh
-bower install auth0-lock-next
+bower install auth0-lock#10.0.0-beta.1
 ```
 
 ```html
@@ -39,7 +39,7 @@ bower install auth0-lock-next
 From [npm](https://npmjs.org)
 
 ```sh
-npm install auth0-lock-next
+npm install auth0-lock@10.0.0-beta.1
 ```
 
 After installing the `auth0-lock-next` module, you'll need to bundle it up along with all of its dependencies. We have examples for [browserify](examples/bundling/browserify/) and [webpack](examples/bundling/webpack/).
