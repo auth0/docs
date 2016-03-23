@@ -23,7 +23,7 @@ Since this is an early preview we recommend to install with full version (x.y.z)
 From CDN
 
 ```html
-<script src="http://cdn.auth0.com/js/lock-next-2.2.1.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.1/lock.min.js"></script>
 ```
 
 From [bower](http://bower.io)
