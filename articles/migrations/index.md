@@ -3,7 +3,7 @@ url: /migrations
 ---
 
 # Migrations
-From time to time we must make breaking changes with the Auth0 platform. The primary reason we do this is for security reasons. If we find a known vulnerable or something in our platform that is not up to our high standards of security we will work to correct the issue. Occasionally, correcting issues will cause a breaking change to our customer's application. Depending on the severity of the issue we may have to make the change immediately. For changes that do not require immediate changes we will allow a grace period to enable the migration in order to allow you time to update your application.
+From time to time we must make breaking changes with the Auth0 platform. The primary reason we do this is for security reasons. If we find a vulnerability or other problem in our platform that is not up to our high standards of security we will work to correct the issue. Occasionally, correcting issues will cause a breaking change to our customer's application. Depending on the severity of the issue we may have to make the change immediately. For changes that do not require immediate changes we will allow a grace period to enable the migration in order to allow you time to update your application.
 
 ## Migration Process
 When we decide to create a migration the following process will be used.
