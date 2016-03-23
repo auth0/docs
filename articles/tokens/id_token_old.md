@@ -81,27 +81,23 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 
 ## Uses
 
+The `id_token` is designed to be used to pass information about a user between websites,  web programs and APIs in an industry standard, URL-friendly fashion.  One advantage of using an `id_token` for this purpose is that the recipient can validate the token without having to make a call back to the issuer of the token.  The token is also designed to enable being passed from one web property to another, via an untrusted client, such that the client cannot alter the token without such tampering being evident to the recipient.
+
 The `id_token` can be used to call the /tokeninfo endpoint within the Auth0 authentication API to retrieve the user’s complete profile.  See the [/tokeninfo endpoint documentation](/auth-api#user-profile) for more details.
 
 The `id_token` can also be used to call the /delegation endpoint within the Auth0 authentication API to obtain another token for another API.  See the [/delegation endpoint documentation](/auth-api#delegated) for more information.
 
+The `id_token` can also be used to call other APIs.
+
 The [Delegation token request sample](https://github.com/auth0/auth0.js#delegation-token-request) provides further examples of using the id_token for other APIs.
 
 This [Animated Sequence Diagram](/sequence-diagrams) shows the sequence of calls used to get an `id_token`.
-
-::: warning-banner
-It is not suggested that you use an `id_token` to secure an API. For this purpose, you should rather make use of [access tokens](/tokens/access_token).
-:::
-
-?? What is the uses of the id token going forward? Access token will now be used in many instances we used id token before ??
 
 ## Best Practices
 
 This section contains pointers on best practices related to the `id_token`.
 
 ### Token Validation
-
-?? Not sure whether the reference to SPAs are applicable anymore. Should now use the access token in SPAs ??
 
 Single Page Applications or mobile apps do not need to validate the JWT as they just pass it to something else.  Server side APIs that receive the JWT, however, do need to validate  it. There are server-side APIs to do such validation such as this [example for node.js](https://github.com/auth0/node-jsonwebtoken).
 
