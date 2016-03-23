@@ -32,7 +32,7 @@ var management = new ManagementClient({
 
 This client must be used to access Auth0's [Authentication API](https://auth0.com/docs/auth-api).
 
-The **AuthenticationClient** constructor takes an *optional* client ID, if specified it will be used as the default value for all endpoints that accept a client ID.
+The `AuthenticationClient` constructor takes an optional client ID, if specified it will be used as the default value for all endpoints that accept a client ID.
 
 ```js
 var AuthenticationClient = require('auth0').AuthenticationClient;
@@ -45,10 +45,10 @@ var auth0 = new AuthenticationClient({
 
 ### Example operations with the Authentication API Client
 
-These are some of the operations you can make with this client. For more information, review [this section](#full-documentation-and-source-code).
+These are some of the operations you can make with this client. For more information, please review [this section](#full-documentation-and-source-code).
 
 #### Getting Profile
-Get the user information based on the Auth0 access token (obtained during login). You can find more information in the [API Docs](https://auth0.com/docs/auth-api#!#get--userinfo). 
+Get the user information based on the Auth0 access token (obtained during login). 
 
 ```js
 auth0.getProfile(data, function (err, userInfo) {
@@ -81,7 +81,7 @@ auth0.changePassword(data, function (err, message) {
 
 ### Example operations with the Management API Client
 
-These are some of the operations you can make with this client. For more information, review [this section](#full-documentation-and-source-code).
+These are some of the operations you can make with this client. For more information, please review [this section](#full-documentation-and-source-code).
 
 #### Getting all Connections
 
