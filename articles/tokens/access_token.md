@@ -29,14 +29,39 @@ The `access_token` used to be an opaque string that was used to call the Auth0 A
 The Auth0 access token can be obtained in several ways.
 Calls to Lock or library functions that invoke authentication will return the `access_token`.
 
-* Calls to the Lock widget will return `access_token` as shown in the [Lock documentation](/libraries/lock)
-* [Examples using auth0.js](https://github.com/auth0/auth0.js)
-* The [/authorize endpoint in the authentication API](/auth-api) will return `access_token`
+* Calls to the Lock widget will return `access_token` as shown in the [Lock documentation](/libraries/lock) ?? Is this true - can we still use lock ??
+* [Examples using auth0.js](https://github.com/auth0/auth0.js) ?? is this still true ??
+* The [/i/oauth2/authorize endpoint in the authentication API](/auth-api) when using the Authorization Code Grant flow or Implicit Grant flow will return an `access_token`
+* The [?? endpoint in the authentication API](??) when using Client Credentials Grant will issue an `access_token`
 * Check the [List of tutorials](/tutorials) to see how to make calls to libraries for other languages/SDKs.
 
 ## How to control contents of access token
 
-?? Are we going to cover this here
+The contents of the `access_token`, specifically the claims contained within it, are controlled by the use of a parameter called `scope` which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
+
+?? Is this still true - can we use lock ??
+
+```
+lock.show({
+   responseType: ‘token’,
+   authParams: {
+      scope: ‘appointments contacts’
+    }
+ });
+```
+The above sample, specifying `appointments contacts` will result in a JWT with claims for accessing appointments and contacts. The responseType should be `token` for Implicit Grant flow and `code` for Authorization Code Grant flow.
+
+The scope of the `access_token` JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context) ?? Should be still suggest this. Also AFAIK rules won't work anymore with the new endpoint ??
+
+There is a [sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
+
+Additional information on the `access_token` is [here](/jwt)
+
+A valid JWT can be pasted into the [jwt.io website](https://jwt.io) to view the contents of the JWT.
+
+A [blog entry on JWT](https://auth0.com/blog/2015/07/21/jwt-json-webtoken-logo/) provides an explanation of why it is getting to be more popular.
+
+[Additional samples](https://github.com/auth0/auth0.js) show use of the auth0.js library.
 
 ## Validity
 
