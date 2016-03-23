@@ -1,16 +1,16 @@
 ---
 description: "Learn how Auth0 helps with your decision-making process, and makes it easy to gather data about your users. Explore a specific example of User Analytics, including code snippets."
-fourKeyConcepts: 
-  - 
+fourKeyConcepts:
+  -
     icon: css-class-bud-icon
     text: "The Problem: How can I get more data about my users?"
-  - 
+  -
     icon: css-class-bud-icon
     text: "The Solution: Auth0 Redirect Rules & Social Login"
-  - 
+  -
     icon: css-class-bud-icon
     text: "The Details: Walking Through a Specific Analytics Example"
-  - 
+  -
     icon: css-class-bud-icon
     text: "The Result: Just a Few Dozen Lines of Code to More Insight"
 hash: user-analytics
@@ -25,7 +25,7 @@ type: use-case
 ---
 
 # Powering User Analytics With Identity
-## THE PROBLEM
+## The Problem
 InnovaShoes is a footwear manufacturer that sells its products through an online store. The company plans to launch a new line of male running shoes with cutting-edge technology.  As part of this launch, InnovaShoes will launch a marketing campaign targeted at existing male customers who have shown interest in fitness. The campaign has three goals:
 
 - Send a preorder email about the new running shoes to male customers of their online store. Additionally, they want to segment these users by age and by interest in fitness, as men between 20 and 40 years old are more likely to have both the interest and disposable income to buy  a premium fitness product.
@@ -45,7 +45,7 @@ The better InnovaShoes knows its customers, the more they can tailor the custome
 
 - **Better login security**: When users don’t have to create yet another username and password, they’re more likely to use good practices in choosing hard-to-guess passwords and use multi-factor authentication for the few sites such as social networks that hold their identity information. Your customers are tired of the username and password treadmill - that’s why they’ll “Login with Facebook”.
 
-This information is very useful for obtaining data and demographics about your users, which in turn is useful for targeted marketing campaigns or in product management decisions. 
+This information is very useful for obtaining data and demographics about your users, which in turn is useful for targeted marketing campaigns or in product management decisions.
 
 ### How do you get User Analytics?
 
@@ -107,19 +107,12 @@ To get near real-time statistics, you could buffer high-frequency authentication
 
 _Use Case Architecture with Real-time analytics_
 
-## CONCLUSION
+## Conclusion
 Auth0 is powerful authentication platform, not an analytics engine, so it does not provide elaborate analytics right out of the box. However, Auth0’s rules engine gives you the flexibility to easily extract whatever data you need from authentication events, and enhance user profile data through web APIs as users register and authenticate. With this powerful, real-time capability, you can implement any analytics scenario you can imagine. Auth0 includes an ever-growing list of rule templates divided by categories. The power is there for you to use in delivering an even more personalized experience for your customers through advanced user analytics. Adding **social login** to your applications takes only minutes, and provides rich, up-to-date information about your users. By combining both capabilities, you're presented with an endless realm of possibilities for discovering new ways to engage your users.
 
 ![Creating a new rule using templates](/media/articles/email-wall/use-cases/analytics/rule-templates.png)
 
-_Creating a new rule using templates_
-
-Intrigued by the possibilities? Want some help in figuring out how best to leverage Auth0’s analytics flexibility? Help is just a [Slack chat](http://chat.auth0.com/) or [email](mailto:support@auth0.com) away, to get you past any hurdles quickly and mining user data for more insights.
-
-Try it out today! Auth0 has plans for everyone's needs, including a free-forever plan that supports up to 7,000 active users and two social identity providers. For more information check the [Pricing page](https://auth0.com/pricing), or [contact the Auth0 sales team](mailto:sales@auth0.com) if you have any questions or custom needs.
-
-
-## APPENDIX A: PROTOTYPE CODE
+## Appendix A: Prototype Code
 Here are some sample code snippets that are useful for implementing the logic described in this use case.
 
 ### Profile Enrichment Rule
@@ -206,7 +199,7 @@ function (user, context, callback) {
   if (user.app_metadata.sentiment_initialized) {
     return callback(null, user, context);
   }
-  
+
   var twitterHandle = getTwitterHandle(user);
 
   if (!twitterHandle) {
@@ -240,7 +233,7 @@ function getTwitterHandle(user) {
       for (var key in fullContactInfo.socialProfiles) {
         if (fullContactInfo.socialProfiles[key].type === 'twitter'){
           return fullContactInfo.socialProfiles[key].username;
-        }            
+        }
        }
     }
     return null;
@@ -250,4 +243,3 @@ function getTwitterHandle(user) {
 
 ### Dashboard sample code
 You can find the dashboard sample code in this [repository](https://github.com/auth0/auth0-dashboard-widget). You can use it as a starting point and build your own. The readme file will provide you with information to run the example. You can view a live version [here](http://auth0.github.io/auth0-dashboard-widget/).
-

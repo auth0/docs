@@ -26,5 +26,3 @@ Once the webhook is configured in your GitHub repository, this is what you can e
 * any deleted `/rules/*.js` file will result in deletion of the corresponding Auth0 rule,
 * any added or modified `/rules/*.js` file will result in adding or modifying of the corresponding Auth0 rule,
 * all added or modified rules are automatically enabled.
-
-> Looking for something not listed here? Write to us at [support@auth0.com](mailto:support@auth0.com)

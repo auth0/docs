@@ -46,7 +46,3 @@
 
 * [MQTT](/scenarios/mqtt)
 * [Tessel](/scenarios/tessel)
-
----
-
-> Using Auth0 in other ways? [Let us know!](mailto://support@auth0.com?Subject=I'm building something really cool)

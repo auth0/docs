@@ -4,7 +4,7 @@ url: /support
 
 # Support Options
 
-Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our [discussion forum](https://ask.auth0.com) to receive support from our engineers. Additionally, paid accounts receive support via email (<support@auth0.com>). Email response times will vary based on your support plan (shown below). Additionally, our 24/7 support customers will be provided a support phone number.
+Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our [discussion forum](https://ask.auth0.com) to receive support from our engineers. Additionally, paid accounts receive ticketed support via our [Support Center](https://support.auth0.com). Ticket response times will vary based on your support plan (shown below). Additionally, our 24/7 support customers will be provided a support phone number.
 
 Our __Premium Support__ option is recommended for all subscribers using Auth0 in a production environment.
 
@@ -48,7 +48,7 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
       <td class="success">Yes</td>
     </tr>
     <tr>
-      <th>Email Support</th>
+      <th>Ticketed Support</th>
       <td class="warning">Limited</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
