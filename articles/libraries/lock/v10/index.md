@@ -168,6 +168,29 @@ var lock = new AuthLock(
     // handle auth
 });
 ```
+### Custom Fields on Signup
+
+One of the new features in Lock 10 is the ability to define custom fields when a user signs up.
+
+```js
+var lock = new AuthLock(
+  '${account.clientId}',
+  '${account.namespace}',
+  {
+    additionalSignUpFields: [{
+      name: "address",  
+      icon: "https://cdn.auth0.com/icons/world.svg", 
+      placeholder: "your address"
+    }]
+  },
+  function(error, result) {
+    // handle auth
+});
+```
+
+![custom signup fields](https://www.dropbox.com/s/zs15cf7rx56jatt/signupcustom.png?dl=1)
+
+The fields defined here will be written to the `user_metadata` field of the user.
 
 ### Initial screen
 
