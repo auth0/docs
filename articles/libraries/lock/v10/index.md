@@ -178,8 +178,8 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     additionalSignUpFields: [{
-      name: "address",  
-      icon: "https://cdn.auth0.com/icons/world.svg", 
+      name: "address",
+      icon: "https://cdn.auth0.com/icons/world.svg",
       placeholder: "your address"
     }]
   },
@@ -188,7 +188,7 @@ var lock = new AuthLock(
 });
 ```
 
-![custom signup fields](https://www.dropbox.com/s/zs15cf7rx56jatt/signupcustom.png?dl=1)
+![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
 The fields defined here will be written to the `user_metadata` field of the user.
 
