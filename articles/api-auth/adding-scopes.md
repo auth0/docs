@@ -1,4 +1,8 @@
-#### Adding Scopes
+---
+sitemap: false
+---
+
+# API Authorization: Adding Scopes
 Sometimes you want to handle more granular scopes on your API. For this scenario you will require you to work with the Auth0 Management API.
 
 For this you will need the following items,
@@ -8,10 +12,10 @@ For this you will need the following items,
   - `update:client_grants`
   - `read:client_grants`
 
-###### Updating the API scopes
-1. `PATCH` `{your-tenant-name}.auth0.com/api/v2/resource-servers/YOUR_API_ID` with payload
+## Updating the API scopes
+`PATCH` `{your-tenant-name}.auth0.com/api/v2/resource-servers/YOUR_API_ID` with payload
 
-  ```
+```
 {
   "scopes": [{ "value": "sample-scope"}, ... , {"value": "another-scope"}]
 }
@@ -19,28 +23,28 @@ For this you will need the following items,
 
 You can define any number of scopes here.
 
-###### Updating the Client Grants
+## Updating the Client Grants
 
 Now that we defined the universe of possible scopes for your API, we are going to need to update the `client_grant` to actually contain a subset of these scopes. For this, we are first going to get the `client_grant` for the API, extract its ID and then submit a `PATCH` operation.
 
-1. `GET` `{your-tenant-name}.auth0.com/api/v2/client-grants`
+`GET` `{your-tenant-name}.auth0.com/api/v2/client-grants`
 
-  Sample Response:
+Sample Response:
 
-  ```
+```
 [
-    {
-        "id": "cgr_JGa6ZckLjnt60rWe",
-        "client_id": "YOUR_AUTHORIZED_CLIENT_ID",
-        "audience": "YOUR_API_IDENTIFIER",
-        "scope": ""
-    }
+  {
+    "id": "cgr_JGa6ZckLjnt60rWe",
+    "client_id": "YOUR_AUTHORIZED_CLIENT_ID",
+    "audience": "YOUR_API_IDENTIFIER",
+    "scope": ""
+  }
 ]
 ```
 
-2. `PATCH` `{your-tenant-name}.auth0.com/api/v2/client-grants/CLIENT_GRANT_ID` with payload
+`PATCH` `{your-tenant-name}.auth0.com/api/v2/client-grants/CLIENT_GRANT_ID` with payload
 
-  ```
+```
 {
   "scope": ["sample-scope", ..., "another-scope"]
 }
