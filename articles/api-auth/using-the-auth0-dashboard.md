@@ -25,4 +25,4 @@ sitemap: false
 
 7. Update your API to parse this token out of the requests and validate them. For this you will need to use the **signing_secret** of the API, which is the one used for signing the `access_tokens` using the HS256 algorithm.
 
-You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [to this separate section](#asking-for-access-tokens) for details on generating access tokens or you can continue by [setting up custom scopes for your API](#adding-scopes) if that's your preference.
+You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [to this separate section](/api-auth/asking-for-access-tokens) for details on generating access tokens or you can continue by [setting up custom scopes for your API](/api-auth/adding-scopes) if that's your preference.

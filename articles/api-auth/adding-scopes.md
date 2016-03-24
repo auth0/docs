@@ -6,7 +6,7 @@ sitemap: false
 Sometimes you want to handle more granular scopes on your API. For this scenario you will require you to work with the Auth0 Management API.
 
 For this you will need the following items,
-- The API Id (which you can get from the Settings tab of your API in the API section)
+- The API Id (which you can get from the Settings tab of your API [in the API section](/api-auth/using-the-auth0-dashboard))
 - A valid APIv2 token (which you can get from the API Explorer) with the following scopes
   - `update:resource_server`
   - `update:client_grants`

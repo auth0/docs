@@ -31,4 +31,4 @@ The response will be a signed JWT token with
 }
 ```
 
-> *NOTE:* If you executed the setup steps in the Auth0 Dashboard you will notice that the `scope` property is blank. At this point we don't provide support for custom scopes in the Auth0 Dashboard. You can still use this token to authorize access to the the parts of your API that don't require elevated permissions. If you would like to add scopes for your API you can follow [a few extra steps](#adding-scopes).
+> *NOTE:* If you executed the setup steps in the Auth0 Dashboard you will notice that the `scope` property is blank. At this point we don't provide support for custom scopes in the Auth0 Dashboard. You can still use this token to authorize access to the the parts of your API that don't require elevated permissions. If you would like to add scopes for your API you can follow [a few extra steps](/api-auth/adding-scopes).
