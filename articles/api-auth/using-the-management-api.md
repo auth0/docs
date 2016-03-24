@@ -22,7 +22,7 @@ The Resource Server entity is going to represent the API that you want to issue 
 
 We recommend using your public API endpoint as an identifier.
 
-For this example, I'm going to use _"My Sample API"_ for name and _"https://my-api-uri"_ as identifier.
+For this example, we are going to use _"My Sample API"_ for name and _"https://my-api-uri"_ as identifier.
 
 `POST` to `{your-tenant-name}.auth0.com/api/v2/resource-servers` with payload:
 
@@ -35,7 +35,7 @@ For this example, I'm going to use _"My Sample API"_ for name and _"https://my-a
 }
 ```
 
-You can include multiple scopes if you desire. This array represent the universe of scopes your API will support. You can later modify this in any way by issuing a `PATCH` operation as described [in this separate section](#adding-scopes).
+You can include multiple scopes if you desire. This array represent the universe of scopes your API will support. You can later modify this in any way by issuing a `PATCH` operation as described [in this separate section](/api-auth/adding-scopes).
 
 Response:
 
@@ -88,4 +88,4 @@ Now that we have all the elements in place we can now start asking for authoriza
 
 Update your API to parse this token out of the requests and validate them. For this you will need to use the **signing_secret** of the API, which is the one used for signing the `access_tokens` using the HS256 algorithm.
 
-You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [here](#asking-for-access-tokens) for details on generating access tokens or you can continue by [setting up custom scopes for your API](#adding-scopes).
+You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [here](/api-auth/asking-for-access-tokens) for details on generating access tokens or you can continue by [setting up custom scopes for your API](/api-auth/adding-scopes).
