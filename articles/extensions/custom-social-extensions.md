@@ -1,10 +1,10 @@
-# Custom Social Connections
+# Auth0 Extension: Custom Social Connections
 
-Custom Social Connections allows you to easily manage multiple social connections.
+The Custom Social Connections extension allows you to easily manage multiple social connections.
 
 ## Setting Up a New Social Connection
 
-To install the Custom Social Connection app, click on the appropriate box on the main Extensions page of the Management Portal. You will be prompted to install the app.
+To install the Custom Social Connection app, click on the "Custom Social Connections" box on the main Extensions page of the Management Portal. You will be prompted to install the app.
 
 ![](/media/articles/extensions/installing-custom-social-connections.png)
 
@@ -12,13 +12,13 @@ At this point, you will see the app listed under "Installed Extensions."
 
 ![](/media/articles/extensions/installed-custom-social-extension.png)
 
-Once you have installed the app, you will need to configure it to work with whatever social providers you require. To do so, click on the link to the app listed under "Installed Extensions".
+Once you have installed the app, you will need to configure it to work with whatever social providers you require. To do so, click on the "Custom Social Connections" link listed under "Installed Extensions".
 
 You will be asked to authorize the Custom Social Connections app. If you do so, the New Connection window will pop open.
 
-Click the slider next to the social provider you are interested in setting up. The slider will turn from grey to green, indicating that a connection to that provider exists.
-
 ![](/media/articles/extensions/custom-social-connections.png)
+
+Click the slider next to the social provider you are interested in setting up. The slider will turn from grey to green, indicating that a connection to that provider exists.
 
 ### Configuring Social Connection Settings
 
@@ -37,6 +37,8 @@ The Settings page is used to provide the information required to set up the soci
 - __Token URL__: The URL used to exchange the code generated from the information you provide for an access_token;
 - __Scope__: The scope parameters for which you want access rights;
 - __Fetch User Profile Script__: The function that returns the user profile and associated information.
+
+After you have provided values for the required fields, click "Save" to persist your changes.
 
 #### New Connection: Apps
 
