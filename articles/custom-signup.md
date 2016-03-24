@@ -1,13 +1,14 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields other than email and password.
-[Lock](lock) has a `signup` mode but it does not support adding arbitrary fields,
-so you will have to implement your own UI for signup.
-Lock can still be used for logging in to your application.
+In some cases, you may want to customize the user sign up form with more fields other than email and password. Read below to learn how to do it using Lock or the API.
 
-> Before implementing this, note that in most cases it's desirable to keep the signup process as friction-free as possible.
-It's a better UX to request only login information (e.g. email + password) and then ask for application-specific information as needed when a user logs in to your application.
-This also lets you ask for only the missing information that a third-party identity provider might not have provided, e.g. a Facebook user giving access to their full name but not their email address.
+## Using Lock
+
+Lock 10 supports custom fields for the signup. Read more: [Lock 10 Preview Release](/libraries/lock/v10).
+
+![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
+
+# Using the API
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
