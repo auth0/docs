@@ -6,8 +6,7 @@ sitemap: false
 
 1. Open the Auth0 Dashboard and browse to the Applications section.
 2. Here you will create a new Application for each of the clients that will consume the API you want to generate access tokens for.
-3. Navigate to the API section by browsing
-  `manage.auth0.com/#/apis/`
+3. Navigate to the API section by browsing to [manage.auth0.com/#/apis](http://manage.auth0.com/#/apis)
 
   > *NOTE*: This will open the API section (you won't be able to navigate from the sidebar since we haven't made the section public)
 
