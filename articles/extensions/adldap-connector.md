@@ -4,7 +4,7 @@ The Auth0 AD/LDAP Connector Health Monitor exposes an API endpoint of your choic
 
 ## Configuring the Extension
 
-To complete installation of this extension, provide the following configuration variables:
+To complete installation of this extension, click on the Auth0 AD/LDAP Connector Health Monitor box in the list of provided extensions on the Extensions page of the Management Portal. In the "Install Extension" window that then pops open, you will be asked to provide the following configuration variables:
 
 - Auth0_Domain: The domain of your Auth0 app;
 - Auth0_Global_Client_ID: The Auth0 Global Client ID for your app;

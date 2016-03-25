@@ -35,7 +35,7 @@ Once you have installed your extension, you...
 
 Under the "Installed Extensions" tab you will find your newly-installed extension listed. Click on the link to obtain more information about the app. You will be prompted to authorize the extension's access to your Auth0 account.
 
-After you've authorized the extension's access to your account, you will be presented with a token that is similar to the following:
+After you've authorized the extension's access to your account, you will be presented with a [JSON Web Token](/tokens/) that is similar to the following:
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlJERTFPRVV5UkRFNFJVWTVPVGRCT0RNM09UZ3hNRUpFTWtGQ01VUkZRVGcxTlRVeFJERkRSQSJ9.eyJpc3MiOiJodHRwczovL2F1dGgwLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtYXBwc3xrYXRpZUBhdXRoMC5jb20iLCJhdWQiOlsiaHR0cHM6Ly9hdXRoMHVzZXIuYXV0aDAuY29tL2FwaS92Mi8iLCJodHRwczovL2F1dGgwLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJhenAiOiJodHRwczovL3NhbmRib3guaXQuYXV0aDAuY29tL2FwaS9ydW4vYXV0aDB1c2VyL2F1dGgwLWV4dGVuc2lvbi1ib2lsZXJwbGF0ZSIsImV4cCI6MTQ1ODg3MTE5MywiaWF0IjoxNDU4ODM1MTkzLCJzY29wZSI6InJlYWQ6Y29ubmVjdGlvbnMgb3BlbmlkIHByb2ZpbGUifQ.GJgPrH_s0_u3wRdHvlvvoOm0wyA6JLFEa8R_gfAyu08wQiGVGNtnvyG1wWAEHk7ALnhDHn3O-qyB4R21ttbNtYxpxxthhhQrwR4lt2enyBnMxfxgSYWQdv2PNNAvPWm3qOkuy0M7t__RdB8utajsd4OALB0M6v8hqmkinXguTy0YL7lQzWajHzEcuR9QwKeoIPwTRRWQOrea4Z9bGhhWsIrdUmCCSevlxGPm2ol0HTDHqSwB_oDYmG7GDqZ-XxTUA-rRJ6Q8LA6wOvC12NYuIMaho-iM52k5pN3ItLVIfxVAjfvA_zXkErMAbJWdDW8Kl32Jyp9bXUkqt_yxejeN9A
