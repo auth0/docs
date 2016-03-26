@@ -79,7 +79,7 @@ if let token = keychain.stringForKey("id_token") {
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
 A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
-NSString* token = [keychain stringForKey:@"refresh_token"];
+NSString* refreshToken = [keychain stringForKey:@"refresh_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithRefreshToken:refreshToken parameters:nil success:^(A0Token *token) {
     [keychain setString:token.idToken forKey:@"id_token"];
