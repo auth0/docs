@@ -12,7 +12,7 @@ Lock 10 is a new version of the authentication widget that provides:
 * Improved UX.
 * No support for foreign languages on the Beta 1 release (but we'll improve that soon).
 
-Check [this section](#what's-new) to find out the key differences of the new Lock.
+Check [this section](#whats-new) to find out the key differences of the new Lock.
 
 ## Install
 
