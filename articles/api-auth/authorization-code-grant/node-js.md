@@ -1,10 +1,5 @@
----
-sitemap: false
-title: Using the Authorization Code Grant from a Node.js application
-url: /api-auth/authorization-code-grant/node-js
----
-
 # Using the Authorization Code Grant from a Node.js application
+<%=include('../_preview-warning') %>
 
 After the [**Resource Server**](/api-auth/resource-servers/node-js) has been created, you can create a Node.js application which obtains an `access_token` using the [**Authorization Code Grant**](/api-auth/grant/authorization-code) workflow.
 
@@ -95,7 +90,7 @@ And then ensure we pass the middleware when we define the route:
 
 ```
 app.get('/appointments', requiresLogin, function(req, res, next) {
-  
+
 });
 ```
 

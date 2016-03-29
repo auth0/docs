@@ -1,10 +1,5 @@
----
-sitemap: false
-title: API Auth: Creating a Resource Server using the ASP.NET Web API
-url: /api-auth/resource-servers/asp-net
----
-
 # API Auth: Creating a Resource Server using the ASP.NET Web API
+<%=include('../_preview-warning') %>
 
 After the [**Resource Server**](/api-auth/config/resource-servers) has been configured you can update your application by accepting the `access tokens` that have been issued by Auth0.
 

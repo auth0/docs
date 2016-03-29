@@ -1,8 +1,5 @@
----
-sitemap: false
----
-
 # API Authorization: Using the Auth0 Dashboard
+<%=include('./_preview-warning') %>
 
 1. Open the Auth0 Dashboard and browse to the Applications section.
 2. Here you will create a new Application for each of the clients that will consume the API you want to generate access tokens for.

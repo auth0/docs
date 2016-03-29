@@ -1,8 +1,6 @@
----
-sitemap: false
----
-
 # API Authorization: Asking for Access Tokens
+<%=include('./_preview-warning') %>
+
 Consumers should perform a `POST` operation to:
 
 Endpoint:

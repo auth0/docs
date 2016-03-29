@@ -1,10 +1,11 @@
 ---
-sitemap: false
 title: API Authentication and Authorization
 url: /api-auth
 ---
 
 # API Authentication and Authorization
+
+<%=include('./_preview-warning') %>
 
 At some point in time the APIs you are building will need to give users, servers, or servers on behalf of users limited access to these APIs. This is where API authentication/authorization will play an important role and this is one of Auth0's core features.
 

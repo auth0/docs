@@ -267,6 +267,11 @@ categories:
     description: "Learn how to get the most out of Auth0"
     links:
       -
+        name: "API Authentication and Authorization"
+        icon: "icon-budicon-754"
+        description: "Understanding an application in the context of Auth0."
+        href: "/api-auth"
+      -
         name: "Refresh Tokens"
         icon: "icon-budicon-754"
         href: "/refresh-token"

@@ -1,8 +1,7 @@
----
-sitemap: false
----
-
 # API Authorization: Using the Management API
+
+<%=include('./_preview-warning') %>
+
 In case you don't want to use the Auth0 Dashboard you can perform all the same operations using Auth0's Management API.
 
 Keep in mind that you will need the following items:

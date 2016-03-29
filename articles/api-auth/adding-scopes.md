@@ -1,8 +1,6 @@
----
-sitemap: false
----
-
 # API Authorization: Adding Scopes
+<%=include('./_preview-warning') %>
+
 Sometimes you want to handle more granular scopes on your API. For this scenario you will require you to work with the Auth0 Management API.
 
 For this you will need the following items,

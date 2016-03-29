@@ -1,10 +1,6 @@
----
-sitemap: false
-title: API Auth: Using the Implicit Grant from a Single Page application
-url: /api-auth/implicit-grant/single-page
----
-
 # API Auth: Using the Implicit Grant from a Single Page application
+
+<%=include('../_preview-warning') %>
 
 After the [**Resource Server**](/api-auth/resource-servers/node-js) has been created, you can create a Single Page application which obtains an `access_token` using the [**Implicit Grant**](/api-auth/grant/implicit) workflow.
 
@@ -44,7 +40,7 @@ function getParameterByName(name) {
 function getAccessToken() {
   return getParameterByName('access_token');
 }
-      
+
 $(function () {
   var access_token = getAccessToken();
 
