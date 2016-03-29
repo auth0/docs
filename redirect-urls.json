@@ -568,7 +568,11 @@
     "to": "/native-platforms/windows-uwp-csharp"
   },
   {
-      "from": "/tutorials/aspnet-mvc4-enterprise-providers",
-      "to": "/server-platforms/aspnet"
+    "from": "/tutorials/aspnet-mvc4-enterprise-providers",
+    "to": "/server-platforms/aspnet"
+  },
+  {
+    "from": "/password-strength",
+    "to": "/connections/database/password-strength"
   }
 ]
