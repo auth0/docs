@@ -1,3 +1,7 @@
+---
+url: /extensions
+---
+
 # Auth0 Extensions
 
 Auth0 Extensions enable you to install applications (such as [Webtasks](https://webtask.io/)) or run commands/scripts that extend the functionality of the Auth0 base product.
