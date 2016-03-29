@@ -5,7 +5,7 @@ description: Customize the UI of Lock in your App
 
 # Lock Android: Build your own UI
 
-<%= include('../_includes/_package', { pkgRepo: 'native-mobile-samples', pkgBranch: 'master', pkgPath: 'Android/custom-ui-sample', pkgFilePath: 'Android/custom-ui-sample/app/src/main/res/values/auth0.xml', pkgType: 'replace' }) %>
+<%= include('../../_includes/_package', { pkgRepo: 'native-mobile-samples', pkgBranch: 'master', pkgPath: 'Android/custom-ui-sample', pkgFilePath: 'Android/custom-ui-sample/app/src/main/res/values/auth0.xml', pkgType: 'replace' }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
