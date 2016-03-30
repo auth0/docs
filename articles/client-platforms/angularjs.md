@@ -77,7 +77,7 @@ authProvider.on('loginFailure', function() {
 
 ${browser}
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#using-your-own-login-ui).
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#using-your-own-login-ui).
 
 ### 4. Add a logout button
 
