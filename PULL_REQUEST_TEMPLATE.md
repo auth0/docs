@@ -10,4 +10,4 @@ Please review the [guidelines for contributing](https://github.com/auth0/docs#co
 
 Please describe your pull request.
 
-💔Thank you!
+Thank you!
