@@ -24,7 +24,7 @@ alias:
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
-  pkgPath: 'examples/widget-with-api',
+  pkgPath: 'examples/widget-redirect',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
@@ -53,15 +53,31 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
-To implement the login, inject the `auth` service into any controller and call the `signin` method to show the Login / SignUp popup.
-
-In the following code, a call is added to the `login` method of the `LoginCtrl` controller. On login success, the user's profile and token are saved to `localStorage`:
+To implement the login, inject the `auth` service into any controller to use Lock's redirect mode. 
 
 ${snippet(meta.snippets.use)}
 
+On login success, save the user's profile and token to `localStorage`:
+
+```js
+//app.js
+authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
+  console.log("Login Success");
+  profilePromise.then(function(profile) {
+    store.set('profile', profile);
+    store.set('token', idToken);
+  });
+  $location.path('/');
+});
+
+authProvider.on('loginFailure', function() {
+   // Error Callback
+});
+```
+
 ${browser}
 
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.5.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-7.12.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`. For more details, see the [auth0-angular repo](https://github.com/auth0/auth0-angular#using-your-own-login-ui).
 
 ### 4. Add a logout button
 
