@@ -16,6 +16,7 @@ Note that passwords can only be changed for users signing in using database conn
 
 When calling the API, specify the email address of the account you want to reset the password for in the `email` field. A successful result of this request will send an email to the specified user for a password change request.
 
+```
 {
     "method": "POST",
     "url": "${account.namespace}/dbconnections/change_password",
@@ -33,6 +34,7 @@ When calling the API, specify the email address of the account you want to reset
     "headersSize" :-1,
     "bodySize" : -1
 }
+```
 
 In the resulting email, there will be a link to reset the password. Clicking it will go to a password reset page like this:
 
