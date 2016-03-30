@@ -34,7 +34,7 @@ To provide the list of URLs that the user may be redirected to after logging out
 When providing the URL list, you may:
 
 - Specify multiple, valid comma-separated URLs;
-- Use `*` as a wildcard for subdomains (e.g. `*.example.com`).
+- Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`).
 
 ### Setting Allowed Logout URLs at the App Level
 
@@ -45,7 +45,7 @@ If you would like to redirect the user after they log out from a specific app, y
 When providing the URL list, you may:
 
 - Specify multiple, valid comma-separated URLs;
-- Use `*` as a wildcard for subdomains (e.g. `*.example.com`).
+- Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`).
 
 When performing a redirect, the URL provided as part of the `redirectTo` parameter must be in the list of valid URLs provided in the Management Portal. The URLs included in the list may include scope information regarding the `client` or `tenant`. To clarify which URL pertains to which client, you must include the `client_id`.
 
