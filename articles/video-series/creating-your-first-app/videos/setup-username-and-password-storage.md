@@ -1,6 +1,6 @@
 ---
 name: Setup Username and Password authentication
-description: "In this video you'll leran how you can configure a Username and Password authentication with users stored in Auth0's database"
+description: "In this video you'll learn how you can configure a Username and Password authentication with users stored in Auth0's database"
 timeInSeconds: 154
 videoId: n4rcb97mkd
 ---

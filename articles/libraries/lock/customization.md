@@ -424,7 +424,7 @@ lock.show({
 
 ### authParams {Object}
 
-You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`. [[Read here|Sending-authentication-parameters]] to learn more about what `authParams` can be set.
+You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`. [Read here][authparams-link] to learn more about what `authParams` can be set.
 
 ```js
 lock.show({

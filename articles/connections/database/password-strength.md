@@ -1,6 +1,6 @@
 # Password Strength in Auth0 Database Connections
 
-> Note: the __Password Strength__ feature is only available in database connections. The password complexity in Social and Enterpise connections is enforced by the providers.
+> Note: the __Password Strength__ feature is only available in database connections. The password complexity in Social and Enterprise connections is enforced by the providers.
 
 ## Policies
 
@@ -43,7 +43,7 @@ The response also has additional information that can be used to guide the user 
 
 * A `message` is ready to be formated using the `printf` function (or Node.js `util.format`).
 * `format` is an array with values to be used in the `message`. (We separate the `message` from the `format` to allow easier i18n of this error messages in custom UIs.
-* `verified` can be either `true` or `false` and signals if the rule has triggered or not. 
+* `verified` can be either `true` or `false` and signals if the rule has triggered or not.
 
 > Some rules are composites: a rule may contain an `items` field that specifies which sub-rules have failed. Each sub-rule will have a `message` and may have a `format` if required.
 

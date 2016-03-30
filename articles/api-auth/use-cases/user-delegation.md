@@ -1,8 +1,9 @@
 ---
 sitemap: false
-title: API Auth Use Case: User Delegation
-url: /api-auth/use-cases/user-delegation
 ---
+
+# API Auth Use Case: User Delegation
+<%=include('../_preview-warning') %>
 
 > Organizer is a company that allows users to manage their appointments, contacts and tasks. They are now planning to open up their API and allow third party applications to integrate with this API.
 >

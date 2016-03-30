@@ -31,27 +31,31 @@ To provide the list of URLs that the user may be redirected to after logging out
 
 ![](/media/articles/logout/account-level-logout.png)
 
-If you do not have a `client_id` specified on the `logout` endpoint, Auth0 will use the set of Allowed Logout URLs provided at the account level.
-
 When providing the URL list, you may:
 
 - Specify multiple, valid comma-separated URLs;
-- Use `*` as a wildcard for subdomains (e.g. `*.example.com`).
+- Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`).
 
 ### Setting Allowed Logout URLs at the App Level
 
 ![](/media/articles/logout/app-level-logout.png)
 
-If you redirect the user after they log out from Auth0, you must provide the URL used in the `returnTo` parameter here.
+If you would like to redirect the user after they log out from a specific app, you must provide the URL used in the `returnTo` parameter here.
 
 When providing the URL list, you may:
 
 - Specify multiple, valid comma-separated URLs;
-- Use `*` as a wildcard for subdomains (e.g. `*.example.com`).
+- Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`).
+
+When performing a redirect, the URL provided as part of the `redirectTo` parameter must be in the list of valid URLs provided in the Management Portal. The URLs included in the list may include scope information regarding the `client` or `tenant`. To clarify which URL pertains to which client, you must include the `client_id`.
+
+To specify the `client_id` on the `logout` endpoint, pass the value as a request parameter: `?client_id=foobar`.
+
+If you do not have a `client_id` specified on the `logout` endpoint, Auth0 will use the set of [Allowed Logout URLs provided at the Account level](#Setting-Allowed-Logout-URLs-at-the-App-Level).
 
 #### Limitations
 
-When validating URLs, querystrings and hash information are not taken into account.
+When validating URLs provided as values to the `returnTo` parameter, query strings and hash information provided as part of the URL are not taken into account.
 
 The `returnTo` parameter does not work for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
 
@@ -68,7 +72,7 @@ https://${account.namespace}/v2/logout?federated&
 
 ### Supported Providers
 
-Auth0 supports use of the `logout` parameter for the following providers:
+Auth0 supports use of the `logout` endpoint for the following providers:
 
 - AOL
 - Auth0
@@ -110,7 +114,7 @@ Even if a logout URL has been correctly configured, there is a possibility that 
 
 ### Unable to Logout Using a SAML Identity Provider
 
-When logging in, the SAML identity provider uniquely identifis the user's session with a `SessionIndex` attribute in the `AuthnStatement` element of the SAML assertion. The `SessionIndex` value must be used again when the user logs out.
+When logging in, the SAML identity provider uniquely identifies the user's session with a `SessionIndex` attribute in the `AuthnStatement` element of the SAML assertion. The `SessionIndex` value must be used again when the user logs out.
 
 Occasionally, the `SessionIndex` value may not be present in the initial login assertion. When the user logs out, the request to the SAML identity provider will fail due to the missing value.
 

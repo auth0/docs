@@ -1,10 +1,11 @@
 ---
-sitemap: false
 title: API Authentication and Authorization
 url: /api-auth
 ---
 
 # API Authentication and Authorization
+
+<%=include('./_preview-warning') %>
 
 At some point in time the APIs you are building will need to give users, servers, or servers on behalf of users limited access to these APIs. This is where API authentication/authorization will play an important role and this is one of Auth0's core features.
 
@@ -62,7 +63,11 @@ Supported flows:
 
 ## API Authentication
 
-Will be available soon.
+- [Using the Auth0 Dashboard](/api-auth/using-the-auth0-dashboard)
+- [Using Auth0's Management API](/api-auth/using-the-management-api)
+- [How to ask for an access token](/api-auth/asking-for-access-tokens)
+- [How to define custom scopes](/api-auth/adding-scopes)
+
 
 ## Tutorials
 

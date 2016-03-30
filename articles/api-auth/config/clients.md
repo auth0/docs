@@ -1,10 +1,5 @@
----
-sitemap: false
-title: API Auth: Configuring the Clients
-url: /api-auth/config/clients
----
-
 # API Auth: Configuring the Clients
+<%=include('../_preview-warning') %>
 
 After having created the [Resource Servers](/api-auth/config/resource-servers) the next step is to define the **Clients** that will be able to get limited access to the **Resource Server**.
 
@@ -23,7 +18,7 @@ Content-Type: application/json
   "resource_servers": [
     {
       "identifier": "{RESOURCE_SERVER_IDENTIFIER}",
-      "scopes": [ "{SCOPE_VALUE}", "{SCOPE_VALUE}" ]  
+      "scopes": [ "{SCOPE_VALUE}", "{SCOPE_VALUE}" ]
     }
   ],
   "callbacks": [ "{CLIENT_CALLBACK_URL}" ]

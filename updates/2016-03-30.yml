@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Added API Authentication and Authorization Docs (Preview)"
+    tags:
+      - oauth
+      - api-auth
+    description: |
+      A new section of documentation was added for [API Authentication and Authorization](/api-auth). These documents are for a preview feature so the content and implimentations are subject to change.
