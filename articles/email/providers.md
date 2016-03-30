@@ -7,6 +7,7 @@ Auth0 currently supports the following providers:
 * [Amazon SES](#configure-amazon-ses-for-sending-email)
 * [Mandrill](#configure-mandrill-for-sending-email)
 * [SendGrid](#configure-sendgrid-for-sending-email)
+* [Custom SMTP](#configure-a-custom-smtp-server-for-sending-email)
 
 ## Configure Amazon SES for Sending Email
 
@@ -112,6 +113,26 @@ curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Typ
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now display all emails which have been sent to your users and the delivery status of each message.
 
 ![](/media/articles/email/providers/email-sendgrid-monitoring.png)
+
+## Configure a Custom SMTP Server for Sending Email
+
+You can use your own STMP server to send email. There are two requirements for the SMTP server:
+
+* It must support LOGIN [authentication](https://en.wikipedia.org/wiki/SMTP_Authentication)
+* It must support [TLS](https://en.wikipedia.org/wiki/STARTTLS) 1.0 or higher
+
+To be able to use your own SMTP server, do this:
+
+1. Open the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard.
+2. Click **Use my own Email Provider**.
+3. Click the **SMTP** logo.
+4. Enter your SMTP server `Host`, `Port`, `Username` and `Password` in the appropriate fields:
+
+  ![](/media/articles/email/providers/enter-smtp-data.png)
+
+5. Click **Save**.
+
+  **NOTE:** You can send a test email using the **Send Test Email** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard.
 
 ## Additional Information
 
