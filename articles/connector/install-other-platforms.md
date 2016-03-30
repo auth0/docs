@@ -14,12 +14,18 @@ NOTE: On most platforms, you will need to run the following steps as root (e.g. 
         cd /opt/auth0-adldap
         npm install
 </code>
-
-6.  Run `node server.js` and follow the steps to finish the process, insert the full token URL from the "Setup AD/LDAP connector" screen when prompted for "token number"
-
-7.  you will be asked to edit the configuration file, config.json, make sure you check out [modify.md] (https://github.com/auth0/docs/blob/960dca588a5c52346092509aa7008cf0ac70e01b/articles/connector/modify.md) if you're using LDAP 
-
-8.  Once the connector is running you will need to daemonize the connector using a tool like upstart, systemd, init.d, etc. b
+6.  Edit the config.json file and make sure to add the following
+```
+"LDAP_BIND_USER":"YOUR_LDAP_USER",
+"LDAP_BIND_PASSWORD":"YOUR_LDAP_USER_PASSWORD" //cleartextpassword
+```
+    When you then start the connector server <code>node server.js</code>, this line will be read, the password hashed, and the line will     be changed to
+```
+"LDAP_BIND_CREDENTIALS":"hashed password"
+```
+7.  Run `node server.js` and follow the steps to finish the process, insert the full token URL from the "Setup AD/LDAP connector" screen when prompted for "token number"
+8.  You will be asked to edit the configuration file, config.json, make sure you check out [modify.md] (https://github.com/auth0/docs/blob/960dca588a5c52346092509aa7008cf0ac70e01b/articles/connector/modify.md) if you're using LDAP 
+9.  Once the connector is running you will need to daemonize the connector using a tool like upstart, systemd, init.d, etc. b
 
 <script type="text/javascript">
   $.getJSON('https://cdn.auth0.com/connector/windows/latest.json', function (data) {
