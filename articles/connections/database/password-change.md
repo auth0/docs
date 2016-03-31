@@ -48,7 +48,7 @@ You can change the content of the password change request emails in the  [Emails
 
 Go to the **Change Password Configuration** page to edit the email fields.
 
-[](/media/articles/connections/database/change-password-email.png)
+![](/media/articles/connections/database/change-password-email.png)
 
 ## Manually Setting a User's Password
 
@@ -60,7 +60,7 @@ A user's password can be changed manually in the [Users](${uiURL}/#/users) secti
 
 Click on the name of the user you want to change the password for. Then click on the **Actions** button on the right side of the page, and then select **Change Password**.
 
-[](/media/articles/connections/database/manual-password-change.png)
+![](/media/articles/connections/database/manual-password-change.png)
 
 Next, enter the new password and click **Save**.
 
