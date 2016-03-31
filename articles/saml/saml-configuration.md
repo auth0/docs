@@ -61,18 +61,18 @@ Auth0 can be configured as a Service Provider to any other SAML-compliant Identi
 
 Configuring Auth0 to serve as a SAML Identity Provider is done in a couple different places, depending on the type of application.
 
-For some SSO Integrations that support SAML, the Auth0 side of the configuration is done using the "SSO Integrations" link in the dashboard, clicking on "ADD A SSO INTEGRATION", and selecting the specific integration.  Instructions specific to the chosen SSO integration are provided.
+For some SSO Integrations that support SAML, the Auth0 side of the configuration is done using the "SSO Integrations" link in the dashboard, clicking on "ADD A SSO INTEGRATION", and selecting the specific integration.  Instructions specific to the chosen SSO Integration are provided in the **Tutorial** section.
 
 * [Using Auth0 in SAML2 Web App](/saml2webapp-tutorial)
 
 
-For any application not listed on the "SSO Integrations" page(click "ADD A SSO INTEGRATION"  to see the list) the Auth0 side of the configuration can be done going to the "Applications" link on the dashboard, choosing your application and then clicking on the "Addons" tab. Then click on the toggle of the "SAML2 WEB APP" box.
+For any application not listed on the "SSO Integrations" page(click "ADD A SSO INTEGRATION"  to see the list) the Auth0 side of the configuration can be added. Go to the "Applications" link on the dashboard, choose your application, click on the "Addons" tab, and then toggle on the "SAML2 WEB APP" box.
 
 Generic instructions for configuring Auth0 as an IDP:
 
 * [Generic Identity Provider Configuration](/saml-idp-generic)
 
-The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  SSO integrations that require special settings are documented at:
+The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  SSO Integrations that require special settings are documented at:
 
 * [SAML settings needed for some SSO Integrations](/saml-apps)
 
