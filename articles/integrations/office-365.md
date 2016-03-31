@@ -8,7 +8,7 @@ Your users will be able to log in using their existing Active Directory credenti
 
 This would typically require you to setup [an advanced ADFS infrastructure](https://msdn.microsoft.com/en-us/library/azure/dn151324.aspx) with Federation Servers in the corporate network and Web Application Proxies exposed in the DMZ. But with Auth0 as an identity provider for Office 365 all of this is handled by the [AD Connector](/connector/overview) which doesn't require you to expose any of your servers to the outside world.
 
-In addition to that users can also have SSO with other applications they're building or Third Party Applications they're using (like Salesforce, Dropbox, SharePoint Server, ...).
+In addition to that users can also have SSO Integrations with other applications they're building or third party applications they're using (like Salesforce, Dropbox, SharePoint Server, ...).
 
 ## High-level Overview
 
@@ -48,9 +48,9 @@ After installing and configuring the tool you'll be able to start the synchroniz
 
 ## Configuring SSO With Auth0
 
-Everything in terms of synchronization has been configured and we can now proceed to the SSO configuration with Auth0. We will start by adding Office 365 as a Third Party Application in the dashboard.
+Everything in terms of synchronization has been configured and we can now proceed to the SSO configuration with Auth0. We will start by adding Office 365 as a SSO Integration in the dashboard.
 
-![Third Party App](/media/articles/integrations/office-365/office-365-third-party-app.png)
+![](/media/articles/integrations/office-365/office-365-SSO.png)
 
 On the **Settings** tab we'll need to enter our custom domain name (eg: `fabrikamcorp.be`) and choose the Active Directory connection we want to use.
 
@@ -109,7 +109,7 @@ Auth0 exposes an endpoint that can immediately start the login without showing t
 
 `https://{tenant}.auth0.com/wsfed/{client-id}?whr={AD-connection-name}`
 
-For Fabrikam's Third Party Application the URL will look like this:
+For Fabrikam's SSO Integration the URL will look like this:
 
 `https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi?whr=FabrikamAD`
 
