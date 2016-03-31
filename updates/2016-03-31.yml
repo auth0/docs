@@ -4,4 +4,4 @@ added:
     tags:
       - database
     description: |
-      A new section of documentation was added for [Changing a User's Password](/password-change). It explains how to use the API to change the password, where to edit the password change email and how to manually change a password.
+      A new section of documentation was added for [Changing a User's Password](/connections/database/password-change). It explains how to use the API to change the password, where to edit the password change email and how to manually change a password.
