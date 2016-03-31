@@ -63,7 +63,7 @@ Configuring Auth0 to serve as a SAML Identity Provider is done in a couple diffe
 
 For some SSO Integrations that support SAML, the Auth0 side of the configuration is done using the "SSO Integrations" link in the dashboard, clicking on "ADD A SSO INTEGRATION", and selecting the specific integration.  Instructions specific to the chosen SSO Integration are provided in the **Tutorial** section.
 
-* [Using Auth0 in SAML2 Web App](/saml2webapp-tutorial)
+* [Using Auth0 in SAML2 Web Apps](/saml2webapp-tutorial)
 
 
 For any application not listed on the "SSO Integrations" page(click "ADD A SSO INTEGRATION"  to see the list) the Auth0 side of the configuration can be added. Go to the "Applications" link on the dashboard, choose your application, click on the "Addons" tab, and then toggle on the "SAML2 WEB APP" box.
