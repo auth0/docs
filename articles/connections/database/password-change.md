@@ -1,7 +1,3 @@
----
-url: /password_change
----
-
 # Changing a User's Password
 
 This document explains the various ways passwords can be reset for users of your application.
