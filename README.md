@@ -83,6 +83,9 @@ Panel content
 #### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing how to make the HTTP request in many languages.
 
+> Note, you need to set the language type to `har` for this to work. View this raw markdown document for an example.
+
+
 ```har
 {
     "method": "GET",
