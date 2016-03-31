@@ -11,7 +11,7 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
 <table class="table">
   <thead>
     <tr>
-      <th></th>
+      <th>Subscription Level</th>
       <th>Free</th>
       <th>Paid</th>
       <th>Enterprise</th>
