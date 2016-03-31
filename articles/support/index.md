@@ -12,10 +12,9 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
   <thead>
     <tr>
       <th></th>
-      <th>Free Subscriptions</th>
-      <th>Paid Subscriptions</th>
-      <th>Premium</th>
-      <th>24/7</th>
+      <th>Free</th>
+      <th>Paid</th>
+      <th>Enterprise</th>
     </tr>
   </thead>
   <tbody>
@@ -24,13 +23,11 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
       <td>Lowest</td>
       <td>Normal</td>
       <td>Prioritized</td>
-      <td>Maximum</td>
     </tr>
     <tr>
       <th>Business Hours</th>
       <td>M-F 7am-7pm (UTC−8)</td>
       <td>M-F 7am-7pm (UTC−8)</td>
-      <td>6am-9pm (UTC−8)</td>
       <td>24/7</td>
     </tr>
     <tr>
@@ -38,11 +35,9 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
       <td>2-5 Business Days</td>
       <td>24 hours</td>
       <td>1 hour</td>
-      <td>1 hour</td>
     </tr>
     <tr>
       <th>Discussion Forum</th>
-      <td class="success">Yes</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
@@ -52,11 +47,9 @@ Our __Premium Support__ option is recommended for all subscribers using Auth0 in
       <td class="warning">Limited</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
-      <td class="success">Yes</td>
     </tr>
     <tr>
       <th>Phone Support</th>
-      <td class="danger">No</td>
       <td class="danger">No</td>
       <td class="danger">No</td>
       <td class="success">Yes</td>
