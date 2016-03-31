@@ -4,6 +4,8 @@ url: /password_change
 
 # Changing a User's Password
 
+This document explains the various ways passwords can be reset for users of your application.
+
 :::panel-warning Notice
 This information applies to using Lock version 9 and above. To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow) 
 :::
@@ -18,21 +20,21 @@ When calling the API, specify the email address of the account you want to reset
 
 ```
 {
-    "method": "POST",
-    "url": "${account.namespace}/dbconnections/change_password",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name" "Content-Type", "value": "application/json" }
-    ],
-    "queryString" : [],
-    "postData" : {
-    	"client_id" : "${account.clientId}",
-    	"email" : "",
-    	"connection": "Username-Password-Authentication"
-    },
-    "headersSize" :-1,
-    "bodySize" : -1
+  "method": "POST",
+  "url": "${account.namespace}/dbconnections/change_password",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [
+    { "name" "Content-Type", "value": "application/json" }
+  ],
+  "queryString" : [],
+  "postData" : {
+    "client_id" : "${account.clientId}",
+    "email" : "",
+    "connection": "Username-Password-Authentication"
+  },
+  "headersSize" :-1,
+  "bodySize" : -1
 }
 ```
 
@@ -46,7 +48,7 @@ Note that this email link is only valid once and only for the amount of time spe
 
 ## Customizing the Change Password Email
 
-You can change the content of the password change request emails in the  [Emails > Templates](${uiURL/#/emails}) section of the dashboard.
+You can change the content of the password change request emails in the  [Emails > Templates](${uiURL}/#/emails) section of the dashboard.
 
 Go to the **Change Password Configuration** page to edit the email fields.
 
@@ -58,7 +60,7 @@ Go to the **Change Password Configuration** page to edit the email fields.
 Changing a user's password in this way does not alert them to a password change.
 :::
 
-A user's password can be changed manually in the [Users](${uiURL/#/users}) section of the dashboard.
+A user's password can be changed manually in the [Users](${uiURL}/#/users) section of the dashboard.
 
 Click on the name of the user you want to change the password for. Then click on the **Actions** button on the right side of the page, and then select **Change Password**.
 
