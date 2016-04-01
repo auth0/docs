@@ -44,7 +44,7 @@ In the resulting email, there will be a link to reset the password. Clicking it 
 
 Note that this email link is only valid once and only for the amount of time specified in the `URL Lifetime` field. This field can be changed where you customize the change password email.
 
-[Click here for more details on the dbconnections/change_password API call](auth-api#!#post--dbconnections-change_password)
+[Click here for more details on the dbconnections/change_password API call](/auth-api#!#post--dbconnections-change_password)
 
 ## Customizing the Change Password Email
 
