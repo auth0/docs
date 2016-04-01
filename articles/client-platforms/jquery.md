@@ -111,9 +111,9 @@ To configure secure calls to the API you are creating <%= configuration.api ? ' 
 ```js
 $.ajaxSetup({
   'beforeSend': function(xhr) {
-    if (localStorage.getItem('userToken')) {
+    if (localStorage.getItem('id_token')) {
       xhr.setRequestHeader('Authorization',
-            'Bearer ' + localStorage.getItem('userToken'));
+            'Bearer ' + localStorage.getItem('id_token'));
     }
   }
 });
@@ -153,7 +153,7 @@ To discover all the available properties of a user's profile, see [Auth0 Normali
 In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
-localStorage.removeItem('token');
+localStorage.removeItem('id_token');
 userProfile = null;
 window.location.href = "/";
 ```
