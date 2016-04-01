@@ -27,9 +27,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-ruby-samples',
+  pkgRepo: 'ruby-auth0',
   pkgBranch: 'master',
-  pkgPath: 'ruby-on-rails-api',
+  pkgPath: 'examples/ruby-on-rails-api',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
