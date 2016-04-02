@@ -32,7 +32,7 @@ Using the Auth0 [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by
 
 This feature makes it very easy to control what information gets collected and when, and then through the [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id), enrich the user profile with any information collected:
 
-![](https://docs.google.com/drawings/d/1cLHThwt5Hgb1FnRf0LEAfzQ0DX4KWC7zUERBHJqcOsc/pub?w=415&h=204)
+![](/media/articles/user-profile/progressive-profiling-example.png)
 
 In the example above, we collect `last_name` and `first_name` on singup, then on a later interaction `title` and `company`, finally in the context of an article that might interest the user, a `subscribed` property.
 
