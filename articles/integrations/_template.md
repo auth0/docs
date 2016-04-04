@@ -18,7 +18,7 @@ Navigate to the [SSO Integrations](${uiURL}/#/externalapps/create) section of th
 
 ### 3. Follow the live documentation
 
-Now you will be directed to a Tutorial for this integration containing information customized for your account. You may need to enter information from ${meta.title}. Simply follow each of the steps as shown:
+Now you will be directed to a tutorial for this integration containing information customized for your account. You may need to enter information from ${meta.title}. Simply follow each of the steps as shown:
 
 ![](/media/articles/integrations/third-party-apps/${image1})
 
