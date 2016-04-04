@@ -46,7 +46,7 @@ Users that are not in the corporate network will need to enter their AD credenti
 
 ## Auto-login with Lock
 
-When an application is using the Login Page hosted by Auth0 (typicaly used for SAML/WS-Federation protocols and Third Party applications) the Lock will show a button which allows users to authenticate using "Windows Authentication". If they don't want to use this they can continue and have the Lock show all other available connections.
+When an application is using the Login Page hosted by Auth0 (typicaly used for SAML/WS-Federation protocols and SSO Integrations) the Lock will show a button which allows users to authenticate using "Windows Authentication". If they don't want to use this they can continue and have the Lock show all other available connections.
 
 In some cases the requirement could be to automatically sign in the user if Kerberos is possible (based on the IP-address of the end user). The following changes can be added to the Auth0 Login Page (or to your own page hosting the Lock) to automatically sign in the user if Kerberos is possible:
 

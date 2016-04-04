@@ -6,9 +6,9 @@ Auth0 can help radically simplify the authentication process for SharePoint. In 
 
 ### 1. Adding the Integration to your account
 
-The first thing you need to do is go to the [Third Party Apps](${uiURL}/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
+The first thing you need to do is go to the [SSO Integrations](${uiURL}/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
 
-![Create a new Third Party Application](/media/articles/integrations/sharepoint/sharepoint-new-app.png)
+![Create a new SSO Integration](/media/articles/integrations/sharepoint/sharepoint-new-sso.png)
 
 ### 2. Follow the Live Documentation
 
