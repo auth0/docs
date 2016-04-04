@@ -29,9 +29,9 @@ The application's settings contain the following information:
 Addons are extensions associated with applications and are typically used in 2 different scenarios:
 
 * **Accessing external APIs**: using the delegation endpoint an access token for the application can be exchanged for an access token to a third party service (like [Salesforce](/server-apis/salesforce), Amazon, Azure, Firebase, ...).
-* **Integrating with applications using SAML2/WS-Federation**: enables authentication through Auth0 for applications that support SAML2/WS-Federation like Dropbox, SharePoint, ... The most popular SaaS applications with SAML support are already covered as recipes that will automatically configure the SAML2/WS-Federation addon (in the dashboard under [Third-party applications](${uiURL}/#/externalapps)). By enabling the addon for an application you can configure every aspect of the SAML2/WS-Federation integration, allowing you to integrate with any custom/third-party application that we haven't covered yet.
+* **Integrating with applications using SAML2/WS-Federation**: enables authentication through Auth0 for applications that support SAML2/WS-Federation like Dropbox, SharePoint, ... The most popular SaaS applications with SAML support are already covered as recipes that will automatically configure the SAML2/WS-Federation addon (in the dashboard under [SSO Integrations](${uiURL}/#/externalapps)). By enabling the addon for an application you can configure every aspect of the SAML2/WS-Federation integration, allowing you to integrate with any custom/SSO integration that we haven't covered yet.
 
-![](/media/articles/applications/applications-third-party-overview.png)
+![](/media/articles/applications/applications-sso-integrations-overview.png)
 
 ### Connections
 
@@ -71,9 +71,9 @@ function (user, context, callback) {
 
 ### Auditing
 
-![](/media/articles/applications/applications-logs-auditing-error.png)
+![](/media/articles/applications/applications-logs-auditing.png)
 
-Whenever a user logs in to an application, a login fails, a user signs up, a password change is requested, ... these events are logged and can be downloaded using the API or can be accessed in the dashboard. These events contain information about the user (John), the connection (Facebook), the application (Timesheets) and in addition to that we also keep track of the date and time this event occured, the IP address of the user, the user agent (browser information) and the number of times the user logged in.
+Whenever a user logs in to an application, a login fails, a user signs up, a password change is requested, ... these events are logged and can be downloaded using the API or can be accessed in the dashboard. These events contain information about the user (test@auth0.com), the connection (Username-Password-Authentication), the application (Default App) and in addition to that we also keep track of the date and time this event occured, the IP address of the user, the user agent (browser information) and the number of times the user logged in.
 
 ### Cost
 

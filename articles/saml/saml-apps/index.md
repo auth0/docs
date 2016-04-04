@@ -2,7 +2,7 @@
 url: /saml-apps
 ---
 
-# SAML Configurations for 3rd party apps
+# SAML Configurations for SSO Integrations
 
 ## Google Apps
 
