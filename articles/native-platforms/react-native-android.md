@@ -13,7 +13,6 @@ image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
-  dependencies: native-platforms/reactnative-android/dependencies
   setup: native-platforms/reactnative-android/setup
   use: native-platforms/reactnative-android/use
 ---
@@ -24,25 +23,38 @@ snippets:
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',
-  pkgFilePath: 'Classic/Lock/auth0_credentials.js',
+  pkgFilePath: 'Classic/Lock/auth0-credentials.js',
   pkgType: 'replace'
 }) %>
 
 **Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
-### Before Starting
+First you need to run the following command to install **react-native-lock**
 
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+```bash
+npm install --save react-native-lock
+```
 
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
-</div>
+Then install [rnpm](https://github.com/rnpm/rnpm)
 
-### 1. Adding Lock to your project
+```bash
+npm install rnpm -g
+```
 
-Add the following dependency to the `build.gradle` of the android project:
+After that, link **react-native-lock** with your Android project:
 
-${snippet(meta.snippets.dependencies)}
+```bash
+rnpm link react-native-lock
+```
+
+Open the file `android/app/build.gradle` and inside add the following inside the `android {}` section
+
+```gradle
+packagingOptions {
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/NOTICE'
+}
+```
 
 Then check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If not already there, add it inside the `<manifest>` tag:
 
@@ -50,7 +62,7 @@ Then check in `AndroidManifest.xml` that the application requests the `android.p
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Next you must add the following entries inside the `<application>` tag of the same file:
+And finally, you must add the following entries inside the `<application>` tag of the same file:
 
 ```xml
 <!--Auth0 Lock-->
@@ -81,54 +93,27 @@ Next you must add the following entries inside the `<application>` tag of the sa
 <!--Auth0 Lock Passwordless End-->
 ```
 
-Finally you must add the `LockReactPackage` to the `ReactInstanceManager`. This is done in the `onCreate` method of the `MainActivity`.
-
-```java
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-    ...
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ...        
-        mReactInstanceManager = ReactInstanceManager.builder()
-                /* ... */
-                .addPackage(new LockReactPackage())
-                /* ... */
-                .build();
-        ...
-    }
-    ...
-}
-```
-
 If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
-
 
 ### 2. Register Native Authentication Handlers
 
-To allow native logins using other Android apps, e.g: Google+, Facebook, etc, you need to explicitly add them by calling `addIdentityProvider` in your `LockReactPackage` instance before adding it to the `ReactInstanceManager`.
+To allow native logins using other Android apps, e.g: Google+, Facebook, etc, you need to explicitly add them by calling `addIdentityProvider` in your `LockReactPackage` instance before returning in in your `MainActivity` method `getPackages()`.
 
 ```java
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-    ...
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ...
-        LockReactPackage lockReactPackage = new LockReactPackage();
-
-        /* If you would like to add native integrations, add them here */
-        lockReactPackage.addIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this));
-        lockReactPackage.addIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this));
-
-        mReactInstanceManager = ReactInstanceManager.builder()
-                /* ... */
-                .addPackage(lockReactPackage)
-                /* ... */
-                .build();
-        ...
-    }
-    ...
+/**
+ * A list of packages used by the app. If the app uses additional views
+ * or modules besides the default ones, add more packages here.
+ */
+@Override
+protected List<ReactPackage> getPackages() {
+    LockReactPackage lockReactPackage = new LockReactPackage();
+    /* If you would like to add native integrations, add them here */
+    lockReactPackage.addIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this));
+    lockReactPackage.addIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this));
+    return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+        lockReactPackage
+    );
 }
 ```
 
