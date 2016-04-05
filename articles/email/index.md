@@ -5,7 +5,9 @@ url: /email
 # Emails in Auth0
 
 ::: panel-danger Notice
-Auth0's email provider will no longer be supported for use in a production environment. You can use our built-in email service for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) before moving your apps to production.
+Auth0's built-in email provider will no longer be supported for use in a production environment. 
+
+[Click here to learn more about Email Delivery Changes](/migrations#email-delivery-changes)
 :::
 
 Auth0 provides built-in email services to easily communicate with your users. This includes, verification emails, welcome emails, change password emails and blocked account emails.
