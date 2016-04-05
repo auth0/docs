@@ -6,7 +6,7 @@ url: /policies
 
 Auth0 has established the following operational policies.
 
--  [Data Transfer](/policy/data-transfer)
--  [Dashboard Authentication](/policy/dashboard-authentication)
--  [Load Testing](/policy/load-testing)
--  [Rate Limits](/policy/rate-limits)
+-  [Data Transfer](/policies/data-transfer)
+-  [Dashboard Authentication](/policies/dashboard-authentication)
+-  [Load Testing](/policies/load-testing)
+-  [Rate Limits](/policies/rate-limits)
