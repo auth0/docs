@@ -99,4 +99,5 @@ You can now send an email to the user containing this link. Only when the user c
 ## Additional Information
 
  * [Emails in Auth0](/email)
+ * [Customizing Your Emails](/email/templates)
  * [Using your own SMTP provider (SendGrid/Amazon SES/Mandrill)](/email/providers)
