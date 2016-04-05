@@ -1,6 +1,6 @@
 # Use your own SMTP Email Provider
 
-Auth0 allows you to configure your own SMTP email provider instead of using Auth0's infrastructure for email communication with your users. This enables you to more completely manage, monitor and troubleshoot your email communications.
+Auth0 allows you to configure your own SMTP email provider. Using Auth0's built-in email infrastructure should be used for testing level emails only. By using your own provider you can more completely manage, monitor and troubleshoot your email communications.
 
 Auth0 currently supports the following providers:
 
@@ -137,4 +137,5 @@ To be able to use your own SMTP server:
 ## Additional Information
 
 - [Emails in Auth0](/email)
+- [Customizing Your Emails](/email/templates)
 - [Custom Email Handling](/email/custom)

@@ -39,7 +39,9 @@ Note that this email link is only valid once and only for the amount of time spe
 
 ## Customizing the Change Password Email
 
-You can change the content of the password change request emails in the  [Emails > Templates](${uiURL}/#/emails) section of the dashboard.
+You can change the content of the password change request emails in the  [Emails > Templates](${uiURL}/#/emails) section of the dashboard. 
+
+*Note:* Email templates can only be changed after changing the email provider from Auth0's built-in provider. [See here for more information.](/email/templates)
 
 Go to the **Change Password Configuration** page to edit the email fields.
 
