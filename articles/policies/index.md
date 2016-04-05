@@ -1,5 +1,5 @@
 ---
-url: /policy
+url: /policies
 ---
 
 ## Operational Policies

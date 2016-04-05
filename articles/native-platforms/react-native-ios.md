@@ -13,7 +13,6 @@ image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
-  dependencies: native-platforms/reactnative-ios/dependencies
   setup: native-platforms/reactnative-ios/setup
   use: native-platforms/reactnative-ios/use
 ---
@@ -31,25 +30,15 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',
-  pkgFilePath: 'Classic/Lock/auth0_credentials.js',
+  pkgFilePath: 'Classic/Lock/auth0-credentials.js',
   pkgType: 'replace'
 }) %>
 
 **Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
-### Before Starting
-
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
-
-<pre><code class="language-text">a0${account.clientId}://\*.auth0.com/authorize</pre></code>
-</div>
-
 #### CocoaPods
 
 You'll need CocoaPods in order to fetch **Lock** native libraries dependencies for you and link them to your project.
-
-> Currently this is the **only** way to make `react-native-lock-ios` work since we don't provide a `.xcodeproj` file in the npm library.
 
 To install CocoaPods just run the following command:
 
@@ -61,37 +50,44 @@ gem install cocoapods
 
 ### 1. Adding Lock to your project
 
-First you need to run the following command to install **react-native-lock-ios**
+First you need to run the following command to install **react-native-lock**
 
 ```bash
-npm install --save react-native-lock-ios
+npm install --save react-native-lock
 ```
 
-Then open your app's `.xcodeproj` file with Xcode, e.g:
+Then install [rnpm](https://github.com/rnpm/rnpm)
 
 ```bash
-open <YourAppName>.xcodeproj
+npm install rnpm -g
 ```
 
-and make sure the react native project can be run in Xcode and remove all the subprojects under Libraries/ in Xcode. This is because React Native's iOS code will be pulled in via CocoaPods from your `node_modules` directory.
+After that, link **react-native-lock** with your iOS project:
 
-> Make sure you only **Remove Reference** instead of **Moving to Trash**, if you pick the later you'll have to re-install react-native with npm since it will move your previous installation to the Trash.
+```bash
+rnpm link react-native-lock
+```
 
-Then create a file name `Podfile` with the following content inside the folder `<project name>/ios`
+If you get the following warning.
 
-${snippet(meta.snippets.dependencies)}
+```
+!] The `<YourAppName> [Debug]` target overrides the `OTHER_LDFLAGS` build setting defined in `Pods/Target Support Files/Pods/Pods.debug.xcconfig'. This can lead to problems with the CocoaPods installation
+    - Use the `$(inherited)` flag, or
+    - Remove the build settings from the target.
 
-Now run from the same folder the command `pod install`. It will automatically download Lock for iOS with all it's dependencies, and create an Xcode workspace containing all of them.
-From now on open *<YourAppName>*.xcworkspace instead of *<YourAppName>*.xcodeproject. This is because now React Native's iOS code (and Lock's) is now integrated to your project via CocoaPods instead of subprojects.
+[!] The `<YourAppName> [Release]` target overrides the `OTHER_LDFLAGS` build setting defined in `Pods/Target Support Files/Pods/Pods.release.xcconfig'. This can lead to problems with the CocoaPods installation
+    - Use the `$(inherited)` flag, or
+    - Remove the build settings from the target.
+```
 
-> If you are seeing some warnings after your running `pod install` or you get some linker error when building the Xcode project, please check the [FAQs section](#faqs)
+Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and change the current value for `$(inherited)` for **all** configurations .
 
 ### 2. Register Native Authentication Handlers
 
 To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following methods to your `AppDelegate` class.
 
 ```objc
-#import <LockReactNative/A0LockReact.h>
+#import "A0LockReact.h"
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
   return [[[A0LockReact sharedInstance] lock] handleURL:url sourceApplication:sourceApplication];
@@ -149,7 +145,7 @@ Here's how the entries for `LSApplicationQueriesSchemes` should look like:
 
 ![FB LSApplicationQueriesSchemes](https://i.stack.imgur.com/YkwEp.png)
 
-Then add Lock Facebook's Pod
+Then add Lock Facebook's Pod in `ios/Podfile` file and run `pod install --project-directory=ios`
 
 ```ruby
 pod 'Lock-Facebook', '~> 2.2'
@@ -181,7 +177,7 @@ var lock = new Auth0Lock({
 
 #### Twitter
 
-First add Lock Twitter's Pod
+First add Lock Twitter's Pod in `ios/Podfile` file and run `pod install --project-directory=ios`
 
 ```ruby
 pod 'Lock-Twitter', '~> 1.1'
@@ -231,8 +227,3 @@ After the user has logged in, we can use the `profile` object which has all the 
 ### 5. We're done
 
 You've implemented Authentication with Auth0 in iOS & React Native. You're awesome!
-
-### FAQs
-
-* When running `pod install`, I am getting a warning like `The 'YourAppName [Debug]' target overrides the 'OTHER_LDFLAGS' build setting ...`.
-    This is because CocoaPods was not able to override some flags in order to correctly build your project and its native dependencies. To solve this, go to Xcode's target Build Setting section, find `Other Linker Flags` and replace it's value with `$(inherited)` for all Configurations.
