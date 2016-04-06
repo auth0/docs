@@ -5,10 +5,3 @@ changed:
       - email
     description: |
       Updated the page to reflect new rules on using Auth0's built in email provider. Moved content on customizing emails to a new page.
-added:
-  -
-    title: "Customizing Your Emails"
-    tags:
-      - email
-    description: |
-      A [new page](/email/templates) that takes the existing content on customizing emails to a seperate page.
