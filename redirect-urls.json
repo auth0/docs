@@ -574,5 +574,21 @@
   {
     "from": "/password-strength",
     "to": "/connections/database/password-strength"
+  },
+  {
+    "from": "/client-platforms/:platform",
+    "to": "/quickstart/spa/:platform/no-api"
+  },
+  {
+    "from": "/native-platforms/:platform",
+    "to": "/quickstart/native-mobile/:platform/no-api"
+  },
+  {
+    "from": "/server-platforms/:platform",
+    "to": "/quickstart/webapp/:platform"
+  },
+  {
+    "from": "/server-apis/:platform",
+    "to": "/quickstart/backend/:platform"
   }
 ]
