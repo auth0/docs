@@ -27,7 +27,7 @@ The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/
 
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
-* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (`sub` claim).
+* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
@@ -36,9 +36,9 @@ You can get more information about this in the [Scopes documentation](/scopes).
 
 ### 2. Authentication
 
-Auth0 will start the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
+Auth0 will start the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
 
-The visible part of this process is that the user is redirected to the identity provider site.
+The common visible part of this process is that the user is redirected to the identity provider site.
 
 > When using Auth0's built-in user store (created through __Connections -> Database -> New__), there's no redirection. Auth0 in this case is the identity provider.
 
@@ -67,12 +67,12 @@ If the request is successful, you will get a JSON object with an `access_token`.
 ##### Sample Access Token Response:
 
 	{
-       "access_token":".....Access Token.....",
-       "token_type":"bearer",
-       "id_token":"......JWT......"
-    }
+       "access_token": ".....Access Token.....",
+       "token_type": "bearer",
+       "id_token": "......The JWT......"
+  }
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). See [scopes](/scopes) for more details.
 
 Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 

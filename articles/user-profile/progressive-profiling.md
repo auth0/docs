@@ -30,11 +30,11 @@ Using the Auth0 [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by
 
 > Auth0 provides two "buckets" for metadata: `user_metadata` and `app_metadata`. The user token (obtained after authentication), is sufficient to modify the contents of `user_metadata`. You need a server side, APIv2 token to change the contents of `app_metadata`. With these different permissions scopes, you can protect metadata content from being changed by the user (making it appropriate for sensitive info, like roles).
 
-This feature makes it very easy to control what information gets collected and when, and then through the [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id), enrich the user profile with any information collected:
+This feature makes it very easy to control what information gets collected and when, and then through the [Users API](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id), enrich the user profile with all that data:
 
 ![](/media/articles/user-profile/progressive-profiling-example.png)
 
-In the example above, we collect `last_name` and `first_name` on singup, then on a later interaction `title` and `company`, finally in the context of an article that might interest the user, a `subscribed` property.
+In the example above, we collect `last_name` and `first_name` on signup, then on a later interaction `title` and `company`, finally in the context of an article that might interest the user, a `subscribed` property.
 
 
 

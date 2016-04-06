@@ -4,7 +4,7 @@ url: /rules
 
 # Rules
 
-**Rules** are code snippets written in JavaScript that are executed in Auth0 as part of the authentication pipeline every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
+**Rules** are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 
 ![](/media/articles/rules/flow.png)
 
@@ -15,22 +15,23 @@ url: /rules
 
 Among many possibilities, Rules can be used to:
 
-* Bring information from your database and add it to the user profile object.
-* Create authorization rules based on complex logic (anything that can be written in JavaScript).
-* Normalize attributes from different providers beyond what is provided by Auth0.
+* __Profile enrichment__: query for information on the user from a database/API, and add it to the user profile object.
+* Create __authorization rules__ based on complex logic (anything that can be written in JavaScript).
+* __Normalize attributes__ from different providers beyond what is provided by Auth0.
 * Reuse information from existing databases or APIs for migration scenarios.
 * Keep a white-list of users and deny access based on email.
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
+* Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 
 **NOTE:** You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
 
 ## Rule Syntax
 
-A Rule takes the following arguments:
+A Rule is a function with the following arguments:
 
 * `user`: The user object as it comes from the identity provider.
 * `context`: An object containing contextual information of the current authentication transaction. (For a complete list of context properties, see: [Context Argument Properties in Rules](/rules/context).)
-* `callback`: Sends the modified `user` and `context`
+* `callback`: Sends the modified `user` and `context` back to Auth0.
 
 **NOTE:** Because of the async nature of *node.js*, it is important to include the `callback` argument, or else the script will timeout.
 
@@ -60,7 +61,9 @@ In this example, all authenticated users will get a **guest** role, but `johnfoo
 function (user, context, callback) {
   user.roles = [];
   // only johnfoo is admin
-  if (user.email === 'johnfoo@gmail.com') user.roles.push('admin');
+  if (user.email === 'johnfoo@gmail.com') {
+    user.roles.push('admin');
+  }
 
   // all users are guest
   user.roles.push('guest');
@@ -76,7 +79,7 @@ At the beginning of the rules pipeline, John's `user` object will be:
   "email": "johnfoo@gmail.com",
   "family_name": "Foo",
   "user_id": "google-oauth2|103547991597142817347"
-  //... other props ...
+  //... other properties ...
 }
 ```
 

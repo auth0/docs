@@ -6,7 +6,7 @@ The default email flow in Auth0 can address the requirements of most application
  * Custom **Redirect To** URLs based on the user or tenant
  * Different email templates per application or tenant
 
-The Auth0 API exposes endpoints that will allow you to completely manage email flow and control when and how emails are sent.
+The Auth0 API provides endpoints that allow you to completely manage email flow, and control when, and how emails are sent.
 
 To begin, you will need to disable automatic emails by deselecting **Status** under the **Verification Email** and **Welcome Email** tabs on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard.
 
@@ -55,7 +55,7 @@ function (user, context, callback) {
 
 A custom redirect is useful when you want to direct users to certain URLs based on user attributes or on the tenant.
 
-The Auth0 API exposes a [verification endpoint](/api/v2#!/Tickets/post_email_verification) that generates the email verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
+The Auth0 API provides a [verification endpoint](/api/v2#!/Tickets/post_email_verification) that generates the email verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 
 **NOTE:** You could call the [send a verifiy email address email](/api/v2#!/Jobs/post_verification_email) endpoint to send a verification email directly from Auth0, even when automatic emails are disabled. However, this endpoint will redirect all users to the same URL that is specified in the `Redirect To` field under the **Verification Email** tab on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard. Since you are already implementing your own email service, this endpoint may not provide all the functionality your app requires.
 
