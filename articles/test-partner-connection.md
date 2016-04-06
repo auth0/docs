@@ -32,6 +32,8 @@ Make sure you replace these two parameters:
 * __client_id__: the app client_id created in __Step 1__.
 * __connection__: the name of the connection you want to test.
 
+> `scope=openid profile` will instruct Auth0 to return the full profile. If it is too large, you will see an error. You can trim it by specifying only a few properties: `scope=openid name email`. See [scopes](/scopes) for more details.
+
 ## 3. Test it!
 
 When your partner follows the link above, she will be redirected to their configured Identity Provider (the __connection__). After successful authentication, she will be sent back to __[http://jwt.io](http://jwt.io)__ where all user properties will be decoded from the token. 

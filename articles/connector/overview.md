@@ -6,4 +6,8 @@ The __AD/LDAP Connector (1)__, is a bridge between your __Active Directory (2)__
 
 <img src="https://docs.google.com/drawings/d/1X30jQAsatQTibLXgxKgDanbCH1RJ9ZAfoDmHV33jdBY/pub?w=630&amp;h=526">
 
-You can install multiple instances of the connector for high availability and load balancing. Also, all connections are out-bound: from the connector to the Auth0 Server, so in general no changes to the firewall need to be applied.
+You can install multiple instances of the Connector for high availability and load balancing. Also, all connections are out-bound: from the Connector to the Auth0 Server, so in general no changes to the firewall need to be applied.
+
+The Connector supports __LDAP__, [__Kerberos__](/connector/kerberos) and [__Client Certificates__](/connector/client-certificates) based authentication.
+
+> When using Auth0 on your own environment (a dedicated instance of Auth0 running on your data center or in your own cloud), it is possible to connect directly to AD without using the Connector.
