@@ -95,7 +95,34 @@ And finally, you must add the following entries inside the `<application>` tag o
 
 If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
 
-### 2. Register Native Authentication Handlers
+### 2. Let's implement the login
+
+Now we're ready to implement the Login. First we need to require react-native-lock-android:
+
+${snippet(meta.snippets.setup)}
+
+Then we can show **Lock**:
+
+${snippet(meta.snippets.use)}
+
+[![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
+
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-android#sms-passwordless) or [Email](https://github.com/auth0/react-native-lock-android#email-passwordless)
+
+On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
+
+### 3. Showing user information
+
+After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
+
+```jsx
+  <Text>Welcome {this.state.profile.name}</Text>
+  <Text>Your email is: {this.state.profile.email}</Text>
+```
+
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+
+### Optional: Facebook & Google Native Login
 
 To allow native logins using other Android apps, e.g: Google+, Facebook, etc, you need to explicitly add them by calling `addIdentityProvider` in your `LockReactPackage` instance before returning in in your `MainActivity` method `getPackages()`.
 
@@ -173,51 +200,6 @@ Finally in your project's `AndroidManifest.xml` add the following entries:
 ```
 
 > For more information and configuration options you should see the Lock-GooglePlus.Android [docs](https://github.com/auth0/Lock-GooglePlus.Android)
-
-
-### 3. Let's implement the login
-
-Now we're ready to implement the Login. First we need to require react-native-lock-android:
-
-${snippet(meta.snippets.setup)}
-
-Then we can show **Lock**:
-
-${snippet(meta.snippets.use)}
-
-[![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
-
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-android#sms-passwordless) or [Email](https://github.com/auth0/react-native-lock-android#email-passwordless)
-
-On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
-
-### 4. Showing user information
-
-After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
-
-```jsx
-  <Text>Welcome {this.state.profile.name}</Text>
-  <Text>Your email is: {this.state.profile.email}</Text>
-```
-
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
-
-### 5. We're done
-
-You've implemented Authentication with Auth0 in Android & React Native. You're awesome!
-
-
-### API
-
-#### .show(options, callback)
-Show Lock's authentication screen as a modal screen using the connections configured for your applications or the ones specified in the `options` parameter. This is the list of valid options:
-
-* **closable** (`boolean`): If Lock screen can be dismissed. Default is `false`.
-* **connections** (`[string]`): List of enabled connections to use for authentication. Must be enabled in your app's dashboard first. If you leave it empty, Lock will use all the enabled connections.
-* **useMagicLink** (`boolean`): When using a passwordless connection, activate this option to send a Magic/App link instead of the code. Default is `false`.
-* **authParams** (`object`): Object with the parameters to be sent to the Authentication API, e.g. `scope`.
-
-The callback will have the error if anything went wrong or after a successful authentication, it will yield the user's profile info and tokens.
 
 ### FAQ
 

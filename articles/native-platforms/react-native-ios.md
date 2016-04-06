@@ -82,7 +82,34 @@ If you get the following warning.
 
 Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and change the current value for `$(inherited)` for **all** configurations .
 
-### 2. Register Native Authentication Handlers
+### 2. Let's implement the login
+
+Now we're ready to implement the Login. First we need to require react-native-lock-ios:
+
+${snippet(meta.snippets.setup)}
+
+Then we can show **Lock**:
+
+${snippet(meta.snippets.use)}
+
+[![Lock.png](/media/articles/native-platforms/reactnative-ios/Lock-Widget-Screenshot.png)](https://auth0.com)
+
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [TouchID](https://github.com/auth0/react-native-lock-ios#touchid)
+
+On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
+
+### 3. Showing user information
+
+After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
+
+```jsx
+  <Text>Welcome {this.state.profile.name}</Text>
+  <Text>Your email is: {this.state.profile.email}</Text>
+```
+
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+
+### Optional: Twitter & Facebook Native Login
 
 To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following methods to your `AppDelegate` class.
 
@@ -196,34 +223,3 @@ var lock = new Auth0Lock({
   }
 });
 ```
-
-### 3. Let's implement the login
-
-Now we're ready to implement the Login. First we need to require react-native-lock-ios:
-
-${snippet(meta.snippets.setup)}
-
-Then we can show **Lock**:
-
-${snippet(meta.snippets.use)}
-
-[![Lock.png](/media/articles/native-platforms/reactnative-ios/Lock-Widget-Screenshot.png)](https://auth0.com)
-
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-ios#sms-passwordless), [Email](https://github.com/auth0/react-native-lock-ios#email-passwordless) or [TouchID](https://github.com/auth0/react-native-lock-ios#touchid)
-
-On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
-
-### 4. Showing user information
-
-After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
-
-```jsx
-  <Text>Welcome {this.state.profile.name}</Text>
-  <Text>Your email is: {this.state.profile.email}</Text>
-```
-
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
-
-### 5. We're done
-
-You've implemented Authentication with Auth0 in iOS & React Native. You're awesome!

@@ -44,7 +44,7 @@ categories:
       -
         name: "Identity Providers"
         icon: "icon-budicon-297"
-        description: "Discover all the of identity providers Auth0 supports."
+        description: "Discover all of the identity providers Auth0 supports."
         href: "/identityproviders"
       -
         name: "Single Sign-On"
