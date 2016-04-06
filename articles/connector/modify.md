@@ -60,7 +60,7 @@ The __Update__ feature provides a convenient way to update the AD/LDAP connector
 
 ## Using the configuration file
 
-The `config.json` file is the AD/LDAP Connector's main configuration file.  It can be edited to make advnced changes that are not available via the AD/LDAP Connector Admin Console. The file is located in the install directory for the AD/LDAP Connector. The following settings are supported in this file:
+The `config.json` file is the AD/LDAP Connector's main configuration file.  It can be edited to make advanced changes that are not available via the AD/LDAP Connector Admin Console. The file is located in the install directory for the AD/LDAP Connector. The following settings are supported in this file:
 
  - `AD_HUB`: The Auth0 endpoint to which the connector will connect. This value is maintained by the connector.
  - `CA_CERT`: An authority certificate or array of authority certificates to check the remote host against.
