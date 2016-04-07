@@ -13,20 +13,20 @@
 ### Using Auth0 Lock
 
 <% if (language === "objc") { %>
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.iOS',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-Email/Lock/ObjC',
   pkgFilePath: 'Passwordless-Email/Lock/ObjC/Passwordless-Email/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } else { %>
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.iOS',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-Email/Lock/Swift',
   pkgFilePath: 'Passwordless-Email/Lock/Swift/Passwordless-Email/Info.plist',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 <% } %>
 

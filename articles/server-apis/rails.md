@@ -20,12 +20,18 @@ snippets:
 
 ## Ruby on Rails API Tutorial
 
-<%= include('../_includes/package', {
-  pkgRepo: 'auth0-ruby-samples',
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.1.8
+* Rails 4.2.5.1
+:::
+
+<%= include('../_includes/_package', {
+  pkgRepo: 'ruby-auth0',
   pkgBranch: 'master',
-  pkgPath: 'ruby-on-rails-api',
+  pkgPath: 'examples/ruby-on-rails-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
@@ -39,12 +45,14 @@ Add this line to your application's Gemfile:
 ${snippet(meta.snippets.dependencies)}
 
 And then execute:
-
-    $ bundle install
+```
+bundle install
+```
 
 Finally, run the install generator:
-
-    $ rails generate knock:install
+```
+rails generate knock:install
+```
 
 It will create the following initializer `config/initializers/knock.rb`.
 This file contains all the informations about the existing configuration options.
@@ -111,9 +119,21 @@ config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 ```
 
 ```ruby
-config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
+require 'base64'
+
+# extracted from original [method](http://www.rubydoc.info/github/jwt/ruby-jwt/JWT.base64url_decode)
+config.token_secret_signature_key = -> {
+    secret = Rails.application.secrets.auth0_client_secret
+    secret += '=' * (4 - secret.length.modulo(4))
+    Base64.decode64(secret.tr('-_', '+/'))
+  }
 ```
 
 ### 4. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
+
+### Optional Steps
+#### Configure CORS
+
+In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [this](https://github.com/cyu/rack-cors#rails) instructions. 

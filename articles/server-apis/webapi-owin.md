@@ -20,12 +20,18 @@ snippets:
 
 ## ASP.NET Web API OWIN Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
   pkgPath: 'examples/WebApi',
   pkgFilePath: 'examples/WebApi/Api/Web.config',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API OWIN app to use it with Auth0.**
@@ -50,6 +56,8 @@ using WebConfigurationManager = System.Web.Configuration.WebConfigurationManager
 ```
 
 Update the `Configuration` method with the following code:
+
+> Important: The JWT handler *must* be registered before `app.UseWebApi(config)` as ordering of OWIN middleware is important.
 
 ${snippet(meta.snippets.use)}
 

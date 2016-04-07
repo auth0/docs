@@ -17,3 +17,5 @@ You can monitor the service status using System Center as you would do with any 
 ![ss-2014-12-11T22-50-37.png](/media/articles/connector/scom-monitoring/ss-2014-12-11T22-50-37.png)
 
 * Select the limits of **CPU** and **Memory limits**. Eg: 10% of CPU and 200MB of RAM are good limits to trigger alerts.
+
+We also recommend setting up a _synthetic transaction_ to monitor end to end authentication. More information about monitoring is available [here](/monitoring).

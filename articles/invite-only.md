@@ -2,7 +2,7 @@
 
 Self-service provisioning is a common concept for SaaS applications, where users can register and pay after which they can start using the application. Other types of applications might not allow single users to register for an application. Instead, the customers might be organizations that pay upfront for a number of users and only want those users to access your application. Think about platforms like Google Apps and Office 365.
 
-And this is where an invite-only workflow can be used. Let’s take a look at a fictitious application, Analystick, which is a multi-tenant SaaS solution offering analytics in the cloud. Their customers will send them a list of users (give name, family name and email address) that can access the application.
+And this is where an invite-only workflow can be used. Let’s take a look at a fictitious application, Analystick, which is a multi-tenant SaaS solution offering analytics in the cloud. Their customers will send them a list of users (given name, family name and email address) that can access the application.
 
 As always, this is simply one way to solve it. Another option to achieve this is by using an Enterprise Connection, where you can federate with your customer using ADFS/SAML-P/… allowing them to authenticate using their own Active Directory (in which they could then specify who can access the application).
 
@@ -16,7 +16,7 @@ The users will be stored in a database and this is why we’ll need to make sure
 
 ![](/media/articles/invite-only/invite-only-connections.png)
 
-The prevent users from signing up you'll need to activate the "Disable Sign Ups" option on the connection to make sure users can only be created from your backend.
+To prevent users from signing up you'll need to activate the "Disable Sign Ups" option on the connection to make sure users can only be created from your backend.
 
 The Analystick application is an ASP.NET MVC web application hosted on http://localhost:45000/, so we’ll need to make sure we create an application in the dashboard with the right parameters:
 
@@ -120,7 +120,7 @@ If you take a closer look at the code you’ll see that the CreateUser method is
  2. The user’s password (we’re generating a new Guid to assign a random password to the user)
  3. The name of the connection in which we want to create the user
  4. The email verified parameter (we're setting this to false because we need the user to click the activation link).
- 5. A metadata object containing a the given name and family name of the user, together with an activation pending setting (which we’ll use later to validate the user).
+ 5. A metadata object containing the given name and family name of the user, together with an activation pending setting (which we’ll use later to validate the user).
 
 ## Emails ##
 
@@ -292,4 +292,4 @@ Once the user has gone through the whole flow he'll be able to access the member
 
 ![](/media/articles/invite-only/invite-only-profile.png)
 
-This scenario covered how to implement an invite-only flow by using Auth0 API to completely customize the signup process and the email flow. For more information about the API you can use the [API explorer](/api/v1) and  [API v2 explorer](/api/v2) to try the different endpoints.
+This scenario covered how to implement an invite-only flow by using Auth0 API to completely customize the signup process and the email flow. For more information about the API you can use the [API Explorer](/api/v2) to try the different endpoints.

@@ -1,4 +1,6 @@
 ---
-title: ZenDesk
+title: Zendesk
 ---
-${include('./_template')}
+<%= include('./_template', {
+  image1: "tutorial-zendesk.png"
+}) %>

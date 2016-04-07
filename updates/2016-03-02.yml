@@ -1,0 +1,8 @@
+added:
+ -
+    title: "Auth0.net version 3.0.0 released"
+    tags:
+      - sdk
+      - dotnet
+    description: |
+      The new version of the Auth0.NET SDK has been released which conforms to async method naming guidelines. See the [github project](https://github.com/auth0/auth0.net) for more details.

@@ -8,7 +8,7 @@ title: Auth0 access_token
 
 The Auth0 access token, usually called `access_token` in the code samples, is an opaque string which is returned by calls that invoke the Auth0 authentication process and is only used to call the Auth0 API.  The Auth0 access token does not contain any claims, cannot be decoded, does not conform with any standard and is not signed.
 
-The [Auth0.js documentation](https://auth0.com/docs/libraries/auth0js) shows a sample of how to get the `access_token`.
+The [Auth0.js documentation](/libraries/auth0js) shows a sample of how to get the `access_token`.
 
 ## How to get Auth0 access token
 
@@ -16,8 +16,8 @@ The Auth0 access token can be obtained in several ways.
 Calls to Lock or library functions that invoke authentication will return the `access_token`.
 
 * Calls to the Lock widget will return `access_token` as shown in the [Lock documentation](/libraries/lock)
-* [Examples using auth0.js}(https://github.com/auth0/auth0.js)
-* The [/authorize endpoint in the authentication API](https://auth0.com/docs/auth-api) will return `access_token`
+* [Examples using auth0.js](https://github.com/auth0/auth0.js)
+* The [/authorize endpoint in the authentication API](/auth-api) will return `access_token`
 * Check the [List of tutorials](/tutorials) to see how to make calls to libraries for other languages/SDKs.
 
 ## How to control contents of access token

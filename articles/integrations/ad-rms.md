@@ -1,4 +1,6 @@
 ---
 title: AD RMS
 ---
-${include('./_template')}
+<%= include('./_template', {
+  image1: "tutorial-adrms.png"
+}) %>

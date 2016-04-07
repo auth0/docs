@@ -49,7 +49,7 @@ To support Twitter authentication you need to register `A0TwitterAuthenticator` 
 A0Lock *lock = ...//Get your Lock instance
 NSString *twitterApiKey = ... //Remember to obfuscate your api key
 NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticationWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
+A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey                                                                            andSecret:twitterApiSecret];
 [lock registerAuthenticators:@[twitter]];
 ```
 
@@ -67,4 +67,4 @@ The first URL should have a scheme equal to your application Bundle Identifier, 
 > This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
 > For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
-And finally with your Mobile clientID from Google, go to [Social Connections](https://manage.auth0.com/#/connections/social), select **Google** and add the clientID to the field named `Allowed Mobile Client IDs`
+And finally with your Mobile clientID from Google, go to [Social Connections](${uiURL}/#/connections/social), select **Google** and add the clientID to the field named `Allowed Mobile Client IDs`

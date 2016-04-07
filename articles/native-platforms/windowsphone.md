@@ -24,15 +24,15 @@ alias:
 
 ## Windows Phone Tutorial
 
-<%= include('../_includes/package', {
+<%= include('../_includes/_package', {
   pkgRepo: 'Auth0.WindowsPhone',
   pkgBranch: 'master',
   pkgPath: 'examples/WindowsPhoneSilverlight',
   pkgFilePath: null,
-  pkgType: 'none' + account.clientParam
+  pkgType: 'none'
 }) %>
 
-**Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
+**Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 1. Install the Auth0.WindowsPhone package
 
@@ -40,15 +40,23 @@ You can either run the following command or install it via the **Package Manager
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Instantiate the Auth0 client
+### 2. Setting up the callback URL in Auth0
+
+<div class="setup-callback">
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+
+<pre><code>https://${account.namespace}/mobile</pre></code>
+</div>
+
+### 3. Instantiate the Auth0 client
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Allow users to log in
+### 4. Allow users to log in
 
 ${snippet(meta.snippets.use)}
 
-### 4. Use server API if necessary:
+### 5. Use server API if necessary:
 
 ```cs
 var client = new HttpClient();
@@ -64,7 +72,7 @@ message.Headers.Add("Authorization", "Bearer " + App.Auth0.CurrentUser.IdToken);
 response = await client.SendRequestAsync(message);
 ```
 
-### 5. Sit back and relax
+### 6. Sit back and relax
 
 Now it's time to sit back and relax. You've implemented log in and signup with Auth0 for your Windows Phone application.
 

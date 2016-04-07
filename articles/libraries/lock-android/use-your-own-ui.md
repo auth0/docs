@@ -1,37 +1,11 @@
 ---
 toc_title: Build your own UI
 description: Customize the UI of Lock in your App
-lodash: true
 ---
 
 # Lock Android: Build your own UI
 
-<% if (configuration.api && configuration.thirdParty) { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-   <a href="/native-mobile-samples/master/create-package?path=Android/custom-ui-sample&type=replace&filePath=Android/custom-ui-sample/app/src/main/res/values/auth0.xml${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download Android Custom UI Sample</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-<% } else  { %>
-
-<div class="package" style="text-align: center;">
-  <blockquote>
-    <a href="/native-mobile-samples/master/create-package?path=Android/custom-ui-sample&type=replace&filePath=Android/custom-ui-sample/app/src/main/res/values/auth0.xml${account.clientParam}" class="btn btn-lg btn-success btn-package" style="text-transform: uppercase; color: white">
-      <span style="display: block">Download Android Custom UI Sample</span>
-      <% if (account.userName) { %>
-      <span class="smaller" style="display:block; font-size: 11px">with your Auth0 API Keys already set and configured</span>
-      <% } %>
-    </a>
-  </blockquote>
-</div>
-
-<% } %>
+<%= include('../../_includes/_package', { pkgRepo: 'native-mobile-samples', pkgBranch: 'master', pkgPath: 'Android/custom-ui-sample', pkgFilePath: 'Android/custom-ui-sample/app/src/main/res/values/auth0.xml', pkgType: 'replace' }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
@@ -39,7 +13,7 @@ lodash: true
 
 1.  Add the following dependencies to your project:
   ```gradle
-  compile 'com.auth0.android:core:1.9.+'
+  compile 'com.auth0.android:core:1.11.+'
   compile 'de.greenrobot:eventbus:2.4.+'
   ```
 
@@ -272,6 +246,7 @@ lodash: true
 1. Configure Google+ Native integrationApplication class)
   ```java
     this.googleplus = new GooglePlusIdentityProvider(this);
+    this.googleplus.setCallback(callback);
   ```
   > **Note**: Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
 

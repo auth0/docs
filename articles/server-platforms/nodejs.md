@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: NodeJS Web App Tutorial
 name: Node.js
 image: /media/platforms/node.png
@@ -18,15 +17,24 @@ alias:
 
 ## NodeJS Web App Tutorial
 
-<%= include('../_includes/package', {
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.3
+* Express 4.11
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing NodeJS WebApp to use it with Auth0.**
+**If you have an existing application, follow the steps below.**
 
 ### 1. Add Passport dependencies
 
@@ -37,6 +45,8 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Configure passport-auth0
 
 We need to configure Passport to use Auth0 strategy.
+
+Create a file called `setup-passport.js` and add these contents to it:
 
 ${snippet(meta.snippets.setup)}
 
@@ -62,7 +72,8 @@ Now, just add the following middlewares to your app:
 
 ```js
 app.use(cookieParser());
-app.use(session({ secret: 'shhhhhhhhh' }));
+// See express session docs for information on the options: https://github.com/expressjs/session
+app.use(session({ secret: 'YOUR_SECRET_HERE', resave: false,  saveUninitialized: false }));
 ...
 app.use(passport.initialize());
 app.use(passport.session());
@@ -71,7 +82,7 @@ app.use(passport.session());
 
 ### 5. Add Auth0 callback handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information.
 
 ```js
 // Auth0 callback handler

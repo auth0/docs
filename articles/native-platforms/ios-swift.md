@@ -23,11 +23,18 @@ alias:
 
 ## iOS Swift Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* CocoaPods 0.39.0
+* XCode 7.2.1
+* Simulator - iOS 9.2 - iPhone 6
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist' + account.clientParam,
+  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
   pkgType: 'replace'
 }) %>
 
@@ -86,35 +93,33 @@ Add the following entries to your app's `Info.plist`:
 </table>
 
 Also you'll need to register a new _URL Type_ with the following scheme
-`a0${account.clientId}`. You can do it from your app's target Info section.
+`a0${account.clientId}`. You can do this in your App's Target menu, in the Info section.
 
 ![Url type register](https://cloudup.com/cwoiCwp7ZfA+)
 
-The next step is to create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. We are going to do this in a custom object called `MyApplication`.
+You can access an instance of `A0Lock` using the `sharedLock()` method provided by the `Lock` pod.
 
 ${snippet(meta.snippets.setup)}
 
-> You can create `A0Lock` in any other class, even in your AppDelegate, the only requirement is that you keep it in a **strong** reference.
+> You can access `A0Lock` in any class, even in your AppDelegate; the only requirement is that you reference the Lock pod by using `import Lock`.
 
 ### 4. Register Native Authentication Handlers
 
-First in your AppDelegate method `application:didFinishLaunchingWithOptions:` add the following lines:
+First, add the following lines to your AppDelegate.swift `application` function that contains the parameter `application:didFinishLaunchingWithOptions:`
 
 ```swift
-let lock = MyApplication.sharedInstance.lock
-lock.applicationLaunchedWithOptions(launchOptions)
+A0Lock.sharedLock().applicationLaunchedWithOptions(launchOptions)
 ```
 
-Then to allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method:
+To allow native logins using other iOS apps, e.g: Twitter, Facebook, Safari etc, you need to add the following method to your AppDelegate.swift file:
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    let lock = MyApplication.sharedInstance.lock
-    return lock.handleURL(url, sourceApplication: sourceApplication)
+func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+    return A0Lock.sharedLock().handleURL(url, sourceApplication: sourceApplication)
 }
 ```
 
-> If you need Facebook or Twitter native authentication please continue reading to learn how to configure them. Otherwise please go directly to __step #5__
+> If you need Facebook or Twitter native authentication, please continue reading to learn how to configure them. Otherwise please go directly to __step #5__
 
 **IMPORTANT**: Before you continue to the next section, please check that you have enabled and correctly configured the social connection with your own credentials in the [Dashboard](${uiURL}/#/connections/social)
 
@@ -151,15 +156,56 @@ Here's an example of how the entries should look like:
 
 ![FB plist](https://cloudup.com/cYOWHbPp8K4+)
 
+Then add the following keys to the `Info.plist` inside the main `<dict>` key. To open this file in Source Code mode within Xcode, **Control-Click** (or right click) on it, select **Open As**, **Source Code**.
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>facebook.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>                
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>fbcdn.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+        <key>akamaihd.net</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+            <false/>
+        </dict>
+    </dict>
+</dict>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+</array>
+```
+> **Note:** these entries enable compatibility with iOS 9. You can get more information about this in Facebook's developer portal: [Preparing your apps for iOS 9](https://developers.facebook.com/docs/ios/ios9)
+
 Then add Lock Facebook's Pod
 
 ```ruby
-pod 'Lock-Facebook', '~> 2.0'
+pod 'Lock-Facebook', '~> 2.1'
+post_install do |installer|
+    installer.pods_project.build_configurations.each { |bc|
+        bc.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+    }
+end
 ```
-
-Click on the `Pods` project and select `Lock-Facebook` target and set `Allow Non-modular Includes In Framework Modules` to Yes:
-
-![Lock.png](/media/articles/native-platforms/ios-swift/Facebook-Config-Screenshot.png)
 
 After that, where you initialize `A0Lock`, import `LockFacebook` module
 
@@ -171,7 +217,7 @@ And register it with `A0Lock`:
 
 ```swift
 let facebook = A0FacebookAuthenticator.newAuthenticatorWithDefaultPermissions()
-lock.registerAuthenticators([facebook])
+A0Lock.sharedLock().registerAuthenticators([facebook])
 ```
 
 #### Twitter
@@ -194,29 +240,29 @@ And register it with `A0Lock`:
 let apiKey = ... //Remember to obfuscate your api key
 let apiSecret = ... //Remember to obfuscate your api secret
 let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(apiKey, andSecret:apiSecret)
-lock.registerAuthenticators([twitter])
+A0Lock.sharedLock().registerAuthenticators([twitter])
 }
 ```
 
 > For more information on how to configure this, please check [Obtaining Consumer and Secret Keys for Twitter](/connections/social/twitter).
 
-### 5. Let's implement the login
-Now we're ready to implement the Login. We can instantiate `A0LockController` and present it as a modal screen. In one of your controllers instantiate the native widget and present it as a modal screen:
+### 5. Let's implement the Login
+Now we're ready to implement the Login. We can get an instance of `A0LockController` by calling the `newLockViewController()` method of the `A0Lock` shared instance and present it as a modal screen. In one of your controllers, instantiate the native widget and present it as a modal screen:
 
 ${snippet(meta.snippets.use)}
 
 [![Lock.png](/media/articles/native-platforms/ios-swift/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
-> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#8) or [TouchID](/libraries/lock-ios#7)
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
-> To learn how to save and manage the tokens and profile, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens)
+> To learn how to save and manage the tokens and profile, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Note that Lock on its own will not save these for you.
 
 ### 7. Showing user information
 
-After the user has logged in, we can use the `profile` object which has all the user information:
+After the user has logged in, we can use the `profile` object, which has all the user information:
 
 ```swift
   self.usernameLabel.text = profile.name
@@ -227,6 +273,6 @@ After the user has logged in, we can use the `profile` object which has all the 
 
 ### 8. We're done
 
-You've implemented Login and Signup with Auth0 in iOS. You're awesome!
+You've implemented Login and Signup with Auth0 in iOS with Swift. You're awesome!
 
 > You can also <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project that shows how to store/update your user profile with Auth0

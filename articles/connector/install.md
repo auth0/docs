@@ -2,7 +2,7 @@
 
 ## Download the installer
 
-The Connector is packaged as a standard installer file (__MSI__). Download from here:
+The Connector is packaged as a standard Microsoft Installer file (__MSI__). Download from here:
 
 <div class="platform-selector">
   <div class="installers"  style="display: block; margin: auto;">

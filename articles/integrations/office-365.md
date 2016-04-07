@@ -8,7 +8,7 @@ Your users will be able to log in using their existing Active Directory credenti
 
 This would typically require you to setup [an advanced ADFS infrastructure](https://msdn.microsoft.com/en-us/library/azure/dn151324.aspx) with Federation Servers in the corporate network and Web Application Proxies exposed in the DMZ. But with Auth0 as an identity provider for Office 365 all of this is handled by the [AD Connector](/connector/overview) which doesn't require you to expose any of your servers to the outside world.
 
-In addition to that users can also have SSO with other applications they're building or Third Party Applications they're using (like Salesforce, Dropbox, SharePoint Server, ...).
+In addition to that users can also setup SSO with custom apps or integrations like Salesforce, Dropbox, SharePoint Server, ...
 
 ## High-level Overview
 
@@ -28,6 +28,8 @@ This means that even if you use Auth0 for SSO support in Office 365, you will al
 
 When authentication is handed over to Auth0 it will use the AD Connector to authenticate the user. The link between the Auth0 user and the user in Azure AD is made using the `User Principal Name`. When Jack is synchronized to Azure AD his UPN will be `jack@fabrikamcorp.be` and when Jack authenticates using Auth0 the same UPN will be included in the SAML assertion to identify the authenticated user to the user stored in Azure AD. 
 
+> Note: If you're interested in providing SSO to Office 365 using other connections (like Database Connections, traditional AD, ...) you can [write a rule with custom provisioning logic](/integrations/office-365-custom-provisioning)
+
 ## Configuring Synchronization With Office 365 / Azure AD
 
 The synchronization with your local LDAP directory can be configured in Office 365 or Azure AD (if you have an Azure Subscription). 
@@ -46,9 +48,9 @@ After installing and configuring the tool you'll be able to start the synchroniz
 
 ## Configuring SSO With Auth0
 
-Everything in terms of synchronization has been configured and we can now proceed to the SSO configuration with Auth0. We will start by adding Office 365 as a Third Party Application in the dashboard.
+Everything in terms of synchronization has been configured and we can now proceed to the SSO configuration with Auth0. We will start by adding Office 365 as a SSO Integration in the dashboard.
 
-![Third Party App](/media/articles/integrations/office-365/office-365-third-party-app.png)
+![](/media/articles/integrations/office-365/office-365-SSO.png)
 
 On the **Settings** tab we'll need to enter our custom domain name (eg: `fabrikamcorp.be`) and choose the Active Directory connection we want to use.
 
@@ -107,7 +109,7 @@ Auth0 exposes an endpoint that can immediately start the login without showing t
 
 `https://{tenant}.auth0.com/wsfed/{client-id}?whr={AD-connection-name}`
 
-For Fabrikam's Third Party Application the URL will look like this:
+For Fabrikam's SSO Integration the URL will look like this:
 
 `https://fabrikam.auth0.com/wsfed/yNqQMENaYIONxAaQmrct341tZ9joEjTi?whr=FabrikamAD`
 
@@ -129,3 +131,5 @@ For users without Kerberos this will immediately show the login page:
 Users on a domain-joined machine will immediately be signed in to Office 365:
 
 ![IdP Login Kerberos](/media/articles/integrations/office-365/office-365-idp-login-kerberos.gif)
+
+<%= include('./_office-365-deep-linking') %>

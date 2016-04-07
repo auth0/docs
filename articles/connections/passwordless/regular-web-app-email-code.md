@@ -16,12 +16,12 @@ title: Using Passwordless Authentication with a one-time code via email on Regul
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-node-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 <%= include('./_init-passwordless-lock') %>
@@ -59,12 +59,12 @@ Once the user enters the code received by email, Lock will authenticate the user
 
 ### Use your own UI
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-node-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 You can perform passwordless authentication in your regular web app with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).

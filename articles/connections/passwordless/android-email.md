@@ -14,12 +14,12 @@ title: Using Passwordless Authentication on Anroid with e-mail
 
 ### Using Auth0 Lock
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.Android',
   pkgBranch: 'master',
   pkgPath: 'Passwordless-Email/Lock',
   pkgFilePath: 'Passwordless-Email/Lock/app/src/main/res/values/auth0.xml',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
 <%= include('./_introduction-lock', { repository: 'Lock.Android', platform: 'Android', docsUrl: 'lock-android' }) %>

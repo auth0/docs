@@ -1,12 +1,14 @@
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields other than email and password.
-[Lock](lock) has a `signup` mode but it does not support adding arbitrary fields,
-so you will have to implement your own UI for signup.
-Lock can still be used for logging in to your application.
+In some cases, you may want to customize the user sign up form with more fields other than email and password. Read below to learn how to do it using Lock or the API.
 
-> Note that there is currently no way to validate user-supplied custom fields when signing up.
-Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
+## Using Lock
+
+Lock 10 supports custom fields for the signup. Read more: [Lock 10 Preview Release](/libraries/lock/v10).
+
+![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
+
+# Using the API
 
 You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
 
@@ -15,8 +17,8 @@ You can find the [full source of this example on GitHub](https://github.com/auth
 We can describe a custom signup flow with the following steps:
 
 1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
-2. [Log them in programatically](https://auth0.com/docs/auth-api#!#post--oauth-ro) and [get back a JWT](https://auth0.com/docs/scopes)
-3. [Call API v2 with the user's JWT](https://auth0.com/docs/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](https://auth0.com/docs/api/v2/changes#user-metadata)
+2. [Log them in programatically](/auth-api#!#post--oauth-ro) and [get back a JWT](/scopes)
+3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata)
 
 ## 1. Signup form
 
@@ -44,10 +46,13 @@ We can describe a custom signup flow with the following steps:
 
 Notice that `name` and `color` are custom fields.
 
+> Note that there is currently no way to validate user-supplied custom fields when signing up.
+Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
+
 ## 2. Auth0.js and dependencies
 
 ```html
-<script src="https://cdn.auth0.com/w2/auth0-6.js"></script>
+<script src="https://cdn.auth0.com/w2/auth0-6.7.js"></script>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 ```
 
@@ -66,7 +71,7 @@ a call to `PATCH users/{user_id}` is made, which adds the custom fields to the
 
 > This call to APIv2 is allowed from the client because all JWTs for logged-in
 users implicitly include the `update:current_user_metadata` scope by default.
-[This document describes how implicit scopes work when using APIv2](https://auth0.com/docs/api/v2/changes#scopes).
+[This document describes how implicit scopes work when using APIv2](/api/v2/changes#scopes).
 
 ```js
 $('#signup').submit(function (e) {
@@ -126,7 +131,7 @@ successful login, Auth0 will redirect the user to the configured callback URL
 with a JWT (`id_token`) in the query string.
 
 > [To learn more about the differences between popup and redirect modes,
-please refer to this document](https://auth0.com/docs/libraries/lock/authentication-modes).
+please refer to this document](/libraries/lock/authentication-modes).
 
 ```js
 window.auth0 = new Auth0({

@@ -6,9 +6,9 @@ If you are using the public cloud version of Auth0 we recommend you subscribe to
 
 You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
 
-	https://${account.namespace}/test
+	GET https://${account.namespace}/test
 
-This should return a Json object with a single property:
+This returns a JSON object with a single property:
 
 ```
 200
@@ -16,9 +16,12 @@ content-type: application/json
 {"clock":1417220191640}
 ```
 
+If the core Auth0 authentication service is up, the `/test` endpoint will return a 200 status code.
+Otherwise, it will return 5xx.
+
 This other one:
 
-	https://${account.namespace}/testall
+	GET https://${account.namespace}/testall
 
 returns a simple text:
 
@@ -28,9 +31,10 @@ content-type: text/plain
 OK
 ```
 
-Each of these tests verifies correct functioning of various components of the server, memory consumption, I/O operations, database, etc.
+The `/testall` endpoint checks that the core Auth0 authentication service is up as well as additional services such as the management dashboard and documentation pages.
+If any of those services are down, the response code from `/testall` will be 5xx.
 
-If you extended Auth0 through [rules](/rules) or [a custom db connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimick what a user would do (e.g. follow redirects, input username/password on a form, etc.).
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimic what a user would do (e.g. follow redirects, input username/password on a form, etc.).
 
 ```
 POST https://${account.namespace}/oauth/ro
@@ -61,7 +65,7 @@ Many tools exist for monitoring using this approach: [New Relic](http://newrelic
 
 ---
 
-## Monitoring a private deployment
+## Monitoring a dedicated deployment
 
 If you are using the __Auth0 Appliance__, monitoring is very similar to the steps described above.
 
@@ -85,7 +89,7 @@ content-type: application/json
 
 ### Monitoring individual nodes of a cluster
 
-The endpoints above will normally hit the load-balancer that is fronting the nodes of a cluster. We also recommend you monitor individual nodes. A typical highly-available deployment will have at leasts 3 nodes:
+The endpoints above will normally hit the load-balancer that is fronting the nodes of a cluster. You can monitor individual nodes. A typical highly-available deployment will have at leasts 3 nodes:
 
 * `https://{IP Address Node 1}/testall`
 * `https://{IP Address Node 2}/testall`
@@ -99,15 +103,15 @@ content-type: text/plain
 OK
 ```
 
-Individual nodes that are not responding, or timeout can be __removed from the load balancer without affecting the service__. All nodes of a cluster can serve requests to client applications. All configuration information is continruously replicated across nodes.
+Individual nodes that are not responding, or timeout can be __removed from the load balancer without affecting the service__. All nodes of a cluster can serve requests to client applications. All configuration information is continuously replicated across nodes.
 
-> If a node stops responding, contact [Auth0 Support](mailto://support@auth0.com).
+> These endpoints are typcially used by the Load Balancer to decide whether a node should be removed from the cluster or not. If a node stops responding, and the Load Balancer removes it you must contact [Auth0 Support](https://support.auth0.com).
 
 ### Configuring SCOM
 
 Auth0 can be monitored as a standard web application on System Center Operations Manager (or any other similar tool that supports synthetic transactions).
 
-We recommend adding probes in SCOM for all the endpoints describe before, including a login synthetic transaction.
+We recommend adding probes in SCOM for all the endpoints describe before, including a login synthetic transaction that includes the extensions your applications rely on (e.g. rules that execute custom code that integrates with other services in your company).
 
 #### Configuring System Center Operations Manager
 
@@ -133,4 +137,4 @@ You can monitor System Center activity throught the monitoring tab as shown bell
 
 ![ss-2014-11-25T17-22-10.png](/media/articles/monitoring/ss-2014-11-25T17-22-10.png)
 
-> If any of these alarms are triggered, contact [Auth0 support](mailto://support@auth0.com) immediately.
+> If any of these alarms are triggered, contact [Auth0 support](https://support.auth0.com) immediately following the incident escalation procedure provided during the onboarding process.

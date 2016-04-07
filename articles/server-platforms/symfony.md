@@ -12,6 +12,12 @@ snippets:
 
 # Symfony Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* PHP 5.3.9
+* Symfony 2.8
+:::
+
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
 
 ## Tutorial
@@ -31,16 +37,18 @@ ${snippet(meta.snippets.setup)}
 
 Add the following routes at the beginning of `app/config/routing.yml`
 
-    hwi_oauth_redirect:
-        resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
-        prefix:   /connect
+```yml
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
 
-    hwi_oauth_login:
-        resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-        prefix:   /login
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
 
-    auth0_login:
-        pattern: /auth0/callback
+auth0_login:
+    pattern: /auth0/callback
+```
 
 
 ### 4. Configure Auth0
@@ -57,14 +65,16 @@ http://yourUrl/auth0/callback
 
 Add this to your `app/config/config.yml`
 
-    hwi_oauth:
-        firewall_name: secured_area
-        resource_owners:
-            auth0:
-                type:                auth0
-                base_url:            https://${account.namespace}
-                client_id:           ${account.clientId}
-                client_secret:       ${account.clientSecret}
+```yml
+hwi_oauth:
+    firewall_name: secured_area
+    resource_owners:
+        auth0:
+            type:                auth0
+            base_url:            https://${account.namespace}
+            client_id:           ${account.clientId}
+            client_secret:       ${account.clientSecret}
+```
 
 ### 6. User provider
 
@@ -79,30 +89,38 @@ This is a basic example that allows anonymous users and then restricts access to
 
 This file is `app/config/security.yml`:
 
-    security:
-        providers:
-            hwi:
-                id: hwi_oauth.user.provider
+```yml
+security:
+    providers:
+        hwi:
+            id: hwi_oauth.user.provider
 
-        firewalls:
-            secured_area:
-                anonymous: ~
-                oauth:
-                    resource_owners:
-                        auth0: "/auth0/callback"
-                    login_path:        /login
-                    use_forward:       false
-                    failure_path:      /login
+    firewalls:
+        secured_area:
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    auth0: "/auth0/callback"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
 
-                    oauth_user_provider:
-                        service: hwi_oauth.user.provider
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider
 
-        access_control:
-            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/demo/hello, roles: ROLE_OAUTH_USER }
+```
 
 Notice that we need to identify the user provided selected in step 6 both in the firewall and in the providers.
 
 ### 8. Triggering login manually or integrating the Auth0Lock
 
 ${lockSDK}
+
+### Troubleshooting
+
+#### SSL certificate problem: self signed certificate in certificate chain
+
+There is an issue with CAs database in your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.

@@ -1,6 +1,6 @@
 # Client Certificate Support
 
-Besides Kerberos the AD/LDAP Connector also enables users to authenticate using client certificates where users can have a certificate installed on their machine or device and use that certificate to authenticate (instead of a username and password).
+In addition to Kerberos, the AD/LDAP Connector also allows users to authenticate using __client certificates__. With this, users authenticate with a certificate installed on their machine or device.
 
 ## Configuration
 
@@ -12,9 +12,9 @@ To activate Client Certificates on an LDAP connection, simply enable the option 
 
 Once this has been configured in Auth0 you'll need to configure the certificates in the AD/LDAP Connector. Supporting Client Certificates will require the following:
 
- 1. An SSL certificate for the **Front Facing Url**, because the interaction between the end user and the connector will need to happen over HTTPS.
- 2. One or more CA certificates
- 3. A Client Certificate signed by the CA for each user that needs to authenticate using Client Certificates
+ 1. An __SSL certificate__ for the **Front Facing Url**, because the interaction between the end user and the Connector will need to happen over HTTPS.
+ 2. One or more __CA certificates__.
+ 3. A __Client Certificate__ signed by the CA for each user that needs to authenticate using Client Certificates.
 
 The SSL certificate and the CA certificate can be uploaded in the AD/LDAP Connector:
 
@@ -43,12 +43,10 @@ In an application we might now start the sign in flow using an AD/LDAP Connectio
     }, onLoginSuccess, onLoginFailed);
 ```
 
-If the user's IP address falls within a configured IP Range they'll be prompted to authenticate with a Client Certificate:
+If the user's IP address falls within the configured IP Range, they'll be prompted to authenticate with a Client Certificate:
 
 ![Choose Client Certificate](/media/articles/connector/client-certs/connector-client-cert-choose.png)
 
 After choosing the certificate the AD/LDAP Connector will validate it and the user will be logged in:
 
 ![Signed In using Client Certificates](/media/articles/connector/client-certs/connector-client-cert-loggedin.png)
-
-

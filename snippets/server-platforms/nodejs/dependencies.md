@@ -1,3 +1,3 @@
 ```js
-npm install passport passport-auth0 --save
+npm install passport passport-auth0 express-session --save
 ```

@@ -16,7 +16,24 @@ alias:
 
 # ASP.NET Tutorial
 
-This tutorial explains how to integrate Auth0 with an ASP.NET application (any kind: WebForms, MVC 1, 2, 3 or 4 and even Web API).
+
+<%= include('../_includes/_package', {
+  pkgRepo: 'auth0-aspnet',
+  pkgBranch: 'master',
+  pkgPath: 'examples/auth0-aspnet-mvc4-sample/',
+  pkgFilePath: 'examples/auth0-aspnet-mvc4-sample/aspnet4-sample1/Web.config',
+  pkgType: 'replace'
+}) %>
+
+**Otherwise, please follow the steps below to configure your existing ASP.NET app (any kind: WebForms, MVC 1, 2, 3 or 4) to use it with Auth0.**
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Microsoft Visual Studio 2015
+* Auth0-ASPNET v1.4.0 
+:::
+
 
 ## Tutorial
 

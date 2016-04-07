@@ -9,16 +9,33 @@ After a successful authentication, you can request credentials to access third p
 
 Here's an example
 ```objc
-NSString *idToken = ...;
+A0Lock *lock = [A0Lock sharedLock];
+NSString *token = ...; // Auth0's id_token obtained on login
 A0AuthParameters *parameters = [A0AuthParameters newWithDictionary:@{
-                                                                     @"id_token": idToken,
+                                                                     @"id_token": token,
                                                                      A0ParameterAPIType: @"firebase",
                                                                      }];
-[[A0APIClient sharedClient] fetchDelegationTokenWithParameters:parameters success:^(NSDictionary *delegationToken) {
-    NSLog(@"Firebase credentials %@", delegationToken);
+[[lock apiClient] fetchDelegationTokenWithParameters:parameters success:^(NSDictionary *delegationToken) {
+    // delegationToken will have your firebase token
 } failure:^(NSError *error) {
-    NSLog(@"Something went wrong");
+    // Something went wrong
 }];
+```
+
+```swift
+let client = A0Lock.sharedLock().apiClient()
+let token = ...; // Auth0's id_token obtained on login
+let parameters = A0AuthParameters.newWithDictionary([
+        "id_token": token,
+        A0ParameterAPIType: "firebase"
+    ])
+client.fetchDelegationTokenWithParameters(parameters,
+    success: { payload in
+        // payload will have your firebase token
+    },
+    failure: error in {
+        // Something went wrong
+    })
 ```
 
 The only two parameters required are `id_token` and the `api_type` (the value of `A0ParameterAPIType` constant).

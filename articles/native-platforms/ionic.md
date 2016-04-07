@@ -20,17 +20,25 @@ snippets:
 
 ## Ionic Framework Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 4.3.0
+* Ionic 1.7.14
+* Cordova 6.0.0
+* ios-sim 5.0.6
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
   pkgPath: 'examples/refresh-token-sample',
-  pkgFilePath: 'examples/refresh-token-sample/www/js' + account.clientParam,
+  pkgFilePath: 'examples/refresh-token-sample/www/js',
   pkgType: 'js'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-### 1. Setting up the callback URL in Auth0
+### 1. Set up the callback URL in Auth0
 
 <div class="setup-callback">
 <p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
@@ -43,7 +51,7 @@ snippets:
 
 </div>
 
-### 2. Adding the Auth0 dependencies
+### 2. Add the Auth0 dependencies
 
 Add the following dependencies to the `bower.json` and run `bower install`:
 
@@ -62,7 +70,7 @@ ${snippet(meta.snippets.dependencies)}
 <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
 ```
 
-### 4. Add `InAppBrowser` plugin
+### 4. Add the `InAppBrowser` plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. For that, just run the following command:
 
@@ -79,7 +87,7 @@ and then add the following configuration to the `config.xml` file:
 </feature>
 ```
 
-### 5. Add the module dependency and configure the service
+### 5. Add the module dependencies and configure the service
 
 Add the `auth0`, `angular-storage` and `angular-jwt` module dependencies to your angular app definition and configure `auth0` by calling the `init` method of the `authProvider`
 
@@ -87,16 +95,16 @@ ${snippet(meta.snippets.setup)}
 
 > Note: there are more properties available in `authProvider.init({...})`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#authproviderinitoptions--authinitoptions).
 
-### 6. Let's implement the login
+### 6. Implement the login
 
-Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call `signin` method to show the Login / SignUp popup.
-In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user profile, token and [refresh token](/refresh-token) into `localStorage`
+Now we're ready to implement the Login. We can inject the `auth` service in any controller and just call the `signin` method to show the Login / SignUp popup.
+In this case, we'll add the call in the `login` method of the `LoginCtrl` controller. On login success, we'll save the user's profile, token and [refresh token](/refresh-token) into `localStorage`
 
 ${snippet(meta.snippets.use)}
 
-> Note: there are multiple ways of implementing login. What you see above is the Login Widget, but if you want to have your own UI you can change the `<script src="//cdn.auth0.com/js/auth0-lock-6.js">` for `<script src="//cdn.auth0.com/w2/auth0-2.1.js">`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#with-your-own-ui).
+> Note: there are multiple ways of implementing the login. What you see above is the Login Widget, but if you want to have your own UI you can change `<script src="lib/auth0-lock/build/auth0-lock.js"></script>` for `<script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>`. For more details [check the GitHub repo](https://github.com/auth0/auth0-angular#using-auth0-lock-no-need-to-build-a-custom-ui).
 
-### 7. Adding a logout button
+### 7. Add a logout button
 
 You can just call the `signout` method of Auth0 to log the user out. You should also remove the information saved into `localStorage`:
 
@@ -111,9 +119,9 @@ $scope.logout = function() {
 ```html
 <input type="submit" ng-click="logout()" value="Log out" />
 ```
-### 8. Configuring secure calls to our API
+### 8. Configure secure calls to your API
 
-As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to do the add the `jwtInterceptor` to the list of `$http` interceptors. Also, as JWTs expire, we'll use the `refreshToken` to get a new JWT if the one we have is expired:
+As we're going to call an API we did<%= configuration.api ? ' on ' + configuration.api : '' %>, we need to make sure we send the [JWT token](/jwt) we receive on the login on every request. For that, we need to add the `jwtInterceptor` to the list of `$http` interceptors. Also, as JWTs expire, we'll use the `refreshToken` to get a new JWT if the one we have is expired:
 
 ```js
 // app.js
@@ -145,7 +153,7 @@ myApp.config(function (authProvider, $routeProvider, $httpProvider, jwtIntercept
 
 Now, you can regularly call your API with `$http`, `$resource` or any rest client as you'd normally do and the [JWT token](/jwt) will be sent on every request.
 
-### 9. Showing user information
+### 9. Show the user's information
 
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
@@ -162,9 +170,9 @@ angular.module('starter.controllers', [])
 }
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of these depend on the social provider being used.
 
-### 10. Keeping the user logged in after app switching
+### 10. Keep the user logged in after app switching
 
 When the user exits your app, the mobile OS (iOS or Android) may unload your app at will to recover some RAM.
 
@@ -198,7 +206,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           }
           return refreshingToken;
         } else {
-          $location.path('/login');// Notice: this url must be the one defined 
+          $location.path('/login');// Notice: this url must be the one defined
         }                          // in your login state. Refer to step 5.
       }
     }
@@ -221,8 +229,8 @@ This means that the `InAppBrowser` plugin wasn't installed successfully by Cordo
 * Reinstall the `InAppBrowser` plugin
 
 ```bash
-ionic plugin remove org.apache.cordova.inappbrowser
-ionic plugin add org.apache.cordova.inappbrowser
+ionic plugin remove cordova-plugin-inappbrowser
+ionic plugin add cordova-plugin-inappbrowser
 ```
 * Remove the platform and re add it
 
@@ -234,9 +242,13 @@ ionic platform add ios
 * Copy the contents from the plugin to the platform plugins
 
 ```bash
-cp plugins/org.apache.cordova.inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/org.apache.cordova.inappbrowser/
+cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plugins/cordova-plugin-inappbrowser/
 ```
 
 #### Get a blank page with an OK after signin
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. See the previous section to learn how to solve this.
+
+#### Lock is displaying errors when using ionic serve command or Ionic View app
+
+Please debug your app inside the simulator for your platform or an actual device. Running Lock from inside a browser using `ionic serve` or through the `Ionic View` app is not supported at this time.

@@ -10,12 +10,12 @@ The client application will be a single page, serverless application based on th
 
 For a simple starter app, download this seed project which pre-configures your account settings.
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
   pkgPath: 'examples/api-gateway/client',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 Copy the contents of this seed project to a local folder called `pets`. You will be using the `pets` folder for the remainder of this tutorial. From the `pets` folder, copy the contents to your S3 bucket for the website. An easy way to do this is with the [AWS CLI](https://aws.amazon.com/cli/).

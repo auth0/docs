@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Added article on Blacklisting Attributes"
+    tags:
+      - security
+      - tutorial
+    description: |
+      A [new article](/blacklist-attributes) was added showing how to blacklist selected user attributes so they do not persist in Auth0 databases.

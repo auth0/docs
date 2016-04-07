@@ -18,11 +18,17 @@ snippets:
 
 ## Android Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Android SDK 23
+* Build Tools 23.0.2
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'Android/basic-sample',
-  pkgFilePath: 'Android/basic-sample/app/src/main/res/values/auth0.xml' + account.clientParam,
+  pkgFilePath: 'Android/basic-sample/app/src/main/res/values/auth0.xml',
   pkgType: 'replace'
 }) %>
 
@@ -43,13 +49,13 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Configuring Auth0 Credentials & Callbacks
 
-Add the `android.permission.INTERNET` permission:
+Add the `android.permission.INTERNET` permission to `AndroidManifest.xml` inside the `<manifest>` tag:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Then add the following entries to `AndroidManifest.xml` inside the `<application>` tag:
+Then add the following entries inside the `<application>` tag in the same file:
 
 ```xml
 <!--Auth0 Lock-->
@@ -119,7 +125,7 @@ For Google login we use Google Signin library that is part of Google Play Servic
 
 Before we start, you'll need to register your application in Google Developers and create a OAuth 2.0 client, to do that follow this [wizard](https://developers.google.com/mobile/add?platform=android)
 
-The next step is to configure your Google connection in Auth0 Dashboard with the newly created OAuth 2.0 client information. Just go to [Social Connections](https://manage.auth0.com/#/connections/social), select **Google** and in the field named `Allowed Mobile Client IDs` add the ID of the OAuth 2.0 client.
+The next step is to configure your Google connection in Auth0 Dashboard with the newly created OAuth 2.0 client information. Just go to [Social Connections](${uiURL}/#/connections/social), select **Google** and in the field named `Allowed Mobile Client IDs` add the ID of the OAuth 2.0 client.
 
 Then in your `AndroidManifest.xml` add these permissions and meta-data value for Google Play Services:
 
@@ -150,7 +156,7 @@ ${snippet(meta.snippets.use)}
 [![Lock.png](/media/articles/native-platforms/android/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use your own UI.
-> Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#sms)
+> Or you can also try our passwordless Login Widget [SMS](https://github.com/auth0/Lock.Android#passwordless)
 
 Once the user logs in, we have to register to the `Lock.AUTHENTICATION_ACTION` from a `LocalBroadcastManager` to receive the user profile and tokens.
 
@@ -177,7 +183,7 @@ After the user has logged in, we can use the `UserProfile` object to display the
   emailTextView.setText(profile.getEmail());
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/android-core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [UserProfile](https://github.com/auth0/Lock.Android/blob/master/core/src/main/java/com/auth0/core/UserProfile.java). Please note that some of these depend on the social provider being used.
 
 ### 6. We're done
 

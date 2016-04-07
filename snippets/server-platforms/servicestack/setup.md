@@ -1,4 +1,4 @@
-```c#
+```cs
 private void ConfigureAuth(Funq.Container container)
 {
 	var appSettings = new AppSettings();

@@ -16,12 +16,12 @@ title: Using Passwordless Authentication with a Magic Link via email on SPA
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-jquery-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 <%= include('./_init-passwordless-lock') %>
@@ -67,12 +67,12 @@ $(document).ready(function(){
 
 ### Use your own UI
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-jquery-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 You can perform passwordless authentication with a magic link in your single-page application using your own UI with the [Auth0 JavaScript client library](/libraries/auth0js).

@@ -14,15 +14,27 @@ tags:
 ---
 ## EmberJS Tutorial
 
-<%= include('../_includes/package', {
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 0.12.7
+* Ember 1.12.0
+* Bower 1.5.3
+* Jquery 1.11.1
+* Ember Simple Auth 0.8.0
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-ember-simple-auth',
   pkgBranch: 'master',
   pkgPath: 'examples/simple',
   pkgFilePath: 'examples/simple/config/auth0-variables.js',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
-**If you have an existing application, follow the steps below.**
+**If you have an existing application, please follow the steps below.**
 
 ${include('./\_callback')}
 
@@ -37,7 +49,7 @@ ember install auth0-ember-simple-auth
 ember generate scaffold-auth0
 ```
 
-__Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
+__Note:__ If you are not already using ember-cli, see [ember-cli migration](http://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
 
 ### 2. Configure the add-on
 
@@ -71,7 +83,7 @@ ENV['contentSecurityPolicy'] = {
 
 ### 3. Extend routes
 
-Extend a route and set [user-configurable options](https://auth0.com/docs/libraries/lock/customization):
+Extend a route and set [user-configurable options](/libraries/lock/customization):
 
 ```js
 // app/routes/application.js
@@ -122,7 +134,7 @@ Add login and logout links. These routes are handled according to the simple-aut
 {{#if session.isAuthenticated}}
   <a {{ action 'invalidateSession' }}>Logout</a>
 {{else}}
-  <a {{ action 'authenticateSession' }}>Login</a>
+  <a {{ action 'sessionRequiresAuthentication' }}>Login</a>
 {{/if}}
 ```
 
@@ -142,7 +154,7 @@ You can access this session information in the ember templates by using `{{sessi
 
 ### 6. Using a JWT token to make API requests
 
-To make an API request, add the user's [JWT token](https://auth0.com/docs/jwt) to an `Authorization` HTTP header:
+To make an API request, add the user's [JWT token](/jwt) to an `Authorization` HTTP header:
 
 ```js
 fetch('/api/foo', {

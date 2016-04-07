@@ -1,0 +1,9 @@
+changed:
+  -
+    title: "Auth0 Node.JS SDK version 2.1.0 released"
+    tags:
+      - sdk
+      - node
+      - javascript
+    description: |
+      The new version of the Auth0 Node.js SDK adds support for the logs API, the new password reset API, and adds Webpack build support. See the [github project](https://github.com/auth0/node-auth0) for more details.

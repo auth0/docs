@@ -2,10 +2,10 @@
 
 The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.
 
-Here are a few examples of OAuth2/OAuth1 connections you can create through the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
+Here are a few examples of OAuth2/OAuth1 connections you can create through the [Auth0 API v2](/api/v2#!/Connections/post_connections). You will require an [API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
 
 ```
-curl -vX POST https://${account.namespace}/api/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_GLOBAL_CLIENT_ACCESS_TOKEN}' -d @sample-connection.json
+curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @sample-connection.json
 ```
 
 After the call completes successfully, you will be able to login using these new providers.
@@ -205,6 +205,78 @@ After the call completes successfully, you will be able to login using these new
     "scope": ["public"],
     "scripts": {
       "fetchUserProfile": "function(accessToken, ctx, cb) { request.get('https://api.vimeo.com/me', { headers: { 'Authorization': 'Bearer ' + accessToken } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.user_id = profile.uri; cb(null, profile); });}"
+    }
+  }
+}
+```
+
+## Tumblr
+
+* [Create an application](https://www.tumblr.com/oauth/apps)
+* Copy `OAuth Consumer Key` and `Secret Key` to config file below
+
+```
+{
+  "name": "tumblr",
+  "strategy": "oauth1",
+  "options": {
+    "client_id": "{YOUR-TUMBLR-CONSUMER-KEY}",
+    "client_secret": "{YOUR-TUMBLR-SECRET-KEY}",
+    "requestTokenURL": "https://www.tumblr.com/oauth/request_token",
+    "accessTokenURL": "https://www.tumblr.com/oauth/access_token",
+    "userAuthorizationURL": "https://www.tumblr.com/oauth/authorize",
+    "scripts": {
+        "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://api.tumblr.com/v2/user/info',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));var user = JSON.parse(b).response.user; user.user_id = user.name; cb(null, user);});}"
+    }
+  }
+}
+```
+
+## Atlassian JIRA
+
+Generate an RSA keypair with the following command or any equivalent method:
+
+```bash
+$ openssl genrsa -out EXAMPLE.key 2048 && openssl rsa -pubout -in EXAMPLE.key -out EXAMPLE.pub
+```
+
+From JIRA, create an [Application Link](https://confluence.atlassian.com/display/APPLINKS-050/Application+Links+Documentation) (under Administration > Applications > Application links) with the following settings:
+  * Application URL: arbitrary URL, e.g. `https://${account.namespace}` (ignore warnings about "No response was received from the URL")
+  * Application Name: arbitrary name, e.g. `Auth0`
+  * Application Type: Generic Application
+  * Create incoming link: checked
+  * All other options left blank
+
+When creating the incoming link, use the following settings:
+  * Consumer Key: arbitrary URL-friendly name, e.g. `auth0-jira`
+  * Consumer Name: arbitrary name, e.g. `Auth0`
+  * Public Key: the previously generated public key (copy and paste entire `.pub` file)
+  * Consumer Callback URL: `https://${account.namespace}/login/callback`
+
+> Note: If you need to modify these settings on JIRA after having created the application link, they can be found in the "Incoming Authentication" section of the link's settings.
+
+In the JSON below, replace all instances of the following placeholders:
+  * `{JIRA_URL}`: The root URL of your JIRA instance, e.g. `https://foo.atlassian.net`
+  * `{CONSUMER_KEY}`: The chosen Consumer Key for your application link
+  * `{CONSUMER_SECRET}`: The previously generated private key, as a JSON string. You can convert `EXAMPLE.key` to a valid JSON string using the following command:
+
+```bash
+node -p -e 'JSON.stringify(require("fs").readFileSync("EXAMPLE.key").toString("ascii"));'
+```
+
+```
+{
+  "options": {
+    "name": "jira",
+    "strategy": "oauth1",
+    "consumerKey": "{CONSUMER_KEY}"  ,
+    "consumerSecret": "{CONSUMER_SECRET}",
+    "requestTokenURL": "{JIRA_URL}/plugins/servlet/oauth/request-token",
+    "accessTokenURL": "{JIRA_URL}/plugins/servlet/oauth/access-token",
+    "userAuthorizationURL": "{JIRA_URL}/plugins/servlet/oauth/authorize",
+    "signatureMethod": "RSA-SHA1",
+    "scripts": {
+    "fetchUserProfile": "function(token, tokenSecret, ctx, cb) {\n  // Based on passport-atlassian-oauth\n  // https://github.com/tjsail33/passport-atlassian-oauth/blob/a2e444b0c3969dfd7caf4524ce4a4c379656ba2e/lib/passport-atlassian-oauth/strategy.js\n  var jiraUrl = '{JIRA_URL}';\n  var OAuth = new require('oauth').OAuth;\n  var oauth = new OAuth(ctx.requestTokenURL, ctx.accessTokenURL, ctx.client_id, ctx.client_secret, '1.0', null, 'RSA-SHA1');\n  function oauthRequest(url, cb) {\n    return oauth._performSecureRequest(token, tokenSecret, 'GET', url, null, '', 'application/json', cb);\n  }\n  oauthRequest(jiraUrl + '/rest/auth/1/session', function(err, body, res) {\n    if (err) return cb(err);\n    if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n    var json;\n    try {\n      json = JSON.parse(body);\n    } catch(ex) {\n      return cb(new Error('Invalid JSON returned from JIRA', ex));\n    }\n    var profileUrl = jiraUrl + '/rest/api/2/user?expand=groups&username=' + encodeURIComponent(json.name);\n    oauthRequest(profileUrl, function(err, body, res) {\n      if (err) return cb(err);\n      if (res.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode));\n      try {\n        json = JSON.parse(body);\n      } catch(ex) {\n        return cb(new Error('Invalid JSON returned from JIRA', ex));\n      }\n      // Auth0-specific mappings, customize as n:qeeded\n      // https://auth0.com/docs/user-profile/normalized\n      return cb(null, {\n        user_id: json.name,\n        username: json.name,\n        email: json.emailAddress,\n        name: json.displayName,\n        groups: json.groups,\n        picture: json.avatarUrls['48x48'],\n        active: json.active,\n        self: json.self,\n        timezone: json.timeZone,\n        locale: json.locale\n      });\n    });\n  });\n}\n"
     }
   }
 }

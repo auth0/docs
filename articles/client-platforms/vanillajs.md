@@ -4,7 +4,7 @@ name: Vanilla JS
 alias:
   - vanilla
   - vanillajs
-language: 
+language:
   - Javascript
 image: /media/platforms/html5.png
 tags:
@@ -23,7 +23,24 @@ alias:
 
 ## Generic SPA / Vanilla JS Tutorial
 
-Follow the steps below to configure your JS app to use Auth0.
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.3
+* Jquery 2.1.1
+:::
+
+<%= include('../_includes/_package', {
+  pkgRepo: 'auth0-vanillajs-api-sample',
+  pkgBranch: 'gh-pages',
+  pkgPath: 'vanillajs-redirect-auth0-sample',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
+
+**If you have an existing application, please follow the steps below.**
 
 ${include('./\_callback')}
 
@@ -53,25 +70,24 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
+To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
 
 ```js
 var hash = lock.parseHash(window.location.hash);
-
-if (hash && hash.id_token) {
-  //save the token in the session:
-  localStorage.setItem('id_token', hash.id_token);
-}
-
-if (hash && hash.error) {
-  alert('There was an error: ' + hash.error + '\n' + hash.error_description);
+if (hash) {
+  if (hash.error) {
+    console.log("There was an error logging in", hash.error);
+    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
+  } else {
+    //save the token in the session:
+    localStorage.setItem('id_token', hash.id_token);
+  }
 }
 ```
-
 ### 4. Retrieve the user profile and display user information
 
 Use the `id_token` to retrieve the user profile and display the user's name:
@@ -90,7 +106,7 @@ if (id_token) {
 ```
 
 ```html
-<p>Name: <span id="name"></span></p>
+<p>Welcome: <span id="name"></span></p>
 ```
 
 To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
@@ -115,7 +131,7 @@ getFoos.then(function (response) {
 });
 ```
 
-__Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, Auth0 has created a [polyfill](https://github.com/github/fetch).
+__Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, you should use a [polyfill](https://github.com/github/fetch).
 
 ### 6. Log out
 

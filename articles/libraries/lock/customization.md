@@ -131,7 +131,7 @@ lock.show({
 
 ![][icon-image]
 
-> Note: To disable the header badge at all UI customizations are required. Read the wiki [[article|ui-customization]] on this topic.
+> Note: To disable the header badge entirely, [UI customizations][ui-customization] are required..
 
 ### closable {Boolean}
 
@@ -214,6 +214,8 @@ In `show`, `showSignin` and `showSignup` methods, when user types their email, t
 ### disableSignupAction {Boolean}
 
 Hides the Signup button. Defaults to `true` on `show*()` options and `false` on `.show`.
+
+This option **only** controls client-side appearance, and does not completely stop new sign ups from determined anonymous visitors. If you are looking to fully prevent new users from signing up, you must use the **Disable Sign Ups** option in the dashboard, in the connection settings.
 
 ```js
 //
@@ -422,7 +424,7 @@ lock.show({
 
 ### authParams {Object}
 
-You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`. [[Read here|Sending-authentication-parameters]] to learn more about what `authParams` can be set.
+You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`. [Read here][authparams-link] to learn more about what `authParams` can be set.
 
 ```js
 lock.show({
@@ -484,3 +486,4 @@ Internally set from `callback` parameter
 
 [lock-i18n]: /libraries/lock/i18n
 [lock-custom-errors]: /libraries/lock/customizing-error-messages
+[ui-customization]: /libraries/lock/ui-customization

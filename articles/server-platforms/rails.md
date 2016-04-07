@@ -16,12 +16,18 @@ alias:
 
 ## Ruby On Rails Web App Tutorial
 
-<%= include('../_includes/package', {
-  pkgRepo: 'auth0-ruby-samples',
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.1.8
+* Rails 4.2.5.1
+:::
+
+<%= include('../_includes/_package', {
+  pkgRepo: 'omniauth-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/ruby-on-rails-webapp',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing Ruby On Rails WebApp to use it with Auth0.**
@@ -145,7 +151,7 @@ end
 ### Optional steps
 #### Getting the error description on Failure
 
-In case of failure, you may want to get the description of the error. For that, in your `config/production.rb` add the following:
+In case of failure, you may want to get the description of the error. For that, in your `config/environments/production.rb` add the following:
 
 ```ruby
 OmniAuth.config.on_failure = Proc.new { |env|
@@ -160,7 +166,7 @@ OmniAuth.config.on_failure = Proc.new { |env|
 
 #### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
 
-If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K.
+If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K. Also, if you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, please try this solution as well. 
 
 You can change to use In-Memory store for development as follows.
 

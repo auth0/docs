@@ -12,17 +12,23 @@ snippets:
 
 ##  PHP Web App Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Apache 2.4.4
+* PHP 5.6.14
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-webapp',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
 
-### 1. Add Needed dependencies dependencies
+### 1. Add Needed dependencies 
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -49,7 +55,7 @@ Now, we can call `$auth0->getUser()` to retrieve the user information. If we cal
 // callback.php
 
 ...
-$auth0->getUser();
+$userInfo = $auth0->getUser();
 
 if (!$userInfo) {
     // We have no user info
@@ -93,7 +99,7 @@ $userInfo = $auth0->getUser();
 </html>
 ```
 
-You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of these depend on the social provider being used.
 
 ### 6. You are done!
 
@@ -103,7 +109,7 @@ You have configured your PHP Webapp to use Auth0. Congrats, you're awesome!
 
 #### Configure session data
 
-By default, the SDK will store the user information in the PHP Session and it will discard the access token and the id token. If you like to persist them as well, you can pass 'persist_access_token' => true and 'persist_id_token' => true to the SDK configuration in step 2. You can also disable session all together by passing 'store' => false.
+By default, the SDK will store the user information in the PHP Session and it will discard the access token and the id token. If you like to persist them as well, you can pass `'persist_access_token' => true` and `'persist_id_token' => true` to the SDK configuration in step 2. You can also disable session all together by passing `'store' => false`.
 
 If you want to change PHP Session and use Laravel, Zend, Symfony or other abstraction to the session, you can create a class that implements get, set, delete and pass it to the SDK as following.
 

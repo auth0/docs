@@ -12,7 +12,13 @@ snippets:
 
 # Laravel Tutorial
 
-This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-5-auth0-sample).
+This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-auth0-sample).
+
+::: panel-info System Requirements This tutorial and seed project have been tested with the following:
+* Composer 1.0-dev
+* PHP 5.5.12
+* Laravel 5.2.15
+:::
 
 ## Laravel Compatibility
 
@@ -25,7 +31,7 @@ If you are working with an older version (Laravel 4.x) you need to point to comp
 ${snippet(meta.snippets.dependencies)}
 
 ### 2. Enable it in Laravel
-Add the following in the list of the services providers, located in `app/config/app.php`
+Add the following in the list of the services providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
 
@@ -73,7 +79,7 @@ public function register()
 
 ### 3. Configure it
 
-To configure the plugin, you need to publish the plugin configuration and complete the file `app/config/laravel-auth0.php` using the information of your Auth0 account.
+To configure the plugin, you need to publish the plugin configuration and complete the file `config/laravel-auth0.php` using the information of your Auth0 account.
 
 To publish the example configuration file use this command
 
@@ -81,23 +87,23 @@ To publish the example configuration file use this command
 
 ### 4. Setup the callback action
 
-The plugin works with the [Laravel security system](http://laravel.com/docs/security), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.2/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
-In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications/) and also, add it as a route in Laravel
+In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications) and also, add it as a route in Laravel
 
 ```php
-Route::get('/auth0/callback', 'Auth0\Login\Auth0Controller@callback');
+Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 ```
 
 ### 5. Triggering login manually or integrating the Auth0 widget
 
 You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
-${snippet(meta.snippets.use)}
+${lockSDK}
 
 ### 6. Defining a user and a user provider
 
-The [Laravel Security System](http://laravel.com/docs/security) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting an auth driver in `app/config/auth.php`. The default driver is Eloquent, which persists the User model in a database using the ORM.
+The [Laravel authentication system](https://laravel.com/docs/5.2/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting an auth driver in `app/config/auth.php`. The default driver is Eloquent, which persists the User model in a database using the ORM.
 
 #### 6.1. Using the auth0 driver
 

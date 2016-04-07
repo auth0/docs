@@ -1,5 +1,4 @@
 ---
-lodash: true
 title: Python Web App Tutorial
 name: Python
 image: /media/platforms/python.png
@@ -13,15 +12,25 @@ snippets:
 
 ## Python Web App Tutorial
 
-<%= include('../_includes/package', {
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Python 2.7
+* Flask 0.10.1
+* Requests 2.3.0
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-python',
   pkgBranch: 'master',
   pkgPath: 'examples/flask-webapp',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Python WebApp to use it with Auth0.**
+**Otherwise, please follow the steps below to configure your existing Python WebApp to use it with Auth0.**
 
 ### 1. Add dependencies
 
@@ -79,13 +88,13 @@ You have configured your Python Webapp to use Auth0. Congrats, you're awesome!
 
 #### Checking if the user is authenticated
 
-You can add the following annotation to your `Flask` app to check if the user is authenticated
+You can add the following annotation to your `Flask` app to check if the user is authenticated. Note that you should import `wraps` first, adding the following line to your file `from functools import wraps`.
 
 ```python
 def requires_auth(f):
   @wraps(f)
   def decorated(*args, **kwargs):
-    if not session.has_key('profile'):
+    if 'profile' not in session:
       # Redirect to Login page here
       return redirect('/')
     return f(*args, **kwargs)

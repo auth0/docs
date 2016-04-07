@@ -18,19 +18,28 @@ snippets:
 ---
 
 # Symfony Auth0 JWT Bundle
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* PHP 5.3.9
+* Symfony 2.8
+:::
+
 This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example of usage [here](https://github.com/auth0/jwt-auth-bundle/tree/master/example)
 
 ## Tutorial
 
 ### 1. Install dependencies
 
-We recommend using [Composer](http://getcomposer.org/doc/01-basic-usage.md) to install the library.
+We need to add **jwt-auth-bundle** dependency to your composer.json.
 
-Modify your `composer.json` to add the following dependencies and run `composer update`.
+Once that's done, just run the following:
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Add the bundle to your AppKernell.php file
+> This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
+
+### 2. Add the bundle to your AppKernel.php file
 
 ```php
 
@@ -42,7 +51,7 @@ class AppKernel extends Kernel
 
             ...
 
-            new \Auth0\JWTAuthBundle\Auth0JWTAuthBundle(),
+            new \Auth0\JWTAuthBundle\JWTAuthBundle(),
 
             ...
 
@@ -65,7 +74,7 @@ ${snippet(meta.snippets.setup)}
 
 Create your User and UserProvider.
 
-The UserProvider must implements the JWTUserProviderInterface (see /source/AppBundle/Security/A0UserProvider). This class should implement 2 methods:
+The UserProvider must implement the JWTUserProviderInterface (see /source/AppBundle/Security/A0UserProvider). This class should implement 2 methods:
 
 - loadUserByJWT: This method receives the decoded JWT (but overloaded with the encoded token on the token attribute) and should return a User.
 
@@ -86,10 +95,10 @@ services:
 Modify the file /app/config/security.yml:
 
 - define your user provider
-- define your secured area that want to authenticate using JWT
+- define the secured area that you want to authenticate using JWT
 - define the access_control section with the roles needed for each route
 
-${snippet(meta.snippets.dependencies)}
+${snippet(meta.snippets.use)}
 
 ## Issue Reporting
 

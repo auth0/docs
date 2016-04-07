@@ -35,6 +35,6 @@ Once your app is registered, your `Client Id` and `Client Secret` will be displa
 
 ## 5. Copy your *Client Id* and *Client Secret*
 
-Go to your [Auth0 Dashboard](https://manage.auth0.com) and select **Connections > Social**, then choose **Instagram**. Copy the `Client Id` and `Client Secret` from the **Manage Clients** page of the Instagram Developer portal into the fields on this page on Auth0.
+Go to your [Auth0 Dashboard](${uiURL}) and select **Connections > Social**, then choose **Instagram**. Copy the `Client Id` and `Client Secret` from the **Manage Clients** page of the Instagram Developer portal into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/instagram/instagram-devportal-5.png)

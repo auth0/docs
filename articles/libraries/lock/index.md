@@ -36,13 +36,13 @@ Or our CDN:
 
 ```html
 <!-- Latest major release -->
-<script src="http://cdn.auth0.com/js/lock-7.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
 
 <!-- Latest minor release -->
-<script src="http://cdn.auth0.com/js/lock-7.x.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock-9.x.min.js"></script>
 
 <!-- Latest patch release (recommended for production) -->
-<script src="http://cdn.auth0.com/js/lock-7.x.y.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock-9.x.y.min.js"></script>
 ```
 
 If you are targeting mobile audiences, it's recommended that you add:
@@ -136,7 +136,7 @@ lock.show(options, function (err, profile, token) {});
 
 ### .showSignin([options, callback])
 
-Open the widget on `signin` mode, but withouht the bottom `signup` nor `reset` button actions. This method is useful when your site has custom *signup* and *reset* links at a different form.
+Open the widget on `signin` mode, but without the bottom `signup` nor `reset` button actions. This method is useful when your site has custom *signup* and *reset* links at a different form.
 
 You may call this method with a single parameter, two or even none. The following examples ilustrate this:
 
@@ -162,7 +162,7 @@ lock.showSignin(options, function (err, profile, token) {});
 
 ### .showSignup([options, callback])
 
-Open the widget on `signup` mode, but withouht the `cancel` button action to go back to `signin`. This method is useful when your site has custom *signin* and *reset* links at a different form.
+Open the widget on `signup` mode, but without the `cancel` button action to go back to `signin`. This method is useful when your site has custom *signin* and *reset* links at a different form.
 
 You may call this method with a single parameter, two or even none. The following examples ilustrate this:
 
@@ -188,7 +188,7 @@ lock.showSignup(options, function (err) {});
 
 ### .showReset([options, callback])
 
-Open the widget on `reset` mode, but withouht the bottom `cancel` button action to go back to `signin`.  This method is useful when your site has custom *signin* and *signup* links at a different form.
+Open the widget on `reset` mode, but without the bottom `cancel` button action to go back to `signin`.  This method is useful when your site has custom *signin* and *signup* links at a different form.
 
 You may call this method with a single parameter, two or even none. The following examples ilustrate this:
 

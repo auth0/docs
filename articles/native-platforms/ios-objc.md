@@ -23,11 +23,18 @@ alias:
 
 ## iOS Objective-C Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* CocoaPods 0.39.0
+* XCode 7.2.1
+* Simulator - iOS 9.2 - iPhone 6
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample',
-  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist' + account.clientParam,
+  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
@@ -167,7 +174,7 @@ A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWit
 First add Lock Twitter's Pod
 
 ```ruby
-pod 'Lock-Twitter', '~> 1.0'
+pod 'Lock-Twitter', '~> 1.1'
 ```
 
 Add to the import:
@@ -197,7 +204,7 @@ ${snippet(meta.snippets.use)}
 [![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)](https://auth0.com)
 
 > **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
-> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#8) or [TouchID](/libraries/lock-ios#7)
+> Or you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid)
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
@@ -212,7 +219,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   self.emailLabel.text = profile.email;
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile or you can check [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h). Please note that some of this depend on the social provider being used.
 
 ### 6. We're done
 

@@ -12,12 +12,17 @@ snippets:
 
 ## Go Web App Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Go 1.5.3
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-golang',
   pkgBranch: 'master',
   pkgPath: 'examples/regular-web-app',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
 **Otherwise, Please follow the steps below to configure your existing GoLang WebApp to use it with Auth0.**
@@ -56,7 +61,7 @@ func CallbackHandler(w http.ResponseWriter, r *http.Request) {
     ClientID:     os.Getenv("AUTH0_CLIENT_ID"),
     ClientSecret: os.Getenv("AUTH0_CLIENT_SECRET"),
     RedirectURL:  os.Getenv("AUTH0_CALLBACK_URL"),
-    Scopes:       []string{"openid", "profile"},
+    Scopes:       []string{"openid", "name", "email", "nickname"},
     Endpoint: oauth2.Endpoint{
       AuthURL:  "https://" + domain + "/authorize",
       TokenURL: "https://" + domain + "/oauth/token",

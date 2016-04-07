@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Added Vue.js Tutorial"
+    tags:
+      - tutorial
+      - spa
+    description: |
+      A [new tutorial](https://auth0.com/docs/client-platforms/vuejs) was added showing how to setup Auth0 with Vue.js.

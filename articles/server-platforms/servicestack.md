@@ -12,6 +12,12 @@ snippets:
 
 # ServiceStack Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
 At the end of this tutorial you will have a working web site that calls a ServiceStack API with authenticated users.
 
 ## Before you start
@@ -20,7 +26,7 @@ We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
 
 ### 1. Create a simple MVC3 website and install ServiceStack through NuGet
 
-For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> MVC 3 Web Application -> Empty"__
+For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> ASP.NET Web Application -> Empty"__ and choose MVC template.
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
@@ -28,15 +34,15 @@ ${snippet(meta.snippets.dependencies)}
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
-Add the following line to your `Global.asax` file (this is required for ServiceStack):
+Add the following line to your `App_Start/Route_Config.cs` file (this is required for ServiceStack):
 
 ```
 routes.IgnoreRoute("api/{*pathInfo}");
 ```
 
-Add a `HomeController` to return the `default.htm` page. Under the __Controllers__ folder add:
+Change `HomeController` to return the `default.htm` page. Under the __Controllers__ folder add:
 
-```c#
+```cs
 public class HomeController : Controller
 {
     public ActionResult Index()
@@ -68,7 +74,7 @@ ConfigureAuth(container);
 
 And then uncomment and edit the `ConfigureAuth` method to look like this:
 
-${snippet(meta.snippets.dependencies)}
+${snippet(meta.snippets.setup)}
 
 > In this sample we are not interested in user registration. So we are leaving that section out.
 
@@ -97,7 +103,7 @@ Open the the `WebServiceExamples.cs` file.
 
 #### 6.1. Add the `Authenticate` attribute to the `Hello` DTO:
 
-```c#
+```cs
 [Authenticate]
 public class Hello
 {
@@ -107,7 +113,7 @@ public class Hello
 
 #### 6.2. Add an `IAuthSession` property to the `HelloResponse` DTO:
 
-```c#
+```cs
 public class HelloResponse
 {
     public IAuthSession UserInfo { get; set; }
@@ -118,10 +124,10 @@ public class HelloResponse
 
 #### 6.3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
 
-```c#
+```cs
 public class HelloService : ServiceBase<Hello>
 {
-	protected override object Run(Hello request)
+	public object Run(Hello request)
 	{
         IAuthSession session = this.GetSession();
         var sb = new StringBuilder();

@@ -19,12 +19,17 @@ snippets:
 
 ## React Tutorial
 
-<%= include('../_includes/package', {
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.6.0
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'auth0-react',
   pkgBranch: 'gh-pages',
   pkgPath: 'examples/redirect-lock-with-api',
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 **If you have an existing application, follow the steps below.**
@@ -50,7 +55,7 @@ To implement the login, call the `.show()` method of Auth0's `lock` instance whe
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/lock).
+To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying `idToken` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `idToken`. This `idToken` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
@@ -88,10 +93,10 @@ var App = React.createClass({
 });
 ```
 
-Finally, call `React.render()` method to display the `App` component:
+Finally, call `ReactDOM.render()` method from `react-dom` library to display the `App` component:
 
 ```js
-React.render(
+ReactDOM.render(
   <App />,
   document.getElementById('container-id')
 );
@@ -102,7 +107,7 @@ React.render(
 
 Use the `token` to retrieve the user profile and display the user's nickname:
 
-```jsx
+```js
 var LoggedIn = React.createClass({
   getInitialState: function() {
     return {
@@ -129,7 +134,7 @@ var LoggedIn = React.createClass({
       );
     } else {
       return (
-        <div class="loading">Loading profile</div>
+        <div className="loading">Loading profile</div>
       );
     }
   }

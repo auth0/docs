@@ -10,6 +10,7 @@ Before you launch the import users job, a database to where users will be import
 
 ### Users schema
 The user's file must have an array with the user's information in JSON format. The following [JSON schema](http://json-schema.org) describes valid users:
+
 ```json
 {
     "type": "object",
@@ -57,9 +58,10 @@ Additionally, the `app_metadata` should not contain any of these properties:
 * loginsCount
 * _id
 
-
 ### File example
+
 A file with the following contents is valid:
+
 ```json
 [
   {
@@ -76,10 +78,15 @@ A file with the following contents is valid:
 ]
 ```
 
+> The file size limit for a bulk import is 10MB. You will need to start multiple imports if your data exceeds this size.
+
 ## How does it work?
+
 When you perform a request to the endpoint you will get a response similar to the following one:
+
 ```
 Code: 202.
+
 Body
 {
     "status":"pending",
@@ -95,6 +102,7 @@ The returned entity represents the import job. You can query its status using [t
 Once the job finishes, whether it failed or was successful, Auth0 account owners will get an e-mail notifying about the result.
 
 For example, one possible failure notification could be:
+
 ```
 Subject
 -----
@@ -106,6 +114,7 @@ Failed to parse users file JSON when importing users. Make sure it is valid JSON
 ```
 
 If the job was succesful owners would get an e-mail like this one:
+
 ```
 Subject
 -----

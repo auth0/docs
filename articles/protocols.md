@@ -2,8 +2,6 @@
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation, LDAP). In most cases you won't need to go this deep to use Auth0.
 
-> This article is meant as an introduction. See the references section below for more information.
-
 ## OAuth Server Side
 
 This protocol is best suited for web sites that need:
@@ -29,17 +27,18 @@ The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/
 
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
-* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (`sub` claim).
-* `scope: 'openid profile'`: If you want the entire user profile to be part of the `id_token`.
+* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
+
+You can get more information about this in the [Scopes documentation](/scopes).
 
 ---
 
 ### 2. Authentication
 
-Auth0 will start the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2).
+Auth0 will start the authentication against the identity provider configured with the specified `connection`. The protocol between Auth0 and the identity provider could be different. It could be OAuth2 again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
 
-The visible part of this process is that the user is redirected to the identity provider site.
+The common visible part of this process is that the user is redirected to the identity provider site.
 
 > When using Auth0's built-in user store (created through __Connections -> Database -> New__), there's no redirection. Auth0 in this case is the identity provider.
 
@@ -63,17 +62,17 @@ To get an Access Token, you would send a POST request to the token endpoint in A
 
 	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code
 
-If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 API and get additional information such as the user profile.
+If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 API and get additional information such as the user profile.
 
 ##### Sample Access Token Response:
 
 	{
-       "access_token":".....Access Token.....",
-       "token_type":"bearer",
-       "id_token":"......JWT......"
-    }
+       "access_token": ".....Access Token.....",
+       "token_type": "bearer",
+       "id_token": "......The JWT......"
+  }
 
-> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). See [scopes](/scopes) for more details.
 
 Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 
@@ -112,6 +111,27 @@ Optionally (if `scope=openid` is added in the authorization request):
 Clients typically extract the URI fragment with the __Access Token__ and cancel the redirection. The client code will then interact with other endpoints using the token in the fragment.
 
 > Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it. You can define specific attributes to return in the JWT (e.g. `scope=openid email name`).
+
+### 4. Calling your API with a JWT (optional)
+
+Once your application has a JWT (returned in the `id_token` part of the hash fragment), it can be used to make authenticated calls to your API.
+The way this is done depends on how your API is implemented, but the most common way (which is used by all Auth0 seed projects) is to use the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#section-2.1).
+For example:
+
+```
+GET /my-secured-endpoint HTTP/1.1
+Host: my-api.example.com
+Authorization: Bearer eyJ...
+```
+
+where `eyJ...` is the JWT obtained from Auth0.
+The `curl` equivalent would be as follows:
+
+```
+curl https://my-api.example.com/my-secured-endpoint -H "Authorization: Bearer eyJ..."
+```
+
+Note that the header name in this case is `Authorization`, and its value is `Bearer eyJ...` (separated by one space).
 
 ## OAuth Resource Owner Password Credentials Grant
 

@@ -1,10 +1,10 @@
 # Scopes
 
-When initiating a [client-side authorization transaction](https://auth0.com/docs/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](https://auth0.com/docs/auth-api#!#get--authorize_social),
+When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/auth-api#!#get--authorize_social),
 only an opaque `access_token` will be returned by default.
 To also return a JWT that authenticates the user and contains their profile information, the `scope` parameter can be sent as part of the request.
 
-## Example ([implicit flow](https://auth0.com/docs/protocols#oauth-for-native-clients-and-javascript-in-the-browser))
+## Example ([implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser))
 
 The following URL logs a user in using Google and requests a JWT that authenticates the user.
 
@@ -15,7 +15,7 @@ https://example.auth0.com/authorize?response_type=token&client_id=jGMow0KO3WDJEL
 After a successful transaction, the user would be redirected here:
 
 <pre>
-<a href="http://jwt.io/#access_token=s213Mvz1QW7XpjoX&<strong>id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTEyMzk2MzA5MDk2MDM2MzAwMTA5IiwiYXVkIjoiakdNb3cwS08zV0RKRUxXOFhJeG9scWIxWElpdGprWUwiLCJleHAiOjE0Mzc1NjAzODEsImlhdCI6MTQzNzUxMDM4MX0.Rg9nV2j11epQawEB6tvlhnc4ZLBWJ-93YrtdGqBh6NA</strong>&token_type=Bearer&state=mep7BLYt1lAsLC94">http://jwt.io/#access_token=s213Mvz1QW7XpjoX&<strong>id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTEyMzk2MzA5MDk2MDM2MzAwMTA5IiwiYXVkIjoiakdNb3cwS08zV0RKRUxXOFhJeG9scWIxWElpdGprWUwiLCJleHAiOjE0Mzc1NjAzODEsImlhdCI6MTQzNzUxMDM4MX0.Rg9nV2j11epQawEB6tvlhnc4ZLBWJ-93YrtdGqBh6NA</strong>&token_type=Bearer&state=mep7BLYt1lAsLC94</a>
+<a href="http://jwt.io/#access_token=s213Mvz1QW7XpjoX&id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTEyMzk2MzA5MDk2MDM2MzAwMTA5IiwiYXVkIjoiakdNb3cwS08zV0RKRUxXOFhJeG9scWIxWElpdGprWUwiLCJleHAiOjE0Mzc1NjAzODEsImlhdCI6MTQzNzUxMDM4MX0.Rg9nV2j11epQawEB6tvlhnc4ZLBWJ-93YrtdGqBh6NA&token_type=Bearer&state=mep7BLYt1lAsLC94">http://jwt.io/#access_token=s213Mvz1QW7XpjoX&<strong>id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTEyMzk2MzA5MDk2MDM2MzAwMTA5IiwiYXVkIjoiakdNb3cwS08zV0RKRUxXOFhJeG9scWIxWElpdGprWUwiLCJleHAiOjE0Mzc1NjAzODEsImlhdCI6MTQzNzUxMDM4MX0.Rg9nV2j11epQawEB6tvlhnc4ZLBWJ-93YrtdGqBh6NA</strong>&token_type=Bearer&state=mep7BLYt1lAsLC94</a>
 </pre>
 
 When decoded, this token contains the following claims:

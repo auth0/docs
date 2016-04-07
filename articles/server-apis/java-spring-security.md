@@ -13,22 +13,33 @@ image: /media/platforms/java.png
 tags:
   - quickstart
 snippets:
+  configure: server-apis/java-spring-security/configure
   dependencies: server-apis/java-spring-security/dependencies
+  dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
 ---
 
 ## Java API Tutorial
 
-<%= include('../_includes/package', {
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Java 1.8
+* Maven 3.3
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'spring-security-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/api-example',
   pkgFilePath: 'examples/api-example/src/main/resources/auth0.properties',
-  pkgType: 'replace' + account.clientParam
+  pkgType: 'replace'
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Java app to use it with Auth0.**
+**If you have an existing application, please follow the steps below.**
 
 ### 1. Add Auth0 Spring Security dependency
 
@@ -37,6 +48,10 @@ You need to add the `spring-security-auth0` dependency.
 For that, you can just add it to your `pom.xml` if you're using maven.
 
 ${snippet(meta.snippets.dependencies)}
+
+Or, if you're using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependenciesGradle)}
 
 ### 2. Configure Spring to use Auth0
 
@@ -55,7 +70,11 @@ For that, just add the following to the `application-context.xml`
 <context:property-placeholder location="classpath:auth0.properties" />
 ```
 
-and create the `auth0.properties` file with the following information:
+Or, alternately, add these annotations to your application class:
+
+${snippet(meta.snippets.configure)}
+
+Once you've done either of those, then create the `auth0.properties` file with the following information:
 
 ${snippet(meta.snippets.setup)}
 
@@ -75,6 +94,19 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 In order to configure CORS, just add the following `Filter` for all your requests:
 
 ```java
+
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Component;
+
 @Component
 public class SimpleCORSFilter implements Filter {
 

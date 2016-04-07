@@ -1,4 +1,6 @@
 ---
 title: Egnyte
 ---
-${include('./_template')}
+<%= include('./_template', {
+  image1: "tutorial-egnyte.png"
+}) %>

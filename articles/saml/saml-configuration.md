@@ -8,7 +8,7 @@ url: /saml-configuration
 
 In a SAML federation there is a Service Provider and an Identity Provider.  The Service Provider agrees to trust the Identity Provider to authenticate users.  The Identity Provider authenticates users and provides to Service Providers an Authentication Assertion that indicates a user has been authenticated.
 
-Auth0 supports the SAML protocol and can serve in either a SAML Service Provider (SP) role, a SAML Identity Provider (IDP) role, or both.
+Auth0 supports the SAML protocol and can serve in either a SAML Service Provider (SP) role, a SAML Identity Provider (IDP) role or both.
 
 
 ### SAML Identity Provider
@@ -35,6 +35,11 @@ Auth0 can also serve as an authentication hub between applications making a SAML
 
 ## Configuring Auth0 as a Service Provider
 
+We have a video with a quick overview of configuring Auth0 as a SAML service provider:
+
+<iframe src="//fast.wistia.net/embed/iframe/2xrll0d056" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="400"></iframe>
+<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
+
 If Auth0 will serve as a SAML Service Provider, an Auth0 Connection is used to configure the Auth0 side (Service Provider) of each SAML federation.
 
 There are instructions for several specific providers below:
@@ -56,25 +61,25 @@ Auth0 can be configured as a Service Provider to any other SAML-compliant Identi
 
 Configuring Auth0 to serve as a SAML Identity Provider is done in a couple different places, depending on the type of application.
 
-For some Third Party applications that support SAML, the Auth0 side of the configuration is done using the "Third Party Apps" link in the dashboard, clicking on  "NEW THIRD PARTY APP", and selecting the specific application.  Instructions specific to the chosen application are provided.
+For some SSO Integrations that support SAML, the Auth0 side of the configuration is done using the "SSO Integrations" link in the dashboard, clicking on "CREATE SSO INTEGRATION", and selecting the specific integration.  Instructions specific to the chosen SSO Integration are provided in the **Tutorial** section.
 
-* [Third Party SAML Web Apps](/saml2webapp-tutorial)
+* [Using Auth0 in SAML2 Web Apps](/saml2webapp-tutorial)
 
 
-For any application not listed on the "Third Party Apps" page, (click "NEW THIRD PARTY APP"  to see the list) the Auth0 side of the configuration can be done using the "Apps/APIs" link and then clicking on the "Addons" tab for the particular application, and clicking on the toggle in the "SAML2 WEB APP" box.
+For any application not listed on the "SSO Integrations" page(click "CREATE SSO INTEGRATION"  to see the list) the Auth0 side of the configuration can be added. Go to the "Applications" link on the dashboard, choose your application, click on the "Addons" tab, and then toggle on the "SAML2 WEB APP" box.
 
 Generic instructions for configuring Auth0 as an IDP:
 
 * [Generic Identity Provider Configuration](/saml-idp-generic)
 
-The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  Third Party Applications that require special settings are documented at:
+The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  SSO Integrations that require special settings are documented at:
 
-* [SAML settings needed for some Third Party Apps](/saml-apps)
+* [SAML settings needed for some SSO Integrations](/saml-apps)
 
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
 
-## Configuration Auth0 as both Service Provider and Identity Provider
+## Configuring Auth0 as both Service Provider and Identity Provider
 
 In this situation, there are two federations to configure.  The federation between the application and Auth0 will follow the instructions above for Configuring Auth0 as an Identity Provider.   The federation between Auth0 and any backend SAML Identity providers would follow the instructions for Configuring Auth0 as a Service Provider.
 
@@ -106,9 +111,9 @@ If Auth0 is acting as a Service Provider, the following is needed to support IDP
 #### Auth0 as Identity Provider
 If Auth0 is acting as an Identity Provider, the following is needed to support IDP-initiated Single Sign On.
 
-* In the Apps/APIs -> Addons -> SAML2 WEB APP -> Settings, specify a query parameter can be added at the end of the Application Callback URL, if needed, to indicate where the user should be sent after authentication.
-* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://{accountname}.auth0.com/authorize?client_id={client_id}&protocol=samlp`
-* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response.
+
+* The URL to invoke for IDP-initiated login, if Auth0 will authenticate the users is of the form: `https://{accountname}.auth0.com/samlp/{client_id}`
+* The `RelayState parameter` can be appended to specify a URL to which the Service Provider should redirect the user after processing the SAML response. Example: `https://{accountname}.auth0.com/samlp/{client_id}?RelayState=http://{final_destination_URL}`
 
 
 ### Signing and Encryption
@@ -186,8 +191,7 @@ When Auth0 is acting as a SAML Identity Provider, it is possible for it to encry
 
 You will need to obtain the certificate and public key from the Service Provider.
 
-```
-
+```js
 function (user, context, callback) {
 
   context.samlConfiguration = (context.samlConfiguration || {});
@@ -197,6 +201,7 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
 ### Logout
 
 
@@ -206,7 +211,7 @@ For information on how to log out the user's session in Auth0, or in both Auth0 
 
 When Auth0 is serving as a SAML Identity Provider, it is necessary to specify a logout callback URL in the Application Addon Settings in order for logout to work.  To do this, go to:
 
-* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings 
+* Auth0 Dashboard -> Apps/APIs -> {Name of Application} -> Addons -> SAML2 WEB APP -> Settings
 
 In the "Settings" field, enter a specification for logout callback URL:
 
@@ -247,40 +252,37 @@ Auth0 rules can also be used to add more extensive or dynamic customizations to 
 
 You can customize the SAML Assertion by creating a [rule](/rules) like this:
 
-```
+```js
+function (user, context, callback) {
+  // change SAML token lifetime to 10 hours
+  context.samlConfiguration.lifetimeInSeconds = 36000;
 
-    function (user, context, callback) {
-      // change SAML token lifetime to 10 hours
-      context.samlConfiguration.lifetimeInSeconds = 36000;
-
-      // if available, use upn as NameID
-      if (user.upn) {
-        context.samlConfiguration.mappings = {
-           "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
-        }
-      }
-
-      callback(null, user, context)
+  // if available, use upn as NameID
+  if (user.upn) {
+    context.samlConfiguration.mappings = {
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "upn"
     }
+  }
+
+  callback(null, user, context);
+}
 ```
 
 To include user_metadata attributes in an assertion, you can create a [rule](/rules) like this:
 
-```
-  function (user, context, callback) {
+```js
+function (user, context, callback) {
+  user.user_metadata = user.user_metadata || {};
+  user.user_metadata.color2 = "purple";
+  context.samlConfiguration.mappings = {
+    //Attribute already in user_metadata
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
 
-     user.user_metadata = user.user_metadata || {};
-     user.user_metadata.color2 = "purple";
-     context.samlConfiguration.mappings = {
-
-     //Attribute already in user_metadata
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-
-     //Attribute dynamically added to user_metadata above
-     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color":"user_metadata.color",
-     };
-     callback(null, user, context);
-  }
+    //Attribute dynamically added to user_metadata above
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/color": "user_metadata.color",
+  };
+  callback(null, user, context);
+}
 ```
 
 
@@ -361,9 +363,7 @@ It may also be desirable to remove accounts at Auth0 if it is acting as Service 
 
 # Troubleshooting
 
-The following tools are useful for troubleshooting SAML authentication.
+The following tools are useful for troubleshooting SAML authentication:
 
-Can paste saml response from Auth0 logs straight into this decoder
-https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php
-
-FF SAML addon works even better!
+* SAML responses from Auth0's logs can be [pasted directly into this debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php)
+* [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)

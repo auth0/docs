@@ -19,15 +19,24 @@ snippets:
 
 ## NodeJS API Tutorial
 
-<%= include('../_includes/package', {
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.2
+* Express 4.11
+:::
+
+<%= include('../_includes/_package', {
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/nodejs-api',
   pkgFilePath: null,
-  pkgType: 'server' + account.clientParam
+  pkgType: 'server'
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing NodeJS app to use it with Auth0.**
+**If you have an existing application, please follow the steps below.**
 
 ### 1. Add express-jwt dependency
 

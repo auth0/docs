@@ -16,12 +16,12 @@ title: Using Passwordless Authentication in SPA with SMS
 
 ### Use Auth0 UI widget (Lock)
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-jquery-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 <%= include('./_init-passwordless-lock') %>
@@ -66,12 +66,12 @@ If the code is correct, the user will be authenticated. This will call the callb
 
 ### Use your own UI
 
-<%= include('../../_includes/package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-jquery-passwordless-sample',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
-  pkgType: 'js' + account.clientParam
+  pkgType: 'js'
 }) %>
 
 You can perform passwordless authentication in your SPA with your own custom UI using the [Auth0 JavaScript client library](/libraries/auth0js).

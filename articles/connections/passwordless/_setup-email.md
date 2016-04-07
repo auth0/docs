@@ -4,7 +4,7 @@ By default, Auth0 sends the email from its own messaging provider. Optionally, y
 
 #### 2. Configure the connection
 
-In the Dashboard, on the **Email** page, under [Connections > Passwordless](https://manage.auth0.com/#/connections/passwordless), you can configure the contents and behavior of the email.
+In the Dashboard, on the **Email** page, under [Connections > Passwordless](${uiURL}/#/connections/passwordless), you can configure the contents and behavior of the email.
 
 ![](/media/articles/connections/passwordless/passwordless-email-config.png)
 

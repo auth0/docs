@@ -6,8 +6,22 @@ This is the repository for the Auth0 documentation.
 * Consult the [WORDS](WORDS.md) document for Auth0 specific spellings and definitions
 * Always use absolute links from the root of the site. Note, that your links should NOT start with `/docs` or any other base path. If the site is hosted with a base like on `auth0.com/docs` the links will be corrected at runtime.
 * Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use variables instead such as `${uiUrl}`
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image_name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
+* Name files with all lowercase using dashes (-) to separate words. If using a year in the file name it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image-name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
 * Try to keep images to no more than 750 pixels wide
+* Run all images through [TinyPNG](https://tinypng.com/).
+
+## Commit Messages
+Commit messages should be meaningful and reflect not only what content was edited, but what the edit was. For example, instead of just "Changed document.md" you should write "Added new section about XYZ in document.md" or "Fixed config code snippet in lock.md". Additionally, please use the following commit format going forward:
+
+`"[tag] Commit message"`
+
+Tags are the following:
+
+* `[bug]` - use for changes that fix a bug in a doc
+* `[edit]` - use for changes that fix spelling, grammar or just reword the same content, but do not substantially change the meaning of the doc.
+* `[update]` - Content update or change to a doc that adds or changes the meaning of the doc.
+* `[new]` - New content
 
 ## Contributing
 
@@ -28,16 +42,89 @@ Additionally, you can send a context to the included document.
 <%= include('../_mydocument.md', { key: 'value', something: true }) %>
 ```
 
+### Markdown
+Markdown on this site confirms to the [CommonMark spec](http://commonmark.org/). Additionally, there are a few special markdown features available as described below.
+
+#### Warning banner
+You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
+
+```
+::: warning-banner
+You message here
+:::
+```
+
+
+#### Panels
+Panels can be useful to separate information from the main body of a document.
+
+```
+::: panel-primary This is a panel
+Panel content
+:::
+
+::: panel-warning This is a warning
+Panel content
+:::
+
+::: panel-info This is info
+Panel content
+:::
+
+::: panel-danger This is a dangerous
+Panel content
+:::
+
+::: panel-success This is good
+Panel content
+:::
+```
+
+#### HTTP Request Snippets
+You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing how to make the HTTP request in many languages.
+
+> Note, you need to set the language type to `har` for this to work. View this raw markdown document for an example.
+
+
+```har
+{
+    "method": "GET",
+    "url": "http://www.example.com/path/?param=value",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name" "Authorization", "value": "Bearer ABCD" }
+    ],
+    "queryString" : [],
+    "postData" : {},
+    "headersSize" : 150,
+    "bodySize" : 0,
+    "comment" : ""
+}
+```
+
+* method [string] - Request method (GET, POST, ...).
+* url [string] - Absolute URL of the request (fragments are not included).
+* httpVersion [string] - Request HTTP Version.
+* cookies [array] - List of cookie objects.
+* headers [array] - List of header objects.
+* queryString [array] - List of query parameter objects.
+* postData [object, optional] - Posted data info.
+* headersSize [number] - Total number of bytes from the start of the HTTP request message until (and including) the double CRLF before the body. Set to -1 if the info is not available.
+* bodySize [number] - Size of the request body (POST data payload) in bytes. Set to -1 if the info is not available.
+* comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
+
+
+
 ### Screenshots
 On Mac OS X screenshots need to be taken with Chrome, taking into account the following:
 
  1. The browser cannot show any plugins, customizations, or bookmarks
  1. The browser cannot be in incognito mode
  1. The browser needs to be resized to the standard size. Using the below script:
-  ```bash
-  #!/usr/bin/env osascript
 
-  tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}
+  ```bash
+  osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```
  1. Screenshots should use the complete browser window (Control + Shift + 4, then press Space)
  1. Highlighting should use color #0099CC
@@ -45,6 +132,8 @@ On Mac OS X screenshots need to be taken with Chrome, taking into account the fo
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
+
+ > Note that the exception to showing the full browser window is in the case you are showing a detailed instruction as part of a tutorial. i.e. "Enter text in this field" and you are showing the field. In that case it likely isn't appropriate to show the entire page.
 
 
 ## Test Procedures
@@ -85,6 +174,43 @@ ${snippet(meta.snippets.use)}
 After you publish the doc update, the new quickstart will automatically appear on both docs and manage.
 
 Additionally, the quickstart configuration is also in this repository here: [quickstart.yml](/quickstart.yml).
+
+## Updates Feed
+Publishing content updates is fairly easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it here. Otherwise use changed or fixed.
+
+```
+added:
+  -
+    title: "Name of new thing"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+  -
+    title: "Name of update"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+changed:
+  -
+    title: "Name of thing that changed or was removed"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+fixed:
+  -
+    title: "Name of bug fixed"
+    tags:
+      - tag1
+      - tag2
+    description: |
+      The description can be as long as it needs, but keep it reasonable. If you need more you should probably write a separate document. Descriptions can contain markdown such as [link](https://auth0.com) or `code snippets`.
+```
 
 ## API
 
@@ -147,6 +273,11 @@ Response:
 ## Parameter Aliases
 When writing docs you can use the following variables instead of hard coding these values. Within any markdown document simply use `${variableName}` to reference the value.
 
+## Documents metadata properties
+
+- `sitemap`: (Boolean) Instruct when to skip indexation into the `sitemap.xml`. Defaults to `true`.
+- `public`: (Boolean) Disables the document from being rendered through a public url or showing in the sitemap. Document still available in the APIs, etc.. Defaults to `true`.
+
 ### Common Variables
 
 | Variable  | Description | Default Value |
@@ -171,3 +302,15 @@ When writing docs you can use the following variables instead of hard coding the
 | `account.clientId`     | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
 | `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
 | `account.callback`     | The first callback URL of the current Auth0 app.   | `http://YOUR_APP.auth0.com/callback`   |
+
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.

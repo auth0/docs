@@ -4,6 +4,8 @@
   "description": "This is the repository for the Auth0 documentation.",
   "author": "Auth0 Inc.",
   "devDependencies": {
-    "commander": "^2.8.1"
+    "commander": "^2.8.1",
+    "imagemin": "^4.0.0",
+    "imagemin-optipng": "^4.3.0"
   }
 }
