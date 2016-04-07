@@ -36,7 +36,11 @@ If you are targeting mobile audiences, we recommend adding the following to the 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 ```
 
-## Implementing Lock with Redirect Mode
+## Usage
+
+If you have used Lock in the past you may also want to take a look at the [Migration Guide](#migration-guide). Otherwise, you can keep reading. The full [API documentation](https://github.com/auth0/lock/tree/v10#api) is aslo available in the [github repository](https://github.com/auth0/lock/tree/v10).
+
+### Implementing Lock with Redirect Mode
 
 ```js
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {}, function(error, result) {
@@ -59,7 +63,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {}, func
 });
 ```
 
-## Implementing Lock with Popup Mode
+### Implementing Lock with Popup Mode
 
 __Note:__ Auth0 recommends using Redirect Mode over Popup Mode.
 
@@ -83,7 +87,7 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',
   });
 ```
 
-## Showing the Lock
+### Showing the Lock
 
 Call the `show` method to display the widget.
 
@@ -92,10 +96,8 @@ document.getElementById('btn-login').addEventListener('click', function() {
   lock.show();
 });
 ```
-__Note:__ The `showSignup`, `showSignin` and `showReset` parameters are not available in Lock 10.
 
-
-## Displaying the User's Profile
+### Displaying the User's Profile
 
 Use the `id_token` and `profile` you've saved in `localStorage` to display the user's profile. This method also keeps the user logged in after a page refresh.
 
@@ -116,3 +118,30 @@ function showLoggedIn() {
 ```html
  <h2>Welcome <span id="nick" class="nickname"></span></h2>
 ```
+
+## Migration Guide
+
+- The constructor now takes all the options and the authentication callback.
+- The authentication callback now has just two arguments `error` and `result`. The `result` argument is an object that contains properties for the arguments provided in the previous versions: `profile`, `idToken`, `accessToken`, `state`, and `refreshToken`.
+- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `authentication: { redirect: true }` option.
+- You no longer need to to call the `parseHash` and `getProfile` when implementing Redirect Mode. The data returned by those methods is provided in the `result` parameter of the authentication callback.
+- Is no longer possible to select a language by passing a code, which was done in the previous versions of lock with  `dict: 'es'`.
+- Lifecycle events are not yet available.
+- There's only one `show` method which doesn't take any arguments. `showSignIn`, `showSignUp` and `showReset` are no longer available. You can emulate the behavior of this options with the `initialScreen`, `allowForgotPassword` and `allowSignUp` options.
+- Some existing options suffered changes:
+  - The `authParams` option was renamed to `params` and namespaced under `auth`. Now you use it like this `auth: {params: {myparam: "myvalue"}}`.
+  - The `callbackURL` option was renamed to `redirectUrl` and namespaced under `auth`. Now you use it like this `auth: {redirectUrl: "https://example.com/callback"}`.
+  - The `dict` option was renamed to `languageDictionary`.
+  - The `disableResetAction` option was renamed to `allowForgotPassword`.
+  - The `disableSignUpAction` option was renamed to `allowSignUp`.
+  - The `focusInput` option was renamed to `autofocus`.
+  - The `forceJSONP` option was renamed to `jsonp` and namespaced under `auth`. Now you use it like this `auth: {jsonp: true}`.
+  - The `gravatar` option was renamed to `avatar` and instead of taking `true` and `false` it now takes `null` or an object. See the [New Features page](/libraries/lock/v10/new-features) for details.
+  - The `icon` option was renamed to `logo` and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
+  - The `popup` option was replaced by `redirect` which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
+  - The `primaryColor` option was namespaced under `theme`. Now you use it like this `theme: {primaryColor: "#ec4889"}`.
+  - The `resetLink` option was renamed to `forgotPasswordLink`.
+  - The `responseType` option was namespaced under `auth`.  Now you use it like this `auth: {responseType: "code"}`.
+  - The `socialBigButtons` option was renamed to `socialButtonStyle` and its possible values are `"small"` or `"big"` instead of `true` or `false`.
+  - The `sso` option was namespaced under `auth`.  Now you use it like this `auth: {sso: false}`.
+- Some other options were added, see [New Features page](/libraries/lock/v10/new-features) for details.
