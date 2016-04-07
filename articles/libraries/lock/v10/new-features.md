@@ -2,18 +2,18 @@
 
 ## Authentication Options
 
-Authentication options now have their own namespace.
+Authentication options have been grouped in their own namespace.
 
 ```js
 var lock = new AuthLock(
   '${account.clientId}',
   '${account.namespace}',
   {
-    authentication: {
-      authParams: {}
-      callbackURL: window.location.href
-      forceJSONP: false,
+    auth: {
+      jsonp: false,
+      params: {name: "value"},
       redirect: true,
+      redirectUrl: window.location.href
       responseType: "token",
       sso: true
     }
@@ -23,27 +23,28 @@ var lock = new AuthLock(
 });
 ```
 
-### Initial Screen
+## Initial Screen
 
-You may now show Lock in a predefined way using the 'initialScreen' option. The following are valid values:
+You may now choose the screen that will be first displayed when Lock is shown with the `initialScreen` option. The following are valid values:
+* `login` (default);
+* `resetPassword`;
 * `signUp`;
-* `login`;
-* `resetPassword`.
 
 ```js
 var lock = new AuthLock(
   '${account.clientId}',
   '${account.namespace}',
   {
-    initialScreen: "signUp" //"login" or "resetPassword"
+    initialScreen: "signUp" // "login" or "resetPassword"
   },
   function(error, result) {
     // handle auth
 });
 ```
-### Theming
 
-Currently, the only theme option available is `primaryColor` (additional options are forthcoming).
+## Theme Options
+
+Theme options have been grouped in their own namespace.
 
 ```js
 var lock = new AuthLock(
@@ -51,7 +52,8 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     theme: {
-      primaryColor: "#49dd81"
+      logo: "https://example.com/icon.png",
+      primaryColor: "#ec4889"
     }
   },
   function(error, result) {
