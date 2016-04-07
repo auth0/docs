@@ -117,11 +117,27 @@ $('#signup').submit(function (e) {
     auto_login: true,
     connection: 'Username-Password-Authentication',
     email: $('#signup-email').val(),
-    password: $('#signup-password').val()
+    password: $('#signup-password').val(),
+    user_metadata: {
+        field: "value",
+        field2: "value2"
+    }
   }, signupCallback);
 
 });
 ```
+
+> You may now send custom fields on user signup!
+
+### Custom Fields
+
+When your users sign up, you can have custom fields sent as part of `user_metadata`.
+
+Limitations:
+* `user_metadata` must contain no more than ten fields;
+* `user_metadata.field` must be a string;
+* `user_metadata.field.value.length` must be fewer than 500 characters;
+* `user_metadata.field.length` must be fewer than 100 characters.
 
 ## Redirect mode
 
