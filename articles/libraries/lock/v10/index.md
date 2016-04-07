@@ -28,8 +28,8 @@ Please note that the following features, which are available on Lock 9 (the curr
 * Lock comes with support for pre-filled fields and custom avatar implementations.
 * Lock comes with support for custom sign up fields.
 
-Please see [New Features in Lock 10](/libraries/lock/v10/new-features.md) for additional information.
+Please see [New Features in Lock 10](/libraries/lock/v10/new-features) for additional information.
 
 ## Migrating to Lock 10
 
-Please see [Migrating to Lock 10](/libraries/lock/v10/installation.md) for installation instructions.
+Please see [Migrating to Lock 10](/libraries/lock/v10/installation) for installation instructions.
