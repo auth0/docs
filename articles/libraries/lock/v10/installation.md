@@ -136,7 +136,7 @@ function showLoggedIn() {
   - The `disableSignUpAction` option was renamed to `allowSignUp`.
   - The `focusInput` option was renamed to `autofocus`.
   - The `forceJSONP` option was renamed to `jsonp` and namespaced under `auth`. Now you use it like this `auth: {jsonp: true}`.
-  - The `gravatar` option was renamed to `avatar` and instead of taking `true` and `false` it now takes `null` or an object. See the [New Features page](/libraries/lock/v10/new-features) for details.
+  - The `gravatar` option was renamed to `avatar` and instead of taking `true` and `false` it now takes `null` or an object. See the [New Features page](/libraries/lock/v10/new-features#custom-avatar-provider) for details.
   - The `icon` option was renamed to `logo` and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
   - The `popup` option was replaced by `redirect` which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
   - The `primaryColor` option was namespaced under `theme`. Now you use it like this `theme: {primaryColor: "#ec4889"}`.
