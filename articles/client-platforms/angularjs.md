@@ -22,7 +22,6 @@ alias:
 
 ## AngularJS Tutorial
 
-
 This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.
 
 <%= include('../_includes/_package', {
@@ -166,17 +165,17 @@ Event listeners are available to handle different status of authentication. They
 ```javascript
 //Called when login is successful
 authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
-  console.log("Login Success");
-  profilePromise.then(function(profile) {
-    store.set('profile', profile);
-    store.set('token', idToken);
-  });
-  $location.path('/');
+console.log("Login Success");
+profilePromise.then(function(profile) {
+  store.set('profile', profile);
+  store.set('token', idToken);
+});
+$location.path('/');
 });
 
 //Called when login fails
 authProvider.on('loginFailure', function() {
-  console.log("Error");
+  console.log("Error logging in");
   $location.path('/login');
 });
 ```
@@ -204,7 +203,6 @@ You have successfully configured you Angular App to use Auth0. Configs are vital
 app.controller( 'LoginCtrl', function ( $scope, auth) {
 
   $scope.auth = auth;
-
 });
 ```
  `auth` is a service `auth0` in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
