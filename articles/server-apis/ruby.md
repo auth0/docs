@@ -45,6 +45,8 @@ You need to validate the [JWT](/jwt)s to make sure the user is authenticated. Fo
 
 ${snippet(meta.snippets.use)}
 
+__Note:__ If you are using Sinatra, instead of using `authorization = request.headers['Authorization']`, you should use `authorization = env['HTTP_AUTHORIZATION']`.
+
 ### 3. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
