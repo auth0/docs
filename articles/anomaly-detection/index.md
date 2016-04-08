@@ -1,3 +1,7 @@
+---
+url: /anomaly-detection
+---
+
 # Anomaly Detection
 
 Auth0 provides built-in tools to detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts. You can set your preferences on the notifications that get sent and whether to block a suspicious IP address.
