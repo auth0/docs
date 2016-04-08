@@ -62,7 +62,7 @@ lock.on('signin submit', function (options, context) {
 - `icon shown`: Triggered when Lock icon or gravatar image has been shown.
 - `icon hidden`: Triggered when Lock icon or gravatar image has been hidden.
 - `avatar shown`: Triggered when Lock avatar has been shown.
-- `icon hidden`: Triggered when Lock avatar has been hidden.
+- `avatar hidden`: Triggered when Lock avatar has been hidden.
 - `client fetch success`: Triggers when `clientID`'s config data is fetched.
 - `client fetch error`: Triggers when there's an error when fetching `clientID`'s config data.
 - `client loaded`: Triggers when `clientID`'s config data was loaded.

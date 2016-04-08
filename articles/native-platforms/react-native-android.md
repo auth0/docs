@@ -13,7 +13,6 @@ image: /media/platforms/react.png
 tags:
   - quickstart
 snippets:
-  dependencies: native-platforms/reactnative-android/dependencies
   setup: native-platforms/reactnative-android/setup
   use: native-platforms/reactnative-android/use
 ---
@@ -24,25 +23,38 @@ snippets:
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',
-  pkgFilePath: 'Classic/Lock/auth0_credentials.js',
+  pkgFilePath: 'Classic/Lock/auth0-credentials.js',
   pkgType: 'replace'
 }) %>
 
 **Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
-### Before Starting
+First you need to run the following command to install **react-native-lock**
 
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+```bash
+npm install --save react-native-lock
+```
 
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
-</div>
+Then install [rnpm](https://github.com/rnpm/rnpm)
 
-### 1. Adding Lock to your project
+```bash
+npm install rnpm -g
+```
 
-Add the following dependency to the `build.gradle` of the android project:
+After that, link **react-native-lock** with your Android project:
 
-${snippet(meta.snippets.dependencies)}
+```bash
+rnpm link react-native-lock
+```
+
+Open the file `android/app/build.gradle` and inside add the following inside the `android {}` section
+
+```gradle
+packagingOptions {
+    exclude 'META-INF/LICENSE'
+    exclude 'META-INF/NOTICE'
+}
+```
 
 Then check in `AndroidManifest.xml` that the application requests the `android.permission.INTERNET` permission. If not already there, add it inside the `<manifest>` tag:
 
@@ -50,7 +62,7 @@ Then check in `AndroidManifest.xml` that the application requests the `android.p
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-Next you must add the following entries inside the `<application>` tag of the same file:
+And finally, you must add the following entries inside the `<application>` tag of the same file:
 
 ```xml
 <!--Auth0 Lock-->
@@ -81,54 +93,54 @@ Next you must add the following entries inside the `<application>` tag of the sa
 <!--Auth0 Lock Passwordless End-->
 ```
 
-Finally you must add the `LockReactPackage` to the `ReactInstanceManager`. This is done in the `onCreate` method of the `MainActivity`.
-
-```java
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-    ...
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ...        
-        mReactInstanceManager = ReactInstanceManager.builder()
-                /* ... */
-                .addPackage(new LockReactPackage())
-                /* ... */
-                .build();
-        ...
-    }
-    ...
-}
-```
-
 If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
 
+### 2. Let's implement the login
 
-### 2. Register Native Authentication Handlers
+Now we're ready to implement the Login. First we need to require react-native-lock-android:
 
-To allow native logins using other Android apps, e.g: Google+, Facebook, etc, you need to explicitly add them by calling `addIdentityProvider` in your `LockReactPackage` instance before adding it to the `ReactInstanceManager`.
+${snippet(meta.snippets.setup)}
+
+Then we can show **Lock**:
+
+${snippet(meta.snippets.use)}
+
+[![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
+
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-android#sms-passwordless) or [Email](https://github.com/auth0/react-native-lock-android#email-passwordless)
+
+On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
+
+### 3. Showing user information
+
+After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
+
+```jsx
+  <Text>Welcome {this.state.profile.name}</Text>
+  <Text>Your email is: {this.state.profile.email}</Text>
+```
+
+> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+
+### Optional: Facebook & Google Native Login
+
+To allow native logins using other Android apps, e.g: Google+, Facebook, etc, you need to explicitly add them by calling `addIdentityProvider` in your `LockReactPackage` instance before returning in in your `MainActivity` method `getPackages()`.
 
 ```java
-public class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {
-    ...
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ...
-        LockReactPackage lockReactPackage = new LockReactPackage();
-
-        /* If you would like to add native integrations, add them here */
-        lockReactPackage.addIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this));
-        lockReactPackage.addIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this));
-
-        mReactInstanceManager = ReactInstanceManager.builder()
-                /* ... */
-                .addPackage(lockReactPackage)
-                /* ... */
-                .build();
-        ...
-    }
-    ...
+/**
+ * A list of packages used by the app. If the app uses additional views
+ * or modules besides the default ones, add more packages here.
+ */
+@Override
+protected List<ReactPackage> getPackages() {
+    LockReactPackage lockReactPackage = new LockReactPackage();
+    /* If you would like to add native integrations, add them here */
+    lockReactPackage.addIdentityProvider(Strategies.Facebook, new FacebookIdentityProvider(this));
+    lockReactPackage.addIdentityProvider(Strategies.GooglePlus, new GooglePlusIdentityProvider(this));
+    return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+        lockReactPackage
+    );
 }
 ```
 
@@ -188,51 +200,6 @@ Finally in your project's `AndroidManifest.xml` add the following entries:
 ```
 
 > For more information and configuration options you should see the Lock-GooglePlus.Android [docs](https://github.com/auth0/Lock-GooglePlus.Android)
-
-
-### 3. Let's implement the login
-
-Now we're ready to implement the Login. First we need to require react-native-lock-android:
-
-${snippet(meta.snippets.setup)}
-
-Then we can show **Lock**:
-
-${snippet(meta.snippets.use)}
-
-[![Lock.png](/media/articles/native-platforms/reactnative-android/Lock-Widget-Screenshot.png)](https://auth0.com)
-
-> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but you can try our passwordless Login Widgets: [SMS](https://github.com/auth0/react-native-lock-android#sms-passwordless) or [Email](https://github.com/auth0/react-native-lock-android#email-passwordless)
-
-On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
-
-### 4. Showing user information
-
-After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
-
-```jsx
-  <Text>Welcome {this.state.profile.name}</Text>
-  <Text>Your email is: {this.state.profile.email}</Text>
-```
-
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
-
-### 5. We're done
-
-You've implemented Authentication with Auth0 in Android & React Native. You're awesome!
-
-
-### API
-
-#### .show(options, callback)
-Show Lock's authentication screen as a modal screen using the connections configured for your applications or the ones specified in the `options` parameter. This is the list of valid options:
-
-* **closable** (`boolean`): If Lock screen can be dismissed. Default is `false`.
-* **connections** (`[string]`): List of enabled connections to use for authentication. Must be enabled in your app's dashboard first. If you leave it empty, Lock will use all the enabled connections.
-* **useMagicLink** (`boolean`): When using a passwordless connection, activate this option to send a Magic/App link instead of the code. Default is `false`.
-* **authParams** (`object`): Object with the parameters to be sent to the Authentication API, e.g. `scope`.
-
-The callback will have the error if anything went wrong or after a successful authentication, it will yield the user's profile info and tokens.
 
 ### FAQ
 

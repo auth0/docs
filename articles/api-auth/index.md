@@ -86,17 +86,7 @@ See the following tutorials for a step-by-step guide on how to implement the OAu
 ### Authorization Code Grant
 
  - [Using the Authorization Code Grant from a Node.js application](/api-auth/authorization-code-grant/node-js)
- - [Using the Authorization Code Grant from an ASP.NET MVC application](/api-auth/authorization-code-grant/asp-net)
 
 ### Implicit Grant
 
  - [Using the Implicit Grant from a Single Page application](/api-auth/implicit-grant/single-page)
- - [Using the Implicit Grant from an iOS application](/api-auth/implicit-grant/ios)
-
-### Client Credentials Grant
-
- - [Example use case: 'Foo'](/api-auth/client-credentials-grant/use-case-foo)
-
-## Have Questions?
-
-You may find the answers on the [API Auth FAQ](/api-auth/faq).

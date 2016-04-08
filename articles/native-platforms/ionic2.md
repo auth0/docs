@@ -35,10 +35,10 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-ionic2',
+  pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
-  pkgPath: null,
-  pkgFilePath: null,
+  pkgPath: 'examples/ionic2-auth0-sample',
+  pkgFilePath: 'examples/ionic2-auth0-sample/app/auth0-variables.ts',
   pkgType: 'replace'
 }) %>
 

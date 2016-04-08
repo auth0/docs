@@ -1,6 +1,6 @@
 # Considerations for OpenLDAP and non-AD directories
 
-The connector comes by default highly optimized for **Active Directory**. To configure it for OpenLDAP or other LDAP directories you will have to customize these settings in the **config.json** file:
+The Connector comes by default highly optimized for **Active Directory**. To configure it any other LDAP directories (e.g. OpenLDAP) you will have to customize these settings in the **config.json** file:
 
 ```
   "LDAP_USER_BY_NAME": "(cn={0})",
@@ -12,7 +12,7 @@ In some cases, instead of **cn** it might be better to use **uid**.
 
 ## Example: OpenDJ
 
-With the OpenDJ Control Panel it's possible to retrieve the list of attributes for each user. This list can help you decide which attribute will be used as the username when authenticating with Auth0.
+With the __OpenDJ Control Panel__ it's possible to retrieve the list of attributes for each user. This list can help you decide which attribute will be used as the username when authenticating with Auth0.
 
 ![](/media/articles/connector/considerations-non-ad/opendj-attributes.png)
 

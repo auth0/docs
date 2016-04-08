@@ -21,7 +21,7 @@ The connector can run on Windows 7+ or Windows 2008R2+
 
 #### Time Synchronization
 
-It is very important to have the Connector host server clock automatically synchronized with an NTP server. Otherwise the connector will fail to start and report __clock skew error__.
+It is very important to have the Connector host server clock automatically synchronized with an NTP server. Otherwise the connector will fail to start and report a __clock skew error__.
 
 ## Outbound Connectivity
 
@@ -33,7 +33,7 @@ The connector must be installed on a server with outbound connectivity to the Au
 
 The connector can be installed and configured behind a __proxy server__ but we don't recommend this.
 
-> You can enable a proxy through the environment variable `HTTP_PROXY`.
+> You can enable a proxy through the environment or configuration variable `HTTP_PROXY`.
 
 #### LDAP
 
@@ -41,7 +41,7 @@ The Connector must be installed on a server with access to the LDAP server on po
 
 ## Inbound Connectivity
 
-You do not need inbound connectivity enabled to the Connector unless **Kerberos** or **Certificate authentication** is enabled. In these cases, the server(s) on which the connector is installed must be reachable from your users' browsers on port 443. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector or the other.
+You do not need inbound connectivity enabled to the Connector unless **Kerberos** or **Client Certificate authentication** is enabled. In these cases, the server(s) on which the connector is installed must be reachable from your users' browsers on port 443. If more than one instance of the connector is installed, you should use a load balancer to direct traffic to one connector or the another.
 
 ## Service Account
 
@@ -53,4 +53,4 @@ If you establish multiple Auth0 accounts, perhaps to isolate development and pro
 
 ## High Availability
 
-The Connector can be installed on multiple host servers for redundancy (most organizations privision two) in case one server becomes unavailable. Each server will have the same requirements listed above. No load balancer is required as that is performed by the Auth0 server itself.
+The Connector can be installed on multiple host servers for redundancy (most organizations provision two) in case one server becomes unavailable. Each server will have the same requirements listed above. No load balancer is required as that is performed by the Auth0 server itself, unless you enable __Kerberos__ or __Client Certificate__ based authentication.

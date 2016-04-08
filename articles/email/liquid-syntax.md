@@ -1,6 +1,6 @@
 # Using Liquid Syntax in Email Templates
 
-When using the [Email Templates](/email) available via the Auth0 Management Portal, you have the option of selecting the appropriate data and formatting your emails using [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers).
+When using the [Email Templates](/email) available via the Auth0 Management Portal, you have the option of using [Liquid](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers) to select the appropriate data and formatting your emails.
 
 Liquid is an open-source templating language that extends the functionality of HTML so that your emails dynamically display various pieces of information. For example, you might structure the `Subject` of your emails to display the appropriate application name, rather than hardcoding a particular value:
 

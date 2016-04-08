@@ -33,14 +33,14 @@ If you exceed the provided rate limit for a given API endpoint, you will receive
 }
 ```
 
-Actions such as rapidly updating configuration settings, aggressive polling, or making high-concurrency API calls may result in your app being rate limited.
+Actions such as rapidly updating configuration settings, aggressive polling, or making highy concurrent API calls may result in your app being rate limited.
 
 If your app triggers the rate limit, please refrain from making additional requests until the appropriate amount of time has elapsed.
 
 HTTP Response Headers
 ---------------------
 
-Rate-limited endpoints will return HTTP Response Headers that provider relevant data on where you are at for a given rate limit on the method you used.
+API requests will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit:
 
 | Header                 | Description                                   |
 |------------------------|-----------------------------------------------|

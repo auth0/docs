@@ -1,6 +1,6 @@
 # Use your own SMTP Email Provider
 
-The Auth0 allows you to configure your own SMTP email provider instead of using Auth0's infrastructure for email communication with your users. This enables you to more completely manage, monitor and troubleshoot your email communications.
+Auth0 allows you to configure your own SMTP email provider instead of using Auth0's infrastructure for email communication with your users. This enables you to more completely manage, monitor and troubleshoot your email communications.
 
 Auth0 currently supports the following providers:
 
@@ -118,13 +118,13 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 You can use your own STMP server to send email. There are two requirements for the SMTP server:
 
-* It must support LOGIN [authentication](https://en.wikipedia.org/wiki/SMTP_Authentication)
-* It must support [TLS](https://en.wikipedia.org/wiki/STARTTLS) 1.0 or higher
+* It must support LOGIN [authentication](https://en.wikipedia.org/wiki/SMTP_Authentication).
+* It must support [TLS](https://en.wikipedia.org/wiki/STARTTLS) 1.0 or higher.
 
-To be able to use your own SMTP server, do this:
+To be able to use your own SMTP server:
 
 1. Open the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard.
-2. Click **Use my own Email Provider**.
+2. Click on **Use my own Email Provider**.
 3. Click the **SMTP** logo.
 4. Enter your SMTP server `Host`, `Port`, `Username` and `Password` in the appropriate fields:
 
