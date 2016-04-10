@@ -1,6 +1,6 @@
 # Use your own SMTP Email Provider
 
-Auth0 allows you to configure your own SMTP email provider instead of using Auth0's infrastructure for email communication with your users. This enables you to more completely manage, monitor and troubleshoot your email communications.
+Auth0 allows you to configure your own SMTP email provider. Auth0's built-in email infrastructure should be used for testing level emails only. By using your own provider you can more completely manage, monitor and troubleshoot your email communications.
 
 Auth0 currently supports the following providers:
 
@@ -98,12 +98,12 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 3. To configure SendGrid as your email provider in Auth0, post your previously obtained SendGrid credentials to the [Configure the email provider](/api/v2#!/Emails/post_provider) endpoint with this curl command:
 
   ```js
-curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"sendgrid","credentials":{"api_user":"YOUR_SENDGRID_API_USER","api_key":"YOUR_SENDGRID_API_KEY"}}' https://${account.tenant}.auth0.com/api/v2/emails/provider
+curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"sendgrid","credentials":{"api_key":"YOUR_SENDGRID_API_KEY"}}' https://${account.tenant}.auth0.com/api/v2/emails/provider
   ```
 
 4. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SendGrid** logo.
 
-5. Enter your previously obtained SendGrid `API User` and `API Password`:
+5. Enter your previously obtained SendGrid `API Key`:
 
   ![](/media/articles/email/providers/sendgrid-key.png)
 
@@ -137,4 +137,5 @@ To be able to use your own SMTP server:
 ## Additional Information
 
 - [Emails in Auth0](/email)
+- [Customizing Your Emails](/email/templates)
 - [Custom Email Handling](/email/custom)

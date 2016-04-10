@@ -1,0 +1,7 @@
+added:
+  -
+    title: "Added doc for Anomaly Detection"
+    tags:
+      - anomaly
+    description: |
+      A new section of documentation was added for [Anomaly Detection](/anomaly-detection) explaining the feature.

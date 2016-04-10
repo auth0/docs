@@ -29,3 +29,16 @@ Lock version 9 and above will use the new password reset flow exclusively. Lock 
 Notice that even if you are not using Lock the vulnerable reset flow can be used directly through the API as well. See the [api docs](/auth-api#!#post--dbconnections-change_password) for details.
 
 We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
+
+### Email Delivery Changes
+
+| Severity | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- |
+| Medium | 2016-04-04 | 2016-05-11 |
+
+Auth0's built-in email provider will no longer be supported for use in a production environment. The emails sent using the Auth0 provider will no longer be customizable, they will be restricted to the template, and you will not be able to change the *from address*.
+
+The built-in email service can still be used for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) before moving your apps to production.
+
+[Click here to learn more about Auth0 Emails](/email)
+
