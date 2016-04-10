@@ -10,7 +10,6 @@
 
 ![](https://cloudup.com/c-l39hZ2KH4+)
 
-
 > NOTE: if you want to show your own logo on the consent page of the social provider, click on the provider logo and it will be expanded. Click on How to obtain a CLient ID link for instructions.
 
 ## Configuration on Unbounce

@@ -116,7 +116,7 @@ The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now 
 
 ## Configure a Custom SMTP Server for Sending Email
 
-You can use your own STMP server to send email. There are two requirements for the SMTP server:
+You can use your own SMTP server to send email. There are two requirements for the SMTP server:
 
 * It must support LOGIN [authentication](https://en.wikipedia.org/wiki/SMTP_Authentication).
 * It must support [TLS](https://en.wikipedia.org/wiki/STARTTLS) 1.0 or higher.
@@ -134,8 +134,11 @@ To be able to use your own SMTP server:
 
   **NOTE:** You can send a test email using the **Send Test Email** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard.
 
+> Using SMTP makes it easy to [wire up test services](/email/testing) that will allow you to validate everything is working without spamming your real users.
+
 ## Additional Information
 
 - [Emails in Auth0](/email)
 - [Customizing Your Emails](/email/templates)
 - [Custom Email Handling](/email/custom)
+- [Setting up a Test Provider](/email/testing)
