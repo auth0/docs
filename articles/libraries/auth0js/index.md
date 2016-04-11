@@ -226,13 +226,15 @@ After a successful login, `auth0.js` will auto login the user. If you do not wan
   $('.change_password').click(function () {
     auth0.changePassword({
       connection: 'db-conn',
-      username:   'foo@bar.com',
-      password:   'bla bla instead of shhh...secret' // the new password
+      username:   'foo@bar.com'
     }, function (err, resp) {
       console.log(err.message);
     });
   });
 ```
+
+This request will always return a 200, regardless of whether the user exists or not.
+If the user did not exist, you will see a "Failed Password Change" event log in the Auth0 dashboard.
 
 ## Advanced operations
 
