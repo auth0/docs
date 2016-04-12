@@ -100,6 +100,7 @@ On the **Admin SDK** page, click **Enable**.
 ## 8. Enable the Connection
 
 Go to the **Apps** tab of the Google connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
+
 ![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
 
 Click **Save**.
