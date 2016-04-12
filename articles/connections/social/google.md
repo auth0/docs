@@ -1,18 +1,22 @@
 ---
 connection: Google / Gmail
 image: /media/connections/google.svg
+description: This page shows you how to connect your Auth0 app to Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
  - gmail
  - google-oauth
  - google-oauth2
 ---
 
-# Obtain a *Client Id* and *Client Secret* for Google
+# Connect your app to Google
 
-To configure OAuth connections with Google or Google Apps, you will need to register Auth0  on the Google Developers Console.
+To connect your Auth0 app to Google and Google Apps, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the connection.
 
-## 1. Log into the API Console
-Log into your Google account, go to the [Developers Console](https://console.developers.google.com), and click *Create an empty project*:
+## 1. Access the Google API Manager
+
+While logged in to your Google account, go to the [API Manager](https://console.developers.google.com).
+
+From the project dropdown at the top of the page, select **Create a project...**:
 
 ![](/media/articles/connections/social/google/goog-api-app-new.png)
 
@@ -22,35 +26,31 @@ In the dialog box that appears, provide a Project name and a Project ID for your
 
 ![](/media/articles/connections/social/google/goog-api-app-empty.png)
 
-An activity will begin, as shown in the following figure. Once the activity is completed you will be redirected to the project's dashboard to continue with the next steps.
+Google will take a moment to create your project. You will receive a notification when the process completes and the page will switch to your new project.
 
 ![](/media/articles/connections/social/google/goog-api-creation-activity.png)
 
-## 3. Enable the Google+ API
+## 3. Set up the Consent Screen
 
-Click **Enable APIs**:
+In the left sidebar, select **Credentials**, then select the **OAuth consent screen** tab. 
 
-![](/media/articles/connections/social/google/goog-api-app-api.png)
-
-Locate the **Google+ API** item in the list:
-
-![](/media/articles/connections/social/google/goog-api-plus-off.png)
-
-And click **Enable API**:
-
-![](/media/articles/connections/social/google/goog-api-plus-on.png)
-
-## 4. Set up the Consent Screen
-
-In the left sidebar, under **APIs & auth**, select **Credentials**, then click **OAuth consent screen**. On this page, enter your **Product Name** that will be shown when users try to log in through Google. Then click **Save**:
+On this page, provide a **Product Name** that will be shown to users when they log in through Google. Click **Save**:
 
 ![](/media/articles/connections/social/google/goog-api-product-name.png)
 
-**NOTE:** If this field is left blank, your users may see errors such as `invalid_client: no application name` when attempting to log in.
+## 4. Enable the Google+ API
 
-## 5. Get your *Client Id* and *Client Secret*
+Select **Overview** in the left nav and choose the **Google+ API** item from the list of APIs:
 
-Click **Credentials** in the left sidebar and then click the **Add Credentials** dropdown and select **OAuth 2.0 client ID**:
+![](/media/articles/connections/social/google/goog-api-plus-off.png)
+
+Click **Enable API**:
+
+![](/media/articles/connections/social/google/goog-api-plus-on.png)
+
+## 5. Create your *Client Id* and *Client Secret*
+
+Select the **Credentials** tab. Click the **Create Credentials** drop-down and select **OAuth client ID**:
 
 ![](/media/articles/connections/social/google/goog-api-credentials.png)
 
@@ -58,8 +58,8 @@ Select **Web application**, and provide a name for your app.
 
 In the fields below, enter the following information:
 
-* Authorized JavaScript origins: `https://${account.namespace}`
-* Authorized redirect URI: `https://${account.namespace}/login/callback`
+* **Authorized JavaScript origins:** `https://${account.namespace}`
+* **Authorized redirect URI:** `https://${account.namespace}/login/callback`
 
 ![](/media/articles/connections/social/google/goog-api-client-creation.png)
 
@@ -69,18 +69,53 @@ Click **Create**. Your `Client Id` and `Client Secret` will be displayed:
 
 You can now use this `Client Id` and `Client Secret` for your connection settings in Auth0.
 
-## 6. Enable Admin SDK Service
+## 6. Enable the Admin SDK Service
 
-If you are planning to connect to Google Apps enterprise domains, you need to enable the **Admin SDK** service.
+If you are planning to connect to Google Apps enterprise domains, you will need to enable the **Admin SDK** service.
 
-To do so, click **API** in the left sidebar, locate the **Admin SDK** item and click **Enable API**.
+Select **Admin SDK** from the list of APIs on the overview page:
 
 ![](/media/articles/connections/social/google/goog-api-admin-sdk.png)
 
-## 7. Copy your *Client Id* and *Client Secret*
+On the **Admin SDK** page, click **Enable**.
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Google**. Copy the `Client Id` and `Client Secret` from the **Google Developer Console** into the fields on this page on Auth0 and click **Save**:
+![](/media/articles/connections/social/google/goog-api-admin-enable.png)
 
-![](/media/articles/connections/social/google/goog-api-aoth0-settings.png)
+## 7. Copy your *Client Id* and *Client Secret* into Auth0
+
+1. Login to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** in the left navigation.
+
+2. Select the connection with the Google logo to access this connection's **Settings** page:
+
+  ![](/media/articles/connections/social/google/goog-settings.png)
+
+3. Copy the `Client Id` and `Client Secret` from the Credentials page of your project in the **Google API Manager** into the fields on this page on Auth0.
+
+  ![](/media/articles/connections/social/google/goog-api-aoth0-settings.png)
+
+4. Select the **Permissions** for each of the features you want to allow your app to access.
+
+5. Click **Save**:
+
+## 8. Enable the Connection
+
+Go to the **Apps** tab of the Google connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
+![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
+
+Click **Save**.
+
+## 9. Test your app
+
+1. Go back to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Google logo:
+
+  ![](/media/articles/connections/social/google/goog-api-trylogo.png)
+
+2. Click the Google logo to return to the **Settings** page of this connection and click **Try**:
+
+  ![](/media/articles/connections/social/google/goog-api-aoth0-try.png)
+
+3. If you have configured everything correctly, you will see the **It works!!!** page:
+
+  ![](/media/articles/connections/social/google/goog-api-works.png)
 
 
