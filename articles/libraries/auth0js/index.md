@@ -63,6 +63,7 @@ Trigger the login on any of your enabled `Connections` with:
   });
 
   //trigger login with a db connection that requires username/password
+  //'db-conn' is the name of the sample database connection that this project is using. Change 'db-conn' to your connection's name
   $('.login-dbconn').click(function () {
     auth0.login({
       connection: 'db-conn',
@@ -126,6 +127,7 @@ You can also request `scopes` that are not pre-configured for your social connec
 Trigger the login with offline mode support to get the `refresh_token`
 
 ```
+  //'db-conn' is the name of the sample database connection that this project is using. Change 'db-conn' to your connection's name
 $('.login-dbconn').click(function () {
     auth0.login({
       connection: 'db-conn',
