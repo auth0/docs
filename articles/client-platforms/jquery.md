@@ -133,7 +133,7 @@ var id_token = localStorage.getItem('id_token');
 if (id_token) {
   lock.getProfile(id_token, function (err, profile) {
     if (err) {
-      return alert('There was an error geting the profile: ' + err.message);
+      return alert('There was an error getting the profile: ' + err.message);
     }
     // Display user information
     $('.nickname').text(profile.nickname);
