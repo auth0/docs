@@ -1,6 +1,6 @@
 # Integrating Auth0 with Amazon Cognito for Mobile Apps.
 
-**Amazon Cognito** is a new backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
+**Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
 
 In this document, I’ll explain how you can integrate your mobile app with two solutions: Auth0 to get authentication with either [Social Providers](/identityproviders#social) (Facebook, Twitter, etc.), [Enterprise providers](/identityproviders#enterprise) or regular Username and Password, and [Amazon Cognito](http://aws.amazon.com/cognito/), to get a backend for your app without writing a line of code
 
@@ -40,10 +40,11 @@ Now it’s time to start coding our app. In this case, we’ll be using Swift, b
 Add the following dependencies to your `Podfile`
 
 ```ruby
-pod "Lock", "~> 1.7", :inhibit_warnings => true
-pod "JWTDecode", "~> 0.2"
-pod "SimpleKeychain", "~> 0.2"
-pod 'AWSCognitoSync', "~> 1.0"
+pod "Lock", "~> 2.4"
+pod "JWTDecode"
+pod "SimpleKeychain"
+pod "AWSCore"
+pod "AWSCognito"
 ```
 ### Logging the User In
 We’ll use [Auth0 Lock for iOS](https://github.com/auth0/lock) to log the user in. You can read detailed instructions on how to implement it in [this documentation page](/native-platforms/ios-swift).

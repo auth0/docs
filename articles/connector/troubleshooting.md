@@ -91,3 +91,9 @@ We don't recommend using Proxies for the connector, but if you need to use one, 
 ### Service account permissions
 
 The Service account used to configure the connector must have read permissions on the AD/LDAP server, as well as capable of querying groups for users.
+
+### Kerberos issues
+
+To enable verbose logging of Kerberos requests, add a system level environment variable `DEBUG=kerberos-server`. Then restart the Connector. Try logging in again, and check the logs for more information.
+
+If you have Kerberos enabled, but your users are being prompt for username/password, you likely don't have the [IP address settings properly configured](/connector/kerberos#configuration).

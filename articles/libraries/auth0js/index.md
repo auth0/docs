@@ -63,6 +63,7 @@ Trigger the login on any of your enabled `Connections` with:
   });
 
   //trigger login with a db connection that requires username/password
+  //'db-conn' is the name of the sample database connection that this project is using. Change 'db-conn' to your connection's name
   $('.login-dbconn').click(function () {
     auth0.login({
       connection: 'db-conn',
@@ -126,6 +127,7 @@ You can also request `scopes` that are not pre-configured for your social connec
 Trigger the login with offline mode support to get the `refresh_token`
 
 ```
+  //'db-conn' is the name of the sample database connection that this project is using. Change 'db-conn' to your connection's name
 $('.login-dbconn').click(function () {
     auth0.login({
       connection: 'db-conn',
@@ -226,13 +228,15 @@ After a successful login, `auth0.js` will auto login the user. If you do not wan
   $('.change_password').click(function () {
     auth0.changePassword({
       connection: 'db-conn',
-      username:   'foo@bar.com',
-      password:   'bla bla instead of shhh...secret' // the new password
+      username:   'foo@bar.com'
     }, function (err, resp) {
       console.log(err.message);
     });
   });
 ```
+
+This request will always return a 200, regardless of whether the user exists or not.
+If the user did not exist, you will see a "Failed Password Change" event log in the Auth0 dashboard.
 
 ## Advanced operations
 
