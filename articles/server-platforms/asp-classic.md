@@ -11,6 +11,12 @@ snippets:
 
 ## ASP Classic Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
 **Please follow the steps below to configure your existing ASP.Net Classic WebApp to use it with Auth0.**
 
 ### 1. Showing the Login Widget
