@@ -22,7 +22,7 @@ https://${account.namespace}/v2/logout?federated
 To redirect a user after logout, you may specify a `returnTo` parameter that contains the specific URL:
 
 ```text
-https://${account.namespace}/v2/logout?returnTo=http://wwww.example.com
+https://${account.namespace}/v2/logout?returnTo=http://www.example.com
 ```
 
 ### Setting Allowed Logout URLs at the Account Level
