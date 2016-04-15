@@ -1,7 +1,7 @@
 ```js
 // app/app.ts
 
-import {App, Platform} from 'ionic-framework/ionic';
+import {App, Platform} from 'ionic-angular';
 import {TabsPage} from './pages/tabs/tabs';
 import {provide} from 'angular2/core';
 import {Http} from 'angular2/http'
