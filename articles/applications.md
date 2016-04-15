@@ -117,7 +117,7 @@ Here is an example of a decomposed application with several APIs and services. D
 Now on the other hand, you could create different applications for the enterprise portal and the backing services. This will allow us to identify the different APIs and services giving you:
 
  * Better auditing (you'll be able to see who accessed which service)
- * The ability to apply coarse grained authorization for applications through rules (eg: only finance can access the invoices API)
+ * The ability to apply fine-grained authorization for applications through rules (eg: only finance can access the invoices API)
  * Support to control the flow of your application (eg: the Documents API is the only API that can call the Invoices API)
 
 Keep in mind that users calling out to the different APIs will count as additional active users because they will be spanning multiple applications. Choosing between one application and different application will be a functionality vs. cost tradeoff.
