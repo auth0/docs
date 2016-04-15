@@ -11,6 +11,11 @@ snippets:
 
 ## ASP Classic Tutorial
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Internet Information Services (IIS)
+:::
+
 **Please follow the steps below to configure your existing ASP.Net Classic WebApp to use it with Auth0.**
 
 ### 1. Showing the Login Widget
@@ -23,6 +28,8 @@ After logging in with any provider, Auth0 will redirect the user to `/callback.a
 
 ### 2. Processing the callback response
 
+For parsing JSON response, we'll download [json2.js](http://cdnjs.cloudflare.com/ajax/libs/json2/20130526/json2.js) and put it in project directory.
+
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll create the `callback.asp` file.
 
 It will implement the basic OAuth 2 flow:
@@ -31,47 +38,6 @@ It will implement the basic OAuth 2 flow:
 1. Calls the **Userinfo** endpoint to get the current logged in user profile using the access_token as credentials.
 
 ${snippet(meta.snippets.use)}
-
-```asp
-Function GetUserProfile(access_token)
-
-  Set http = Server.CreateObject("MSXML2.ServerXMLHTTP")
-
-  http.open "GET", "https://eugeniop.auth0.com/userinfo?access_token=" & access_token, False
-
-  http.send
-
-  profile = http.responseText
-
-  Set GetUserProfile = JSON.parse(profile)
-
-  Set http = Nothing
-
-End Function
-
-
-Function GetAccessToken(client_id, client_secret, redirect_uri, authorization_code)
-
-  Set http = Server.CreateObject("MSXML2.ServerXMLHTTP")
-
-  http.open "POST", "https://eugeniop.auth0.com/oauth/token", False
-
-  http.setRequestHeader "Content-Type", "application/x-www-form-urlencoded"
-
-  http.send "client_id=" & client_id & "&client_secret=" & client_secret & "&redirect_uri=" & server.UrlEncode(redirect_uri) & "&code=" & authorization_code & "&grant_type=authorization_code"
-
-  result = http.responseText
-
-  Set http = Nothing
-
-  set jsonResult = JSON.parse(result)
-
-  GetAccessToken = jsonresult.access_token
-
-End Function
-
-<%= '%\>' %>
-```
 
 ### 3. You're done!
 
