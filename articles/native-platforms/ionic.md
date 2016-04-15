@@ -158,7 +158,7 @@ Now, you can regularly call your API with `$http`, `$resource` or any rest clien
 After the user has logged in, we can get the `profile` property from the `auth` service which has all the user information:
 
 ```html
-<!-- user-info.tpl.html -->
+<!-- user-info.html -->
 <span>His name is {{auth.profile.nickname}}</span>
 ```
 
