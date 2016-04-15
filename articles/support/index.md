@@ -4,7 +4,19 @@ url: /support
 
 # Support Options
 
-Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our [discussion forum](https://ask.auth0.com) to receive support from our engineers. Additionally, paid accounts receive ticketed support via our [Support Center](https://support.auth0.com). Ticket response times will vary based on your support plan (shown below). Additionally, our enterprise support customers will be provided a support phone number.
+## Public Forum
+
+Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to receive support from our engineers and search exisiting questions. 
+
+## Support Center
+
+Additionally, subscribers can create a private ticket via [Support Center](https://support.auth0.com). This can be accessed by clicking on the *Get Support* link on the [dashboard](${uiUrl}). 
+
+[Learn more about creating tickets with Support Center](/support/tickets)
+
+### Ticket Response Times
+
+Ticket response times will vary based on your support plan (shown below). Additionally, our enterprise support customers will be provided a support phone number.
 
 <table class="table">
   <thead>
@@ -56,3 +68,7 @@ Auth0 offers support for __all__ subscribers. All customers, even on free accoun
 </table>
 
 If you have specific support requirements or are interested in the __Enterprise Support__ option, please contact us at <sales@auth0.com>.
+
+### Additional Information
+* [Opening and Managing Tickets in Support Center](/support/tickets)
+* [Choosing the Issue Type](/support/issue-types)
