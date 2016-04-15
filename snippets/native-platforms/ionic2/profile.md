@@ -1,7 +1,7 @@
 ```js
 // app/pages/profile/profile.ts
 
-import {Page} from 'ionic-framework/ionic';
+import {Page} from 'ionic-angular';
 import {AuthService} from '../../services/auth/auth';
 
 @Page({
