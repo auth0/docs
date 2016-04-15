@@ -179,12 +179,12 @@ To enable access to a route:
 // app.js
 .config(function (authProvider, $routeProvider, $locationProvider) {
   $routeProvider.when('/login', {
-    templateUrl: 'login.tpl.html',
+    templateUrl: 'login.html',
     controller: 'LoginCtrl'
   });
   // Logged in route
   $routeProvider.when('/user-info', {
-    templateUrl: 'userInfo.tpl.html',
+    templateUrl: 'userInfo.html',
     controller: 'UserInfoCtrl',
     requiresLogin: true
   });
