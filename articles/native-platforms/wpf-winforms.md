@@ -97,6 +97,6 @@ The `Auth0User` has the following properties:
 
 ## Download the samples
 
-Browse the samples on GitHub from [here](https://github.com/auth0/auth0-winforms-wpf-sample).
+Browse the samples on GitHub from [here](https://github.com/auth0/Auth0.WinformsWPF/tree/master/samples).
 
 **Congratulations!**
