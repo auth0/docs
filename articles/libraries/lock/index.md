@@ -45,6 +45,8 @@ Or our CDN:
 <script src="http://cdn.auth0.com/js/lock-9.x.y.min.js"></script>
 ```
 
+Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock).
+
 If you are targeting mobile audiences, it's recommended that you add:
 
 ```html
