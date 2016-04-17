@@ -26,7 +26,7 @@ We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
 
 ### 1. Create a simple MVC3 website and install ServiceStack through NuGet
 
-For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> ASP.NET Web Application -> Empty"__ and choose MVC template.
+For this example, we will use the standard template that ships with Visual Studio. Select __"FILE -> New project -> ASP.NET Web Application -> MVC"__ .
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
