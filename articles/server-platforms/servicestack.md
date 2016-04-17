@@ -34,7 +34,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
-Add the following line to your `App_Start/Route_Config.cs` file (this is required for ServiceStack):
+Add the following line to your `App_Start/Route_Config.cs` file to the beginning of the `RegisterRoutes` function (this is required for ServiceStack):
 
 ```
 routes.IgnoreRoute("api/{*pathInfo}");
@@ -116,29 +116,26 @@ public class Hello
 ```cs
 public class HelloResponse
 {
-    public IAuthSession UserInfo { get; set; }
-	public string Result { get; set; }
-	public ResponseStatus ResponseStatus { get; set; } //Where Exceptions get auto-serialized
+  public IAuthSession UserInfo { get; set; }
+  public string Result { get; set; }
+  public ResponseStatus ResponseStatus { get; set; } //Where Exceptions get auto-serialized
 }
 ```
 
 #### 6.3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
 
 ```cs
-public class HelloService : ServiceBase<Hello>
+public class HelloService : Service
 {
-	public object Run(Hello request)
-	{
-        IAuthSession session = this.GetSession();
-        var sb = new StringBuilder();
-        sb.AppendLine("Id: " + session.Id);
-        sb.AppendLine("DisplayName: " + session.DisplayName);
+  public object Any(Hello request)
+  {
+    IAuthSession session = this.GetSession();
+    var sb = new StringBuilder();
+    sb.AppendLine("Id: " + session.Id);
+    sb.AppendLine("DisplayName: " + session.DisplayName);
 
-        var auth0Session = session as Auth0UserSession;
-        var pic = auth0Session.ExtraData["picture"];
-
-        return new HelloResponse { UserInfo = session };
-	}
+    return new HelloResponse { Result = "Hello, " + request.Name, UserInfo = session };
+  }
 }
 ```
 > Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.
