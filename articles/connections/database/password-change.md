@@ -3,7 +3,7 @@
 This document explains the various ways passwords can be reset for users of your application.
 
 :::panel-warning Notice
-This information applies to using Lock version 9 and above. To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow) 
+This information applies to using Lock version 9 and above. To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow)
 :::
 
 A password reset email can be sent to a user using the API.  Users themselves can also reset their own password on the login screen.
@@ -17,9 +17,9 @@ When calling the API, specify the email address of the account you want to reset
 ```har
 {
   "method": "POST",
-  "url": "${account.namespace}/dbconnections/change_password",
+  "url": "https://YOURACCOUNT.auth0.com/dbconnections/change_password",
   "headers": [
-    { "name" "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData" : {
     "client_id" : "${account.clientId}",
@@ -60,4 +60,3 @@ Click on the name of the user you want to change the password for. Then click on
 ![](/media/articles/connections/database/manual-password-change.png)
 
 Next, enter the new password and click **Save**.
-
