@@ -13,7 +13,7 @@ description: Customize the UI of Lock in your App
 
 1.  Add the following dependencies to your project:
   ```gradle
-  compile 'com.auth0.android:core:1.11.+'
+  compile 'com.auth0.android:core:1.15.+'
   compile 'de.greenrobot:eventbus:2.4.+'
   ```
 
@@ -62,14 +62,14 @@ description: Customize the UI of Lock in your App
 
 1. Then in your Login *Activity* add the following fields
   ```java
-      private APIClient client;
+      private AuthenticationAPIClient client;
       private EventBus eventBus;
   ```
 
 1. In the same *Activity* `onCreate` method add the following lines to initialize **Auth0** and the fields we added earlier
   ```java
       Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.auth0_domain_name));
-      this.client = auth0.newAPIClient();
+      this.client = auth0.newAuthenticationAPIClient();
       this.eventBus = new EventBus();
   ```
 
@@ -77,19 +77,22 @@ description: Customize the UI of Lock in your App
   ```java
       String email = ... // Get email
       String password = ... // Get password
-      client.login(email, password, null, new AuthenticationCallback() {
-          @Override
-          public void onSuccess(UserProfile userProfile, Token token) {
-              eventBus.post(new AuthenticationEvent(userProfile, token));
-          }
+      Map<String, Object> authenticationParameters = ... // Additional authentication parameters
+      client.login(email, password)
+          .addParameters(authenticationParameters)
+          .start(new AuthenticationCallback() {
+              @Override
+              public void onSuccess(UserProfile userProfile, Token token) {
+                  eventBus.post(new AuthenticationEvent(userProfile, token));
+              }
 
-          @Override
-          public void onFailure(Throwable throwable) {
-              eventBus.post(new ErrorEvent(R.string.login_failed_title, R.string.login_failed_message, throwable));
-          }
-      });
+              @Override
+              public void onFailure(Throwable throwable) {
+                  eventBus.post(new ErrorEvent(R.string.login_failed_title, R.string.login_failed_message, throwable));
+              }
+          });
   ```
-  > More details about the parameters you can use check [this wiki page](/libraries/lock-android/sending-authentication-parameters).
+  > For more details about the parameters you can check [this wiki page](/libraries/lock-android/sending-authentication-parameters).
 
 1. Finally handle both `AuthenticationEvent` and `ErrorEvent`
   ```java
@@ -118,9 +121,9 @@ description: Customize the UI of Lock in your App
 
 1. Include the following libraries in your `build.gradle`:
   ```gradle
-      compile 'com.auth0.android:identity-core:1.9.+'
-      compile 'com.auth0.android:lock-facebook:2.1.+'
-      compile 'com.auth0.android:lock-googleplus:2.1.+'
+      compile 'com.auth0.android:identity-core:1.15.+'
+      compile 'com.auth0.android:lock-facebook:2.4.+'
+      compile 'com.auth0.android:lock-googleplus:2.4.+'
   ```
 
 1. In your `auth0.xml` file add the following entry
@@ -142,9 +145,9 @@ description: Customize the UI of Lock in your App
   ```java
   public class MyIdentityProviderCallback implements IdentityProviderCallback {
       private final EventBus bus;
-      private final APIClient client;
+      private final AuthenticationAPIClient client;
 
-      public MyIdentityProviderCallback(EventBus bus, APIClient client) {
+      public MyIdentityProviderCallback(EventBus bus, AuthenticationAPIClient client) {
           this.bus = bus;
           this.client = client;
       }
@@ -165,33 +168,35 @@ description: Customize the UI of Lock in your App
       @Override
       public void onSuccess(String serviceName, String accessToken) {
           //Authenticate with Auth0 using the IdP token obtained from a native integration like Facebook
-          client.socialLogin(serviceName, accessToken, null, new AuthenticationCallback() {
-              @Override
-              public void onSuccess(UserProfile userProfile, Token token) {
-                  bus.post(new AuthenticationEvent(userProfile, token));
-              }
+          client.loginWithOAuthAccessToken(accessToken, serviceName)
+            .start(new AuthenticationCallback() {
+                @Override
+                public void onSuccess(UserProfile userProfile, Token token) {
+                    bus.post(new AuthenticationEvent(userProfile, token));
+                }
 
-              @Override
-              public void onFailure(Throwable throwable) {
-                  bus.post(new ErrorEvent(R.string.login_failed_title, R.string.login_failed_message, throwable));
-              }
-          });
+                @Override
+                public void onFailure(Throwable throwable) {
+                    bus.post(new ErrorEvent(R.string.login_failed_title, R.string.login_failed_message, throwable));
+                }
+            });
       }
 
       @Override
       public void onSuccess(final Token token) {
-          //Already authenticated with Auth0 using Web Browser (when no native integration is avaliable), then we just fetch the user's profile
-          client.fetchUserProfile(token.getIdToken(), new BaseCallback<UserProfile>() {
-              @Override
-              public void onSuccess(UserProfile profile) {
-                  bus.post(new AuthenticationEvent(profile, token));
-              }
+          //Already authenticated with Auth0 using Web Browser (when no native integration is available), then we just fetch the user's profile
+          client.tokenInfo(token.getIdToken())
+            .start(new BaseCallback<UserProfile>() {
+                @Override
+                public void onSuccess(UserProfile profile) {
+                    bus.post(new AuthenticationEvent(profile, token));
+                }
 
-              @Override
-              public void onFailure(Throwable throwable) {
-                  bus.post(new ErrorEvent(R.string.login_failed_title, R.string.login_failed_message, throwable));
-              }
-          });
+                @Override
+                public void onFailure(Throwable throwable) {
+                    bus.post(new ErrorEvent(R.string.login_failed_title, R.string.login_failed_message, throwable));
+                }
+            });
       }
   }
   ```
@@ -199,7 +204,7 @@ description: Customize the UI of Lock in your App
 1. In your Login *Activity* add the following fields
   ```java
       private WebIdentityProvider webProvider;
-      private IdentityProvider identityProvider;
+      private IdentityProvider identity;
       private GooglePlusIdentityProvider googleplus;
       private FacebookIdentityProvider facebook;
   ```
