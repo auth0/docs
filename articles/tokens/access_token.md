@@ -18,7 +18,7 @@ The third part of the JWT is the signature which is used by the recipient of a J
 The [Auth0.js documentation](/libraries/auth0js) shows a sample of how to get the `access_token`.
 
 ::: warning-banner
-The `access_token` used to be an opaque string that was used to call the Auth0 API, and in some circumstances it still is. For more details on when the `access_token` is a JWT, and when it is an opaque string, please see [Access Token vs ID Token]()
+The `access_token` used to be an opaque string that was used to call the Auth0 API, and in some circumstances it still is. For more details on when the `access_token` is a JWT, and when it is an opaque string, please see [Access Token vs ID Token](/tokens/access_token-vs-id_token)
 
 !! Must still do this doc !!
 :::
