@@ -225,4 +225,4 @@ After the user has logged in, we can use the `profile` object which has all the 
 
 You've implemented Login and Signup with Auth0 in iOS. You're awesome!.
 
-> You can also <a href="/native-mobile-samples/master/create-package?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project that shows how to store/update your user profile with Auth0
+> You can also <a href="/package/native-mobile-samples/master?path=iOS/profile-sample-swift&type=replace&filePath=iOS/profile-sample-swift/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project that shows how to store/update your user profile with Auth0
