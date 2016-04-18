@@ -10,7 +10,7 @@ Auth0 offers support for __all__ subscribers. All customers, even on free accoun
 
 ## Support Center
 
-Additionally, subscribers can create a private ticket via [Support Center](https://support.auth0.com). This can be accessed by clicking on the *Get Support* link on the [dashboard](${uiUrl}). 
+Additionally, subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the *Get Support* link on the [dashboard](${uiUrl}). 
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
@@ -68,7 +68,3 @@ Ticket response times will vary based on your support plan (shown below). Additi
 </table>
 
 If you have specific support requirements or are interested in the __Enterprise Support__ option, please contact us at <sales@auth0.com>.
-
-### Additional Information
-* [Opening and Managing Tickets in Support Center](/support/tickets)
-* [Choosing the Issue Type](/support/issue-types)

@@ -6,7 +6,17 @@ With [Support Center](https://support.auth0.com), you can create various tickets
 
 1. From [Support Center](https://support.auth0.com), click on the **OPEN TICKET** button.  
 ![](/media/articles/support/open-ticket.png)
-1.  Under "What can we help you with?" select the type of issue that you are having. [Click here to learn about choosing the issue type](/support/issue-types).
+1.  Under "What can we help you with?" select the type of issue that most fits your case.  
+![](/media/articles/support/issue-types.png) 
+  * **Auth0 Service Issue** - choose this if something isn’t working correctly or you need help using a feature or getting something working. With a service issue, you will then need to select a severity:
+	* Low - Product question - Question about how things work, whether we support something
+	* Normal - General support question - If you are in development and have a question about how to configure something or how to resolve an error
+	* High - Production application issue - your application which is in production is experiencing a minor outage impacting some users or one feature
+	* Urgent - Production application offline - critical outage impacting all users of an application in production
+  * **Billing, Payments, or Account Issues** - billing incorrect, going to wrong email or card, etc
+  * **Auth0 Service Feedback** - suggested product improvements/enhancement requests
+  * **Vulnerability Reports or Legal Issues** - report security vulnerabilities or legal questions
+  * **Other** - anything not covered above 
 1. Next, provide a clear summary of the question/issue in the **Subject** field.
 1. In the **Description** box, provide as much detail as possible about the issue. Note that styling your text with [Markdown](https://guides.github.com/features/mastering-markdown) is supported in this field and it can be previewed by clicking on **Preview**.  
 
@@ -26,5 +36,5 @@ With [Support Center](https://support.auth0.com), you can create various tickets
 1. You can view the existing tickets you have filed on the [Support Center](https://support.auth0.com) page and clicking on the **Home** link. Select the ticket that you want to update by clicking on its subject.  
 ![](/media/articles/support/select-ticket.png)
 
-1. Enter any additional details into the text box and then click the **REPLY** button. If you wish to change the status of your ticket to **Solved** then check the **Submit as solved** box next to the **REPLY** button.  
+1. Enter any additional details into the text box and then click the **REPLY** button. If the you are the ticket requester and the ticket is assigned to an agent but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.  
 ![](/media/articles/support/update-ticket.png)
