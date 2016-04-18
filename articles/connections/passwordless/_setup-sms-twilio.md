@@ -31,7 +31,7 @@ By making the appropriate `PATCH` call to the Auth0 Management API, you can set 
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
     "postData" : {"options":{"request_language":"en-US"}},
