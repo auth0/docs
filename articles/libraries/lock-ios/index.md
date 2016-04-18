@@ -1,5 +1,7 @@
 ---
 url: /libraries/lock-ios
+snippets:
+  dependencies: native-platforms/ios-objc/dependencies
 ---
 
 # Lock for iOS and OS X
@@ -32,9 +34,7 @@ iOS 7+. If you need to use our SDK in an earlier version please use our previous
 
 The Lock is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
-```ruby
-pod "Lock", "~> 1.12"
-```
+${snippet(meta.snippets.dependencies)}
 
 Then in your project's `Info.plist` file add the following entries:
 

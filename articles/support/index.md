@@ -11,8 +11,8 @@ Auth0 offers support for __all__ subscribers. All customers, even on free accoun
     <tr>
       <th></th>
       <th>Free Subscriptions</th>
-      <th>Paid Subscriptions</th>
-      <th>Enterprise Subscriptions</th>
+      <th>Gold/Silver/Home Grown Subscriptions</th>
+      <th>Platinum Subscriptions</th>
     </tr>
   </thead>
   <tbody>

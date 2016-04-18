@@ -30,8 +30,8 @@ snippets:
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 4.2.0
-* Ionic 2.0.0-beta.1
-* Angular 2.0.0-beta.6
+* Ionic 2.0.0-beta.4
+* Angular 2.0.0-beta.13
 :::
 
 <%= include('../_includes/_package', {

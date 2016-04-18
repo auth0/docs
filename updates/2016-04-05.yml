@@ -1,0 +1,7 @@
+changed:
+  -
+    title: "Emails in Auth0"
+    tags:
+      - email
+    description: |
+      Updated the page to reflect new rules on using Auth0's built in email provider. Moved content on customizing emails to a new page.

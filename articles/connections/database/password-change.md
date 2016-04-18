@@ -3,7 +3,7 @@
 This document explains the various ways passwords can be reset for users of your application.
 
 :::panel-warning Notice
-This information applies to using Lock version 9 and above. To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow) 
+This information applies to using Lock version 9 and above. To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow)
 :::
 
 A password reset email can be sent to a user using the API.  Users themselves can also reset their own password on the login screen.
@@ -17,9 +17,9 @@ When calling the API, specify the email address of the account you want to reset
 ```har
 {
   "method": "POST",
-  "url": "${account.namespace}/dbconnections/change_password",
+  "url": "https://YOURACCOUNT.auth0.com/dbconnections/change_password",
   "headers": [
-    { "name" "Content-Type", "value": "application/json" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData" : {
     "client_id" : "${account.clientId}",
@@ -41,6 +41,8 @@ Note that this email link is only valid once and only for the amount of time spe
 
 You can change the content of the password change request emails in the  [Emails > Templates](${uiURL}/#/emails) section of the dashboard.
 
+*Note:* Email templates can only be changed after changing the email provider from Auth0's built-in provider. [See here for more information.](/email/templates)
+
 Go to the **Change Password Configuration** page to edit the email fields.
 
 ![](/media/articles/connections/database/change-password-email.png)
@@ -58,4 +60,3 @@ Click on the name of the user you want to change the password for. Then click on
 ![](/media/articles/connections/database/manual-password-change.png)
 
 Next, enter the new password and click **Save**.
-

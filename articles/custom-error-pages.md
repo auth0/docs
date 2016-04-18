@@ -97,7 +97,7 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
     "postData" : {"friendly_name":"My Company","picture_url":"https://example.com/logo.png","support_email":"support@example.com","support_url":"https://example.com/support"},
@@ -122,7 +122,7 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
     "postData" : {"error_page":{"html":"","show_log_link":false,"url":"http://www.example.com"}},
@@ -145,10 +145,10 @@ HTTP Request:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
+      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
-    "postData" : {"error_page":{"html":"<h1>Hello {{name}}. This error was generated {{ 'now' | date: "%Y %h" }}.</h1>","show_log_link":false,"url":""}},
+    "postData" : {"error_page":{"html":"<h1>Hello {{name}}. This error was generated {{ 'now' | date: '%Y %h' }}.</h1>","show_log_link":false,"url":""}},
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
