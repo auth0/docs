@@ -38,13 +38,13 @@ Ticket response times will vary based on your support plan (shown below). Additi
       <th>Business Hours</th>
       <td>M-F 7am-7pm (UTC−8)</td>
       <td>M-F 7am-7pm (UTC−8)</td>
-      <td>24/7</td>
+      <td>Standard Issues: M-F 7am-7pm (UTC-8) / Critical Issues: 24/7</td>
     </tr>
     <tr>
       <th>First Response Time</th>
       <td>2-5 Business Days</td>
       <td>24 hours</td>
-      <td>1 hour</td>
+      <td>Standard Issues: 3 hours / Critial Issues: 1 hour</td>
     </tr>
     <tr>
       <th>Discussion Forum</th>
