@@ -1,6 +1,6 @@
 # Structure of the User Profile
 
-The following attributes are available on the [User Profile](/user-profile/index.md):
+The following attributes are available on the [User Profile](/user-profile):
 
 * `app_metadata`:
 
