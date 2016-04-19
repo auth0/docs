@@ -100,6 +100,19 @@ Modify the file /app/config/security.yml:
 
 ${snippet(meta.snippets.use)}
 
+### 6. Call Your API
+
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+```har
+{
+"method": "GET",
+"url": "http://localhost:8000/path_to_your_api",
+"headers": [
+{ "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+]
+}
+```
+
 ## Issue Reporting
 
 If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
