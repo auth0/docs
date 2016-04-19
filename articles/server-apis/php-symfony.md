@@ -19,6 +19,16 @@ snippets:
 
 # Symfony Auth0 JWT Bundle
 
+<%= include('../_includes/_package', {
+  pkgRepo: 'jwt-auth-bundle',
+  pkgBranch: 'master',
+  pkgPath: 'example',
+  pkgFilePath: 'example/app/config/config.yml',
+  pkgType: 'replace'
+}) %>
+
+**Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * PHP 5.3.9
