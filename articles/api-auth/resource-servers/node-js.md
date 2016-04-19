@@ -3,7 +3,7 @@
 
 After the [**Resource Server**](/api-auth/config/resource-servers) has been configured you can update your application by accepting the `access tokens` that have been issued by Auth0.
 
-These `access tokens` are JSON Web Tokens which have been signed using RS256 (assymetric signing). Your application will need the public key from your Auth0 account in order to validate these tokens. The following command shows how to download the public key from your account:
+These `access tokens` are JSON Web Tokens which have been signed using RS256 (asymmetric signing). Your application will need the public key from your Auth0 account in order to validate these tokens. The following command shows how to download the public key from your account:
 
 ```
 curl https://${account.namespace}/pem --output key.pem
