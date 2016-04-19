@@ -5,7 +5,8 @@ subtitle: Resources and documentation for Javascript developers
 logo: javascript
 url: /dev-centers/javascript
 tutorials:
-  - native-platforms/ios
+  - native-platforms/ios-objc
+  - native-platforms/ios-swift
 scenarios:
   - apps-apis
 resources:
