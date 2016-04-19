@@ -6,11 +6,11 @@ url: /support
 
 ## Public Forum
 
-Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to receive support from our engineers and search exisiting questions. 
+Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to receive support from our engineers and search existing questions.
 
 ## Support Center
 
-Additionally, subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${uiUrl}). 
+Additionally, subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${uiURL}).
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
