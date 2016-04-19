@@ -122,9 +122,16 @@ ${snippet(meta.snippets.use)}
 
 You can run the server by doing `php artisan serve --port=3001` to try all this out.
 
-Then, just make sure to send the `Authorization` header in your requests like this:
-
-${snippet(meta.snippets.request)}
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+```har
+{
+"method": "GET",
+"url": "http://localhost:8000/path_to_your_api",
+"headers": [
+{ "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+]
+}
+```
 
 ### 6. You're done!
 
