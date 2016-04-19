@@ -5,7 +5,8 @@ subtitle: Resources and documentation for Python developers
 logo: python
 url: /dev-centers/python
 tutorials:
-  - native-platforms/ios
+  - native-platforms/ios-objc
+  - native-platforms/ios-swift
 scenarios:
   - apps-apis
 resources:
