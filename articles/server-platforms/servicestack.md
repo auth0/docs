@@ -12,6 +12,14 @@ snippets:
 
 # ServiceStack Tutorial
 
+<%= include('../_includes/_package', {
+  pkgRepo: 'auth0-aspnet-owin',
+  pkgBranch: 'master',
+  pkgPath: 'examples/basic-mvc-sample',
+  pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgType: 'replace'
+}) %>
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015
