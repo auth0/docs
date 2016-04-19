@@ -56,7 +56,7 @@ You can now make requests against your secure API by providing the Authorization
 ```har
 {
   "method": "GET",
-  "url": "http://localhost:8000/path_to_your_api",
+  "url": "http://localhost:3001/path_to_your_api",
   "headers": [
     { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
   ]
