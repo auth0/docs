@@ -4,7 +4,7 @@ url: /user-profile
 
 # User Profile
 
-The Auth0 **User Profile** is the set of attributes that contains specific information about a user. Such information may include the user's name, email address, contact information, and so on. Please see [User Profile Structure](/user-profile/user-profile-structure)] for additional information on the attributes available on the User Profile.
+The Auth0 **User Profile** is the set of attributes that contains specific information about a user. Such information may include the user's name, email address, contact information, and so on. Please see [User Profile Structure](/user-profile/user-profile-structure) for additional information on the attributes available on the User Profile.
 
 User Profile attributes may originate from many places. In addition to attributes returned by the authenticating service (such as Facebook), there might be information returned via custom databases or web services. Regardless, these sources are referred to by Auth0 as **Connections**, since Auth0 connects to them to authenticate the user.
 
