@@ -24,7 +24,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 4.3
 * Express 4.11
 :::
 
@@ -58,6 +58,20 @@ Now, you need to specify one or more routes or paths that you want to protect, s
 
 ${snippet(meta.snippets.use)}
 
-### 4. You're done!
+### 4. Call Your API
+
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:8000/path_to_your_api",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+  ]
+}
+```
+
+### 5. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
