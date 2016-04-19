@@ -32,7 +32,7 @@ At the end of this tutorial you will have a working web site that calls a Servic
 
 We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
 
-### 1. Create a simple MVC3 website and install ServiceStack through NuGet
+### 1. Create a simple MVC4 website and install ServiceStack through NuGet
 
 For this example, we will use the standard template that ships with Visual Studio. Select __"FILE -> New project -> ASP.NET Web Application -> MVC"__ .
 
