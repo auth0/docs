@@ -23,7 +23,7 @@ snippets:
 This tutorial and seed project have been tested with the following:
 * React Native 0.16.0
 * CocoaPods 0.39.0
-* NodeJS 4.2.4
+* NodeJS 4.3
 :::
 
 <%= include('../_includes/_package', {
