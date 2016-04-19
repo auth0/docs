@@ -2,7 +2,7 @@
 
 The following attributes are available on the [User Profile](/user-profile):
 
-* `app_metadata`:
+* `app_metadata`: the custom fields storing information about a user. These attributes contain information that influences the user's access;
 
 * `blocked`: the `true/false` value indicating if the user has been blocked;
 
