@@ -4,7 +4,7 @@ url: /user-profile
 
 # User Profile
 
-The Auth0 **User Profile** is the set of attributes that contains specific information about a user. Such information may include the user's name, email address, contact information, and so on. Please see [User Profile Structure](/user-profile/user-profile-structure)] for additional information on the attributes available on the User Profile.
+The Auth0 **User Profile** is the set of attributes that contains specific information about a user. Such information may include the user's name, email address, contact information, and so on. Please see [User Profile Structure](/user-profile/user-profile-structure) for additional information on the attributes available on the User Profile.
 
 User Profile attributes may originate from many places. In addition to attributes returned by the authenticating service (such as Facebook), there might be information returned via custom databases or web services. Regardless, these sources are referred to by Auth0 as **Connections**, since Auth0 connects to them to authenticate the user.
 
@@ -15,6 +15,8 @@ For an in-depth discussion on the User profile, please see the [details](/user-p
 The Auth0 Management Dashboard provides an easy-to-use UI to help you manage user identities.
 
 Within the Dashboard, you may create, view, modify, or delete a given user. These options are available to you via the [Users tab](${uiURL}/#/users).
+
+![](/media/articles/user-profile/user-profile-dashboard.png)
 
 ### Creating a New User
 
