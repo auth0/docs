@@ -16,6 +16,8 @@ The Auth0 Management Dashboard provides an easy-to-use UI to help you manage use
 
 Within the Dashboard, you may create, view, modify, or delete a given user. These options are available to you via the [Users tab](${uiURL}/#/users).
 
+![](/media/articles/user-profile/user-profile-dashboard.png)
+
 ### Creating a New User
 
 To create a new user and their corresponding user profile, click on the "+ Create User" button at the top right of the Users page in the Management Dashboard. You will be asked to provide the following pieces of information:
