@@ -71,7 +71,21 @@ ${snippet(meta.snippets.setup)}
 ### 4. Securing your API
 All you need to do now is add the `[System.Web.Http.Authorize]` attribute to the controllers/actions for which you want to verify that users are authenticated.
 
-### 5. You've nailed it.
+### 5. Call Your API
+
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+
+```har
+{
+  "method": "GET",
+  "url": "http://localhost:8000/path_to_your_api",
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+  ]
+}
+```
+
+### 6. You've nailed it.
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
 

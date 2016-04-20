@@ -32,7 +32,7 @@ snippets:
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.2
+* NodeJS 4.3
 * Phonegap 5.5
 :::
 

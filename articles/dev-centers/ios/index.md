@@ -5,7 +5,8 @@ subtitle: Resources and documentation for iOS developers
 logo: ios
 url: /dev-centers/ios
 tutorials:
-  - native-platforms/ios
+  - native-platforms/ios-objc
+  - native-platforms/ios-swift
 scenarios:
   - apps-apis
 resources:

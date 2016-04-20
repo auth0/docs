@@ -1,42 +1,56 @@
 # Auth0 Normalized User Profile
 
-Not all the identity providers (called _Connections_ in Auth0) will supply the same amount of information about the user. They might even choose different properties to convey the same meaning (e.g. `last_name` vs `family_name`). Auth0 normalizes common and frequently used properties in the user profile. This greatly simplifies the development experience, as you just need to be concerned with one schema.
+Because individual identity providers (known as **Connections** in Auth0) provide differing amounts of information about a user, Auth0 normalizes common and frequently used properties in the User Profile. For example, `user_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
+
+## Normalized User Profile Schema
 
 These are the attributes that Auth0 will map to a common schema:
 
-* `user_id`: A unique identifier of the user per identity provider, same for all apps (e.g.: google-oauth2|103547991597142817347). **ALWAYS GENERATED**
-* `name`: The full name of the user (e.g.: John Foo). **ALWAYS GENERATED**
-* `email`: Email of the user.  (if available from provider. Some providers, like Twitter, won't give you one. Other providers will require a specific scope and user consent).
-* `email_verified`: Whether the email of the user has been verified.  When using Database Connections, an email is sent to the user on signup. The message contains a link, that when followed sets this property to `true`. When using Enterprise or Social Connections this flag comes from the identity provider. Email verification can be turned on/off on the Dashboard under the Emails section.
-* `nickname`: Username (if available, might not be unique across identity providers). **ALWAYS GENERATED**
-* `picture`: URL pointing to the user picture (if not available, Auth0 will use [gravatar.com](http://gravatar.com) with the email). **ALWAYS GENERATED**
-* `given_name`: First name of the user (if available).
-* `family_name`: Last name of the user (if available).
+*Fields that are **always generated**: *
 
-Another piece of information added to the user profile is an array of identities. In the common use case (logging in with a single provider), the array contains only one element.
+* **`name`**: the user's full name;
+* **`nickname`**:the user's username;
+* **`picture`**: the URL pointed to the user's picture. If unavailable, Auth0 will use the Gravatar image associated with the user's email address;
+* **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
-When accounts are linked though, the array will have an element for each account that has been associated. See [account linking](/link-accounts) for more information.
+*Fields that are generated if details are available:*
+* **`email`**: the user's email address;
+* **`email_verified`**: the `true/false` value indicating if the user's email address has been verified;
+* **`given_name`**: the user's first name;
+* **`family_name`**: the user's last name.
 
-* `access_token` (inside the `identities` array): if the identity provider implements OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information from the user (e.g: Facebook friends, Google contacts, LinkedIn contacts, etc.)
+### Additional Attributes
 
-* `access_token_secret`: **currently only for Twitter**. If the identity provider is OAuth 1.0a, an  `access_token_secret` property will be present and can be used to call the provider API and obtain more information from the user.
+The User Profile includes an array of identities. In the common use case (logging in with a single provider), the array contains only one element.
 
-> **NOTE:** Auth0 will pass-through to the app any other properties supplied by the identity provider, that are not mapped to the standard attributes named above.
+In the event that the user logs in with a single provide, the array contains one element. If the user has multiple accounts linked, the array will have an element for each associated account. See [account linking](/link-accounts) for more information.
+
+The `identities` array contains the following attributes:
+
+* `access_token`: if the identity provider implements OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information about the user;
+* `access_token_secret`: **currently only for Twitter**. If the identity provider is OAuth 1.0a, an  `access_token_secret` property will be present and can be used to call the provider API and obtain more information from the user;
+* `connection`: the name of the connection;
+* `expires_in`: the length of time before the token expires;
+* `isSocial`: indicates if the provider is a Social provider;
+* `provider`: the provider of the connection;
+* `user_id`: the unique identifier of the user for this connection.
+
+> **NOTE:** Auth0 will pass through to the app any other properties supplied by the identity provider, even those that are not mapped to the standard attributes named above.
 
 ## Keeping User Data on your Application
 
-When outsourcing user authentication there frequently no need to keep a Users/Passwords table, but you will still want to associate application data to the authenticated user. 
+When outsourcing user authentication, there generally is no need to keep a Users/Passwords table. Even so, you might still want to associate application data to authenticated users.
 
-For example, you could have a **Users table**, that would have a copy of each user authenticated by Auth0 (without passwords of course). Every time a users logs in, you would search that user. If it does not exist, you could create a new record on the fly. If it does exist, update all the fields, essentially keeping a local copy of the user data. This is useful, if your app uses this information for reporting, or analytics.
+For example, you could have a **Users table** that would have a copy of each user authenticated by Auth0. Every time a users logs in, you would search the table for that user. If the user does not exist, you would create a new record. If it does exist, you would update all fields, essentially keeping a local copy of the user data.
 
-Another option would be to have the user identifier on each table/collection that has user-associated data. For smaller applications, that's often simpler to implement.
+Alternatively, you might store the user identifier on each table/collection that has user-associated data. For smaller applications, that's often simpler to implement.
 
-## Uniquely identifying users coming from Auth0
+## Uniquely Identifying Users from Auth0
 
 There are two recommended options:
 
-1. Using the `user_id` property. This is guaranteed to be unique per user. (Often of the form: `{identity provider id}|{unique id in the provider}`, like: `facebook|1234567890`).
-2. Using a _natural_ key like the `email` property. In this case it's very important to turn on Email Verification and also check that `email_verified` is `true`, otherwise you would be open to some edge case where a user might signup using an identity provider that provides email but it doesn't verify it. Also, in some cases like Twitter, email is not provided.
+1. Using the `user_id` property. This is guaranteed to be unique per user. (e.g.: `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
+2. Using a *natural* key like the `email` property. We recommend, however, that you turn on email verification and only use this with providers that require the users to verify their emails.
 
 ## Sample User Profiles
 
