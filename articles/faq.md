@@ -1,10 +1,5 @@
 # FAQ
 
-This page contains pointers to frequently asked questions.
+We have moved the list of frequently asked questions to our [forum](https://ask.auth0.com/c/faqs).
 
-
-* [How to customize the "Oops" page](https://ask.auth0.com/t/is-it-possible-to-customize-the-oops-page-for-errors-after-login/2627 )
-
-* [How to debug custom code like rules, custom DB scripts, webtasks](https://ask.auth0.com/t/how-to-debug-custom-code-like-rules-custom-db-scripts-webtasks/2626)
-
-* [User profile attributes available in custom email templates](https://ask.auth0.com/t/what-user-profile-attributes-are-available-in-custom-email-templates/2628)
+If you cannot find in there what you are looking for, please try the [search page](https://ask.auth0.com/search) to search for similar questions that might have been already answered.
