@@ -6,4 +6,11 @@ For database connections, Auth0 limits the number of repeat login attempts per u
 
  - The user account can be unblocked for a given IP address by the database owner following the unblock-user link or by the user properly completing a password reset procedure.
 
- - A user cannot login more than 10 times-per-minute as the same user from the same location.
+ - A user cannot login more than 10 times-per-minute as the same user from the same location. 
+
+ For users with a free account, there is a limit of two logins per second per IP address.
+
+ [Click here to learn more about API Rate Limits](/rate-limits)
+
+
+
