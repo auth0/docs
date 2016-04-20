@@ -30,15 +30,29 @@ Notice that even if you are not using Lock the vulnerable reset flow can be used
 
 We strongly encourage any app using the current flow to move immediately to the new reset flow and enable this migration.
 
-### Email Delivery Changes
+### Email Delivery Changes: "From" Address
 
-| Severity | Grace Period Start | Mandatory Opt-In|
-| --- | --- | --- |
-| Medium | 2016-04-04 | 2016-05-11 |
+| Severity | Platforms | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- | --- |
+| Medium | Auth0 Cloud Only | 2016-04-20 | 2016-04-27 |
 
-Auth0's built-in email provider will no longer be supported for use in a production environment. The emails sent using the Auth0 provider will no longer be customizable, they will be restricted to the template, and you will not be able to change the *from address*.
+Auth0's built-in email provider starting sending all emails from a predefined "from" address (`no-reply@auth0user.net`). Custom Email Providers will now be free for every customer, and to be able to customize the "from" address you can switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/), [SendGrid](https://sendgrid.com/pricing)) or another [SMTP-based provider](/email/custom).
 
-The built-in email service can still be used for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) before moving your apps to production.
+If you already use a custom email provider, nothing will change.
+
+[Click here to learn more about Auth0 Emails](/email)
+
+### Email Delivery Changes: Template Customizations
+
+| Severity | Platforms | Grace Period Start | Mandatory Opt-In|
+| --- | --- | --- | --- |
+| Medium | Auth0 Cloud Only | 2016-04-04 | 2016-05-11 |
+
+Auth0's built-in email provider will no longer be supported for use in a production environment. The emails sent using the Auth0 provider will no longer be customizable, they will be restricted to the template, and you will not be able to change the *from address* or subject line.
+
+The built-in email service can still be used for test purposes but you must switch to an Auth0-supported [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/), [SendGrid](https://sendgrid.com/pricing)) or another [SMTP-based provider](/email/custom) before moving your apps to production.
+
+If you already use a custom email provider, nothing will change.
 
 [Click here to learn more about Auth0 Emails](/email)
 
