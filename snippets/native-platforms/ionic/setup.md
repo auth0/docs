@@ -20,7 +20,7 @@ angular.module('starter', ['ionic',
   // Your app states
   .state('userInfo', {
     url: '/userInfo',
-    templateUrl: 'templates/user-info.tpl.html',
+    templateUrl: 'templates/user-info.html',
     controller: 'UserInfoCtrl',
     data: {
       // This tells Auth0 that this state requires the user to be logged in.

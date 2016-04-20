@@ -5,7 +5,8 @@ subtitle: Resources and documentation for Ruby developers
 logo: ruby
 url: /dev-centers/ruby
 tutorials:
-  - native-platforms/ios
+  - native-platforms/ios-objc
+  - native-platforms/ios-swift
 scenarios:
   - apps-apis
 resources:

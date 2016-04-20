@@ -14,7 +14,7 @@
 
     function signin() {
       lock.show({
-        callbackURL: 'http://yourserver.com/callback.asp'
+        callbackURL: '${account.callback}'
       });
     }
   </script>

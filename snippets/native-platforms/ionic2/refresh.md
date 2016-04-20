@@ -19,7 +19,7 @@ public login() {
     this.local.set('profile', JSON.stringify(profile));
     this.local.set('id_token', token);
     this.local.set('refresh_token', refreshToken);
-    this.user = profile;
+    this.zoneImpl.run(() => this.user = profile);
     // Schedule a token refresh
     this.scheduleRefresh();
   });    
@@ -29,7 +29,7 @@ public logout() {
   this.local.remove('profile');
   this.local.remove('id_token');
   this.local.remove('refresh_token');
-  this.user = null;
+  this.zoneImpl.run(() => this.user = null);
   // Unschedule the token refresh
   this.unscheduleRefresh();
 }
@@ -95,12 +95,15 @@ public startupTokenRefresh() {
   public getNewJwt() {
     // Get a new JWT from Auth0 using the refresh token saved
     // in local storage
-    let refreshToken = this.local.get('refresh_token')._result;
-    this.lock.getClient().refreshToken(refreshToken, (err, delegationRequest) => {
-      if (err) {
-        alert(err);
-      }
-      this.local.set('id_token', delegationRequest.id_token);
+    this.local.get('refresh_token').then(token => {
+      this.lock.getClient().refreshToken(token, (err, delegationRequest) => {
+        if (err) {
+          alert(err);
+        }
+        this.local.set('id_token', delegationRequest.id_token);
+      });
+    }).catch(error => {
+      console.log(error);
     });
   }
 }

@@ -129,11 +129,23 @@ config.token_secret_signature_key = -> {
   }
 ```
 
-### 4. You're done!
+### 4. Call Your API
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+```har
+{
+"method": "GET",
+"url": "http://localhost:8000/path_to_your_api",
+"headers": [
+{ "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+]
+}
+```
+
+### 5. You're done!
 
 Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
 
 ### Optional Steps
 #### Configure CORS
 
-In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [this](https://github.com/cyu/rack-cors#rails) instructions. 
+In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [this](https://github.com/cyu/rack-cors#rails) instructions.

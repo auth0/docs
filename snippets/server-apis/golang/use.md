@@ -15,5 +15,5 @@ http.ListenAndServe(":3001", nil)
 
 // net/http sample
 app := jwtMiddleware.Handler(SecuredPingHandler)
-http.ListenAndServe("0.0.0.0:3000", app)
+http.ListenAndServe("0.0.0.0:3001", app)
 ```

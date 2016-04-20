@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
 ```
 
 ```html
-<!-- login.tpl.html -->
+<!-- login.html -->
 <!-- ... -->
 <input type="submit" ng-click="login()" />
 <!-- ... -->

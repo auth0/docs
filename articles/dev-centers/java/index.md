@@ -5,7 +5,8 @@ subtitle: Resources and documentation for Java developers
 logo: java
 url: /dev-centers/java
 tutorials:
-  - native-platforms/ios
+  - native-platforms/ios-objc
+  - native-platforms/ios-swift
 scenarios:
   - apps-apis
 resources:

@@ -42,7 +42,7 @@ Add the following dependencies to the `bower.json` and run `bower install`:
 },
 ```
 
-### 4. Add the references to the scripts in the `index.html`
+### 4. Add the references to the scripts in the `login.html`
 
 ```html
 <!-- Auth0 Lock -->
@@ -170,7 +170,7 @@ function LoginCtrl(store, $scope, $location, auth) {
 ```
 
 ```html
-<!-- login.tpl.html -->
+<!-- login.html -->
 <!-- ... -->
 <input type="submit" ng-click="login()" />
 <!-- ... -->

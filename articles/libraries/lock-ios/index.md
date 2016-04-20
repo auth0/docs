@@ -1,5 +1,7 @@
 ---
 url: /libraries/lock-ios
+snippets:
+  dependencies: native-platforms/ios-objc/dependencies
 ---
 
 # Lock for iOS and OS X

@@ -22,7 +22,7 @@ Please note that the following features, which are available on Lock 9 (the curr
 ## What's new?
 
 * Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly.
-* The Lock Public API has been updated so there are not significant differences between Redirect and Popup Mode. This makes Redirect Mode, which is the recomended mode, much easier to use. Also, related options are grouped together.
+* The Lock Public API has been updated so there are not significant differences between Redirect and Popup Mode. This makes Redirect Mode, which is the recommended mode, much easier to use. Also, related options are grouped together.
 * The Beta 1 release of Lock does not support foreign languages, but you can still translate the widget via `languageDictionary`.
 * You can create simple Lock themes using JavaScript to via `primaryColor` and `logo` properties of the `theme` option. You may also make customizations with CSS.
 * The improved Lock UX comes with smoother transitions and animations and is keyboard friendly.
@@ -34,4 +34,3 @@ Please see [New Features in Lock 10](/libraries/lock/v10/new-features) for addit
 ## Migrating to Lock 10
 
 Please see [Migrating to Lock 10](/libraries/lock/v10/installation) for installation instructions.
- 

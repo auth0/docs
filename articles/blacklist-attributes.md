@@ -41,18 +41,18 @@ HTTP Request:
 
 ```har
 {
-    "method": "PATCH",
-    "url":"https://${account.namespace}/api/v2/tenants/settings",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-        { "name" "Authorization", "value": "Bearer YOUR_TOKEN" }
-    ],
-    "queryString" : [],
-    "postData" : { "options": { "non_persistent_attrs": ["", ""] }, "enabled_clients": [""] },
-    "headersSize" : -1,
-    "bodySize" : -1,
-    "comment" : ""
+  "method": "PATCH",
+  "url": "https://${account.namespace}/api/v2/tenants/settings",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [
+    { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
+  ],
+  "queryString" : [],
+  "postData" : { "options": { "non_persistent_attrs": ["", ""] }, "enabled_clients": [""] },
+  "headersSize" : -1,
+  "bodySize" : -1,
+  "comment" : ""
 }
 ```
 

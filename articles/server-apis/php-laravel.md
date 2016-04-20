@@ -20,11 +20,12 @@ snippets:
 
 ## PHP Laravel API Tutorial
 
-::: panel-info System Requirements This tutorial and seed project have been tested with the following:
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
 * Composer 1.0-dev
 * PHP 5.6.18
 * Laravel 5.1.31
- :::
+:::
 
 <%= include('../_includes/_package', {
   pkgRepo: 'laravel-auth0',
@@ -122,9 +123,16 @@ ${snippet(meta.snippets.use)}
 
 You can run the server by doing `php artisan serve --port=3001` to try all this out.
 
-Then, just make sure to send the `Authorization` header in your requests like this:
-
-${snippet(meta.snippets.request)}
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+```har
+{
+"method": "GET",
+"url": "http://localhost:8000/path_to_your_api",
+"headers": [
+{ "name": "Authorization", "value": "Bearer YOUR_ID_TOKEN_HERE" }
+]
+}
+```
 
 ### 6. You're done!
 

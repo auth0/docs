@@ -12,6 +12,14 @@ snippets:
 
 # ServiceStack Tutorial
 
+<%= include('../_includes/_package', {
+  pkgRepo: 'auth0-aspnet-owin',
+  pkgBranch: 'master',
+  pkgPath: 'examples/basic-mvc-sample',
+  pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgType: 'replace'
+}) %>
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015
@@ -24,9 +32,9 @@ At the end of this tutorial you will have a working web site that calls a Servic
 
 We assume you are familiar with [ServiceStack](http://www.servicestack.net/)
 
-### 1. Create a simple MVC3 website and install ServiceStack through NuGet
+### 1. Create a simple MVC4 website and install ServiceStack through NuGet
 
-For this example, we will use the standard template that ships with Visual Studio 2012. Select __"FILE -> New project -> ASP.NET Web Application -> Empty"__ and choose MVC template.
+For this example, we will use the standard template that ships with Visual Studio. Select __"FILE -> New project -> ASP.NET Web Application -> MVC"__ .
 
 Once the default template unfolds, use NuGet to install the **ServiceStack.Host.Mvc** nuget, running the command:
 
@@ -34,7 +42,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ![](/media/articles/server-platforms/servicestack/install-servicestack-nuget.png)
 
-Add the following line to your `App_Start/Route_Config.cs` file (this is required for ServiceStack):
+Add the following line to your `App_Start/Route_Config.cs` file to the beginning of the `RegisterRoutes` function (this is required for ServiceStack):
 
 ```
 routes.IgnoreRoute("api/{*pathInfo}");
@@ -116,29 +124,26 @@ public class Hello
 ```cs
 public class HelloResponse
 {
-    public IAuthSession UserInfo { get; set; }
-	public string Result { get; set; }
-	public ResponseStatus ResponseStatus { get; set; } //Where Exceptions get auto-serialized
+  public IAuthSession UserInfo { get; set; }
+  public string Result { get; set; }
+  public ResponseStatus ResponseStatus { get; set; } //Where Exceptions get auto-serialized
 }
 ```
 
 #### 6.3. Modify the `HelloService` to return the currently logged in user's `UserInfo` object
 
 ```cs
-public class HelloService : ServiceBase<Hello>
+public class HelloService : Service
 {
-	public object Run(Hello request)
-	{
-        IAuthSession session = this.GetSession();
-        var sb = new StringBuilder();
-        sb.AppendLine("Id: " + session.Id);
-        sb.AppendLine("DisplayName: " + session.DisplayName);
+  public object Any(Hello request)
+  {
+    IAuthSession session = this.GetSession();
+    var sb = new StringBuilder();
+    sb.AppendLine("Id: " + session.Id);
+    sb.AppendLine("DisplayName: " + session.DisplayName);
 
-        var auth0Session = session as Auth0UserSession;
-        var pic = auth0Session.ExtraData["picture"];
-
-        return new HelloResponse { UserInfo = session };
-	}
+    return new HelloResponse { Result = "Hello, " + request.Name, UserInfo = session };
+  }
 }
 ```
 > Notice we are not doing anything useful with these properties. You can place a breakpoint here and explore the session object.

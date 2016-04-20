@@ -8,7 +8,7 @@ angular.module('YOUR-APP-NAME').controller( 'LoginCtrl', function ( $scope, auth
 ```
 
 ```html
-<!-- login.tpl.html -->
+<!-- login.html -->
 <!-- ... -->
 <input type="submit" ng-controller="LoginCtrl" ng-click="auth.signin()" />
 <!-- ... -->

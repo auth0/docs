@@ -1,3 +1,0 @@
-```php
-Authorization: Bearer #JWT#
-```

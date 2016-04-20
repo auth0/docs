@@ -29,7 +29,7 @@ Among many possibilities, Rules can be used to:
 
 A Rule is a function with the following arguments:
 
-* `user`: The user object as it comes from the identity provider.
+* `user`: The user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Strucutre](/user-profile/user-profile-structure).)
 * `context`: An object containing contextual information of the current authentication transaction. (For a complete list of context properties, see: [Context Argument Properties in Rules](/rules/context).)
 * `callback`: Sends the modified `user` and `context` back to Auth0.
 
