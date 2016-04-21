@@ -9,6 +9,8 @@ When adding Auth0 to your app, you have the option of:
 
 ## Lock
 
+![](/media/articles/lock-vs-customui/lock.png)
+
 **Lock** is an embeddable login form that makes it easy for your users to authenticate themselves using the appropriate Connection. Lock will automatically handle most of the details involved with creating and authenticating users using the Auth0 API for you. You will also have a user interface that:
 
 * Is robust and provides an excellent user experience on any device with any resolution;
@@ -31,6 +33,8 @@ You should consider using Lock for your app(s) if:
 * You want a login box that can be consistently reused in multiple areas.
 
 ## Custom User Interfaces
+
+![](/media/articles/lock-vs-customui/customui.png)
 
 The **auth0.js** library and the **Authentication API** allow you to implement a customized process to trigger the signup/authentication process and handle the response. You are free to customize the behavior and flow of your process, so if your business needs aren't met by the standardized **Lock** behavior or if you have a complex custom process, this option would be a better fit.
 
