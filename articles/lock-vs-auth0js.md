@@ -1,17 +1,23 @@
-# Lock vs. Auth0.js
+# Lock vs. Custom UI
 
-When adding Auth0 to your app, you have the option of using either the [Lock](/libraries/lock) or [auth0.js](libraries/auth0js) libraries.
+When adding Auth0 to your app, you have the option of:
 
-**Lock** is a drop-in authentication widget that provides a standard set of behavior and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but provides for near limitless customization in terms of behavior and appearance. Whichever option you choose depends on the needs of your app.
+* Using [Lock](/libraries/lock);
+* Using a custom user interface that you have created in conjunction with the [auth0.js](libraries/auth0js) library or the [Authentication API](https://auth0.com/docs/auth-api).
 
-> If you would prefer to not use either library, you still have the option of using the [Authentication API](https://auth0.com/docs/auth-api).
+**Lock** is a drop-in authentication widget that provides a standard set of behavior and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but provides for near limitless customization in terms of behavior and appearance. The **Authentication API** provides integration without requiring the use of any Auth0 libraries. Whichever option you choose depends on the needs of your app.
 
 ## Lock
 
-**Lock** is an embeddable login form that makes it easy for your users to authenticate themselves using the appropriate Connection. By using Lock, you will:
+**Lock** is an embeddable login form that makes it easy for your users to authenticate themselves using the appropriate Connection. Lock will automatically handle most of the details involved with creating and authenticating users using the Auth0 API for you. You will also have a user interface that:
 
-* Have a professional-looking sign up/log in dialog box that displays well on any device;
-* Eliminate the need of setting up behaviors such as remember the identity provider the user chose initially, resolving the home real discovery challenge with Enterprise users, or manually implementing a standard sign in protocol.
+* Is robust and provides an excellent user experience on any device with any resolution;
+* Has a simple design that fits in with most modern websites with just a few tweaks to its custom color;
+* Adapts to whatever your configuration is. It displays the correct forms controls for each available Connection and only those that are allowable (such as sign up or password reset);
+* Chooses the correct Connection automatically. In cases of ambiguity, you may set the desired default behavior;
+* Remembers the last used Connection for any given user;
+* Accommodates internationalization;
+* Provides instant password policy checking during sign up.
 
 While you cannot change Lock's behavior, you may [configure basic options](https://auth0.com/docs/libraries/lock/customization) regarding Lock and its usage on your app. You may [customize its appearance](https://auth0.com/docs/libraries/lock/ui-customization).
 
@@ -24,13 +30,13 @@ You should consider using Lock for your app(s) if:
 * Your business process includes many of the user cases that Lock provides out of the box: Enterprise logins, database with password policies, signup and password reset, authentication using social providers, and using avatars;
 * You want a login box that can be consistently reused in multiple areas.
 
-## Auth0.js
+## Custom User Interfaces
 
-**Auth0.js** allows you to trigger the authentication process and handle the response. Unlike Lock, auth0.js does **not** include a user interface. You are, however, free to customize the behavior and flow of your process, so if your business needs aren't met by the standardized **Lock** behavior or if you have a complex custom process, this option would be a better fit.
+The **auth0.js** library and the **Authentication API** allow you to implement a customized process to trigger the signup/authentication process and handle the response. You are free to customize the behavior and flow of your process, so if your business needs aren't met by the standardized **Lock** behavior or if you have a complex custom process, this option would be a better fit.
 
-In addition, you have complete control over the implementation of the user experience for authentication/signup flow, UI-related aspects such as layout, look and feel, branding, internationalization, RTL support, and so on.
+Unlike **Lock**, neither of these includes a user interface. As such, you have complete control over the implementation of the user experience for authentication/signup flow, UI-related aspects such as layout, look and feel, branding, internationalization, RTL support, and so on.
 
-You should consider using auth0.js for your app(s) if:
+You should consider using a custom user interface in conjunction with the auth0.js library or the Authentication API for your app(s) if:
 
 * You have strict requirements for how the user interface should appear;
 * You are comfortable with HTML, CSS, and JavaScript;
