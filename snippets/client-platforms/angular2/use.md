@@ -1,6 +1,8 @@
 ```js
 // app.ts
 
+declare var Auth0Lock;
+
 @Component({
   selector: 'app',
   template: `
