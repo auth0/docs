@@ -8,8 +8,8 @@ When adding Auth0 to your app, you have the option of using [Lock](/libraries/lo
 
 **Lock** is an embeddable login form that makes it easy for your users to authenticate themselves using the appropriate Connection. By using Lock, you will:
 
-* Have a professional-lloking sign up/log in dialog box that displays well on any device;
-* Eliminate the need of setting up behaviors such as remember the identity provider the user chose initially, resolving the home real discovery challenge with Enterprise users, or manually implementing a standard sign in protocol. 
+* Have a professional-looking sign up/log in dialog box that displays well on any device;
+* Eliminate the need of setting up behaviors such as remember the identity provider the user chose initially, resolving the home real discovery challenge with Enterprise users, or manually implementing a standard sign in protocol.
 
 While you cannot change Lock's behavior, you may [configure basic options](https://auth0.com/docs/libraries/lock/customization) regarding Lock and its usage on your app. You may [customize its appearance](https://auth0.com/docs/libraries/lock/ui-customization).
 
