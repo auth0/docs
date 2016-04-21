@@ -4,6 +4,8 @@ When adding Auth0 to your app, you have the option of using [Lock](/libraries/lo
 
 **Lock** is a drop-in authentication widget that provides a standard set of behavior and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but provides for near limitless customization in terms of behavior. Whichever option you choose depends on the needs of your app.
 
+> If you would prefer to not use either library, you still have the option of using the [Authentication API](https://auth0.com/docs/auth-api).
+
 ## Lock
 
 **Lock** is an embeddable login form that makes it easy for your users to authenticate themselves using the appropriate Connection. By using Lock, you will:
