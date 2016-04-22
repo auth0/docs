@@ -1,4 +1,4 @@
-# Lock vs. Custom UI
+# Using Lock vs. Custom UI
 
 When adding Auth0 to your app, you have the option of:
 
