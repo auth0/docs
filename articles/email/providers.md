@@ -11,7 +11,9 @@ Auth0 currently supports the following providers:
 
 ## Configure Amazon SES for Sending Email
 
-There are several steps to follow to configure Amazon SES for sending email.
+There are several steps to follow to configure Amazon SES for sending email. If you want to use the SES API, please follow this guide.
+
+If for some reason you want to use the SES SMTP endpoint, please check the [Custom SMTP guide](#configure-a-custom-smtp-server-for-sending-email).
 
 ### Amazon Web Services
 
@@ -24,6 +26,10 @@ There are several steps to follow to configure Amazon SES for sending email.
 4. [Get Your AWS Access Keys](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/get-aws-keys.html). Copy these keys. You will need to enter these values into Auth0 (see below).
 
   ![](/media/articles/email/providers/aws-keys.png)
+
+5. [Attach a policy with the right permissions](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html). Attach a policy with the `ses:SendRawEmail` and `ses:SendEmail` permissions, like the picture below.
+
+  ![](/media/articles/email/providers/aws-policy.png)
 
 **NOTE:** For more information see: [Setting up Email Sending with Amazon SES](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/setting-up-ses.html).
 
