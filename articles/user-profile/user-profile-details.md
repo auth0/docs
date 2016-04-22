@@ -23,9 +23,9 @@ Other types of authentication services include custom databases, web services, a
 
 ## Normalized User Profile
 
-Auth0 supports a wide variety of Connections. Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the Normalized User Profile.
+Auth0 supports a wide variety of Connections. Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the Normalized User Profile.
 
-## Caching the User Profile in Auth0
+## Caching of the User Profile in Auth0
 
 Auth0 caches the User Profile received from a Connection prior to passing it on to the calling client application. This cache is stored in the Auth0 database. The information in the cache that originates from a Connection is refreshed each time the user authenticates.
 
