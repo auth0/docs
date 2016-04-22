@@ -7,4 +7,4 @@ added:
       - auth0js
       - custom-uis
     description: |
-      A new section of documentation was added for comparing the use of [Lock vs. Custom UIs](/lock-vs-customui).
+      A new section of documentation was added for comparing the use of [Lock vs. Custom UIs](/libraries/when-to-use-lock).
