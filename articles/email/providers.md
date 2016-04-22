@@ -11,7 +11,9 @@ Auth0 currently supports the following providers:
 
 ## Configure Amazon SES for Sending Email
 
-There are several steps to follow to configure Amazon SES for sending email.
+There are several steps to follow to configure Amazon SES for sending email. If you want to use the SES API, please follow this guide.
+
+If for some reason you want to use the SES SMTP endpoint, please check the [Custom SMTP guide](#configure-a-custom-smtp-server-for-sending-email).
 
 ### Amazon Web Services
 
@@ -25,34 +27,17 @@ There are several steps to follow to configure Amazon SES for sending email.
 
   ![](/media/articles/email/providers/aws-keys.png)
 
-**NOTE:** For more information see: [Setting up Email Sending with Amazon SES](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/setting-up-ses.html).
+5. [Attach a policy with the right permissions](http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html). Attach a policy with the `ses:SendRawEmail` and `ses:SendEmail` permissions, like the picture below.
 
-### Auth0 API
+  ![](/media/articles/email/providers/aws-policy.png)
 
-Once you have completed the steps above on Amazon, follow these steps on Auth0: 
+6. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Amazon Web Services** logo.
 
-1. Generate an API token with the correct scope (ie: to create or update your email provider) on the [API v2](/api/v2) page on Auth0:
-
-  ![](/media/articles/email/providers/token-generator.png)
-
-2. To configure Amazon SES as your email provider in Auth0, post your previously obtained Amazon SES credentials to the [Configure the email provider](/api/v2#!/Emails/post_provider) endpoint with this curl command:
-
-```js
-curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{ "name": "ses", "credentials": { "accessKeyId": "YOUR_AWS_ACCESS_KEY_ID", "secretAccessKey": "YOUR_AWS_SECRET_ACCESS_KEY", "region": "YOUR_AWS_DEFAULT_REGION" } }' https://${account.tenant}.auth0.com/api/v2/emails/provider
-```
-
-### Auth0 Dashboard
-
-Finally, you must enter your AWS keys into the Auth0 dashboard:
-
-1. Open the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard.
-2. Click **Use my own Email Provider**.
-3. Click the **Amazon Web Services** logo.
-4. Enter your AWS `Access Key Id`, `Secret Access Key` and `Region` in the appropriate fields:
+7. Enter your AWS `Access Key Id`, `Secret Access Key` and `Region` in the appropriate fields:
 
   ![](/media/articles/email/providers/enter-keys.png)
 
-5. Click **Save**.
+8. Click **Save**.
 
   **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. 
 
@@ -68,15 +53,9 @@ The [Amazon SES console](https://console.aws.amazon.com/ses) will now display al
 
   ![](/media/articles/email/providers/token-generator.png)
 
-3. To configure Mandrill as your email provider in Auth0, post your previously obtained Mandrill credentials to the [Configure the email provider](/api/v2#!/Emails/post_provider) endpoint with this curl command:
+3. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Mandrill** logo.
 
-  ```js
-curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"mandrill","credentials":{"api_key":"YOUR_MANDRILL_API_KEY"}}' https://${account.tenant}.auth0.com/api/v2/emails/provider
-  ```
-
-4. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Mandrill** logo.
-
-5. Enter your previously obtained Mandrill `API Key`:
+4. Enter your previously obtained Mandrill `API Key`:
 
   ![](/media/articles/email/providers/mandrill-key.png)
 
@@ -95,15 +74,9 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 
   ![](/media/articles/email/providers/token-generator.png)
 
-3. To configure SendGrid as your email provider in Auth0, post your previously obtained SendGrid credentials to the [Configure the email provider](/api/v2#!/Emails/post_provider) endpoint with this curl command:
+3. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SendGrid** logo.
 
-  ```js
-curl -H "Authorization: Bearer YOUR_AUTH0_V2_API_TOKEN" -X POST  -H "Content-Type: application/json" -d '{"name":"sendgrid","credentials":{"api_key":"YOUR_SENDGRID_API_KEY"}}' https://${account.tenant}.auth0.com/api/v2/emails/provider
-  ```
-
-4. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SendGrid** logo.
-
-5. Enter your previously obtained SendGrid `API Key`:
+4. Enter your previously obtained SendGrid `API Key`:
 
   ![](/media/articles/email/providers/sendgrid-key.png)
 
