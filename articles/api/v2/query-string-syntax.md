@@ -40,6 +40,7 @@ Wildcard searches can be run on individual terms, using `?` to replace a single 
 Be aware that wildcard queries can use an enormous amount of memory and perform very badly — just think how many terms need to be queried to match the query string `"a* b* c*"`.
 
 ::: panel-warning Warning
+
 Allowing a wildcard at the beginning of a word (eg "\*ing") is particularly heavy, because all terms in the index need to be examined, just in case they match. Leading wildcards can be disabled by setting allow_leading_wildcard to false.
 :::
 
