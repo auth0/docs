@@ -37,10 +37,10 @@ Wildcard searches can be run on individual terms, using `?` to replace a single 
 
 `2016-0?-*`
 
-Be aware that wildcard queries can use an enormous amount of memory and perform very badly — just think how many terms need to be queried to match the query string "a* b* c*".
+Be aware that wildcard queries can use an enormous amount of memory and perform very badly — just think how many terms need to be queried to match the query string `"a* b* c*"`.
 
 ::: panel-warning Warning
-Allowing a wildcard at the beginning of a word (eg "*ing") is particularly heavy, because all terms in the index need to be examined, just in case they match. Leading wildcards can be disabled by setting allow_leading_wildcard to false.
+Allowing a wildcard at the beginning of a word (eg "\*ing") is particularly heavy, because all terms in the index need to be examined, just in case they match. Leading wildcards can be disabled by setting allow_leading_wildcard to false.
 :::
 
 Wildcarded terms are not analyzed by default — they are lowercased (`lowercase_expanded_terms` defaults to `true`) but no further analysis is done, mainly because it is impossible to accurately analyze a word that is missing some of its letters. However, by setting `analyze_wildcard` to true, an attempt will be made to analyze wildcarded words before searching the term list for matching terms.
