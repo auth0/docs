@@ -131,7 +131,7 @@ lock.show({
 
 ![][icon-image]
 
-> Note: To disable the header badge entirely, [UI customizations][ui-customization] are required..
+> Note: To disable the header badge entirely, you can set the icon to an inline 1x1 pixel transparent gif using the following string `data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7`. Alternatively you can use [UI customizations][ui-customization].
 
 ### closable {Boolean}
 
