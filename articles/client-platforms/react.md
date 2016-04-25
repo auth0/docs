@@ -65,6 +65,7 @@ In this example, the `token` is stored in `localStorage` to keep the user authen
 var App = React.createClass({
   // ...
   componentWillMount: function() {
+    //Extending function defined in step 2.
     // ...
     this.setState({idToken: this.getIdToken()})
   },
