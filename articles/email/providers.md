@@ -13,9 +13,14 @@ Auth0 currently supports the following providers:
 
 There are several steps to follow to configure Amazon SES for sending email. If you want to use the SES API, please follow this guide.
 
-If for some reason you want to use the SES SMTP endpoint, please check the [Custom SMTP guide](#configure-a-custom-smtp-server-for-sending-email).
+You can use two types of credentials
 
-### Amazon Web Services
+1. API Credentials
+2. SMTP Credentials (the secret is usually 44 characters long)
+
+For more information about SES credentials, visit [Using Credentials With Amazon SES](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-credentials.html).
+
+### Using API Credentials
 
 1. Sign up for an [Amazon AWS](http://aws.amazon.com/ses/) account, or login.
 2. [Verify your domain](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
@@ -39,7 +44,32 @@ If for some reason you want to use the SES SMTP endpoint, please check the [Cust
 
 8. Click **Save**.
 
-  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. 
+  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
+
+The [Amazon SES console](https://console.aws.amazon.com/ses) will now display all emails which have been sent to your users.
+
+### Using SMTP Credentials
+
+1. Sign up for an [Amazon AWS](http://aws.amazon.com/ses/) account, or login.
+2. [Verify your domain](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+
+  ![](/media/articles/email/providers/ses-verify.png)
+
+3. [Request production access](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html?icmpid=docs_ses_console).
+
+4. [Get Your SMTP Credentials](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/smtp-credentials.html). Copy the security credentials. You will need to enter these values into Auth0.
+
+  ![](/media/articles/email/providers/ses-smtp.png)
+
+5. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SMTP** logo.
+
+6. Enter your SMTP server `Host`, `Port`, `Username` and `Password` in the appropriate fields. You can use `email-smtp.us-east-1.amazonaws.com` (using the appropriate region instead of `us-east-1`) for `Host` and `587` for `Port`.
+
+  ![](/media/articles/email/providers/enter-smtp-data.png)
+
+7. Click **Save**.
+
+  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
 
 The [Amazon SES console](https://console.aws.amazon.com/ses) will now display all emails which have been sent to your users.
 
@@ -60,7 +90,7 @@ The [Amazon SES console](https://console.aws.amazon.com/ses) will now display al
   ![](/media/articles/email/providers/mandrill-key.png)
 
 
-  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. 
+  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
 
 The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will now display all emails which have been sent to your users, including the subject and the delivery status of each message.
 
@@ -81,7 +111,7 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
   ![](/media/articles/email/providers/sendgrid-key.png)
 
 
-  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. 
+  **NOTE:** You can send a test email using the **Try** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
 
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now display all emails which have been sent to your users and the delivery status of each message.
 
@@ -105,7 +135,7 @@ To be able to use your own SMTP server:
 
 5. Click **Save**.
 
-  **NOTE:** You can send a test email using the **Send Test Email** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard.
+  **NOTE:** You can send a test email using the **Send Test Email** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
 
 > Using SMTP makes it easy to [wire up test services](/email/testing) that will allow you to validate everything is working without spamming your real users.
 
