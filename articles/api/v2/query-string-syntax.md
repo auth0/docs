@@ -4,7 +4,7 @@ This page will help you to learn query string syntax, the "mini-language" used b
 
 The following information is adapted from [Elastic's](elastic.co) Elasticsearch Reference.
 
-The query string is parsed into a series of *terms* and *operators*. A term can be a single word — `quick` or `brown` — or a phrase, surrounded by double quotes — `"quick brown"` — which searches for all the words in the phrase, in the same order.
+The query string is parsed into a series of *terms* and *operators*. A term can be a single word — `john` or `smith` — or a phrase, surrounded by double quotes — `"john smith"` — which searches for all the words in the phrase, in the same order.
 
 ### Field Names
 
@@ -14,7 +14,7 @@ The query string is parsed into a series of *terms* and *operators*. A term can 
 
 * where the `user_name` field contains `john` or `smith`. If you omit the OR operator the default operator will be used. 
 
-`user_name: (john OR smith`
+`user_name: (john OR smith)`
 `user_name: (john smith)`
 
 * where the `user_name` filed contains the exact phrase `"john smith"`
@@ -43,8 +43,6 @@ Be aware that wildcard queries can use an enormous amount of memory and perform 
 
 Allowing a wildcard at the beginning of a word (eg "\*ing") is particularly heavy, because all terms in the index need to be examined, just in case they match. Leading wildcards can be disabled by setting allow_leading_wildcard to false.
 :::
-
-Wildcarded terms are not analyzed by default — they are lowercased (`lowercase_expanded_terms` defaults to `true`) but no further analysis is done, mainly because it is impossible to accurately analyze a word that is missing some of its letters. However, by setting `analyze_wildcard` to true, an attempt will be made to analyze wildcarded words before searching the term list for matching terms.
 
 ### Regular expressions
 
@@ -77,43 +75,43 @@ The closer the text in a field is to the original order specified in the query s
 ### Ranges
 Ranges can be specified for date, numeric or string fields. Inclusive ranges are specified with square brackets `[min TO max]` and exclusive ranges with curly brackets `{min TO max}`.
 
-* All days in 2012:
+* Last login date of 2015:
 
-`date:[2012-01-01 TO 2012-12-31]
+`last_login:[2015-01-01 TO 2015-12-31]
 
-* Numbers 1..5`
+* Users who have logged in between 1-5 times
 
-`count:[1 TO 5]`
+`logins_count:[1 TO 5]`
 
-* Tags between alpha and omega, excluding alpha and omega:
+* Last login between two dates, excluding the first and last day:
 
-`tag:{alpha TO omega}`
+`last_login:{2012-01-01 TO 2012-12-31}`
 
-* Numbers from 10 upwards
+* Users that have logged on over 10 times
 
-`count:[10 TO *]`
+`logins_count:[10 TO *]`
 
-* Dates before 2012
+* Logins before 2015
 
-`date:{* TO 2012-01-01}`
+`last_login{* TO 2015-01-01}`
 
 Curly and square brackets can be combined:
 
-* Numbers from 1 up to but not including 5
+* Logins count > 100 and < 200 
 
-`count:[1 TO 5}`
+`logins_count:[100 TO 200}`
 
 Ranges with one side unbounded can use the following syntax:
 
-`age:>10`
-`age:>=10`
-`age:<10`
-`age:<=10`
+`logins_count:>10`
+`logins_count:>=10`
+`logins_count:<10`
+`logins_count:<=10`
 
 To combine an upper and lower bound with the simplified syntax, you would need to join two clauses with an AND operator:
 
-`age:(>=10 AND <20)`
-`age:(+>=10 +<20)`
+`logins_count:(>=10 AND <20)`
+`logins_count:(+>=10 +<20)`
 
 The parsing of ranges in query strings can be complex and error prone. It is much more reliable to use an explicit [range query](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-range-query.html).
 
