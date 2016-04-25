@@ -13,11 +13,11 @@ When adding Auth0 to your app, you have the option of:
 |-|-|-|
 |Possess the structure, look, and feel of Lock.|X||
 |Have a simple design that fits in with most modern websites with just a few tweaks to its custom color.|X||
-|Adapt to your configuration and only shows the allowable options in the correct situations.|X||
+|Adapt to your configuration and only show the allowable options in the correct situations.|X||
 |Choose the correct Connection automatically.|X||
 |Remember the last used Connection for a given user.|X||
-|Automatically accommodates internationalization.|X||
-|Automatically provides password policy checking during sign up.|X||
+|Automatically accommodate internationalization.|X||
+|Automatically provide password policy checking during sign up.|X||
 |Follow strict requirements set by your company in terms of appearance.||X|
 |Allow for expert usage of HTML, CSS, and JavaScript.||X|
 |Adapt to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).||X|
