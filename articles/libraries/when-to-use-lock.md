@@ -7,6 +7,22 @@ When adding Auth0 to your app, you have the option of:
 
 **Lock** is a drop-in authentication widget that provides a standard set of behavior and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but provides near limitless customization in terms of behavior and appearance. The **Authentication API** provides integration without requiring the use of any Auth0 libraries. Whichever option you choose depends on the needs of your app.
 
+## When to Use Lock vs. a Custom UI
+
+|The UI should:|Lock|Custom UI|
+|-|-|-|
+|Possess the structure, look, and feel of Lock.|X||
+|Have a simple design that fits in with most modern websites with just a few tweaks to its custom color.|X||
+|Adapt to your configuration and only shows the allowable options in the correct situations.|X||
+|Choose the correct Connection automatically.|X||
+|Remember the last used Connection for a given user.|X||
+|Automatically accommodates internationalization.|X||
+|Automatically provides password policy checking during sign up.|X||
+|Follow strict requirements set by your company in terms of appearance.||X|
+|Allow for expert usage of HTML, CSS, and JavaScript.||X|
+|Adapt to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).||X|
+|Handle multiple database or Active Directory Connections.||X|
+
 ## Lock
 
 ![](/media/articles/lock-vs-customui/lock.png)
@@ -18,7 +34,7 @@ When adding Auth0 to your app, you have the option of:
 * Adapts to whatever your configuration is. It displays the correct forms controls for each available Connection and only those that are allowable (such as sign up or password reset);
 * Chooses the correct Connection automatically. In cases of ambiguity, you may set the desired default behavior;
 * Remembers the last used Connection for any given user;
-* Accommodates internationalization;
+* Automatically accommodates internationalization;
 * Provides instant password policy checking during sign up.
 
 While you cannot change Lock's behavior, you may [configure basic options](https://auth0.com/docs/libraries/lock/customization) regarding Lock and its usage on your app. You may also [customize its appearance](https://auth0.com/docs/libraries/lock/ui-customization).
@@ -45,4 +61,4 @@ You should consider using a custom user interface in conjunction with the auth0.
 * You have strict requirements for how the user interface should appear;
 * You are comfortable with HTML, CSS, and JavaScript;
 * Your business process includes just a few use cases (for example, you only need to handle username/password and social provider authentication);
-* You have multiple database or Active Directory connections.
+* You have multiple database or Active Directory Connections.
