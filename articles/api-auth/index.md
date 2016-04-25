@@ -90,3 +90,7 @@ See the following tutorials for a step-by-step guide on how to implement the OAu
 ### Implicit Grant
 
  - [Using the Implicit Grant from a Single Page application](/api-auth/implicit-grant/single-page)
+
+## Have Questions?		
+ 
+You may find the answers on the [API Auth FAQ](/api-auth/faq).
