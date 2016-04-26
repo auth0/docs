@@ -1,5 +1,5 @@
 ---
-url: /crypto
+url: /crypto-overview
 ---
 
 ## Public-key cryptography
@@ -45,9 +45,9 @@ There are, however, a set of tasks you may need to perform, according with the p
 
 | Technology  | Case |
 | ----------  | ---- |
-| SAML        | [Auth0 as Service Provider (SAML connection)](/crypto-saml-sp) |
-| SAML        | [Auth0 as Identity Provider (Application with SAML Addon)](/crypto-saml-idp) |
-| WS-Fed/ADFS | [WS-Fed - ADFS Connection](/crypto-wsfed-adfs) |
-| WS-Fed/ADFS | [WS-Fed Addon](/crypto-wsfed-addon) |
-| JWT         | [JWT Signing](/crypto-jwt-sign) |
-| JWT         | [JWT Validation](/crypto-jwt-validate) |
+| SAML        | [Auth0 as Service Provider (SAML connection)](/saml-auth0-as-sp) |
+| SAML        | [Auth0 as Identity Provider (Application with SAML Addon)](/saml-auth0-as-idp) |
+| WS-Fed/ADFS | [WS-Fed - ADFS Connection](/wsfed-adfs) |
+| WS-Fed/ADFS | [WS-Fed Addon](/wsfed-addon) |
+| JWT         | [JWT Signing](/jwt-sign) |
+| JWT         | [JWT Validation](/jwt-validate) |
