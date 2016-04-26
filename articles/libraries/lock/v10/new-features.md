@@ -149,3 +149,24 @@ var lock = new AuthLock(
     // handle auth
 });
 ```
+
+## Sign Up Terms Agreement
+
+You can ask the user to accept the terms and conditions by clicking a checkbox input before signing up with the `mustAcceptTerms` option.
+
+```js
+var lock = new AuthLock(
+  '${account.clientId}',
+  '${account.namespace}',
+  {
+    languageDictionary: {
+      signUp: {
+        terms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
+      }
+    },
+    mustAcceptTerms: true
+  },
+  function(error, result) {
+    // handle auth
+});
+```
