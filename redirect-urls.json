@@ -576,7 +576,7 @@
     "to": "/connections/database/password-strength"
   },
   {
-    "from": "/user-search",
+    "from": "/users-search",
     "to": "/api/v2/user-search"
   }
 ]
