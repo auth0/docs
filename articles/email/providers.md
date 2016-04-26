@@ -79,13 +79,9 @@ The [Amazon SES console](https://console.aws.amazon.com/ses) will now display al
 
   ![](/media/articles/email/providers/mandrill-keygen.png)
 
-2. Generate an API token with the correct scope (ie: to create or update your email provider) on the [API v2](/api/v2) page on Auth0.
+2. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Mandrill** logo.
 
-  ![](/media/articles/email/providers/token-generator.png)
-
-3. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **Mandrill** logo.
-
-4. Enter your previously obtained Mandrill `API Key`:
+3. Enter your previously obtained Mandrill `API Key`:
 
   ![](/media/articles/email/providers/mandrill-key.png)
 
@@ -98,15 +94,11 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 
 ## Configure SendGrid for Sending Email
 
-1. Sign up for a [SendGrid](https://sendgrid.com/pricing) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace.) Go to [Manage User Credentials](https://app.sendgrid.com/settings/credentials) and create an API key.
+1. Sign up for a [SendGrid](https://sendgrid.com/pricing) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace.) Go to [Manage User Credentials](https://app.sendgrid.com/settings/credentials) and create an credential with the "MAIL" permission.
 
-2. Generate an API token with the correct scope (ie: to create or update your email provider) on the [API v2](/api/v2) page on Auth0.
+2. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SendGrid** logo.
 
-  ![](/media/articles/email/providers/token-generator.png)
-
-3. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SendGrid** logo.
-
-4. Enter your previously obtained SendGrid `API Key`:
+3. Enter your previously obtained SendGrid `Username` and `Password`:
 
   ![](/media/articles/email/providers/sendgrid-key.png)
 
