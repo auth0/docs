@@ -8,7 +8,9 @@ With public-key cryptography, there is a pair of keys that are mathematically re
 
 > The linkage of a public key with its respective owner is often signed by a certificate authority to create a certificate. This is an electronic document used to prove ownership of a public key.
 
+(duplicate - wanna check which looks better)
 ::: panel-info Certificates
+
 The linkage of a public key with its respective owner is often signed by a certificate authority to create a certificate. This is an electronic document used to prove ownership of a public key.
 :::
 
@@ -32,3 +34,20 @@ For encrypted messages, the sender encodes the message using the intended recipi
 
 ## Auth0 use of public-key cryptography
 
+Auth0 uses public-key cryptography for the following processes:
++ Signing and encryption of SAML messages for connections using the SAML protocol
++ Signing and encryption of WS-Fed messages for connections using ADFS
++ Signing of JWT tokens using the RS256 algorithm
+
+Auth0 takes care of generating the keypairs and the certificate, for use in the above cases. You are also provided with a mechanism for downloading the public key/certificate. Typically you will have to give the public key/certificate to any partner entity with whom Auth0 is to exchange messages.
+
+There are, however, a set of tasks you may need to perform, according with the process to be implemented:
+
+| Technology  | Case |
+| ----------  | ---- |
+| SAML        | [Auth0 as Service Provider (SAML connection)](/crypto-saml-sp) |
+| SAML        | [Auth0 as Identity Provider (Application with SAML Addon)](/crypto-saml-idp) |
+| WS-Fed/ADFS | [WS-Fed - ADFS Connection](/crypto-wsfed-adfs) |
+| WS-Fed/ADFS | [WS-Fed Addon](/crypto-wsfed-addon) |
+| JWT         | [JWT Signing](/crypto-jwt-sign) |
+| JWT         | [JWT Validation](/crypto-jwt-validate) |
