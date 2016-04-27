@@ -120,7 +120,7 @@ To update via the Management APIv2 explorer:
 			"signInEndpoint": "https://YOUR-IDP-SSO-URL",
 			"signOutEndpoint": "https://YOUR-IDP-SLO-URL",
 			"signingCert": "AB...S0K",
-			“signSAMLRequest”:true,
+			"signSAMLRequest":true,
 			"decryptionKey" : "-----BEGIN RSA PRIVATE KEY-----\nMII.Mdm\n-----END RSA PRIVATE KEY-----\n" ,
 			"signing_key" : {
 				"key":"-----BEGIN RSA PRIVATE KEY-----\nMII...dm\n-----END RSA PRIVATE KEY-----\n",
