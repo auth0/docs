@@ -1,0 +1,8 @@
+added:
+  -
+    title: "Added Architecture Scenarios"
+    tags:
+      - architecture
+      - scenarios
+    description: |
+      Added a new section depicting the various [Architectural Scenarios](https://auth0.com/docs/architecture-scenarios) when implementing Auth0.
