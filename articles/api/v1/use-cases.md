@@ -1,5 +1,5 @@
 ---
-description:
+description: This page lists the API features that are only available in API v1.
 ---
 
 # API v1 Use Cases
