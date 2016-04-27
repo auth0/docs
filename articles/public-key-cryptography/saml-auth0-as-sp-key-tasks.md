@@ -96,7 +96,9 @@ To update via the Management APIv2 explorer:
 	> If you have previously loaded a signing_key attribute or decryptionKey attribute, you will also need to copy those as well or they will be removed.
 	>
 	> The __decryptionKey__ attribute is the one for the private key used to decrypt assertions that are sent encrypted by IDP.  You need to give the corresponding public key to the IDP for encryption.
+	>
 	> The __signingCert__ attribute is for the  IdP's public key encoded in PEM or CER format and used to validate the signature on the SAML response from IDP. (the private key is used by the IdP to sign the SAML Response.
+	>
 	> The __signing_key__ attribute is for the private key used by Auth0 to sign the SAMLRequest (note - this is only used if `connection.options.signSAMLRequest` is `TRUE`, default: `FALSE`)
 
 11. Now you are ready to update the connection. On the __API REFERENCE__ menu on the left, select __Connections__ > __Update a connection__.
