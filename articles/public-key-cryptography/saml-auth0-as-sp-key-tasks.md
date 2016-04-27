@@ -24,7 +24,7 @@ In order for the IDP to validate the signature of each SAML authentication reque
 3. Turn on the toggle for __Sign Request__.
 4. Select the __Sign Request Algorithm__ and the __Sign Request Digest Algorithm__ acceptable to your IDP.
 
-	__Note:__ SHA256 should be used, since SHA1 is now considered obsolete and insecure.
+	> SHA256 should be used, since SHA1 is now considered obsolete and insecure.
 
 5. Set the __Protocol Binding__ to __HTTP-POST__, if your IDP can accept it as signed requests may be too long for use with the HTTP-Redirect Protocol Binding.
 6. Download your certificate, using the link in the text below the  Sign Request toggle.
@@ -71,21 +71,21 @@ To update via the Management APIv2 explorer:
 2. Using the same browser, navigate to [Management APIv2](https://auth0.com/docs/api/v2)
 3. Under __SCOPES__, select the __read: connections__, by selecting __connections__ at the __entity__ dropdown, and __read__ at the __actions__ dropdown. Click the arrow pointing to the right to add the scope.
 
-![](media/articles/public-key-cryptography/mgmt-api-scope-read-conn.png)
+	![](media/articles/public-key-cryptography/mgmt-api-scope-read-conn.png)
 
 4. Select the __update: connections__, by selecting the __update__ value at the __actions__ dropdown and clicking once more the arrow pointing to the right.
 
-![](media/articles/public-key-cryptography/mgmt-api-scope-update-conn.png)
+	![](media/articles/public-key-cryptography/mgmt-api-scope-update-conn.png)
 
 5. On the __API REFERENCE__ menu on the left, select __Connections__ > __Get all connections__
 
 6. Scroll down to the __Test this endpoint__ section and click the __TRY__ button.
 
-![](media/articles/public-key-cryptography/mgmt-api-get-conn-try.png)
+	![](media/articles/public-key-cryptography/mgmt-api-get-conn-try.png)
 
 7. The __RESPONSE BODY__ contains all your configured connections. Locate the connection you wish to update and copy the connection ID. This is in the __id__ field and is of the form "**con_**_<alphanumeric>_"
 
-![](media/articles/public-key-cryptography/mgmt-api-get-conn-id.png)
+	![](media/articles/public-key-cryptography/mgmt-api-get-conn-id.png)
 
 8. On the __API REFERENCE__ menu on the left, select __Connections__ > __Get a connection__
 
@@ -93,27 +93,29 @@ To update via the Management APIv2 explorer:
 
 10. At the __RESPONSE BODY__ there are all the attributes you need for the connection to be updated. Copy the signInEndpoint, signOutEndpoint, signingCert attributes and supply these options along with the signing key and certificate you wish to upload.  If you don't supply them you will get an error.
 
-__Note:__ If you have previously loaded a signing_key attribute or decryptionKey attribute, you will also need to copy those as well or they will be removed.
+	> If you have previously loaded a signing_key attribute or decryptionKey attribute, you will also need to copy those as well or they will be removed.
+	>
+	> The __decryptionKey__ attribute is the one for the private key used to decrypt assertions that are sent encrypted by IDP.  You need to give the corresponding public key to the IDP for encryption.
+	> The __signingCert__ attribute is for the  IdP's public key encoded in PEM or CER format and used to validate the signature on the SAML response from IDP. (the private key is used by the IdP to sign the SAML Response.
+	> The __signing_key__ attribute is for the private key used by Auth0 to sign the SAMLRequest (note - this is only used if `connection.options.signSAMLRequest` is `TRUE`, default: `FALSE`)
+
+11. Now you are ready to update the connection. On the __API REFERENCE__ menu on the left, select __Connections__ > __Update a connection__.
+
+12. At the __Parameters__ section, paste the ID of the connection you wish to update, at the __id__ field. 
+
+13. Ath the __body__ field you will have to paste the values to be updated. A template is provided below, but you will have to apply the following changes beforehand:
+	+ Update the value of __signInEndpoint__ to the one you copied from your connection earlier.
+	+ Update the value of __signOutEndpoint__ to the one you copied from your connection earlier.
+	+ Update the value of __signingCert__ to the one you copied from your connection earlier.
+
+14. Click the __TRY__ button.
 
 
 
+=========================== PENDING TEXT - IGNORE ============================================================
 
-
-=========================== PENDING TEXT ================================================================
-
-
-In the Management APIv2 explorer, use the Update a connection endpoint to update the connection.
-
-Paste the connection ID into the id field.
-Paste the following into the “body” field, substituting the values from your connection for signInEndpoint, signOutEndpoint, and signingCert, and substituting the values of your private key for the “decryptionKey” field, signingCert, and signing_key.
 
 The example shows "..." for most of the key/cert fields below for readability - you will have a long line to paste in for each of them.
-
-The "decryptionKey" attribute is the one for the private key used to decrypt assertions that are sent encrypted by IDP.  You need to give the corresponding public key to the IDP for encryption.
-
-The "signingCert" attribute is for the  IdP's public key encoded in PEM or CER format and used to validate the signature on the SAML response from IDP. (the private key is used by the IdP to sign the SAML Response.
-
-The "signing_key" attribute is for the private key used by Auth0 to sign the SAMLRequest (note - this is only used if `connection.options.signSAMLRequest` is `TRUE`, default: `FALSE`)
 
 BODY for Update connection endpoint:
 
