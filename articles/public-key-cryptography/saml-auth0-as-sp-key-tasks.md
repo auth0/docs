@@ -7,7 +7,7 @@ url: /saml/auth0-as-sp
 When you use Auth0 as Service Provider there are some tasks that you may need to perform, with regards to keys:
 + Download public key/certificate for Identity Provider (IDP) to validate the signature.
 + Upload public key/certificate from IDP.
-+ Download public key/certificate for IDP  to encrypt assertions, if needed.
++ Download public key/certificate for IDP to encrypt assertions, if needed.
 + Upload a custom keypair, private key, or certificate via the Management API.
 + Updating certificates.
 
@@ -19,16 +19,16 @@ This article describes only those tasks are related to keys and certificates. Fo
 
 In order for the IDP to validate the signature of each SAML authentication request sent by Auth0, the public key and the certificate have to be provided.
 
-1. Open the Auth0 dashboard and navigate to [Connections > Enterprise](${uiURL}/#/connections/enterprise). Click on the SAMLP Identity Provider.
+1. Open the Auth0 dashboard and navigate to [Connections > Enterprise](${uiURL}/#/connections/enterprise). Click on the __SAMLP Identity Provider__.
 2. Click on the __Settings__ (gear) icon for your SAMLP connection.
 3. Turn on the toggle for __Sign Request__.
 4. Select the __Sign Request Algorithm__ and the __Sign Request Digest Algorithm__ acceptable to your IDP.
 
 	> SHA256 should be used, since SHA1 is now considered obsolete and insecure.
 
-5. Set the __Protocol Binding__ to __HTTP-POST__, if your IDP can accept it as signed requests may be too long for use with the HTTP-Redirect Protocol Binding.
-6. Download your certificate, using the link in the text below the  Sign Request toggle.
-7. Give your certificate to the IDP, for use in validating the signed authentication request.
+5. Set the __Protocol Binding__ to _HTTP-POST_, if your IDP can accept it as signed requests may be too long for use with the _HTTP-Redirect_ protocol binding.
+6. Download your certificate, using the link in the text below the __Sign Request__ toggle.
+7. Give the downloaded certificate to the IDP, for use in validating the signed authentication request.
 
 ![](media/articles/public-key-cryptography/sp-download-cert.png)
 
@@ -37,7 +37,7 @@ In order for the IDP to validate the signature of each SAML authentication reque
 In order for Auth0 to validate the signed authentication responses coming from the IDP, you have to upload to Auth0 the certificate that your IDP will provide you with. This is done as part of the initial connection setup, but a new certificate can be uploaded at any time.
 
 1. Obtain the certificate from the IDP and if necessary, convert to .pem format.
-2. Open the Auth0 dashboard and navigate to [Connections > Enterprise](${uiURL}/#/connections/enterprise). Click on the SAMLP Identity Provider.
+2. Open the Auth0 dashboard and navigate to [Connections > Enterprise](${uiURL}/#/connections/enterprise). Click on the __SAMLP Identity Provider__.
 3. Click on the __Settings__ (gear) icon for your SAMLP connection.
 4. Use the __UPLOAD CERTIFICATE__ button to upload the certificate file from IDP.
 
@@ -47,7 +47,7 @@ In order for Auth0 to validate the signed authentication responses coming from t
 
 Optionally, assertions can be encrypted. In order for the IDP to make the relevant configuration your public key will have to be provided. 
 
-1. Open the Auth0 dashboard and navigate to [Connections > Enterprise](${uiURL}/#/connections/enterprise). Click on the SAMLP Identity Provider.
+1. Open the Auth0 dashboard and navigate to [Connections > Enterprise](${uiURL}/#/connections/enterprise). Click on the __SAMLP Identity Provider__.
 2. Click on the __Settings__ (gear) icon for your SAMLP connection.
 3. Under __Encrypted Assertions__, use the links for CER, PEM or PKCS#7 to download a public key/certificate in the format needed for your IDP.
 
@@ -69,37 +69,37 @@ To update via the Management APIv2 explorer:
 
 1. Log into Auth0 dashboard
 2. Using the same browser, navigate to [Management APIv2](https://auth0.com/docs/api/v2)
-3. Under __SCOPES__, select the __read: connections__, by selecting __connections__ at the __entity__ dropdown, and __read__ at the __actions__ dropdown. Click the arrow pointing to the right to add the scope.
+3. Under __SCOPES__, select the _read: connections_, by selecting _connections_ at the __entity__ dropdown, and _read_ at the __actions__ dropdown. Click the arrow pointing to the right to add the scope.
 
 	![](media/articles/public-key-cryptography/mgmt-api-scope-read-conn.png)
 
-4. Select the __update: connections__, by selecting the __update__ value at the __actions__ dropdown and clicking once more the arrow pointing to the right.
+4. Select the _update: connections_, by selecting the _update_ value at the __actions__ dropdown and clicking once more the arrow pointing to the right.
 
 	![](media/articles/public-key-cryptography/mgmt-api-scope-update-conn.png)
 
-5. On the __API REFERENCE__ menu on the left, select __Connections__ > __Get all connections__
+5. On the __API REFERENCE__ menu on the left, select [Connections > Get all connections](/api/v2#!/Connections/get_connections)
 
-6. Scroll down to the __Test this endpoint__ section and click the __TRY__ button.
+6. Scroll down to the _Test this endpoint_ section and click the __TRY__ button.
 
 	![](media/articles/public-key-cryptography/mgmt-api-get-conn-try.png)
 
-7. The __RESPONSE BODY__ contains all your configured connections. Locate the connection you wish to update and copy the connection ID. This is in the __id__ field and is of the form "**con_**_<alphanumeric>_"
+7. The __RESPONSE BODY__ contains all your configured connections. Locate the connection you wish to update and copy the connection ID. This is in the _id_ field and is of the form "**con_**_<alphanumeric>_"
 
 	![](media/articles/public-key-cryptography/mgmt-api-get-conn-id.png)
 
-8. On the __API REFERENCE__ menu on the left, select __Connections__ > __Get a connection__
+8. On the __API REFERENCE__ menu on the left, select [Connections > Get a connection](/api/v2#!/Connections/get_connections_by_id)
 
-9. At the __Parameters__ section, paste the connection ID you copied earlier at the __id__ field. Click the __TRY__ button.
+9. At the _Parameters_ section, paste the connection ID you copied earlier at the _id_ field. Click the __TRY__ button.
 
-10. At the __RESPONSE BODY__ there are all the attributes you need for the connection to be updated. Copy the signInEndpoint, signOutEndpoint, signingCert attributes and supply these options along with the signing key and certificate you wish to upload.  If you don't supply them you will get an error.
+10. At the __RESPONSE BODY__ there are all the attributes you need for the connection to be updated. Copy the _signInEndpoint_, _signOutEndpoint_, _signingCert_ attributes and supply these options along with the signing key and certificate you wish to upload. If you don't supply them you will get an error.
 
-	> If you have previously loaded a signing_key attribute or decryptionKey attribute, you will also need to copy those as well or they will be removed.
+	> If you have previously loaded a *signing_key* attribute or decryptionKey attribute, you will also need to copy those as well or they will be removed.
 	>
-	> The __decryptionKey__ attribute is the one for the private key used to decrypt assertions that are sent encrypted by IDP.  You need to give the corresponding public key to the IDP for encryption.
+	> The _decryptionKey_ attribute is the one for the private key used to decrypt assertions that are sent encrypted by IDP. You need to give the corresponding public key to the IDP for encryption.
 	>
-	> The __signingCert__ attribute is for the IDP public key encoded in PEM or CER format and used to validate the signature on the SAML response from IDP. The private key is used by the IDP to sign the SAML Response.
+	> The _signingCert_ attribute is for the IDP public key encoded in PEM or CER format and used to validate the signature on the SAML response from IDP. The private key is used by the IDP to sign the SAML Response.
 	>
-	> The __signing_key__ attribute is for the private key used by Auth0 to sign the SAMLRequest. Note that this is only used if `connection.options.signSAMLRequest` is `TRUE`, default: `FALSE`)
+	> The *signing_key* attribute is for the private key used by Auth0 to sign the SAMLRequest. Note that this is only used if `connection.options.signSAMLRequest` is `TRUE`, default: `FALSE`)
 
 11. Now you are ready to update the connection. On the __API REFERENCE__ menu on the left, select [Connections > Update a connection](/api/v2#!/Connections/patch_connections_by_id).
 
@@ -114,7 +114,7 @@ To update via the Management APIv2 explorer:
 
 	Template for body:
 
-	```
+	```json
 	{
 		"options": {
 			"signInEndpoint": "https://YOUR-IDP-SSO-URL",

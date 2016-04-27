@@ -8,12 +8,12 @@ With public-key cryptography, there is a pair of keys that are mathematically re
 
 > The linkage of a public key with its respective owner is often signed by a certificate authority to create a certificate. This is an electronic document used to prove ownership of a public key.
 
-These keypairs can be used in a number of innovative ways.  The most common uses are for digitally signing and encrypting messages.  In both cases, an algorithm takes as input a message and one of the keys from the keypair and outputs a result.  The result can then be used by an entity that has the corresponding key from the pair of keys. 
+These keypairs can be used in a number of innovative ways. The most common uses are for digitally signing and encrypting messages. In both cases, an algorithm takes as input a message and one of the keys from the keypair and outputs a result. The result can then be used by an entity that has the corresponding key from the pair of keys. 
 
 ### Signing with a digital signature
 This is the electronic equivalent of a handwritten signature. When the sender includes a digital signature to a message, the recipient can validate the sender's identity and that the message has not been tampered with since it was signed.
 
-For a digital signature, the sender signs the message with the private key and the recipient validates the signature with the public key.  Only the holder of the private key can sign the message.
+For a digital signature, the sender signs the message with the private key and the recipient validates the signature with the public key. Only the holder of the private key can sign the message.
 
 ![](media/articles/public-key-cryptography/signing-messages.png)
 
