@@ -12,7 +12,7 @@ When you use Auth0 as Service Provider there are some tasks that you may need to
 + Updating certificates.
 
 ::: panel-info More information on Auth0 as a Service Provider
-This article describes only those tasks are related to keys and certificates. For detailed information on how to configure Auth0 as a Service Provider, please refer to the document [Auth0 as ServiceProvider](/saml-sp-generic) or watch [this](/saml-configuration#configuring-auth0-as-a-service-provider) video.
+This article describes only those tasks are related to keys and certificates. For detailed information on how to configure Auth0 as a Service Provider, please refer to the document [Auth0 as Service Provider](/saml-sp-generic) or watch [this](/saml-configuration#configuring-auth0-as-a-service-provider) video.
 :::
 
 ### Download public key/certificate for IDP to validate the signature
