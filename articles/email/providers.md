@@ -127,6 +127,8 @@ To be able to use your own SMTP server:
 
 5. Click **Save**.
 
+  **NOTE:** Common ports include 25, 465, and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
+
   **NOTE:** You can send a test email using the **Send Test Email** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
 
 > Using SMTP makes it easy to [wire up test services](/email/testing) that will allow you to validate everything is working without spamming your real users.
