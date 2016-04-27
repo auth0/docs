@@ -112,9 +112,9 @@ To update via the Management APIv2 explorer:
 	+ decryptionKey (optional, remove from template if not loaded previously)
 	+ signing_key (optional, remove from template if not loaded previously)
 
-	Template for __body__ field:
+	Template for body:
 
-	`{
+	{
 		"options": {
 			"signInEndpoint": "https://YOUR-IDP-SSO-URL",
 			"signOutEndpoint": "https://YOUR-IDP-SLO-URL",
@@ -126,7 +126,7 @@ To update via the Management APIv2 explorer:
 				"cert":"-----BEGIN CERTIFICATE-----\nMI...6O\n-----END CERTIFICATE-----\n"
 			}
 		}
-	}`
+	}
 
 	> The example shows "..." for most of the fields for readability. You will have a long line to paste in for each of them.
 
