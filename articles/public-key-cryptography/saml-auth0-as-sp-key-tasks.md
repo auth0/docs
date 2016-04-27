@@ -24,7 +24,7 @@ In order for the IDP to validate the signature of each SAML authentication reque
 3. Turn on the toggle for __Sign Request__.
 4. Select the __Sign Request Algorithm__ and the __Sign Request Digest Algorithm__ acceptable to your IDP.
 
-> SHA256 should be used, since SHA1 is now considered obsolete and insecure.
+	__Note:__ SHA256 should be used, since SHA1 is now considered obsolete and insecure.
 
 5. Set the __Protocol Binding__ to __HTTP-POST__, if your IDP can accept it as signed requests may be too long for use with the HTTP-Redirect Protocol Binding.
 6. Download your certificate, using the link in the text below the  Sign Request toggle.
