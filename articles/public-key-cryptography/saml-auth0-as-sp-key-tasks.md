@@ -114,6 +114,7 @@ To update via the Management APIv2 explorer:
 
 	Template for body:
 
+	```
 	{
 		"options": {
 			"signInEndpoint": "https://YOUR-IDP-SSO-URL",
@@ -127,6 +128,7 @@ To update via the Management APIv2 explorer:
 			}
 		}
 	}
+	```
 
 	> The example shows "..." for most of the fields for readability. You will have a long line to paste in for each of them.
 
