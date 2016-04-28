@@ -1,12 +1,15 @@
+---
+description: API Authentication and Authorization FAQ
+---
 
 # API Authentication and Authorization FAQ
 
 ### Q: Can I use rules in the new pipeline?
 
-**A:** Not at this time, but we aim at having this available in August. 
+**A:** Not at this time, but this feature is planned for release in August 2016.
 
-### Q: If have a Client that needs to talk to different Resource Servers. How would this work?
+### Q: I have a Client that needs to talk to different Resource Servers.
 
-**A:**  Assuming both Resource Servers have been created and the Client has been linked to both of these you can use the audience=resource_server_client_id parameter to specify the audience of the access token during the authentication request.
+**A:**  If both Resource Servers have been created and the Client has been linked to each, you can use the `audience=resource_server_client_id` parameter to specify the audience of the access token during the authentication request.
 
-* Specification: [https://tools.ietf.org/html/draft-tschofenig-oauth-audience-00#section-3](https://tools.ietf.org/html/draft-tschofenig-oauth-audience-00#section-3)
+For more information, see the [OAuth 2.0: Audience Information Specification](https://tools.ietf.org/html/draft-tschofenig-oauth-audience-00#section-3).
