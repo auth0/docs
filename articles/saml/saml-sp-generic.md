@@ -102,7 +102,6 @@ The Identity Provider will need to know where to send the SAML assertions after 
 The Identity Provider may call this any of the following
 * Assertion Consumer Service URL
 * Application Callback URL
-*
 
 If the Identity Provider has a field called "Audience" or "Entity ID", you should enter into that field the Entity ID" from Auth0.
 
@@ -152,6 +151,6 @@ When troubleshooting SSO, it is often helpful to capture an HTTP trace of the in
 
 Be sure to check to make sure cookies and javascript are enabled for your browser.
 
-Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field in the __""Settings""__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
+Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field in the __"Settings"__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
 
 The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
