@@ -12,7 +12,7 @@ In this scenario you have a traditional web application which needs to authentic
 
 The application will also typically create a user session which is stored in one or more cookies to keep track of the user which is logged in.
 
-**Note:** In this scenario an access_token is also returned but it is rarely used since their is no API involved against which the user needs to be authenticated.
+**Note:** In this scenario an access_token is also returned but it is rarely used since there is no API involved against which the user needs to be authenticated.
 
 ## Read More
 
