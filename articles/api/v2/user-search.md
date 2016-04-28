@@ -1,107 +1,103 @@
+---
+description: This page lists several examples of users search queries using query string syntax.
+---
+
 # Users Search
 
-You can search registered users using our [dashboard](${uiURL}/#/users) or [APIv2](/api/v2#!/users/get_users) using [query string syntax](/api/v2/query-string-syntax) in the "q" field.
+You can search registered users using the [dashboard](${uiURL}/#/users) or the [APIv2](/api/v2#!/users/get_users) using [query string syntax](/api/v2/query-string-syntax) for the `q` field value.
 
-Only fields in `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) are searchable. Keep in mind that users have both read/write access to the `user_metadata` field and read-only access to `app_metadata`.
+Only fields in `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) are searchable. Note that users have read/write access to the `user_metadata` field but only read-only access to the `app_metadata` field.
 
-Here are some examples of queries you can use:
+## Examples
 
-## Cross-field search
+Here are some example queries:
 
-```
-john
-```
+### Cross-field search
 
-## Search by specific field 
-Search all users whose name is exactly john
+`john`
 
-```
-name:"john"
-```
+### Search by specific field
 
-## Search by email 
-Search all users whose email is exactly john@contoso.com
+Search all users whose name is exactly "john":
 
-```
-email:"john@contoso.com"
-```
+`name:"john"`
 
-## Search by multiple emails 
-Search all users whose email is exactly john@contoso.com or mary@contoso.com (specifying OR/AND operators)
+### Search by email
 
-```
-email:("john@contoso.com" OR "mary@contoso.com")
-```
+Search all users whose email is exactly "john@contoso\.com":
 
-## Search users without verified email
+`email:"john@contoso.com"`
 
-```
-email_verified:false OR _missing_:email_verified
-```
+### Search by multiple emails
 
-## Filtering a specific user_metadata field
-Here we use "blog_url" as an example field, field names of user_metadata are customizable 
+Search all users whose email is exactly "john@contoso\.com" or "mary@contoso\.com" using `OR` or `AND` operators:
 
-```
-user_metadata.blog_url:"www.johnsblog.com"
-```
+`email:("john@contoso.com" OR "mary@contoso.com")`
 
-## Filtering a specific app_metadata field
-Here we use "firstName" as an example field, field names of app_metadata are customizable 
+### Search users without verified email
 
-```
-app_metadata.firstName:"John"
-```
+`email_verified:false OR _missing_:email_verified`
 
-## Search users that have a certain app_metadata field
-Here we use "plan" as an example field, field names of app_metadata are customizable 
+### Filter a specific *user_metadata* field
 
-```
-_exists_:app_metadata.plan
-```
+`user_metadata.blog_url:"www.johnsblog.com"`
 
-## Search users without a certain app_metadata field
+(`user_metadata` field names are customizable; "blog_url" is an example field.)
 
-```
-_missing_:app_metadata.plan
-```
+### Filter a specific *app_metadata* field
 
-## List all users with a specific role
+`app_metadata.firstName:"John"`
 
-```
-app_metadata.roles:"admin"
-```
+(`app_metadata` field names are customizable; "firstName" is an example field.)
 
-## List all users from a specific connection or provider
+### Search users that have a certain *app_metadata* field
 
-```
-identities.provider:"google-oauth2"
-```
+`_exists_:app_metadata.plan`
 
-## Searching using ranges:
-Inclusive ranges are specified with square brackets `[min TO max]` and exclusive ranges with curly brackets `{min TO max}` and curly and square brackets can be combined: `logins_count:[100 TO 200}`
+("plan" is an example field.)
 
-* All users with more than 100 logins: `logins_count:>100`
-* Logins count >= 100 and <= 200: `logins_count:[100 TO 200]`
-* Logins count >= 100: `logins_count:[100 TO *]`
-* Logins count > 100 and < 200 `logins_count:{100 TO 200}`
+### Search users without a certain *app_metadata* field
+
+`_missing_:app_metadata.plan`
+
+### List all users with a specific role
+
+`app_metadata.roles:"admin"`
+
+### List all users from a specific connection or provider
+
+`identities.provider:"google-oauth2"`
+
+### Search using ranges
+
+Inclusive ranges are specified with square brackets: `[min TO max]` and exclusive ranges with curly brackets: `{min TO max}`. Curly and square brackets can be combined in the same range expression: `logins_count:[100 TO 200}`.
+
+* All users with more than 100 logins:
+
+    `logins_count:>100`
+* Logins count >= 100 and <= 200:
+
+    `logins_count:[100 TO 200]`
+
+* Logins count >= 100:
+
+    `logins_count:[100 TO *]`
+
+* Logins count > 100 and < 200
+
+    `logins_count:{100 TO 200}`
 
 
-## List all users that never logged in
+### List all users that have never logged in
 
-```
-(_missing_:logins_count OR logins_count:0)
-```
+`(_missing_:logins_count OR logins_count:0)`
 
-## List all users who logged in before 2015
+### List all users who logged in before 2015
 
-```
-last_login:[* TO 2014-12-31]
-```
+`last_login:[* TO 2014-12-31]`
 
-## Fuzziness
-You can search for terms that are similar to, but not exactly like our search terms.
+### Fuzziness
 
-```
-name:jhn~
-```
+You can search for terms that are similar to, but not exactly like, your search terms:
+
+`name:jhn~`
