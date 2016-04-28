@@ -9,19 +9,72 @@ When adding Auth0 to your app, you have the option of:
 
 ## When to Use Lock vs. a Custom UI
 
-|The UI should:|Lock|Custom UI|
-|-|-|-|
-|Possess the structure, look, and feel of Lock.|X||
-|Have a simple design that fits in with most modern websites with just a few tweaks to its custom color.|X||
-|Adapt to your configuration and only show the allowable options in the correct situations.|X||
-|Choose the correct Connection automatically.|X||
-|Remember the last used Connection for a given user.|X||
-|Automatically accommodate internationalization.|X||
-|Automatically provide password policy checking during sign up.|X||
-|Follow strict requirements set by your company in terms of appearance.||X|
-|Allow for expert usage of HTML, CSS, and JavaScript.||X|
-|Adapt to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).||X|
-|Handle multiple database or Active Directory Connections.||X|
+<table class="table">
+    <thead>
+        <tr>
+            <th><i></i></th>
+            <th>Lock</th>
+            <th>Custom UI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Possesses the structure, look, and feel of Lock.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Has a simple design that fits in with most modern websites with just a few tweaks to its custom color.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Adapts to your configuration and only show the allowable options in the correct situations.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Chooses the correct Connection automatically.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Remembers the last used Connection for a given user.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Automatically accommodates internationalization.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Automatically provides password policy checking during sign up.</td>
+            <td>X</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Follows strict requirements set by your company in terms of appearance.</td>
+            <td></td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>Allows for expert usage of HTML, CSS, and JavaScript.</td>
+            <td></td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>Adapts to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).</td>
+            <td></td>
+            <td>X</td>
+        </tr>
+        <tr>
+            <td>Handles multiple database or Active Directory Connections.</td>
+            <td></td>
+            <td>X</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Lock
 
