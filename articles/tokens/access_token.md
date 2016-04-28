@@ -17,29 +17,20 @@ The third part of the JWT is the signature which is used by the recipient of a J
 
 The [Auth0.js documentation](/libraries/auth0js) shows a sample of how to get the `access_token`.
 
-::: warning-banner
-The `access_token` used to be an opaque string that was used to call the Auth0 API, and in some circumstances it still is. For more details on when the `access_token` is a JWT, and when it is an opaque string, please see [Access Token vs ID Token](/tokens/access_token-vs-id_token)
-
-!! Must still do this doc !!
-:::
-
-
 ## How to get Auth0 access token
 
 The Auth0 access token can be obtained in several ways.
 Calls to Lock or library functions that invoke authentication will return the `access_token`.
 
-* Calls to the Lock widget will return `access_token` as shown in the [Lock documentation](/libraries/lock) ?? Is this true - can we still use lock ??
+* Calls to the Lock widget will return `access_token` as shown in the [Lock documentation](/libraries/lock).
 * [Examples using auth0.js](https://github.com/auth0/auth0.js) ?? is this still true ??
-* The [/i/oauth2/authorize endpoint in the authentication API](/auth-api) when using the Authorization Code Grant flow or Implicit Grant flow will return an `access_token`
-* The [?? endpoint in the authentication API](??) when using Client Credentials Grant will issue an `access_token`
+* The [/authorize endpoint in the authentication API](/auth-api) when using the Authorization Code Grant flow or Implicit Grant flow will return an `access_token`
+* The [/oauth/token endpoint in the authentication API](??) when using Client Credentials Grant will issue an `access_token`
 * Check the [List of tutorials](/tutorials) to see how to make calls to libraries for other languages/SDKs.
 
 ## How to control contents of access token
 
 The contents of the `access_token`, specifically the claims contained within it, are controlled by the use of a parameter called `scope` which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
-
-?? Is this still true - can we use lock ??
 
 ```
 lock.show({
@@ -49,45 +40,38 @@ lock.show({
     }
  });
 ```
-The above sample, specifying `appointments contacts` will result in a JWT with claims for accessing appointments and contacts. The responseType should be `token` for Implicit Grant flow and `code` for Authorization Code Grant flow.
+The above sample, specifying `appointments contacts` will result in a JWT with claims for accessing appointments and contacts. The `responseType` should be `token` for Implicit Grant flow and `code` for Authorization Code Grant flow.
 
+???
 The scope of the `access_token` JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context) ?? Should be still suggest this. Also AFAIK rules won't work anymore with the new endpoint ??
 
 There is a [sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
-
+???
 Additional information on the `access_token` is [here](/jwt)
-
-A valid JWT can be pasted into the [jwt.io website](https://jwt.io) to view the contents of the JWT.
-
-A [blog entry on JWT](https://auth0.com/blog/2015/07/21/jwt-json-webtoken-logo/) provides an explanation of why it is getting to be more popular.
-
-[Additional samples](https://github.com/auth0/auth0.js) show use of the auth0.js library.
 
 ## Validity
 
-In the case of the [authorization code grant](/api-auth/grant/authorization-code) and the [implicit code grant](/api-auth/grant/implicit) flows the `access_token` is valid for ???
-
-In the case of the [client credentials flow](/api-auth/grant/client-credentials), the `access_token` is valid for 8000 seconds (roughly 2.25 hours) by default.  !!The expiration of this token can be set in the `Apps/APIs` -> Settings screen using the `JWT expiration` field!!
-
-The validity period of the token can be configured per [Resource Server](??)
+By default, the validity of an `access_token` is 86,400 seconds (24 hours). This can be configured per Resource Server in the [API section of the Dashboard](https://manage.auth0.com/#/apis). 
 
 ## Renewing the token
 
-?? How do we get a refresh token ??
-?? How do we use the refresh token to obtain a new access token ??
+The `access_token` can be renewed by using a `refresh_token`. Refresh Tokens are obtained by requesting a scope of `offline_access` when using the `code` flow. 
+
+A new `access_token` can subsequently be requested by calling the `/oauth/token` endpoint and passing along the `refresh_token`.
 
 ## Termination of the token
 
 Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then renewed periodically if the user remains active.  See the above section on renewing access tokens.
 
+!! Add writeup about revoking of Grants !!
+
 ## Uses
 
 The `access_token` is designed to be used to pass information about a user between websites,  web programs and APIs in an industry standard, URL-friendly fashion.  One advantage of using an `access_token` for this purpose is that the recipient can validate the token without having to make a call back to the issuer of the token.  The token is also designed to enable being passed from one web property to another, via an untrusted client, such that the client cannot alter the token without such tampering being evident to the recipient.
 
-It can also be used to call the /userinfo endpoint within the authentication API to get user profile information as documented [here](/auth-api#user-profile) (?? is this still valid ??)
+For more information on implementing this please refer to the [API Authentication and Authorization](/api-auth) documentation.
 
-The `access_token` can also be used to [call other APIs](/api-auth).
-
+An `access_token` can also be used to call the `/userinfo` endpoint within the authentication API to get user profile information as documented [here](/auth-api#user-profile).
 
 ## Best practices
 

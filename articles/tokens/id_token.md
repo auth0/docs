@@ -42,7 +42,7 @@ lock.show({
 The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The responseType should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the /authorize endpoint here:
 https://auth0.com/docs/auth-api
 
-The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
+The scope of the `id_token` JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
 
 There is a [sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
 
@@ -81,19 +81,7 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 
 ## Uses
 
-The `id_token` can be used to call the /tokeninfo endpoint within the Auth0 authentication API to retrieve the user’s complete profile.  See the [/tokeninfo endpoint documentation](/auth-api#user-profile) for more details.
-
-The `id_token` can also be used to call the /delegation endpoint within the Auth0 authentication API to obtain another token for another API.  See the [/delegation endpoint documentation](/auth-api#delegated) for more information.
-
-The [Delegation token request sample](https://github.com/auth0/auth0.js#delegation-token-request) provides further examples of using the id_token for other APIs.
-
-This [Animated Sequence Diagram](/sequence-diagrams) shows the sequence of calls used to get an `id_token`.
-
-::: warning-banner
-It is not suggested that you use an `id_token` to secure an API. For this purpose, you should rather make use of [access tokens](/tokens/access_token).
-:::
-
-?? What is the uses of the id token going forward? Access token will now be used in many instances we used id token before ??
+The `id_token` is used by the client to obtain profile information about the user, by decoding and verifying the claims in the token. The `id_token` should never be sent to an API. The `id_token` is an optimization to avoid network requests to the `/userinfo` endpoint.
 
 ## Best Practices
 
