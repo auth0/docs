@@ -12,64 +12,64 @@ When adding Auth0 to your app, you have the option of:
 <table class="table">
     <thead>
         <tr>
-            <th></th>
+            <th><i>The UI Should:</i></th>
             <th>Lock</th>
             <th>Custom UI</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th>Possess the structure, look, and feel of Lock.</th>
+            <td>Possess the structure, look, and feel of Lock.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Have a simple design that fits in with most modern websites with just a few tweaks to its custom color.</th>
+            <td>Have a simple design that fits in with most modern websites with just a few tweaks to its custom color.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Adapt to your configuration and only show the allowable options in the correct situations.</th>
+            <td>Adapt to your configuration and only show the allowable options in the correct situations.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Choose the correct Connection automatically.</th>
+            <td>Choose the correct Connection automatically.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Remember the last used Connection for a given user.</th>
+            <td>Remember the last used Connection for a given user.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Automatically accommodate internationalization.</th>
+            <td>Automatically accommodate internationalization.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Automatically provide password policy checking during sign up.</th>
+            <td>Automatically provide password policy checking during sign up.</td>
             <td>X</td>
             <td></td>
         </tr>
         <tr>
-            <th>Follow strict requirements set by your company in terms of appearance.</th>
+            <td>Follow strict requirements set by your company in terms of appearance.</td>
             <td></td>
             <td>X</td>
         </tr>
         <tr>
-            <th>Allow for expert usage of HTML, CSS, and JavaScript.</th>
+            <td>Allow for expert usage of HTML, CSS, and JavaScript.</td>
             <td></td>
             <td>X</td>
         </tr>
         <tr>
-            <th>Adapt to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).</th>
+            <td>Adapt to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).</td>
             <td></td>
             <td>X</td>
         </tr>
         <tr>
-            <th>Handle multiple database or Active Directory Connections.</th>
+            <td>Handle multiple database or Active Directory Connections.</td>
             <td></td>
             <td>X</td>
         </tr>
