@@ -89,4 +89,4 @@ This endpoint is conceptually similar to `/ro` (Resource Owner), the difference 
 
 Submitting this form to Auth0 will result in the completion of the authentication request (a final redirect to your application callback URL). Notice this works for both `response_types=code|token`. (See [Protocols](/protocols) for details on both).
 
-A complete sample 
+A complete sample is available [here](https://github.com/auth0-samples/auth0-database-connection-custom-sso).
