@@ -56,7 +56,7 @@ Trigger the login on any of your enabled `Connections` with:
   });
 
   //trigger login with an enterprise connection
-  $('.login-github').click(function () {
+  $('.login-contoso').click(function () {
     auth0.login({
       connection: 'contoso.com'
     });
