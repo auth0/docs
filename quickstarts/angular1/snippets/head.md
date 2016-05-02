@@ -18,4 +18,7 @@
 
 <!-- Viewport settings-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- Basic style -->
+<link href="https://cdn.auth0.com/styleguide/4.4.24/index.css" rel="stylesheet" />
 ```
