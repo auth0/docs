@@ -26,6 +26,13 @@ One of the most aching aspects of an Angular App is authentication. It becomes w
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.
 
+
+### Create an Application
+
+Create an [Auth0 account](https://manage.auth0.com/login) and an authentication application from the [dashboard](https://manage.auth0.com/#/). Once you create an app, you'll be provided with credentials (Domain, Client ID, and Client Secret) which should be stored somewhere safe (do not commit this information to your git repo!).
+
+![App Dashboard](/media/articles/angularjs/app_dashboard.png)
+
 TODO: Find out how to configure angular-sample URL
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular',
@@ -39,12 +46,6 @@ TODO: Find out how to configure angular-sample URL
 At any point in time, you can run the sample with `http-server`. First install with `npm install -g http-server` then run `http-server` on the root directory of the sample.
 :::
 
-### Create an Application Instance
-
-Create an [Auth0 account](https://manage.auth0.com/login) and an authentication application from the [dashboard](https://manage.auth0.com/#/). Once you create an app, you'll be provided with credentials (Domain, Client ID, and Client Secret) which should be stored somewhere safe (do not commit this information to your git repo!).
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
 ::: panel-info Default Configuration
 Every instance of the seed project comes configured with your `Default App` credentials. Awesome right?
 :::
@@ -57,7 +58,7 @@ For security reasons, you will need to add your application's URL in the app's `
 
 ![Callback error](/media/articles/angularjs/callback_error2.png)
 
-### Authentication in 3 Steps
+### Authentication
 
 We will stick with a simple structure for this section:
 ```bash
