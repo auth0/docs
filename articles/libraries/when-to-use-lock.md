@@ -13,19 +13,72 @@ When adding Auth0 to your apps, you have the option to implement either:
 
 ### When to Implement Lock vs. a Custom UI
 
-|Desired UI Attributes:|Lock|Custom UI|
-|:---|:---:|:---:|
-|Possesses the structure, look, and feel of Lock.|X||
-|Has a simple design that fits in with most modern websites with just a few tweaks to its custom color.|X||
-|Adapts to your configuration and only show the allowable options in the appropriate situations.|X||
-|Chooses the correct connection automatically.|X||
-|Remembers the last used connection for a given user.|X||
-|Automatically accommodates internationalization.|X||
-|Automatically provides a password policy checking at sign up.|X||
-|Follows strict appearance requirements as set by your company.||X|
-|Allows for expert usage of HTML, CSS, and JavaScript.||X|
-|Adapts to a simpler process for username/password and social provider authentication.||X|
-|Handles multiple database or Active Directory Connections.||X|
+<table class="table">
+    <thead>
+        <tr>
+            <th align="left"><b>Desired UI Attributes:</b></th>
+            <th>Lock</th>
+            <th>Custom UI</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Possesses the structure, look, and feel of Lock.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Has a simple design that fits in with most modern websites with just a few tweaks to its custom color.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Adapts to your configuration and only show the allowable options in the appropriate situations.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Chooses the correct connection automatically.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Remembers the last used connection for a given user.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Automatically accommodates internationalization.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Automatically provides a password policy checking at sign up.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
+        </tr>
+        <tr>
+            <td>Follows strict appearance requirements as set by your company.</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
+        </tr>
+        <tr>
+            <td>Allows for expert usage of HTML, CSS, and JavaScript.</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
+        </tr>
+        <tr>
+            <td>Adapts to a simpler process for username/password and social provider authentication.</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
+        </tr>
+        <tr>
+            <td>Handles multiple database or Active Directory Connections.</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
+        </tr>
+    </tbody>
+</table>
 
 ## Lock
 
