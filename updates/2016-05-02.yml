@@ -1,0 +1,6 @@
+added:
+  -
+    title: "Added update client_secret doc"
+    tags: client_secret
+    description: |
+      Added a new doc on how to [update a client_secret](https://auth0.com/docs/update-client-secret)
