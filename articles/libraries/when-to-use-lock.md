@@ -84,7 +84,7 @@ When adding Auth0 to your apps, you have the option to implement either:
 
 **Lock** is an embeddable login form that makes it easy for your users to authenticate using a selected connection. **Lock** will automatically handle most of the details involved in creating and authenticating users.
 
-![](/media/articles/lock-vs-customui/lock.png)
+![](/media/articles/libraries/lock-vs-customui/lock.png)
 
 With **Lock**, you will be implementing a UI that:
 
@@ -113,7 +113,7 @@ If the requirements of your app cannot be met by the standardized behavior of **
 
 With the **auth0.js** library or the **Authentication API**, you can customize the behavior and flow of the process used to trigger sign up and authentication.
 
-![](/media/articles/lock-vs-customui/customui.png)
+![](/media/articles/libraries/lock-vs-customui/customui.png)
 
 Unlike with **Lock**, neither of these options includes a user interface. You will have complete control over the user experience for sign up and authentication flow, and for the UI aspects of layout, look and feel, branding, internationalization, RTL support, and more.
 
