@@ -8,6 +8,10 @@ Rules can also be used to programatically redirect users before an authenticatio
 * Implementing custom verification mechanisms (e.g. proprietary multifactor authentication providers).
 * Forcing users to change passwords.
 
+::: panel-danger Caution:
+Redirect rules won't work for the [Resource Owner endpoint](/auth-api#!#post--oauth-ro) authentication endpoint.
+:::
+
 ## How to implement a redirect
 
 To redirect a user from a rule, set the `context.redirect` property as follows:
