@@ -18,7 +18,7 @@ When adding Auth0 to your apps, you have the option to implement either:
         <tr>
             <th align="left"><b>Desired UI Attributes:</b></th>
             <th>Lock</th>
-            <th>Custom UI</th>
+            <th>Custom&nbsp;UI</th>
         </tr>
     </thead>
     <tbody>
