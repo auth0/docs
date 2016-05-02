@@ -34,11 +34,13 @@ Tags are typically used to apply logic to your template. Using the [supported ta
 
 One way you might choose to use tags is to include `if / else` to set up a template capable of sending out multi-language emails.
 
+For example:
+
 ```HTML
-{% if CONDITION %}
-  [email body in language 1]
-{% else %}
-  [email body in language 2]
+{% if user.user_metadata.lang == 'en' %}
+  [email body in English]
+{% elseif user.user_metadata.lang == 'de' %}
+  [email body in German]
 {% endif %}
 ```
 
