@@ -1,3 +1,7 @@
+---
+url: /logs
+---
+
 # Logs
 
 This document lists useful information regarding the Logs from the Auth0 Dashboard.
