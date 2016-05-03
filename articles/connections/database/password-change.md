@@ -3,18 +3,18 @@
 This document explains the various ways passwords can be reset for users of your application.
 
 :::panel-warning Notice
-This information applies to using Lock version 9 and above, but can also be used as reference if you are using Lock version 8. 
-If you are using Lock version 8, make sure to check the Notice panels, like this one, since they are used to point out the differences in the flows.
+This information applies to using *Change Password flow v2*.
+If you are using the old Change Password flow, or Lock version 8, make sure to check the Notice panels like this one, since they are used to point out the differences in the flows.
 
 Don't know which version you are using? 
-Navigate to [Dashboard > Account Settings > Advanced](https://manage.auth0.com/#/account/advanced) and check whether the *Change Password flow v2* toggle is on. If it is then you are using Lock version 9, otherwise you are still running on version 8 and we strongly encourage to move immediately to the new version. 
+Navigate to [Dashboard > Account Settings > Advanced](https://manage.auth0.com/#/account/advanced) and check whether the *Change Password flow v2* toggle is on. If it is, then you should use Lock version 9 to cater to the new flow. Otherwise, you can use older versions of Lock to trigger the old Change Password flow (Not recommended). We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. 
 
 To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow)
 :::
 
 Auth0 provides the following ways to change a password:
 + via API: Send a password reset email to a user using the API.
-+ via Lock: Reset own password using the Lock login screen.
++ via Lock: Trigger a password reset email to the user through the Lock login screen.
 + via Dashboard: An admin can change manually a user's password in the [Users](${uiURL}/#/users) section of the dashboard.
 
 Note that passwords can only be changed for users signing in using database connections. If a user is signing in with a social or enterprise connection, their password would need to be reset in those systems.
