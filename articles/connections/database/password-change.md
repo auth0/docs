@@ -4,10 +4,10 @@ This document explains the various ways passwords can be reset for users of your
 
 :::panel-warning Notice
 This information applies to using *Change Password flow v2*.
-If you are using the old Change Password flow, or Lock version 8, make sure to check the Notice panels like this one, since they are used to point out the differences in the flows.
+If you are using the old Change Password flow, or Lock version 8, make sure to check the notice panels like this one, since they are used to point out the differences in the flows.
 
 Don't know which version you are using? 
-Navigate to [Dashboard > Account Settings > Advanced](https://manage.auth0.com/#/account/advanced) and check whether the *Change Password flow v2* toggle is on. If it is, then you should use Lock version 9 to cater to the new flow. Otherwise, you can use older versions of Lock to trigger the old Change Password flow (Not recommended). We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. 
+Navigate to [Dashboard > Account Settings > Advanced](https://manage.auth0.com/#/account/advanced) and check whether the *Change Password flow v2* toggle is on. If it is, then you should use Lock version 9 to cater to the new flow. Otherwise, you can use older versions of Lock to trigger the old Change Password flow, although this is not recommended. We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. 
 
 To learn more about migrating Lock, see [here.](/migrations#vulnerable-password-flow)
 :::
