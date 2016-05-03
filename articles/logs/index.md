@@ -34,4 +34,8 @@ You can use the Management API v2 to do this, here are the two available endpoin
 
 * [/api/v2/logs](https://auth0.com/docs/api/v2#!/Logs/get_logs) Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
 
+<<<<<<< HEAD
 * [/api/v2/logs/{id}](https://auth0.com/docs/api/v2#!/Logs/get_logs_by_id) Retrieves the data related to the log entry identified by id. This returns a single log entry representation as specified in the schema.
+=======
+* [/api/v2/logs/{id}](https://auth0.com/docs/api/v2#!/Logs/get_logs_by_id) Retrieves the data related to the log entry identified by id. This returns a single log entry representation as specified in the schema.
+>>>>>>> 4f1b8b4853b73beb237ec97d25596d054ece811d
