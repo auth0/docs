@@ -17,6 +17,7 @@ Typical database connection scenarios include:
 * [Using the Auth0 user store](#using-the-auth0-user-store)
 * [Using a custom user store](#using-a-custom-user-store)
 * [Migrating to Auth0 from a custom user store](#migrating-to-auth0-from-a-custom-user-store)
+* [Requiring a username for users](/database/require-username)
 
 ### Using the Auth0 user store
 
