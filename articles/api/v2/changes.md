@@ -105,10 +105,8 @@ the following scopes will be granted automatically:
 * create:current\_user\_metadata
 * update:current\_user\_metadata
 * delete:current\_user\_metadata
-* create:current\_user\_devices\_credentials
-* read:current\_user\_devices\_credentials
-* update:current\_user\_devices\_credentials
-* delete:current\_user\_devices\_credentials
+* create:current\_user\_device\_credentials
+* delete:current\_user\_device\_credentials
 
 Therefore, with an `id_token`, all the user's information can be read and written to `user_metadata`.
 
