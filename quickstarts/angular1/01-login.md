@@ -21,15 +21,12 @@ alias:
 ---
 
 ## Setup and Authentication
-
-One of the most aching aspects of an Angular App is authentication. It becomes worse when you have routes to protect, page refresh to deal with, tokens to manage, multi-factor authentication, and so on. This quickstart is planned to help you tackle these challenges.
-
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.
 
 
 ### Create an Application
 
-Create an [Auth0 account](https://manage.auth0.com/login) and an authentication application from the [dashboard](https://manage.auth0.com/#/). Once you create an app, you'll be provided with credentials (Domain, Client ID, and Client Secret) which should be stored somewhere safe (do not commit this information to your git repo!).
+<%= include('../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
@@ -43,18 +40,13 @@ TODO: Find out how to configure angular-sample URL
 }) %>_
 
 ::: panel-info Running the Sample
-At any point in time, you can run the sample with `http-server`. First install with `npm install -g http-server` then run `http-server` on the root directory of the sample.
+At any point in time you can run this sample with a simple HTTP server. One example is http-server which can be installed with `npm install -g http-server`. Run `http-server` on the root directory of the sample to launch.
 :::
 
-::: panel-info Default Configuration
-Every instance of the seed project comes configured with your `Default App` credentials. Awesome right?
-:::
 
 ### Configure Callback URLs
 
-Callback URLs are URLs that Auth0 invokes after the authentication process. It is especially useful in OAuth. Callback URLs can be manipulated on the fly and that could be harmful.
-
-For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to the this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
 
 ![Callback error](/media/articles/angularjs/callback_error2.png)
 
