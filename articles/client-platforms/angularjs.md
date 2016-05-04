@@ -165,12 +165,12 @@ Event listeners are available to handle different status of authentication. They
 ```javascript
 //Called when login is successful
 authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
-console.log("Login Success");
-profilePromise.then(function(profile) {
-  store.set('profile', profile);
-  store.set('token', idToken);
-});
-$location.path('/');
+  console.log("Login Success");
+  profilePromise.then(function(profile) {
+    store.set('profile', profile);
+    store.set('token', idToken);
+  });
+  $location.path('/');
 });
 
 //Called when login fails

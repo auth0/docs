@@ -30,10 +30,9 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-
 ### Create an Application
 
-Create an [Auth0 account](https://manage.auth0.com/login) and an authentication application from the [dashboard](https://manage.auth0.com/#/). Once you create an app, you'll be provided with credentials (Domain, Client ID, and Client Secret) which should be stored somewhere safe (do not commit this information to your git repo!).
+<%= include('../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
