@@ -1,0 +1,3 @@
+# Auth0 Extension: Authorization Extension
+
+The Auth0 Authorization Extension...
