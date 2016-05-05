@@ -578,5 +578,17 @@
   {
     "from": "/users-search",
     "to": "/api/v2/user-search"
+  },
+  {
+    "from": "/appliance/checksum",
+    "to": "/appliance"
+  },
+  {
+    "from": "/appliance/proxy-updater",
+    "to": "/appliance"
+  },
+  {
+    "from": "/appliance/update",
+    "to": "/appliance"
   }
 ]
