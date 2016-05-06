@@ -22,6 +22,7 @@ alias:
 
 ## AngularJS Tutorial
 
+
 This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.
 
 <%= include('../_includes/_package', {
@@ -149,7 +150,6 @@ Now configure Auth0's credentials with the `init()` method:
 
 ${snippet(meta.snippets.setup)}
 
-
 The `loginUrl` is the URL to be redirected to if authentication is not successful.
 
 You need to attach all Auth0 events once Angular is ready inside the `run()` method:
@@ -196,7 +196,7 @@ $httpProvider.interceptors.push('jwtInterceptor');
 
 With just that little bit of code, Angular will now attach the JWT token to any $http call created within your Angular application.
 
-####Step 3: Login and Logout
+#### Step 3: Login and Logout
 
 You have successfully configured you Angular App to use Auth0. Configs are vital but won't run an app, right? Let's add a login functionality:
 
@@ -212,7 +212,7 @@ app.controller( 'LoginCtrl', function ( $scope, auth) {
 ```markup
 <a href="#" ng-click="auth.signin()">Sign In</a>
 ```
-IMAGE HERE (The lock screen image)
+${browser}
 
  At this point, the lock widget will pop up showing a Sign In form,  when you click the `Sign In` button. You can change this behavior and make it show the Sign Up form:
 
@@ -314,11 +314,12 @@ app.run(function($rootScope, auth, store, jwtHelper, $location) {
       }
     }
   });
-})
+});
 ```
 Angular's `run()` has become handy here. The `run()` method is called every time angular is instantiated therefore giving us the power to restore the state of our application with the data in our stores (`localStorage` or `cookies`).
 
 The logic just checks for an available token that is yet to expire and then re-authenticates the user. If not, the user is sent back to the login page.
+
 
 ### Conclusion
 
