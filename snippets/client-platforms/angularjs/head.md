@@ -13,4 +13,9 @@
 <script src="http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js" type="text/javascript"> </script>
 <!-- Angular wrapper library for JWT-->
 <script src="http://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js" type="text/javascript"> </script>
+<!-- Your angular app-->
+<script src="app.js" type="text/javascript"> </script>
+
+<!-- Viewport settings-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
