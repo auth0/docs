@@ -13,8 +13,10 @@ The following table describes operational and feature differences between each o
     <thead>
         <tr>
             <th>Where It Runs</th>
-            <th rowspan="2">Auth0's Infrastructure</th>
-            <th rowspan="2">Customer's Infrastructure</th>
+            <th>Auth0's Infrastructure</th>
+            <th></th>
+            <th>Customer's Infrastructure</th>
+            <th></th>
         </tr>
         <tr>
             <th>How It Runs</th>
@@ -62,45 +64,52 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Support Channels & Levels</th>
-            <td rowspan="4">Same across all models</td>
+            <td>Same across all models</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <th rowspan="5">Features</th>
+            <th>Features</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <th>SSO Lifetime</th>
-            <th></td>
-            <th></td>
-            <th></td>
-            <th></td>
+            <td>Default Settings</td>
+            <td>Configurable</td>
+            <td>Configurable</td>
+            <td>Configurable</td>
         </tr>
         <tr>
             <th>Search</th>
-            <th></td>
-            <th></td>
-            <th></td>
-            <th></td>
+            <td>Elastic Search</td>
+            <td>DB-based</td>
+            <td>DB-based</td>
+            <td>DB-based</td>
         </tr>
         <tr>
             <th>Code Sandbox</th>
-            <th></td>
-            <th></td>
-            <th></td>
-            <th></td>
+            <td>Multi-Language</td>
+            <td>JS Only</td>
+            <td>JS Only</td>
+            <td>JS Only</td>
         </tr>
         <tr>
             <th>Connecting IP Address Filtering Restrictions</th>
-            <th></td>
-            <th></td>
-            <th></td>
-            <th></td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
         </tr>
         <tr>
             <th>Custom Domains</th>
-            <th></td>
-            <th></td>
-            <th></td>
-            <th></td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td>Yes</td>
         </tr>
     </tbody>
 </table>
