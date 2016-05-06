@@ -19,8 +19,8 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Bower 1.7.7
-* NodeJS 5.6
-* Ember 2.1.0
+* NodeJS 5.11.0
+* Ember 2.5.0
 * jQuery 1.11.3
 * Ember Simple Auth 1.0.0
 :::
@@ -47,8 +47,7 @@ To install this add-on and its dependencies, `cd` to your project directory and 
 
 ```
 ember install ember-simple-auth
-npm install --save git+https://git@github.com/auth0/auth0-ember-simple-auth.git
-ember g auth0-ember-simple-auth
+ember install auth0/auth0-ember-simple-auth
 ember generate scaffold-auth0
 ```
 
