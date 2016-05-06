@@ -1,6 +1,12 @@
+---
+description: This page lists the API features that are only available in API v1.
+---
+
 # API v1 Use Cases
 
-Currently, there are certain features and functionality that are only available in Management APIv1. If your business process/configuration requires the use of any of these features, please consider continuing with APIv1 for the time being.
+Currently, there are API features and functionality that are only available in the [Management API v1](/api/v1). If your business process or configuration requires these features, please continue to use the API v1.
+
+The features only available in API v1 include:
 
 * [Active Directory Connector Monitoring](#active-directory-connector-monitoring)
 * [Client Users](#client-users)
@@ -11,28 +17,47 @@ Currently, there are certain features and functionality that are only available 
 
 ## Active Directory Connector Monitoring
 
-In APIv1, there is a `GET` endpoint that allows you to monitor the status of your Active Directory Connector:
+In API v1, there is a `GET` endpoint that allows you to monitor the status of your Active Directory Connector:
 
-`/api/connections/{AUTH0_CONNECTION}/socket`
+GET `/api/connections/{AUTH0_CONNECTION}/socket`
 
 ## Client Users
 
-With APIv1, after authenticating with the `client_id` and the `client_secret` of an application, you may make a `GET` call to the [appropriate Users endpoint](https://auth0.com/docs/api/v1#!#get--api-clients--client-id--users) to return only those users that belong to a Connection enabled on that application.
+With API v1, after authenticating with the `client_id` and `client_secret` of an application, you can make a `GET` call to the appropriate Users endpoint to return only those users that belong to any specified client connection that is enabled for that application.
+
+[`/api/clients/{client-id}/users`](/api/v1#!#get--api-clients--client-id--users)
 
 ## Email
 
-In APIv1, as part of your automation process, you may use the `PATCH` email endpoint to update email templates.
+With API v1, you can use the `PATCH` email endpoint to update email templates as part of your automation process.
+
+[`/api/emails/{email-template-name}`](/api/v1#put--api-emails--email-template-name-)
 
 ## Enterprise Users/Directory Searching
 
-APIv1 allows you to search directly for users authenticating using Enterprise connections, such as Active Directory or Azure Active Directory.
+API v1 allows you to search directly for users authenticated using enterprise connections, such as Active Directory or Azure Active Directory.
+
+* All users from a specific directory:
+[`/api/connections/{connection}/users`](/api/v1#get--api-connections--connection--users)
+
+* Specific users from a given directory:
+[`/api/connections/{connection}/users?search={criteria}`](/api/v1#get--api-connections--connection--users-search--criteria-)
+
+* All users from all enterprise directories: 
+GET `/api/enterpriseconnections/users?search={criteria}`
 
 ## Impersonation
 
-APIv1 possesses an [Impersonation endpoint](https://auth0.com/docs/auth-api#impersonation) that generates a link that can be used once to log in as a specific user (generally for troubleshooting purposes).
+API v1 includes an impersonation endpoint that generates a link that can be used only once to log in as a specific user for troubleshooting purposes.
+
+[`/users/{user_id}/impersonate`](/auth-api#impersonation)
 
 ## Searching via the Auth0 Appliance
 
-In APIv1, you could perform a ["starts with" search for users by name or email](https://auth0.com/docs/api/v1#!#get--api-users-search--criteria-). This functionality works in both cloud instances, as well as the Auth0 appliance.
+In API v1, you can perform a "starts with" search for users by name or email:
 
-With APIv2, the search operates with reduced functionality and does not currently support Lucene syntax.
+[`/api/users?search={criteria}`](/api/v1#!#get--api-users-search--criteria-).
+
+This functionality works for both cloud instances and the Auth0 appliance.
+
+In API v2, the search operates with reduced functionality and does not currently support the Lucene query syntax.

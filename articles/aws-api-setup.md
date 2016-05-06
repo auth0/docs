@@ -97,7 +97,7 @@ In this example, you will create a policy that grants full access to the S3 reso
 
   ![](/media/articles/aws-api-setup/aws-api-setup-13.png)
 
-2. From the summary page of the identity provider you created previously, copy the **Provider ARN** value. You will use this value as the **Principal ARN** when calling the `/delegation` endpoint in Auth0.
+2. From the summary page of the identity provider you created previously, copy the **Provider ARN** value. You will use this value as the **Principal ARN** in the [Rule you will build to be used in conjunction with the call to Auth0's `/delegation` endpoint](/integrations/aws#get-the-aws-token-for-an-authenticated-user).
 
   ![](/media/articles/aws-api-setup/aws-api-setup-14.png)
 

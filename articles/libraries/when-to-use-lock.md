@@ -1,122 +1,132 @@
-# Using Lock vs. Custom UI
+---
+description: When adding Auth0 to your apps, you have the option to implement either the Lock login widget, or a custom UI. This page will help you choose.
+---
 
-When adding Auth0 to your app, you have the option of:
+# Lock vs. a Custom UI
 
-* Using [Lock](/libraries/lock);
-* Using a custom user interface that you have created in conjunction with the [auth0.js](libraries/auth0js) library or the [Authentication API](https://auth0.com/docs/auth-api).
+When adding Auth0 to your apps, you have the option to implement either:
 
-**Lock** is a drop-in authentication widget that provides a standard set of behavior and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but provides near limitless customization in terms of behavior and appearance. The **Authentication API** provides integration without requiring the use of any Auth0 libraries. Whichever option you choose depends on the needs of your app.
+* [Lock](/libraries/lock)
+* A custom user interface that you have created in conjunction with the [auth0.js](libraries/auth0js) library or the [Authentication API](/auth-api)
 
-## When to Use Lock vs. a Custom UI
+**Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but allows for expanded customization of the behavior and appearance of the login. The **Authentication API** provides integration without requiring the use of Auth0 libraries. The best option to choose will depend on the needs of your app.
+
+### When to Implement Lock vs. a Custom UI
 
 <table class="table">
     <thead>
         <tr>
-            <th><i></i></th>
+            <th align="left"><b>Desired UI Attributes:</b></th>
             <th>Lock</th>
-            <th>Custom UI</th>
+            <th>Custom&nbsp;UI</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>Possesses the structure, look, and feel of Lock.</td>
-            <td>X</td>
-            <td></td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
             <td>Has a simple design that fits in with most modern websites with just a few tweaks to its custom color.</td>
-            <td>X</td>
-            <td></td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
-            <td>Adapts to your configuration and only show the allowable options in the correct situations.</td>
-            <td>X</td>
-            <td></td>
+            <td>Adapts to your configuration and only show the allowable options in the appropriate situations.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
-            <td>Chooses the correct Connection automatically.</td>
-            <td>X</td>
-            <td></td>
+            <td>Chooses the correct connection automatically.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
-            <td>Remembers the last used Connection for a given user.</td>
-            <td>X</td>
-            <td></td>
+            <td>Remembers the last used connection for a given user.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
             <td>Automatically accommodates internationalization.</td>
-            <td>X</td>
-            <td></td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
-            <td>Automatically provides password policy checking during sign up.</td>
-            <td>X</td>
-            <td></td>
+            <td>Automatically provides a password policy checking at sign up.</td>
+            <td class="success" align="center">Yes</td>
+            <td class="danger" align="center">No</td>
         </tr>
         <tr>
-            <td>Follows strict requirements set by your company in terms of appearance.</td>
-            <td></td>
-            <td>X</td>
+            <td>Follows strict appearance requirements as set by your company.</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
         </tr>
         <tr>
             <td>Allows for expert usage of HTML, CSS, and JavaScript.</td>
-            <td></td>
-            <td>X</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
         </tr>
         <tr>
-            <td>Adapts to a simpler business process of just a few use cases (e.g. username/password and social provider authentication).</td>
-            <td></td>
-            <td>X</td>
+            <td>Adapts to a simpler process for username/password and social provider authentication.</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
         </tr>
         <tr>
             <td>Handles multiple database or Active Directory Connections.</td>
-            <td></td>
-            <td>X</td>
+            <td class="danger" align="center">No</td>
+            <td class="success" align="center">Yes</td>
         </tr>
     </tbody>
 </table>
 
 ## Lock
 
-![](/media/articles/lock-vs-customui/lock.png)
+**Lock** is an embeddable login form that makes it easy for your users to authenticate using a selected connection. **Lock** will automatically handle most of the details involved in creating and authenticating users.
 
-**Lock** is an embeddable login form that makes it easy for your users to authenticate themselves using the appropriate Connection. Lock will automatically handle most of the details involved with creating and authenticating users for you. You will also have a user interface that:
+![](/media/articles/libraries/lock-vs-customui/lock.png)
+
+With **Lock**, you will be implementing a UI that:
 
 * Is robust and provides an excellent user experience on any device with any resolution;
-* Has a simple design that fits in with most modern websites with just a few tweaks to its custom color;
-* Adapts to whatever your configuration is. It displays the correct forms controls for each available Connection and only those that are allowable (such as sign up or password reset);
-* Chooses the correct Connection automatically. In cases of ambiguity, you may set the desired default behavior;
-* Remembers the last used Connection for any given user;
+* Has a simple design that fits in with most websites with just a few tweaks to its custom color;
+* Adapts to your configuration, displaying the appropriate form controls for each available connection and only those which are allowed (such as sign up or password reset);
+* Selects the correct connection automatically. You may specify a desired default behavior for ambiguous cases;
+* Remembers the last used connection for a given user;
 * Automatically accommodates internationalization;
-* Provides instant password policy checking during sign up.
+* Provides instant password policy checking at sign up.
 
-While you cannot change Lock's behavior, you may [configure basic options](https://auth0.com/docs/libraries/lock/customization) regarding Lock and its usage on your app. You may also [customize its appearance](https://auth0.com/docs/libraries/lock/ui-customization).
+Although you cannot alter Lock's behavior, you can configure several [basic options](/libraries/lock/customization). You can also [customize its appearance](/libraries/lock/ui-customization).
 
 ### When to Use Lock
 
-You should consider using Lock for your app(s) if:
+Consider using **Lock** if:
 
-* You are okay with adopting the structure, look, and feel of Lock;
-* You would like a quick solution with low turn-around time in terms of implementation;
-* Your business process includes many of the use cases that Lock provides out of the box: Enterprise logins, database with password policies, signup and password reset, authentication using social providers, and the usage of avatars;
-* You want a login box that can be consistently reused in multiple areas.
+* You like structure, look, and feel of **Lock**;
+* You prefer an easier implementation;
+* Your process includes many of the use cases that **Lock** handles out of the box, such as Enterprise logins, databases with password policies, sign up and password reset, authentication with social providers, and avatars;
+* You want a login form that can be reused in multiple areas.
 
-## Custom User Interfaces
+## Custom User Interface
 
-![](/media/articles/lock-vs-customui/customui.png)
+If the requirements of your app cannot be met by the standardized behavior of **Lock**, or if you have a complex custom authentication process, a custom user interface is needed.
 
-The **auth0.js** library and the **Authentication API** allow you to implement a customized process to trigger the signup/authentication process and handle the response. You are free to customize the behavior and flow of your process, so if your business needs aren't met by the standardized **Lock** behavior or if you have a complex custom process, this option would be a better fit.
+With the **auth0.js** library or the **Authentication API**, you can customize the behavior and flow of the process used to trigger sign up and authentication.
 
-Unlike **Lock**, neither of these options includes a user interface. As such, you have complete control over the implementation of the user experience for authentication/signup flow, UI-related aspects such as layout, look and feel, branding, internationalization, RTL support, and so on.
+![](/media/articles/libraries/lock-vs-customui/customui.png)
 
-You should consider using a custom user interface in conjunction with the auth0.js library or the Authentication API for your app(s) if:
+Unlike with **Lock**, neither of these options includes a user interface. You will have complete control over the user experience for sign up and authentication flow, and for the UI aspects of layout, look and feel, branding, internationalization, RTL support, and more.
 
-* You have strict requirements for how the user interface should appear;
+### When to Use a Custom User Interface
+
+Consider implementing a custom user interface in conjunction with the **auth0.js** library or the **Authentication API** for your app if:
+
+* You have strict requirements for the appearance of the user interface;
 * You are comfortable with HTML, CSS, and JavaScript;
-* Your business process includes just a few use cases (for example, you only need to handle username/password and social provider authentication);
+* You only need to handle username/password and social provider authentication;
 * You have multiple database or Active Directory Connections.
 
 ## See also
 
-* [SSO](/sso/single-sign-on)
-* [SSO with username/password](/sso/sso-username-password)
+* [What is SSO](/sso/single-sign-on)
+* [Single Sign On with username/password logins](/sso/sso-username-password)

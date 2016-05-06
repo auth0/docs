@@ -36,7 +36,8 @@ At this point you have authenticated with Auth0, and you have an OpenId JWT. Her
 
 You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway).
 
-Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Modify the `role` and `principal` strings in the `getOptionsForRole` function for `auth0-api-role` to contain your actual account id value. Note that you are treating any user not logged in using a social connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
+Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a social connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
+
 
 ```js
 auth.signin(params, function(profile, token) {
@@ -59,6 +60,24 @@ auth.getToken(options)
 }, function(error) {
   console.log("There was an error logging in", error);
 });
+```
+
+To modify the `role` and `principal` strings, specify the appropriate values via [Rules](https://manage.auth0.com/#/rules):
+
+```js
+function (user, context, callback) {
+  if (context.clientID === 'CLIENT_ID' &&
+      context.protocol === 'delegation') {
+    // set AWS settings
+    context.addonConfiguration = context.addonConfiguration || {};
+    context.addonConfiguration.aws = context.addonConfiguration.aws || {};
+    context.addonConfiguration.aws.principal = 'arn:aws:iam::[omitted]:saml-provider/auth0-provider';
+    context.addonConfiguration.aws.role = 'arn:aws:iam::[omitted]:role/auth0-role';
+  }
+
+  callback(null, user, context);
+}
+
 ```
 
 Copy the updated files to your S3 bucket for your web site. Optionally set a breakpoint in the browser at `          store.set('awstoken', delegation.Credentials);`. Log out and back in, then inspect `delegation.Credentials` when you hit the breakpoint. You will see a familiar values like *AccessKeyId* and *SecretAccessKey* if you've accessed AWS APIs programmatically before (if you don't then make sure you have the *AWS* enabled in the *Addons* tab for your Auth0 application):
