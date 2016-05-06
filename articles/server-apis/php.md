@@ -17,7 +17,7 @@ snippets:
 
 ## PHP API Tutorial
 
-::: Panel-info System Requirements​
+::: panel-info System Requirements​
 This tutorial and seed project have been tested with the following:
 * PHP 5.6.14
 * Composer 1.0-dev

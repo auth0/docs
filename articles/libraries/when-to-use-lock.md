@@ -7,7 +7,7 @@ description: When adding Auth0 to your apps, you have the option to implement ei
 When adding Auth0 to your apps, you have the option to implement either:
 
 * [Lock](/libraries/lock)
-* A custom user interface that you have created in conjunction with the [auth0.js](libraries/auth0js) library or the [Authentication API](/auth-api)
+* A custom user interface that you have created in conjunction with the [auth0.js](/libraries/auth0js) library or the [Authentication API](/auth-api)
 
 **Lock** is a drop-in authentication widget that provides a standard set of behaviors and a customizable user interface. **Auth0.js** is a client-side library that *does not* come with a user interface but allows for expanded customization of the behavior and appearance of the login. The **Authentication API** provides integration without requiring the use of Auth0 libraries. The best option to choose will depend on the needs of your app.
 
