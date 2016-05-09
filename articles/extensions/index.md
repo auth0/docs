@@ -27,6 +27,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Auth0 Authentication API Webhooks](/extensions/authentication-api-webhooks): webhooks definition for the Auth0 Authentication API; goes through the audit logs and calls the appropriate webhook for specific events
 - [Auth0 Logs to Loggly](/extensions/loggly): exports Auth0 logs to Loggly
 - [Auth0 Logs to Papertrail](/extensions/papertrail): exports Auth0 logs to Papertrail
+- [Auth0 Users Import / Export](/extensions/user-import-export): import or export users.
 
 ## Creating Your Own Extension
 
