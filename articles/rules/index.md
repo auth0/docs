@@ -11,7 +11,7 @@ url: /rules
 * **Step 1:** An app initiates an authentication request to Auth0.
 * **Step 2:** Auth0 routes the request to an Identity Provider through a configured connection.
 * **Step 3:** The user authenticates successfully.
-* **Step 4:** The `user` object representing the logged in user is passed through the Rules pipeline and returned to the app.
+* **Step 4:** The `user` object representing the logged in user is passed through the Rules pipeline, and returned to the app.
 
 Among many possibilities, Rules can be used to:
 
@@ -19,7 +19,8 @@ Among many possibilities, Rules can be used to:
 * Create __authorization rules__ based on complex logic (anything that can be written in JavaScript).
 * __Normalize attributes__ from different providers beyond what is provided by Auth0.
 * Reuse information from existing databases or APIs for migration scenarios.
-* Keep a white-list of users and deny access based on email.
+* Keep a __white-list of users__ and deny access based on email.
+* __Notify__ other systems through an API when a login happens in real-time.
 * Enable counters or persist other information. (For information on storing user data, see: [Metadata in Rules](/rules/metadata-in-rules).)
 * Enable __multifactor__ authentication, based on context (e.g. last login, IP address of the user, location, etc.).
 
@@ -29,11 +30,11 @@ Among many possibilities, Rules can be used to:
 
 A Rule is a function with the following arguments:
 
-* `user`: The user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure).)
-* `context`: An object containing contextual information of the current authentication transaction. (For a complete list of context properties, see: [Context Argument Properties in Rules](/rules/context).)
-* `callback`: Sends the modified `user` and `context` back to Auth0.
+* `user`: the user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure).)
+* `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
+* `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
-**NOTE:** Because of the async nature of *node.js*, it is important to include the `callback` argument, or else the script will timeout.
+**NOTE:** Because of the async nature of *node.js*, it is important to always call the `callback` function, or else the script will timeout.
 
 ## Examples
 
@@ -51,7 +52,7 @@ function (user, context, callback) {
 }
 ```
 
-**NOTE:** You can add `console.log` lines for [debugging](#debugging).
+> **NOTE:** You can add `console.log` lines for [debugging](#debugging) or use the **Real-time Webtask Logs** Extension.
 
 ### Add roles to a user
 
@@ -107,6 +108,8 @@ After the rule executes, the output that the application will receive is the fol
 }
 ```
 
+> Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 API.
+
 ### Deny access based on a condition
 
 In addition to adding and removing properties from the user object, you can return an *access denied* error.
@@ -123,17 +126,21 @@ function (user, context, callback) {
 
 This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`)
 
+> Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`. 
+
 ## Debugging
 
 You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${uiURL}/#/rules/create)  provides two ways for seeing the output:
 
 ![](/media/articles/rules/rule-editor.png)
 
-1. **TRY THIS RULE**: Opens a pop-up where you can edit the **user** and **context** arguments Click **TRY** to see the Rule execution result, as well as the `console.log` output.
+1. **TRY THIS RULE**: opens a pop-up where you can run a rule in isolation. The tool provides a mock **user** and **context** objects. Clicking **TRY** will result on the the Rule being run with those two objects as input. `console.log` output will be displayed too.
 
-  ![](/media/articles/rules/try-rule.png)
+![](/media/articles/rules/try-rule.png)
 
-2. **DEBUG RULE**: Displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
+2. **REALTIME LOGS**: an [extension](${uiURL}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
+
+3. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
   For example:
 
@@ -147,6 +154,39 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
   ```
 
   This debugging method works for rules tried from the dashboard and those actually running during user authentication.
+
+## Caching expensive resources
+
+The code sandbox Rules run on allows storing _expensive_ resources that will survive individual execution. 
+
+This example, shows how to use the `global` object to keep a mongodb connection:
+
+```js
+  
+  ...
+
+  //If the db object is there, use it.
+  if(!global.db){
+    return query(global.db,callback); 
+  }
+
+  //If not, get the db (mongodb in this case)
+  mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
+    global.db = db;
+    return query(db,callback);
+  });
+
+  //Do the actual work
+  function query(db,cb){
+    //Do something with db
+    ...
+  });  
+  
+  ...
+
+```
+
+Notice that the code sandbox in which Rules run on, can be recycled at any time. So your code __must__ always check `global` to contain what you expect.
 
 ## Available modules
 
