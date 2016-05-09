@@ -12,9 +12,11 @@ The following table describes operational and feature differences between each o
 <table class="table">
     <thead>
         <tr>
-            <th>Where It Runs</th>
-            <th rowspan="2">Auth0's Infrastructure</th>
-            <th rowspan="2">Customer's Infrastructure</th>
+            <th class="info">Where It Runs</th>
+            <th class="info">Auth0's Infrastructure</th>
+            <th class="info"></th>
+            <th class="info">Customer's Infrastructure</th>
+            <th class="info"></th>
         </tr>
         <tr>
             <th>How It Runs</th>
@@ -62,10 +64,17 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Support Channels & Levels</th>
-            <td rowspan="4">Same across all models</td>
+            <td>Same across all models</td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
-            <th rowspan="5">Features</th>
+            <th class="info">Features</th>
+            <td class="info"></td>
+            <td class="info"></td>
+            <td class="info"></td>
+            <td class="info"></td>
         </tr>
         <tr>
             <th>SSO Lifetime</th>
