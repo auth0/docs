@@ -39,7 +39,7 @@ On mobile:
 
 Sign-up errors will return a 400 HTTP status code. The response JSON will contain a `code: invalid_password` when the password does not meet the password policy criteria.
 
-The response also has additional information that can be used to guide the user intp what is wrong with the selected password:
+The response also has additional information that can be used to guide the user to what is wrong with the selected password:
 
 * A `message` is ready to be formated using the `printf` function (or Node.js `util.format`).
 * `format` is an array with values to be used in the `message`. (We separate the `message` from the `format` to allow easier i18n of this error messages in custom UIs.
