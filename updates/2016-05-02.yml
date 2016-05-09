@@ -6,8 +6,9 @@ added:
       - angularjs
     description: |
         Beginning of Angular SDK Quickstart. Step 1 which is Setup and Login has been created.
--
+  -
     title: "Added update client_secret doc"
     tags: client_secret
     description: |
       Added a new doc on how to [update a client_secret](https://auth0.com/docs/update-client-secret)
+
