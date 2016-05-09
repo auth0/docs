@@ -3,6 +3,7 @@ name: Register an application
 description: "In this video, you'll learn how to register a new application in Auth0 and how to configure it."
 timeInSeconds: 241
 videoId: rinlyqb8po
+public: false
 ---
 In this screencast we’ll learn how to register an application in Auth0, a simple process that can be completed in a matter of minutes.
 

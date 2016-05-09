@@ -2,7 +2,7 @@
 video:
   series: main
   video: intro
-
+public: false
 series:
   - main
   - creating-your-first-app

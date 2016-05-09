@@ -1,16 +1,17 @@
 ---
 description: "What we can expect in the security world during this year"
-fourKeyConcepts: 
-  - 
+sitemap: false
+fourKeyConcepts:
+  -
     icon: css-class-bud-icon
     text: "What are our top predictions for security in 2016?"
-  - 
+  -
     icon: css-class-bud-icon
     text: "Are IoT devices secure?"
-  - 
+  -
     icon: css-class-bud-icon
     text: "Will Cyber Extortion continue growing?"
-  - 
+  -
     icon: css-class-bud-icon
     text: "How Machine Learning will help security?"
 hash: top-5-security-trends-for-2016
@@ -51,7 +52,7 @@ In the next year, more companies will acknowledge this threat and take action to
 ![Mobile Devies](/media/articles/email-wall/security-buzz/top-5-security-trends/mobile.png)
 
 ## 3 - Cyber Extortion
-The old criminal methods will continue to evolve to the virtual world. The past few years have seen an increase in reported cases of **cyber extortion** (while many remain unreported), according to the [NYA Cyber Extortion Risk Report](http://www.nyainternational.com/sites/default/files/nya-publications/151027_Cyber_Extortion_Risk_Report_2015_0.pdf). 
+The old criminal methods will continue to evolve to the virtual world. The past few years have seen an increase in reported cases of **cyber extortion** (while many remain unreported), according to the [NYA Cyber Extortion Risk Report](http://www.nyainternational.com/sites/default/files/nya-publications/151027_Cyber_Extortion_Risk_Report_2015_0.pdf).
 
 Extortion is any kind of payment demanded in exchange for not causing harm, or threatening to cause you harm. It includes **Denial of Service (DoS)**, **Stealing confidential data**,  **Sexortion**, and **Ransomware**, a type of malicious software that infects a victim’s computer and encrypts its data and/or locks the computer until it is released by your payment.
 

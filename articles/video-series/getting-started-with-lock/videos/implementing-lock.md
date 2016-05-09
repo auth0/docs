@@ -3,6 +3,7 @@ name: "Getting Started with Lock 1-- Implementing Lock"
 description: "This screencast shows how you can get started with Lock by implementing it in a web application."
 timeInSeconds: 233
 videoId: 3xs95vuwtb
+public: false
 ---
 
 This tutorial covers implementing Lock in a web application.
@@ -49,7 +50,7 @@ The first argument is the options object. We'll go into detail on more options i
 * Redirect mode: this mode *is the recommended usage*, and used for regular web apps that use typical navigation
 * Popup mode: this mode is specifically designed for single-page applications, and uses tokens instead of redirects
 
-To set redirect mode, we set `callbackURL` to our server's `users/authenticate` route. 
+To set redirect mode, we set `callbackURL` to our server's `users/authenticate` route.
 
 We also send `rememberLastLogin` as `false` -- this prevents Lock from prompting us with the last user to log in.
 

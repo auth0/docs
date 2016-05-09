@@ -3,6 +3,7 @@ name: Setup a Social Connection
 description: "In this video, you'll learn how you can configure any Social Identity Provider with Auth0."
 timeInSeconds: 177
 videoId: k3j81ck3nl
+public: false
 ---
 In this video, we’ll setup your first social connection.  You can see the full list of social connections available for you to use, by clicking ‘Connections’ and then ‘Social’ in the navigation menu
 
@@ -34,6 +35,3 @@ Now if we close this window, and return to the dashboard, we see that our accoun
 
 
 Stay tuned for the next screencast where we’ll show you how to setup a User & Password connection
-
-
-

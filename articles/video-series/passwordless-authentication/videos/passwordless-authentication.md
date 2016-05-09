@@ -3,6 +3,7 @@ name: "Setting up Passwordless Authentication using the Auth0 Dashboard"
 description: "This screencast show users how to configure, from the Auth0 dashboard, many types of passwordless authentication, that can then be used with libraries like lock-passwordless"
 timeInSeconds: 334
 videoId: l8y4pxqehs
+public: false
 ---
 Hi, this is Kassandra with Auth0, and what we're going to do today is talk about passwordless authentication and show you how to configure that via the Auth0 Dashboard.
 
@@ -20,7 +21,7 @@ We'll start by implementing email. Click the toggle switch next to email, and if
 
 The body already has a very nice template pre-populated for you-- but of course this is customizable and users should feel free to edit this template as they see fit.
 
-Next, the ‘Authentication Parameters’ field-- you can use this with the Magic Link setting to add query parameters to your generated link. 
+Next, the ‘Authentication Parameters’ field-- you can use this with the Magic Link setting to add query parameters to your generated link.
 
 You can set Token Time to Live and length with ‘OTP Expiry’ field (configured in seconds) and the ‘OTP length’ field. You can also disable signups using passwordless authentication by toggling the 'Disable Signups' slider.
 
@@ -36,6 +37,6 @@ After you're done configuring SMS, you'll want to navigate to the 'Apps' tab by 
 
 Then, navigate to the 'Try' tab. You can enter a phone number here in order to test your new SMS configuration, and hit 'Try'. You should receive a test SMS message shortly.
 
-Finally, let's talk about enable TouchID login from the dashboard. Click the toggle switch next to TouchID to turn it on, then click 'TouchID' to view the TouchID window. However, there aren't any settings for TouchID-- this is because all of the configuration for TouchID is done inside your native iOS application; you only need to turn it on in the dashboard. However, we do provide [a link to the Swift tutorial for enabling TouchID](https://auth0.com/docs/connections/passwordless/ios-touch-id-swift) right inside the window. 
+Finally, let's talk about enable TouchID login from the dashboard. Click the toggle switch next to TouchID to turn it on, then click 'TouchID' to view the TouchID window. However, there aren't any settings for TouchID-- this is because all of the configuration for TouchID is done inside your native iOS application; you only need to turn it on in the dashboard. However, we do provide [a link to the Swift tutorial for enabling TouchID](https://auth0.com/docs/connections/passwordless/ios-touch-id-swift) right inside the window.
 
 So that's our tutorial for Passwordless Authentication. If you have any further questions, please feel free to [contact me](mailto:kassandra.perch@auth0.com) or [read even more in the Documentation](https://auth0.com/docs/connections/passwordless).

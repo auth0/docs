@@ -1,16 +1,16 @@
 ---
 description: "Explore a specific example of a complex, multi-party authentication flow and learn how Auth0 makes it simple."
-fourKeyConcepts: 
-  - 
+fourKeyConcepts:
+  -
     icon: css-class-bud-icon
     text: "The Problem: What Makes Multi-Party App Authentication So Tricky?"
-  - 
+  -
     icon: css-class-bud-icon
     text: "The Solution: Auth0 Redirect Rules"
-  - 
+  -
     icon: css-class-bud-icon
     text: "The Details: Walking Through a Specific Multi-Party Example"
-  - 
+  -
     icon: css-class-bud-icon
     text: "The Result: Fast, Flexible Implementation In Just A Few Dozen Lines Of Code"
 hash: multiparty-authentication
@@ -58,7 +58,7 @@ What if you asked the user to save their RoomSMart name and password in the Lodg
 
 So how can you gain only the access you require to RoomSMart on behalf of the user, without holding their RoomSMart credentials, and while authenticating using only the user’s enterprise account?
 
-![Auth0 Rules Pipeline](/media/articles/email-wall/use-cases/multi-party-auth-flow/Auth0RulesOverview.png) 
+![Auth0 Rules Pipeline](/media/articles/email-wall/use-cases/multi-party-auth-flow/Auth0RulesOverview.png)
 
 **Figure 1: Auth0 Rules Pipeline**
 
@@ -70,7 +70,7 @@ Auth0 includes a powerful feature - authentication pipeline rules - that let you
 
 **Figure 2: Example Multi-Party Authentication Workflow**
 
-Auth0’s redirect rules let you interrupt the authentication pipeline to call out to any service. You’re not limited to code you’ve written in your application. With this powerful capability, you can leverage the web API ecosystem, or build custom integrations to enterprise applications. 
+Auth0’s redirect rules let you interrupt the authentication pipeline to call out to any service. You’re not limited to code you’ve written in your application. With this powerful capability, you can leverage the web API ecosystem, or build custom integrations to enterprise applications.
 
 Check out Auth0’s comprehensive [documentation and examples](https://auth0.com/docs/rules/redirect) for more on how to implement redirect rules, and take a look at Appendix A to see a prototype of a rule that implements this specific use case.
 
@@ -99,28 +99,28 @@ function (user, context, callback) {
 
   var CLIENT_ID = '123456';
   var CLIENT_SECRET = 'ABCDEFG';
-  
+
   // Redirect to the RoomSMart web application to ask for consent.
   if (context.protocol !== 'redirect-callback') {
     var REDIRECT_TO = 'https://roomsmart.com';
     var REDIRECT_PATH = '/oauth2/authorize?client_id=' + CLIENT_ID +
         '&redirect_uri=http://lodgingpicks.auth0.com/continue&response_type=code' +
         '&scope=offline_access%20read_account';
-    
+
     context.redirect = {
       url: REDIRECT_TO + REDIRECT_PATH
     };
 
-    return callback(null, user, context);  
-  } 
+    return callback(null, user, context);
+  }
   // We are redirected back.
   else {
-    
+
     // No consent given.
     if (context.request.query.error) {
-       return callback(new UnauthorizedError(context.request.query.error_description)); 
+       return callback(new UnauthorizedError(context.request.query.error_description));
     }
-    
+
     // Consent given, exchange the authorization code for tokens
     var token_request = {
       body: 'grant_type=authorization_code' +
@@ -130,22 +130,22 @@ function (user, context, callback) {
         '&code=' + context.request.query.code
     };
     request.post('https://roomsmart.com/oauth2/token', token_request, function(err, res, body) {
-      if (err) { 
+      if (err) {
         return callback(err);
       }
-      
+
       var token_response = JSON.parse(body);
       if (!token_response.refresh_token) {
-        return callback(new UnauthorizedError('Refresh token is missing')); 
+        return callback(new UnauthorizedError('Refresh token is missing'));
       }
-      
+
       // Encrypt the refresh token.
       user.app_metadata.encrypted_roomsmart_refresh_token = encrypt(token_response.refresh_token);
 
       // Store it in the user's profile.
       auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
       .then(function() {
-        
+
         // Continue the authentication transaction.
         callback(null, user, context);
       })
@@ -165,4 +165,3 @@ function (user, context, callback) {
   }
 }
 ```
-

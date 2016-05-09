@@ -3,6 +3,7 @@ name: "Getting Started with Lock 3-- Redirect vs Popup mode"
 description: "This screencast shows the two modes Lock has, and how to implement them."
 timeInSeconds: 449
 videoId: ezt4g1ho7m
+public: false
 ---
 
 In this episode, we're going to talk about the two mode Lock has of interacting: redirect mode and popup mode. We'll also talk about how to implement these modes in regular webapps and single-page applications.
@@ -47,11 +48,11 @@ lock.show({}, function(err, profile, id_token){
   $('#login').hide();
   $('#logout').show();
   $('.username').html(', ' + profile.nickname + '!');
-  $('.user-avatar').attr('src', profile.picture);   
+  $('.user-avatar').attr('src', profile.picture);
 });
 ```
 
-This callback recieves an error `err` (`null` if successful), a `profile` object representing our logged-in user, and an `id_token`: this is the JWT that will authenticate your user, and is useful if you will be making calls to APIs that you protect with JWT authentication. You can then modify the DOM, or your application state, or whatever you need with the profile information. 
+This callback recieves an error `err` (`null` if successful), a `profile` object representing our logged-in user, and an `id_token`: this is the JWT that will authenticate your user, and is useful if you will be making calls to APIs that you protect with JWT authentication. You can then modify the DOM, or your application state, or whatever you need with the profile information.
 
 **Please remember that redirect mode is the recommended use of Lock [due to browser compatibility issues](https://auth0.com/docs/libraries/lock/authentication-modes#popup-mode). Please only use popup mode if you must.**
 

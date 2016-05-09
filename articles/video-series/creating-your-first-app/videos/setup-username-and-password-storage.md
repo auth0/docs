@@ -3,6 +3,7 @@ name: Setup Username and Password authentication
 description: "In this video you'll learn how you can configure a Username and Password authentication with users stored in Auth0's database"
 timeInSeconds: 154
 videoId: n4rcb97mkd
+public: false
 ---
 In this screencast we’ll look at how to setup User and password based connections in Auth0.
 There's 2 general ways of storing users and passwords:

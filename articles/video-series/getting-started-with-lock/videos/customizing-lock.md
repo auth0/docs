@@ -3,6 +3,7 @@ name: "Getting Started with Lock 2-- Customizing Lock"
 description: "This screencast shows how you can get started customizing Lock with the JS library options."
 timeInSeconds: 265
 videoId: bcdrrfc8eb
+public: false
 ---
 
 Hi, this is Kassandra with Auth0. In [the first episode of our new Getting Started with Lock screencast](https://auth0.com/blog/2016/02/05/getting-started-with-auth0-lock-series-implementing-lock/), we talked about how to implement Lock. Today, we'll be talking about customizing Lock with the various options in our Lock library.
