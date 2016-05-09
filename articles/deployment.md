@@ -50,17 +50,17 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Geolocation</th>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
         </tr>
         <tr>
             <th>SLA Provided</th>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>No</td>
-            <td>No</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
         </tr>
         <tr>
             <th>Support Channels & Levels</th>
@@ -99,17 +99,17 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Connecting IP Address Filtering Restrictions</th>
-            <td>No</td>
-            <td>No</td>
-            <td>Yes</td>
-            <td>Yes</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
         </tr>
         <tr>
             <th>Custom Domains</th>
-            <td>No</td>
-            <td>Yes</td>
-            <td>Yes</td>
-            <td>Yes</td>
+            <td class="danger">No</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
         </tr>
     </tbody>
 </table>
