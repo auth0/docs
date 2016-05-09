@@ -30,6 +30,12 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
+### Create an Application
+
+<%= include('../_includes/_new_app') %>_
+
+![App Dashboard](/media/articles/angularjs/app_dashboard.png)
+
 TODO: Find out how to configure angular-sample URL
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-angular',

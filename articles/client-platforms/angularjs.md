@@ -87,7 +87,7 @@ These may seem like a lot of dependencies, but each one has a very important fun
 
 Right after including the scripts, add a viewport to make the lock widget fit in device widths:
 
-```markup
+```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
 
@@ -125,7 +125,7 @@ Next, configure the routes you need:
 
 ```javascript
  // ...config
- // Confugure routes for your application
+ // Configure routes for your application
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
@@ -176,7 +176,7 @@ authProvider.on('loginSuccess', function($location, profilePromise, idToken, sto
 
 //Called when login fails
 authProvider.on('loginFailure', function() {
-  console.log("Error");
+  console.log("Error logging in");
   $location.path('/login');
 });
 ```
@@ -204,10 +204,9 @@ You have successfully configured you Angular App to use Auth0. Configs are vital
 app.controller( 'LoginCtrl', function ( $scope, auth) {
 
   $scope.auth = auth;
-
 });
 ```
- `auth` is a service `auth0` in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
+ `auth` is a service in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
 
 ```markup
 <a href="#" ng-click="auth.signin()">Sign In</a>
@@ -253,9 +252,9 @@ $scope.resetPassword = function(){
 });
 ```
 
-`Username-Password-Authentication` is the name of my connection which is available via your dashboard. You can go ahead to add the reset button in your template:
+`Username-Password-Authentication` is the name of a connection which is available via your dashboard. You can go ahead to add the reset button in your template:
 
-```markup
+```html
 <a href="#" ng-click="auth.reset()">Reset Password</a>
 ```
 
