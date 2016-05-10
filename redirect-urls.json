@@ -425,15 +425,15 @@
   },
   {
     "from": "/apiv2Changes",
-    "to": "/api/v2/changes"
+    "to": "/api/management/v2/changes"
   },
   {
     "from": "/apiv2",
-    "to": "/api/v2"
+    "to": "/api/management/v2"
   },
   {
     "from": "/tokens/apiv2",
-    "to": "/api/v2/tokens"
+    "to": "/api/management/v2/tokens"
   },
   {
     "from": "/metadata-in-rules",
@@ -441,12 +441,40 @@
   },
   {
     "from": "/api-reference",
-    "to": "/api/v1/reference"
+    "to": "/api/management/v1/reference"
+  },
+  {
+    "from": "/api/v1",
+    "to": "/api/management/v1"
+  },
+  {
+    "from": "/api/v1/reference",
+    "to": "/api/management/v1/reference"
+  },
+  {
+    "from": "/api/v1/use-cases",
+    "to": "/api/management/v1/use-cases"
   },
   {
     "from": "/api",
     "to": "/api/info"
   },
+  {
+    "from": "/api/v2",
+    "to": "/api/management/v2"
+  },
+  {
+    "from": "/api/v2/tokens",
+    "to": "/api/management/v2/tokens"
+  },
+  {
+    "from": "/api/v2/changes",
+    "to": "/api/management/v2/changes"
+  },
+  {
+    "from": "/auth-api",
+    "to": "/api/authentication"
+  }
   {
     "from": "/oauth2",
     "to": "/connections/social/oauth2"
