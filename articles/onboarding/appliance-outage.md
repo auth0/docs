@@ -1,5 +1,4 @@
 ---
-url: /appliance-outage
 sitemap: false
 ---
 
@@ -38,7 +37,3 @@ When an issue has been logged correctly:
 * A responding Auth0 support staff member may contact you via email and/or direct you to join a private Slack channel and/or a Zoom web conference to facilitate faster communications.  However, it’s important to remember you should not initiate requests for help via a Slack channel - only via the methods outlined above. Slack channels may not be actively monitored.
 * In addition to communications over a web conference or Slack, to preserve a record of an issue, any critical information, such as log files, symptoms, etc should be sent as updates to the ticket via support center.  Any conclusions or next steps should be added to the ticket as well.
 * Upon resolution of the issue, an Auth0 support staff member will ask the customer for confirmation the issue has been resolved to their satisfaction and the ticket will be closed only when customer has responded and confirmed issue is resolved.
-
-
-
-

@@ -590,5 +590,9 @@
   {
     "from": "/appliance/update",
     "to": "/appliance"
+  },
+  {
+    "from": "/enterprise-support",
+    "to": "/onboarding/enterprise-support"
   }
 ]

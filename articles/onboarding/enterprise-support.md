@@ -1,7 +1,3 @@
----
-url: /enterprise-support
----
-
 # Enterprise Support Guidance
 
 This document outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.  It's relevant for customers only with enterprise subscription agreements which differ from the standard pay-as-you-go/self-service subscription offerings acquired directly from our website.
@@ -52,7 +48,7 @@ To speed resolution, please check the following before logging an issue:
 
 * Is the issue experienced by all users or just a few?
 	* All? - Could be a service or configuration issue
-		* Check status of Auth0 service 
+		* Check status of Auth0 service
 			* Americas: (http://status.auth0.com)
 			* EU Region: (http://status.eu.auth0.com)
 			* APAC Region: (http://status.au.auth0.com)
@@ -93,5 +89,3 @@ For Appliance Customers:
 * Appliance version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)
 * Status of nodes https://yourmanage.yourdomain.com/configuration#/nodes
 * Status of health check https://yourmanage.yourdomain.com/configuration#/troubleshoot
-
-
