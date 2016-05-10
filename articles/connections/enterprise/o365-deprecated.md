@@ -6,6 +6,11 @@ alias:
   - office365
 ---
 
+::: warning-banner
+__Warning:__ The Office 365 connection is deprecated, you should use Windows Azure AD instead. <br/>
+See [here](/office365-deprecated) for more details.
+:::
+
 # Obtain a *ClientId* and *Client Secret* for an Office 365 connection
 
 To configure Microsoft Office 365 connections, you need to a register an application in the Seller Dashboard.
