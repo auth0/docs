@@ -474,7 +474,7 @@
   {
     "from": "/auth-api",
     "to": "/api/authentication"
-  }
+  },
   {
     "from": "/oauth2",
     "to": "/connections/social/oauth2"
