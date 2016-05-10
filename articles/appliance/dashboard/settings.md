@@ -42,19 +42,33 @@ The Settings page of the Appliance Dashboard is where you will make changes to a
 * **SMTP Password**: the password to log in to your email server;
 
 ## Session
-* **Dashboard Session Timeout (min)**:
-* **SSO Session Absolute Timeout**:
-* **SSO Session Inactive Timeout**:
-* **SSO Session Ephemeral Cookie**:
-* **MFA Session Absolute Timeout**:
-* **MFA Session Inactive Timeout**:
+
+* **Dashboard Session Timeout (min)**: the amount of idle time allowed prior to the Dashboard session getting logged out. Use 0 to avoid expiration;
+* **SSO Session Absolute Timeout**: the absolute time window for which the user can have an SSO session. After this period of time elapses, the user will be required to log in again;
+* **SSO Session Inactive Timeout**: the maximum time window for which the user can have an SSO session without logging in again or calling the "ssodata" endpoint. If the user logs in again or calls the "ssodata" endpoint, the time window will be extended again;
+* **SSO Session Ephemeral Cookie**: if enabled, the SSO session cookie will not be persist and users will lose their SSO session in Auth0 after closing their browsers;
+* **MFA Session Absolute Timeout**: the absolute time window for which the user can have an MFA session. After this period of time elapses, the user will be prompted again for MFA;
+* **MFA Session Inactive Timeout**: the maximum time window for which the user can have an MFA session without logging in again. If the user logs in prior to the expiration of this time period, the window will be extended.
 
 ## Update Settings
 
+* **Update Proxy**:
+
 ## Monitoring
+
+* **New Relic License Key**: if you use New Relic for monitoring, enter your license key here to monitor your Appliance instances.
 
 ## API Keys
 
+* **Health service**:
+
+    ![](health-service.png)
+
 ## Advanced Settings
 
+* **Enable Large Cookie Size**: if enabled, cookies larger than 4kb will be permitted (this might be required for protocols such as SAML and WS-Federation).
+* **Max Custom Database Timeout**: the maximum time allowed in seconds to make a query to your database (in seconds) for a custom database connection.
+
 ## Deprecated
+
+*
