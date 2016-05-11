@@ -2,7 +2,7 @@
 url: /cms/wordpress
 ---
 
-# CMS
+# Auth0 WordPress plugin
 
 Auth0 provides a WordPress Plugin to integrate your sites with your Auth0 account. These plugin enable Single Sign On for Enterprises, social login, user/password and passwordless login through all your instances.
 
