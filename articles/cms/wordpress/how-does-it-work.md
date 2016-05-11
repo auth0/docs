@@ -2,7 +2,7 @@
 
 ## Regular flow
 
-There are theww different scenarios that could take place.
+There are three different scenarios that could take place.
 
 First, a user that not exists in WordPress and it does in your Auth0 account try to log in.
 
