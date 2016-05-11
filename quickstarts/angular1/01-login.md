@@ -174,7 +174,7 @@ Moving the `singin()` logic into your controller rather than leaving it in the v
 ```javaScript
 //app.js
 $scope.signin = function (){
-  auth.signin({}, //The first argument is scope of data you need to return
+  auth.signin({}, //The first argument is used to configure Auth0
     function(profile, idToken){
       $scope.token = idToken;
     },
@@ -192,7 +192,7 @@ Now you have access to the profile and token:
 <p ng-if="token">{{token}}</p>
 ```
 
-### Recap and Round Up
+### Recap
 At this point, you have learned how to:
 - Setup Auth0 in an Angular project
 - Configure Angular with Auth0 credentials and authentication status events
