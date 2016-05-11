@@ -30,11 +30,6 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-### Create an Application
-
-<%= include('../_includes/_new_app') %>_
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 TODO: Find out how to configure angular-sample URL
 <%= include('../_includes/_package', {
@@ -52,7 +47,7 @@ At any point in time you can run this sample with a simple HTTP server. One exam
 
 ### Configure Callback URLs
 
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to the this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
 
 ![Callback error](/media/articles/angularjs/callback_error2.png)
 
@@ -66,8 +61,8 @@ We will stick with a simple structure for this section:
 
 Going through these following sub-steps, you'll be able to replicate this process on your own Angular applications.
 
-#### 1: Setup Scripts, Viewport and Basic Style
-Some JavaScript dependencies are required for Auth0 to work as expected in an Angular app. Include the dependencies' scripts in yout `index.html`:
+#### 1: Setup Scripts and Viewport
+Some JavaScript dependencies are required for Auth0 to work as expected in an Angular app. Include the dependencies' scripts in your `index.html`:
 
 ${snippet(meta.snippets.dependencies)}
 
@@ -81,20 +76,12 @@ These may seem like a lot of dependencies, but each one has a very important fun
  - **angular-storage**: A `localStorage` and `sessionStorage` wrapper create with love by Auth0 team.
  - **angular-jwt**: Angular service that makes using JWT easy in Angular apps
 
- ::: panel-info Note
- Some of the includes like angular-route and angular-storage will not be used in this step but will be useful in subsequent steps
- :::
+Some of the includes like `angular-route` and `angular-storage` will not be used in this step but will be useful in subsequent steps
 
 Right after including the scripts, add a viewport to make the lock widget fit in to device widths:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
-
-One more thing you can do in setting up is add a simple style sheet so the app does not look so boring:
-
-```html
-<link href="https://cdn.auth0.com/styleguide/4.4.24/index.css" rel="stylesheet" />
 ```
 
 With all that, our entire `<head>` will look like this:
@@ -109,7 +96,7 @@ To use Auth0, your Angular app instance **MUST** depend on the Auth0 SDK:
 var app = angular.module('YOUR-APP-NAME', ['auth0']);
 ```
 
-Next, go ahead and add the app name in your html:
+Next, go ahead to add the app name in your html:
 
 ```html
 <html ng-app="YOUR-APP-NAME">
@@ -117,19 +104,19 @@ Next, go ahead and add the app name in your html:
 
 An Angular-Auth0 app requires basically 2 configurations:
 
- - Auth0's credential config with `init()`
+ - Auth0's application credential configuration with the `init()`
  - Event listeners to handle authentication status
 
 Let's break it down.
 
-Angular's `config()` skeleton with required dependencies:
+Angular's `config()` skeleton with required dependency:
 ```javascript
 app.config( function myAppConfig (authProvider) {
   //authProvider init configuration
 })
 ```
 
-The `authProvider` dependency is Auth0's API that exposes some methods including the `init()` method for for configuration:
+The `authProvider` is used to configure Auth0 Angular SDK:
 
 ${snippet(meta.snippets.init)}
 
@@ -138,17 +125,15 @@ Event listeners are available to handle different status of authentication. They
 ```javascript
 //Called when login is successful
 authProvider.on('loginSuccess', function(idToken) {
+  // Just log the token to console for now.
+  // You will see better ways to manage tokes in subsequent sections
   console.log("Login successful with token " + idToken);
 });
 
 //Called when login fails
 authProvider.on('loginFailure', function() {
-  alert("Error");
-});
-
-//Called when user is authenticated (Authentication flag is true)
-authProvider.on('authenticated', function() {
-  console.log("Authenticated");
+  // You will learn better ways to handle errors in subsequent sections
+  console.log("Login failed");
 });
 ```
 
@@ -163,7 +148,7 @@ app.controller( 'LoginCtrl', function ( $scope, auth) {
 
 });
 ```
-`auth` is one of the goodies (service) you get for including `auth0` as one of the dependencies. Passing `auth` to `$scope.auth` gives you the power to bind `auth` data and events to the view:
+Your controller needs to depend on `auth` so as to have access to it's methods. Passing `auth` to `$scope.auth` gives you the power to bind `auth` data and events to the view:
 
 ```html
 <!-- Inside index.html <body> -->
@@ -184,7 +169,7 @@ You can change this behavior and make it show the Sign Up form:
 
 The event listeners that we created in our app's config will be called to handle the sign in process.
 
-Moving the `singin()` logic into your controller rather than leaving it in the view will give you more manipulation power:
+Moving the `singin()` logic into your controller rather than leaving it in the view will give you more control:
 
 ```javaScript
 //app.js
@@ -214,7 +199,3 @@ At this point, you have learned how to:
 - Login
 
 As mentioned earlier, this is just the beginning of a multi-step quickstart. You can continue to the next step when you are done here.
-
-::: panel-info Next Step
-**[User Profile]()**
-:::
