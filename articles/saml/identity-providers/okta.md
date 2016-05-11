@@ -1,5 +1,5 @@
 ---
-title: Okta
+title: Okta | Auth0 Documentation
 ---
 
 # Configuring Okta as an Identity Provider
