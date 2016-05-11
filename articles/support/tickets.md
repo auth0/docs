@@ -1,6 +1,8 @@
 # Opening and Managing Tickets in Support Center
 
-With [Support Center](https://support.auth0.com), you can create various tickets for questions or issues you may be experiencing. You need to be a full dashboard administrator to access Support Center, appliance customers can create a cloud account.
+With [Support Center](https://support.auth0.com), you can create various tickets for questions or issues you may be experiencing. You need to be a full dashboard administrator to access Support Center. 
+
+Existing Auth0 Appliance customers should create a new Auth0 cloud account to be able to login to Support Center (this account can also be used for dev/test purposes at no cost under your subscription). Request that account be associated with your existing subscription via your Customer Success Manager or Sales Executive.
 
 ## Opening a New Ticket
 
