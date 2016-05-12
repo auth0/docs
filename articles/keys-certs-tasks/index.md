@@ -35,7 +35,7 @@ Auth0 uses public-key cryptography for the following processes:
 
 Auth0 takes care of generating the keypairs and the certificate, for use in the above cases. You are also provided with a mechanism for downloading the public key/certificate. Typically you will have to give the public key/certificate to any partner entity with whom Auth0 is to exchange messages.
 
-There are, however, a set of tasks you may need to perform, according with the process to be implemented:
+There are, however, a set of tasks you may need to perform, according to the scenario to be implemented:
 
 | Technology  | Case |
 | ----------  | ---- |
