@@ -41,6 +41,8 @@ This tutorial and seed project have been tested with the following:
 * Angular version 1.5.0-rc.0
 :::
 
+-${include('./\_callback')}
+
 #### Create an Application Instance
 
 <%= include('../_includes/_new_app') %>_

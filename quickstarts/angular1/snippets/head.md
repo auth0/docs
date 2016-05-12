@@ -2,7 +2,7 @@
 <!-- Auth0's lock widget library -->
 <script type="text/javascript" src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
 <!-- AngularJS core -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
 <!-- Angular cookie wrapper library for client cookies -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-cookies.js"></script>
 <!-- Angular's Router Library for SPA -->
@@ -19,6 +19,4 @@
 <!-- Viewport settings-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-<!-- Basic style -->
-<link href="https://cdn.auth0.com/styleguide/4.4.24/index.css" rel="stylesheet" />
 ```
