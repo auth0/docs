@@ -2,6 +2,10 @@
 
 The Auth0 Logs to Application Insights is a scheduled job takes all of your Auth0 logs and exports them to Application Insights.
 
+::: panel-info Extension availability
+This extension is available only for the US region.
+:::
+
 ## Configuring the Extension
 
 To complete installation of this extension, click on the Auth0 `User Import / Export` in the list of provided extensions on the Extensions page of the Management Portal. When authorizing the application, you will be asked to provide the following information about your Auth0 account:
