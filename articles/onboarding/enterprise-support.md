@@ -26,6 +26,9 @@ __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a g
 
 ![](https://docs.google.com/drawings/d/1xd1oNTGDMbrScqeFVEb_9ykW8GLyDOBELenyZmiVCmA/pub?w=1440&h=792)
 
+### Using Support Center
+[Learn more about creating tickets with Support Center](https://auth0.com/docs/support/tickets)
+
 
 ## Guidance for Logging a Support Issue
 
