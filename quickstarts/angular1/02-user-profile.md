@@ -40,7 +40,7 @@ You can subscribe to custom events which are called at certain phases of authent
 
 ```js
 app.config(function myAppConfig (authProvider) {
-  uthProvider.on('loginSuccess', function($rootScope, profile) {
+  authProvider.on('loginSuccess', function($rootScope, profile) {
     // You can attach it to your global scope
     // and have access to it across your application
     $rootScope.profile = profile;
@@ -75,16 +75,16 @@ app.controller('LoginCtrl', function ($scope, auth) {
 });
 ```
 
-You can bind to view as usual:
+You can bind to view as well:
 
 ```html
   <p>Profile from controller: {{controllerProfile.name}}</p>
 ```
 
-## Storing and retrieving tokes
+## Storing and retrieving profiles
 The challenge in most SPA application is persisting state (data).  Once there is a refresh, the profile in our scope object gets wiped. The best way to manage this is store this profile on the user's browser and maybe re-authenticate the user if a page refresh occurs.
 
-Auth0 provides a convenient library for Angular called [Angular Storage](https://github.com/auth0/angular-storage) which uses `localStorage` or `sessionStorage` by default and cookies if those are not available. We already included it in out HTML in step 1 of this quickstart but you can still add it if you are yet to do so:
+Auth0 provides a convenient library for Angular called [Angular Storage](https://github.com/auth0/angular-storage) which uses `localStorage` or `sessionStorage` by default and cookies if those are not available. We already included it in our HTML in step 1 of this quickstart but you can still add it if you are yet to do so:
 
 ```html
 <script src="http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js" type="text/javascript"> </script>
@@ -122,7 +122,7 @@ app.controller('LoginCtrl', function ($scope, auth, store) {
 At this point, no matter the amount of refresh that hits the app, you can still access the user details from the browser storage.
 
 ## Authenticating user with profile
-Just as you saw above, you can store a user's profile and have access to it from any part of your application. This becomes handy when handling page refresh as there is need to authenticate user. Fortunately, Auth0 makes it easy to authenticate users with there profiles:
+Just as you saw above, you can store a user's profile and have access to it from any part of your application. This becomes handy when handling page refresh as there is need to re-authenticate the user. Fortunately, Auth0 makes it easy to authenticate users with there profiles:
 
 ```js
 app.run(function($rootScope, auth, store) {
@@ -139,10 +139,10 @@ app.run(function($rootScope, auth, store) {
 });
 ```
 
-All you need do is listen to `locationChangeStart` event and re-authenticate the user with the profile stored in the browser. As seen, above, the token can also be stored and retrieved from the browser storage. What would be nice to consider is making sure the token is still valid (not expired) but will talk more on that in subsequent sections.
+All you need do is listen to `locationChangeStart` event and re-authenticate the user with the profile stored in the browser. As seen, above, the token can also be stored and retrieved from the browser storage. What would be nice to consider is making sure the token is still valid (not expired) but we will talk more on that in subsequent sections.
 
 ## Checking if user is authenticated or not
-One other nice thing that is handy is that you can use custom directives to check if user authenticated or not in your view:
+One other nice thing that is handy in the SDK is that you can use custom directives to check if a user is authenticated or not in your view:
 
 ```html
 <p if-user> {{profile.name}} </p>
