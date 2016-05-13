@@ -1,6 +1,10 @@
 # Auth0 Appliance Dashboard: Settings
 
-The Settings page of the Appliance configuration area is where you will make changes to a major portion of your configuration. The Settings page is broken down into the following sections:
+The Settings page of the Appliance configuration area is where you will make changes to a major portion of your configuration.
+
+![](/media/articles/appliance/dashboard/settings.png)
+
+The Settings page is broken down into the following sections:
 
 * [General](#general)
 * [Dashboard](#dashboard)

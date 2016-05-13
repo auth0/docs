@@ -2,7 +2,7 @@
 
 The Nodes page located under the Appliance configuration area provides a high-level overview of the nodes you have running as part of your Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.
 
-![](/nodes.png)
+![](/media/articles/appliance/dashboard/nodes.png)
 
 The Nodes page displays the following pieces of information for each of your nodes:
 

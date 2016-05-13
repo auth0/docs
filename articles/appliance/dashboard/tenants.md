@@ -2,6 +2,8 @@
 
 The Tenants page of the Appliance Dashboard lists all tenants associated with your Appliance instance.
 
+![](/media/articles/appliance/dashboard/tenants.png)
+
 For each associated tenant, you will see the following pieces of information:
 
 * **Name**: the name of the tenant;

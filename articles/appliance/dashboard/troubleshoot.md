@@ -2,6 +2,8 @@
 
 The Troubleshoot page of the Appliance Dashboard provides you with a myriad of tools to diagnose any issues that might occur.
 
+![](/media/articles/appliance/dashboard/troubleshoot.png)
+
 ## Diagnostics Package
 
 You may create a diagnostic package containing detailed information about your Appliance instance(s) by clicking on the "Generate New Package" button.

@@ -4,6 +4,8 @@ The Updates page of the Appliance configuration area allows you to make the requ
 
 > Updates cannot be rolled back/undone, so take VM snapshots and make backups as needed.
 
+![](/media/articles/appliance/dashboard/updates.png)
+
 ## Online Update
 The Online Update section allows you to download and install updates from the Auth0 mirror site. This is the recommended way of updating.
 
