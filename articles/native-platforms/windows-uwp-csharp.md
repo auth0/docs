@@ -1,15 +1,16 @@
 ---
-title: Windows UWP App in C# Tutorial
+title: Auth0 Windows Universal App C# SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Windows Universal App C# SDK to add authentication and authorization to your app.
 name: Windows UWP (C#)
 hybrid: false
 alias:
   - windows app
   - windows
-language: 
+language:
   - C#
 image: /media/platforms/windows-8.png
 tags:
-  - quickstart  
+  - quickstart
 snippets:
   dependencies: native-platforms/windows-uwp-csharp/dependencies
   setup: native-platforms/windows-uwp-csharp/setup

@@ -1,5 +1,6 @@
 ---
-title: React Tutorial
+title: Auth0 React SDK Tutorial
+description: This tutorial will show you how to use the Auth0 React SDK to add authentication and authorization to your web app.
 name: React
 alias:
   - react

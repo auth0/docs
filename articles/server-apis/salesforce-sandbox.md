@@ -1,5 +1,6 @@
 ---
-title: Salesforce (Sandbox) API Tutorial
+title: Auth0 Salesforce (Sandbox) API Tutorial
+description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce (Sandbox) services.
 name: Salesforce (sandbox)
 thirdParty: true
 alias:

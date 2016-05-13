@@ -1,5 +1,6 @@
 ---
-title: Aurelia Tutorial
+title: Auth0 Aurelia SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Aurelia SDK to add authentication and authorization to your web app.
 name: Aurelia
 alias:
   - aurelia
@@ -27,7 +28,7 @@ alias:
   - aurelia
 ---
 
-## Aurelia Tutorial
+## Aurelia SDK Tutorial
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -60,7 +61,7 @@ Later we'll see how to make authenticated HTTP requests, and for that we'll need
 
 ${snippet(meta.snippets.setup)}
 
-We also set the `isAuthenticated` property to false to start with, but this value will be changed later on to reflect the user's authentication status. 
+We also set the `isAuthenticated` property to false to start with, but this value will be changed later on to reflect the user's authentication status.
 
 ### 2. Set Up the Login and Logout Methods
 

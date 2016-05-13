@@ -1,5 +1,6 @@
 ---
-title: HapiAPI Tutorial
+title: Auth0 Node.js Hapi SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Node.js Hapi SDK to add authentication and authorization to your API.
 name: Hapi API
 thirdParty: false
 alias:

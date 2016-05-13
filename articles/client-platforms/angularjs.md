@@ -1,5 +1,6 @@
 ---
-title: AngularJS Tutorial
+title: Auth0 AngularJS SDK Tutorial
+description: This tutorial will show you how to use the Auth0 AngularJS SDK to add authentication and authorization to your web app.
 name: Angular.js
 alias:
   - angular
@@ -20,7 +21,7 @@ alias:
   - angular
 ---
 
-## AngularJS Tutorial
+## AngularJS SDK Tutorial
 
 
 This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.

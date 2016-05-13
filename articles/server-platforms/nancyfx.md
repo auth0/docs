@@ -1,5 +1,6 @@
 ---
-title: NancyFX Tutorial
+title: Auth0 NancyFX SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 NancyFX SDK to add authentication and authorization to your web app.
 name: NancyFX
 image: /media/platforms/nancyfx.png
 tags:

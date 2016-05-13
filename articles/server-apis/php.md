@@ -1,5 +1,6 @@
 ---
-title: PHP API Tutorial
+title: Auth0 PHP SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your API.
 name: PHP API
 alias:
   - php

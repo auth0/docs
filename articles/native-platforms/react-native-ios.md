@@ -1,5 +1,6 @@
 ---
-title: React Native iOS Tutorial
+title: Auth0 React Native iOS SDK Tutorial
+description: This tutorial will show you how to use the Auth0 React Native iOS SDK to add authentication and authorization to your mobile app.
 name: React Native - iOS
 alias:
   - reactnative

@@ -1,5 +1,6 @@
 ---
-title: Phonegap Tutorial
+title: Auth0 Phonegap SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Phonegap SDK to add authentication and authorization to your mobile app.
 name: Phonegap
 alias:
   - phonegap

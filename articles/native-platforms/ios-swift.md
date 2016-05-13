@@ -1,5 +1,6 @@
 ---
-title: iOS Swift Tutorial
+title: Auth0 iOS Swift SDK Tutorial
+description: This tutorial will show you how to use the Auth0 iOS Swift SDK to add authentication and authorization to your mobile app.
 name: iOS - Swift
 alias:
   - ios

@@ -1,5 +1,6 @@
 ---
-title: Ionic 2 Tutorial
+title: Auth0 Ionic 2 SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Ionic 2 SDK to add authentication and authorization to your mobile app.
 name: Ionic 2
 alias:
   - ionic2

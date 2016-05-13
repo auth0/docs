@@ -1,5 +1,6 @@
 ---
-title: Android Tutorial
+title: Auth0 Android SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Android SDK to add authentication and authorization to your mobile app.
 name: Android
 alias:
   - Android

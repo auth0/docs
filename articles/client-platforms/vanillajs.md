@@ -1,5 +1,6 @@
 ---
-title: Generic SPA / Vanilla JS Tutorial
+title: Auth0 Javascript Single Page App SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Javascript SDK to add authentication and authorization to your web app.
 name: Vanilla JS
 alias:
   - vanilla

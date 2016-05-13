@@ -1,5 +1,6 @@
 ---
-title: Firebase Tutorial
+title: Auth0 Firebase Tutorial
+description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Firebase services.
 name: Firebase
 thirdParty: true
 alias:

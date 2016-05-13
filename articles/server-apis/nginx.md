@@ -1,5 +1,6 @@
 ---
-title: Nginx API Tutorial
+title: Auth0 Nginx SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Nginx SDK to add authentication and authorization to your API.
 name: Nginx API
 alias:
   - nginx
@@ -30,7 +31,7 @@ The [`nginx-jwt`](https://github.com/auth0/nginx-jwt) script is a Lua script tha
 
 1. Download the latest archive package from [releases](https://github.com/auth0/nginx-jwt/releases).
 1. Extract the archive and deploy its contents to a directory on your Nginx server.
-1. Specify this directory's path using ngx_lua's [lua_package_path](https://github.com/openresty/lua-nginx-module#lua_package_path) directive:  
+1. Specify this directory's path using ngx_lua's [lua_package_path](https://github.com/openresty/lua-nginx-module#lua_package_path) directive:
 
 ${snippet(meta.snippets.dependencies)}
 

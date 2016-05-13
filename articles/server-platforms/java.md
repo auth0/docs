@@ -1,5 +1,6 @@
 ---
-title: Java Web App Tutorial
+title: Auth0 Java SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Java SDK to add authentication and authorization to your web app.
 name: Java
 image: /media/platforms/java.png
 tags:

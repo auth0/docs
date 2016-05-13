@@ -1,5 +1,6 @@
 ---
-title: EmberJS 2 Tutorial
+title: Auth0 EmberJS 2 SDK Tutorial
+description: This tutorial will show you how to use the Auth0 EmberJS 2 SDK to add authentication and authorization to your web app.
 name: EmberJS 2
 alias:
   - ember 2

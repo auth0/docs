@@ -1,5 +1,6 @@
 ---
-title: PHP Web App Tutorial
+title: Auth0 PHP SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your web app.
 name: PHP
 image: /media/platforms/php.png
 tags:
@@ -31,7 +32,7 @@ This tutorial and seed project have been tested with the following:
 
 **Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
 
-### 1. Add Needed dependencies 
+### 1. Add Needed dependencies
 
 ${snippet(meta.snippets.dependencies)}
 

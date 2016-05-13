@@ -1,5 +1,6 @@
 ---
-title: Azure Blob Storage Addon Tutorial
+title: Auth0 Azure Blob Storage Tutorial
+description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
 name: Azure Blob Storage
 thirdParty: true
 alias:

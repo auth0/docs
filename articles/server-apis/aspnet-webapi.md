@@ -1,5 +1,6 @@
 ---
-title: ASP.NET Web API Tutorial
+title: Auth0 ASP.NET Web API SDK Tutorial
+description: This tutorial will show you how to use the Auth0 ASP.NET Web API SDK to add authentication and authorization to your API.
 name: ASP.NET Web API
 alias:
   - webapi

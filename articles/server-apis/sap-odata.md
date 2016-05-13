@@ -1,5 +1,6 @@
 ---
-title: SAP OData Tutorial
+title: Auth0 SAP OData Tutorial
+description: This tutorial will show you how to use the Auth0 to authenticate and authorize your SAP OData services.
 name: SAP OData
 alias:
   - sap

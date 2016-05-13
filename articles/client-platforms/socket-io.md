@@ -1,5 +1,6 @@
 ---
-title: Socket.io Tutorial
+title: Auth0 Socket.io SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Socket.io SDK to add authentication and authorization to your web app.
 name: Socket.io
 alias:
   - socket.io

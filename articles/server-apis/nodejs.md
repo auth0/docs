@@ -1,5 +1,6 @@
 ---
-title: Node.JS API Tutorial
+title: Auth0 Node.js Express SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Node.js Express SDK to add authentication and authorization to your API.
 name: Node.js API
 thirdParty: false
 alias:

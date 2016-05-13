@@ -1,5 +1,6 @@
 ---
-title: Azure Mobile Services Tutorial
+title: Auth0 Azure Mobile Services Tutorial
+description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 name: Azure Mobile Services
 thirdParty: true
 image: /media/platforms/azure.png

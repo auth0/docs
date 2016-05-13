@@ -1,5 +1,6 @@
 ---
-title: PHP (Symfony) API Tutorial
+title: Auth0 PHP Symfony SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 PHP Symfony SDK to add authentication and authorization to your API.
 name: PHP (Symfony) API
 thirdParty: false
 alias:

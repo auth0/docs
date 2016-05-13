@@ -1,5 +1,6 @@
 ---
-title: Spring Security Java API Tutorial
+title: Auth0 Java Spring Security SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Java Spring Security SDK to add authentication and authorization to your API.
 name: Spring Security Java API
 thirdParty: false
 alias:

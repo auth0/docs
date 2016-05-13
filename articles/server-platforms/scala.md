@@ -1,5 +1,6 @@
 ---
-title: Play 2 Scala Tutorial
+title: Auth0 Play 2 Scala SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app.
 name: Play 2 Scala
 image: /media/platforms/play.png
 tags:

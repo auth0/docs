@@ -1,5 +1,6 @@
 ---
-title: iOS Objective-C Tutorial
+title: Auth0 iOS Objective-C SDK Tutorial
+description: This tutorial will show you how to use the Auth0 iOS Objective-C SDK to add authentication and authorization to your mobile app.
 name: iOS - Objective C
 hybrid: false
 alias:

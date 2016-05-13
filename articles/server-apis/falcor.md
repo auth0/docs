@@ -1,5 +1,6 @@
 ---
-title: Falcor API Tutorial
+title: Auth0 Falcor SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Falcor SDK to add authentication and authorization to your API.
 name: Falcor API
 thirdParty: false
 alias:

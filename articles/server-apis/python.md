@@ -1,5 +1,6 @@
 ---
-title: Python API Tutorial
+title: Auth0 Python SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Python SDK to add authentication and authorization to your API.
 name: Python API
 alias:
   - python
