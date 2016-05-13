@@ -1,16 +1,21 @@
 # Auth0 Appliance Dashboard: Nodes
 
-The Nodes page located under the Appliance Dashboard provides a high-level overview of the nodes you have running as part of your Appliance setup. Each instance that you have with your web service provider is considered a node.
+The Nodes page located under the Appliance configuration area provides a high-level overview of the nodes you have running as part of your Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.
 
 ![](/nodes.png)
 
+The Nodes page displays the following pieces of information for each of your nodes:
+
 * **Hostname**: the name of the node;
-* **IP**: the IP address for that particular node;
-* **Memory**: the amount of memory the node has;
+* **IP**: the IP address used to reach that particular node;
+* **Memory**: the amount of memory allocated to that node;
 * **CPUs**: the number of CPUs allocated to that node;
 * **App Update**:
 * **Setting Update**:
 * **Heartbeat**: the amount of time elapsed since the Dashboard received communication from the node;
-* **Uptime**: the amount of time the node has been continuously running;
-* **Reboot**: the button that, if clicked, reboots the node;
-* **Remove**: the button that, if clicked, removes the node from the account.
+* **Uptime**: the amount of time the node has been continuously running.
+
+At the end of each row detailing a Node instance are two buttons:
+
+* **Reboot**: if clicked, Auth0 reboots the node;
+* **Remove**: if clicked, Auth0 dissociates the node from this particular account/Appliance instance.
