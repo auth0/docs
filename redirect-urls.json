@@ -622,5 +622,9 @@
   {
     "from": "/enterprise-support",
     "to": "/onboarding/enterprise-support"
+  },
+  {
+    "from": "/extensions/azure-blog-storage",
+    "to": "/extensions/azure-blob-storage"
   }
 ]
