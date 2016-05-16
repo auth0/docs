@@ -608,6 +608,10 @@
     "to": "/api/v2/user-search"
   },
   {
+    "from": "/api/v2/user-search",
+    "to": "/api/management/v2/user-search"
+  },
+  {
     "from": "/appliance/checksum",
     "to": "/appliance"
   },
