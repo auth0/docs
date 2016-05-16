@@ -94,11 +94,11 @@ The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will 
 
 ## Configure SendGrid for Sending Email
 
-1. Sign up for a [SendGrid](https://sendgrid.com/pricing) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace). Go to [Manage API Keys](https://app.sendgrid.com/settings/api_keys) and create an API Key with the "Mail Send" permission.
+1. Sign up for a [SendGrid](https://sendgrid.com/pricing) account, or login. (If you have a Microsoft Azure subscription you can get a free account in the Azure Marketplace.) Go to [Manage User Credentials](https://app.sendgrid.com/settings/credentials) and create an credential with the "MAIL" permission.
 
 2. Go to the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. Click **Use my own Email Provider** and click the **SendGrid** logo.
 
-3. Enter your previously obtained SendGrid `Username` and `API Key`:
+3. Enter your previously obtained SendGrid `Username` and `Password`:
 
   ![](/media/articles/email/providers/sendgrid-key.png)
 
