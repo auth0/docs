@@ -9,14 +9,29 @@ When an authentication is performed with the `offline_scope` included, it will r
 
 > Lock.Android will include the `offline_scope` scope by default.
 
-Before we start, we need to store `id_token` & `refresh_token` in a secure storage after the user is authenticated by Auth0. Then you can request a new `id_token` using either of them by calling to Auth0`s **delegation** endpoint.
+Before we start, we have to retreive `id_token` or `refresh_token` from the token when a the user logs in. 
+
+```java
+private BroadcastReceiver authenticationReceiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Token token = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_TOKEN_PARAMETER);
+        String idToken = token.getIdToken();
+        String refreshToken = token.getRefreshToken();
+        // Store id_token or refresh_token in a secure storage
+    }
+};
+```
+
+Then, we need to store `id_token` or `refresh_token` in a secure storage after the user is authenticated by Auth0. And finally, you can request a new `id_token` using either of them by calling to Auth0`s **delegation** endpoint.
 
 ## Using a non-expired id_token
 
 ```java
+String idToken = // Retrieve id_token from the secure storage
 Lock lock = LockContext.getLock(this);
 AuthenticationAPIClient client = lock.getAuthenticationAPIClient();
-client.delegationWithIdToken("ID_TOKEN").start(new RefreshIdTokenCallback() {
+client.delegationWithIdToken(idToken).start(new RefreshIdTokenCallback() {
     @Override
     public void onSuccess(String idToken, String tokenType, int expiresIn) {
         //SUCCESS
@@ -32,9 +47,10 @@ client.delegationWithIdToken("ID_TOKEN").start(new RefreshIdTokenCallback() {
 ## Using refresh_token
 
 ```java
+String refreshToken = // Retrieve refresh_token from the secure storage
 Lock lock = LockContext.getLock(this);
 AuthenticationAPIClient client = lock.getAuthenticationAPIClient();
-client.delegationWithRefreshToken("REFRESH_TOKEN").start(new RefreshIdTokenCallback() {
+client.delegationWithRefreshToken(refreshToken).start(new RefreshIdTokenCallback() {
     @Override
     public void onSuccess(String idToken, String tokenType, int expiresIn) {
         //SUCCESS
