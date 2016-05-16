@@ -1,10 +1,10 @@
 # Appliance Management Dashboard
 
-When using Auth0's cloud services, the Management Dashboard is the interface through which you may configure things like your Applications, Connections, Users, and Rules. Similarly, you may do the same things using the Dashboard when running Auth0 through Appliance instances.
+Regardless of whether you choose to use Auth0's cloud services or to run Auth0 through Appliance instances, the Management Dashboard is the interface through which you may configure things like your Applications, Connections, Users, and Rules.
 
 ## Appliance Controls
 
-There are certain settings that are managed by Auth0 when you use the cloud service or when Auth0 is managing your private deployment. As such, these controls will not be exposed to you directly, but in the latter instance, you would work with Auth0 engineers when changing settings and applying updates.
+There are certain settings that are managed by Auth0 when you use the cloud service or when Auth0 is managing your private deployment. As such, these controls will not be exposed to you directly, though in the latter instance, you would work with Auth0 engineers when changing settings and applying updates.
 
 These controls, however, are exposed to you if you are managing your Appliance instances and are logged in to what is referred to as the *primary domain*. If so, you will see a link in the top right corner called **Configuration**. Selecting this link brings you to the Appliance configuration area, which contains settings and displays information about your clusters.
 

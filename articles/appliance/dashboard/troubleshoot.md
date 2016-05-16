@@ -1,6 +1,6 @@
 # Auth0 Appliance Dashboard: Troubleshoot
 
-The Troubleshoot page of the Appliance Dashboard provides you with a myriad of tools to diagnose any issues that might occur.
+The Troubleshoot page of the Appliance Dashboard provides you with tools to help diagnose any issues that might occur.
 
 ![](/media/articles/appliance/dashboard/troubleshoot.png)
 
@@ -8,7 +8,7 @@ The Troubleshoot page of the Appliance Dashboard provides you with a myriad of t
 
 You may create a diagnostic package containing detailed information about your Appliance instance(s) by clicking on the "Generate New Package" button.
 
-Once you've clicked "Generate New Package", you will see a notification message that indicates that your package is being generated. Once your package is ready, the message will disappear and a link to download the package will appear in the last column of your Nodes table.
+Once you've clicked "Generate New Package", you will see a notification message that indicates that your package is being generated. Once your package is ready, the message will disappear and a link to download the package related to a particular node instance will appear in the last column of your Nodes table.
 
 ### Contents of the Diagnostics Package
 

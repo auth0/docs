@@ -9,16 +9,21 @@ For each associated tenant, you will see the following pieces of information:
 * **Name**: the name of the tenant;
 * **Clients**: the number of clients associated with the tenant;
 * **Connections**: the number of Connections enabled for the tenant;
-* **Total Users**: the total number of uses associated with the tenant;
+* **Total Users**: the total number of users associated with the tenant;
 * **Total Logins**: the total number of logins by users associated with the tenant.
 
 ## Custom Domains
+
+![](/media/articles/appliance/dashboard/tenant-custom-domain.png)
 
 The name column of the Tenants page is a hyperlink. Clicking on this brings up the page where you can set up custom domains for this particular tenant, as well overview information for any currently-existing custom domains.
 
 ### Adding a Custom Domain
 
 To add a custom domain, click on the "Add Domain" button. You will be prompted for the following information:
+
+
+![](/media/articles/appliance/dashboard/tenant-add-custom-domain.png)
 
 * **Domain**: the custom domain for your tenant;
 * **SSL Available**: the SSL certificate format (either *PFX/PKCS12* or *Standard PEM*);

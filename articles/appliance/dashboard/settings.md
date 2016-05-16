@@ -1,6 +1,6 @@
 # Auth0 Appliance Dashboard: Settings
 
-The Settings page of the Appliance configuration area is where you will make changes to a major portion of your configuration.
+The Settings page is where you will make most of the changes that pertain to your Appliance configuration.
 
 ![](/media/articles/appliance/dashboard/settings.png)
 
@@ -50,7 +50,7 @@ The Settings page is broken down into the following sections:
 * **SMTP Server**: the name of your SMTP server;
 * **SMTP Port**: the port through which you access your SMTP server;
 * **SMTP User**: the username to log in to your SMTP server;
-* **SMTP Password**: the password to log in to your SMTP server;
+* **SMTP Password**: the password to log in to your SMTP server.
 
 ## Session
 
