@@ -7,7 +7,7 @@ For applications where Guardian MFA is enabled, the user will be required to sig
 ## Implementing Multifactor Authentication
 Within Auth0, you may implement MFA via the **Multifactor Auth** page of the Management Dashboard.
 
-![](/guardian-dashboard.png)
+![](/media/articles/mfa/guardian-dashboard.png)
 
 > Auth0 provides [built-in support](https://auth0.com/docs/multifactor-authentication#using-auth0-s-built-in-support) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, on the **Multifactor Auth** page of the Management Dashboard.
 
@@ -20,7 +20,7 @@ The first thing you will do when setting up Guardian is to decide whether you wo
 
 To enable either Push Notifications or SMS verification, move the appropriate slider to the right.
 
-![](/guardian-both.png)
+![](/media/articles/mfa/guardian-both.png)
 
 Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you will need to edit to ensure that MFA is applied to the appropriate Clinets. You will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
 
@@ -55,7 +55,7 @@ Once you have finished making your desired changes, click "Save" so that they pe
 
 You may change the logo and the friendly name that is displayed to your users. To do so, you may make the appropriate settings changes from the Guardian page's link to Account Settings.
 
-![](/guardian-logo-and-name-settings.png)
+![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
 * **Friendly Name**: the name of the app that you want displayed to the users;
 * **Logo URL**: the URL that points to the logo image you want displayed to your users.
