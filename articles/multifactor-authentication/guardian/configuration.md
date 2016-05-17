@@ -9,7 +9,7 @@ Within Auth0, you may implement MFA via the **Multifactor Auth** page of the Man
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
-> Auth0 provides [built-in support](https://auth0.com/docs/multifactor-authentication#using-auth0-s-built-in-support) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, on the **Multifactor Auth** page of the Management Dashboard.
+> Auth0 provides [built-in support](https://auth0.com/docs/multifactor-authentication#using-auth0-s-built-in-support) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
 
 ### Configuring Guardian in the Management Dashboard
 
@@ -22,7 +22,9 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you will need to edit to ensure that MFA is applied to the appropriate Clinets. You will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients (by default, Auth0 enables Guardian for all accounts).
+
+If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
 
 ```js
 function (user, context, callback) {
@@ -53,11 +55,11 @@ Once you have finished making your desired changes, click "Save" so that they pe
 
 ### Customizing the Guardian Screen.
 
-You may change the logo and the friendly name that is displayed to your users. To do so, you may make the appropriate settings changes from the Guardian page's link to Account Settings.
+You may change the logo and the friendly name that is displayed to your users. To do so, you may make the appropriate settings changes from the Guardian page's link to Account Settings. You may also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting Account Settings from the dropdown menu that appears.
 
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
 * **Friendly Name**: the name of the app that you want displayed to the users;
 * **Logo URL**: the URL that points to the logo image you want displayed to your users.
 
-![](/default-guardian-view.png)
+Auth0 recommends using a logo image that is at least 100x100 pixels, though an image that is 200x200 pixels ensures quality viewing in Retina or DPI devices.
