@@ -62,4 +62,4 @@ You may change the logo and the friendly name that is displayed to your users. T
 * **Friendly Name**: the name of the app that you want displayed to the users;
 * **Logo URL**: the URL that points to the logo image you want displayed to your users.
 
-Auth0 recommends using a logo image that is at least 100x100 pixels, though an image that is 200x200 pixels ensures quality viewing in Retina or DPI devices.
+Auth0 recommends using a logo image that is at least 100x100 pixels, though an image that is 200x200 pixels ensures quality viewing in devices with Retina or high DPI displays.
