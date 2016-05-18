@@ -22,9 +22,9 @@ Click **SAVE**.
 
 The Message area supports usage of multiple languages.
 
-By making a call to the [/passwordless/start](/docs/api/authentication#!#post--with_sms) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
+By making a call to the [/passwordless/start](/api/authentication#!#post--with_sms) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
 
-The Message area accepts Liquid syntax. You can use this syntax, combined with exposed parameter values, to programmatically construct elements of the message. For example, you can reference the `request_language` parameter to change the language of the message.
+The Message area accepts Liquid syntax. You can use this syntax, combined with exposed parameter values, to programmatically construct elements of the message. For example, you can reference the `request_language` parameter to change the language of the message:
 
 ```text
 {% if request_language contains 'dutch' %}
@@ -35,6 +35,8 @@ The Message area accepts Liquid syntax. You can use this syntax, combined with e
    Ceci est votre code: @@password@@
 {% endif %}
 ```
+The following paramaters are available when defining the template:
+
 | Exposed Parameter | Description |
 |:------------------|:---------|
 | `password` or `code` | the password to use |
