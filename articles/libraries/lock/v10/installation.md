@@ -9,13 +9,13 @@ You can get the required Lock installation package from several sources.
 CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.3/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.4/lock.min.js"></script>
 ```
 
 [Bower](http://bower.io):
 
 ```sh
-bower install auth0-lock#10.0.0-beta.3
+bower install auth0-lock#10.0.0-beta.4
 ```
 
 ```html
@@ -156,7 +156,7 @@ The following instructions assume you are migrating from Lock v9 to the latest b
   - The `disableResetAction` option was renamed to `allowForgotPassword`.
   - The `disableSignUpAction` option was renamed to `allowSignUp`.
   - The `focusInput` option was renamed to `autofocus`.
-  - The `forceJSONP` option was renamed to `jsonp` and namespaced under `auth`. Now you use it like this `auth: {jsonp: true}`.
+  - The `forceJSONP` option was removed.
   - The `gravatar` option was renamed to `avatar` and instead of taking `true` and `false` it now takes `null` or an object. See the [New Features page](/libraries/lock/v10/new-features#custom-avatar-provider) for details.
   - The `icon` option was renamed to `logo` and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
   - The `popup` option was replaced by `redirect` which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
@@ -181,3 +181,7 @@ This is a summary of what you absolutely need to know before upgrading between b
 #### Upgrading from v10.0.0-beta.2 to v10.0.0-beta.3
 
 - The profile is no longer fetched automatically after a successful login. To obtain it you need to call `lock.getProfile` (see the examples above for the details).
+
+#### Upgrading from v10.0.0-beta.3 to v10.0.0-beta.4
+
+- The `jsonp` option was removed.
