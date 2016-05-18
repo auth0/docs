@@ -10,8 +10,8 @@ The Nodes page displays the following pieces of information for each of your nod
 * **IP**: the IP address used to reach that particular node;
 * **Memory**: the amount of memory allocated to that node;
 * **CPUs**: the number of CPUs allocated to that node;
-* **App Update**:
-* **Setting Update**:
+* **App Update**: the number of times the node has been updated with application-related updates;
+* **Setting Update**: the number of times the node's settings have been updated;
 * **Heartbeat**: the amount of time elapsed since the Dashboard received communication from the node;
 * **Uptime**: the amount of time the node has been continuously running.
 

@@ -43,7 +43,7 @@ Once you have provided the required information and uploaded your certificate, c
 Once the change has been implemented and you have refreshed the custom domains page, you will see the following overview information about your newly-created domain:
 
 * **Domain**: the custom domain URL;
-* **SSL Available**:
+* **SSL Available**: indicates successful application of the SSL certificate;
 * **Certificate Subject**: the subject of the certificate, or the target of the certificate (e.g. what is being secured);
 * **Certificate Expiration**: the date and time when the certificate expires;
 * **Remove Domain**: clicking the "X" button removes this domain from the tenant.

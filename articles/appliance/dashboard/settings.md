@@ -20,7 +20,7 @@ The Settings page is broken down into the following sections:
 ## General
 
 * **Company Handle**: the internal identifier for your company. Use only lowercase characters (no spaces or special characters);
-* **NTP Servers**: the IP address of an internal NTP server (e.g.: *10.4.2.39*) or a public NTP server (e.g.: *1.north-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5*);
+* **NTP Servers**: the IP address of an internal NTP server (e.g.: *10.4.2.39*) or a public NTP server (e.g.: *1.north-america.pool.ntp.org burst iburst minpoll 3 maxpoll 5*). This setting is particularly important, since it assists in time synchronization among the various pieces of your infrastructure;
 * **Enable GeoIP**: if enabled, Auth0 will update the geo-coding database for mapping IP addresses to locations (you **MUST** permit access to www.maxmind.com through your firewall);
 * **Enforce Logout URLs**: if enabled, Auth0 requires the Logout URL used to be included in the list indicated under Allowed Logout URLs.
 
@@ -46,7 +46,7 @@ The Settings page is broken down into the following sections:
 
 ## SMTP Server
 
-* **Send Mails From**: the email address to be used as the return address when sending emails;
+* **Send Mails From**: *Deprecated.* The email address used in the "From" field typically comes from that provided on your [custom email template](https://${uiURL}/#/emails);
 * **SMTP Server**: the name of your SMTP server;
 * **SMTP Port**: the port through which you access your SMTP server;
 * **SMTP User**: the username to log in to your SMTP server;
@@ -63,7 +63,7 @@ The Settings page is broken down into the following sections:
 
 ## Update Settings
 
-* **Update Proxy**:
+* **Update Proxy**: unless your specific configuration is set up for offline updates, please leave this field blank.
 
 ## Monitoring
 
@@ -71,9 +71,9 @@ The Settings page is broken down into the following sections:
 
 ## API Keys
 
-* **Health service**:
+* **Health service**: generates a key that authenticates your API calls for status information regarding your Appliance instances;
 
-    ![](health-service.png)
+    ![](/media/articles/appliance/dashboard/health-keys-api-service.png)
 
 ## Advanced Settings
 
@@ -82,4 +82,4 @@ The Settings page is broken down into the following sections:
 
 ## Deprecated
 
-* **Updated URL**:
+* **Updated URL**: unless your specific configuration is set up for offline updates, please update via [Auth0's hosted mirror site](http://apt-mirror.it.auth0.com).

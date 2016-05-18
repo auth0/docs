@@ -36,8 +36,10 @@ The following bits of data are available at a glance:
 * **Host**: the name of the node in question;
 * **Avail Memory**: the amount of memory available to the node at the time of the Health Check;
 * **CPU**: CPU usage (as a percent) on the node at the time of the Health Check;
-* **Email**:
-* **Disk**:
-* **Network**:
-* **Services**:
-* **DB**:
+* **Email**: indicates status of email services;
+* **Disk**: indicates status of disk resources;
+* **Network**: indicates status of network availability;
+* **Services**: indicates status of services;
+* **DB**: indicates status of database availability.
+
+By clicking on an individual row listed under the Health Check section, you may view additional information about the resources that are currently running.

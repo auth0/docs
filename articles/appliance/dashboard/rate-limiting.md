@@ -7,4 +7,4 @@ While the Auth0-managed cloud instances automatically includes rate limiting to 
 ## Settings
 
 * **Enabled**: to enable rate limiting, check this box. Auth0 will then limit requests to services like API and logins to help mitigate malicious attacks;
-* **Configuration of Buckets**:
+* **Configuration of Buckets**: if you have enabled rate limiting, you will be presented with the various "buckets" that set the limits on calls to the API and logins. You may adjust these as necessary.
