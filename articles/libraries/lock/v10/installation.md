@@ -142,7 +142,7 @@ The following instructions assume you are migrating from Lock v9 to the latest b
 - The constructor now takes all the options and the authentication callback.
 - The authentication callback now has just two arguments `error` and `result`. The `result` argument is an object that contains properties for the arguments provided in the previous versions: `idToken`, `accessToken`, `state`, and `refreshToken`. It also includes a `idTokenPayload` property.
 - The profile is no longer fetched automatically after a successful login, you need to call `lock.getProfile`.
-- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `authentication: { redirect: true }` option.
+- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `authentication: { redirect: false }` option.
 - You no longer need to to call the `parseHash` and `getProfile` when implementing Redirect Mode. The data returned by those methods is provided in the `result` parameter of the authentication callback.
 - Is no longer possible to select a language by passing a code, which was done in the previous versions of lock with  `dict: 'es'`.
 - Lifecycle events are not yet available.
