@@ -1,0 +1,20 @@
+{
+  "name": "auth0-docs-content",
+  "scripts": {
+  },
+  "env": {
+    "NPM_CONFIG_PRODUCTION": {
+      "required": true
+    },
+    "NODE_ENV": {
+      "required": true
+    },
+    "GITHUB_ACCESS_TOKEN": {
+      "required": true
+    },
+    "GITHUB_USER_NAME": {
+      "required": true
+    }
+  },
+  "addons": []
+}

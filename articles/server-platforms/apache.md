@@ -1,5 +1,6 @@
 ---
-title: Apache Tutorial
+title: Auth0 Apache SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Apache SDK to add authentication and authorization to your web app.
 name: Apache
 image: /media/platforms/apache.jpg
 tags:

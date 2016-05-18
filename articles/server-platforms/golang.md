@@ -1,5 +1,6 @@
 ---
-title: Go Web App Tutorial
+title: Auth0 Go SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your web app.
 name: Go
 image: /media/platforms/golang.png
 tags:

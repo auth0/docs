@@ -179,8 +179,6 @@ Content-Type: 'application/json'
   "id_token":    "{YOUR_ID_TOKEN}",
   "target":      "${account.clientId}",
   "api_type":    "aws",
-  "role":        "arn:aws:iam::010616021751:role/access-to-s3-per-user"
-  "principal":   "arn:aws:iam::010616021751:saml-provider/auth0-provider"
 }
 ```
 
@@ -190,7 +188,25 @@ Where:
 * **id_token** identifies the user you are requesting this on behalf-of
 * **target** identifies this API endpoint in Auth0 (often the same as client_id).
 * **api_type** must be aws
-* **role** and **principal** are two additional parameters used for AWS
+
+Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate values via [Rules](https://manage.auth0.com/#/rules):
+
+```js
+function (user, context, callback) {
+  if (context.clientID === 'CLIENT_ID' &&
+      context.protocol === 'delegation') {
+    // set AWS settings
+    context.addonConfiguration = context.addonConfiguration || {};
+    context.addonConfiguration.aws = context.addonConfiguration.aws || {};
+    context.addonConfiguration.aws.principal = 'arn:aws:iam::[omitted]:saml-provider/auth0-provider';
+    context.addonConfiguration.aws.role = 'arn:aws:iam::[omitted]:role/auth0-role';
+  }
+
+  callback(null, user, context);
+}
+
+```
+
 
 **NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
 

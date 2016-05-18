@@ -1,5 +1,6 @@
 ---
-title: PHP API Tutorial
+title: Auth0 PHP SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your API.
 name: PHP API
 alias:
   - php
@@ -17,7 +18,7 @@ snippets:
 
 ## PHP API Tutorial
 
-::: Panel-info System Requirements​
+::: panel-info System Requirements​
 This tutorial and seed project have been tested with the following:
 * PHP 5.6.14
 * Composer 1.0-dev

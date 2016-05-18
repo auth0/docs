@@ -1,5 +1,6 @@
 ---
-title: Vue.js Tutorial
+title: Auth0 Vue.js SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Vue.js SDK to add authentication and authorization to your web app.
 name: Vue.js
 alias:
   - vue
@@ -19,7 +20,7 @@ snippets:
   login: client-platforms/vuejs/login
   loginlogout: client-platforms/vuejs/loginlogout
   logout: client-platforms/vuejs/logout
-  routing: client-platforms/vuejs/routing 
+  routing: client-platforms/vuejs/routing
 alias:
   - vuejs
 ---
@@ -51,7 +52,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Set Up Login and Logout on a Standard Vue Instance (No Routing)
 
-If your app does not require routing, set up a standard Vue.js instance that is attached to a DOM element. 
+If your app does not require routing, set up a standard Vue.js instance that is attached to a DOM element.
 
 #### 2.1 Login
 

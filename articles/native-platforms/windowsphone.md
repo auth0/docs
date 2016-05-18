@@ -1,5 +1,6 @@
 ---
-title: Windows Phone Tutorial
+title: Auth0 Windows Phone SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Windows Phone SDK to add authentication and authorization to your mobile app.
 name: Windows Phone
 alias:
   - windows phone

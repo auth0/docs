@@ -1,5 +1,6 @@
 ---
-title: Ruby on Rails API Tutorial
+title: Auth0 Ruby on Rails SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Ruby on Rails SDK to add authentication and authorization to your API.
 name: Ruby On Rails API
 alias:
   - rails

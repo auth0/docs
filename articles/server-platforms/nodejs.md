@@ -1,5 +1,6 @@
 ---
-title: NodeJS Web App Tutorial
+title: Auth0 Node.js Express SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Node.js Express SDK to add authentication and authorization to your web app.
 name: Node.js
 image: /media/platforms/node.png
 tags:

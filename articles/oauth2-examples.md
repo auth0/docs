@@ -10,29 +10,6 @@ curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: 
 
 After the call completes successfully, you will be able to login using these new providers.
 
-## Dropbox
-
-* [Create an application](https://www.dropbox.com/developers/apps/create)
-* Set `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
-* Copy `App Key` and `App Secret`:
-
-```
-{
-  "name": "dropbox",
-  "strategy": "oauth2",
-  "options": {
-    "client_id": "{YOUR_DROPBOX_APP_KEY}",
-    "client_secret": "{YOUR_DROPBOX_APP_SECRET}",
-    "authorizationURL": "https://www.dropbox.com/1/oauth2/authorize",
-    "tokenURL": "https://api.dropbox.com/1/oauth2/token",
-    "scope": [],
-    "scripts": {
-      "fetchUserProfile": "function(accessToken,ctx,cb){request.get('https://api.dropbox.com/1/account/info',{headers:{'Authorization':'Bearer '+accessToken}},function(e,r,b){if(e) return cb(e);if(r.statusCode!==200) return cb(new Error('StatusCode: '+r.statusCode));var profile=JSON.parse(b);cb(null,{user_id:profile.uid,family_name:profile.name_details.surname,given_name:profile.name_details.given_name,email:profile.email,email_verified:profile.email_verified,locale:profile.locale,is_paired:profile.is_paired,country:profile.country,dropbox_team:profile.team,dropbox_referral_link:profile.referral_link});});}"
-    }
-  }
-}
-```
-
 ## Uber
 
 * [Create an application](https://developer.uber.com/apps/new)
@@ -140,29 +117,6 @@ After the call completes successfully, you will be able to login using these new
       "fetchUserProfile": "function(accessToken, ctx, cb){ request.get('https://api.twitch.tv/kraken/user', { headers: { 'Authorization': 'OAuth ' + accessToken, 'Accept': 'application/vnd.twitchtv.v3+json' } }, function(e, r, b) { if (e) return cb(e); if (r.statusCode !== 200 ) return cb(new Error('StatusCode: ' + r.statusCode)); var profile = JSON.parse(b); profile.id = profile._id; delete profile._id; profile.links=profile._links; delete profile._links; return cb(null, profile);});}"
     }
   }
-```
-
-## Bitbucket
-
-* Register a new Consumer in Bitbucket
-* Set the `Redirect URI` to [https://${account.namespace}/login/callback](https://${account.namespace}/login/callback).
-* Copy `Consumer Key` and `Consumer Secret` to config file below
-
-```
-{
-  "name": "bitbucket",
-  "strategy": "oauth1",
-  "options": {
-    "client_id": "{YOUR BITBUCKET CONSUMER KEY}",
-    "client_secret": "{YOUR BITBUCKET CONSUMER SECRET}",
-    "requestTokenURL": "https://bitbucket.org/api/1.0/oauth/request_token",
-    "accessTokenURL": "https://bitbucket.org/api/1.0/oauth/access_token",
-    "userAuthorizationURL": "https://bitbucket.org/api/1.0/oauth/authenticate",
-    "scripts": {
-      "fetchUserProfile": "function (token, tokenSecret, ctx, cb) {var OAuth = new require('oauth').OAuth;var oauth = new OAuth(ctx.requestTokenURL,ctx.accessTokenURL,ctx.client_id,ctx.client_secret,'1.0',null,'HMAC-SHA1');oauth.get('https://bitbucket.org/api/1.0/user',token,tokenSecret,function(e, b, r) {if (e) return cb(e);if (r.statusCode !== 200) return cb(new Error('StatusCode: ' + r.statusCode)); var p = JSON.parse(b); var profile = p.user; profile.picture = p.user.avatar; profile.id = p.user.username; cb(null, profile); });}"
-    }
-  }
-}
 ```
 
 ## Dribbble

@@ -22,10 +22,10 @@ pod 'Lock-Google'
 Lock uses Facebook iOS SDK to obtain user's access token so you'll need to configure it using your Facebook App info:
 
 First, add the following entries to the `Info.plist`:
-* _FacebookAppId_: `YOUR_FACEBOOK_APP_ID`
+* _FacebookAppID_: `YOUR_FACEBOOK_APP_ID`
 * _FacebookDisplayName_: `YOUR_FACEBOOK_DISPLAY_NAME`
 
-Then register a custom URL Type with the format `fb<FacebookAppId>`. For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
+Then register a custom URL Type with the format `fb<FacebookAppID>`. For more information please check [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started).
 
 Here's an example of how the entries should look like in your `Info.plist` file:
 

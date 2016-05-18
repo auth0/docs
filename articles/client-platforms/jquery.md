@@ -1,5 +1,6 @@
 ---
-title: jQuery Tutorial
+title: Auth0 jQuery SDK Tutorial
+description: This tutorial will show you how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
 name: jQuery
 alias:
   - jquery
@@ -54,7 +55,7 @@ ${snippet(meta.snippets.setup)}
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses Lock's [redirect mode](/libraries/lock/authentication-modes). 
+ __Note:__ This implementation uses Lock's [redirect mode](/libraries/lock/authentication-modes).
 
 ${snippet(meta.snippets.use)}
 
@@ -62,7 +63,7 @@ To discover all the available arguments for `lock.show`, see [.show\(\[options, 
 
 After authentication, Auth0 will redirect the user back to your application with an identifying token as a hash parameter of `window.location`. Use `lock.parseHash` to parse the hash and create the token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh. 
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
 
 ```js
 var hash = lock.parseHash(window.location.hash);

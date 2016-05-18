@@ -11,13 +11,68 @@ var lock = new AuthLock(
   {
     additionalSignUpFields: [{
       name: "address",                              // required
-      icon: "https://example.com/address_icon.png", // optional
       placeholder: "enter your address",            // required
+      icon: "https://example.com/address_icon.png", // optional
+      prefill: "street 123",                        // optional
       validator: function(value) {                  // optional
         // only accept addresses with more than 10 chars
         return value.length > 10;
       }
     }] // more fields could be specified
+  },
+  function(error, result) {
+    // handle auth
+});
+```
+
+If the possible values for the field are predefined, you can add a field with the `"select"` `type`.
+
+```js
+var lock = new AuthLock(
+  '${account.clientId}',
+  '${account.namespace}',
+  {
+    additionalSignUpFields: [{
+      type: "select",                                       // required
+      name: "location",                                     // required
+      placeholder: "choose your location",                  // required
+      options: [                                            // required
+        {value: "us", label: "United States"},
+        {value: "fr", label: "France"},
+        {value: "ar", label: "Argentina"}
+      ],
+      prefill: "us",                                        // optional
+      icon: "https://example.com/assests/location_icon.png" // optional
+    }]
+  },
+  function(error, result) {
+    // handle auth
+});
+```
+
+The `options` and `prefill` properties can also be functions, which is useful when you need to make a requests to obtain their values.
+
+```js
+var lock = new AuthLock(
+  '${account.clientId}',
+  '${account.namespace}',
+  {
+    additionalSignUpFields: [{
+      type: "select",                                       // required
+      name: "location",                                     // required
+      placeholder: "choose your location",                  // required
+      options: function(cb) {                               // required
+        // obtain options, in case of error you call cb with the error in the
+        // first arg instead of null
+        cb(null, options);
+      },
+      prefill: function(cb) {                               // optional
+        // obtain prefill, in case of error you call cb with the error in the
+        // first arg instead of null
+        cb(null, prefill);
+      },
+      icon: "https://example.com/assests/location_icon.png" // optional
+    }]
   },
   function(error, result) {
     // handle auth
@@ -144,6 +199,27 @@ var lock = new AuthLock(
       logo: "https://example.com/icon.png",
       primaryColor: "#ec4889"
     }
+  },
+  function(error, result) {
+    // handle auth
+});
+```
+
+## Sign Up Terms Agreement
+
+You can ask the user to accept the terms and conditions by clicking a checkbox input before signing up with the `mustAcceptTerms` option.
+
+```js
+var lock = new AuthLock(
+  '${account.clientId}',
+  '${account.namespace}',
+  {
+    languageDictionary: {
+      signUp: {
+        terms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
+      }
+    },
+    mustAcceptTerms: true
   },
   function(error, result) {
     // handle auth

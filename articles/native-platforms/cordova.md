@@ -1,5 +1,6 @@
 ---
-title: Cordova Tutorial
+title: Auth0 Cordova SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Cordova SDK to add authentication and authorization to your mobile app.
 name: Cordova
 alias:
   - cordova

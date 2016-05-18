@@ -1,5 +1,6 @@
 ---
-title: ASP.NET (OWIN) Tutorial
+title: Auth0 ASP.NET OWIN SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 ASP.NET OWIN SDK to add authentication and authorization to your web app.
 name: ASP.NET (OWIN)
 image: /media/platforms/asp.png
 tags:

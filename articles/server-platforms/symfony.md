@@ -1,5 +1,6 @@
 ---
-title: Symfony Tutorial
+title: Auth0 Symfony SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Symfony SDK to add authentication and authorization to your web app.
 name: PHP (Symfony)
 image: /media/platforms/php.png
 tags:

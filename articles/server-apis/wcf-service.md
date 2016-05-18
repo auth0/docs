@@ -1,5 +1,6 @@
 ---
-title: WCF Service Tutorial
+title: Auth0 WCF SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 WCF SDK to add authentication and authorization to your API.
 name: .NET WCF
 languages:
   - C#

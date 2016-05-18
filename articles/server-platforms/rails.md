@@ -1,5 +1,6 @@
 ---
-title: Ruby On Rails Web App Tutorial
+title: Auth0 Ruby On Rails SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app.
 name: Ruby On Rails
 image: /media/platforms/rails.png
 tags:
@@ -166,7 +167,7 @@ OmniAuth.config.on_failure = Proc.new { |env|
 
 #### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
 
-If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K. Also, if you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, please try this solution as well. 
+If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K. Also, if you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, please try this solution as well.
 
 You can change to use In-Memory store for development as follows.
 

@@ -1,6 +1,7 @@
 ---
-title: Angular 2 Tutorial
+title: Auth0 Angular 2 SDK Tutorial
 name: Angular 2
+description: This tutorial will show you how to use the Auth0 Angular 2 SDK to add authentication and authorization to your web app.
 alias:
   - angular2
   - angularjs
@@ -24,7 +25,7 @@ alias:
   - angular
 ---
 
-## Angular 2 Tutorial
+## Angular 2 SDK Tutorial
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements

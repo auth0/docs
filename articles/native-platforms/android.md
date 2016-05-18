@@ -1,5 +1,6 @@
 ---
-title: Android Tutorial
+title: Auth0 Android SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Android SDK to add authentication and authorization to your mobile app.
 name: Android
 alias:
   - Android
@@ -68,7 +69,7 @@ Then add the following entries inside the `<application>` tag in the same file:
     <action android:name="android.intent.action.VIEW"/>
     <category android:name="android.intent.category.DEFAULT"/>
     <category android:name="android.intent.category.BROWSABLE"/>
-    <data android:scheme="a0${account.clientId}" android:host="${account.namespace}"/>
+    <data android:scheme="a0${account.clientId.toLowerCase()}" android:host="${account.namespace}"/>
   </intent-filter>
 </activity>
 <meta-data android:name="com.auth0.lock.client-id" android:value="${account.clientId}"/>

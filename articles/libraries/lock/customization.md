@@ -70,7 +70,7 @@ lock.show({
 });
 ```
 
-![][connections-image]
+![](/media/articles/libraries/lock/customization/connections.png)
 
 ### dict {String|Object}
 
@@ -93,7 +93,8 @@ lock.show({
   }
 });
 ```
-![][dict-image]
+
+![](/media/articles/libraries/lock/customization/dict.png)
 
 ### container {String}
 
@@ -113,7 +114,7 @@ The `id` of the html element where the widget will be shown. This makes the widg
 </script>
 ````
 
-![container][container-image]
+![](/media/articles/libraries/lock/customization/container.png)
 
 ### icon {String}
 
@@ -129,7 +130,7 @@ lock.show({
 });
 ```
 
-![][icon-image]
+![](/media/articles/libraries/lock/customization/icon.png)
 
 > Note: To disable the header badge entirely, [UI customizations][ui-customization] are required..
 
@@ -147,7 +148,7 @@ lock.show({
 });
 ```
 
-![][closable-image]
+![](/media/articles/libraries/lock/customization/closable.png)
 
 ### socialBigButtons {Boolean}
 
@@ -175,7 +176,7 @@ lock.show({
 });
 ```
 
-![][socialbuttons-image]
+![](/media/articles/libraries/lock/customization/socialBigButtons.png)
 
 ### focusInput {Boolean}
 
@@ -201,7 +202,7 @@ lock.show({
 });
 ```
 
-![][username-image]
+![](/media/articles/libraries/lock/customization/usernameStyle.png)
 
 ### gravatar {Boolean}
 
@@ -209,7 +210,7 @@ Default: `true`
 
 In `show`, `showSignin` and `showSignup` methods, when user types their email, their associated gravatar picture is displayed in the Lock header.
 
-![][gravatar-image]
+![](/media/articles/libraries/lock/customization/gravatar.png)
 
 ### disableSignupAction {Boolean}
 
@@ -224,7 +225,7 @@ lock.show({
 });
 ```
 
-![][disablesignup-image]
+![](/media/articles/libraries/lock/customization/disableSignupAction.png)
 
 ### signupLink {String}
 
@@ -248,7 +249,7 @@ lock.show({
 });
 ```
 
-![][disablereset-image]
+![](/media/articles/libraries/lock/customization/disableResetAction.png)
 
 ### resetLink {String}
 
@@ -275,7 +276,7 @@ lock.show({}, function(err, profile) {
 });
 ```
 
-![][popup-image]
+![](/media/articles/libraries/lock/customization/popup.png)
 
 ### popupOptions {Object}
 
@@ -288,7 +289,7 @@ lock.show({
 });
 ```
 
-![][popupoptions-image]
+![](/media/articles/libraries/lock/customization/popupOptions.png)
 
 ### loginAfterSignup {Boolean}
 
@@ -319,7 +320,7 @@ lock.show({
 });
 ```
 
-![][remember-image]
+![](/media/articles/libraries/lock/customization/rememberLastLogin.png)
 
 ### integratedWindowsLogin {Boolean}
 
@@ -375,7 +376,7 @@ lock.show({
 });
 ```
 
-![][defaultadusernamefromemailprefix-image]
+![](/media/articles/libraries/lock/customization/defaultADUsernameFromEmailPrefix.png)
 
 ### theme {String}
 
@@ -467,22 +468,8 @@ Internally set from `callback` parameter
 
 
 
-[connections-image]: https://cloudup.com/c5lcry6Cj9C+
-[container-image]: https://cloudup.com/cs2FwrQg-Fh+
-[icon-image]: https://cloudup.com/ca-expy_GvW+
-[dict-image]: https://cloudup.com/cfQWrtVACO3+
-[remember-image]: https://cloudup.com/cUqUZgG_apa+
-[disablesignup-image]: https://cloudup.com/cdHWtzNrCAi+
-[disablereset-image]: https://cloudup.com/cnolm6HqGMq+
-[username-image]: https://cloudup.com/cYAiKnsV_EQ+
 [authparams-link]: /libraries/lock/sending-authentication-parameters
-[closable-image]: https://cloudup.com/cySs9OP6yUc+
-[socialbuttons-image]: https://cloudup.com/cMsyrifz46s+
-[popup-image]: https://cloudup.com/cY08amfJ1yh+
 [windowopen-link]: https://developer.mozilla.org/en-US/docs/Web/API/Window.open#Position_and_size_features
-[popupoptions-image]: https://cloudup.com/cqvq_Gz5VUZ+
-[gravatar-image]: https://cldup.com/yt3vJ2UQzq.png
-[defaultadusernamefromemailprefix-image]: https://cldup.com/IWdks93Oh5.png
 
 [lock-i18n]: /libraries/lock/i18n
 [lock-custom-errors]: /libraries/lock/customizing-error-messages

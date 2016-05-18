@@ -1,0 +1,10 @@
+added:
+  -
+    title: "Added doc on Using Lock vs. Custom UI"
+    tags:
+      - auth-api
+      - lock
+      - auth0js
+      - custom-uis
+    description: |
+      A new section of documentation was added for comparing the use of [Lock vs. Custom UIs](/libraries/when-to-use-lock).

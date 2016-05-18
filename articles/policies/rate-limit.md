@@ -5,12 +5,3 @@ Auth0 reserves the right to rate limit any calls to its infrastructure, to prote
 ## Rate Limit Documentation
 
 See the [Rate Limit Documentation](/rate-limit) for information on how to obtain Auth0 API rate limit information for an endpoint.
-
-## Effectivity
-This policy is effective April 4, 2016
-
-
-
-
-
-

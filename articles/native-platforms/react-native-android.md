@@ -1,5 +1,6 @@
 ---
-title: React Native Android Tutorial
+title: Auth0 React Native Android SDK Tutorial
+description: This tutorial will show you how to use the Auth0 React Native Android SDK to add authentication and authorization to your mobile app.
 name: React Native - Android
 alias:
   - reactnative
@@ -74,8 +75,8 @@ And finally, you must add the following entries inside the `<application>` tag o
 </activity>
 <!--Auth0 Lock End-->
 <!--Auth0 Lock Embedded WebView-->
-<activity 
-    android:name="com.auth0.identity.web.WebViewActivity" 
+<activity
+    android:name="com.auth0.identity.web.WebViewActivity"
     android:theme="@style/Lock.Theme">
 </activity>
 <!--Auth0 Lock Embedded WebView End-->
@@ -86,8 +87,8 @@ And finally, you must add the following entries inside the `<application>` tag o
     android:screenOrientation="portrait"
     android:launchMode="singleTask">
 </activity>
-<activity 
-    android:name="com.auth0.lock.passwordless.CountryCodeActivity" 
+<activity
+    android:name="com.auth0.lock.passwordless.CountryCodeActivity"
     android:theme="@style/Lock.Theme">
 </activity>
 <!--Auth0 Lock Passwordless End-->
@@ -149,7 +150,7 @@ Each native integration requires it's own configuration. If you added some of th
 
 #### Facebook
 
-Lock uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info. If you don't have one, please create a Facebook Application in [Facebook Dev Site](https://developers.facebook.com/apps). Remember to register the package name and hash of your android application. 
+Lock uses the native Facebook SDK to obtain the user's access token so you'll need to configure it using your Facebook App info. If you don't have one, please create a Facebook Application in [Facebook Dev Site](https://developers.facebook.com/apps). Remember to register the package name and hash of your android application.
 
 Once you have your Facebook App, you need to enable and configure the connection in Facebook's Connection settings on your Auth0 account. You need to set up your FB app id and secret.
 
@@ -181,7 +182,7 @@ The value `@string/facebook_app_id` is your Facebook Application ID that you can
 
 #### Google+
 
-First you'll need to register your application in Google+, to do it follow the instructions in Step 1 of this [guide](https://developers.google.com/+/mobile/android/getting-started). 
+First you'll need to register your application in Google+, to do it follow the instructions in Step 1 of this [guide](https://developers.google.com/+/mobile/android/getting-started).
 
 You also need to enable the connection in your Auth0 dashboard.
 

@@ -1,5 +1,6 @@
 ---
-title: Meteor Tutorial
+title: Auth0 Meteor SDK Web App Tutorial
+description: This tutorial will show you how to use the Auth0 Meteor SDK to add authentication and authorization to your web app.
 name: Meteor
 alias:
   - Meteor

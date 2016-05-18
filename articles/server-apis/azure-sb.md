@@ -1,5 +1,6 @@
 ---
-title: Azure Service Bus Tutorial
+title: Auth0 Azure Service Bus Tutorial
+description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
 name: Azure Service Bus
 thirdParty: true
 alias:

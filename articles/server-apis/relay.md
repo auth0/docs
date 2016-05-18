@@ -1,5 +1,6 @@
 ---
-title: Relay API Tutorial
+title: Auth0 Relay SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 Relay SDK to add authentication and authorization to your API.
 name: Relay API
 thirdParty: false
 alias:

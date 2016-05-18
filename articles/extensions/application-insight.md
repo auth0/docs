@@ -14,6 +14,6 @@ To complete installation of this extension, click on the Auth0 Logs to Applicati
 
  Once you have provided the appropriate values for the above fields, click "Install" to proceed.
 
- ## Using Your Installed Extension
+## Using Your Installed Extension
 
- You can view all scheduled jobs by clicking on the Auth0 Logs to Application Insights line under the "Installed Extensions" tab.
+You can view all scheduled jobs by clicking on the Auth0 Logs to Application Insights line under the "Installed Extensions" tab.

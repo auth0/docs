@@ -1,5 +1,6 @@
 ---
-title: WPF and Winforms Tutorial
+title: Auth0 WPF and Winforms SDK Tutorial
+description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
 name: WPF / Winforms
 hybrid: false
 language:

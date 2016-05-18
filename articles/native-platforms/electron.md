@@ -1,5 +1,6 @@
 ---
-title: Electron Tutorial
+title: Auth0 Electron SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Electron SDK to add authentication and authorization to your app.
 name: Electron
 alias:
   - electron

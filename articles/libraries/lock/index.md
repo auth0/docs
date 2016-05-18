@@ -2,7 +2,7 @@
 url: /libraries/lock
 ---
 
-[![Auth0](https://cldup.com/yYelLVuXby.jpg)](http://auth0.com)
+[![Auth0](https://cloudup.com/c2evgl2cz3j+)](http://auth0.com)
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps, Salesforce.
 
@@ -14,7 +14,7 @@ Lock makes it easy to integrate SSO in your app. You won't have to worry about:
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
 
-[![Auth0](https://i.cloudup.com/6opoEX_Z9z.png)](http://auth0.com)
+[![Auth0](https://cloudup.com/ceeo-qIlCTd+)](http://auth0.com)
 
 > You can try it out yourself online at our [Auth0 Lock playground][playground-url].
 

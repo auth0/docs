@@ -1,6 +1,6 @@
 # Client-side SSO (Single Page Apps)
 
-Let's say we have three applications
+Let's say you have three applications:
 
 * App 1: app1.com (single page app)
 * App 2: app2.com (single page app)

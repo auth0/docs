@@ -61,14 +61,14 @@ Enable the supported social identity providers you want to allow users to login 
 
 ```js
 lock.once('signin ready', function() {
-    var link = $('<a class="a0-zocial a0-waad" href="#">' +
+    var link = jQuery('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
     link.on('click', function () {
         lock.getClient().login({
             connection: 'fabrikamdirectory.onmicrosoft.com' });
     });
 
-    var iconList = $(this.$container).find('.a0-iconlist');
+    var iconList = jQuery('.a0-iconlist');
     iconList.append(link);
 });
 ```

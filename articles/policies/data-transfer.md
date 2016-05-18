@@ -40,7 +40,3 @@ The following limitations apply to data transfers:
 ## Customer’s responsibility
 
 Auth0 will make every effort to ensure the integrity of the data transfer, however it is the customer’s responsibility to validate the correctness of the data transfer and notify Auth0 about any issues.
-
-## Effectivity
-This policy is effective April 4, 2016
-

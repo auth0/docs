@@ -1,5 +1,6 @@
 ---
-title: React Tutorial
+title: Auth0 React SDK Tutorial
+description: This tutorial will show you how to use the Auth0 React SDK to add authentication and authorization to your web app.
 name: React
 alias:
   - react
@@ -65,6 +66,7 @@ In this example, the `token` is stored in `localStorage` to keep the user authen
 var App = React.createClass({
   // ...
   componentWillMount: function() {
+    //Extending function defined in step 2.
     // ...
     this.setState({idToken: this.getIdToken()})
   },

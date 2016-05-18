@@ -1,11 +1,12 @@
 ---
-title: Windows UWP App in Javascript Tutorial
+title: Auth0 Windows Universal App Javascript SDK Tutorial
+description: This tutorial will show you how to use the Auth0 Windows Universal App Javascript SDK to add authentication and authorization to your app.
 name: Windows UWP (JS)
 hybrid: false
 alias:
   - windows app
   - windows
-language: 
+language:
   - Javascript
 image: /media/platforms/windows-8.png
 tags:

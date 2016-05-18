@@ -1,5 +1,6 @@
 ---
-title: PHP (Laravel) API Tutorial
+title: Auth0 PHP Laravel SDK API Tutorial
+description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your API.
 name: PHP (Laravel) API
 thirdParty: false
 alias:

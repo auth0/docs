@@ -19,6 +19,7 @@ Login features are implemented through a new Login Widget (powered by Auth0) tha
 
 ## WordPress Plugin
 
+- [How does it work?](/cms/wordpress/how-does-it-work)
 - [Installation](/cms/wordpress/installation)
 - [Configuration](/cms/wordpress/configuration)
 - [JWT Authentication](/cms/wordpress/jwt-authentication)

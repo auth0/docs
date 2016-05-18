@@ -13,21 +13,7 @@ lock.show({
 
 The following parameters are supported: `access_token`, `scope`, `protocol`, `device`, `request_id`, `connection_scopes`, `nonce` and `state`.
 
-There are other extra parameters that will depend on the provider. For example, Google allows you to get back a `refresh_token` only if you explicitly ask for `access_type=offline`.
-
-We support sending arbitrary parameters like this:
-
-```js
-lock.show({
-  // ... other options ...
-  authParams: {
-    access_type: 'offline',
-    my_arbitrary_param: 'fooo'
-  }
-});
-```
-
-> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?access_type=offline&...`.
+> Note: this would be analogous to trigger the login with `https://${account.namespace}/authorize?state=foo&...`.
 
 
 ## Supported parameters
@@ -67,3 +53,15 @@ lock.show({
 ```
 
 > The values for each scope are not transformed in any way. They must match exactly the values recognized by each identity provider.
+
+### state {string}
+
+The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
+
+#### Getting the `state` value in a rule
+
+If you need to access the `state` parameter within a rule you must take in consideration that, depending on the type of connection used, it might come either in the body of the request or in the query string, so you should do:
+
+```js
+var state = context.request.query.state || context.request.body.state;.
+```
