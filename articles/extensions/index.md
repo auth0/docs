@@ -36,14 +36,6 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - Real-time Webtask Logs: allows browser-based access to real-time webtask logs
 - Auth0 Logs to Logentries: export Auth0 logs to Logentries
 
-::: panel-info Extensions availability
-The following extensions are available only for the US region:
-- [Auth0 Authorization](/extensions/authorization-extension)
-- [Custom Social Connections](/extensions/custom-social-extensions)
-- [Users Import / Export](/extensions/user-import-export)
-- Real-time Webtask Logs
-:::
-
 ## Creating Your Own Extension
 
 If you would like to [create your own extension](/extensions/custom-extensions), Auth0 provides the following sample code to help you get started:
