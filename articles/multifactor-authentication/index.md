@@ -11,8 +11,6 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 * **Possession**: Something the user has (e.g. a cell phone)
 * **Inheritance**: Something the user is (e.g. a fingerprint or retina scan)
 
-![](/media/articles/mfa/duo.gif)
-
 Auth0 provides three ways of implementing MFA:
 
 * Using Auth0's built-in support for one-time password authentication services: Google Authenticator and Duo Security.
