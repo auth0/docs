@@ -2,10 +2,6 @@
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently, this extension supports authorizations using Groups.
 
-::: panel-info Extension availability
-This extension is available only for the US region.
-:::
-
 ## Setting Up a New Authorization Extension
 
 To install the Authorization extension, click on the "Auth0 Authorization" box on the main Extensions page of the Management Portal. You will be prompted to install the app.
