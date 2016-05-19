@@ -17,7 +17,7 @@ Next, you will see the option to download the Auth0 Guardian app from either the
 Choose the type of two-factor to use:
 
 ### Guardian
-To use the Guardian app, first download the either the iPhone or Android app depending on the type of phone you have. Once you have Guardian downloaded, click **I've already downloaded it**.
+To use the Guardian app, first download the either the [iOS]((http://www.apple.com/itunes/) ) or [Android](https://play.google.com/store) app depending on the type of device you have. Once you have Guardian downloaded, click **I've already downloaded it**.
 
 Next, a code will appear, you will have five minutes to scan the code before it expires. Open the Guardian app and scan the code.
 
@@ -28,11 +28,11 @@ Once your code has been successfully scanned, you will see a confirmation screen
 ![](/media/articles/mfa/guardian-recovery-code.png)
 
 ### Google Authenticator
-If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download the Google Authenticator app on your mobile device. 
+If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
 
 [Click here to learn more about Google Authenticator](https://support.google.com/accounts/answer/1066447) 
 
-A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. 
+A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code, you will see a confirmation screen which has a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
 ![](/media/articles/mfa/google-code.png)
 
@@ -52,11 +52,11 @@ Depending on the type of two-factor authentication you chose when you were signi
 
 ### Guardian
 
-After entering your username and password, you will see a scannable code appear. Scan this code using the Auth0 Guardian app. This will give you a six digit code to enter to complete your sign in.
+After entering your username and password, a push notification will be sent to the Guardian app on your mobile device. This notification is a login request, it includes the application name, the OS and browser of the request, the location and the date of the request. If you recognize this request as your own, tap the **Allow** button. You should now be logged in.
 
 ### Google Authenticator
 
-After entering your username and password, you will see a scannable code appear. Scan this code using the Google Authenticator app. This will give you a six digit code to enter to complete your sign in.
+After entering your username and password, you will be prompted for a six digit code. Open the Google Authenticator app on your mobile device to find the correct code. If you use Google Authenticator for other applications as well, make sure you are using the code for the current application. After entering the six digit code you will be logged in.
 
 ### SMS
 
