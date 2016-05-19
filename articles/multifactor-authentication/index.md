@@ -1,9 +1,9 @@
 ---
-title: Multifactor Authentication in Auth0
+title: Auth0 Multifactor Authentication
 url: /multifactor-authentication
 ---
 
-# Multifactor Authentication in Auth0
+# Multifactor Authentication
 
 Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
 
