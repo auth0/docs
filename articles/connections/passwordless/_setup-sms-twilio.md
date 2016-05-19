@@ -28,11 +28,11 @@ The Message area accepts Liquid syntax. You can use this syntax, combined with e
 
 ```text
 {% if request_language contains 'dutch' %}
-   Hier is uw verificatie code: @@password@@
+   Hier is uw verificatie code: {{ password }}
 {% endif %}
 
 {% if request_language contains 'fr-FR' %}
-   Ceci est votre code: @@password@@
+   Ceci est votre code: {{ password }}
 {% endif %}
 ```
 The following paramaters are available when defining the template:
