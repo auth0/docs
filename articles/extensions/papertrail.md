@@ -52,4 +52,6 @@ That's it, you are done! You can now navigate to [Papertrail](https://papertrail
 
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-01.png)
 
+> You may have noticed that we didn't set a value for *PAPERTRAIL_SYSTEM*. This variable, when not set by the user, takes the default value of `auth0-logs`. As you can see in the previous screenshot, this is how our system will be displayed in the Papertrail dashboard.
+
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-02.png)
