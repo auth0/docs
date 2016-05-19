@@ -32,3 +32,5 @@ The backup will be encrypted using the `aes-256-crt` algorithm.
 > Only one backup may performed at any given time. Prior to generating a new backup, the existing backup must be deleted.
 
 ### Checking the Status of the Backup
+
+Prior to downloading a backup, we recommend checking to ensure that it is available.
