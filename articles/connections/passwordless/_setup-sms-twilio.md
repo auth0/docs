@@ -39,7 +39,7 @@ The following paramaters are available when defining the template:
 
 | Exposed Parameter | Description |
 |:------------------|:---------|
-| `password`     | the password to use |
+| `password` or `code` | the password to use |
 | `phone_number` | the user's phone number |
 | `application.name` | the name of the application name where the user is signing up |
 | `request_language` | the requested language for the message content |
