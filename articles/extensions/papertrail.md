@@ -6,7 +6,7 @@ The Auth0 Logs to Papertrail is a scheduled job that takes all of your Auth0 log
 
 To install and configure this extension, click on the _Auth0 Logs to Papertrail_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
 
-![](/media/articles/extensions/mixpanel/extension-mgmt-papertrail.png)
+![](/media/articles/extensions/papertrail/extension-mgmt-papertrail.png)
 
 At this point you should set the following configuration variables:
 
