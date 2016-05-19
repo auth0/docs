@@ -10,7 +10,7 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 
 ## Custom Multifactor Authentication Rule
 
-The following [rule](https://auth0.com/docs/rules) modifies the outgoing token by adding an `authentication_level` parameter. A regular login will be marked as `normal`.
+The following [rule](/rules) modifies the outgoing token by adding an `authentication_level` parameter. A regular login will be marked as `normal`.
 
 This rule also inspects the `scope`. If the login request is made with `step_up` scope, the application is requesting step-up authentication. In this case, this rule forces the user to additionally authenticate with multifactor authentication and sets the `authentication_level` to `mfa`.
 
