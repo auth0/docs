@@ -6,7 +6,7 @@ The Auth0 Logs to Papertrail is a scheduled job that takes all of your Auth0 log
 
 To install and configure this extension, click on the _Auth0 Logs to Papertrail_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
 
-![](/media/articles/extensions/mixpanel/extension-mgmt-papertrail.png)
+![](/media/articles/extensions/papertrail/extension-mgmt-papertrail.png)
 
 At this point you should set the following configuration variables:
 
@@ -51,5 +51,7 @@ You can view more details by clicking on the job you created. In this page you c
 That's it, you are done! You can now navigate to [Papertrail](https://papertrailapp.com) and view your [Auth0 Logs](${uiURL}/#/logs), by selecting the configured system.
 
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-01.png)
+
+> You may have noticed that we didn't set a value for *PAPERTRAIL_SYSTEM*. This variable, when not set by the user, takes the default value of `auth0-logs`. As you can see in the previous screenshot, this is how our system will be displayed in the Papertrail dashboard.
 
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-02.png)
