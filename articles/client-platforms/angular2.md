@@ -23,6 +23,7 @@ snippets:
   use: client-platforms/angular2/use
 alias:
   - angular
+authCatalogIndex: angular2
 ---
 
 ## Angular 2 SDK Tutorial

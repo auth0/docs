@@ -12,6 +12,7 @@ framework:
 image: /media/platforms/emberjs.png
 tags:
   - quickstart
+authCatalogIndex: emberjs
 ---
 ## EmberJS Tutorial
 

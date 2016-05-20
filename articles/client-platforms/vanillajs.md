@@ -20,6 +20,7 @@ alias:
   - html5
   - backendless
   - javascript-app
+authCatalogIndex: vanillajs
 ---
 
 ## Generic SPA / Vanilla JS Tutorial

@@ -19,6 +19,7 @@ snippets:
   use: client-platforms/angularjs/use
 alias:
   - angular
+authCatalogIndex: angularjs
 ---
 
 ## AngularJS SDK Tutorial

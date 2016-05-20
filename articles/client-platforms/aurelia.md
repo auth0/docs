@@ -26,6 +26,7 @@ snippets:
   tokenisexpired: client-platforms/aurelia/tokenisexpired
 alias:
   - aurelia
+authCatalogIndex: aurelia
 ---
 
 ## Aurelia SDK Tutorial
