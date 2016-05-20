@@ -5,6 +5,7 @@ url: /connections/passwordless/email
 image:
 alias:
   - email
+authCatalogIndex: email
 ---
 
 # Authenticate users with using Passwordless Authentication via Email

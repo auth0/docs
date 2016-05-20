@@ -5,6 +5,7 @@ url: /connections/passwordless/sms
 image:
 alias:
   - sms
+authCatalogIndex: sms
 ---
 
 # Authenticate users with a one-time code via SMS
