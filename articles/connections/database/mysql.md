@@ -2,6 +2,7 @@
 title: Authenticate Users with Username and Password using a Custom Database
 connection: MySQL
 image: /media/connections/mysql.svg
+authCatalogIndex: mysql
 ---
 
 # Authenticate Users with Username and Password using a Custom Database
