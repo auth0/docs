@@ -9,6 +9,7 @@ alias:
   - windows-azure-active-directory
   - microsoft-azure-ad
   - microsoft-azure-active-directory
+authCatalogIndex: azure-active-directory
 ---
 
 # Obtain a *ClientId* and *Client Secret* for a Microsoft Azure Active Directory
