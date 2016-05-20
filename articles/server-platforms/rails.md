@@ -13,6 +13,7 @@ alias:
   - ruby-rails
   - sinatra
   - omniauth
+authCatalogIndex: rails
 ---
 
 ## Ruby On Rails Web App Tutorial

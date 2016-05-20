@@ -15,6 +15,7 @@ snippets:
   dependencies: server-platforms/meteor/dependencies
   setup: server-platforms/meteor/setup
   use: server-platforms/meteor/use
+authCatalogIndex: meteor
 ---
 
 ## Meteor Tutorial

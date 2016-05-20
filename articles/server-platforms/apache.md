@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/apache/dependencies
   setup: server-platforms/apache/setup
   use: server-platforms/apache/use
+authCatalogIndex: apache
 ---
 
 ## Apache Tutorial

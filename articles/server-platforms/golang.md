@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/golang/dependencies
   setup: server-platforms/golang/setup
   use: server-platforms/golang/use
+authCatalogIndex: golang
 ---
 
 ## Go Web App Tutorial

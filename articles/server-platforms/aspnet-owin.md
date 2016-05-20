@@ -12,6 +12,7 @@ snippets:
 alias:
   - aspnetowin
   - owin
+authCatalogIndex: aspnet-owin
 ---
 
 # ASP.NET (OWIN) Tutorial

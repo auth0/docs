@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/php/dependencies
   setup: server-platforms/php/setup
   use: server-platforms/php/use
+authCatalogIndex: php
 ---
 
 ##  PHP Web App Tutorial

@@ -14,6 +14,7 @@ alias:
   - express
   - node-connect
   - passport
+authCatalogIndex: nodejs
 ---
 
 ## NodeJS Web App Tutorial

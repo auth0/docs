@@ -13,6 +13,7 @@ alias:
   - microsoft-net
   - aspnet-mvc
   - net-mvc
+authCatalogIndex: aspnet
 ---
 
 # ASP.NET Tutorial

@@ -12,6 +12,7 @@ snippets:
 alias:
   - spring
   - spring-security
+authCatalogIndex: java
 ---
 
 ## Java Web App Tutorial

@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/scala/dependencies
   setup: server-platforms/scala/setup
   use: server-platforms/scala/use
+authCatalogIndex: scala
 ---
 
 ## Play 2 Scala Tutorial
