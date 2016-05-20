@@ -8,5 +8,5 @@ public: false
 image: /media/addons/rms.svg
 alias:
   - active-directory-rms
-authCatalogIndex: rms
+seo_alias: rms
 ---

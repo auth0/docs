@@ -20,7 +20,7 @@ alias:
   - objective-c
   - iphone
   - ipad
-authCatalogIndex: ios-objc
+seo_alias: ios-objc
 ---
 
 ## iOS Objective-C Tutorial

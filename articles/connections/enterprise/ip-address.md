@@ -7,7 +7,7 @@ alias:
   - ip-based-auth
   - ip
   - address-authentication
-authCatalogIndex: ip-address
+seo_alias: ip-address
 ---
 
 In this type of connection Auth0 will simply check that the request is coming from an IP address that is within the range specified in the configuration. An optional `username` can be assigned to a given range.

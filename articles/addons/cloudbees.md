@@ -7,5 +7,5 @@ configRoute: /add-ons/cloudbees
 callback: https://grandcentral.cloudbees.com/authenticate/saml/consume
 public: false
 image: /media/addons/cloudbees.svg
-authCatalogIndex: cloudbees
+seo_alias: cloudbees
 ---

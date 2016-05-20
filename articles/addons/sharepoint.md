@@ -6,5 +6,5 @@ logo_class: Sharepoint
 configRoute: /add-ons/sharepoint
 public: false
 image: /media/addons/sharepoint.svg
-authCatalogIndex: sharepoint
+seo_alias: sharepoint
 ---

@@ -5,5 +5,5 @@ image: /media/connections/saml.png
 public: false
 alias:
   - saml
-authCatalogIndex: samlp
+seo_alias: samlp
 ---

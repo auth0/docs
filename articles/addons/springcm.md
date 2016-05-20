@@ -6,5 +6,5 @@ logo_class: SpringCM
 configRoute: /add-ons/springcm
 public: false
 image: /media/addons/springcm.svg
-authCatalogIndex: springcm
+seo_alias: springcm
 ---

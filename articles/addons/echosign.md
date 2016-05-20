@@ -8,5 +8,5 @@ public: false
 image: /media/addons/echosign.svg
 alias:
   - echo-sign
-authCatalogIndex: echosign
+seo_alias: echosign
 ---

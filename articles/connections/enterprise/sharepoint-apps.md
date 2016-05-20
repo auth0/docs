@@ -5,7 +5,7 @@ image: /media/connections/sharepoint.png
 alias:
   - sharepoint-online
   - sharepoint
-authCatalogIndex: sharepoint-apps
+seo_alias: sharepoint-apps
 ---
 
 # Obtaining a App Id and App Secret for SharePoint

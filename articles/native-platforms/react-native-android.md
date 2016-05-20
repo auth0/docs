@@ -16,7 +16,7 @@ tags:
 snippets:
   setup: native-platforms/reactnative-android/setup
   use: native-platforms/reactnative-android/use
-authCatalogIndex: react-native-android
+seo_alias: react-native-android
 ---
 
 ## Android React Native Tutorial

@@ -5,5 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with SAP OData compati
 logo_class: SAP
 public: false
 image: /media/addons/sap_api.svg
-authCatalogIndex: sap-api
+seo_alias: sap-api
 ---

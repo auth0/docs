@@ -9,7 +9,7 @@ alias:
   - windows-azure-active-directory-native-resource-owner
   - microsoft-azure-ad-native-resource-owner
   - microsoft-azure-active-directory-native-resource-owner
-authCatalogIndex: azure-active-directory-native
+seo_alias: azure-active-directory-native
 ---
 
 # Native Azure Active Directory applications with Auth0 (Resource Owner flow)

@@ -16,7 +16,7 @@ snippets:
   dependencies: native-platforms/phonegap/dependencies
   setup: native-platforms/jquery/setup
   use: native-platforms/jquery/use
-authCatalogIndex: phonegap
+seo_alias: phonegap
 ---
 
 ## Phonegap Tutorial

@@ -5,5 +5,5 @@ image: /media/connections/pingfederate.png
 public: false
 alias:
   - pingfederate
-authCatalogIndex: pingfederate
+seo_alias: ping-federate
 ---

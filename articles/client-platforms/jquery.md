@@ -15,7 +15,7 @@ snippets:
   dependencies: client-platforms/jquery/dependencies
   setup: client-platforms/jquery/setup
   use: client-platforms/jquery/use
-authCatalogIndex: jquery
+seo_alias: jquery
 ---
 
 ## jQuery Tutorial

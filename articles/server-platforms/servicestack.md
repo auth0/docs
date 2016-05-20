@@ -9,7 +9,7 @@ snippets:
   dependencies: server-platforms/servicestack/dependencies
   setup: server-platforms/servicestack/setup
   use: server-platforms/servicestack/use
-authCatalogIndex: servicestack
+seo_alias: servicestack
 ---
 
 # ServiceStack Tutorial

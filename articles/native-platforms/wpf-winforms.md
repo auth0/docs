@@ -21,7 +21,7 @@ alias:
   - wiforms
   - rich-client-application
   - rich-client
-authCatalogIndex: wpf-winforms
+seo_alias: wpf-winforms
 ---
 
 # WPF and Winforms Tutorial

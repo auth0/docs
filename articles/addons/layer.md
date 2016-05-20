@@ -5,5 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with Layer tokens that
 logo_class: Layer
 public: false
 image: /media/addons/layer.svg
-authCatalogIndex: layer
+seo_alias: layer
 ---

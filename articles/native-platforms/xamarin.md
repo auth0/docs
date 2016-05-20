@@ -14,7 +14,7 @@ snippets:
   dependencies: native-platforms/xamarin/dependencies
   setup: native-platforms/xamarin/setup
   use: native-platforms/xamarin/use
-authCatalogIndex: xamarin
+seo_alias: xamarin
 ---
 
 # Xamarin Tutorial

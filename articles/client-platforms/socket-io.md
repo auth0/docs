@@ -15,7 +15,7 @@ snippets:
   dependencies: client-platforms/socket-io/dependencies
   setup: client-platforms/socket-io/setup
   use: client-platforms/socket-io/use
-authCatalogIndex: socket-io
+seo_alias: socket-io
 ---
 
 ## Socket.io Tutorial

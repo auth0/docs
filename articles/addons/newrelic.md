@@ -8,5 +8,5 @@ public: false
 image: /media/addons/newrelic.svg
 alias:
   - new-relic
-authCatalogIndex: newrelic
+seo_alias: newrelic
 ---

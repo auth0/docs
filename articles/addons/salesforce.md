@@ -7,5 +7,5 @@ configRoute: /add-ons/salesforce
 callback: https://login.salesforce.com
 public: false
 image: /media/addons/salesforce.svg
-authCatalogIndex: salesforce
+seo_alias: salesforce
 ---

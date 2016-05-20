@@ -4,7 +4,7 @@ connection: Active Directory
 image: /media/connections/windows.png
 alias:
   - ad
-authCatalogIndex: active-directory
+seo_alias: active-directory
 ---
 
 

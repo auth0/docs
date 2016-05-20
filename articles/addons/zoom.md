@@ -6,5 +6,5 @@ logo_class: Zoom
 configRoute: /add-ons/zoom
 public: false
 image: /media/addons/zoom.svg
-authCatalogIndex: zoom
+seo_alias: zoom
 ---

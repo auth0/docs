@@ -15,7 +15,7 @@ snippets:
   dependencies: native-platforms/android/dependencies
   setup: native-platforms/android/setup
   use: native-platforms/android/use
-authCatalogIndex: android
+seo_alias: android
 ---
 
 ## Android Tutorial

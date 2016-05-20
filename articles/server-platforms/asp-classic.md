@@ -8,7 +8,7 @@ tags:
 snippets:
   setup: server-platforms/asp-classic/setup
   use: server-platforms/asp-classic/use
-authCatalogIndex: asp-classic
+seo_alias: asp-classic
 ---
 
 ## ASP Classic Tutorial

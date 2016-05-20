@@ -9,7 +9,7 @@ snippets:
   dependencies: server-platforms/nancyfx/dependencies
   setup: server-platforms/nancyfx/setup
   use: server-platforms/nancyfx/use
-authCatalogIndex: nancyfx
+seo_alias: nancyfx
 ---
 
 ## NancyFX Tutorial

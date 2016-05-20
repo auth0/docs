@@ -18,7 +18,7 @@ snippets:
   use: native-platforms/jquery/use
 alias:
   - apache-cordova
-authCatalogIndex: cordova
+seo_alias: cordova
 ---
 
 ## Cordova Tutorial

@@ -9,7 +9,7 @@ snippets:
   dependencies: server-platforms/symfony/dependencies
   setup: server-platforms/symfony/setup
   use: server-platforms/symfony/use
-authCatalogIndex: symfony
+seo_alias: symfony
 ---
 
 # Symfony Tutorial

@@ -12,7 +12,7 @@ framework:
 image: /media/platforms/emberjs.png
 tags:
   - quickstart
-authCatalogIndex: ember2js
+seo_alias: ember2js
 ---
 ## EmberJS 2 Tutorial
 

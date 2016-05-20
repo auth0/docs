@@ -9,7 +9,7 @@ snippets:
   dependencies: server-platforms/laravel/dependencies
   setup: server-platforms/laravel/setup
   use: server-platforms/laravel/use
-authCatalogIndex: laravel
+seo_alias: laravel
 ---
 
 # Laravel Tutorial

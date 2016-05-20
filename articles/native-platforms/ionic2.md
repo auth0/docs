@@ -24,7 +24,7 @@ snippets:
   refresh: native-platforms/ionic2/refresh
   setup: native-platforms/ionic2/setup
   use: native-platforms/ionic2/use
-authCatalogIndex: ionic2
+seo_alias: ionic2
 ---
 
 ## Ionic 2 Framework Tutorial

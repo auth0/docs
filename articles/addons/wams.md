@@ -15,5 +15,5 @@ alias:
   - azure
   - azure-mobile
   - azure-mobile-services
-authCatalogIndex: wams
+seo_alias: wams
 ---

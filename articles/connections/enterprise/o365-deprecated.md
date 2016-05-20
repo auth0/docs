@@ -4,7 +4,7 @@ connection: Office 365 (Deprecated)
 image: /media/connections/office-365.png
 alias:
   - office365
-authCatalogIndex: o365-deprecated
+seo_alias: o365-deprecated
 ---
 
 ::: warning-banner

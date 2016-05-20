@@ -23,7 +23,7 @@ snippets:
   routing: client-platforms/vuejs/routing
 alias:
   - vuejs
-authCatalogIndex: vuejs
+seo_alias: vuejs
 ---
 
 ## Vue.js Tutorial
