@@ -2,7 +2,7 @@
 
 Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is currently available for mobile devices running iOS or Android.
 
-For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the logon with a verified mobile device. You can find additional information on the user log in process [here](#).
+For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on the user log in process [here](#).
 
 ## Implementing Multifactor Authentication
 Within Auth0, you may implement MFA via the **Multifactor Auth** page of the Management Dashboard.
@@ -22,7 +22,7 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients (by default, Auth0 enables Guardian for all accounts).
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet (shown below) you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
 
 If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
 
