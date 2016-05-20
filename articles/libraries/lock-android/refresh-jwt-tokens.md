@@ -5,7 +5,7 @@ description: Keeping your user logged in
 
 # Lock Android: Refreshing JWT Tokens
 
-When an authentication is performed with the `offline_scope` included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user their credentials again.
+When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user their credentials again.
 
 > Lock.Android will include the `offline_scope` scope by default.
 

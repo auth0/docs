@@ -5,7 +5,7 @@ description: Keeping your user logged in
 
 # Lock iOS: Saving and Refreshing JWT Tokens
 
-When an authentication is performed with the `offline_scope` included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
+When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
 credentials again.
 
 > We are using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
