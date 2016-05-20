@@ -18,6 +18,7 @@ snippets:
   dependencies: native-platforms/electron/dependencies
 alias:
   - electron
+authCatalogIndex: electron
 ---
 
 ## Electron Tutorial

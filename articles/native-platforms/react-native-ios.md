@@ -16,6 +16,7 @@ tags:
 snippets:
   setup: native-platforms/reactnative-ios/setup
   use: native-platforms/reactnative-ios/use
+authCatalogIndex: react-native-ios
 ---
 
 ## React Native iOS Tutorial

@@ -15,6 +15,7 @@ snippets:
   dependencies: native-platforms/windows-uwp-csharp/dependencies
   setup: native-platforms/windows-uwp-csharp/setup
   use: native-platforms/windows-uwp-csharp/use
+authCatalogIndex: windows-uwp-csharp
 ---
 
 # Windows UWP App in C# Tutorial

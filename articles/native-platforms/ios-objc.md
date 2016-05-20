@@ -20,6 +20,7 @@ alias:
   - objective-c
   - iphone
   - ipad
+authCatalogIndex: ios-objc
 ---
 
 ## iOS Objective-C Tutorial

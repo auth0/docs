@@ -20,6 +20,7 @@ snippets:
   use: native-platforms/ios-swift/use
 alias:
   - ios
+authCatalogIndex: ios-swift
 ---
 
 ## iOS Swift Tutorial

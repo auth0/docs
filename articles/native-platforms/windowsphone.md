@@ -21,6 +21,7 @@ alias:
   - windows-phone
   - windows-phone-8
   - microsoft-phone
+authCatalogIndex: windowsphone
 ---
 
 ## Windows Phone Tutorial
