@@ -8,4 +8,5 @@ public: false
 image: /media/addons/office365.svg
 alias:
   - office-365
+authCatalogIndex: office365
 ---
