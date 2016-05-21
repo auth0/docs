@@ -22,9 +22,7 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet (shown below) you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
-
-If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
 
 ```js
 function (user, context, callback) {
@@ -45,10 +43,34 @@ function (user, context, callback) {
 }
 ```
 
-More specifically, you will uncomment and populate the following line with the appropriate client IDs:
+If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
+
+More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate client IDs:
 
 ```js
 var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];
+```
+
+Once you have finished making your desired changes, click "Save" so that they persist.
+
+### Configuring Guardian for Select Users
+
+You may choose to enable Guardian only for select users. Within the Customize MFA code snippet, you may include the conditions for Guardian is enabled.
+
+For example, suppose you want to *omit* MFA for all users signing in from the `foo.com` domain.
+
+
+```js
+function (user, context, callback) {
+
+    if (context.connection !== 'foo.com'){
+        context.multifactor = {
+            provider: 'guardian', //required
+        };
+    }
+
+    callback(null, user, context);
+}
 ```
 
 Once you have finished making your desired changes, click "Save" so that they persist.
