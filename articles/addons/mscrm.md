@@ -8,4 +8,5 @@ public: false
 image: /media/addons/mscrm.svg
 alias:
   - dynamics-crm
+seo_alias: mscrm
 ---

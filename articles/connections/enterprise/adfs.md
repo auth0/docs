@@ -5,6 +5,7 @@ image: /media/connections/windows.png
 alias:
   - active-directory-federation-services
   - adfs-2
+seo_alias: adfs
 ---
 
 # Connect ADFS with Auth0

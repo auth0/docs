@@ -1,6 +1,7 @@
 ---
 connection: LinkedIn
 image: /media/connections/linkedin.png
+seo_alias: linkedin
 ---
 
 # Obtain a *Client ID* and *Client Secret* for LinkedIn
@@ -27,7 +28,7 @@ Complete the form and click **Submit**:
 
 ## 4. Enter your callback URL
 
-Enter the following URL in the **Authorized Redirect URLs** field and click **Add**: 
+Enter the following URL in the **Authorized Redirect URLs** field and click **Add**:
 
 	https://${account.namespace}/login/callback
 

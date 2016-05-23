@@ -13,6 +13,7 @@ alias:
   - microsoft-net
   - aspnet-mvc
   - net-mvc
+seo_alias: aspnet
 ---
 
 # ASP.NET Tutorial

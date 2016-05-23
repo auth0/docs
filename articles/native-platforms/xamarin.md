@@ -14,6 +14,7 @@ snippets:
   dependencies: native-platforms/xamarin/dependencies
   setup: native-platforms/xamarin/setup
   use: native-platforms/xamarin/use
+seo_alias: xamarin
 ---
 
 # Xamarin Tutorial

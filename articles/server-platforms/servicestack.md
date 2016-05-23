@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/servicestack/dependencies
   setup: server-platforms/servicestack/setup
   use: server-platforms/servicestack/use
+seo_alias: servicestack
 ---
 
 # ServiceStack Tutorial

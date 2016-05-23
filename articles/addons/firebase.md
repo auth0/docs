@@ -5,4 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with Firebase tokens t
 logo_class: Firebase
 public: false
 image: /media/addons/firebase.svg
+seo_alias: firebase
 ---

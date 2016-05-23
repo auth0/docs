@@ -15,6 +15,7 @@ snippets:
   dependencies: native-platforms/windows-uwp-csharp/dependencies
   setup: native-platforms/windows-uwp-csharp/setup
   use: native-platforms/windows-uwp-csharp/use
+seo_alias: windows-uwp-csharp
 ---
 
 # Windows UWP App in C# Tutorial

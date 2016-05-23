@@ -12,6 +12,7 @@ snippets:
 alias:
   - spring
   - spring-security
+seo_alias: java
 ---
 
 ## Java Web App Tutorial

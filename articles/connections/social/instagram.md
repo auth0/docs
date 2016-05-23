@@ -1,6 +1,7 @@
 ---
 connection: Instagram
 image: /media/connections/instagram.png
+seo_alias: instagram
 ---
 
 # Obtain a *Client ID* and *Client Secret* for Instagram

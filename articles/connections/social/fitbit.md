@@ -1,6 +1,7 @@
 ---
 connection: Fitbit
 image: /media/connections/fitbit.png
+seo_alias: fitbit
 ---
 
 # Obtain a *Consumer Key* and *Consumer Secret* for Fitbit
@@ -34,4 +35,3 @@ Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Fi
 ![](/media/articles/connections/social/fitbit/fitbit-register-3.png)
 
 **NOTE:** Fitbit is a registered trademark and service mark of Fitbit, Inc. Auth0 is designed for use with the Fitbit platform. This product is not part out by Fitbit, and Fitbit does not service or warrant the functionality of this product.
-

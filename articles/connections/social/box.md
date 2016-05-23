@@ -1,6 +1,7 @@
 ---
 connection: Box
 image: /media/connections/box.png
+seo_alias: box
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Box

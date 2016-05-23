@@ -23,6 +23,7 @@ snippets:
   use: client-platforms/angular2/use
 alias:
   - angular
+seo_alias: angular2
 ---
 
 ## Angular 2 SDK Tutorial

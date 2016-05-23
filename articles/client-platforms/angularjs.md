@@ -19,6 +19,7 @@ snippets:
   use: client-platforms/angularjs/use
 alias:
   - angular
+seo_alias: angularjs
 ---
 
 ## AngularJS SDK Tutorial

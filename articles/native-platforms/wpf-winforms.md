@@ -21,6 +21,7 @@ alias:
   - wiforms
   - rich-client-application
   - rich-client
+seo_alias: wpf-winforms
 ---
 
 # WPF and Winforms Tutorial
