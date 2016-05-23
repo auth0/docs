@@ -11,8 +11,6 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 * **Possession**: Something the user has (e.g. a cell phone)
 * **Inheritance**: Something the user is (e.g. a fingerprint or retina scan)
 
-![](/media/articles/mfa/duo.gif)
-
 ## Implementing MFA with Auth0
 
 Auth0 supports the following methods of implementing MFA:
@@ -27,7 +25,6 @@ Auth0 supports the following methods of implementing MFA:
 Guardian is Auth0's MFA application. It is a frictionless approach to implementing MFA for your apps, and provides a full MFA experience without requiring integration with third-party utilities.
 
 You will find further instructions on enabling this feature [here](/multifactor-authentication/guardian/configuration.md).
-
 
 ### MFA Using Auth0 Built-In MFA Support
 
