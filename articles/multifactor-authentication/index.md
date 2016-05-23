@@ -11,22 +11,35 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 * **Possession**: Something the user has (e.g. a cell phone)
 * **Inheritance**: Something the user is (e.g. a fingerprint or retina scan)
 
+<<<<<<< 0b27d5f8e13a06ab58bc5f7c209905e8cd6ce8ca
 Auth0 provides three ways of implementing MFA:
+=======
+![](/media/articles/mfa/duo.gif)
 
-* Using Auth0's built-in support for one-time password authentication services: Google Authenticator and Duo Security.
-* Configuring rules for Contextual MFA which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
-* Integration with a custom provider, such as **Yubikey**.
+## Implementing MFA with Auth0
+>>>>>>> Create new MFA docs structure
 
-**NOTE:** For a detailed look at implementing MFA with **YubiKey**, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey).
+Auth0 supports the following methods of implementing MFA:
 
+1. Using Guardian, Auth0's MFA application;
+2. Using Auth0's built-in support for one-time password authentication services Google Authenticator and Duo Security.
+3. Configuring rules for custom processes, such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+4. Integration with a custom provider, such as **Yubikey**.
+
+<<<<<<< 0b27d5f8e13a06ab58bc5f7c209905e8cd6ce8ca
 ## Using Auth0's Built-in Support
+=======
+### MFA Using Auth0 Built-In MFA Support
+>>>>>>> Create new MFA docs structure
 
-Auth0 provides built-in MFA support for Google Authenticator and Duo Security. You can enable MFA via the Multifactor Auth page of the Auth0 Management Portal.
+Auth0 provides built-in support for the following one-time password authentication services:
 
-![](/media/articles/mfa/mfa-provider.png)
+* Google Authenticator;
+* Duo Security.
 
-### Google Authenticator
+You may enable these options via the Auth0 Management Dashboard. To navigate to the appropriate configuration page, navigate to the Multifactor Auth page. You will see the following message, along with the link to the appropriate page:
 
+<<<<<<< 0b27d5f8e13a06ab58bc5f7c209905e8cd6ce8ca
 To integrate with Google Authenticator, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal.
 
 The portal displays a code editing textbox containing the following code snippet for you to use:
@@ -138,75 +151,41 @@ function (user, context, callback) {
     return !rangeCheck.inRange(context.request.ip, '10.0.0.0/8');
   }
 }
+=======
+```text
+Auth0 also supports plugging in other multifactor providers. If you already have your own provider, click here to use a different provider.
+>>>>>>> Create new MFA docs structure
 ```
 
-### Access from a different device or location
+#### MFA Using Google Authenticator
 
-If the user makes a request from an IP address that Auth0 has not already associated with them, you can configure Auth0 to request MFA.
+Google Authenticator allows you to request six- to eight-digit one-time use password as the second factor after your user has attempted to log in with their Google credentials.
 
-```JS
-function (user, context, callback) {
+You will find further instructions on enabling this feature [here](google-auth/index).
 
-  var deviceFingerPrint = getDeviceFingerPrint();
+#### MFA Using Duo Security
 
-  if (user.lastLoginDeviceFingerPrint !== deviceFingerPrint) {
+Duo Security allows you to request either of the following as your second factor once the user has provided their initial login credentials:
 
-    user.persistent.lasLoginDeviceFingerPrint = deviceFingerPrint;
+* A user response to a push notification sent to the appropriate device;
+* A passcode provided to the user via SMS.
 
-    context.multifactor = {
-      ignoreCookie: true,
-      provider: 'google-authenticator'
-    };
-  }
+You will find further instructions on enabling this feature [here](duo-security/index).
 
-  callback(null, user, context);
+### MFA Using Custom Rules
 
-  function getDeviceFingerPrint() {
+You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
-    var shasum = crypto.createHash('sha1');
-    shasum.update(context.request.userAgent);
-    shasum.update(context.request.ip);
-    return shasum.digest('hex');
-
-  }
-}
-```
-
-## Use a Custom MFA Service
-
-If you are using an MFA provider that does not have Auth0 built-in support or if you are using a service you have created, you can use the [redirect](/protocols#redirect-protocol-in-rules) protocol for the integration.
-
-By using the redirect protocol, you interrupt the authentication transaction and redirect the user to a specified URL where they are asked for MFA. If authentication is successful, Auth0 will continue processing the request.
-
-Some MFA options you can implement using the redirect protocol include:
-
-* A one-time code sent via SMS
-* A personally identifying question (e.g. about the user's parents, childhood friends, etc.)
-* Integration with specialized providers, such as those that require hardware tokens
-
-To use the redirect protocol, edit the `URL` field:
-
-```JS
-function (user, context, callback) {
-
-  if (condition() && context.protocol !== 'redirect-callback'){
-    context.redirect = {
-      url: 'https://your_custom_mfa'
-    };
-  }
-
-  if (context.protocol === 'redirect-callback'){
-    //TODO: handle the result of the MFA step
-  }
-
-  callback(null, user, context);
-}
-```
-
-## Additional Notes
-
+<<<<<<< 0b27d5f8e13a06ab58bc5f7c209905e8cd6ce8ca
 MFA does not work with the [Resource Owner](/protocols#oauth-resource-owner-password-credentials-grant) endpoint.
+=======
+You will find [sample code snippets](/custom/index) to assist you in building your rules here.
+>>>>>>> Create new MFA docs structure
 
-If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set `sso` to `true` when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or [Lock](/libraries/lock). If you fail to do this, users will be able to log in without MFA.
+### MFA Using Custom Providers
 
+<<<<<<< 0b27d5f8e13a06ab58bc5f7c209905e8cd6ce8ca
 If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please see the [Social Connections](/identityproviders#social) documentation.
+=======
+For a detailed look at implementing MFA with **YubiKey**, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey).
+>>>>>>> Create new MFA docs structure
