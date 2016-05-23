@@ -1,4 +1,4 @@
-# MFA Using Google Authenticator 
+# Configuring MFA Using Google Authenticator
 
 To integrate with Google Authenticator, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal. You will see its associated slider turn green, which indicates that this feature is now active.
 
