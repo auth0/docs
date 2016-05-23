@@ -43,7 +43,7 @@ You can check on the status of a backup by running the following command in your
 
 If a backup is available, you will see a message similar to the following:
 
-```'''```text
+```text
 {
     "message": "Backup found",
     "arguments": {
