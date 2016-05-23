@@ -5,7 +5,7 @@ In addition to providing tools for monitoring your Appliance instances, Auth0 pr
 Your options include:
 
 * **Health Checks**: [Health Checks](/appliance/dashboard/troubleshoot#health-check) provide minute-by-minute summaries of your Appliance infrastructure at a given point in time. These logs are available for the the previous twenty-nine days and can be found in the [Troubleshoot](/appliance/dashboard/troubleshoot) page of your Appliance Configuration Area;
-* **Auth0's `testall` Endpoint**: The `testall` endpoint is an unauthenticated endpoint that is particularly useful for monitoring by load balancers;
+* **[Auth0's `testall` Endpoint](#using-the-testall-endpoint)**: The `testall` endpoint is an unauthenticated endpoint that is particularly useful for monitoring by load balancers;
 * **Auth0's Authenticated Testing Endpoints**: Auth0 provides endpoints that you may, once authenticated, call to receive status codes such as *204*, *520*, or *429*;
 * **Integration with New Relic**: Auth0 supports integration with New Relic as a means of monitoring your Appliance instances;
 * **Integration with Third-Party Utilities to Monitor Synthetic Transactions**: Auth0 supports integration with system monitoring tools like *Microsoft System Center* so that you can run and monitor synthetic transactions.
