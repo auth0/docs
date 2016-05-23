@@ -33,7 +33,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - Auth0 Logs to Splunk: export Auth0 logs to Splunk
 - Auth0 Logs to Logtash: export Auth0 logs to Logtash
 - [Auth0 Logs to Mixpanel](/extensions/mixpanel): export Auth0 logs to Mixpanel
-- Real-time Webtask Logs: allows browser-based access to real-time webtask logs
+- [Real-time Webtask Logs](/extensions/realtime-webtask-logs): allows browser-based access to real-time webtask logs
 - Auth0 Logs to Logentries: export Auth0 logs to Logentries
 
 ## Creating Your Own Extension
