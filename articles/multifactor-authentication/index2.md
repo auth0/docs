@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication in Auth0
-url: /multifactor-authentication
+url: /multifactor-authentication2
 ---
 
 # Multifactor Authentication in Auth0
@@ -17,9 +17,16 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 
 Auth0 supports the following methods of implementing MFA:
 
-1. Using Auth0's built-in support for one-time password authentication services Google Authenticator and Duo Security.
-2. Configuring rules for custom processes, such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
-3. Integration with a custom provider, such as **Yubikey**.
+1. Using Guardian, Auth0's MFA application;
+2. Using Auth0's built-in support for one-time password authentication services Google Authenticator and Duo Security.
+3. Configuring rules for custom processes, such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+4. Integration with a custom provider, such as **Yubikey**.
+
+### MFA Using Auth0 Guardian
+
+Guardian is Auth0's MFA application. It is a frictionless approach to implementing MFA for your apps, and provides a full MFA experience without requiring integration with third-party utilities.
+
+You will find further instructions on enabling this feature [here](/multifactor-authentication/guardian/configuration.md).
 
 
 ### MFA Using Auth0 Built-In MFA Support
