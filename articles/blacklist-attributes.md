@@ -76,4 +76,4 @@ For `SAMLP` connections, if you enable 'Debug' mode, your logs will contain info
 
 ### Working with the Limitations
 
-If any of the above limitations regarding blacklisted attributes are unacceptable, you may write a [rule](/rule) to encrypt the data and have the data persist the `user.app_metadata` object.
+If any of the above limitations regarding blacklisted attributes are unacceptable, you may write a [rule](/rules) to encrypt the data and have the data persist the `user.app_metadata` object.

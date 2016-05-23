@@ -1,17 +1,15 @@
 ---
-title: Multifactor Authentication in Auth0
+title: Auth0 Multifactor Authentication
 url: /multifactor-authentication
 ---
 
-# Multifactor Authentication in Auth0
+# Multifactor Authentication
 
 Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
 
 * **Knowledge**: Something the user knows (e.g. a password)
 * **Possession**: Something the user has (e.g. a cell phone)
 * **Inheritance**: Something the user is (e.g. a fingerprint or retina scan)
-
-![](/media/articles/mfa/duo.gif)
 
 Auth0 provides three ways of implementing MFA:
 
@@ -21,7 +19,7 @@ Auth0 provides three ways of implementing MFA:
 
 **NOTE:** For a detailed look at implementing MFA with **YubiKey**, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey).
 
-## Using Auth0's Built-in Support 
+## Using Auth0's Built-in Support
 
 Auth0 provides built-in MFA support for Google Authenticator and Duo Security. You can enable MFA via the Multifactor Auth page of the Auth0 Management Portal.
 
@@ -29,9 +27,9 @@ Auth0 provides built-in MFA support for Google Authenticator and Duo Security. Y
 
 ### Google Authenticator
 
-To integrate with Google Authenticator, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal. 
+To integrate with Google Authenticator, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal.
 
-The portal displays a code editing textbox containing the following code snippet for you to use: 
+The portal displays a code editing textbox containing the following code snippet for you to use:
 
 ```JS
 function (user, context, callback) {
@@ -58,9 +56,9 @@ When you have finished editing the code snippet based on the requirements of you
 
 ### Duo Security
 
-To integrate with Duo Security, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal. 
+To integrate with Duo Security, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal.
 
-The portal displays a code editing textbox containing the following code snippet for you to use: 
+The portal displays a code editing textbox containing the following code snippet for you to use:
 
 ```JS
 function (user, context, callback) {
@@ -207,8 +205,8 @@ function (user, context, callback) {
 
 ## Additional Notes
 
-MFA does not work with the [Resource Owner](/protocols#oauth-resource-owner-password-credentials-grant) endpoint. 
+MFA does not work with the [Resource Owner](/protocols#oauth-resource-owner-password-credentials-grant) endpoint.
 
 If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set `sso` to `true` when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or [Lock](/libraries/lock). If you fail to do this, users will be able to log in without MFA.
 
-If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please see the [Social Connections](/connections/social) documentation.
+If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please see the [Social Connections](/identityproviders#social) documentation.
