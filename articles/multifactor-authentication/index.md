@@ -31,9 +31,7 @@ Auth0 provides built-in support for the following one-time password authenticati
 
 You may enable these options via the Auth0 Management Dashboard. To navigate to the appropriate configuration page, navigate to the Multifactor Auth page. You will see the following message, along with the link to the appropriate page:
 
-```text
-Auth0 also supports plugging in other multifactor providers. If you already have your own provider, click here to use a different provider.
-```
+> Auth0 also supports plugging in other multifactor providers. If you already have your own provider, click here to use a different provider.
 
 #### MFA Using Google Authenticator
 
