@@ -1,6 +1,6 @@
 ---
 title: Configuring MFA Using Duo Security
-url: /multifactor-authentication/duo
+url: /multifactor-authentication/duo-security
 ---
 
 # Configuring MFA Using Duo Security
