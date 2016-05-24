@@ -29,44 +29,52 @@ TODO: Find out how to configure angular-sample URL
   pkgType: 'js'
 }) %>_
 
-It is simple to access users' information using the Angular SDK. User profiles can be accessed in 2 ways:
+It is simple to access users' information using the Angular SDK. User profiles can be accessed in 3 ways:
 
-- In config using events (eg: `loginSuccess`);
-- Via controllers
+- In config when using redirect mode with the help of events (eg: `loginSuccess`);
+- Via controllers when using pop with the help of callbacks
+- Using the `getProfile()` method
 
-## Accessing user profile with events
+### Accessing user profile in redirect mode
 
-You can subscribe to custom events which are called at certain phases of authentication process. One of which is `loginSuccess` which you can access a user's profile from it's callback function. The event is configured in angular's `config` method using the `authProvider` as a dependency:
+You can subscribe to custom events which are called at certain phases of authentication process. One of which is `loginSuccess` which you can access a user's profile from it's callback function. Redirect modes do not support signin in with callbacks, therefore, this event is the only way to get users' profiles. The event is configured in angular's `config` method using the `authProvider` as a dependency:
 
 ```js
+/* ===== ./app.js ===== */
 app.config(function myAppConfig (authProvider) {
-  authProvider.on('loginSuccess', function($rootScope, profile) {
-    // You can attach it to your global scope
-    // and have access to it across your application
-    $rootScope.profile = profile;
-  });
+  //Called when login is successful
+  authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
+  function($location, profilePromise, idToken, store, $rootScope) {
+    // Successfully log in
+    // Access to user profile and token
+    profilePromise.then(function(profile){
+      // profile
+      $rootScope.redirectModeProfile = profile
+    });
+    $location.url('/');
+  }]);
 });
 ```
 
 The profile is a JavaScript object that you can access it's properties. You have the profile data on Angular's scope object so you can bind to your view or do whatever you want with the information:
 
 ```html
-<span>{{profile.name}}</span>
+<!-- ===== ./home/home.html ===== -->
+<span>{{redirectModeProfile.name}}</span>
 ```
-## Accessing user profile via controllers
+### Accessing user profile via controllers
 
-It might not be convenient enough to subscribe to a global event. It is normal to want to just grab the user profile immediately after authentication (sign in or sign up). You can do this in your controller:
-
+When using popup mode, callbacks can be used to get a user's profile if the authentication is successful:
 ```js
 app.controller('LoginCtrl', function ($scope, auth) {
-  // Add auth to $scope object so you can bind to view
+  /* ===== ./login/login.js ===== */
+
   $scope.auth = auth;
 
   $scope.signin = function (){
-    auth.signin({}, //The first argument is used to configure Auth0
+    auth.signin({popup: true},
       function(profile, idToken){
-        $scope.token = idToken;
-        $scope.controllerProfile = profile;
+        $scope.popupModeProfile = profile;
       },
       function(err) {
         $scope.err = err;
@@ -78,68 +86,104 @@ app.controller('LoginCtrl', function ($scope, auth) {
 You can bind to view as well:
 
 ```html
-  <p>Profile from controller: {{controllerProfile.name}}</p>
+<!-- ===== ./home/home.html ===== -->
+  <p>Profile from controller: {{popupModeProfile.name}}</p>
+```
+
+### Accessing user profile with `auth.getProfile()`
+
+At any given time, you can call `getProfile` on `auth` passing in a token as the only argument. The method returns a promise which you can wait to resolve and grab the profile data:
+
+```js
+auth.getProfile(token).then(function(profile){
+  // Profile can be used from here
+})
 ```
 
 ## Storing and retrieving profiles
-The challenge in most SPA application is persisting state (data).  Once there is a refresh, the profile in our scope object gets wiped. The best way to manage this is store this profile on the user's browser and maybe re-authenticate the user if a page refresh occurs.
-
-Auth0 provides a convenient library for Angular called [Angular Storage](https://github.com/auth0/angular-storage) which uses `localStorage` or `sessionStorage` by default and cookies if those are not available. We already included it in our HTML in step 1 of this quickstart but you can still add it if you are yet to do so:
-
-```html
-<script src="http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js" type="text/javascript"> </script>
-```
-
-It is an Angular dependent library so add it to your angular app:
-
-```js
-angular.module('app', ['auth0', 'angular-storage']);
-```
+Auth0 provides a convenient library for Angular called [Angular Storage](https://github.com/auth0/angular-storage) which uses `localStorage` or `sessionStorage` by default and cookies if those are not available to store data on the client (browser). You can refer to the previous on how to include the script and inject the Angular dependency.
 
 Now update the controller to store the profile as soon as it is retrieved:
 
 ```js
+/* ===== ./login/login.js ===== */
   // Don't forget to add store as a dependency
 app.controller('LoginCtrl', function ($scope, auth, store) {
   // Add auth to $scope object so we can bind to view
   $scope.auth = auth;
 
   $scope.signin = function (){
-    auth.signin({}, //The first argument is scope of data you need to return
+    auth.signin({popup: true},
       function(profile, idToken){
         // Store user profile
         store.set('profile', profile);
         $scope.token = idToken;
-        $scope.controllerProfile = profile;
+        $scope.popupModeProfile = profile;
       },
       function(err) {
         $scope.err = err;
       });
   }
 });
+
+// ================= OR
+/* ===== ./app.js ===== */
+app.config(function myAppConfig (authProvider) {
+  //Called when login is successful
+  authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
+  function($location, profilePromise, idToken, store, $rootScope) {
+    // Successfully log in
+    // Access to user profile and token
+    profilePromise.then(function(profile){
+      // profile
+      $rootScope.redirectModeProfile = profile
+    });
+    $location.url('/');
+  }]);
+});
 ```
 
-At this point, no matter the amount of refresh that hits the app, you can still access the user details from the browser storage.
+You can retrieve any of the stored details as well:
+
+```js
+/* ===== ./home/home.js.js ===== */
+app.controller('HomeCtrl', ['$scope', 'store', function ($scope, store){
+  $scope.popupModeProfile = store.get('profile');
+}]);
+```
 
 ## Authenticating user with profile
 Just as you saw above, you can store a user's profile and have access to it from any part of your application. This becomes handy when handling page refresh as there is need to re-authenticate the user. Fortunately, Auth0 makes it easy to authenticate users with there profiles:
 
 ```js
-app.run(function($rootScope, auth, store) {
+.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$''location',
+  function($rootScope, auth, store, jwtHelper, $location) {
+  // Listen to a location change event
   $rootScope.$on('$locationChangeStart', function() {
-
+    // Grab the user's token
     var token = store.get('token');
+    // Check if token was actually stored
     if (token) {
-      if (!auth.isAuthenticated) {
-        //Re-authenticate user if token is valid
-        auth.authenticate(store.get('profile'), token);
+      // Check if token is yet to expire
+      if (!jwtHelper.isTokenExpired(token)) {
+        // Check if the user is not authenticated
+        if (!auth.isAuthenticated) {
+          // Re-authenticate with the user's profile
+          // Calls authProvider.on('authenticated')
+          auth.authenticate(store.get('profile'), token);
+        }
+      } else {
+        // Either show the login page
+        // $location.path('/');
+        // .. or
+        // or use the refresh token to get a new idToken
+        auth.refreshIdToken(token);
       }
     }
-  });
-});
-```
 
-All you need do is listen to `locationChangeStart` event and re-authenticate the user with the profile stored in the browser. As seen, above, the token can also be stored and retrieved from the browser storage. What would be nice to consider is making sure the token is still valid (not expired) but we will talk more on that in subsequent sections.
+  });
+}])
+```
 
 ## Checking if user is authenticated or not
 One other nice thing that is handy in the SDK is that you can use custom directives to check if a user is authenticated or not in your view:

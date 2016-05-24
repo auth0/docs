@@ -5,4 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with AWS tokens that c
 logo_class: AWS
 public: false
 image: /media/addons/aws.svg
+seo_alias: aws
 ---

@@ -20,6 +20,7 @@ snippets:
   use: native-platforms/ios-swift/use
 alias:
   - ios
+seo_alias: ios-swift
 ---
 
 ## iOS Swift Tutorial

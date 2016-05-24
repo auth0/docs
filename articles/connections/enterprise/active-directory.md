@@ -4,6 +4,7 @@ connection: Active Directory
 image: /media/connections/windows.png
 alias:
   - ad
+seo_alias: active-directory
 ---
 
 

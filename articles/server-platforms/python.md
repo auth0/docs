@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/python/dependencies
   setup: server-platforms/python/setup
   use: server-platforms/python/use
+seo_alias: python
 ---
 
 ## Python Web App Tutorial

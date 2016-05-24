@@ -6,6 +6,7 @@ alias:
  - microsoft-live
  - windowslive
  - windows-live
+seo_alias: microsoft-account
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Microsoft account

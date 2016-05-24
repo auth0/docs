@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/laravel/dependencies
   setup: server-platforms/laravel/setup
   use: server-platforms/laravel/use
+seo_alias: laravel
 ---
 
 # Laravel Tutorial

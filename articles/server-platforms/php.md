@@ -9,6 +9,7 @@ snippets:
   dependencies: server-platforms/php/dependencies
   setup: server-platforms/php/setup
   use: server-platforms/php/use
+seo_alias: php
 ---
 
 ##  PHP Web App Tutorial

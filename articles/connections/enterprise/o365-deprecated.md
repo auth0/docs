@@ -4,6 +4,7 @@ connection: Office 365 (Deprecated)
 image: /media/connections/office-365.png
 alias:
   - office365
+seo_alias: o365-deprecated
 ---
 
 ::: warning-banner
@@ -45,5 +46,3 @@ This is your only opportunity in Office 365 to copy the `ClientSecret`, it is no
 In your Auth0 dashboard, select **Connections > Enterprise**, then select **Office 365**.
 
 Copy the `ClientId` and `ClientSecret` from the Seller Dashboard into your Office 365 connection settings on this page.
-
-

@@ -18,6 +18,7 @@ snippets:
   use: native-platforms/jquery/use
 alias:
   - apache-cordova
+seo_alias: cordova
 ---
 
 ## Cordova Tutorial

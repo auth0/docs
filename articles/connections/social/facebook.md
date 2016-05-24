@@ -1,6 +1,7 @@
 ---
 connection: Facebook
 image: /media/connections/facebook.png
+seo_alias: facebook
 ---
 
 # Obtain an *App ID* and *App Secret* for Facebook
@@ -35,7 +36,7 @@ Once your app is created, copy the `App ID` and `App Secret` from the **Dashboar
 
 ## 4. Enter your callback URL
 
-Go to **Settings** and select the **Advanced** tab. 
+Go to **Settings** and select the **Advanced** tab.
 
 Scroll down to the **Client OAuth Settings** section and enter the following URL in the **Valid OAuth redirect URIs** field:
 
@@ -45,7 +46,7 @@ Scroll down to the **Client OAuth Settings** section and enter the following URL
 
 ## 5. Set the App ID and Secret in Auth0
 
-Go to your Auth0 [Dashboard](${uiURL}/#/connections/social) and select **Connections > Social**, then choose **Facebook**. 
+Go to your Auth0 [Dashboard](${uiURL}/#/connections/social) and select **Connections > Social**, then choose **Facebook**.
 
 Copy the `App ID` and `App Secret` from the **Basic Settings** of your app on Facebook into the fields on this page on Auth0 and click **Save**:
 

@@ -6,6 +6,7 @@ alias:
  - gmail
  - google-oauth
  - google-oauth2
+seo_alias: google
 ---
 
 # Connect your app to Google
@@ -32,7 +33,7 @@ Google will take a moment to create your project. You will receive a notificatio
 
 ## 3. Set up the Consent Screen
 
-In the left sidebar, select **Credentials**, then select the **OAuth consent screen** tab. 
+In the left sidebar, select **Credentials**, then select the **OAuth consent screen** tab.
 
 On this page, provide a **Product Name** that will be shown to users when they log in through Google. Click **Save**:
 
@@ -118,5 +119,3 @@ Click **Save**.
 3. If you have configured everything correctly, you will see the **It works!!!** page:
 
   ![](/media/articles/connections/social/google/goog-api-works.png)
-
-

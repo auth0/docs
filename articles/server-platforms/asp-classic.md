@@ -8,6 +8,7 @@ tags:
 snippets:
   setup: server-platforms/asp-classic/setup
   use: server-platforms/asp-classic/use
+seo_alias: asp-classic
 ---
 
 ## ASP Classic Tutorial

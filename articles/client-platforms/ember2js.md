@@ -12,6 +12,7 @@ framework:
 image: /media/platforms/emberjs.png
 tags:
   - quickstart
+seo_alias: ember2js
 ---
 ## EmberJS 2 Tutorial
 

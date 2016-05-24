@@ -12,6 +12,7 @@ snippets:
 alias:
   - aspnetowin
   - owin
+seo_alias: aspnet-owin
 ---
 
 # ASP.NET (OWIN) Tutorial

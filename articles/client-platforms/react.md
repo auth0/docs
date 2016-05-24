@@ -16,6 +16,7 @@ snippets:
   dependencies: client-platforms/react/dependencies
   setup: client-platforms/react/setup
   use: client-platforms/react/use
+seo_alias: react
 ---
 
 ## React Tutorial

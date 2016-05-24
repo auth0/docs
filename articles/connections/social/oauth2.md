@@ -1,6 +1,7 @@
 ---
 connection: Generic OAuth2 Provider
 image:
+seo_alias: oauth2
 ---
 
 # Add a generic OAuth2 Authorization Server to Auth0

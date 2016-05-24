@@ -17,6 +17,7 @@ snippets:
   dependencies: native-platforms/ionic/dependencies
   setup: native-platforms/ionic/setup
   use: native-platforms/ionic/use
+seo_alias: ionic
 ---
 
 ## Ionic Framework Tutorial
