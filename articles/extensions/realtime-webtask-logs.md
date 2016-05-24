@@ -1,6 +1,6 @@
 # Real-time Webtask Logs
 
-_Real-time Webtask Logs_ is an extension that displays all logs in real-time for all custom code in your account. This includes all console.log output, and exceptions. 
+_Real-time Webtask Logs_ is an extension that displays all logs in real-time for all custom code in your account. This includes all `console.log` output and exceptions. 
 
 ## Configuring the Extension
 
@@ -8,11 +8,11 @@ To install and configure this extension, click on the _Real-time Webtask Logs_ b
 
 ![](/media/articles/extensions/realtime-webtask-logs/extension-mgmt-realtime-logs.png)
 
-Click the *Install* button.
+Click the _Install_ button.
 
 ## Using Your Installed Extension
 
- To view your installed extension, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the _Installed Extensions_ link, and select the _Real-time Webtask Logs_ line. You can view the logs in full screen by selecting the _FULL SCREEN MODE_ button. Press Escape to exit full screen mode. 
+ To view your installed extension, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the _Installed Extensions_ link, and select the _Real-time Webtask Logs_ line. You can view the logs in full screen by selecting the _FULL SCREEN MODE_ button. Press `Escape` to exit full screen mode. 
 
 ![](/media/articles/extensions/realtime-webtask-logs/view-realtime-logs.png)
 
@@ -20,7 +20,7 @@ To clear the logs and start fresh select the the red _CLEAR CONSOLE_ button at t
 
 ## Debugging Rules
 
-The _Real-time Webtask Logs_ extension can be used to debug any [Rules](https://auth0.com/docs/rules) in your implementation. This includes all `console.log` output, and exceptions. Let's follow a simple _hello world_ example.
+The _Real-time Webtask Logs_ extension can be used to debug any [Rules](https://auth0.com/docs/rules) in your implementation. This includes all `console.log` output and exceptions. Let's follow a simple _hello world_ example.
 
 Navigate to the [Rules](${uiURL}/#/rules) page of the [Management Portal](${uiURL}). Click the [Create Rule](${uiURL}/#/rules/new) button. Select the _empty rule_ button and paste the code below or modify it as you like.
 
