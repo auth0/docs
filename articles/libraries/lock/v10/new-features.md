@@ -2,7 +2,7 @@
 
 ## Custom Sign Up Fields
 
-You can add input fields to the sing up form with the new option `additionalSignUpFields`.
+You can add input fields to the sign up form with the new option `additionalSignUpFields`.
 
 ```js
 var lock = new AuthLock(
@@ -50,7 +50,7 @@ var lock = new AuthLock(
 });
 ```
 
-The `options` and `prefill` properties can also be functions, which is useful when you need to make a requests to obtain their values.
+The `options` and `prefill` properties can also be functions, which is useful when you need to make a request to obtain their values.
 
 ```js
 var lock = new AuthLock(
@@ -111,7 +111,7 @@ var lock = new AuthLock(
 });
 ```
 
-If you don't want to display and avatar pass `null`.
+If you don't want to display an avatar pass `null`.
 
 ```js
 var lock = new AuthLock(
