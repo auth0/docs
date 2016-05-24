@@ -34,7 +34,7 @@ You may enable these options via the Auth0 Management Dashboard. To navigate to 
 
 Google Authenticator allows you to request six- to eight-digit one-time use password as the second factor after your user has attempted to log in with their Google credentials.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/google-auth/google-authenticator).
+You will find further instructions on enabling this feature [here](/multifactor-authentication/google-authenticator).
 
 #### MFA Using Duo Security
 
@@ -43,13 +43,13 @@ Duo Security allows you to request either of the following as your second factor
 * A user response to a push notification sent to the appropriate device;
 * A passcode provided to the user via SMS.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security/duo).
+You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security).
 
 ### MFA Using Custom Rules
 
 You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
-You will find [sample code snippets](/multifactor-authentication/custom/custom-mfa) to assist you in building your rules here.
+You will find [sample code snippets](/multifactor-authentication/custom) to assist you in building your rules here.
 
 ### MFA Using Custom Providers
 
