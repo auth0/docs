@@ -1,3 +1,7 @@
+---
+description:  How to define Clients that will be able to access the Resource Server for your OAuth 2.0 setup.
+---
+
 # API Auth: Configuring the Clients
 <%=include('../_preview-warning') %>
 
@@ -8,7 +12,7 @@ In order for this to work you will need to generate a token for Auth0's API v2 y
 With this token you can call the `/api/v2/clients` endpoint to create a new **Client**:
 
 ```text
-POST https://${account.namespace}/api/v2/resource-servers
+POST https://${account.namespace}/api/v2/clients
 
 Authorization: Bearer {APIV2_TOKEN}
 Content-Type: application/json
