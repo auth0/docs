@@ -1,6 +1,7 @@
 ---
 connection: Yahoo!
 image: /media/connections/yahoo.png
+seo_alias: yahoo
 ---
 
 # Obtaining a Consumer Key and Consumer Secret for Yahoo!

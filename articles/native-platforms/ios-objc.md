@@ -20,6 +20,7 @@ alias:
   - objective-c
   - iphone
   - ipad
+seo_alias: ios-objc
 ---
 
 ## iOS Objective-C Tutorial

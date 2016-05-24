@@ -1,0 +1,87 @@
+# Configuring MFA Using Guardian
+
+Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is currently available for mobile devices running iOS or Android.
+
+For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on the user log in process [here](#).
+
+## Implementing Multifactor Authentication
+Within Auth0, you may implement MFA via the **Multifactor Auth** page of the Management Dashboard.
+
+![](/media/articles/mfa/guardian-dashboard.png)
+
+> Auth0 provides [built-in support](https://auth0.com/docs/multifactor-authentication#using-auth0-s-built-in-support) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
+
+### Configuring Guardian in the Management Dashboard
+
+The first thing you will do when setting up Guardian is to decide whether you would like MFA to occur via push notifications, SMS, or both.
+
+* **Push Notifications**: the user receives, via the Guardian app, a push notification that requires their input prior to gaining access to the app;
+* **SMS**: the user receives, via SMS, a code that they are required to enter prior to gaining access to the app.
+
+To enable either Push Notifications or SMS verification, move the appropriate slider to the right.
+
+![](/media/articles/mfa/guardian-both.png)
+
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
+
+```js
+function (user, context, callback) {
+
+  //var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
+  // run only for the specified clients
+  // if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
+    // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
+    // if (user.user_metadata && user.user_metadata.use_mfa){
+      context.multifactor = {
+        provider: 'guardian', //required
+        ignoreCookie: true, // optional. Force Auth0 MFA everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
+      };
+    // }
+  //}
+
+  callback(null, user, context);
+}
+```
+
+If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
+
+More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate client IDs:
+
+```js
+var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];
+```
+
+Once you have finished making your desired changes, click "Save" so that they persist.
+
+### Configuring Guardian for Select Users
+
+You may choose to enable Guardian only for select users. Within the Customize MFA code snippet, you may include the conditions for Guardian is enabled.
+
+For example, suppose you want to *omit* MFA for all users signing in from the `foo.com` domain.
+
+
+```js
+function (user, context, callback) {
+
+    if (context.connection !== 'foo.com'){
+        context.multifactor = {
+            provider: 'guardian', //required
+        };
+    }
+
+    callback(null, user, context);
+}
+```
+
+Once you have finished making your desired changes, click "Save" so that they persist.
+
+### Customizing the Guardian Screen.
+
+You may change the logo and the friendly name that is displayed to your users. To do so, you may make the appropriate settings changes from the Guardian page's link to Account Settings. You may also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting Account Settings from the dropdown menu that appears.
+
+![](/media/articles/mfa/guardian-logo-and-name-settings.png)
+
+* **Friendly Name**: the name of the app that you want displayed to the users;
+* **Logo URL**: the URL that points to the logo image you want displayed to your users.
+
+Auth0 recommends using a logo image that is at least 100x100 pixels, though an image that is 200x200 pixels ensures quality viewing in devices with Retina or high DPI displays.

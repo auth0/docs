@@ -23,6 +23,7 @@ snippets:
   use: client-platforms/angular2/use
 alias:
   - angular
+seo_alias: angular2
 ---
 
 ## Angular 2 SDK Tutorial
@@ -30,7 +31,7 @@ You can get started by either downloading the seed project or if you would like 
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* Angular2 2.0.0-beta.1
+* Angular2 2.0.0-rc.1
 * NodeJS 4.3
 :::
 
@@ -40,7 +41,7 @@ This tutorial and seed project have been tested with the following:
   pkgPath: null,
   pkgFilePath: null,
   pkgType: 'js'
-}) %>
+}) %>_
 
 **If you have an existing application, follow the steps below.**
 

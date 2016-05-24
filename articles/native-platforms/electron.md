@@ -18,6 +18,7 @@ snippets:
   dependencies: native-platforms/electron/dependencies
 alias:
   - electron
+seo_alias: electron
 ---
 
 ## Electron Tutorial

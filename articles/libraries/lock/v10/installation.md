@@ -9,13 +9,13 @@ You can get the required Lock installation package from several sources.
 CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.3/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.4/lock.min.js"></script>
 ```
 
 [Bower](http://bower.io):
 
 ```sh
-bower install auth0-lock#10.0.0-beta.3
+bower install auth0-lock#10.0.0-beta.4
 ```
 
 ```html
@@ -142,8 +142,8 @@ The following instructions assume you are migrating from Lock v9 to the latest b
 - The constructor now takes all the options and the authentication callback.
 - The authentication callback now has just two arguments `error` and `result`. The `result` argument is an object that contains properties for the arguments provided in the previous versions: `idToken`, `accessToken`, `state`, and `refreshToken`. It also includes a `idTokenPayload` property.
 - The profile is no longer fetched automatically after a successful login, you need to call `lock.getProfile`.
-- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `authentication: { redirect: true }` option.
-- You no longer need to to call the `parseHash` and `getProfile` when implementing Redirect Mode. The data returned by those methods is provided in the `result` parameter of the authentication callback.
+- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `authentication: { redirect: false }` option.
+- You no longer need to call `parseHash` when implementing Redirect Mode. The data returned by that method is provided in the `result` parameter of the authentication callback.
 - Is no longer possible to select a language by passing a code, which was done in the previous versions of lock with  `dict: 'es'`.
 - Lifecycle events are not yet available.
 - There's only one `show` method which doesn't take any arguments. `showSignIn`, `showSignUp` and `showReset` are no longer available. You can emulate the behavior of this options with the `initialScreen`, `allowForgotPassword` and `allowSignUp` options.
@@ -156,7 +156,7 @@ The following instructions assume you are migrating from Lock v9 to the latest b
   - The `disableResetAction` option was renamed to `allowForgotPassword`.
   - The `disableSignUpAction` option was renamed to `allowSignUp`.
   - The `focusInput` option was renamed to `autofocus`.
-  - The `forceJSONP` option was renamed to `jsonp` and namespaced under `auth`. Now you use it like this `auth: {jsonp: true}`.
+  - The `forceJSONP` option was removed.
   - The `gravatar` option was renamed to `avatar` and instead of taking `true` and `false` it now takes `null` or an object. See the [New Features page](/libraries/lock/v10/new-features#custom-avatar-provider) for details.
   - The `icon` option was renamed to `logo` and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
   - The `popup` option was replaced by `redirect` which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
@@ -181,3 +181,7 @@ This is a summary of what you absolutely need to know before upgrading between b
 #### Upgrading from v10.0.0-beta.2 to v10.0.0-beta.3
 
 - The profile is no longer fetched automatically after a successful login. To obtain it you need to call `lock.getProfile` (see the examples above for the details).
+
+#### Upgrading from v10.0.0-beta.3 to v10.0.0-beta.4
+
+- The `jsonp` option was removed.

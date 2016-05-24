@@ -2,6 +2,7 @@
 title: Authenticate Users with Username and Password using a Custom Database
 connection: MySQL
 image: /media/connections/mysql.svg
+seo_alias: mysql
 ---
 
 # Authenticate Users with Username and Password using a Custom Database
@@ -119,35 +120,7 @@ If you add a `console.log` statement to the script you will be able to see the o
 
 ## The script container
 
-The script runs in a JavaScript sandbox where you can use the full power of the JavaScript language and selected libraries. The current API supports:
-
-### Utilities
-* [bcrypt](https://github.com/ncb000gt/node.bcrypt.js/) _(~0.7.5)_
-* [Buffer](http://nodejs.org/docs/v0.8.26/api/buffer.html)
-* [crypto](http://nodejs.org/docs/v0.8.26/api/crypto.html)
-* [pbkdf2](https://github.com/davidmurdoch/easy-pbkdf2) _(0.0.2)_
-* [q](https://github.com/kriskowal/q) _(~1.0.1)_
-* [request](https://github.com/mikeal/request) _(~2.21.0)_
-* [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) _(~0.2.8)_
-* [xmldom](https://github.com/jindw/xmldom) _(~0.1.16)_
-* [xpath](https://github.com/goto100/xpath) _(0.0.5)_
-* [xtend](https://github.com/Raynos/xtend) _(~1.0.3)_
-
-### Databases
-* [cassandra](https://www.npmjs.org/package/node-cassandra-cql) _(^0.4.4)_
-* [couchbase](https://github.com/couchbase/couchnode) _(~1.2.1)_
-* [mongo](https://github.com/mongodb/node-mongodb-native) _(~1.3.15)_
-	* [BSON](http://mongodb.github.io/node-mongodb-native/api-bson-generated/bson.html)
-	* [Double](http://mongodb.github.io/node-mongodb-native/api-bson-generated/double.html)
-	* [Long](http://mongodb.github.io/node-mongodb-native/api-bson-generated/long.html)
-	* [ObjectID](http://mongodb.github.io/node-mongodb-native/api-bson-generated/objectid.html)
-	* [Timestamp](http://mongodb.github.io/node-mongodb-native/api-bson-generated/timestamp.html)
-* [knex](http://knexjs.org) _(~0.6.3)_
-	* The function returned by `require('knex')` is available as `Knex`.
-* [mysql](https://github.com/felixge/node-mysql) _(~2.3.2)_
-	* [mysql\_pool](https://github.com/felixge/node-mysql#pool-options)
-* [postgres](http://github.com/brianc/node-postgres) _(~2.8.3)_
-* [sqlserver](https://github.com/pekim/tedious) _(~0.1.4)_
+The script runs in a JavaScript sandbox where you can use the full power of the JavaScript language and selected Node.js libraries. [You can `require` any library listed here](https://tehsis.github.io/webtaskio-canirequire/).
 
 ## Auth0 Login widget
 

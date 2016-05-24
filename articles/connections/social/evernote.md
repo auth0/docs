@@ -1,6 +1,7 @@
 ---
 connection: Evernote
 image: /media/connections/evernote.svg
+seo_alias: evernote
 ---
 
 # Obtain a *Consumer Key* and *Consumer Secret* for Evernote

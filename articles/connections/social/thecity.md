@@ -1,6 +1,7 @@
 ---
 connection: The City
 image: /media/connections/the-city.svg
+seo_alias: thecity
 ---
 
 # Obtaining a App ID and Secret with The City

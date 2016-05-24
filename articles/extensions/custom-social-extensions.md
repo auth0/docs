@@ -2,10 +2,6 @@
 
 The Custom Social Connections extension allows you to easily manage multiple social connections.
 
-::: panel-info Extension availability
-This extension is available only for the US region.
-:::
-
 ## Setting Up a New Social Connection
 
 To install the Custom Social Connection app, click on the "Custom Social Connections" box on the main Extensions page of the Management Portal. You will be prompted to install the app.

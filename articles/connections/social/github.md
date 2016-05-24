@@ -1,6 +1,7 @@
 ---
 connection: Github
 image: /media/connections/github.png
+seo_alias: github
 ---
 
 # Obtain a *Client Id* and *Client Secret* for GitHub

@@ -1,9 +1,31 @@
 # Appliance Management Dashboard
 
-The management dashboard is the interface through which you manage things like your applications, connections, users and rules. Everything you manage for these areas in the cloud service are also manageable available within the appliance, and so the same documentation applies.
+Regardless of whether you choose to use Auth0's cloud services or to run Auth0 through Appliance instances, the Management Dashboard is the interface through which you may configure things like your Applications, Connections, Users, and Rules.
 
-There are additional controls though exposed in the appliance which are settings normally managed by Auth0 behind the scenes with the cloud service. These are exposed in what is referred to as the *primary domain*. Having access to these settings also gives you some additional control and flexibility when deploying the appliance. If Auth0 is operating your private deployment then these controls will not be exposed directly to you. You'll normally work with Auth0 engineers when changing settings and applying updates. There are some configuration settings there though that you can perform directly, and also information about the cluster that is useful.
+## Appliance Controls
 
-When you have the primary domain selected, you'll see a link in the top right corner, *Configuration*. Select that link to be brought to the appliance configuration area.
+There are certain settings that are managed by Auth0 when you use the cloud service or when Auth0 is managing your private deployment. As such, these controls will not be exposed to you directly, though in the latter instance, you would work with Auth0 engineers when changing settings and applying updates.
+
+These controls, however, are exposed to you if you are managing your Appliance instances and are logged in to what is referred to as the *primary domain*. If so, you will see a link in the top right corner called **Configuration**. Selecting this link brings you to the Appliance configuration area, which contains settings and displays information about your clusters.
 
 ![](/media/articles/appliance/dashboard/primary-dashboard.png)
+
+For additional information about the pages contained in the Appliance configuration area, please refer to the following documents:
+
+[Nodes](/appliance/dashboard/nodes)
+
+[Settings](/appliance/dashboard/settings)
+
+[Tenants](/appliance/dashboard/tenants)
+
+[Troubleshoot](/appliance/dashboard/troubleshoot)
+
+[Updates](/appliance/dashboard/updates)
+
+[Activity](/appliance/dashboard/activity)
+
+[Rate Limiting](/appliance/dashboard/rate-limiting)
+
+[CLI](/appliance/dashboard/cli)
+
+[OSS Components](/appliance/dashboard/oss-components)

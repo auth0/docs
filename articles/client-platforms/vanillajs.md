@@ -20,6 +20,7 @@ alias:
   - html5
   - backendless
   - javascript-app
+seo_alias: vanillajs
 ---
 
 ## Generic SPA / Vanilla JS Tutorial
@@ -99,7 +100,7 @@ var id_token = localStorage.getItem('id_token');
 if (id_token) {
   lock.getProfile(id_token, function (err, profile) {
     if (err) {
-      return alert('There was an error geting the profile: ' + err.message);
+      return alert('There was an error getting the profile: ' + err.message);
     }
     document.getElementById('name').textContent = profile.name;
   });

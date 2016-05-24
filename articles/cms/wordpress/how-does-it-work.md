@@ -49,4 +49,4 @@ The login flow is the following:
 3. The plugin find a user with the same username/email and verifies the password.
 4. Auth0 creates the user in your account and authenticate the user successfully.
 
-> Note: the login flow on the plugin side will be the same than the explained in the previous section. Since the user will exists in both places at the same time and we can assume the email as verified since the user's already known its password, it will fit unther the second scenario.
+> Note: the login flow on the plugin side will be the same than the explained in the previous section. Since the user will exists in both places at the same time and we can assume the email as verified since the user's already known its password, it will fit under the second scenario.

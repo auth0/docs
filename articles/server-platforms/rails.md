@@ -13,6 +13,7 @@ alias:
   - ruby-rails
   - sinatra
   - omniauth
+seo_alias: rails
 ---
 
 ## Ruby On Rails Web App Tutorial

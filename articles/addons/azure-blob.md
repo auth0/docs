@@ -5,4 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with Azure Blob Storag
 logo_class: Azure Blob Storage
 public: false
 image: /media/addons/azure_blob.svg
+seo_alias: azure-blob
 ---

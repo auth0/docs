@@ -41,7 +41,7 @@ Some specifics to keep in mind:
 
 * Latency will be greater compared to Auth0-hosted user stores
 * The database or service must be reachable from the Auth0 servers. You will need to configure inbound connections if your store is behind a firewall.
-* Database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibilty points (i.e. rules, webtasks or other databases) belonging to the same Auth0 domain. Therefore, you must carefully code for error handling and throttling.
+* Database scripts run in the same [Webtask](https://webtask.io) container, which is shared with all other extensibility points (i.e. rules, webtasks or other databases) belonging to the same Auth0 domain. Therefore, you must carefully code for error handling and throttling.
 
 **NOTE:** See the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure a custom user store.
 

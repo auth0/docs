@@ -177,7 +177,7 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 ```swift
 let lock = ... //Fetch Lock from where its stored
 let controller = lock.newTouchIDViewController()
-lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
+controller.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
     // Do something with token & profile. e.g.: save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.
@@ -218,8 +218,8 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 ```swift
 let lock = ... //Fetch Lock from where its stored
 let controller = lock.newSMSViewController()
-lock.auth0APIToken = {() -> String in return "Copy API v2 token here"}
-lock.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
+controller.auth0APIToken = {() -> String in return "Copy API v2 token here"}
+controller.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
     // Do something with token & profile. e.g.: save them.
     // Lock will not save the Token and the profile for you.
     // And dismiss the UIViewController.

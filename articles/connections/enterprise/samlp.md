@@ -5,4 +5,5 @@ image: /media/connections/saml.png
 public: false
 alias:
   - saml
+seo_alias: samlp
 ---

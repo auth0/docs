@@ -19,6 +19,7 @@ alias:
   - windows-10
   - windows-tablet
   - surface
+seo_alias: windows-uwp-javascript
 ---
 
 # Windows UWP App in Javascript Tutorial

@@ -5,4 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with Azure Service Bus
 logo_class: Windows Azure Service Bus
 image: /media/addons/azure_sb.svg
 public: false
+seo_alias: azure-sb
 ---

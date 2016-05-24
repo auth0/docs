@@ -2,6 +2,7 @@
 connection: Yammer
 image: /media/connections/yammer.png
 description: How to obtain the credentials required to configure your Auth0 connection to Yammer.
+seo_alias: yammer
 ---
 
 # Obtain an *App ID* and *App Secret* for Yammer
@@ -24,7 +25,7 @@ Then click **Register New App**:
 
 ## 2. Name your application
 
-Name your app and complete the form. 
+Name your app and complete the form.
 For the **Redirect URI**, enter `https://${account.namespace}/login/callback`.
 Click **Continue**.
 
@@ -48,7 +49,7 @@ Click **Save**:
 
 Go back to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 dashboard.
 
-If you have configured your app correctly, you will see a Try icon next to the Yammer logo. 
+If you have configured your app correctly, you will see a Try icon next to the Yammer logo.
 Toggle on the switch to enable Yammer authentication:
 
 ![](/media/articles/connections/social/yammer/yammer-connect-7.png)
