@@ -1,6 +1,6 @@
 ---
 title: Configuring MFA Using Google Authenticator
-url: /google-authenticator
+url: /multifactor-authentication/google-authenticator
 ---
 
 # Configuring MFA Using Google Authenticator

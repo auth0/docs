@@ -1,6 +1,6 @@
 ---
 title: Configuring Custom MFA
-url: /custom-mfa
+url: /multifactor-authentication/custom-mfa
 ---
 
 # Configuring Custom MFA
