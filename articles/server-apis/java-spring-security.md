@@ -30,6 +30,8 @@ This tutorial and seed project have been tested with the following:
 
 * Java 1.8
 * Maven 3.3
+* Spring 4.2.4
+* Spring Security 4.0.1
 :::
 
 <%= include('../_includes/_package', {
