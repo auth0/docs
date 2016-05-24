@@ -1,6 +1,6 @@
 ---
-title: User Profile
-name: Angularjs-user-profile
+title: Linking Accounts
+name: Angularjs-linking-accounts
 alias:
   - angular
   - angularjs
