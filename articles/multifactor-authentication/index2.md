@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication in Auth0
-url: /multifactor-authentication
+url: /multifactor-authentication2
 ---
 
 # Multifactor Authentication in Auth0
@@ -15,9 +15,16 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 
 Auth0 supports the following methods of implementing MFA:
 
-1. Using Auth0's built-in support for one-time password authentication services Google Authenticator and Duo Security.
-2. Configuring rules for custom processes, such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
-3. Integration with a custom provider, such as **Yubikey**.
+1. Using Guardian, Auth0's MFA application;
+2. Using Auth0's built-in support for one-time password authentication services Google Authenticator and Duo Security.
+3. Configuring rules for custom processes, such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+4. Integration with a custom provider, such as **Yubikey**.
+
+### MFA Using Auth0 Guardian
+
+Guardian is Auth0's MFA application. It is a frictionless approach to implementing MFA for your apps, and provides a full MFA experience without requiring integration with third-party utilities.
+
+You will find further instructions on enabling this feature [here](/multifactor-authentication/guardian/configuration.md).
 
 ### MFA Using Auth0 Built-In MFA Support
 
@@ -34,7 +41,7 @@ You may enable these options via the Auth0 Management Dashboard. To navigate to 
 
 Google Authenticator allows you to request six- to eight-digit one-time use password as the second factor after your user has attempted to log in with their Google credentials.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/google-auth/google-authenticator).
+You will find further instructions on enabling this feature [here](/multifactor-authentication/google-auth/index).
 
 #### MFA Using Duo Security
 
@@ -43,13 +50,13 @@ Duo Security allows you to request either of the following as your second factor
 * A user response to a push notification sent to the appropriate device;
 * A passcode provided to the user via SMS.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security/duo).
+You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security/index).
 
 ### MFA Using Custom Rules
 
 You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
-You will find [sample code snippets](/multifactor-authentication/custom/custom-mfa) to assist you in building your rules here.
+You will find [sample code snippets](/multifactor-authentication/custom/index) to assist you in building your rules here.
 
 ### MFA Using Custom Providers
 
