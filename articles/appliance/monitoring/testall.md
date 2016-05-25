@@ -3,7 +3,15 @@
 The `testall` endpoint can be accessed via http or https:
 
 ```text
-curl -v  http://10.1.0.248/testall
+GET https://${account.namespace}/testall
 ```
 
-The return results include information gathered from a set of basic checks that ensure all services are running. If all is well, the endpoint returns a status code of `200`. Alternatively, if there are any issues, the endpoint returns a status code of `500`.
+The `/testall` endpoint checks the availability of the core Auth0 Authentication Service, as well as other services such as the Management Dashboard and Documentation pages. If all is well, the endpoint returns a response code of `200`.
+
+```text
+200
+content-type: text/plain
+OK
+```
+
+Alternatively, if there are any issues, `/testall` returns a `5xx` response code.
