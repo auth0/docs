@@ -30,11 +30,11 @@ Once your code has been successfully scanned, you will see a confirmation screen
 ### Google Authenticator
 If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
 
-[Click here to learn more about Google Authenticator](https://support.google.com/accounts/answer/1066447) 
-
 A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code, you will see a confirmation screen which has a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
 ![](/media/articles/mfa/google-code.png)
+
+[Click here to learn more about Google Authenticator](https://support.google.com/accounts/answer/1066447) 
 
 ### SMS
 
@@ -70,10 +70,21 @@ If you have lost your phone and are unable to finish the two-step authentication
 
 If you do have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
+### If you forgot you password
+
+If you forgot your password when you are trying to login, click **Don't remember your password?** underneath the login. Enter your email to receive an email that will contain a link to reset your password.
+
+### Transaction Expiration
+
+For all types of multifactor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification. 
+
+If using SMS, make sure you are not [exceeding rate limits]((/user-guide#sms-rate-limits).
+
 ### If you did not receive a SMS
 
 If you did not receive your six digit code via SMS, check that the phone number you entered is correct. If it is the correct number, make sure you have a cellular signal. If you still are not receiving the messages, check with your service provider to confirm that messages are not getting blocked.
 
-### If you forgot you password
+### SMS Rate Limits
 
-If you forgot your password when you are trying to login, click **Don't remember your password?** underneath the login. Enter your email to receive an email that will contain a link to reset your password.
+If you attempt to send more than ten SMS to your device within an hour, you will see an error message about a rate limit exception. If you have exceeded the limit of ten, you will need to wait at least an hour from your first SMS send to send another message. Each hour after the first attempt you will gain one more message request maxing out at ten requests.
+
