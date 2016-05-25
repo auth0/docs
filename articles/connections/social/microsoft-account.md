@@ -7,40 +7,78 @@ alias:
  - windowslive
  - windows-live
 seo_alias: microsoft-account
+description: How to configure your Auth0 app for an OAuth connection to Microsoft Account.
 ---
 
-# Obtain a *Client Id* and *Client Secret* for Microsoft account
+# Configure a Microsoft Account OAuth Connection to your Auth0 App
 
-To configure Microsoft Account OAuth connections, you need to register your application in the Microsoft account Developer Center.
+To configure a Microsoft Account OAuth 2.0 connection to your Auth0 app, create an application in the Microsoft Account Developer Center and copy its credentials into Auth0.
 
-## 1. Log into the Microsoft account Developer Center and create an application
+## 1. Create an application
 
-Log into the [Developer Center](https://account.live.com/developers/applications) and click **Create application**. Name your new app and click **I accept**:
+Log into the [Microsoft Account Developer Center](https://account.live.com/developers/applications) and click **Add an app**. 
+
+Name your new app and click **Create application**:
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-1.png)
 
-## 2. Provide basic information about your app
+## 2. Copy your Application Id
 
-Once the app is created, complete the Basic Information form and click **Save**:
+On the **Registration** page that follows, copy the **Application Id**. This is your `client_id`.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-2.png)
 
-## 3. Enter your callback URL
+## 3. Get your password
 
-Select **API Settings** from the left menu. Complete the form and enter the following in the **Redirect URLs** field and click **Save**:
+Click **Generate New Password**.
 
-	https://${account.namespace}/login/callback
+Copy your password. This is your `client_secret`.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-3.png)
 
-## 4. Get your *Client Id* and *Client Secret*
+Click **Save** at the bottom of the page to save these settings.
 
-Select **App Settings** from the left menu. Your app's `Client Id` and `Client Secret` will be displayed:
+## 4. Enter your callback URL
+
+Click **Add Platform**, then select **Web**.
+
+Enter the following under **Redirect URIs**:
+
+`https://${account.namespace}/login/callback`
+
+Click **Save**.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-4.png)
 
 ## 5. Copy your *Client Id* and *Client Secret*
 
-Go to your [Auth0 Dashboard](${uiURL}) and select **Connections > Social**, then choose **Windows Live**. Copy the `Client Id` and `Client Secret` from the **App Settings** section of the Microsoft account Developer Center into the fields on this page on Auth0 and click **Save**:
+Go to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** from the left menu. 
+
+Select the **Microsoft** connection.
+
+Copy the `Client Id` and `Client Secret` you saved earlier into the fields on this page on Auth0. Click **Save**.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-5.png)
+
+## 6. Enable your apps
+
+Select the **Apps** tab of the Microsoft Account settings page in Auth0 and enable the applications you want to use with this connection.
+
+Click **Save**.
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-6.png)
+
+## 7. Test your connection
+
+On the [Social Connections](${uiURL}/#/connections/social) page in the Auth0 dashboard, click the **Try** button next to the Microsoft connection.
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-7.png)
+
+Click Yes to allow your Microsoft app to access your information. 
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-8.png)
+
+If you see the **It Works!** page, you have successfully configured your connection to Microsoft Account.
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-9.png)
+
