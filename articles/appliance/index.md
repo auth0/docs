@@ -46,3 +46,4 @@ You will need to set up a Dev/Test non-production infrastructure as well as a pr
 ## For More Information Information:
 -  [Appliance Management Dashboard](/appliance/dashboard)
 -  [Node.js modules available in Rules and Custom Database Connections](/appliance/modules)
+-  [Monitoring the Appliance](/appliance/monitoring)

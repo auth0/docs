@@ -18,4 +18,4 @@ The Nodes page displays the following pieces of information for each of your nod
 At the end of each row detailing a Node instance are two buttons:
 
 * **Reboot**: if clicked, Auth0 reboots the node;
-* **Remove**: if clicked, Auth0 dissociates the node from this particular account/Appliance instance.
+* **Remove**: if clicked, Auth0 removes the node from the status list. If the node is still running, the configuration area will publish a new status.

@@ -75,6 +75,8 @@ The Settings page is broken down into the following sections:
 
     ![](/media/articles/appliance/dashboard/health-keys-api-service.png)
 
+    **Please be sure to save the Settings page to persist the newly-generated key.**
+
 ## Advanced Settings
 
 * **Enable Large Cookie Size**: if enabled, cookies larger than 4kb will be permitted (this might be required for protocols such as SAML and WS-Federation).
