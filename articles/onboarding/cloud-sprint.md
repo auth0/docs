@@ -14,9 +14,9 @@ Cloud Sprint is Auth0’s onboarding program for enterprise customers.  It helps
 )
 *Hours allocated as “consulting” are delivered by our services team of system architects and software engineers for the purpose of guiding you through the common technical requirements, questions, advice and best practices to get successfully started with Auth0. If you have complex requirements needing deeper consulting and advice from our experts than the time allocated here will allow then ask your Sales Executive about purchasing Professional Services hours. These hours can be used for services including: Systems architecture design consulting; software development assistance related to integration of your application to Auth0; data migration from 3rd party/proprietary databases; performance & load testing.*
 
-##Cloud Sprint - Further Details & Resources
+## Cloud Sprint - Further Details & Resources
 
-###Step 1 - Welcome & Orientation
+### Step 1 - Welcome & Orientation
 
 **When?**  This session is generally booked within 5 days of signing your subscription agreement.
 
