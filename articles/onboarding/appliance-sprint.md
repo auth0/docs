@@ -8,7 +8,7 @@ sitemap: false
 
 Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an Auth0 Appliance.  It helps you achieve value quickly with your Auth0 enterprise subscription.  The 6 steps in the onboarding program set both you and Auth0 up for success.
 
-###Appliance Sprint Overview
+### Appliance Sprint Overview
 
 ![Cloud Sprint Program Overview](https://docs.google.com/drawings/d/13Vic931FwevddTWfkTIce46Jmut5EgG0EVxZ44_HHAY/pub?w=950&h=1481)
 *Hours allocated as “consulting” are delivered by our services team of system architects and software engineers for the purpose of guiding you through the common technical requirements, questions, advice and best practices to get successfully started with Auth0. If you have complex requirements needing deeper consulting and advice from our experts than the time allocated here will allow then ask your Sales Executive about purchasing Professional Services hours. These hours can be used for services including: Systems architecture design consulting; software development assistance related to integration of your application to Auth0; data migration from 3rd party/proprietary databases; performance & load testing.*
