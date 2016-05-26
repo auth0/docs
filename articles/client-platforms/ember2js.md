@@ -28,10 +28,10 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-ember-simple-auth',
+  pkgRepo: 'auth0-emberjs2-spa',
   pkgBranch: 'master',
-  pkgPath: 'examples/ember2-auth0-sample',
-  pkgFilePath: 'examples/ember2-auth0-sample/config/auth0-variables.js',
+  pkgPath: 'ember2-auth0-sample',
+  pkgFilePath: 'ember2-auth0-sample/config/auth0-variables.js',
   pkgType: 'replace'
 }) %>
 
