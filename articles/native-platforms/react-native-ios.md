@@ -84,6 +84,15 @@ If you get the following warning.
 
 Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and change the current value for `$(inherited)` for **all** configurations .
 
+Another error you might have while trying to run the project, if you are using a `react-native` version `>=0.26.0`
+
+```
+"std::terminate()", referenced from: 
+        ___clang_call_terminate in libReact.a(RCTJSCExecutor.o)
+```
+
+To solve it, click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the flag `-lc++` for **all** configurations .
+
 ### 2. Let's implement the login
 
 Now we're ready to implement the Login. First we need to require react-native-lock-ios:
