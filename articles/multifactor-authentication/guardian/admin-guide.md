@@ -16,7 +16,7 @@ New users signing up will be prompted to download the Guardian app from either t
 
 Users that were previously registered before you enable MFA, will complete the same process as new users on their next login.
 
-By enabling **Push Notifications** for MFA, you will also be enabling the option to use Google Authenticator instead of Guardian. To use this option, your users must have the Google Authenticator app downloaded to their mobile device, the app is available for both Android and iOS. When a new user signs up, or a user is logging in for the first time since enabling MFA there will be a code to be scanned in the Google Authenticator app. After scanning the code, they will get a six digit code to enter. Once they enter this code, there will be a confirmation screen which has a recovery code. They need enter this recovery code to login without their mobile device. If they do not have the recovery code or their mobile device, you will need to [reset MFA](/admin-guide#reset-mfa-for-a-user) for their account.
+By enabling **Push Notifications** for MFA, you will also be enabling the option to use other TOTP authenticators instead of the Guardian App [see below](/admin-guide#alternatives-to-guardian-for-mfa) for more information.
 
 ## Enabling SMS
 
@@ -121,3 +121,10 @@ Guardian and other types of MFA can be disabled from the [Multifactor Auth](${ui
 
 By disabling a type of MFA you will unenroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.
 
+## Alternatives to Guardian for MFA
+
+### Google Authenticator
+When **Push Notifications** is enabled for MFA your users have the option to use Google Authenticator instead of Guardian. Google Authenticator is a app available for both Android and iOS. When a new user signs up, or a user is logging in for the first time since enabling MFA they will need to select Google Authenticator. Then there will be a code to be scanned in the Google Authenticator app. After scanning the code, they will get a six digit code to enter. Once they enter this code, there will be a confirmation screen which has a recovery code. They need enter this recovery code to login without their mobile device. If they do not have the recovery code or their mobile device, you will need to [reset MFA](/admin-guide#reset-mfa-for-a-user) for their account.
+
+### Microsoft Authenticator and Other TOTP Applications
+Any other applications that implements the TOTP(Time-based One-time Password) algorithm will also be able to use Guardian for MFA.  For example, if some of your users have a Windows device, they will be able to scan the Guardian code with the Microsoft Authenticator app. This login/sign up process will be similar to using the Guardian app and will use the Guardian scan code.
