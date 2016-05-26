@@ -35,7 +35,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-vanillajs-api-sample',
+  pkgRepo: 'auth0-javascript-spa',
   pkgBranch: 'gh-pages',
   pkgPath: 'vanillajs-redirect-auth0-sample',
   pkgFilePath: null,
