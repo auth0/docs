@@ -1,6 +1,4 @@
-# Auth0 Appliance Infrastructure Requirements
-
-This document outlines the infrastructure requirements of an Auth0 Appliance deployment. Please refer to [this page](/appliance) for a high-level overview.
+# Auth0 Appliance Infrastructure Overview
 
 ## Project Coordination and Execution
 
@@ -42,12 +40,6 @@ The following basic steps are required to get the infrastructure up and running 
 3. Access and install the Appliance;
 4. Complete and submit the Post-Appliance Install Checklist to notify Auth0 that you have everything in place and that Auth0 can commence configuring the Appliance;
 5. Complete the steps detailed in the Appliance Setup Guide.
-
-## Common Deployment Architecture
-
-The typical Auth0 Appliance production deployment is a three-node clusters that allows for high availability. The following diagram outlines the typical architecture.
-
-![](/media/articles/appliance/appliance-infrastructure.png)
 
 ## Development/Test/Production Lifecycle
 
