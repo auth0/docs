@@ -23,8 +23,8 @@ seo_alias: react-native-ios
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* React Native 0.16.0
-* CocoaPods 0.39.0
+* React Native 0.26.0
+* CocoaPods 1.0.0
 * NodeJS 4.3
 :::
 
