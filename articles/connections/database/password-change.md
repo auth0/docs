@@ -31,13 +31,17 @@ When calling the API, specify the email address of the account you want to reset
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],
-  "postData" : {
-    "client_id" : "${account.clientId}",
-    "email" : "",
+  "postData": {
+    "client_id": "${account.clientId}",
+    "email": "",
     "connection": "Username-Password-Authentication"
   }
 }
 ```
+
+:::panel-warning Custom database
+In case you have a custom database setup for your connection you should first check whether the user exists there and if so invoke the API for `changePassword`.
+:::
 
 In the resulting email, there will be a link to reset the password.
 
