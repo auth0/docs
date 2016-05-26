@@ -32,7 +32,7 @@ The following bits of data are available at a glance:
 
 * **Status**: in the column headed by a picture of weather clouds are status symbols reflecting the state of a given node. If all is well, the column appears with a green sunshine icon. If there is something that is attention-worthy, the column appears with a red rain/lightening icon;
 * **Time**: the time at which the data was retrieved;
-* ** All Nodes/[IP Addresses]: by changing the column heading from "All Nodes" to the IP address of a specific node (and vice versa), you can choose to display data from ALL nodes or just data from a specific node;
+* ** All Nodes/IP Addresses: by changing the column heading from "All Nodes" to the IP address of a specific node (and vice versa), you can choose to display data from ALL nodes or just data from a specific node;
 * **Host**: the name of the node in question;
 * **Avail Memory**: the amount of memory available to the node at the time of the Health Check;
 * **CPU**: CPU usage (as a percent) on the node at the time of the Health Check;
