@@ -5,7 +5,7 @@ description: Customize the UI of Lock in your App
 
 # Lock iOS: Build your own UI
 
-<%= include('../../_includes/_package', { pkgRepo: 'native-mobile-samples', pkgBranch: 'master', pkgPath: 'iOS/custom-ui-sample-swift', pkgFilePath: 'iOS/custom-ui-sample-swift/Evilation/Info.plist', pkgType: 'replace' }) %>
+<%= include('../../_includes/_package', { pkgRepo: 'native-mobile-samples', pkgBranch: 'master', pkgPath: 'iOS/custom-ui-sample-swift', pkgFilePath: 'iOS/custom-ui-sample-swift/Evilation/Info.pliset', pkgType: 'replace' }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
@@ -35,7 +35,7 @@ description: Customize the UI of Lock in your App
   A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
     NSLog(@"We did it!. Logged in with Auth0.");
   };
-  A0APIClientError error = ^(NSError *error){
+  A0APIClientError failure = ^(NSError *error){
     NSLog(@"Oops something went wrong: %@", error);
   };
   A0AuthParameters *params = [A0AuthParameters newDefaultParams];
