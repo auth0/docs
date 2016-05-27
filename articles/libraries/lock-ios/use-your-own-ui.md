@@ -44,7 +44,7 @@ description: Customize the UI of Lock in your App
                    password:password
                  parameters:params
                     success:success
-                    failure:failure];
+                    failure:error];
   ```
 
   ```swift
