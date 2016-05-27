@@ -11,7 +11,7 @@ This document contains information about the Appliance:
 * [infrastructure overview](/appliance/infrastructure/infrastructure-overview);
 * infrastructure requirements, including details for:
     * [Virtual Machines](/appliance/infrastructure/virtual-machines);
-    * Network;
+    * [Network](/appliance/infrastructure/network);
     * Security and Access;
 
 Please consult the FAQ for further information about the Appliance.
