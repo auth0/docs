@@ -92,7 +92,7 @@ After that, you may want to save the user's token to be able to use them later, 
 3. Configure Facebook Native Integration
   ```objc
   A0Lock *lock = ... //Get your Lock instance
-  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
+  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
   [lock registerAuthenticators:@[facebook]];
   ```
   ```swift
