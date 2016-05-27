@@ -23,7 +23,6 @@ Auth0 will publish a monthly report describing Service availability on [uptime.a
 Subscriber shall receive no SLCs in connection with any unavailability of the Subscription Services caused by any one or more of the following (referred to as “Permitted Downtime”):
 
 * Circumstances beyond Auth0’s reasonable control, including the Force Majeure Events;
-* Scheduled maintenance, such schedule to be published with at least 7 days notice on  [status.auth0.com](http://status.auth0.com);
 * Defects in software or hardware owned or controlled by Subscriber causing downtime.
 
 #### IV.  Service Level Credits.  Auth0 shall apply the following Service Level Credits:
