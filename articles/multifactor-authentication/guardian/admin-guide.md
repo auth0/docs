@@ -2,25 +2,37 @@
 
 Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication your users will always need their mobile device in order to login.
 
-This page will help to explain how to enable and use Guardian for MFA for signing in your users.
+This page will help to explain how to enable and use Push Notifications and SMS for MFA for signing in your users.
 
 For information for your users on what Guardian is, how to download the app and common questions they may have, see [here](/guardian/user-guide).
  
-## Enabling Guardian 
+## Support for Push Notifications
 
-You can enable Guardian by going to the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. By toggling the **Push Notification** slider, you can enable using Guardian for sign in and sign up for your application. 
+To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
-New users signing up will be prompted to download the Guardian app from either the App Store or Google Play. Once they indicate that they downloaded the app a code will appear. They will have five minutes to scan the code with the app before it expires. After the code has been successfully scanned, users will see a confirmation screen which includes a recovery code. They need to have this recovery code to login without their mobile device. If they lose both the recovery code and their mobile device, you will need to [reset their MFA](/admin-guide#reset-mfa-for-a-user).
+For your users to utilize this type of MFA, they will need a supported mobile device. The device must have either the Guardian app installed, the Google Authenticator app installed or an app that supports scanning Time-based One-time Password(TOTP) codes to use with Guardian. Here are the available options:
+
+| **OS** | **Guardian** | **Google Authenticator** | 
+| --- | --- | --- | 
+| **iOS** | Requires iOS 9.0 or later| Requires iOS 5.0 or later |
+| **Android** | Requires Android API version 18 or later| Requires Android version 2.1 or later |
+| **Windows** | Guardian codes are supported using the Micorsoft Authenticator app available for Windows 10 Mobile and Windows Phone 8/8.1 | Unsupported |
+| **Blackberry** | Must use a TOTP scanning app | Requires OS 4.5-7.0 |
+| **Other** | Must use a TOTP scanning app | Unsupported |
+
+For more information on using the Google Authenticator app [see here](/multifactor-authentication/google-authenticator).
+
+New users signing up will be prompted to download the Guardian app from either the App Store or Google Play. Once they indicate that they downloaded the app a code will appear. They will have five minutes to scan the code with the app before it expires. After the code has been successfully scanned, users will see a confirmation screen which includes a recovery code. They need to have this recovery code to login without their mobile device. If they lose both the recovery code and their mobile device, you will need to [reset their MFA](/admin-guide#reset-mfa-for-a-user). Then they will receive a push notification to their device and they will be logged
 
 Users that were previously registered before you enable MFA, will complete the same process as new users on their next login.
 
-By enabling **Push Notifications** for MFA, you will also be enabling the option to use other TOTP authenticators instead of the Guardian App [see below](/admin-guide#alternatives-to-guardian-for-mfa) for more information.
+## Support for SMS
 
-## Enabling SMS
+You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application.  SMS can be used as your only form of MFA or in addition to Push Notifications. 
 
-You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application.  SMS can be used as your only form of MFA or in addition to Push Notifications. Your users must have a device capable of using SMS to use this option.
+Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when traveling) they will be unable sign up with SMS and unable to login without the recovery code.
 
 When your users sign up with SMS they enter their phone number's country code and mobile phone number. 
 
@@ -59,7 +71,7 @@ More specifically, you will uncomment and populate the following line of the Cus
 var CLIENTS_WITH_MFA = ['{REPLACE_WITH_CLIENT_ID}'];
 ```
 
-By setting  `ignoreCookie: true` the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure especially from untrusted machines.
+By setting `ignoreCookie: true` the user will always be prompted for MFA when they login. This prevents the browser cookie from saving the credentials and helps make logins more secure especially from untrusted machines.
 
 Once you have finished making your desired changes, click "Save" so that they persist.
 
@@ -82,7 +94,7 @@ In the [Logs](${uiURL}/#/logs) section of the dashboard you can see the various 
  
 Here are all the possible events related to MFA:
 
-| Event Name  | Description |
+| Event Type  | Description |
 | --- | --- |
 | `gd_unenroll` | When a device account is deleted |
 | `gd_update_device_account` | When a device account is updated |
@@ -100,6 +112,15 @@ Here are all the possible events related to MFA:
 | `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
  
+These events can also be searched using the [APIv2](https://auth0.com/docs/api/management/v2#!/Logs) using [query string syntax](https://auth0.com/docs/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
+
+**Examples searching with the `q` parameter:**
+To see the events for users who are enrolling with MFA:
+`type: gd_start_enroll`
+
+To see all the times an SMS is sent:
+`type: gd_send_sms`
+
 ## Reset a MFA for a User
 
 If a user has lost their mobile device they will need their recovery code to be able to log in. If they have also lost their recovery code, you as an administrator will need to reset their MFA.
@@ -120,11 +141,3 @@ The next time the user logs in they will need to resetup their MFA just like a n
 Guardian and other types of MFA can be disabled from the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. Toggle the button to disabled for the type of MFA you wish to turn off, a confirmation popup will appear.
 
 By disabling a type of MFA you will unenroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.
-
-## Alternatives to Guardian for MFA
-
-### Google Authenticator
-When **Push Notifications** is enabled for MFA your users have the option to use Google Authenticator instead of Guardian. Google Authenticator is a app available for both Android and iOS. When a new user signs up, or a user is logging in for the first time since enabling MFA they will need to select Google Authenticator. Then there will be a code to be scanned in the Google Authenticator app. After scanning the code, they will get a six digit code to enter. Once they enter this code, there will be a confirmation screen which has a recovery code. They need enter this recovery code to login without their mobile device. If they do not have the recovery code or their mobile device, you will need to [reset MFA](/admin-guide#reset-mfa-for-a-user) for their account.
-
-### Microsoft Authenticator and Other TOTP Applications
-Any other applications that implements the TOTP(Time-based One-time Password) algorithm will also be able to use Guardian for MFA.  For example, if some of your users have a Windows device, they will be able to scan the Guardian code with the Microsoft Authenticator app. This login/sign up process will be similar to using the Guardian app and will use the Guardian scan code.
