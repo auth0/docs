@@ -243,7 +243,6 @@ let apiKey = ... //Remember to obfuscate your api key
 let apiSecret = ... //Remember to obfuscate your api secret
 let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(apiKey, andSecret:apiSecret)
 A0Lock.sharedLock().registerAuthenticators([twitter])
-}
 ```
 
 > For more information on how to configure this, please check [Obtaining Consumer and Secret Keys for Twitter](/connections/social/twitter).
