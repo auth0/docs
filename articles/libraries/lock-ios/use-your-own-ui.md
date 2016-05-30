@@ -56,7 +56,7 @@ description: Customize the UI of Lock in your App
   client.loginWithUsername(email, password: password, parameters: parameters, success: { profile, token in
     println("We did it!. Logged in with Auth0.")
   }, failure: { error in
-    println("Oops something went wrong: \(error)"
+    println("Oops something went wrong: \(error)")
   })
   ```
 > More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
