@@ -125,3 +125,10 @@ function(user, context, callback) {
   }
 }
 ```
+
+## Caveats
+
+Redirect rules won't work for the [Resource Owner endpoint](/auth-api#!#post--oauth-ro) authentication endpoint. This is because the endpoint returns a JSON result. __Redirect__ rules work with browser based protocols.
+
+Also, if you are using any social network as a connection, make sure you register your own account (vs. using Auth0's Dev Keys). This is because redirect rules are resumed on the endpoint: `https://${account.namespace}/continue`. When using Auth0's Dev Keys, the session is established on a special endpoint that is generic and tenant agnostic, and calling `/continue` will not find your previous session, resulting in an error. 
+ 
