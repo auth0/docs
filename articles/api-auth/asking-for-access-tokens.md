@@ -36,9 +36,7 @@ The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at 
 Access tokens will be signed using the signature method configured for the resource server, and must be verified accordingly:
 
 * HS256 (symmetric): signed using the resource server's signing secret
-* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at any of the following URLs:
-    - Standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) endpoint: [https://${account.namespace}/.well-known/jwks.json](https://${account.namespace}/.well-known/jwks.json)
-    - PEM format: [https://${account.namespace}/pem](https://${account.namespace}/pem)
+* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json
 
 For claim verification, use any [recommended JWT library](https://jwt.io/) which validates all the standard claims returned in the token.
 
