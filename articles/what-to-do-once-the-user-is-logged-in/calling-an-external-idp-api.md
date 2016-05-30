@@ -51,3 +51,5 @@ lock.show(function(err, token, profile) {
   getGoogleContactsWithToken(googleToken);
 })
 ```
+
+> When you need to call an external IdP that uses OAuth, you can use a third-party library that does the heavy-lifting for you. A non-exhaustive list of such libraries is available at [this page](http://oauth.net/code/).
