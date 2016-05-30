@@ -1,43 +1,42 @@
 # Using Auth0 to secure a CLI
 
-Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. 
-
-But it is a little bit more complex, if the identity provider requires a browser redirect.
+Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.
 
 Auth0 implements the [Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636). This flow makes it easy to add authentication to a CLI while keeping higher standards of security.
 
 ## How it works
+
 Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) to obtain a token. In this flow, there's no __client authentication__ because there's no easy way of storing a `client_secret`.
 
-The PKCE flow ('pixy' for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from the authorization server, and get hold of the token.
+The [PKCE flow](/protocols) ('pixy' for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from the authorization server, and get hold of the token.
 
 A CLI program just needs to:
 
-* Initiate the authorization request, including the parameters for PKCE: the `code_challenge` and the `code_challenge_method`. Usually using a browser.
-* When the `authorization code` is received, use the `/token` endpoint to exchange the `code` for a `token`. In this second step, the CLI program adds a `verifier` parameter that the server uses to correlate the first call.
+### 1. Initiate the authorization request:
 
-In summary:
+This is the regular OAuth2 authorization request, with the caveat that now it includes two parameters:
 
-First, the program starts the transaction with:
+* A `code_challenge` consisting of a randomly generated value (called the `verifier`), hashed (SHA256), and base64Url encoded.
+* A `code_challenge_method: S256`
 
 ```
 https://${account.namespace}/authorize?response_type=code&scope=openid&client_id=${account.clientId}&redirect_uri=${account.callback}&code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}&code_challenge_method=S256
 ```
 
-The `code_challenge` is a random secret, hashed (using SHA256), finally base64Url-encoded. The random secret is called the `verifier`.
+### 2. Get an __authorization code__:
 
-The above request starts the authentication process in Auth0. After user authenticates (with any supported Auth0 [connection](/identityproviders)), Auth0 will issue a response with a code:
+If authentication is successful, then Auth0 will redirect the browser to the callback with a `code` query parameter.
 
-```
-${account.callback}?code={THE CODE}
-```
+  ${account.callback}/?code=123
 
-Then the program calls the token endpoint, passing the `verifier` from first step and the `code` returned by Auth0:
+### 3. Exchange __code__ for __token__:
+
+With the `code`, the program then uses the `/token` endpoint to obtain a `token`. In this second step, the CLI program adds a `verifier` parameter with the exact same random secret generated in step 1. Auth0 uses this to correlate and verify that the request originates from the same client.
 
 ```
 POST /token HTTP/1.1
 Host: ${account.namespace}
-Content-type: application-json
+Content-type: application/json
 {
   "code": {THE CODE},
   "code_verifier": {THE VERIFIER},
@@ -49,11 +48,11 @@ Content-type: application-json
 
 If successful the response is another JSON object, with an `id_token`, and `access_token`. 
 
-> Note that if the `verifier` doesn't match what is sent in the `/authorize` endpoint, the request will fail.
+> Note that if the `verifier` doesn't match with what was sent in the `/authorize` endpoint, the request will fail.
 
-## Simple example
+## Simple CLI example
 
-This simple project shows how the above would work in a nodejs app. It uses the `opn` module to open a browser to perform the authentication. It expects a simple web app running on the ${account.callback} address that can display the `code`:
+This simple project shows how the above would work in a nodejs CLI app. It uses the `opn` module to open a browser to perform the authentication. It expects a simple web app running on the ${account.callback} address that can display the `code` so the user can copy, and enter it in the CLI:
 
 ```js
 var opn = require('opn');
@@ -76,7 +75,7 @@ var rl = readline.createInterface({
   output: process.stdout
 });
 
-//Generate the secret and the corresponding challenge
+//Generate the verifier, and the corresponding challenge
 var verifier = randomValueHex(16);
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
 
@@ -88,7 +87,7 @@ var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%
                                     '&connection=' + env.AUTH0_CONNECTION;
 
 //Open a browser and initiate the authentication process with Auth0
-//The callback URL is a website that simply displays the OAuth2 authz code
+//The callback URL is a simple website that simply displays the OAuth2 authz code
 //User will copy the value and then paste it here for the process to complete.
 opn(authorize_url);
 
@@ -102,6 +101,7 @@ rl.question('Please enter the authorization code: ', function(code) {
       redirect_uri: env.AUTH0_CALLBACK_URL
   }},function(err,status,body){
     //TODO: do something useful with the token (in body)
+    //CLI is ready to call APIs, etc.
   });
 
   rl.close();

@@ -82,6 +82,8 @@ This protocol is best suited for public clients that require increased security 
 
 > The full spec of this protocol can be found [here](https://tools.ietf.org/html/rfc7636).
 
+![](https://docs.google.com/drawings/d/1VAhgi3-Gz7QZ5eBSmMY76L77awjrHWKmZ5qqIYqUqis/pub?w=752&h=282)
+
 ### 1. Initiation
 
 The client requests authorization to Auth0 endpoint:
@@ -96,11 +98,13 @@ The `redirect_uri` __must__ match one of the addresses defined in your [settings
 
 Auth0 will redirect the user to the identity provider defined in the `connection` property.
 
-### 3. Getting the Access Token
+### 3. Getting the Authorization Code
 
 Upon successful authentication, Auth0 will return a redirection response with the following URL structure:
 
 	${account.callback}?code={THE CODE}
+
+### 4. Getting the token
 
 The client then issues a final request to Auth0, to exchange the `code` for a token:
 
