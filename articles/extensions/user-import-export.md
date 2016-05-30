@@ -1,6 +1,6 @@
 # User Import / Export 
 
-The Auth0 Logs to Application Insights is a scheduled job takes all of your Auth0 logs and exports them to Application Insights.
+The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account.
 
 ## Configuring the Extension
 
