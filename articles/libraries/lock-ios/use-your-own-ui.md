@@ -54,9 +54,9 @@ description: Customize the UI of Lock in your App
   let client = lock.apiClient()
   let parameters = A0AuthParameters(dictionary: [A0ParameterConnection : "Username-Password-Authentication"])
   client.loginWithUsername(email, password: password, parameters: parameters, success: { profile, token in
-    println("We did it!. Logged in with Auth0.")
+    print("We did it!. Logged in with Auth0.")
   }, failure: { error in
-    println("Oops something went wrong: \(error)"
+    print("Oops something went wrong: \(error)"
   })
   ```
 > More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
@@ -131,10 +131,10 @@ After that, you may want to save the user's token to be able to use them later, 
   ```
   ```swift
   let success = { (profile: A0UserProfile, token: A0Token) in
-    println("We did it!. Logged in with Auth0.")
+    print("We did it!. Logged in with Auth0.")
   }
   let failure = { (error: NSError) in
-    println("Oops something went wrong: \(error)")
+    print("Oops something went wrong: \(error)")
   }
   let lock = ... //Get your Lock instance
   lock.identityProviderAuthenticator().authenticateWithConnectionName("facebook", parameters: nil, success: success, failure: failure)
