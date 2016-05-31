@@ -241,7 +241,7 @@ And register it with `A0Lock`:
 ```swift
 let apiKey = ... //Remember to obfuscate your api key
 let apiSecret = ... //Remember to obfuscate your api secret
-let twitter = A0TwitterAuthenticator.newAuthenticationWithKey(apiKey, andSecret:apiSecret)
+let twitter = A0TwitterAuthenticator.newAuthenticatorWithKey(apiKey, andSecret:apiSecret)
 A0Lock.sharedLock().registerAuthenticators([twitter])
 ```
 
