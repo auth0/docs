@@ -54,3 +54,15 @@ You can view more details by clicking on the job you created. In this page you c
 That's it, you are done! You can now navigate to [Sumo Logic](https://www.sumologic.com/) and view your [Auth0 Logs](${uiURL}/#/logs), by selecting the configured system.
 
 ![](/media/articles/extensions/sumologic/auth0-logs-at-sumologic.png)
+
+## Auth0 Dashboard
+
+Here, at Auth0, we have been using the Auth0 to Sumo Logic extension ourselves since it was first released, and it's proven to be very useful for staying on top of what's happening with our own Auth0 accounts and our internal users. Sumo Logic makes it easy to see the latest failed logins, find and alert on error messages, create charts to visualize trends, or even do complex statistical analysis on your data.
+
+To help us (and our customers) visualize these logs, we spent some time creating a dashboard. The Sumo Logic for Auth0 dashboard shows you the output of several saved searches all on one easy to read screen, and makes it easy to zoom in or drill down when something looks interesting.
+
+![](/media/articles/extensions/sumologic/auth0-dashboard.png)
+
+If you're a Sumo Logic customer and are interested in trying out this dashboard, just let us know via [Support Center](https://support.auth0.com/) and we will gladly share it with you. Make sure to include your Sumo Logic account name in your request. Once it's available through your account, you're free to customize it, add to it, create alerts based on the searches, or really anything else that you find useful.
+
+Have fun analyzing and visualizing those logs!
