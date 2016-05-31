@@ -65,6 +65,14 @@ You can redirect users to a specific page on the *Allowed Callback URL* using th
 
 If your application has multiple *Allowed Callback URL*s configured, Auth0 will use the first URL listed.
 
+#### Different `RedirectTo` URLs
+
+You can set up a different Redirect To URL depending on your Client ID. Here's an example:
+
+```text
+{% if application.clientID == 'YOUR_CLIENT_ID_HERE' %} http://jwt.io {% else %} http://auth0.com {% endif %}
+```
+
 ### URL Lifetime
 
 The **Verification Email** and **Change Password Confirmation Email** contain links which allow users to verify their email address when signing up, or confirm their password change, respectively.
@@ -78,6 +86,50 @@ http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expire
 ```
 
 ## Email Templates
+
+### Multilingual Email Templates
+
+The following `user` attributes are now available from email templates (this includes `Verification Email`, `Welcome Email`, `Change Password Confirmation Email` and `Blocked Account Email`):
+
+#### Using Markdown Syntax
+
+* `email`
+* `email_verified`
+* `picture`
+* `name`
+* `nickname`
+* `given_name`
+* `family_name`
+
+This means you can now refer to those attributes in the following way:
+
+```text
+Hello @@user.given_name@@ @@user.family_name@@
+```
+
+#### HTML + Liquid syntax
+
+* `email`
+* `email_verified`
+* `picture`
+* `name`
+* `nickname`
+* `given_name`
+* `family_name`
+* `app_metadata`
+* `user_metadata`
+
+This means you can now refer to use control flow statements and use the above attributes in the following way:
+
+```text
+{% if user.user_metadata.lang == 'es' %}
+  Hola {{ user.name }}, ...
+{% elsif user.user_metadata.lang == 'ru' %}
+  Ciao {{ user.name }}, ...
+{% else %}
+  Hi {{ user.name }}, ...
+{% endif %}
+```
 
 ### Verification Email
 
