@@ -29,7 +29,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Auth0 Logs to Loggly](/extensions/loggly): exports Auth0 logs to Loggly
 - [Auth0 Logs to Papertrail](/extensions/papertrail): exports Auth0 logs to Papertrail
 - [Users Import / Export](/extensions/user-import-export): import or export users.
-- Auth0 Logs to Sumo Logic: export Auth0 logs to Sumo Logic
+- [Auth0 Logs to Sumo Logic](/extensions/sumologic): export Auth0 logs to Sumo Logic
 - Auth0 Logs to Splunk: export Auth0 logs to Splunk
 - Auth0 Logs to Logtash: export Auth0 logs to Logtash
 - [Auth0 Logs to Mixpanel](/extensions/mixpanel): export Auth0 logs to Mixpanel
