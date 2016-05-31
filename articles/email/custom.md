@@ -90,9 +90,11 @@ function (user, context, callback) {
 
 ## Change Password Confirmation Email
 
-To handle password change requests, you will need to host a form to capture the user's new password and post it to the [change password ticket](/api/v1#!#post--api-users--user_id--change_password_ticket) endpoint. Calling this endpoint will generate a "Change Password Confirmation" link.
+To handle password change requests, you will need to host a form to capture the user's new password and post it to the [change password ticket](/api/management/v2#!/Tickets/post_password_change) endpoint. Calling this endpoint will generate a "Change Password Confirmation" link. 
 
 You can now send an email to the user containing this link. Only when the user clicks this link will their password be updated.
+
+Alternatively, if you invoke the [change password ticket](/api/management/v2#!/Tickets/post_password_change) endpoint without specifying the `new_password` parameter, the link at the email will redirect the user to a page prompting to set a new password.
 
 ![](/media/articles/email/custom/change-password.png)
 
