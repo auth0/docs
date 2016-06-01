@@ -73,3 +73,37 @@ Where `onelogin-customer` is the connection name you assigned in Auth0 dashboard
 Also, you have to pick the application to redirect after the SAML assertion is consumed. You can find this in the **Connection > IdP Initiated SSO tab**.
 
 ![](/media/articles/saml/identity-providers/onelogin/idp-initiated-sso.png)
+
+## Customize the User Profile
+
+Some times the standard User Profile Attributes are not enough for the functionality you want to build. If this is the case, you can use custom attributes in order to enhance the SAML token. Let's work through a basic example.
+
+The SAML token contains, among others, two attributes: `User:FirstName` and `User:LastName`. Let's add a new custom attribute, named `FullName` that will contain the concatenation of first and last name. 
+
+In order to do so navigate to the OneLogin dashboard and edit your app. 
+
+At the __Parameters__ tab click the __Add Parameter__ link. 
+
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-01.png)
+
+At the popup set a name for your new custom attribute at the __Field name__ text box. Make sure you check the __Include in SAML assertion__ flag. Click __Save__.
+
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-02.png)
+
+The new attribute you created is displayed. Click on the __Value__ field, currently displaying `- No default -`.
+
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-03.png)
+
+Click on the __Value__ dropdown menu and select `- Macro -`.
+
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-04.png)
+
+At the text box set the value to `{firstname} {lastname}`. Click __Save__.
+
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-05.png)
+
+Let's test this. Go back to [Auth0 dashboard > Connections > Enterprise > SAMLP Identity Provider](${uiURL}/#/connections/enterprise) and on your __SAMLP Identity Provider__ connection click the __Try__ button. The result should include the new attribute `FullName`.
+
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-06.png)
+
+You can find more information on _Attribute Macros_ at the [OneLogin Help Center](https://support.onelogin.com/hc/en-us/articles/201174464-Attribute-macros).
