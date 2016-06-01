@@ -92,18 +92,16 @@ At the popup set a name for your new custom attribute at the __Field name__ text
 
 The new attribute you created is displayed. Click on the __Value__ field, currently displaying `- No default -`.
 
-![](/media/articles/saml/identity-providers/onelogin/custom-attr-03.png)
-
 Click on the __Value__ dropdown menu and select `- Macro -`.
 
-![](/media/articles/saml/identity-providers/onelogin/custom-attr-04.png)
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-03.png)
 
 At the text box set the value to `{firstname} {lastname}`. Click __Save__.
 
-![](/media/articles/saml/identity-providers/onelogin/custom-attr-05.png)
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-04.png)
 
 Let's test this. Go back to [Auth0 dashboard > Connections > Enterprise > SAMLP Identity Provider](${uiURL}/#/connections/enterprise) and on your __SAMLP Identity Provider__ connection click the __Try__ button. The result should include the new attribute `FullName`.
 
-![](/media/articles/saml/identity-providers/onelogin/custom-attr-06.png)
+![](/media/articles/saml/identity-providers/onelogin/custom-attr-05.png)
 
 You can find more information on _Attribute Macros_ at the [OneLogin Help Center](https://support.onelogin.com/hc/en-us/articles/201174464-Attribute-macros).
