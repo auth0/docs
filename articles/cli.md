@@ -10,6 +10,12 @@ Traditionally, public clients (e.g. mobile apps, SPAs and CLIs) have used the [i
 
 The [PKCE flow](/protocols) ('pixy' for friends), increases security by adding a cryptographic challenge in the token exchange. This prevents rogue apps to intercept the response from the authorization server, and get hold of the token.
 
+For this exchange to work without secret, you will have to set the `token_endpoint_auth_method` to `none`.
+
+```bash
+curl -H "Authorization: Bearer API2_TOKEN" -X PATCH  -H "Content-Type: application/json" -d '{"token_endpoint_auth_method":"none"}' https://yours.auth0.com/api/v2/clients/CLIENT_ID
+```
+
 A CLI program just needs to:
 
 ### 1. Initiate the authorization request:
