@@ -45,7 +45,7 @@ Once you have those stored, you can at any point request a new `id_token` using 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
 A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
-NSString* token = [keychain stringForKey:@"refresh_token"];
+NSString* token = [keychain stringForKey:@"id_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithIdToken:token parameters:nil success:^(A0Token *token) {
     [keychain setString:token.idToken forKey:@"id_token"];
