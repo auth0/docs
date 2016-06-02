@@ -82,7 +82,7 @@ var rl = readline.createInterface({
 });
 
 //Generate the verifier, and the corresponding challenge
-var verifier = randomValueHex(16);
+var verifier = randomValueHex(32);
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
 
 
