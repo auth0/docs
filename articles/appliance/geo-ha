@@ -1,1 +1,55 @@
-# Appliance: Geo HA
+# Appliance: High-Availability Geo Cluster (Geo HA)
+
+The high availability geo cluster provides redundancy between two data centers with automatic failover in case of a data center outage and is the highest form of Appliance availability offered by Auth0.
+
+## Overview
+
+By adding to the single data center high availability solution via extending the cluster to a geographically distributed data center with relatively low latency (less than 100 ms round trip objective), the high availability geo cluster provides an active hot standby configuration with automated failure handing for a distributed cluster that can survive a regional disaster.
+
+> Like any cross-regional solution, a transient data loss is likely on failure. This is unavoidable because of the physics involved in the delay when doing asynchronous replication.
+
+## Standard Configuration
+
+![]()
+
+The standard configuration consists of the following pieces:
+
+* three primary data center Appliance instances;
+* three hot standby data center instances;
+* the arbiter, a seventh instance that is located in a third data center.
+
+The arbiter does not store data or execute application logic, but acts as a witness between the primary and standby sites. It independently verifies if a site is down, thus preventing both data centers from becoming active (such a scenario is typically called the "split-brain condition").
+
+> Ports 27017 and 7777 must be open between all instances in the cluster.
+
+```
+The cluster nodes continuously synchronize.
+
+If the primary data center fails, the data tier and the DNS or distributed load balancer will fail *automatically* fail over to hot standby data center.
+
+You may choose to run application tiers in both data centers, but the primary data node will always be in only one of the two. Auth0 supports the configuration where the geo-aware load balancer or failover DNS configuration prefers the active data center where the primary data node resides.
+
+Because the data and application tiers behave independently, the data tier could be unavailable on a given node while the application tier continues to function (or vice versa).
+```
+
+### Application Tier
+
+### Data Tier
+
+The data portion of the Appliance operates independently of the application portion.
+
+The data tier operates as a single cluster that is stretched across the two geographically distributed data centers. It also has a third data center that hosts a single witness instance.
+
+Within each data center are three nodes that provide local data redundancy and failover in case of a failure. All read and write activities for the entire data tier pass through a single, active primary node that is stretched across the entire cluster.
+
+One of the two data centers id designated as the primary, and weighting is applied to the Appliance instances so that the nodes within the primary data center are preferred. As long as all nodes are visible to each other, the weighting results in this Appliance instance to be chosen.
+
+If the data center fails (the primary appliance nodes are not visible to the witness and Appliances in the standby data center), then a node in the secondary data center will be elected to become the primary node. If the primary data center becomes available again, then the primary data center will be preferred again.
+
+## Failover Sequence
+
+1. The primary data center fails. All nodes in the hot standby data center and the witness can no longer communicate with any of the nodes in the primary data center.
+2. Because the hot standby Appliance nodes and the witness still form a majority of the nodes, they elect one of the nodes in the hot standby data center to become the primary node.
+3. Regardless of whether the nodes in the primary data center are still running, its failure means that the nodes in the hot standby data center cannot connect to them. The Appliances will therefore start failing.
+4. The geographically-distributed load balancer or DNS failover detects that the nodes in the primary data center aren't serving and switches over to use the hot standby data center.
+5. The Appliances in the hot standby data nodes are now serving and the elected node from step 2 is now acting as the primary data node.
