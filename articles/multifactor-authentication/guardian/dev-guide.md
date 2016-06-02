@@ -1,4 +1,4 @@
-# Configuring MFA Using Guardian
+# Developer Guide to Configuring Guardian
 
 Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is currently available for mobile devices running iOS or Android.
 

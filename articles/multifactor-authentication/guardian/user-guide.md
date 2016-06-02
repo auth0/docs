@@ -1,6 +1,6 @@
 # How to Use the Guardian App
 
-Guardian is an app that can be downloaded from the [App Store](http://www.apple.com/itunes/) or from [Google Play](https://play.google.com/store). The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.
+Guardian is an app that can be downloaded from the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.
 
 This page will help to explain how to sign up and log in using the Guardian app and using other forms of two-factor authentication.
 
@@ -10,14 +10,14 @@ If you do not have an existing account, you will need to sign up to create one. 
 
 ![](/media/articles/mfa/sign-up.png)
 
-Next, you will see the option to download the Auth0 Guardian app from either the [App Store](http://www.apple.com/itunes/) or from [Google Play](https://play.google.com/store). Underneath that, is there is the option to use [Google Authenticator]() or SMS depending on the application's settings.
+Next, you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](/user-guide#google-authenticator) or [SMS](/user-guide#sms) depending on the application's settings.
  
 ![](/media/articles/mfa/choose-mfa.png)
 
 Choose the type of two-factor to use:
 
 ### Guardian
-To use the Guardian app, first download the either the [iOS]((http://www.apple.com/itunes/) ) or [Android](https://play.google.com/store) app depending on the type of device you have. Once you have Guardian downloaded, click **I've already downloaded it**.
+To use the Guardian app, first download either the [iOS](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or [Android](https://play.google.com/store/apps/details?id=com.auth0.guardian) app depending on the type of device you have. Once you have Guardian downloaded, click **I've already downloaded it**.
 
 Next, a code will appear, you will have five minutes to scan the code before it expires. Open the Guardian app and scan the code.
 
@@ -25,7 +25,7 @@ Next, a code will appear, you will have five minutes to scan the code before it 
 
 Once your code has been successfully scanned, you will see a confirmation screen which includes a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
-![](/media/articles/mfa/guardian-recovery-code.png)
+![](/media/articles/mfa/guardian-recover-code.png)
 
 ### Google Authenticator
 If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
@@ -87,4 +87,3 @@ If you did not receive your six digit code via SMS, check that the phone number 
 ### SMS Rate Limits
 
 If you attempt to send more than ten SMS to your device within an hour, you will see an error message about a rate limit exception. If you have exceeded the limit of ten, you will need to wait at least an hour from your first SMS send to send another message. Each hour after the first attempt you will gain one more message request maxing out at ten requests.
-
