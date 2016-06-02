@@ -82,6 +82,8 @@ If you use OneLogin and Auth0 out-of-the-box, users logging in using OneLogin an
 
 You have to edit the mappings in the Auth0 connection, along with the parameters in the OneLogin dashboard in order to map the information. Let's see how we could add the `EmailAddress` information to our login. 
 
+> Before you map the `EmailAddress` information, you have to add it as a custom parameter to the OneLogin dashboard. Use `EmailAddress` as __Field name__ and `Email` as __Value__. You can find details on the steps [here](#customize-the-user-profile). Save your changes and test the connection via Auth0 dashboard. Check that the `EmailAddress` is included in the attributes and the value is correct. You are now ready to proceed with mapping the information.
+
 Go to the _Settings_ of your [SAMLP Identity Provider](${uiURL}/#/connections/enterprise) and navigate to the tab __Mappings__. Copy the mappings below and paste it in the text box.
 
 ```javascript
