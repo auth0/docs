@@ -48,7 +48,7 @@ Copy the values of the **post-back URL** and the **Entity ID** and head back to 
 
 ![](/media/articles/saml/identity-providers/onelogin/onelogin-set-values.png)
 
-# Testing
+## Testing
 
 If you do not already have a user on OneLogin go at the **Users** tab and add one. Also, your new Auth0 SAMLP connection should be associated with an App, otherwise you will get an `invalid_request: the connection was disabled` error.
 
