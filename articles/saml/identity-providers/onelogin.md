@@ -74,11 +74,35 @@ Also, you have to pick the application to redirect after the SAML assertion is c
 
 ![](/media/articles/saml/identity-providers/onelogin/idp-initiated-sso.png)
 
+## Edit connection mappings
+
+If you use OneLogin and Auth0 out-of-the-box, users logging in using OneLogin and being created in the Auth0 dashboard, will be missing some information. Go to [Auth0 dashboard > Users](${uiURL}/#/users) and check your login. It should look like that:
+
+![](/media/articles/saml/identity-providers/onelogin/user-without-mappings.png)
+
+You have to edit the mappings in the Auth0 connection, along with the parameters in the OneLogin dashboard in order to map the information. Let's see how we could add the `EmailAddress` and `FullName` information to our login. 
+
+Go to the _Settings_ of your [SAMLP Identity Provider](${uiURL}/#/connections/enterprise) and navigate to the tab __Mappings__. Copy the mappings below and paste it in the text box.
+
+```javascript
+{
+"email": "EmailAddress",
+"name": "FullName"
+}
+```
+
+![](/media/articles/saml/identity-providers/onelogin/edit-mappings.png)
+
+Save your changes and try your connection again. Once you have successfully logged in, go to [Auth0 dashboard > Users](${uiURL}/#/users) and check your login. It should look like that:
+
+![](/media/articles/saml/identity-providers/onelogin/user-with-mappings.png)
+
+
 ## Customize the User Profile
 
 Some times the standard User Profile Attributes are not enough for the functionality you want to build. If this is the case, you can use custom attributes in order to enhance the SAML token. Let's work through a basic example.
 
-The SAML token contains, among others, two attributes: `User:FirstName` and `User:LastName`. Let's add a new custom attribute, named `FullName` that will contain the concatenation of first and last name. 
+The SAML token contains, among others, two attributes: `FirstName` and `LastName`. Let's add a new custom attribute, named `FullName` that will contain the concatenation of first and last name. 
 
 In order to do so navigate to the OneLogin dashboard and edit your app. 
 
