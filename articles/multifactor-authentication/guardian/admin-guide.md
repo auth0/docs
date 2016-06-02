@@ -4,7 +4,7 @@ Guardian is Auth0's multifactor authentication (MFA) application that provides a
 
 This page will help to explain how to enable and use Push Notifications and SMS for MFA for signing in your users.
 
-For information for your users on what Guardian is, how to download the app and common questions they may have, see [here](/guardian/user-guide).
+For information for your users on what Guardian is, how to download the app and common questions they may have, see [here](/multifactor-authentication/guardian/user-guide).
  
 ## Support for Push Notifications
 
@@ -116,9 +116,11 @@ These events can also be searched using the [APIv2](https://auth0.com/docs/api/m
 
 **Examples searching with the `q` parameter:**
 To see the events for users who are enrolling with MFA:
+
 `type: gd_start_enroll`
 
 To see all the times an SMS is sent:
+
 `type: gd_send_sms`
 
 ## Reset a MFA for a User
