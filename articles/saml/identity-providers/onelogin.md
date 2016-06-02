@@ -80,14 +80,13 @@ If you use OneLogin and Auth0 out-of-the-box, users logging in using OneLogin an
 
 ![](/media/articles/saml/identity-providers/onelogin/user-without-mappings.png)
 
-You have to edit the mappings in the Auth0 connection, along with the parameters in the OneLogin dashboard in order to map the information. Let's see how we could add the `EmailAddress` and `FullName` information to our login. 
+You have to edit the mappings in the Auth0 connection, along with the parameters in the OneLogin dashboard in order to map the information. Let's see how we could add the `EmailAddress` information to our login. 
 
 Go to the _Settings_ of your [SAMLP Identity Provider](${uiURL}/#/connections/enterprise) and navigate to the tab __Mappings__. Copy the mappings below and paste it in the text box.
 
 ```javascript
 {
-"email": "EmailAddress",
-"name": "FullName"
+  "email": "EmailAddress"
 }
 ```
 
