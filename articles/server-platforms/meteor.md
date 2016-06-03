@@ -29,7 +29,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'meteor-auth0',
+  pkgRepo: 'auth0-meteor-web-app',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-meteor-sample',
   pkgFilePath: null,
