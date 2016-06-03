@@ -20,9 +20,9 @@ seo_alias: aspnet
 
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-aspnet',
+  pkgRepo: 'aspnet-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/auth0-aspnet-mvc4-sample/',
+  pkgPath: '00-Starter-Seed/auth0-aspnet-mvc4-sample/',
   pkgFilePath: 'examples/auth0-aspnet-mvc4-sample/aspnet4-sample1/Web.config',
   pkgType: 'replace'
 }) %>
