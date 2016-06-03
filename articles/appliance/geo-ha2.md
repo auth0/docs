@@ -4,13 +4,13 @@ The high availability geo cluster is an Appliance implementation that provides d
 
 ## Overview
 
-Auth0 adds to the single data center high availability solution by extending the cluster with a geographically distributed data center with a **maximum latency between the two data centers of no more than 100ms (round trip)**. The result is the high availability geo cluster, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
+Auth0 adds to the single data center high availability solution by extending the cluster with a geographically distributed data center where the recommended **maximum round-trip latency should not exceed 100 ms**. The result is the high availability geo cluster, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
 
 ## Standard Configuration
 
 ![](/media/articles/appliance/geo-ha.png)
 
-The standard configuration is a stretch cluster that consists of the following pieces:
+The standard configuration is a stretched cluster that consists of the following pieces:
 
 * one geographically-aware global load balancer/DNS failover configuration;
 * one primary data center with three Appliance instances;
@@ -27,7 +27,7 @@ The arbiter does not store data or execute application logic, but acts as a witn
 
 Auth0 requires the use of a geographically-aware load balancer or DNS failover solution that prefers to serve application requests using the primary data center, despite the fact that the Appliance instances in the hot standby data center are active and able to serve the requests.
 
-The application tier remains unaware of the locality of the primary data node, whereas the data layer resolves the location of the primary node (the only node that receives application queries). Additionally, the current implementation does not perform sharing or reading from a secondary replica, so all read and write activities are served by the primary node. For example, if the data centers for the geo cluster are in California (CA) and Texas (TX) and the ones in TX are active, any request serviced by the CA nodes at the application level requires data to then be written to a node in TX. This generally results in poorer performance due to the requests (and resulting round-trips) required to obtain the necessary data. Using a geographically-aware load balancer or DNS failover solution mitigates this performance issue.
+The application tier remains unaware of the locality of the primary data node, whereas the data layer resolves the location of the primary node (the only node that receives application queries). The primary node serves all read and write activities. For example, if the data centers for the geo cluster are in State A and State B and the ones in State B are active, any request serviced by the State A nodes at the application level requires data to then be written to a node in State B. This generally results in poorer performance due to the requests (and resulting round-trips) required to obtain the necessary data. Using a geographically-aware load balancer or DNS failover solution mitigates this performance issue.
 
 ### Data Tier
 
