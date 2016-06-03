@@ -25,9 +25,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-python',
+  pkgRepo: 'auth0-python-web-app',
   pkgBranch: 'master',
-  pkgPath: 'examples/flask-webapp',
+  pkgPath: '00-Starter-Seed/flask-webapp',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
