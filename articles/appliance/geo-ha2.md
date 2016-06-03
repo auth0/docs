@@ -4,7 +4,7 @@ The high availability geo cluster is an Appliance implementation that provides d
 
 ## Overview
 
-Auth0 adds to the single data center high availability solution by extending the cluster with a geographically distributed data center. The result is the high availability geo cluster, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
+Auth0 adds to the single data center high availability solution by extending the cluster with a geographically distributed data center with a **maximum latency between the two data centers of no more than 100ms (round trip)**. The result is the high availability geo cluster, which is an active hot standby configuration with automated failure handling that can survive a regional outage.
 
 ## Standard Configuration
 
