@@ -11,7 +11,7 @@ To connect your Auth0 app to Facebook, you will need to generate a *Client ID* a
 
 ## 1. Login to Facebook Developers
 
-Go to [Facebook Developers](https://developers.facebook.com/apps) and login with your account. Select **Add a New App** from the dropdown in the upper right:
+Go to [Facebook Developers](https://developers.facebook.com) and login with your account. Select **Add a New App** from the dropdown in the upper right:
 
 ![](/media/articles/connections/social/facebook/facebook-1.png)
 
