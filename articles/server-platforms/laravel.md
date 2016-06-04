@@ -14,7 +14,7 @@ seo_alias: laravel
 
 # Laravel Tutorial
 
-This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-auth0-sample).
+This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0-samples/auth0-laravel-php-web-app).
 
 ::: panel-info System Requirements
 
