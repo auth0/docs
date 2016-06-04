@@ -10,13 +10,19 @@ seo_alias: microsoft-account
 description: How to configure your Auth0 app for an OAuth connection to Microsoft Account.
 ---
 
-# Configure a Microsoft Account OAuth Connection to your Auth0 App
+# Connect your app to Microsoft Account
 
-To configure a Microsoft Account OAuth 2.0 connection to your Auth0 app, create an application in the Microsoft Account Developer Center and copy its credentials into Auth0.
+To connect your Auth0 app to Microsoft Account, you will need to create an app on the Microsoft Application Registration Portal, generate an `Application Id` and `Secret`, copy these credentials into Auth0, and enable the connection.
 
 ## 1. Create an application
 
-Log into the [Microsoft Account Developer Center](https://account.live.com/developers/applications) and click **Add an app**. 
+Login to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com).
+
+Click **Add an app**. 
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-1a.png)
+
+**NOTE:** If you have existing apps, there may be two **Add an app** buttons. Select the first.
 
 Name your new app and click **Create application**:
 
@@ -36,19 +42,23 @@ Copy your password. This is your `client_secret`.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-3.png)
 
-Click **Save** at the bottom of the page to save these settings.
-
 ## 4. Enter your callback URL
 
 Click **Add Platform**, then select **Web**.
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-4a.png)
 
 Enter the following under **Redirect URIs**:
 
 `https://${account.namespace}/login/callback`
 
-Click **Save**.
-
 ![](/media/articles/connections/social/microsoft-account/ma-portal-4.png)
+
+Scroll down to **Advanced Options** and make sure **Live SDK support** is checked.
+
+![](/media/articles/connections/social/microsoft-account/ma-portal-4b.png)
+
+Click **Save**.
 
 ## 5. Copy your *Client Id* and *Client Secret*
 
@@ -56,7 +66,9 @@ Go to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** from t
 
 Select the **Microsoft** connection.
 
-Copy the `Client Id` and `Client Secret` you saved earlier into the fields on this page on Auth0. Click **Save**.
+Copy the `Client Id` and `Client Secret` you saved earlier into the fields on this page on Auth0. 
+
+Click **Save**.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-5.png)
 
