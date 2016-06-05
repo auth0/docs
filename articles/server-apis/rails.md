@@ -149,4 +149,4 @@ Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, y
 ### Optional Steps
 #### Configure CORS
 
-In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [this](https://github.com/cyu/rack-cors#rails) instructions.
+In order to configure CORS, install [rack-cors](https://github.com/cyu/rack-cors) gem and follow [these instructions](https://github.com/cyu/rack-cors#rails).
