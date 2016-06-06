@@ -119,7 +119,7 @@ Use the `idToken` and `profile` you've saved in `localStorage` to display the us
 
 ```js
 // Verify that there's a token in localStorage
-var idToken = localStorage.getItem('id_token');
+var idToken = localStorage.getItem('idToken');
 if (idToken) {
   showLoggedIn();
 }
