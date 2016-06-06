@@ -5,13 +5,13 @@ url:
 
 # Auth0 Appliance Infrastructure Requirements
 
-This document contains information about the Appliance:
+This document contains the following information about the Appliance and its infrastructure requirements:
 
 * [installation process](/appliance/infrastructure/overview);
 * [infrastructure overview](/appliance/infrastructure/infrastructure-overview);
 * infrastructure requirements, including details for:
     * [Virtual Machines](/appliance/infrastructure/virtual-machines);
     * [Network](/appliance/infrastructure/network);
-    * [Security and Access](/appliance/infrastructure/security);
+    * [Security and Access](/appliance/infrastructure/security).
 
-Please consult the FAQ for further information about the Appliance.
+Please consult the [FAQ](/appliance/infrastructure/faq) for further information about the Appliance.
