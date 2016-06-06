@@ -1,7 +1,5 @@
 # Auth0 Overview
 
-<%= include('./videos/_video', { id: 's15ysw45uy' }) %>
-
 Auth0 is a service that abstracts how users authenticate to applications.
 
 ![](https://docs.google.com/drawings/d/1yZhoSFzCaqUpYOYDSeGfJI_lUrZ2ApMqzHaeJ7lk5OU/pub?w=713&amp;h=216)
@@ -13,6 +11,12 @@ You can connect any application (written in any language or on any stack) to Aut
 * **Enterprise** directories: LDAP, Google Apps, Office 365, ADFS, AD, SAML-P, WS-Federation, etc.;
 * **Passwordless** systems: TouchID, one time codes on SMS, or email.
 
+## Video: Developer Overview
+This video will give you a quick walkthrough of Auth0 and how it will help save you time adding identity to your application.
+
+<%= include('./videos/_video', { id: 's15ysw45uy' }) %>
+
+## Integrating Your App
 The default [protocol](/protocols) between your application(s) and Auth0 is **OpenID Connect**, a modern, lightweight, simple to use, and simple to integrate protocol.
 
 Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not mandatory.
@@ -21,6 +25,8 @@ Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, an
 
 Auth0 also supports other common identity protocols, such as WS-Federation and SAML. Applications that are already "claims enabled" can easily connect to Auth0.
 
+## An Extensible Platform
 You can extend the functionality of Auth0 using any JavaScript or C# code through the use of [rules](/rules). Rules are custom functions that are executed just after successful authentication and before control returns to the app. They can be used for **Access Control**, **Webhooks**, **Profile Enrichment**, **Multi-factor Authentication**, and many other things.
 
+## Flexible Deployment Models
 Auth0 is a service usually running in the [public cloud](${uiURL}), but it can also be deployed in **Private Instances** (PI). PIs are dedicated installations of Auth0. You may choose to run PIs in Auth0's datacenters (which are separate from those that run the multi-tenant services), in your own cloud hosting environments (e.g. AWS, Azure, Rackspace, DigitalOcean), or even on-premises. Customers often opt for a hybrid model. For example, some use the cloud service for their **development** and **test* environments and a PI for their **production** environment.
