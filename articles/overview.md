@@ -1,5 +1,7 @@
 # Auth0 Overview
 
+<%= include('./videos/_video', { id: 's15ysw45uy' }) %>
+
 Auth0 is a service that abstracts how users authenticate to applications.
 
 ![](https://docs.google.com/drawings/d/1yZhoSFzCaqUpYOYDSeGfJI_lUrZ2ApMqzHaeJ7lk5OU/pub?w=713&amp;h=216)
@@ -12,8 +14,6 @@ You can connect any application (written in any language or on any stack) to Aut
 * **Passwordless** systems: TouchID, one time codes on SMS, or email.
 
 The default [protocol](/protocols) between your application(s) and Auth0 is **OpenID Connect**, a modern, lightweight, simple to use, and simple to integrate protocol.
-
-<%= include('./videos/_video_inline', { hash: 'developer-overview' }) %>
 
 Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not mandatory.
 
