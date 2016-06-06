@@ -41,7 +41,7 @@ This tutorial and seed project have been tested with the following:
   pkgPath: null,
   pkgFilePath: null,
   pkgType: 'js'
-}) %>_
+}) %>
 
 **If you have an existing application, follow the steps below.**
 

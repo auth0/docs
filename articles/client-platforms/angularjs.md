@@ -33,7 +33,7 @@ This quickstart is designed to guide you on adding Auth0 to you angular applicat
   pkgPath: 'examples/widget-redirect',
   pkgFilePath: null,
   pkgType: 'js'
-}) %>_
+}) %>
 
 ### Prerequisites
 ::: panel-info System Requirements
