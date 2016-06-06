@@ -1,6 +1,6 @@
 ---
-title:
-url:
+title: Auth0 Appliance Infrastructure Requirements
+url: /appliance/infrastructure
 ---
 
 # Auth0 Appliance Infrastructure Requirements
