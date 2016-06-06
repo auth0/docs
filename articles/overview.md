@@ -13,11 +13,7 @@ You can connect any application (written in any language or on any stack) to Aut
 
 The default [protocol](/protocols) between your application(s) and Auth0 is **OpenID Connect**, a modern, lightweight, simple to use, and simple to integrate protocol.
 
-<%= include('./_includes/_video_inline', {
-  id: 'wistia_async_s15ysw45uy',
-  title: 'Introduction to Auth0',
-  description: 'In this video you will see how Auth0 can help you quickly add identity to your application. You will learn about how to handle various types of authentication, how to customize the login experience, and how Auth0 can be extended to meet the exact needs of your application.'
-}) %>
+<%= include('./videos/_video_inline', { hash: 'developer-overview' }) %>
 
 Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not mandatory.
 

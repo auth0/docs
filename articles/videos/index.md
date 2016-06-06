@@ -5,13 +5,19 @@ url: /videos
 
 # Getting Started Videos
 Below you will find a selection of videos that will introduce you to various topics in the Auth0 platform.
-<div style="height: 20px"></div>
 
-<%= include('../_includes/_video', {
-  id: 'wistia_async_s15ysw45uy',
-  title: 'Developer Overview',
-  description: 'In this video you will see how Auth0 can help you quickly add identity to your application. You will learn about how to handle various types of authentication, how to customize the login experience, and how Auth0 can be extended to meet the exact needs of your application.'
-}) %>
-
-<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
-<div style="height: 50px"></div>
+<div style="margin-top: 30px; margin-bottom: 50px;">
+<% _.forEach(_.sortBy(articles.findByHash('videos').items, 'order'), function(article) { %>
+  <% if (article.id) { %>
+  <div class="media">
+    <div class="media-left">
+      <a href="<%- '/docs' + article.url %>"> <img style="max-width: 128px;" class="media-object" src="https://embed-ssl.wistia.com/deliveries/${article.asset_id}.jpg?image_crop_resized=640x360"> </a>
+    </div>
+    <div class="media-body">
+    <h4 class="media-heading"><a href="<%- '/docs' + article.url %>">${article.short_title}</a></h4>
+      <p>${article.description}</p>
+    </div>
+  </div>
+  <% } %>
+<% }); %>
+</div>
