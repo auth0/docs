@@ -1,9 +1,11 @@
 ---
 url: /videos
+title: Auth0 Developer Videos
+description: A selection of videos showing developers how to perform common tasks with Auth0.
 ---
 
 
-# Getting Started Videos
+# Developer Videos
 Below you will find a selection of videos that will introduce you to various topics in the Auth0 platform.
 
 <div style="margin-top: 30px; margin-bottom: 50px;">
