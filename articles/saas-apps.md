@@ -58,7 +58,8 @@ This `User Profile` can perfectly capture the intent in the requirements describ
 
 ### Authorization:
 
-* Once a user is authenticated, he gets access to __folders/files__ he owns, and folders that were shared with him.
+
+* Once a user is authenticated and gets an access to files and folders shared with or owned by the user.
 * Users get access to their own personal account and to any organization they belong to.
 
 ### Modeling this in Auth0
