@@ -21,6 +21,8 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
+> Impersonating a user using the Management Dashboard generates a minimal [JWT](/jwt) (only `openid` [scope](/scopes)).
+
 ## Impersonate a User using the Impersonation API
 
 You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
@@ -48,7 +50,7 @@ Your first step would be to generate a _Bearer_ token to be used with [Impersona
 
 > APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [APIv2 documentation page](/api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${uiURL}/#/account/advanced).
 
-Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) enpoint.
+Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
 
 ```har
 {
@@ -62,9 +64,11 @@ Afterwards, you would have to find out the user id of the user that you want to 
 
 The `{bearer_token}` should be replaced with the token retrieved at the first step.
 
+> You can also retrieve the `user_id` information from the Management Dashboard. Go to the [Users](${uiURL}/#/users) section and look at the user’s profile. The `user_id` is displayed under the _Identity Provider Attributes_ section.
+
 You are now ready to call the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The request should include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the token you retrieved at the first step. The data part of the request should include the following:
 - `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
-- `impersonator_id`: the `user_id` of the impersonator, the user from `app2` that wants to impersonate a user from `app1`.
+- `impersonator_id`: the `user_id` of the impersonator, the user from `app1` that wants to impersonate a user from `app2`.
 - `client_id`: the `client_id` of the app that is generating the impersonation link, in this example `app1`.
 - `additionalParameters`: this is a JSON object. For a regular web app, you should set the `response_type` to be `code`, the `callback_url` to be the callback url to which Auth0 will redirect with the authorization code, and the `scope` to be the JWT claims that you want included in the JWT. For example:
 ```json
