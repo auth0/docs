@@ -156,7 +156,7 @@ The link in our email template will redirect to Auth0 for email verification, af
 
 ![](/media/articles/invite-only/invite-only-activation.png)
 
-Once the user entered his password we'll verify that the account hasn't been updated yet, we'll update the user's password and mark him as active (```activation_pending = false```).
+Once the password entered by the user, we'll verify that the account hasn't been updated yet, we'll update the user's password and mark user as active (```activation_pending = false```).
 
 ```cs
 /// <summary>
