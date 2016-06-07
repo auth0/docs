@@ -82,7 +82,7 @@ If you get the following warning.
     - Remove the build settings from the target.
 ```
 
-Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and change the current value for `$(inherited)` for **all** configurations .
+Click `<YourAppName>.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). Look for `Other Linker Flags` and add the value `$(inherited)` for **all** configurations .
 
 Another error you might have while trying to run the project, if you are using a `react-native` version `>=0.26.0`
 
