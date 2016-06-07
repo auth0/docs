@@ -7,7 +7,7 @@ description: Learn how to debug Lock by enabling logging.
 
 __Lock__ logs serveral useful debugging information using [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack).
 
-> If you are using a Lock version older than `1.10.0` please check [here](#old-version-logging)
+> If you are using a Lock version older than `1.10.0` please check [here](#lock-versions-1-10-0)
 
 By default all log messages are disabled but you can enable them in your `AppDelegate.m` (or `AppDelegate.swift`), for example if you want __Lock__'s error messages just add this line:
 
