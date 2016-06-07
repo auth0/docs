@@ -62,7 +62,7 @@ Afterwards, you would have to find out the user id of the user that you want to 
 }
 ```
 
-The `{bearer_token}` should be replaced with the token retrieved at the first step.
+The `{bearer_token}` should be replaced with an Auth0 APIv2 token. Details on how to do this can be found [here](/api/management/v2/tokens).
 
 > You can also retrieve the `user_id` information from the Management Dashboard. Go to the [Users](${uiURL}/#/users) section and look at the user’s profile. The `user_id` is displayed under the _Identity Provider Attributes_ section.
 
