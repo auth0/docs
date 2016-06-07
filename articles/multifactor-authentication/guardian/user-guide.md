@@ -70,7 +70,7 @@ If you have lost your phone and are unable to finish the two-step authentication
 
 If you do have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
-### If you forgot you password
+### If you forgot your password
 
 If you forgot your password when you are trying to login, click **Don't remember your password?** underneath the login. Enter your email to receive an email that will contain a link to reset your password.
 

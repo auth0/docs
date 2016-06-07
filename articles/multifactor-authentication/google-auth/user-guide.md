@@ -26,8 +26,6 @@ To download the app:
 
 ### Blackberry
 
-Requirements
-
 Requirements: Must have OS 4.5-7.0. In addition, make sure your BlackBerry device is configured for US English -- you might not be able to download Google Authenticator if your device is operating in another language.
 
 To download the app:
