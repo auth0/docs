@@ -21,17 +21,17 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
-> You can also use the [Impersonation API](api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+> You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
 
 ## Impersonate a User using the Impersonation API
 
-You can also use the [Impersonation API](api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
+You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
 
 ## Implement impersonation in your app
 
 Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`.
 
-Your first step would be to generate a _Bearer_ token to be used with [Impersonation API](api/authentication#!#post--users--user_id--impersonate). You can generate it with the [Management API V1](api/management/v1) `/oauth/token` enpoint using your _Global Client ID_ and _Global Client Secret_. The token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
+Your first step would be to generate a _Bearer_ token to be used with [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). You can generate it with the [Management API V1](/api/management/v1) `/oauth/token` enpoint using your _Global Client ID_ and _Global Client Secret_. The token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
 
 ```har
 {
@@ -48,9 +48,9 @@ Your first step would be to generate a _Bearer_ token to be used with [Impersona
 }
 ```
 
-> APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [APIv2 documentation page](api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${uiURL}/#/account/advanced).
+> APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [APIv2 documentation page](/api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${uiURL}/#/account/advanced).
 
-Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](api/management/v2#!/Users/get_users) enpoint.
+Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) enpoint.
 
 ```har
 {
@@ -64,7 +64,7 @@ Afterwards, you would have to find out the user id of the user that you want to 
 
 The `{bearer_token}` should be replaced with the token retrieved at the first step.
 
-You are now ready to call the [Impersonation API](api/authentication#!#post--users--user_id--impersonate). The request should include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the token you retrieved at the first step. The data part of the request should include the following:
+You are now ready to call the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The request should include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the token you retrieved at the first step. The data part of the request should include the following:
 - `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
 - `impersonator_id`: the `user_id` of the impersonator, the user from `app2` that wants to impersonate a user from `app1`.
 - `client_id`: the `client_id` of the app that is generating the impersonation link, in this example `app1`.
