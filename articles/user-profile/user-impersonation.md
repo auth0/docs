@@ -21,8 +21,6 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
-> You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
-
 ## Impersonate a User using the Impersonation API
 
 You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties. For more details on how to use the API read on.
@@ -136,7 +134,7 @@ If not you should send a POST request to the token endpoint in Auth0. You will n
 }
 ```
 
-Replace the {AUTHORIZATION_CODE} with the `code` you received previously. Also, replace {CALLBACK_URL} with your application's callback URL.
+Replace the `{AUTHORIZATION_CODE}` with the `code` you received previously. Also, replace `{CALLBACK_URL}` with your application's callback URL.
 
 If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 API and get additional information such as the user profile.
 
@@ -147,7 +145,7 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "access_token": ".....Access Token.....",
        "token_type": "bearer",
        "id_token": "......The JWT......"
-  }
+	}
 
 Congratulations, you are done!
 

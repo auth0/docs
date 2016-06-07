@@ -90,7 +90,7 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
-> You can also use the [Impersonation API](api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+> You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The API generates a link that can be used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
 
 [Click here for more information on Impersonation.](/user-profile/user-impersonation)
 
