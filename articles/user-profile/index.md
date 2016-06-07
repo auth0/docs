@@ -78,7 +78,7 @@ The Raw JSON page displays all of the information contained on the user's profil
 
 Sometimes you need to impersonate a user; login to your app as the user, see everything exactly as the user sees it, and do everything exactly as the user does it. You can do this using the Management Dashboard. 
 
-<%= include('_signin-as-user.md') %>
+<%= include('./_signin-as-user.md') %>
 
 [Click here for more information on Impersonation.](/user-profile/user-impersonation)
 

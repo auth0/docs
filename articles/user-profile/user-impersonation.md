@@ -9,7 +9,7 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 
 ## Impersonate a User using the Management Dashboard
 
-<%= include('_signin-as-user.md') %>
+<%= include('./_signin-as-user.md') %>
 
 ## Impersonate a User using the Impersonation API
 
