@@ -2,7 +2,7 @@
 
 The following document details the requirements of DNS records used for Appliance instances.
 
-> **Important**: DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards. 
+> **Important**: DNS records must be finalized for all of the tenants prior to Appliance deployment. They cannot be changed afterwards.
 
 ### Sample DNS Naming Scheme
 
@@ -21,7 +21,7 @@ The following document details the requirements of DNS records used for Applianc
     </tr>
 </table>
 
-For a dev/test non-production Appliance a common practice is to append “-dev” to the hostname component in the domain name.  For example:
+For a dev/test non-production Appliance a common practice is to append “-dev” to the hostname component in the domain name:
 
 <table class="table">
     <tr>
@@ -45,9 +45,9 @@ For a dev/test non-production Appliance a common practice is to append “-dev�
 * **Project**: the name of the overarching project or department;
 * **yourdomain.com**: your organization's domain name.
 
-![]()
+![](/media/articles/appliance/infrastructure/appliance-dns.png)
 
-### Multi-tenancy
+### Multi-Tenancy
 
 The Auth0 Appliance is capable of supporting multi-tenancy (that is, each tenant may have one or more associated apps). Auth0 may recommend this deployment model when multiple groups within your company share the Appliance for different projects. If a customer decides to create multiple app tenants, each app tenant must have its own DNS entry.
 

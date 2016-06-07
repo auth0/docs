@@ -1,12 +1,12 @@
 # Auth0 Appliance Infrastructure Requirements: Security and Access
 
- The following are the security and access requirements for your Appliance instances.
+ This document details the security and access requirements for your Appliance instances.
 
  ## SSL Certificates
 
- Each Auth0 Appliance (e.g. your production cluster Appliance(s) and your development/test node Appliance) requires a unique SSL certificate to be created and installed.
+ Each Auth0 Appliance (e.g. your production cluster Appliance instance(s) and your development/test node Appliance instance) requires a unique SSL certificate to be created and installed.
 
- > If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working the appropriate certificate authorities (CA) to generate new certificates.
+ > If you are unsure of where to get SSL Certificates, please contact your network security team. They are usually the ones familiar with the required processes and working with the appropriate certificate authorities (CA) to generate new certificates.
 
 The SSL Certificate:
 
@@ -19,10 +19,11 @@ The SSL Certificate:
 Auth0 accepts the following certificate formats:
 
 * PFX/PKCS12;
-* CER/PEM (RSA Private Key);
-    * If you are using PEM, please ensure that:
-        * there is no password on the private key;
-        * the key is an RSA Private Key.
+* CER/PEM (RSA Private Key).
+
+If you are using **PEM**, please ensure that:
+* there is no password on the private key;
+* the key is an RSA Private Key.
 
 **Note**: All intermediate certificates must be included in the public key.
 
@@ -58,7 +59,7 @@ The Appliance supports STARTTLS, but it is not required.
 
 ## Auth0 Remote Access
 
-Auth0 may require remote access to your Appliance instances to perform updates and maintenance or troubleshoot.
+Auth0 may require remote access to your Appliance instances to perform updates, maintenance, or troubleshooting.
 
 ### Initial Configuration
 

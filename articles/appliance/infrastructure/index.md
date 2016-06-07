@@ -7,7 +7,7 @@ url: /appliance/infrastructure
 
 This document contains the following information about the Appliance and its infrastructure requirements:
 
-* [installation process](/appliance/infrastructure/overview);
+* [installation process](/appliance/infrastructure/installation);
 * [infrastructure overview](/appliance/infrastructure/infrastructure-overview);
 * infrastructure requirements, including details for:
     * [Virtual Machines](/appliance/infrastructure/virtual-machines);

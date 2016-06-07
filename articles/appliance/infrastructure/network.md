@@ -1,6 +1,6 @@
 # Auth0 Appliance Infrastructure Requirements: Network
 
-The following are the requirements for the network on which the Appliance runs.
+This document details the requirements for the network on which the Appliance runs.
 
 ## IP Addresses
 
@@ -10,23 +10,23 @@ Each Appliance virtual machine (VM) must have its own private static IP address 
 * NAT/transparent proxy;
 * regular proxy.
 
-For **multi-node** clusters:
-* all virtual machines must be on the same segment of the internal network;
-* all virtual machines within the cluster must be able to communicate between each other via ports `7777` and `27017`.
+For **multi-node** clusters, all virtual machines must be:
+* on the same segment of the internal network;
+* able to communicate between each other via ports `7777` and `27017`.
 
 ## Internet Connectivity
 
-Each Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting (HTTP, HTTPS, PING, DNS). For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.
+Each Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting. For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.
 
 Since the Appliance is delivered as a subscription-based managed service, Auth0 will need access to specified endpoints to provide proactive monitoring.
 
 ## DNS Records
 
-DNS records are required for all Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires three DNS entries:
+DNS records are required for all Appliance instances (development/test *and* production). A standard single-node or cluster deployment requires three DNS entries for the following:
 
 * **Management Dashboard**: the Management Dashboard is the web interface that acts as a client for the configuration and application tenants on the Appliance;
 * **Root Tenant Authority**: the tenant on the Appliance that controls Appliance settings, configuration, and local Dashboard Admin users;
-* **App Tenant**: the tenant on the Appliance created for your apps. IT manages settings for your apps, user profiles, rules, etc.  This is the tenant you will interact with primarily through the Management Dashboard and the API.
+* **App Tenant**: the tenant on the Appliance created for your apps. It manages settings for your apps, user profiles, rules, etc. This is the tenant you will interact with primarily through the Management Dashboard and the API.
 
 Please refer to the [DNS page](/appliance/infrastructure/dns) for additional requirements.
 
@@ -47,10 +47,10 @@ We recommend a layer 7/application layer load balancer that supports:
 
 ### Software Load Balancers
 
-You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 Appliance. In order for this to work, the reverse proxy must be configured with:
+You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 Appliance. The reverse proxy must be configured with:
 
 * TXP mode with Proxy Protocol or HTTPS mode (SSL offloading);
-    * Note: In HTTPS mode, the connector will not work.
+    * Note: The connector does not work in HTTPS mode.
 * the incoming hostname forwarded to the Appliance nodes.
 
 In addition to load balancing, you may use this for **IP address whitelisting** and **endpoint filtering** (only authentication endpoints are publicly available).

@@ -2,7 +2,7 @@
 
 ## Project Coordination and Execution
 
-Auth0 follows a tried and tested project plan methodology to help customers get up and running with the Auth0 Appliance as efficiently as possible. This requires significant cooperation and coordination across a number of your internal teams. Below is a list of teams commonly required to be involved in the Auth0 Appliance project and tasks they may be required to complete. In our experience, the earlier you can expose the teams to the project and prepare them with the potential tasks you’ll have, the more effective the project plan can be executed.
+Auth0 provides a project plan methodology to help customers get up and running with the Auth0 Appliance as efficiently as possible. This requires significant cooperation and coordination across a number of your internal teams. Below is a list of teams commonly required to be involved in the Auth0 Appliance project and tasks they may be required to complete. In our experience, early exposure of the teams to the project and the tasks they'll have results in a more effective execution of the project plan.
 
 <table class="table">
     <thead>
@@ -25,7 +25,7 @@ Auth0 follows a tried and tested project plan methodology to help customers get 
             <td>Configure firewall; deploy/configure load balancer</td>
         </tr>
         <tr>
-            <td>It Operations</td>
+            <td>IT Operations</td>
             <td>Backup and monitor Appliance infrastructure</td>
         </tr>
     </tbody>
