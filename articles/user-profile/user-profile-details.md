@@ -11,7 +11,7 @@ The Auth0 **User Profile** is a set of attributes about a user, such as first na
 - [API Access to User Profiles](#api-access-to-user-profiles)
 - [User Profile vs Tokens](#user-profile-vs-tokens)
 - [Modification of User Profiles](#modification-of-user-profiles)
-- [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-adldap-connector)
+- [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-ad-ldap-connector)
 - [Mapping User Profile Attributes in SAML Assertions](#mapping-user-profile-attributes-in-saml-assertions)
 - [User Profile with Account Linking](#user-profile-with-account-linking)
 
