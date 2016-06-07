@@ -117,6 +117,8 @@ Upon successful authentication, a URL will be returned as response that will loo
 
 `${account.callback}` is the URL you specified as `callback_url` (and configured in your [settings](${uiURL}/#/settings) page), `state` should match the `state` value you sent with your request and `code` is the authorization code you need.
 
+> The process described applies to Regular Web Applications. In case your is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). Once you do this Auth0 will just redirect to your SPA _Callbacl URL_ with `access_token` and `id_token` in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols#oauth2-implicit-flow).
+
 Now you should exchange the `code` you received for a token. Note that this should already be implemented if you have a regular webapp and are using OAuth Server Side flow for authenticating normal users.
 
 If not you should send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret`.
@@ -152,7 +154,6 @@ If the request is successful, you will get a JSON object with an `access_token`.
 	}
 
 Congratulations, you are done!
-
 
 ## Further reading
 - [Troubleshooting? This is what you shouldn’t do.](https://auth0.com/blog/2015/12/14/how-not-to-troubleshoot-bugs-by-impersonating-users/)
