@@ -15,10 +15,10 @@ seo_alias: servicestack
 # ServiceStack Tutorial
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-aspnet-owin',
+  pkgRepo: 'auth0-servicestack-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/basic-mvc-sample',
-  pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: null,
   pkgType: 'replace'
 }) %>
 
