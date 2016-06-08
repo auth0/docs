@@ -30,9 +30,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-jquery',
+  pkgRepo: 'auth0-jquery-samples',
   pkgBranch: 'gh-pages',
-  pkgPath: (configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api-redirect',
+  pkgPath: (configuration.thirdParty) ? '00-Starter-Seed/widget-with-thirdparty-api' : '00-Starter-Seed/widget-with-api-redirect',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
