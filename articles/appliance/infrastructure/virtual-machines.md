@@ -1,6 +1,10 @@
 # Auth0 Appliance Infrastructure Requirements: Virtual Machines
 
-You may deploy the Auth0 Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider such as Amazon Web Services (AWS) and Microsoft Azure.
+You may deploy the Auth0 Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider. Currently, Auth0 supports the following Appliance usage on the following cloud providers:
+
+* Amazon Web Services (AWS);
+* Microsoft Azure;
+* VMware.
 
 ## Virtual Machine Templates
 
@@ -16,16 +20,16 @@ When provisioning the Appliance from the templates, Auth0 recommends the followi
     * *For Non-Production Nodes*: 40 GB for system/operating system storage and 100 GB for data storage;
     * *For three-node, high availability Production clusters*:
         * Two of the virtual machines each should be allocated 40 GB for system/operating system storage and 100 GB for data storage;
-        * One virtual machine should be allocated 40 GB for system/operating system storage and **200 GB** for data storage (to be used for backup purposes).
+        * One virtual machine should be allocated 100 GB for data storage and 100 GB for backup purposes.
 
-> Please note that solid-state drives (SSD) are **required**. If you anticipate more than **1 million** users, you **must** utilize SSD disks with RAID 0 or RAID 10.
+> Large installations will require higher IO performance. Auth0 will work with you to determine the required storage performance levels.
 
 For multi-node clusters, Auth0 recommends deploying the Appliance virtual machines across more than one physical host server/blade.
 
 ## For AWS Users
 
 * The **M4.Large** instance is the minimum VM [instance size](https://aws.amazon.com/ec2/instance-types/) that will meet Auth0's requirements.
-* In order for Auth0 to purblish your Appliance template, Auth0 will need your:
+* Auth0 will need the following pieces of information to share the AMI with you:
     * AWS account number;
     * AWS region name.
 * If your production and development/test environments are within separate AWS accounts/regions, Auth0 will require the credentials for both environments.

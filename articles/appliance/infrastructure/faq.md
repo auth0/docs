@@ -6,6 +6,10 @@ If you have been developing applications with Auth0 in the cloud environment, pl
 ### Can I configure an HTTP proxy for outbound Internet access in the Appliance?
 Yes. If you have a proxy, you will need to provide the Auth0 with the configuration address.
 
+Yes, you may do so for updates. If you have a proxy, you will need to provide the Auth0 with the configuration address.
+
+Certain protocols involving social providers that require Auth0 to make outbound internet connections will not work through a proxy, so you will need to configure a NAT or transparent proxy.
+
 ### Can I have SSH access to the machines?
 No, the Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the appliance. Auth0 will manage the Appliance’s internals.
 
@@ -18,7 +22,7 @@ No, the Appliance is a managed service that runs within your network. You are re
 While this is currently not supported, preinstalled anti-virus software may be included in future updates.
 
 ### Will Auth0 provide me with a CSR file for my SSL Certificate?
-No. You are responsible for configuring your PFX file in the Auth0 Dashboard.
+If Auth0 hosts the Appliance, Auth0 will provide the required certificate(s).
 
 ### Can I whitelist specific IP addresses on my firewall to the Internet sites the Appliance requires outbound access to?
 For Auth0 Appliance updates, we can provide you with specific addresses that are required. For certain protocols, Internet connectivity is required during operation (such as social connections or emails).
