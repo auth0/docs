@@ -151,7 +151,7 @@ If a user has lost their mobile device they will need their recovery code to be 
 
 To reset a user's MFA:
 
-1.  Find and select the user in the [Users](${uiURL}/#/guardian) section of the dashboard.
+1.  Find and select the user in the [Users](${uiURL}/#/users) section of the dashboard.
 2. Once you have selected the affected user click on the **Actions** button on the top right of the screen. 
 3. Select **Reset Multi Factor (Auth0)** from the dropdown.
 4. There will be a pop up box to confirm your decision,  click **YES, RESET IT** to reset the user's MFA.

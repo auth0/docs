@@ -3,44 +3,14 @@ title: Duo
 url: /multifactor-authentication/duo
 ---
 
-# Configuring MFA Using Duo Security
+# Duo Security
 
-To integrate with Duo Security, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal.
+Duo Security is a vendor of cloud-based two-factor authentication services. If you have an account with Duo it is easy to integrate Duo's two-factor authentication into your Auth0 application.
 
-The portal displays a code editing textbox containing the following code snippet for you to use:
+**Click the link below that most fits your role to learn more:**
 
-```JS
-function (user, context, callback) {
+[Duo Security for Administrators](/multifactor-authentication/duo/admin-guide) - this page explains how to setup using Duo, how to reset accounts and how to disable using Duo.
 
-  var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
-  // run only for the specified clients
-  if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
-    // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
-    // if (user.user_metadata && user.user_metadata.use_mfa){
-      context.multifactor = {
-        //required
-        provider: 'duo',
-        ikey: 'DIXBMN...LZO8IOS8',
-        skey: 'nZLxq8GK7....saKCOLPnh',
-        host: 'api-3....049.duosecurity.com',
+[Duo Security for Developers](/multifactor-authentication/duo/dev-guide) - this page explains how to enable using Duo for two-factor auth and details on how to configure it to meet your needs.
 
-        // optional. Force DuoSecurity everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
-        // ignoreCookie: true,
-
-        // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
-        // username: user.nickname,
-
-        // optional. Admin credentials. If you provide an Admin SDK type of credentials. auth0 will update the realname and email in DuoSecurity.
-        // admin: {
-        //  ikey: 'DIAN...NV6UM',
-        //  skey: 'YL8OVzvoeeh...I1uiYrKoHvuzHnSRj'
-        // },
-      };
-    // }
-  }
-
-  callback(null, user, context);
-}
-```
-
-When you have finished editing the code snippet based on the requirements of your app, click **Save**.
+[Duo Security for Users](/multifactor-authentication/duo/user-guide) - this page is for users logging into your application using Duo. It also has troubleshooting tips for any issues they may encounter.

@@ -1,48 +1,45 @@
-# Google Authenticator for Administrators
+# Duo for Administrators
 
-::: panel-info Note:
-This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian(your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
-:::
+## Enabling Duo for MFA
 
-## Enabling Google Authenticator for MFA
-
-To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${uiURL}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
+To turn on Duo for two-step verification, first visit the [Multifactor Auth](${uiURL}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 
-Then you can use the slider to turn on Google Authenticator.
+Then you can use the slider to turn on Duo.
 
-![](/media/articles/mfa/toggle-google-auth.png)
+![](/media/articles/mfa/toggle-duo.png)
 
-## Google Authenticator Supported Devices
+### Customize Duo 
 
-Your users must have a supported device to use the Google Authenticator app. If some of your users have an unsupported device type, they may be able to use Auth0's Guardian app instead of Google Authenticator. [Click here for information on using Guardian.](/multifactor-authentication/guardian/admin-guide)
-
-| **OS** | **Google Authenticator** | 
-| --- | --- | 
-| **iOS** | Requires iOS 5.0 or later |
-| **Android** | Requires Android version 2.1 or later |
-| **Windows** | Unsupported |
-| **Blackberry** | Requires OS 4.5-7.0 |
-| **Other** | Unsupported |
-
-## Customize Google Authenticator
-
-Once you have turned on Google Authenticator, the portal displays a code editing textbox containing the following code snippet for you to use:
+After you toggle the slider to enable using Duo, a portal displays a code editing textbox containing the following code snippet for you to use:
 
 ```JS
 function (user, context, callback) {
 
-  var CLIENTS_WITH_MFA = ['REPLACE_WITH_YOUR_CLIENT_ID'];
+  var CLIENTS_WITH_MFA = ['{REPLACE_WITH_YOUR_CLIENT_ID}'];
   // run only for the specified clients
   if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1) {
     // uncomment the following if clause in case you want to request a second factor only from user's that have user_metadata.use_mfa === true
     // if (user.user_metadata && user.user_metadata.use_mfa){
       context.multifactor = {
-        provider: 'google-authenticator',
-        // issuer: 'Label on Google Authenticator App', // optional
-        // key: '{YOUR_KEY_HERE}', //  optional, the key to use for TOTP. by default one is generated for you
-        // ignoreCookie: true // optional, force Google Authenticator everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
+        //required
+        provider: 'duo',
+        ikey: 'DIXBMN...LZO8IOS8',
+        skey: 'nZLxq8GK7....saKCOLPnh',
+        host: 'api-3....049.duosecurity.com',
+
+        // optional. Force DuoSecurity everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
+        // ignoreCookie: true,
+
+        // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
+        // username: user.nickname,
+
+        // optional. Admin credentials. If you provide an Admin SDK type of credentials. auth0 will update the realname and email in DuoSecurity.
+        // admin: {
+        //  ikey: 'DIAN...NV6UM',
+        //  skey: 'YL8OVzvoeeh...I1uiYrKoHvuzHnSRj'
+        // },
       };
     // }
   }
@@ -50,6 +47,28 @@ function (user, context, callback) {
   callback(null, user, context);
 }
 ```
+
+#### Changing the Required Fields
+
+Required fields that you **must** replace to use Duo are: `ikey`, `skey` and `host`. 
+
+1. To get these fields first [login to your Duo account](https://admin.duosecurity.com/login).
+
+2. Click on the **Applications** section from the sidebar.
+
+3. Then click on the button to **Protect an Application**.
+
+4. Find the **Auth API** option from the list and then click **Protect this Application**.
+
+5. Then you will be brought to the **Auth API** page under your Appications, you should see a **Details** section.
+
+6. Under the **Details** section you will see: 
+
+Integration key - use this for your `ikey` field
+Secret key - use this for your `skey` field
+API hostname  - use this for your `host` field
+
+Replace the three fields in the code snippet. For more details about editing the other parts of this code snippet, [see Duo for Developers](/multifactor-authentication/duo/dev-guide#other-customizations).
 
 When you have finished editing the code snippet based on the requirements of your app, click **Save**.
 
@@ -92,7 +111,7 @@ To see all the times an SMS is sent:
 
 ## Reset a MFA for a User
 
-If a user has lost their mobile device they will need their recovery code to be able to log in. If they have also lost their recovery code, you as an administrator will need to reset their MFA.
+If a user has lost their mobile device you as an administrator will need to reset their MFA.
 
 To reset a user's MFA:
 
@@ -105,12 +124,13 @@ To reset a user's MFA:
 
 The next time the user logs in they will need to resetup their MFA just like a new user.
 
-## Disabling Google Authenticator
+## Disabling Duo
 
-Google Authenticator can be disabled from the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard then by clicking the link to use a different provider. 
+Duo can be disabled from the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard then by clicking the link to use a different provider. 
 
 ![](/media/articles/mfa/change-provider.png)
 
-Toggle the slider button to disable Google Authenticator, then a confirmation popup will appear.
+Toggle the slider button to disable Duo, then a confirmation popup will appear.
 
 By disabling a type of MFA you will unenroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.
+
