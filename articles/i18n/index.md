@@ -8,3 +8,4 @@ Below you can find useful links in our documentation to handle different languag
 
 -  [Customizing Your Emails](/email/templates)
 -  [Lock: Internationalization](/libraries/lock/i18n)
+-  [Translate the password strength validations](/i18n/password-strength)
