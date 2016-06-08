@@ -37,7 +37,7 @@ The Settings page is used to provide the information required to set up the soci
 - __Token URL__: The URL used to exchange the code generated from the information you provide for an access_token;
 - __Scope__: The scope parameters for which you want access rights;
 - __Fetch User Profile Script__: The function that returns the user profile and associated information.
-- __Custom Headers__: This JSON object lets you provide custom headers to be included in the HTTP calls to the provider. Should be in the format of:
+- __Custom Headers__: An optional JSON object that lets you provide custom headers to be included in the HTTP calls to the provider. Should be in the format of:
 
 ```
     {
