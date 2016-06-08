@@ -12,6 +12,7 @@ let lock = ... //Fetch Lock instance from where you stored it
 let client = lock.apiClient()
 client.loginWithPhoneNumber(phoneNumber,
     passcode: passcode,
-    success: success,
-    failure: failure)
+  parameters:nil,
+     success: success,
+     failure: failure)
 ```
