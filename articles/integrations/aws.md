@@ -207,6 +207,7 @@ function (user, context, callback) {
 
 ```
 
+> You can optionally set `context.addonConfiguration.aws.region` to specifically target an AWS region. For example, `region: 'cn-north-1'` will direct requests to the Chinese north region. Temporary credentials from AWS GovCloud (US) and China (Beijing) can be used only in the region from which they originated. 
 
 **NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
 
