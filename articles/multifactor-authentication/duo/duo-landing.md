@@ -1,3 +1,8 @@
+---
+title: Duo
+url: /multifactor-authentication/duo
+---
+
 # Configuring MFA Using Duo Security
 
 To integrate with Duo Security, click on its logo in the [Multifactor Auth](${uiURL}/#/multifactor) page of the Auth0 Management Portal.
