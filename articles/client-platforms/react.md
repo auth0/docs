@@ -27,9 +27,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-react',
+  pkgRepo: 'auth0-react-examples',
   pkgBranch: 'gh-pages',
-  pkgPath: 'examples/redirect-lock-with-api',
+  pkgPath: '00-Starter-Seed/redirect-lock-with-api',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
