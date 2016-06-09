@@ -28,7 +28,7 @@ In the _New Extension_ window that pops open, provide the GitHub URL to the repo
 
 Alternatively, you may host your files elsewhere and simply provide a link to the `webtask.json` file in the box (e.g. `http://example.com/webtask.json`).
 
-Once you have provided the link to your files and clicked _Create_, you will be prompted to install the extension. If you would like to proceed, click _Install_.
+Once you have provided the link to your files and clicked _Continue_, you will be prompted to install the extension. If you would like to proceed, click _Install_.
 
 ![](/media/articles/extensions/custom/install-custom-ext.png)
 
