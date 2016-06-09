@@ -195,7 +195,6 @@ You will need to add 2 helper classes which will help you to construct the corre
 Be sure fix the namespaces in the downloaded files to correlate with those of your own project.
 :::
 
-
 ### 8. Add an Account Controller
 
 Add an `AccountController` class:
