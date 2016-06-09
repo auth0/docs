@@ -117,7 +117,7 @@ Upon successful authentication, a URL will be returned as response that will loo
 
 `${account.callback}` is the URL you specified as `callback_url` (and configured in your [settings](${uiURL}/#/settings) page), `state` should match the `state` value you sent with your request and `code` is the authorization code you need.
 
-> The process described applies to Regular Web Applications. In case your is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). Once you do this Auth0 will redirect to your SPA _Callback URL_ with `access_token` and `id_token` in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols#oauth2-implicit-flow).
+> The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). Once you do this Auth0 will redirect to your SPA _Callback URL_ with `access_token` and `id_token` in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols#oauth2-implicit-flow).
 
 Now you should exchange the `code` you received for a token. Note that this should already be implemented if you have a regular webapp and are using OAuth Server Side flow for authenticating normal users.
 
