@@ -86,7 +86,9 @@ The installation dialog will warn the user that the extension will have access t
 
 The webtask will be created with the secrets `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_SECRET`.
 
-After the webtask is created, `/.webtask/on-install` is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
+After the webtask is created, `/.webtask/on-install` (`POST /onInstallUrl`) is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
+
+> The expected success status is `204`. Keep in mind that if the hooks fail, then the install (or uninstall) will fail as well.
 
 Install and uninstall URLs are configurable through `webtask.json`.
 
@@ -100,5 +102,14 @@ Install and uninstall URLs are configurable through `webtask.json`.
 }
 ```
 
-When the user clicks on _Uninstall_, `/.webtask/on-uninstall` is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
+When the user clicks on _Uninstall_, `/.webtask/on-uninstall` (`DELETE /onUninstallUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
 
+The JWT for both `/.webtask/on-install` and `/.webtask/on-uninstall` looks like the following:
+
+```json
+{
+  aud: {extensionUrl + hookPath},      
+  iss: {auth0Domain},                 
+  iat: timespan
+}
+```
