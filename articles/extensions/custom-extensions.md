@@ -8,6 +8,7 @@ To begin creating an your custom extension, please feel free to fork/clone any o
 - [Auth0 Extension Boilerplate](https://github.com/auth0/auth0-extension-boilerplate)
 - [Auth0 Extension with API Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-api)
 - [Auth0 Extension with React Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-react)
+- [Auth0 Extension with Hooks](https://github.com/auth0/auth0-extension-boilerplate-hooks)
 
 Alternatively, you may following the _Development Instructions_ provided via the _New Extension_ window that appears when you click on the _+ CREATE EXTENSION_ button. To view the _Development Instructions_, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). Click on the _+ CREATE EXTENSION_ button. On the popup displayed click on the _Check out this command line tool_ link. The _Development Instructions_ popup is displayed. These instructions allow you to create your own extension using the command line.
 
@@ -104,7 +105,7 @@ Install and uninstall URLs are configurable through `webtask.json`.
 
 When the user clicks on _Uninstall_, `/.webtask/on-uninstall` (`DELETE /onUninstallUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
 
-The JWT for both `/.webtask/on-install` and `/.webtask/on-uninstall` looks like the following:
+The JWT, the one being used for authenticating the calls to the hooks for both `/.webtask/on-install` and `/.webtask/on-uninstall`, looks like the following:
 
 ```json
 {
