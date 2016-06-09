@@ -14,7 +14,7 @@ image: /media/platforms/asp.png
 tags:
   - quickstart
 snippets:
-  dependencies: server-apis/aspnet-webapi/dependencies
+  dependencies: server-apis/aspnet-core-webapi/dependencies
 ---
 
 ## ASP.NET Core Web API Tutorial
@@ -33,25 +33,25 @@ If you do not have the correct tools installed, please [follow the instructions]
 
 In Visual Studio, create a new project by selecting File > New > Project. Under the .NET Core section, select ASP.NET Core Web application:
 
-![]()
+![](/media/articles/aspnet-core-webapi/new-project.png)
 
 Next, select Web API:
 
-![]()
+![](/media/articles/aspnet-core-webapi/aspnet-project-type.png)
 
-### 1. Setup NuGet dependencies
+### 2. Setup NuGet dependencies
 
 Install and update the following NuGet packages:
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Configure RS256 JSON Web Tokens
+### 3. Configure RS256 JSON Web Tokens
 
 The first thing you need to do is to ensure that your Auth0 Application is configured to use RS256 to sign the JSON Web Token, which will sign the tokens using your Application's Client Secret.
 
 Go to the Application in your Auth0 Dashboard and go to Settings > Advanced Settings > OAuth and ensure the **JsonWebToken Signature Algorithm** is set to **RS256**.
 
-### 3. Specify Auth0 Settings
+### 4. Specify Auth0 Settings
 
 While in the Application settings area of your Auth0 Dashboard, copy the **Domain** and **Client ID** values for your application and add them to your `appsettings.json` file:
 
@@ -64,7 +64,7 @@ While in the Application settings area of your Auth0 Dashboard, copy the **Domai
 }
 ```
 
-## 4. Configure JWT middleware
+## 5. Configure JWT middleware
 
 Next you need to configure the JWT Middleware in the `Configure` method of your `Startup` class:
 
@@ -85,7 +85,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-## 5. Secure your Controller Actions
+## 6. Secure your Controller Actions
 
 Next you can secure the controller actions for which a user needs to be authenticated by adding the `[Authorize]` attribute to the Action:
 
@@ -109,7 +109,7 @@ public class ValuesController : Controller
 }
 ```
 
-## 6. Test your application
+## 7. Test your application
 
 You can test your application by obtaining an `id_token` from Auth0 and then passing that token in the `Authorization` header of a request as a Bearer token.
 
@@ -129,5 +129,3 @@ var request = new RestRequest(Method.GET);
 request.AddHeader("authorization", "Bearer <your token>");
 IRestResponse response = client.Execute(request);
 ```
-
-> TIP: An easy way to generate a token is by signing into your Auth0 account and then using the [/auth/ro endpoint](https://auth0.com/docs/api/authentication#!#post--oauth-ro) of the Authentication API. 
