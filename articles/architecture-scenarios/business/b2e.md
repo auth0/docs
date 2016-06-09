@@ -2,6 +2,7 @@
 order: 03
 title: B2E
 image: /docs/media/articles/architecture-scenarios/b2e.png
+extract: Large organization who wants to federate their existing enterprise directory service to allow employees to log in to applications using their existing enterprise credentials.
 ---
 
 # B2E
