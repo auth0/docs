@@ -1,20 +1,11 @@
 ---
 title: Auth0 ServiceStack SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 ServiceStack SDK to add authentication and authorization to your web app.
-name: ServiceStack
-image: /media/platforms/service-stack.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/servicestack/dependencies
-  setup: server-platforms/servicestack/setup
-  use: server-platforms/servicestack/use
-seo_alias: servicestack
 ---
 
 # ServiceStack Tutorial
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-mvc-sample',

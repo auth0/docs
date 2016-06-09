@@ -1,14 +1,6 @@
 ---
 title: Auth0 ASP Classic SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 ASP Classic SDK to add authentication and authorization to your web app.
-name: ASP Classic
-image: /media/platforms/asp-classic.jpg
-tags:
-  - quickstart
-snippets:
-  setup: server-platforms/asp-classic/setup
-  use: server-platforms/asp-classic/use
-seo_alias: asp-classic
 ---
 
 ## ASP Classic Tutorial

@@ -1,15 +1,6 @@
 ---
 title: Auth0 Symfony SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 Symfony SDK to add authentication and authorization to your web app.
-name: PHP (Symfony)
-image: /media/platforms/php.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/symfony/dependencies
-  setup: server-platforms/symfony/setup
-  use: server-platforms/symfony/use
-seo_alias: symfony
 ---
 
 # Symfony Tutorial
@@ -55,7 +46,7 @@ auth0_login:
 
 ### 4. Configure Auth0
 
-${include('./_callbackRegularWebApp')}
+${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 

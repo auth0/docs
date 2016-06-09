@@ -1,25 +1,12 @@
 ---
 title: Auth0 ASP.NET SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app.
-name: ASP.NET
-image: /media/platforms/asp.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/aspnet/dependencies
-  setup: server-platforms/aspnet/setup
-  use: server-platforms/aspnet/use
-alias:
-  - microsoft-net
-  - aspnet-mvc
-  - net-mvc
-seo_alias: aspnet
 ---
 
 # ASP.NET Tutorial
 
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-aspnet-mvc4-sample/',

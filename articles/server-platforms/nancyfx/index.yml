@@ -1,0 +1,11 @@
+title: NancyFX
+image: /media/platforms/nancyfx.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/nancyfx/dependencies
+  setup: server-platforms/nancyfx/setup
+  use: server-platforms/nancyfx/use
+seo_alias: nancyfx
+articles:
+  - login

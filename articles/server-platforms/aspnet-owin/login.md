@@ -1,23 +1,11 @@
 ---
 title: Auth0 ASP.NET OWIN SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 ASP.NET OWIN SDK to add authentication and authorization to your web app.
-name: ASP.NET (OWIN)
-image: /media/platforms/asp.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/aspnet-owin/dependencies
-  setup: server-platforms/aspnet-owin/setup
-  use: server-platforms/aspnet-owin/use
-alias:
-  - aspnetowin
-  - owin
-seo_alias: aspnet-owin
 ---
 
 # ASP.NET (OWIN) Tutorial
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-mvc-sample',

@@ -1,0 +1,11 @@
+title: Go
+image: /media/platforms/golang.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/golang/dependencies
+  setup: server-platforms/golang/setup
+  use: server-platforms/golang/use
+seo_alias: golang
+articles:
+  - login

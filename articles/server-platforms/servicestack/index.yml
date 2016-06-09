@@ -1,0 +1,11 @@
+title: ServiceStack
+image: /media/platforms/service-stack.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/servicestack/dependencies
+  setup: server-platforms/servicestack/setup
+  use: server-platforms/servicestack/use
+seo_alias: servicestack
+articles:
+  - login

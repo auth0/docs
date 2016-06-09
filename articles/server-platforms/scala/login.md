@@ -1,15 +1,6 @@
 ---
 title: Auth0 Play 2 Scala SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app.
-name: Play 2 Scala
-image: /media/platforms/play.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/scala/dependencies
-  setup: server-platforms/scala/setup
-  use: server-platforms/scala/use
-seo_alias: scala
 ---
 
 ## Play 2 Scala Tutorial
@@ -21,7 +12,7 @@ This tutorial and seed project have been tested with the following:
 * Play framework 2.4.6
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-scala',
   pkgBranch: 'master',
   pkgPath: 'examples/regular-webapp',
@@ -118,7 +109,7 @@ class Callback extends Controller {
 }
 ```
 
-${include('./_callbackRegularWebApp')}
+${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 

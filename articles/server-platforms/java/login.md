@@ -1,18 +1,6 @@
 ---
 title: Auth0 Java SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 Java SDK to add authentication and authorization to your web app.
-name: Java
-image: /media/platforms/java.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/java/dependencies
-  setup: server-platforms/java/setup
-  use: server-platforms/java/use
-alias:
-  - spring
-  - spring-security
-seo_alias: java
 ---
 
 ## Java Web App Tutorial
@@ -26,7 +14,7 @@ This tutorial and seed project have been tested with the following:
 * Maven 3.3
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-servlet',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-servlet-sample',
@@ -69,7 +57,7 @@ We need to add the handler for the Auth0 callback so that we can authenticate th
 
 ${snippet(meta.snippets.setup)}
 
-${include('./_callbackRegularWebApp')}
+${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 

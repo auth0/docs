@@ -1,19 +1,6 @@
 ---
 title: Auth0 Ruby On Rails SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app.
-name: Ruby On Rails
-image: /media/platforms/rails.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/rails/dependencies
-  setup: server-platforms/rails/setup
-  use: server-platforms/rails/use
-alias:
-  - ruby-rails
-  - sinatra
-  - omniauth
-seo_alias: rails
 ---
 
 ## Ruby On Rails Web App Tutorial
@@ -24,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Rails 4.2.5.1
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/ruby-on-rails-webapp',
@@ -83,7 +70,7 @@ get "/auth/failure" => "auth0#failure"
 
 ### 4. Specify the callback on Auth0 Dashboard
 
-${include('./_callbackRegularWebApp')}
+${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 

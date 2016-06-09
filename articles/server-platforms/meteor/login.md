@@ -1,21 +1,6 @@
 ---
 title: Auth0 Meteor SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 Meteor SDK to add authentication and authorization to your web app.
-name: Meteor
-alias:
-  - Meteor
-language:
-  - Javascript
-framework:
-  - Meteor
-image: /media/platforms/meteor.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/meteor/dependencies
-  setup: server-platforms/meteor/setup
-  use: server-platforms/meteor/use
-seo_alias: meteor
 ---
 
 ## Meteor Tutorial
@@ -28,7 +13,7 @@ This tutorial and seed project have been tested with the following:
 * Meteor 1.2.1
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'meteor-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-meteor-sample',
@@ -56,7 +41,7 @@ Our meteor package reads this information and creates a Lock instance with these
 
 ### 3. Specify the callback on Auth0 Dashboard
 
-${include('./_callbackRegularWebApp')}
+${include('../_callbackRegularWebApp')}
 
 ### 4. Implement the login
 

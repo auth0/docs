@@ -1,15 +1,6 @@
 ---
 title: Auth0 PHP Laravel SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your web app.
-name: PHP (Laravel)
-image: /media/platforms/php.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/laravel/dependencies
-  setup: server-platforms/laravel/setup
-  use: server-platforms/laravel/use
-seo_alias: laravel
 ---
 
 # Laravel Tutorial

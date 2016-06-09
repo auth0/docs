@@ -1,15 +1,6 @@
 ---
 title: Auth0 PHP SDK Web App Tutorial
 description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your web app.
-name: PHP
-image: /media/platforms/php.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/php/dependencies
-  setup: server-platforms/php/setup
-  use: server-platforms/php/use
-seo_alias: php
 ---
 
 ##  PHP Web App Tutorial
@@ -23,7 +14,7 @@ This tutorial and seed project have been tested with the following:
 
 
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-PHP',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-webapp',
@@ -74,7 +65,7 @@ if (!$userInfo) {
 
 Once the user info is fetched, it'll be stored in the session. Therefore, from this moment on, each time you call `getUser()` it will retrieve the information from the Session.
 
-${include('./_callbackRegularWebApp')}
+${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 

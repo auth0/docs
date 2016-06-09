@@ -1,15 +1,6 @@
 ---
 title: Auth0 ASP.NET Core SDK Web App Tutorial
 description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
-name: ASP.NET Core
-image: /media/platforms/asp.png
-tags:
-  - quickstart
-snippets:
-  dependencies: server-platforms/aspnet-core/dependencies
-alias:
-  - aspnetcore
-seo_alias: aspnet-core
 ---
 
 # ASP.NET Core Tutorial
@@ -33,7 +24,7 @@ When using the normal OIDC middleware, when a user wants to log in and the middl
 
 Normally when the OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in `state` and `nonce` parameters. After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, in will pass back this `state` and `nonce` parameters. The OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the `code` for an `access_token`. It will however validate the `state` parameter to protect against CSRF.
 
-This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Lock is. 
+This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Lock is.
 
 So in this instance you will need to construct correct `state` and `nonce` parameters (as if the OIDC middleware did it so that it can validate it correctly), and then be sure to specify the `state` and `nonce` parameters on Lock so that Auth0 can send back the correct values for these parameters after the user has authenticated.
 
@@ -79,7 +70,7 @@ Add configuration settings for the Auth0 domain, Client ID and Client Secret in 
 
 ### 5. Configure Authentication Services and OpenID Connect options
 
-In the `ConfigureServices` method of your `Startup` class, ensure that you add the authentication services. 
+In the `ConfigureServices` method of your `Startup` class, ensure that you add the authentication services.
 
 You will also need to configure the OIDC options. The reason we configure the OIDC options with the DI is because we will need to obtain it later in order to construct the correct State parameter.
 
@@ -109,8 +100,8 @@ public void ConfigureServices(IServiceCollection services)
         // Set response type to code
         options.ResponseType = "code";
 
-        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0 
-        // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
+        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0
+        // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
         options.CallbackPath = new PathString("/signin-auth0");
 
         // Configure the Claims Issuer to be Auth0
@@ -137,7 +128,7 @@ public void ConfigureServices(IServiceCollection services)
 
     // Add framework services.
     services.AddMvc();
-}  
+}
 ```
 
 ### 6. Configure the cookie and OpenID Connect middleware
@@ -203,20 +194,20 @@ Add an `AccountController` class:
 public class AccountController : Controller
 {
     IOptions<OpenIdConnectOptions> _options;
-    
+
     public AccountController(IOptions<OpenIdConnectOptions> options)
     {
-        _options = options;    
+        _options = options;
     }
-    
+
     // GET: /<controller>/
     public IActionResult Login(string returnUrl = null)
     {
         var lockContext = HttpContext.GenerateLockContext(_options.Value, returnUrl);
-        
+
         return View(lockContext);
     }
-    
+
     public async Task<IActionResult> Logout()
     {
         // Sign the user out of the authentication middleware (i.e. it will clear the Auth cookie)
@@ -230,7 +221,7 @@ public class AccountController : Controller
 
 The `Login` method will call the `GenerateLockContext` extension method which will create the correct `state` and `nonce` parameters and set the correct Cookies for the OIDC middleware to function correctly. It will return a `LockContext` parameter which you can pass along to the View.
 
-Also notice that the `OpenIdConnectOptions` are injected into the Controller, and that it is passed along to the `GenerateLockContext`. This method needs to retrieve the configuration settings for the OIDC middleware so that the correct `state` can be generated. It is for this reason why we had to register the `OpenIdConnectOptions` with the dependency injection. 
+Also notice that the `OpenIdConnectOptions` are injected into the Controller, and that it is passed along to the `GenerateLockContext`. This method needs to retrieve the configuration settings for the OIDC middleware so that the correct `state` can be generated. It is for this reason why we had to register the `OpenIdConnectOptions` with the dependency injection.
 
 ### 9. Setting up the View
 
@@ -246,9 +237,9 @@ Here is an example:
 </div>
 <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
 <script>
-  
+
   var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain');
-  
+
   lock.show({
       container: 'root'
     , callbackURL: '@Model.CallbackUrl'
@@ -256,15 +247,15 @@ Here is an example:
     , authParams: {
       scope: 'openid profile',
       state: '@Model.State',
-	  nonce: '@Model.Nonce'	
+	  nonce: '@Model.Nonce'
     }
   });
 </script>
-``` 
+```
 
 You can set the Client ID, Domain and Callback URL values from the one supplied by the `LockContext` model. Also be sure to set the correct `state` parameter as shown above, as this is the key to getting everyting to work together.
 
-Also note that I have added `profile` to the `scope` parameter. The reason for this is that we want the user's `name` returned so we can set the correct `ClaimTypes.Name` claim. Refer to the `OnTicketReceived` we declared when rgistering the `OpenIdConnectOptions` in the `ConfigureServices` method of the `Startup` class. 
+Also note that I have added `profile` to the `scope` parameter. The reason for this is that we want the user's `name` returned so we can set the correct `ClaimTypes.Name` claim. Refer to the `OnTicketReceived` we declared when rgistering the `OpenIdConnectOptions` in the `ConfigureServices` method of the `Startup` class.
 
 ### 10. Run your application
 

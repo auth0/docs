@@ -1,0 +1,11 @@
+title: PHP
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/php/dependencies
+  setup: server-platforms/php/setup
+  use: server-platforms/php/use
+seo_alias: php
+articles:
+  - login
