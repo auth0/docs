@@ -1,0 +1,9 @@
+added:
+  -
+    title: "New doc on Auth0 Logs to Splunk extension"
+    tags:
+      - extension
+      - logs
+      - splunk
+    description: |
+      A [new document](https://auth0.com/docs/extensions/splunk) was added on how to configure and use the Auth0 to Splunk extension.
