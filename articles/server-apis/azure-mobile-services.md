@@ -44,7 +44,7 @@ These 6 new lines of code do all the work for you. The important aspects:
 
 The input for the `GetDelegationToken` method, is the clientID of the App / API where `Windows Azure Mobile Services (WAMS) API` addon was enable.
 
-You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect him to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.
+You might wonder why step #3 is necessary. This abstraction layer allows your client app to interact with multiple WAMS APIs (or even other APIs altogether). You can control in Auth0 which clients can call which API. You could, as an example, login a user with GitHub, then connect user to WAMS, and also interact with an AWS hosted endpoint. The delegation call allows you to flow the identity of the user across multiple environments in a clean, secure way.
 
 #### 3. Using the user identity in the WAMS backend
 The final step is to use the information on the token on the server code. You will likely have to do 2 things:
