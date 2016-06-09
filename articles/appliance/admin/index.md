@@ -4,8 +4,12 @@ url: /appliance/admin
 
 # Auth0 Appliance: Administrator's Manual
 
-This document details factors that that Auth0 Appliance administrator should take into account when working with production Appliance instances.
+This document details factors of which Auth0 Appliance administrator should be aware when working with production Appliance instances.
 
-* [Set-Up/Maintenance Recommendations for Appliance Administrators](/appliance/admin/admin-suggestions)
-* [Using the Dashboard](/appliance/admin/using-the-dashboard)
-*
+* [Managing the Dashboard](/appliance/admin/managing-the-dashboard);
+* [Disabling Sign-ups](/appliance/admin/disabling-sign-ups);
+* [Backing up the Appliance Instances](/appliance/admin/backing-up-the-appliance-instances);
+* [Monitoring & Performing Health Checks on Load Balancers](/appliance/admin/monitoring);
+* [Limiting SSH Access](/appliance/admin/limiting-ssh-access);
+* [Updating the Appliance](/appliance/admin/updating-the-appliance);
+* [Configuring custom error pages](/custom-error-pages).
