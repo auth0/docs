@@ -9,34 +9,96 @@ To begin creating an your custom extension, please feel free to fork/clone any o
 - [Auth0 Extension with API Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-api)
 - [Auth0 Extension with React Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-react)
 
-Alternatively, you may following the Development Instructions provided via the "New Extension" window that appears when you click on the "+ Extension" button. This allows you to create your own extension using the command line.
+Alternatively, you may following the _Development Instructions_ provided via the _New Extension_ window that appears when you click on the _+ CREATE EXTENSION_ button. To view the _Development Instructions_, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). Click on the _+ CREATE EXTENSION_ button. On the popup displayed click on the _Check out this command line tool_ link. The _Development Instructions_ popup is displayed. These instructions allow you to create your own extension using the command line.
+
+> Learn more about the `wt-cli` by visiting the [github repository](https://github.com/auth0/wt-cli) and the [documentation](https://webtask.io/docs/wt-cli).
 
 ## Installing a Custom Extension
-Once you have created your own extension, you may install it manually via the Auth0 Management Portal.
+Once you have created your own extension, you may install it manually via the [Extensions](${uiURL}/#/extensions) page of the [Auth0 Management Portal](${uiURL}).
 
-Near the top right-hand side of the window, click the "+ NEW EXTENSION" button. In the "New Extension" window that pops open, provide the GitHub URL to the repository that contains the files required by your extension.
+Near the top right-hand side of the window, click the _+ CREATE EXTENSION_ button.
+
+![](/media/articles/extensions/custom/create-extension.png)
+
+In the _New Extension_ window that pops open, provide the GitHub URL to the repository that contains the files required by your extension.
+
+![](/media/articles/extensions/custom/new-extension.png)
 
 > At this time, only repositories hosted by GitHub may be used.
 
 Alternatively, you may host your files elsewhere and simply provide a link to the `webtask.json` file in the box (e.g. `http://example.com/webtask.json`).
 
-![]()
+Once you have provided the link to your files and clicked _Create_, you will be prompted to install the extension. If you would like to proceed, click _Install_.
 
-Once you have provided the link to your files and clicked "Create", you will be prompted to install the extension. If you would like to proceed, click "Install."
-
-At this point, you have two options in addition to completing the installation of the extension. You may:
-
-- complete the installation at a later date. If you click on the "X" at the top right to exit the window, Auth0 will add your extension to the "All Extensions" tab. At a later date, you may choose this to complete the installation;
-- delete the extension completely by clicking on the "Delete" button.
+![](/media/articles/extensions/custom/install-custom-ext.png)
 
 ## Configuring the Installed Extension
 
-Once you have installed your extension, you...
+Under the _Installed Extensions_ tab you will find your newly-installed extension listed.
 
-Under the "Installed Extensions" tab you will find your newly-installed extension listed. Click on the link to obtain more information about the app. You will be prompted to authorize the extension's access to your Auth0 account.
+![](/media/articles/extensions/custom/installed-extensions.png)
 
-After you've authorized the extension's access to your account, you will be presented with a [JSON Web Token](/tokens/) that is similar to the following:
+Click on the link to obtain more information about the app. You will be prompted to authorize the extension's access to your Auth0 account.
 
+![](/media/articles/extensions/custom/authorize-app.png)
+
+After you've authorized the extension's access to your account, you will be presented with a [JSON Web Token](/tokens/).
+
+![](/media/articles/extensions/custom/json-web-token.png)
+
+## Extension Lifecycle
+
+Let's have a look at what happens behind the scenes when installing and uninstalling custom extensions.
+
+When the user clicks on _Install_, a Client is created for the extension with the scopes defined on the `webtask.json` and access is granted to APIv2 Resource Server.
+
+For this `webtask.json`:
+
+```json
+{
+  "name": "my-extension";
+  "auth0": {
+    "createClient": true,
+    "scopes": "create:rules"
+  }
+}
 ```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlJERTFPRVV5UkRFNFJVWTVPVGRCT0RNM09UZ3hNRUpFTWtGQ01VUkZRVGcxTlRVeFJERkRSQSJ9.eyJpc3MiOiJodHRwczovL2F1dGgwLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtYXBwc3xrYXRpZUBhdXRoMC5jb20iLCJhdWQiOlsiaHR0cHM6Ly9hdXRoMHVzZXIuYXV0aDAuY29tL2FwaS92Mi8iLCJodHRwczovL2F1dGgwLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJhenAiOiJodHRwczovL3NhbmRib3guaXQuYXV0aDAuY29tL2FwaS9ydW4vYXV0aDB1c2VyL2F1dGgwLWV4dGVuc2lvbi1ib2lsZXJwbGF0ZSIsImV4cCI6MTQ1ODg3MTE5MywiaWF0IjoxNDU4ODM1MTkzLCJzY29wZSI6InJlYWQ6Y29ubmVjdGlvbnMgb3BlbmlkIHByb2ZpbGUifQ.GJgPrH_s0_u3wRdHvlvvoOm0wyA6JLFEa8R_gfAyu08wQiGVGNtnvyG1wWAEHk7ALnhDHn3O-qyB4R21ttbNtYxpxxthhhQrwR4lt2enyBnMxfxgSYWQdv2PNNAvPWm3qOkuy0M7t__RdB8utajsd4OALB0M6v8hqmkinXguTy0YL7lQzWajHzEcuR9QwKeoIPwTRRWQOrea4Z9bGhhWsIrdUmCCSevlxGPm2ol0HTDHqSwB_oDYmG7GDqZ-XxTUA-rRJ6Q8LA6wOvC12NYuIMaho-iM52k5pN3ItLVIfxVAjfvA_zXkErMAbJWdDW8Kl32Jyp9bXUkqt_yxejeN9A
+
+The following Client would be created:
+
+```javascript
+Clients.create({
+  name: 'my-extension'
+}).then(function (client) {
+  return Grants.create({
+    audience:  'https://jcenturion.auth0.com/api/v2/',
+    client_id: client.client_id,
+    scope: "create:rules"
+  }).then(function () {
+    return addSecrets(wt, client, wtUrl);
+  });
+});
 ```
+
+The installation dialog will warn the user that the extension will have access to certain scopes. In this case: `create:rules`.
+
+![](/media/articles/extensions/custom/scopes-warning.png)
+
+The webtask will be created with the secrets `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_SECRET`.
+
+After the webtask is created, `/.webtask/on-install` is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
+
+Install and uninstall URLs are configurable through `webtask.json`.
+
+```json
+{
+  "name": "my-extension";
+  "auth0": {
+    "scopes": "create:rules",
+    "onInstallUrl": "/my-own-on-install" 
+  }
+}
+```
+
+When the user clicks on _Uninstall_, `/.webtask/on-uninstall` is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
+
