@@ -1,0 +1,9 @@
+title: Salesforce
+alias:
+  - salesforce
+thirdParty: true
+image: /media/addons/salesforce.svg
+tags:
+  - quickstart
+articles:
+  - authenticate

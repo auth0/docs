@@ -1,0 +1,16 @@
+title: Relay API
+thirdParty: false
+alias:
+  - relay
+languages:
+  - Javascript
+image: /media/platforms/relay.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/relay/dependencies
+  setup: server-apis/relay/setup
+  use: server-apis/relay/use
+  frontend: server-apis/relay/frontend
+articles:
+  - authenticate

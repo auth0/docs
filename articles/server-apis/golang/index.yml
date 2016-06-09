@@ -1,0 +1,16 @@
+title: Go
+thirdParty: false
+alias:
+  - go
+  - golang
+languages:
+  - Go
+image: /media/platforms/golang.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/golang/dependencies
+  setup: server-apis/golang/setup
+  use: server-apis/golang/use
+articles:
+  - authenticate

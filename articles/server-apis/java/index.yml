@@ -1,0 +1,14 @@
+title: Java API
+thirdParty: false
+alias:
+  - java
+languages:
+  - Java
+image: /media/platforms/java.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/java/dependencies
+  use: server-apis/java/use
+articles:
+  - authenticate

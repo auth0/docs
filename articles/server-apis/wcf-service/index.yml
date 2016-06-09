@@ -1,0 +1,17 @@
+title: .NET WCF
+languages:
+  - C#
+  - Visual Basic .Net
+thirdParty: false
+image: /media/platforms/wcf.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/wcf-service/dependencies
+  setup: server-apis/wcf-service/setup
+  use: server-apis/wcf-service/use
+alias:
+  - wcf
+  - windows-communication-foundation
+articles:
+  - authenticate

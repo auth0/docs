@@ -1,0 +1,17 @@
+title: Hapi API
+thirdParty: false
+alias:
+  - hapi
+  - hapijs
+  - hapi.js
+languages:
+  - Javascript
+image: /media/platforms/node.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/hapi/dependencies
+  setup: server-apis/hapi/setup
+  use: server-apis/hapi/use
+articles:
+  - authenticate
