@@ -43,11 +43,11 @@ This Quickstart will walk you through setting all of this up correctly.
 
 In Visual Studio, create a new project by selecting File > New > Project. Under the .NET Core section, select ASP.NET Core Web application:
 
-![]()
+![New Project](/media/articles/aspnet-core/new-project.png)
 
 Next, select Web Application and ensure that you set the Authentication to **No Authentication**:
 
-![]()
+![Project Type](/media/articles/aspnet-core/aspnet-project-type.png)
 
 ### 2. Install the NuGet packages
 
@@ -65,7 +65,7 @@ So before proceeding further, be sure to register the URL <code>http://YOUR_WEBS
 
 ### 4. Add the Auth0 settings to your configuration file
 
-Add configuration settings for the Auth0 domain, Client ID and Client Secret in you `appsettings.json` file as set their correct value:
+Add configuration settings for the Auth0 domain, Client ID and Client Secret in you `appsettings.json` file as set their correct values:
 
 ``` json
 {
@@ -188,10 +188,13 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 You will need to add 2 helper classes which will help you to construct the correct State and Nonce parameters and set the correct Cookies for the OIDC middleware to work correctly when the redirect URL is called. You can add them to your project:
 
-* [AuthenticationExtensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-oidc-lock/blob/master/src/AspNetCoreOidcLockSample/OidcAuthenticationExtensions.cs)
+* [Auth0Extensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-oidc-embedded-lock/blob/master/src/AspNetCoreOidcLockSample/Auth0Extensions.cs)
 * [LockContext.cs](https://github.com/auth0-samples/auth0-aspnetcore-oidc-lock/blob/master/src/AspNetCoreOidcLockSample/LockContext.cs)
 
-> Be sure fix the namespaces to correlate with your own project
+::: panel-warning Fix the namespaces
+Be sure fix the namespaces in the downloaded files to correlate with those of your own project.
+:::
+
 
 ### 8. Add an Account Controller
 
