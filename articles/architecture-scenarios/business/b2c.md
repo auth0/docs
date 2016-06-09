@@ -2,6 +2,7 @@
 order: 01
 title: B2C
 image: /docs/media/articles/architecture-scenarios/b2c.png
+extract: Usually eCommerce or SAAS applications which have end users (consumers) as customers and the application typically used OpenID Connect as a protocol to communicate with Auth0.
 ---
 
 # B2C
