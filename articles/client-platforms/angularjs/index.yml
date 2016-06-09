@@ -1,0 +1,19 @@
+title: Angular.js
+alias:
+  - angular
+  - angularjs
+language:
+  - Javascript
+framework:
+  - AngularJS
+image: /media/platforms/angular.png
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/angularjs/dependencies
+  head: client-platforms/angularjs/head
+  setup: client-platforms/angularjs/setup
+  use: client-platforms/angularjs/use
+seo_alias: angularjs
+articles:
+  - login

@@ -1,0 +1,21 @@
+title: Vanilla JS
+language:
+  - Javascript
+image: /media/platforms/html5.png
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/vanillajs/dependencies
+  setup: client-platforms/vanillajs/setup
+  use: client-platforms/vanillajs/use
+alias:
+  - vanilla
+  - vanillajs
+  - spa
+  - single-page-app
+  - html5
+  - backendless
+  - javascript-app
+seo_alias: vanillajs
+articles:
+  - login

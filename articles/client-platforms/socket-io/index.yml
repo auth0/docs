@@ -1,0 +1,17 @@
+title: Socket.io
+alias:
+  - socket.io
+language:
+  - Javascript
+framework:
+  - socket.io
+image: /media/platforms/socketio.svg
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/socket-io/dependencies
+  setup: client-platforms/socket-io/setup
+  use: client-platforms/socket-io/use
+seo_alias: socket-io
+articles:
+  - login

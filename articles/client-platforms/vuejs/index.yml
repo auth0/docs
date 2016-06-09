@@ -1,0 +1,23 @@
+title: Vue.js
+language:
+  - Javascript
+framework:
+  - Vue.js
+image:
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/vuejs/dependencies
+  http: client-platforms/vuejs/http
+  httpcall: client-platforms/vuejs/httpcall
+  interceptors: client-platforms/vuejs/interceptors
+  login: client-platforms/vuejs/login
+  loginlogout: client-platforms/vuejs/loginlogout
+  logout: client-platforms/vuejs/logout
+  routing: client-platforms/vuejs/routing
+alias:
+  - vue
+  - vuejs
+seo_alias: vuejs
+articles:
+  - login
