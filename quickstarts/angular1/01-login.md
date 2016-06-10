@@ -1,5 +1,5 @@
 ---
-title: Setup and Authentication
+title: Login
 name: Angularjs-login
 alias:
   - angular
@@ -20,16 +20,6 @@ alias:
   - angular
 ---
 
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.
-
-Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular). This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) and Auth0.js(https://github.com/auth0/auth0.js) which makes it easy to use any of them. It uses which ever is included in your project or Lock if both are included. It is also important to keep in mind before we get down to business that Auth0 supports authentication in both redirect and pop-up modes. It is important because SPAs do not retain states after a page reloads (as well as redirect) but the SDK makes tackling this situation simple as you will see soon.
-
-## Seed & Samples
-
-There are two options to following along these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter Seed) or the samples. The seed is a regular angular app with nothing on Auth0 in it except for the dependencies included in the HTML. It just serves as a starting point as well building blocks for this quickstart. The samples are included in each step and contains the example for each of the step.
-
-
-## Create an Application
 
 TODO: Find out how to configure angular-sample URL
 <%= include('../_includes/_package', {
@@ -40,68 +30,11 @@ TODO: Find out how to configure angular-sample URL
   pkgType: 'js'
 }) %>_
 
-<%= include('../_includes/_new_app') %>_
-
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
-
-
 ::: panel-info Running the Sample
 At any point in time you can run this sample with a simple HTTP server. One example is http-server which can be installed with `npm install -g http-server`. Run `http-server` on the root directory of the sample to launch.
 :::
 
-
-## Configure Callback URLs
-
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
-
-![Callback error](/media/articles/angularjs/callback_error2.png)
-
-## Authentication
-
-Throughout the steps, the seed and samples will have the following directory structure:
-```bash
-|---home
-|------home.html
-|------home.js
-|---login
-|------login.html
-|------login.js
-|---settings
-|------settings.html
-|------settings.js
-|---app.js
-|---index.html
-```
-
-#### 1: Setup Scripts and Viewport
-Some JavaScript dependencies are required for Auth0 to work as expected in an Angular app. Include the dependencies' scripts in your `index.html`:
-
-${snippet(meta.snippets.dependencies)}
-
-These may seem like a lot of dependencies, but each one has a very important function. Go through and figure out if each package works for your use case. Feel free to strip off the unnecessary packages.
-
- - **lock** is the default authentication widget provided by Auth0. It is completely optional but I suggest you stick to it as an Auth0 newbie.
- - **auth0.js** is Auth0's javascript library. This is not necessary if you choose to use Lock throughout.
- - **angular** is Angular's main library which you are building the application on.
- - **angular-cookies** is Angular's wrapper for managing client cookies.
- - **angular-route** is used to mange SPA routes in Angular application.
- - **auth0-angular**: Auth0's SDK for Angular. Exposes most of the useful methods for authentication
- - **angular-storage**: A `localStorage` and `sessionStorage` wrapper create with love by Auth0 team.
- - **angular-jwt**: Angular service that makes using JWT easy in Angular apps.
-
-The seed project already have this files included, injected into angular (where applicable) and ready for use.
-
-Right after including the scripts, add a viewport to make the lock widget fit in to device widths:
-
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-```
-
-With all that, our entire `<head>` will look like this:
-
-${snippet(meta.snippets.head)}
-
-#### 2: Configure The Angular Application
+#### 1: Configure The Angular Application
 To use Auth0, your Angular app instance **MUST** depend on the Auth0 SDK:
 
 ```javascript
@@ -135,21 +68,16 @@ The `init()` method is used to configure Auth0 Angular SDK:
 
 ${snippet(meta.snippets.init)}
 
-#### 3: Login
+#### 2: Login
 
-You have successfully configured you Angular App to use Auth0. Configs are vital but won't run an app, right? Let's add a login functionality. As mentioned at the beginning of this quickstart, you can authenticate using pop-up or redirect method. The following example shows how to handle authentication using pop-up:
+You have successfully configured you Angular App to use Auth0. Configs are vital but won't run an app, right? Let's add a login functionality:
 
 ```javascript
 /* ===== ./login/login.js ===== */
 app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
 
   $scope.login = function(){
-    // Set popup to true to use popup
-    auth.signin({popup: true}, function(profile, token){
-      // Access to user profile and token
-    }, function(err){
-      // If anything goes wrong
-    });
+    auth.signin();
   }
 
 }]);
@@ -161,11 +89,11 @@ Your controller needs to depend on `auth` so as to have access to it's methods. 
 <a ng-click="login()">Login</a>
 ```
 
-At this point, the lock widget will pop up showing a Sign In form,  when you click the Login button. The widget has options for non-existing users to signup or reset there passwords.
+At this point, the lock widget will pop up showing a Sign In form,  when you click the Login button. If you choose not to use Lock, you will be redirected to Auth0 to login. The widget has options for non-existing users to signup or reset there passwords.
 
 ${browser}
 
-Authentication with redirects is easy as well but has one challenge. Your app will need to exit and the user taken to the authentication provider. After authentication, the user will be redirected to the app but with all states of the app lost (or rather reset). The implication is that callbacks we used in the popup example will not be called, therefore, no way to get hold of user authentication details. You can use events provided in the SDK to manage this problem efficiently. The events are configured in the `config method`:
+Your app will need to exit and the user taken to the authentication provider when you try to login. After authentication, the user will be redirected to the app but with all states of the app lost (or rather reset). The implication is that callbacks cannot be used with `auth.signin()`, therefore, no way to get hold of user authentication details. You can use events provided in the SDK to manage lifecycle efficiently. The events are configured in the `config method`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -183,18 +111,6 @@ authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', funct
 authProvider.on('loginFailure', function() {
   // If anything goes wrong
 });
-```
-
-All you just need to do is add the create a binding in you controller:
-
-```javascript
-function loginCtrlFunc($scope, auth){
-  $scope.auth = auth;  
-}
-```
-
-```html
-<a ng-click="auth.signin()">Login with Redirect</a>
 ```
 
 ### Routes Access Restrictions
@@ -253,23 +169,6 @@ authProvider.init({
   clientID: 'YOUR_CLIENT_ID',
   loginState: 'login'
 });
-```
-
-As you can see, you still have access to the profile (though as a promise), and the token in the `loginSuccess` event. There is also a `loginFailure` event to manage failed authentication.
-
-Moving the `singin()` logic into your controller rather than leaving it in the view will give you more control:
-
-```javaScript
-//app.js
-$scope.signin = function (){
-  auth.signin({}, //The first argument is used to configure Auth0
-    function(profile, idToken){
-      $scope.token = idToken;
-    },
-    function(err) {
-      $scope.err = err;
-    });
-}
 ```
 
 ### Handling Tokens and Re-authenticating Users
