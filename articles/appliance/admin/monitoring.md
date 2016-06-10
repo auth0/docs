@@ -1,4 +1,4 @@
-# Monitoring
+# Auth0 Appliance Administration: Monitoring
 
 While your existing monitoring platform may already collect data (such as metrics on CPU, disk size, etc.) at the virtual machine level, it may exclude information regarding the nodes in the cluster.
 
