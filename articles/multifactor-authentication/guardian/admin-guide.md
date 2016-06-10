@@ -42,7 +42,9 @@ After sign up they receive a six digit code to their phone.  They need to enter 
 
 ### Configuring Guardian SMS with Twilio
 
-When initially setting up SMS, you have up to 100 SMS and up to 10 SMS/Hour per user to test Guardian. This limit can be removed by setting up a Twilio account to use. Click on the **SMS** box to configure your SMS settings.
+When initially setting up SMS, you have up to 100 SMS to be used for testing. This limit can be removed by setting up a Twilio account to use. Your users will always be limited to up to 10 SMS/Hour (replenishing one message an hour, up til 10) to help prevent malicious login attempts.
+
+Click on the **SMS** box to configure your SMS settings.
 
 ![](/media/articles/mfa/sms-config.png)
 

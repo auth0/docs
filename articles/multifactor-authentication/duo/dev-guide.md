@@ -30,7 +30,7 @@ function (user, context, callback) {
         host: 'api-3....049.duosecurity.com',
 
         // optional. Force DuoSecurity everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
-        // ignoreCookie: true,
+        ignoreCookie: true,
 
         // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
         // username: user.nickname,
@@ -82,10 +82,10 @@ To use Duo for logins only for the specified clients, replace `REPLACE_WITH_YOUR
 To use Duo for users of all your applications, you can comment or remove the sections regarding `CLIENTS_WITH_MFA`.
 
 #### Specify users to use MFA
-To only use Duo for MFA on users that have `user_metadata.use_mfa === true` uncomment this if block.
+To only use Duo for MFA on users that have `user_metadata.use_mfa === true` uncomment this if block. This field can be updated using the [Management APIv2](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id).
 
 ### Setting `ignoreCookie: true`
-If you uncomment the line to `ignoreCookie: true`, then users will not have to login with Duo everytime they login. The browser will save a cookie that will persist for 30 days and this cannot be undone.
+If `ignoreCookie: true` is set, then users will not have to login with Duo everytime they login. The browser will save a cookie that will persist for 30 days and this cannot be undone.
 
 ### Changing the Username sent to Duo
 To use a specific attribute of the profile as the username in DuoSecurity, uncomment `username: user.nickname` and change it to the attribute you wish to use. This is also useful if you already have your users enrolled in Duo.
@@ -93,34 +93,3 @@ To use a specific attribute of the profile as the username in DuoSecurity, uncom
 ### Setting Admin Credentials
 If you provide an Admin SDK type of credentials then Auth0 will update the realname and email in Duo. To do this, replace the `ikey` and `skey` with the integration key and secret key.
 
-## Tracking and Searching MFA Events
-
-All MFA related events are recorded for audit purposes. For example, each time a new user enrolls with a form of MFA enabled, an **Enroll started** event is triggered.
-
-![](/media/articles/mfa/log-example.png)
-
-You can view events in the [Logs](${uiURL}/#/logs) sections of the dashboard.
-
-![](/media/articles/mfa/logs.png)
- 
-Here are all the possible events related to MFA:
-
-| Event Name  | Description |
-| --- | --- |
-| `gd_unenroll` | When a device account is deleted |
-| `gd_update_device_account` | When a device account is updated |
-| `gd_send_pn` | When a push notification is sent |
-| `gd_send_sms` | When a SMS is sent |
-| `gd_start_auth` | Start second factor authentication  |
-| `gd_start_enroll` | Second factor auth enrollment is started |
-| `gd_module_switch` | When changing feature config |
-| `gd_tenant_update` | When tenant info has been updated |
-| `gd_user_delete` | When calling (user delete => unenroll) |
-| `gd_auth_failed` | When second factor login has failed |
-| `gd_auth_succeed` | When second factor authentication has succeeded |
-| `gd_recovery_succeed` | Recovery succeeded |
-| `gd_recovery_failed` | Failed recovery |
-| `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
-| `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
-
-These events can also be searched using the [APIv2](https://auth0.com/docs/api/management/v2#!/Logs) using [query string syntax](https://auth0.com/docs/api/management/v2/query-string-syntax). You can search  criteria using the `q` parameter or you can search by a specific log ID.

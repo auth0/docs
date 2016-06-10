@@ -42,7 +42,7 @@ If you do not have an existing account, you will need to sign up to create one. 
 
 You will need to download Google Authenticator app.
 
-A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code, you will see a confirmation screen which has a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
+A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code you will be logged in.
 
 ![](/media/articles/mfa/google-code.png)
 
@@ -54,9 +54,7 @@ After entering your username and password, you will be prompted for a six digit 
 
 ### If you do not have your mobile device
 
-If you have lost your phone and are unable to finish the two-step authentication you will need the recovery code from when you signed up. Enter this code to access your account without your device.
-
-If you do have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
+If you have lost your phone and are unable to finish the two-step authentication you will need to contact your system administrator for help accessing your account.
 
 ### If you forgot your password
 
@@ -64,7 +62,7 @@ If you forgot your password when you are trying to login, click **Don't remember
 
 ### Transaction Expiration
 
-For logging in with two-step verification there is a timeout of five minutes. If it has been longer than five minutes, you will need to try to login again and get a new code or notification. 
+For logging in with Google Authenticator, there is a timeout that occurs with the passcode where it will expire. Try logging in again if you do not see a refreshed passcode in the app.
 
 ### Additional Help
 

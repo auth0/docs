@@ -1,6 +1,7 @@
 ---
 title: Multifactor Authentication in Auth0
 url: /multifactor-authentication2
+description: Auth0 supports multiple methods of implementing MFA: Guardian, SMS, support for Google Authenticator and Duo Security, custom processes such as Contextual MFA, and integration with a custom provider.
 ---
 
 # Multifactor Authentication in Auth0
@@ -29,7 +30,7 @@ Guardian is Auth0's MFA application. It is a frictionless approach to implementi
 
 ## MFA with SMS
 
-Auth0 supports sending an SMS with a one time password code to be used for another step of verification.
+Auth0 supports sending an SMS with a one-time password code to be used for another step of verification.
 
 [Click here to learn more about enabling SMS](/multifactor-authentication/guardian/admin-guide#support-for-sms)
 
