@@ -12,7 +12,13 @@ To begin creating an your custom extension, please feel free to fork/clone any o
 
 Alternatively, you may following the _Development Instructions_ provided via the _New Extension_ window that appears when you click on the _+ CREATE EXTENSION_ button. To view the _Development Instructions_, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). Click on the _+ CREATE EXTENSION_ button. On the popup displayed click on the _Check out this command line tool_ link. The _Development Instructions_ popup is displayed. These instructions allow you to create your own extension using the command line.
 
-> Learn more about the `wt-cli` by visiting the [github repository](https://github.com/auth0/wt-cli) and the [documentation](https://webtask.io/docs/wt-cli).
+Extensions can also be installed using directly `wt-cli`. The command would look like the following:
+
+```
+wt create {file} --name {extensionName} --param owner=“{tenant}” --param version="1.0.0"
+```
+
+Learn more about `wt-cli` by visiting the [github repository](https://github.com/auth0/wt-cli) and the [documentation](https://webtask.io/docs/wt-cli).
 
 ## Installing a Custom Extension
 Once you have created your own extension, you may install it manually via the [Extensions](${uiURL}/#/extensions) page of the [Auth0 Management Portal](${uiURL}).
