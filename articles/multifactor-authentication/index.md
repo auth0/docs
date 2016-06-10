@@ -30,23 +30,23 @@ Auth0 supports the following methods of implementing MFA:
 
 Auth0 provides built-in support for the following one-time password authentication services:
 
-* Google Authenticator;
-* Duo Security.
+* Google Authenticator
+* Duo Security
 
 You may enable these options in the [Multifactor Auth](${uiURL}/#/multifactor) section of the Auth0 Dashboard.
 
 #### MFA Using Google Authenticator
 
-Google Authenticator allows you to request six- to eight-digit one-time use password as the second factor after your user has attempted to log in with their Google credentials.
+Google Authenticator allows you to request a 6- to 8-digit one-time use password as a second authentication factor after a user has logged in with their Google credentials.
 
-For instructions on enabling this featur, see:  [Configuring MFA Using Google Authenticator](/multifactor-authentication/google-authenticator).
+For instructions on enabling this feature, see:  [Configuring MFA Using Google Authenticator](/multifactor-authentication/google-authenticator).
 
 #### MFA Using Duo Security
 
-Duo Security allows you to request either of the following as your second factor once the user has provided their initial login credentials:
+Duo Security allows you to request either of the following as your second factor after a user has provided their initial login credentials:
 
-* A user response to a push notification sent to the appropriate device;
-* A passcode provided to the user via SMS.
+* A user response to a push notification sent to the appropriate device
+* A passcode provided to the user via SMS
 
 For instructions on enabling this feature, see: [Configuring MFA Using Duo Security](/multifactor-authentication/duo-security).
 
