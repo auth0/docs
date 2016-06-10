@@ -54,7 +54,7 @@ Please note that an authenticated user can modify data in their profile's `user_
 
 Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (e.g. Facebook, Twitter, Google, SAML, your own provider, etc.). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
 
-However, Auth0 supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
 
 ## Storing Custom Profile Data
 
@@ -115,6 +115,8 @@ In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT
 ### API
 
 The Auth0 API provides access to read, update, and delete User Profiles stored in the Auth0 database.
+
+> You can setup Access Control List (ACL)/Roles functionality by adding custom attributes to the user profile. We actually have a [sample](https://github.com/auth0-samples/auth0-roles-permissions-dashboard-sample), that you can use a guide.
 
 #### Limitations
 As with the dashboard, the API does not alter data sourced from Connections such as Facebook or Active Directory.
