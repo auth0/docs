@@ -123,8 +123,8 @@ As with the dashboard, the API does not alter data sourced from Connections such
 
 Not all User Profile attributes can be altered via the API. For example, the identities array, which contains information from 3rd party authentication providers, cannot be altered.
 
-> Let's say you'd like to modify the picture that is coming from the Facebook profile. You won't be able to change the attribute in the `Identity Provider Attributes` section. Instead you need to set the `picture` attribute in the `user_metadata` property and then in your application you would do: `<img src='<%= user.user_metadata.picture || user.picture %>'>`.
-> The previous code snippet tries to use the `picture` property from `user_metadata` and if it doesn't exist it uses the default (`user.picture`).
+Let's say you'd like to modify the picture that is coming from the Facebook profile. You won't be able to change the attribute in the `Identity Provider Attributes` section. Instead you need to set the `picture` attribute in the `user_metadata` property and then in your application you would do: `<img src="<%= user.user_metadata.picture || user.picture %>">`.
+The previous code snippet tries to use the `picture` property from `user_metadata` and if it doesn't exist it uses the default (`user.picture`).
 
 Another example is that the password can be set via the create or update call, but for security purposes, it cannot be viewed via the get or list user commands. The right side of the API explorer provides hints on the User Profile attributes which can be viewed or modified for any given call.
 
