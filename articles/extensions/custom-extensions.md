@@ -45,19 +45,9 @@ Once you have provided the link to your files and clicked _Continue_, you will b
 
 ![](/media/articles/extensions/custom/install-custom-ext.png)
 
-## Configuring the Installed Extension
-
 Under the _Installed Extensions_ tab you will find your newly-installed extension listed.
 
 ![](/media/articles/extensions/custom/installed-extensions.png)
-
-Click on the link to obtain more information about the app. You will be prompted to authorize the extension's access to your Auth0 account.
-
-![](/media/articles/extensions/custom/authorize-app.png)
-
-After you've authorized the extension's access to your account, you will be presented with a [JSON Web Token](/tokens/).
-
-![](/media/articles/extensions/custom/json-web-token.png)
 
 ## Extension Lifecycle
 
