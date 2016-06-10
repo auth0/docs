@@ -63,7 +63,7 @@ After you've authorized the extension's access to your account, you will be pres
 
 Let's have a look at what happens behind the scenes when installing and uninstalling custom extensions.
 
-When the user clicks on _Install_, a Client is created for the extension with the scopes defined on the `webtask.json` and access is granted to APIv2 Resource Server.
+When the user clicks on _Install_, a _Client_ and a _ClientGrant_ are created for the extension with the scopes defined on the `webtask.json`. Also, access is granted to APIv2 Resource Server.
 
 For this `webtask.json`:
 
@@ -77,7 +77,7 @@ For this `webtask.json`:
 }
 ```
 
-The following Client would be created:
+The following _Client_ and a _ClientGrant_ would be created:
 
 ```javascript
 Clients.create({
@@ -115,6 +115,8 @@ Install and uninstall URLs are configurable through `webtask.json`.
 }
 ```
 
+> _onInstallPath_ and _onUninstallPath_ are mandatory if you want auth0-dashboard to call them.
+
 When the user clicks on _Uninstall_, `/.webtask/on-uninstall` (`DELETE /onUninstallUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
 
 The JWT, the one being used for authenticating the calls to the hooks for both `/.webtask/on-install` and `/.webtask/on-uninstall`, looks like the following:
@@ -126,3 +128,7 @@ The JWT, the one being used for authenticating the calls to the hooks for both `
   iat: timespan
 }
 ```
+
+The extension should validate the JWT. See [this](https://github.com/auth0/auth0-extension-boilerplate-hooks/blob/master/hooks/index.js#L11) for the validation applied.
+
+
