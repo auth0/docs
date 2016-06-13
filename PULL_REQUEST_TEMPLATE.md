@@ -1,6 +1,6 @@
 ### Your checklist for this pull request
 
-Please review the [guidelines for contributing](https://github.com/auth0/docs#contributing) to this repository.
+Please review the [guidelines for contributing](https://github.com/auth0/docs#contributing) for this repository.
 
 - [ ] Content conforms to our [Contributing Guidelines](https://github.com/auth0/docs#contributing-guidelines)
 - [ ] If applicable, you have added details to the [update feed](https://github.com/auth0/docs/tree/master/updates) 
