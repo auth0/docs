@@ -1,28 +1,10 @@
 ---
 title: Login
-name: Angularjs-login
-alias:
-  - angular
-  - angularjs
-language:
-  - Javascript
-framework:
-  - AngularJS
-image: /media/platforms/angular.png
-tags:
-  - quickstart
-  - angular
-snippets:
-  dependencies: /quickstarts/angular1/snippets/dependencies
-  init: /quickstarts/angular1/snippets/init
-  head: /quickstarts/angular1/snippets/head
-alias:
-  - angular
 ---
 
 
 TODO: Find out how to configure angular-sample URL
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
   pkgPath: 'examples/widget-redirect',
@@ -66,7 +48,7 @@ app.config( function myAppConfig (authProvider) {
 
 The `init()` method is used to configure Auth0 Angular SDK:
 
-${snippet(meta.snippets.init)}
+${snippet(meta.snippets.setup)}
 
 #### 2: Login
 

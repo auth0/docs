@@ -1,29 +1,11 @@
 ---
 title: Rules
-name: Rules
-alias:
-  - angular
-  - angularjs
-language:
-  - Javascript
-framework:
-  - AngularJS
-image: /media/platforms/angular.png
-tags:
-  - quickstart
-  - angular
-snippets:
-  dependencies: /quickstarts/angular1/snippets/dependencies
-  init: /quickstarts/angular1/snippets/init
-  head: /quickstarts/angular1/snippets/head
-alias:
-  - angular
 ---
 
 <!-- Every section in this doc can be reused in other quickstarts except the step 4 of creating rules  -->
 
 TODO: Find out how to configure angular-sample URL
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
   pkgPath: 'examples/widget-redirect',

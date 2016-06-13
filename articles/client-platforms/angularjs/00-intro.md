@@ -1,23 +1,5 @@
 ---
 title: Introduction
-name: Angularjs-intro
-alias:
-  - angular
-  - angularjs
-language:
-  - Javascript
-framework:
-  - AngularJS
-image: /media/platforms/angular.png
-tags:
-  - quickstart
-  - angular
-snippets:
-  dependencies: /quickstarts/angular1/snippets/dependencies
-  init: /quickstarts/angular1/snippets/init
-  head: /quickstarts/angular1/snippets/head
-alias:
-  - angular
 ---
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.
@@ -41,7 +23,7 @@ You can skip this step if you think you can find your way around or just looking
 
 ### 1. Create an Application
 
-<%= include('../_includes/_new_app') %>_
+<%= include('../../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 

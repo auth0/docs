@@ -16,4 +16,9 @@ snippets:
   use: client-platforms/angularjs/use
 seo_alias: angularjs
 articles:
-  - login
+  - 00-intro
+  - 01-login
+  - 02-user-profile
+  - 03-linking-accounts
+  - 04-calling-apis
+  - 05-rules
