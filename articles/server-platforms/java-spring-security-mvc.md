@@ -1,7 +1,7 @@
 ---
-title: Auth0 Java Spring MVC Tutorial
-description: This tutorial will show you how to use the Auth0 Java Spring MVC SDK to add authentication and authorization to your web app.
-name: Java Spring MVC
+title: Auth0 Java Spring Security MVC Tutorial
+description: This tutorial will show you how to use the Auth0 Java Spring Security MVC SDK to add authentication and authorization to your web app.
+name: Java Spring Security MVC
 image: /media/platforms/spring.png
 tags:
   - quickstart
@@ -11,7 +11,7 @@ alias:
 seo_alias: java spring mvc
 ---
 
-## Java Spring MVC Web App Tutorial
+## Java Spring Security MVC Web App Tutorial
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
@@ -23,10 +23,10 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-spring-mvc',
+  pkgRepo: 'auth0-spring-security-mvc',
   pkgBranch: 'master',
-  pkgPath: 'examples/auth0-spring-mvc-sample',
-  pkgFilePath: 'examples/auth0-spring-mvc-sample/src/main/resources/auth0.properties',
+  pkgPath: 'examples/auth0-spring-security-mvc-sample',
+  pkgFilePath: 'examples/auth0-spring-security-mvc-sample/src/main/resources/auth0.properties',
   pkgType: 'replace'
 }) %>
 
@@ -37,84 +37,6 @@ This tutorial and seed project have been tested with the following:
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
 See the sample project to understand the proposed overall structure of your pom.xml
-
-```xml
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.apache.tomcat.embed</groupId>
-          <artifactId>tomcat-embed-jasper</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-actuator</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-devtools</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-configuration-processor</artifactId>
-      </dependency>
-
-      <!-- third party -->
-
-       <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>jstl</artifactId>
-          <version>1.2</version>
-        </dependency>
-
-      <dependency>
-          <groupId>com.squareup.okhttp3</groupId>
-          <artifactId>okhttp</artifactId>
-          <version>3.2.0</version>
-      </dependency>
-
-      <dependency>
-          <groupId>commons-codec</groupId>
-          <artifactId>commons-codec</artifactId>
-          <version>1.4</version>
-      </dependency>
-
-      <dependency>
-          <groupId>org.apache.commons</groupId>
-          <artifactId>commons-lang3</artifactId>
-          <version>3.3.2</version>
-      </dependency>
-
-      <!-- auth0 dependencies -->
-
-      <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>auth0-spring-mvc</artifactId>
-          <version>0.0.2-SNAPSHOT</version>
-      </dependency>
-
-      <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>auth0</artifactId>
-          <version>0.4.0</version>
-      </dependency>
-
-      <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>java-jwt</artifactId>
-          <version>2.1.0</version>
-      </dependency>
-```
 
 ### 2. Configure your app
 
