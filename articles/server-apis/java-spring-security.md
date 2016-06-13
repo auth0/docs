@@ -35,10 +35,10 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'spring-security-auth0',
+  pkgRepo: 'auth0-spring-security-api',
   pkgBranch: 'master',
-  pkgPath: 'examples/api-example',
-  pkgFilePath: 'examples/api-example/src/main/resources/auth0.properties',
+  pkgPath: 'examples/auth0-spring-security-api-sample',
+  pkgFilePath: 'examples/auth0-spring-security-api-sample/src/main/resources/auth0.properties',
   pkgType: 'replace'
 }) %>
 
