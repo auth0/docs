@@ -14,7 +14,7 @@ Use of gerunds makes a statement more passive. To discuss actions the user must 
 
 Abbreviations should be avoided. Avoid the use of e.g., for example. Instead, use "for example." The idea is to prevent the reader from having to stop and think about what you mean. It may seem like it just takes a second, but it is similar to tuning your web site performance. You want your site to perform quickly and smoothly. Similarly, you want your content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
 
-Avoid contractions wherever possible. Contractions are generally used in spoken language and therefore carries a sense of informality or even laziness. 
+Avoid contractions wherever possible. Contractions are generally used in spoken language and therefore carry a sense of informality or even laziness. 
 
 The use of should versus must and other ambivalent statements must be avoided. If something is required, be definite about it and tell the user it "must" be performed.
 
