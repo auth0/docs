@@ -78,13 +78,13 @@ Events such as a user logs in to an application, a login fails, a user signs up,
 
 ### Cost
 
-The [pricing model](https://auth0.com/pricing) is based on the type of identity providers you're using, together with the number of active users and any additional features that have been enabled. Active users are users that authenticated in the last 30 days for **a given application**. We define an application as a client id and client secret pair, if multiple applications (say one on iOS and one on Android) share the same client id and client secret pair, they are a single app in this definition.
+The [pricing model](https://auth0.com/pricing) is based on the type of identity providers you are using, together with the number of active users and any additional features that have been enabled. Active users are users that authenticated in the last 30 days for **a given application**. We define an application as a client id and client secret pair, if multiple applications (say one on iOS and one on Android) share the same client id and client secret pair, they are a single app in this definition.
 
 In the following example we have 3 active social users for the month of February:
 
 ![](/media/articles/applications/applications-single-app-active-users.png)
 
-Next month John and Mary start using the company's collaboration application which means they'll also become active users for this second application. This means that we will have 5 active social users for the month of March:
+Next month John and Mary start using the company's collaboration application, which means they will also become active users for this second application. This means that we will have 5 active social users for the month of March:
 
  * Todo List: 3 active users
  * Collaboration Application: 2 active users
