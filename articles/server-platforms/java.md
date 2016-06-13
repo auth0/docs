@@ -29,8 +29,8 @@ This tutorial and seed project have been tested with the following:
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-servlet',
   pkgBranch: 'master',
-  pkgPath: 'examples/java-regular-webapp',
-  pkgFilePath: 'examples/java-regular-webapp/src/main/webapp/WEB-INF/web.xml',
+  pkgPath: 'examples/auth0-servlet-sample',
+  pkgFilePath: 'examples/auth0-servlet-sample/src/main/webapp/WEB-INF/web.xml',
   pkgType: 'replace'
 }) %>
 
