@@ -5,11 +5,11 @@ description: How to enable MFA on the Resource Owner endpoint.
 
 # MFA on a Resource Owner endpoint
 
-To enable MFA on the Resource Owner /ro endpoint, include the `options.mfa.active` flag in the connection and set it to `true`. 
+To enable MFA on the Resource Owner [/ro](/api/authentication#!#post--oauth-ro) endpoint, include the `options.mfa.active` flag in the connection and set it to `true`. 
 
 To enable enrollment, also include the `options.mfa.return_enroll_settings` flag in the connection.
 
-### SCENARIO 1 - Enrolled user with Google authentication and a valid code
+### Scenario 1 - Enrolled user with Google authentication and a valid code
 
 Path: `/oauth/ro`
 
@@ -27,7 +27,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 200
 
@@ -39,7 +39,7 @@ HTTP 200
 }
 ```
 
-### SCENARIO 2 - Enrolled user with Google authentication and an invalid or expired code
+### Scenario 2 - Enrolled user with Google authentication and an invalid or expired code
 
 Path: `/oauth/ro`
 
@@ -57,7 +57,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 401
 
@@ -68,7 +68,7 @@ HTTP 401
 }
 ```
 
-### SCENARIO 3 - MFA is enabled but `mfa_code` is missing
+### Scenario 3 - MFA is enabled but `mfa_code` is missing
 
 Path: `/oauth/ro`
 
@@ -85,7 +85,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 401
 
@@ -96,7 +96,7 @@ HTTP 401
 }
 ```
 
-### SCENARIO 4 - MFA is enabled but user is not enrolled
+### Scenario 4 - MFA is enabled but user is not enrolled
 
 The account has Google Authenticator multifactor authentication is enabled for the `client_id` but the user has not yet enrolled.
 
@@ -115,7 +115,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 401
 
@@ -127,7 +127,7 @@ HTTP 401
 ```
 
 
-### SCENARIO 5 - MFA is enabled, enroll is enabled, but user is not enrolled
+### Scenario 5 - MFA is enabled, enroll is enabled, but user is not enrolled
 
 The account has Google Authenticator multifactor authentication enabled for the `client_id` but the user has not yet enrolled.
 
@@ -146,7 +146,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 401
 
@@ -162,7 +162,7 @@ HTTP 401
 }
 ```
 
-### SCENARIO 6 - MFA is enabled but provider is not supported
+### Scenario 6 - MFA is enabled but provider is not supported
 
 The account has Guardian or DUO multifactor authentication enabled for the `client_id`.
 
@@ -181,7 +181,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 400
 
@@ -192,7 +192,7 @@ HTTP 400
 }
 ```
 
-#### SCENARIO 7 - MFA is disabled but `mfa_code` is provided
+### Scenario 7 - MFA is disabled but `mfa_code` is provided
 
 The account does not have multifactor authentication enabled for the `client_id` and the `mfa_code` property is sent in the payload.
 
@@ -212,7 +212,7 @@ Payload:
 }
 ```
 
-#### RESPONSE
+#### Response
 
 HTTP 400
 
