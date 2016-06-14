@@ -16,3 +16,11 @@ changed:
       - delete user
     description: |
       Updated [doc](/user-profile) with sections on how to [impersonate a user](/user-profile#impersonating-a-user), [block/unblock a user](/user-profile#blocking-and-unblocking-a-user), and [delete a user](/user-profile#deleting-a-user).
+  -
+    title: "Updated Custom Extensions doc"
+    tags:
+      - extension
+      - custom
+      - lifecycle
+    description: |
+      Updated [doc](/extensions/custom-extensions) with extension lifecycle information and added new extension repository ([Auth0 Extension with Hooks](https://github.com/auth0/auth0-extension-boilerplate-hooks)).
