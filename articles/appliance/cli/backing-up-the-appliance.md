@@ -9,6 +9,8 @@ Please ensure that:
 2. You have run [mongodump](https://docs.mongodb.com/manual/reference/program/mongodump/) on the specified node to compress it;
 3. The node you are backing up has sufficient disk space (the space available should be at least twice as large as the amount of Auth0 data present).
 
+> Beginning with Appliance update **build 6868**, backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
+
 Please be aware that, throughout this document, the following sample values are used:
 
 * IP address of the node to be backed up: `192.168.1.186`. Generically, the node may also be referred to as `<target node>`.
