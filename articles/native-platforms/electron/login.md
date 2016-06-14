@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Electron 0.36.7
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-electron',
   pkgBranch: 'master',
   pkgPath: null,

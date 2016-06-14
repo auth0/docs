@@ -12,7 +12,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iOS 9.2 - iPhone 6
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',

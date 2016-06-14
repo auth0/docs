@@ -13,7 +13,7 @@ This tutorial and seed project have been tested with the following:
 * ios-sim 5.0.6
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
   pkgPath: 'examples/refresh-token-sample',

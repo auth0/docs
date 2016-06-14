@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 React Native Andro
 
 ## Android React Native Tutorial
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',

@@ -13,7 +13,7 @@ This tutorial and seed project have been tested with the following:
 * Cordova 5.4
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/basic-sample',

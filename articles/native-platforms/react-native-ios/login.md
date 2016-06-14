@@ -12,7 +12,7 @@ This tutorial and seed project have been tested with the following:
 * NodeJS 4.3
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
   pkgPath: 'Classic/Lock',

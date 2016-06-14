@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Phonegap SDK to ad
 
 ## Phonegap Tutorial
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-cordova',
   pkgBranch: 'master',
   pkgPath: 'examples/phonegap-basic-sample',
