@@ -12,7 +12,7 @@ You may manually create users via the Auth0 Management Dashboard.
 4. Provide the following pieces of information for the new user:
     * Email;
     * Password;
-    * Repeat Password [for confirmation];
+    * Repeat Password (for confirmation);
     * Connection.
     When finished, click "Save".
 
