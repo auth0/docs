@@ -47,7 +47,7 @@ function(token, tokenSecret, ctx, callback){
   
   var profile = {
     user_id: '123',
-    goiven_name: 'Eugenio',
+    given_name: 'Eugenio',
     family_name: 'Pace',
     email: 'eugenio@mail.com'
   };

@@ -1,0 +1,14 @@
+title: EmberJS
+alias:
+  - ember
+  - emberjs
+language:
+  - Javascript
+framework:
+  - EmberJS
+image: /media/platforms/emberjs.png
+tags:
+  - quickstart
+seo_alias: emberjs
+articles:
+  - login

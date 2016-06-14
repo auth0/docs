@@ -1,0 +1,17 @@
+title: Node.js API
+thirdParty: false
+alias:
+  - node
+  - nodejs
+  - node.js
+languages:
+  - Javascript
+image: /media/platforms/node.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/nodejs/dependencies
+  setup: server-apis/nodejs/setup
+  use: server-apis/nodejs/use
+articles:
+  - authenticate

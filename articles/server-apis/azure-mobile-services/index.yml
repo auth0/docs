@@ -1,0 +1,16 @@
+title: Azure Mobile Services
+thirdParty: true
+image: /media/platforms/azure.png
+tags:
+  - quickstart
+snippets:
+  use: server-apis/azure-mobile-services/use
+alias:
+  - windows-azure
+  - microsoft-azure
+  - windows-azure-websites
+  - windows-azure-vm
+  - azure-websites
+  - azure-vm
+articles:
+  - authenticate

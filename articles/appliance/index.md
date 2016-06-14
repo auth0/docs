@@ -43,7 +43,7 @@ If the Auth0 appliance does not perform as expected, you will contact Auth0 supp
 
 You will need to set up a Dev/Test non-production infrastructure as well as a production infrastructure. The number of virtual machines required to host the Auth0 Appliance depends on the expected traffic and the desired availability. In some scenarios, a single node is sufficient. For highly available a minimum of three network load balanced appliance instances are deployed for the production infrastructure and a 1 node for the dev/test non-production infrastructure. No special load balancing logic is needed (no sticky sessions).
 
-## For More Information Information:
+## For More Information:
 -  [Appliance Management Dashboard](/appliance/dashboard)
 -  [Node.js modules available in Rules and Custom Database Connections](/appliance/modules)
 -  [Monitoring the Appliance](/appliance/monitoring)

@@ -2,6 +2,7 @@
 order: 05
 title: Regular Web App (using SAML)
 image: /docs/media/articles/architecture-scenarios/web-saml.png
+extract: Traditional web application which needs to authenticate users using SAML2
 ---
 
 # Regular Web App (using SAML)

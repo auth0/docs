@@ -1,0 +1,17 @@
+title: jQuery
+alias:
+  - jquery
+language:
+  - Javascript
+framework:
+  - jQuery
+image: //upload.wikimedia.org/wikipedia/en/9/9e/JQuery_logo.svg
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/jquery/dependencies
+  setup: client-platforms/jquery/setup
+  use: client-platforms/jquery/use
+seo_alias: jquery
+articles:
+  - login

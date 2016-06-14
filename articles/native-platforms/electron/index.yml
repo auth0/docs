@@ -1,0 +1,18 @@
+title: Electron
+language:
+  - Javascript
+framework:
+  - Electron
+hybrid: false
+image:
+tags:
+  - quickstart
+  - electron
+  - atom
+snippets:
+  dependencies: native-platforms/electron/dependencies
+alias:
+  - electron
+seo_alias: electron
+articles:
+  - login

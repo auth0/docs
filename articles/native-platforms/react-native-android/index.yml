@@ -1,0 +1,18 @@
+title: React Native - Android
+alias:
+  - reactnative
+  - react native
+language:
+  - Javascript
+framework:
+  - React Native
+hybrid: true
+image: /media/platforms/react.png
+tags:
+  - quickstart
+snippets:
+  setup: native-platforms/reactnative-android/setup
+  use: native-platforms/reactnative-android/use
+seo_alias: react-native-android
+articles:
+  - login

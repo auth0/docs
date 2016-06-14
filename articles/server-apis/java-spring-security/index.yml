@@ -1,0 +1,20 @@
+title: Spring Security Java API
+thirdParty: false
+alias:
+  - spring security
+  - spring
+languages:
+  - Java
+framework:
+  - Spring
+image: /media/platforms/java.png
+tags:
+  - quickstart
+snippets:
+  configure: server-apis/java-spring-security/configure
+  dependencies: server-apis/java-spring-security/dependencies
+  dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
+  setup: server-apis/java-spring-security/setup
+  use: server-apis/java-spring-security/use
+articles:
+  - authenticate

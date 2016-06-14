@@ -1,0 +1,10 @@
+title: Azure Blob Storage
+thirdParty: true
+alias:
+  - azure blob storage
+  - azblob
+image: /media/platforms/azure.png
+tags:
+  - quickstart
+articles:
+  - authenticate

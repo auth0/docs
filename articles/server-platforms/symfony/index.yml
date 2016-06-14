@@ -1,0 +1,11 @@
+title: PHP (Symfony)
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/symfony/dependencies
+  setup: server-platforms/symfony/setup
+  use: server-platforms/symfony/use
+seo_alias: symfony
+articles:
+  - login

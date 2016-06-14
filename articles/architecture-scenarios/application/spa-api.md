@@ -2,6 +2,7 @@
 order: 01
 title: SPA + API
 image: /docs/media/articles/architecture-scenarios/spa-api.png
+extract: Single Page Web Application “Client” which talks to an API (“Resource Server”). The application will use OpenID Connect with the Implicit Grant Flow to authenticate users with Auth0.
 ---
 
 # SPA + API

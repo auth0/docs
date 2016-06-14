@@ -37,6 +37,15 @@ The Settings page is used to provide the information required to set up the soci
 - __Token URL__: The URL used to exchange the code generated from the information you provide for an access_token;
 - __Scope__: The scope parameters for which you want access rights;
 - __Fetch User Profile Script__: The function that returns the user profile and associated information.
+- __Custom Headers__: An optional JSON object that lets you provide custom headers to be included in the HTTP calls to the provider. Should be in the format of:
+
+```
+    {
+        "Header1" : "Value",
+        "Header2" : "Value"
+        // ...
+    }
+```
 
 After you have provided values for the required fields, click "Save" to persist your changes.
 
@@ -57,3 +66,22 @@ A direct link would look like:
     https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION
 
 Note that Lock will not automatically show a button for the custom connection. If you want to add a button, see [this instructions](libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript).
+
+## Optional: Setting up Basic Authentication
+By default, when invoking the __Token URL__ to exchange the authentication code for an access_token, Auth0 will provide the client ID and client secret as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header. 
+
+If the identity provider requires Basic Authentication you can be use the __Custom Headers__ setting with a JSON object like this:
+
+```
+{
+    "Authorization" : "Basic xxxxxxxx"
+}
+```
+
+`xxxxxxxx` should be the [Base64](https://en.wikipedia.org/wiki/Base64) encoding of the client id, a colon, and the client secret. So, for example, if the client id is `123456` and the client secret is `abcdef` you would Base64 encode `123456:abcdef`, which results in `MTIzNDU2OmFiY2RlZg==`. Thus the resulting header would be:
+
+```
+{
+    "Authorization" : "Basic MTIzNDU2OmFiY2RlZg=="
+}
+```

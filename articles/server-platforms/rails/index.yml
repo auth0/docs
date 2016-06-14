@@ -1,0 +1,15 @@
+title: Ruby On Rails
+image: /media/platforms/rails.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/rails/dependencies
+  setup: server-platforms/rails/setup
+  use: server-platforms/rails/use
+alias:
+  - ruby-rails
+  - sinatra
+  - omniauth
+seo_alias: rails
+articles:
+  - login

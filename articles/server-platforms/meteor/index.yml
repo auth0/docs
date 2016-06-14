@@ -1,0 +1,17 @@
+title: Meteor
+alias:
+  - Meteor
+language:
+  - Javascript
+framework:
+  - Meteor
+image: /media/platforms/meteor.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/meteor/dependencies
+  setup: server-platforms/meteor/setup
+  use: server-platforms/meteor/use
+seo_alias: meteor
+articles:
+  - login

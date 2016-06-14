@@ -2,6 +2,7 @@
 order: 04
 title: B2B + B2E
 image: /docs/media/articles/architecture-scenarios/b2b-b2e.png
+extract: This is essentially a hybrid between B2B and B2E where you have a larger SAAS application, like Zendesk for example, where users are grouped into companies. 
 ---
 
 # B2B + B2E

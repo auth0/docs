@@ -1,0 +1,18 @@
+added:
+  -
+    title: "New doc on User Impersonation"
+    tags:
+      - impersonation
+    description: |
+      A [new document](/user-profile/user-impersonation) was added on how to impersonate users.
+changed:
+  -
+    title: "Updated User Profile doc"
+    tags:
+      - user profile
+      - impersonation
+      - block user
+      - unblock user
+      - delete user
+    description: |
+      Updated [doc](/user-profile) with sections on how to [impersonate a user](/user-profile#impersonating-a-user), [block/unblock a user](/user-profile#blocking-and-unblocking-a-user), and [delete a user](/user-profile#deleting-a-user).

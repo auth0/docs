@@ -1,0 +1,14 @@
+title: EmberJS 2
+alias:
+  - ember 2
+  - emberjs 2
+language:
+  - Javascript
+framework:
+  - EmberJS 2
+image: /media/platforms/emberjs.png
+tags:
+  - quickstart
+seo_alias: ember2js
+articles:
+  - login

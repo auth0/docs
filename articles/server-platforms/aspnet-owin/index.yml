@@ -1,0 +1,14 @@
+title: ASP.NET (OWIN)
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/aspnet-owin/dependencies
+  setup: server-platforms/aspnet-owin/setup
+  use: server-platforms/aspnet-owin/use
+alias:
+  - aspnetowin
+  - owin
+seo_alias: aspnet-owin
+articles:
+  - login

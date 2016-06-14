@@ -1,0 +1,17 @@
+title: PHP (Symfony) API
+thirdParty: false
+alias:
+  - symfony
+languages:
+  - PHP
+framework:
+  - Symfony
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/php-symfony/dependencies
+  setup: server-apis/php-symfony/setup
+  use: server-apis/php-symfony/use
+articles:
+  - authenticate

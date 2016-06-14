@@ -1,37 +1,52 @@
-# Invite-only applications
+---
+description: This scenario demonstrates an invite-only sign-up implementation using the Auth0 API to customize the process and the email flow.
+---
 
-Self-service provisioning is a common concept for SaaS applications, where users can register and pay after which they can start using the application. Other types of applications might not allow single users to register for an application. Instead, the customers might be organizations that pay upfront for a number of users and only want those users to access your application. Think about platforms like Google Apps and Office 365.
+# Invite-only Applications
 
-And this is where an invite-only workflow can be used. Let’s take a look at a fictitious application, Analystick, which is a multi-tenant SaaS solution offering analytics in the cloud. Their customers will send them a list of users (given name, family name and email address) that can access the application.
+Self-service provisioning is a common concept for SaaS applications. Users can register and pay and then begin using the application. 
 
-As always, this is simply one way to solve it. Another option to achieve this is by using an Enterprise Connection, where you can federate with your customer using ADFS/SAML-P/… allowing them to authenticate using their own Active Directory (in which they could then specify who can access the application).
+Other types of applications (such as Google Apps and Office 365) may not allow single users to register for an application. Instead, customers may be organizations that pay upfront for a number of users and only want to allow those users access to your application. In these cases, an invite-only workflow can be used. 
 
-Here's how we're going to setup the invite only flow. The tenant admnistrator will be able to create new users in his subscription from within the application (1). The application will call the Auth0 API to create the new users in a database connection (2) and will send out activation emails for all users (3). When a user clicks the activation link he'll be redirected to Auth0 (4) where his email address will be set to validated. After validation Auth0 will redirect the user to the application and be presented with a password reset form (5). Finally the application will update the user's password in Auth0 after which the user will be able to authenticate.
+## Analystick scenario
+
+Analystick is a multi-tenant SaaS solution offering analytics in the cloud. Their customers send them a list of users (with their given name, family name and email address) that can access the application.
+
+This functionality can be achieved using an Enterprise Connection where you federate with your customer using ADFS/SAML-P/…. This will allow your customer to authenticate users with their own Active Directory which specifies who is to be given access to the application.
+
+The invite-only flow will be setup as follows: 
+
+1. The tenant admnistrator will create new users in his subscription from within the application. 
+2. The application will call the Auth0 API to create these new users in a database connection. 
+3. The application will send out activation emails to these users. 
+4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated. 
+5. After validation, Auth0 will redirect users to the application where they will be presented with a password reset form. 
+6. The application will update each user's password in Auth0, after which they will be able to authenticate.
 
 ![](/media/articles/invite-only/invite-only-overview.png)
 
-## Setup
+### Setup
 
-The users will be stored in a database and this is why we’ll need to make sure that we have a database connection available. We’ll only need a single database because Analystick will sign up users of Contoso, Fabrikam and other companies with their corporate email address (making users unique for each customer).
+Users can be stored in a single database because Analystick will be signing up users from Contoso, Fabrikam and other companies with their corporate email addresses, making users unique for each customer.
 
 ![](/media/articles/invite-only/invite-only-connections.png)
 
-To prevent users from signing up you'll need to activate the "Disable Sign Ups" option on the connection to make sure users can only be created from your backend.
+To prevent users from signing up, select the **Disable Sign Ups** option on the connection to make sure users can only be created on the backend.
 
-The Analystick application is an ASP.NET MVC web application hosted on http://localhost:45000/, so we’ll need to make sure we create an application in the dashboard with the right parameters:
+The Analystick application is an ASP.NET MVC web application hosted on `http://localhost:45000/`. You will need to create an application in the dashboard with the correct parameters:
 
  - **Name**: give your application a clear name as this will be used in the emails being sent out during the invite-only workflow
- - **Allowed Callback URLs**: this should be the url of your application followed with /signin-auth0 (a requirement of the Auth0.Owin NuGet package for .NET)
+ - **Allowed Callback URLs**: this should be the url of your application followed with `/signin-auth0` (a requirement of the Auth0.Owin NuGet package for .NET)
 
 ![](/media/articles/invite-only/invite-only-app.png)
 
-## User Management
+### User Management
 
-The team at Analystick then decided to build a simple user interface in their admin backend allowing the import of users. This UI could potentially allow the upload of CSV, XML, JSON … files but for simplicity we’ll stick to a page that allows you to create up to 5 users.
+Analystick has built a simple user interface in their admin backend to allow the import of up to 5 users.
 
 ![](/media/articles/invite-only/invite-only-new.png)
 
-This admin interface simply uses the Auth0 SDK for .NET to communicate with the Auth0 API:
+This admin interface uses the Auth0 SDK for .NET to communicate with the Auth0 API:
 
 ```
 public class UsersController : Controller
@@ -114,23 +129,27 @@ public class UsersController : Controller
 }
 ```
 
-If you take a closer look at the code you’ll see that the CreateUser method is called to create the user in the database connection. This method is being called with 4 parameters:
+The `CreateUser` method is called to create the user in the database connection. This method is called with 5 parameters:
 
  1. The user’s email address
- 2. The user’s password (we’re generating a new Guid to assign a random password to the user)
- 3. The name of the connection in which we want to create the user
- 4. The email verified parameter (we're setting this to false because we need the user to click the activation link).
- 5. A metadata object containing the given name and family name of the user, together with an activation pending setting (which we’ll use later to validate the user).
+ 2. The user’s password (a new Guid is assigned as a random password to the user)
+ 3. The name of the connection in which to create the user
+ 4. The email verified parameter (set to false prior to the user clicking the activation link).
+ 5. A metadata object containing the given name and family name of the user, and an activation pending setting (used later to validate the user).
 
-## Emails ##
+### Emails
 
-Once the user is created we'll need to send out the email verification email. The most important part here is generating the email verification url. Our goal is to send the user to the password reset form in the application (/Activate/Account), but we need a secure way to identify the user. This is why we're generating a token that identifies the user (we use a JWT token for that) and append this to the account activation url. Finally we're calling the ```GenerateVerificationTicket``` method on the SDK to generate the Auth0 verification url and we set the return url to the url of our password reset form (with token).
+Once the user is created, you will need to send the verification email. The email will contain a link to the account activation URL of the application (/activate/account) that contains the password reset form. To securely identify the user, a JWT token is appended to the URL. 
 
-Since we don’t want the default emails to be sent out we’ll need to go to the dashboard and disable the **Verification Email** and **Welcome Email**.
+To generate the `verificationUrl`, call the `GenerateVerificationTicket` method on the SDK, set the return URL to that of the password reset form, and append the token.
+
+**NOTE:** Since you do not want the default emails to be sent, you must disable the **Verification Email** and **Welcome Email** in the Auth0 dashboard.
 
 ![](/media/articles/invite-only/invite-only-disable-email.png)
 
-Since our backend will be sending out the email we’ll need access to an SMTP server. For testing purposes we’re using Mailtrap, but any SMTP server will do. After signing up we’re adding the SMTP settings to the web.config:
+The backend will be sending out the email, so you will need to access an SMTP server. This example uses Mailtrap, but any SMTP server will do. 
+
+After signing up with an email server, add these SMTP settings to the `web.config`:
 
 ```xml
   <system.net>
@@ -142,21 +161,25 @@ Since our backend will be sending out the email we’ll need access to an SMTP s
   </system.net>
 ```
 
-And that's it for the user provisioning. If we go back to the user overview we can start importing a few users.
+That is all that is required for user provisioning. 
+
+Now go back to the user overview to start importing users.
 
 ![](/media/articles/invite-only/invite-only-users.png)
 
-Each user will now also have received an email welcoming them and giving them a chance to activate their account.
+Each user will receive a welcome email containing a link to activate their account.
 
 ![](/media/articles/invite-only/invite-only-activation-mail.png)
 
-## User Activation ##
+### User Activation
 
-The link in our email template will redirect to Auth0 for email verification, after which Auth0 will redirect the user to the password reset form in the application (see how the user token is added to the url).
+The link in the email template redirects to Auth0 for email verification. 
+
+After successful verification, Auth0 will redirect the user to the password reset form of the application with the user token included in the URL.
 
 ![](/media/articles/invite-only/invite-only-activation.png)
 
-Once the user entered his password we'll verify that the account hasn't been updated yet, we'll update the user's password and mark him as active (```activation_pending = false```).
+Once the user has entered their password, you should verify that the account has not been updated yet, update the user's password, and mark the user as active (`activation_pending = false`).
 
 ```cs
 /// <summary>
@@ -215,9 +238,11 @@ public ActionResult Activate(UserActivationModel model)
 }
 ```
 
-Note that we always validate the token first before proceeding, to make sure we’re making the change for the right person.
+**NOTE:** Always validate the token first to be sure you are updating the correct user.
 
-As a final step we're showing a confirmation page where the user can click a link to sign in. One last customization we want to apply is the rendering of the Lock. Since we don’t want users to sign up we’re going to hide the Sign Up button (which is visible by default):
+Next, display a confirmation page where the user can click a link to sign in. 
+
+You can customize the rendering of Lock. Since you don’t want users to sign up, hide the Sign Up button which is visible by default:
 
 ```javascript
 var lock = new Auth0Lock('@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]', '@System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]');
@@ -232,9 +257,9 @@ function showLock() {
 
 ![](/media/articles/invite-only/invite-only-login.png)
 
-As a final step we’re also enforcing the user activation. When we configure Auth0 at application startup we can intercept every login, allowing us to modify the user’s identity before handing it over to the OWIN pipeline.
+As a final step, you can enforce user activation by configuring Auth0 at application startup to intercept every login. This allows you to modify a user’s identity before handing it over to the OWIN pipeline.
 
-In this example we’re checking if a user is active, and if that’s the case we’ll add the "Member" role to the user:
+This example checks if a user is active, and if so, adds the **Member** role to the user:
 
 ```cs
 public partial class Startup
@@ -273,7 +298,7 @@ public partial class Startup
 }
 ```
 
-And now we can protect our pages which should only be accessible to users by enforcing the presence of a Member claim:
+Now you can ensure that these pages will only be accessible to users by enforcing the presence of a **Member** claim:
 
 ```cs
 [Authorize(Roles = "Member")]
@@ -286,10 +311,12 @@ public class ProfileController : Controller
 }
 ```
 
-## Summary ##
-
-Once the user has gone through the whole flow he'll be able to access the member-only pages.
+Once users have completed the entire flow, they will be able to access the member-only pages.
 
 ![](/media/articles/invite-only/invite-only-profile.png)
 
-This scenario covered how to implement an invite-only flow by using Auth0 API to completely customize the signup process and the email flow. For more information about the API you can use the [API Explorer](/api/v2) to try the different endpoints.
+### Summary
+
+This scenario has demonstrated an invite-only sign-up implementation using the Auth0 API to customize the sign-up process and the email flow. 
+
+For more information about the API, see the [API Explorer](/api/v2) to try the various endpoints.

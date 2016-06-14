@@ -1,0 +1,18 @@
+title: PHP (Laravel) API
+thirdParty: false
+alias:
+  - laravel
+languages:
+  - PHP
+framework:
+  - Laravel
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/php-laravel/dependencies
+  setup: server-apis/php-laravel/setup
+  use: server-apis/php-laravel/use
+  request: server-apis/php-laravel/request
+articles:
+  - authenticate

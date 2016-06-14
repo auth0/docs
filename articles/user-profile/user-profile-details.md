@@ -11,7 +11,7 @@ The Auth0 **User Profile** is a set of attributes about a user, such as first na
 - [API Access to User Profiles](#api-access-to-user-profiles)
 - [User Profile vs Tokens](#user-profile-vs-tokens)
 - [Modification of User Profiles](#modification-of-user-profiles)
-- [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-adldap-connector)
+- [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-ad-ldap-connector)
 - [Mapping User Profile Attributes in SAML Assertions](#mapping-user-profile-attributes-in-saml-assertions)
 - [User Profile with Account Linking](#user-profile-with-account-linking)
 
@@ -23,7 +23,7 @@ Other types of authentication services include custom databases, web services, a
 
 ## Normalized User Profile
 
-Auth0 supports a wide variety of Connections. Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the Normalized User Profile.
+Auth0 supports [a wide variety of Connections](/identityproviders). Each connection may return a different set of attributes about the user, and each provider may use different names for the same attribute, such as *surname*, *last name* and *family name*. To handle the increased complexity this presents, Auth0 provides a [Normalized User Profile](/user-profile/normalized). Auth0 will return a basic set of information using specific attribute names so programs can rely on using those exact names to retrieve information such as `user_id`, `name`, `nickname`, and `picture`. If available, additional attributes such as `given_name` and `family_name` are also included in the [Normalized User Profile](/user-profile/normalized).
 
 ## Caching of the User Profile in Auth0
 
@@ -39,7 +39,7 @@ There are several components to the User Profile data structure in Auth0. This s
 
 "Details" consists of core User Profile object with basic information such as name, email, and the timestamp of the latest login. The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.
 
-The User Profile object then has two **metadata** sub-objects, one called `user_metadata` and the other `app_metadata`. The metadata objects can be used to store additional User Profile information. The `user_metadata` object should be used to store user attributes, such as user preferences, that don't impact what a user can access. The `app_metadata` object should be used for user attributes, such as a support plan, security roles, or access control groups, which can impact how an application functions and/or what the user can access.
+The User Profile object then has two **metadata** sub-objects, one called `user_metadata` and the other `app_metadata`. The metadata objects can be used to store additional User Profile information. The `user_metadata` object should be used to store user attributes, such as user preferences, that don't impact what a user can access. The `app_metadata` object should be used for user attributes, such as a support plan, security roles, or access control groups, which can impact how an application functions and/or what the user can access. [Learn more](/api/management/v2/changes#8) about when to use `app_metadata` vs `user_metadata`.
 
 ::: panel-info Metadata Data Limits
 Both `app_metadata` and `user_metadata` are limited to a size of 16mb each. However, we recommend against using these properties like a database. They should be used for identity related information. Additionally, at some point we may put a more strict size limit on these properties.
@@ -52,9 +52,9 @@ Please note that an authenticated user can modify data in their profile's `user_
 
 > Use a consistent datatype each time you create or update a given metadata field. Using `user.user_metadata.age = "23"` for one user and `user.user_metadata.age = 23` for another user will cause issues when retrieving the data.
 
-Lastly, there is a section called `Identity Provider Attributes`. This section will always contain at least one identity provider, and it is the one the user originally authenticated against.
+Lastly, there is a section called `Identity Provider Attributes`. Here you will find all the information retrieved from the authentication provider (e.g. Facebook, Twitter, Google, SAML, your own provider, etc.). This section will always contain at least one identity provider, and it is the one the user originally authenticated against. This data is read-only.
 
-However, Auth0 supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
+Auth0 also supports the ability for users to [link their profile to multiple identity providers](/link-accounts), and when they do, those additional identities show up in this array. The contents of an individual identity provider object varies by provider, but it will typically include a user identifier, the name of the provider, the name of the connection set up in Auth0 for that provider, whether it is a social provider, and in some cases an API access token that can be used with that provider.
 
 ## Storing Custom Profile Data
 
@@ -116,10 +116,16 @@ In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT
 
 The Auth0 API provides access to read, update, and delete User Profiles stored in the Auth0 database.
 
+> You can setup Access Control List (ACL)/Roles functionality by adding custom attributes to the user profile. We actually have a [sample](https://github.com/auth0-samples/auth0-roles-permissions-dashboard-sample), that you can use a guide.
+
 #### Limitations
 As with the dashboard, the API does not alter data sourced from Connections such as Facebook or Active Directory.
 
-Not all User Profile attributes can be altered via the API. For example, the identities array, which contains information from 3rd party authentication providers, cannot be altered. Another example is that the password can be set via the create or update call, but for security purposes, it cannot be viewed via the get or list user commands. The right side of the API explorer provides hints on the User Profile attributes which can be viewed or modified for any given call.
+Not all User Profile attributes can be altered via the API. For example, the identities array, which contains information from 3rd party authentication providers, cannot be altered.
+
+> You may not be able to alter the identities array information, but there are some workarounds you could use. For example, let's say you want to modify the picture that is coming from the user's Facebook profile. You cannot change the attribute in the `Identity Provider Attributes` section, so instead you need to set the `picture` attribute in the `user_metadata` property and then in your application you could use `${'<%= user.user_metadata.picture || user.picture %>'}`. This code snippet tries to use the `picture` property from `user_metadata` and if it doesn't exist it uses the default (`user.picture`). You could set this as the `src` of the image to display.
+
+Another example is that the password can be set via the create or update call, but for security purposes, it cannot be viewed via the get or list user commands. The right side of the API explorer provides hints on the User Profile attributes which can be viewed or modified for any given call.
 
 The [`/users`](/api/v2#!/Users/get_users) endpoint is used to retrieve information about all users. You may provide search criteria to find specific user(s).
 

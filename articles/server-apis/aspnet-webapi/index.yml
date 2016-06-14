@@ -1,0 +1,20 @@
+title: ASP.NET Web API
+alias:
+  - webapi
+  - asp.net webapi
+  - aspnet webapi
+language:
+  - Visual Basic .Net
+  - C#
+framework:
+  - WebAPI
+thirdParty: false
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/aspnet-webapi/dependencies
+  setup: server-apis/aspnet-webapi/setup
+  use: server-apis/aspnet-webapi/use
+articles:
+  - authenticate

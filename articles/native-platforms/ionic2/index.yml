@@ -1,0 +1,26 @@
+title: Ionic 2
+alias:
+  - ionic2
+language:
+  - Typescript
+framework:
+  - Ionic2
+  - Angular2
+  - Cordova
+hybrid: true
+image: /media/platforms/ionic.jpeg
+tags:
+  - quickstart
+snippets:
+  configure: native-platforms/ionic2/configure
+  configurerefresh: native-platforms/ionic2/configurerefresh
+  dependencies: native-platforms/ionic2/dependencies
+  http: native-platforms/ionic2/http
+  profile: native-platforms/ionic2/profile
+  profiletemplate: native-platforms/ionic2/profiletemplate
+  refresh: native-platforms/ionic2/refresh
+  setup: native-platforms/ionic2/setup
+  use: native-platforms/ionic2/use
+seo_alias: ionic2
+articles:
+  - login
