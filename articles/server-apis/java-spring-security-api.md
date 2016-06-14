@@ -16,6 +16,7 @@ tags:
 snippets:
   configure: server-apis/java-spring-security-api/configure
   dependencies: server-apis/java-spring-security-api/dependencies
+  dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security-api/setup
   use: server-apis/java-spring-security-api/use
 ---
