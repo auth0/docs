@@ -110,7 +110,7 @@ Here is a recommended login setup using Lock:
   <div class="container">
     <script type="text/javascript">
       $(function () {
-        var error = ${error};
+        var error = $(error};
         if (error) {
           $.growl.error({message: "An error was detected. Please log in"});
         } else {
@@ -119,17 +119,17 @@ Here is a recommended login setup using Lock:
       });
       
       $(function () {
-        var lock = new Auth0Lock('${clientId}', '${domain}');
+        var lock = new Auth0Lock('$(clientId}', '$(domain}');
         lock.showSignin({
           authParams: {
-            state: '${state}',
+            state: '$(state}',
             // change scopes to whatever you like
             // claims are added to JWT id_token - openid profile gives everything
             scope: 'openid user_id name nickname email picture'
           },
           responseType: 'code',
           popup: false,
-          callbackURL: '${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}${loginCallback}'
+          callbackURL: '$(fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}$(loginCallback}'
         });
       });
     </script>
