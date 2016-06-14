@@ -39,6 +39,8 @@ This tutorial and seed project have been tested with the following:
 
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
+${snippet(meta.snippets.dependencies)}
+
 See the sample project to understand the proposed overall structure of your pom.xml
 
 ```xml
@@ -67,6 +69,8 @@ See the sample project to understand the proposed overall structure of your pom.
 We need to configure `auth0-servlet` to use our Auth0 credentials. For that, just edit
 src/main/webapp/WEB-INF/web.xml
 
+${snippet(meta.snippets.setup)}
+
 Please take a look at the sample that accompanies this library for an easy seed project to see this working.
 
 Here is a breakdown of attributes and what they do:
@@ -86,6 +90,8 @@ We need to add the handler for the Auth0 callback so that we can authenticate th
 based on the configuration you setup in `web.xml`. However, for more fine-grained control, it is easy to inherit the
 library version of Auth0CallbackHandler and override methods to tailor behaviour according to need. Please see the
 library github README for details.
+
+${snippet(meta.snippets.use)}
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
