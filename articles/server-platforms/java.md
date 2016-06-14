@@ -122,7 +122,8 @@ You have configured your Java Webapp to use Auth0. Congrats, you're awesome!
 
 #### Checking if the user is authenticated
 
-You can add a `Filter` to check if the user is authenticated and redirect him to the login page if he's not. For that, we need to configure it in the `web.xml`
+You can add a `Filter` to check if the user is authenticated. In case the user is not then redirect to the login page.
+For that, we need to configure it in the `web.xml`
 
 ```xml
 <filter>
