@@ -8,6 +8,7 @@ This document covers factors Auth0 Appliance administrators should be aware of w
 
 * [Managing the Dashboard](/appliance/admin/managing-the-dashboard);
 * [Disabling Sign-ups](/appliance/admin/disabling-sign-ups);
+* [Inviting/Adding Co-Administrators]((/appliance/admin/inviting-codadmins)
 * [Backing up the Appliance Instances](/appliance/admin/backing-up-the-appliance-instances);
 * [Monitoring & Performing Health Checks on Load Balancers](/appliance/admin/monitoring);
 * [Limiting SSH Access](/appliance/admin/limiting-ssh-access);

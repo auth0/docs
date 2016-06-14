@@ -1,0 +1,15 @@
+added:
+  -
+    title: "Appliance Administration: Inviting Co-Administrators"
+    tags:
+      - appliance
+      - administration
+    description: |
+      Added [doc](/appliance/admin/inviting-coadmins) on inviting new co-administrators to Appliance instances
+  -
+    title: "Creating Users via the Management Dashboard"
+    tags:
+      - users
+      - administration
+    description: |
+      Added [doc](/creating-users) on how to create new users in the Management Dashboard
