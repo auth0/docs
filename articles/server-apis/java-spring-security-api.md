@@ -33,6 +33,14 @@ This tutorial and seed project have been tested with the following:
 * Spring Security 4.0.1
 :::
 
+<%= include('../_includes/_package', {
+  pkgRepo: 'auth0-spring-security-api',
+  pkgBranch: 'master',
+  pkgPath: 'examples/auth0-spring-security-api-sample',
+  pkgFilePath: 'examples/auth0-spring-security-api-sample/src/main/resources/auth0.properties',
+  pkgType: 'replace'
+}) %>
+
 **If you have an existing application, please follow the steps below.**
 
 ### 1. Add Auth0 Spring Security API dependency
