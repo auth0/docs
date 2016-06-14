@@ -126,9 +126,9 @@ We need to configure `auth0-spring-mvc` to use our Auth0 credentials. For that, 
 Place this under `src/main/resources`. Set the following settings:
 
 ```
-auth0.domain: {your domain}
-auth0.clientId: {your client id}
-auth0.clientSecret: {your secret}
+auth0.domain: ${account.namespace}
+auth0.clientId: ${account.clientId}
+auth0.clientSecret: ${account.clientSecret}
 auth0.onLogoutRedirectTo: /login
 auth0.securedRoute: /portal/*
 auth0.loginCallback: /callback
@@ -160,16 +160,76 @@ Simply define a new Controller, configure it to use the `auth0.loginCallback` en
 
 Example usage - Simply extend this class and define Controller in subclass.
 
-```
-dummy-2
+```java
+package com.auth0.example;
+
+import com.auth0.web.Auth0CallbackHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Controller
+public class CallbackController extends Auth0CallbackHandler {
+  @RequestMapping(value = "${account.callback}", method = RequestMethod.GET)
+  protected void callback(final HttpServletRequest req, final HttpServletResponse res)
+  throws ServletException, IOException {
+    super.handle(req, res);
+  }
+}
 ```
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
 Here is a recommended login setup using Lock:
 
-```
-dummy
+```html
+${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
+  <script src="/js/jquery.growl.js" type="text/javascript"></script>
+</head>
+<body>
+  <div class="container">
+    <script type="text/javascript">
+      $(function () {
+        var error = {error};
+        if (error) {
+          $.growl.error({message: "An error was detected. Please log in"});
+        } else {
+          $.growl({title: "Welcome!", message: "Please log in"});
+        }
+      });
+
+      $(function () {
+        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+        lock.showSignin({
+          authParams: {
+            state: {state},
+            // change scopes to whatever you like
+            // claims are added to JWT id_token - openid profile gives everything
+            scope: 'openid user_id name nickname email picture'
+          },
+          responseType: 'code',
+          popup: false,
+          callbackURL: '${account.callback}'
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
 ```
 
 By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F` where `xyz`
@@ -187,7 +247,7 @@ The full user profile information is available as a session object keyed on 'Aut
 SessionUtils.getAuth0User() - however, because the authenticated user is also a java.security.Principal object we can
 inject it into the Controller automatically for secured endpoints.
 
-```
+```java
    @RequestMapping(value="/portal/home", method = RequestMethod.GET)
    protected String home(final Map<String, Object> model, final Principal principal) {
        logger.info("Home page");

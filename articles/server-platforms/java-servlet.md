@@ -144,14 +144,14 @@ is a randomly generated UUID.
 
 The NonceFactory can be used to generate such a nonce value. State may be needed to hold other attribute values hence why it has its
 own keyed value of `nonce=B4AD596E418F7CE02A703B42F60BAD8F`. For instance in SSO you may need an `externalCallbackUrl` which also needs
-to be stored down in the state param - `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback``
+to be stored down in the state param - `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback`.
 
 
 ### 5. Accessing user information
 
 Depending on what `scopes` you specified upon login, some user information may be available in the `id_token` received.
 The full user profile information is available as a session object keyed on 'Auth0User' - you can simply calling
-SessionUtils.getAuth0User() - however, because the authenticated user is also a java.security.Principal object we can
+`SessionUtils.getAuth0User()` - however, because the authenticated user is also a java.security.Principal object we can
 inject it into the Controller automatically for secured endpoints.
 
 ### 6. You're done!
