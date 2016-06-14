@@ -111,7 +111,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
   <div class="container">
     <script type="text/javascript">
       $(function () {
-        var error = {error};
+        var error = $(error);
         if (error) {
           $.growl.error({message: "An error was detected. Please log in"});
         } else {
@@ -123,7 +123,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
         var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
         lock.showSignin({
           authParams: {
-            state: {state},
+            state: $(state),
             // change scopes to whatever you like
             // claims are added to JWT id_token - openid profile gives everything
             scope: 'openid user_id name nickname email picture'
