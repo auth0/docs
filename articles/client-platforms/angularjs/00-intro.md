@@ -4,11 +4,11 @@ title: Introduction
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.
 
-Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular). This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) and Auth0.js(https://github.com/auth0/auth0.js) which makes it easy to use any of them. It uses which ever is included in your project or Lock if both are included. It is also important to keep in mind before we get down to business that Auth0 supports authentication in both redirect and pop-up modes. It is important because SPAs do not retain states after a page reloads (as well as redirect) but the SDK makes tackling this situation simple as you will see soon.
+Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular). This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) and [Auth0.js](https://github.com/auth0/auth0.js) which makes it easy to use any of them. It uses which ever is included in your project or Lock if both are included. It is also important to keep in mind before we get down to business that Auth0 supports authentication in both redirect and pop-up modes. It is important because SPAs do not retain states after a page reloads (as well as redirect) but the SDK makes tackling this situation simple as you will see soon.
 
-## Seed & Samples
+## Seed &amp; Samples
 
-There are two options to following along these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter Seed) or the samples. The seed is a regular angular app with nothing on Auth0 in it except for the dependencies included in the HTML. It just serves as a starting point as well building blocks for this quickstart. The samples are included in each step and contains the example for each of the step.
+There are two options to following along these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter-Seed) or the samples. The seed is a regular angular app with nothing on Auth0 in it except for the dependencies included in the HTML. It just serves as a starting point as well building blocks for this quickstart. The samples are included in each step and contains the example for each of the step.
 
 ## Prerequisites
 Before we embark on this journey of ours, it is important to setup our application buy following these process:

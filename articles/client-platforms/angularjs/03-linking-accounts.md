@@ -8,7 +8,7 @@ title: Linking Accounts
 
 In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can link urge the user to link there account to an OAuth provider like Facebook or Google. You will see how you can, with the minimal lines of codes and the help of the SDK link and un-link user accounts.
 
-[IMAGE OR GIF OF DEMO]
+<!-- TODO: IMAGE OR GIF OF DEMO -->
 
 ## Linking Accounts
 
@@ -96,7 +96,7 @@ User's profile contains an array of identities which is made of profile informat
 
 You can also see from the user's dashboard all the associated (linked) accounts:
 
-[IMAGE OF USER DASHBOARD HIGHLIGHTING ASSOCIATED ACCOUNTS]
+<!-- TODO: IMAGE OF USER DASHBOARD HIGHLIGHTING ASSOCIATED ACCOUNTS -->
 
 ## Retrieving Linked Account Profiles
 
