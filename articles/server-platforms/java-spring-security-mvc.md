@@ -26,13 +26,7 @@ This tutorial and seed project have been tested with the following:
 * Maven 3.3
 :::
 
-<%= include('../_includes/_package', {
-  pkgRepo: 'auth0-spring-security-mvc',
-  pkgBranch: 'master',
-  pkgPath: 'examples/auth0-spring-security-mvc-sample',
-  pkgFilePath: 'examples/auth0-spring-security-mvc-sample/src/main/resources/auth0.properties',
-  pkgType: 'replace'
-}) %>
+You can download a sample project [here](https://github.com/auth0-samples/auth0-spring-security-mvc-sample).
 
 **If you have an existing Java Spring Web App, please follow the steps below.**
 

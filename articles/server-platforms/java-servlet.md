@@ -25,15 +25,9 @@ This tutorial and seed project have been tested with the following:
 * Maven 3.3
 :::
 
-<%= include('../_includes/_package', {
-  pkgRepo: 'auth0-servlet',
-  pkgBranch: 'master',
-  pkgPath: 'examples/auth0-servlet-sample',
-  pkgFilePath: 'examples/auth0-servlet-sample/src/main/webapp/WEB-INF/web.xml',
-  pkgType: 'replace'
-}) %>
+You can download a sample project [here](https://github.com/auth0-samples/auth0-servlet-sample).
 
-**If you have an existing Java Servlet Web App, please follow the steps below.**
+If you have an existing Java Servlet Web App, please follow the steps below.
 
 ### 1. Add Auth0 dependencies
 
