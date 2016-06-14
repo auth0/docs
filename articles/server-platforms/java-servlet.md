@@ -95,7 +95,6 @@ ${snippet(meta.snippets.use)}
 Here is a recommended login setup using Lock:
 
 ```javascript
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
