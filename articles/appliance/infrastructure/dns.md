@@ -59,6 +59,8 @@ In a standard multi-node cluster deployment, the DNS records will point to the I
 
 For a single-node Appliance instance, the DNS record(s) will point to the IP address of the virtual machine itself (this is often the case for the development/test node).
 
+> Auth0 does not recommend using the same wildcard certificate(s) for Production **and** non-Production (Test/Development) environments **or** mapping the DNS for both environments to the same servers.
+
 #### Hostnames
 
 The hostname (e.g. **manage-project**.yourdomain.com) must be at least three characters long and must **not** contain any underscores(_).
