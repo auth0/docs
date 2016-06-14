@@ -6,11 +6,11 @@ You can customize the translation of the following Lock password features in you
 * Password History
 * Change Password widget
 
-To customize any of these features, you must include the most recent version of the change password widget library:
+To customize any of these features, you must include version 1.1 or higher of the Change Password widget library:
 
 `<script src="https://cdn.auth0.com/js/change-password-1.1.min.js"></script>`
 
-To translate the text any of the Lock password features, include the following code, replacing all strings with text in the desired language:
+To translate the text of each of the Lock password features, include the following code, replacing all strings with text in the desired language:
 
 ### Password Strength
 
