@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/scala/use
 seo_alias: scala
 articles:
-  - login
+  - 01-login

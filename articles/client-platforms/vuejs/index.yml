@@ -20,4 +20,4 @@ alias:
   - vuejs
 seo_alias: vuejs
 articles:
-  - login
+  - 01-login

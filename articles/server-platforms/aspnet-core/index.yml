@@ -8,4 +8,4 @@ alias:
   - aspnetcore
 seo_alias: aspnet-core
 articles:
-  - login
+  - 01-login

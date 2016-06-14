@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/php/use
 seo_alias: php
 articles:
-  - login
+  - 01-login

@@ -23,4 +23,4 @@ snippets:
   use: native-platforms/ionic2/use
 seo_alias: ionic2
 articles:
-  - login
+  - 01-login

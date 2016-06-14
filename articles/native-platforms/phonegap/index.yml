@@ -15,4 +15,4 @@ snippets:
   use: native-platforms/jquery/use
 seo_alias: phonegap
 articles:
-  - login
+  - 01-login

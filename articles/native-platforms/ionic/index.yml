@@ -16,4 +16,4 @@ snippets:
   use: native-platforms/ionic/use
 seo_alias: ionic
 articles:
-  - login
+  - 01-login

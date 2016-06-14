@@ -13,4 +13,4 @@ snippets:
   use: native-platforms/xamarin/use
 seo_alias: xamarin
 articles:
-  - login
+  - 01-login

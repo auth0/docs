@@ -7,4 +7,4 @@ snippets:
   use: server-platforms/asp-classic/use
 seo_alias: asp-classic
 articles:
-  - login
+  - 01-login

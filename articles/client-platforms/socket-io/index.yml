@@ -14,4 +14,4 @@ snippets:
   use: client-platforms/socket-io/use
 seo_alias: socket-io
 articles:
-  - login
+  - 01-login

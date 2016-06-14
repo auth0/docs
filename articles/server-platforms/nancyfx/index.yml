@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/nancyfx/use
 seo_alias: nancyfx
 articles:
-  - login
+  - 01-login

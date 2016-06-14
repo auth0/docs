@@ -14,4 +14,4 @@ snippets:
   use: client-platforms/jquery/use
 seo_alias: jquery
 articles:
-  - login
+  - 01-login

@@ -20,4 +20,4 @@ snippets:
   use: client-platforms/angular2/use
 seo_alias: angular2
 articles:
-  - login
+  - 01-login

@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/python/use
 seo_alias: python
 articles:
-  - login
+  - 01-login

@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/apache/use
 seo_alias: apache
 articles:
-  - login
+  - 01-login

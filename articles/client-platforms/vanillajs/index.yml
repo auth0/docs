@@ -18,4 +18,4 @@ alias:
   - javascript-app
 seo_alias: vanillajs
 articles:
-  - login
+  - 01-login

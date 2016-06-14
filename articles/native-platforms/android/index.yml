@@ -14,4 +14,4 @@ snippets:
   use: native-platforms/android/use
 seo_alias: android
 articles:
-  - login
+  - 01-login
