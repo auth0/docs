@@ -2,7 +2,7 @@
 
 You may invite additional users to become co-administrators of your Appliance instances. This is done via the Appliance configuration area of the Management Dashboard.
 
-> The User whom you'd like to be added as a co-administrator must be have an existing entity in the Appliance.
+> The User whom you'd like to be added as a co-administrator must be have an existing entity in the Appliance. Please see the section on [adding users via the Management Dashboard](/creating-users) for additional information.
 
 [![](/media/articles/appliance/admin/invite-co-admins.png)](https://auth0-1.wistia.com/medias/2t8n98qc5j)
 
