@@ -122,7 +122,7 @@ See the sample project to understand the proposed overall structure of your pom.
 
 ### 2. Configure your app
 
-We need to configure `auth0-spring-mvc` to use our Auth0 credentials. For that, just create a file called `auth0.properties`
+We need to configure `auth0-spring-mvc` to use our Auth0 credentials. For that, just create a file called `auth0.properties`.
 Place this under `src/main/resources`. Set the following settings:
 
 ```
@@ -156,32 +156,12 @@ Here is a breakdown of what each attribute means:
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK.
 
-Simply define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`
+Simply define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
 
-Example usage - Simply extend this class and define Controller in subclass
+Example usage - Simply extend this class and define Controller in subclass.
 
 ```
-package com.auth0.example;
-
-import com.auth0.web.Auth0CallbackHandler;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
- @Controller
- public class CallbackController extends Auth0CallbackHandler {
-
-     @RequestMapping(value = "${auth0.loginCallback}", method = RequestMethod.GET)
-     protected void callback(final HttpServletRequest req, final HttpServletResponse res)
-                                                     throws ServletException, IOException {
-         super.handle(req, res);
-     }
- }
+dummy-2
 ```
 
 ### 4. Triggering login manually or integrating the Auth0Lock
