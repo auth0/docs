@@ -4,15 +4,6 @@ title: Rules
 
 <!-- Every section in this doc can be reused in other quickstarts except the step 4 of creating rules  -->
 
-TODO: Find out how to configure angular-sample URL
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-angular',
-  pkgBranch: 'master',
-  pkgPath: 'examples/widget-redirect',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>_
-
 Rules are one of the cool features of Auth0. Reason for it's coolness is it's flexibility which gives you the ability to extend what Auth0 has to offer. Rule are JavaScript functions which can be thought  of as middlewares because of how they work:
 
 ![How rules work](/media/articles/rules/flow.png)

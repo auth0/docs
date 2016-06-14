@@ -2,15 +2,9 @@
 title: Login
 ---
 
-
-TODO: Find out how to configure angular-sample URL
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-angular',
-  pkgBranch: 'master',
-  pkgPath: 'examples/widget-redirect',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>_
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/01-Login',
+}) %>
 
 ::: panel-info Running the Sample
 At any point in time you can run this sample with a simple HTTP server. One example is http-server which can be installed with `npm install -g http-server`. Run `http-server` on the root directory of the sample to launch.

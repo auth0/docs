@@ -10,10 +10,6 @@ Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-ang
 
 There are two options to following along these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter Seed) or the samples. The seed is a regular angular app with nothing on Auth0 in it except for the dependencies included in the HTML. It just serves as a starting point as well building blocks for this quickstart. The samples are included in each step and contains the example for each of the step.
 
-## Table of Contents
-
-[TOC SNIPPET HERE]
-
 ## Prerequisites
 Before we embark on this journey of ours, it is important to setup our application buy following these process:
 
