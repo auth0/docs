@@ -8,6 +8,10 @@ tags:
 alias:
   - java
 seo_alias: java
+snippets:
+  dependencies: server-platforms/java-servlet/dependencies
+  setup: server-platforms/java-servlet/setup
+  use: server-platforms/java-servlet/use
 ---
 
 ## Java Servlet Web App Tutorial
