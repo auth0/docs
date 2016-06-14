@@ -16,7 +16,7 @@ This tutorial and seed project have been tested with the following:
 * Spring Security 4.0.1
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-spring-security-api',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-spring-security-api-sample',

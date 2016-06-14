@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Windows Phone SDK 
 
 ## Windows Phone Tutorial
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'Auth0.WindowsPhone',
   pkgBranch: 'master',
   pkgPath: 'examples/WindowsPhoneSilverlight',

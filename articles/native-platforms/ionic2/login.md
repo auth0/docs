@@ -12,7 +12,7 @@ This tutorial and seed project have been tested with the following:
 * Angular 2.0.0-beta.13
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-ionic',
   pkgBranch: 'master',
   pkgPath: 'examples/ionic2-auth0-sample',

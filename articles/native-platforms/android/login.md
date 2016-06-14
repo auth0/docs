@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Build Tools 23.0.2
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'Android/basic-sample',
