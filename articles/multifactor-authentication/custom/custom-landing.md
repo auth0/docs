@@ -1,3 +1,8 @@
+---
+title: Auth0 Guardian
+url: /multifactor-authentication/custom
+---
+
 # Configuring Custom MFA
 
 You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.

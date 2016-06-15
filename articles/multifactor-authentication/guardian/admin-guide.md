@@ -40,6 +40,30 @@ When your users sign up with SMS they enter their phone number's country code an
 
 After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](/admin-guide#reset-mfa-for-a-user).
 
+### Configuring Guardian SMS with Twilio
+
+When initially setting up SMS, you have up to 100 SMS to be used for testing. This limit can be removed by setting up a Twilio account to use. Your users will always be limited to up to 10 SMS/Hour (replenishing one message an hour, up til 10) to help prevent malicious login attempts.
+
+Click on the **SMS** box to configure your SMS settings.
+
+![](/media/articles/mfa/sms-config.png)
+
+#### 1. Open an account with Twilio
+
+You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and a [Twilio Auth Token](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it). These are the Twilio API credentials that Auth0 will use to send an SMS to the user.
+
+#### 2. Configure the connection
+
+Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
+
+Choose your **SMS Source**. 
+
+* If you choose "Use From" you will need to enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio. 
+
+* If you choose "Use Copilot" you will need to enter a [Copilot SID](https://www.twilio.com/docs/api/rest/sending-messages-copilot)
+
+Click **SAVE**.
+
 ## Customize MFA for Select Users
 
 Once you have enabled either MFA option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
@@ -129,7 +153,7 @@ If a user has lost their mobile device they will need their recovery code to be 
 
 To reset a user's MFA:
 
-1.  Find and select the user in the [Users](${uiURL}/#/guardian) section of the dashboard.
+1.  Find and select the user in the [Users](${uiURL}/#/users) section of the dashboard.
 2. Once you have selected the affected user click on the **Actions** button on the top right of the screen. 
 3. Select **Reset Multi Factor (Auth0)** from the dropdown.
 4. There will be a pop up box to confirm your decision,  click **YES, RESET IT** to reset the user's MFA.
