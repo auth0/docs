@@ -1,7 +1,7 @@
 # Google Authenticator for Developers
 
 ::: panel-info Note:
-This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian(your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
+This page refers to using Google Authenticator instead of Auth0 Guardian. Google Authenticator can also be used with Guardian (your users choose which to use) when **Push Notifications** is enabled. [Click here for more information on Guardian.](/multifactor-authentication/guardian)
 :::
 
 ## Enabling Google Authenticator for MFA
@@ -61,5 +61,5 @@ function (user, context, callback) {
 }
 ```
 
-Once you have finished making your desired changes, click "Save" so that they persist.
+Once you have finished making your desired changes, click **SAVE** so that they persist.
 

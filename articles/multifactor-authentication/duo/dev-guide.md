@@ -64,9 +64,9 @@ Required fields that you **must** replace to use Duo are: `ikey`, `skey` and `ho
 
 6. Under the **Details** section you will see: 
 
-Integration key - use this for your `ikey` field
-Secret key - use this for your `skey` field
-API hostname  - use this for your `host` field
+* **Integration key** - use this for your `ikey` field
+* **Secret key** - use this for your `skey` field
+* **API hostname**  - use this for your `host` field
 
 Replace the three fields in the code snippet, and click **SAVE**.
 

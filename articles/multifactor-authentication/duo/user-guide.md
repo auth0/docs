@@ -29,7 +29,7 @@ If you choose this option, you must have the Duo App installed on your device. O
 
 If you have lost your phone and are unable to finish the two-step authentication you will need to contact your system administrator for help accessing your account.
 
-### If your forgot your password
+### If you forgot your password
 
 If you forgot your password when you are trying to login, click **Don't remember your password?** underneath the login. Enter your email to receive an email that will contain a link to reset your password.
 

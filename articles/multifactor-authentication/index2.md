@@ -15,10 +15,10 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 
 Auth0 supports the following methods of implementing MFA:
 
-1. [Push Notifications (Auth0 Guardian)](/multifactor-authentication2#mfa-using-auth0-guardian)- Auth0's mobile application Guardian sends push notifications for MFA
-2. [SMS](/multifactor-authentication2#mfa-with-sms)- Verification by sending a six-digit code via SMS
+1. [Push Notifications (Auth0 Guardian)](/multifactor-authentication2#mfa-using-auth0-guardian) - Auth0's mobile application Guardian sends push notifications for MFA
+2. [SMS](/multifactor-authentication2#mfa-with-sms) - Verification by sending a six-digit code via SMS
 3. Support for one-time password authentication services [Google Authenticator](/multifactor-authentication2#mfa-using-google-authenticator) and [Duo Security](/multifactor-authentication2#mfa-using-duo-security).
-4. [Configuring rules for custom processes](/multifactor-authentication2#mfa-using-custom-rules)- such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+4. [Configuring rules for custom processes](/multifactor-authentication2#mfa-using-custom-rules) - such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 5. Using a [custom provider](/multifactor-authentication2#mfa-using-a-custom-provider), such as **Yubikey**.
 
 ## MFA using Push Notifications (Auth0 Guardian)
@@ -43,7 +43,7 @@ Auth0 supports sending an SMS with a one-time password code to be used for anoth
 
 Google Authenticator is a mobile app that generates 2-step verification codes. This creates a one-time use password that is used as the second factor after your user has attempted to log in with their Google credentials.
 
-[Click here to learn more about enabling Google Authenticator](/multifactor-authentication/google-auth)
+[Click here to learn more about enabling Google Authenticator](/multifactor-authentication/google-authenticator)
 
 ## MFA Using Duo Security
 
@@ -64,4 +64,4 @@ You may [configure rules](/rules) for custom MFA processes, which allow you to d
 
 ## MFA Using a Custom Provider
 
-For a detailed look at implementing MFA with **YubiKey**, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey).
+For a detailed look at implementing a custom MFA provider, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.
