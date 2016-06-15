@@ -34,104 +34,15 @@ If you have an existing Java Spring Web App, please follow the steps below.
 
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
-See the sample project to understand the proposed overall structure of your pom.xml
+See the sample project to understand the proposed overall structure of your `pom.xml`:
 
-```xml
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-web</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.apache.tomcat.embed</groupId>
-          <artifactId>tomcat-embed-jasper</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-actuator</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-devtools</artifactId>
-      </dependency>
-
-      <dependency>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-configuration-processor</artifactId>
-      </dependency>
-
-      <!-- third party -->
-
-       <dependency>
-          <groupId>javax.servlet</groupId>
-          <artifactId>jstl</artifactId>
-          <version>1.2</version>
-        </dependency>
-
-      <dependency>
-          <groupId>com.squareup.okhttp3</groupId>
-          <artifactId>okhttp</artifactId>
-          <version>3.2.0</version>
-      </dependency>
-
-      <dependency>
-          <groupId>commons-codec</groupId>
-          <artifactId>commons-codec</artifactId>
-          <version>1.4</version>
-      </dependency>
-
-      <dependency>
-          <groupId>org.apache.commons</groupId>
-          <artifactId>commons-lang3</artifactId>
-          <version>3.3.2</version>
-      </dependency>
-
-      <!-- auth0 dependencies -->
-
-      <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>auth0-spring-mvc</artifactId>
-          <version>0.0.2-SNAPSHOT</version>
-      </dependency>
-
-      <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>auth0</artifactId>
-          <version>0.4.0</version>
-      </dependency>
-
-      <dependency>
-          <groupId>com.auth0</groupId>
-          <artifactId>java-jwt</artifactId>
-          <version>2.1.0</version>
-      </dependency>
-```
+${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure your app
 
-We need to configure `auth0-spring-mvc` to use our Auth0 credentials. For that, just create a file called `auth0.properties`.
-Place this under `src/main/resources`. Set the following settings:
+We need to configure `auth0-spring-mvc` to use our Auth0 credentials. For that, just create a file called `auth0.properties` and place it under `src/main/resources`. Set the following settings:
 
-```
-auth0.domain: ${account.namespace}
-auth0.clientId: ${account.clientId}
-auth0.clientSecret: ${account.clientSecret}
-auth0.onLogoutRedirectTo: /login
-auth0.securedRoute: /portal/*
-auth0.loginCallback: /callback
-auth0.loginRedirectOnSuccess: /portal/home
-auth0.loginRedirectOnFail: /login
-auth0.servletFilterEnabled: true
-```
-
-Please take a look at the sample that accompanies this library for an easy seed project to see this working.
+${snippet(meta.snippets.setup)}
 
 Here is a breakdown of what each attribute means:
 
@@ -154,28 +65,7 @@ Simply define a new Controller, configure it to use the `auth0.loginCallback` en
 
 Example usage - Simply extend this class and define Controller in subclass.
 
-```java
-package com.auth0.example;
-
-import com.auth0.web.Auth0CallbackHandler;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-@Controller
-public class CallbackController extends Auth0CallbackHandler {
-  @RequestMapping(value = "${account.callback}", method = RequestMethod.GET)
-  protected void callback(final HttpServletRequest req, final HttpServletResponse res)
-  throws ServletException, IOException {
-    super.handle(req, res);
-  }
-}
-```
+${snippet(meta.snippets.use)}
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
@@ -226,7 +116,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 </html>
 ```
 
-By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F` where `xyz`
+By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F`, where `xyz`
 is a randomly generated UUID.
 
 The NonceFactory can be used to generate such a nonce value. State may be needed to hold other attribute values hence why it has its
@@ -242,16 +132,16 @@ SessionUtils.getAuth0User() - however, because the authenticated user is also a 
 inject it into the Controller automatically for secured endpoints.
 
 ```java
-   @RequestMapping(value="/portal/home", method = RequestMethod.GET)
-   protected String home(final Map<String, Object> model, final Principal principal) {
-       logger.info("Home page");
-       final Auth0User user = (Auth0User) principal;
-       logger.info("Principal name: "  user.getName());
-       model.put("user", user);
-       return "home";
-   }
+@RequestMapping(value="/portal/home", method = RequestMethod.GET)
+protected String home(final Map<String, Object> model, final Principal principal) {
+  logger.info("Home page");
+  final Auth0User user = (Auth0User) principal;
+  logger.info("Principal name: "  user.getName());
+  model.put("user", user);
+  return "home";
+}
 ```
 
 ### 6. You're done!
 
-You have configured your Java Webapp to use Auth0.
+You have configured your Java Webapp to use Auth0. Congrats, you're awesome!

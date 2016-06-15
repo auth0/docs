@@ -1,18 +1,21 @@
-```html
-<script src="${widget_url}"></script>
-<script>
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+```java
+package com.auth0.example;
 
-function signin() {
-  lock.show({
-      callbackURL: 'http://localhost:CHANGE-TO-YOUR-PORT/callback'
-    , responseType: 'code'
-    , authParams: {
-      scope: 'openid name email' //Details: https://auth0.com/docs/scopes
-    }
-  });
+import com.auth0.web.Auth0CallbackHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@Controller
+public class CallbackController extends Auth0CallbackHandler {
+  @RequestMapping(value = "${account.callback}", method = RequestMethod.GET)
+  protected void callback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
+    super.handle(req, res);
+  }
 }
-</script>
-
-<button onclick="signin()">Login</button>
 ```
