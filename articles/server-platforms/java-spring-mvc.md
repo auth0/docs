@@ -26,7 +26,7 @@ This tutorial and seed project have been tested with the following:
 * Maven 3.3
 :::
 
-You can download a sample project [here](https://github.com/auth0-samples/auth0-spring-mvc-sample).
+You can download a seed project [here](https://github.com/auth0-samples/auth0-spring-mvc-sample).
 
 If you have an existing Java Spring Web App, please follow the steps below.
 
@@ -34,9 +34,9 @@ If you have an existing Java Spring Web App, please follow the steps below.
 
 Add the following dependencies to your `pom.xml` and run `mvn install`.
 
-See the sample project to understand the proposed overall structure of your `pom.xml`:
-
 ${snippet(meta.snippets.dependencies)}
+
+See the [seed project](https://github.com/auth0-samples/auth0-spring-mvc-sample) to understand the proposed overall structure of your `pom.xml`.
 
 ### 2. Configure your app
 
@@ -46,14 +46,14 @@ ${snippet(meta.snippets.setup)}
 
 Here is a breakdown of what each attribute means:
 
-- `auth0.domain` - This is your auth0 domain (tenant you have created when registering with auth0 - account name)
-- `auth0.clientId` - This is the client id of your auth0 application (see Settings page on auth0 dashboard)
-- `auth0.clientSecret` - This is the client secret of your auth0 application (see Settings page on auth0 dashboard)
-- `auth0.onLogoutRedirectTo` - This is the page / view that users of your site are redirected to on logout. Should start with `/`
+- `auth0.domain` - This is your auth0 domain (tenant you have created when registering with auth0 - account name).
+- `auth0.clientId` - This is the client id of your auth0 application (see Settings page on auth0 dashboard).
+- `auth0.clientSecret` - This is the client secret of your auth0 application (see Settings page on auth0 dashboard).
+- `auth0.onLogoutRedirectTo` - This is the page / view that users of your site are redirected to on logout. Should start with `/`.
 - `auth0.securedRoute`: - This is the URL pattern to secure a URL endpoint. Should start with `/`. You should replace the value with the correct value for your implementation.
-- `auth0.loginCallback` -  This is the URL context path for the login callback endpoint. Should start with `/`
-- `auth0.loginRedirectOnSuccess` - This is the landing page URL context path for a successful authentication. Should start with `/`
-- `auth0.loginRedirectOnFail` - This is the URL context path for the page to redirect to upon failure. Should start with `/`
+- `auth0.loginCallback` -  This is the URL context path for the login callback endpoint. Should start with `/`.
+- `auth0.loginRedirectOnSuccess` - This is the landing page URL context path for a successful authentication. Should start with `/`.
+- `auth0.loginRedirectOnFail` - This is the URL context path for the page to redirect to upon failure. Should start with `/`.
 - `auth0.servletFilterEnabled` - This is a boolean value that switches having an authentication filter enabled On / Off.
 
 
