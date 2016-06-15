@@ -7,8 +7,7 @@ This document details the requirements for the network on which the Appliance ru
 Each Appliance virtual machine (VM) must have its own private static IP address and outbound access. This can be accomplished through:
 
 * a public IP address;
-* NAT/transparent proxy;
-* regular proxy.
+* NAT or transparent proxy.
 
 For **multi-node** clusters, all virtual machines must be:
 * on the same segment of the internal network;
