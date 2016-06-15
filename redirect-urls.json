@@ -630,5 +630,21 @@
   {
     "from": "/extensions/azure-blog-storage",
     "to": "/extensions/azure-blob-storage"
+  },
+  {
+    "from": "/client-platforms/:platform",
+    "to": "/client-platforms/:platform/01-login"
+  },
+  {
+    "from": "/server-platforms/:platform",
+    "to": "/server-platforms/:platform/01-login"
+  },
+  {
+    "from": "/native-platforms/:platform",
+    "to": "/native-platforms/:platform/01-login"
+  },
+  {
+    "from": "/server-apis/:platform",
+    "to": "/server-apis/:platform/01-authentication"
   }
 ]
