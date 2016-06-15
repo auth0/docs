@@ -1,7 +1,7 @@
 ---
 title: Auth0 Java Spring Security API SDK Tutorial
 description: This tutorial will show you how to use the Auth0 Java Spring Security API SDK to add authentication and authorization to your API.
-name: Auth0 Java Spring Security API
+name: Java Spring Security API
 thirdParty: false
 alias:
   - spring security
@@ -34,7 +34,7 @@ This tutorial and seed project have been tested with the following:
 * Spring Security 4.0.1
 :::
 
-You can download a sample project [here](https://github.com/auth0-samples/auth0-spring-security-api-sample).
+You can download the seed project [here](https://github.com/auth0-samples/auth0-spring-security-api-sample).
 
 If you have an existing application, please follow the steps below.
 
@@ -42,11 +42,11 @@ If you have an existing application, please follow the steps below.
 
 You need to add the `auth0-spring-security-api` dependency.
 
-For that, you can just add it to your `pom.xml` if you're using maven.
+If you are using maven, add the dependency to your `pom.xml`:
 
 ${snippet(meta.snippets.dependencies)}
 
-Or, if you're using Gradle, add it to the dependencies block:
+If you are using Gradle, add it to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
@@ -62,13 +62,14 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Create the controllers
 
-Now, you can create the controllers. Every controller that has a route inside `/secured/` in this case will ask for the JWT
+Now, you can create the controllers. Every controller that has a route inside `/secured/` will ask for the JWT.
 
 ${snippet(meta.snippets.use)}
 
 ### 4. Call Your API
 
-You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT [id_token](/tokens#auth0-id_token-jwt-).
+
 ```har
 {
 "method": "GET",
@@ -80,3 +81,5 @@ You can now make requests against your secure API by providing the Authorization
 ```
 
 ### 5. You're done!
+
+You have configured your Java Spring Security API to use Auth0. Congrats, you're awesome!
