@@ -1,5 +1,5 @@
 ---
-title: Auth0 Azure Blob Storage Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Blob Storage.
 ---
 ${include('../_thirdPartyApi')}

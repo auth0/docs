@@ -1,5 +1,5 @@
 ---
-title: Auth0 ASP.NET Core SDK Web App Tutorial
+title: Login
 description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
 ---
 

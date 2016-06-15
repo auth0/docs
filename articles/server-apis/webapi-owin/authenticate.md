@@ -1,5 +1,5 @@
 ---
-title: Auth0 ASP.NET Web API OWIN SDK Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 ASP.NET Web API OWIN SDK to add authentication and authorization to your API.
 ---
 

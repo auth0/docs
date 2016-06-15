@@ -1,5 +1,5 @@
 ---
-title: Auth0 React SDK Tutorial
+title: Login
 description: This tutorial will show you how to use the Auth0 React SDK to add authentication and authorization to your web app.
 ---
 

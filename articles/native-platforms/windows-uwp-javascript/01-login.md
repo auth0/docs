@@ -1,5 +1,5 @@
 ---
-title: Auth0 Windows Universal App Javascript SDK Tutorial
+title: Login
 description: This tutorial will show you how to use the Auth0 Windows Universal App Javascript SDK to add authentication and authorization to your app.
 ---
 
