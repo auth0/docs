@@ -16,7 +16,7 @@ tags:
 snippets:
   configure: server-apis/java-spring-security-api/configure
   dependencies: server-apis/java-spring-security-api/dependencies
-  dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
+  dependenciesGradle: server-apis/java-spring-security-api/dependencies-gradle
   setup: server-apis/java-spring-security-api/setup
   use: server-apis/java-spring-security-api/use
 ---
@@ -28,7 +28,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Java 1.8
+* Java 1.7
 * Maven 3.3
 * Spring 4.2.4
 * Spring Security 4.0.1
@@ -60,6 +60,8 @@ Once you've done either of those, then create the `auth0.properties` file with t
 
 ${snippet(meta.snippets.setup)}
 
+The `auth0.securedRoute` is a URL pattern that should map to the URL endpoint you wish to secure. You should replace `/secured/**` with the correct value for your implementation.
+
 ### 3. Create the controllers
 
 Now, you can create the controllers. Every controller that has a route inside `/secured/` will ask for the JWT.
@@ -79,6 +81,8 @@ You can now make requests against your secure API by providing the Authorization
 ]
 }
 ```
+
+Before making the request you should replace the port (`8000`) with the one on which your app is listening.
 
 ### 5. You're done!
 

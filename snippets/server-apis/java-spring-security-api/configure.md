@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.auth0.example", "com.auth0.spring.security.api"})
+@ComponentScan(basePackages = {"com.auth0.spring.security.api"})
 @EnableAutoConfiguration
 @PropertySources({
   @PropertySource("classpath:application.properties"),
