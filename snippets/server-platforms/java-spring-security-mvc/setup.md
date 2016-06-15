@@ -1,18 +1,11 @@
-```xml
-<servlet>
-    <servlet-name>RedirectCallback</servlet-name>
-    <servlet-class>com.auth0.Auth0ServletCallback</servlet-class>
-    <init-param>
-        <param-name>auth0.redirect_on_success</param-name>
-        <param-value>/</param-value>
-    </init-param>
-    <init-param>
-        <param-name>auth0.redirect_on_error</param-name>
-        <param-value>/login</param-value>
-    </init-param>
-</servlet>
- <servlet-mapping>
-    <servlet-name>RedirectCallback</servlet-name>
-    <url-pattern>/callback</url-pattern>
-</servlet-mapping>
+```properties
+auth0.domain: ${account.namespace}
+auth0.clientId: ${account.clientId}
+auth0.clientSecret: ${account.clientSecret}
+auth0.onLogoutRedirectTo: /login
+auth0.securedRoute: /portal/*
+auth0.loginCallback: /callback
+auth0.loginRedirectOnSuccess: /portal/home
+auth0.loginRedirectOnFail: /login
+auth0.servletFilterEnabled: true
 ```
