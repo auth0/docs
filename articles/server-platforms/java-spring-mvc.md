@@ -28,7 +28,7 @@ This tutorial and seed project have been tested with the following:
 
 You can download a seed project [here](https://github.com/auth0-samples/auth0-spring-mvc-sample).
 
-If you have an existing Java Spring Web App, please follow the steps below.
+If you have an existing Java Spring Web App, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-spring-mvc).
 
 ### 1. Add Auth0 dependencies
 

@@ -27,7 +27,7 @@ This tutorial and seed project have been tested with the following:
 
 You can download a sample project [here](https://github.com/auth0-samples/auth0-servlet-sample).
 
-If you have an existing Java Servlet Web App, please follow the steps below.
+If you have an existing Java Servlet Web App, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-servlet).
 
 ### 1. Add Auth0 dependencies
 
@@ -55,7 +55,7 @@ Here is a breakdown of attributes and what they do:
 
 ### 3. Add Auth0 callback handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK. For normal purposes, this works as-is, and will "just work" based on the configuration you setup in `web.xml`. However, for more fine-grained control, it is easy to inherit the library version of `Auth0CallbackHandler` and override methods to tailor behaviour according to need. Please see the library github README for details.
+We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK. For normal purposes, this works as-is, and will "just work" based on the configuration you setup in `web.xml`. However, for more fine-grained control, it is easy to inherit the library version of `Auth0CallbackHandler` and override methods to tailor behaviour according to need. Please see the [library](https://github.com/auth0/auth0-servlet) GitHub [README](https://github.com/auth0/auth0-servlet/blob/master/README.md) for details.
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
