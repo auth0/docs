@@ -1,6 +1,6 @@
 # Java technologies and Auth0 libraries
 
-Here at Auth0 we try to offer as many libraries as possibly to make your life easier and we understand, that especially when it comes to Java technologies, things can get a bit confussing. In this document you can find a listing of the Java technologies for which we offer guides, libraries and sample projects.
+Here at Auth0 we try to offer as many libraries as needed to ensure we make your life as easy as possible. We understand when it comes to Java technologies things can get a bit confusing, especially given the number of prominent third party frameworks, libraries, and topologies to cover. In this document you can find a listing of the Java technologies for which we currently offer guides, libraries and sample projects. If you can’t find something you need then please let us know, and where possible we’ll make every effort to have it covered.
 
 ## Java Servlet
 
