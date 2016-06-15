@@ -6,7 +6,7 @@
 
 * A cluster with two or more nodes;
     * At least one node must **not** be assigned a `backup` role.
-* Space to store the backups on the node that you are assigning to the `backup` role.
+* **A separate, dedicated backup device** with sufficient space to store the backups on the node that you are assigning to the `backup` role.
 
 ## Adding a Node to the Backup Role
 
