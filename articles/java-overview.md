@@ -6,7 +6,7 @@ Here at Auth0 we try to offer as many libraries as needed to ensure we make your
 
 A simple servlet based solution. It is mostly available for legacy integration needs with older Java style web apps. 
 
-- [Documentation](/server-platforms/java-servlet)
+- [Documentation](/server-platforms/java)
 - [Library](https://github.com/auth0/auth0-servlet)
 - [Sample Project](https://github.com/auth0-samples/auth0-servlet-sample)
 
@@ -32,7 +32,7 @@ A modern Java Spring library that allows you to use Auth0 with Spring Security f
 
 A modern Java Spring library that allows you to use Auth0 with Spring Security. Leverages Spring Boot dependencies. Validates the JWT from Auth0 in every API call to assert authentication according to configuration. This library would be suitable for headless APIs and SPA (single page application) backend end server scenarios.
 
-- [Documentation](/server-apis/java-spring-security-api)
+- [Documentation](/server-apis/java-spring-security)
 - [Library](https://github.com/auth0/auth0-spring-security-api)
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-security-api-sample)
 
