@@ -10,7 +10,7 @@ languages:
   - Java
 framework:
   - Spring
-image: /media/platforms/spring.png
+image: /media/platforms/java.png
 tags:
   - quickstart
 snippets:
