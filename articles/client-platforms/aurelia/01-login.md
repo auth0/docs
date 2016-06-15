@@ -1,5 +1,5 @@
 ---
-title: Auth0 Aurelia SDK Tutorial
+title: Login
 description: This tutorial will show you how to use the Auth0 Aurelia SDK to add authentication and authorization to your web app.
 ---
 ## Aurelia SDK Tutorial

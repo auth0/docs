@@ -1,5 +1,6 @@
 ---
 title: Introduction
+description: test
 ---
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.

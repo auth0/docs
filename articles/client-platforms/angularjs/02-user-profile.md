@@ -1,5 +1,6 @@
 ---
 title: User Profile
+description: test
 ---
 
 <%= include('../../_includes/_github', {
