@@ -40,10 +40,10 @@ A modern Java Spring library that allows you to use Auth0 with Spring Security. 
 
 We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. 
 
-The aim of this solution is to provide a simple, no-frills sample developers can follow to understand the orchestration required to achieve SSO using Auth0 using Java, without having to also cope with understanding additional libraries or frameworks.
+The aim of this solution is to provide a simple, no-frills sample, developers can follow to understand the orchestration required to achieve SSO using Auth0 using Java, without having to also cope with understanding additional libraries or frameworks.
 
-## More information
+## More libraries
 
 - [auth0-java](https://github.com/auth0/auth0-java): This is a Client library to make calls to our Authentication and Management APIs.
 
-- [java-jwt](https://github.com/auth0/java-jwt): This is used for performing JWT Token related actions (JWT creation, verification, etc.)
+- [java-jwt](https://github.com/auth0/java-jwt): This library is used for performing JWT Token related actions (JWT creation, verification, etc.)
