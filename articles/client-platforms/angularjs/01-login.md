@@ -1,23 +1,6 @@
 ---
 title: Login
-name: Angularjs-login
-alias:
-  - angular
-  - angularjs
-language:
-  - Javascript
-framework:
-  - AngularJS
-image: /media/platforms/angular.png
-tags:
-  - quickstart
-  - angular
-snippets:
-  dependencies: /quickstarts/angular1/snippets/dependencies
-  init: /quickstarts/angular1/snippets/init
-  head: /quickstarts/angular1/snippets/head
-alias:
-  - angular
+description: Login with Lock Tutorial
 ---
 
 
