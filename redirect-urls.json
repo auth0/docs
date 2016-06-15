@@ -630,5 +630,9 @@
   {
     "from": "/extensions/azure-blog-storage",
     "to": "/extensions/azure-blob-storage"
+  },
+  {
+    "from": "/policies/rate-limit",
+    "to": "/policies/rate-limits"
   }
 ]
