@@ -646,5 +646,9 @@
   {
     "from": "/server-apis/:platform",
     "to": "/server-apis/:platform/01-authentication"
+  },
+  {
+    "from": "/policies/rate-limit",
+    "to": "/policies/rate-limits"
   }
 ]

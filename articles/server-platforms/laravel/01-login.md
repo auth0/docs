@@ -5,8 +5,6 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 
 # Laravel Tutorial
 
-This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example application [here](https://github.com/auth0/laravel-auth0-sample).
-
 ::: panel-info System Requirements
 
  This tutorial and seed project have been tested with the following:
@@ -14,6 +12,16 @@ This plugin helps you integrate your Laravel WebApp with [Auth0](https://auth0.c
 * PHP 5.5.12
 * Laravel 5.2.15
 :::
+
+<%= include('../_includes/_package', {
+  pkgRepo: 'laravel-auth0-sample',
+  pkgBranch: 'master',
+  pkgPath: '',
+  pkgFilePath: '.env',
+  pkgType: 'replace'
+}) %>
+
+**Otherwise, please follow the steps below to configure your existing Laravel web app to use it with Auth0.**
 
 ## Laravel Compatibility
 
