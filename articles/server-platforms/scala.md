@@ -191,7 +191,8 @@ You have configured your Play2 Scala Webapp to use Auth0. Congrats, you're aweso
 
 #### Checking if the user is authenticated
 
-You can add the following `Action` to check if the user is authenticated and redirect him to the login page if he's not:
+
+You can add the following `Action` to check if the user is authenticated. In case the user is not then redirect to the login page:
 
 ```scala
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {
