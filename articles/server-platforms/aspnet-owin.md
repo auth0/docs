@@ -20,8 +20,8 @@ seo_alias: aspnet-owin
 <%= include('../_includes/_package', {
   pkgRepo: 'aspnet-owin-samples',
   pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/basic-mvc-sample',
-  pkgFilePath: '00-Starter-Seed/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/BasicMvcSample/Web.config',
   pkgType: 'replace'
 }) %>
 
