@@ -1,0 +1,98 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Bolts (1.7.0):
+    - Bolts/AppLinks (= 1.7.0)
+    - Bolts/Tasks (= 1.7.0)
+  - Bolts/AppLinks (1.7.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.7.0)
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
+  - FBSDKCoreKit (4.12.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.12.0):
+    - FBSDKCoreKit
+  - Lock (1.26.0):
+    - CocoaLumberjack (~> 2.0)
+    - Lock/Core (= 1.26.0)
+    - Lock/UI (= 1.26.0)
+    - Lock/WebView (= 1.26.0)
+  - Lock-Facebook (2.2.1):
+    - CocoaLumberjack (~> 2.0)
+    - FBSDKCoreKit (~> 4.6)
+    - FBSDKLoginKit (~> 4.6)
+    - Lock/Core (~> 1.11)
+  - Lock-Twitter (1.2.0):
+    - AFNetworking (~> 3.0)
+    - CocoaLumberjack (~> 2.0)
+    - Lock/Core (~> 1.26)
+    - PSAlertView (~> 2.0)
+    - TWReverseAuth (~> 0.1.0)
+  - Lock/Core (1.26.0):
+    - AFNetworking (~> 3.0)
+    - CocoaLumberjack (~> 2.0)
+  - Lock/CoreUI (1.26.0):
+    - CocoaLumberjack (~> 2.0)
+    - Lock/Core
+    - Masonry (~> 0.6)
+  - Lock/UI (1.26.0):
+    - CocoaLumberjack (~> 2.0)
+    - Lock/CoreUI
+  - Lock/WebView (1.26.0):
+    - CocoaLumberjack (~> 2.0)
+    - Lock/CoreUI
+  - LUKeychainAccess (1.2.5)
+  - Masonry (0.6.4)
+  - NSData+Base64 (1.0.0)
+  - OAuthCore (0.0.1):
+    - NSData+Base64
+  - PSAlertView (2.0.3)
+  - TWReverseAuth (0.1.1):
+    - LUKeychainAccess
+    - OAuthCore
+
+DEPENDENCIES:
+  - AFNetworking
+  - Lock
+  - Lock-Facebook (~> 2.0)
+  - Lock-Twitter (~> 1.1)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  FBSDKCoreKit: 6e56d5a2a64a755ad4efb5dbeee8f82fb1b99775
+  FBSDKLoginKit: 03f68a8d48c2c8bb81d7eb8097973d483543e1f6
+  Lock: d863c3aebe57d2e8f3e5f40c9c5ba695ec2f1162
+  Lock-Facebook: 09f2397cbc9ae2e1fc654f7e66248da30343e349
+  Lock-Twitter: f5d91851258a490d76d1ba31f66f3c95ffa71389
+  LUKeychainAccess: d22fc00b33ad92c7532962b86daa94c14b85ecbe
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  NSData+Base64: 4e84902c4db907a15673474677e57763ef3903e4
+  OAuthCore: 43dce261db846a1fe20234d95654257e00e78581
+  PSAlertView: 16d35f5dba549418492cf68a750d4f0dca21f4a2
+  TWReverseAuth: d2deef3521fa6bee32eabab67f114c2c4a53d4f5
+
+PODFILE CHECKSUM: 14d75fd523747cda0047f2d96b3170594af447dc
+
+COCOAPODS: 1.0.0
