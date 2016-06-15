@@ -1,15 +1,22 @@
 ---
 title: Multifactor Authentication in Auth0
 url: /multifactor-authentication
+description: Auth0 supports three methods of implementing MFA: built-in support for Google Authenticator and Duo Security, custom processes such as Contextual MFA, and integration with a custom provider.
 ---
 
 # Multifactor Authentication in Auth0
 
-Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This method provides an additional layer of security, decreasing the likelihood of unauthorized access. The type of information required from the user is typically two or more of the following:
+Multifactor Authentication (MFA) is a method of verifying a user's identity by requiring them to present more than one piece of identifying information. This provides an additional layer of security, decreasing the likelihood of unauthorized access. 
+
+The type of information required from the user is typically two or more of the following:
 
 * **Knowledge**: Something the user knows (e.g. a password)
 * **Possession**: Something the user has (e.g. a cell phone)
 * **Inheritance**: Something the user is (e.g. a fingerprint or retina scan)
+
+::: panel-info MFA and Resource Owner
+Multifactor auth does not apply if you use either the Resource Owner or Access Token endpoints. For information on enabling MFA on the Resource Owner endpoint see: [MFA on a Resource Owner endpoint](/multifactor-authentication/ro).
+:::
 
 ## Implementing MFA with Auth0
 
@@ -23,33 +30,31 @@ Auth0 supports the following methods of implementing MFA:
 
 Auth0 provides built-in support for the following one-time password authentication services:
 
-* Google Authenticator;
-* Duo Security.
+* Google Authenticator
+* Duo Security
 
-You may enable these options via the Auth0 Management Dashboard. To navigate to the appropriate configuration page, navigate to the Multifactor Auth page. You will see the following message, along with the link to the appropriate page:
-
-> Auth0 also supports plugging in other multifactor providers. If you already have your own provider, click here to use a different provider.
+You may enable these options in the [Multifactor Auth](${uiURL}/#/multifactor) section of the Auth0 Dashboard.
 
 #### MFA Using Google Authenticator
 
-Google Authenticator allows you to request six- to eight-digit one-time use password as the second factor after your user has attempted to log in with their Google credentials.
+Google Authenticator allows you to request a 6- to 8-digit one-time use password as a second authentication factor after a user has logged in with their Google credentials.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/google-authenticator).
+For instructions on enabling this feature, see:  [Configuring MFA Using Google Authenticator](/multifactor-authentication/google-authenticator).
 
 #### MFA Using Duo Security
 
-Duo Security allows you to request either of the following as your second factor once the user has provided their initial login credentials:
+Duo Security allows you to request either of the following as your second factor after a user has provided their initial login credentials:
 
-* A user response to a push notification sent to the appropriate device;
-* A passcode provided to the user via SMS.
+* A user response to a push notification sent to the appropriate device
+* A passcode provided to the user via SMS
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security).
+For instructions on enabling this feature, see: [Configuring MFA Using Duo Security](/multifactor-authentication/duo-security).
 
 ### MFA Using Custom Rules
 
 You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
-You will find [sample code snippets](/multifactor-authentication/custom) to assist you in building your rules here.
+For instructions on enabling this feature, see:  [Configuring Custom MFA](/multifactor-authentication/custom).
 
 ### MFA Using Custom Providers
 
