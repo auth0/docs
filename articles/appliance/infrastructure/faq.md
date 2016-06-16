@@ -4,11 +4,7 @@
 If you have been developing applications with Auth0 in the cloud environment, please review the [differences between the two environments](deployment).  Please speak to your Auth0 pre-sales engineer or customer success engineer if you’re unsure as to how this may impact your project.
 
 ### Can I configure an HTTP proxy for outbound Internet access in the Appliance?
-Yes. If you have a proxy, you will need to provide the Auth0 with the configuration address.
-
-Yes, you may do so for updates. If you have a proxy, you will need to provide the Auth0 with the configuration address.
-
-Certain protocols involving social providers that require Auth0 to make outbound internet connections will not work through a proxy, so you will need to configure a NAT or transparent proxy.
+While this is currently not supported, please speak with Auth0 if you would like to use a transparent proxy or NAT.
 
 ### Can I have SSH access to the machines?
 No, the Appliance is a managed service that runs within your network. You are responsible for managing the infrastructure around the appliance. Auth0 will manage the Appliance’s internals.
