@@ -4,12 +4,12 @@ public: false
 
 <div class="setup-callback">
 <% if (account.userName  && hasCallback) { %>
-<p>Please remember that for security purposes, you have to register the callback URL of your app on the <a href="<%=uiAppSettingsURL %>">Application Settings</a> section.</p>
-<p>Right now, that callback is set to the following:
+<p>For security purposes, you must add the callback URL of your app to your <a href="<%=uiAppSettingsURL %>">Application Settings</a>.</p>
+<p>Your callback URL is currently set to:
 <pre><code><%= account.callback %></code></pre>
 </p>
 <% } else { %>
-<p>Please remember that for security purposes, you have to register the callback URL of your app on the <a href="${uiURL}/#/applications">Application Settings</a> section.</p>
+<p>For security purposes, you must add the callback URL of your app to your <a href="${uiURL}/#/applications">Application Settings</a>.</p>
 <% } %>
 
 </div>
