@@ -1,5 +1,5 @@
 ---
-title: Auth0 Java Spring Security SDK API Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 Java Spring Security SDK to add authentication and authorization to your API.
 ---
 
@@ -16,7 +16,7 @@ This tutorial and seed project have been tested with the following:
 * Spring Security 4.0.1
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-spring-security-api',
   pkgBranch: 'master',
   pkgPath: 'examples/auth0-spring-security-api-sample',

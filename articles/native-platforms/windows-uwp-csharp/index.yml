@@ -1,4 +1,4 @@
-title: Windows UWP (C#)
+title: Windows Universal App C#
 hybrid: false
 alias:
   - windows app
@@ -14,4 +14,4 @@ snippets:
   use: native-platforms/windows-uwp-csharp/use
 seo_alias: windows-uwp-csharp
 articles:
-  - login
+  - 01-login

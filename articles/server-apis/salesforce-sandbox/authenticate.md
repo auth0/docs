@@ -1,5 +1,5 @@
 ---
-title: Auth0 Salesforce (Sandbox) API Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize your Salesforce (Sandbox) services.
 ---
 ${include('../_thirdPartyApi')}

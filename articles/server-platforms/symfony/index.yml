@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/symfony/use
 seo_alias: symfony
 articles:
-  - login
+  - 01-login

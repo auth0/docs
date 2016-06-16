@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/golang/use
 seo_alias: golang
 articles:
-  - login
+  - 01-login

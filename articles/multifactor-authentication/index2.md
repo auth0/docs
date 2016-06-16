@@ -15,49 +15,53 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 
 Auth0 supports the following methods of implementing MFA:
 
-1. Using Guardian, Auth0's MFA application;
-2. Using Auth0's built-in support for one-time password authentication services Google Authenticator and Duo Security.
-3. Configuring rules for custom processes, such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
-4. Integration with a custom provider, such as **Yubikey**.
+1. [Push Notifications (Auth0 Guardian)](/multifactor-authentication2#mfa-using-auth0-guardian) - Auth0's mobile application Guardian sends push notifications for MFA
+2. [SMS](/multifactor-authentication2#mfa-with-sms) - Verification by sending a six-digit code via SMS
+3. Support for one-time password authentication services [Google Authenticator](/multifactor-authentication2#mfa-using-google-authenticator) and [Duo Security](/multifactor-authentication2#mfa-using-duo-security).
+4. [Configuring rules for custom processes](/multifactor-authentication2#mfa-using-custom-rules) - such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+5. Using a [custom provider](/multifactor-authentication2#mfa-using-a-custom-provider), such as **Yubikey**.
 
-### MFA Using Auth0 Guardian
+## MFA using Push Notifications (Auth0 Guardian)
+
+![](/media/articles/mfa/guardian-push.png)
 
 Guardian is Auth0's MFA application. It is a frictionless approach to implementing MFA for your apps, and provides a full MFA experience without requiring integration with third-party utilities.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/guardian/configuration.md).
+[Click here to learn more about enabling push notifications with Guardian](/multifactor-authentication/guardian)
 
-### MFA Using Auth0 Built-In MFA Support
+## MFA with SMS
 
-Auth0 provides built-in support for the following one-time password authentication services:
+![](/media/articles/mfa/sms-screenshot.png)
 
-* Google Authenticator;
-* Duo Security.
+Auth0 supports sending an SMS with a one-time password code to be used for another step of verification.
 
-You may enable these options via the Auth0 Management Dashboard. To navigate to the appropriate configuration page, navigate to the Multifactor Auth page. You will see the following message, along with the link to the appropriate page:
+[Click here to learn more about enabling SMS](/multifactor-authentication/guardian/admin-guide#support-for-sms)
 
-> Auth0 also supports plugging in other multifactor providers. If you already have your own provider, click here to use a different provider.
+## MFA Using Google Authenticator
 
-#### MFA Using Google Authenticator
+![](/media/articles/mfa/google-auth-screenshot.png)
 
-Google Authenticator allows you to request six- to eight-digit one-time use password as the second factor after your user has attempted to log in with their Google credentials.
+Google Authenticator is a mobile app that generates 2-step verification codes. This creates a one-time use password that is used as the second factor after your user has attempted to log in with their Google credentials.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/google-auth/index).
+[Click here to learn more about enabling Google Authenticator](/multifactor-authentication/google-authenticator)
 
-#### MFA Using Duo Security
+## MFA Using Duo Security
+
+![](/media/articles/mfa/duo-screenshot.png)
 
 Duo Security allows you to request either of the following as your second factor once the user has provided their initial login credentials:
 
-* A user response to a push notification sent to the appropriate device;
-* A passcode provided to the user via SMS.
+* A user response to a push notification sent to the appropriate device
+* A passcode provided to the user via SMS
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security/index).
+[Click here to learn more about enabling Duo](/multifactor-authentication/duo)
 
-### MFA Using Custom Rules
+## MFA Using Custom Rules
 
-You may configure [rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+You may [configure rules](/rules) for custom MFA processes, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
 
-You will find [sample code snippets](/multifactor-authentication/custom/index) to assist you in building your rules here.
+[Click here for sample code snippets](/multifactor-authentication/custom) to assist you in building your rules here.
 
-### MFA Using Custom Providers
+## MFA Using a Custom Provider
 
-For a detailed look at implementing MFA with **YubiKey**, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey).
+For a detailed look at implementing a custom MFA provider, see [Multifactor Authentication with YubiKey-NEO](/multifactor-authentication/yubikey) as an introduction.

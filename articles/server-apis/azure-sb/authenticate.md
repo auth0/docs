@@ -1,5 +1,5 @@
 ---
-title: Auth0 Azure Service Bus Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Service Bus.
 ---
 ${include('../_thirdPartyApi')}

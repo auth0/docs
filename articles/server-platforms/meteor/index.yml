@@ -14,4 +14,4 @@ snippets:
   use: server-platforms/meteor/use
 seo_alias: meteor
 articles:
-  - login
+  - 01-login

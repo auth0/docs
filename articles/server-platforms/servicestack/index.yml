@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/servicestack/use
 seo_alias: servicestack
 articles:
-  - login
+  - 01-login

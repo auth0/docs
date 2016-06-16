@@ -1,5 +1,5 @@
 ---
-title: Auth0 Ruby SDK API Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 Ruby SDK to add authentication and authorization to your API.
 ---
 

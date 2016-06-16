@@ -630,5 +630,25 @@
   {
     "from": "/extensions/azure-blog-storage",
     "to": "/extensions/azure-blob-storage"
+  },
+  {
+    "from": "/client-platforms/:platform",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/server-platforms/:platform",
+    "to": "/quickstart/webapp/:platform"
+  },
+  {
+    "from": "/native-platforms/:platform",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/server-apis/:platform",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/policies/rate-limit",
+    "to": "/policies/rate-limits"
   }
 ]

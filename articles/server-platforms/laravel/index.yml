@@ -8,4 +8,4 @@ snippets:
   use: server-platforms/laravel/use
 seo_alias: laravel
 articles:
-  - login
+  - 01-login

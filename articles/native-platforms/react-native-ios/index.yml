@@ -15,4 +15,4 @@ snippets:
   use: native-platforms/reactnative-ios/use
 seo_alias: react-native-ios
 articles:
-  - login
+  - 01-login

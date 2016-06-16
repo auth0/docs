@@ -1,5 +1,5 @@
 ---
-title: Auth0 Azure Mobile Services Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
 ${include('../_thirdPartyApi')}

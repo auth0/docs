@@ -43,4 +43,6 @@ The following basic steps are required to get the infrastructure up and running 
 
 ## Development/Test/Production Lifecycle
 
+> Production and non-Production (test/development) must be on completely isolated networks.
+
 All Appliance multi-node cluster subscription agreements require the deployment of a single-node Development/Test (non-Production) instance. This node is used to verify that the Appliance is working as expected with your applications prior to deployment to Production. It also allows for a thorough Appliance update and testing cadence. Lastly, this improves any possible support experiences, since Auth0 engineers prefer testing or reviewing planned changes/fixes to your implementation in a non-Production environment.

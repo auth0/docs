@@ -12,4 +12,4 @@ alias:
   - omniauth
 seo_alias: rails
 articles:
-  - login
+  - 01-login

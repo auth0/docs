@@ -1,19 +1,15 @@
 ---
 title: Linking Accounts
+description: test
 ---
 
-TODO: Find out how to configure angular-sample URL
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-angular',
-  pkgBranch: 'master',
-  pkgPath: 'examples/widget-redirect',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/03-Linking-Accounts',
 }) %>_
 
 In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can link urge the user to link there account to an OAuth provider like Facebook or Google. You will see how you can, with the minimal lines of codes and the help of the SDK link and un-link user accounts.
 
-[IMAGE OR GIF OF DEMO]
+<!-- TODO: IMAGE OR GIF OF DEMO -->
 
 ## Linking Accounts
 
@@ -101,7 +97,7 @@ User's profile contains an array of identities which is made of profile informat
 
 You can also see from the user's dashboard all the associated (linked) accounts:
 
-[IMAGE OF USER DASHBOARD HIGHLIGHTING ASSOCIATED ACCOUNTS]
+<!-- TODO: IMAGE OF USER DASHBOARD HIGHLIGHTING ASSOCIATED ACCOUNTS -->
 
 ## Retrieving Linked Account Profiles
 

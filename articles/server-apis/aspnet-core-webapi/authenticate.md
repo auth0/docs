@@ -1,5 +1,5 @@
 ---
-title: Auth0 ASP.NET Core Web API SDK Tutorial
+title: Authenticate
 description: This tutorial will show you how to use the ASP.NET Core JWT Middleware to add authentication and authorization to your API.
 ---
 

@@ -1,14 +1,10 @@
 ---
 title: User Profile
+description: test
 ---
 
-TODO: Find out how to configure angular-sample URL
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-angular',
-  pkgBranch: 'master',
-  pkgPath: 'examples/widget-redirect',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/02-User-Profile',
 }) %>_
 
 It is simple to access users' information using the Angular SDK. User profiles can be accessed in 3 ways:

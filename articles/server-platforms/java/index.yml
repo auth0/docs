@@ -11,4 +11,4 @@ alias:
   - spring-security
 seo_alias: java
 articles:
-  - login
+  - 01-login
