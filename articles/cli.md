@@ -82,9 +82,8 @@ var rl = readline.createInterface({
 });
 
 //Generate the verifier, and the corresponding challenge
-var verifier = randomValueHex(32);
+var verifier = crypto.randomBytes(32);
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
-
 
 var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' + 
                                     'client_id=' + env.AUTH0_CLIENT_ID + 
@@ -113,18 +112,10 @@ rl.question('Please enter the authorization code: ', function(code) {
   rl.close();
 });
 
-//Some helper functions to generate the verifier challenge
-function randomValueHex(len) {
-    return crypto.randomBytes(Math.ceil(len/2))
-        .toString('hex')
-        .slice(0,len);
-}
-
 function base64url(b) {
   return b.toString('base64')
           .replace(/\+/g, '-')
           .replace(/\//g, '_')
           .replace(/=/g, '');
 }
-
 ```
