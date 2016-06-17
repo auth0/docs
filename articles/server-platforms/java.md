@@ -10,7 +10,6 @@ alias:
 seo_alias: java
 snippets:
   dependencies: server-platforms/java/dependencies
-  dependenciesGradle: server-platforms/java/dependencies-gradle
   setup: server-platforms/java/setup
   use: server-platforms/java/use
 ---
@@ -38,7 +37,7 @@ ${snippet(meta.snippets.dependencies)}
 
 If you are using Gradle, add it to the dependencies block:
 
-${snippet(meta.snippets.dependenciesGradle)}
+
 
 **NOTE:** See the [seed project](https://github.com/auth0-samples/auth0-servlet-sample) to understand the overall structure of your `pom.xml`.
 
