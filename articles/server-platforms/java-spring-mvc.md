@@ -32,7 +32,9 @@ If you have an existing Java Spring Web App, please follow the steps below. You 
 
 ### 1. Add Auth0 dependencies
 
-Add the following dependencies to your `pom.xml` and run `mvn install`.
+You need to add the `auth0-spring-mvc` dependency.
+
+If you are using maven, add the dependency to your `pom.xml` and run `mvn install`:
 
 ${snippet(meta.snippets.dependencies)}
 
