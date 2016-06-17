@@ -9,10 +9,10 @@ alias:
   - java
 seo_alias: java
 snippets:
-  dependencies: server-platforms/java-servlet/dependencies
-  dependenciesGradle: server-platforms/java-servlet/dependencies-gradle
-  setup: server-platforms/java-servlet/setup
-  use: server-platforms/java-servlet/use
+  dependencies: server-platforms/java/dependencies
+  dependenciesGradle: server-platforms/java/dependencies-gradle
+  setup: server-platforms/java/setup
+  use: server-platforms/java/use
 ---
 
 ## Java Servlet Web App Tutorial
