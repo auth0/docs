@@ -29,7 +29,9 @@ If you already have an existing Java Servlet Web App, follow the steps below. Yo
 
 ### 1. Add Auth0 dependencies
 
-Add the following dependencies to your `pom.xml` file. Then run `mvn install`.
+You need to add the `auth0-servlet` dependency.
+
+If you are using maven, add the dependency to your `pom.xml`:
 
 ${snippet(meta.snippets.dependencies)}
 
