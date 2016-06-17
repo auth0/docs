@@ -116,8 +116,8 @@ end
 
 ```html
 <div>
-  <img class="avatar" src="<%= "\<%= @user["info"]["image"] %\>" %>"/>
-  <h2>Welcome <%= "\<%= @user["info"]["name"] %\>" %></h2>
+  <img class="avatar" src="<%= "\<%= @user[:info][:image] %\>" %>"/>
+  <h2>Welcome <%= "\<%= @user[:info][:name] %\>" %></h2>
 </div>
 ```
 
