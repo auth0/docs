@@ -30,7 +30,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-electron',
+  pkgRepo: 'auth0-electron-samples',
   pkgBranch: 'master',
   pkgPath: null,
   pkgFilePath: null,
