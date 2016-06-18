@@ -7,11 +7,11 @@ description: This page shows you how to connect your Auth0 app to Dropbox. You w
 
 # Connect your app to Dropbox
 
-To connect your Auth0 app to Dropbox, you will need to generate a *Client ID* and *Client Secret* in an Dropbox app, copy these keys into your Auth0 settings, and enable the connection.
+To connect your Auth0 app to Dropbox, you will need to generate a *Client ID* and *Client Secret* in a Dropbox app, copy these keys into your Auth0 settings, and enable the connection.
 
-## 1. Log into the developer portal
+## 1. Login to the developer portal
 
-Go to the Dropbox [Developer portal](https://www.dropbox.com/developers) and log in with your Dropbox credentials. 
+Go to the [Dropbox Developer](https://www.dropbox.com/developers) portal and log in with your Dropbox credentials. 
 
 Click **Create your app**:
 
@@ -21,7 +21,7 @@ Click **Create your app**:
 
 1. Under **Choose an API**, select **Dropbox API**.
 2. Under **Choose the type of access you need**, select **App folder**.
-3. Name you app.
+3. Name your app.
 4. Click **Create app**.
 
 ![](/media/articles/connections/social/dropbox/dropbox-02.png)
@@ -32,7 +32,7 @@ On your app's **Settings** page that follows, enter this URL in the **Redirect U
 
 `https://${account.namespace}/login/callback`
 	
-Click **Add**.
+Click **Add**:
 
 ![](/media/articles/connections/social/dropbox/dropbox-03.png)
 
@@ -50,7 +50,7 @@ Select **Dropbox**.
 
 ![](/media/articles/connections/social/dropbox/dropbox-05.png)
 
-Copy the `App key` and `App secret` from the **Settings** page of the Dropbox Developer portal into the fields on this page on Auth0.
+Copy the `App key` and `App secret` from the **Settings** page of the Dropbox Developer portal into the fields on this page on Auth0:
 
 ![](/media/articles/connections/social/dropbox/dropbox-06.png)
 
