@@ -28,9 +28,9 @@ seo_alias: angularjs
 This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-angular',
+  pkgRepo: 'auth0-angularjs-spa',
   pkgBranch: 'master',
-  pkgPath: 'examples/widget-redirect',
+  pkgPath: '00-Starter-Seed/widget-redirect',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
