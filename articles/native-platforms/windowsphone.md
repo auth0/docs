@@ -27,9 +27,9 @@ seo_alias: windowsphone
 ## Windows Phone Tutorial
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'Auth0.WindowsPhone',
+  pkgRepo: 'auth0-WindowsPhone-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/WindowsPhoneSilverlight',
+  pkgPath: '00-Starter-Seed/examples/WindowsPhoneSilverlight',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
