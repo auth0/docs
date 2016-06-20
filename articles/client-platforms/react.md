@@ -41,7 +41,7 @@ ${include('./\_callback')}
 
 ### 1. Add the Auth0 scripts and set the viewport
 
-Add the code below to the `index.html` file to include the Auth0 script and set the viewport:
+Add the code below to the `<head>` or before the closing tag of `<body>` in your `index.html` file to include the Auth0 script and set the viewport:
 
 ${snippet(meta.snippets.dependencies)}
 
