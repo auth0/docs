@@ -313,7 +313,7 @@ The resulting user is:
 
 ### Considerations
 
-Metadata key field names in `user_metadata` or `app_metadata` with a dot are not allowed by the internal storage mechanism used by Auth0.
+The metadata must be a valid JSON object and can not contain a dot in key field names in `user_metadata` or `app_metadata`.
 
 The following is not allowed.
 ```js
