@@ -648,6 +648,18 @@
     "to": "/quickstart/backend/:platform"
   },
   {
+    "from": "/quickstart/hybrid",
+    "to": "/quickstart/native"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/:api",
+    "to": "/quickstart/native/:platform/:api"
+  },
+  {
     "from": "/policies/rate-limit",
     "to": "/policies/rate-limits"
   }
