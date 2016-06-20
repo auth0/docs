@@ -44,7 +44,7 @@ The Auth0 APIv2 access token is used to call the Auth0 Management APIv2.  This t
 
 ## API Secret
 
-Auth0 API tokens are generated locally on your browser using your API secret, there is no way for Auth0 to keep track of them. Auth0's API does not currently maintain a list of tokens which have been generated. 
+Keep your API secret secure. In the event that your API secret has been compromised or you need to invalidate all of your tokens you can change the API secret.
 
 In the event that the API secret has been compromised, or you need to invalidate all tokens generated with that API secret, one can change the API secret. 
 
