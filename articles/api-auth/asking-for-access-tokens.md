@@ -16,19 +16,29 @@ To ask Auth0 for tokens for any of your authorized client applications, perform 
   client_secret: "{APP_CLIENT_SECRET}"
 }
 ```
-The response will be a signed JWT token in this format:
+The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at least the following claims in the body:
 
 ```
 {
   "iss": "https://${account.namespace}/",
   "sub": "{APP_CLIENT_ID}@clients",
   "aud": "{YOUR_API_IDENTIFIER}",
-  ...
+  "exp": // unix timestamp of the token's expiration date,
+  "iat": // unix timestamp of the token's creation date,
   "scope": ""
 }
 ```
 
 > **NOTE:** When you execute the setup steps in the Auth0 Dashboard as described in [API Authorization: Using the Auth0 Dashboard](/api-auth/using-the-auth0-dashboard), you will notice that the `scope` property is blank. Custom scopes are not supported in the Auth0 Dashboard at this time. You can still use this token to authorize access to the the parts of your API that do not require elevated permissions. If you would like to add scopes for your API you can follow [these steps](/api-auth/adding-scopes).
+
+### Verifying an access token for a resource server
+
+Access tokens will be signed using the signature method configured for the resource server, and must be verified accordingly:
+
+* HS256 (symmetric): signed using the resource server's signing secret
+* RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json
+
+For claim verification, use any [recommended JWT library](https://jwt.io/) which validates all the standard claims returned in the token.
 
 ### Authorized Client Applications
 

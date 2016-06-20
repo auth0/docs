@@ -3,10 +3,11 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app.
 ---
 
-## Play 2 Scala Tutorial
+# Play 2 Scala Tutorial
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
+
 * Scala 2.11.7
 * Typesafe Activator 1.3.7
 * Play framework 2.4.6
@@ -20,15 +21,15 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-**Otherwise, Please follow the steps below to configure your existing Play2 Scala WebApp to use it with Auth0.**
+**Otherwise, follow the steps below to configure your existing Play2 Scala WebApp for use with Auth0.**
 
-### 1. Add configuration keys from Auth0
+## 1. Add your Auth0 configuration keys
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Add Auth0 callback handler
+### 2. Add your Auth0 callback handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information.
+Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
 
 ```scala
 // controllers/Callback.scala
@@ -111,19 +112,17 @@ class Callback extends Controller {
 
 ${include('../_callbackRegularWebApp')}
 
-In this case, the callbackURL should look something like:
+Your callback URL should look something like:
 
-```
-http://yourUrl/callback
-```
+`https://yourapp.com/callback`
 
-### 3. Triggering login manually or integrating the Auth0Lock
+## 3. Trigger login manually or integrate Auth0Lock
 
 ${lockSDK}
 
-> **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+**Note:** The `callbackURL` specified in the `Auth0Lock` constructor must match that specified in the previous step.
 
-### 4. Accessing user information
+## 4. Access user information
 
 You can access the user information from the `cache`
 
@@ -174,15 +173,9 @@ class User extends Controller {
 }
 ```
 
-### 5. You're done!
+## Optional step
 
-You have configured your Play2 Scala Webapp to use Auth0. Congrats, you're awesome!
-
-### Optional steps
-
-#### Checking if the user is authenticated
-
-You can add the following `Action` to check if the user is authenticated and redirect him to the login page if he's not:
+You can add the following `Action` to check if the user is authenticated. If not, redirect them to the login page:
 
 ```scala
 def AuthenticatedAction(f: Request[AnyContent] => Result): Action[AnyContent] = {

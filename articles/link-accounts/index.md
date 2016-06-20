@@ -6,6 +6,10 @@ url: /link-accounts
 
 Auth0 supports the linking of user accounts from various identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 
+Note that Auth0 will treat all identities as separate by default. For example: if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.
+
+You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.  
+
 ## Advantages of linking accounts
 
 * Allows users to log in with any identity provider without creating a separate profile for each.

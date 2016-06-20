@@ -10,7 +10,7 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.3
+* NodeJS 4.3 or superior
 * Express 4.11
 :::
 

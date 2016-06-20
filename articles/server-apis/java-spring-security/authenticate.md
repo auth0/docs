@@ -3,59 +3,38 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Java Spring Security SDK to add authentication and authorization to your API.
 ---
 
-## Java API Tutorial
+## Java Spring Security API Tutorial
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Java 1.8
+* Java 1.7
 * Maven 3.3
 * Spring 4.2.4
 * Spring Security 4.0.1
 :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-spring-security-api',
-  pkgBranch: 'master',
-  pkgPath: 'examples/auth0-spring-security-api-sample',
-  pkgFilePath: 'examples/auth0-spring-security-api-sample/src/main/resources/auth0.properties',
-  pkgType: 'replace'
-}) %>
+You can download the seed project [here](https://github.com/auth0-samples/auth0-spring-security-api-sample).
 
-**If you have an existing application, please follow the steps below.**
+If you have an existing application, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-spring-security-api).
 
-### 1. Add Auth0 Spring Security dependency
+### 1. Add Auth0 Spring Security API dependency
 
-You need to add the `spring-security-auth0` dependency.
+You need to add the `auth0-spring-security-api` dependency.
 
-For that, you can just add it to your `pom.xml` if you're using maven.
+If you are using maven, add the dependency to your `pom.xml`:
 
 ${snippet(meta.snippets.dependencies)}
 
-Or, if you're using Gradle, add it to the dependencies block:
+If you are using Gradle, add it to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
 ### 2. Configure Spring to use Auth0
 
-Now you need to configure Spring to use Spring Security with Auth0.
-
-For that, just add the following to the `application-context.xml`
-
-```xml
-<!--  Use default Auth0 security context -->
-<import resource="classpath:auth0-security-context.xml" />
-
-<!-- Scan for spring annotated components from Auth0 -->
-<context:component-scan base-package="com.auth0"/>
-
-<!-- Read auth0.properties file -->
-<context:property-placeholder location="classpath:auth0.properties" />
-```
-
-Or, alternately, add these annotations to your application class:
+Add these annotations to your application class:
 
 ${snippet(meta.snippets.configure)}
 
@@ -63,15 +42,18 @@ Once you've done either of those, then create the `auth0.properties` file with t
 
 ${snippet(meta.snippets.setup)}
 
+The `auth0.securedRoute` is a URL pattern that should map to the URL endpoint you wish to secure. You should replace `/secured/**` with the correct value for your implementation.
+
 ### 3. Create the controllers
 
-Now, you can create the controllers. Every controller that has a route inside `/secured/` in this case will ask for the JWT
+Now, you can create the controllers. Every controller that has a route inside `/secured/` will ask for the JWT.
 
 ${snippet(meta.snippets.use)}
 
 ### 4. Call Your API
 
-You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT id_token.
+You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT [id_token](/tokens#auth0-id_token-jwt-).
+
 ```har
 {
 "method": "GET",
@@ -82,42 +64,8 @@ You can now make requests against your secure API by providing the Authorization
 }
 ```
 
+Before making the request you should replace the port (`8000`) with the one on which your app is listening.
+
 ### 5. You're done!
 
-Now you have both your FrontEnd and Backend configured to use Auth0. Congrats, you're awesome!
-
-### Optional Steps
-#### Configure CORS
-
-In order to configure CORS, just add the following `Filter` for all your requests:
-
-```java
-
-import java.io.IOException;
-
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class SimpleCORSFilter implements Filter {
-
-  public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-    HttpServletResponse response = (HttpServletResponse) res;
-    response.setHeader("Access-Control-Allow-Origin", "*");
-    response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
-    response.setHeader("Access-Control-Max-Age", "3600");
-    response.setHeader("Access-Control-Allow-Headers", "Authorization");
-    chain.doFilter(req, res);
-  }
-
-  public void init(FilterConfig filterConfig) {}
-
-  public void destroy() {}
-```
+You have configured your Java Spring Security API to use Auth0. Congrats, you're awesome!
