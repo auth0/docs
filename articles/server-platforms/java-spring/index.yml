@@ -1,0 +1,14 @@
+title: Java Spring MVC
+image: /media/platforms/spring.png
+tags:
+  - quickstart
+alias:
+  - spring
+  - spring-security
+seo_alias: java spring
+snippets:
+  dependencies: server-platforms/java-spring/dependencies
+  setup: server-platforms/java-spring/setup
+  use: server-platforms/java-spring/use
+articles:
+  - 01-login

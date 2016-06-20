@@ -1,18 +1,6 @@
 ---
 title: Auth0 Java Spring MVC Tutorial
 description: This tutorial will show you how to use the Auth0 Java Spring MVC SDK to add authentication and authorization to your web app.
-name: Java Spring MVC
-image: /media/platforms/spring.png
-tags:
-  - quickstart
-alias:
-  - spring
-  - spring-security
-seo_alias: java spring mvc
-snippets:
-  dependencies: server-platforms/java-spring-mvc/dependencies
-  setup: server-platforms/java-spring-mvc/setup
-  use: server-platforms/java-spring-mvc/use
 ---
 
 ## Java Spring MVC Web App Tutorial
