@@ -20,7 +20,7 @@ Click **Create your app**:
 ## 2. Create your app
 
 1. Under **Choose an API**, select **Dropbox API**.
-2. Under **Choose the type of access you need**, select **App folder**.
+2. Under **Choose the type of access you need**, select **App folder** or **Full Dropbox**, depending on your needs.
 3. Name your app.
 4. Click **Create app**.
 
