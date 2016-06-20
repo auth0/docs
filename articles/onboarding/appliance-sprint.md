@@ -34,7 +34,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 **What?** Your team prepares the relevant infrastructure based on our guidance.
 
-Appliance Infrastructure Requirements Docs - Coming Soon!
+[Appliance Infrastructure Requirements Docs](https://auth0.com/docs/appliance/infrastructure) 
 
 ### Step 3 - Appliance Setup
 
