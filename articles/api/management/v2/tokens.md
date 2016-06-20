@@ -41,3 +41,16 @@ You can terminate the APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Bl
 ## Uses
 
 The Auth0 APIv2 access token is used to call the Auth0 Management APIv2.  This token is required to update the app_metadata portions of the user profile.
+
+## API Secret
+
+Auth0 API tokens are generated locally on your browser using your API secret, there is no way for Auth0 to keep track of them. Auth0's API does not currently maintain a list of tokens which have been generated. 
+
+In the event that the API secret has been compromised, or you need to invalidate all tokens generated with that API secret, one can change the API secret. 
+
+You can change the API secret  in the dashboard by visiting this URL directly:
+```
+https://manage.auth0.com/#/applications/YOUR_API_ID/settings
+```
+
+You can then change the `Client Secret` in that page to change your APIv2 secret.
