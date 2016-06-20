@@ -123,3 +123,21 @@ Now on the other hand, you could create different applications for the enterpris
 Keep in mind that users calling out to the different APIs will count as additional active users because they will be spanning multiple applications. Choosing between one application and different application will be a functionality vs. cost tradeoff.
 
 ![](/media/articles/applications/applications-complex-different.png)
+
+### Custom domain names
+
+The public, multi-tenant cloud service version of Auth0 supports a domain name of `auth0.com`.  Applications deployed in this service will use a domain name of `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`.
+
+For example:
+
+```
+mycompany.auth0.com
+mycompany.eu.auth0.com 
+mycompany.au.auth0.com
+```
+
+Note that with the public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, not your application.
+
+It is possible to have a custom domain name, which completely hides the Auth0 name, such as `mycompany.com`.  Use of a custom domain name requires a single-tenant version of Auth0, which can be deployed in either an Auth0-managed cloud, a customer-managed cloud, or an on-premise installation.  These three deployment options do have a higher cost, due to the extra administrative work to manage them, compared to the public cloud.
+
+If you cannot use a multi-tenant cloud service because of compliance or other policy requirements, please take a look at [the Auth0 appliance](https://auth0.com/docs/appliance).
