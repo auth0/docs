@@ -173,3 +173,15 @@ The configured password policies, along with other connection information, can b
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard.
 [Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
+
+## Add username to Sign Up form
+
+One very simple signup customization is to add a `username` to the signup.
+
+To set this up,  turn on the  `Requires username` setting for a Database connection.
+
+Once this has been done, when a user is created manually in the Auth0 dashboard, then the screen where you enter user information will prompt for both email and username.
+
+Similarly, the Lock widget in sign up mode will prompt for username, email and password.
+
+When a user authenticates, they can log in with username + Password.
