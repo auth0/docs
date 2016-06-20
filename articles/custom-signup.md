@@ -178,7 +178,7 @@ This file can then be parsed client-side to find the current password policy con
 
 One very simple signup customization is to add a `username` to the signup.
 
-To set this up,  turn on the  `Requires username` setting for a Database connection.
+To set this up, turn on the `Requires username` setting for a Database connection.
 
 Once this has been done, when a user is created manually in the Auth0 dashboard, then the screen where you enter user information will prompt for both email and username.
 
