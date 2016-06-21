@@ -21,10 +21,10 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'Auth0.NancyFx.SelfHost',
+  pkgRepo: 'auth0-nacyfx-samples',
   pkgBranch: 'master',
-  pkgPath: 'sample',
-  pkgFilePath: 'sample/App.config',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/App.config',
   pkgType: 'replace'
 }) %>
 
