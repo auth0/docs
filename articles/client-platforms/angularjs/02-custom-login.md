@@ -3,8 +3,6 @@ title: Custom Login
 description: Learn how to login with custom widget rather than Lock
 ---
 
-
-TODO: Find out how to configure angular-sample URL
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/02-Custom-Login',
 }) %>_
