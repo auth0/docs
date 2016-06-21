@@ -4,7 +4,7 @@ name: test
 ---
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular2 JS apps with Auth0. For that, you have to include
-[Lock Widget](https://github.com/auth0/lock) and [angular2-jwt](https://github.com/auth0/angular2-jwt) as dependencies to your project. 
+[Lock Widget](https://github.com/auth0/lock) and [angular2-jwt](https://github.com/auth0/angular2-jwt) as dependencies to your project.
 
 ## Seed & Samples
 
@@ -12,7 +12,7 @@ There are two options to following along these steps. You can either download th
 
 ## Create an Application
 
-<%= include('../../articles/_includes/_new_app') %>_
+<%= include('../../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
