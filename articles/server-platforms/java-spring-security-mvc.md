@@ -79,7 +79,53 @@ Example usage: extend this class and define Controller in subclass.
 
 ${snippet(meta.snippets.use)}
 
-### 4. Triggering login manually or integrating the Auth0Lock
+### 4. Defining endpoint security configuration
+
+The [Auth0 Spring Security MVC library](https://github.com/auth0/auth0-spring-security-mvc) contains a security configuration class, called `Auth0SecurityConfig`. This class handles all the library Application Context wiring configuration, and a default `HttpSecurity` endpoint configuration that secures the URL Context path defined with `auth0.securedRoute` property.
+
+This is defined in a method called `authorizeRequests(final HttpSecurity http)` which should be overridden by you. 
+
+```java
+protected void authorizeRequests(final HttpSecurity http) throws Exception {
+  http.authorizeRequests()
+    .antMatchers(securedRoute).authenticated()
+    .antMatchers("/**").permitAll();
+}
+```
+
+By subclassing, and overriding `authorizeRequests` you can define whatever endpoint security configuration (authentication and authorization) is suitable for your own needs.
+
+For example, this is the declared subclass together with overridden method from our [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sample):
+
+```java
+package com.auth0.example;
+
+import com.auth0.spring.security.mvc.Auth0SecurityConfig;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+
+
+@Configuration
+@EnableWebSecurity(debug = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+public class AppConfig extends Auth0SecurityConfig {
+  @Override
+  protected void authorizeRequests(final HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+      .antMatchers("/css/**", "/fonts/**", "/js/**", "/login").permitAll()
+      .antMatchers("/portal/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+      .antMatchers(securedRoute).authenticated();
+  }
+}
+```
+
+### 5. Triggering login manually or integrating the Auth0Lock
 
 Here is a recommended login setup using Lock:
 
@@ -133,7 +179,7 @@ By default, this library expects a Nonce value in the state query param as follo
 The NonceFactory can be used to generate such a nonce value. State may be needed to hold other attribute values hence why it has its own keyed value of `nonce=B4AD596E418F7CE02A703B42F60BAD8F`. For instance in SSO you may need an `externalCallbackUrl` which also needs to be stored down in the state param: `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback`.
 
 
-### 5. Accessing user information
+### 6. Accessing user information
 
 Depending on what `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
 The full user profile information is available as a session object keyed on `Auth0User`, you can simply call `SessionUtils.getAuth0User()`. Ηowever, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
@@ -151,6 +197,6 @@ The full user profile information is available as a session object keyed on `Aut
 
 The value `/portal/home` should be replaced with the valid one for your implementation.
 
-### 6. You're done!
+### 7. You're done!
 
 You have configured your Java Webapp to use Auth0. Congrats, you're awesome!
