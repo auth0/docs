@@ -39,8 +39,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-angular2',
   pkgBranch: 'master',
   pkgPath: null,
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: 'auth0vars.ts',
+  pkgType: 'replace'
 }) %>
 
 **If you have an existing application, follow the steps below.**
