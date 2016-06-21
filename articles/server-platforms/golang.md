@@ -20,9 +20,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-golang',
+  pkgRepo: 'auth0-golang-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/regular-web-app',
+  pkgPath: '00-Starter-Seed/regular-web-app',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
