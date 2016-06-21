@@ -112,3 +112,7 @@ You must configure the lock as shown below, to avoid the blank screen popup with
 lock.show({sso: false},function(err, profile, token) {
 });
 ```
+
+#### Lock is displaying errors when using cordova serve command
+
+Please debug your app inside the simulator for your platform or an actual device. Running Lock from inside a browser using `cordova serve` is not supported at this time.

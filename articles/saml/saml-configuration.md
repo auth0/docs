@@ -367,3 +367,32 @@ The following tools are useful for troubleshooting SAML authentication:
 
 * SAML responses from Auth0's logs can be [pasted directly into this debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php)
 * [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
+
+
+# SAML options and bindings
+
+### Supported SAML options:
+
+* Web Browser SSO Profile
+* Single Logout Profile
+* Name Identifier Management Profile
+* Name Identifier Mapping Profile
+
+### Not supported SAML options:
+
+* Enhanced Client and Proxy (ECP) Profile
+* Identity Provider Discovery Profile
+* Assertion Query/Request Profile
+* Artifact Resolution Profile
+
+### Supported SAML bindings:
+
+* HTTP Redirect Binding
+* HTTP POST Binding
+
+### Not supported SAML bindings:
+
+* HTTP Artifact Binding
+* SAML SOAP Binding
+* Reverse SOAP (PAOS) Binding
+* SAML URI Binding

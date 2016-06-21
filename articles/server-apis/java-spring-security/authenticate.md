@@ -38,11 +38,20 @@ Add these annotations to your application class:
 
 ${snippet(meta.snippets.configure)}
 
-Once you've done either of those, then create the `auth0.properties` file with the following information:
+Create a file called `auth0.properties` and place this under `src/main/resources`. Set the following settings:
 
 ${snippet(meta.snippets.setup)}
 
-The `auth0.securedRoute` is a URL pattern that should map to the URL endpoint you wish to secure. You should replace `/secured/**` with the correct value for your implementation.
+Here is a breakdown of what each attribute means:
+
+- `auth0.domain`: Your auth0 domain (the tenant you have created when registering with auth0).
+- `auth0.issuer`: The issuer of the JWT Token (typically full URL of your auth0 tenant account - eg. https://{tenant_name}.auth0.com/).
+- `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
+- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
+- `auth0.securedRoute`: The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`. Note, if you are using the default library configuration (not overriding with your own) which just secures a single, specific context path then this value is important. However, if you are building an application which may have several different secured endpoints, or you don't want to specify an explicit configuration value in this `.properties` file then just set the value to something that signifies this. Perhaps `auth0.securedRoute: UNUSED`. Then just ignore the `securedRoute` entirely when you specify your own configuration. See the section [Extending Auth0SecurityConfig](https://github.com/auth0/auth0-spring-security-api#extending-auth0securityconfig) for further info. The takeaway message is that this property value is a convenience for the developer to configure an endpoint by context path (.eg all URLS with `/api/v1/` in their context path), but there is no obligation to actually reference this property in your own `HttpSecurity` configuration.
+- `auth0.base64EncodedSecret`: A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. Default is `true`.
+- `auth0.authorityStrategy`: Indicates whether authorization claims against the Principal shall be `GROUPS`, `ROLES` or `SCOPE` based. Default is `ROLES`.
+- `auth0.defaultAuth0ApiSecurityEnabled`: A boolean value that switches having the default config enabled. It should be set to `false`.
 
 ### 3. Create the controllers
 
