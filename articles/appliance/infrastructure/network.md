@@ -48,8 +48,8 @@ We recommend a layer 7/application layer load balancer that supports:
 
 You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 Appliance. The reverse proxy must be configured with:
 
-* TXP mode with Proxy Protocol or HTTPS mode (SSL offloading);
-    * Note: The connector does not work in HTTPS mode.
+* TCP mode with Proxy Protocol or HTTPS mode (SSL offloading);
+    * Note: The Auth0 AD/LDAP Connector does not work in HTTPS mode.
 * the incoming hostname forwarded to the Appliance nodes.
 
 In addition to load balancing, you may use this for **IP address whitelisting** and **endpoint filtering** (only authentication endpoints are publicly available).
