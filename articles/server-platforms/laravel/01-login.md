@@ -13,7 +13,7 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 * Laravel 5.2.15
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'laravel-auth0-sample',
   pkgBranch: 'master',
   pkgPath: '',

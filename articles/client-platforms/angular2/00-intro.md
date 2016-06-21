@@ -28,7 +28,6 @@ To integrate your Angular2 application with Auth0 you need to add the following 
 
 - [Lock Widget](https://github.com/auth0/lock): is the default authentication widget provided by Auth0.
 
-
     From [npm](https://npmjs.org):
 
     ```sh
