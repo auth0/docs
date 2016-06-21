@@ -21,7 +21,7 @@ A popup displays the URL to be used in order to impersonate the user. You can ch
 
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
-> Impersonating a user using the Management Dashboard generates a minimal [JWT](/jwt) (only `openid` [scope](/scopes)).
+> Impersonating a user using the Management Dashboard will not return a [JWT](/jwt) to your application by default. You can achieve this by calling the [impersonation endpoint](/api/authentication#!#post--users--user_id--impersonate) manually and adding `additionalParameters.scope: "openid"` to the request body.
 
 ## Impersonate a User using the Impersonation API
 
