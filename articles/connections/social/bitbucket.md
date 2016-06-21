@@ -39,7 +39,7 @@ Click **Save**.
 
 ## 3. Get your *Key* and *Secret*
 
-On the page that follows, click the name of you app under **OAuth consumers** to reveal your keys:
+On the page that follows, click the name of your app under **OAuth consumers** to reveal your keys:
 
 ![](/media/articles/connections/social/bitbucket/bitbucket-04.png)
 
