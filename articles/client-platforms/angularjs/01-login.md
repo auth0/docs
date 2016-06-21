@@ -1,11 +1,11 @@
 ---
 title: Login
-description: test
+description: Login with Lock Tutorial
 ---
 
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/01-Login',
-}) %>
+}) %>_
 
 ::: panel-info Running the Sample
 At any point in time you can run this sample with a simple HTTP server. One example is http-server which can be installed with `npm install -g http-server`. Run `http-server` on the root directory of the sample to launch.

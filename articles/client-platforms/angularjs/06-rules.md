@@ -3,6 +3,10 @@ title: Rules
 description: test
 ---
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Rules',
+}) %>_
+
 <!-- Every section in this doc can be reused in other quickstarts except the step 4 of creating rules  -->
 
 Rules are one of the cool features of Auth0. Reason for it's coolness is it's flexibility which gives you the ability to extend what Auth0 has to offer. Rule are JavaScript functions which can be thought  of as middlewares because of how they work:

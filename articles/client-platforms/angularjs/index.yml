@@ -18,6 +18,14 @@ seo_alias: angularjs
 articles:
   - 00-intro
   - 01-login
+<<<<<<< HEAD
+  - 02-custom-login
+  - 03-user-profile
+  - 04-linking-accounts
+  - 05-calling-apis
+  - 06-rules
+=======
   - 02-user-profile
   - 03-linking-accounts
   - 04-calling-apis
+>>>>>>> 1fd93949e52cdb1681b8e9113394b2dc8c0c5cf9
