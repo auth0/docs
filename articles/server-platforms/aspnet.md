@@ -90,6 +90,26 @@ You can use the usual authorization techniques since the `LoginCallback.ashx` ha
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
 
+A typical logout action on ASP.Net MVC would look like this:
+
+```C#
+public RedirectResult Logout()
+{
+    // Clear the session cookie
+    FederatedAuthentication.SessionAuthenticationModule.SignOut();
+    
+    // Redirect to Auth0's logout endpoint
+    var returnTo = Url.Action("Index", "Home", null, protocol: Request.Url.Scheme );
+    return this.Redirect(
+        string.Format(CultureInfo.InvariantCulture,
+            "https://{0}/v2/logout?returnTo={1}",
+            ConfigurationManager.AppSettings["auth0:Domain"],
+            this.Server.UrlEncode(returnTo)));
+}
+``` 
+
+Note that the final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
+
 #### Link accounts
 
 To allow users to link accounts from different providers, read [Link Accounts](/link-accounts).
