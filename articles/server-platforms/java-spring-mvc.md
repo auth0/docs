@@ -11,6 +11,7 @@ alias:
 seo_alias: java spring mvc
 snippets:
   dependencies: server-platforms/java-spring-mvc/dependencies
+  dependenciesGradle: server-platforms/java-spring-mvc/dependencies-gradle
   setup: server-platforms/java-spring-mvc/setup
   use: server-platforms/java-spring-mvc/use
 ---
@@ -32,9 +33,15 @@ If you have an existing Java Spring Web App, please follow the steps below. You 
 
 ### 1. Add Auth0 dependencies
 
-Add the following dependencies to your `pom.xml` and run `mvn install`.
+You need to add the `auth0-spring-mvc` dependency.
+
+If you are using maven, add the dependency to your `pom.xml`:
 
 ${snippet(meta.snippets.dependencies)}
+
+If you are using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependenciesGradle)}
 
 See the [seed project](https://github.com/auth0-samples/auth0-spring-mvc-sample) to understand the proposed overall structure of your `pom.xml`.
 
