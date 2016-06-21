@@ -1,0 +1,17 @@
+title: Windows Universal App C#
+hybrid: false
+alias:
+  - windows app
+  - windows
+language:
+  - C#
+image: /media/platforms/windows-8.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/windows-uwp-csharp/dependencies
+  setup: native-platforms/windows-uwp-csharp/setup
+  use: native-platforms/windows-uwp-csharp/use
+seo_alias: windows-uwp-csharp
+articles:
+  - 01-login

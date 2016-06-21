@@ -1,0 +1,20 @@
+title: Windows Universal App Javascript
+hybrid: false
+language:
+  - Javascript
+image: /media/platforms/windows-8.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/windows-uwp-javascript/dependencies
+  setup: native-platforms/windows-uwp-javascript/setup
+  use: native-platforms/windows-uwp-javascript/use
+alias:
+  - windows app
+  - windows
+  - windows-10
+  - windows-tablet
+  - surface
+seo_alias: windows-uwp-javascript
+articles:
+  - 01-login

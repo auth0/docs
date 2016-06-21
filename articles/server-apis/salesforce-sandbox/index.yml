@@ -1,0 +1,9 @@
+title: Salesforce (sandbox)
+thirdParty: true
+alias:
+  - salesforce
+image: /media/addons/salesforce_sandbox_api.svg
+tags:
+  - quickstart
+articles:
+  - authenticate

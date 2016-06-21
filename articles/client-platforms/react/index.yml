@@ -1,0 +1,18 @@
+title: React
+alias:
+  - react
+  - reactjs
+language:
+  - Javascript
+framework:
+  - React
+image: /media/platforms/react.png
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/react/dependencies
+  setup: client-platforms/react/setup
+  use: client-platforms/react/use
+seo_alias: react
+articles:
+  - 01-login

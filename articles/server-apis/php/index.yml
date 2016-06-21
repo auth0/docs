@@ -1,0 +1,15 @@
+title: PHP API
+alias:
+  - php
+languages:
+  - PHP
+thirdParty: false
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/php/dependencies
+  setup: server-apis/php/setup
+  use: server-apis/php/use
+articles:
+  - authenticate
