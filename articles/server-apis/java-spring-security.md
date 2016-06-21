@@ -56,7 +56,7 @@ Add these annotations to your application class:
 
 ${snippet(meta.snippets.configure)}
 
-Once you've done either of those, then create the `auth0.properties` file with the following information:
+Create a file called `auth0.properties` and place this under `src/main/resources`. Set the following settings:
 
 ${snippet(meta.snippets.setup)}
 
