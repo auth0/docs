@@ -53,15 +53,15 @@ ${snippet(meta.snippets.setup)}
 
 Here is a breakdown of what each attribute means:
 
-- `auth0.domain`: This is your auth0 domain (tenant you have created when registering with auth0 - account name).
-- `auth0.clientId`: This is the client id of your auth0 application (see Settings page on auth0 dashboard).
-- `auth0.clientSecret`: This is the client secret of your auth0 application (see Settings page on auth0 dashboard).
-- `auth0.onLogoutRedirectTo`: This is the page / view that users of your site are redirected to on logout. Should start with `/`.
-- `auth0.securedRoute`: This is the URL pattern to secure a URL endpoint. Should start with `/`. You should replace the value with the correct value for your implementation.
-- `auth0.loginCallback`: This is the URL context path for the login callback endpoint. Should start with `/`.
-- `auth0.loginRedirectOnSuccess`: This is the landing page URL context path for a successful authentication. Should start with `/`.
-- `auth0.loginRedirectOnFail`: This is the URL context path for the page to redirect to upon failure. Should start with `/`.
-- `auth0.servletFilterEnabled`: This is a boolean value that switches having an authentication filter enabled On / Off.
+- `auth0.domain`: Your auth0 domain (the tenant you have created when registering with auth0).
+- `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
+- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
+- `auth0.onLogoutRedirectTo`: This is the page that users of your site are redirected to on logout. Should start with `/`.
+- `auth0.securedRoute`: The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`.
+- `auth0.loginCallback`: The URL context path for the login callback endpoint. Should start with `/`.
+- `auth0.loginRedirectOnSuccess`: The landing page URL context path for a successful authentication. Should start with `/`.
+- `auth0.loginRedirectOnFail`: The URL context path for the page to redirect to upon failure. Should start with `/`.
+- `auth0.servletFilterEnabled`: A boolean value that switches having an authentication filter enabled or not.
 
 
 ### 3. Add Auth0 callback handler
