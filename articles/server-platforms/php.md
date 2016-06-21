@@ -24,9 +24,9 @@ This tutorial and seed project have been tested with the following:
 
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-PHP',
+  pkgRepo: 'auth0-php-web-app',
   pkgBranch: 'master',
-  pkgPath: 'examples/basic-webapp',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
