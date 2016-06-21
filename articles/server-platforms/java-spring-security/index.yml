@@ -8,6 +8,7 @@ alias:
 seo_alias: java spring
 snippets:
   dependencies: server-platforms/java-spring-security/dependencies
+  dependenciesGradle: server-platforms/java-spring-security/dependencies-gradle
   setup: server-platforms/java-spring-security/setup
   use: server-platforms/java-spring-security/use
 articles:
