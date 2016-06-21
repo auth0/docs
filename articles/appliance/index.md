@@ -21,5 +21,6 @@ Auth0 is responsible for installation, maintenance, patching and updates. You ar
 * [Appliance Dashboard/Configuration Area](/appliance/dashboard)
     * [Time Synchronization in the Appliance](/appliance/clock)
 * [Appliance Infrastructure Requirements](/appliance/infrastructure)
+* [Appliance Sprint (Customer Onboarding)](/onboarding/appliance-sprint)
 * [Tools for Monitoring the Appliance](/appliance/monitoring)
 * [Node.js Modules Available in Rules and Custom Database Connections for Appliances](/appliance/modules)
