@@ -57,6 +57,9 @@ Here is a list of customizable attributes of web.xml:
 - `auth0.clientId`: This is the `client_id` of your Auth0 application (see [Settings](${uiURL}/#/applications) page of your app on the Auth0 dashboard).
 - `auth0.clientSecret`: This is the `client_secret` of your Auth0 application (see [Settings](${uiURL}/#/applications) page of your app on the Auth0 dashboard).
 - `auth0.onLogoutRedirectTo`: This is the page that users of your site will be redirected to on logout. Should begin with `/`.
+- `auth0.redirect_on_success`: This is the landing page URL context path for a successful authentication. Should start with `/`.
+- `auth0.redirect_on_error`: This is the URL context path for the page to redirect to upon failure. Should start with `/`.
+- `auth0.redirect_on_authentication_error`: This is the URL context path for the page to redirect to upon authentication failure. Should start with `/`.
 
 ### 3. Add the Auth0 callback handler
 
