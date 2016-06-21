@@ -668,6 +668,10 @@
     "to": "/quickstart/native/:platform"
   },
   {
+    "from": "/quickstart/backend/:platform/:api",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
     "from": "/policies/rate-limit",
     "to": "/policies/rate-limits"
   }
