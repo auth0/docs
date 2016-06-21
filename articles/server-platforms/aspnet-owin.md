@@ -18,10 +18,10 @@ seo_alias: aspnet-owin
 # ASP.NET (OWIN) Tutorial
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-aspnet-owin',
+  pkgRepo: 'aspnet-owin-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/basic-mvc-sample',
-  pkgFilePath: 'examples/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/BasicMvcSample/Web.config',
   pkgType: 'replace'
 }) %>
 
