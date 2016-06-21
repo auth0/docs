@@ -3,91 +3,80 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Angular 2 SDK to add authentication and authorization to your web app.
 ---
 
-## Angular 2 SDK Tutorial
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+#### Login
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Angular2 2.0.0-rc.1
-* NodeJS 4.3
-:::
+The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there. 
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-angular2',
-  pkgBranch: 'master',
-  pkgPath: null,
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>
+To implement login, first create an `Auth0Lock` instance. 
+The instance creator receives your Auth0 credentials and an options object (available options [here](https://github.com/auth0/lock/tree/v10.0.0-beta.4#new-auth0lockclientid-domain-options-callback))
 
-**If you have an existing application, follow the steps below.**
+Then, just add a callback for the `authenticated` lock event, which receives one argument with login information. For now just store the `idToken` attribute into `localStorage`.
 
-${include('../\_callback')}
+```typescript
+/* ===== ./auth.service.ts ===== */
+import {Injectable} from '@angular/core';
+import {tokenNotExpired} from 'angular2-jwt';
 
-### 1. Add the Auth0 Scripts and Install angular2-jwt
+// Avoid name not found warnings
+declare var Auth0Lock: any;
 
-Install **angular2-jwt** with **npm**.
+@Injectable()
+export class Auth {
+  // Configure Auth0
+  lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN', {});
 
-${snippet(meta.snippets.install)}
+  constructor() {
+    // Add callback for lock `authenticated` event
+    this.lock.on("authenticated", (authResult) => {
+      localStorage.setItem('id_token', authResult.idToken);
+    });
+  }
 
-Add **Lock** in your `index.html` file and set the viewport.
+  public login() {
+    // Call the show method to display the widget.
+    this.lock.show();
+  };
 
-${snippet(meta.snippets.dependencies)}
+  public authenticated() {
+    // Check if there's an unexpired JWT
+    // It searches for an item in localStorage with key == 'id_token'
+    return tokenNotExpired();
+  };
 
-### 2. Set Up SystemJS Configuration to Map angular2-jwt
+  public logout() {
+    // Remove token from localStorage
+    localStorage.removeItem('id_token');
+  };
+}
+```
 
-If you're using SystemJS, set up `System.config` to map **angular-jwt** so that it can be imported.
+In `login` method, just call `lock.show()` to display the login widget.
+When the page is redirected after login, the callback defined for `authenticated` lock event will be inoked.
 
-${snippet(meta.snippets.system_map)}
+To know if a user is authenticated, just use `tokenNotExpired` from `angular2-jwt` which allows you to check whether there is a non-expired JWT in local storage.
 
-### 2.1 Using Webpack
+To use this, just inject the `Auth` service into your component
 
-**If you are using Webpack, please see the [auth0-angular2 Webpack example](https://github.com/auth0/auth0-angular2/tree/master/webpack) for configuration.**
+```typescript
+export class AppComponent {
+  constructor(private auth: Auth) {}
+}
+``` 
 
-### 3. Import Dependencies
+and then in your component's template
 
-To set up a simple component, you'll need some standard Angular 2 imports, as well as the `AuthHttp` class and `tokenNotExpired` function from **angular2-jwt**.
+```html
+<div class="navbar-header">
+  <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
+  <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+  <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+</div>
 
-${snippet(meta.snippets.setup)}
+```
+The lock widget will pop up showing a Login form, when you click the Login button.
 
-### 4. Implement Login and Logout
-
-To implement login, create a new `Auth0Lock` instance in your component. In this example, login is implemented in the app's root component, but it could also be placed in a child component.
-
-${snippet(meta.snippets.use)}
+This is how it will look on a browser...
 
 ${browser}
 
-In the `login` method, call `lock.show` to display the login widget. On a successful login, you can save the user's profile object (as a string) and token in local storage.
-
-To log the user out, simply remove the profile and token from local storage.
-
-You can use the `tokenNotExpired` function in the `loggedIn` method to conditionally show and hide the **Login** and **Logout** buttons.
-
-__Note:__ There are multiple ways of implementing a login. The example above displays the Login Widget. However you may implement your own login UI by changing the line `<script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.8.js"></script>`.
-
-### 5. Make an Authenticated HTTP Request
-
-The `AuthHttp` class is used to make authenticated HTTP requests. `AuthHttp` uses Angular 2's **Http** class but includes the `Authorization` header for you on requests.
-
-${snippet(meta.snippets.request)}
-
-Inject the `AuthHttp` class as `authHttp`. This example uses the `get` method to make an authenticated `GET` request. `AuthHttp` supports all HTTP verbs, so you can just as easily do `POST`, `PUT`, and `DELETE` requests. You can provide an object as the second argument to the call if you want to include a body.
-
-### 6. Limit Certain Routes to Authenticated Users
-
-Although data from the API will be protected and require a valid JWT to access, users that aren't authenticated will be able to get to any route by default. You can use the `@CanActivate` life-cycle hook from Angular 2's router to limit navigation on certain routes to only those with a non-expired JWT.
-
-${snippet(meta.snippets.router)}
-
-Use the `tokenNotExpired` function within the `@CanActivate` life-cycle hook to determine if the user can navigate to the private route. If the token isn't expired, the function will return `true` and navigation will be permitted.
-
-### 7. All done!
-
-You have completed the implementation of Login and Signup with Auth0 and Angular 2.
-
-### Optional: Use JWT as an Observable
-
-The `AuthHttp` class sets a property, `tokenStream`, as an observable stream from the user's JWT. This stream can be used with other streams and can be combined to make authenticated requests. This can be used as an alternative to the explicit methods in the `AuthHttp` class.
-
-${snippet(meta.snippets.observable)}
+Done. You've implemented Login and SignUp with Auth0 in your Angular2 project.
