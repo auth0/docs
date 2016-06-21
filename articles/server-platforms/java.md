@@ -10,6 +10,7 @@ alias:
 seo_alias: java
 snippets:
   dependencies: server-platforms/java-servlet/dependencies
+  dependenciesGradle: server-platforms/java-servlet/dependencies-gradle
   setup: server-platforms/java-servlet/setup
   use: server-platforms/java-servlet/use
 ---
@@ -29,9 +30,15 @@ If you already have an existing Java Servlet Web App, follow the steps below. Yo
 
 ### 1. Add Auth0 dependencies
 
-Add the following dependencies to your `pom.xml` file. Then run `mvn install`.
+You need to add the `auth0-servlet` dependency.
+
+If you are using maven, add the dependency to your `pom.xml` file. Then run `mvn install`.
 
 ${snippet(meta.snippets.dependencies)}
+
+If you are using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependenciesGradle)}
 
 **NOTE:** See the [seed project](https://github.com/auth0-samples/auth0-servlet-sample) to understand the overall structure of your `pom.xml`.
 
