@@ -14,7 +14,7 @@ It is a managed service that is typically used if your organization's compliance
 
 Auth0 is responsible for installation, maintenance, patching and updates. You are responsible for supplying and monitoring the infrastructure on which Auth0 runs (including, but not limited to, the VM host, storage, network resources, and other required dependencies).
 
-* [Overview of the Auth0 Appliance](/appliance/overview)
+* [Overview of the Auth0 Appliance](/appliance/appliance-overview)
     * [Overview of the Geographic High-Availability Appliance](/appliance/geo-ha)
 * [Appliance Administrator's Manual](/appliance/admin)
 * [Appliance Command-Line Interface Tools](/appliance/cli)
