@@ -10,6 +10,7 @@ alias:
 seo_alias: java
 snippets:
   dependencies: server-platforms/java-servlet/dependencies
+  dependenciesGradle: server-platforms/java-servlet/dependencies-gradle
   setup: server-platforms/java-servlet/setup
   use: server-platforms/java-servlet/use
 ---
@@ -29,9 +30,15 @@ If you already have an existing Java Servlet Web App, follow the steps below. Yo
 
 ### 1. Add Auth0 dependencies
 
-Add the following dependencies to your `pom.xml` file. Then run `mvn install`.
+You need to add the `auth0-servlet` dependency.
+
+If you are using maven, add the dependency to your `pom.xml`:
 
 ${snippet(meta.snippets.dependencies)}
+
+If you are using Gradle, add it to the dependencies block:
+
+${snippet(meta.snippets.dependenciesGradle)}
 
 **NOTE:** See the [seed project](https://github.com/auth0-samples/auth0-servlet-sample) to understand the overall structure of your `pom.xml`.
 
@@ -46,10 +53,13 @@ ${snippet(meta.snippets.setup)}
 
 Here is a list of customizable attributes of web.xml:
 
-- `auth0.domain`: This is your Auth0 domain namespace (the tenant you created when registering with Auth0 - i.e.`your_account_name.auth0.com`).
-- `auth0.clientId`: This is the `client_id` of your Auth0 application (see [Settings](${uiURL}/#/applications) page of your app on the Auth0 dashboard).
-- `auth0.clientSecret`: This is the `client_secret` of your Auth0 application (see [Settings](${uiURL}/#/applications) page of your app on the Auth0 dashboard).
-- `auth0.onLogoutRedirectTo`: This is the page that users of your site will be redirected to on logout. Should begin with `/`.
+- `auth0.domain`: Your auth0 domain (the tenant you have created when registering with auth0).
+- `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
+- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
+- `auth0.onLogoutRedirectTo`: The page that users of your site will be redirected to on logout. Should begin with `/`.
+- `auth0.redirect_on_success`: The landing page URL context path for a successful authentication. Should start with `/`.
+- `auth0.redirect_on_error`: The URL context path for the page to redirect to upon failure. Should start with `/`.
+- `auth0.redirect_on_authentication_error`: The URL context path for the page to redirect to upon authentication failure. Should start with `/`.
 
 ### 3. Add the Auth0 callback handler
 
