@@ -657,7 +657,15 @@
   },
   {
     "from": "/quickstart/hybrid/:platform/:api",
-    "to": "/quickstart/native/:platform/:api"
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/:api",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/:api",
+    "to": "/quickstart/native/:platform"
   },
   {
     "from": "/policies/rate-limit",
