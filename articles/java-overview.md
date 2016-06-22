@@ -18,6 +18,8 @@ A modern Java Spring library that allows you to use Auth0 with Java Spring for s
 - [Library](https://github.com/auth0/auth0-spring-mvc)
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample)
 
+> We have created another [sample application](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link) that extends the simpler [Auth0 Spring MVC Sample Project](https://github.com/auth0-samples/auth0-spring-mvc-sample) and demonstrates Social and Connection Login and Database Account linking. In this app, you can choose to login either with a Social or a Database Connection. If you login using Social Connection and have not already linked you DB Connection then you are requested to do so. You can find details on how to setup and use this sample application at the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link).
+
 ## Java Spring Security MVC
 
 A modern Java Spring library that allows you to use Auth0 with Spring Security for server-side MVC web apps. This provides full integration with Spring Security.
@@ -36,7 +38,9 @@ A modern Java Spring library that allows you to use Auth0 with Spring Security. 
 - [Library](https://github.com/auth0/auth0-spring-security-api)
 - [Sample Project](https://github.com/auth0-samples/auth0-spring-security-api-sample)
 
-## Using Auth0 with Spring Boot and Spring Security
+> We have created another [sample application](https://github.com/auth0-samples/auth0-spring-security-api-client-samples) that works as a companion sample for the [Auth0 Spring Security API Sample](https://github.com/auth0-samples/auth0-spring-security-api-sample) and [Auth0 Spring Security API Resource Server Sample](#auth0-resource-server-sample-using-spring-boot-and-spring-security). The scenario this sample covers is that of an AngularJS SPA and an API Server that trust one another, and share the same Auth0 application information. Hence the JWT Token received upon successful authentication in the SPA application is also passed in the Authorization Bearer header of the AJAX requests to the API Server. The API Server accepts the audience as it is the same as its own. The purpose of this sample is to provide an easy to understand seed project for users wishing to combine Java Spring Security API Server with a single page application front-end. You can find details on how to setup and use this sample application at the _README_ of the [GitHub repository](https://github.com/auth0-samples/auth0-spring-security-api-client-samples/tree/master/auth0-spring-security-api-angular-client).
+
+## Using Auth0 with Spring Boot and Spring Security for Single Sign On (SSO)
 
 We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. 
 
