@@ -13,6 +13,8 @@ For **multi-node** clusters, all virtual machines must be:
 * on the same segment of the internal network;
 * able to communicate between each other via ports `7777` and `27017`.
 
+For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
+
 ## Internet Connectivity
 
 Each Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting. For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.
