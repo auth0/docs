@@ -19,10 +19,7 @@ var lock = new AuthLock(
         return value.length > 10;
       }
     }] // more fields could be specified
-  },
-  function(error, result) {
-    // handle auth
-});
+  });
 ```
 
 If the possible values for the field are predefined, you can add a field with the `"select"` `type`.
@@ -105,10 +102,8 @@ var lock = new AuthLock(
         cb(null, displayName);
       }
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 If you don't want to display an avatar pass `null`.
@@ -119,10 +114,8 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     avatar: null
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Prefilled Fields
@@ -138,10 +131,8 @@ var lock = new AuthLock(
       email: "someone@example.com",
       username: "someone"
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Authentication Options
@@ -154,24 +145,21 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     auth: {
-      jsonp: false,
       params: {name: "value"},
       redirect: true,
       redirectUrl: window.location.href
       responseType: "token",
       sso: true
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Initial Screen
 
 You may now choose the screen that will be first displayed when Lock is shown with the `initialScreen` option. The following are valid values:
 * `login` (default);
-* `resetPassword`;
+* `forgotPassword`;
 * `signUp`;
 
 ```js
@@ -179,11 +167,9 @@ var lock = new AuthLock(
   '${account.clientId}',
   '${account.namespace}',
   {
-    initialScreen: "signUp" // "login" or "resetPassword"
-  },
-  function(error, result) {
-    // handle auth
-});
+    initialScreen: "signUp" // "login" or "forgotPassword"
+  }
+);
 ```
 
 ## Theme Options
@@ -199,10 +185,8 @@ var lock = new AuthLock(
       logo: "https://example.com/icon.png",
       primaryColor: "#ec4889"
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Sign Up Terms Agreement
@@ -215,13 +199,9 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     languageDictionary: {
-      signUp: {
-        terms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
-      }
+      signUpTerms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
     },
     mustAcceptTerms: true
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
