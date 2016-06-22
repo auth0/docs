@@ -66,4 +66,4 @@ If you are targeting mobile audiences, it's recommended that you add in `<head>`
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 ```
 
-Please continue with next [step](link_to_login) tutorial to know how to implement login using `Auth0`.
+Please continue with next [step](/quickstart/spa/angular2/01-login) tutorial to know how to implement login using `Auth0`.

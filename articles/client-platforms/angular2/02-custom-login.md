@@ -19,7 +19,7 @@ auth0 = new Auth0({
 });
 ```
 
-In login method, just call `login` function on `auth0` instance: 
+In login method, just call `login` function on `auth0` instance:
 
 ```typescript
 public login(username, password) {
@@ -34,8 +34,8 @@ public login(username, password) {
 };
 ```
 
-`Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) as default, so after a successfull login, the app will be redirected to `callbackURL`. 
-You can check for `hash` information inside `Auth` contructor using `parseHash` method:
+`Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) as default, so after a successful login, the app will be redirected to `callbackURL`. 
+You can check for `hash` information inside `Auth` constructor using `parseHash` method:
 
 ```typescript
 constructor(private router: Router) {
@@ -83,7 +83,7 @@ public signUp(username, password) {
 };
 ```
 
-and add the button to call this: 
+and add the button to call this:
 
 ```html
 ...
