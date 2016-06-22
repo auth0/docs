@@ -1,7 +1,12 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Angular 2 SDK to add authentication and authorization to your web app.
+description: This tutorial will show you how to integrate Auth0 with angular2 to add authentication and authorization to your web app.
 ---
+
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
+}) %>
+
 
 #### Login
 
