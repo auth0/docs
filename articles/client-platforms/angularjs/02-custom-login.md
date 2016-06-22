@@ -5,7 +5,7 @@ description: Learn how to login with custom widget rather than Lock
 
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/02-Custom-Login',
-}) %>_
+}) %>
 
 The previous step explains how login but with a widget called Lock. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include Lock. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
 
