@@ -31,7 +31,7 @@ You may do so by utilizing the Appliance's custom domains feature, which sets th
 
 ## Certificates Required for Custom Domains
 
-Custom domains map on or more external DNS to a tenant that follows the standard naming convention.
+Custom domains map one or more external DNS to a tenant that follows the standard naming convention.
 
 Suppose that we have a tenant with the following domain:
 
