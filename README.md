@@ -7,8 +7,8 @@ This is the repository for the Auth0 documentation.
 * Always use absolute links from the root of the site. Note, that your links should NOT start with `/docs` or any other base path. If the site is hosted with a base like on `auth0.com/docs` the links will be corrected at runtime.
 * Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use variables instead such as `${uiUrl}`
 * Name files with all lowercase using dashes (-) to separate words. If using a year in the file name it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image-name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
-* Try to keep images to no more than 750 pixels wide
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image-name.png)`. The image will be automatically uploaded to the CDN and the link will be transformed.
+* Please keep images less than 750 pixels wide
 * Run all images through [TinyPNG](https://tinypng.com/).
 
 ## Contributing
@@ -16,15 +16,15 @@ This is the repository for the Auth0 documentation.
 ### Reusing content
 You can create document fragments that can be reused in other documents in order to avoid duplication of content. The process of including another document is shown below.
 
-First, create your fragment document. The convention for this is to name fragments with an underscore like `_mydocument.md`.
+First, create your document fragment. The convention for this is to name fragments with an underscore like `_mydocument.md`.
 
-After you create your markdown document you can reference it another document with the relative path.
+After you create your markdown document you can reference it another document with the relative path:
 
 ```
 <%= include('../_mydocument.md') %>
 ```
 
-Additionally, you can send a context to the included document.
+Additionally, you can send a context to the included document:
 
 ```
 <%= include('../_mydocument.md', { key: 'value', something: true }) %>
@@ -34,7 +34,7 @@ Additionally, you can send a context to the included document.
 Markdown on this site confirms to the [CommonMark spec](http://commonmark.org/). Additionally, there are a few special markdown features available as described below.
 
 #### Warning banner
-You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
+You can, for example, add a warning banner to the top of a page to notify the reader that a page is deprecated or to convey similar messages.
 
 ```
 ::: warning-banner
@@ -59,7 +59,7 @@ Panel content
 Panel content
 :::
 
-::: panel-danger This is a dangerous
+::: panel-danger This is dangerous
 Panel content
 :::
 
@@ -69,7 +69,7 @@ Panel content
 ```
 
 #### HTTP Request Snippets
-You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing how to make the HTTP request in many languages.
+You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request available in a variety of languages. This will generate a tab view showing how to make the HTTP request in many languages.
 
 > Note, you need to set the language type to `har` for this to work. View this raw markdown document for an example.
 
@@ -105,11 +105,11 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 
 
 ### Screenshots
-On Mac OS X screenshots need to be taken with Chrome, taking into account the following:
+On Mac OS X screenshots need to be made with Chrome, taking the following into account:
 
  1. The browser cannot show any plugins, customizations, or bookmarks
  1. The browser cannot be in incognito mode
- 1. The browser needs to be resized to the standard size. Using the below script:
+ 1. The browser needs to be resized to the standard size. Using the following script:
 
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
@@ -127,15 +127,15 @@ On Mac OS X screenshots need to be taken with Chrome, taking into account the fo
 ## Test Procedures
 When testing a document or tutorial below are several areas to look for.
 
-1. Ensure that the code in the tutorials is correct and functions as expected
+1. Ensure that the code in the tutorials is correct and functions as expected.
 1. Ensure that the steps (1..n) are in an order that makes sense and that there are no missing or duplicate steps.
-1. Check for broken links
-1. Check for old screenshots (both in auth0's dashboard/product and on referenced third-party sites)
-1. Ensure that the code in the seed project that you download functions as expected
-1. Check for outdated dependencies (both auth0 dependencies and third-party i.e. node modules, nuget packages, gems, etc.)
+1. Check for broken links.
+1. Check for old screenshots (both in auth0's dashboard/product and on referenced third-party sites).
+1. Ensure that the code in the seed project that you download functions as expected.
+1. Check for outdated dependencies (both auth0 dependencies and third-party i.e. node modules, nuget packages, gems, etc.).
 
 ## Review Apps
-If you have access to the Auth0 heroku account, you can create a preview release for you pull requests. To do so, login to Heroku and open the `auth0-docs-content` pipeline.
+If you have access to the Auth0 heroku account, you can create a preview release for your pull requests. To do so, login to Heroku and open the `auth0-docs-content` pipeline.
 
 1. Next find the Review App for your pull request and click the "Create Review App" button.
   ![Create Review App](media/readme/create_review_app.png)
@@ -218,9 +218,9 @@ All document content is accessible through the docs API as well as through regul
 
 To request a document in embedded format (i.e. no template html) to embed externally simply append `?e=1` to any url.
 
-To request a document in the framed format (i.e. no header, footer, or naviation) to use in a window popup or an iframe simply append `?framed=1` to any url.
+To request a document in the framed format (i.e. no header, footer, or navigation) to use in a window popup or an iframe simply append `?framed=1` to any url.
 
-To request content in JSON or JSONP format simply pass the header `Accept: 'application/json'` and optionally specify a ``?callback=foo` query parameter for JSONP.
+To request content in JSON or JSONP format simply pass the header `Accept: 'application/json'` and optionally specify a `?callback=foo` query parameter for JSONP.
 
 In the JSON or JSONP responses you can also request the document metadata by appending `?m=1` to the query.
 
@@ -235,7 +235,7 @@ Response:
 {
   "title": "{title}",
   "content": "{<pre><code class="{class}">{code}</code></pre> }",
-  "hash": "{hash}"
+  "hash": "{hash}",
   "additional_metadata": ""
 }
 ```
@@ -247,7 +247,7 @@ ${snippet('{hash}')}
 ```
 
 ## Connections
-Connections are available both through the API and to use in markdown docs.
+Connections are available both through the API and for use in markdown docs.
 
 Access via API:
 
@@ -284,7 +284,7 @@ When writing docs you can use the following variables instead of hard coding the
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
 | `auth0js_url_no_scheme`       | The url to the auth0.js CDN location without the 'https:'. | |
 | `auth0_angular_url`           | The url to the auth0 angular script CDN location. | |
-| `auth0_angular_url_no_scheme` |  The url to the auth0 angular script in the CDN location without the 'https://'. | |
+| `auth0_angular_url_no_scheme` | The url to the auth0 angular script in the CDN location without the 'https://'. | |
 | `widget_url`                  | The url to the Lock script CDN location.   | |
 | `widget_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
@@ -294,8 +294,8 @@ When writing docs you can use the following variables instead of hard coding the
 
 | Variable  | Description | Default Value |
 | :--------------------- | :------------------------------------------------- | :------------------------------------- |
-| `account.appName`      | The name of the current Auth0 app.                 | `YOUR_APP_NAME'                        |
-| `account.tenant`       | The name of the current Auth0 tenant.              | `YOUR_TENANT'                          |
+| `account.appName`      | The name of the current Auth0 app.                 | `YOUR_APP_NAME`                        |
+| `account.tenant`       | The name of the current Auth0 tenant.              | `YOUR_TENANT`                          |
 | `account.namespace`    | The name of the current Auth0 namespace.           | `YOUR_NAMESPACE`                       |
 | `account.clientId`     | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
 | `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
