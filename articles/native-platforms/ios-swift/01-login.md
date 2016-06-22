@@ -1,23 +1,6 @@
 ---
-title: Auth0 iOS Swift Quickstarts - 1. Login
+title: Login
 description: This tutorial will show you how to integrate Lock in your iOS Swift project in order to present a login screen.
-name: iOS - Swift
-alias:
-  - ios
-  - iphone
-  - ipad
-  - swift
-  - login
-language:
-  - Swift
-hybrid: false
-image: /media/platforms/ios.png
-tags:
-  - quickstart
-  - login
-alias:
-  - ios
-seo_alias: ios-swift
 ---
 
 ## iOS Swift - Login Tutorial
@@ -104,7 +87,7 @@ Add the following entries to your project's `Info.plist`:
 
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login. 
+At this point, you're all set to implement the Login.
 
 First, import the `Lock` module in the file where you want to present the login dialog:
 
