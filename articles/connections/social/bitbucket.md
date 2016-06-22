@@ -9,6 +9,10 @@ description: This page shows you how to connect your Auth0 app to Bitbucket. You
 
 To connect your Auth0 app to Bitbucket, you will need to generate a *Key* and *Secret* in a Bitbucket app, copy these keys into your Auth0 settings, and enable the connection.
 
+::: panel-info Lock version
+This connection will only work with Lock version 9.2 or higher.
+:::
+
 ## 1. Login to Bitbucket
 
 Login to [Bitbucket](https://bitbucket.org/).
