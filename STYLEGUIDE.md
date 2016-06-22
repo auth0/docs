@@ -10,13 +10,22 @@ It is important to speak to the reader directly, to engage in a conversation wit
 
 Active voice is extremely important. It's more than style. When you use passive voice, it can actually confuse or mislead the reader. Avoid constructions such as "the function was called" or  "the password was entered." Instead, say exactly who or what issued the call or entered the password. Never leave the reader with uncertainty about cause and effect or who did what.
 
+## Subheads
 Subheads are not intended to make statements. Therefore, make sure to repeat in the body text anything you say in a subhead. Do not use a subhead to introduce a new idea, and do not force the user to read the subhead to understand the text that follows.
 
+## Gerunds
 Use of gerunds makes a statement more passive. To discuss actions the user must take, use the imperative form, not the gerund. For example, in a section about setting up SSH keys in which you are walking the user through the process, title the subhead "Set up Your SSH Keys" rather than "Setting up Your SSH Keys."
 
+## Abbreviations
 Abbreviations should be avoided. Avoid the use of e.g., for example. Instead, use "for example." The idea is to prevent the reader from having to stop and think about what you mean. It may seem like it just takes a second, but it is similar to tuning your web site performance. You want your site to perform quickly and smoothly. Similarly, you want your content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
 
-The use of should versus must and other ambivalent statements must be avoided. If something is required, be definite about it and tell the user it "must" be performed.
+## Contractions
+
+Avoid contractions in most cases; they appear too casual. Complete words are more authoritative.
+
+## Should, must, can, may
+
+The use of "should" and other ambivalent statements must be avoided. If something is required, be definite about it and tell the user it "must" be performed.
 
 Use "can" for most descriptions of available actions. Use "may" rarely and only for cases when the action is optional. Avoid "might".
 
@@ -42,13 +51,13 @@ Other commonly encountered compound words include server side and client side. T
 
 ## Punctuation
 
-<b>Colons</b>
+### Colons
 Colons are useful when you are directly referring to an example, such as "here is the relevant code:"
 
-<b>Adjectives</b>
+### Adjectives
 Hyphens are used between adjectives and the verb they modify if and only if the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
 
-<b>Punctuation and quotes</b>
+### Punctuation and quotes
 In American English, but not British English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with periods inside the quotation marks," you would construct the quotation as you see here, with the comma inside the quotation marks.
 
 If this becomes an issue when quoting code because the code does not include the punction mark in question, do not place the punctuation mark inside the quotes.
@@ -79,7 +88,7 @@ Use `code_formatting` to refer to parameters and values.
 
 ### Links
 
-The text of a link to additional information should be the title of the destination page, so the user has some idea of the content being linked to. For more information, see: [Auth0 Style Guide](/styleguide).
+The text of a link to additional information should be the title of the destination page, so the user has some idea of the content being linked to. For more information, see: [Auth0 Style Guide](styleguide.md).
 
 ## Specific examples
 
