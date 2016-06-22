@@ -1,7 +1,12 @@
 ---
 title: User Profile
-description: This tutorial will show you how to use the Auth0 Angular 2 to authenticate and fetch/show profile information.
+description: This tutorial will show you how to integrate Auth0 with Angular2 to authenticate and fetch/show profile information.
 ---
+
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/03-User-Profile',
+}) %>
+
 
 #### Profile
 
