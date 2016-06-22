@@ -672,6 +672,11 @@
     "to": "/quickstart/backend/:platform"
   },
   {
+    "from": "/quickstart/backend/java",
+    "to": "/quickstart/backend/java-spring-security",
+    "status": 302
+  },
+  {
     "from": "/policies/rate-limit",
     "to": "/policies/rate-limits"
   }
