@@ -49,3 +49,7 @@ Sample Response:
 ```
 
 Again, here you can add any number of scopes.
+
+## Further Reading
+
+[Scopes](/scopes)
