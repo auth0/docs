@@ -70,7 +70,7 @@ This simply adds `guest` `roles` to all users except the user with `YOUR_EMAIL@g
 
 3. Before using the rule in your app, you can play around and see if it works by clicking the `Try This Rule` button. This will open a pop-up where you can try the just created rule in isolation with mocked user and context.
 
-![Try Rule](/media/articles/rules/try_rule.png)
+![Try Rule](/media/articles/angularjs/try_rule.png)
 
 Save the rule once you are satisfied with how it works.
 
