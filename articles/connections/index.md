@@ -1,34 +1,41 @@
 ---
 url: /identityproviders
+description: Auth0 is an identity hub that supports the many authentication providers listed here.
 ---
 
 # Identity Providers supported by Auth0
 
-Auth0 is an "identity hub" that supports a number of authentication providers using different protocols: **OAuth2**, **WS-Federation**, etc.
+Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, etc.
 
-Auth0 supports the following identity providers:
+Auth0 supports the following types of identity providers:
+
+## Social
+
+Auth0 supports the following social providers out of the box. You can also use any [OAuth2 Authorization Server](/connections/social/oauth2).
+
+<table width="100%">
+<tr>
+<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
+<% if (article.connection) { %> 
+<td align="center">
+      <% if (article.public === false) { %>
+        <%- article.connection %>
+      <% } else { %>
+        <a href="<%- '/docs' + article.url %>">
+        <% if (article.image) { %>
+        <img width="50" src="<%- '/docs' + article.image %>"><br><% } %><%- article.connection %></a>
+      <% }; %>
+</td>
+  <% i++; if (i==3){i=0; %>
+</tr>  
+<% }  } %>
+<% }); %>
+</tr>
+</table>
 
 ## Enterprise
 <ul>
 <% _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
-  <% if (article.connection) { %>
-    <li>
-      <% if (article.public === false) { %>
-        <%- article.connection %>
-      <% } else { %>
-        <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
-      <% } %>
-    </li>
-  <% } %>
-<% }); %>
-</ul>
-
-## Social
-
-Auth0 supports the following social providers out of the box. Additionally, you can add any [OAuth2 Authorization Server](/connections/social/oauth2).
-
-<ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
   <% if (article.connection) { %>
     <li>
       <% if (article.public === false) { %>
