@@ -6,26 +6,30 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ## Voice
 
-It is important to speak to the reader directly, to engage in a conversation with the reader. This is the most effective way to communicate. In order to do this, address the reader as "you." Do not use such indirect language as "one" or other passive ways of addressing the user. Avoid "we".
+You should speak to the reader directly so that your document reads as if you were engaged in a conversation. This is the most effective way to communicate. Therefore, address the reader as "you." Do not use indirect language such as "one" or other passive ways of addressing the reader. Avoid "we".
 
-Active voice is extremely important. It's more than style. When you use passive voice, it can actually confuse or mislead the reader. Avoid constructions such as "the function was called" or  "the password was entered." Instead, say exactly who or what issued the call or entered the password. Never leave the reader with uncertainty about cause and effect or who did what.
+The active voice is extremely important. The use of passive tense can actually confuse or mislead the reader. Avoid constructions such as "the function was called" or  "the password was entered." Instead, say exactly who or what issued the call or entered the password. Never leave the reader with uncertainty about cause and effect or who did what.
 
 ## Subheads
-Subheads are not intended to make statements. Therefore, make sure to repeat in the body text anything you say in a subhead. Do not use a subhead to introduce a new idea, and do not force the user to read the subhead to understand the text that follows.
+Subheads are not intended to make statements. Therefore, make sure to repeat in the body text anything stated in the subhead. Do not use a subhead to introduce a separate idea and do not force the user to read the subhead to understand the text that follows.
+
+## Imperative Sentences
+
+When directing the reader to perform a task, you can often omit the subject of the sentence: Click **Save**.
 
 ## Gerunds
-Use of gerunds makes a statement more passive. To discuss actions the user must take, use the imperative form, not the gerund. For example, in a section about setting up SSH keys in which you are walking the user through the process, title the subhead "Set up Your SSH Keys" rather than "Setting up Your SSH Keys."
+Gerunds make a statement more passive. To discuss actions the reader must take, use the imperative form, not the gerund. For example, in a section about setting up SSH keys in which you are walking the user through the process, title the subhead "Set up your SSH keys" rather than "Setting up your SSH keys."
 
 ## Abbreviations
-Abbreviations should be avoided. Avoid the use of e.g., for example. Instead, use "for example." The idea is to prevent the reader from having to stop and think about what you mean. It may seem like it just takes a second, but it is similar to tuning your web site performance. You want your site to perform quickly and smoothly. Similarly, you want your content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
+Abbreviations should be avoided, including the use of e.g. Instead, use "for example." You want the content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
 
 ## Contractions
 
-Avoid contractions in most cases; they appear too casual. Complete words are more authoritative.
+Avoid contractions in most cases; they sound too casual. Complete words are more authoritative.
 
 ## Should, must, can, may
 
-The use of "should" and other ambivalent statements must be avoided. If something is required, be definite about it and tell the user it "must" be performed.
+The use of "should" and other ambivalent statements must be avoided. If something is required, tell the user it "must" be performed.
 
 Use "can" for most descriptions of available actions. Use "may" rarely and only for cases when the action is optional. Avoid "might".
 
@@ -33,44 +37,40 @@ Use "can" for most descriptions of available actions. Use "may" rarely and only 
 
 Keep paragraphs short for internet reading.
 
-## Imperative Sentences
+## Singular "they"
 
-When directing the reader to perform a task, you can often omit the subject of the sentence: Click **Save**.
-
-## Singular they
-
-When a sentence cannot be constructed without a pronoun, the best solution for avoiding gender-specific pronouns or repitition of the subject is to use [singular they](https://en.wikipedia.org/wiki/Singular_they): The user enters their password.
+When a sentence cannot be constructed without a pronoun, the best solution for avoiding gender-specific pronouns or repetition of the subject is to use [singular they](https://en.wikipedia.org/wiki/Singular_they): The user enters their password.
 
 ## Compound words
 
-Compound words may be used in three forms: one word, two words, and hyphenated. As an example, let's look at runtime.
+Compound words may be used in three forms: one word, two words, or hyphenated. 
 
-When referring to something that happens at run time, the proper format is two words. When referring to the runtime engine that runs or translates the code, the proper format is a single word. Finally, when using run time as an adjective, such as run-time execution, the proper format is the hyphenated form.
+For example, when referring to something that happens at "run time", the proper format is two words. When referring to the "runtime engine", the proper format is a single word. And when using it as an adjective, such as "run-time execution", the proper format is the hyphenated form.
 
-Other commonly encountered compound words include server side and client side. The same rules apply. When you write code for the client side, you use two words. When you write client-side code, because client-side is an adjective here, use the hyphenated form. Client side and server side are never single words (clientside).
+Other commonly encountered compound words include "server side" and "client side". The same rules apply. When you write code for the "client side", you use two words. When you write "client-side code", the adjective form uses a hyphen. "Client side" and "server side" are never single words (clientside).
 
 ## Punctuation
 
 ### Colons
-Colons are useful when you are directly referring to an example, such as "here is the relevant code:"
+Colons are useful when you are directly referring to an example, such as "Here is the relevant code:"
 
 ### Adjectives
 Hyphens are used between adjectives and the verb they modify if and only if the adjective does not end in "ly." Therefore, "commonly used adjectives" is not hyphenated, while "oft-quoted phrase" is.
 
 ### Punctuation and quotes
-In American English, but not British English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with periods inside the quotation marks," you would construct the quotation as you see here, with the comma inside the quotation marks.
+In American English, punctuation properly belongs inside quotation marks. Therefore, if you incorporate a quote into a sentence, either within or at the end, such as our editor said "You must end quotations with periods inside the quotation marks," you would construct the quotation as shown here, with the comma inside the quotation marks.
 
-If this becomes an issue when quoting code because the code does not include the punction mark in question, do not place the punctuation mark inside the quotes.
+The exception is when quoting code. If the code does not include the punctuation mark, do not place the punctuation mark inside the quotes.
 
 ## Formatting
 
 ### Titles and subheads
 
-Only the first level title should be in Title Case. All subheads should be in sentence case.
+Only the first level title should be in "Title Case". All subheads should be in sentence case.
 
 ### Notes
 
-**NOTE:** A note is a at most two sentences that refer to the immediately preceding text to provide additional clarification. Do not use block quote style for notes, it makes the note too prominent.
+**NOTE:** A note is at most two sentences that refer to the immediately preceding text to provide additional clarification. Do not use a block quote for notes; it makes them too prominent.
 
 ### Panels
 
@@ -80,7 +80,7 @@ Use a panel for information that applies to the overall document or to highlight
 
 ### Menu items
 
-Use **Bold** when refering to menu items or fields in a webpage or UI.
+Use **Bold** when referring to menu items or fields in a webpage or UI.
 
 ### Parameters
 
@@ -94,7 +94,7 @@ The text of a link to additional information should be the title of the destinat
 
 ### Click
 
-Use "Click on" when refering to text links in a webpage or UI, "Click" when refering to a button.
+Use "Click on" when referring to text links in a webpage or UI, "Click" when referring to a button.
 
 For example: Click **Save**. Click on **This link**.
 
@@ -116,7 +116,7 @@ Refer to the developer's customer as the "user". Be sure to keep the idea of the
 
 ### The dashboard
 
-The [Auth0 management console](${uiURL}) is refered to as the "dashboard".
+The [Auth0 management console](${uiURL}) is referred to as the "dashboard".
 
 
 
