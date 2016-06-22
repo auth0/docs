@@ -1,5 +1,6 @@
 ---
 url: /identityproviders
+description: Auth0 is an identity hub that supports the many authentication providers listed here.
 ---
 
 # Identity Providers supported by Auth0
@@ -10,9 +11,9 @@ Auth0 supports the following types of identity providers:
 
 ## Social
 
-Auth0 supports the following social providers out of the box. Additionally, you can add any [OAuth2 Authorization Server](/connections/social/oauth2).
+Auth0 supports the following social providers out of the box. You can also use any [OAuth2 Authorization Server](/connections/social/oauth2).
 
-<table width="100%" border="1">
+<table width="100%">
 <tr>
 <% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
 
@@ -23,7 +24,9 @@ Auth0 supports the following social providers out of the box. Additionally, you 
         <%- article.connection %>
       <% } else { %>
         <a href="<%- '/docs' + article.url %>">
-        <img width="50" src="<%- '/docs' + article.image %>"><br><%- article.connection %></a>
+        <% if (article.image) { %>
+        <img width="50" src="<%- '/docs' + article.image %>"><br><% } %>
+        <%- article.connection %></a>
       <% }; %>
 </td>
     
