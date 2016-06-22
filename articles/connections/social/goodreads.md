@@ -1,6 +1,6 @@
 ---
 connection: Goodreads
-image:
+image: /media/connections/goodreads.png
 seo_alias: goodreads
 ---
 
