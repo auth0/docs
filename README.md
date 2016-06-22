@@ -1,14 +1,15 @@
 # Auth0 Documentation
 This is the repository for the Auth0 documentation.
 
-## Contributing Guidelines
-* Read and follow the [STYLEGUIDE](STYLEGUIDE.md)
-* Consult the [WORDS](WORDS.md) document for Auth0 specific spellings and definitions
+## Contribution Guidelines
+* Read and follow the [Style Guide](STYLEGUIDE.md).
+* Consult the [Words](WORDS.md) document for Auth0 specific spellings and definitions.
 * Always use absolute links from the root of the site. Note, that your links should NOT start with `/docs` or any other base path. If the site is hosted with a base like on `auth0.com/docs` the links will be corrected at runtime.
-* Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use variables instead such as `${uiUrl}`
+* Do not hard code links to auth0 sites like `docs.auth0.com`, `manage.auth0.com`, etc. Use  [Parameter Aliases](#) instead, such as `${uiUrl}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a year in the file name it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
 * Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using `![](/media/folder/image-name.png)`. The image will get automatically uploaded to the CDN and the link will be transformed.
 * Try to keep images to no more than 750 pixels wide
+* Screenshots of the Auth0 dashboard including the browser window and dropshadow can be up to 900 pixels wide to maintain legibility.
 * Run all images through [TinyPNG](https://tinypng.com/).
 
 ## Contributing
@@ -16,9 +17,9 @@ This is the repository for the Auth0 documentation.
 ### Reusing content
 You can create document fragments that can be reused in other documents in order to avoid duplication of content. The process of including another document is shown below.
 
-First, create your fragment document. The convention for this is to name fragments with an underscore like `_mydocument.md`.
+First, create your fragment document. The convention is to name fragments with an underscore, like: `_mydocument.md`.
 
-After you create your markdown document you can reference it another document with the relative path.
+After you create your markdown document, you can reference it in another document with a relative path:
 
 ```
 <%= include('../_mydocument.md') %>
@@ -71,7 +72,7 @@ Panel content
 #### HTTP Request Snippets
 You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spec/#request) snippet to make an example HTTP request availible in a variety of languages. This will generate a tab view showing how to make the HTTP request in many languages.
 
-> Note, you need to set the language type to `har` for this to work. View this raw markdown document for an example.
+**NOTE:** You need to set the language type to `har` for this to work. View this raw markdown document for an example.
 
 
 ```har
@@ -104,8 +105,8 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 
 
 
-### Screenshots
-On Mac OS X screenshots need to be taken with Chrome, taking into account the following:
+### Auth0 Screenshots
+On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, taking into account the following:
 
  1. The browser cannot show any plugins, customizations, or bookmarks
  1. The browser cannot be in incognito mode
@@ -116,23 +117,30 @@ On Mac OS X screenshots need to be taken with Chrome, taking into account the fo
   ```
  1. Screenshots should use the complete browser window (Control + Shift + 4, then press Space)
  1. Highlighting should use color #0099CC
+ 2. Resize to a maximum 900px width.
 
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
 
- > Note that the exception to showing the full browser window is in the case you are showing a detailed instruction as part of a tutorial. i.e. "Enter text in this field" and you are showing the field. In that case it likely isn't appropriate to show the entire page.
+#### Close-ups
+The exception to showing the full browser window is if you are showing a detailed instruction as part of a tutorial. i.e. "Enter text in this field" and you are showing the field.
+
+It is often best to shrink the screenshot slightly to avoid having the image of the UI be mistaken for the actual UI.
+
+#### Borders
+For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (select all > edit > stroke) of color #cccccc to keep the image from blending with the background and appearing to float.
 
 
 ## Test Procedures
 When testing a document or tutorial below are several areas to look for.
 
-1. Ensure that the code in the tutorials is correct and functions as expected
+1. Ensure that the code in the tutorials is correct and functions as expected.
 1. Ensure that the steps (1..n) are in an order that makes sense and that there are no missing or duplicate steps.
-1. Check for broken links
+1. Check for broken links.
 1. Check for old screenshots (both in auth0's dashboard/product and on referenced third-party sites)
-1. Ensure that the code in the seed project that you download functions as expected
-1. Check for outdated dependencies (both auth0 dependencies and third-party i.e. node modules, nuget packages, gems, etc.)
+1. Ensure that the code in the seed project that you download functions as expected.
+1. Check for outdated dependencies (both auth0 dependencies and third-party i.e. node modules, nuget packages, gems, etc.).
 
 ## Review Apps
 If you have access to the Auth0 heroku account, you can create a preview release for you pull requests. To do so, login to Heroku and open the `auth0-docs-content` pipeline.
@@ -141,7 +149,7 @@ If you have access to the Auth0 heroku account, you can create a preview release
   ![Create Review App](media/readme/create_review_app.png)
 2. Once the app starts deploying you will see the status of your Pull Request updating. The deployment takes about 5 minutes.
   ![Requested Deployment](media/readme/requested_deployment.png)
-3. Once the deployment has completed you will see the status change. You can click the link to open your preview site.
+3. Once the deployment has completed you will see the status change. You can click the link in the associated PR to open the preview site.
   ![Deployed](media/readme/deployed.png)
 
 ## Quickstarts
@@ -268,13 +276,15 @@ Response:
 }
 ```
 
-## Parameter Aliases
-When writing docs you can use the following variables instead of hard coding these values. Within any markdown document simply use `${variableName}` to reference the value.
-
 ## Documents metadata properties
 
-- `sitemap`: (Boolean) Instruct when to skip indexation into the `sitemap.xml`. Defaults to `true`.
+- `sitemap`: (Boolean) Instructs when to skip indexation into the `sitemap.xml`. Defaults to `true`.
 - `public`: (Boolean) Disables the document from being rendered through a public url or showing in the sitemap. Document still available in the APIs, etc.. Defaults to `true`.
+- `description`: Every browsable document requires a description of up to 2 complete sentences. Please add a description to all new docs and any existing doc that you are working on.
+
+
+## Parameter Aliases
+When writing docs you can use the following variables instead of hard coding these values. Within any markdown document simply use `${variableName}` to reference the value.
 
 ### Common Variables
 
@@ -294,8 +304,8 @@ When writing docs you can use the following variables instead of hard coding the
 
 | Variable  | Description | Default Value |
 | :--------------------- | :------------------------------------------------- | :------------------------------------- |
-| `account.appName`      | The name of the current Auth0 app.                 | `YOUR_APP_NAME'                        |
-| `account.tenant`       | The name of the current Auth0 tenant.              | `YOUR_TENANT'                          |
+| `account.appName`      | The name of the current Auth0 app.                 | `YOUR_APP_NAME`                        |
+| `account.tenant`       | The name of the current Auth0 tenant.              | `YOUR_TENANT`                          |
 | `account.namespace`    | The name of the current Auth0 namespace.           | `YOUR_NAMESPACE`                       |
 | `account.clientId`     | The Client ID of the current Auth0 app.            | `YOUR_CLIENT_ID`                       |
 | `account.clientSecret` | The Client Secret of the current Auth0 app.        | `YOUR_CLIENT_SECRET`                   |
@@ -303,7 +313,7 @@ When writing docs you can use the following variables instead of hard coding the
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+If you have found a bug or if you have a feature request, please report it in this repository's issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
 
 ## Author
 
