@@ -12,17 +12,11 @@ Lock 10 is a new version of the Auth0 authentication widget that provides:
 * improved UX;
 * and more.
 
-Auth0 plans to have a few beta releases and a release candidate.
-
-Please note that the following features, which are available on Lock 9 (the current stable release), are not yet available with Lock 10:
-- Out of the box localization (i10n) for foreign languages;
-- Widget lifecycle events.
-
 ## What's new?
 
 * Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly.
 * The Lock Public API has been updated so there are not significant differences between Redirect and Popup Mode. This makes Redirect Mode, which is the recommended mode, much easier to use. Also, related options are grouped together.
-* The current beta release of Lock does not support foreign languages, but you can still translate the widget via `languageDictionary`.
+* The current release candidate of Lock does not support as many foreign languages as the previous version. You can still translate the widget via `languageDictionary`.
 * You can create simple Lock themes using JavaScript to via `primaryColor` and `logo` properties of the `theme` option. You may also make customizations with CSS.
 * The improved Lock UX comes with smoother transitions and animations and is keyboard friendly.
 * Lock comes with support for pre-filled fields and custom avatar implementations.
