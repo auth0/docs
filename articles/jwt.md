@@ -1,10 +1,10 @@
-# JsonWebTokens in Auth0
+# JSON Web Tokens (JWT) in Auth0
 
 > For more information on all the types of access tokens used by Auth0, see [Tokens](/tokens).
 
 ## Standard JWT
 
-Application programs or Web APIs can invoke Auth0's authentication sequences in a few different ways, such as via the Lock widget or calling a library for the language in which their program is written. Each of these mechanisms allows the calling program to specify a `scope` parameter which can be used to request the return of an `access_token` and, optionally, an id_token.
+Application programs or Web APIs can invoke Auth0's authentication sequences in a few different ways, such as via the Lock widget or calling a library for the language in which their program is written. Each of these mechanisms allows the calling program to specify a `scope` parameter which can be used to request the return of an `access_token` and, optionally, an `id_token`.
 
 When using the `scope=openid`, Auth0 will generate both an `access_token` and an `id_token`.   The `access_token` is just an opaque value that can be sent in subsequent API calls to Auth0. The `id_token` is a JSON Web Token, (abbreviated JWT), and is a rich data structure with two characteristics:
 
@@ -59,6 +59,35 @@ Where:
 * `input` is the combined `Header` and `Body`, _JSON.stringified_ and base64 encoded, concatenated with a ".".
 * `key` is your account `clientSecret`, for the application.
 * `method` is always [`sha256`](https://en.wikipedia.org/wiki/SHA-2).
+
+---
+
+## Signing Algorithms
+
+A JWT is usually complemented with a signature or encryption. These are handled in their own specs as [JSON Web Signature (JWS)](https://tools.ietf.org/html/rfc7515) and [JSON Web Encryption (JWE)](https://tools.ietf.org/html/rfc7516). A signature allows a JWT to be validated against modifications. Encryption, on the other hand, makes sure the content of the JWT is only readable by certain parties.
+
+The most common JWT signing algorithms are:
+- HMAC + SHA256
+- RSASSA-PKCS1-v1_5 + SHA256
+- ECDSA + P-256 + SHA256
+
+Hash-Based Message Authentication Codes (HMACs) are a group of algorithms that provide a way of signing messages by means of a shared key. They are probably the most common algorithms for signed JWTs. HMACs are used with JWTs when you want a simple way for all parties to create and validate JWTs. Any party knowing the key can create new JWTs. In other words, with shared keys, it is possible for party to impersonate another one: HMAC JWTs do not provide guarantees with regards to the creator of the JWT. Anyone knowing the key can create one. For certain use cases, this is too permissive. This is where asymmetric algorithms come into play.
+
+Both RSA and ECDSA are asymmetric encryption and digital signature algorithms. What asymmetric algorithms bring to the table is the possibility of verifying or decrypting a message without being able to create a new one. The main difference between RSA and ECDSA lies in speed and key size. ECDSA requires smaller keys to achieve the same level of security as RSA. This makes it a great choice for small JWTs. RSA, however, is usually faster than ECDSA.
+
+You can read more on these algorithms [here](https://auth0.com/blog/2015/12/17/json-web-token-signing-algorithms-overview/).
+
+At Auth0 we rely heavily on the fetures of JWTs. All of our APIs handle authentication and authorization through JWTs. For instance, our Lock library returns a JWT that you can store client side and use for future requests to your own APIs. Thanks to JWS and JWE, the contents of the client-side JWTs are safe.
+
+You can set the JWT Signature Algorithm you want to use for your app using the [Management Dashboard](${uiURL}/#/). Navigate to your application and click on _Settings > Show Advanced Settings > OAuth_. The _JsonWebToken Signature Algorithm_ field offers two choices:
+- `HS256`: JWT will be signed with your client secret.
+- `RS256`: JWT will be signed with your private signing key and they can be verified using your public signing key. 
+
+![](/media/articles/jwt/signing-alg.png)
+
+If you choose `RS256`, you can download the certificate at the _Certificates_ tab. Furthermore, if you click on _Endpoints_ instead of _Certificates_, the _JSON Web Key Set_ field gives you a public URL where clients can self-discover the public credentials.
+
+![](/media/articles/jwt/endpoints.png)
 
 ---
 
