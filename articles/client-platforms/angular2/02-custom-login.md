@@ -12,10 +12,10 @@ To implement login, first create an Auth0 instance.
 ```typescript
 // Configure Auth0
 auth0 = new Auth0({
-  domain: 'YOUR_CLIENT_ID',
-  clientID: 'YOUR_DOMAIN',
+  domain: '${account.clientId}',
+  clientID: '${account.namespace}',
   callbackOnLocationHash: true,
-  callbackURL: 'CALLBACK_URL',
+  callbackURL: `${account.callback}`,
 });
 ```
 

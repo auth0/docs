@@ -23,7 +23,7 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN', {});
+  lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {});
 
   constructor() {
     // Add callback for lock `authenticated` event
@@ -75,8 +75,9 @@ and then in your component's template
 ```
 The lock widget will pop up showing a Login form, when you click the Login button.
 
-This is how it will look on a browser...
 
 ${browser}
+
+
 
 Done. You've implemented Login and SignUp with Auth0 in your Angular2 project.

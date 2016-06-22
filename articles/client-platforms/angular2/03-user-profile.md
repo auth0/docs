@@ -21,7 +21,7 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
   // Configure Auth0
-  lock = new Auth0Lock('YOUR_CLIENT_ID', 'YOUR_DOMAIN', {});
+  lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {});
 
   //Store profile object in auth class
   userProfile: Object;
@@ -141,7 +141,7 @@ export class ProfileEdit {
     });
 
     this.authHttp
-      .patch('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.auth.userProfile.user_id, data, {headers: headers})
+      .patch('https://' + '${account.namespace}' + '/api/v2/users/' + this.auth.userProfile.user_id, data, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
