@@ -1,6 +1,6 @@
 # How to Back Up Appliance Instances Using the CLI
 
-You may use Appliance CLI to perform a MongoDB backup on a specific node.
+You may use Appliance CLI to perform a backup on a specific node.
 
 ## Prior to Beginning the Backup
 
