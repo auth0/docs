@@ -272,6 +272,7 @@ If you have found a bug or if you have a feature request, please report them at 
 * [Development][development-notes] notes.
 * [Release process][release-process] notes.
 * [Auth0Lock playground][playground-url]
+* [Lock Authentication Parameters][sending-authentication-parameters]
 * [Using Refresh Tokens](/libraries/lock/using-a-refresh-token)
 * Legacy **Auth0Widget** [Migration guide][migration-guide] to **Auth0Lock**
 
@@ -309,6 +310,7 @@ If you have found a bug or if you have a feature request, please report them at 
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
 [playground-url]: http://auth0.github.com/playground
+[sending-authentication-parameters]: /libraries/lock/sending-authentication-parameters
 [migration-guide]: /libraries/lock/migration-guide
 
 ## Start using Auth0Lock
