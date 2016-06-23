@@ -1,6 +1,6 @@
 ---
 connection: The City
-image: /media/connections/the-city.svg
+image: /media/connections/thecity.png
 seo_alias: thecity
 ---
 

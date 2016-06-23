@@ -1,6 +1,6 @@
 ---
 connection: Generic OAuth2 Provider
-image:
+image: /media/connections/oauth2.png
 seo_alias: oauth2
 ---
 

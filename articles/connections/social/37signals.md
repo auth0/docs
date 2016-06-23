@@ -1,6 +1,6 @@
 ---
-connection: Basecamp (37 Signals)
-image: /media/connections/37signals.jpg
+connection: Basecamp
+image: /media/connections/basecamp.png
 alias:
   - basecamp
   - thirtysevensignals
