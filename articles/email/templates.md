@@ -73,6 +73,10 @@ You can set up a different Redirect To URL depending on your Client ID. Here's a
 {% if application.clientID == 'YOUR_CLIENT_ID_HERE' %} http://jwt.io {% else %} http://auth0.com {% endif %}
 ```
 
+::: panel-info Note
+For some single page apps, the redirect url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. [Click here to learn more.](/email/spa-redirect)
+:::
+
 ### URL Lifetime
 
 The **Verification Email** and **Change Password Confirmation Email** contain links which allow users to verify their email address when signing up, or confirm their password change, respectively.
