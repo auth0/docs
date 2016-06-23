@@ -4,7 +4,7 @@ This is the repository for the Auth0 documentation.
 ## Contribution Guidelines
 * Read and follow the [Style Guide](STYLEGUIDE.md).
 * Consult the [Words](WORDS.md) document for Auth0 specific spellings and definitions.
-* Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be corrected formatted in the build process.
+* Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
 * Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Parameter Aliases](#parameter-aliases), such as `${uiUrl}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a year in the file name, it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
 * Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process.
@@ -114,16 +114,16 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```
- 1. Screenshots should use the complete browser window (**Control + Shift + 4**, then press **Space**).
- 1. Highlighting should use color **#0099CC**.
- 2. Resize to a maximum 900px width.
+ 1. Auth0 screenshots should capture the complete browser window (**Control + Shift + 4**, then press **Space**).
+ 1. Use color **#0099CC** for highlights.
+ 2. Resize image to a maximum 900px width.
 
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
 
 #### Close-ups
-The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example to show a field requiring input.
+The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example, to show a field requiring input.
 
 It is often best to shrink the screenshot slightly to avoid having the image of the UI be mistaken for the actual UI.
 
@@ -182,7 +182,7 @@ After you publish the doc update, the new quickstart will automatically appear o
 Additionally, the quickstart configuration is also in this repository: [quickstart.yml](/quickstart.yml).
 
 ## Updates Feed
-Publishing content updates is fairly easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.
+Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.
 
 ```
 added:
@@ -226,7 +226,7 @@ All document content is accessible through the docs API as well as through regul
 
 To request a document in embedded format (i.e. no template html) to embed externally, append `?e=1` to any url.
 
-To request a document in the framed format (i.e. no header, footer, or naviation) to use in a window popup or an iframe, append `?framed=1` to any url.
+To request a document in the framed format (i.e. no header, footer, or navigation) to use in a window popup or an iframe, append `?framed=1` to any url.
 
 To request content in JSON or JSONP format, pass the header `Accept: 'application/json'` and optionally specify a ``?callback=foo` query parameter for JSONP.
 

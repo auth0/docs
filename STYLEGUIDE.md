@@ -6,48 +6,51 @@ For general software-industry styles and terminology, see the [Microsoft Manual 
 
 ## Voice
 
-You should speak to the reader directly so that your document reads as if you were engaged in a conversation. This is the most effective way to communicate. Therefore, address the reader as "you." Do not use indirect language such as "one" or other passive ways of addressing the reader. Avoid "we".
+Speak to the reader directly so that your document reads as if you were engaged in conversation. Address the reader as "you." Do not use indirect language such as "one" or other passive references. Avoid "we".
 
-The active voice is extremely important. The use of passive tense can actually confuse or mislead the reader. Avoid constructions such as "the function was called" or  "the password was entered." Instead, say exactly who or what issued the call or entered the password. Never leave the reader with uncertainty about cause and effect or who did what.
+The active voice is most clear. The use of passive tense can confuse or mislead the reader. Avoid constructions such as "the function was called" or  "the password was entered." Instead, state exactly who or what issued the call or entered the password. Never leave the reader with uncertainty about cause and effect.
 
-## Subheads
-Subheads are not intended to make statements. Therefore, make sure to repeat in the body text anything stated in the subhead. Do not use a subhead to introduce a separate idea and do not force the user to read the subhead to understand the text that follows.
+### Imperative mood
 
-## Imperative Sentences
+When directing the reader to perform a task, you can often omit the subject of the sentence: "Click **Save**."
 
-When directing the reader to perform a task, you can often omit the subject of the sentence: Click **Save**.
+### Gerunds
+Gerunds make statements more passive. To discuss actions the reader must take, use the imperative form, not the gerund. For example, in a section about setting up SSH keys in which you are walking the user through the process, title the subhead "Set up your SSH keys" rather than "Setting up your SSH keys."
 
-## Gerunds
-Gerunds make a statement more passive. To discuss actions the reader must take, use the imperative form, not the gerund. For example, in a section about setting up SSH keys in which you are walking the user through the process, title the subhead "Set up your SSH keys" rather than "Setting up your SSH keys."
+### Should, must, can, may
+
+The use of "should" and other ambivalent statements should be avoided. If something is required, tell the user it "must" be performed.
+
+Use "can" for most descriptions of available actions. Use "may" rarely and only for cases when the action is optional. Avoid "might".
+
+### Gender-neutral pronouns
+
+When a sentence cannot be constructed without a pronoun, the best solution for avoiding gender-specific pronouns or repetition of the subject is to use [singular they](https://en.wikipedia.org/wiki/Singular_they): "The user enters their password."
+
+## Body text
+
+### Paragraphs
+
+Keep paragraphs short for internet reading.
+
+### Subheads
+Subheads are not intended to make independent statements. Therefore, reiterate in the paragraph text anything stated in the subhead. Do not use a subhead to introduce a separate idea and do not force the user to read the subhead to understand the text that follows.
 
 ## Abbreviations
 Abbreviations should be avoided, including the use of e.g. Instead, use "for example." You want the content to flow smoothly, uninterrupted by questions the reader must ask himself regarding your intentions.
 
-## Contractions
+### Contractions
 
 Avoid contractions in most cases; they sound too casual. Complete words are more authoritative.
 
-## Should, must, can, may
-
-The use of "should" and other ambivalent statements must be avoided. If something is required, tell the user it "must" be performed.
-
-Use "can" for most descriptions of available actions. Use "may" rarely and only for cases when the action is optional. Avoid "might".
-
-## Paragraphs
-
-Keep paragraphs short for internet reading.
-
-## Singular "they"
-
-When a sentence cannot be constructed without a pronoun, the best solution for avoiding gender-specific pronouns or repetition of the subject is to use [singular they](https://en.wikipedia.org/wiki/Singular_they): The user enters their password.
-
-## Compound words
+### Compound words
 
 Compound words may be used in three forms: one word, two words, or hyphenated. 
 
 For example, when referring to something that happens at "run time", the proper format is two words. When referring to the "runtime engine", the proper format is a single word. And when using it as an adjective, such as "run-time execution", the proper format is the hyphenated form.
 
 Other commonly encountered compound words include "server side" and "client side". The same rules apply. When you write code for the "client side", you use two words. When you write "client-side code", the adjective form uses a hyphen. "Client side" and "server side" are never single words (clientside).
+
 
 ## Punctuation
 
@@ -88,7 +91,7 @@ Use `code_formatting` to refer to parameters and values.
 
 ### Links
 
-The text of a link to additional information should be the title of the destination page, so the user has some idea of the content being linked to. For more information, see: [Auth0 Style Guide](styleguide.md).
+The text of a link to additional information should be the title of the destination page, so the reader has some idea of the content being linked to. For more information, see: [Auth0 Style Guide](styleguide.md).
 
 ## Specific examples
 
