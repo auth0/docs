@@ -245,7 +245,7 @@ Here is an example:
     , callbackURL: '@Model.CallbackUrl'
     , responseType: 'code'
     , authParams: {
-      scope: 'openid profile',
+      scope: 'openid profile', //Details: https://auth0.com/docs/scopes
       state: '@Model.State',
 	  nonce: '@Model.Nonce'
     }

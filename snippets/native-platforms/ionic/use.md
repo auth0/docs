@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
   $scope.login = function() {
     auth.signin({
       authParams: {
-        scope: 'openid offline_access',
+        scope: 'openid offline_access', //Details: https://auth0.com/docs/scopes
         device: 'Mobile device'
       }
     }, function(profile, token, accessToken, state, refreshToken) {
