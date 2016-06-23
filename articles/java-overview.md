@@ -4,7 +4,7 @@ Here at Auth0 we try to offer as many libraries as needed to ensure we make your
 
 ## Java Servlet
 
-A simple servlet based solution. It is mostly available for legacy integration needs with older Java style web apps. 
+A simple servlet based solution, suitable if you are using a legacy application or alternate Web MVC Framework without Spring support. If your application only needs secured endpoints and the ability to programmatically work with a Principal object for GrantedAuthority checks this library is a good fit.
 
 - [Documentation](/server-platforms/java)
 - [Library](https://github.com/auth0/auth0-servlet)
