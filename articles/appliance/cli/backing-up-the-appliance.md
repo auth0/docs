@@ -11,8 +11,7 @@ Please ensure that your workstation has been [configured to perform operations](
 Please be aware that, throughout this document, the following sample values are used:
 
 * IP address of the node to be backed up: `192.168.1.186`. Generically, the node may also be referred to as `<target node>`.
-* Password used for encryption: `Passw0rd`;
-* The replicaset connection string: `a0/a0-1:27017,a0-2:27017,a0-3:27017`.
+* Password used for encryption: `Passw0rd`.
 
 ## Generating a New Backup
 
