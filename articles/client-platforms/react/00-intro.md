@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: test
+description: This tutorial will show you how to setup and run the ReactJS Seed project provided by Auth0 as integration sample.
 ---
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your ReactJS apps with Auth0. For that, you have to include [Lock Widget](https://github.com/auth0/lock) as a dependency in your project.
@@ -17,7 +17,7 @@ There are two options to following along these steps. You can either download th
 * [karma](https://karma-runner.github.io), [enzyme](https://github.com/airbnb/enzyme) and [chai](http://chaijs.com) for unit testing
 * [auth0-lock](https://github.com/auth0/lock) for user authentication
 
-Auth0 Lock library is included in `package.json` but it's not being used yet. The entire project just serves as a starting point for this quickstart. The samples are included in each step and contains the example for each of the step.
+Auth0 Lock widget is included in `package.json` but it's not being used yet. The entire project just serves as a starting point for this quickstart. The samples are included in each step and contains the example for each of the step.
 
 ## Prerequisites
 Before we embark on this journey of ours, it is important to setup our application buy following these process:
