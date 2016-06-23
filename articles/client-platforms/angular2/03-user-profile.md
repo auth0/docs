@@ -118,8 +118,14 @@ To display, just read it from profile `user_metadata`:
 
 #### Update user profile
 
-To update user profile info, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id). To do that `angular-jwt` provides a `AuthHttp` class which automatically attach the user's JWT as an `Authorization` header when making requests. 
-Making secure HTTP calls looks the same as it would with regular Http.
+To update user profile info, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id). To do that [angular2-gwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+
+First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
+
+${snippet(meta.snippets.auth-providers-setup)}
+
+Then you can import `AuthHttp` in your component and make the authenticated request:
+
 
 ```typescript
 // edit_profile.component.ts
