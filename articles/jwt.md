@@ -4,7 +4,7 @@
 
 ## Standard JWT
 
-Application programs or Web APIs can invoke Auth0's authentication sequences in a few different ways, such as via the Lock widget or calling a library for the language in which their program is written. Each of these mechanisms allows the calling program to specify a `scope` parameter which can be used to request the return of an `access_token` and, optionally, an `id_token`.
+Application programs or Web APIs can invoke Auth0's authentication sequences in a few different ways, such as via the Lock widget or calling a library for the language in which their program is written. Each of these mechanisms allows the calling program to [specify a `scope` parameter](/scopes) which can be used to request the return of an `access_token` and, optionally, an `id_token`.
 
 When using the `scope=openid`, Auth0 will generate both an `access_token` and an `id_token`.   The `access_token` is just an opaque value that can be sent in subsequent API calls to Auth0. The `id_token` is a JSON Web Token, (abbreviated JWT), and is a rich data structure with two characteristics:
 
