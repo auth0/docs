@@ -31,23 +31,19 @@ To integrate your Angular2 application with Auth0 you need to add the following 
     From [npm](https://npmjs.org):
 
     ```sh
-    npm install auth0-lock
+    npm install --save auth0-lock@rc
     ```
 
     From [bower](http://bower.io):
 
     ```sh
-    bower install auth0-lock
+    bower install auth0-lock#10.0.0-rc.1
     ```
 
     Or our CDN:
 
     ```html
-    <!-- Latest minor release -->
-    <script src="http://cdn.auth0.com/js/lock/10.0.0-beta.4/lock.min.js"></script>
-
-    <!-- Latest patch release (recommended for production) -->
-    <script src="http://cdn.auth0.com/js/lock/10.0.0-beta.4/lock.min.js"></script>
+    <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.1/lock.min.js"></script>
     ```
 
 - [angular2-jwt](https://github.com/auth0/angular2-jwt): is a helper library for working with [JWTs](http://jwt.io/introduction) in your Angular 2 applications.
@@ -55,7 +51,7 @@ To integrate your Angular2 application with Auth0 you need to add the following 
     From [npm](https://npmjs.org):
 
     ```sh
-    npm install angular2-jwt
+    npm install --save angular2-jwt
     ```
 
 #### 2: Viewport
