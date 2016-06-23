@@ -13,7 +13,7 @@ Auth0 supports the following social providers out of the box. You can also use a
 
 <table width="100%">
 <tr>
-<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
+<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'index'), function(article) { %>
 <% if (article.connection) { %> 
 <td align="center">
       <% if (article.public === false) { %>

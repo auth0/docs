@@ -2,6 +2,7 @@
 connection: PayPal
 image: /media/connections/paypal.png
 seo_alias: paypal
+index: 10
 ---
 
 # Obtain a Client Id and Secret for PayPal

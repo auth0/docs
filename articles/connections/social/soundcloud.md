@@ -1,5 +1,6 @@
 ---
 connection: SoundCloud
+index: 5
 image: /media/connections/soundcloud.png
 seo_alias: soundcloud
 ---
