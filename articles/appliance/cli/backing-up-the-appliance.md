@@ -4,12 +4,9 @@ You may use Appliance CLI to perform a MongoDB backup on a specific node.
 
 ## Prior to Beginning the Backup
 
-Please ensure that:
-1. Your workstation has been [configured to perform operations](/appliance/cli/configure-cli) on your Appliance instances;
-2. You have run [mongodump](https://docs.mongodb.com/manual/reference/program/mongodump/) on the specified node to compress it;
-3. The node you are backing up has sufficient disk space (the space available should be at least twice as large as the amount of Auth0 data present).
+Please ensure that your workstation has been [configured to perform operations](/appliance/cli/configure-cli) on your Appliance instances;
 
-> Beginning with Appliance update **build 6868**, backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
+> Do not perform backups on Appliance instances that are **not** running update **build 6868** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
 
 Please be aware that, throughout this document, the following sample values are used:
 
