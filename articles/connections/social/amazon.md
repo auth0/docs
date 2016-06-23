@@ -1,5 +1,5 @@
 ---
-connection: Amazon
+connection: Amazon Web Services
 image: /media/connections/amazon.png
 alias:
   - aws

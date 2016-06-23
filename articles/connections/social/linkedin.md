@@ -2,7 +2,7 @@
 connection: LinkedIn
 image: /media/connections/linkedin.png
 seo_alias: linkedin
-This page shows you how to connect your Auth0 app to LinkedIn. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: This page shows you how to connect your Auth0 app to LinkedIn. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 ---
 
 # Connect your app to LinkedIn

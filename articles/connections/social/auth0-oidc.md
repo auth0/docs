@@ -1,6 +1,7 @@
 ---
 connection: Auth0 OpenIDConnect
 seo_alias: auth0-oidc
+image: /media/connections/auth0.png
 ---
 
 # Authenticate using OpenIDConnect to another Auth0 account

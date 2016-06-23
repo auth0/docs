@@ -23,7 +23,7 @@ Auth0 supports the following social providers out of the box. You can also use a
       <% } else { %>
         <a href="<%- '/docs' + article.url %>">
         <% if (article.image) { %>
-        <img width="50" src="<%- '/docs' + article.image %>"><br><% } %><%- article.connection %></a>
+        <img width="75" src="<%- '/docs' + article.image %>"><br><% } %><%- article.connection %></a>
       <% }; %>
 </td>
   <% i++; if (i==3){i=0; %>
