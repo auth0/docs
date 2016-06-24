@@ -97,7 +97,7 @@ You can add input fields to the sign up form adding to the options parameter the
 
 ```typescript
   // Configure Auth0
-  lock = new Auth0Lock('KhnsDMlDnJKJG8bYnCteoHYkoeXiIDO7', 'amata.auth0.com', {
+  lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     additionalSignUpFields: [{
       name: "address",                              // required
       placeholder: "enter your address",            // required
