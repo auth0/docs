@@ -31,7 +31,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Users Import / Export](/extensions/user-import-export): import or export users.
 - [Auth0 Logs to Sumo Logic](/extensions/sumologic): export Auth0 logs to Sumo Logic
 - [Auth0 Logs to Splunk](/extensions/splunk): export Auth0 logs to Splunk
-- [Auth0 Logs to Logtash](/extensions/logstash): export Auth0 logs to Logtash
+- [Auth0 Logs to Logstash](/extensions/logstash): export Auth0 logs to Logstash
 - [Auth0 Logs to Mixpanel](/extensions/mixpanel): export Auth0 logs to Mixpanel
 - [Real-time Webtask Logs](/extensions/realtime-webtask-logs): allows browser-based access to real-time webtask logs
 - [Auth0 Logs to Logentries](/extensions/logentries): export Auth0 logs to Logentries
