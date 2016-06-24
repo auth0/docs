@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication in Auth0
-url: /multifactor-authentication2
+url: /multifactor-authentication
 ---
 
 # Multifactor Authentication in Auth0
