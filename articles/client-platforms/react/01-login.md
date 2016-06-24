@@ -1,167 +1,227 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 React SDK to add authentication and authorization to your web app.
+description: This tutorial will show you how to integrate Auth0 with ReactJS to add authentication and authorization to your web app.
 ---
 
-## React Tutorial
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.6.0
-:::
-
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-react',
-  pkgBranch: 'gh-pages',
-  pkgPath: 'examples/redirect-lock-with-api',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/01-Login'
 }) %>
 
-**If you have an existing application, follow the steps below.**
 
+### Login
 
-${include('../\_callback')}
+#### 1. Create the AuthService class
 
-### 1. Add the Auth0 scripts and set the viewport
+The best way to have authentication utilities available across the application is to create a helper class an share its instance to the React Components passing it as their props. Let's create the helper inside the `src/utils` folder to encapsulate the login functionality and name it `AuthService`.
 
-Add the code below to the `<head>` of your `index.html` file to include the Auth0 script and set the viewport:
+We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#customization)). Instead of hard coding the credentials here, `AuthService` will receive Auth0 credentials as contructor parameters.
 
-${snippet(meta.snippets.dependencies)}
+With the internal Auth0 Lock widget instance, we can hook a callback for the `authenticated` event. The event is emitted after every successful login, passing the user authentication token (`idToken`) as a parameter. For now we're storing the `idToken` value into `localStorage`.
 
-You can as well include Lock before the `<body>` closing tag which is in fact recommended.
+```javascript
+/* ===== ./src/utils/AuthService.js ===== */
+import Auth0Lock from 'auth0-lock'
 
-### 2. Configure Auth0Lock
-
-To have your app work with Auth0, configure Auth0Lock by creating an instance of the service in the `componentWillMount` lifecycle event of your component:
-
-${snippet(meta.snippets.setup)}
-
-### 3. Implement the login
-
-To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
-
-${snippet(meta.snippets.use)}
-
-To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
-
-After authentication, Auth0 will redirect the user back to your application with an identifying `idToken` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `idToken`. This `idToken` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
-
-In this example, the `token` is stored in `localStorage` to keep the user authenticated after each page refresh:
-
-```js
-var App = React.createClass({
-  // ...
-  componentWillMount: function() {
-    //Extending function defined in step 2.
-    // ...
-    this.setState({idToken: this.getIdToken()})
-  },
-  getIdToken: function() {
-    var idToken = localStorage.getItem('userToken');
-    var authHash = this.lock.parseHash(window.location.hash);
-    if (!idToken && authHash) {
-      if (authHash.id_token) {
-        idToken = authHash.id_token
-        localStorage.setItem('userToken', authHash.id_token);
-      }
-      if (authHash.error) {
-        console.log("Error signing in", authHash);
-        return null;
-      }
-    }
-    return idToken;
-  },
-  render: function() {
-    if (this.state.idToken) {
-      return (<LoggedIn lock={this.lock} idToken={this.state.idToken} />);
-    } else {
-      return (<Home lock={this.lock} />);
-    }
+export default class AuthService {
+  constructor(clientId, domain) {
+    // Configure Auth0
+    this.lock = new Auth0Lock(clientId, domain, {})
+    // Add callback for lock `authenticated` event
+    this.lock.on('authenticated', this._doAuthentication.bind(this))
+    // binds login functions to keep this context
+    this.login = this.login.bind(this)
   }
-});
-```
 
-Finally, call `ReactDOM.render()` method from `react-dom` library to display the `App` component:
-
-```js
-ReactDOM.render(
-  <App />,
-  document.getElementById('container-id')
-);
-```
-
-
-### 4. Retrieve the user profile and display user information
-
-Use the `token` to retrieve the user profile and display the user's nickname:
-
-```js
-var LoggedIn = React.createClass({
-  getInitialState: function() {
-    return {
-      profile: null
-    }
-  },
-
-  componentDidMount: function() {
-    // In this case, the lock and token are retrieved from the parent component
-    // If these are available locally, use `this.lock` and `this.idToken`
-    this.props.lock.getProfile(this.props.idToken, function (err, profile) {
-      if (err) {
-        console.log("Error loading the Profile", err);
-        return;
-      }
-      this.setState({profile: profile});
-    }.bind(this));
-  },
-
-  render: function() {
-    if (this.state.profile) {
-      return (
-        <h2>Welcome {this.state.profile.nickname}</h2>
-      );
-    } else {
-      return (
-        <div className="loading">Loading profile</div>
-      );
-    }
+  _doAuthentication(authResult){
+    // Saves the user token
+    this.setToken(authResult.idToken)
   }
-});
 
+  login() {
+    // Call the show method to display the widget.
+    this.lock.show()
+  }
+
+  loggedIn(){
+    // Checks if there is a saved token and it's still valid
+    return !!this.getToken()
+  }
+
+  setToken(idToken){
+    // Saves user token to localStorage
+    localStorage.setItem('id_token', idToken)
+  }
+
+  getToken(){
+    // Retrieves the user token from localStorage
+    return localStorage.getItem('id_token')
+  }
+
+  logout(){
+    // Clear user token and profile data from localStorage
+    localStorage.removeItem('id_token');
+  }
+}
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
+The other helper methods you see above are `login`, to call `lock.show()` and display the login widget, `logout` to remove the localStorage data and `loggedIn` that just checks if an `idToken` exists, returning a boolean.
 
-### 5. Perform secure calls to your API
+#### 2. Use AuthService to protect private routes
 
-To perform secure calls to the API you are creating <%= configuration.api ? ' on ' + configuration.api : '' %>, return on each request the [JWT token](/jwt) received on the login in the `Authorization` header:
+To use the new class to protect routes, just import `AuthService` in `src/views/Main/routes.js` and create a new instance. Below is the updated routes file.
 
-```js
-var getFoos = fetch('/api/foo', {
-  headers: {
-    'Authorization': 'Bearer ' + localStorage.getItem('userToken')
-  },
-  method: 'GET',
-  cache: false
-});
+```javascript
+/* ===== ./src/views/Main/routes.js ===== */
+import React from 'react'
+import {Route, IndexRedirect} from 'react-router'
+import AuthService from 'utils/AuthService'
+import Container from './Container'
+import Home from './Home/Home'
+import Login from './Login/Login'
 
-getFoos.then(function (response) {
-  response.json().then(function (foos) {
-    console.log('the foos:', foos);
-  });
-});
+const auth = new AuthService(__AUTH0_CLIENT_ID__, __AUTH0_DOMAIN__);
+
+// onEnter callback to validate authentication in private routes
+const requireAuth = (nextState, replace) => {
+  if (!auth.loggedIn()) {
+    replace({ pathname: '/login' })
+  }
+}
+
+export const makeMainRoutes = () => {
+  return (
+    <Route path="/" component={Container} auth={auth}>
+      <IndexRedirect to="/home" />
+      <Route path="home" component={Home} onEnter={requireAuth} />
+      <Route path="login" component={Login} />
+    </Route>
+  )
+}
+
+export default makeMainRoutes
 ```
 
-### 6. Log out
+Notice you're creating the `auth` as an `AuthService` instance and sending your auth0 credentials. The variables `__AUTH0_CLIENT_ID__` and `__AUTH0_DOMAIN__` will be replaced by webpack using the content of `.env` file. If you don't have that file you can create your own based on `.env.example` provided with the sample project. Copy that and edit the file adding your own credentials.
 
-In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
-
-```js
-localStorage.removeItem('userToken');
-// Go to home with your React Router
+```bash
+$ cp .env.example .env
 ```
 
-### 7. All done!
+Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exists yet, so let's create it next.
 
-You have completed the implementation of Login and Signup with Auth0 and React.
+#### 3. Create the Login view
+
+Login is a new view component that should placed in `src/views/Main/Login/`:
+
+```javascript
+/* ===== ./src/views/Main/Login/Login.js ===== */
+import React, { PropTypes as T } from 'react'
+import {ButtonToolbar, Button} from 'react-bootstrap'
+import AuthService from 'utils/AuthService'
+import styles from './styles.module.css'
+
+export class Login extends React.Component {
+  static propTypes = {
+    location: T.object,
+    auth: T.instanceOf(AuthService)
+  }
+
+  render() {
+    const { auth } = this.props
+    return (
+      <div className={styles.root}>
+        <h2>Login</h2>
+        <ButtonToolbar className={styles.toolbar}>
+          <Button bsStyle="primary" onClick={auth.login.bind(this)}>Login</Button>
+        </ButtonToolbar>
+      </div>
+    )
+  }
+}
+
+export default Login;
+```
+
+Basically, it's a React Component that expects an `auth` objects into its props, validated as an instance of `AuthService`. The Login button onClick event is calling the `login` to show auth0 login window.
+
+If you run the application now you'll see an error in Login component, because `auth` is still not included in the props.
+
+#### 4. Send `auth` from router to Container children
+
+To fix the Login component missing dependency, we need to propagate the `auth` parameter from `Container` component, that is receiving it from the route, to its children. The updated `src/views/Main/Container.js` is:
+
+```javascript
+/* ===== ./src/views/Main/Container.js ===== */
+import React, { PropTypes as T } from 'react'
+import { Jumbotron } from 'react-bootstrap'
+import styles from './styles.module.css'
+
+export class Container extends React.Component {
+  render() {
+    let children = null;
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, {
+        auth: this.props.route.auth //sends auth instance from route to children
+      })
+    }
+
+    return (
+      <Jumbotron>
+        <h2 className={styles.mainTitle}>
+          <img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg" />
+        </h2>
+        {children}
+      </Jumbotron>
+    )
+  }
+}
+
+export default Container;
+```
+
+After the Container change, Login button should be working and redirecting to Home page after a successful authentication.
+
+#### 5. Logout Button
+
+In Home view, you may want to show a button to logout, destroying the user session and redirecting to `/login` page. To accomplish that, the new Home component code should be something like:
+
+```javascript
+/* ===== ./src/views/Main/Home/Home.js ===== */
+import React, { PropTypes as T } from 'react'
+import {Button} from 'react-bootstrap'
+import AuthService from 'utils/AuthService'
+import styles from './styles.module.css'
+
+export class Home extends React.Component {
+  static contextTypes = {
+    router: T.object
+  }
+
+  static propTypes = {
+    auth: T.instanceOf(AuthService)
+  }
+
+  logout(){
+    // destroys the session data
+    this.props.auth.logout()
+    // redirects to login page
+    this.context.router.push('/login');
+  }
+
+  render(){
+    return (
+      <div className={styles.root}>
+        <h2>Home</h2>
+        <p>Welcome!</p>
+        <Button onClick={this.logout.bind(this)}>Logout</Button>
+      </div>
+    )
+  }
+}
+
+export default Home;
+```
+
+### 6. All done!
+
+You have completed the implementation of Login and Signup with Auth0 in your ReactJS project.
