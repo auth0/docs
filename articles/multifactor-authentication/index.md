@@ -43,7 +43,7 @@ Duo Security allows you to request either of the following as your second factor
 * A user response to a push notification sent to the appropriate device;
 * A passcode provided to the user via SMS.
 
-You will find further instructions on enabling this feature [here](/multifactor-authentication/duo).
+You will find further instructions on enabling this feature [here](/multifactor-authentication/duo-security).
 
 ### MFA Using Custom Rules
 
