@@ -109,7 +109,7 @@ Upon successful authentication, Auth0 will return a redirection response with th
 The client then issues a final request to Auth0, to exchange the `code` for a token:
 
 ```
-POST /token HTTP/1.1
+POST /oauth/token HTTP/1.1
 Host: ${account.namespace}
 Content-type: application-json
 {
@@ -124,6 +124,8 @@ Content-type: application-json
 If successful the response is another JSON object, with an `id_token`, and `access_token`. 
 
 > Note that if the `verifier` doesn't match what is sent in the `/authorize` endpoint, the request will fail.
+
+You will have to set `Token Endpoint Authentication Method` to `none` in your application for this to work. Look under **Settings** of the app.
 
 ## OAuth2 Implicit flow
 
