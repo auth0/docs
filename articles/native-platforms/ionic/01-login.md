@@ -234,6 +234,21 @@ cp plugins/cordova-plugin-inappbrowser/src/ios/* platforms/ios/[yourAppName]/Plu
 
 This means that the `InAppBrowser` plugin wasn't installed successfully by Cordova. See the previous section to learn how to solve this.
 
+#### Get error `We could not reach the server. Please try again`
+
+This means you need to install `cordova-plugin-whitelist` by running following command:
+
+```bash
+ionic plugin add cordova-plugin-whitelist
+```
+
+After that configure your `config.xml` by adding or overriding following instructions:
+
+```
+<allow-navigation href="*.auth0.com" />
+<access origin="*.auth0.com" />
+```
+
 #### Lock is displaying errors when using ionic serve command or Ionic View app
 
 Please debug your app inside the simulator for your platform or an actual device. Running Lock from inside a browser using `ionic serve` or through the `Ionic View` app is not supported at this time.
