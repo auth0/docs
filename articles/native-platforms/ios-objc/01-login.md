@@ -187,5 +187,4 @@ See [User Profile](/user-profile) to find out all of the available properties of
 
 Also see: [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h).
 
-You can also download a [sample project](
-/package/native-mobile-samples/master?path=iOS/profile-sample-swift&file_path=iOS/profile-sample-swift/ProfileSample/Info.plist&type=replace&client_id=${account.clientId}) that shows how to store/update your user profile with Auth0.
+You can also download a [sample project](/package/native-mobile-samples/master?path=iOS/profile-sample-swift&file_path=iOS/profile-sample-swift/ProfileSample/Info.plist&type=replace&client_id=${account.clientId}) that shows how to store/update your user profile with Auth0.
