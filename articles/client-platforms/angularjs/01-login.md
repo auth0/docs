@@ -117,8 +117,8 @@ Then in init method, add a fallback URL when a user is denied access:
 
 ```javascript
 authProvider.init({
-  domain: 'YOUR_DOMAIN',
-  clientID: 'YOUR_CLIENT_ID',
+  domain: '<%= account.namespace %>',
+  clientID: '<%= account.clientId %>',
   loginUrl: '/login'
 });
 ```
@@ -142,8 +142,8 @@ $stateProvider
 
 ```javascript
 authProvider.init({
-  domain: 'YOUR_DOMAIN',
-  clientID: 'YOUR_CLIENT_ID',
+  domain: '<%= account.namespace %>',
+  clientID: '<%= account.clientId %>',
   loginState: 'login'
 });
 ```
