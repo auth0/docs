@@ -48,6 +48,7 @@ You will need to add the `returnTo` URL as an `Allowed Logout URLs` in one of tw
 
   you must add the `returnTo` URL to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Setting Allowed Logout URLs at the App Level](#setting-allowed-logout-urls-at-the-app-level) for more information.
 
+
 ### Setting *Allowed Logout URLs* at the Account Level
 
 To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${uiURL}/#/account/advanced) of the **Auth0 Management Console**.
@@ -58,6 +59,7 @@ When providing the URL list, you can:
 
 * Specify multiple, valid, comma-separated URLs
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
+
 
 ### Setting *Allowed Logout URLs* at the App Level
 
@@ -70,13 +72,17 @@ When providing the URL list, you can:
 * Specify multiple, valid, comma-separated URLs
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
 
+> In order to avoid validation errors, make sure that you do include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, you should use `http://*.example.com` instead.
+
+
 #### Limitations
 
 * The validation of URLs provided as values to the `returnTo` parameter, the querystring and hash information provided as part of the URL are not taken into account.
 
 * The `returnTo` parameter does not function for all social providers. Please check your social provider's settings to ensure that they will accept the `redirectTo` parameter.
 
-**NOTE:** If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
+> If you are working with social identity providers such as Google or Facebook, you must set your `Client ID` and `Secret` for these providers in the **Auth0 Management Console** for the logout to function.
+
 
 #### Facebook Users
 
@@ -87,6 +93,7 @@ https://${account.namespace}/v2/logout?federated&
       returnTo=url_encode(https://${account.namespace}/logout?returnTo=http://www.example.com)
       &access_token=[facebook access_token]
 ```
+
 
 ### Supported Providers
 
@@ -120,6 +127,7 @@ Auth0 supports use of the `logout` endpoint with the following providers:
 - WS-Fed
 - Yahoo
 - Yammer
+
 
 ## SAML Logout
 
