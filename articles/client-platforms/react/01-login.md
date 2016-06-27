@@ -98,28 +98,13 @@ export const makeMainRoutes = () => {
 
 export default makeMainRoutes
 ```
-
-Notice you're creating the `auth` as an `AuthService` instance and sending your auth0 credentials. The variables `__AUTH0_CLIENT_ID__` and `__AUTH0_DOMAIN__` will be replaced by webpack using the content of `.env` file.
-
-<% if (account.userName) { %>
-If you don't have that file you can create your own using the following command:
-
-```bash
-$ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'" > .env
-```
-<% } else { %>
-If you don't have that file you can create your own based on `.env.example` provided with the sample project. Copy that and edit the file adding your own credentials.
-
-```bash
-$ cp .env.example .env
-```
-<% } %>
+${snippet(meta.snippets.env_file)}
 
 Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exists yet, so let's create it next.
 
 ## 3. Create the Login view
 
-Login is a new view component that should placed in `src/views/Main/Login/`:
+Login is a new view component that should be placed in `src/views/Main/Login/`:
 
 ```javascript
 /* ===== ./src/views/Main/Login/Login.js ===== */
