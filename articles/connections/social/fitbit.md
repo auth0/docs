@@ -2,6 +2,7 @@
 connection: Fitbit
 image: /media/connections/fitbit.png
 seo_alias: fitbit
+index: 14
 ---
 
 # Obtain a *Consumer Key* and *Consumer Secret* for Fitbit

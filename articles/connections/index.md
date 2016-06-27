@@ -13,7 +13,7 @@ Auth0 supports the following social providers out of the box. You can also use a
 
 <table width="100%">
 <tr>
-<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'connection'), function(article) { %>
+<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'index'), function(article) { %>
 <% if (article.connection) { %> 
 <td align="center">
       <% if (article.public === false) { %>
@@ -32,19 +32,28 @@ Auth0 supports the following social providers out of the box. You can also use a
 </table>
 
 ## Enterprise
-<ul>
-<% _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
-  <% if (article.connection) { %>
-    <li>
+<table width="100%">
+<tr>
+<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
+<% if (article.connection) { %> 
+<td align="center">
       <% if (article.public === false) { %>
+        <% if (article.image) { %>
+        <img width="75" src="<%- '/docs' + article.image %>"><br><% } %>
         <%- article.connection %>
       <% } else { %>
-        <a href="<%- '/docs' + article.url %>"><%- article.connection %></a>
-      <% } %>
-    </li>
-  <% } %>
+        <a href="<%- '/docs' + article.url %>">
+        <% if (article.image) { %>
+        <img width="75" src="<%- '/docs' + article.image %>"><br><% } %><%- article.connection %></a>
+      <% }; %>
+</td>
+  <% i++; if (i==3){i=0; %>
+</tr>  
+<% }  } %>
 <% }); %>
-</ul>
+</tr>
+</table>
+
 
 ## Database and Custom Connections
 

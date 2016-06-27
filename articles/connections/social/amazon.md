@@ -5,6 +5,7 @@ alias:
   - aws
   - amazon-web-services
 seo_alias: amazon
+index: 9
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Amazon
