@@ -13,7 +13,7 @@ hybrid: false
 image: /media/platforms/android.png
 tags:
   - quickstart
-  - login
+  - User Profile
 alias:
   - android
 seo_alias: android
@@ -33,7 +33,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-Be sure that you have completed the [Basic Login](01-login.md) and the [Session Handling]() Quickstarts.
+Be sure that you have completed the [Basic Login](01-login.md) and the [Session Handling](03-sessionhandling.md) Quickstarts.
 
 ### 1. Instantiate the Authentication Client
 
