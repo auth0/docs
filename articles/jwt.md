@@ -93,7 +93,7 @@ If you choose `RS256`, you can download the certificate at the _Certificates_ ta
 
 ## Decoding JWT
 
-There are several libraries available to you if you need to decode JWTs. Any library listed [here](https://tehsis.github.io/webtaskio-canirequire/) would do. For example, you could try the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), a JWT implementation for node.js.
+Decoding the JWT token extracts the header, claims and signature. There are several libraries available to you if you need to decode JWTs. Any library listed [here](https://tehsis.github.io/webtaskio-canirequire/) would do. For example, you could try the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), a JWT implementation for node.js.
 
 ---
 
