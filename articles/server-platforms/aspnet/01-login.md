@@ -73,6 +73,36 @@ The user profile is normalized regardless of where the user came from. We will a
 
 You can use the usual authorization techniques since the `LoginCallback.ashx` handler and the Http Module will generate an `IPrincipal` on each request. This means you can use the declarative `[Authorize]` or `<location path='..'>` protection or code-based checks like `User.Identity.IsAuthenticated`
 
+#### Redirecting to a login page
+
+An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the request is not authenticated. If you want to redirect to a login page automatically in these cases, you can leverage the **Forms Authentication** module by configuring this in `web.config`:
+
+```xml
+<system.web>
+  <authentication mode="Forms">
+    <forms loginUrl="Account/Login" />
+  </authentication>
+</system.web>
+```
+
+In the above example, we are redirecting to a 'Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-triggering-login-manually-or-integrating-the-auth0lock).
+
+```c#
+public ActionResult Login(string returnUrl)
+{
+    if (string.IsNullOrEmpty(returnUrl) || !this.Url.IsLocalUrl(returnUrl))
+    {
+        returnUrl = "/";
+    }
+
+    // you can use this for the 'authParams.state' parameter
+    // in Lock, to provide a return URL after the authentication flow.
+    ViewBag.State = "ru="+ HttpUtility.UrlEncode(returnUrl);
+
+    return this.View();
+}
+```
+
 #### Log out
 
 To clear the cookie generated on login, use the `FederatedAuthentication.SessionAuthenticationModule.SignOut()` method on the `AccountController\Logout` method.
