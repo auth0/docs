@@ -11,9 +11,12 @@ image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
+  bower: native-platforms/ionic/bower
+  references: native-platforms/ionic/references
   dependencies: native-platforms/ionic/dependencies
   setup: native-platforms/ionic/setup
   use: native-platforms/ionic/use
 seo_alias: ionic
 articles:
+  - 00-intro
   - 01-login
