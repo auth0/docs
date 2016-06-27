@@ -61,7 +61,7 @@ Now, just add the following middlewares to your app:
 ```js
 app.use(cookieParser());
 // See express session docs for information on the options: https://github.com/expressjs/session
-app.use(session({ secret: 'YOUR_SECRET_HERE', resave: false,  saveUninitialized: false }));
+app.use(session({ secret: '${account.clientSecret}', resave: false,  saveUninitialized: false }));
 ...
 app.use(passport.initialize());
 app.use(passport.session());
