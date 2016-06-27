@@ -99,3 +99,18 @@ cp plugins/cordova-plugin-inappbrowser/src/android/* platforms/android/[yourAppN
 #### Get a blank page with an OK after signin
 
 This could mean that the `InAppBrowser` plugin wasn't installed successfully.
+
+#### Get error `We could not reach the server. Please try again`
+
+This means you need to install `cordova-plugin-whitelist` by running following command:
+
+```bash
+ionic plugin add cordova-plugin-whitelist
+```
+
+After that configure your `config.xml` by adding or overriding following instructions:
+
+```
+<allow-navigation href="*.auth0.com" />
+<access origin="*.auth0.com" />
+```
