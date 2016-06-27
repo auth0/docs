@@ -1,0 +1,10 @@
+added:
+  -
+    title: "New doc on Auth0 Logs to Logstash extension"
+    tags:
+      - extension
+      - logs
+      - logstash
+      - elasticsearch
+    description: |
+      A [new document](https://auth0.com/docs/extensions/logstash) was added on how to configure and use the Auth0 to Logstash extension.
