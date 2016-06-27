@@ -663,5 +663,9 @@
   {
     "from": "/policies/rate-limit",
     "to": "/policies/rate-limits"
+  },
+  {
+    "from": "/multifactor-authentication2",
+    "to": "/multifactor-authentication"
   }
 ]
