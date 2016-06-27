@@ -72,9 +72,7 @@ When providing the URL list, you can:
 * Specify multiple, valid, comma-separated URLs
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
 
-::: panel-warning Include the protocol
-In order to avoid validation errors, make sure that you do include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, you should use `http://*.example.com` instead.
-:::
+> In order to avoid validation errors, make sure that you do include the protocol part of the URL. For example, setting the value to `*.example.com` will result in a validation error, you should use `http://*.example.com` instead.
 
 
 #### Limitations
