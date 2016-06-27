@@ -91,7 +91,14 @@ If you choose `RS256`, you can download the certificate at the _Certificates_ ta
 
 ---
 
+## Decoding JWT
+
+There are several libraries available to you if you need to decode JWTs. Any library listed [here](https://tehsis.github.io/webtaskio-canirequire/) would do. For example, you could try the [node-jsonwebtoken library](https://github.com/auth0/node-jsonwebtoken), a JWT implementation for node.js.
+
+---
+
 ## When using Microsoft Azure Mobile Services
+
 Microsoft Azure Mobile Services (WAMS) APIs expects a specific format of JWTs. WAMS compatible JWT have an additional property in the body:
 
 	uid: "{connection}|{user_id}"
