@@ -8,13 +8,13 @@ The Auth0 `id_token` can be exchanged for another token, called a Delegation tok
 
 The type of the delegation token will vary depending on the target API with which it will be used.  For example, if it will be used for an application/API registered in Auth0, it will be a JWT token.  If the delegation token is for an application AddOn, it will vary by provider.  For example, if issued for Azure blob storage, it will be a SAS (Shared Access Signature).  If the delegation token is for the Firebase add on , it will be a JWT.
 
-Further information available at: [Delegation token request](https://github.com/auth0/auth0.js#delegation-token-request)
+Further information available at: [Delegation token request](https://github.com/auth0/auth0.js#delegation-token-request).
 
 ## How to get a delegation token
 
 The `id_token` for an authenticated user can be used with the `/delegation` endpoint to request a delegation token for a particular target.  The target can be either another application/API registered in Auth0 or an application Addon configured in Auth0.  The Addons for which this can be done are those that are not SAML or WS-Fed Addons and the Addon must be configured in Auth0 with secrets obtained from the Addon service, such as Firebase.  Instructions for setting up the secrets are available from the Addon configuration page for each Addon.  The secrets are used to sign the delegation token so that the Addon API can validate and trust the token.
 
-Further information available at:  [Delegation endpoint](/api/authentication#delegated)
+Further information available at:  [Delegation endpoint](/api/authentication#delegated).
 
 ## How to control contents of a delegation token
 
