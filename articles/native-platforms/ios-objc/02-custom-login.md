@@ -71,8 +71,7 @@ Create a property list file named `Auth0.plist` in your project, and add the fol
 Then you'll need to create a `Auth0InfoHelper` class to handle this properties. With the following methods:
 
 ```objc
-+ (NSDictionary*) readAuth0Plist
-{
++ (NSDictionary*) readAuth0Plist {
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Auth0" ofType:@"plist"]];
 
     return dict;
@@ -82,13 +81,11 @@ Then you'll need to create a `Auth0InfoHelper` class to handle this properties. 
 This will open the `Auth0.plist` file and load it in a dictionary. Then you'll need to create a method to read each value:
 
 ```objc
-+ (NSString*) Auth0ClientID
-{
++ (NSString*) Auth0ClientID {
     return [[Auth0InfoHelper readAuth0Plist] objectForKey:@"ClientId"];
 }
 
-+ (NSURL*) Auth0Domain
-{
++ (NSURL*) Auth0Domain {
     return [NSURL a0_URLWithDomain: [[Auth0InfoHelper readAuth0Plist] objectForKey:@"Domain"]];
 }
 ```
@@ -176,8 +173,7 @@ If you are going to let the user sign in, you'll probably need to let the user t
                                 // you need about the user
                        scope:@"openid"
                   parameters:nil
-                    callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials)
-    {
+                    callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
             if(error) {
                 // Something went wrong, let the user know
             } else {
