@@ -97,7 +97,7 @@ In the Domain case, we call an extension of `NSURL` included in the [Auth0 Swift
 
 ### 3. Implement the Login
 
-Now, to the actual Login
+Now, to the actual Login.
 
 Import both the helper class and the [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) header file:
 
