@@ -4,6 +4,7 @@ tags:
   - quickstart
 snippets:
   dependencies: server-platforms/java/dependencies
+  dependenciesGradle: server-platforms/java/dependencies-gradle
   setup: server-platforms/java/setup
   use: server-platforms/java/use
 alias:
