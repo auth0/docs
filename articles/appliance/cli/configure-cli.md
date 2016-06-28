@@ -4,7 +4,7 @@ The Auth0 Appliance Command Line Interface (CLI) allows you to perform operation
 
 ## Downloading the CLI Setup Files
 
-To download the files required to set up the CLI, please contact [Auth0 Support](http://support.auth0.com) for your custom download link.
+To download the files required to set up the CLI, please contact your Auth0 Customer Success Manager for your custom download link.
 
 ## Installing and Using the CLI
 
