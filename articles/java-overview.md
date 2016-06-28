@@ -44,7 +44,7 @@ A modern Java Spring library that allows you to use Auth0 with Spring Security. 
 
 ## Using Auth0 with Spring Boot and Spring Security for Single Sign On (SSO)
 
-We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. 
+We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. `app1.com` is the main _portal_ website and `app2.com` is a _partner_ website that depends on `app1.com` for SSO authentication. The sample offers also one more _portal_ website, `app3.com`, which is a Single Page Application written in Angular 1.x. This is optional and provided for those wishing to do SSO with a mix of Server side and Single Page Apps.
 
 The aim of this solution is to provide a simple, no-frills sample, developers can follow to understand the orchestration required to achieve SSO using Auth0 using Java, without having to also cope with understanding additional libraries or frameworks.
 
