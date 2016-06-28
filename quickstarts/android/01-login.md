@@ -1,22 +1,6 @@
 ---
 title: Auth0 Android Quickstarts - 1. Login
 description: This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
-name: Android
-alias:
-  - Android
-  - Login
-  - Quickstart
-  - Mobile 
-language:
-  - Android
-hybrid: false
-image: /media/platforms/android.png
-tags:
-  - quickstart
-  - login
-alias:
-  - android
-seo_alias: android
 ---
 
 ## Android - Login Tutorial
@@ -80,25 +64,25 @@ Add the following code to your project's `AndroidManifest.xml`:
         
         <activity android:name="com.auth0.android.lock.provider.WebViewActivity"></activity>
 
-Also, you need to add the following permissions inside the :
+Also, you need to add the following permissions inside the:
         
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	
-At last, don't forget to declare 	the activities you're using in the Manifest.
+At last, don't forget to declare 	the activities you're using in the Manifest:
 	
 	
 	<activity android:name=".activities.LockActivity"/>
 	<activity android:name=".activities.MainActivity"/>
 	
 	
-> It's suggested to add both the Auth0DomainID and Auth0ClientID to the Strings.xml file rather than hardcode them in the manifest.
+> It's recommended to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file, rather than hardcode them in the manifest.
         
 ### 3. Implement the Login
 
 At this point, you're all set to implement the Login in any activity you want. 
 
-First, add on the onCreate method:
+First, add these lines in the ``onCreate`` method:
 
 ```android
 Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.auth0_domain));
@@ -107,7 +91,7 @@ Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.
                     .build();
 ```
 
-Second, add on the onDestroy method:
+Second, add these lines in the ``onDestroy`` method:
 
 ```android
  protected void onDestroy() {
@@ -145,11 +129,11 @@ Finally, whenever you want to start the login widget, call:
 
 ```
 
-[![Lock.png](/media/articles/libraries/lock-android/login.png)]()
+[![Lock.png](/media/articles/libraries/lock-android/login.png)]
 
 > If you need in depth configuration, check more information on [Lock Builder](https://auth0.com/docs/libraries/lock-android#lock-builder)
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-customlogin.md).
+> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login.md).
 
 ### Done!
 
