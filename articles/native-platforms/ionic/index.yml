@@ -14,7 +14,12 @@ snippets:
   bower: native-platforms/ionic/bower
   references: native-platforms/ionic/references
   dependencies: native-platforms/ionic/dependencies
-  setup: native-platforms/ionic/setup
+  appsetup: native-platforms/ionic/appsetup
+  login: native-platforms/ionic/login
+  loginview: native-platforms/ionic/loginview
+  loginroute: native-platforms/ionic/loginroute
+  logout: native-platforms/ionic/logout
+  autologin: native-platforms/ionic/autologin
   use: native-platforms/ionic/use
 seo_alias: ionic
 articles:

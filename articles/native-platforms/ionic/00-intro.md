@@ -70,3 +70,20 @@ The purpose of each of these references are as follows:
  - **auth0-angular**: Auth0's SDK for Angular. It exposes most of the useful methods for authentication.
  - **angular-storage**: A `localStorage` and `sessionStorage` wrapper create with love by Auth0 team.
  - **angular-jwt**: Angular service that makes using JSON Web Tokens easy in Angular apps.
+
+### 5. Add the `InAppBrowser` plugin
+
+You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. The seed project already has this plugin added, but if you are adding Auth0 to your own application you need to run the following command:
+
+```bash
+ionic plugin add cordova-plugin-inappbrowser
+```
+
+and then add the following configuration to the `config.xml` file:
+
+```xml
+<feature name="InAppBrowser">
+  <param name="ios-package" value="CDVInAppBrowser" />
+  <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+</feature>
+```
