@@ -23,9 +23,13 @@ Next, a code will appear, you will have five minutes to scan the code before it 
 
 ![](/media/articles/mfa/guardian-code.png)
 
-Once your code has been successfully scanned, you will see a confirmation screen which includes a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
+After the code has been successfully scanned, you will see a confirmation screen which includes a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
 ![](/media/articles/mfa/guardian-recover-code.png)
+
+> Android Users: After first enrolling using the Guardian app for Android, you will be required to create a passphrase. This recovery passphrase will not be required every time you use the app, but could be required when some Android security settings have been changed. You can use the suggested passphrase or create your own. 
+>
+> ![](/media/articles/mfa/android-passphrase.png)
 
 ### Google Authenticator
 If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
