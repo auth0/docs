@@ -56,7 +56,7 @@ If you want to restrict access with the Auth0 Middleware, you will need to add i
 
 protected $routeMiddleware = [
 		...
-		'auth0.jwt' => 'Auth0\Login\Middleware\Auth0JWTMiddleware',
+		'auth0.jwt' => '\Auth0\Login\Middleware\Auth0JWTMiddleware',
 	];
 
 ...
