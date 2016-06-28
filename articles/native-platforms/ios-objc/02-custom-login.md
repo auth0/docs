@@ -6,7 +6,7 @@ description: This tutorial will teach you how to perform Login and Sign Up by us
 This tutorial and seed project have been tested with the following:
 
 * CocoaPods 1.0.0
-* XCode 7.3 (7D175)
+* Xcode 7.3 (7D175)
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
@@ -31,7 +31,7 @@ a0${acount.clientId}://\*.auth0.com/authorize*
 ### 1. Import the Auth0 Toolkit to the project
 
 Your first step is to add [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) into your project, which is a library that contains helper functions that will allow you to perform basic authentication operations (such as login, sign up, or retrieve and update profiles) against the Auth0 API in a very easy manner.
-This toolkit is writen in Swift, but you can incorporate it on your Objective C project just fine. XCode will automatically generate a header file you can include in your source and will enable you to use it's classes and methods as if they were native Objective C code.
+This toolkit is writen in Swift, but you can incorporate it on your Objective-C project just fine. Xcode will automatically generate a header file you can include in your source and will enable you to use it's classes and methods as if they were native Objective-C code.
 
 #### i. Carthage
 
@@ -54,7 +54,7 @@ use_frameworks!
 pod 'Auth0', '1.0.0-beta.3'
 ```
 
-Remember to add the `use_frameworks!` line, since it's necessary for Swift pods to be included on XCode even if it's an Objective C project.
+Remember to add the `use_frameworks!` line, since it's necessary for Swift pods to be included on Xcode even if it's an Objective-C project.
 Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
@@ -64,7 +64,7 @@ Then, run `pod install`.
 Create a property list file named `Auth0.plist` in your project, and add the following entries into it:
 
 | Key       | Value                |
------------------------------------
+|-----------|----------------------|
 | ClientId  | ${account.clientId}  |
 | Domain    | ${account.namespace} |
 
@@ -93,32 +93,29 @@ This will open the `Auth0.plist` file and load it in a dictionary. Then you'll n
 }
 ```
 
-In the Domain case, we call an extension of `NSURL` included in the `Auth0 Toolkit` that makes sure the URL we are instanciating has a `https` scheme included.
+In the Domain case, we call an extension of `NSURL` included in the [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift). It makes sure the URL we are instanciating has a `https` scheme included.
 
 ### 3. Implement the Login
 
 Now, to the actual Login
 
-Import both the helper class and the `Auth0 Toolkit` header file
+Import both the helper class and the [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) header file:
 
 ```
 #import "Auth0-Swift.h"
 #import "Auth0InfoHelper.h"
 ```
 
-And to perform the actual login: 
+And, in order to perform the actual login:
 
 ```objc
 
     A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] initWithClientId:[Auth0InfoHelper Auth0ClientID] url:[Auth0InfoHelper Auth0Domain]];
 
     [authApi loginWithUsername:@"email@foo.com" password:@"1234" connection:@"Username-Password-Authentication" scope:@"openid" parameters:@{} callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
-        if(error)
-        {
+        if(error){
             // Something went wrong, let the user know
-        }
-        else
-        {
+        } else{
             // Logged in successfully, you may continue
             // Use the A0Credentials instance to access the user profile 
             // information
@@ -140,12 +137,9 @@ You can retrieve your user profile information using the `Credentials` object yo
 
 ```
     [authApi userInfoWithToken:credentials.accessToken callback:callback:^(NSError * _Nullable error, A0UserProfile * _Nullable profile) {
-                if(error)
-                {
+                if(error) {
                     // Something went wrong, let the user know
-                }
-                else
-                {
+                } else {
                     // You have your user profile object
                 }
             }];
@@ -184,12 +178,9 @@ If you are going to let the user sign in, you'll probably need to let the user t
                   parameters:nil
                     callback:^(NSError * _Nullable error, A0Credentials * _Nullable credentials)
     {
-            if(error)
-            {
+            if(error) {
                 // Something went wrong, let the user know
-            }
-            else
-            {
+            } else {
                 // You signed up correctly, and you have the Credentials, 
                 // so no need to make the user login. He's already in.
             }
