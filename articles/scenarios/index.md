@@ -1,6 +1,5 @@
 ---
   url: /scenarios
-  description: This page lists various scenarios where Auth0 can be implemented.
 ---
 
 # Common SSO Scenarios
