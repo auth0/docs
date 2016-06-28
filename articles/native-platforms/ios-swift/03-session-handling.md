@@ -54,7 +54,7 @@ Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
-### 1. Store the user's idToken
+### 1. On Login: Store the user's idToken
 
 > The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
 
@@ -80,7 +80,7 @@ keychain.setString(token!.idToken, forKey: "id_token")
 
 As you can see, `A0SimpleKeychain` can be seen as simple as a key-value storage.
 
-### 2. Check idToken existence
+### 2. On Startup: Check idToken existence
 
 The main purpose of storing this token was preventing the user from having to re-enter his credentials upon app's relaunch. So, **once the app has launched**, we need to check the existence of an `idToken` and see if we can automatically log the user in and redirect him straight into the app's main flow, skipping any login screen.
 
@@ -174,6 +174,15 @@ client.fetchNewIdTokenWithRefreshToken(refreshToken,
 ```
 
 That's it! You've already dealt with the basic concepts of session handling in your app.
+
+### 5. On Logout: Clear the Keychain
+
+Whenever you need to log the user out, you just have to clear the keychain:
+
+```swift
+let keychain = A0SimpleKeychain(service: "Auth0")
+keychain.clearAll()
+```
 
 ### Optional: Encapsulate session handling
 
