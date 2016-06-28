@@ -58,7 +58,7 @@ export class Auth {
 In `login` method, just call `lock.show()` to display the login widget.
 When the page is redirected after login, the callback defined for `authenticated` lock event will be inoked.
 
-To know if a user is authenticated, just use `tokenNotExpired` from `angular2-jwt` which allows you to check whether there is a non-expired JWT in local storage.
+To know if a user is authenticated, just use `tokenNotExpired` from [angular2-jwt](https://github.com/auth0/angular2-jwt) which allows you to check whether there is a non-expired JWT in local storage.
 
 To use this, just inject the `Auth` service into your component
 
