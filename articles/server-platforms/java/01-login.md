@@ -14,8 +14,6 @@ This tutorial and seed project have been tested with the following:
 * Maven 3.3
 :::
 
-You can download a seed project [here](https://github.com/auth0-samples/auth0-servlet-sample).
-
 <%= include('../../_includes/_github', {
 link: 'https://github.com/auth0-samples/auth0-servlet-sample',
 }) %>
