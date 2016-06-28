@@ -22,11 +22,11 @@ This tutorial and seed project have been tested with the following:
 
 <div class="setup-callback">
 <p> Go to the <a href="${uiAppSettingsURL}">Application Settings</a> part of the dashboard and check that this scheme is set on the *Allowed Callback URLs*:</p>
+</div>
 
 ```
 a0${acount.clientId}://\*.auth0.com/authorize*
 ```
-</div>
 
 ### 1. Import the Auth0 Toolkit to the project
 
@@ -98,7 +98,7 @@ Now, to the actual Login.
 
 Import both the helper class and the [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) header file:
 
-```
+```objc
 #import "Auth0-Swift.h"
 #import "Auth0InfoHelper.h"
 ```
@@ -132,7 +132,7 @@ It is that simple.
 
 You can retrieve your user profile information using the `Credentials` object you just obtained. For that you can keep your `A0AuthenticationAPI` object or instanciate a new one, and then call:
 
-```
+```objc
     [authApi userInfoWithToken:credentials.accessToken callback:callback:^(NSError * _Nullable error, A0UserProfile * _Nullable profile) {
                 if(error) {
                     // Something went wrong, let the user know
@@ -144,7 +144,7 @@ You can retrieve your user profile information using the `Credentials` object yo
 
 You can use the `profile.name` to show the user's name or show the users profile picture in a `UIImageView`
 
-```
+```objc
     [[[NSURLSession sharedSession] dataTaskWithURL:profile.pictureURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.avatarImageView.image = [UIImage imageWithData:data];
@@ -160,7 +160,7 @@ You can use the `profile.name` to show the user's name or show the users profile
 
 If you are going to let the user sign in, you'll probably need to let the user to register first. And creating a user is as easy as sign in:
 
-```
+```objc
     A0AuthenticationAPI *authApi = [[A0AuthenticationAPI alloc] initWithClientId:[Auth0InfoHelper Auth0ClientID] url:[Auth0InfoHelper Auth0Domain]];
 
     [authApi signUpWithEmail:@"email@foo.com"
