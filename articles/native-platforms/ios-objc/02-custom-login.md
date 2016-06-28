@@ -22,11 +22,11 @@ This tutorial and seed project have been tested with the following:
 
 <div class="setup-callback">
 <p> Go to the <a href="${uiAppSettingsURL}">Application Settings</a> part of the dashboard and check that this scheme is set on the *Allowed Callback URLs*:</p>
+</div>
 
 ```
 a0${acount.clientId}://\*.auth0.com/authorize*
 ```
-</div>
 
 ### 1. Import the Auth0 Toolkit to the project
 
