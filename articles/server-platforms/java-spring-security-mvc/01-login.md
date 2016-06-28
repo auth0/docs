@@ -14,7 +14,9 @@ This tutorial and seed project have been tested with the following:
 * Maven 3.3
 :::
 
-You can download the seed project [here](https://github.com/auth0-samples/auth0-spring-security-mvc-sample).
+<%= include('../../_includes/_github', {
+link: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample',
+}) %>
 
 If you have an existing application, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-spring-security-mvc).
 
