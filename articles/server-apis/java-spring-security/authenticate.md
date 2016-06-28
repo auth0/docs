@@ -16,7 +16,9 @@ This tutorial and seed project have been tested with the following:
 * Spring Security 4.0.1
 :::
 
-You can download the seed project [here](https://github.com/auth0-samples/auth0-spring-security-api-sample).
+<%= include('../../_includes/_github', {
+link: 'https://github.com/auth0-samples/auth0-spring-security-api-sample',
+}) %>
 
 If you have an existing application, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-spring-security-api).
 
