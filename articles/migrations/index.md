@@ -11,7 +11,7 @@ Sometimes a correction will cause a breaking change to customer's applications. 
 For changes that do not require immediate changes, we often allow a grace period to allow you time to update your applications.
 
 ## Migration Process
-When we decide to create a migration, the following process is followed:
+The migration process is outlined below:
 
 1. We update the platform and add a new migration option for existing customers, allowing a grace period for opt-in. New customers are always automatically enrolled in all migrations.
 2. After a certain period, the migration is enabled for all customers. This grace period varies based on the severity and impact of the breaking change, typically 30 or 90 days.
