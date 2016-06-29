@@ -93,7 +93,7 @@ and then in your component's template:
 
 #### Custom Sign Up Fields
 
-You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](link_to_additionalSignUpFields_doc).
+You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#additional-sign-up-fields).
 
 ```typescript
   // Configure Auth0
