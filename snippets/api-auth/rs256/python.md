@@ -1,0 +1,7 @@
+---
+title: Python
+---
+
+```python
+python
+```
