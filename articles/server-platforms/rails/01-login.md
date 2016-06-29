@@ -7,7 +7,7 @@ description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK 
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* Ruby 2.1.8
+* Ruby 2.3.1
 * Rails 4.2.5.1
 :::
 
@@ -77,7 +77,7 @@ In this case, the callbackURL should look something like:
 ```
 http://yourUrl/auth/auth0/callback
 ```
-### 5. Triggering login manually or integrating the Auth0Lock
+### 5. Triggering login integrating the Auth0Lock or auth0.js
 
 ${lockSDK}
 
