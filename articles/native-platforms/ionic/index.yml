@@ -20,8 +20,12 @@ snippets:
   loginroute: native-platforms/ionic/loginroute
   logout: native-platforms/ionic/logout
   autologin: native-platforms/ionic/autologin
+  referencescustom: native-platforms/ionic/references-custom
+  logincustom: native-platforms/ionic/login-custom
+  loginviewcustom: native-platforms/ionic/loginview-custom
   use: native-platforms/ionic/use
 seo_alias: ionic
 articles:
   - 00-intro
   - 01-login
+  - 02-custom-login
