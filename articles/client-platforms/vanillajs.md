@@ -36,7 +36,7 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'gh-pages',
+  pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js'
