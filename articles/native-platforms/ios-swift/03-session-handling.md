@@ -155,7 +155,10 @@ We've used the `fetchNewIdTokenWithIdToken` function from `A0Lock.sharedLock().a
 ```swift
 // ⚠️ idToken has expired or is no longer valid
 let keychain = A0SimpleKeychain(service: "Auth0")
-let refreshToken = keychain.stringForKey("refresh_token")!
+guard let refreshToken = keychain.stringForKey("refresh_token") else {
+    keychain.clearAll()
+    return
+}
 let client = A0Lock.sharedLock().apiClient()
 client.fetchNewIdTokenWithRefreshToken(refreshToken,
         parameters: nil,
