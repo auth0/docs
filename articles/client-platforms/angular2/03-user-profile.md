@@ -12,7 +12,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 
 To fetch user profile information, you have to call `lock.getProfile` function, specifying the token and a callback to process response.
 
-You can do whatever you want with the profile. 
+You can do whatever you want with the profile.
 One option is to store it in `localStorage` (or any store you want) and also assign it to a `userProfile` attribute to access it from anywhere.
 
 ```typescript
@@ -54,7 +54,7 @@ export class Auth {
   };
 
   ...
-  
+
   public logout() {
     // Remove token and profile from localStorage
     localStorage.removeItem('id_token');
@@ -69,7 +69,7 @@ To see user profile information, inject `Auth` service in a component:
 export class Home {
   constructor(private auth: Auth) {}
 }
-``` 
+```
 
 and then in your component's template:
 
@@ -93,7 +93,7 @@ and then in your component's template:
 
 #### Custom Sign Up Fields
 
-You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](link_to_additionalSignUpFields_doc).  
+You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](link_to_additionalSignUpFields_doc).
 
 ```typescript
   // Configure Auth0
@@ -122,7 +122,17 @@ To update user profile info, you need to hit [user api endpoint](https://auth0.c
 
 First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
 
-${snippet(meta.snippets.auth-providers-setup)}
+```typescript
+<!-- ===== ./main.ts ===== -->
+import {AUTH_PROVIDERS} from 'angular2-jwt';
+import {AppComponent} from './app.component';
+
+bootstrap(AppComponent, [
+  ...
+  AUTH_PROVIDERS,
+  ...
+])
+```
 
 Then you can import `AuthHttp` in your component and make the authenticated request:
 

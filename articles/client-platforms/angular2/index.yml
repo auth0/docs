@@ -18,6 +18,7 @@ snippets:
   setup: client-platforms/angular2/setup
   system_map: client-platforms/angular2/system-map
   use: client-platforms/angular2/use
+  authProvidersSetup: client-platforms/angular2/auth-providers-setup
 seo_alias: angular2
 articles:
   - 00-intro
