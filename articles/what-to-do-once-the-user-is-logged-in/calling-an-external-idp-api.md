@@ -1,4 +1,4 @@
-# Calling an external IdP (Facebook, Github, etc.) API.
+# Call an Identity Provider API
 
 **The user is logged in. That means that we can get the [user profile](/user-profile).**
 
