@@ -47,7 +47,7 @@ ${snippet(meta.snippets.dependencies)}
 2. Register a new _URL Type_ in  your app's **Targets** info section with the following scheme:
 `a0${account.clientId}`
 
-    ![Lock.png](/media/articles/native-platforms/ios-objc/url-type-register.png)
+    ![Lock.png](media/articles/native-platforms/ios-objc/url-type-register.png)
 
 3. Create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. This sample uses a custom object called `MyApplication`:
 
@@ -101,11 +101,11 @@ Lock uses the native Facebook SDK to obtain the user's access token. Use the inf
 
 2. Register a custom URL Type with the format `fb<FacebookAppID>`.
 
-**NOTE:** For more information on how to configure your app for Facebook, see: [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started) and [Connect your app to Facebook](/connections/social/facebook).
+**NOTE:** For more information on how to configure your app for Facebook, see: [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started) and [Connect your app to Facebook](connections/social/facebook).
 
 Here is an example of how the entries should look:
 
-![FB plist](/media/articles/native-platforms/ios-objc/fb-plist.png)
+![FB plist](media/articles/native-platforms/ios-objc/fb-plist.png)
 
 3. Add the following key to the `Info.plist` inside the main `<dict>` key. To open this file in Source Code mode within Xcode, **Control-Click** (or right click) on it, and select **Open As > Source Code**.
 
@@ -154,7 +154,7 @@ A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKe
 [lock registerAuthenticators:@[twitter]];
 ```
 
-**NOTE:** For more information on configuring your app for Twitter, see: [Connect your app to Twitter](/connections/social/twitter).
+**NOTE:** For more information on configuring your app for Twitter, see: [Connect your app to Twitter](connections/social/twitter).
 
 ## Implement the login
 
@@ -162,15 +162,15 @@ Now you are ready to implement the Login using Lock. You only need to instantiat
 
 ${snippet(meta.snippets.use)}
 
-![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)
+![Lock.png](media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)
 
 ::: panel-info Login UI Options
-There are multiple ways of implementing the login box. What you see above is the Login Widget. You can also [Build your own UI](/libraries/lock-ios/use-your-own-ui), or implement one of the passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid).
+There are multiple ways of implementing the login box. What you see above is the Login Widget. You can also [Build your own UI](libraries/lock-ios/use-your-own-ui), or implement one of the passwordless Login Widgets: [SMS](libraries/lock-ios#sms) or [TouchID](libraries/lock-ios#touchid).
 :::
 
 On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
 
-**NOTE:** To learn how to save and manage the tokens and profile, see: [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens).
+**NOTE:** To learn how to save and manage the tokens and profile, see: [Lock iOS: Saving and Refreshing JWT Tokens](libraries/lock-ios/save-and-refresh-jwt-tokens).
 
 ## 5. Showing user information
 
@@ -183,8 +183,8 @@ After the user has logged in, you can use the `profile` object which contains al
 
 ## Additional Information
 
-See [User Profile](/user-profile) to find out all of the available properties of the user profile. 
+See [User Profile](user-profile) to find out all of the available properties of the user profile. 
 
 Also see: [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h).
 
-You can also download a [sample project](/package/native-mobile-samples/master?path=iOS/profile-sample-swift&file_path=iOS/profile-sample-swift/ProfileSample/Info.plist&type=replace&client_id=${account.clientId}) that shows how to store/update your user profile with Auth0.
+You can also download a [sample project](package/native-mobile-samples/master?path=iOS/profile-sample-swift&file_path=iOS/profile-sample-swift/ProfileSample/Info.plist&type=replace&client_id=${account.clientId}) that shows how to store/update your user profile with Auth0.
