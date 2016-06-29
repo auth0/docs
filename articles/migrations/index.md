@@ -19,7 +19,7 @@ When we decide to create a migration, the following process is followed:
 During the grace period, customers are informed via dashboard notifications and emails to account administrators. You will continue to receive emails until the migration has been enabled on each account you administer.
 
 ## Current Migrations
-Current migrations are listed below, beginning with the most recent.
+Current migrations are listed below, newest first.
 
 ### Identity Provider access tokens removed from user profile and id_token
 
@@ -33,10 +33,9 @@ This change also affects the id_token returned by ....
 
 Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token with  `read:user_idp_tokens` scope.
 
+For more information on how to obtain an access token, see: [Identity Provider Access Tokens](/tokens/idp).
 
 **NOTE:** If your account was created after the change, this update will be applied automatically.
-
-For more information on how to obtain an access token, see: [Auth0 access_token](/tokens/access_token).
 
 ### Email Delivery Changes: "From" Address
 
