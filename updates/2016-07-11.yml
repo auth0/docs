@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated rails quickstart login step"
+    tags:
+      - rails
+      - quickstart
+    description: |
+      Updated [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails) section 01. Removed "Access User Data" section (moved to own section)

@@ -1,216 +1,225 @@
 ---
-title: Login
-default: true
-description: This tutorial demonstrates how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app
+title: Custom Login
+description: Learn how to login using the Authentication API SDK instead of OmniAuth.
 ---
 
+## Ruby On Rails - Custom Login
+[Login](/quickstart/webapp/rails/01-login) explains how to login using Lock and OmniAuth. You can also design your custom login custom design without including neither Lock nor OmniAuth. In this section, you'll learn how to create a custom login form using the Auth0 Ruby SDK.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.3.1
+* Rails 5.0.0
+:::
+
 <%= include('../../_includes/_package', {
-  pkgRepo: 'omniauth-auth0',
+  githubUrl: 'https://github.com/auth0-samples/auth0-rubyonrails-sample',
+  pkgRepo: 'auth0-rubyonrails-sample',
   pkgBranch: 'master',
-  pkgPath: 'examples/ruby-on-rails-webapp',
+  pkgPath: '02-Custom-Login',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Ruby 2.1.8
-* Rails 4.2.5.1
-:::
+### 1. Add dependencies
 
-
-
-## Add the Dependencies
-
-Add the following dependencies to your `Gemfile` and run `bundle install`
+Add the following dependencies to your `Gemfile` and run `bundle install`:
 
 ${snippet(meta.snippets.dependencies)}
 
-## Initialize Omniauth Auth0
-
-Create a file named `auth0.rb` under `config/initializers` with the following content:
-
-${snippet(meta.snippets.setup)}
-
-## Add the Auth0 Callback Handler
-
-Use the following command to create the controller that will handle Auth0 callback:
-
-```bash
-rails generate controller auth0 callback failure --skip-template-engine --skip-assets
-```
-
-Now, go to the newly created controller and add the code to handle the success and failure of the callback.
+### 2. Create a login form in the home view
+**NOTE**: `home` is not a mandatory name for the view / controller.
 
 ```ruby
-class Auth0Controller < ApplicationController
-  def callback
-    # This stores all the user information that came from Auth0
-    # and the IdP
-    session[:userinfo] = request.env['omniauth.auth']
-
-    # Redirect to the URL you want after successfull auth
-    redirect_to '/dashboard'
-  end
-
-  def failure
-    # show a failure page or redirect to an error page
-    @error_msg = request.params['message']
-  end
-end
-```
-
-Now, replace the generated routes on `routes.rb` with the following ones:
-
-```ruby
-get "/auth/auth0/callback" => "auth0#callback"
-get "/auth/failure" => "auth0#failure"
-```
-
-## Specify the Callback URLs
-
-${include('../_callbackRegularWebApp')}
-
-In this case, the callbackURL should look something like:
-
-```
-http://yourUrl/auth/auth0/callback
-```
-
-## Triggering Login Manually or Integrating Lock
-
-
-<%= include('../../_includes/_lock-sdk') %>
-
-> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the callback specified in the previous step
-
-Also if you need to force an identity provider just redirect to Omniauth's path like this:
-
-```ruby
-redirect_to '/auth/auth0?connection=CONNECTION_NAME'
-```
-
-## Accessing User Information
-
-You can access the user information via the `userinfo` you stored in the session on step 3
-
-```ruby
-class DashboardController < SecuredController
-  def show
-    @user = session[:userinfo]
-  end
-end
-```
-
-```html
-<div>
-  <img class="avatar" src="<%= "\<%= @user[:info][:image] %\>" %>"/>
-  <h2>Welcome <%= "\<%= @user[:info][:name] %\>" %></h2>
+<div id="login-container">
+  ${ '<%= form_tag do %>' }
+      ${ '<%= text_field_tag :user, "", class:"form-control" %>' }
+      <br>
+      ${ '<%= password_field_tag :password, "", class:"form-control"%>' }</p>
+      <br>
+      ${ '<%= submit_tag("Login", class: "btn btn-success btn-lg") %>' }
+      ${ '<%= submit_tag("Sign up", name: "signup", class:"btn btn-success btn-lg") %>' }
+  ${' <% end %> '}
+  ${ '<%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>' }
 </div>
 ```
 
-[Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
-
-### Optional steps
-
-#### Checking if the user is authenticated
-
-You can add the following parent controller to all pages that need the user to be authenticated:
+Add the following to your `config/routes.rb` file in order for the form to post its contents to the auth action of the home controller:
 
 ```ruby
-class SecuredController < ApplicationController
+post "/" => "auth0#callback"
+```
 
-  before_action :logged_in_using_omniauth?
+### 3. Create an auth action in the home controller
 
-  private
+Add the following actions in the `auth0` controller:
 
-  def logged_in_using_omniauth?
-    unless session[:userinfo].present?
-      # Redirect to page that has the login here
-      redirect_to '/'
-    end
+```ruby
+def callback
+  if params[:user]
+    signup if params[:signup]
+    session[:token_id] = login
+  else
+    session[:token_id] = google_login
   end
+  redirect_to '/dashboard'
+  rescue Auth0::Unauthorized
+    redirect_to '/', notice: 'Invalid email or password'
+  rescue => ex
+    redirect_to '/', notice: ex.message
+end
+```
+The `callback` controller action calls the `signup` or `login` actions based on the `params` hash. Upon successful execution, it redirects to `/dashboard`. In case of an exception, it redirects to `/` and flashes the exception message.
 
+Next, add the definitions for the `login` and `signup` actions under `private`:
+
+```ruby
+def login
+  auth0_client.login(
+    params[:user],
+    params[:password],
+    authParams: {
+      scope: 'openid name email'
+    },
+    connection: 'Username-Password-Authentication'
+  )
+end
+
+def signup
+  auth0_client.signup(
+    params[:user],
+    params[:password]
+  )
 end
 ```
 
-#### Getting the error description on Failure
-
-In case of failure, you may want to get the description of the error. For that, in your `config/environments/production.rb` add the following:
-
-```ruby
-OmniAuth.config.on_failure = Proc.new { |env|
-  message_key = env['omniauth.error.type']
-  error_description = Rack::Utils.escape(env['omniauth.error'].error_reason)
-  new_path = "#{env['SCRIPT_NAME']}#{OmniAuth.config.path_prefix}/failure?message=#{message_key}&error_description=#{error_description}"
-  Rack::Response.new(['302 Moved'], 302, 'Location' => new_path).finish
-}
-```
-
-### Troubleshooting
-
-#### Troubleshooting ActionDispatch::Cookies::CookieOverflow issue
-
-If you are getting this error it means that you are using Cookie sessions and since you are storing the whole profile it overflows the max-size of 4K. Also, if you are unable to access the user profile and you get an error similar to `NoMethodError`, `undefined method '[]' for nil:NilClass`, please try this solution as well.
-
-You can change to use In-Memory store for development as follows.
-
-1. Go to `/config/initializers/session_store.rb` and add the following:
+### 4. Add an SDK client instance in the Application Controller
+To call the API methods using the Auth0 Ruby SDK, you need to initialize an auth0 client instance. Add the following code in your Application Controller (`controllers/application_controller.rb`):
 
 ```ruby
-Rails.application.config.session_store :cache_store
+def auth0_client
+  creds = { client_id: Rails.application.secrets.auth0_client_id,
+            client_secret: Rails.application.secrets.auth0_client_secret,
+            api_version: 1,
+            domain: Rails.application.secrets.auth0_domain }
+  @auth0_client ||= Auth0Client.new(creds)
+end
 ```
-2. Go to `/config/enviroments/development.rb` and add the following
+
+### 5. Checking if the user is authenticated
+In [Login](/quickstart/webapp/rails/01-login) describes how to prevent users from executing restricted actions with a `before_action` concern. You will use the same strategy now, but the code will change slightly.
+
+Create a `Secured` controller concern with the code below:
 
 ```ruby
-config.cachestore = :memorystore
-```
+module Secured
+  extend ActiveSupport::Concern
 
-For production, we recommend using another memory store like MemCached or something similar
+  included do
+    before_action :logged_in?
+  end
 
-#### Troubleshooting SSL issues
-
-It seems that under some configurations Ruby can't find certification authority certificates (CA Certs).
-
-Download CURL's CA certs bundle to the project directory:
-
-```bash
-$ curl -o lib/ca-bundle.crt http://curl.haxx.se/ca/ca-bundle.crt
-```
-
-Then add this initializer `config/initializers/fix_ssl.rb`:
-
-```ruby
-require 'open-uri'
-require 'net/https'
-
-module Net
-  class HTTP
-    alias_method :original_use_ssl=, :use_ssl=
-
-    def use_ssl=(flag)
-      path = ( Rails.env == "development") ? "lib/ca-bundle.crt" : "/usr/lib/ssl/certs/ca-certificates.crt"
-      self.ca_file = Rails.root.join(path).to_s
-      self.verify_mode = OpenSSL::SSL::VERIFY_PEER
-      self.original_use_ssl = flag
-    end
+  def logged_in?
+    redirect_to '/' unless session[:token_id].present?
   end
 end
 ```
-#### Troubleshooting "failure message=invalid_credentials"
 
-This issue isn't presented while working on your local (development). After deployment on your staging or production environment and after hitting your callback this issue may appear.
-
-Example of an error message that may occur:
-
-```
-omniauth: (auth0) Authentication failure! invalid_credentials: OAuth2::Error, server_error: The redirect URI is wrong. You send [wrong url], and we expected [callback url set in your app settings]
-```
-
-To fix the above error, add the following at your config/environments/staging.rb or production.rb
+Then, update the `DashboardController` so that it includes this concern:
 
 ```ruby
-OmniAuth.config.full_host = "http://www.example.com"
+class DashboardController < ApplicationController
+  include Secured
+  def show
+  end
+end
 ```
 
-Substitute `http://www.example.com` with the actual URL you'll be using in your application.
+This way, if a user attempts to access the routes governed by the `DashboardController` actions, it will be redirected to `/`.
+
+### 6. Login with Google
+
+For your users to login using a Social Connection without using neither Lock nor OmniAuth, follow these steps:
+
+**NOTE**: Social connections support only browser based (passive) authentication. This is because most of these providers don't allow entering the user/password in applications that don't belong to them, so the user gets redirected to the provider (e.g. Google sign in page). Three steps take place in this process: initiation, authentication, and getting the access token. You'll begin the authentication flow, Auth0 will take care of the Authentication, and then you'll obtain the access and id token for the user (*to learn more about this process go to: [Authentication API](/api/authentication#!%23get--authorize_social) and [OAuth Server Side](/protocols#oauth-server-side) documents*).
+
+For this particular example, you'll configure Google as your social provider. The API methods called by the API also support Facebook, Twitter and Weibo.
+
+**Prerequisite**: configure your Google Social Connection by following [this tutorial](/connections/social/google).
+
+To begin the authentication flow, you'll need to generate a redirect to the social provider. To do so, create the `google_authorize method` in the `Auth0Controller`:
+
+```ruby
+def google_authorize
+  redirect_to client.authorization_url(
+    Rails.application.secrets.auth0_callback_url,
+    connection: 'google-oauth2',
+    scope: 'openid'
+  ).to_s
+end
+```
+
+Next, add the actual link to the controller action in the home view:
+
+```ruby
+${ '<%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>' }
+```
+And the corresponding route in the `routes` file:
+
+```ruby
+get 'auth0/google_authorize' => 'auth0#google_authorize'
+```
+
+The authentication will be handled by Auth0. The user is redirected to the identity provider site. When this process finishes, a request is made to the callback URL and handled by the application. You'll need to extract the access_code and get the access and id tokens posting a request to the Auth0 token endpoint using the SDK.
+
+Add the following method to the `Auth0Controller`:
+
+```ruby
+def google_login
+  client.obtain_user_tokens(params['code'], Rails.application.secrets.auth0_callback_url, 'google-oauth2', 'openid')['id_token']
+end
+```
+
+And call this method from the controller `callback` action.
+
+**NOTE**: this logic is only necessary if you're mixing the login form from the first section of the tutorial and social authentication. Otherwise, you can call `google_login` straight from the `callback` action.
+
+```ruby
+def callback
+  begin
+    if params[:user]
+      if params[:signup]
+        signup
+      end
+      session[:token_id] = login
+    else
+      session[:token_id] = google_login
+    end
+    redirect_to '/dashboard'
+  rescue Auth0::Unauthorized
+    redirect_to '/', notice: 'Invalid email or password'
+  rescue => ex
+    redirect_to '/', notice: ex.message
+  end
+end
+```
+
+### Additional considerations
+
+For the sake of simplicity, this sample does not go into details such as creating a user model and combining a custom login and the Lock widget. [OmniAuth documentation](https://github.com/intridea/omniauth#integrating-omniauth-into-your-application) suggests using a `SessionsController`, such as the one displayed below. Combining authentication mechanisms could be achieved by having several User model creation methods.
+
+```ruby
+class SessionsController < ApplicationController
+  def create
+    @user = User.find_or_create_from_auth_hash(auth_hash)
+    self.current_user = @user
+    redirect_to '/'
+  end
+
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
+  end
+end
+```
