@@ -1,0 +1,8 @@
+added:
+  -
+  title: "Added linking accounts section to rails quickstart"
+  tags:
+    - rails
+    - quickstart
+  description: |
+    Added section 05 "Linking Accounts" to [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails)

@@ -1,0 +1,8 @@
+added:
+  -
+  title: "Added mfa section to rails quickstart"
+  tags:
+    - rails
+    - quickstart
+  description: |
+    Added sections 08 "Multifactor Authentication" to [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails)

@@ -1,0 +1,16 @@
+added:
+  -
+  title: "Added introduction, custom login, and user profile sections to rails quickstart"
+  tags:
+    - rails
+    - quickstart
+  description: |
+    Added sections 00 "Introduction", 02 "Custom Login", and 04 "User Profile" to [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails)
+changed:
+  -
+    title: "Updated rails quickstart login step"
+    tags:
+      - rails
+      - quickstart
+    description: |
+      Updated [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails) section 01 "Login". Moved shared sections to 00 "Introduction"
