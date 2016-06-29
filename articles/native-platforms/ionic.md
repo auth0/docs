@@ -33,8 +33,8 @@ This tutorial and seed project have been tested with the following:
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/refresh-token-sample',
-  pkgFilePath: '00-Starter-Seed/refresh-token-sample/www/js',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/www/js',
   pkgType: 'js'
 }) %>
 
