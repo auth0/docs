@@ -34,7 +34,9 @@ To add a custom domain, click on the "Add Domain" button. You will be prompted f
 
     *If you are using a Standard PEM certificate:*
 * **Upload Public Key...**: clicking this button enables you to upload the file containing your public key;
-* **Upload Public Key...**: clicking this button enables you to upload the file containing your public key.
+* **Upload Private Key...**: clicking this button enables you to upload the file containing your private key.
+
+    **NOTE: The private key cannot be password protected.**
 
 Once you have provided the required information and uploaded your certificate, click the "Add" button to save your changes and add the custom domain. You will then see a green banner appear on the Custom Domain page that says:
 
