@@ -28,7 +28,7 @@ lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   });
 ```
 
-Then, when setting the `authenticated` callbacks we can know which login is, checking the `authResult.state` attribute. 
+Then, when setting the `authenticated` callbacks we can know which login is, checking the `authResult.state` attribute.
 
 ```typescript
 ...
@@ -59,7 +59,7 @@ To call the api, [angular2-gwt](https://github.com/auth0/angular2-jwt) provides 
 
 First you need to add the AUTH_PROVIDERS from angular-gwt
 
-${snippet(meta.snippets.auth-providers-setup)}
+${snippet(meta.snippets.authProvidersSetup)}
 
 Then you can import AuthHttp in your component and make the authenticated request:
 

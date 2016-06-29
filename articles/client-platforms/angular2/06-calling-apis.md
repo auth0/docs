@@ -15,7 +15,7 @@ In order to make an authorized request, [angular2-gwt](https://github.com/auth0/
 
 First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
 
-${snippet(meta.snippets.auth-providers-setup)}
+${snippet(meta.snippets.authProvidersSetup)}
 
 
 Then you can import `AuthHttp` in your component and make the authenticated request:
@@ -112,7 +112,7 @@ export class Ping {
       );
   }
 
-  // Makes an authorized get to the api 
+  // Makes an authorized get to the api
   // adding authorization headers (automatically, using AuthHttp)
   public securedPing() {
     this.authHttp.get(`${this.API_URL}/secured/ping`)
