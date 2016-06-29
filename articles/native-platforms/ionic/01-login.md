@@ -21,13 +21,13 @@ ${snippet(meta.snippets.appsetup)}
 
 ### 2. Implement the login
 
-To implement the login, we will need to add a Login Controller. Be sure to inject the `auth` service into the controller, and then call the `signin` methods to display the Login / Signup screen.
+To implement the login, you must add a Login Controller. Be sure to inject the `auth` service into the controller, and then call the `signin` methods to display the Login / Signup screen:
 
 ${snippet(meta.snippets.login)}
 
-In the code sample above we created a `LoginController` controller which has a `doLogin()` function which gets called when the controller gets instantiated. This `doLogin()` function initializes Lock by calling the `signin()` method and passing as an option the container in which the Lock widget will be hosted.
+The code sample above defines a `LoginController` controller which has a `doLogin()` function that gets called when the controller gets instantiated. This `doLogin()` function initializes Lock by calling the `signin()` method and passing as an option the container in which the Lock widget will be hosted.
 
-We have also defined a success callback which will store the `profile`, `token`, `accessToken` and `refreshToken` in the Local Storage. 
+Notice the success callback which will store the `profile`, `token`, `accessToken` and `refreshToken` in the Local Storage. These values can be retrieved at a later stage, for example when you want to display the user's profile which will be done in Step 3.
 
 Next we will need to create the view for this controller:
 
@@ -35,7 +35,7 @@ ${snippet(meta.snippets.loginview)}
 
 The view simply contains an `ion-view` component and inside that we have a `div` tag with the id `lock-container`. This is the container which was passed to the `signin()` method in the controller and is where Lock will be hosted.  
 
-Lastly we will need to add the state for the login to the State Provider. So head back to the `app.js` file, and in the `config` method be sure to add the state for the `/login` path:
+Lastly you must add the state for the login to the State Provider. Head back to the `app.js` file, and in the `config` method be sure to add the state for the `/login` path:
 
 ${snippet(meta.snippets.loginroute)}
 
@@ -60,3 +60,4 @@ When the user exits your app, the mobile OS (iOS or Android) may unload your app
 We already saved the user profile and tokens into `localStorage`. We just need to check for their existence and, if possible, fetch them when your app loads and let `auth0-angular` know that the user is already authenticated.
 
 ${snippet(meta.snippets.autologin)}
+
