@@ -22,6 +22,9 @@ To force the user to also log out of their identity provider, add a `federated` 
 https://${account.namespace}/v2/logout?federated
 ```
 
+__NOTE__: The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider when the `federated` querystring parameter is used. It does not log you out of your application. This is something that you should implement on your side.
+
+
 ## Redirecting Users After Logout
 
 To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value:
