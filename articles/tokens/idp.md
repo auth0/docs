@@ -14,7 +14,7 @@ Identity Provider (IdP) access tokens can be obtained by making an HTTP GET call
 
 sample call?
 
-More information is available at [User Profile](/user-profile). [Normalized User Profile](/user-profile/normalized) contains examples of the `identities` array and profiles as returned by various social identity providers.
+For examples of profiles as returned by various social providers, see: [Normalized User Profile](/user-profile/normalized) 
 
 ## How to control contents of IdP access tokens
 
