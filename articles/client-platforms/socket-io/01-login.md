@@ -12,9 +12,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'socketio-jwt',
+  pkgRepo: 'auth0-socket.io-samples',
   pkgBranch: 'master',
-  pkgPath: 'example/socketsio-auth0-sample',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
