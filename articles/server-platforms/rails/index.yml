@@ -14,3 +14,4 @@ seo_alias: rails
 default_article: 01-login
 articles:
   - 01-login
+  - 02-custom-login
