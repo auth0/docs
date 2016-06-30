@@ -10,15 +10,21 @@ Third-party access tokens are issued by Identity Providers (including Social pro
 
 ## How to obtain Identity Provider access tokens
 
-Identity Provider (IdP) access tokens can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope after the user has authenticated with the IdP. 
+Identity Provider (IdP) access tokens can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope after the user has authenticated with the IdP. 
 
-**NOTE:** For examples of profiles as returned by various social providers, see: [Normalized User Profile](/user-profile/normalized) 
+
 
 ### 1. Get the user id from the user profile
 
+
+
+**NOTE:** For examples of profiles as returned by various social providers, see: [Normalized User Profile](/user-profile/normalized) 
+
+
+
 ### 2. Call the Auth0 API
 
-
+`curl -H "Authorization: Bearer {Auth0 access_token}" https://${account.namespace}/api/v2/users/{userid}`
 
 ## How to control contents of IdP access tokens
 
