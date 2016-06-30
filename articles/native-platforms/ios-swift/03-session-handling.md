@@ -99,7 +99,7 @@ guard let idToken = keychain.stringForKey("id_token") else {
 
 ### 3. Validate an existent idToken
 
-Then, if such a token exists, we need to check whether it's still valid or has expired or is no longer valid for some other reason, such as being revoked. To do so, we'll use `A0Lock` to fetch a new `idToken` based on the current `idToken` we've got:
+Then, if such a token exists, we need to check whether it's still valid or has expired or is no longer valid for some other reason, such as being revoked. To do so, we'll use `A0Lock` to fetch the user profile based on the current `idToken` we've got:
 
 ```swift
 guard let idToken = keychain.stringForKey("id_token") else {
@@ -108,12 +108,11 @@ guard let idToken = keychain.stringForKey("id_token") else {
 }
 // Validate idToken
 let client = A0Lock.sharedLock().apiClient()
-client.fetchNewIdTokenWithIdToken(idToken, 
-        parameters: nil, 
-        success: { newToken in
-            // Our idToken was still valid...
-            // Anyway, we'll store the new requested token, which is fresher:
-            keychain.setString(newToken.idToken, forKey: "id_token")
+client.fetchUserProfileWithIdToken(idToken, 
+        success: { profile in
+            // Our idToken is still valid...
+            // We store the fetched user profile
+                                            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
             // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
         }, 
         failure: { error in
@@ -189,4 +188,4 @@ keychain.clearAll()
 
 ### Optional: Encapsulate session handling
 
-As you could have realized, session handling is not a straightforward process. All this token-related information and processes can be encapsulated into a class that separates its logic from the View Controller layer. We recommend you to download the sample project for this tutorial and take a look at its implementation, mainly at the `SessionManager` class, which is in charge of dealing with these processes, and at the `Session` struct, which is a structure used for holding basic user profile data and tokens.
+As you could have realized, session handling is not a straightforward process. All this token-related information and processes can be encapsulated into a class that separates its logic from the View Controller layer. We recommend you to download the sample project from this tutorial and take a look at its implementation, mainly at the `SessionManager` class, which is in charge of dealing with these processes, and at the `Session` struct, which is a structure used for holding basic user profile data and tokens.
