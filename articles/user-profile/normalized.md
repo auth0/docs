@@ -34,9 +34,7 @@ The User Profile includes an array of identities. In the most common case (loggi
 
 The `identities` array contains the following attributes:
 
-* `access_token_secret`: If the identity provider is using OAuth 1.0a, an `access_token_secret` property will be present that can be used to call the provider API and obtain more information about the user (currently only for Twitter).
 * `connection`: the name of the connection.
-* `expires_in`: the length of time before the token expires.
 * `isSocial`: indicates if the provider is a Social provider.
 * `provider`: the provider of the connection.
 * `user_id`: the unique identifier of the user for this connection.
