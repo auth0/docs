@@ -1,56 +1,62 @@
+---
+description: Auth0 normalizes common user properties in the User Profile.
+---
+
 # Auth0 Normalized User Profile
 
-Because individual identity providers (known as **Connections** in Auth0) provide differing amounts of information about a user, Auth0 normalizes common and frequently used properties in the User Profile. For example, `user_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
+Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. 
+
+For example, `user_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
 
 ## Normalized User Profile Schema
 
-These are the attributes that Auth0 will map to a common schema:
+The attributes that Auth0 maps to a common schema are listed below.
 
-*Fields that are **always generated**: *
+Fields that are always generated:
 
-* **`name`**: the user's full name;
-* **`nickname`**:the user's username;
-* **`picture`**: the URL pointed to the user's picture. If unavailable, Auth0 will use the Gravatar image associated with the user's email address;
+* **`name`**: the user's full name.
+* **`nickname`**: the user's username.
+* **`picture`**: the URL of the user's picture. If unavailable, Auth0 uses the Gravatar image associated with the user's email address.
 * **`user_id`**: the user's unique identifier. This is unique per Connection, but the same for all apps that authenticate via that Connection.
 
-*Fields that are generated if details are available:*
-* **`email`**: the user's email address;
-* **`email_verified`**: the `true/false` value indicating if the user's email address has been verified;
-* **`given_name`**: the user's first name;
+Fields that are generated when the details are available:
+
+* **`email`**: the user's email address.
+* **`email_verified`**: a boolean indicating if the user's email address has been verified.
+* **`given_name`**: the user's first name.
 * **`family_name`**: the user's last name.
 
 ### Additional Attributes
 
-The User Profile includes an array of identities. In the common use case (logging in with a single provider), the array contains only one element.
+The User Profile includes an array of identities. In the most common case (logging in with a single provider), the array contains only one element. If the user has multiple accounts linked, the array will have an element for each associated account. 
 
-In the event that the user logs in with a single provide, the array contains one element. If the user has multiple accounts linked, the array will have an element for each associated account. See [account linking](/link-accounts) for more information.
+**NOTE:** For more information, see: [Link Accounts](/link-accounts).
 
 The `identities` array contains the following attributes:
 
-* `access_token`: if the identity provider implements OAuth2, you will find the `access_token` that can be used to call the provider API and obtain more information about the user;
-* `access_token_secret`: **currently only for Twitter**. If the identity provider is OAuth 1.0a, an  `access_token_secret` property will be present and can be used to call the provider API and obtain more information from the user;
-* `connection`: the name of the connection;
-* `expires_in`: the length of time before the token expires;
-* `isSocial`: indicates if the provider is a Social provider;
-* `provider`: the provider of the connection;
+* `access_token_secret`: If the identity provider is using OAuth 1.0a, an `access_token_secret` property will be present that can be used to call the provider API and obtain more information about the user (currently only for Twitter).
+* `connection`: the name of the connection.
+* `expires_in`: the length of time before the token expires.
+* `isSocial`: indicates if the provider is a Social provider.
+* `provider`: the provider of the connection.
 * `user_id`: the unique identifier of the user for this connection.
 
-> **NOTE:** Auth0 will pass through to the app any other properties supplied by the identity provider, even those that are not mapped to the standard attributes named above.
+**NOTE:** Auth0 will pass to your app all other properties supplied by the identity provider, even if those that are not mapped to the standard attributes listed above.
 
-## Keeping User Data on your Application
+## Storing User Data
 
-When outsourcing user authentication, there generally is no need to keep a Users/Passwords table. Even so, you might still want to associate application data to authenticated users.
+When outsourcing user authentication, there is usually no need to maintain your own users/passwords table. Even so, you may still want to associate application data to authenticated users.
 
-For example, you could have a **Users table** that would have a copy of each user authenticated by Auth0. Every time a users logs in, you would search the table for that user. If the user does not exist, you would create a new record. If it does exist, you would update all fields, essentially keeping a local copy of the user data.
+For example, you could have a *Users table* that lists each user authenticated by Auth0. Every time a users logs in, you could search the table for that user. If the user does not exist, you would create a new record. If they do exist, you would update all fields, essentially keeping a local copy of all user data.
 
-Alternatively, you might store the user identifier on each table/collection that has user-associated data. For smaller applications, that's often simpler to implement.
+Alternatively, you could store the user identifier in each table/collection that has user-associated data. This is a simpler implementation suited to smaller applications.
 
-## Uniquely Identifying Users from Auth0
+## Uniquely identify users
 
-There are two recommended options:
+There are two recommended options to uniquely identify your users:
 
-1. Using the `user_id` property. This is guaranteed to be unique per user. (e.g.: `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
-2. Using a *natural* key like the `email` property. We recommend, however, that you turn on email verification and only use this with providers that require the users to verify their emails.
+1. By the `user_id` property. This is guaranteed to be unique per user (e.g. `{identity provider id}|{unique id in the provider}`, or `facebook|1234567890`).
+2. By a *natural* key, like the `email` property. In this case, it is recommended that you enable email verification and only use this option with providers that require that users verify their emails.
 
 ## Sample User Profiles
 
@@ -65,7 +71,6 @@ This is a sample user profile from a user that logged in through **Google**:
   "given_name": "John",
   "identities": [
     {
-      "access_token": "ya29.AsaS6ZQgRHlCHqzZ3....sFFBpQYpVVieSWur-7tmZbzEtwMkA",
       "provider": "google-oauth2",
       "user_id": "103547991597142817347",
       "connection": "google-oauth2",
@@ -74,13 +79,13 @@ This is a sample user profile from a user that logged in through **Google**:
   ],
   "locale": "en",
   "name": "John Foo",
-  "nickname": "matiasw",
+  "nickname": "FooJon",
   "picture": "https://lh4.googleusercontent.com/-OdsbOXom9qE/AAAAAAAAAAI/AAAAAAAAADU/_j8SzYTOJ4I/photo.jpg",
   "user_id": "google-oauth2|103547991597142817347"
 }
 ```
 
-This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
+This is a sample profile from **Microsoft Account**:
 
 ```json
 {
@@ -94,7 +99,6 @@ This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
   "given_name": "Bob",
   "identities": [
     {
-      "access_token": "EwAoAq1DBAAUGCCXc8wU/zFu...OTvW4acxv5gAA",
       "provider": "windowslive",
       "user_id": "4cf0a30169d55031",
       "connection": "windowslive",
@@ -103,7 +107,7 @@ This is a sample profile from **Windows LiveID (Microsoft Accounts)**:
   ],
   "locale": "en_US",
   "name": "Bob Doe",
-  "nickname": "matiasw@outlook.com",
+  "nickname": "doebob@outlook.com",
   "picture": "https://secure.gravatar.com/avatar/c89b2bb92df91508e14172097a5e17da?s=480&r=pg&d=https%3A%2F%2Fssl.gstatic.com%2Fs2%2Fprofiles%2Fimages%2Fsilhouette80.png",
   "user_id": "windowslive|4cf0a30169d55031"
 }
