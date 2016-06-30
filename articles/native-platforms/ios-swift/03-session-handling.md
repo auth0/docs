@@ -188,4 +188,4 @@ keychain.clearAll()
 
 ### Optional: Encapsulate session handling
 
-As you could have realized, session handling is not a straightforward process. All this token-related information and processes can be encapsulated into a class that separates its logic from the View Controller layer. We recommend you to download the sample project for this tutorial and take a look at its implementation, mainly at the `SessionManager` class, which is in charge of dealing with these processes, and at the `Session` struct, which is a structure used for holding basic user profile data and tokens.
+As you could have realized, session handling is not a straightforward process. All this token-related information and processes can be encapsulated into a class that separates its logic from the View Controller layer. We recommend you to download the sample project from this tutorial and take a look at its implementation, mainly at the `SessionManager` class, which is in charge of dealing with these processes, and at the `Session` struct, which is a structure used for holding basic user profile data and tokens.
