@@ -77,6 +77,8 @@ At last, don't forget to declare 	the activities you're using in the Manifest:
 	
 	
 > It's recommended to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file, rather than hardcode them in the manifest.
+
+> Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of Lock10.
         
 ### 3. Implement the Login
 
