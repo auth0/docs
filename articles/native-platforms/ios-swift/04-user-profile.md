@@ -32,7 +32,7 @@ First step is to fetch the user profile. To do so, you need a valid `idToken` fi
 
 > Check out the [session handling tutorial](03-session-handling.md) if you're not sure about the `idToken`.
 
-You need to call a function in the `Auth0.swift` toolkit that allows you to fetch the user profile given an `idToken`: 
+You need to call a function from the `Lock` module that allows you to fetch the user profile given an `idToken`: 
 
 ```swift
 import Lock
