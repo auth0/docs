@@ -17,15 +17,15 @@ The created rule will inject additional data to the user's profile so you need t
 Display user profile's new `country` attribute added in the created rule attribute:
 
 ```html
-<div class="col-md-6">
-  <h3>Profile (Redirect mode)</h3>
-  <img src="{{redirectModeProfile.picture}}" alt="">
-  <p><strong>Name: </strong> {{redirectModeProfile.name}}</p>
-  <p><strong>Email: </strong> {{redirectModeProfile.email}}</p>
-  <p><strong>Nickname: </strong> {{redirectModeProfile.nickname}}</p>
-  <p><strong>Created At: </strong> {{redirectModeProfile.created_at}}</p>
-  <p><strong>Updated At: </strong> {{redirectModeProfile.updated_at}}</p>
-  <p><strong>Country (added with rule): </strong> {{redirectModeProfile.country}}</p>
+<div class="col-md-6 col-md-offset-3">
+  <h3>Profile</h3>
+  <img src="{{userProfile.picture}}" alt="">
+  <p><strong>Name: </strong> {{userProfile.name}}</p>
+  <p><strong>Email: </strong> {{userProfile.email}}</p>
+  <p><strong>Nickname: </strong> {{userProfile.nickname}}</p>
+  <p><strong>Created At: </strong> {{userProfile.created_at}}</p>
+  <p><strong>Updated At: </strong> {{userProfile.updated_at}}</p>
+  <p><strong>Country (added with rule): </strong> {{userProfile.country}}</p>
 </div>
 ```
 
