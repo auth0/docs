@@ -11,9 +11,22 @@ image: /media/platforms/ionic.jpeg
 tags:
   - quickstart
 snippets:
+  bower: native-platforms/ionic/bower
+  references: native-platforms/ionic/references
   dependencies: native-platforms/ionic/dependencies
-  setup: native-platforms/ionic/setup
+  appsetup: native-platforms/ionic/appsetup
+  login: native-platforms/ionic/login
+  loginview: native-platforms/ionic/loginview
+  loginroute: native-platforms/ionic/loginroute
+  logout: native-platforms/ionic/logout
+  autologin: native-platforms/ionic/autologin
+  referencescustom: native-platforms/ionic/references-custom
+  logincustom: native-platforms/ionic/login-custom
+  loginviewcustom: native-platforms/ionic/loginview-custom
   use: native-platforms/ionic/use
 seo_alias: ionic
 articles:
+  - 00-intro
   - 01-login
+  - 02-custom-login
+  - 03-user-profile
