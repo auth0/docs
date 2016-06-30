@@ -7,7 +7,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Rules',
 }) %>_
 
-<%= include('../_includes/_rules-introduction.md') %>
+<%= include('../_includes/_rules-introduction') %>
 
 
 #### Test rule result
@@ -29,7 +29,7 @@ Display user profile's new `country` attribute added in the created rule attribu
 </div>
 ```
 
-![Country rule sample](/media/articles/angularjs/rule_preview.png)
+![Country rule sample](/media/articles/angularjs/rule_country_preview.png)
 
 After the rule executes, the output that the application will receive is the following user object:
 
