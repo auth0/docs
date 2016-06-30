@@ -29,7 +29,7 @@ seo_alias: windowsphone
 <%= include('../_includes/_package', {
   pkgRepo: 'auth0-WindowsPhone-samples',
   pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/examples/WindowsPhoneSilverlight',
+  pkgPath: '00-Starter-Seed/WindowsPhoneSilverlight',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
