@@ -10,9 +10,7 @@ Third-party access tokens are issued by social identity providers (such as Faceb
 
 ## How to obtain Identity Provider access tokens
 
-Identity Provider (IdP) access tokens can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token with  `read:user_idp_tokens` scope after the user has authenticated with the IdP. 
-
-sample call?
+Identity Provider (IdP) access tokens can be obtained by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope after the user has authenticated with the IdP. 
 
 For examples of profiles as returned by various social providers, see: [Normalized User Profile](/user-profile/normalized) 
 

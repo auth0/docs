@@ -27,11 +27,9 @@ Current migrations are listed below, newest first.
 | --- | --- | --- | --- |
 | Medium | 2016-06-XX | TBD |
 
-The format of the user profile JSON object that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included as the first element in the profile's `identities` array. 
+The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included as the first element in the user profile `identities` array.
 
-This change also affects the id_token returned by ....
-
-Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token with  `read:user_idp_tokens` scope.
+Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 
 For more information on how to obtain an access token, see: [Identity Provider Access Tokens](/tokens/idp).
 
