@@ -1,5 +1,5 @@
 ---
-description: How to get an access token and call the Identity Provider API.
+description: How to call an Identity Provider API.
 ---
 
 # Call an Identity Provider API
@@ -11,9 +11,11 @@ For example, using Lock, you can execute the following code:
 
 ```js
 lock.show(function(err, token, profile) {
-
-
-  // Function to call Google's API with the accessToken
+  // get the user id from the profile
+  // call /api/v2/user/{user-id}
+  // Get the access token from the result
+  // Call Google's API with the accessToken
+  
   getGoogleContactsWithToken(googleToken);
 })
 ```
