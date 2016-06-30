@@ -9,11 +9,11 @@ public class Startup
   {
     var options = new JwtBearerOptions
     {
-      Audience = "<%= api.identifier %>",
-      Authority = "https://<%= tenantDomain %>/"
+      Audience = "${'<%= api.identifier %>'}",
+      Authority = "https://${'<%= tenantDomain %>'}/"
     };
     app.UseJwtBearerAuthentication(options);
-    
+
     app.UseMvc();
   }
 }

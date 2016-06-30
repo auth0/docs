@@ -19,6 +19,7 @@ Auth0 is responsible for installation, maintenance, patching and updates. You ar
 * [Appliance Administrator's Manual](/appliance/admin)
 * [Appliance Command-Line Interface Tools](/appliance/cli)
 * [Appliance Dashboard/Configuration Area](/appliance/dashboard)
+    * [Custom Domains](/appliance/custom-domains)
     * [Time Synchronization in the Appliance](/appliance/clock)
 * [Appliance Infrastructure Requirements](/appliance/infrastructure)
 * [Appliance Sprint (Customer Onboarding)](/onboarding/appliance-sprint)
