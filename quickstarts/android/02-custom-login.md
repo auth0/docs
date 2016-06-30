@@ -1,6 +1,6 @@
 ---
-title: Auth0 Android Quickstarts - 2. Custom Login
-description: This tutorial will show you how to use the Auth0 authentication api in your Android project to create a custom login screen.
+title: Auth0 Android Quickstarts - Custom Login
+description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 ---
 
@@ -88,7 +88,7 @@ Then, login using the newly created client:
 ```
 > It's suggested to add both the Auth0DomainID and Auth0ClientID to the Strings.xml file rather than hardcode them in the new Auth0() constructor method.
 
-> There are multiple ways of designing a customized login screen which are not covered in this tutorial. One example, is the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html). 
+> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example. 
 
 ### Done!
 
