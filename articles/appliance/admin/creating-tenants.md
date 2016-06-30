@@ -110,6 +110,7 @@ You may use the following call create a tenant. Once the tenant is created, the 
 
 This snippet shows how you can get an access token for the newly-created tenant, which you can then use to call the Management API.
 
+```har
 {
     'method': 'POST',
     'url': 'https://{NEW_TENANT_DOMAIN}/oauth/token',
@@ -130,3 +131,4 @@ This snippet shows how you can get an access token for the newly-created tenant,
     'bodySize' : -1,
     'comment' : ''
 }
+```
