@@ -21,10 +21,10 @@ snippets:
 ## Ionic Framework Tutorial
 
 <%= include('../_includes/_package', {
-  pkgRepo: 'auth0-ionic',
+  pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
-  pkgPath: 'examples/refresh-token-sample',
-  pkgFilePath: 'examples/refresh-token-sample/www/js' + account.clientParam,
+  pkgPath: '00-Starter-Seed/refresh-token-sample',
+  pkgFilePath: '00-Starter-Seed/refresh-token-sample/www/js' + account.clientParam,
   pkgType: 'js'
 }) %>
 
