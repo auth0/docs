@@ -15,11 +15,11 @@ Multifactor Authentication (MFA) is a method of verifying a user's identity by r
 
 Auth0 supports the following methods of implementing MFA:
 
-1. [Push Notifications (Auth0 Guardian)](/multifactor-authentication2#mfa-using-auth0-guardian) - Auth0's mobile application Guardian sends push notifications for MFA
-2. [SMS](/multifactor-authentication2#mfa-with-sms) - Verification by sending a six-digit code via SMS
-3. Support for one-time password authentication services [Google Authenticator](/multifactor-authentication2#mfa-using-google-authenticator) and [Duo Security](/multifactor-authentication2#mfa-using-duo-security).
-4. [Configuring rules for custom processes](/multifactor-authentication2#mfa-using-custom-rules) - such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
-5. Using a [custom provider](/multifactor-authentication2#mfa-using-a-custom-provider), such as **Yubikey**.
+1. [Push Notifications (Auth0 Guardian)](/multifactor-authentication#mfa-using-push-notifications-auth0-guardian-) - Auth0's mobile application Guardian sends push notifications for MFA
+2. [SMS](/multifactor-authentication#mfa-with-sms) - Verification by sending a six-digit code via SMS
+3. Support for one-time password authentication services [Google Authenticator](/multifactor-authentication#mfa-using-google-authenticator) and [Duo Security](/multifactor-authentication#mfa-using-duo-security).
+4. [Configuring rules for custom processes](/multifactor-authentication#mfa-using-custom-rules) - such as Contextual MFA, which allow you to define the conditions that will trigger additional authentication challenges, such as changes in geographic location or logins from unrecognized devices.
+5. Using a [custom provider](/multifactor-authentication#mfa-using-a-custom-provider), such as **Yubikey**.
 
 ## MFA using Push Notifications (Auth0 Guardian)
 
