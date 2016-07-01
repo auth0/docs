@@ -6,6 +6,6 @@ title: PHP
 
 use Auth0\SDK\Auth0JWT;
 
-$decodedToken = Auth0JWT::decode( $token, ['<%= api.identifier %>'], null, ['https://<%= tenantDomain %>'] );
+$decodedToken = Auth0JWT::decode( $token, ['${"<%= api.identifier %>"}'], null, ['https://${"<%= tenantDomain %>"}'] );
 
 ```
