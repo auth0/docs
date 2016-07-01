@@ -64,9 +64,9 @@ First of all, you need to import the headers for Lock and SimpleKeychain
 #import "SimpleKeychain.h"
 ```
 
-> The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
-
 Once your user successfully signs in, you'll have a reference to a 'A0Token' object with the user's credentials. SimpleKeychain is a simple 'key-value' storage that we can use keep safe the the user's 'id_token'.
+
+> The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
 
 ```objc
 - (void) saveCredentials:(A0Token* ) token
@@ -77,7 +77,7 @@ Once your user successfully signs in, you'll have a reference to a 'A0Token' obj
 }
 ```
 
-We'll be storing the 'refresh_token' too, wich we'll use to get a new token, once the current one has expired.
+We'll be storing the 'refresh_token' too, which we'll use to get a new token, once the current one has expired.
 
 
 ### 2. Don't I know you from somewhere?
@@ -89,7 +89,8 @@ Once you have stored the user's token, next time the app launches, you can use i
     
     if([keychain stringForKey:@"id_token"]){
     	// There is a token stored
-    	[lock.apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"] 
+
+    	[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"] 
     	success:^(A0UserProfile * _Nonnull profile) {
         	// You have successfully retreived the user's profile, you don't need to sign in again.
         	// Let your user continue to the next step
