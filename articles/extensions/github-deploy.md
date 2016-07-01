@@ -37,7 +37,7 @@ You are now ready to start deploying.
 
 Once you setup the webhook using the displayed information you are ready to start committing to your repository. With each commit you make in your configured GitHub repository, if changes were made in the `rules` or `database-connection` folders the webhook will call the extension to start the deployment. Note that we always do a full redeploy of all contents to make sure we keep a consistent state.
 
-The __Deploy__ button lets you manually deploy the rules and database connection scrips you already have in your GitHub repository. This is useful if you already have a repository filled with scripts and you want to deploy them once you setup the extension. It can also come in handy in case you accidentally delete some things in Auth0 and you want to redeploy the latest version of your repository again.
+The __Deploy__ button lets you manually deploy the rules and database connection scripts you already have in your GitHub repository. This is useful if you already have a repository filled with scripts and you want to deploy them once you setup the extension. It can also come in handy in case you accidentally delete some things in Auth0 and you want to redeploy the latest version of your repository again.
 
 ::: panel-warning Full redeploy
 The full redeployment means that any rules or database connection scripts that exist in Auth0 but don't exist in your GitHub repository will be __deleted__, because your GitHub repository becomes the single source of truth.
