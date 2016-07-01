@@ -7,7 +7,6 @@ description: This tutorial will show you how to integrate Auth0 with ReactJS to 
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/01-Login'
 }) %>
 
-
 ## 1. Create the AuthService class
 
 The best way to have authentication utilities available across the application is to create a helper class an share its instance to the React Components passing it as their props. Let's create the helper inside the `src/utils` folder to encapsulate the login functionality and name it `AuthService`.
