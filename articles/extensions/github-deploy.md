@@ -7,14 +7,14 @@ __NOTE__: This extension is currently available only for the public cloud, as ex
 
 ## Configure the extension
 
-To install and configure this extension, click on the _GitHub Deployments_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}). The __Install Extension__ window pops open.
+To install and configure this extension, click on the __GitHub Deployments__ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}). The __Install Extension__ window pops open.
 
 ![](/media/articles/extensions/github-deploy/install-extension.png)
 
-At this point you should set the following configuration variables:
+At this point you must set the following configuration variables:
 
 - **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. It can be either public or private. 
-- **GITHUB_BRANCH**: The branch that the extension should monitor for commits.
+- **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
 - **GITHUB_TOKEN**: Your [personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) for GitHub.
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used in order to get Slack notifications on successful and failed deployments. Setting this value is optional.
 
@@ -46,7 +46,7 @@ The full redeployment means that any rules or database connection scripts that e
 
 ### Deploy database connection scripts
 
-In order to start deploying database connection scripts, first you have to create a directory under `database-connections`. The name of the directory should match __exactly__ the name of your [database connection](${uiURL}/#/connections/database) in Auth0. Of course you can create as many directories as your database connections.
+In order to start deploying database connection scripts, first you have to create a directory under `database-connections`. The name of the directory must match __exactly__ the name of your [database connection](${uiURL}/#/connections/database) in Auth0. Of course you can create as many directories as your database connections.
 
 Under the created directory, create one file for every script you want to use. The allowed scripts are:
 
@@ -66,7 +66,7 @@ You can find an example in [this GitHub repository](https://github.com/auth0-sam
 
 ### Deploy rules
 
-In order to deploy a rule, you have to create a JavaScript file under the `rules` directory of your GitHub repository. Each rule should be on its own `.js` file. 
+In order to deploy a rule, you have to create a JavaScript file under the `rules` directory of your GitHub repository. Each rule must be on its own `.js` file. 
 
 For example, if you create the file `rules/set-country.js`, then the extension will create a rule in Auth0 with the name `set-country`. 
 
@@ -100,15 +100,15 @@ You can find some examples in [this GitHub repository](https://github.com/auth0-
 
 ## Track deployments
 
-You can track all of your deployments by navigating to your [extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}), clicking on the row displayed for __GitHub Deployments__ extension, and selecting the __Deployments__ tab:
+In order to track all of your deployments, navigate to the [extensions](${uiURL}/#/extensions) page, click on the row displayed for __GitHub Deployments__ extension, and select the __Deployments__ tab. You can see a list of the deployments, both successful and failed.
 
 ![](/media/articles/extensions/github-deploy/deployments-overview.png)
 
-If a deployment fails you can look at the details of the deployment and figure out why it failed:
+If a deployment fails you can look at the details of the deployment and figure out why it failed. 
 
 ![](/media/articles/extensions/github-deploy/deployment-log.png)
 
-Finally, if you configured a Slack Incoming Webhook you'll be notified on Slack if a deployment succeeded or failed:
+Details are available also for successful deployments. Finally, if you configured a _Slack Incoming Webhook_ you will be notified on Slack if a deployment succeeded or failed.
 
 ![](/media/articles/extensions/github-deploy/slack-messages.png)
 
