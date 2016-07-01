@@ -28,20 +28,20 @@ If your business needs require you to create tenants regularly, you may automate
 
     ```har
     {
-        'method': 'POST',
-        'url': 'https://{RTA_DOMAIN}/api/v2/client-grants',
-        'httpVersion': 'HTTP/1.1',
-        'cookies': [],
-        'headers': [],
-        'queryString' : [],
-        'postData' : {
-            'client_id': '{CLIENT_ID}',
-            'audience': 'https://{RTA}/api/v2/',
-            'scope': ['create:tenants']
+        "method": "POST",
+        "url": "https://{RTA_DOMAIN}/api/v2/client-grants",
+        "httpVersion": "HTTP/1.1",
+        "cookies": [],
+        "headers": [],
+        "queryString" : [],
+        "postData" : {
+            "client_id": "{CLIENT_ID}",
+            "audience": "https://{RTA}/api/v2/",
+            "scope": ["create:tenants"]
         },
-        'headersSize' : -1,
-        'bodySize' : -1,
-        'comment' : ''
+        "headersSize" : -1,
+        "bodySize" : -1,
+        "comment" : ""
     }
     ```
 
@@ -53,24 +53,24 @@ Once you have created your New Client Grant, you may use it to complete the foll
 
 ```har
 {
-    'method': 'POST',
-    'url': 'https://{RTA_DOMAIN}/oauth/token',
-    'httpVersion': 'HTTP/1.1',
-    'cookies': [],
-    'headers': [{
-        'cache-control': 'no-cache',
-        'content-type': 'application/json'
+    "method": "POST",
+    "url": "https://{RTA_DOMAIN}/oauth/token",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [{
+        "cache-control": "no-cache",
+        "content-type": "application/json"
     }],
-    'queryString' : [],
-    'postData' : {
-        'audience': 'https://{RTA_DOMAIN}/api/v2/',
-        'grant_type': 'client_credentials',
-        'client_id': '{CLIENT_ID}',
-        'client_secret': '{CLIENT_SECRET}'
+    "queryString" : [],
+    "postData" : {
+        "audience": "https://{RTA_DOMAIN}/api/v2/",
+        "grant_type": "client_credentials",
+        "client_id": "{CLIENT_ID}",
+        "client_secret": "{CLIENT_SECRET}"
     },
-    'headersSize' : -1,
-    'bodySize' : -1,
-    'comment' : ''
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
 }
 ```
 
@@ -88,23 +88,23 @@ You may use the following call create a tenant. Once the tenant is created, the 
 
 ```har
 {
-    'method': 'POST',
-    'url': 'https://{RTA_DOMAIN}/api/v2/tenants',
-    'httpVersion': 'HTTP/1.1',
-    'cookies': [],
-    'headers': [{
-        'cache-control': 'no-cache',
-        'content-type': 'application/json',
-        'authorization': 'Bearer {ACCESS_TOKEN}'
+    "method": "POST",
+    "url": "https://{RTA_DOMAIN}/api/v2/tenants",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [{
+        "cache-control": "no-cache",
+        "content-type": "application/json",
+        "authorization": "Bearer {ACCESS_TOKEN}"
     }],
-    'queryString' : [],
-    'postData' : {
-        'name': 'customer-1',
-        'owners': ['me@email.com']
+    "queryString" : [],
+    "postData" : {
+        "name": "customer-1",
+        "owners": ["me@email.com"]
      },
-    'headersSize' : -1,
-    'bodySize' : -1,
-    'comment' : ''
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
 }
 ```
 
@@ -114,23 +114,23 @@ This snippet shows how you can get an access token for the newly-created tenant,
 
 ```har
 {
-    'method': 'POST',
-    'url': 'https://{NEW_TENANT_DOMAIN}/oauth/token',
-    'httpVersion': 'HTTP/1.1',
-    'cookies': [],
-    'headers': [{
-        'cache-control': 'no-cache',
-        'content-type': 'application/json'
+    "method": "POST",
+    "url": "https://{NEW_TENANT_DOMAIN}/oauth/token",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [{
+        "cache-control": "no-cache",
+        "content-type": "application/json"
     }],
-    'queryString' : [],
-    'postData' : {
-        'audience': 'https://{NEW_TENANT_DOMAIN}/api/v2/',
-        'grant_type': 'client_credentials',
-        'client_id': '{MANAGEMENT_CLIENT_ID}',
-        'client_secret': '{MANAGEMENT_CLIENT_SECRET}'
+    "queryString" : [],
+    "postData" : {
+        "audience": "https://{NEW_TENANT_DOMAIN}/api/v2/",
+        "grant_type": "client_credentials",
+        "client_id": "{MANAGEMENT_CLIENT_ID}",
+        "client_secret": "{MANAGEMENT_CLIENT_SECRET}"
     },
-    'headersSize' : -1,
-    'bodySize' : -1,
-    'comment' : ''
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
 }
 ```
