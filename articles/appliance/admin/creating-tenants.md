@@ -8,7 +8,7 @@ If your business needs require you to create tenants regularly, you may automate
 2. Go to the Applications page.
 3. Create an application called 'Tenant Provisioning.'
 4. Once you have created the 'Tenant Provisioning' client, go to the Connections tab and disable **all** Connections for this client.
-5. Navigate to `${uiUrl}/#/apis`. Click the link to open the Auth0 Management API.
+5. Navigate to `${uiURL}/#/apis`. Click the link to open the Auth0 Management API.
 6. Go to the Non Interactive Clients tab, and enable Tenant Provisioning by moving the associated slide to the right.
 7. Create the new client grant.
 
@@ -17,13 +17,13 @@ If your business needs require you to create tenants regularly, you may automate
 1. Navigate to the [Management API Explorer](/api/management/v2#!/Client_Grants/post_client_grants) to generate the required `POST` call.
 2. Click the bubble that says **'create:client_grants'** to select that Scope.
 3. Paste the following payload into the provided `body` box after you have supplied the client ID and the root tenant authority:
-    ```text    
+    ```text
     {
      'client_id': '{CLIENT_ID}',
      'audience': 'https://{RTA}/api/v2/',
      'scope': ['create:tenants']
     }
-    ```    
+    ```
 4. Click 'Try' to test the provided information. If you receive a `201` response, you may proceed to click on the 'get curl command' link to generate the required `POST` call. It will contain the following information:
 
     ```har
@@ -57,10 +57,10 @@ Once you have created your New Client Grant, you may use it to complete the foll
     "url": "https://{RTA_DOMAIN}/oauth/token",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
-    "headers": [{
-        "cache-control": "no-cache",
-        "content-type": "application/json"
-    }],
+    "headers": [
+        { "name": "cache-control", "value": "no-cache" },
+        { "name": "content-type", "value": "application/json" }
+    ],
     "queryString" : [],
     "postData" : {
         "audience": "https://{RTA_DOMAIN}/api/v2/",
@@ -92,18 +92,18 @@ You may use the following call create a tenant. Once the tenant is created, the 
     "url": "https://{RTA_DOMAIN}/api/v2/tenants",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
-    "headers": [{
-        "cache-control": "no-cache",
-        "content-type": "application/json",
-        "authorization": "Bearer {ACCESS_TOKEN}"
-    }],
+    "headers": [
+        { "name": "cache-control", "value": "no-cache" },
+        { "name": "content-type", "value": "application/json" },
+        { "name": "authorization", "value": "Bearer {ACCESS_TOKEN}" }
+    ],
     "queryString" : [],
     "postData" : {
         "name": "customer-1",
         "owners": ["me@email.com"]
      },
-    "headersSize" : -1,
-    "bodySize" : -1,
+     "headersSize" : -1,
+     "bodySize" : -1,
     "comment" : ""
 }
 ```
@@ -118,10 +118,10 @@ This snippet shows how you can get an access token for the newly-created tenant,
     "url": "https://{NEW_TENANT_DOMAIN}/oauth/token",
     "httpVersion": "HTTP/1.1",
     "cookies": [],
-    "headers": [{
-        "cache-control": "no-cache",
-        "content-type": "application/json"
-    }],
+    "headers": [
+        { "name": "cache-control", "value": "no-cache" },
+        { "name": "content-type", "value": "application/json" }
+    ],
     "queryString" : [],
     "postData" : {
         "audience": "https://{NEW_TENANT_DOMAIN}/api/v2/",
