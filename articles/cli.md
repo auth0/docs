@@ -82,7 +82,7 @@ var rl = readline.createInterface({
 });
 
 //Generate the verifier, and the corresponding challenge
-var verifier = crypto.randomBytes(32);
+var verifier = base64url(crypto.randomBytes(32));
 var verifier_challenge = base64url(crypto.createHash('sha256').update(verifier).digest());
 
 var authorize_url = env.AUTH0_URL + '/authorize?response_type=code&scope=openid%20profile&' + 
