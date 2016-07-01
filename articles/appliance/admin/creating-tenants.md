@@ -1,4 +1,6 @@
-# Automatic Creation of Tenants
+# Appliance Administration: Automatic Creation of Tenants
+
+If your business needs require you to create tenants regularly, you may automate this process in your Appliance instances. For example, you might need to create one tenant for each customer or project that goes live.
 
 ## Creating a Management API Client for the Root Tenant Authority
 
@@ -13,7 +15,7 @@
 ### Creating the New Client Grant
 
 1. Navigate to the [Management API Explorer](/api/management/v2#!/Client_Grants/post_client_grants) to generate the required `POST` call.
-2. Click the bubble that says 'create:client_grants' to select that Scope.
+2. Click the bubble that says **'create:client_grants'** to select that Scope.
 3. Paste the following payload into the provided `body` box after you have supplied the client ID and the root tenant authority:
     ```text    
     {
