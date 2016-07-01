@@ -7,7 +7,7 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
 }) %>
 
-Previous steps exaplin how to login using both `Lock` and `Auth0`. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. Let's see how to do it.
+Previous steps explain how to login using both `Lock` and `Auth0`. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. Let's see how to do it.
 
 
 #### Create Session
