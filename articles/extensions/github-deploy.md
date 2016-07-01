@@ -50,12 +50,12 @@ In order to start deploying database connection scripts, first you have to creat
 
 Under the created directory, create one file for every script you want to use. The allowed scripts are:
 
-- get_user.js
-- create.js
-- verify.js
-- login.js
-- change_password.js
-- delete.js
+- `get_user.js`
+- `create.js`
+- `verify.js`
+- `login.js`
+- `change_password.js`
+- `delete.js`
 
 Only the `login.js` script is required in a custom database connection. 
 
@@ -100,7 +100,7 @@ You can find some examples in [this GitHub repository](https://github.com/auth0-
 
 ## Track deployments
 
-You can track all of your deployments by navigating to your [extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}):
+You can track all of your deployments by navigating to your [extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}), clicking on the row displayed for __GitHub Deployments__ extension, and selecting the __Deployments__ tab:
 
 ![](/media/articles/extensions/github-deploy/deployments-overview.png)
 
