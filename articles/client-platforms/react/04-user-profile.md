@@ -301,7 +301,7 @@ export default class AuthService extends EventEmitter {
       'Authorization': 'Bearer ' + this.getToken() //setting authorization header
     }
     // making the PATCH http request to auth0 api
-    return fetch(`https://${this.domain}/api/v2/users/${userId}`, {
+    return fetch(`https://<%= "${this.domain}" %>/api/v2/users/<%="${userId}"%>`, {
       method: 'PATCH',
       headers: headers,
       body: JSON.stringify(data)

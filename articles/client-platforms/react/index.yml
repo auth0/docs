@@ -13,6 +13,7 @@ snippets:
   dependencies: client-platforms/react/dependencies
   setup: client-platforms/react/setup
   use: client-platforms/react/use
+  envFile: client-platforms/react/env-file
 seo_alias: react
 articles:
   - 00-intro

@@ -97,7 +97,7 @@ export const makeMainRoutes = () => {
 
 export default makeMainRoutes
 ```
-${snippet(meta.snippets.env_file)}
+${snippet(meta.snippets.envFile)}
 
 Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exists yet, so let's create it next.
 
