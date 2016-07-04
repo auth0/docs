@@ -1,6 +1,6 @@
 # API Authorization: Using the Management API
 
-<%=include('./_preview-warning') %>
+<%=include('../_preview-warning') %>
 
 In case you don't want to use the Auth0 Dashboard you can perform all the same operations using Auth0's Management API.
 
@@ -8,9 +8,7 @@ Keep in mind that you will need the following items:
 - APIv2 token with the following scopes
   - create:resource_server
   - create:client_grant
-- Client Id and Secret for the client Application which has to be already created and visible in your [Auth0 dashboard](https://manage.auth0.com/)
-
-> Note: You can create your API token using the [API v2 Explorer](https://auth0.com/docs/api/v2)
+- Client Id and Secret for the client application which has to be already created and visible in your [Auth0 dashboard](https://manage.auth0.com/)
 
 ## Registering your Resource Server
 
@@ -30,11 +28,11 @@ For this example, we are going to use _"My Sample API"_ for name and _"https://m
   "name": "My Sample API",
   "identifier": "https://my-api-urn",
   "signing_alg": "HS256",
-  "scopes": [{ "value": "sample-scope"}]
+  "scopes": [{ "value": "sample-scope", "description": "Description for Sample Scope"}]
 }
 ```
 
-You can include multiple scopes if you desire. This array represent the universe of scopes your API will support. You can later modify this in any way by issuing a `PATCH` operation as described [in this separate section](/api-auth/adding-scopes).
+You can include multiple scopes if you desire. This array represent the universe of scopes your API will support. You can later modify this in any way by issuing a `PATCH` operation.
 
 Response:
 
@@ -45,7 +43,8 @@ Response:
     "identifier": "https://my-api-urn",
     "scopes": [
         {
-            "value": "sample-scope"
+            "value": "sample-scope",
+            "description": "Description for Sample Scope"
         }
     ],
     "signing_alg": "HS256",
@@ -54,9 +53,9 @@ Response:
 }
 ```
 
-## Authorizing the consumer Application
+## Authorizing the consumer Client
 
-Now that the API and the Application are represented in Auth0, we are going to create the trust relationship between them.
+Now that the API and the Client are represented in Auth0, we are going to create the trust relationship between them.
 
 `POST` to `{your-tenant-name}.auth0.com/api/v2/client-grants` with payload
 
@@ -87,4 +86,4 @@ Now that we have all the elements in place we can now start asking for authoriza
 
 Update your API to parse this token out of the requests and validate them. For this you will need to use the **signing_secret** of the API, which is the one used for signing the `access_tokens` using the HS256 algorithm.
 
-You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [here](/api-auth/asking-for-access-tokens) for details on generating access tokens or you can continue by [setting up custom scopes for your API](/api-auth/adding-scopes).
+You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [here](/api-auth/config/asking-for-access-tokens) for details on generating access tokens.
