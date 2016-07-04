@@ -7,7 +7,6 @@ description: This tutorial will show you how to integrate Auth0 with ReactJS to 
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/01-Login'
 }) %>
 
-
 ## 1. Create the AuthService class
 
 The best way to have authentication utilities available across the application is to create a helper class an share its instance to the React Components passing it as their props. Let's create the helper inside the `src/utils` folder to encapsulate the login functionality and name it `AuthService`.
@@ -98,28 +97,13 @@ export const makeMainRoutes = () => {
 
 export default makeMainRoutes
 ```
-
-Notice you're creating the `auth` as an `AuthService` instance and sending your auth0 credentials. The variables `__AUTH0_CLIENT_ID__` and `__AUTH0_DOMAIN__` will be replaced by webpack using the content of `.env` file.
-
-<% if (account.userName) { %>
-If you don't have that file you can create your own using the following command:
-
-```bash
-$ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'" > .env
-```
-<% } else { %>
-If you don't have that file you can create your own based on `.env.example` provided with the sample project. Copy that and edit the file adding your own credentials.
-
-```bash
-$ cp .env.example .env
-```
-<% } %>
+${snippet(meta.snippets.envFile)}
 
 Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exists yet, so let's create it next.
 
 ## 3. Create the Login view
 
-Login is a new view component that should placed in `src/views/Main/Login/`:
+Login is a new view component that should be placed in `src/views/Main/Login/`:
 
 ```javascript
 /* ===== ./src/views/Main/Login/Login.js ===== */
@@ -189,47 +173,6 @@ export default Container;
 
 After the Container change, Login button should be working and redirecting to Home page after a successful authentication.
 
-## 5. Logout Button
-
-In Home view, you may want to show a button to logout, destroying the user session and redirecting to `/login` page. To accomplish that, the new Home component code should be something like:
-
-```javascript
-/* ===== ./src/views/Main/Home/Home.js ===== */
-import React, { PropTypes as T } from 'react'
-import {Button} from 'react-bootstrap'
-import AuthService from 'utils/AuthService'
-import styles from './styles.module.css'
-
-export class Home extends React.Component {
-  static contextTypes = {
-    router: T.object
-  }
-
-  static propTypes = {
-    auth: T.instanceOf(AuthService)
-  }
-
-  logout(){
-    // destroys the session data
-    this.props.auth.logout()
-    // redirects to login page
-    this.context.router.push('/login');
-  }
-
-  render(){
-    return (
-      <div className={styles.root}>
-        <h2>Home</h2>
-        <p>Welcome!</p>
-        <Button onClick={this.logout.bind(this)}>Logout</Button>
-      </div>
-    )
-  }
-}
-
-export default Home;
-```
-
-### 6. All done!
+### 5. All done!
 
 You have completed the implementation of Login and Signup with Auth0 in your ReactJS project.

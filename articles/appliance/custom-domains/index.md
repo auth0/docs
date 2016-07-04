@@ -14,7 +14,7 @@ The root tenant authority (RTA) is a special domain that is configured when the 
 
 ### Use Example
 
-Suppose that your primary tenant is `config.example.com`. From this point on, all of your new tenants' domain names must derive from the base name, `example.com`:
+Suppose that your RTA is `config.example.com`. From this point on, all of your new tenants' domain names must derive from the base name, `example.com`:
 
 ```text
 site1.example.com

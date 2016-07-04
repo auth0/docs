@@ -25,7 +25,7 @@ To stay clean, let us write a service to handle linking account for us:
       return $http(		
               {		
                   method: 'POST',		
-                  url: 'https://' + AUTH0_DOMAIN + '/api/v2/users/' + user_id + '/identities',		
+                  url: 'https://' + '${account.namespace}' + '/api/v2/users/' + user_id + '/identities',		
                   headers: {		
                       Authorization: 'Bearer ' + token		
                   },		
@@ -171,7 +171,7 @@ You can also dissociate a linked account as well. To do so, update the `authHelp
      return   $http(		
               {		
                     method: 'DELETE',		
-                    url: 'https://' + AUTH0_DOMAIN + '/api/v2/users/' + user_id + '/identities/' + secondaryProvider + '/' + secondaryUserId,		
+                    url: 'https://' + '${account.namespace}' + '/api/v2/users/' + user_id + '/identities/' + secondaryProvider + '/' + secondaryUserId,		
                   headers: {		
                         Authorization: 'Bearer ' + token		
                     }		
