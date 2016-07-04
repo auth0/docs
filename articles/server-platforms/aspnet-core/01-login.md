@@ -54,6 +54,10 @@ ${snippet(meta.snippets.dependencies)}
 So before proceeding further, be sure to register the URL <code>http://YOUR_WEBSITE_URL/signin-auth0</code> on the <a href="${uiAppSettingsURL}">Application Settings</a> section of your Auth0 Dashboard. (Replace "YOUR_WEBSITE_URL" with the actual base URL of your web application.)
 </div>
 
+To use OIDC you will also need to ensure that the tokens are signed with RS256. While on the Application Settings, scroll down and click on **Show Advanced Settings**. Click on the **OAuth** tab and ensure that you set the **JsonWebToken Signature Algorithm** to **RS256**.
+
+Save the changes to your application.
+
 ### 4. Add the Auth0 settings to your configuration file
 
 Add configuration settings for the Auth0 domain, Client ID and Client Secret in you `appsettings.json` file as set their correct values:
