@@ -4,8 +4,8 @@ description: test
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/05-Calling-Apis',
-}) %>_
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Calling-Apis',
+}) %>
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides squad of tools to assist you complete end to end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header (though you are not restricted to that).
 
@@ -37,6 +37,8 @@ With that your request will have Authorization in your request herders:
 ```bash
 Authorization: Bearer eyJ0eXAiOiJKV1Qi...
 ```
+
+![Calling APIs](/media/articles/angularjs/calling_apis.png)
 
 ### Not sending the JWT for specific requests
 Our basic example will attache the JWT to headers of all our requests which might not be the desired behavior. You can filter:
