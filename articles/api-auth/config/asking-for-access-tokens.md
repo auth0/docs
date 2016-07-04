@@ -50,7 +50,6 @@ To add an authorized app, follow the instructions as described in [API Authoriza
 
 To find the values for the parameters referred to in this sample, go to the [Clients](${uiURL}/#/applications) page in the Dashboard, and select the application you want to use. There you will find these values:
 
-  * `YOUR_NAMESPACE`: This is the value of the **Domain** field.
   * `APP_CLIENT_ID`: This is the value of the **Client ID** field.
   * `APP_CLIENT_SECRET`: This is the value of the **Client Secret** field.
 

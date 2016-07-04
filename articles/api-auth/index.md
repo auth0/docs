@@ -12,7 +12,7 @@ At some point, your APIs will need to allow limited access to users, servers, or
 
 Auth0's API authentication and authorization features allow you to manage the authorization requirements for server-to-server applications.
 
-## Example Scenarios
+## Example Scenario
 
 ### Server-to-Server Applications
 
