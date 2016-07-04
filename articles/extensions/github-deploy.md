@@ -93,11 +93,15 @@ __set-country.json__
 }
 ```
 
+You can find some examples in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/rules).
+
+#### Setting the order
+
 Having multiple rules with the same order is not allowed, if you do so it will cause a collision. We suggest that you create a JSON file for each rule and assign a value for `order`. If you leave enough space between these values, re-ordering them will be easier and without collisions. For example, if you have three rules, instead of setting the order to `1`, `2`, `3`, you can set it to `10`, `20`, `30`. This way if you want to move the `30` rule before the `20`, you can simply change its `order` value to any value between `11` and `19`.
 
-Finally, keep in mind that for the `user_registration` and `login_failure` stage only a single rule is allowed.
+#### Setting the stage
 
-You can find some examples in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/rules).
+After you deploy a rule you cannot change it's stage. If you have to do so, then you will have to create a new rule with a new name and the updated stage, and then delete the original rule. Finally, keep in mind that for the `user_registration` and `login_failure` stage only a single rule is allowed.
 
 
 ## Track deployments
