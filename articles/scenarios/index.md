@@ -33,9 +33,9 @@
 
 * [Keen.io](/scenarios/keenio)
 * [Mixpanel Fullcontact Salesforce](/scenarios/mixpanel-fullcontact-salesforce)
-* [Parse](/scenarios/parse)
 * [Rapleaf Salesforce](/scenarios/rapleaf-salesforce)
 * [Segment.io](/scenarios/segmentio)
+* [Slack](/scenarios/slack)
 * [Splunk](/scenarios/splunk)
 * [Unbounce](/scenarios/unbounce)
 * [Zendesk](/scenarios/zendesk-sso)

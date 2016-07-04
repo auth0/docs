@@ -1,7 +1,11 @@
+---
+description: This page answers several common questions regarding the Auth0 Appliance infrastructure.
+---
+
 # Auth0 Appliance Infrastructure Requirements: Frequently Asked Questions
 
 ### Are there any functional differences between the Auth0 Cloud and the Auth0 Appliance?
-If you have been developing applications with Auth0 in the cloud environment, please review the [differences between the two environments](deployment).  Please speak to your Auth0 pre-sales engineer or customer success engineer if you’re unsure as to how this may impact your project.
+If you have been developing applications with Auth0 in the cloud environment, please review the [differences between the two environments](/deployment).  Please speak to your Auth0 pre-sales engineer or customer success engineer if you’re unsure as to how this may impact your project.
 
 ### Can I configure an HTTP proxy for outbound Internet access in the Appliance?
 While proxies are currently unsupported, please speak to your Auth0 Customer Success Engineer if your needs require the user of a transparent proxy or NAT.
