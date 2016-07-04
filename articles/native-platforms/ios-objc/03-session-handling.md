@@ -100,7 +100,7 @@ Once you have stored the user's token, next time the app launches, you can use i
     }
 ```
 
-If the `fetchUserProfileWithIdToken:` call is successful, you can continue as if the user has singned in. But if it failed there could be a number of reasons for it. One option is that it has expired, in which case you still have the option to refresh it, and keep the session valid:
+If the `fetchUserProfileWithIdToken:` call is successful, you can continue as if the user had signed in. But, if it failed, there could be a number of reasons for it. One option is that it has expired, in which case you still have the option to refresh it, and keep the session valid:
 
 ```objc
     [lock.apiClient fetchNewIdTokenWithRefreshToken:[keychain stringForKey:@"refresh_token"] parameters:nil success:^(A0Token * _Nonnull token) {
@@ -118,7 +118,7 @@ If the `fetchNewIdTokenWithRefreshToken` call fails, it means your token has bee
 
 ### 3. Sign out
 
-And when you have to sign out, you only need to clear the keychain.
+Last, when you have to sign out, you only need to clear the keychain.
 
 ```objc
     A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
