@@ -4,7 +4,7 @@ description: API Authentication and Authorization FAQ
 
 # API Authentication and Authorization FAQ
 
-### Q: Can I use rules in the new pipeline?
+### Q: Can I execute a user consent flow?
 
 **A:** Not at this time, but this feature is planned for release in August 2016.
 
