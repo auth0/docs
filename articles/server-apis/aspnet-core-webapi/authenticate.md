@@ -50,7 +50,7 @@ While in the Application settings area of your Auth0 Dashboard, copy the **Domai
 }
 ```
 
-## 5. Configure JWT middleware
+### 5. Configure JWT middleware
 
 Next you need to configure the JWT Middleware in the `Configure` method of your `Startup` class:
 
@@ -71,7 +71,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-## 6. Secure your Controller Actions
+### 6. Secure your Controller Actions
 
 Next you can secure the controller actions for which a user needs to be authenticated by adding the `[Authorize]` attribute to the Action:
 
@@ -95,7 +95,7 @@ public class ValuesController : Controller
 }
 ```
 
-## 7. Test your application
+### 7. Test your application
 
 You can test your application by obtaining an `id_token` from Auth0 and then passing that token in the `Authorization` header of a request as a Bearer token.
 
@@ -115,3 +115,13 @@ var request = new RestRequest(Method.GET);
 request.AddHeader("authorization", "Bearer <your token>");
 IRestResponse response = client.Execute(request);
 ```
+
+## Signature Validation
+
+At first glance it may seem as though the JWT middleware configuration above is insecure since the signature is not explicitly verified anywhere. This is however not true as the JWT middleware will query the Auth0 OpenID Configuration endpoint to obtain the location of the public key and download it automatically in order to verify the signature. This can be confirmed by looking and the Fiddler trace in the screenshot below:
+
+![](/media/articles/server-apis/aspnet-core-webapi/fiddler.png)
+
+If someone tries to create a JWT with another key set the signature verification will fail:
+
+![](/media/articles/server-apis/aspnet-core-webapi/console-output.png)
