@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',
@@ -79,7 +79,7 @@ Create a property list file named `Auth0.plist` in your project, and add the fol
 
 ### 3. Implement the Login
 
-At this point, you're all set to implement an email/password Login. 
+At this point, you're all set to implement an email/password Login.
 
 First, import the `Auth0` module in the file where you want to present the login dialog:
 

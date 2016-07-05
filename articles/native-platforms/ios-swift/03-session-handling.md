@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',
@@ -108,13 +108,13 @@ guard let idToken = keychain.stringForKey("id_token") else {
 }
 // Validate idToken
 let client = A0Lock.sharedLock().apiClient()
-client.fetchUserProfileWithIdToken(idToken, 
+client.fetchUserProfileWithIdToken(idToken,
         success: { profile in
             // Our idToken is still valid...
             // We store the fetched user profile
                                             keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
             // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
-        }, 
+        },
         failure: { error in
             // ⚠️ idToken has expired or is no longer valid
             // See step 4
@@ -137,7 +137,7 @@ In this case, we're going to leverage the `refreshToken`. The refresh token is a
 
 >It's recommendable that you read and understand the [refresh token documentation](https://auth0.com/docs/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
 
-#### i. Store the refreshToken 
+#### i. Store the refreshToken
 
 Besides storing the `idToken`, we need to store the `refreshToken`. To do so, you can, upon login:
 
