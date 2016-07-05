@@ -14,23 +14,60 @@ __NOTE:__ You can find a listing of all our Java offerings and several sample pr
 
 There are two options to following along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Start) or the samples. 
 
-The seed is a regular java servlet with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Start) and follow along.
+The seed is a regular java app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Start) and follow along.
 
 Instead you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Start) as a starting point and applies to it the configuration of each step, so for example the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Start) plus the configuration required to implement the Login. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
+
+### Seed project structure
+
+Let's take some time and explain how our [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Start) is structured. 
+
+
+```
+- src
+-- main
+---- java
+------ com
+-------- auth0
+---------- example
+------------ HomeServlet.java
+------------ LoginServlet.java
+------------ LogoutServlet.java
+---- webapp
+------ WEB-INF
+-------- jsp
+---------- home.jsp
+---------- login.jsp
+-------- web.xml
+- pom.xml
+```
+
+The project contains two JSP: the `login.jsp` that will handle the user login, and the `home.jsp` which will display user information after a successful login and provide the option to logout.
+
+The project contains, also, three servlets:
+- `HomeServlet.java`: The servlet retrieves the `AUTH0_USER` attribute, using `getAuth0User()`, appends the value at the request, and forwards the request to the `home.jsp` resource.
+- `LoginServlet.java`: Invoked when the user attempts to login. The servlet retrieves the `auth0.client_id` and `auth0.domain` parameters, appends the values at the request, and forwards the request to the `login.jsp` resource.
+- `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the URL specified by the parameter `auth0.onLogoutRedirectTo`. We will cover what this parameter is and how it is set later on in this document.
+
+__NOTE__: The seed project also includes several css, js, and image files, which are not listed in this document for brevity. These files can be found under the `webapp` directory.
 
 
 ## Create an application
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('../../_includes/_java_new_app') %>_
 
 ![App Dashboard](/media/articles/java/app_dashboard.png)
 
 
-## Configure Callback URLs
+## Configure callback URLs
 
 Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
 
 ![Callback error](/media/articles/java/callback_error.png)
+
+If you follow our seed project or the samples based on it, the values you must configure are:
+- Allowed Callback URL: `http://localhost:3099/callback`
+- Allowed Logout URLs: `http://localhost:3099/logout`
 
 
 ## Setup dependencies
@@ -48,13 +85,13 @@ If you are using Gradle, add it to the dependencies block:
 ${snippet(meta.snippets.dependenciesGradle)}
 
 
-## Configure your app
+## Configure your java app
 
-To configure `auth0-servlet` to use your Auth0 credentials, edit the `src/main/webapp/WEB-INF/web.xml` file.:
+Your java app needs some information in order to authenticate against your Auth0 account. You need to set this information at the deployment descriptor file (`src/main/webapp/WEB-INF/web.xml`). The required information is:
 
 ${snippet(meta.snippets.setup)}
 
-Here is a list of customizable attributes of `web.xml`:
+As you can see in the seed project, there are many customizable attributes in the `web.xml`:
 
 - `auth0.domain`: Your auth0 domain (the tenant you have created when registering with auth0).
 - `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings of your app on [dashboard](${uiURL}).
