@@ -31,115 +31,121 @@ To create a client to interact with the Auth0 Management API, see: [API Authoriz
 
 Your new client endpoint will execute a client credentials grant to obtain authorized access to the Auth0 Management API and store this token for future requests. Then you will use this token to get the full user profile by calling the `/api/v2/users/{user-id}` endpoint.
 
-::: panel-info Auth0 Webtasks
-For the simplicity, this example uses Auth0 Webtasks, but you can use the platform of your choice.
-:::
+**NOTE:** For the simplicity, this example uses Auth0 Webtasks, but you can use the platform of your choice.
 
 ### Helper functions
 
-Begin by defining helper functions. Create a new file called `proxy.js` and create a new function called `getAccessToken` that will execute the client credentials flow and get an access token to get authorized access to the Auth0 Management API. 
+Begin by defining helper functions. 
 
-  ```js
-  function getAccessToken(context, cb){
-    context.storage.get(function (err, data) {
-      if (err) return cb(err);
+#### getAccessToken function
+
+Create a new file called `proxy.js` and create a new function called `getAccessToken` that will execute the client credentials flow and get an access token to get authorized access to the Auth0 Management API. 
+
+```js
+function getAccessToken(context, cb){
+  context.storage.get(function (err, data) {
+    if (err) return cb(err);
       
-      if (data && data.access_token && jwt.decode(data.access_token).exp < Date.now()){
-        // Token didn't expire, use it again
-        return cb(null, data.access_token);
-      }
+    if (data && data.access_token && jwt.decode(data.access_token).exp < Date.now()){
+      // Token didn't expire, use it again
+      return cb(null, data.access_token);
+    }
       
-      const options = {
-        url: 'https://' + context.data.ACCOUNT_NAME + '.auth0.com/oauth/token',
-        json: {
-          audience: 'https://' + context.data.ACCOUNT_NAME + '.auth0.com/api/v2/',
-          grant_type: 'client_credentials',
-          client_id: context.data.CLIENT_ID,
-          client_secret: context.data.CLIENT_SECRET
-        }
-      };
-
-      return request.post(options, function(err, response, body){
-        if (err) return cb(err);
-        
-        // Store token in context
-        context.storage.set({ access_token: body.access_token }, function(err){
-          return cb(err, body.access_token);
-        });
-      });
-    });
-  }
-  ```
-
-  > Notice that we are using `context.storage` to store the access token and only get a new one when the access token expired. `context.data.CLIENT_ID` and `context.data.CLIENT_SECRET` are the keys from client that you have created in the previous step.
-
-Create another function called `getUserProfile` to call the `/api/v2/users/{user-id}` endpoint from the Auth0 Management API and get the user profile with the IdP access token.
-
-  ```js
-  function getUserProfile(context, userId, token, cb){
     const options = {
-      url: 'https://' + context.data.ACCOUNT_NAME + '.auth0.com/api/v2/users/' + userId,
-      json: true,
-      headers: {
-        authorization: 'Bearer ' + token
+      url: 'https://' + context.data.ACCOUNT_NAME + '.auth0.com/oauth/token',
+      json: {
+        audience: 'https://' + context.data.ACCOUNT_NAME + '.auth0.com/api/v2/',
+        grant_type: 'client_credentials',
+        client_id: context.data.CLIENT_ID,
+        client_secret: context.data.CLIENT_SECRET
       }
     };
 
-    return request.get(options, function(error, response, user){
-      return cb(error, user);
+    return request.post(options, function(err, response, body){
+      if (err) return cb(err);
+        
+      // Store token in context
+      context.storage.set({ access_token: body.access_token }, function(err){
+        return cb(err, body.access_token);
+      });
     });
-  }
-  ```
-
-Now, lets create the endpoint. We will use [webtask-tools](https://github.com/auth0/webtask-tools) to create a simple express API that exposes a single endpoint
-
-  ```js
-  "use latest";
-  ​
-  const jwt     = require('jsonwebtoken');  
-  const request = require('request');
-  const express = require('express');
-  const Webtask = require('webtask-tools');
-  const app     = express();
-  ​
-  app.get('/:id', function (req, res) {
-    // TODO: Make sure this request is authorized/authenticated
-
   });
+}
+```
+
+**NOTE:** `context.storage` is being used to store the access token get a new token only when the stored token has expired. `context.data.CLIENT_ID` and `context.data.CLIENT_SECRET` are the keys from client that you created in the [previous step](#obtain-an-access-token-from-the-backend).
+
+#### getUserProfile function
+
+Create another function called `getUserProfile` to call the `/api/v2/users/{user-id}` endpoint from the Auth0 Management API and get the user profile containing the IdP access token.
+
+```js
+function getUserProfile(context, userId, token, cb){
+  const options = {
+    url: 'https://' + context.data.ACCOUNT_NAME + '.auth0.com/api/v2/users/' + userId,
+    json: true,
+    headers: {
+      authorization: 'Bearer ' + token
+    }
+  };
+
+  return request.get(options, function(error, response, user){
+    return cb(error, user);
+  });
+}
+```
+
+Now, create the endpoint. This example uses [webtask-tools](https://github.com/auth0/webtask-tools) to create a simple express API that exposes a single endpoint.
+
+```js
+"use latest";
   ​
-  module.exports = Webtask.fromExpress(app);
-  ```
+const jwt     = require('jsonwebtoken');  
+const request = require('request');
+const express = require('express');
+const Webtask = require('webtask-tools');
+const app     = express();
+  ​
+app.get('/:id', function (req, res) {
+  // TODO: Make sure this request is authorized/authenticated
 
-  > Notice that this will expose a public endpoint so make sure that the request is authenticated/authorized as the first step (this will depend on your app logic).
+});
+  ​
+module.exports = Webtask.fromExpress(app);
+```
 
-With the access token and the user id taken from the request parameters, we will invoke the `getUserProfile` method to get the full user profile with the IdP access token.
+::: panel-warning Public endpoint
+This will expose a public endpoint. In your app logic, make sure that the request has been authenticated and authorized beforehand.
+:::
 
-  ```js
-  app.get('/:id', function (req, res) {
-    // TODO: Make sure this request is authorized/authenticated  
-    const context = req.webtaskContext;
+With the access token and the user id taken from the request parameters, invoke the `getUserProfile` method to get the full user profile containing the IdP access token:
+
+```js
+app.get('/:id', function (req, res) {
+  // TODO: Make sure this request is authorized/authenticated  
+  const context = req.webtaskContext;
   
-    return getAccessToken(context, function(err, access_token){
+  return getAccessToken(context, function(err, access_token){
+    if (err) return res.status(400).json(err);
+
+    return getUserProfile(context, decoded.sub, access_token, function(err, user){
       if (err) return res.status(400).json(err);
 
-      return getUserProfile(context, decoded.sub, access_token, function(err, user){
-        if (err) return res.status(400).json(err);
+      const access_token = user.identities[0].access_token;
 
-        const access_token = user.identities[0].access_token;
+      // TODO : call IdP external API
 
-        // TODO : call IdP external API
+      return res.status(200);
+    });
+  }); 
+});
+```
 
-        return res.status(200);
-      });
-    }); 
-  });
-  ```
+**NOTE:** In most cases, there will be only one identity in the identities array, but if you have used the [account linking feature](/link-accounts), there may be several.
 
-  > Most of the times, there's going to be just one identity in the identities array, but if you've used the [account linking feature](/link-accounts) there might be more than one.
+The access token obtained here will have access to call the APIs you specified in the Auth0 dashboard when creating the connection.
 
-The `access_token` we get here will have access to call the APIs you've specified in the Auth0 dashboard when creating the connection.
-
-To deploy the webtask you have to use `wt-cli` specifying your own secrets, like in the following example.
+To deploy the webtask, you have to use `wt-cli` specifying your own secrets, as in the following example:
 
 ```bash
 wt create proxy.js \
@@ -148,26 +154,26 @@ wt create proxy.js \
     --secret CLIENT_SECRET=[non-interactive-client-secret]
 ```
 
-> Once the webtask is created, you will be get a message with the webtask URL. Copy that URL as you will use it in the next section.
+**NOTE:** Once the webtask is created, you will be get a message with the webtask URL. Save this URL for use in the next section.
 
-## Call the endpoint from your application logic  
+## Call the endpoint  
 
-Now when you authenticate in your application you just need to use the token to call the proxy backend, as shown in the following code.
+Now, when you authenticate in your application you will use the token to call the proxy backend, as shown in the following code:
 
-  ```js
-  lock.show(function(err, token, profile) {
+```js
+lock.show(function(err, token, profile) {
   
-    // call your proxy API
-    $.ajax({
-      url: '[your webtask url]' + '/' + profile.user_id,
+  // call your proxy API
+  $.ajax({
+    url: '[your webtask url]' + '/' + profile.user_id,
       method: 'GET'
-    }).then(function(data) {
-      // successful call
-    }, function(err) {
-      alert("Error calling External IdP API");
-    });
-  })
-  ```
+  }).then(function(data) {
+    // successful call
+  }, function(err) {
+    alert("Error calling External IdP API");
+  });
+})
+```
 
 **NOTE:** You may need to specific scopes/permissions to call an Idp API, see: [Add scopes/permissions to call Identity Provider's APIs](/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp). 
 
