@@ -8,7 +8,7 @@ Keep in mind that you will need the following items:
 - APIv2 token with the following scopes
   - create:resource_server
   - create:client_grant
-- Client Id and Secret for the client application which has to be already created and visible in your [Auth0 dashboard](https://manage.auth0.com/)
+- Client Id and Secret for the client application which has to be already created and visible in your [Auth0 dashboard](${uiURL})
 
 ## Registering your Resource Server
 

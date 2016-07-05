@@ -10,17 +10,17 @@ The selection of the Signing Algorithm will dictate how the API will validate th
   * HS256 (symmetric): signed using the resource server's signing secret
   * RS256 (asymmetric): signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json
 
-![](/media/articles/api-auth/apis-create.png)
+  ![](/media/articles/api-auth/apis-create.png)
 
 > *NOTE:* You will notice that there's an API called _Auth0 Management API_. This API represent Auth0's APIv2. You can authorize client applications to request tokens for this API as well.
 
 4. (Optional) Define some scopes by browsing to the Scopes tab. A scope is a claim that may be issued as part of the access token. With this information the API can enforce fine grained authorization.
 
-![](/media/articles/api-auth/apis-scope-tab.png)
+  ![](/media/articles/api-auth/apis-scope-tab.png)
 
 5. Authorize a consumer client. Under the "Non Interactive Clients" tab, you can authorize your clients representing the consumers of the API. This will create a `client grant` for each client and will allow you to generate `access_token`s for them to consume your API. Optionally, you can select a subset of scopes to be granted to this client as part of the `access_token`. Scopes allows consuming API to enforce fine-grained authorization.
 
-![](/media/articles/api-auth/apis-authorize-client-tab.png)
+  ![](/media/articles/api-auth/apis-authorize-client-tab.png)
 
 6. Setup your API to accept `access_tokens`. The Quickstart tab will provide you with code snippets for different languages and will guide you on bootstrapping your API depending on the selected Signing Algorithm.
 
