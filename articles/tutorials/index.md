@@ -17,13 +17,4 @@ url: /tutorials
 
 # Quickstarts
 
-<ul>
-<% _.forEach(_.sortBy(tags.quickstart, function(a) { return a.title.toUpperCase(); }), function(article) { %>
-  <li>
-    <% if (article.title) { %>
-      <a href="<%- '/docs' + article.url %>"><%- article.title %></a>
-      <p><%- article.description %></p>
-    <% } else { throw 'ERROR: No title for ' + article.url; } %>
-  </li>
-<% }); %>
-</ul>
+To find quickstarts please go to the [docs home page](/docs) and browse the tutorial navigator at the top by selecting your platform and language.
