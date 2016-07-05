@@ -7,13 +7,14 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/03-User-Profile',
 }) %>
 
+In the [Login step](/quickstart/spa/angular2/01-login) of this tutorial, you find a detailed description of how to use auth0 lock widget to show a login window and authenticate the user. For this step, the focus is to present a way to retrieve and show the user profile information, using same `Auth` service defined in login tutorial.
 
 #### Profile
 
 To fetch user profile information, you have to call `lock.getProfile` function, specifying the token and a callback to process response.
 
 You can do whatever you want with the profile.
-One option is to store it in `localStorage` (or any store you want) and also assign it to a `userProfile` attribute to access it from anywhere.
+A good option is to store it in `localStorage` (or any store you want) and also assign it to a `userProfile` attribute so we can access it from anywhere.
 
 ```typescript
 /* ===== ./auth.service.ts ===== */
@@ -71,7 +72,7 @@ export class Home {
 }
 ```
 
-and then in your component's template:
+and then display the userProfile attributes in your component's template:
 
 ```html
 <div *ngIf="auth.authenticated() && auth.userProfile">
