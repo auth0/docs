@@ -1,3 +1,4 @@
+---
 title: Custom Login
 description: This tutorial will teach you how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
 ---
@@ -10,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-objc',
@@ -25,7 +26,7 @@ This tutorial and seed project have been tested with the following:
 </div>
 
 ```
-a0${acount.clientId}://\*.auth0.com/authorize*
+a0${account.clientId}://\*.auth0.com/authorize*
 ```
 
 ### 1. Import the Auth0 Toolkit to the project
@@ -114,7 +115,7 @@ And, in order to perform the actual login:
             // Something went wrong, let the user know
         } else{
             // Logged in successfully, you may continue
-            // Use the A0Credentials instance to access the user profile 
+            // Use the A0Credentials instance to access the user profile
             // information
         }
     }];
@@ -168,8 +169,8 @@ If you are going to let the user sign in, you'll probably need to let the user t
                     password:@"1234"
                   connection:@"Username-Password-Authentication"
                 userMetadata:@{ @"Country": @"Australia",
-                                @"Telephone": @"99 99 9999 9999"} 
-                                // Here you can include any extra information 
+                                @"Telephone": @"99 99 9999 9999"}
+                                // Here you can include any extra information
                                 // you need about the user
                        scope:@"openid"
                   parameters:nil
@@ -177,10 +178,9 @@ If you are going to let the user sign in, you'll probably need to let the user t
             if(error) {
                 // Something went wrong, let the user know
             } else {
-                // You signed up correctly, and you have the Credentials, 
+                // You signed up correctly, and you have the Credentials,
                 // so no need to make the user login. He's already in.
             }
         });
 }];
 ```
-

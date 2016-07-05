@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-swift',
@@ -32,7 +32,7 @@ First step is to fetch the user profile. To do so, you need a valid `idToken` fi
 
 > Check out the [session handling tutorial](03-session-handling.md) if you're not sure about the `idToken`.
 
-You need to call a function from the `Lock` module that allows you to fetch the user profile given an `idToken`: 
+You need to call a function from the `Lock` module that allows you to fetch the user profile given an `idToken`:
 
 ```swift
 import Lock
@@ -42,13 +42,13 @@ import Lock
 let client = A0Lock.sharedLock().apiClient()
 client.fetchUserProfileWithIdToken(idToken,
     success: { profile in
-        // You've got the user profile here!   
+        // You've got the user profile here!
         // You might want to store it in a safe place. You can use SimpleKeychain:
-        let keychain = A0SimpleKeychain(service: "Auth0") 
+        let keychain = A0SimpleKeychain(service: "Auth0")
         let profileData = NSKeyedArchiver.archivedDataWithRootObject(profile)
         keychain.setData(profileData, forKey: "profile")
     }, failure: { error in
-        // check the session handling tutorial for hints on what to do in case of a failure 
+        // check the session handling tutorial for hints on what to do in case of a failure
     })
 ```
 
@@ -92,7 +92,7 @@ import Lock
 let idToken = ... // the idToken you obtained before
 let profile = ... // the A0Profile instance you obtained before
 Auth0
-    .users(token: idToken) 
+    .users(token: idToken)
     .patch(profile.userId, userMetadata: ["first_name": "John", "last_name": "Appleseed", "country": "Canada"]
     .start { result in
         switch result {

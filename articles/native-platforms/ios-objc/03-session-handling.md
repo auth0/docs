@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
   pkgPath: 'iOS/basic-sample-objC',
@@ -86,11 +86,11 @@ Once you have stored the user's token, next time the app launches, you can use i
 
 ```objc
     A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
-    
+
     if([keychain stringForKey:@"id_token"]){
     	// There is a token stored
 
-    	[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"] 
+    	[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:[keychain stringForKey:@"id_token"]
     	success:^(A0UserProfile * _Nonnull profile) {
         	// You have successfully retreived the user's profile, you don't need to sign in again.
         	// Let your user continue to the next step
@@ -127,5 +127,4 @@ Last, when you have to sign out, you only need to clear the keychain.
 
 ### 3. And we are done
 
-Now you can let your user's persist their sign in session. 
-
+Now you can let your user's persist their sign in session.
