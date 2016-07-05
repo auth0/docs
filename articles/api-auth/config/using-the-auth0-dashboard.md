@@ -9,7 +9,7 @@ description: How to enable API Authorization on the Auth0 dashboard.
 
 2. Create a new client of type **Non Interactive** for each of the applications that will consume the API you want to generate access tokens for.
 
-3. Navigate to the API section and create a new API by entering a friendly name and identifier (this will be the public endpoint of the API). This API will be represented by your **Resource Server**.
+3. Navigate to the API section and create a new API by entering a friendly name and an identifier. Ideally, this identifier should be the public endpoint of the API, but any valid URN is acceptable. This API will be represented by your **Resource Server**.
 
   The selection of the **Signing Algorithm** will dictate how the API will validate the access tokens it receives:
   * HS256 (symmetric): signed using the resource server's signing secret
