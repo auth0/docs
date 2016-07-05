@@ -25,7 +25,7 @@ Auth0 supports the following social providers out of the box. You can also use a
       <% }; %>
 </td>
   <% i++; if (i==3){i=0; %>
-</tr>  
+</tr><tr>  
 <% }  } %>
 <% }); %>
 </tr>
@@ -48,7 +48,7 @@ Auth0 supports the following social providers out of the box. You can also use a
       <% }; %>
 </td>
   <% i++; if (i==3){i=0; %>
-</tr>  
+</tr><tr>
 <% }  } %>
 <% }); %>
 </tr>

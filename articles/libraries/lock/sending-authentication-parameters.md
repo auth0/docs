@@ -65,3 +65,7 @@ If you need to access the `state` parameter within a rule you must take in consi
 ```js
 var state = context.request.query.state || context.request.body.state;.
 ```
+
+### prompt: 'consent'
+
+The `prompt: 'consent'` parameter can be set to reprompt your users for permissions when they login to get required permissions that may have been denied. [Click here to learn more about denied permissions](/connections/social/reprompt-permissions).

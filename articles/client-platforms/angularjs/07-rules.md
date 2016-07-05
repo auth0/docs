@@ -5,7 +5,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Rules',
-}) %>_
+}) %>
 
 <%= include('../_includes/_rules-introduction') %>
 

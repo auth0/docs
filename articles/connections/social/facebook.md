@@ -90,6 +90,8 @@ Select all the **Attributes** and **Permissions** you want to enable.
 
 Click **Save**.
 
+**Note:** Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
+
 ## 8. Enable the Connection
 
 Go to the **Apps** tab of the Facebook connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
