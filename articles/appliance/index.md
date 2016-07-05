@@ -14,15 +14,21 @@ It is a managed service that is typically used if your organization's compliance
 
 Auth0 is responsible for installation, maintenance, patching and updates. You are responsible for supplying and monitoring the infrastructure on which Auth0 runs (including, but not limited to, the VM host, storage, network resources, and other required dependencies).
 
+### Appliance Planning
+
 * [Overview of the Auth0 Appliance](/appliance/appliance-overview)
     * [Overview of the Geographic High-Availability Appliance](/appliance/geo-ha)
+* [Appliance Infrastructure Requirements](/appliance/infrastructure)
+* [Appliance Sprint (Customer Onboarding)](/onboarding/appliance-sprint)
+
+### Appliance Administration
+
+* [Appliance Release Notes](https://auth0.com/changelog/appliance)
 * [Appliance Administrator's Manual](/appliance/admin)
-* [Appliance Command-Line Interface Tools](/appliance/cli)
 * [Appliance Dashboard/Configuration Area](/appliance/dashboard)
     * [Custom Domains](/appliance/custom-domains)
     * [Time Synchronization in the Appliance](/appliance/clock)
-* [Appliance Infrastructure Requirements](/appliance/infrastructure)
-* [Appliance Sprint (Customer Onboarding)](/onboarding/appliance-sprint)
-* [Automatic Creation of Tenants](/appliance/admin/creating-tenants)
 * [Tools for Monitoring the Appliance](/appliance/monitoring)
+* [Appliance Command-Line Interface Tools](/appliance/cli)
+* [Automatic Creation of Tenants](/appliance/admin/creating-tenants)
 * [Node.js Modules Available in Rules and Custom Database Connections for Appliances](/appliance/modules)
