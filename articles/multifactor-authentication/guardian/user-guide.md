@@ -72,7 +72,7 @@ After entering you enter your email and password, a SMS message will be sent to 
 
 If you have lost your phone and are unable to finish the two-step authentication you will need the recovery code from when you signed up. Enter this code to access your account without your device.
 
-If you do have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
+If you don't have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
 ### If you forgot your password
 
@@ -82,7 +82,7 @@ If you forgot your password when you are trying to login, click **Don't remember
 
 For all types of multifactor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification. 
 
-If using SMS, make sure you are not [exceeding rate limits]((/user-guide#sms-rate-limits).
+If using SMS, make sure you are not [exceeding rate limits](/user-guide#sms-rate-limits).
 
 ### If you did not receive a SMS
 
