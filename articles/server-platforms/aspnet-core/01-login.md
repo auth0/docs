@@ -1,3 +1,17 @@
+---
+title: Login
+description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
+---
+
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
+}) %>
+
+
+## Configure OpenID Connect middleware
+
+The easiest way to enable authentication with Auth0 in your ASP.NET Core application is to use the OpenID Connect middleware. First go to the `ConfigureServices` method of your `Startup` class and add the authentication services by calling the `AddAuthentication` method:
+
 ```cs
 public void ConfigureServices(IServiceCollection services)
 {
@@ -16,6 +30,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+Next, it the `Configure` method of the `Startup` class add the cookie middleware and the OpenID Connect middleware. Middleware executes in the order they are registered so it is important to register the cookie middleware first, and the the OIDC middleware. Both these middleware should be registered before your MVC middleware in order for your controllers to be protected:
 
 ```cs
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
@@ -76,6 +91,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
+## Add Login and Logout methods
+
+Next you will need to create an `AccountController` with `Login` and `Logout` actions. For the Login you will need to return a `ChallengeResult` and specify "Auth0" as the authentication scheme which will be challenged. This will invoke the OIDC middleware you registered in the `Configure` method.
+
+After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of the cookie middleware: 
 
 ```cs
 public class AccountController : Controller
@@ -94,6 +114,10 @@ public class AccountController : Controller
     }
 }
 ```
+
+## Add Login and Logout links
+
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
