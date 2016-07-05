@@ -1,29 +1,37 @@
+---
+description: How to enable API Authorization using the Auth0 Management API.  
+---
+
 # API Authorization: Using the Management API
 
 <%=include('../_preview-warning') %>
 
-In case you don't want to use the Auth0 Dashboard you can perform all the same operations using Auth0's Management API.
+If you do not want to use the Auth0 Dashboard to enable  API Authorization, you can achieve the same results using the Auth0 Management API.
 
-Keep in mind that you will need the following items:
-- APIv2 token with the following scopes
-  - create:resource_server
-  - create:client_grant
-- Client Id and Secret for the client application which has to be already created and visible in your [Auth0 dashboard](${uiURL})
+You will need the following:
 
-## Registering your Resource Server
+- APIv2 token with the following scopes:
+  - `create:resource_server`
+  - `create:client_grant`
+- `Client_Id` and `Client_Secret` for the client application which must already be created and visible in your [Auth0 dashboard](${uiURL}).
 
-The Resource Server entity is going to represent the API that you want to issue `access_tokens` for. It is represented by a friendly name and by a URN identifier. Keep in mind the following restrictions that apply for the identifier:
-- It must be a valid urn
-- It cannot be modified after creation
-- It must be unique throughout your tenant
+## Register your Resource Server
 
-We recommend using your public API endpoint as an identifier.
+The **Resource Server** entity represents the API that you want to issue access tokens for, identified by a friendly name and a URN identifier. 
 
-For this example, we are going to use _"My Sample API"_ for name and _"https://my-api-uri"_ as identifier.
+The following restrictions that apply for the identifier:
 
-`POST` to `{your-tenant-name}.auth0.com/api/v2/resource-servers` with payload:
+- It must be a valid URN.
+- It cannot be modified after creation.
+- It must be unique throughout your tenant.
 
-  ```
+**NOTE:** Using your public API endpoint as an identifier is recommended.
+
+The following example uses _"My Sample API"_ as the name and _"https://my-api-uri"_ as the identifier.
+
+`POST` to `${account.tenant}.auth0.com/api/v2/resource-servers` with payload:
+
+```
 {
   "name": "My Sample API",
   "identifier": "https://my-api-urn",
@@ -32,7 +40,7 @@ For this example, we are going to use _"My Sample API"_ for name and _"https://m
 }
 ```
 
-You can include multiple scopes if you desire. This array represent the universe of scopes your API will support. You can later modify this in any way by issuing a `PATCH` operation.
+**NOTE:** You can include multiple scopes. This array represents the universe of scopes your API will support. You can modify this later by issuing a `PATCH` operation.
 
 Response:
 
@@ -53,11 +61,11 @@ Response:
 }
 ```
 
-## Authorizing the consumer Client
+## Authorize the consumer Client
 
-Now that the API and the Client are represented in Auth0, we are going to create the trust relationship between them.
+Now that the API and the Client are represented in Auth0, you can create a trust relationship between them.
 
-`POST` to `{your-tenant-name}.auth0.com/api/v2/client-grants` with payload
+`POST` to `${account.tenant}.auth0.com/api/v2/client-grants` with payload:
 
 ```
 {
@@ -67,7 +75,7 @@ Now that the API and the Client are represented in Auth0, we are going to create
 }
 ```
 
-The `client_id` is the id of the consumer application. `audience` will be the identifier of the API and `scope` is and array of string which should be a subset of those defined at the API.
+The `client_id` is the id of the consumer application, `audience` will be the identifier of the API, and `scope` is an array of strings, which must be a subset of those defined in the API.
 
 Response:
 
@@ -82,8 +90,10 @@ Response:
 }
 ```
 
-Now that we have all the elements in place we can now start asking for authorization to the API to Auth0.
+Next, update your API to parse the token from the request and validate it. You will need to use the `signing_secret` of the API, which was used for signing the access tokens with the HS256 algorithm.
 
-Update your API to parse this token out of the requests and validate them. For this you will need to use the **signing_secret** of the API, which is the one used for signing the `access_tokens` using the HS256 algorithm.
+## Request access tokens
 
-You are now ready to ask Auth0 for `access_tokens` for you API. Navigate [here](/api-auth/config/asking-for-access-tokens) for details on generating access tokens.
+Now that all the elements are in place, you can request access tokens for your API from Auth0.
+
+For details on generating access tokens, see: [API Authorization: Asking for Access Tokens](/api-auth/config/asking-for-access-tokens) 
