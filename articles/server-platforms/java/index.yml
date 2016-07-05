@@ -11,4 +11,5 @@ alias:
   - java
 seo_alias: java
 articles:
+  - 00-intro
   - 01-login
