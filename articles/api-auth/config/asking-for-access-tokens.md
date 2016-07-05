@@ -4,7 +4,7 @@ description: How to request tokens for your applications.
 
 # API Authorization: Asking for Access Tokens
 
-<%=include('./_preview-warning') %>
+<%=include('../_preview-warning') %>
 
 To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
@@ -29,8 +29,6 @@ The response will be a [signed JWT (JSON Web Token)](/jwt#2-body) containing at 
 }
 ```
 
-> **NOTE:** When you execute the setup steps in the Auth0 Dashboard as described in [API Authorization: Using the Auth0 Dashboard](/api-auth/using-the-auth0-dashboard), you will notice that the `scope` property is blank. Custom scopes are not supported in the Auth0 Dashboard at this time. You can still use this token to authorize access to the the parts of your API that do not require elevated permissions. If you would like to add scopes for your API you can follow [these steps](/api-auth/adding-scopes).
-
 ### Verifying an access token for a resource server
 
 Access tokens will be signed using the signature method configured for the resource server, and must be verified accordingly:
@@ -44,15 +42,14 @@ For claim verification, use any [recommended JWT library](https://jwt.io/) which
 
 Your client app must be authorized to access your API before you can request tokens.
 
-You can go to the **Authorized Clients** tab of your API in the [APIs section](${uiURL}/#/apis) of the dashboard to verify that the app you are using has been authorized to request access tokens from this API.
+You can go to the **Non Interactive Clients** tab of your API in the [APIs section](${uiURL}/#/apis) of the dashboard to verify that the app you are using has been authorized to request access tokens from this API.
 
-To add an authorized app, follow the instructions as described in [API Authorization: Using the Auth0 Dashboard](/api-auth/using-the-auth0-dashboard).
+To add an authorized app, follow the instructions as described in [API Authorization: Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 ### Where to Find the IDs
 
-To find the values for the parameters referred to in this sample, go to the [Applications](${uiURL}/#/applications) page in the Dashboard, and select the application you want to use. There you will find these values:
+To find the values for the parameters referred to in this sample, go to the [Clients](${uiURL}/#/applications) page in the Dashboard, and select the application you want to use. There you will find these values:
 
-  * `YOUR_NAMESPACE`: This is the value of the **Domain** field.
   * `APP_CLIENT_ID`: This is the value of the **Client ID** field.
   * `APP_CLIENT_SECRET`: This is the value of the **Client Secret** field.
 
