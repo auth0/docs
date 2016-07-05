@@ -375,7 +375,7 @@ function(client, context, callback){
   client.client_metadata = client.client_metadata || {};
   // update the client_metadata that will be part of the response
   client.client_metadata.key1 = client.client_metadata.key1 || [];
-  client.client_metadata.key1.push('admin');
+  client.client_metadata.key1.push('newValue');
 
   // persist the client_metadata update
   auth0.clients.updateClientMetadata(client.client_id, client.client_metadata)
