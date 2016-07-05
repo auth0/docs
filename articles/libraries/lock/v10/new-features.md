@@ -15,8 +15,11 @@ var lock = new AuthLock(
       icon: "https://example.com/address_icon.png", // optional
       prefill: "street 123",                        // optional
       validator: function(value) {                  // optional
-        // only accept addresses with more than 10 chars
-        return value.length > 10;
+        // only accept addresses with 10 or more chars
+        return {
+          valid: address.length >= 10,              // required
+          hint: "Must have 10 or more chars"        // optional
+        };
       }
     }] // more fields could be specified
   });
