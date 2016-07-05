@@ -65,7 +65,7 @@ Once you have created your New Client Grant, you may use it to complete the foll
         {"audience": "https://{RTA_DOMAIN}/api/v2/"},
         {"grant_type": "client_credentials"},
         {"client_id": "{CLIENT_ID}"},
-        {"client_secret": "{CLIENT_SECRET}}"
+        {"client_secret": "{CLIENT_SECRET}"}
     ],
     "postData" : {
         "audience": "https://{RTA_DOMAIN}/api/v2/",
