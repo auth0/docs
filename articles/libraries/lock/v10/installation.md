@@ -1,7 +1,7 @@
 ## Migrating to Lock 10
 
 ::: panel-warning Version Notice
-Because this is an early preview of Lock 10, we recommend installing the full version (10.0.0-rc.1).
+Because this is an early preview of Lock 10, we recommend installing the full version (10.0.0-rc.2).
 :::
 
 You can get the required Lock installation package from several sources.
@@ -9,13 +9,13 @@ You can get the required Lock installation package from several sources.
 CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.0.0-rc.1/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
 ```
 
 [Bower](http://bower.io):
 
 ```sh
-bower install auth0-lock#10.0.0-rc.1
+bower install auth0-lock#10.0.0-rc.2
 ```
 
 ```html
@@ -25,7 +25,7 @@ bower install auth0-lock#10.0.0-rc.1
 [npm](https://npmjs.org):
 
 ```sh
-npm install --save auth0-lock@rc
+npm install --save auth0-lock@10.0.0-rc.2
 ```
 
 After installing the `auth0-lock` module, you will need bundle it up. We have examples for [browserify](https://github.com/auth0/lock/tree/v10/examples/bundling/browserify) and [webpack](https://github.com/auth0/lock/tree/v10/examples/bundling/webpack).
@@ -180,3 +180,7 @@ This is a summary of what you absolutely need to know before upgrading between p
 #### Upgrading from v10.0.0-beta.5 to v10.0.0-rc.1
 
 - No API changes were made in this release.
+
+#### Upgrading from v10.0.0-rc.1 to v10.0.0-rc.2
+
+- The `validator` function for an additional sign up field now allows to specify a hint to help the user to correct an invalid value. See the [example](/libraries/lock/v10/new-features#custom-sign-up-fields) for the details.
