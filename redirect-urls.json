@@ -665,6 +665,10 @@
     "to": "/policies/rate-limits"
   },
   {
+    "from": "/i18n/password-strength",
+    "to": "/i18n/password-options"
+  },
+  {
     "from": "/multifactor-authentication2",
     "to": "/multifactor-authentication"
   }
