@@ -15,7 +15,7 @@ There are two options for following along with these steps. You can either downl
 
 ## 1. Create an Application
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('../../_includes/_new_app') %>
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.̨png)
 
