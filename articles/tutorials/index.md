@@ -17,4 +17,4 @@ url: /tutorials
 
 # Quickstarts
 
-To find quickstarts please go to the [docs home page](/docs) and browse the tutorial navigator at the top by selecting your platform and language.
+To find quickstarts please go to the [docs home page](/) and browse the tutorial navigator at the top by selecting your platform and language.
