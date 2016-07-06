@@ -15,13 +15,23 @@ In order to make an authorized request, [angular2-gwt](https://github.com/auth0/
 
 First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
 
-${snippet(meta.snippets.authProvidersSetup)}
+```typescript
+/* ===== app/main.ts ===== */
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AppComponent } from './app.component';
 
+bootstrap(AppComponent, [
+  ...
+  AUTH_PROVIDERS,
+  ...
+])
+```
 
 Then you can import `AuthHttp` in your component and make the authenticated request:
 
 
 ```typescript
+/* ===== app/ping.component.ts ===== */
 import {Component} from '@angular/core';
 import {Auth} from './auth.service';
 import {AuthHttp} from 'angular2-jwt';
@@ -61,12 +71,12 @@ For example changing the tokenName (key used in localStorage):
 
 
 ```typescript
-<!-- ===== ./auth.service.ts ===== -->
+/* ===== app/auth.service.ts ===== */
 ...
 localStorage.setItem('another_token_name', authResult.idToken);
 ...
 
-<!-- ===== ./main.ts ===== -->
+/* ===== app/main.ts ===== */
 bootstrap(AppComponent, [
   ...
   provide(AuthHttp, {
@@ -86,6 +96,7 @@ bootstrap(AppComponent, [
 When you don't want to send the authentication headers just use the default angular [Http](https://angular.io/docs/ts/latest/guide/server-communication.html) client.
 
 ```typescript
+/* ===== app/ping.component.ts ===== */
 import {Component} from '@angular/core';
 import {Auth} from './auth.service';
 import {AuthHttp} from 'angular2-jwt';

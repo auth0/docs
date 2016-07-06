@@ -18,9 +18,9 @@ The instance creator receives your Auth0 credentials and an options object (avai
 Then, just add a callback for the `authenticated` lock event, which receives one argument with login information. For now just store the `idToken` attribute into `localStorage`.
 
 ```typescript
-/* ===== ./auth.service.ts ===== */
-import {Injectable} from '@angular/core';
-import {tokenNotExpired} from 'angular2-jwt';
+/* ===== app/auth.service.ts ===== */
+import { Injectable }      from '@angular/core';
+import { tokenNotExpired } from 'angular2-jwt';
 
 // Avoid name not found warnings
 declare var Auth0Lock: any;
@@ -63,6 +63,7 @@ To know if a user is authenticated, just use `tokenNotExpired` from [angular2-jw
 To use this, just inject the `Auth` service into your component
 
 ```typescript
+/* ===== app/app.component.ts ===== */
 export class AppComponent {
   constructor(private auth: Auth) {}
 }
@@ -71,6 +72,7 @@ export class AppComponent {
 and then in your component's template
 
 ```html
+/* ===== app/app.template.html ===== */
 <div class="navbar-header">
   <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
   <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>

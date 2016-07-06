@@ -15,6 +15,7 @@ The previous step explains how to login but with a widget called Lock. Lock is c
 To implement login, first create an Auth0 instance.
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 // Configure Auth0
 auth0 = new Auth0({
   domain: '${account.namespace}',
@@ -27,6 +28,7 @@ auth0 = new Auth0({
 In login method, just call `login` function on `auth0` instance:
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 public login(username, password) {
   this.auth0.login({
     connection: 'Username-Password-Authentication',
@@ -39,25 +41,30 @@ public login(username, password) {
 };
 ```
 
-`Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) as default, so after a successful login, the app will be redirected to `callbackURL`. 
-You can check for `hash` information inside `Auth` constructor using `parseHash` method:
+`Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) as default, so after a successful login, the app will be redirected to the `callbackURL`.
+You have to check for `hash` information inside `Auth` constructor using `parseHash` method, which will extract auth information:
 
 ```typescript
-constructor(private router: Router) {
-  var result = this.auth0.parseHash(window.location.hash);
+/* ===== app/auth.service.ts ===== */
+...
+export class Auth {
+  constructor(private router: Router) {
+    var result = this.auth0.parseHash(window.location.hash);
 
-  if (result && result.idToken) {
-    localStorage.setItem('id_token', result.idToken);
-    this.router.navigate(['/Home']);
-  } else if (result && result.error) {
-    alert('error: ' + result.error);
+    if (result && result.idToken) {
+      localStorage.setItem('id_token', result.idToken);
+      this.router.navigate(['/Home']);
+    } else if (result && result.error) {
+      alert('error: ' + result.error);
+    }
   }
-}
+ ...
 ```
 
 Now, let's add a form to actually call login:
 
 ```html
+/* ===== app/login.template.html ===== */
 <form>
   <div class="form-group">
     <label for="name">Username</label>
@@ -76,6 +83,7 @@ Now, let's add a form to actually call login:
 To do a Sign Up just call `signup` method on `auth0` instance:
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 public signUp(username, password) {
   this.auth0.signup({
     connection: 'Username-Password-Authentication',
@@ -91,6 +99,7 @@ public signUp(username, password) {
 and add the button to call this:
 
 ```html
+/* ===== app/login.template.html ===== */
 ...
 <button type="submit" class="btn btn-default" (click)="auth.signUp(username.value, password.value)">Sign Up</button>
 ...
@@ -101,6 +110,7 @@ and add the button to call this:
 To login using social connector, you just need to tell `Auth0` which connection you want to use:
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 public googleLogin() {
   this.auth0.login({
     connection: 'google-oauth2'
@@ -113,5 +123,6 @@ public googleLogin() {
 and again add a button to call this:
 
 ```html
+/* ===== app/login.template.html ===== */
 <button type="submit" class="btn btn-default btn-primary" (click)="auth.googleLogin()">Login with google</button>
 ```

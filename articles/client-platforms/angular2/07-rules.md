@@ -17,6 +17,7 @@ To see the created rule results, just login and fetch user profile information (
 Then, display user profile's new `country` attribute added in the created rule attribute:
 
 ```html
+/* ===== ./profile_show.template.html ===== */
 <div *ngIf="auth.authenticated() && auth.userProfile">
   <div class="row">
     <div class="col-md-6">

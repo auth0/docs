@@ -18,6 +18,8 @@ Let's make it work. As you need to do a second login to get the secondary accoun
 As all instances listen to the `authenticated` event (we are in redirect mode, so we don’t have a reliable way to determine which instance did the login) we need a way to know if the login came from a login or from a linking login. We can use [params auth option](https://github.com/auth0/lock/tree/v10.0.0-rc.1#authentication-options), setting a `state` property to `"linking"`.
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
+...
 // Lock instance to lauch a login to obtain the secondary JWT
 lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     auth: {params: {state: "linking"}},
@@ -26,11 +28,13 @@ lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
       title: "Link with:"
     }
   });
+...
 ```
 
 Then, when setting the `authenticated` callbacks we can know which login is, checking the `authResult.state` attribute.
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 ...
 // Add callback for lock `authenticated` event
 this.lock.on("authenticated", (authResult) => {
@@ -59,12 +63,23 @@ To call the api, [angular2-gwt](https://github.com/auth0/angular2-jwt) provides 
 
 First you need to add the AUTH_PROVIDERS from angular-gwt
 
-${snippet(meta.snippets.authProvidersSetup)}
+```typescript
+/* ===== app/main.ts ===== */
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AppComponent } from './app.component';
+
+bootstrap(AppComponent, [
+  ...
+  AUTH_PROVIDERS,
+  ...
+])
+```
 
 Then you can import AuthHttp in your component and make the authenticated request:
 
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 public doLinkAccounts(accountToLinkJWT) {
   var headers: any = {
     'Accept': 'application/json',
@@ -96,6 +111,7 @@ We fetched the profile on success and we can see that the accounts are now linke
 To make everything works just call `show` method on `lockLink` instance:
 
 ```typescript
+/* ===== app/auth.service.ts ===== */
 public linkAccount() {
   this.lockLink.show();
 }
@@ -110,6 +126,7 @@ User's profile contains an array of identities which is made of profile informat
 So if you fetch the profile after linking the accounts, you will have the same information there. Let's show this information:
 
 ```html
+/* ===== app/profile_show.template.html ===== */
 <div *ngIf="auth.linkedAccounts().length > 0" >
   <strong>Linked accounts: </strong>
   <ul>
