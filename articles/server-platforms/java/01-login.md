@@ -47,7 +47,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
           },
           responseType: 'code',
           popup: false,
-          callbackURL: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>' + '/callback'
+!          callbackURL: '{fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}' + '/callback'
         });
       });
     </script>
@@ -98,7 +98,7 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
         <h3 class="text-muted">App.com</h3>
     </div>
     <div class="jumbotron">
-        <h3>Hello <%= "${user.name}!</h3>
+        <h3>Hello <%= "${user.name}" %>!</h3>
         <p class="lead">Your nickname is: <%= "${user.nickname}" %></p>
         <p class="lead">Your user id is: <%= "${user.userId}" %></p>
         <p><img class="avatar" src="<%= "${user.picture}" %>"/></p>
