@@ -6,7 +6,7 @@ description: This tutorial will show you how to use the Auth0 Java SDK to add au
 ### Display Lock widget
 
 <%= include('../../_includes/_github', {
-link: 'https://github.com/auth0-samples/java-servlet/tree/master/01-Login',
+link: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
 }) %>
 
 In order to setup [Lock](/libraries/lock) update the `login.jsp` as follows:
@@ -105,10 +105,10 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
         <h3 class="text-muted">App.com</h3>
     </div>
     <div class="jumbotron">
-!        <h3>Hello {user.name}!</h3>
-!        <p class="lead">Your nickname is: {user.nickname}</p>
-!        <p class="lead">Your user id is: {user.userId}</p>
-!        <p><img class="avatar" src="{user.picture}"/></p>
+        <h3>Hello <%= "${user.name}" %>!</h3>
+        <p class="lead">Your nickname is: <%= "${user.nickname}" %></p>
+        <p class="lead">Your user id is: <%= "${user.userId}" %></p>
+        <p><img class="avatar" src='<%= "${user.picture}" %>'/></p>
     </div>
     <div class="row marketing">
         <div class="col-lg-6">
