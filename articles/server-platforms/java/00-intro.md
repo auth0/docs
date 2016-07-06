@@ -62,8 +62,6 @@ The project contains, also, three servlets:
 Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
 
 ![Callback error](/media/articles/java/callback_error.png)
-![](/media/articles/java/callback_error.png)
-![](/media/articles/extensions/github-deploy/install-extension.png)
 
 If you follow our seed project or the samples based on it, the values you must configure are:
 - Allowed Callback URL: `http://localhost:3099/callback`
