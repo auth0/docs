@@ -12,11 +12,11 @@ This document details the recommended method for calling a third-party IdP witho
 
 The basic flow is the following:
 
-* Create a client that will be used to get an access\_token with the `read:user_idp_tokens` scope valid to obtain authorized access to the Auth0 Management API. 
-* Create a backend service to handle your request to the external IdP API. It will:  
-    1. Execute the client credentials exchange to get a valid APIv2 access token.
-    2. Use the access token to execute the request to the `/api/v2/users/{user_id}` endpoint.
-    3. Use the IdP access token extracted from `user.identities[0].access_token` to call the IdP API.
+* Create a client that will be used to get an access token with the `read:user_idp_tokens` scope valid to obtain authorized access to the Auth0 Management API. 
+* Create a service to handle your request to the external IdP API which will: 
+    1. Execute the client credentials exchange to obtain a valid Auth0 access token.
+    2. Use the Auth0 access token to execute the request to the `/api/v2/users/{user_id}` endpoint.
+    3. Use the IdP access token extracted from the user profile to make calls to the IdP API.
 
 ## Create the client
 
@@ -24,9 +24,13 @@ To create a client to interact with the Auth0 Management API, see: [API Authoriz
 
 **NOTE:** Make sure that you create the client under the Auth0 Management API and that this new client can be granted the `read:user_idp_tokens` scope.
 
-## Obtain an access token from the backend
+## Create a service
 
-Execute the client credentials flow and get an access token to get authorized access to the Auth0 Management API. 
+Create a service to execute the following three steps:
+
+### 1. Obtain an Auth0 access token
+
+Execute a client credentials exchange to obtain an access token to get authorized access to the Auth0 Management API. 
 
 ```har
 {
@@ -37,18 +41,21 @@ Execute the client credentials flow and get an access token to get authorized ac
   ],
   "postData":{
     "mimeType": "application/json",
-    "text": "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"https://${account.namespace}.auth0.com/api/v2/\", \"grant_type\": \"client_credentials\" }"
+    "text": "{ "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "audience": "https://${account.namespace}.auth0.com/api/v2/", "grant_type": "client_credentials" }"
   }
 }
 ```
 
-The data part of the request should include the following:
-- `audience`: APIv2 base url - `https://${account.namespace}.auth0.com/api/v2/` 
-- `client_id`: The client id for the new client you just created
-- `client_secret`:  The client secret for the new client you just created
-- `grant_type`: Grant type should be `client_credentials`
+The body of the request must include the following:
 
-Now with the Access token, call the `/api/v2/users/{user-id}` endpoint from the Auth0 Management API and get the user profile with the IdP access token.
+- `audience`: APIv2 base url - `https://${account.namespace}.auth0.com/api/v2/` 
+- `client_id`: The client id of the new client you just created.
+- `client_secret`:  The client secret of the new client you just created.
+- `grant_type`: Grant type should be `client_credentials`.
+
+### 2. Get the user profile
+
+With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get the user profile containing the IdP access token:
 
 ```har
 {
@@ -60,15 +67,22 @@ Now with the Access token, call the `/api/v2/users/{user-id}` endpoint from the 
 }
 ```
 
-The request should include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the token you retrieved at the previous step. The data part of the request should include the following:
-- `user-id`: The property user_id of the profile.
+The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step. 
 
-Most of the times, there's going to be just one identity in the identities array, but if you've used the [account linking feature](/link-accounts) there might be more than one.
+The body of the request must include the following:
 
-The IdP `access_token` we get here will have access to call the APIs you've specified in the Auth0 dashboard when creating the connection.
+- `user-id`: The value of the `user_id` property of the user profile.
 
-## Calling your backend service
+### 3. Extract the IdP access token
 
-Now, when you authenticate in your application you will use the call the backend service to proxy your requests to the IdP API.
+Use the IdP access token extracted from `user.identities[0].access_token` to make calls to the IdP API.
 
-**NOTE:** To prevent leaking the token, make sure that you don't expose the IdP access token to your client-side application
+**NOTE:** In most cases, there will be only one identity in the identities array, but if you've used the [account linking feature](/link-accounts), there may be several.
+
+The IdP `access_token` obtained here will have access to call the APIs you specified in the Auth0 dashboard when creating the connection.
+
+## Call your service
+
+Now, in your application, you can call your service to execute requests to the IdP API.
+
+**NOTE:** To prevent leaking the token, make sure not to expose the IdP access token to your client-side application.
