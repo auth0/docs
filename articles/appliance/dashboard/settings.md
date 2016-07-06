@@ -1,5 +1,7 @@
 # Auth0 Appliance Dashboard: Settings
 
+> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
 The Settings page is where you will make most of the changes that pertain to your Appliance configuration.
 
 ![](/media/articles/appliance/dashboard/settings.png)
