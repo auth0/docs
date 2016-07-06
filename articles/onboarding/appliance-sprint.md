@@ -51,7 +51,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 [Appliance Configuration](/appliance/dashboard) - See our Docs on the configuration settings within the Appliance.
 
-Appliance Operations Manual - Coming soon!
+[Appliance Administrator's Manual](/appliance/admin)
 
 ### Step 5 - Welcome & Orientation
 
@@ -64,7 +64,7 @@ Appliance Operations Manual - Coming soon!
 [Critical Appliance support issue guidance](/onboarding/appliance-outage)
 
 ### Step 6 - Technical Discovery & Guidance
-**When?**  This session is generally booked within 14 days of signing your subscription agreement.
+**When?**  This session is generally booked within 14 days of Appliance handover.
 
 **What?** The goal of this technical session is to send you forward on the best path.  It’s an opportunity for our Customer Success Engineers to understand your software architecture and integration plans and for your team to ask questions or seek advice.
 
