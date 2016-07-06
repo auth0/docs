@@ -84,7 +84,10 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
       { "name" "Authorization", "value": "Bearer ABCD" }
     ],
     "queryString" : [],
-    "postData" : {},
+    "postData" : {
+      "mimeType": "application/json",
+      "text" : "{ \"test\": \"foo\" }",
+    },
     "headersSize" : 150,
     "bodySize" : 0,
     "comment" : ""
@@ -97,7 +100,7 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 * cookies [array] - List of cookie objects.
 * headers [array] - List of header objects.
 * queryString [array] - List of query parameter objects.
-* postData [object, optional] - Posted data info.
+* postData [object, optional] - Posted data info. See: http://www.softwareishard.com/blog/har-12-spec/#postData
 * headersSize [number] - Total number of bytes from the start of the HTTP request message until (and including) the double CRLF before the body. Set to -1 if the info is not available.
 * bodySize [number] - Size of the request body (POST data payload) in bytes. Set to -1 if the info is not available.
 * comment [string, optional] (new in 1.2) - A comment provided by the user or the application.

@@ -34,10 +34,9 @@ If your business needs require you to create tenants regularly, you may automate
         "cookies": [],
         "headers": [],
         "queryString" : [],
-        "postData" : {
-            "client_id": "{CLIENT_ID}",
-            "audience": "https://{RTA}/api/v2/",
-            "scope": ["create:tenants"]
+        "postData": {
+          "mimeType": "application/json",
+          "text" : "{ \"client_id\": \"{CLIENT_ID}\", \"audience\": \"https://{RTA}/api/v2/\", \"scope\": [\"create:tenants\"] }"
         },
         "headersSize" : -1,
         "bodySize" : -1,
