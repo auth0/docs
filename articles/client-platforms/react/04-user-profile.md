@@ -100,7 +100,7 @@ export default class AuthService extends EventEmitter {
     })
   }
 
-  ... // ommiting some methods to keep it short
+  ... // omitting some methods to keep it short
 
   setProfile(profile){
     // Saves profile data to localStorage

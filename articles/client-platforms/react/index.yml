@@ -21,5 +21,6 @@ articles:
   - 02-custom-login
   - 03-session-handling
   - 04-user-profile
+  - 05-linking-accounts
   - 06-rules
   - 09-mfa

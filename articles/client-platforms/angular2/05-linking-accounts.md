@@ -20,7 +20,7 @@ As all instances listen to the `authenticated` event (we are in redirect mode, s
 ```typescript
 /* ===== app/auth.service.ts ===== */
 ...
-// Lock instance to lauch a login to obtain the secondary JWT
+// Lock instance to launch a login to obtain the secondary JWT
 lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     auth: {params: {state: "linking"}},
     allowedConnections: ['Username-Password-Authentication', 'facebook', 'google-oauth2'],
