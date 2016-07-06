@@ -28,12 +28,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
   <div class="container">
     <script type="text/javascript">
       $(function () {
-        var error = {error};
-        if (error) {
-          $.growl.error({message: "An error was detected. Please log in"});
-        } else {
-          $.growl({title: "Welcome!", message: "Please log in"});
-        }
+        $.growl({title: "Welcome!", message: "Please log in"});
       });
 
       $(function () {
@@ -108,7 +103,7 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
         <h3>Hello <%= "${user.name}" %>!</h3>
         <p class="lead">Your nickname is: <%= "${user.nickname}" %></p>
         <p class="lead">Your user id is: <%= "${user.userId}" %></p>
-        <p><img class="avatar" src='<%= "${user.picture}" %>'/></p>
+        <p><img class="avatar" src="<%= "${user.picture}" %>"/></p>
     </div>
     <div class="row marketing">
         <div class="col-lg-6">
@@ -142,7 +137,7 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
         $("#password-login").removeClass("active");
         $("#logout").addClass("active");
         // assumes we are not part of SSO so just logout of local session
-!        window.location = "{fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}/logout";
+        window.location = "<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>/logout";
     });
 </script>
 
