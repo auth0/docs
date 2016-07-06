@@ -41,7 +41,7 @@ Execute a client credentials exchange to obtain an access token to get authorize
   ],
   "postData":{
     "mimeType": "application/json",
-    "text": "{ "client_id": "${account.clientId}", "client_secret": "${account.clientSecret}", "audience": "https://${account.namespace}.auth0.com/api/v2/", "grant_type": "client_credentials" }"
+    "text": "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"https://${account.namespace}.auth0.com/api/v2/\", \"grant_type\": \"client_credentials\" }"
   }
 }
 ```
