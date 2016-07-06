@@ -142,7 +142,7 @@ Note that as a result of linking these accounts:
 * The `user_metadata` and `app_metadata` of the primary account is unchanged.
 * The `user_metadata` and `app_metadata` of the secondary account is discarded.
 * There is no automatic merging of user profiles with associated identities.
-* The secondary account is removed from the users list.
+* The secondary account is removed from the users list. 
 
 #### Merging Metadata
 
