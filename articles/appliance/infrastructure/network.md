@@ -55,3 +55,9 @@ You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 
 * the incoming hostname forwarded to the Appliance nodes.
 
 In addition to load balancing, you may use this for **IP address whitelisting** and **endpoint filtering** (only authentication endpoints are publicly available).
+
+#### SSL Offloading
+
+The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.  
+
+Please note that the use of SSL offloading is not required to achieve high throughput.
