@@ -1,22 +1,6 @@
 ---
 title: Auth0 Android Quickstarts - 3. Session Handling
 description: This tutorial will show you how to use Lock10 to mantain a session connected.
-name: Android
-alias:
-  - Android
-  - Session Handling
-  - Quickstart
-  - Mobile 
-language:
-  - Android
-hybrid: false
-image: /media/platforms/android.png
-tags:
-  - quickstart
-  - Session Handling
-alias:
-  - android
-seo_alias: android
 ---
 
 ## Android - Session Handling Tutorial
@@ -25,7 +9,7 @@ This tutorial will show you how to use Lock10 to mantain an active session with 
 
 The user's Credentials, contains three kind of tokens:
 
-* idToken: Identity Token with user information.
+* idToken: Identity Token that proves the identity of the user.
 * accessToken: Access Token used by Auth0 API.
 * refreshToken: Refresh Token that can be used to request new tokens without signing in again.
 
@@ -43,7 +27,7 @@ Be sure that you have completed the [Basic Login](01-login.md) Quickstart.
 
 ### 1. Save the User's Credential
 
-Your first step is to save with a secure method, the user's credentials obtained in the login success response. We won't cover in this tutorial, a way to do this, feel free to save it as you please.
+Your first step is to save, through a secure method, the user's credentials obtained in the login success response. We won't cover how to do that on this tutorial, feel free to save it.
 
 ```Android
 private LockCallback callback = new AuthenticationCallback() {
@@ -59,9 +43,9 @@ private LockCallback callback = new AuthenticationCallback() {
  
 ### 2. Request a new tokenID
 
-#### i. Using a non-expired id_token
+#### i. Using a non-expired tokenID
 
-In the case your current id_token didn't expire, you can use it to get a new one, with a newer expire date.
+In the case your current tokenID didn't expire, you can use it to get a new one, with a newer expire date.
 
         String idToken = // GET STORED TOKEN ID
         AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0(CLIENT_ID, AUTH0_DOMAIN));
@@ -82,9 +66,9 @@ In the case your current id_token didn't expire, you can use it to get a new one
         });
                 
 
-#### ii. Using refresh_token
+#### ii. Using refreshToken
 
-If the id_token already expired, you can always use the refresh_token to get a new one, without having to login again. For this reason, this token must be securely saved.
+If the tokenID already expired, you can always use the refreshToken to get a new one, without having to login again. For this reason, this token must be securely saved.
 
 
         String refreshToken = // GET STORED REFRESH ID
@@ -123,5 +107,5 @@ private void logout() {
 
 ### Done!
 
-This exercise was simple! Look forward for other tutorials of Lock10.
+This exercise was simple! Look forward to other tutorials of Lock10.
 
