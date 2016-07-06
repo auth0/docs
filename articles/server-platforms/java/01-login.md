@@ -47,7 +47,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
           },
           responseType: 'code',
           popup: false,
-!          callbackURL: '{fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}' + '/callback'
+          callbackURL: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>' + '/callback'
         });
       });
     </script>
