@@ -49,8 +49,6 @@ The project contains, also, three servlets:
 - `LoginServlet.java`: Invoked when the user attempts to login. The servlet retrieves the `auth0.client_id` and `auth0.domain` parameters, appends the values at the request, and forwards the request to the `login.jsp` resource.
 - `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the URL specified by the parameter `auth0.onLogoutRedirectTo`. We will cover what this parameter is and how it is set later on in this document.
 
-__NOTE__: The seed project also includes several css, js, and image files, which are not listed in this document for brevity. These files can be found under the `webapp` directory.
-
 
 ## Create an application
 
