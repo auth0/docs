@@ -98,10 +98,10 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
         <h3 class="text-muted">App.com</h3>
     </div>
     <div class="jumbotron">
-        <h3>Hello <%= "${user.name}" %>!</h3>
-        <p class="lead">Your nickname is: <%= "${user.nickname}" %></p>
-        <p class="lead">Your user id is: <%= "${user.userId}" %></p>
-        <p><img class="avatar" src="<%= "${user.picture}" %>"/></p>
+!        <h3>Hello {user.name}!</h3>
+!        <p class="lead">Your nickname is: {user.nickname}</p>
+!        <p class="lead">Your user id is: {user.userId}</p>
+!        <p><img class="avatar" src="{user.picture}"/></p>
     </div>
     <div class="row marketing">
         <div class="col-lg-6">
@@ -127,7 +127,7 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
 
 <script type="text/javascript">
     $(function () {
-        $.growl({title: "Welcome  <%= "${user.nickname}" %>", message: "We hope you enjoy using this site!"});
+!        $.growl({title: "Welcome {user.nickname}", message: "We hope you enjoy using this site!"});
     });
     $("#logout").click(function(e) {
         e.preventDefault();
@@ -135,7 +135,7 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
         $("#password-login").removeClass("active");
         $("#logout").addClass("active");
         // assumes we are not part of SSO so just logout of local session
-        window.location = "<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>/logout";
+!        window.location = "{fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}/logout";
     });
 </script>
 
