@@ -54,7 +54,7 @@ __NOTE__: The seed project also includes several css, js, and image files, which
 
 ## Create an application
 
-<%= include('../../_includes/_java_new_app') %>_
+<%= include('../../_includes/_java_new_app') %>
 
 ![App Dashboard](/media/articles/server-platforms/java/app_dashboard.png)
 
