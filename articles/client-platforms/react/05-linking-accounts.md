@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/05-Linking-Accounts',
+  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/05-Linking-Accounts'
 }) %>_
 
 In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can urge the user to link their account to an OAuth provider like Facebook or Google. In this article you'll see how to update the application created in [User profile](/quickstart/spa/react/03-user-profile) to allow the user to link or unlink other OAuth provides to his account.
