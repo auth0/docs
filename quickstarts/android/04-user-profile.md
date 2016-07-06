@@ -1,22 +1,6 @@
 ---
-title: Auth0 Android Quickstarts - 1. Login
+title: Auth0 Android Quickstarts - 4. User Profile
 description: This tutorial will show you how to use Lock10 to get the user's profile data.
-name: Android
-alias:
-  - Android
-  - User Profile
-  - Quickstart
-  - Mobile 
-language:
-  - Android
-hybrid: false
-image: /media/platforms/android.png
-tags:
-  - quickstart
-  - User Profile
-alias:
-  - android
-seo_alias: android
 ---
 
 ## Android - User Profile Tutorial
@@ -33,11 +17,11 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-Be sure that you have completed the [Basic Login](01-login.md) and the [Session Handling](03-sessionhandling.md) Quickstarts.
+Be sure that you have completed the [Basic Login](01-login.md) and the [Session Handling](03-session-handling.md) Quickstarts.
 
 ### 1. Instantiate the Authentication Client
 
-Your first step is instantiate the authentication api client. This will be used to request the user profile's data.
+Your first step is instantiate the authentication API client. This will be used to request the user profile's data.
 
 ```Android
 AuthenticationAPIClient client = new AuthenticationAPIClient(
@@ -48,7 +32,7 @@ new Auth0(Auth0ClientID, Auth0DomainID));
 
 ### 2. Request User Data
 
-Using your previously stored credentials (in this example, stored in the Application Singleton) to request the data.
+Use your previously stored credentials (in this example, stored in the Application Singleton) to request the data.
 
         client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
                 .start(new BaseCallback<UserProfile>() {
@@ -62,8 +46,8 @@ Using your previously stored credentials (in this example, stored in the Applica
         
 ### 3. Access the data inside the UserProfile
 
-At this point, you already have access to the UserProfile.
-You can use the data wherever you need it.
+At this point, you already have access to the ``UserProfile``.
+You can use this data wherever you need it.
 
 Some examples are:
 
