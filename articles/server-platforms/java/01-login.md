@@ -134,7 +134,7 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
 
 <script type="text/javascript">
     $(function () {
-!        $.growl({title: "Welcome {user.nickname}", message: "We hope you enjoy using this site!"});
+        $.growl({title: "Welcome <%= "${user.nickname}" %>", message: "We hope you enjoy using this site!"});
     });
     $("#logout").click(function(e) {
         e.preventDefault();
