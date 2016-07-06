@@ -40,7 +40,7 @@ To know if a user is authenticated, just use `tokenNotExpired` from [angular2-jw
 
 ```typescript
 /* ===== ./auth.service.ts ===== */
-import {tokenNotExpired} from 'angular2-jwt';
+import { tokenNotExpired } from 'angular2-jwt';
 ...
 public authenticated() {
   // Check if there's an unexpired JWT
@@ -54,14 +54,23 @@ public authenticated() {
 To use this, just inject the `Auth` service into your component
 
 ```typescript
+/* ===== app/app.component.ts ===== */
+@Component({
+    selector: 'my-app',
+    providers: [ Auth ],
+    directives: [ ROUTER_DIRECTIVES ],
+    templateUrl: 'app/app.template.html'
+})
+
 export class AppComponent {
   constructor(private auth: Auth) {}
-}
+};
 ```
 
 and then in your component's template
 
 ```html
+/* ===== app/app.template.html ===== */
 <div class="navbar-header">
   <a class="navbar-brand" href="#">Auth0 - Angular 2</a>
   <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>

@@ -67,7 +67,8 @@ export class Auth {
 To see user profile information, inject `Auth` service in a component:
 
 ```typescript
-export class Home {
+/* ===== ./home.component.ts ===== */
+export class HomeComponent {
   constructor(private auth: Auth) {}
 }
 ```
@@ -75,6 +76,7 @@ export class Home {
 and then display the userProfile attributes in your component's template:
 
 ```html
+/* ===== ./home.template.ts ===== */
 <div *ngIf="auth.authenticated() && auth.userProfile">
   <h4>You are logged in</h4>
   <div class="row">
@@ -97,6 +99,8 @@ and then display the userProfile attributes in your component's template:
 You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#additional-sign-up-fields).
 
 ```typescript
+/* ===== ./auth.service.ts ===== */
+...
   // Configure Auth0
   lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     additionalSignUpFields: [{
@@ -109,11 +113,13 @@ You can add input fields to the sign up form adding to the options parameter the
       }
     }]
   });
+...
 ```
 Each `additionalSignUpFields` value is saved into the profile in the `user_metadata` attribute.
 To display, just read it from profile `user_metadata`:
 
 ```html
+/* ===== ./profile_show.template.html ===== */
 <strong>Address: </strong> {{auth.userProfile.user_metadata.address}}
 ```
 
@@ -124,9 +130,9 @@ To update user profile info, you need to hit [user api endpoint](https://auth0.c
 First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
 
 ```typescript
-<!-- ===== ./main.ts ===== -->
-import {AUTH_PROVIDERS} from 'angular2-jwt';
-import {AppComponent} from './app.component';
+/* ===== app/main.ts ===== */
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AppComponent } from './app.component';
 
 bootstrap(AppComponent, [
   ...
@@ -139,8 +145,8 @@ Then you can import `AuthHttp` in your component and make the authenticated requ
 
 
 ```typescript
-// edit_profile.component.ts
-import {AuthHttp} from 'angular2-jwt';
+/* ===== app/edit_profile.component.ts ===== */
+import { AuthHttp } from 'angular2-jwt';
 
 export class ProfileEdit {
   address: String
@@ -181,7 +187,7 @@ export class ProfileEdit {
 So just add a form to add/edit the attribute `address` in the `user_metadata`:
 
 ```html
-//profile_edit.template.html
+/* ===== app/profile_edit.template.html ===== */
 <div class="row">
   <div class="col-md-6">
     <h3>Profile</h3>
