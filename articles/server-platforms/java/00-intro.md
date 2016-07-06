@@ -100,4 +100,4 @@ As you can see in the seed project, there are many customizable attributes in th
 - `auth0.redirect_on_authentication_error`: The URL context path for the page to redirect to upon authentication failure. Should start with `/`.
 
 
-You are now ready to continue with [login](/quickstart/webapp/java/01-login) tutorial in order to implement basic login using [Lock](/libraries/lock).
+You are now ready to continue with [login](/docs/quickstart/webapp/java/01-login) tutorial in order to implement basic login using [Lock](/libraries/lock).
