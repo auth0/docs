@@ -1,5 +1,4 @@
-Rules are one of the cool features of Auth0. Reason for it's coolness is it's flexibility which gives you the ability to extend what Auth0 has to offer. 
-They are JavaScript functions which works like middlewares. To see a detailed description, please refer to [the full docs](https://auth0.com/docs/rules)
+Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](https://auth0.com/docs/rules).
 
 #### Create a rule
 
