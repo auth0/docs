@@ -62,7 +62,7 @@ First, in your customized login method, instantiate the Authentication API:
 
 ```android
 private void login(String email, String password) {
-        Auth0 auth0 = new Auth0(CLIENTID, AUTH0DOMAINID);
+        Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
         AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
         
         // proper login
@@ -86,7 +86,7 @@ Then, login using the newly created client:
             }
         });
 ```
-> It's suggested to add both the Auth0DomainID and Auth0ClientID to the Strings.xml file rather than hardcode them in the new Auth0() constructor method.
+> It's suggested to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file rather than hardcode them in the ``new Auth0()`` constructor method.
 
 > There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example. 
 
