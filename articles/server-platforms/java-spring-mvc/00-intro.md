@@ -19,38 +19,70 @@ The seed is a regular Java Spring app, with all the Auth0 dependencies set, but 
 Instead you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/00-Start) as a starting point and applies to it the configuration of each step, so for example the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/00-Start) plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
 
 
+### Seed project structure
+
+Let's take some time and explain how our [seed project](https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/00-Start) is structured. 
 
 
+```
+- src
+-- main
+---- java
+------ com
+-------- auth0
+---------- example
+------------ App.java
+------------ CallbackController.java
+------------ ErrorController.java
+------------ HomeController.java
+------------ LoginController.java
+------------ LogoutController.java
+---- resources
+------ application.properties
+------ auth0.properties
+---- webapp
+------ WEB-INF
+-------- jsp
+---------- home.jsp
+---------- login.jsp
+-------- web.xml
+- pom.xml
+```
+
+The project contains two JSP: the `login.jsp` that will handle the user login, and the `home.jsp` which will display user information after a successful login and provide the option to logout.
+
+The project contains also the following `.java` files:
+- App.java
+- CallbackController.java
+- ErrorController.java
+- HomeController.java
+- LoginController.java
+- LogoutController.java
 
 
+## Create an application
+
+<%= include('../../_includes/_java_new_app') %>
+
+![App Dashboard](/media/articles/java/app_dashboard.png)
 
 
+## Configure callback URLs
+
+Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+
+![Callback error](/media/articles/java/callback_error.png)
+
+If you follow our seed project or the samples based on it, the values you must configure are:
+- Allowed Callback URL: `http://localhost:3099/callback`
+- Allowed Logout URLs: `http://localhost:3099/logout`
 
 
+## Setup dependencies
 
-======================
+To integrate your Java Spring application with Auth0 you need to have the following dependencies set:
 
-
-## Java Spring MVC Web App Tutorial
-
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Java 1.7
-* Maven 3.3
-:::
-
-<%= include('../../_includes/_github', {
-link: 'https://github.com/auth0-samples/auth0-spring-mvc-sample',
-}) %>
-
-If you have an existing Java Spring Web App, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-spring-mvc).
-
-### 1. Add Auth0 dependencies
-
-You need to add the `auth0-spring-mvc` dependency.
+- [auth0-spring-mvc](https://github.com/auth0/auth0-spring-mvc): is the Java library that allows you to use Auth0 with Java for Spring MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to configuration.
 
 If you are using maven, add the dependency to your `pom.xml`:
 
@@ -60,11 +92,10 @@ If you are using Gradle, add it to the dependencies block:
 
 ${snippet(meta.snippets.dependenciesGradle)}
 
-See the [seed project](https://github.com/auth0-samples/auth0-spring-mvc-sample) to understand the proposed overall structure of your `pom.xml`.
 
-### 2. Configure your app
+## Configure your Java Spring app
 
-We need to configure `auth0-spring-mvc` to use our Auth0 credentials. For that, just create a file called `auth0.properties` and place it under `src/main/resources`. Set the following settings:
+Your Java Spring app needs some information in order to authenticate against your Auth0 account. Create a file called `auth0.properties` and place it under `src/main/resources`. Set the following settings:
 
 ${snippet(meta.snippets.setup)}
 
@@ -81,88 +112,6 @@ Here is a breakdown of what each attribute means:
 - `auth0.servletFilterEnabled`: A boolean value that switches having an authentication filter enabled or not.
 
 
-### 3. Add Auth0 callback handler
-
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK.
-
-Simply define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
-
-Example usage: extend this class and define Controller in subclass.
-
-${snippet(meta.snippets.use)}
-
-### 4. Triggering login manually or integrating the Auth0Lock
-
-Here is a recommended login setup using Lock:
-
-```html
-${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
-  <script src="/js/jquery.growl.js" type="text/javascript"></script>
-</head>
-<body>
-  <div class="container">
-    <script type="text/javascript">
-      $(function () {
-        var error = {error};
-        if (error) {
-          $.growl.error({message: "An error was detected. Please log in"});
-        } else {
-          $.growl({title: "Welcome!", message: "Please log in"});
-        }
-      });
-
-      $(function () {
-        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-        lock.showSignin({
-          authParams: {
-            state: {state},
-            // change scopes to whatever you like, see https://auth0.com/docs/scopes
-            // claims are added to JWT id_token - openid profile gives everything
-            scope: 'openid user_id name nickname email picture'
-          },
-          responseType: 'code',
-          popup: false,
-          callbackURL: '${account.callback}'
-        });
-      });
-    </script>
-  </div>
-</body>
-</html>
-```
-
-By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F`, where `xyz` is a randomly generated UUID.
-
-The NonceFactory can be used to generate such a nonce value. State may be needed to hold other attribute values hence why it has its own keyed value of `nonce=B4AD596E418F7CE02A703B42F60BAD8F`. For instance in SSO you may need an `externalCallbackUrl` which also needs to be stored down in the state param: `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback`.
+You are now ready to continue with [login](/quickstart/webapp/java-spring-mvc/01-login) tutorial in order to implement basic login using [Lock](/libraries/lock).
 
 
-### 5. Accessing user information
-
-Depending on what `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
-The full user profile information is available as a session object keyed on `Auth0User`, you can simply call `SessionUtils.getAuth0User()`. However, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
-
-```java
-@RequestMapping(value="/portal/home", method = RequestMethod.GET)
-protected String home(final Map<String, Object> model, final Principal principal) {
-  logger.info("Home page");
-  final Auth0User user = (Auth0User) principal;
-  logger.info("Principal name: "  user.getName());
-  model.put("user", user);
-  return "home";
-}
-```
-
-The value `/portal/home` should be replaced with the valid one for your implementation.
-
-### 6. You're done!
-
-You have configured your Java Webapp to use Auth0. Congrats, you're awesome!
