@@ -48,7 +48,7 @@ private LockCallback callback = new AuthenticationCallback() {
 In the case your current tokenID didn't expire, you can use it to get a new one, with a newer expire date.
 
         String idToken = // GET STORED TOKEN ID
-        AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0(CLIENT_ID, AUTH0_DOMAIN));
+        AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
         
         client.delegationWithIdToken(idToken).start(new BaseCallback<Delegation>() {
             @Override
@@ -72,7 +72,7 @@ If the ``tokenID`` already expired, you can always use the ``refreshToken`` to g
 
 
         String refreshToken = // GET STORED REFRESH ID
-        AuthenticationAPIClient(new Auth0(CLIENT_ID, AUTH0_DOMAIN));
+        AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
         
         authenticationClient.delegationWithRefreshToken(refreshToken).start(new BaseCallback<Delegation>() {
             @Override
