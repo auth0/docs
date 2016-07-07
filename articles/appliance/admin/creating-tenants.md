@@ -122,12 +122,7 @@ This snippet shows how you can get an access token for the newly-created tenant,
     "queryString" : [],
     "postData" : {
         "mimeType": "application/json",
-        "text": "{
-            "audience": "https://{NEW_TENANT_DOMAIN}/api/v2/",
-            "grant_type": "client_credentials",
-            "client_id": "{MANAGEMENT_CLIENT_ID}",
-            "client_secret": "{MANAGEMENT_CLIENT_SECRET}"
-        }"
+        "text": "{\"audience\": \"https://{NEW_TENANT_DOMAIN}/api/v2/\", \"grant_type\": \"client_credentials\", \"client_id\": \"{MANAGEMENT_CLIENT_ID}\", \"client_secret\": \"{MANAGEMENT_CLIENT_SECRET}\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
