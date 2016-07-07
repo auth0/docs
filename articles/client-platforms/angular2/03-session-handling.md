@@ -4,7 +4,7 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/03-Session-Handling',
 }) %>
 
 Previous steps explain how to login using both `Lock` and `Auth0`. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. Let's see how to do it.
