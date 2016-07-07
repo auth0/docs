@@ -8,7 +8,7 @@ If after you click on the IdP button (Facebook for example), the Webapp you buil
 
 ![Widget redirect](http://cl.ly/image/2o423i362s2P/WidgetRedirect.gif)
 
-You can [click here](/libraries/lock/types-of-applications#redirect-mode) to learn how to implement Redirect mode with Single Page Apps, or you can [click here](/libraries/lock/types-of-applications#redirect-mode-1) to learn how to implement it with Regular WebApps.
+You can [click here](/libraries/lock/v9/types-of-applications#redirect-mode) to learn how to implement Redirect mode with Single Page Apps, or you can [click here](/libraries/lock/v9/types-of-applications#redirect-mode-1) to learn how to implement it with Regular WebApps.
 
 ## Popup Mode
 
@@ -18,7 +18,7 @@ If after you click on the IdP button (Facebook for example), a popup (new tab or
 
 ![Widget Popup](https://cloudup.com/cg8u9kVV5Vh+)
 
-You can [click here](/libraries/lock/types-of-applications#popup-mode) to learn how to implement Popup mode with Single Page Apps.
+You can [click here](/libraries/lock/v9/types-of-applications#popup-mode) to learn how to implement Popup mode with Single Page Apps.
 
 ### Database connections and popup mode
 

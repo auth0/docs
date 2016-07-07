@@ -1,5 +1,5 @@
 ---
-url: /libraries/lock
+url: /libraries/lock/v9
 ---
 
 [![Auth0](https://cloudup.com/c2evgl2cz3j+)](http://auth0.com)
@@ -273,7 +273,7 @@ If you have found a bug or if you have a feature request, please report them at 
 * [Release process][release-process] notes.
 * [Auth0Lock playground][playground-url]
 * [Lock Authentication Parameters][sending-authentication-parameters]
-* [Using Refresh Tokens](/libraries/lock/using-a-refresh-token)
+* [Using Refresh Tokens](/libraries/lock/v9/using-a-refresh-token)
 * Legacy **Auth0Widget** [Migration guide][migration-guide] to **Auth0Lock**
 
 <!-- Vaaaaarrsss -->
@@ -294,24 +294,24 @@ If you have found a bug or if you have a feature request, please report them at 
 [downloads-image]: http://img.shields.io/npm/dm/auth0-lock.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/auth0-lock
 
-[lock-initialization]: /libraries/lock/initialization
-[lock-customization]: /libraries/lock/customization
-[application-types]: /libraries/lock/types-of-applications
-[display-modes]: /libraries/lock/display-modes
-[spa-notes]: /libraries/lock/types-of-applications#single-page-app
-[webapps-notes]: /libraries/lock/types-of-applications#regular-webapp
-[authentication-modes]: /libraries/lock/authentication-modes
-[popup-mode]: /libraries/lock/authentication-modes#popup-mode
-[redirect-mode]: /libraries/lock/authentication-modes#redirect-mode
-[ui-customization]: /libraries/lock/ui-customization
-[error-customization]: /libraries/lock/customizing-error-messages
-[i18n-notes]: /libraries/lock/i18n
-[events-notes]: /libraries/lock/events
+[lock-initialization]: /libraries/lock/v9/initialization
+[lock-customization]: /libraries/lock/v9/customization
+[application-types]: /libraries/lock/v9/types-of-applications
+[display-modes]: /libraries/lock/v9/display-modes
+[spa-notes]: /libraries/lock/v9/types-of-applications#single-page-app
+[webapps-notes]: /libraries/lock/v9/types-of-applications#regular-webapp
+[authentication-modes]: /libraries/lock/v9/authentication-modes
+[popup-mode]: /libraries/lock/v9/authentication-modes#popup-mode
+[redirect-mode]: /libraries/lock/v9/authentication-modes#redirect-mode
+[ui-customization]: /libraries/lock/v9/ui-customization
+[error-customization]: /libraries/lock/v9/customizing-error-messages
+[i18n-notes]: /libraries/lock/v9/i18n
+[events-notes]: /libraries/lock/v9/events
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
 [playground-url]: http://auth0.github.com/playground
-[sending-authentication-parameters]: /libraries/lock/sending-authentication-parameters
-[migration-guide]: /libraries/lock/migration-guide
+[sending-authentication-parameters]: /libraries/lock/v9/sending-authentication-parameters
+[migration-guide]: /libraries/lock/v9/migration-guide
 
 ## Start using Auth0Lock
 

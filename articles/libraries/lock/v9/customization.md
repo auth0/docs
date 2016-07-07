@@ -264,7 +264,7 @@ lock.show({
 
 ### popup {Boolean}
 
-If set to true, shows a popup when trying to login with a Social or Enterprise IdP. For more information, [read this](/libraries/lock/authentication-modes#popup-mode). Defaults to `true` when a `callback` is set, otherwise `false`.
+If set to true, shows a popup when trying to login with a Social or Enterprise IdP. For more information, [read this](/libraries/lock/v9/authentication-modes#popup-mode). Defaults to `true` when a `callback` is set, otherwise `false`.
 
 ```js
 lock.show({
@@ -468,9 +468,9 @@ Internally set from `callback` parameter
 
 
 
-[authparams-link]: /libraries/lock/sending-authentication-parameters
+[authparams-link]: /libraries/lock/v9/sending-authentication-parameters
 [windowopen-link]: https://developer.mozilla.org/en-US/docs/Web/API/Window.open#Position_and_size_features
 
-[lock-i18n]: /libraries/lock/i18n
-[lock-custom-errors]: /libraries/lock/customizing-error-messages
-[ui-customization]: /libraries/lock/ui-customization
+[lock-i18n]: /libraries/lock/v9/i18n
+[lock-custom-errors]: /libraries/lock/v9/customizing-error-messages
+[ui-customization]: /libraries/lock/v9/ui-customization
