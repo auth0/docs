@@ -27,7 +27,7 @@ This tutorial assumes you are already familiar with Auth0 and how to Sign up and
 
 ### 1. Remember me?
 
-To get your users information, you will need the user's token. You can get it either after your sign in ([Sing in Tutorial](01-login.md)) or getting it from your Keychain ([Session Handling Tutorial](03-session-handling.md)).
+To get your users information, you will need his token. You can get it either after your sign in ([Sing in Tutorial](01-login.md)) or getting it from your Keychain ([Session Handling Tutorial](03-session-handling.md)).
 Once you have the user's token, you can use it to restore the user's profile:
 
 ```objc
@@ -66,7 +66,7 @@ On the profile you can get the user's name, email, when was the last time the us
 
 #### iii. Everything else
 
-And you can store your own app information for the user in the metadata dictionary.
+Also you can store your own app information for the user in the `userMetadata` dictionary.
 
 ```objc
     self.userFirstNameField.text = [self.userProfile.userMetadata objectForKey:@"firstName"];
@@ -79,9 +79,11 @@ And you can store your own app information for the user in the metadata dictiona
 This metadata field can be used to store any information about the user your app needs. You only need to send a dictionary with the fields that need updating.
 
 ```objc
-    NSDictionary* profileMetadata = [[NSDictionary alloc]
-                                initWithObjects:@[self.userFirstNameField.text,self.userLastNameField.text,self.userCountryField.text]
-                                forKeys:@[@"firstName",@"lastName",@"country"]];
+    NSDictionary* profileMetadata = @{
+                                @"firstName": self.userFirstNameField.text, 
+                                @"lastName":self.userLastNameField.text,
+                                @"country":self.userCountryField.text};
+
     A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:userToken url:domain];
     
     [authApi patchUserWithIdentifier:self.userProfile.userId userMetadata:profileMetadata callback:^(NSError * _Nullable error, NSDictionary<NSString *,id> * _Nullable data) {
