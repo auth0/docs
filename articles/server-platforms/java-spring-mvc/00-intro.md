@@ -51,13 +51,15 @@ Let's take some time and explain how our [seed project](https://github.com/auth0
 
 The project contains two JSP: the `login.jsp` that will handle the user login, and the `home.jsp` which will display user information after a successful login and provide the option to logout.
 
-The project contains also the following `.java` files:
-- App.java
-- CallbackController.java
-- ErrorController.java
-- HomeController.java
-- LoginController.java
-- LogoutController.java
+The project contains also the following files:
+- `application.properties`: Configuration file that holds information such as the port your app will use, the logging level, etc.
+- `auth0.properties`: Configuration file that holds Auth0 related information, like the client id, client secret, etc. You can find more detailed information in the [Configure your Java Spring app](#configure-your-java-spring-app) section of this document.
+- `App.java`: A Java class that uses Spring Boot’s `SpringApplication.run()` method to launch the application.
+- `CallbackController.java`: The controller that handles the callback.
+- `ErrorController.java`: The controller that handles the errors.
+- `HomeController.java`: The controller that handles the user information retrieval.
+- `LoginController.java`: The controller that handles the login.
+- `LogoutController.java`: The controller that handles the logouts.
 
 
 ## Create an application
