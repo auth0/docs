@@ -7,11 +7,11 @@ description: This tutorial will show you how to use Lock10 to mantain a session 
 
 This tutorial will show you how to use Lock10 to mantain an active session with Auth0.
 
-The user's Credentials, contains three kind of tokens:
+The user's ``credentials`` class contain three kind of tokens:
 
-* idToken: Identity Token that proves the identity of the user.
-* accessToken: Access Token used by Auth0 API.
-* refreshToken: Refresh Token that can be used to request new tokens without signing in again.
+* ``idToken``: Identity Token that proves the identity of the user.
+* ``accessToken``: Access Token used by Auth0 API.
+* ``refreshToken``: Refresh Token that can be used to request new tokens without signing in again.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -25,9 +25,9 @@ This tutorial and seed project have been tested with the following:
 
 Be sure that you have completed the [Basic Login](01-login.md) Quickstart.
 
-### 1. Save the User's Credential
+### 1. Save the User's Credentials
 
-Your first step is to save, through a secure method, the user's credentials obtained in the login success response. We won't cover how to do that on this tutorial, feel free to save it.
+Your first step is to save, through a secure method, the user's credentials obtained in the login success response. We won't cover how to do that on this tutorial, feel free to save it as you like.
 
 ```Android
 private LockCallback callback = new AuthenticationCallback() {
@@ -68,7 +68,7 @@ In the case your current tokenID didn't expire, you can use it to get a new one,
 
 #### ii. Using refreshToken
 
-If the tokenID already expired, you can always use the refreshToken to get a new one, without having to login again. For this reason, this token must be securely saved.
+If the ``tokenID`` already expired, you can always use the ``refreshToken`` to get a new one, without having to login again. For this reason, this token must be securely saved.
 
 
         String refreshToken = // GET STORED REFRESH ID
