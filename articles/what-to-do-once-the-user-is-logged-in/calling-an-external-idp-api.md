@@ -20,17 +20,29 @@ The basic flow is the following:
 
 ## Create the client
 
-To create a client to interact with the Auth0 Management API, see: [API Authorization: Using the Management API](/api-auth/config/using-the-auth0-dashboard).
+You will need to create a client that you will call from your service to interact with the Auth0 Management API to obtain an Auth0 access token.
 
-**NOTE:** Make sure that you create the client under the Auth0 Management API and that this new client can be granted the `read:user_idp_tokens` scope.
+To create the client, follow these steps:
 
-## Create a service
+1. Go to the [Clients](${uiURL}/#/applications) section of the Auth0 dashboard and click **Create Client**. Select **Non Interactive Clients** and click **Create**. Once the cient is created, copy the `Client ID` and `Client Secret` from the **Settings** page.
+
+2. Next, go to the [APIs](${uiURL}/#/apis) section of the Auth0 dashboard and select the **Auth0 Management API**.
+
+    **NOTE:** If you do not see the **APIs** option in the left menu, you must enable it. Go to [Account Settings > Advanced](${uiURL}/#/account/advanced) and select **Enable APIs Section**.
+
+3. Select the **Non Interactive Clients** tab and authorize the app you just created.
+
+4. From the list of available scopes, select `read:user_idp_tokens` and click **Update**.
+
+For more information on creating a client to access the Auth0 API, see: [API Authorization: Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard).
+
+## Create the service
 
 Create a service to execute the following three steps:
 
 ### 1. Obtain an Auth0 access token
 
-Execute a client credentials exchange to obtain an access token to get authorized access to the Auth0 Management API. 
+To execute a client credentials exchange to obtain an access token to get authorized access to the Auth0 Management API, include the following code:
 
 ```har
 {
@@ -49,8 +61,8 @@ Execute a client credentials exchange to obtain an access token to get authorize
 The body of the request must include the following:
 
 - `audience`: APIv2 base url - `https://${account.namespace}.auth0.com/api/v2/` 
-- `client_id`: The client id of the new client you just created.
-- `client_secret`:  The client secret of the new client you just created.
+- `client_id`: The client id of the new client you created.
+- `client_secret`:  The client secret of the new client you created.
 - `grant_type`: Grant type should be `client_credentials`.
 
 ### 2. Get the user profile
