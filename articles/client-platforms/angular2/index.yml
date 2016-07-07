@@ -26,7 +26,7 @@ articles:
   - 03-session-handling
   - 04-user-profile
   - 05-linking-accounts
-  - 06-calling-apis
-  - 07-rules
-  - 08-authorization
+  - 06-rules
+  - 07-authorization
+  - 08-calling-apis
   - 10-customizing-lock

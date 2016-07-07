@@ -4,7 +4,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/04-Linking-Accounts',
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/05-Linking-Accounts',
 }) %>_
 
 In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can urge the user to link their account to an OAuth provider like Facebook or Google.

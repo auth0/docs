@@ -4,7 +4,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/03-User-Profile',
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/04-User-Profile',
 }) %>
 
 In the [Login step](/quickstart/spa/angular2/01-login) of this tutorial, you find a detailed description of how to use auth0 lock widget to show a login window and authenticate the user. For this step, the focus is to present a way to retrieve and show the user profile information, using same `Auth` service defined in login tutorial.
