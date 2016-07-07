@@ -7,6 +7,13 @@ description: This tutorial will show you how to use the Auth0 Java SDK to add au
 link: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
 }) %>
 
+### Add Auth0 callback handler
+
+You can use the `Auth0CallbackHandler` provided by the SDK to authenticate the user. This should work as-is based on the configuration you setup in `web.xml`.
+
+For more fine-grained control, you can inherit the library version of `Auth0CallbackHandler` to override methods for tailored behavior. See the [Auth0 Servlet ReadMe](https://github.com/auth0/auth0-servlet) on GitHub for details.
+
+
 ### Display Lock widget
 
 In order to setup [Lock](/libraries/lock) update the `login.jsp` as follows:
@@ -67,6 +74,12 @@ The `state` may need to hold other attribute values. For instance, in SSO you ma
 
 
 ### Display user information
+
+Depending on which `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
+
+The full user profile information is available as a session object keyed on `Auth0User`, you can call `SessionUtils.getAuth0User()` to retrieve it. 
+
+However, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
 
 Once the user has successfully authenticated, the application displays the `home.jsp`. In order to display some user information, as retrieved from Auth0, update the `home.jsp` as follows:
 
@@ -145,15 +158,3 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
 </html>
 ```
 
-Depending on which `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
-
-The full user profile information is available as a session object keyed on `Auth0User`, you can call `SessionUtils.getAuth0User()` to retrieve it. 
-
-However, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
-
-
-### Add Auth0 callback handler
-
-You can use the `Auth0CallbackHandler` provided by the SDK to authenticate the user. This should work as-is based on the configuration you setup in `web.xml`.
-
-For more fine-grained control, you can inherit the library version of `Auth0CallbackHandler` to override methods for tailored behavior. See the [Auth0 Servlet ReadMe](https://github.com/auth0/auth0-servlet) on GitHub for details.
