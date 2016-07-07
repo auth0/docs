@@ -34,6 +34,8 @@ To create the client, follow these steps:
 
 4. From the list of available scopes, select `read:user_idp_tokens` and click **Update**.
 
+![Auth0 Management API Scopes](/media/articles/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api/scopes.png)
+
 For more information on creating a client to access the Auth0 API, see: [API Authorization: Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 ## Create the service
