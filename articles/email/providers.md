@@ -48,7 +48,7 @@ For more information about SES credentials, visit [Using Credentials With Amazon
 
 8. Click **Save**.
 
-Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${uiURL}/#/logs) for any failures.
 
 The [Amazon SES console](https://console.aws.amazon.com/ses) will now display all emails which have been sent to your users.
 
@@ -73,7 +73,7 @@ The [Amazon SES console](https://console.aws.amazon.com/ses) will now display al
 
 7. Click **Save**.
 
-Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${uiURL}/#/logs) for any failures.
 
 The [Amazon SES console](https://console.aws.amazon.com/ses) will now display all emails which have been sent to your users.
 
@@ -89,7 +89,7 @@ The [Amazon SES console](https://console.aws.amazon.com/ses) will now display al
 
     ![](/media/articles/email/providers/mandrill-key.png)
 
-Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${uiURL}/#/logs) for any failures.
 
 The [Outbound Activity](https://mandrillapp.com/activity) page in Mandrill will now display all emails which have been sent to your users, including the subject and the delivery status of each message.
 
@@ -119,7 +119,7 @@ Now you can send a test email using the **SEND TEST EMAIL** button on the [Custo
 
 ![](/media/articles/email/providers/sendgrid-test.png)
 
-**NOTE:** If you do not receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
+**NOTE:** If you do not receive an email after a few minutes, please check your [dashboard logs](${uiURL}/#/logs) for any failures.
 
 The [Email Activity](https://sendgrid.com/logs/index) page in SendGrid will now display all emails which have been sent to your users and the delivery status of each message.
 
@@ -145,7 +145,7 @@ To be able to use your own SMTP server:
 
 **NOTE:** Common ports include 25, 465, and 587. Please avoid using port 25 if you can, since many providers have limitations on this port.
 
-Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](https://manage.auth0.com/#/logs) for any failures.
+Now you can send a test email using the **SEND TEST EMAIL** button on the [Custom Email Provider](${uiURL}/#/emails/provider) page of the Auth0 dashboard. If you don't receive an email after a few minutes, please check your [dashboard logs](${uiURL}/#/logs) for any failures.
 
 ::: panel-info Test services
 SMTP makes it easy to setup test services that allow you to test that your setup is working without spamming your users. For more information, see: [Set up a Test SMTP Provider](/email/testing) .
