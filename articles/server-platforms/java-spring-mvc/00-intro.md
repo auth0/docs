@@ -57,7 +57,7 @@ The project contains also the following files:
 - `App.java`: A Java class that uses Spring Boot’s `SpringApplication.run()` method to launch the application.
 - `CallbackController.java`: The controller that handles the callback.
 - `ErrorController.java`: The controller that handles the errors.
-- `HomeController.java`: The controller that handles the user information retrieval.
+- `HomeController.java`: The controller that handles landing page requests.
 - `LoginController.java`: The controller that handles the login.
 - `LogoutController.java`: The controller that handles the logouts.
 
