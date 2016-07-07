@@ -96,8 +96,8 @@ You may use the following call create a tenant. Once the tenant is created, the 
     ],
     "queryString" : [],
     "postData" : {
-        "mimeType": "application/json",
-        "text": "{\"name\": \"customer-1\", \"owners\": [\"me@email.com\"]}"
+        "name": "customer-1",
+        "owners": ["me@email.com"]
      },
      "headersSize" : -1,
      "bodySize" : -1,
