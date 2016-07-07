@@ -48,3 +48,7 @@ This is how it looks like using custom logo, color, and title:
 
 
 <!-- ### CSS specification -->
+
+### Done! 
+
+You have implemented the customization of the Lock widget.

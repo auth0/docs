@@ -8,7 +8,7 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
 }) %>
 
 
-#### Login
+### Login
 
 The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there. 
 
@@ -86,5 +86,6 @@ The lock widget will pop up showing a Login form, when you click the Login butto
 ${browser}
 
 
+### Done!
 
-Done. You've implemented Login and SignUp with Auth0 in your Angular2 project.
+You've implemented Login and SignUp with Auth0 in your Angular2 project.

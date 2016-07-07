@@ -79,3 +79,7 @@ public isAdmin() {
 ```
 
 That's it. Only if you login with a mail that contains `@example` you will be able to access `/admin` route.
+
+### Done!
+
+You have implement one of the availables way to add authorization to your app.

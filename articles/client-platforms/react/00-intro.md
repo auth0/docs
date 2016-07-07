@@ -33,9 +33,8 @@ You can skip this step if you think you can find your way around or just looking
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 ### 2. Configure Callback URLs
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
 
-![Callback error](/media/articles/angularjs/callback_error2.png)
+<%= include('../_includes/_callback-url-introduction') %>
 
 ### 3. Structure
 Throughout the steps, the seed and samples will have the following directory structure:
