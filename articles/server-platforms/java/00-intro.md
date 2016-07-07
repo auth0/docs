@@ -5,7 +5,7 @@ description: This tutorial will show you how to use the Auth0 Java SDK to add au
 
 This multi-step quickstart will guide you through the process of managing authentication in your Java Servlet Web Application with Auth0.
 
-Auth0 provides and manages a [Servlet SDK](https://github.com/auth0/auth0-servlet). This SDK allows you to use Auth0 with Java for server-side MVC web apps. It presents s simple servlet based solution without introducing specific frameworks or libraries such as Spring. 
+Auth0 provides and manages a [Servlet SDK](https://github.com/auth0/auth0-servlet). This SDK allows you to use Auth0 with Java for server-side MVC web apps. It presents a simple servlet based solution without introducing specific frameworks or libraries such as Spring. 
 
 __NOTE:__ You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview). 
 
