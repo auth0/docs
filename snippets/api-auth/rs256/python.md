@@ -10,5 +10,5 @@ cert_str = "-----BEGIN CERTIFICATE-----MIIDETCCAfm..."
 cert_obj = load_pem_x509_certificate(cert_str, default_backend())
 public_key = cert_obj.public_key()
 
-jwt.decode(token, public_key, audience='<%= api.identifier %>', algorithms=['RS256'])
+jwt.decode(token, public_key, audience='${"<%= api.identifier %>"}', algorithms=['RS256'])
 ```
