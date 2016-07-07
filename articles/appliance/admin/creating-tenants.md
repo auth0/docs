@@ -62,10 +62,8 @@ Once you have created your New Client Grant, you may use it to complete the foll
     ],
     "queryString" : [],
     "postData" : {
-        "audience": "https://{RTA_DOMAIN}/api/v2/",
-        "grant_type": "client_credentials",
-        "client_id": "{CLIENT_ID}",
-        "client_secret": "{CLIENT_SECRET}"
+        "mimeType": "application/json",
+        "text": "{\"audience\": \"https://{RTA}/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"{CLIENT_ID}\", \"client_secret\": \"{CLIENT_SECRET}\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
@@ -98,8 +96,8 @@ You may use the following call create a tenant. Once the tenant is created, the 
     ],
     "queryString" : [],
     "postData" : {
-        "name": "customer-1",
-        "owners": ["me@email.com"]
+        "mimeType": "application/json",
+		"text": "{\"name\": \"customer-1\",\"owners\": [\"me@email.com\"]}"
      },
      "headersSize" : -1,
      "bodySize" : -1,
@@ -123,10 +121,8 @@ This snippet shows how you can get an access token for the newly-created tenant,
     ],
     "queryString" : [],
     "postData" : {
-        "audience": "https://{NEW_TENANT_DOMAIN}/api/v2/",
-        "grant_type": "client_credentials",
-        "client_id": "{MANAGEMENT_CLIENT_ID}",
-        "client_secret": "{MANAGEMENT_CLIENT_SECRET}"
+        "mimeType": "application/json",
+        "text": "{\"audience\": \"https://{NEW_TENANT_DOMAIN}/api/v2/\", \"grant_type\": \"client_credentials\", \"client_id\": \"{MANAGEMENT_CLIENT_ID}\", \"client_secret\": \"{MANAGEMENT_CLIENT_SECRET}\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,
