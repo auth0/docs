@@ -3,11 +3,11 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Java SDK to add authentication and authorization to your web app.
 ---
 
-### Display Lock widget
-
 <%= include('../../_includes/_github', {
 link: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
 }) %>
+
+### Display Lock widget
 
 In order to setup [Lock](/libraries/lock) update the `login.jsp` as follows:
 
