@@ -1,0 +1,15 @@
+title: Java Spring Security
+image: /media/platforms/spring.png
+tags:
+  - quickstart
+alias:
+  - spring
+  - spring-security
+seo_alias: java spring
+snippets:
+  dependencies: server-platforms/java-spring-security/dependencies
+  dependenciesGradle: server-platforms/java-spring-security/dependencies-gradle
+  setup: server-platforms/java-spring-security/setup
+  use: server-platforms/java-spring-security/use
+articles:
+  - 01-login

@@ -1,0 +1,21 @@
+title: Windows Phone
+language:
+  - Javascript
+  - C#
+hybrid: false
+image: /media/platforms/windows-phone.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/windows-phone/dependencies
+  setup: native-platforms/windows-phone/setup
+  use: native-platforms/windows-phone/use
+alias:
+  - win8
+  - wp8
+  - windows-phone
+  - windows-phone-8
+  - microsoft-phone
+seo_alias: windowsphone
+articles:
+  - 01-login

@@ -1,6 +1,6 @@
 ---
 connection: Evernote
-image: /media/connections/evernote.svg
+image: /media/connections/evernote.png
 seo_alias: evernote
 ---
 

@@ -1,5 +1,5 @@
 ---
-connection: AOL
+connection: AOL Reader
 image: /media/connections/aol.png
 seo_alias: aol
 ---

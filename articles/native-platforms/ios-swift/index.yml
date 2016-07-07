@@ -1,0 +1,17 @@
+title: iOS-Swift
+alias:
+  - ios
+  - swift
+language:
+  - Swift
+framework:
+  - Swift
+image: /media/platforms/ios.png
+tags:
+  - quickstart
+seo_alias: swift
+articles:
+  - 01-login
+  - 02-custom-login
+  - 03-session-handling
+  - 04-user-profile

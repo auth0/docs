@@ -23,9 +23,13 @@ Next, a code will appear, you will have five minutes to scan the code before it 
 
 ![](/media/articles/mfa/guardian-code.png)
 
-Once your code has been successfully scanned, you will see a confirmation screen which includes a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
+After the code has been successfully scanned, you will see a confirmation screen which includes a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
 ![](/media/articles/mfa/guardian-recover-code.png)
+
+> Android Users: After first enrolling using the Guardian app for Android, you will be required to create a passphrase. This recovery passphrase will not be required every time you use the app, but could be required when some Android security settings have been changed. You can use the suggested passphrase or create your own. 
+>
+> ![](/media/articles/mfa/android-passphrase.png)
 
 ### Google Authenticator
 If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
@@ -68,7 +72,7 @@ After entering you enter your email and password, a SMS message will be sent to 
 
 If you have lost your phone and are unable to finish the two-step authentication you will need the recovery code from when you signed up. Enter this code to access your account without your device.
 
-If you do have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
+If you don't have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
 ### If you forgot your password
 
@@ -78,7 +82,7 @@ If you forgot your password when you are trying to login, click **Don't remember
 
 For all types of multifactor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification. 
 
-If using SMS, make sure you are not [exceeding rate limits]((/user-guide#sms-rate-limits).
+If using SMS, make sure you are not [exceeding rate limits](/user-guide#sms-rate-limits).
 
 ### If you did not receive a SMS
 

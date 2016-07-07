@@ -1,0 +1,7 @@
+---
+title: Java
+---
+
+```java
+java
+```

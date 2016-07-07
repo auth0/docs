@@ -1,6 +1,7 @@
 ---
-connection: Google / Gmail
-image: /media/connections/google.svg
+connection: Google
+index: 1
+image: /media/connections/google.png
 description: This page shows you how to connect your Auth0 app to Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
  - gmail

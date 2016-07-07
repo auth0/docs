@@ -201,5 +201,4 @@ For a list of currently supported sandbox modules, see: [Modules Supported by th
 
 ## Further reading
 
-* [Managing rules using source control with GitHub](source-control)
 * [Redirecting users from within rules](/rules/redirect)

@@ -1,0 +1,19 @@
+title: Cordova
+language:
+  - Javascript
+framework:
+  - Cordova
+hybrid: true
+image: /media/platforms/phonegap.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/cordova/dependencies
+  setup: native-platforms/jquery/setup
+  use: native-platforms/jquery/use
+alias:
+  - cordova
+  - apache-cordova
+seo_alias: cordova
+articles:
+  - 01-login

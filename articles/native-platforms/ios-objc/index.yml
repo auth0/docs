@@ -1,0 +1,19 @@
+title: iOS - Objective C
+hybrid: false
+language:
+  - Objective C
+image: /media/platforms/ios.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/ios-objc/dependencies
+  setup: native-platforms/ios-objc/setup
+  use: native-platforms/ios-objc/use
+alias:
+  - ios
+  - objective-c
+  - iphone
+  - ipad
+seo_alias: ios-objc
+articles:
+  - 01-login

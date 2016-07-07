@@ -87,7 +87,7 @@ function (user, context, callback) {
 }
 ```
 
-If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
+If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rules) whenever a user logs in.
 
 More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate client IDs:
 

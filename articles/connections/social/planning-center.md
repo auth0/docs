@@ -1,6 +1,6 @@
 ---
 connection: Planning Center
-image:
+image: /media/connections/planning-center.png
 seo_alias: planning-center
 ---
 

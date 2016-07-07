@@ -1,0 +1,11 @@
+title: ASP.NET Core
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/aspnet-core/dependencies
+alias:
+  - aspnetcore
+seo_alias: aspnet-core
+articles:
+  - 01-login

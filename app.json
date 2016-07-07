@@ -9,6 +9,9 @@
     "NODE_ENV": {
       "required": true
     },
+    "DISABLE_CDN": {
+      "required": true
+    },
     "GITHUB_ACCESS_TOKEN": {
       "required": true
     },

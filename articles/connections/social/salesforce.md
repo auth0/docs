@@ -2,6 +2,7 @@
 connection: Salesforce
 image: /media/connections/salesforce.png
 seo_alias: salesforce
+index: 6
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Salesforce

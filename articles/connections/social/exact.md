@@ -1,6 +1,6 @@
 ---
 connection: Exact
-image:
+image: /media/connections/exact.png
 seo_alias: exact
 ---
 

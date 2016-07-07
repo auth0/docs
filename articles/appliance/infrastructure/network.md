@@ -13,6 +13,8 @@ For **multi-node** clusters, all virtual machines must be:
 * on the same segment of the internal network;
 * able to communicate between each other via ports `7777` and `27017`.
 
+For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
+
 ## Internet Connectivity
 
 Each Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting. For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.
@@ -48,8 +50,14 @@ We recommend a layer 7/application layer load balancer that supports:
 
 You may use NGINX or HA Proxy as a software load balancer in front of the Auth0 Appliance. The reverse proxy must be configured with:
 
-* TXP mode with Proxy Protocol or HTTPS mode (SSL offloading);
-    * Note: The connector does not work in HTTPS mode.
+* TCP mode with Proxy Protocol or HTTPS mode (SSL offloading);
+    * Note: The Auth0 AD/LDAP Connector does not work in HTTPS mode.
 * the incoming hostname forwarded to the Appliance nodes.
 
 In addition to load balancing, you may use this for **IP address whitelisting** and **endpoint filtering** (only authentication endpoints are publicly available).
+
+#### SSL Offloading
+
+The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.  
+
+Please note that the use of SSL offloading is not required to achieve high throughput.

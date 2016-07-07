@@ -1,0 +1,11 @@
+title: Python
+image: /media/platforms/python.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/python/dependencies
+  setup: server-platforms/python/setup
+  use: server-platforms/python/use
+seo_alias: python
+articles:
+  - 01-login

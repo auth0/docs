@@ -1,7 +1,7 @@
 ## Migrating to Lock 10
 
 ::: panel-warning Version Notice
-Because this is an early preview of Lock 10, we recommend installing the full version (10.0.0-beta.3).
+Because this is an early preview of Lock 10, we recommend installing the full version (10.0.0-rc.2).
 :::
 
 You can get the required Lock installation package from several sources.
@@ -9,13 +9,13 @@ You can get the required Lock installation package from several sources.
 CDN:
 
 ```html
-<script src="https://cdn.auth0.com/js/lock/10.0.0-beta.4/lock.min.js"></script>
+<script src="https://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
 ```
 
 [Bower](http://bower.io):
 
 ```sh
-bower install auth0-lock#10.0.0-beta.4
+bower install auth0-lock#10.0.0-rc.2
 ```
 
 ```html
@@ -25,7 +25,7 @@ bower install auth0-lock#10.0.0-beta.4
 [npm](https://npmjs.org):
 
 ```sh
-npm install --save auth0-lock@beta
+npm install --save auth0-lock@10.0.0-rc.2
 ```
 
 After installing the `auth0-lock` module, you will need bundle it up. We have examples for [browserify](https://github.com/auth0/lock/tree/v10/examples/bundling/browserify) and [webpack](https://github.com/auth0/lock/tree/v10/examples/bundling/webpack).
@@ -38,36 +38,26 @@ If you are targeting mobile audiences, we recommend adding the following to the 
 
 ## Usage
 
-If you have used Lock in the past you may also want to take a look at the [Migration Guide](#migration-guide). Otherwise, you can keep reading. The full [API documentation](https://github.com/auth0/lock/tree/v10#api) is aslo available in the [github repository](https://github.com/auth0/lock/tree/v10).
+If you have used Lock in the past you may also want to take a look at the [Migration Guide](#migration-guide). Otherwise, you can keep reading. The full [API documentation](https://github.com/auth0/lock/tree/v10#api) is also available in the [github repository](https://github.com/auth0/lock/tree/v10).
 
 ### Implementing Lock with Redirect Mode
 
 ```js
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {}, function(error, result) {
-  // Will always be executed. Execution will happen on a later frame, so the
-  // `lock` variable and everything will be available on scope.
+var lock = new Auth0Lock(
+  '${account.clientId}',
+  '${account.namespace}'
+);
 
-  if (error) {
-    // Handle error
-  }
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
 
-  if (result) {
-    // We need to check for a result. When lock is constructed it will
-    // always attempt to auhtenticate the user. If it can't, `result`
-    // will be `undefined`.
-
-    // Store the token and profile in local storage (or wherever you choose)
-    localStorage.setItem('idToken', result.idToken);
-
-    // Optionally fetch the profile
-    lock.getProfile(result.idToken, function(error, profile) {
-      if (error) {
-        // Handle error
-      }
-
-      localStorage.setItem('profile', JSON.stringify(profile));
-    });
-  }
+    localStorage.setItem('idToken', authResult.idToken);
+    localStorage.setItem('profile', JSON.stringify(profile));
+  });
 });
 ```
 
@@ -78,29 +68,26 @@ __Note:__ Auth0 recommends using Redirect Mode over Popup Mode.
 To implement Popup Mode in lieu of Redirect Mode, pass `false` to the auth `redirect` parameter:
 
 ```js
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',
-  { auth: { redirect: false } },
-  function(error, result) {
-    // Will be executed after a login attemp.
+var lock = new Auth0Lock(
+  '${account.clientId}',
+  '${account.namespace}',
+  {
+    auth: { redirect: false }
+  }
+);
 
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
     if (error) {
       // Handle error
+      return;
     }
 
-    if (result) {
-      // Store the token and profile in local storage (or wherever you choose)
-      localStorage.setItem('idToken', result.idToken);
-
-      // Optionally fetch the profile
-      lock.getProfile(result.idToken, function(error, profile) {
-        if (error) {
-          // Handle error
-        }
-
-        localStorage.setItem('profile', JSON.stringify(profile));
-      });
-    }
+    localStorage.setItem('idToken', authResult.idToken);
+    localStorage.setItem('profile', JSON.stringify(profile));
   });
+});
+
 ```
 
 ### Showing the Lock
@@ -137,22 +124,21 @@ function showLoggedIn() {
 
 ## Migration Guide
 
-The following instructions assume you are migrating from Lock v9 to the latest beta of v10 available. If you are upgrading from a previous beta release, please refer to the [beta changes](#beta-changes).
+The following instructions assume you are migrating from Lock v9 to the latest v10 preview. If you are upgrading from a preview release, please refer to the [preview changes](#preview-changes).
 
-- The constructor now takes all the options and the authentication callback.
-- The authentication callback now has just two arguments `error` and `result`. The `result` argument is an object that contains properties for the arguments provided in the previous versions: `idToken`, `accessToken`, `state`, and `refreshToken`. It also includes a `idTokenPayload` property.
+- The `show` method no longer takes any arguments. You pass the options to the constructor and you listen for an `authenticated` event instead of providing a callback. The examples above show how to listen for this event with the `on` method.
+- The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
 - The profile is no longer fetched automatically after a successful login, you need to call `lock.getProfile`.
-- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `authentication: { redirect: false }` option.
-- You no longer need to call `parseHash` when implementing Redirect Mode. The data returned by that method is provided in the `result` parameter of the authentication callback.
-- Is no longer possible to select a language by passing a code, which was done in the previous versions of lock with  `dict: 'es'`.
-- Lifecycle events are not yet available.
-- There's only one `show` method which doesn't take any arguments. `showSignIn`, `showSignUp` and `showReset` are no longer available. You can emulate the behavior of this options with the `initialScreen`, `allowForgotPassword` and `allowSignUp` options.
+- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `auth: { redirect: false }` option.
+- You no longer need to call `parseHash` when implementing Redirect Mode. The data returned by that method is provided to the `authenticated` event listener.
+- Not all languages supported by Lock v9 are supported by Lock v10.
+- The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the `initialScreen`, `allowLogin`, `allowSignUp` and `allowForgotPassword` options.
 - Some existing options suffered changes:
   - The `authParams` option was renamed to `params` and namespaced under `auth`. Now you use it like this `auth: {params: {myparam: "myvalue"}}`.
   - The `callbackURL` option was renamed to `redirectUrl` and namespaced under `auth`. Now you use it like this `auth: {redirectUrl: "https://example.com/callback"}`.
   - The `connections` option was renamed to `allowedConnections`.
   - The `defaultUserPasswordConnection` option has been replaced by the `defaultDatabaseConnection` and the `defaultEnterpriseConnection` options.
-  - The `dict` option was renamed to `languageDictionary`. Also it's structure has been changed, see the project's [README](https://github.com/auth0/lock/tree/v10#language-dictionary-specification) for more inforamtion.
+  - The `dict` option was split into `language` and `languageDictionary`. The `language` option allows you to set the base dictionary for a given language and the `languageDictionary` option allows you to overwrite any translation. Also the structure of the dictionary has been changed, see the project's [README](https://github.com/auth0/lock/tree/v10#language-dictionary-specification) for more information.
   - The `disableResetAction` option was renamed to `allowForgotPassword`.
   - The `disableSignUpAction` option was renamed to `allowSignUp`.
   - The `focusInput` option was renamed to `autofocus`.
@@ -167,9 +153,9 @@ The following instructions assume you are migrating from Lock v9 to the latest b
   - The `sso` option was namespaced under `auth`.  Now you use it like this `auth: {sso: false}`.
 - Some other options were added, see [New Features page](/libraries/lock/v10/new-features) for details.
 
-### Beta changes
+### Preview changes
 
-This is a summary of what you absolutely need to know before upgrading between beta releases. For the full list of changes, please see the project's [CHANGELOG](https://github.com/auth0/lock/blob/v10/CHANGELOG.md).
+This is a summary of what you absolutely need to know before upgrading between preview releases. For the full list of changes, please see the project's [CHANGELOG](https://github.com/auth0/lock/blob/v10/CHANGELOG.md).
 
 #### Upgrading from v10.0.0-beta.1 to v10.0.0-beta.2
 
@@ -185,3 +171,16 @@ This is a summary of what you absolutely need to know before upgrading between b
 #### Upgrading from v10.0.0-beta.3 to v10.0.0-beta.4
 
 - The `jsonp` option was removed.
+
+#### Upgrading from v10.0.0-beta.4 to v10.0.0-beta.5
+
+- The constructor no longer takes a callback. See the examples above to learn how to use events instead.
+- The `language` option has been added, and the structure of the `languageDictionary` option has been updated.
+
+#### Upgrading from v10.0.0-beta.5 to v10.0.0-rc.1
+
+- No API changes were made in this release.
+
+#### Upgrading from v10.0.0-rc.1 to v10.0.0-rc.2
+
+- The `validator` function for an additional sign up field now allows to specify a hint to help the user to correct an invalid value. See the [example](/libraries/lock/v10/new-features#custom-sign-up-fields) for the details.

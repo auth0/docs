@@ -1,10 +1,11 @@
 ---
-connection: Amazon
+connection: Amazon Web Services
 image: /media/connections/amazon.png
 alias:
   - aws
   - amazon-web-services
 seo_alias: amazon
+index: 9
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Amazon

@@ -1,5 +1,6 @@
 ---
 connection: Facebook
+index: 2
 image: /media/connections/facebook.png
 seo_alias: facebook
 description: This page shows you how to connect your Auth0 app to Facebook. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
@@ -88,6 +89,8 @@ Copy the `App ID` and `App Secret` from the **Settings** of your app on Facebook
 Select all the **Attributes** and **Permissions** you want to enable.
 
 Click **Save**.
+
+**Note:** Your users will be able to choose which Attributes they wish to share, and by default this selection is only made when they first authorize the application. [Click here to learn more about handling declined permissions.](/connections/social/reprompt-permissions)
 
 ## 8. Enable the Connection
 

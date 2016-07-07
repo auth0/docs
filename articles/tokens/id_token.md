@@ -29,7 +29,7 @@ The `id_token` is returned when calling any of the Auth0 functions which invoke 
 
 ## How to control contents of `id_token`
 
-The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a parameter called `scope` which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
+The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/scopes) which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
 
 ```
 lock.show({

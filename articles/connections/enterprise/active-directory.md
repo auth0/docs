@@ -1,7 +1,7 @@
 ---
 title: Connect Active Directory with Auth0
 connection: Active Directory
-image: /media/connections/windows.png
+image: /media/connections/ms.png
 alias:
   - ad
 seo_alias: active-directory

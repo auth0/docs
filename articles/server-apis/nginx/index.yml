@@ -1,0 +1,15 @@
+title: Nginx API
+alias:
+  - nginx
+  - openresty
+languages:
+  - Lua
+image: /media/platforms/nginx.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/nginx/dependencies
+  setup: server-apis/nginx/setup
+  use: server-apis/nginx/use
+articles:
+  - authenticate

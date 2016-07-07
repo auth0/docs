@@ -183,7 +183,7 @@ If your configuration is correct, you will see a screen titled **"It works!"**
 
 This screen will show you the encoded and decoded SAML response that would be sent by the Identity Provider.
 
-Check the decoded SAML response and locate (about half-way down) the **"<saml:Audience>"** tag and make sure it matches the **Entity ID** you entered in the previous screen (obtained during step 3).
+Check the decoded SAML response and locate (about half-way down) the `"<saml:Audience>"` tag and make sure it matches the **Entity ID** you entered in the previous screen (obtained during step 3).
 
 Click on **"Close this window"** at the bottom of the screen.
 

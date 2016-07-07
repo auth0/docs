@@ -1,0 +1,11 @@
+title: Play 2 Scala
+image: /media/platforms/play.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/scala/dependencies
+  setup: server-platforms/scala/setup
+  use: server-platforms/scala/use
+seo_alias: scala
+articles:
+  - 01-login

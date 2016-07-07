@@ -26,7 +26,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 **What?** Deploying the Auth0 Appliance on your cloud or on-premises infrastructure is a team effort.  This is where we run through how we’re going to get it done!
 
-[Appliance Docs](https://auth0.com/docs/appliance) - Get up to speed on all things appliance in this high level overview doc.
+[Appliance Docs](/appliance) - Get up to speed on all things appliance in this high level overview doc.
 
 ### Step 2 - Infrastructure Ready
 
@@ -34,7 +34,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 **What?** Your team prepares the relevant infrastructure based on our guidance.
 
-Appliance Infrastructure Requirements Docs - Coming Soon!
+[Appliance Infrastructure Requirements Docs](/appliance/infrastructure)
 
 ### Step 3 - Appliance Setup
 
@@ -49,9 +49,9 @@ Appliance Infrastructure Requirements Docs - Coming Soon!
 
 **What?** An operational handover session with your team to learn how to administer the appliance.
 
-[Appliance Configuration](https://auth0.com/docs/appliance/dashboard) - See our Docs on the configuration settings within the Appliance.
+[Appliance Configuration](/appliance/dashboard) - See our Docs on the configuration settings within the Appliance.
 
-Appliance Operations Manual - Coming soon!
+[Appliance Administrator's Manual](/appliance/admin)
 
 ### Step 5 - Welcome & Orientation
 
@@ -59,18 +59,18 @@ Appliance Operations Manual - Coming soon!
 
 **What?** Congrats, the Appliance is ready!  Our Customer Success team are devoted to learning more about your business and what you want to achieve with Auth0.  In this short, casual session our Customer Success Managers will ask lots of questions and do lots of listening.
 
-[Auth0 support resources and guidance for enterprise customers.](https://auth0.com/docs/onboarding/enterprise-support) - Already developing?  No need to wait, you can plug in to our support resources immediately!
+[Auth0 support resources and guidance for enterprise customers.](/onboarding/enterprise-support) - Already developing?  No need to wait, you can plug in to our support resources immediately!
 
-[Critical Appliance support issue guidance](https://auth0.com/docs/onboarding/appliance-outage)
+[Critical Appliance support issue guidance](/onboarding/appliance-outage)
 
 ### Step 6 - Technical Discovery & Guidance
-**When?**  This session is generally booked within 14 days of signing your subscription agreement.
+**When?**  This session is generally booked within 14 days of Appliance handover.
 
 **What?** The goal of this technical session is to send you forward on the best path.  It’s an opportunity for our Customer Success Engineers to understand your software architecture and integration plans and for your team to ask questions or seek advice.
 
-[Common Architecture and Scenarios](https://auth0.com/docs/architecture-scenarios) - Quick guidance on common Business Scenarios and Application Configurations and the things you need to know to get started.
+[Common Architecture and Scenarios](/architecture-scenarios) - Quick guidance on common Business Scenarios and Application Configurations and the things you need to know to get started.
 
-[Auth0 Learn Resources](https://auth0.com/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
+[Auth0 Learn Resources](/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
 
 ### Step 7 - Management Dashboard Guidance
 **When?**  You can access self service resources immediately.  A live session is generally booked soon after the Technical Discovery & Guidance session.
@@ -84,14 +84,14 @@ Appliance Operations Manual - Coming soon!
 
 **What?** This is where it all comes together and your team integrates Auth0 with your application/project.  Our support resources are always there to help and our Customer Success Managers will be following your progress and removing any blockers.
 
-[Auth0 support resources and guidance for enterprise customers.](https://auth0.com/docs/onboarding/enterprise-support) - Our support resources are there to help during implementation and integration.
+[Auth0 support resources and guidance for enterprise customers.](/onboarding/enterprise-support) - Our support resources are there to help during implementation and integration.
 
 ### Step 9 - Integration Best Practice Review
 **When?**  Soon after your initial implementation or integration and before you move to beta/UAT or production.
 
 **What?** In this technical session, our Customer Success Engineers will review your implementation and integration to ensure best practices are applied.  This often includes reviewing rules you’ve written, how you’re calling our APIs and answering any questions you may have.
 
-[Auth0 Learn Resources](https://auth0.com/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
+[Auth0 Learn Resources](/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
 
 Pre-Production Checklist:  This list will walk through basic checks to make in Auth0 to ensure a smooth production launch (Coming soon).
 

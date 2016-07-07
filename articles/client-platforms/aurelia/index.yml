@@ -1,0 +1,26 @@
+title: Aurelia
+alias:
+  - aurelia
+  - aureliajs
+language:
+  - Javascript
+framework:
+  - Aurelia
+image:
+tags:
+  - quickstart
+snippets:
+  configurehttp: client-platforms/aurelia/configurehttp
+  constructorexpiry: client-platforms/aurelia/constructorexpiry
+  dependencies: client-platforms/aurelia/dependencies
+  http: client-platforms/aurelia/http
+  jwtdecode: client-platforms/aurelia/jwtdecode
+  login: client-platforms/aurelia/login
+  logout: client-platforms/aurelia/logout
+  routing: client-platforms/aurelia/routing
+  setup: client-platforms/aurelia/setup
+  template: client-platforms/aurelia/template
+  tokenisexpired: client-platforms/aurelia/tokenisexpired
+seo_alias: aurelia
+articles:
+  - 01-login
