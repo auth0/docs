@@ -25,10 +25,10 @@ Your first step is instantiate the authentication API client. This will be used 
 
 ```Android
 AuthenticationAPIClient client = new AuthenticationAPIClient(
-new Auth0(Auth0ClientID, Auth0DomainID));
+new Auth0(${account.clientId}, ${account.namespace}));
 ```
 
-> It's suggested to add both the Auth0DomainID and Auth0ClientID to the Strings.xml file rather than hardcode them in the manifest. 
+> It's suggested to add both the `Auth0DomainID` and `Auth0ClientID` to the `Strings.xml` file rather than hardcode them in the manifest. 
 
 ### 2. Request User Data
 
