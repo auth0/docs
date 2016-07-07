@@ -1,5 +1,6 @@
 ---
 url: /email
+description: Auth0 provides built-in email services to easily communicate with your users.
 ---
 
 # Emails in Auth0
@@ -25,6 +26,4 @@ To remove these restrictions in your testing or to setup your production level e
 * [Use your own SMTP Email Provider](/email/providers)
 * [Custom Email Handling](/email/custom)
 
-After you have your own email service provider configured, the [Emails](${uiURL}/#/emails) dashboard allows you to customize your emails beyond the existing templates. To learn more visit:
-
-[Customizing Your Emails](/email/templates)
+After you have configured your own email service provider, the [Emails](${uiURL}/#/emails) dashboard will allow you to customize your emails beyond the existing templates. For more information, see: [Customizing Your Emails](/email/templates).
