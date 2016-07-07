@@ -17,7 +17,7 @@ Some UI customization can be done via the `options` parameter when creating a `L
 #### Theme options
 
 You can set custom theme properties like using a different logo, or changing the primary color.
-Just add a `theme` property with custom values. 
+Just add a `theme` property with custom values.
 See full details [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#theming-options)
 
 ```typescript
@@ -47,8 +47,8 @@ This is how it looks like using custom logo, color, and title:
 ![Custom lock](/media/articles/login-widget/widget-custom-logo-color.png)
 
 
-<!-- ### CSS specification -->
+<!-- CSS specification -->
 
-### Done! 
+### Done!
 
 You have implemented the customization of the Lock widget.
