@@ -10,7 +10,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 <%= include('../_includes/_rules-introduction') %>
 
 
-#### Test rule result
+### Test rule result
 
 To see the created rule results, just login and fetch user profile information (you can see how [here](/quickstart/spa/angular2/03-user-profile)).
 
@@ -32,5 +32,6 @@ Then, display user profile's new `country` attribute added in the created rule a
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
-
+### Done!
+You have implemented the usage of rule for your application.   
 This is just one of the tons of cool things we can do with rules. Go ahead and create any rule that fits your needs.

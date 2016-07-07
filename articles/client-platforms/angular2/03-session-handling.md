@@ -10,7 +10,7 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
 Previous steps explain how to login using both `Lock` and `Auth0`. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. Let's see how to do it.
 
 
-#### Create Session
+### Create Session
 
 Once the user is logged in, we want to create a session for that user. To do this, we only need to store the `idToken` attribute, which came in lock `authenticated` callback parameter.
 We are going to use `localStorage`, but you can use any storage library you want.
@@ -34,7 +34,7 @@ export class Auth {
 }
 ```
 
-#### Check Session
+### Check Session
 
 To know if a user is authenticated, just use `tokenNotExpired` from [angular2-jwt](https://github.com/auth0/angular2-jwt) which allows you to check whether there is a non-expired JWT in local storage.
 
@@ -78,7 +78,7 @@ and then in your component's template
 </div>
 
 ```
-#### Logout
+### Logout
 
 To do the logout, just remove the token from `localStorage`
 
@@ -93,5 +93,6 @@ public logout() {
 }
 ```
 
+### Done!
 
-Done. You've implemented Session Handling and Logout with Auth0 in your Angular2 project.
+You've implemented Session Handling and Logout with Auth0 in your Angular2 project.

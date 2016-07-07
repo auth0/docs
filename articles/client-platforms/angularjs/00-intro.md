@@ -9,7 +9,7 @@ Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-ang
 
 Auth0 supports authentication in both redirect and pop-up modes. Although SPAs do not retain state after a page reloads or redirects, the SDK makes handling this situation simple.
 
-### Seed &amp; Samples
+## Seed &amp; Samples
 
 There are two options for following along with these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter-Seed) or the samples. The seed project is a regular angular app can serve as a starting point for this quickstart. The samples are included with each step below.
 
@@ -20,9 +20,8 @@ There are two options for following along with these steps. You can either downl
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 ## 2. Configure Callback URLs
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Since callback URLs can be manipulated, you will need to add your application's URL in the app's `Allowed Callback URLs` for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful for the app instance.
 
-![Callback error](/media/articles/angularjs/callback_error.png)
+<%= include('../_includes/_callback-url-introduction') %>
 
 ## 3. Structure
 Throughout the steps, the seed and samples will have the following directory structure:

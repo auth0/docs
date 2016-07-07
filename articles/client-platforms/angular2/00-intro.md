@@ -10,20 +10,37 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 There are two options to following along these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/00-Starter-Seed) or the [samples](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample). The seed is a regular angular2 (based on https://github.com/angular/quickstart) app with nothing on Auth0 in it except for the dependencies included in the HTML. It just serves as a starting point as well building blocks for this quickstart. The samples are included in each step and contains the example for each of the step.
 
-## Create an Application
+## 1. Create an Application
 
 <%= include('../../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 
-## Configure Callback URLs
+## 2. Configure Callback URLs
 
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+<%= include('../_includes/_callback-url-introduction') %>
 
-![Callback error](/media/articles/angularjs/callback_error2.png)
+## 3. Structure
+Throughout the steps, the seed and samples will have the following directory structure:
 
-#### 1: Dependencies
+```bash
+├── app
+│   ├── app.component.ts
+│   ├── app.routes.ts
+│   ├── app.template.html
+│   ├── home.component.ts
+│   └── main.ts
+├── index.html
+├── package.json
+├── styles.css
+├── systemjs.config.js
+├── tsconfig.json
+├── tslint.json
+└── typings.json
+```
+
+## 4. Dependencies
 To integrate your Angular2 application with Auth0 you need to add the following dependencies:
 
 - [Lock Widget](https://github.com/auth0/lock): is the default authentication widget provided by Auth0.
@@ -54,7 +71,7 @@ To integrate your Angular2 application with Auth0 you need to add the following 
     npm install --save angular2-jwt
     ```
 
-#### 2: Viewport
+## 5. Viewport
 
 If you are targeting mobile audiences, it's recommended that you add in `<head>` element:
 
@@ -62,7 +79,7 @@ If you are targeting mobile audiences, it's recommended that you add in `<head>`
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 ```
 
+## Done!
 
-That's all you need to start working with Auth0!
-
+That's all you need to start working with Auth0!  
 Please continue with [login](/quickstart/spa/angular2/01-login) tutorial to know how to implement basic login.

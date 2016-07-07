@@ -281,6 +281,8 @@ export class ProfileDetails extends React.Component {
 
 ## 5. Update user profile
 
+<%= include('../_includes/_profile-metadata-explanation') %>
+
 To update user profile info, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id) sending the new profile values. In our example, we'll update `AuthService` class adding a new method `updateProfile` to handle this functionality, sending the correct request headers. To make the http request, we'll use [`fetch` standard](https://fetch.spec.whatwg.org/)
 
 ```javascript
