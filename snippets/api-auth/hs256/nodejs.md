@@ -3,5 +3,12 @@ title: Node.js
 ---
 
 ```js
-node
+var express = require('express');
+var app = express();
+var jwt = require('express-jwt');
+
+var jwtCheck = jwt({
+  secret: '${ "<%= api.signing_secret %>" }',
+  audience: '${ "<%= api.identifier %>" }'
+});
 ```
