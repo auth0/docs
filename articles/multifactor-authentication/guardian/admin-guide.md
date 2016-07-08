@@ -1,10 +1,14 @@
+---
+description: How to enable and use Push Notifications and SMS for Guardian MFA.
+---
+
 # Guardian for Administrators 
 
 Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication your users will always need their mobile device in order to login.
 
 This page will help to explain how to enable and use Push Notifications and SMS for MFA for signing in your users.
 
-For information for your users on what Guardian is, how to download the app and common questions they may have, see [here](/multifactor-authentication/guardian/user-guide).
+For information for your users on what Guardian is, how to download the app and common questions they may have, see: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
  
 ## Support for Push Notifications
 
@@ -38,7 +42,7 @@ When your users sign up with SMS they enter their phone number's country code an
 
 ![](/media/articles/mfa/sms.png)
 
-After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](/admin-guide#reset-mfa-for-a-user).
+After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](#reset-a-mfa-for-a-user).
 
 ### Configuring Guardian SMS with Twilio
 
@@ -136,7 +140,7 @@ Here are all the possible events related to MFA:
 | `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
  
-These events can also be searched using the [APIv2](https://auth0.com/docs/api/management/v2#!/Logs) using [query string syntax](https://auth0.com/docs/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
+These events can also be searched using the [APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
 
 **Examples searching with the `q` parameter:**
 To see the events for users who are enrolling with MFA:
@@ -166,4 +170,4 @@ The next time the user logs in they will need to resetup their MFA just like a n
 
 Guardian and other types of MFA can be disabled from the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. Toggle the button to disabled for the type of MFA you wish to turn off, a confirmation popup will appear.
 
-By disabling a type of MFA you will unenroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.
+By disabling a type of MFA you will un-enroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.
