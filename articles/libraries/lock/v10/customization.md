@@ -157,7 +157,12 @@ var options = {
 
 ### container {String}
 
-The `id` of the html element where the widget will be shown. This makes the widget appear inline instead of in a modal window.
+The `id` of the html element where the widget will be shown. 
+
+::: panel-info Side effects
+This makes the widget appear inline within your `div` instead of in a modal pop-out window.
+:::
+
 
 ```html
 <div id="hiw-login-container"></div>

@@ -155,12 +155,12 @@ If you have found a bug or if you have a feature request, please report them at 
 ## Resources
 
 * [Lock 9 to Lock 10 Migration Guide][migration-guide]
-* [Complete API][lock-customization]
+* [Complete API][lock-api]
 * [UI customization][ui-customization]
-* [Overlay vs Embedded mode][display-modes]
+* [Embedding Lock (Instead of a Modal)][display-modes]
 * [Popup vs Redirect mode][authentication-modes] notes. **What are the authentication modes?**.
 * [Error customization][error-customization] notes.
-* [I18n][i18n-notes] notes.
+* [I18n][i18n-notes] notes. **Languages and Custom Text**
 * [Events][events-notes] notes.
 * [Development][development-notes] notes.
 * [Release process][release-process] notes.
@@ -187,8 +187,7 @@ ${lockSDK}
 [lock-customization]: /libraries/lock/v10/customization
 [lock-api]: /libraries/lock/v10/api.md
 [ui-customization]: /libraries/lock/v10/ui-customization
-[display-modes]: /libraries/lock/v10/display-modes
-[error-customization]: /libraries/lock/v10/customizing-error-messages
+[display-modes]: /libraries/lock/v10/customization#container
 [i18n-notes]: /libraries/lock/v10/i18n
 [events-notes]: /libraries/lock/v10/events
 [development-notes]: https://github.com/auth0/lock
