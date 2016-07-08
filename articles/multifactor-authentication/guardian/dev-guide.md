@@ -1,15 +1,19 @@
+---
+description: How to implement multifactor authentication with Guardian.
+---
+
 # Developer Guide to Configuring Guardian
 
 Guardian is Auth0's multifactor authentication (MFA) application that provides a simple, safe way for you to implement MFA. The Guardian app is currently available for mobile devices running iOS or Android.
 
-For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on user log in and sign up process and common user questions [here](/guardian/user-guide).
+For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on user login and sign-up process and common user questions at: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
 
 ## Implementing Multifactor Authentication
 Within Auth0, you may implement MFA via the [Multifactor Auth](${uiURL}/#/guardian) page of the Management Dashboard.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
-> Auth0 provides [built-in support](https://auth0.com/docs/multifactor-authentication#using-auth0-s-built-in-support) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
+> Auth0 provides [built-in support](/multifactor-authentication) for MFA using Google Authenticator or Duo. You may choose to use either of these providers, in lieu of Guardian, or any code generator application, on the **Multifactor Auth** page of the Management Dashboard.
 
 ### Configuring Guardian in the Management Dashboard
 
@@ -43,7 +47,7 @@ function (user, context, callback) {
 }
 ```
 
-If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rule) whenever a user logs in.
+If you choose to selectively apply MFA, you will need the appropriate `clientID` values, and the code is executed as part of a [Rule](/rules) whenever a user logs in.
 
 More specifically, you will uncomment and populate the following line of the Customize MFA snippet with the appropriate client IDs:
 
@@ -116,5 +120,5 @@ Here are all the possible events related to MFA:
 | `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
 
-These events can also be searched using the [APIv2](https://auth0.com/docs/api/management/v2#!/Logs) using [query string syntax](https://auth0.com/docs/api/management/v2/query-string-syntax). You can search  criteria using the `q` parameter or you can search by a specific log ID.
+These events can also be searched using the [APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search  criteria using the `q` parameter or you can search by a specific log ID.
 
