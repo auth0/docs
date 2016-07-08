@@ -12,7 +12,7 @@ To connect your Auth0 app to vKontakte, you will need to generate an `Applicatio
 
 ## 1. Create a new vKontakte application
 
-Log in into [vKontakte Developers](https://new.vk.com/dev). 
+Login to [vKontakte Developers](https://new.vk.com/dev). 
 
 Go to **My Apps** and click **Create an Application**:
 
