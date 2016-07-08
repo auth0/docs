@@ -8,7 +8,7 @@ description: This document explains the ways that passwords can be reset for use
 This information applies to using *Change Password flow v2*.
 If you are using the old Change Password flow, or Lock version 8, make sure to check the notice panels like this one, since they are used to point out the differences in the flows.
 
-If you don't know which version you are using, navigate to [Dashboard > Account Settings > Advanced](${uiURL}/#/account/advanced) and check if the *Change Password flow v2* toggle is on. If so, you should use Lock version 9 to cater to the new flow. If not, you can use older versions of Lock to trigger the old Change Password flow, although this is not recommended. We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above. 
+If you don't know which version you are using, navigate to [Dashboard > Account Settings > Advanced](${uiURL}/#/account/advanced) and check if the *Change Password flow v2* toggle is on. If so, you should use Lock version 9 to cater to the new flow. If not, you can use older versions of Lock to trigger the old Change Password flow, although this is not recommended. We strongly encourage you to enable *Change Password flow v2* and upgrade to Lock version 9 and above.
 
 To learn more about migrating Lock, see: [Vulnerable Password Flow.](/migrations#vulnerable-password-flow)
 :::
@@ -33,10 +33,9 @@ When calling the API, specify the email address of the account you want to reset
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-    "client_id": "${account.clientId}",
-    "email": "",
-    "connection": "Username-Password-Authentication"
-  }
+		"mimeType": "application/json",
+		"text": "{\"client_id\": \"${account.clientId}\",\"email\": \"\",\"connection\": \"Username-Password-Authentication\"}"
+	}
 }
 ```
 
@@ -54,7 +53,7 @@ Clicking the link will send the user to a password reset page.
 
 **NOTE**: This email link is valid only once, and only for the amount of time specified in the `URL Lifetime` field. This field can be changed in the dashboard where you customize the change password email.
 
-See the [/dbconnections/change_password](/auth-api#!#post--dbconnections-change_password) API endpoint for more information. 
+See the [/dbconnections/change_password](/auth-api#!#post--dbconnections-change_password) API endpoint for more information.
 
 
 ## Using Lock
@@ -70,9 +69,9 @@ Then enter their email address:
 ![](/media/articles/connections/database/lock_v9/lock_request_reset.png)
 
 :::panel-warning Notice
-If you are using Lock version 8, after clicking the *Don't remember your password?* link on the Lock login screen, the user will be asked to enter their new password in addition to their email. They will then have to confirm this action via email. 
+If you are using Lock version 8, after clicking the *Don't remember your password?* link on the Lock login screen, the user will be asked to enter their new password in addition to their email. They will then have to confirm this action via email.
 
-However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later as soon as possible. 
+However, this flow is not considered safe. We recommend that you upgrade to Lock 9 or later as soon as possible.
 To learn more about migrating Lock, see [Vulnerable Password Flow](/migrations#vulnerable-password-flow).
 :::
 
