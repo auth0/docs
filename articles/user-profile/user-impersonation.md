@@ -41,9 +41,8 @@ Your first step would be to generate a _Bearer_ token to be used with [Impersona
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-    "client_id": "${account.clientId}",
-    "client_secret": "${account.clientSecret}",
-    "grant_type": "client_credentials"
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"grant_type\": \"client_credentials\"}"
   }
 }
 ```
@@ -96,12 +95,9 @@ You can get more information about this in the [Scopes documentation](/scopes).
     { "name": "Authorization", "value": "Bearer {bearer-token}" }
   ],
   "postData": {
-    "protocol": "{protocol-to-use}", 
-    "impersonator_id": "{impersonator-id}",
-    "client_id": "${account.clientId}",
-    "response_type": "code",
-    "state": ""
-  }
+		"mimeType": "application/json",
+		"text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"response_type\": \"code\",\"state\": \"\"}"
+	}
 }
 ```
 
@@ -131,12 +127,9 @@ If not you should send a POST request to the token endpoint in Auth0. You will n
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
   "postData": {
-    "client_id": "${account.clientId}",
-    "client_secret": "${account.clientSecret}",
-    "code": "{AUTHORIZATION_CODE}",
-    "grant_type": "authorization_code",
-    "callback_url": "{CALLBACK_URL}"
-  }
+		"mimeType": "application/json",
+		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"{AUTHORIZATION_CODE}\",\"grant_type\": \"authorization_code\",\"callback_url\": \"{CALLBACK_URL}\"}"
+	}
 }
 ```
 
