@@ -73,7 +73,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
   <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
+  <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
   <script src="/js/jquery.growl.js" type="text/javascript"></script>
 </head>
 <body>
@@ -89,18 +89,19 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
       });
 
       $(function () {
-        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-        lock.showSignin({
-          authParams: {
-            state: {state},
-            // change scopes to whatever you like, see https://auth0.com/docs/scopes
-            // claims are added to JWT id_token - openid profile gives everything
-            scope: 'openid user_id name nickname email picture'
-          },
-          responseType: 'code',
-          popup: false,
-          callbackURL: '${account.callback}'
+        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+          auth: {
+            params: {
+              state: {state},
+              // change scopes to whatever you like, see https://auth0.com/docs/scopes
+              // claims are added to JWT id_token - openid profile gives everything
+              scope: 'openid user_id name nickname email picture'
+            },
+            responseType: 'code',
+            redirectUrl: '${account.callback}'
+          }
         });
+        lock.show();
       });
     </script>
   </div>

@@ -239,21 +239,23 @@ Here is an example:
 <div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;">
     embeded area
 </div>
-<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
 <script>
 
-  var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain');
-
-  lock.show({
-      container: 'root'
-    , callbackURL: '@Model.CallbackUrl'
-    , responseType: 'code'
-    , authParams: {
-      scope: 'openid profile', //Details: https://auth0.com/docs/scopes
-      state: '@Model.State',
-	  nonce: '@Model.Nonce'
+  var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {
+      container: 'root',
+      auth: {
+        redirectUrl: '@Model.CallbackUrl',
+        responseType: 'code',
+        params: {
+            scope: 'openid profile', //Details: https://auth0.com/docs/scopes
+            state: '@Model.State',
+            nonce: '@Model.Nonce'
+        }
     }
   });
+
+  lock.show();
 </script>
 ```
 

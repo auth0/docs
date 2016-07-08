@@ -10,12 +10,14 @@
 <body>
   <script src="${widget_url}"></script>
   <script type="text/javascript">
-    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+    var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+      auth: {
+        redirectUrl: '${account.callback}'
+      }
+    });
 
     function signin() {
-      lock.show({
-        callbackURL: '${account.callback}'
-      });
+      lock.show();
     }
   </script>
   <button onclick="signin()">Login</button>
