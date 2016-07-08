@@ -100,7 +100,10 @@ HTTP Request:
       { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
-    "postData" : {"friendly_name":"My Company","picture_url":"https://example.com/logo.png","support_email":"support@example.com","support_url":"https://example.com/support"},
+    "postData" : {
+        "mimeType": "application/json",
+        "text": "{\"friendly_name\": \"My Company\", \"picture_url\": \"https://example.com/logo.png\", \"support_email\": \"support@example.com\", \"support_url\": \"https://example.com/support\"}}"
+    },
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
@@ -125,7 +128,10 @@ HTTP Request:
       { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
-    "postData" : {"error_page":{"html":"","show_log_link":false,"url":"http://www.example.com"}},
+    "postData": {
+        "mimeType": "application/json",
+        "text": "{\"error_page\": {\"html\": \"\", \"show_log_link\":false, \"url\": \"http://www.example.com\"}}"
+    },
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
@@ -148,7 +154,10 @@ HTTP Request:
       { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
     ],
     "queryString" : [],
-    "postData" : {"error_page":{"html":"<h1>Hello {{name}}. This error was generated {{ 'now' | date: '%Y %h' }}.</h1>","show_log_link":false,"url":""}},
+    "postData": {
+        "mimeType": "application/json",
+		"text": "{\"error page\": {\"html\": \"<h1>Hello {{name}}. This error was generated {{'now' | date: '%Y %h'}}.<\\h1>\"}, \"show_log_link\": false, \"url\": \"\"}"
+    },
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
