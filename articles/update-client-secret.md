@@ -35,8 +35,9 @@ Or you can update a `client_secret` by creating your own request to the API:
     "headers": [
       { "name": "Content-Type", "value": "application/json" }
     ],
-    "d" : {
-      "client_secret": "NEW_CLIENT_SECRET"
-    }
+    "postData": {
+		"mimeType": "application/json",
+		"text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
+	}
 }
 ```
