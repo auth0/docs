@@ -65,7 +65,7 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-Inside `canActivate` method we check if user is authenticated and if he is an admin using the new `isAdmin` function added to the `Auth` service. This method simply checks if the roles attribute (inside `app_metadata`) added by the rule  contains the `admin` role:
+Inside `canActivate` method we check if user is authenticated and if the user is an admin using the new `isAdmin` function added to the `Auth` service. This method simply checks if the roles attribute (inside `app_metadata`) added by the rule  contains the `admin` role:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
