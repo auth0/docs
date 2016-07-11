@@ -5,25 +5,32 @@ new Vue({
   el: '#app',
   data() {
     return {
-      authenticated: false
+      authenticated: false,
+      lock: new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN,{
+        auth: { redirect: false }
+      })
     }
+  },
+  ready() {
+    var self = this;
+    this.authenticated = checkAuth();
+    this.lock.on("authenticated", function(authResult) {
+      self.lock.getProfile(authResult.idToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        localStorage.setItem('id_token', authResult.idToken);
+        localStorage.setItem('profile', JSON.stringify(profile));
+        self.authenticated = true;
+        self.lock.hide();
+      });
+    });
   },
   methods: {
     login() {
-      var self = this;
-      var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
-      
-      lock.show((err, profile, token) => {
-        if(err) {          
-          // Handle the error
-          console.log(err)          
-        } else {
-          // Set the token and user profile in local storage
-          localStorage.setItem('profile', JSON.stringify(profile));
-          localStorage.setItem('id_token', token);
-          self.authenticated = true;
-        }        
-      });       
+      this.lock.show();
     }
   }
 });
