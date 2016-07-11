@@ -8,8 +8,8 @@ Once user is logged in, you can get the user profile and then the associated `ac
 
 However, if you are receiving `Access Denied` when calling the IdP API, you probably have not requested the correct permissions for the user during login.
 
-To configure the scopes/permissions needed from the user, go to the [Connections](${uiURL}/#/connections/social) section of Auth0 Dashboard. There, you can expand any of the IdPs and select the particular scopes required. 
+To configure the scopes/permissions needed from the user, go to the [Connections > Social](${uiURL}/#/connections/social) section of Auth0 Dashboard. There, you can click on an IdP to select the particular scopes required. 
 
-For example, to add new scopes for Facebook:
+For example, if you click the Facebook connection, you can select the required scopes listed in the configuration pop-up:
 
 ![Scopes for Facebook](/media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.png)
