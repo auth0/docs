@@ -1,5 +1,5 @@
 ---
-title: Auth0 Java Spring MVC Tutorial
+title: Introduction
 description: This tutorial will show you how to use the Auth0 Java Spring MVC SDK to add authentication and authorization to your web app.
 ---
 
