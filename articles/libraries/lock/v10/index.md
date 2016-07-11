@@ -159,9 +159,7 @@ If you have found a bug or if you have a feature request, please report them at 
 * [UI customization][ui-customization]
 * [Embedding Lock (Instead of a Modal)][display-modes]
 * [Popup vs Redirect mode][authentication-modes] notes. **What are the authentication modes?**.
-* [Error customization][error-customization] notes.
 * [I18n][i18n-notes] notes. **Languages and Custom Text**
-* [Events][events-notes] notes.
 * [Development][development-notes] notes.
 * [Release process][release-process] notes.
 * [Auth0Lock playground][playground-url]
@@ -188,8 +186,6 @@ ${lockSDK}
 [lock-api]: /libraries/lock/v10/api.md
 [ui-customization]: /libraries/lock/v10/ui-customization
 [display-modes]: /libraries/lock/v10/customization#container
-[i18n-notes]: /libraries/lock/v10/i18n
-[events-notes]: /libraries/lock/v10/events
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
 [sending-authentication-parameters]: /libraries/lock/sending-authentication-parameters

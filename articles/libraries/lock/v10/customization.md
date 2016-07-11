@@ -382,6 +382,10 @@ var options = {
 };  
 ```
 
+::: panel-info Side effects
+When the `redirectUrl` is provided (set to non blank value) the `responseType` option will be defaulted to `code` if not manually set.
+:::
+
 ### responseType {String}
 
 The value of `responseType` should be set to "token" for Single Page Applications, and "code" otherwise. Defaults to "code" when redirectUrl is provided, and to "token" otherwise.
@@ -416,7 +420,89 @@ var options = {
 
 ### additionalSignUpFields {Array}
 
+Extra input fields can be added to the sign up screen with the `additionalSignUpFields` option. Every input must have a `name` and a `placeholder`, and an `icon` url can also be provided. Also, the initial value can be provided with the `prefill` option, which can be a string with the value or a function that obtains it. Other options depend on the type of the field, which is defined via the type option and defaults to "text".
+
+::: panel-info Intended for use with database signup only
+`additionalSignupFields` are intended for use with database signups only. If you have social sign ups too, you can ask for the additional information after the users sign up. You can use the `databaseAlternativeSignupInstructions` i18n key to display these instructions.
+:::
+
+The new fields are rendered below the regular sign up input fields in the order they are provided. 
+
+#### Text Field
+
+A `validator` function can also be provided.
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    name: "address",
+    placeholder: "enter your address",
+    // The following properties are optional
+    icon: "https://example.com/assests/address_icon.png",
+    prefill: "street 123",
+    validator: function(address) {
+      return {
+         valid: address.length >= 10,
+         hint: "Must have 10 or more chars" // optional
+      };
+    }
+  }]
+}
+```
+
+#### Select Field
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    type: "select",
+    name: "location",
+    placeholder: "choose your location",
+    options: [
+      {value: "us", label: "United States"},
+      {value: "fr", label: "France"},
+      {value: "ar", label: "Argentina"}
+    ],
+    // The following properties are optional
+    icon: "https://example.com/assests/location_icon.png",
+    prefill: "us"
+  }]
+}
+```
+
+The `options` array items for `select` fields must adhere to the following format:
+`{label: “non empty string”, value: “non empty string”}`, and at least one option must be defined.
+
+The `options` and `prefill` values can be provided through a function:
+
+```js
+var options = {
+  additionalSignUpFields: [{
+    type: "select",
+    name: "location",
+    placeholder: "choose your location",
+    options: function(cb) {
+      // obtain options, in case of error you call cb with the error in the
+      // first arg instead of null
+      cb(null, options);
+    },
+    icon: "https://example.com/assests/location_icon.png",
+    prefill: function(cb) {
+      // obtain prefill, in case of error you call cb with the error in the
+      // first arg instead of null
+      cb(null, prefill);
+    }
+  }]
+}
+```
+
+::: panel-info Using additionalSignupFields for email
+Some use cases may be able to use `additionalSignupFields` data for email templates, such as an option for language preferences, the value of which could then be used to set the language of templated email communications.
+:::
+
 ### allowLogin {Boolean}
+
+When set to `false` the widget won't display the login screen. This is useful if you want to use the widget just for signups (the login and signup tabs in the signup screen will be hidden) or to reset passwords (the back button in the forgot password screen will be hidden). In such cases you may also need to specify the `initialScreen`, `allowForgotPassword` and `allowSignUp` options. It defaults to `true`.
 
 ### allowForgotPassword {Boolean}
 
