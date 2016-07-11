@@ -233,7 +233,7 @@ And you'll see SMS login screen
 
 ## SSO
 
-A very cool thing you can do with Lock is use SSO. Imagine you want to create 2 apps. However, you want that if the user is logged in in app A, he will be already logged in in app B as well. Something similar to what happens with Messenger and Facebook as well as Foursquare and Swarm.
+A very cool thing you can do with Lock is use SSO. Imagine you want to create 2 apps. However, you want that if the user is logged in in app A, they will be already logged in in app B as well. Something similar to what happens with Messenger and Facebook as well as Foursquare and Swarm.
 
 Read [this guide](/libraries/lock-ios/sso-on-mobile-apps)) to learn how to accomplish this with this library.
 
@@ -404,7 +404,7 @@ controller.signupDisclaimerView = view;
 ```objc
 @property (assign, nonatomic) BOOL useWebView;
 ```
-When the authentication requires to open a web login, for example Linkedin, it will use an embedded UIWebView instead of Safari if it's `YES`. We recommend using Safari for Authentication since it will always save the User session. This means that if he's already signed in, for example in Linkedin, and he clicks in the Linkedin button, it will just work. Default values is `NO`
+When the authentication requires to open a web login, for example Linkedin, it will use an embedded UIWebView instead of Safari if it's `YES`. We recommend using Safari for Authentication since it will always save the User session. This means that if the user is already signed in, for example in Linkedin, and they click in the Linkedin button, it will just work. Default values is `NO`
 ```objc
 controller.useWebView = YES
 ```

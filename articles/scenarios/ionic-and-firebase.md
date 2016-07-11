@@ -105,8 +105,8 @@ angular.module('starter', ['ionic',
     templateUrl: 'templates/dashboard.html',
     data: {
       // This tells Auth0 that this state requires the user to be logged in.
-      // If the user isn't logged in and he tries to access this state
-      // he'll be redirected to the login page
+      // If the user isn't logged in and they try to access this state
+      // they'll be redirected to the login page
       requiresLogin: true
     }
   })

@@ -39,11 +39,11 @@ In order to configure a new system for Auth0 logs and acquire the *SUMOLOGIC_URL
 
 ![](/media/articles/extensions/sumologic/sumologic-http-source.png)
 
-7. Now head back to the Auth0 Dashboard and set he value you copied as the value for **SUMOLOGIC_URL**.
+7. Now head back to the Auth0 Dashboard and set the value you copied as the value for **SUMOLOGIC_URL**.
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Sumo Logic* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Sumo Logic* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution.
 
 ![](/media/articles/extensions/sumologic/view-cron-jobs.png)
 

@@ -1,6 +1,6 @@
 # What is SSO (Single Sign On)?
 
-SSO (Single Sign On) means that when a user logs in to one application he will be "automatically" signed in to every other application, regardless of the platform, technology and domain.
+SSO (Single Sign On) means that when a user logs in to one application they will be "automatically" signed in to every other application, regardless of the platform, technology and domain.
 
 For example, Google implements SSO for their products: Gmail, YouTube, Analytics, etc. When you turn on your computer and access Gmail, you login for the first time. Then, if you go to YouTube you won't be prompted for credentials again.
 
@@ -33,5 +33,3 @@ There may be up to three different layers of sessions for a user with SSO.
 * A session maintained by an application
 
 See the [Logout URL docs](/logout) for information on terminating the first two sessions listed above.
-
-

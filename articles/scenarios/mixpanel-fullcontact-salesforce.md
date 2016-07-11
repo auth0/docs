@@ -12,7 +12,7 @@ Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in yo
 
 ### 1. Recording a __SignUp__ in MixPanel:
 
-This first rule checks whether the user has already signed up before or not. If he has, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (e.g. IP addresses, agent, etc.).
+This first rule checks whether the user has already signed up before or not. If the user has signed up, it simply skips everything. If not, it calls __MixPanel__ to record the event. In the example below we are simply using a property `application` that you can then use in MixPanel to filter information. But the full `context` and `user` properties are available as sources of more information (e.g. IP addresses, agent, etc.).
 
 We also call this event `Sign Up`:
 
@@ -70,7 +70,7 @@ function (user, context, callback) {
 }
 ```
 
-### 3.Create a __New Lead__ in Salesforce: 
+### 3.Create a __New Lead__ in Salesforce:
 
 In the last step we record the information as a __New Lead__ in Salesforce, so the sales department can followup. This __Rule__ has some interesting things:
 
@@ -83,7 +83,7 @@ function (user, context, callback) {
 
   if(user.signedUp) return callback(null,user,callback);
 
-  getAccessToken(SFCOM_CLIENT_ID, SFCOM_CLIENT_SECRET, USERNAME, PASSWORD, 
+  getAccessToken(SFCOM_CLIENT_ID, SFCOM_CLIENT_SECRET, USERNAME, PASSWORD,
             function(e,r){
                     if( e ) return callback(e);
 
@@ -94,10 +94,10 @@ function (user, context, callback) {
                         return callback(null,user,context);
                     });
                 });
-  
+
   function createLead(url,access_token, callback){
 
-    //Just a few fields. The Lead object is much richer 
+    //Just a few fields. The Lead object is much richer
     var data = {
         LastName: user.name,
         Company: 'Web channel signups'

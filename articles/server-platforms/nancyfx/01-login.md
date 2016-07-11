@@ -33,7 +33,7 @@ In your Nancy self hosted application add the following to your BootStrapper:
 
 ${snippet(meta.snippets.setup)}
 
-The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when he tries to access a restricted view.
+The `RedirectOnLoginFailed` specifies the view that should be shown to an authenticated user when they try to access a restricted view.
 
 The `CookieName` allows you to set the name of the cookie that will be used to save the User information.
 

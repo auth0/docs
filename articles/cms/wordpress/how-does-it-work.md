@@ -44,7 +44,7 @@ This endpoints are secured with a secret token and only available to the Auth0 I
 
 The login flow is the following:
 
-1. A user access your site's login page. He has an account in your wordpress site so (s)he proceds to login using this credentials.
+1. A user accesses your site's login page. The user has an account in your wordpress site so they proceed to login using this credentials.
 2. Auth0 can't find a user with this credentials in your account, so proceds to call your migration endpoint.
 3. The plugin find a user with the same username/email and verifies the password.
 4. Auth0 creates the user in your account and authenticate the user successfully.

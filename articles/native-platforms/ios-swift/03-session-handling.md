@@ -58,7 +58,7 @@ Then, run `pod install`.
 
 > The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
 
-We will store this `idToken` **upon a successful login**, in order to prevent the user from being asked for login credentials again whenever he re-launches the app.
+We will store this `idToken` **upon a successful login**, in order to prevent the user from being asked for login credentials again whenever they re-launch the app.
 
 Once the user has logged in, you get both an `A0Profile` and an `A0Token` object, coming as follows:
 
