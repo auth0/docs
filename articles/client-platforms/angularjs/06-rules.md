@@ -12,9 +12,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 
 #### Test rule result
 
-The created rule will inject additional data to the user's profile so you need to fetch that as seen in [User Profile](/quickstart/spa/angular/03-user-profile) step.
-
-Display user profile's new `country` attribute added in the created rule:
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular/04-user-profile' }) %>
 
 ```html
 <div class="col-md-6 col-md-offset-3">
