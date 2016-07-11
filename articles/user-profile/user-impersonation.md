@@ -36,7 +36,7 @@ Your first step would be to generate a _Bearer_ token to be used with [Impersona
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/oauth/token",
+  "url": "https://${account.namespace}/oauth/token",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],
@@ -54,7 +54,7 @@ Afterwards, you would have to find out the user id of the user that you want to 
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}.auth0.com/api/v2/users",
+  "url": "https://${account.namespace}/api/v2/users",
   "headers": [
     { "name": "Authorization", "value": "Bearer {bearer-token}" }
   ]
@@ -89,7 +89,7 @@ You can get more information about this in the [Scopes documentation](/scopes).
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/users/{user_id}/impersonate",
+  "url": "https://${account.namespace}/users/{user_id}/impersonate",
   "headers": [
     { "name": "Content-Type", "value": "application/json" },
     { "name": "Authorization", "value": "Bearer {bearer-token}" }
@@ -122,7 +122,7 @@ If not you should send a POST request to the token endpoint in Auth0. You will n
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/users/oauth/token",
+  "url": "https://${account.namespace}/users/oauth/token",
   "headers": [
     { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
   ],
