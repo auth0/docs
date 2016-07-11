@@ -107,8 +107,8 @@ __NOTE__: The value `/portal/home` should be replaced with the valid one for you
 Once the user has successfully authenticated, the application displays the `home.jsp`. In order to display some user information, as retrieved from Auth0, update the `home.jsp` as follows:
 
 ```html
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
+${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
 <html lang="en">
 <head>
     <meta charset="utf-8">
