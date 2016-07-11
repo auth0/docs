@@ -44,8 +44,6 @@ For example, if the profile of the **primary account** is:
   "identities": [
     {
         "provider": "google-oauth2",
-        "access_token": "ya29.BgIckzs2irmP...moC2xqsGbTRWI1ZSIBSTLQZw",
-        "expires_in": 3596,
         "user_id": "115015401343387192604",
         "connection": "google-oauth2",
         "isSocial": true
@@ -108,8 +106,6 @@ after linking, the resulting profile will be:
   "identities": [
     {
       "provider": "google-oauth2",
-      "access_token": "ya29.BgIckzs2irmP...moC2xqsGbTRWI1ZSIBSTLQZw",
-      "expires_in": 3599,
       "user_id": "115015401343387192604",
       "connection": "google-oauth2",
       "isSocial": true
@@ -146,7 +142,7 @@ Note that as a result of linking these accounts:
 * The `user_metadata` and `app_metadata` of the primary account is unchanged.
 * The `user_metadata` and `app_metadata` of the secondary account is discarded.
 * There is no automatic merging of user profiles with associated identities.
-* The secondary account is removed from the users list.
+* The secondary account is removed from the users list. 
 
 #### Merging Metadata
 
