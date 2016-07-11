@@ -59,9 +59,9 @@ this.lockLink.on("authenticated", (authResult) => {
 ```
 
 Now that we already have the second login handled let's see how to actually do the linking.
-To call the api, [angular2-gwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+To call the api, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
 
-First you need to add the AUTH_PROVIDERS from angular-gwt
+First you need to add the AUTH_PROVIDERS from angular-jwt
 
 ```typescript
 /* ===== app/main.ts ===== */
@@ -75,32 +75,41 @@ bootstrap(AppComponent, [
 ])
 ```
 
-Then you can import AuthHttp in your component and make the authenticated request:
+Then you can import `AuthHttp`, inject it in your component and use it to make the authenticated request:
 
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
-public doLinkAccounts(accountToLinkJWT) {
-  var headers: any = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
+@Injectable()
+export class Auth {
+  ...
+
+  constructor(private authHttp: AuthHttp, private router: Router) {
+    ...
   };
 
-  var data: any = JSON.stringify({
-    link_with: accountToLinkJWT
-  });
+  public doLinkAccounts(accountToLinkJWT) {
+    var headers: any = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    };
 
-  this.authHttp
-    .post('https://' + '${account.namespace}' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
-    .map(response => response.json())
-    .subscribe(
-      response => {
-        console.log("accounts linked");
-        this.fetchProfile(localStorage.getItem('id_token'));
-        this.router.navigate(['Profile']);
-      },
-      error => alert(error.json().message)
-    );
+    var data: any = JSON.stringify({
+      link_with: accountToLinkJWT
+    });
+
+    this.authHttp
+      .post('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
+      .map(response => response.json())
+      .subscribe(
+        response => {
+          console.log("accounts linked");
+          this.fetchProfile(localStorage.getItem('id_token'));
+          this.router.navigate(['/profile']);
+        },
+        error => alert(error.json().message)
+      );
+  }
 }
 ```
 

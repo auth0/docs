@@ -127,9 +127,11 @@ To display, just read it from profile `user_metadata`:
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-To update user profile info, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id). For doing this [angular2-gwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+Let's add an *address* attribute to the user profile using `user_metadata`. We can create a component with a simple form to update this. 
 
-First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
+On form submit, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id). For doing this [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+
+First you need to add the `AUTH_PROVIDERS` from `angular-jwt`
 
 ```typescript
 /* ===== app/main.ts ===== */
@@ -143,12 +145,17 @@ bootstrap(AppComponent, [
 ])
 ```
 
-Then you can import `AuthHttp` in your component and make the authenticated request:
+Then you can import `AuthHttp`, inject it in your component and use it to make the authenticated request:
 
 
 ```typescript
 /* ===== app/edit_profile.component.ts ===== */
 import { AuthHttp } from 'angular2-jwt';
+
+@Component({
+  selector: 'profile',
+  templateUrl: 'app/profile_edit.template.html'
+})
 
 export class ProfileEdit {
   address: String
@@ -186,7 +193,7 @@ export class ProfileEdit {
 }
 ```
 
-So just add a form to add/edit the attribute `address` in the `user_metadata`:
+Create a simple form template to add/update *address* attribute:
 
 ```html
 /* ===== app/profile_edit.template.html ===== */
