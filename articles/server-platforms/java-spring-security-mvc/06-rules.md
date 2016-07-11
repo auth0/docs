@@ -67,6 +67,19 @@ with this:
 .antMatchers("/portal/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
 ```
 
+Edit the `src/main/webapp/WEB-INF/jsp/login.jsp`. We need to add the `roles` scope so we can retrieve this information.
+
+Replace this:
+
+```html
+scope: 'openid user_id name nickname email picture'
+```
+
+with this:
+```html
+scope: 'openid roles user_id name nickname email picture'
+```
+
 Let's print some text to verify functionality. Add the following code at the `src/main/webapp/WEB-INF/jsp/home.jsp`, inside your `jumbotron` div:
 
 ```html
