@@ -49,13 +49,6 @@ The following table describes operational and feature differences between each o
             <td>Monitored by Auth0 and Customer's tools</td>
         </tr>
         <tr>
-            <th>Geolocation</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-        </tr>
-        <tr>
             <th>SLA Provided</th>
             <td class="success">Yes</td>
             <td class="success">Yes</td>
@@ -85,17 +78,31 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Search</th>
-            <td>Elastic Search</td>
-            <td>DB-based</td>
-            <td>DB-based</td>
-            <td>DB-based</td>
+            <td>Lucene queries</td>
+            <td>Simple attribute search</td>
+            <td>Simple attribute search</td>
+            <td>Simple attribute search</td>
         </tr>
         <tr>
             <th>Code Sandbox</th>
-            <td>Multi-Language</td>
-            <td>JS Only</td>
-            <td>JS Only</td>
-            <td>JS Only</td>
+            <td>Webtask (Javascript and C#)</td>
+            <td>Webtask or in-process</td>
+            <td>Webtask or in-process</td>
+            <td>Webtask or in-process</td>
+        </tr>
+        <tr>
+            <th>Extensions</th>
+            <td class="success">Yes</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+        </tr>
+        <tr>
+            <th>Geolocation</th>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
         </tr>
         <tr>
             <th>Connecting IP Address Filtering Restrictions</th>
