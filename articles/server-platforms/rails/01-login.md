@@ -7,8 +7,8 @@ description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK 
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* Ruby 2.1.8
-* Rails 4.2.5.1
+* Ruby 2.3.1
+* Rails 4.2.6
 :::
 
 <%= include('../../_includes/_package', {
@@ -32,6 +32,8 @@ ${snippet(meta.snippets.dependencies)}
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
 ${snippet(meta.snippets.setup)}
+
+> **Note**: this tutorial makes use of omniauth-auth0, a custom strategy for the OmniAuth authentication library. To learn more about OmniAuth, [click here](https://github.com/intridea/omniauth#omniauth-standardized-multi-provider-authentication).
 
 ### 3. Add the Auth0 callback handler
 
@@ -89,28 +91,9 @@ Also if you need to force an identity provider just redirect to Omniauth's path 
 redirect_to '/auth/auth0?connection=CONNECTION_NAME'
 ```
 
-### 6. Accessing user information
+> [Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
 
-You can access the user information via the `userinfo` you stored in the session on step 3
-
-```ruby
-class DashboardController < SecuredController
-  def show
-    @user = session[:userinfo]
-  end
-end
-```
-
-```html
-<div>
-  <img class="avatar" src="<%= "\<%= @user[:info][:image] %\>" %>"/>
-  <h2>Welcome <%= "\<%= @user[:info][:name] %\>" %></h2>
-</div>
-```
-
-[Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
-
-### 7. You're done!
+### 6. You're done!
 
 You have configured your Ruby on Rails Webapp to use Auth0. Congrats, you're awesome!
 
