@@ -58,14 +58,18 @@ This is the simplest approach, with only a few lines of code required.
 This requires more development effort, but offers granular control of the UI and overall user experience.  
 + [Using a specific user name and password](#integration-option-three)
 
-<div id="integration-option-one">
+<div id="integration-option-one"></div>
 #### Authentication using the [Auth0 Login Widget](/lock)
+<<<<<<< 201e4911c19f6f0daea7991526ee963231c08e8f
 <<<<<<< e4acc3affd23f9675d45c30bc50a53178d54afd4
 <div id="integration-option-one"></div>
 To start with, we'd recommend using the __Login Widget__. To do this, simply copy and paste this code snippet of code into your project:
 >>>>>>> Update 01-login.md
 =======
 </div>
+=======
+
+>>>>>>> Create 01-login.md
 To start with, we'd recommend using the __Login Widget__. To do this, simply copy and paste this code snippet into your project:
 >>>>>>> Create 01-login.md
 
@@ -79,6 +83,7 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/xamarin/xamarin.auth0client.png)
 
+<<<<<<< 201e4911c19f6f0daea7991526ee963231c08e8f
 <<<<<<< e4acc3affd23f9675d45c30bc50a53178d54afd4
 <<<<<<< 0c255558bddf2568970d6d0a44cea1ea775f088b
 #### Option 2: Authentication with your own UI
@@ -88,8 +93,10 @@ If you know which identity provider you want to use, you can add the `connection
 =======
 <div id="integration-option-two">
 >>>>>>> Create 01-login.md
+=======
+<div id="integration-option-two"></div>
+>>>>>>> Create 01-login.md
 #### Authentication with your own UI
-</div>
 If you know which identity provider you want to use, you can add a `connection` parameter and the user will be sent straight to the specified `connection`:
 >>>>>>> Update 01-login.md
 
@@ -99,6 +106,7 @@ var user = await auth0.LoginAsync(this, "google-oauth2"); // connection name her
 
 **NOTE:** Connection names can be found on Auth0 dashboard (e.g. `facebook`, `linkedin`, `saml-protocol-connection`).
 
+<<<<<<< 201e4911c19f6f0daea7991526ee963231c08e8f
 <<<<<<< 0c255558bddf2568970d6d0a44cea1ea775f088b
 #### Option 3: Authentication with a specific username and password
 
@@ -111,6 +119,10 @@ var user = await auth0.LoginAsync(this, "google-oauth2"); // connection name her
 <div id="integration-option-three">
 #### Authentication with specific user name and password
 </div>
+>>>>>>> Create 01-login.md
+=======
+<div id="integration-option-three"></div>
+#### Authentication with specific user name and password
 >>>>>>> Create 01-login.md
 ```cs
 var user = await auth0.LoginAsync(
