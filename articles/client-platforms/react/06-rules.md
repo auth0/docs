@@ -7,10 +7,14 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/06-Rules',
 }) %>_
 
+
 <%= include('../_includes/_rules-introduction') %>
 
+## 1. Create a rule
 
-### Test rule result
+<%= include('../_includes/_rules-create-section') %>
+
+## 2. Test rule result
 
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/reactjs/04-user-profile' }) %>
 

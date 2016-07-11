@@ -7,7 +7,12 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/06-Rules',
 }) %>_
 
+
 <%= include('../_includes/_rules-introduction') %>
+
+### Create a rule
+
+<%= include('../_includes/_rules-create-section') %>
 
 
 ### Test rule result
