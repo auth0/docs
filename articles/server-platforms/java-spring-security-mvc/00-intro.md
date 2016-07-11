@@ -31,9 +31,7 @@ Let's take some time and explain how our [seed project](https://github.com/auth0
 ------ com
 -------- auth0
 ---------- example
------------- AdminService.java
 ------------ App.java
------------- AppConfig.java
 ------------ CallbackController.java
 ------------ ErrorController.java
 ------------ HomeController.java
