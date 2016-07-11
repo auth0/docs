@@ -12,4 +12,6 @@ snippets:
   setup: server-platforms/java-spring-security/setup
   use: server-platforms/java-spring-security/use
 articles:
+  - 00-intro
   - 01-login
+  
