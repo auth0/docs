@@ -33,5 +33,4 @@ Then, display user profile's new `country` attribute added in the created rule a
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
 ### Done!
-You have implemented the usage of rule for your application.   
-This is just one of the tons of cool things we can do with rules. Go ahead and create any rule that fits your needs.
+That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.

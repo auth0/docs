@@ -49,7 +49,10 @@ HTTP Request:
     { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
   ],
   "queryString" : [],
-  "postData" : { "options": { "non_persistent_attrs": ["", ""] }, "enabled_clients": [""] },
+  "postData": {
+		"mimeType": "application/json",
+		"text": "{\"options\": {\"non_persistent_attrs\": [\"\", \"\"]}\", \"enabled_clients\": [\"\"]}"
+  },
   "headersSize" : -1,
   "bodySize" : -1,
   "comment" : ""
