@@ -13,10 +13,12 @@ This document details the recommended method for calling a third-party IdP witho
 The basic flow is the following:
 
 * Create a client that will be used to get an access token with the `read:user_idp_tokens` scope valid to obtain authorized access to the Auth0 Management API. 
-* Create a service to handle your request to the external IdP API which will: 
+* Write code on your backend to handle your request to the external IdP API which will: 
     1. Execute the client credentials exchange to obtain a valid Auth0 access token.
     2. Use the Auth0 access token to execute the request to the `/api/v2/users/{user_id}` endpoint.
     3. Use the IdP access token extracted from the user profile to make calls to the IdP API.
+
+Below we will explain those steps in detail.
 
 ## Create the client
 
@@ -74,12 +76,14 @@ With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get 
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}.auth0.com/api/v2/users/{user-id}",
+  "url": "https://${account.namespace}.auth0.com/api/v2/users/USER-ID",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ]
 }
 ```
+
+**NOTE:** For Native and SPA applications you will need to send the id_token and verify it using the client secret on your backend
 
 The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step. 
 
