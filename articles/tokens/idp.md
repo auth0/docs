@@ -12,45 +12,7 @@ Third-party access tokens are issued by Identity Providers (including Social pro
 
 Identity Provider (IdP) access tokens can be obtained after the user has authenticated with the IdP by making an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an Auth0 API token generated with  `read:user_idp_tokens` scope. 
 
-The following steps outline the required procedure.
-
-### 1. Get the user id from the user profile
-
-First, you will need to retrieve the `user_id` property from the user profile after successful authentication.
-
-For example, if you are using [Lock](/libraries/lock), you can get the `user_id` from the returned profile with this code:
-
-```
-lock.show({
-  responseType: 'token',
-}, 
-  function(err, profile, token) {
-    user-id = profile.user_id;
-});
-```
-
-**NOTE:** For examples of profiles as returned by various social providers, see: [Normalized User Profile](/user-profile/normalized) 
-
-### 2. Call the Auth0 API
-
-Next, you will need to call the [GET Users by Id](/api/management/v2#!/Users/get_users_by_id) endpoint with the value of `user-id` obtained in the previous step.
-
-For example, the following code will output the value of the Idp access token to the console:
-
-```
-var request = require("request");
-
-var options = { method: 'GET',
-  url: 'http://{account.namespace}/api/v2/users/{user-id}',
-  headers: { authorization: 'Bearer YOUR_API_TOKEN' } };
-
-request(options, function (error, response, user) {
-  if (error) throw new Error(error);
-
-  console.log(user.identities[0].access_token);
-});
-```
-**NOTE:** The `YOUR_API_TOKEN` must contain the `read:user_idp_tokens` scope.
+For a step-by-step guide on obtaining IdP access tokens, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api).
 
 ## How to control contents of IdP access tokens
 

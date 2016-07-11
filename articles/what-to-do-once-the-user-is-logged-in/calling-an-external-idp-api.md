@@ -18,13 +18,13 @@ The basic flow is the following:
     2. Use the Auth0 access token to execute the request to the `/api/v2/users/{user_id}` endpoint.
     3. Use the IdP access token extracted from the user profile to make calls to the IdP API.
 
-Below we will explain those steps in detail.
+These steps are explained in detail below.
 
-## Create the client
+## Create a client
 
 You will need to create a client that you will call from your service to interact with the Auth0 Management API to obtain an Auth0 access token.
 
-To create the client, follow these steps:
+To create a client, follow these steps:
 
 1. Go to the [Clients](${uiURL}/#/applications) section of the Auth0 dashboard and click **Create Client**. Select **Non Interactive Clients** and click **Create**. Once the cient is created, copy the `Client ID` and `Client Secret` from the **Settings** page.
 
@@ -40,7 +40,7 @@ To create the client, follow these steps:
 
 For more information on creating a client to access the Auth0 API, see: [API Authorization: Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
-## On your backend
+## On the backend
 
 Create a service to execute the following three steps:
 
@@ -83,7 +83,7 @@ With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get 
 }
 ```
 
-**NOTE:** For Native and SPA applications you will need to send the id_token to your backend and verify it using the client secret. For regular apps you can use the user\_id from the user profile.
+**NOTE:** For Native and SPA applications you will need to send the `id_token` to your backend and verify it using the client secret. For regular apps you can use the `user_id` from the user profile.
 
 The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step. 
 
@@ -95,7 +95,7 @@ The body of the request must include the following:
 
 Use the IdP access token extracted from `user.identities[0].access_token` to make calls to the IdP API.
 
-**NOTE:** In most cases, there will be only one identity in the identities array, but if you've used the [account linking feature](/link-accounts), there may be several.
+**NOTE:** In most cases, there will be only one identity in the identities array, but if you have used the [account linking feature](/link-accounts), there may be several.
 
 The IdP `access_token` obtained here will have access to call the APIs you specified in the Auth0 dashboard when creating the connection.
 
