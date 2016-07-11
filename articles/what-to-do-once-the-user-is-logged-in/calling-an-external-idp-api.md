@@ -83,7 +83,7 @@ With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get 
 }
 ```
 
-**NOTE:** For Native and SPA applications you will need to send the id_token and verify it using the client secret on your backend
+**NOTE:** For Native and SPA applications you will need to send the id_token to your backend and verify it using the client secret. For regular apps you can use the user\_id from the user profile.
 
 The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step. 
 
