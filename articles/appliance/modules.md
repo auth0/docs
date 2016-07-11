@@ -2,12 +2,12 @@
 
 For security reasons, rules and custom database connections for Auth0 appliances run in a JavaScript sandbox. You can use the full power of the ECMAScript 5 language and a few selected libraries.
 
-The latest version of the appliance supports using three different modes
-* webtask - This model has the same functionality as the Auth0 cloud version. It provides the best balance between performance and isolation, supports many more node modules that the other alternatives, and is the recommended model for most customers.
-* in process - This model executes within the node.js process of the auth0 service. This provides the best raw performance of all models. The model provides no isolation between custom code and the Auth0 service, and supports only the limited set of modules used below. The recommended approach for high scale is to allocate additional resources and use the webtask model. In some very demanding conditions where isolation is not a concern, it can be considered.
-* out-of-process - This is the original model to provide high isolation. It has significantly higher performance overhead compared to the other two models, and supports the limited set of modules listed below. The webtask model should always be preferred.
+The latest version of the appliance supports the use of three different modes:
+* Webtask - This model has the same functionality as the Auth0 cloud version. It provides a balance between performance and isolation, supports a greater number of node modules, and is the recommended model for most customers;
+* In process - This model executes within the Node.js process of the Auth0 service. This provides the best raw performance. The model provides no isolation between custom code and the Auth0 service, and supports only the limited set of modules listed below. The recommended approach for high scale is to allocate additional resources and use the Webtask model. In some very demanding conditions where isolation is not a concern, this model may be considered;
+* Out-of-process - This is the original model that provides high isolation. It has significantly higher performance overhead compared to the other two models and supports the limited set of modules listed below.
 
-In-process and out-of-process The current sandbox supports:
+The current sandbox supports:
 
 * [async](https://github.com/caolan/async) _(~0.9.0)_
 * [auth0](https://github.com/auth0/node-auth0) _(2.0.0-alpha.5)_
