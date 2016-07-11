@@ -65,7 +65,7 @@ Notice that you'll find the `roles` information within the `appMetadata` diction
 
 ### 3. Do your stuff
 
-At this point, you are able to distinguish the users' roles in your app and authorize or deny (depending on the user) access to a certain feature.
+At this point, you are able to distinguish the users' roles in your app to authorize or deny access to a certain feature.
 
 All you have to do here is to replace the `print` statements from the previous step with the instructions you need to execute depending on your business rules.
 
