@@ -188,5 +188,6 @@ ${lockSDK}
 [display-modes]: /libraries/lock/v10/customization#container
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
-[sending-authentication-parameters]: /libraries/lock/sending-authentication-parameters
-[legacy-migration-guide]: /libraries/lock/legacy-migration-guide
+[sending-authentication-parameters]: /libraries/lock/v10/sending-authentication-parameters
+[legacy-migration-guide]: /libraries/lock/v10/legacy-migration-guide
+[i18n-notes]: /libraries/lock/v10/i18n
