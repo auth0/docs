@@ -1,3 +1,7 @@
+---
+description: How to sign-up and login using the Guardian app.
+---
+
 # How to Use the Guardian App
 
 Guardian is an app that can be downloaded from the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). The Guardian app is used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.
@@ -10,7 +14,7 @@ If you do not have an existing account, you will need to sign up to create one. 
 
 ![](/media/articles/mfa/sign-up.png)
 
-Next, you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](/user-guide#google-authenticator) or [SMS](/user-guide#sms) depending on the application's settings.
+Next, you will see the option to download the Auth0 Guardian app from either the [App Store](https://itunes.apple.com/us/app/auth0-guardian/id1093447833) or from [Google Play](https://play.google.com/store/apps/details?id=com.auth0.guardian). Underneath that, is there is the option to use [Google Authenticator](#google-authenticator) or [SMS](#sms) depending on the application's settings.
  
 ![](/media/articles/mfa/choose-mfa.png)
 
@@ -38,7 +42,7 @@ A code will appear, and you will have five minutes to scan the code before it ex
 
 ![](/media/articles/mfa/google-code.png)
 
-[Click here to learn more about Google Authenticator](https://support.google.com/accounts/answer/1066447) 
+[For more information about Google Authenticator, see: [Install Google Authenticator](https://support.google.com/accounts/answer/1066447).
 
 ### SMS
 
@@ -82,7 +86,7 @@ If you forgot your password when you are trying to login, click **Don't remember
 
 For all types of multifactor authentication types there is a five minute expiration. Check the timestamp on the messages to see if it is still valid when trying to login. If it has been longer than five minutes, you will need to try to login again and get a new code or notification. 
 
-If using SMS, make sure you are not [exceeding rate limits](/user-guide#sms-rate-limits).
+If using SMS, make sure you are not [exceeding rate limits](#sms-rate-limits).
 
 ### If you did not receive a SMS
 
