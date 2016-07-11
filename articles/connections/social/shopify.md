@@ -2,35 +2,86 @@
 connection: Shopify
 image: /media/connections/shopify.png
 seo_alias: shopify
+description: How to connect your Auth0 app to Shopify.
 ---
 
-# Obtaining a API Key and Shared Secret for Shopify
+# Connect your app to Shopify
 
-To configure Shopify OAuth2 connections, you will need to register Auth0 with Shopify on their [partner portal](https://app.shopify.com/services/partners/auth/login).
+To connect your Auth0 app to Shopify, you will need to create an app on the Shopify Partner portal to generate  *API Key* and *Shared Secret*, copy these credentials into your Auth0 settings, and enable the connection.
 
-### 1. Create an App on the Partner Portal
-Go to the [partner portal](https://app.shopify.com/services/partners), and login with your WordPress credentials. Select __Apps__ and click on __Create app__:
+### 1. Create an app on the Shopify Partner portal
+
+Login to the [Shopify Partner](https://app.shopify.com/services/partners) portal. Select **Apps** in the left nav and click **Create a new app**:
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-1.png)
 
----
 
-### 2. Complete information about your instance of Auth0
+### 2. Create your app
 
-Create a new application and complete the form. Use this URL as your callback:
+Complete the form. 
 
-	https://${account.namespace}/login/callback
+In the fields below, enter the following:
+
+* **App URL**: `https://YOUR_TENANT.auth0.com`
+* **Redirection URL**: `https://YOUR_TENANT.auth0.com/login/callback`
 
 ![](/media/articles/connections/social/shopify/shopify-devportal-2.png)
 
----
+Click **Create app**.
 
-### 4. Get your API Key and Shared Secret
+### 3. Get your API Key and Shared Secret
 
-Once the application is registered, enter your new `API Key` and `Shared Secret` into the connection settings in Auth0.
+On the page that follows, your `API Key` and `Shared Secret` will be displayed. Save these for use in the next step.
 
----
+![](/media/articles/connections/social/shopify/shopify-devportal-3.png)
 
-## Shopify Multipass
+### 4. Enter your API Key and Shared Secret into Auth0
 
+In a separate window, go to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 Dashboard.
+
+Select Shopify:
+
+![](/media/articles/connections/social/shopify/shopify-devportal-4.png)
+
+Copy the `API Key` and `Shared Secret` from the Apps page on Shopify into the fields on this page on Auth0.
+
+Enter your **Shop name**. 
+
+Select the **Permissions** you want to enable.
+
+Click **SAVE**.
+
+![](/media/articles/connections/social/shopify/shopify-devportal-5.png)
+
+### 5. Enable the Connection
+
+Go to the **Apps** tab of the Shopify connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection:
+
+![](/media/articles/connections/social/shopify/shopify-devportal-6.png)
+
+### 6. Test the connection
+
+Close the Settings window to return to the **Connections > Social** section of the Auth0 dashboard.
+
+A TRY icon will now be displayed next to the Shopify logo:
+
+![](/media/articles/connections/social/shopify/shopify-devportal-7.png)
+
+Click TRY.
+
+Login to your Shopify store.
+
+Click **Install app** to allow your app access.
+
+![](/media/articles/connections/social/shopify/shopify-devportal-8.png)
+
+If you have configured everything correctly, you will see the It works!!! page:
+
+![](/media/articles/connections/social/shopify/shopify-devportal-9.png)
+
+::: panel-info Shopify Multipass
 You may use Shopify's [Multipass](https://help.shopify.com/api/reference/multipass) feature to automatically authenticate users who have already been verified by Auth0 on Shopify.
+:::
+ 
+
+
