@@ -3,7 +3,7 @@ title: Introduction
 name: Introduction to the Quickstart, and configuring environment
 ---
 
-This multi-step Quickstart will guide you through authenticating a user in an ASP.NET Core MVC application using ASP.NET Core.
+This Quickstart will guide you through the various tasks related to integrating Auth0 into your ASP.NET Core MVC application. 
 
 ## Seed & Samples
 
@@ -21,7 +21,7 @@ The final project after each of the steps is also available in the [Sample repos
 
 The Callback URL of your application is the URL where Auth0 will redirect to after the user has authenticated in order for the OpenID Connect middleware to complete the authentication process.
 
-You will need to add this URL to the list of Allowed URLs for your application. The Callback URL for the seed project is `http://localhost:60856/signin-auth0`, so be sure to add this to the **Allowed Callback URLs** section of your application.
+You will need to add this URL to the list of Allowed URLs for your application. The Callback URL for the seed project is `http://localhost:60856/signin-auth0` if you use IIS Express, or `http://localhost:5000/signin-auth0` if you use Kestrel, so be sure to add this to the **Allowed Callback URLs** section of your application.
 
 If you deploy your application to a different URL you will also need to ensure to add that URL to the **Allowed Callback URLs**. For ASP.NET Core this URL will take the format `http://YOUR_APPLICATION_URL/signin-auth0`  
 
@@ -33,17 +33,11 @@ Save your changes.
 
 ## Dependencies
 
-To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) Middleware. Add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application's `project.json` file.
+To integrate Auth0 with ASP.NET Core you will use the Cookie and OpenID Connect (OIDC) Middleware. Add the `Microsoft.AspNetCore.Authentication.Cookies` and `Microsoft.AspNetCore.Authentication.OpenIdConnect` packages to your application.
 
-```json
-{
-  "dependencies": {
-    ...
-    "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0",
-    "Microsoft.AspNetCore.Authentication.OpenIdConnect": "1.0.0"
-  },
-
-}
+```bash
+Install-Package Microsoft.AspNetCore.Authentication.Cookies
+Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
 ```
 
 This was already done for you in the seed project, so no need to add it if you are using the seed project as a starting point.
