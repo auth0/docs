@@ -24,7 +24,9 @@ You will be navigated to the connection's settings. At the __Applications Using 
 
 Now let's create a user. Select the [Users](${uiURL}/#/users) menu option. Click the __Create User__ button and fill in the email, password, and the database at which the user will be created. Use an email address you have access to since creating the user will trigger a verification email to be sent. Click __Save__.
 
-Head back to [Connections > Database](${uiURL}/#/connections/database) and select the __Try__ button on your new database so we can verify that our user can log in. 
+Head back to [Connections > Database](${uiURL}/#/connections/database) and select the __Try__ button on your new database so we can verify that our user can log in.
+
+__NOTE:__ You can add also social connections. To do so you need to create the relevant button in your login form and the javascript to specify which connection to use, for example `google-oauth2`, `github`, etc. You can find details and some sample code on the [auth0.js](/libraries/auth0js#login) document.
 
 
 ### Create custom login
@@ -101,6 +103,8 @@ Notice the differences compared to `login.jsp`:
 - We have added html to display a form for email and password input (div `form-signin`).
 - The javascript code uses the `Auth0` class, instead of `Auth0Lock`.
 
+__NOTE__: Login is probably not enough for you, users need to be able to sign up. To do so you have to call the `signup` method on the `auth0` instance. You can find details on how to do that in the [Custom Signup](/custom-signup) document.
+
 Now let's go and add this flag we were talking about earlier. Edit the `auth0.properties` file:
 - Add the line `auth0.customLogin: true`. If you need to disable it, so you can use Lock again, set the value to `false`.
 - Set the value of `auth0.connection` to the name of the database connection you created earlier. If you follow our example, the value is `custom-login-DB`.
@@ -145,58 +149,5 @@ protected String login(final Map<String, Object> model, final HttpServletRequest
 
 Notice the last line. It checks the value of the `auth0.customLogin` and returns either `loginCustom` or `login`.
 
----
+We have also added code to retrieve the connection name, the value of the `auth0.connection` property: `model.put("connection", appConfig.getConnection());`. This is the method we added in the previous step in the `AppConfig` class.
 
-
-### Sign up
-
-To do a Sign Up just call `signup` method on `auth0` instance:
-
-```typescript
-/* ===== app/auth.service.ts ===== */
-public signUp(username, password) {
-  this.auth0.signup({
-    connection: 'Username-Password-Authentication',
-    responseType: 'token',
-    email: username,
-    password: password,
-  }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
-  });
-};
-```
-
-and add the button to call this:
-
-```html
-/* ===== app/login.template.html ===== */
-...
-<button type="submit" class="btn btn-default" (click)="auth.signUp(username.value, password.value)">Sign Up</button>
-...
-```
-
-### Social login
-
-To login using social connector, you just need to tell `Auth0` which connection you want to use:
-
-```typescript
-/* ===== app/auth.service.ts ===== */
-public googleLogin() {
-  this.auth0.login({
-    connection: 'google-oauth2'
-  }, function(err) {
-    if (err) alert("something went wrong: " + err.message);
-  });
-};
-```
-
-and again add a button to call this:
-
-```html
-/* ===== app/login.template.html ===== */
-<button type="submit" class="btn btn-default btn-primary" (click)="auth.googleLogin()">Login with google</button>
-```
-
-### Done!
-
-You have implemented login, signup and social login without using Lock. 
