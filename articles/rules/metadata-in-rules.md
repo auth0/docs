@@ -340,97 +340,59 @@ The resulting user is:
 
 ## Client object metadata
 
-The sample rules below assume that the client is represented by the following JSON:
+The sample rules below assume that context.client is contains the following:
 
 ```js
 {
-  ...
-  "client_metadata": {
-  "key1": "valueforkey"
+  clientID: 'abcde',
+  clientName: 'name',
+  clientMetadata: {
+    Key1: "Value1",
+    Key2: "Value2"
   }
-...
 }
 ```
 
 ### Read
 
-To read metadata from a rule, you only need to access the correct client property.
+To read `clientMetadata` from a rule, you only need to access the correct property.
 
 ```js
-function(client, context, callback){
-  client.client_metadata = client.client_metadata || {};
-  if (client.client_metadata.key1 === 'valueforkey'){
+function(user, context, callback){
+  context.clientMetadata  = context.clientMetadata  || {};
+  if (context.clientMetadata.Key1 === 'Value1'){
   // this code would be executed
   }
-...
+…
 }
 ```
 
 ### Update
 
-To update a property, use the `push' method.
+To update a property, 
 
 ```js
-function(client, context, callback){
-  client.client_metadata = client.client_metadata || {};
-  // update the client_metadata that will be part of the response
-  client.client_metadata.key1 = client.client_metadata.key1 || [];
-  client.client_metadata.key1.push('newValue');
 
-  // persist the client_metadata update
-  auth0.clients.updateClientMetadata(client.client_id, client.client_metadata)
-    .then(function(){
-      callback(null, client, context);
-    })
-    .catch(function(err){
-      callback(err);
-    });
-}
 ```
 
 The resulting client is:
 
 ```js
-{
-...
-  "client_metadata": {
-  "key1": "newValue"
-  }
-...
-}
+
 ```
 
 ### Delete
 
-To delete a property, set the value to `null`.
+To delete a property, 
 
 ```js
-function(client, context, callback){
-  client.client_metadata = client.client_metadata || {};
-  // update the client_metadata that will be part of the response
-  client.client_metadata.key1 = null;
 
-  // persist the client_metadata update
-  auth0.clients.updateClientMetadata(client.client_id, client.client_metadata)
-    .then(function(){
-      callback(null, client, context);
-    })
-    .catch(function(err){
-      callback(err);
-    });
-}
 ```
 
 The resulting client is:
 
 ```js
-{
-...
-  "client_metadata": {
-  "key1": ""
-  }
-...
-}
+
 ```
 
 ## Considerations
