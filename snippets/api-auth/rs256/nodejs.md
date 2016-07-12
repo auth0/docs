@@ -6,15 +6,22 @@ title: Node.js
 var express = require('express');
 var app = express();
 var jwt = require('express-jwt');
-var publicKey = fs.readFileSync('./key.pem');
+var rsaValidation = require('auth0-api-jwt-rsa-validation');
+
+var port = process.env.PORT || 8080;
 
 var jwtCheck = jwt({
-  secret: publicKey,
-  audience: '${ "<%= api.identifier %>" }',
-  issuer: 'https://${ "<%= tenantDomain %>" }/'
+  secret: rsaValidation(),
+  algorithms: ['RS256'],
+  issuer: "https://${'<%= tenantDomain %>'}/",
+  audience: '${ "<%= api.identifier %>" }'
 });
 
-// All endpoints under /api should validate token
-app.use('/api', jwtCheck);
+app.use(jwtCheck);
 
+app.get('/authorized', function (req, res) {
+  res.send('Secured Resource');
+});
+
+app.listen(port);
 ```
