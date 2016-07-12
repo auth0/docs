@@ -9,9 +9,10 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 * **user_metadata**: stores user attributes, such as user preferences, that don't impact a user's core functionality;
 * **app_metadata**: stores user attributes, such as a support plan, security roles, or access control groups, which can impact a user's core functionality, such as how an application functions and/or what the user can access.
 
-> Both metadata fields are limited to a size of 16 megabytes.
+Please note that:
 
-An authenticated user may modify data in their profile's `user_metadata`, but nothing in their `app_metadata`.
+* Both metadata fields are limited to a size of 16 megabytes;
+* An authenticated user may modify data in their profile's `user_metadata`, but nothing in their `app_metadata`.
 
 ## Metadata Usage
 
@@ -29,7 +30,7 @@ Suppose the following data is stored for a user with the email address "jane.doe
 }
 ```
 
-To read metadata, access the correct property:
+To read metadata, simply access the correct property:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"

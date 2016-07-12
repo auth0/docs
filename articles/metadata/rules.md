@@ -1,6 +1,6 @@
 # Working with User Metadata in Rules
 
-This article contains samples that demonstrate how to work with user metadata in [Rules](/rules).
+This article contains samples that demonstrate how to work with [user metadata](/metadata) in [Rules](/rules).
 
 Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 
