@@ -14,19 +14,18 @@ In our example we will configure a custom database connection to use with our cu
 
 ### Create a database connection
 
-First we will create a new database connection and we will name it `custom-login-DB`. We will user Auth0 database infrastructure to store our users.
+First we will create a new database connection and we will name it `custom-login-DB`. We will use Auth0 database infrastructure to store our users.
 
-__ NOTE: __ If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
+__NOTE:__ If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
 
 Log into Auth0, and select the [Connections > Database](${uiURL}/#/connections/database) menu option. Click the __Create DB Connection__ button and provide a name for the database.
 
 You will be navigated to the connection's settings. At the __Applications Using This Connection__ enable the connection for your app.
 
-Now let's create a user. Select the [Users](${uiURL}/#/users) menu option. Click the __Create User__ button and fill in the email, password, and the database at which the user will be created. Click __Save__.
-
-__NOTE:__ Use an email address you have access to since creating the user will trigger a verification email to be sent.
+Now let's create a user. Select the [Users](${uiURL}/#/users) menu option. Click the __Create User__ button and fill in the email, password, and the database at which the user will be created. Use an email address you have access to since creating the user will trigger a verification email to be sent. Click __Save__.
 
 Head back to [Connections > Database](${uiURL}/#/connections/database) and select the __Try__ button on your new database so we can verify that our user can log in. 
+
 
 ### Create custom login
 
@@ -95,6 +94,56 @@ ${'<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>'
 </body>
 </html>
 ```
+
+Notice the differences compared to `login.jsp`:
+
+- The code uses the `auth0-6.8.js` library, instead of `lock-9.min.js`.
+- We have added html to display a form for email and password input (div `form-signin`).
+- The javascript code uses the `Auth0` class, instead of `Auth0Lock`.
+
+Now let's go and add this flag we were talking about earlier. Edit the `auth0.properties` file:
+- Add the line `auth0.customLogin: true`. If you need to disable it, so you can use Lock again, set the value to `false`.
+- Set the value of `auth0.connection` to the name of the database connection you created earlier. If you follow our example, the value is `custom-login-DB`.
+
+The next step is to read these attributes from our code. Edit the `AppConfig.java` file by adding the following code inside the `AppConfig` class:
+
+```java
+@Value(value = "<%= "${auth0.customLogin}" %>")
+protected boolean customLogin;
+
+@Value(value = "<%= "${auth0.connection}" %>")
+protected String connection;
+
+public boolean isCustomLogin() {
+    return customLogin;
+}
+
+public String getConnection() {
+    return connection;
+}
+```
+
+The final step is to edit the `LoginController.java` class. Edit the `login` method as follows:
+
+```java
+protected String login(final Map<String, Object> model, final HttpServletRequest req) {
+    logger.debug("Performing login");
+    detectError(model);
+    // add Nonce to storage
+    NonceUtils.addNonceToStorage(req);
+    model.put("clientId", auth0Config.getClientId());
+    model.put("domain", auth0Config.getDomain());
+    model.put("loginCallback", auth0Config.getLoginCallback());
+    model.put("state", SessionUtils.getState(req));
+    model.put("connection", appConfig.getConnection());
+    // for this sample only, this just allows configuration to
+    // use Lock Widget or Auth0.js for login presentation
+    // should only enable loginCustom for DB connection
+    return appConfig.isCustomLogin() ? "loginCustom" : "login";
+}
+```
+
+Notice the last line. It checks the value of the `auth0.customLogin` and returns either `loginCustom` or `login`.
 
 ---
 
