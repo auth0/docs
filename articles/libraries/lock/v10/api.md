@@ -22,7 +22,7 @@ lock.on("authenticated", function(authResult) {
       return;
     }
 
-    localStorage.setItem("idToken", authResult.idToken);
+    localStorage.setItem("token", authResult.idToken);
     localStorage.setItem("profile", JSON.stringify(profile));
 
     // Update DOM
@@ -30,17 +30,17 @@ lock.on("authenticated", function(authResult) {
 });
 ```
 
-### getProfile(idToken, callback)
+### getProfile(token, callback)
 
-Once the user has logged in and you are in possesion of and id token, you can obtain the profile with `getProfile`.
+Once the user has logged in and you are in possesion of a token, you can obtain the profile with `getProfile`.
 
-- **idToken {String}**: User id token.
+- **token {String}**: User token.
 - **callback {Function}**: Will be invoked after the user profile been retrieved.
 
 #### Example
 
 ```js
-lock.getProfile(idToken, function(error, profile) {
+lock.getProfile(token, function(error, profile) {
   if (!error) {
     alert("hello " + profile.name);
   }
