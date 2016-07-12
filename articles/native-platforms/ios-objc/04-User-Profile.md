@@ -27,7 +27,7 @@ This tutorial assumes you are already familiar with Auth0 and how to Sign up and
 
 ### 1. Remember me?
 
-To get your users information, you will need his token. You can get it either after your sign in ([Sing in Tutorial](01-login.md)) or getting it from your Keychain ([Session Handling Tutorial](03-session-handling.md)).
+To get your users information, you will need his token. You can get it either after your sign in ([Sign in Tutorial](01-login.md)) or getting it from your Keychain ([Session Handling Tutorial](03-session-handling.md)).
 Once you have the user's token, you can use it to restore the user's profile:
 
 ```objc
