@@ -11,7 +11,9 @@ The reason for implementing authentication in the first place is to protect info
 
 ## 1. Add Authentication Header to Requests
 
-In order to make an authorized request in our example, we need to send an `Authorization` header that will decoded in the server to validate the authencaticated user. A good way to provide this is updating `AuthService` to wrap the [`fetch`](https://fetch.spec.whatwg.org/) and always send the correct headers:
+In order to make an authorized request in our example, we need to send the `Authorization` header containing the JWT Token. For more information, please refer to [JSON Web Tokens documentation](https://jwt.io/introduction/). The token will be extracted from request header and decoded by the server, validating the authencaticated user.
+
+To make it easy for us to send requests with the correct headers, let's update `AuthService` adding a new helper method to wrap the native [`fetch`](https://fetch.spec.whatwg.org/) and add the authorization value for us:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -54,11 +56,11 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-As you see, there is a new `fetch` method created to send requests to private endpoints. As the native `fetch` always resolves the returned promise even for response status 401, we're adding a method to throw an `Error` in `_checkStatus`, and adding it to the promise stack.
+As you see, there is a new `fetch` method created to send requests to private endpoints. As the native `fetch` always resolves the returned promise even for response status 401 (unauthorized), we're also adding a method to the promise stack that throws an `Error` for that case: `_checkStatus`.
 
-## 2. Create the Server and API
+## 2. Create a Simple Server
 
-To exemplify how server would handle public and private endpoints, we're introducing a simple `node.js` server based on [`express`](https://expressjs.com/) and [`express-jwt`](https://github.com/auth0/express-jwt). It's a super simple server with only two endpoints: `/api/public` and `/api/private`:
+To exemplify how server would handle public and private endpoints, we're introducing a simple `node.js` server based on [`express`](https://expressjs.com/) and [`express-jwt`](https://github.com/auth0/express-jwt). It's very basic server with only two endpoints: `/api/public` and `/api/private`:
 
 
 ```javascript
@@ -85,16 +87,16 @@ app.listen(3001);
 console.log('Listening on http://localhost:3001');
 ```
 
-Both endpoints send a json response with a message attribute, but `/api/private` is using the __authenticate__ callback to validate the token received in `Authentication` header. `express-jwt` is responsible to parse and validate the token (please, check the [documentation for more details](https://github.com/auth0/express-jwt)). Notice we're using `dotenv` package to load `process.env.AUTH0_SECRET` and `process.env.AUTH0_CLIENT_ID` from `.env` file.
+Both endpoints send a json response with a message attribute, but `/api/private` is using the __authenticate__ callback to validate the token received in `Authentication` header. `express-jwt` is responsible to parse and validate the token (please, check [`express-jwt` documentation for more details](https://github.com/auth0/express-jwt)). Notice we're using `dotenv` package to load `process.env.AUTH0_SECRET` and `process.env.AUTH0_CLIENT_ID` from `.env` file.
 
 <% if (account.userName) { %>
-If you don't have that file in your project you can create your own using the following command:
+If you don't have a `.env` file in your project you can create your own using the following command:
 
 ```bash
 $ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='account.secret'" > .env
 ```
 <% } else { %>
-If you don't have that file in you project folder, please copy `.env.example` and add your own credentials from [auth0 dashboard](https://manage.auth0.com).
+If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [auth0 dashboard](https://manage.auth0.com).
 
 ```bash
 $ cp .env.example .env
@@ -106,7 +108,7 @@ To test the server, just run `node server.js` and it should be listening in port
 
 ## 3. Add a Proxy and Start the Server
 
-As we'll be calling the server api from the client code, we need to proxy the calls to prevent have to use [`cors`](https://github.com/expressjs/cors), since client is served in post 3000 and client in 3001. To create the proxy we basically will add a new setting to [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html):
+As we'll be calling the server api from the client code, we need to proxy the calls to prevent have to use [`cors`](https://github.com/expressjs/cors), since client is served in port 3000 and the server api in 3001. To create the proxy we'll just add a new setting to [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) in `webpack.config.js` file:
 
 ```javascript
 /* ===== ./webpack.config.js ===== */
@@ -127,7 +129,7 @@ var config = getConfig({
       })
     }
   },
-  devServer: {
+  devServer: { // settings for webpack-dev-server
     proxy: { //proxying /api calls to 3001 port
       context: "/api",
       options: {
@@ -139,7 +141,7 @@ var config = getConfig({
 ...
 ```
 
-With a proxy, let's update our `start` script to start both `webpack-dev-server` and our `server.js`. The updated `scripts` entry in `package.json` seems like:
+With a proxy ready, let's update our `start` script to start both `webpack-dev-server` and our `server.js` at the same time. The updated `scripts` entry in `package.json` seems like:
 
 ```javascript
 /* ===== ./package.json ===== */
@@ -149,7 +151,7 @@ With a proxy, let's update our `start` script to start both `webpack-dev-server`
 }
 ```
 
-Now when you run `npm start` both server should be up.
+Now when you run `npm start` both servers should be up with the proxy active.
 
 ## 4. Show Public and Private Responses
 
@@ -205,9 +207,9 @@ export class Messages extends React.Component {
 export default Messages;
 ```
 
-Checking the above code you'll notice that both server endpoints will receive requests as soon the component is created. `callApis` is responsible to use teh regular `fetch` for the public api, and the `auth.fetch` for the private api, updating the component state for every response. `auth` is an `AuthService` instance that must be sent as a prop. Finally the component renders a `ListGroup` to display the response messages.
+Reading the above code you'll notice that both server endpoints will receive requests as soon the component is created. `callApis` is responsible to use the regular `fetch` for the public api, and the `auth.fetch` for the private api, updating the component internal state after receiving the responses. `auth` is an `AuthService` instance expected as a prop, and the component renders a `ListGroup` with two `ListGroupItem` to display the server messages.
 
-But the `Messages` component is still not being rendered anywhere in the application. As our goal here is to show how it works in authenticated and not authenticated situations, we'll include the new component not just in `Home` (where the user is already authenticated) but also in `Login`, to make sure the private api requests fails:
+Finally, we need to include `Messages` component in an application view. As our goal here is to show how it works in authenticated and not authenticated situations, we'll not include it just in `Home` (where the user is already authenticated) but also in `Login`, to make sure the private api requests fails:
 
 ```javascript
 /* ===== ./src/views/Main/Home/Home.js ===== */
@@ -252,8 +254,8 @@ export class Login extends React.Component {
 export default Login;
 ```
 
-When you run the application you see the server api responses for public and private in Home and Login pages, with the difference that private call in Login returns an authorization error.
+Finally, when you run the application you see the server api responses for public and private in Home and Login pages, with the difference that the private call in Login returns an authorization error.
 
 ## 5. All Done!
 
-You have completed the implementation of calling apis protected by Auth0 user token in your ReactJS project.
+You have completed the implementation of calling protected apis with Auth0 user token in your ReactJS project.
