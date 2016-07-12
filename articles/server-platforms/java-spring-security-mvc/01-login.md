@@ -12,7 +12,7 @@ link: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/ma
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK.
 
-Define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
+We have to define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
 
 Create a new `CallbackController.java` file and set the following contents:
 
