@@ -7,10 +7,12 @@ description: This tutorial will show you how to use the Auth0 Java Spring Securi
 link: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/01-Login',
 }) %>
 
+In this step we will implement login functionality using Lock. Lock is an embeddable login form for desktop, tablet and mobile devices.
+
 
 ### Add Auth0 callback handler
 
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK.
+First we need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. For that, we'll use the `Auth0CallbackHandler` provided by the SDK.
 
 We have to define a new Controller, configure it to use the `auth0.loginCallback` endpoint, and inherit from `Auth0CallbackHandler`.
 

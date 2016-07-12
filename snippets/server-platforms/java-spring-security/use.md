@@ -14,10 +14,9 @@ import java.io.IOException;
 @Controller
 public class CallbackController extends Auth0CallbackHandler {
 
-@RequestMapping(value = "<%= "${auth0.loginCallback}" %>", method = RequestMethod.GET)
-protected void callback(final HttpServletRequest req, final HttpServletResponse res)
-throws ServletException, IOException {
-super.handle(req, res);
-}
+    @RequestMapping(value = "<%= "${auth0.loginCallback}" %>", method = RequestMethod.GET)
+    protected void callback(final HttpServletRequest req, final HttpServletResponse res) throws ServletException, IOException {
+        super.handle(req, res);
+    }
 }
 ```
