@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the standard OpenID Connect 
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
+  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/01-Login',
 }) %>
 
 
@@ -30,9 +30,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Next, it the `Configure` method of the `Startup` class add the cookie middleware and the OpenID Connect middleware. Middleware executes in the order they are registered so it is important to register the cookie middleware first, and the the OIDC middleware. Both these middleware should be registered before your MVC middleware in order for your controllers to be protected:
+Next, in the `Configure` method of the `Startup` class add the cookie middleware and the OpenID Connect middleware. Middleware executes in the order they are registered so it is important to register the cookie middleware first, and then the OIDC middleware. 
 
-```cs
+Both these middleware should be registered before your MVC middleware in order for your controllers to be protected:
+
+```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
 {
     loggerFactory.AddConsole(Configuration.GetSection("Logging"));
@@ -93,9 +95,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 ## Add Login and Logout methods
 
-Next you will need to create an `AccountController` with `Login` and `Logout` actions. For the Login you will need to return a `ChallengeResult` and specify "Auth0" as the authentication scheme which will be challenged. This will invoke the OIDC middleware you registered in the `Configure` method.
+Next you will need to add `Login` and `Logout` actions to the `AccountController`. For the Login you will need to return a `ChallengeResult` and specify "Auth0" as the authentication scheme which will be challenged. This will invoke the OIDC middleware you registered in the `Configure` method.
 
-After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of the cookie middleware: 
+After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware: 
 
 ```cs
 public class AccountController : Controller
@@ -149,3 +151,9 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
     </div>
 </div>
 ```
+
+Now when you run the application you can select the Login link to log in to the application. This will challenge the OIDC middleware which will subsequently redirect you to the hosted version of Lock on your Auth0 domain.
+
+If you prefer to embed Lock inside your application then please refer to the [Embedded Lock step](). If you prefer to create a custom Login screen, refer to the [Custom Login step](). 
+
+Alternatively you can simply carry on to the [User Profile step]() which will demonstrat how you can retrieve and display the user's profile information.
