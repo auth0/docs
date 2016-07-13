@@ -55,10 +55,10 @@
    
  ### 3. Do your stuff
    
-   At this point, you are able to distinguish the users' roles in your app and authorize or deny (depending on the user) access to a certain feature.
+At this point, you are able to distinguish the users' roles in your app and authorize or deny (depending on the user) access to a certain feature.
   
   
  ### Done!
  
- You've already implemented the Authorization tutorial with Auth0 for your Android project!
+You've already implemented the Authorization tutorial with Auth0 for your Android project!
  
