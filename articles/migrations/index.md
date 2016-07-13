@@ -18,6 +18,8 @@ The migration process is outlined below:
 
 During the grace period, customers are informed via dashboard notifications and emails to account administrators. You will continue to receive emails until the migration has been enabled on each account you administer.
 
+If you need help with the migration, create a ticket in our [Support Center](https://support.auth0.com)
+
 ## Current Migrations
 Current migrations are listed below, newest first.
 
@@ -31,7 +33,10 @@ The format of the user profile JSON object (id_token) that is returned by Auth0 
 
 Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 
-For more information on how to obtain an access token, see: [Identity Provider Access Tokens](/tokens/idp).
+#### Am I affected by the change? 
+You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) to call other services from the Identity Provider (e.g. Facebook Graph API, Google APIs, etc. ). 
+
+For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 
 **NOTE:** If your account was created after the change, this update will be applied automatically.
 
