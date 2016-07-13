@@ -1,10 +1,8 @@
 ---
-title: Auth0 Android Quickstarts - Rules
+title: Rules
 description: This tutorial will show you how to add customized rules to your app.
 seo_alias: android
 ---
-
-## Android - Rules Tutorial
 
 Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. This way, you can enhance Auth0 capabilities customizing it up to your needs. To see a detailed description, please refer to [the full documentation](https://auth0.com/docs/rules).
 
@@ -23,23 +21,23 @@ Make sure you have completed either the [Login](01-login.md) or the [Custom Logi
  
 ### 1. Create a Rule
  
- To create a rule, you just need to go to the [new rule page](https://manage.auth0.com/#/rules/new). There you can either use a predefined template or create one from scratch.
+To create a rule, you just need to go to the [new rule page](https://manage.auth0.com/#/rules/new). From there, you can either use a predefined template or create one from scratch.
   
 In this example we will use "*Add country to the user profile*" template, under the *Enrich Profile* section:
   
-  ![Add country template](/media/articles/rules/rule-choose-add-country-template.png)
+![Add country template](/media/articles/rules/rule-choose-add-country-template.png)
   
-  This rule gets the `country_name` from the context and adds it as a new `country` attribute to the user profile.
+This rule gets the `country_name` from the context and adds it as a new `country` attribute to the user profile.
   
-  ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
+![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
   
-  This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever you login, the rule will be executed, and the country will be added.
+This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever you login, the rule will be executed, and the country will be added.
   
   ### 2. Test the Rule
   
-  To see the newly created rule working, just implement a login and check the user profile information (you can check out how to do it in the [user profile tutorial](04-user-profile.md)).
+To see the newly created rule working, just implement a login and check the user profile information (you can check out how to do it in the [user profile tutorial](04-user-profile.md)).
   
-  You can access the `country` added by the rule within the `extraInfo` hashmap from the `payload` object you receive in the callback:
+You can access the `country` added by the rule within the `extraInfo` hashmap from the `payload` object you receive in the callback:
   
   ```android
 
@@ -65,4 +63,4 @@ In this example we will use "*Add country to the user profile*" template, under 
   
   ### Done!
   
-  That's it. This is one of the most common and basic rules to implement. Feel free to experiment with the others!
+That's it. This is one of the most common and basic rules to implement. Feel free to experiment with the others!
