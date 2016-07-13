@@ -102,4 +102,4 @@ That's it. Only if you login with a mail that contains `@example` you will be ab
 
 ## Done!
 
-You have implement one of the availables way to add authorization to your app.
+You have implement one of the available ways to add authorization to your app.
