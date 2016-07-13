@@ -226,7 +226,7 @@ export default class AuthService extends EventEmitter {
     }
 
     const userId = this.getProfile().user_id
-    return fetch(`https://${this.domain}/api/v2/users/${userId}/${url}`, {
+    return fetch(`<%= "https://${this.domain}/api/v2/users/${userId}/${url}" %>`, {
       headers,
       ...options
     })
@@ -303,7 +303,7 @@ export default class AuthService extends EventEmitter {
   ... //omitting some code
   unlinkAccount(identity){
     // sends a delete request to unlink the account identity
-    this.fetchApi(`identities/${identity.provider}/${identity.user_id}`, {
+    this.fetchApi(`<%= "identities/${identity.provider}/${identity.user_id}" %>`, {
       method: 'DELETE'
     })
     .then(identities => {
@@ -330,7 +330,7 @@ export class LinkedAccountItem extends React.Component {
 
   unlink(identity){
     // shows a basic confirmation window, and calls auth0 unlink api
-    if (window.confirm(`Are you sure you want to unlink ${identity.connection}?`)) {
+    if (window.confirm(`Are you sure you want to unlink <%= "${identity.connection}" %>?`)) {
       this.props.auth.unlinkAccount(identity)
     }
   }
