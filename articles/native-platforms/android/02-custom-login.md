@@ -26,14 +26,14 @@ This tutorial and seed project have been tested with the following:
 
 ### 1. Add the Auth0 Java dependency
 
-Your first step is to add [Auth0 Java](https://github.com/auth0/auth0-java) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
+Your first step is to add [Auth0 Android](https://github.com/auth0/auth0.android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
 
 #### i. Gradle
 
 Add to your app's module gradle file:
 
 ```xml
-compile 'com.auth0:auth0:0.4.0'
+compile 'com.auth0.android:auth0:1.0.0-beta.1'
 ```
 
 Then, run "Sync project with Gradle files".
@@ -73,7 +73,7 @@ private void login(String email, String password) {
 Then, login using the newly created client:
 
 ```android
- client.login(email, password).start(new BaseCallback<Credentials>() {
+client.login(email, password).start(new BaseCallback<Credentials, AuthenticationException>() {
             @Override
             public void onSuccess(Credentials payload) {
                 // Store credentials
@@ -81,16 +81,18 @@ Then, login using the newly created client:
             }
 
             @Override
-            public void onFailure(Auth0Exception error) {
+            public void onFailure(AuthenticationException error) {
 
             }
         });
+
 ```
+
 > It's suggested to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file rather than hardcode them in the ``new Auth0()`` constructor method.
 
 > There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example. 
 
 ### Done!
 
-You've already implemented a customized Login with Auth0 in your Android project!
+You've already implemented a customized Login with Auth0 for your Android project!
 
