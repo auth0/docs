@@ -66,9 +66,13 @@ let avatarURL = profile.picture
 
 > You can check out the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) class documentation to learn more about its fields.
 
-#### ii. User metadata
+#### ii. Additional info
 
-Besides the defaults, you can handle your own custom fields by accessing the `userMetadata` dictionary property, for instance:
+Besides the defaults, you can handle more information that is contained within any of the following dictionaries:
+
+##### a. User Metadata
+
+The `userMetadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with on this tutorial. You can access its fields as follows:
 
 ```swift
 let firstName = profile.userMetadata["first_name"] as? String
@@ -78,6 +82,16 @@ let isActive = profile.userMetadata["active"] as? Bool
 ```
 
 > The strings you use for subscripting the `userMetadata` dictionary, and the variable types you handle, are up to you.
+
+##### b. App Metadata
+
+The `appMetadata` dictionary contains fields that are usually added via [a rule](06-rules.md), which is read-only for the native platform.
+
+##### c. Extra Info
+
+The `extraInfo` dictionary contains any other extra information stored in Auth0. That information is read-only for the native platform.
+
+> For further information on metadata, see [the full documentation](https://auth0.com/docs/rules/metadata-in-rules).
 
 ### 3. Update the User Profile
 
