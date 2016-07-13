@@ -195,6 +195,41 @@ Be sure to set the Client ID, Domain and Callback URL values from the ones suppl
 
 Also note that I have added `profile` to the `scope` parameter. The reason for this is that we want the user's `name` returned so we can set the correct `ClaimTypes.Name` claim. Refer to the `OnTicketReceived` we declared when rgistering the `OpenIdConnectOptions` in the `ConfigureServices` method of the `Startup` class. 
 
+## Add Login and Logout links
+
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+
+```html
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SampleMvcApp</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a  asp-controller="Account" asp-action="Logout">Logout</a></li>
+                }
+                else
+                {
+                    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+```
+
 ## Run your application
 
 After this you can run the application. Navigate to the `/Account/Login` path and you will be presented with the Login screen with embedded Lock. Once the user signs in, the OIDC middleware will pick up the call to the Callback URL and exchange the code for an access token.
