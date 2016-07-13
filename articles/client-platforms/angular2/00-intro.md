@@ -1,6 +1,5 @@
 ---
 title: Introduction
-name: test
 ---
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular2 JS apps with Auth0. For that, you have to include
