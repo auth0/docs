@@ -4,8 +4,6 @@
  seo_alias: android
  ---
  
- ## Android - Authorization Tutorial
- 
  This is a simple quickstart that will show you how to use Auth0 to create access roles for your users. This way you can authorize or deny content to different users.
  
  ::: panel-info System Requirements
