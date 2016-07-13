@@ -1,5 +1,5 @@
  ---
- title: Auth0 Android Quickstarts - Authorization
+ title: Authorization
  description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
  seo_alias: android
  ---
@@ -18,7 +18,7 @@
  
  ### Before Starting
  
- Be sure that you have completed the [User Profile](04-user-profile.md) Quickstart.
+ Be sure that you have completed the [user profile](04-user-profile.md) quickstart.
  
  ### 1. Create a Rule to assing roles
  
@@ -26,27 +26,29 @@
  
   
    ``` 
-   if (user.email.indexOf('@admin.com') > -1)
+   if (user.email.indexOf('@example.com') > -1)
    ```
    
    to match the condition that fits your needs. 
      
-   By default, it says that if the user email contains `@admin.com` he will be given an `admin` role, otherwise a regular `user` role.
+   By default, it says that if the user email contains `@example` he will be given an `admin` role, otherwise a regular `user` role.
    
    > You can define more roles other than `admin` and `user`, depending on your product requirements.
+   
+   > In the demo app, we use @admin.com to validate.
  
  ### 2. Test the rule in your project
  
- Once you have the user profile (as explained in the [user profile](04-user-profile.md) tutorial), you can save it, an access it whenever you need it.
+ Once you have the user profile (as explained in the [user profile](04-user-profile.md) tutorial), you can save it and access it at any point.
    
  Inside it, you will have the Role, and you will be ready to perform the Access Control.
    
    
    ```android
-   String role = mUserProfile.getAppMetadata().get("roles").toString();
+ String role = mUserProfile.getAppMetadata().get("roles").toString();
  
-         if(role.contains("admin")){
-         // perform any action
+ if(role.contains("admin")){
+ // perform any action
  };
  			
    ```
