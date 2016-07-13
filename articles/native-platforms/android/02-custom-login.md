@@ -24,7 +24,7 @@ This tutorial and seed project have been tested with the following:
 <pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
 </div>
 
-### 1. Add the Auth0 Java dependency
+### 1. Add the Auth0 Android dependency
 
 Your first step is to add [Auth0 Android](https://github.com/auth0/auth0.android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
 
