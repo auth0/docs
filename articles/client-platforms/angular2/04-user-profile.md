@@ -96,7 +96,7 @@ and then display the userProfile attributes in your component's template:
 
 ### Custom Sign Up Fields
 
-You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#additional-sign-up-fields).
+You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](https://github.com/auth0/lock/tree/v10.0.0-rc.2#additional-sign-up-fields).
 
 ```typescript
 /* ===== ./auth.service.ts ===== */
@@ -127,7 +127,7 @@ To display, just read it from profile `user_metadata`:
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-Let's add an *address* attribute to the user profile using `user_metadata`. We can create a component with a simple form to update this. 
+Let's add an *address* attribute to the user profile using `user_metadata`. We can create a component with a simple form to update this.
 
 On form submit, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id). For doing this [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
 
