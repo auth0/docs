@@ -10,7 +10,11 @@ description: This tutorial will show you how to display get the user's profile a
 
 ## Getting the profile
 
-The OpenID Connect middleware will automatically retrieve the user's profile and add all the attributes of the user's profile as claims to the user. You can create a simple User Profile page to display all the claims.
+As mentioned in the previous step, the OIDC middleware will automatically extract the user's information from the ID Token and add it as claims to the `ClaimsIdentity`. 
+
+The seed project contains a controller action and view which will display the claims associated with a particular user. Once a user has signed in, you can simply go to `/Account/Claims` to see these claims.
+
+You may also want to create a nicer looking user profile page which will display a user's name, email address and profile image.
 
 First create view model which will contain the basic user profile information, such as a `Name`, `EmailAddress` and `ProfileImage`:
 
@@ -25,11 +29,11 @@ public class UserProfileViewModel
 }
 ```
 
-Create add a new `UserProfile` action to the `HomeController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:    
+Create add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:    
 
 ```csharp
 [Authorize]
-public IActionResult UserProfile()
+public IActionResult Profile()
 {
     return View(new UserProfileViewModel()
     {
@@ -40,16 +44,12 @@ public IActionResult UserProfile()
 }
 ```
 
-Next create a view. For the view we will display a user profile card at the top with the user's name, email address and profile image. 
-
-Below that add a table which contains all the claims. This is not something which you will do in a production application. It is done in this quickstart purely so you can see all the claims being returned by Auth0. 
+Next create a view. For the view, display a user profile card at the top with the user's name, email address and profile image. 
 
 ```html
 @model SampleMvcApp.ViewModels.UserProfileViewModel
 @{
     ViewData["Title"] = "User Profile";
-
-    int rowNo = 1;
 }
 
 <div class="row">
@@ -69,51 +69,22 @@ Below that add a table which contains all the claims. This is not something whic
             </div>
         </div>
     </div>
-    <div class="col-md-12">
-
-        <h3>Claims</h3>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th colspan="2">
-                    Claim
-                </th>
-                <th>
-                    Value
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var claim in User.Claims)
-            {
-                <tr>
-                    <th>@rowNo</th>
-                    <td>@claim.Type</td>
-                    <td>@claim.Value</td>
-                </tr>
-
-                rowNo++;
-            }
-            </tbody>
-        </table>
-    </div>
 </div>
 ```
 
-Now when you log in and then go to the URL `/Home/UserProfile` you will see all the users's claims displayed.
+Now when you log in and then go to the URL `/Account/Profile` you will see all the users's profile displayed.
 
 ## Displaying the user's name in the navigation bar
 
-You may also want to put a link in the top navigation bar to display the user's name, and when the user clicks on that you can navigate them to the User Profile page.
+You may also want to put a link in the top navigation bar to display the user's name, and when the user clicks on that you can navigate them to their Profile page.
 
-Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which displays the Login and Logout options to also display the user's name and link to the `UserProfile` action on the `HomeController`:
+Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which displays the Login and Logout options to also display the user's name and link to the `Profile` action in the `AccountController`:
 
 ```html
 <ul class="nav navbar-nav navbar-right">
     @if (User.Identity.IsAuthenticated)
     {
-        <li><a asp-controller="Home" asp-action="UserProfile">Hello @User.Identity.Name!</a></li>
+        <li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li>
         <li><a  asp-controller="Account" asp-action="Logout">Logout</a></li>
     }
     else
@@ -123,9 +94,9 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
 </ul>
 ```
  
-One remaining issue is that the `User.Identity.Name` property used in the Navbar snippet above will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, buy hat claim will not be set and the property will therefor be null.
+One remaining issue is that the `User.Identity.Name` property used in the Navbar snippet above will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, but hat claim will not be set and the property will therefor be null.
 
-Auth0 will however pass back a `name` property, so in the `OnTicketReceived` event you will have to retrieve the value of the `name` claim and a new claim of type `ClaimTypes.Name` ( which is the same as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`):
+Auth0 will however pass back a `name` claim, so in the `OnTicketReceived` event you will have to retrieve the value of the `name` claim and a new claim of type `ClaimTypes.Name` ( which is the same as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`):
 
 ```csharp
 app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
