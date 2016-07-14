@@ -53,20 +53,20 @@ Add the following lines in the dashboard view in order to retrieve the user prof
 
 ```ruby
 <section class="jumbotron  text-center">
-  <h2><img class="jumbo-thumbnail img-circle" src="<%= @user[:info][:image] %>"/></h2>
-  <h1>Welcome, <%= @user[:info][:name] %></h1>
+  <h2><img class="jumbo-thumbnail img-circle" src="${ '<%= @user[:info][:image] %>' }"/></h2>
+  <h1>Welcome, ${ '<%= @user[:info][:name] %>' }</h1>
 </section>
 <section class="container">
   <div class="panel panel-default">
     <div class="panel-heading">Normalized User Profile</div>
     <div class="panel-body">
-      <pre><%= JSON.pretty_generate(@user[:info]) %></pre>
+      <pre>${ '<%= JSON.pretty_generate(@user[:info]) %>' }</pre>
     </div>
   </div>
   <div class="panel panel-default">
     <div class="panel-heading">Full User Profile</div>
     <div class="panel-body">
-      <pre><%= JSON.pretty_generate(@user[:extra][:raw_info]) %></pre>
+      <pre>${ '<%= JSON.pretty_generate(@user[:extra][:raw_info]) %>' }</pre>
     </div>
   </div>
 </section>

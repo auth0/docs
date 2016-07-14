@@ -26,15 +26,15 @@ ${snippet(meta.snippets.dependencies)}
 
 ```ruby
 <div id="login-container">
-  <%= form_tag do %>
-      <%= text_field_tag :user, "", class:'form-control' %>
+  ${ '<%= form_tag do %>' }
+      ${ '<%= text_field_tag :user, "", class:"form-control" %>' }
       <br>
-      <%= password_field_tag :password, "", class:'form-control'%></p>
+      ${ '<%= password_field_tag :password, "", class:"form-control"%>' }</p>
       <br>
-      <%= submit_tag("Login", class: "btn btn-success btn-lg") %>
-      <%= submit_tag("Sign up", name: "signup", class:"btn btn-success btn-lg") %>
-  <% end %>
-  <%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>
+      ${ '<%= submit_tag("Login", class: "btn btn-success btn-lg") %>' }
+      ${ '<%= submit_tag("Sign up", name: "signup", class:"btn btn-success btn-lg") %>' }
+  ${' <% end %> '}
+  ${ '<%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>' }
 </div>
 ```
 
@@ -161,7 +161,7 @@ def google_authorize
 Next, add the actual link to the controller action in the home view
 
 ```ruby
-<%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>
+${ '<%= link_to "Login with Google" , controller: :auth0, action: :google_authorize %>' }
 ```
 And the corresponding route in the
 `routes` file
