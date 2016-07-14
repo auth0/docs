@@ -7,12 +7,8 @@ description: Login with Lock Tutorial
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/01-Login',
 }) %>
 
-::: panel-info Running the Sample
-At any point in time you can run this sample with a simple HTTP server. One example is http-server which can be installed with `npm install -g http-server`. Run `http-server` on the root directory of the sample to launch.
-:::
-
 #### 1: Configure The Angular Application
-To use Auth0, your Angular app instance **MUST** depend on the Auth0 SDK:
+To use Auth0, your Angular app instance **MUST** depend on the Auth0 service:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -26,17 +22,13 @@ It is common to forget to bootstrap your app. You can do that the simple way in 
 <html ng-app="YOUR-APP-NAME">
 ```
 
-An Angular-Auth0 app requires basically 2 configurations:
+An Auth0-Angular app requires to be configured using `authProvider` by providing app instance config object to it:
 
- - Auth0's application credential configuration with the `init()`
- - Event listeners to handle authentication status
-
-We just need the configuration for now and you can achieve that by using `auth0`'s `authProvider`:
 
 Angular's `config()` skeleton with required dependency:
 ```javascript
 /* ===== ./app.js ===== */
-app.config( function myAppConfig (authProvider) {
+app.config(function myAppConfig (authProvider) {
   //authProvider init configuration
 })
 ```
@@ -45,52 +37,80 @@ The `init()` method is used to configure Auth0 Angular SDK:
 
 ${snippet(meta.snippets.setup)}
 
-#### 2: Login
+#### 2A: Login
 
 You have successfully configured you Angular App to use Auth0. Configs are vital but won't run an app, right? Let's add a login functionality:
 
 ```javascript
 /* ===== ./login/login.js ===== */
 app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
-
-  $scope.login = function(){
-    auth.signin();
-  }
-
+  //
+  $scope.auth = auth;
 }]);
 ```
 
-Your controller needs to depend on `auth` so as to have access to it's methods. You can bind the function as an event to an on-click even in your view:
+Your controller needs to depend on `auth` so as to have access to it's methods. You can bind the function as an event to an on-click event in your view:
 ```html
 <!-- ===== ./login/login.html ===== -->
-<a ng-click="login()">Login</a>
+<a ng-click="auth.signin()">Login</a>
 ```
 
-At this point, the lock widget will pop up showing a Sign In form,  when you click the Login button. If you choose not to use Lock, you will be redirected to Auth0 to login. The widget has options for non-existing users to signup or reset there passwords.
+At this point, the lock widget will pop up showing a Sign In form, when you click the Login button. The widget has options for non-existing users to signup or reset there passwords.
 
 ${browser}
 
-Your app will need to exit and the user taken to the authentication provider when you try to login. After authentication, the user will be redirected to the app but with all states of the app lost (or rather reset). The implication is that callbacks cannot be used with `auth.signin()`, therefore, no way to get hold of user authentication details. You can use events provided in the SDK to manage lifecycle efficiently. The events are configured in the `config method`:
+Your app will need to exit and the user taken to the authentication provider when you try to login. After authentication, the user will be redirected to the app but with all states of the app lost (or rather reset). The implication is that callbacks cannot be used with `auth.signin()`, therefore, no way to get hold of user authentication details. You can use events provided in the SDK to manage lifecycle efficiently. The events are configured in the `run()` method:
 
 ```javascript
 /* ===== ./app.js ===== */
-//Called when login is successful
-authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', function($location, profilePromise, idToken) {
-  // Successfully log in
-  // Access to user profile and token
-  profilePromise.then(function(profile){
-    // profile
+.run(['$rootScope', 'auth', function runFunction ($rootScope, auth){
+  // Called when lock shows
+  auth.lockOn('show', function () {
+    alert('shown');
   });
-  $location.url('/');
-}]);
+  // Called when lock hides
+  auth.lockOn('hide', function () {
+    alert('hidden');
+  });
+  // Called when authentication is successful
+  auth.lockOn("authenticated", function(authResult) {
+    console.log(authResult);
+    auth.getProfile(authResult.idToken).then(function (profile) {
 
-//Called when login fails
-authProvider.on('loginFailure', function() {
-  // If anything goes wrong
-});
+      console.log(profile);
+
+    })
+  });
+  // Called when authentication fails
+  auth.lockOn("error", function(error) {
+    console.log(error);
+  });
+}])
 ```
 
-### Routes Access Restrictions
+The Lock widget also gives you the power to specify additional fields for the signup form. Email and password might not just suit your project specification and you would need to get more user details. You can specify more fields while configuring the application:
+
+```js
+authProvider.init({
+    domain: 'samples.auth0.com',
+    clientID: 'gbVTAtzkesLnTcZQOhxec3S6bSpe31Je',
+    loginUrl: '/login',
+    additionalSignUpFields: [{
+      name: "address",                              // required
+      placeholder: "enter your address",            // required
+      icon: "https://example.com/address_icon.png", // optional
+      prefill: "street 123",                        // optional
+      validator: function(value) {                  // optional
+        // only accept addresses with more than 10 chars
+        return value.length > 10;
+      }
+    }]
+  });
+```
+
+You can see more options to make Lock better for your need here: https://auth0.com/docs/libraries/lock/v10/new-features
+
+#### 3: Routes Access Restrictions
 You can protect Angular routes that you do not want guest users to have access to. You do so by adding another property called `requiresLogin` to the routes configuration:
 
 ```javascript
@@ -113,7 +133,7 @@ $routeProvider
  // ...rest of config
 ```
 
-Then in init method, add a fallback URL when a user is denied access:
+Then in init method, add a fallback URL (`loginUrl`) when a user is denied access:
 
 ```javascript
 authProvider.init({
@@ -148,45 +168,34 @@ authProvider.init({
 });
 ```
 
-### Handling Tokens and Re-authenticating Users
+#### 4: Handling Tokens and Re-authenticating Users
 As you have seen, it is difficult to manage states in SPA if you are dealing with a lot of redirects and page reloads. One thing you need to make available to the client (browser) no matter what actions the user perform is the authentication token. What you can do is use the Angular Storage library to persist users tokens and profile details to the browser's storage (sessionStorage or localStorage). With that strategy, you can always use the user's profile to re-authenticate them, or do a token refresh if the token is no longer valid. Update the `signin` logic to store the credentials prior to authentication:
 
 ```javascript
-/* ===== ./login/login.js ===== */
-app.controller('LoginCtrl', ['$scope', 'auth', 'store', function ($scope, auth, store) {
-
-  $scope.login = function(){
-    // Set popup to true to use popup
-    auth.signin({popup: true}, function(profile, token){
-      store.set('profile', profile);
-      store.set('token', idToken);
-    }, function(err){
-      // If anything goes wrong
-    });
-  }
-
-}]);
-
-// ====================== OR
 /* ===== ./app.js ===== */
-//Called when login is successful
-authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', function($location, profilePromise, idToken, store) {
-  // Successfully log in
-  // Access to user profile and token
-  profilePromise.then(function(profile){
-    // profile
+.run(['$rootScope', 'auth', 'store', function runFunction ($rootScope, auth, store){
+// Wrapper function to handle profile and toke storage
+  var saveUserInfo = function(profile, token) {
     store.set('profile', profile);
-    store.set('token', idToken);
-  });
-  $location.url('/');
-}]);
+    store.set('token', token);
+  };
+// Called when authentication is successful
+  auth.lockOn("authenticated", function(authResult) {
+    console.log(authResult);
+    auth.getProfile(authResult.idToken).then(function (profile) {
 
+      console.log(profile);
+      // Save user info to local storage
+      saveUserInfo(profile, authResult.idToken);
+    })
+  });
+}])
 ```
 
 With a persisted token and profile, you can do the following when you loose state (eg: page reload):
 
 ```javascript
-.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$''location', function($rootScope, auth, store, jwtHelper, $location) {
+.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location', function($rootScope, auth, store, jwtHelper, $location) {
   // Listen to a location change event
   $rootScope.$on('$locationChangeStart', function() {
     // Grab the user's token
@@ -202,11 +211,8 @@ With a persisted token and profile, you can do the following when you loose stat
           auth.authenticate(store.get('profile'), token);
         }
       } else {
-        // Either show the login page
-        // $location.path('/');
-        // .. or
-        // or use the refresh token to get a new idToken
-        auth.refreshIdToken(token);
+        // Show the login page
+         $location.path('/');
       }
     }
 
@@ -214,16 +220,7 @@ With a persisted token and profile, you can do the following when you loose stat
 }])
 ```
 
-First thing to note is that we just introduced a dependency which is from the Angular JWT library. The `jwtHelper` helps you to check if the user's token is valid by passing the token to it's `isTokenExpired()` method. The most interesting to to note is that we listen to Angular's location change event, so some important check on the token and authentication status, and then re-authenticate the user with the stored profile. If the token is invalid, you have the option to redirect the user to login, or refresh their token with the expired token.
-
-It is also important to remember that the following event is called after re-authenticating:
-
-```js
-authProvider.on('authenticated', function() {
-  // if user is authenticated.
-  // Useful in re-authentication
-});
-```
+First thing to note is that we just introduced a dependency which is from the Angular JWT library. The `jwtHelper` helps you to check if the user's token is valid by passing the token to it's `isTokenExpired()` method. The most interesting to to note is that we listen to Angular's location change event, so some important check on the token and authentication status, and then re-authenticate the user with the stored profile. If the token is invalid, you can redirect to login page.
 
 
 ### Recap

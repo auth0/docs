@@ -5,7 +5,7 @@ description: Learn how to quickly add authentication to your Angular.js app and 
 
 This is a simple, practical and multi-step quickstart that will guide you through managing authentication in your Angular JS apps with Auth0.
 
-Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular). This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) and [Auth0.js](https://github.com/auth0/auth0.js), which makes it easy to use either of them. It uses whichever is included in your project, or Lock, if both are included. 
+Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular). This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) and [Auth0.js](https://github.com/auth0/auth0.js), which makes it easy to use either of them. It uses whichever is included in your project, or Lock, if both are included.
 
 Auth0 supports authentication in both redirect and pop-up modes. Although SPAs do not retain state after a page reloads or redirects, the SDK makes handling this situation simple.
 
@@ -15,9 +15,9 @@ There are two options for following along with these steps. You can either downl
 
 ## 1. Create an Application
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('../../_includes/_new_app') %>
 
-![App Dashboard](/media/articles/angularjs/app_dashboard.png)
+![App Dashboard](/media/articles/angularjs/app_dashboard.̨png)
 
 ## 2. Configure Callback URLs
 

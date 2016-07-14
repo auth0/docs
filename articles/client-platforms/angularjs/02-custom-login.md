@@ -14,7 +14,9 @@ The setup and APIs for logging in with Lock is same in this situation but with j
 
 ```js
 /* ===== ./login/login.js ===== */
+// Login
 $scope.login = function () {
+  // Show loading indicator
   $scope.message = 'loading...';
    $scope.loading = true;
    auth.signin({
@@ -33,6 +35,7 @@ Notice that this time we specify the type of connection, and if `Username-Passwo
 ```js
 /* ===== ./login/login.js ===== */
 $scope.googleLogin = function () {
+  // Show loading indicator
   $scope.message = 'loading...';
   $scope.loading = true;
 
@@ -40,30 +43,45 @@ $scope.googleLogin = function () {
     popup: true,
     connection: 'google-oauth2',
     scope: 'openid name email'
-  }, onLoginSuccess, onLoginFailed);
+  });
 };
 ```
 
-You can then provide the callbacks to handle each if the flow:
+You can then provide event handlers to handle each process:
 
 ```js
-/* ===== ./login/login.js ===== */
-function onLoginSuccess(profile, token) {
-  $scope.message.text = '';
-  store.set('profile', profile);
-  store.set('token', token);
-  $location.path('/');
-  $scope.loading = false;
-}
-function onLoginFailed() {
-  $scope.message.text = 'invalid credentials';
-  $scope.loading = false;
-}
+/* ===== ./app.js ===== */
+//Called when login is successful
+   authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
+   function($location, profilePromise, idToken, store, $rootScope) {
+     // Successfully log in
+     // Access to user profile and token
+     profilePromise.then(function(profile){
+       // Empty loading message
+        $rootScope.message = '';
+        //Store credentials
+        store.set('profile', profile);
+        store.set('token', idToken);
+        // Hide loading indicator
+        $rootScope.loading = false;
+        // Go home
+        $location.path('/');
+     });
+   }]);
+
+   //Called when login fails
+   authProvider.on('loginFailure', function() {
+     // If anything goes wrong
+      $rootScope.message = 'invalid credentials';
+      // Hide loading indicator
+      $rootScope.loading = false;
+   });
+
 ```
 
 ## Sign Up
 
-Signup uses same options as sigin API:
+Signup uses same options as signin API:
 
 ```js
 /* ===== ./login/login.js ===== */
@@ -77,7 +95,7 @@ $scope.signup = function () {
    authParams: {
      scope: 'openid name email'
    }
- }, onLoginSuccess, onLoginFailed);
+ });
 }
 ```
 
@@ -110,6 +128,8 @@ Below is the HTML template of the examples given above:
   </div>
 </div>
 ```
+
+![Custom Login](/media/articles/angularjs/custom_login.png)
 
 Now you see we can do with Lock and roll out our own fancy login/signup widget.
 
