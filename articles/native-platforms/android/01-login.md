@@ -1,5 +1,5 @@
 ---
-title: Auth0 Android Quickstarts - Login
+title: Login
 description: This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
 ---
 
