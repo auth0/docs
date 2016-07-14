@@ -1,7 +1,7 @@
 # Auth0 Documentation
 This is the repository for the Auth0 documentation.
 
-**Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue)
+**Please review the [Contributing Guidelines](CONTRIBUTING.md) before sending a PR or opening an issue)**
 
 ## Issue Reporting
 
