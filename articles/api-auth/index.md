@@ -6,8 +6,6 @@ description: Auth0's API authentication and authorization features allow you to 
 
 # API Authentication and Authorization
 
-<%=include('./_preview-warning') %>
-
 At some point, your APIs will need to allow limited access to users, servers, or servers on behalf of users.
 
 Auth0's API authentication and authorization features allow you to manage the authorization requirements for server-to-server applications.
@@ -48,19 +46,14 @@ Using different grants (or flows), these participants will interact to grant Cli
 
 ## Tutorials
 
-See the following tutorials for a step-by-step guides on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable [Client Credentials Grants](/api-auth/grant/client-credentials).
+See the following tutorial for a step-by-step guides on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable [Client Credentials Grants](/api-auth/grant/client-credentials).
 
-### Configuration
-
-- [Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard)
-- [Using Auth0's Management API](/api-auth/config/using-the-management-api)
-- [How to ask for an access token](/api-auth/config/asking-for-access-tokens)
-
-### Resource Server
-
- - [Creating a Resource Server in Node.js](/api-auth/resource-servers/node-js)
- - [Creating a Resource Server using the ASP.NET Web API](/api-auth/resource-servers/asp-net)
+<%=include('./config/using-the-auth0-dashboard') %>
 
 ## Additional Information
 
-See the [API Auth FAQ](/api-auth/faq).
+- [How to ask Auth0 Authorization Server for an access token for a Resource Server](/api-auth/config/asking-for-access-tokens)
+
+- [Using Auth0's Management API for setting up Resource Services and Client Grants](/api-auth/config/using-the-management-api)
+
+- [API Auth FAQ](/api-auth/faq).

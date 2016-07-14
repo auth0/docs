@@ -4,8 +4,6 @@ description: How to request tokens for your applications.
 
 # API Authorization: Asking for Access Tokens
 
-<%=include('../_preview-warning') %>
-
 To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
 ```
@@ -44,7 +42,7 @@ Your client app must be authorized to access your API before you can request tok
 
 You can go to the **Non Interactive Clients** tab of your API in the [APIs section](${uiURL}/#/apis) of the dashboard to verify that the app you are using has been authorized to request access tokens from this API.
 
-To add an authorized app, follow the instructions as described in [API Authorization: Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard).
+To add an authorized app, follow the instructions as described in [API Authorization: Using the Auth0 Dashboard](/api-auth#using-the-auth0-dashboard-for-setting-up-an-api-authorization-scenario).
 
 ### Where to Find the IDs
 

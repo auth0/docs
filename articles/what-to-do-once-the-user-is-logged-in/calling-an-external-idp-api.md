@@ -4,16 +4,16 @@ description: How to call an Identity Provider API.
 
 # Call an Identity Provider API
 
-Upon successful authentication of a user with an external Identity Provider (Facebook, Github, etc.), the IdP often provides an access token with the appropriate scope in the user profile that can be used to call their API. 
+Upon successful authentication of a user with an external Identity Provider (Facebook, Github, etc.), the IdP often provides an access token with the appropriate scope in the user profile that can be used to call their API.
 
 To avoid leaking in the browser, this access token has been removed from the user profile. If you need to get the user's IDP access token, you will need to call the [Get Users by ID](/api/management/v2#!/Users/get_users_by_id) endpoint with `read:user_idp_tokens` scope.
 
-This document details the recommended method for calling a third-party IdP without exposing the access token. 
+This document details the recommended method for calling a third-party IdP without exposing the access token.
 
 The basic flow is the following:
 
-* **Create a client** that will be used to get an access token with the `read:user_idp_tokens` scope valid to obtain authorized access to the Auth0 Management API. 
-* **Write code on your backend** to handle your request to the external IdP API which will: 
+* **Create a client** that will be used to get an access token with the `read:user_idp_tokens` scope valid to obtain authorized access to the Auth0 Management API.
+* **Write code on your backend** to handle your request to the external IdP API which will:
     1. Execute the client credentials exchange to obtain a valid Auth0 access token.
     2. Use the Auth0 access token to execute the request to the `/api/v2/users/{user_id}` endpoint.
     3. Use the IdP access token extracted from the user profile to make calls to the IdP API.
@@ -38,7 +38,7 @@ To create a client, follow these steps:
 
 ![Auth0 Management API Scopes](/media/articles/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api/scopes.png)
 
-For more information on creating a client to access the Auth0 API, see: [API Authorization: Using the Auth0 Dashboard](/api-auth/config/using-the-auth0-dashboard).
+For more information on creating a client to access the Auth0 API, see: [API Authorization: Using the Auth0 Dashboard](/api-auth#using-the-auth0-dashboard-for-setting-up-an-api-authorization-scenario).
 
 ## On the backend
 
@@ -64,7 +64,7 @@ To execute a client credentials exchange to obtain an access token to get author
 
 The body of the request must include the following:
 
-- `audience`: APIv2 base url - `https://${account.namespace}.auth0.com/api/v2/` 
+- `audience`: APIv2 base url - `https://${account.namespace}.auth0.com/api/v2/`
 - `client_id`: The client id of the new client you created.
 - `client_secret`:  The client secret of the new client you created.
 - `grant_type`: Grant type should be `client_credentials`.
@@ -85,7 +85,7 @@ With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get 
 
 **NOTE:** For Native and SPA applications you will need to send the `id_token` to your backend and verify it using the client secret. For regular apps you can use the `user_id` from the user profile.
 
-The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step. 
+The request must include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the Auth0 token you obtained in the previous step.
 
 The body of the request must include the following:
 
