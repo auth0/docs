@@ -7,19 +7,28 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 #### Table Of Contents
 
 [General Guidelines](#general-guidelines)
+
 [Reusing Content](#reusing-content)
+
 [Markdown](#markdown)
   * [Warning banner](#warning-banner)
   * [Panels](#panels)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
+
 [Test Procedures](#text-procedures)
+
 [Review Apps](#review-apps)
+
 [Quickstarts](#quickstarts)
+
 [Updates Feed](#updates-feed)
+
 [API](#api)
+
 [Document Front-matter](#document-front-matter)
+
 [Document Variables](#document-variables)
   * [Common Variables](#common-variables)
   * [User Specific Variables](#user-specific-variables)
