@@ -9,6 +9,10 @@ description: This tutorial will show you how assign roles to your users, and use
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/react/06-rules' }) %>_
 
+## 1. Create a Rule to assign roles
+
+<%= include('../_includes/_authorization-create-rule') %>_
+
 ## 2. Check if user's role is present
 
 After creating the new rule, let's update our helper class `AuthService` to provide a new method `isAdmin`. This method will be useful in other parts of the application, returning `true` for admin users and `false` otherwise. Check the snippet included in `AuthService.js` file:
@@ -135,6 +139,6 @@ export default Unauthorized;
 
 That's it. Running the application you can test it and verify that only users logged in with an email that contains `@example` (or following the rule you've introduced) will be able to access the `/admin` route.
 
-### Done!
+## 5. Done!
 
 You have implement one of the available ways to add authorization with auth0 in your ReactJS project.
