@@ -26,4 +26,4 @@ To remove these restrictions in your testing or to setup your production level e
 * [Use your own SMTP Email Provider](/articles/email/providers.md)
 * [Custom Email Handling](/articles/email/custom.md)
 
-After you have configured your own email service provider, the [Emails](${uiURL}/#/emails) dashboard will allow you to customize your emails beyond the existing templates. For more information, see: [Customizing Your Emails](/email/templates).
+After you have configured your own email service provider, the [Emails](${uiURL}/#/emails) dashboard will allow you to customize your emails beyond the existing templates. For more information, see: [Customizing Your Emails](/articles/email/templates.md).
