@@ -17,3 +17,4 @@ alias:
 seo_alias: ios-objc
 articles:
   - 01-login
+  - 10-customizing-lock
