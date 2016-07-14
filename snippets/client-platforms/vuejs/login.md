@@ -6,9 +6,7 @@ new Vue({
   data() {
     return {
       authenticated: false,
-      lock: new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN,{
-        auth: { redirect: false }
-      })
+      lock: new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>')
     }
   },
   ready() {

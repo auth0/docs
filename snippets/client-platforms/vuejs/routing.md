@@ -38,9 +38,7 @@ var App = Vue.extend({
     return {
       authenticated: false,
       secretThing: '',
-      lock: new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN,{
-        auth: { redirect: false }
-      })
+      lock: new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>')
     }
   },
   // Check the user's auth status when the app
