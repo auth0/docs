@@ -128,6 +128,20 @@ Then execute `npm i` to install dependencies (only once) and `npm example` from 
 
 Finally, point your browser at `http://localhost:3000/` and play around.
 
+
+## Using auth0.js
+
+When using functionality from auth0.js, instead of using `getClient()`, for example, you can simply instantiate a new Auth0 object and use plain auth0.js.
+
+```js
+var auth0 = new Auth0({
+  domain:       '${account.namespace}',
+  clientID:     '${account.clientId}',
+  callbackURL:  '{YOUR APP URL}',
+  callbackOnLocationHash: true
+});
+```
+
 ## Browser Compatibility
 
 We ensure browser compatibility in `Chrome`, `Safari`, `Firefox` and `IE >= 9`. We currently use [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
