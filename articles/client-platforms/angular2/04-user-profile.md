@@ -129,7 +129,7 @@ To display, just read it from profile `user_metadata`:
 
 Let's add an *address* attribute to the user profile using `user_metadata`. We can create a component with a simple form to update this.
 
-On form submit, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id). For doing this [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+On form submit, you need to hit [user api endpoint](/api/management/v2#!/Users/patch_users_by_id). For doing this [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
 
 First you need to add the `AUTH_PROVIDERS` from `angular-jwt`
 
