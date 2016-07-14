@@ -10,9 +10,9 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
 
 ### Login
 
-The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there. 
+The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there.
 
-We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#customization))
+We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](https://github.com/auth0/lock/tree/v10.0.0-rc.2#customization))
 
 Then, just add a callback for the `authenticated` lock event, which receives one argument with login information. For now just store the `idToken` attribute into `localStorage`.
 
@@ -66,7 +66,7 @@ To use this, just inject the `Auth` service into your component
 export class AppComponent {
   constructor(private auth: Auth) {}
 }
-``` 
+```
 
 and then in your component's template
 
