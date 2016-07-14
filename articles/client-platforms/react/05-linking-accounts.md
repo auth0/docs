@@ -145,7 +145,7 @@ Notice that `Home` is updated to render a left column with some profile info lik
 
 ## 2. Linking Accounts
 
-To link accounts you basically need to hit the [link user account endpoint](https://auth0.com/docs/api/management/v2#!/Users/post_identities) in auth0 api. To complete the request, the primary auth0 JWT (the token provided when the user login), the user id (could be taken from the JWT or from profile api) and the JWT of the account you want to link (secondary account) should be provided.
+To link accounts you basically need to hit the [link user account endpoint](/api/management/v2#!/Users/post_identities) in auth0 api. To complete the request, the primary auth0 JWT (the token provided when the user login), the user id (could be taken from the JWT or from profile api) and the JWT of the account you want to link (secondary account) should be provided.
 
 As you need to do a second login to get the secondary account JWT, we will use another instance of `Auth0Lock`, this time managed by a new helper class we're creating in `src/utils/LinkAccountService.js`.
 
@@ -251,7 +251,7 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-The code introduces also two new methods: `fetchApi` to send requests to auth0 users api with the required headers and parsing the requests to json. Finally, `linkAccount` uses `fetchApi` to send a _POST_ request and create a new identity in user account, updating the stored profile after a successful response. For more details, check the [user identities endpoint documentation](https://auth0.com/docs/api/management/v2#!/Users/post_identities).
+The code introduces also two new methods: `fetchApi` to send requests to auth0 users api with the required headers and parsing the requests to json. Finally, `linkAccount` uses `fetchApi` to send a _POST_ request and create a new identity in user account, updating the stored profile after a successful response. For more details, check the [user identities endpoint documentation](/api/management/v2#!/Users/post_identities).
 
 Now you're able to update the `LinkedAccountsList` component to render a __Link Account__ button using the `LinkAccountService.link` method:
 
@@ -292,7 +292,7 @@ Running the application, you'are now able to click on __Link Account__ button in
 
 ## 3. Un-Linking Accounts
 
-You can also dissociate a linked account just hitting the [unlink user account endpoint](https://auth0.com/docs/api/management/v2#!/Users/delete_provider_by_user_id) in auth0 api. You need to send the primary user_id, and the provider/user_id of the identity you want to unlink. Let's update `AuthService` to, besides a `LinkAccount` method, provide also an `UnlinkAccount` method:
+You can also dissociate a linked account by just hitting the [unlink user account endpoint](/api/management/v2#!/Users/delete_provider_by_user_id) in auth0 api. You need to send the primary `user_id` and the `provider/user_id` of the identity you want to unlink. Let's update `AuthService` to, besides a `LinkAccount` method, provide also an `UnlinkAccount` method:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -314,7 +314,7 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-The method `unlinkAccount` receives the identity object, sending a DELETE request to the identities endpoint and, in case of success, updates the stored profile with the current identities list. As setProfile emmits the event `profile_updated`, the view components will be properly updated.
+The method `unlinkAccount` receives the identity object, sending a `DELETE` request to the identities endpoint and, in case of success, updates the stored profile with the current identities list. As `setProfile` emits the event `profile_updated`, the view components will be properly updated.
 
 But, we still need to update the `LinkedAccountItem` component to show an __unlink__ button, as showed below:
 
