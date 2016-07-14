@@ -10,4 +10,7 @@ seo_alias: aspnet-core
 articles:
   - 00-intro
   - 01-login
-  - 04-user-profile
+  - 02-login-embedded-lock
+  - 03-login-custom
+  - 04-storing-tokens
+  - 05-user-profile
