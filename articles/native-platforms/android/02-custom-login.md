@@ -1,5 +1,5 @@
 ---
-title: Auth0 Android Quickstarts - Custom Login
+title: Custom Login
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 ---
