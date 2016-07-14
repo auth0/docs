@@ -24,6 +24,6 @@ When you first create your application Auth0 provides a built-in email provider 
 To remove these restrictions in your testing or to setup your production level emails, please consult the following resources for information on setting up your own email provider:
 
 * [Use your own SMTP Email Provider](/articles/email/providers.md)
-* [Custom Email Handling](/email/custom)
+* [Custom Email Handling](/articles/email/custom)
 
 After you have configured your own email service provider, the [Emails](${uiURL}/#/emails) dashboard will allow you to customize your emails beyond the existing templates. For more information, see: [Customizing Your Emails](/email/templates).
