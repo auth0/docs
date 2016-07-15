@@ -1,6 +1,6 @@
 ---
-title: Linking User Profiles
-description: This tutorial will show you how to link different User profiles. Enabling different ways of signing in, into a single profile
+title: Linking Accounts
+description: This tutorial will show you how to link different user profiles, allowing different ways of signing in into a single profile.
 ---
 
 ::: panel-info System Requirements
@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-### Lets begin
+### Let's begin
 
 #### Be familiar with Auth0
 
@@ -27,11 +27,11 @@ This tutorial assumes you are already familiar with Auth0 and how to Sign up and
 
 ### 1. Setting up
 
-For this tutorial we are going to use the Auth0 Toolkit, and import the toolkit (that is writen in Swift) into our Objective C project. All the necessary steps for this are covered on the [Custom Login](02-custom-login.md) tutorial. 
+For this tutorial we are going to use the Auth0 Toolkit, and import the toolkit (that is writen in Swift) into our Objective-C project. All the necessary steps for this are covered on the [Custom Login](02-custom-login.md) tutorial. 
 
 ### 2. Getting your second token 
 
-To link two user profiles, you need to be signed in with the user you want to use as your primary profile, the one you want to merge the other user into. Once you're signed in, you need to show the login for the second user profile, and for this you have two options.
+To link two user profiles, you need to be signed in with the user you want to use as your primary profile, the one you want to merge the other user into. Once you're signed in, you need to show the login for the second user profile, for which you have two options.
 
 #### i. Use Lock 
 
@@ -51,7 +51,7 @@ You can use Lock, present the Auth0 sign in UI where the user can select what fo
 
 #### ii. Use Auth0 Toolkit
 
-You might chose to avoid the Lock UI and only show the sign in options of 3rd parties, for example. In this case you'd be encouraged to read the [Custom Login](02-custom-login.md) tutorial. But here we'll have a quick outline.
+You might choose to avoid the Lock UI and only show the sign in options of third parties. If that's the case, you're encouraged to read the [Custom Login](02-custom-login.md) tutorial. Anyway, here is a quick outline.
 
 - Check that you have set up the URL Type with your app's bundle ID.
 - Check that you have on your `Application Support` panel, on the Auth0 web site, the `Allowed callback URLS` set up to handle this callback:
@@ -64,10 +64,9 @@ You might chose to avoid the Lock UI and only show the sign in options of 3rd pa
 }
 ```
 
-- Finally show the sign in for each 3rd party:
+- Finally, show the sign in for each third party:
 ```objc
-- (IBAction)linkAccount:(id)sender
-{
+- (IBAction)linkAccount:(id)sender{
     NSString* connection;
     
     if(sender == self.linkGoogleButton) {
@@ -100,7 +99,7 @@ You might chose to avoid the Lock UI and only show the sign in options of 3rd pa
 
 ### 3. Link your profiles
 
-Now that you have the user information for both profiles you can link them:
+Now that you have the user information for both profiles, you can link them:
 
 ```objc
     A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
