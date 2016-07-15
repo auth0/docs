@@ -64,7 +64,8 @@ You might choose to avoid the Lock UI and only show the sign in options of third
 }
 ```
 
-- Finally, show the sign in for each third party:
+- Finally, show the sign in for each third party, it's important that you set up the scope as `openid` in order to be able to link the profiles:
+
 ```objc
 - (IBAction)linkAccount:(id)sender{
     NSString* connection;
@@ -86,7 +87,8 @@ You might choose to avoid the Lock UI and only show the sign in options of third
     A0WebAuth *webAuth = [[A0WebAuth alloc] initWithClientId:clientId url:domain];
     
     [webAuth setConnection:connection];
-    
+    [webAuth setScope:@"openid"];
+
     [webAuth start:^(NSError * _Nullable error, A0Credentials * _Nullable credentials) {
         if (error){
             //Something went wrong, tell the user
