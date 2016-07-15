@@ -46,7 +46,7 @@ For more information on how to obtain an access token, see: [Call an Identity Pr
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication#!#post--tokeninfo) endpoint, the URL of the API call (e.g. `https://${account.namespace/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication#!#post--tokeninfo) endpoint, the URL of the API call (e.g. `https://${account.namespace}/`) must match the value of the `iss` attribute of the `id_token` being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
