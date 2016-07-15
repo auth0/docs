@@ -7,7 +7,7 @@ url: /metadata
 Auth0 allows you to store **metadata**, or data related to each user that has not come from the identity provider. There are two kinds of metadata:
 
 * **user_metadata**: stores user attributes, such as user preferences, that don't impact a user's core functionality;
-* **app_metadata**: stores user attributes, such as a support plan, security roles, or access control groups, which can impact a user's core functionality, such as how an application functions and/or what the user can access.
+* **app_metadata**: stores information such as a user's support plan, security roles, or access control groups, which can impact a user's core functionality, such as how an application functions and/or what the user can access.
 
 Please note that:
 
@@ -30,7 +30,9 @@ Suppose the following data is stored for a user with the email address "jane.doe
 }
 ```
 
-To read metadata, simply access the correct property:
+**Note**: Any valid JSON snippet may be used as metadata.
+
+To read metadata, simply access the correct property. For example, suppose you wanted to work with the values of the following properties in your Rules or via a call to the Management API:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
