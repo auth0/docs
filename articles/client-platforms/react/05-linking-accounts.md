@@ -63,7 +63,7 @@ export class LinkedAccountsList extends React.Component {
   render(){
     const { profile, auth } = this.props
     let items = []
-    if (profile) {
+    if (profile && profile.identities) {
       items = profile.identities.map(identity => {
         return (<LinkedAccountItem {...this.props} identity={identity} />)
       })
@@ -243,9 +243,14 @@ export default class AuthService extends EventEmitter {
       method: 'POST',
       body: JSON.stringify(data)
     })
-    .then(identities => {
+    .then(response => {
       const profile = this.getProfile()
-      this.setProfile({...profile, identities}) // updates profile identities
+      if (response.error){
+        alert(response.message)
+      } else {
+        // updates profile identities
+        this.setProfile({...profile, identities: response})
+      }
     })
   }
 }
@@ -306,9 +311,14 @@ export default class AuthService extends EventEmitter {
     this.fetchApi(`<%= "identities/${identity.provider}/${identity.user_id}" %>`, {
       method: 'DELETE'
     })
-    .then(identities => {
+    .then(response => {
       const profile = this.getProfile()
-      this.setProfile({...profile, identities}) // updates profile identities
+      if (response.error){
+        alert(response.message)
+      } else {
+        // updates profile identities
+        this.setProfile({...profile, identities: response})
+      }
     })
   }
 }
