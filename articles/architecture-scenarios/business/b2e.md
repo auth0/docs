@@ -20,10 +20,10 @@ Since there are usually multiple configured applications, SSO (single sign-on) i
 The following is a list of articles on this website which will help you to implement this scenario:
 
 * [Lock](https://auth0.com/lock)
-* [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols)
-* [Integrating a Web App with Auth0](https://auth0.com/docs/oauth-web-protocol)
-* [Connect Active Directory with Auth0](https://auth0.com/docs/connections/enterprise/active-directory)
-* [SAML](https://auth0.com/docs/saml-configuration)
-* [What is SSO (Single Sign On)?](https://auth0.com/docs/sso/single-sign-on)
+* [Identity Protocols supported by Auth0](/protocols)
+* [Integrating a Web App with Auth0](/oauth-web-protocol)
+* [Connect Active Directory with Auth0](/connections/enterprise/active-directory)
+* [SAML](/saml-configuration)
+* [What is SSO (Single Sign On)?](/sso/single-sign-on)
 * [Auth0 SSO Dashboard (sample)](https://github.com/auth0-samples/auth0-sso-dashboard)
 
