@@ -15,7 +15,7 @@ It is simple to access users' information using the Angular SDK. User profiles c
 
 ### Accessing user profile in redirect mode
 
-You can subscribe to custom events which are called at certain phases of authentication process. One of which is `loginSuccess` which you can access a user's profile from it's callback function. Redirect modes do not support signin in with callbacks, therefore, this event is the only way to get users' profiles. The event is configured in angular's `config` method using the `authProvider` as a dependency:
+You can subscribe to custom events which are called at certain phases of the authentication process. One of which is `loginSuccess` which you can use to access a user's profile from its callback function. Redirect modes do not support signin in with callbacks, therefore, this event is the only way to get users' profiles. The event is configured in angular's `config` method using the `authProvider` as a dependency:
 
 ```js
 /* ===== ./app.js ===== */
@@ -34,7 +34,7 @@ app.config(function myAppConfig (authProvider) {
 });
 ```
 
-The profile is a JavaScript object that you can access it's properties. You have the profile data on Angular's scope object so you can bind to your view or do whatever you want with the information:
+The profile is a JavaScript object so you can access its properties. You have the profile data on Angular's scope object so you can bind to your view or do whatever you want with the information:
 
 ```html
 <!-- ===== ./home/home.html ===== -->
@@ -79,7 +79,7 @@ auth.getProfile(token).then(function(profile){
 ```
 
 ## Storing and retrieving profiles
-Auth0 provides a convenient library for Angular called [Angular Storage](https://github.com/auth0/angular-storage) which uses `localStorage` or `sessionStorage` by default and cookies if those are not available to store data on the client (browser). You can refer to the previous on how to include the script and inject the Angular dependency.
+Auth0 provides a convenient library for Angular called [Angular Storage](https://github.com/auth0/angular-storage) which uses `localStorage` or `sessionStorage` by default and cookies if those are not available to store data on the client (browser). You can refer to the previous step on how to include the script and inject the Angular dependency.
 
 Now update the controller to store the profile as soon as it is retrieved:
 
@@ -131,7 +131,7 @@ app.controller('HomeCtrl', ['$scope', 'store', function ($scope, store){
 ```
 
 ## Authenticating user with profile
-Just as you saw above, you can store a user's profile and have access to it from any part of your application. This becomes handy when handling page refresh as there is need to re-authenticate the user. Fortunately, Auth0 makes it easy to authenticate users with there profiles:
+Just as you saw above, you can store a user's profile and have access to it from any part of your application. This becomes handy when handling page refresh as there is need to re-authenticate the user. Fortunately, Auth0 makes it easy to authenticate users with their profiles:
 
 ```js
 .run(['$rootScope', 'auth', 'store', 'jwtHelper', '$''location',
