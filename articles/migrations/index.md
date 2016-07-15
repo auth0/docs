@@ -46,13 +46,13 @@ For more information on how to obtain an access token, see: [Call an Identity Pr
 | --- | --- |
 | Low | 2016-06-01 |
 
-When calling the [TokenInfo](/api/authentication#!#post--tokeninfo) endpoint, the URL of the API call (e.g. `https://${account.tenant}.auth0.com/`) must match the value of the `iss` attribute of the `id_token` being validated.
+When calling the [TokenInfo](/api/authentication#!#post--tokeninfo) endpoint, the URL of the API call (e.g. `https://${account.namespace/`) must match the value of the `iss` attribute of the `id_token` being validated.
 
 If these values do not match, the response will be `HTTP 400 - Bad Request`.
 
 #### Am I affected by the change? 
 
-If you are calling the `/api/authentication#!#post--tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 account namespace: `https://${account.namespace}/`. 
+If you are calling the `/tokeninfo` endpoint directly, make sure that the value of the `iss` attribute of the `id_token` being validated matches your Auth0 account namespace: `https://${account.namespace}/`. 
 
 **NOTE**: You can use [jwt.io](https://jwt.io/) to decode the token to confirm the `iss` attribute value.
 
