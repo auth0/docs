@@ -46,7 +46,7 @@ You can access the `country` added by the rule within the `extraInfo` dictionary
 ```
 
 ```objc
-NSString *userCountry = self.userProfile.extraData[@"country"];
+NSString *userCountry = self.userProfile.extraInfo[@"country"];
 ```
 
 ### Done!
