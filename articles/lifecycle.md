@@ -36,10 +36,6 @@ function(user, context, callback){
 
 Since this URL will likely change from development to production, this method will make your code more portable.
 
-## Github
-
-You can also maintain the source code of your rules in a GitHub repository. If you choose the GitHub integration route, the rules in your Auth0 account will be automatically updated whenever a change is submitted to the GitHub repository.
-
 ## AD/LDAP Connectors
 
 Since an AD/LDAP Connector is tied to a specific Connection within an Auth0 account, if you setup multiple Auth0 accounts, you will need to create an AD/LDAP Connection and setup an AD/LDAP Connector for each account that requires this form of authentication.
