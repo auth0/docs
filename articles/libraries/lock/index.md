@@ -170,8 +170,6 @@ If you have found a bug or if you have a feature request, please report them at 
 [new-features]: /libraries/lock/v10/new-features
 [example-browserify]: https://github.com/auth0/lock/blob/v10/examples/bundling/browserify
 [example-webpack]: https://github.com/auth0/lock/blob/v10/examples/bundling/webpack
-[authentication-modes]: /libraries/lock/v10/authentication-modes
-[redirect-mode]: /libraries/lock/v10/authentication-modes#redirect-mode
 [lock-customization]: /libraries/lock/v10/customization
 [lock-api]: /libraries/lock/v10/api
 [ui-customization]: /libraries/lock/v10/ui-customization
@@ -179,6 +177,6 @@ If you have found a bug or if you have a feature request, please report them at 
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
 [sending-authentication-parameters]: /libraries/lock/v10/sending-authentication-parameters
-[legacy-migration-guide]: /libraries/lock/v10/legacy-migration-guide
+[legacy-migration-guide]: /libraries/lock/v9/migration-guide
 [i18n-notes]: /libraries/lock/v10/i18n
 [popup-mode]: /libraries/lock/v10/popup-mode

@@ -1,3 +1,7 @@
+::: panel-info Lock Version
+Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
+:::
+
 # API
 
 ## new Auth0Lock(clientID, domain, options)
@@ -6,7 +10,7 @@ Initializes a new instance of `Auth0Lock` configured with your application `clie
 
 - **clientId {String}**: Your application _clientId_ in Auth0.
 - **domain {String}**: Your Auth0 _domain_. Usually _your-account.auth0.com_.
-- **options {Object}**: Allows to customize the dialog's appearance and behavior. See [the customization page](/libraries/articles/lock/v10/customization) for the details.
+- **options {Object}**: Allows to customize the dialog's appearance and behavior. See [the customization page](/libraries/lock/v10/customization) for the details.
 
 ### Example
 

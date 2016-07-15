@@ -1,6 +1,6 @@
 
 ::: panel-info Lock Version
-Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
+Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
 :::
 
 # Lock: User configurable options
@@ -25,7 +25,9 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [rememberLastLogin](#rememberlastlogin-boolean-)
 
 **Theming Options**:
-- [theme](#theme-string-)
+- [theme](#theme-object-)
+- [logo](#logo-string-)
+- [primaryColor](#primarycolor-string-)
 
 **Social Options**:
 - [socialButtonStyle](#socialbuttonstyle-string-)
@@ -35,22 +37,22 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [params](#params-object-)
 - [redirect](#redirect-boolean-)
 - [redirectUrl](#redirecturl-string-)
-- [responsetype](#responsetype-string-)
+- [responseType](#responsetype-string-)
 - [sso](#sso-boolean-)
 
 **Database Options**:
-- [additionalSignUpFields](#additionalsignUpfields-array-)
+- [additionalSignUpFields](#additionalsignupfields-array-)
 - [allowLogin](#allowlogin-boolean-)
 - [allowForgotPassword](#allowforgotpassword-boolean-)
 - [allowSignup](#allowsignup-boolean-)
 - [defaultDatabaseConnection](#defaultdatabaseconnection-string-)
 - [initialScreen](#initialscreen-string-)
-- [loginAfterSignup](loginaftersignup-boolean-)
-- [forgotPasswordLink](forgotpasswordlink-string-)
-- [mustAcceptTerms](mustacceptterms-Boolean-)
-- [prefill](prefill-object-)
-- [signupLink](signuplink-string-)
-- [usernameStyle](usernamestyle-string-)
+- [loginAfterSignup](#loginaftersignup-boolean-)
+- [forgotPasswordLink](#forgotpasswordlink-string-)
+- [mustAcceptTerms](#mustacceptterms-boolean-)
+- [prefill](#prefill-object-)
+- [signupLink](#signuplink-string-)
+- [usernameStyle](#usernamestyle-string-)
 
 **Enterprise Options**:
 - [defaultEnterpriseConnection](#defaultenterpriseconnection-string-)
@@ -243,11 +245,11 @@ var options = {
 
 ## Theming Options
 
-#### theme {Object}
+### theme {Object}
 
 Theme options are grouped in the `theme` property of the `options` object.
 
-### logo {String}
+#### logo {String}
 
 The value for `logo` is an URL for an image that will be placed in the Lock's header, and defaults to Auth0's logo. It has a recommended max height of `58px` for a better user experience.
 
@@ -338,7 +340,7 @@ var options = {
 };
 ```
 
-### params {Object}
+#### params {Object}
 
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `foo`. [Read here][authparams-link] to learn more about what `authParams` can be set.
 
@@ -354,7 +356,7 @@ var options = {
 For more details about supported parameters check the [Authentication Parameters][authparams-link] documentation page.
 :::
 
-### redirect {Boolean}
+#### redirect {Boolean}
 
 Defaults to true. When set to true, redirect mode will be used. If set to false, popup mode is chosen. 
 
@@ -370,7 +372,7 @@ var options = {
 };  
 ```
 
-### redirectUrl {String}
+#### redirectUrl {String}
 
 The URL Auth0 will redirect back to after authentication. Defaults to the empty string "" (no redirect URL).
 
@@ -386,7 +388,7 @@ var options = {
 When the `redirectUrl` is provided (set to non blank value) the `responseType` option will be defaulted to `code` if not manually set.
 :::
 
-### responseType {String}
+#### responseType {String}
 
 The value of `responseType` should be set to "token" for Single Page Applications, and "code" otherwise. Defaults to "code" when redirectUrl is provided, and to "token" otherwise.
 
@@ -398,7 +400,7 @@ var options = {
 };  
 ```
 
-### sso {Boolean}
+#### sso {Boolean}
 
  When Lock is initialized it will make a request to obtain SSO data. If the `sso` option is set to `true`, the data is fetched and a cookie is set after a successful login.
 
@@ -547,6 +549,14 @@ var options = {
 ```
 
 ### initialScreen {string}
+
+The name of the screen that will be shown when the widget is opened. Valid values are `login`, `signUp`, and `forgotPassword`. If this option is left unspecified, the widget will default to the first screen that is available from that list.
+
+```js
+var options = {
+  initialScreen: 'forgotPassword'
+};
+```
 
 ### loginAfterSignup {Boolean}
 
