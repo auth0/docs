@@ -17,5 +17,5 @@ In this scenario you have a traditional web application which needs to authentic
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Lock](https://auth0.com/docs/libraries/lock)
-* [SAML](https://auth0.com/docs/saml-configuration)
+* [Lock](/libraries/lock)
+* [SAML](/saml-configuration)
