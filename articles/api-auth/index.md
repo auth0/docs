@@ -46,7 +46,7 @@ Using different grants (or flows), these participants will interact to grant Cli
 
 ## Tutorials
 
-See the following tutorial for a step-by-step guides on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable [Client Credentials Grants](/api-auth/grant/client-credentials).
+See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable [Client Credentials Grants](/api-auth/grant/client-credentials).
 
 <%=include('./config/using-the-auth0-dashboard') %>
 
