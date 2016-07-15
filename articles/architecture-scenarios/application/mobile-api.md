@@ -21,8 +21,7 @@ The application will usually store the information about the user’s session (i
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Native Mobile App](https://auth0.com/docs/quickstart/native-mobile/)
-* [Hybrid Mobile App](https://auth0.com/docs/quickstart/hybrid/)
+* [Native Apps](https://auth0.com/docs/quickstart/native/)
 * [Lock for iOS and OS X](https://auth0.com/docs/libraries/lock-ios)
 * [Lock for Android](https://auth0.com/docs/libraries/lock-android)
 * [API Authentication and Authorization](https://auth0.com/docs/api-auth)
