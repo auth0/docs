@@ -139,11 +139,13 @@ You can add a [HAR request format](http://www.softwareishard.com/blog/har-12-spe
 * comment [string, optional] (new in 1.2) - A comment provided by the user or the application.
 
 #### Escaping Strings
-Occasionally you will need to use strings that contain the characters that are used for template replacement. The examples of this are `${example}` and `<%= example %>`. If you try to include these in your doc or a code snippet the document will fail to render because our template engine will try to replace your variable, i.e. `example`. However, you can include these by escaping them as shown below.
+Occasionally you will need to use strings that contain the characters that are used for template replacement. The examples of this are `${example}`, `<% example %>` and `<%= example %>`. If you try to include these in your doc or a code snippet the document will fail to render because our template engine will try to replace your variable, i.e. `example`. However, you can include these by escaping them as shown below.
 
 Change `${example}` to `<%= "${example}" %>`.
 
 Change `<%= example %>` to `${ "<%= example %>" }`.
+
+Change `<% example %>` to `${ "<% example %>" }`.
 
 ### Screenshots
 On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, taking into account the following:
