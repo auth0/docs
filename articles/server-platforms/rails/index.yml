@@ -13,6 +13,7 @@ alias:
 seo_alias: rails
 default_article: 01-login
 articles:
+  - 00-introduction
   - 01-login
   - 02-custom-login
   - 03-user-profile
