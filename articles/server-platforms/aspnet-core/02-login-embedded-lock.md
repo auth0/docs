@@ -11,11 +11,11 @@ description: This tutorial will show you can host the Lock widget inside your ap
 
 When using the normal OIDC middleware, when a user wants to log in and the middleware is called, the user will be redirected to the Auth0 website to sign in using the hosted version of Lock. This may not be the user experience you are looking for. You may for example want to embed Lock inside your application so it has more of the look-and-feel of your own application. In this instance you can use both Lock and the OIDC middleware together, but it requires a bit of extra work on your side.
 
-Normally when the OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in `state` and `nonce` parameters. After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, in will pass back this `state` and `nonce` parameters. The OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the `code` for an `access_token`. It will however validate the `state` parameter to protect against CSRF.
+Normally when the OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in `state` and `nonce` parameters. After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, in will pass back this `state` and `nonce` parameters. The OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the `code` for an `access_token`. It will however validate the `state` and `nonce` parameters to protect against CSRF.
 
-This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Lock is. 
+This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Instead, the embedded Lock widget is initiating that first step. 
 
-So in this instance you will need to construct correct `state` and `nonce` parameters (as if the OIDC middleware did it so that it can validate it correctly), and then be sure to specify the `state` and `nonce` parameters on Lock so that Auth0 can send back the correct values for these parameters after the user has authenticated.
+You will therefore need to construct correct `state` and `nonce` parameters (as if the OIDC middleware did it so that it can validate it correctly), and then be sure to specify the `state` and `nonce` parameters on Lock so that Auth0 can send back the correct values for these parameters after the user has authenticated.
 
 ## Configure OpenID Connect middleware
 
@@ -73,7 +73,9 @@ The reason we configure the OIDC options with the DI Framework is because we wil
 
 ## Configure OpenID Connect middleware
 
-Next you must configure the Cookie and OIDC middleware in the `Configure` method. First ensure to change the signature of your `Configure` method to accept a parameter called `oidcOptions` of type `IOptions<OpenIdConnectOptions>`. 
+Next you must configure the Cookie and OIDC middleware in the `Configure` method. 
+
+First be sure to change the signature of your `Configure` method to accept a parameter called `oidcOptions` of type `IOptions<OpenIdConnectOptions>`. The DI framework will inject the `OpenIdConnectOptions` registered in the `ConfigureServices` method as the value of this parameter.
 
 Next register the Cookie middleware by making a call to the `UseCookieAuthentication` method. Then register the OIDC middleware by making a call to the `UseOpenIdConnectAuthentication` method, passing along the value of the `oidcOptions` parameter which was injected by the DI framework.
 
@@ -123,11 +125,15 @@ In order to configure the `state` parameter and save the correct Cookies for the
 * [Auth0Extensions.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/Auth0Settings.cs)
 * [LockContext.cs](https://github.com/auth0-samples/auth0-aspnetcore-sample/blob/master/02-Login-Embedded-Lock/SampleMvcApp/LockContext.cs)
 
-> Be sure fix the namespaces to correlate with your own project
+::: panel-warning Fix namespaces
+Be sure fix the namespaces in the files above to correlate with the namespace of your own project
+:::
 
 ## Add Login and Logout methods
 
-Next you will need to add `Login` and `Logout` actions to the `AccountController`. First though, add a constructor to the `AccountController` which will accept a parameter of `IOptions<OpenIdConnectOptions>` (this will be injected by the DI framework). Be sure to save this parameter to an instance variable, as you will need to use it in the `Login` action.
+Next you will need to add `Login` and `Logout` actions to the `AccountController`. 
+
+First though, add a constructor to the `AccountController` which will accept a parameter of `IOptions<OpenIdConnectOptions>` (this will be injected by the DI framework). Be sure to save this parameter to an instance variable, as you will need to use it in the `Login` action.
 
 The `Login` method must call the `GenerateLockContext` extension method which will create the correct `state` and `nonce` parameters and set the correct Cookies for the OIDC middleware to function correctly. It will return a `LockContext` parameter which you must pass along to the View.
 
@@ -191,9 +197,9 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
 </script>
 ``` 
 
-Be sure to set the Client ID, Domain and Callback URL values from the ones supplied by the `LockContext` model. Also be sure to set the correct `state` parameter as shown above, as this is the key to getting everyting to work together.
+Be sure to set the Client ID, Domain and Callback URL values from the ones supplied by the `LockContext` model. Also be sure to set the correct `state` and `nonce` parameters as shown above, as this is the key to getting everyting to work together.
 
-Also note that I have added `profile` to the `scope` parameter. The reason for this is that we want the user's `name` returned so we can set the correct `ClaimTypes.Name` claim. Refer to the `OnTicketReceived` we declared when rgistering the `OpenIdConnectOptions` in the `ConfigureServices` method of the `Startup` class. 
+Also note that the `scope` parameter has been changed to add the `profile` scope. The reason for this is that you want the user's `name` returned so you can set the correct `ClaimTypes.Name` claim. This is discussed in more detail in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile) 
 
 ## Add Login and Logout links
 
@@ -232,5 +238,4 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 
 ## Run your application
 
-After this you can run the application. Navigate to the `/Account/Login` path and you will be presented with the Login screen with embedded Lock. Once the user signs in, the OIDC middleware will pick up the call to the Callback URL and exchange the code for an access token.
-Add LockContext and Auth0 Extensions
+Now when you run the application you can select the Login link to log in to the application. This will take you to the Login view containing the embedded Lock widget. After the user has logged in they can click on the Logout link to log them out of the application.

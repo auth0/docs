@@ -4,7 +4,7 @@ description: This tutorial will show you how to display get the user's profile a
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/03-User-Profile',
+  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/05-User-Profile',
 }) %>
 
 
@@ -29,7 +29,7 @@ public class UserProfileViewModel
 }
 ```
 
-Create add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:    
+Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:    
 
 ```csharp
 [Authorize]
@@ -96,7 +96,7 @@ Go to the `Views/Shared/_Layout.cshtml` file and update the Navbar section which
  
 One remaining issue is that the `User.Identity.Name` property used in the Navbar snippet above will look for a claim of type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` on the user, but hat claim will not be set and the property will therefor be null.
 
-Auth0 will however pass back a `name` claim, so in the `OnTicketReceived` event you will have to retrieve the value of the `name` claim and a new claim of type `ClaimTypes.Name` ( which is the same as `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`):
+Auth0 will however pass back a `name` claim, so in the `OnTicketReceived` event you will have to retrieve the value of the `name` claim and add a new claim of type `ClaimTypes.Name` (which resolves to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`):
 
 ```csharp
 app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")

@@ -95,7 +95,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 ## Add Login and Logout methods
 
-Next you will need to add `Login` and `Logout` actions to the `AccountController`. For the Login you will need to return a `ChallengeResult` and specify "Auth0" as the authentication scheme which will be challenged. This will invoke the OIDC middleware you registered in the `Configure` method.
+Next you will need to add `Login` and `Logout` actions to the `AccountController`. 
+
+For the Login you will need to return a `ChallengeResult` and specify "Auth0" as the authentication scheme which will be challenged. This will invoke the OIDC middleware you registered in the `Configure` method.
 
 After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware: 
 
@@ -119,7 +121,7 @@ public class AccountController : Controller
 
 ## Add Login and Logout links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -152,8 +154,10 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 </div>
 ```
 
+## Run your application
+
 Now when you run the application you can select the Login link to log in to the application. This will challenge the OIDC middleware which will subsequently redirect you to the hosted version of Lock on your Auth0 domain.
 
-If you prefer to embed Lock inside your application then please refer to the [Embedded Lock step](). If you prefer to create a custom Login screen, refer to the [Custom Login step](). 
+If you prefer to embed Lock inside your application then please refer to the [Embedded Lock step](/quickstart/webapp/aspnet-core/02-login-embedded-lock). If you prefer to create a custom Login screen, refer to the [Custom Login step](/quickstart/webapp/aspnet-core/03-login-custom). 
 
-Alternatively you can simply carry on to the [User Profile step]() which will demonstrat how you can retrieve and display the user's profile information.
+Alternatively you can simply carry on to the [Storing Tokens step](/quickstart/webapp/aspnet-core/04-storing-tokens) which will demonstrat how you can can store the tokens returned by Auth0.

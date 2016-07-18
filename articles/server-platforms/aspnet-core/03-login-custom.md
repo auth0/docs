@@ -1,5 +1,5 @@
 ---
-title: Login
+title: Custom Login
 description: This tutorial will show you how to create a custom login page for your web application by using the Auth0 .NET SDK and OpenID Connect middleware.
 ---
 
@@ -9,7 +9,7 @@ description: This tutorial will show you how to create a custom login page for y
 
 ## Add the Auth0 Authentication SDK 
 
-To log in the user you will be using the Auth0 Authentication SDK for .NET, so install that:
+To log in the user you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
 
 ```bash
 Install-package Auth0.AuthenticationApi
@@ -17,7 +17,7 @@ Install-package Auth0.AuthenticationApi
 
 ## Register the middlware
 
-First you need to register the cookie middleware. First update the `ConfigureServices` method in your `Startup` class to register the relevant services for the cookie middleware:
+First you need to register the cookie middleware. Update the `ConfigureServices` method in your `Startup` class to register the relevant services for the cookie middleware:
 
 ```csharp
 // Add authentication services
@@ -35,6 +35,8 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
     AutomaticChallenge = true
 });
 ```
+
+It is best to register the Cookie middleware just before you register the MVC middleware.
 
 ## Create the Login Form
 
@@ -92,7 +94,7 @@ Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which 
 </div>
 ```
 
-Next, you will need to update your `AccountController` as per the code sample below: 
+Next, you will need to update your `AccountController` as per the code below: 
 
 ```csharp
 public class AccountController : Controller
@@ -191,9 +193,36 @@ This code does the following:
 
 If you would like the user to sign in with their Google accounts you will need to use the OpenID Connect middleware.
 
-Update the `Configure` method in your `Startup` class to register the OIDC middleware. Normally when challenging the OIDC middleware, the OAuth Lock will be displayed but this is not the desired behaviour in this case. Intead you need to invoke the relevant social identity provider directly. 
+First update the `AccountController` to add a `LoginExternal` action that will be called from the Login view. This action takes a `connection` parameter which will be passed along in the `Properties` of the `ChallengeResult`:
 
-A parameter will be passed along with the `AuthenticationProperties` of the challenge which will specify the social identity provider to invoke, so be sure to add an `OnRedirectToIdentityProvider` event when registering the OIDC middleware which will look at that property and add the parameter to the OIDC request which is passed along to Auth0. This will ensure that the correct social identity provider is invoked:
+```csharp
+[HttpGet]
+public IActionResult LoginExternal(string connection, string returnUrl = "/")
+{
+    var properties = new AuthenticationProperties() { RedirectUri = returnUrl };
+
+    if (!string.IsNullOrEmpty(connection))
+        properties.Items.Add("connection", connection);
+
+    return new ChallengeResult("Auth0", properties);
+}
+```
+
+Update your `Login.cshtml` view to add a button inside the `<form>` element with the text "Login with Google". This will invoke the `LoginExternal` action created above and pass along "google-oauth2" in the `connection` parameter as the social identity provider to invoke:
+
+```html
+<div class="form-group">
+    <a class="btn btn-lg btn-default btn-block" asp-controller="Account" asp-action="LoginExternal" asp-route-connection="google-oauth2" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        Login with Google
+    </a>
+</div>
+``` 
+
+If you want to allow your users to sign in with other social identity providers, simply add extra buttons and pass in the correct value for the `connection` parameter to invoke the correct indentity provider, for example "twitter", "linkedin", "facebook", etc.
+
+Finally, update the `Configure` method in your `Startup` class to register the OIDC middleware. Normally when challenging the OIDC middleware, the OAuth Lock will be displayed but this is not the desired behaviour in this case. Instead you need to invoke the requested social identity provider which was passed in the `AuthenticationProperties` of the `ChallengeResult`.   
+
+In order to do this, handle the `OnRedirectToIdentityProvider` event when registering the OIDC middleware and look at that `Properties` for the requested `connection`. Add the parameter to the OIDC request which is passed along to Auth0. This will ensure that Auth0 invoke the correct social identity provider directly, instead of displaying the Lock widget:
 
 ```csharp
 app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
@@ -231,33 +260,6 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
     }
 });
 ```
-
-Also update the `AccountController` to add a `LoginExternal` action that will be called from the Login view. This action takes a `connection` parameter which will be passed along with the challenge (and subsequently passed along to Auth0 in the `OnRedirectToIdentityProvider` event you registered above):
-
-```csharp
-[HttpGet]
-public IActionResult LoginExternal(string connection, string returnUrl = "/")
-{
-    var properties = new AuthenticationProperties() { RedirectUri = returnUrl };
-
-    if (!string.IsNullOrEmpty(connection))
-        properties.Items.Add("connection", connection);
-
-    return new ChallengeResult("Auth0", properties);
-}
-```
-
-Lastly, update your `Login.cshtml` view to add a button inside the `<form>` element with the text "Login with Google". This will invoke the `LoginExternal` action created above and pass along "google-oauth2" as the social identity provider to invoke:
-
-```html
-<div class="form-group">
-    <a class="btn btn-lg btn-default btn-block" asp-controller="Account" asp-action="LoginExternal" asp-route-connection="google-oauth2" asp-route-returnurl="@ViewData["ReturnUrl"]">
-        Login with Google
-    </a>
-</div>
-``` 
-
-If you want to allow your users to sign in with other social identity providers, simply add extra buttons and pass in the correct value for the `connection` parameter to invoke the correct indentity provider, for example "twitter", "linkedin", "facebook", etc.
 
 ## Add Login and Logout links
 

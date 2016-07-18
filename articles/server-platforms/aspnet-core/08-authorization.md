@@ -7,7 +7,7 @@ description: This tutorial will show you how assign roles to your users, and use
   link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/08-Authorization',
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/angular2/06-rules' }) %>
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/webapp/aspnet-core/07-rules' }) %>
 
 ## Restrict an action based on a user's roles
 
