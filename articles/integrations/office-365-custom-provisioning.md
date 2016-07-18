@@ -265,6 +265,8 @@ You will basically need to redirect your users to the following URL (eg: using a
 https://@@account.namespace@@.auth0.com/login?client=CLIENT_ID_OF_THIRD_PARTY_APP&protocol=wsfed&state=&redirect_uri=&
 ```
 
+> Note: the `CLIENT_ID_OF_THIRD_PARTY_APP` value can be obtained from the URL when working with the Dashboard. When viewing or editing the settings for the Office 365 SSO Integration in Auth0, you will see an URL in the form of `https://{account}.auth0.com/#/externalapps/{client_id}/settings`. The `{client_id}` is the value you need here.
+
 This will show them the Auth0 login page after which they'll be redirected to Office 365. It will be important to explain external users that this is the only way they can authenticate, since the Office 365 login page does not support Home Realm Discover for these external users. This also means that, when they try to open a link, they'll need to visit the smart link first before the can access the link they tried to open.
 
 ![Different connections enabled for Office 365](/media/articles/integrations/office-365/office-365-different-connections.png)
