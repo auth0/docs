@@ -359,6 +359,8 @@ When writing docs you can use the following variables instead of hard-coding the
 | `widget_url`                  | The url to the Lock script CDN location.   | |
 | `widget_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
+| `browser`       | Displays a browser window with Lock. | |
+| `lockSDK`       | Displays a browser window with Lock and a dropdown with the options to trigger login. | |
 
 
 ### User Specific Variables
