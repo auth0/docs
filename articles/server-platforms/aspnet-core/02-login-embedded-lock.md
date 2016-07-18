@@ -171,7 +171,7 @@ public class AccountController : Controller
 
 ## Create the Login View
 
-For the Login screen you can create a Razor view and embed the code for Lock. You can head over to our [Lock Library page](https://auth0.com/docs/libraries/lock#start-using-auth0lock) and confgure Lock the way you want, and then copy and paste the code it generated into your Login page:
+For the Login screen you can create a Razor view and embed the code for Lock. You can head over to our [Lock Library page](/libraries/lock#start-using-auth0lock) and configure Lock the way you want, and then copy and paste the code it generated into your Login page:
 
 ```html
 @model LockContext

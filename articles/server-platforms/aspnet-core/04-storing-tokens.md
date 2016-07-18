@@ -86,5 +86,5 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
 The `access_token` will now be stored as a claim called "access_token", so to retrieve it inside a controller you can simply use `User.Claims.FirstOrDefault("access_token").Value`
 
 ::: warning-banner Beware of your cookie size
-You need to note that saving the tokens will increase the size of your authentication cookie, so be careful with adding unnecessarry claims to the `ClaimsIdentity` as this cookie is sent back to the server with every request.
+You need to note that saving the tokens will increase the size of your authentication cookie, so be careful with adding unnecessarry claims to the ClaimsIdentity as this cookie is sent back to the server with every request.
 :::
