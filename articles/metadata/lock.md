@@ -1,6 +1,6 @@
 # Using Metadata with Auth0's Lock Library
 
-When using [Auth0's Lock library](/libraries/lock), you may define the user's `user_metadata` field.
+When using [Auth0's Lock library](/libraries/lock), you may define and update the user's `user_metadata` field.
 
 ## Defining `user_metadata` on Signup
 
