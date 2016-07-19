@@ -99,6 +99,7 @@ GET https://${account.namespace}/api/v2/device-credentials?
   type=refresh_token
   &client_id={}
   &user_id={}
+  
 {
   "Authorization":   "Bearer {your_access_token}"
 }
@@ -110,7 +111,7 @@ Response body:
 [
   {
     "id": "dcr_dFJiaAxbEroQ5xxx",
-    "device_name": "sample" // the value of device provided in the authorize call when creating the token
+    "device_name": "sample" // the value of 'device' provided in the authorize call when creating the token
   }
 ]
 ```
