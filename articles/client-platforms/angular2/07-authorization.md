@@ -56,6 +56,7 @@ export class AuthGuard implements CanActivate {
         return false;
       }
     } else {
+      // Save url to redirect on login (after fetching profile to have roles)
       localStorage.setItem('redirect_url', state.url);
       this.auth.login();
       this.router.navigate(['']);
@@ -75,6 +76,25 @@ public isAdmin() {
     && this.userProfile.app_metadata.roles
     && this.userProfile.app_metadata.roles.indexOf('admin') > -1;
 }
+...
+```
+
+We are also storing the target url to make a redirect when successfully login, so let's add that:
+
+```typescript
+/* ===== app/auth.service.ts ===== */
+...
+// Fetch profile information
+this.lock.getProfile(authResult.idToken, (error, profile) => {
+  ...
+
+  // Redirect if there is a saved url to do so.
+  var redirectUrl: string = localStorage.getItem('redirect_url');
+  if(redirectUrl != undefined){
+    this.router.navigate([redirectUrl]);
+    localStorage.removeItem('redirect_url');
+  }
+});
 ...
 ```
 
