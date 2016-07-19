@@ -4,7 +4,7 @@ description: test
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/03-User-Profile',
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/04-User-Profile',
 }) %>_
 
 It is simple to access users' information using the Angular SDK. User profiles can be accessed in 3 ways:
