@@ -23,7 +23,7 @@ You should know already how to manage the `Credentials` object, as explained in 
 
 Your first step is to save the `Credentials` object, here is a small memo of this step.
 
-```android
+```java
 private LockCallback callback = new AuthenticationCallback() {
             @Override
             public void onAuthentication(Credentials credentials) {
@@ -40,14 +40,14 @@ You can use any of the token strings contained in the `Credentials` object.
 
 First you need to prepare the request:
 
-```android
+```java
 	RequestQueue queue = Volley.newRequestQueue(this);
     String url = "YOUR API URL";
 ```
 
 Then need to add the token as a mean of authentication to the request header. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
    
-```android     
+```java     
 	 // Retrieve the credentials from where you saved them
     String tokenID = getCredentials.getTokenID();
 
@@ -70,7 +70,7 @@ Then need to add the token as a mean of authentication to the request header. In
 
 The customized AuthorizationRequestObject looks like:
 
-```android
+```java
 	public class AuthorizationRequestObject extends JsonObjectRequest
     {
         private String headerTokenID = null;
@@ -100,7 +100,7 @@ Notice that how you configure your authorization header should match the standar
 
 At this point, you only need to schedule the request.
 
-```android
+```java
 		// Add the request to the RequestQueue.
         queue.add(authorizationRequest);        
         }      
