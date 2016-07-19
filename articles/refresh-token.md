@@ -76,7 +76,7 @@ A response from this request could be as follows:
 ```
 {
   "token_type": "Bearer",
-  "expires_in": 30000,
+  "expires_in": 36000,
   "id_token": "eyJ..."
 }
 ```
@@ -90,15 +90,38 @@ Obtaining new tokens using the `refresh_token` should occur only if the `id_toke
 
 ## Revoke a refresh token
 
-Because refresh tokens never expire, it is important to provide a way to revoke them. 
+Since refresh tokens never expire, it is important to be able to revoke them. 
 
-To revoke a __refresh token__, call the [revoke refresh token](/api/v1#delete--api-users--user_id--refresh_tokens--refresh_token-) endpoint:
+You will need the `id` of the refresh token. To obtain a list of existing refresh tokens, you can call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
 ```
-DELETE https://${account.namespace}/api/users/<user id>/refresh_tokens/<refresh token>
+GET https://${account.namespace}/api/v2/device-credentials?
+  type=refresh_token
+  &client_id={}
+  &user_id={}
+{
+  "Authorization":   "Bearer {your_access_token}"
+}
+```
+
+Response body:
+
+```
+[
+  {
+    "id": "dcr_dFJiaAxbEroQ5xxx",
+    "device_name": "sample" // the value of device provided in the authorize call when creating the token
+  }
+]
+```
+
+To revoke a __refresh token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an access token containing `delete:device_credentials` scope and the value of `id` obtained above:
+
+```
+DELETE https://${account.namespace}/api/v2/device-credentials/{id}
 
 {
-  "Authorization":   "Bearer <your access token>",
+  "Authorization":   "Bearer {your_access_token}"
 }
 
 ```
