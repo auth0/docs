@@ -2,13 +2,28 @@
 
 When using [Auth0's Lock library](/libraries/lock), you may define and update the user's `user_metadata` field.
 
+*For an overview on implementing Lock, please refer to the [JavaScript Quickstart](/quickstart/spa/vanillajs).*
+
 ## Defining `user_metadata` on Signup
 
 Please see the section on Lock's [custom sign up fields](libraries/lock/v10/new-features#custom-sign-up-fields) for additional information on adding `user_metadata` on signup.
 
-**For an overview on implementing Lock, please refer to the [JavaScript Quickstart](/quickstart/spa/vanillajs).**
+## Working with `user_metadata`
 
 Once you have [implemented the login functionality](/quickstart/spa/vanillajs#3-implement-the-login) for your Lock instances, you may opt to store the newly-created `id_token`. This token is used to retrieve the user's profile from Auth0 or to call APIs.
+
+```js
+var hash = lock.parseHash(window.location.hash);
+if (hash) {
+  if (hash.error) {
+    console.log("There was an error logging in", hash.error);
+    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
+  } else {
+    //save the token in the session:
+    localStorage.setItem('id_token', hash.id_token);
+  }
+}
+```
 
 ## Reading `user_metadata` Properties
 
@@ -30,4 +45,25 @@ if (id_token) {
 
 You may [update the `user_metadata` property](/metadata/apiv2#updating-a-user-s-metadata) via calls to the Auth0 Management API.
 
-Using the user's `id_token`, make the appropriate `PATCH` call to [update the `user_metadata` field](/metadata/apiv2#updating-a-user-s-metadata).
+By including the user's `id_token` in the `Authorization` header, you may make the appropriate `PATCH` call to [update the `user_metadata` field](/metadata/apiv2#updating-a-user-s-metadata). Here is what a sample request might look like:
+
+```har
+{
+	"method": "POST",
+	"url": "https://${uiURL}/api/v2/users/{id}",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "\"Bearer \" + localStorage.getItem('id_token')"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\"}}}"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
