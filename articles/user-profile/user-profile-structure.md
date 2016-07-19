@@ -4,7 +4,7 @@ The following attributes are available on the [User Profile](/user-profile):
 
 * `app_metadata`: the custom fields storing information about a user. These attributes contain information that influences the user's access;
 
-* `blocked`: the `true/false` value indicating if the user has been blocked;
+* `blocked`*: the `true/false` value indicating if the user has been blocked;
 
 * `created_at`: the timestamp of when the user profile was first created;
 
@@ -22,11 +22,11 @@ The following attributes are available on the [User Profile](/user-profile):
 
 * `multifactor`: the list of multifactor providers in which the user is enrolled;
 
-* `last_ip`: the IP address associated with the user's last login;
+* `last_ip`*: the IP address associated with the user's last login;
 
-* `last_login`: the timestamp of when the user last logged in;
+* `last_login`*: the timestamp of when the user last logged in;
 
-* `logins_count`: the number of times the user has logged in;
+* `logins_count`*: the number of times the user has logged in;
 
 * `name`: the user's name;
 
@@ -45,3 +45,5 @@ The following attributes are available on the [User Profile](/user-profile):
 * `user_metadata`: the custom fields storing information about a user. These attributes should contain information about the user that does not impact what they can or cannot access (e.g. work and home addresses);
 
 * `username`: the user's username.
+
+**Note**: Fields indicated with an asterisk (*) are not returned as part of `user_profile/id_token` nor are they included in any response from the `/userinfo` endpoint.

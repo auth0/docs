@@ -22,15 +22,22 @@ In `<YouAppName>-Bridging-Header.h` just add the following line
 And **Lock** classes will be available in all your Swift codebase. So to show `A0LockViewController` just use the following snippet:
 
 ```swift
-let authController = A0LockViewController()
-authController.onAuthenticationBlock = {(profile:A0UserProfile!, token:A0Token!) -> () in
-    let store = MyApplication.sharedInstance.store
-    store.setString(token.idToken, forKey: "id_token")
-    store.setString(token.refreshToken, forKey: "refresh_token")
-    store.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
-    store.synchronize()
+let authController = A0Lock.sharedLock().newLockViewController()
+authController.onAuthenticationBlock = {(profile, token) in
+    guard let profile = profile, let token = token else {
+        return //it's a sign up
+    }
+            
+    let keychain = A0SimpleKeychain(service: "Auth0")
+    keychain.setString(token.idToken, forKey: "id_token")
+    if let refreshToken = token.refreshToken {
+        keychain.setString(refreshToken, forKey: "refresh_token")
+    }
+    keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+    
+    // Other stuff
+   
     self.dismissViewControllerAnimated(true, completion: nil)
-    self.performSegueWithIdentifier("showProfile", sender: self)
 }
 self.presentViewController(authController, animated: true, completion: nil)
 ```

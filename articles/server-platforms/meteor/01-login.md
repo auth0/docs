@@ -10,7 +10,8 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Meteor 1.2.1
+* Meteor 1.3.4.1
+* Blaze templates
 :::
 
 <%= include('../../_includes/_package', {
@@ -29,11 +30,11 @@ Install our Meteor package from [Atmosphere](https://atmospherejs.com/) on your 
 
 ${snippet(meta.snippets.dependencies)}
 
-__Note:__  this package is designed to work with Meteor __1.2.1__, so please run `meteor update` in the root of your project if you're using an older version.
+__Note:__  this package is designed to work with Meteor __1.3.4.1__, so please run `meteor update` in the root of your project if you're using an older version.
 
 ### 2. Before getting started
 
-Create an `settings.json` file on the root of your application folder, and configure it with the following contents:
+Create an `settings.json` file at the root of your application folder, and configure it with the following contents:
 
 ${snippet(meta.snippets.setup)}
 
@@ -45,11 +46,11 @@ ${include('../_callbackRegularWebApp')}
 
 ### 4. Implement the login
 
-To implement the login, call the `.show()` method of Auth0's `lock` instance on the client of your Meteor project.
+To implement the login, call the `.show()` method of Auth0's `lock` instance from the client of your Meteor project.
 
 ${snippet(meta.snippets.use)}
 
-In this case we are using a Meteor Template called `Auth0Login`.
+In this case we are using a Blaze template called `Auth0Login`.
 
 To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
@@ -84,9 +85,13 @@ To discover all the available properties of a user's profile, see [user-profile]
 To log out you can just call `Meteor.logout();` on the client side of your application.
 
 ```js
-'click button.logout': function () {
-      Meteor.logout();
- }
+Template.Auth0Login.events({
+  ...,
+  'click button.logout'(event, instance) {
+    Meteor.logout();
+  },
+})
+
 ```
 
 ### 7. All done!

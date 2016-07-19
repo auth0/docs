@@ -37,7 +37,7 @@ The following table describes operational and feature differences between each o
         <tr>
             <th>Updates</th>
             <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.        </td>
-            <td>Cumulative, deployed post multi-tenant update, and coordinated with Customer.</td>
+            <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
         </tr>
@@ -47,13 +47,6 @@ The following table describes operational and feature differences between each o
             <td>Dedicated uptime URL</td>
             <td>Monitored by Auth0 and Customer's tools</td>
             <td>Monitored by Auth0 and Customer's tools</td>
-        </tr>
-        <tr>
-            <th>Geolocation</th>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
-            <td class="success">Yes</td>
         </tr>
         <tr>
             <th>SLA Provided</th>
@@ -85,17 +78,31 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Search</th>
-            <td>Elastic Search</td>
-            <td>DB-based</td>
-            <td>DB-based</td>
-            <td>DB-based</td>
+            <td>Lucene queries</td>
+            <td>Simple attribute search</td>
+            <td>Simple attribute search</td>
+            <td>Simple attribute search</td>
         </tr>
         <tr>
             <th>Code Sandbox</th>
-            <td>Multi-Language</td>
-            <td>JS Only</td>
-            <td>JS Only</td>
-            <td>JS Only</td>
+            <td>Webtask (Javascript and C#)</td>
+            <td>Webtask or in-process</td>
+            <td>Webtask or in-process</td>
+            <td>Webtask or in-process</td>
+        </tr>
+        <tr>
+            <th>Extensions</th>
+            <td class="success">Yes</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+        </tr>
+        <tr>
+            <th>Geolocation</th>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
+            <td class="success">Yes</td>
         </tr>
         <tr>
             <th>Connecting IP Address Filtering Restrictions</th>

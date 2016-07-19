@@ -4,17 +4,20 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Rules',
+  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/07-Rules',
 }) %>_
 
+
 <%= include('../_includes/_rules-introduction') %>
+
+#### Create a rule
+
+<%= include('../_includes/_rules-create-section') %>
 
 
 #### Test rule result
 
-The created rule will inject additional data to the user's profile so you need to fetch that as seen in [User Profile](/quickstart/spa/angular/03-user-profile) step.
-
-Display user profile's new `country` attribute added in the created rule:
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular/04-user-profile' }) %>
 
 ```html
 <div class="col-md-6 col-md-offset-3">

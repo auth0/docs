@@ -1,6 +1,7 @@
 ---
 title: Auth0 Guardian
 url: /multifactor-authentication/custom
+description: Examples for configuring custom MFA implementations.
 ---
 
 # Configuring Custom MFA
@@ -120,4 +121,4 @@ MFA does not work with the [Resource Owner](/protocols#oauth-resource-owner-pass
 
 If you are using MFA for database connections that use [Popup Mode](https://github.com/auth0/auth0.js#popup-mode), set `sso` to `true` when defining the options in [auth0.js](https://github.com/auth0/auth0.js#sso) or [Lock](/libraries/lock). If you fail to do this, users will be able to log in without MFA.
 
-If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, please see the [Social Connections](/connections/social) documentation.
+If you are using MFA after an authentication with one or more social providers, you may need to use your own application `ID` and `Secret` in the connection to the provider's site in place of the default Auth0 development credentials. For instructions on how to get the credentials for each social provider, select your particular from the list at: [Identity Providers](/identityproviders).

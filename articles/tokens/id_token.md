@@ -119,3 +119,4 @@ If there is any sensitive information included in the JWT, it should be encrypte
 * [Blog Post: Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Description of the JWT expiration](/applications)
 * [Discussion of web apps vs apis, cookies vs tokens](/apps-apis)
+* [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)

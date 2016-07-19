@@ -19,6 +19,6 @@ Since there is no user involved, no id_token will be returned, nor is their any 
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [API Authentication and Authorization](https://auth0.com/docs/api-auth)
-* [API Auth: Client Credentials Grant](https://auth0.com/docs/api-auth/grant/client-credentials)
-* [Auth0 access_token](https://auth0.com/docs/tokens/access_token)
+* [API Authentication and Authorization](/api-auth)
+* [API Auth: Client Credentials Grant](/api-auth/grant/client-credentials)
+* [Auth0 access_token](/tokens/access_token)

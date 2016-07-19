@@ -1,12 +1,8 @@
 ```js
-#app.js file
-if (Meteor.isClient) {
-	
-  Template.Auth0Login.events({
-    'click button.login': function () {
-      lock.show();
-    },
-    
-  });
+#client/main.js file
+Template.Auth0Login.events({
+  'click button.login'(event, instance) {
+    lock.show();
+  },
 }
 ```
