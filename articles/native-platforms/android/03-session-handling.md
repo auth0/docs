@@ -1,5 +1,5 @@
 ---
-title: Auth0 Android Quickstarts - 3. Session Handling
+title: Session Handling
 description: This tutorial will show you how to use Lock10 to mantain a session connected.
 ---
 
