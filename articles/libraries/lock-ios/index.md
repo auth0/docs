@@ -106,7 +106,7 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 
 ### Email/Password, Enterprise & Social authentication
 
-`A0LockViewController` will handle Email/Password, Enterprise & Social authentication based on your Application's connections enabled in your Auth0's Dashboard.
+`A0LockViewController` will handle Email/Password, Enterprise & Social authentication based on your Application's connections enabled in your [Auth0's Dashboard](https://manage.auth0.com/#/connections/social).
 
 First instantiate `A0LockViewController` and register the authentication callback that will receive the authenticated user's credentials. Finally present it as a modal view controller:
 
