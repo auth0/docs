@@ -158,5 +158,4 @@ Done. You've implemented Login and SignUp with Auth0 in your iOS ObjectiveC proj
 
 ### Optional: Configure your Social Connections' handlers
 
-...
-
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
