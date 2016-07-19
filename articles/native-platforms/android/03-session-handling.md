@@ -29,7 +29,7 @@ Be sure that you have completed the [Basic Login](01-login.md) Quickstart.
 
 Your first step is to save, through a secure method, the user's credentials obtained in the login success response. We won't cover how to do that on this tutorial, feel free to save it as you like.
 
-```Android
+```java
 private LockCallback callback = new AuthenticationCallback() {
             @Override
             public void onAuthentication(Credentials credentials) {
@@ -46,7 +46,7 @@ private LockCallback callback = new AuthenticationCallback() {
 #### i. Using a non-expired tokenID
 
 In the case your current tokenID didn't expire, you can use it to get a new one, with a newer expire date.
-
+```java
         String idToken = // GET STORED TOKEN ID
         AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
         
@@ -64,13 +64,13 @@ In the case your current tokenID didn't expire, you can use it to get a new one,
 
             }
         });
-                
+```         
 
 #### ii. Using refreshToken
 
 If the ``tokenID`` already expired, you can always use the ``refreshToken`` to get a new one, without having to login again. For this reason, this token must be securely saved.
 
-
+```java
         String refreshToken = // GET STORED REFRESH ID
         AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
         
@@ -86,7 +86,7 @@ If the ``tokenID`` already expired, you can always use the ``refreshToken`` to g
 
             }
         });
-                
+```                
 
         
 ### 3. Logout
@@ -95,7 +95,7 @@ Whenever you want to Logout, you just need to erase the user's credentials, and 
 
 An example would be:
 
-```android
+```java
 private void logout() {
         setUserCredentials(null); 
         startActivity(new Intent(this, LoginActivity.class));
