@@ -12,10 +12,10 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-samples',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-objC',
-  pkgFilePath: 'iOS/basic-sample-objc/ObjCSample/Info.plist',
+  pkgPath: '04-user-profile',
+  pkgFilePath: '04-user-profile/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
