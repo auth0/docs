@@ -1,10 +1,9 @@
 ---
-title: Auth0 Android Quickstarts - Custom Login
+title: Custom Login
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 ---
 
-## Android - Custom Login Tutorial
 
 This is a simple quickstart that will show you how to add the Auth0 login capabilities while using a customized login screen.
 
@@ -44,15 +43,16 @@ Then, run "Sync project with Gradle files".
 
 You need to add the following permissions inside the ``AndroidManifest.xml``:
         
+```xml
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	
+```
 Also, don't forget to declare the activities you're using in the Manifest:
 	
-	
+```xml	
 	<activity android:name=".activities.LoginActivity"/>
 	<activity android:name=".activities.MainActivity"/>
-	
+```	
        
 ### 3. Implement the Login
 
@@ -60,7 +60,7 @@ At this point, you're all set to implement the Login in any activity you want.
 
 First, in your customized login method, instantiate the Authentication API:
 
-```android
+```java
 private void login(String email, String password) {
         Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
         AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
@@ -72,7 +72,7 @@ private void login(String email, String password) {
 
 Then, login using the newly created client:
 
-```android
+```java
 client.login(email, password).start(new BaseCallback<Credentials, AuthenticationException>() {
             @Override
             public void onSuccess(Credentials payload) {
