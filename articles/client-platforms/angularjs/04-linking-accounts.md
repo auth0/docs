@@ -7,7 +7,7 @@ description: test
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/05-Linking-Accounts',
 }) %>_
 
-In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can link urge the user to link there account to an OAuth provider like Facebook or Google. You will see how you can, with the minimal lines of codes and the help of the SDK link and un-link user accounts.
+In some cases, there could be the need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can urge the users to link their account to an OAuth provider like Facebook or Google. You will see how you can, with the minimal lines of codes and the help of the SDK link and un-link user accounts.
 
 <!-- TODO: IMAGE OR GIF OF DEMO -->
 
@@ -41,7 +41,7 @@ angular.module('app')
 
 ```
 
-The method takes a token, the user profile, options (**MUST** have a connection property) and the callbacks. The connection property in the options specifies which provider (Facebook, Twitter, Github, Google, etc) you want to link with. If you are using Lock, you the user can just go ahead to click the provider button which in turn links there account.
+The method takes a token, the user profile, options (**MUST** have a connection property) and the callbacks. The connection property in the options specifies which provider (Facebook, Twitter, Github, Google, etc) you want to link with. If you are using Lock, the user can just go ahead to click the provider button which in turn links their account.
 
 User's profile contains an array of identities which is made of profile information from other providers. You can see this by accessing the `Users` page from the dashboard, select a user and scroll down to the identities. This is what it looks like after linking Facebook:
 

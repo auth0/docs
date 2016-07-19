@@ -39,7 +39,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1Qi...
 ```
 
 ### Not sending the JWT for specific requests
-Our basic example will attache the JWT to headers of all our requests which might not be the desired behavior. You can filter:
+Our basic example will attache the JWT to headers of all of our requests which might not be the desired behavior. You can filter:
 
 ```js
 angular.module('app', ['auth0', 'angular-jwt', 'angular-storage',])
