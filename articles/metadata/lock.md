@@ -41,11 +41,11 @@ if (id_token) {
 }
 ```
 
-## Updating `user_metadata` Properties
+## Updating Metadata Properties
 
-You may [update the `user_metadata` property](/metadata/apiv2#updating-a-user-s-metadata) via calls to the Auth0 Management API.
+You may [update the `app_metadata` and `user_metadata` properties](/metadata/apiv2#updating-a-user-s-metadata) via calls to the Auth0 Management API.
 
-By including the user's `id_token` in the `Authorization` header, you may make the appropriate `PATCH` call to [update the `user_metadata` field](/metadata/apiv2#updating-a-user-s-metadata). Here is what a sample request might look like:
+By including the user's `id_token` in the `Authorization` header, you may make the appropriate `PATCH` call to [update the user's metadata fields](/metadata/apiv2#updating-a-user-s-metadata). Here is what a sample request might look like:
 
 ```har
 {
