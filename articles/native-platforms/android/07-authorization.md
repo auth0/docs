@@ -23,7 +23,7 @@
  First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](https://manage.auth0.com/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
  
   
-   ``` 
+   ```java
    if (user.email.indexOf('@example.com') > -1)
    ```
    
@@ -42,7 +42,7 @@
  Inside it, you will have the Role, and you will be ready to perform the Access Control.
    
    
-   ```android
+   ```java
  String role = mUserProfile.getAppMetadata().get("roles").toString();
  
  if(role.contains("admin")){
