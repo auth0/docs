@@ -102,23 +102,6 @@ func application(application: UIApplication, openURL url: NSURL, sourceApplicati
 
 > This is required to be able to return back to your application when authenticating with Safari (or native integration with FB or Twitter if used). This call checks the URL and handles all that have the custom scheme defined before.
 
-## Additional Documents
-
-<ul>
-<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-ios').items, 'toc_title'), function(article) { %>
-  <% if (article.toc_title) { %>
-  <li>
-    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
-    <% if (article.description) { %>
-      - <%- article.description %>
-    <% } %>
-    </span>
-  </li>
-  <% } %>
-<% }); %>
-</ul>
-
-
 ## Usage
 
 ### Email/Password, Enterprise & Social authentication
@@ -410,3 +393,19 @@ controller.useWebView = YES
 ```
 
 > For more information please check Lock's documentation in [CocoaDocs](http://cocoadocs.org/docsets/Lock).
+
+## Additional Documents
+
+<ul>
+<% _.forEach(_.sortBy(articles.findByHash('libraries/lock-ios').items, 'toc_title'), function(article) { %>
+  <% if (article.toc_title) { %>
+  <li>
+    <span><a href="<%- '/docs' + article.url %>"><%- article.toc_title %></a>
+    <% if (article.description) { %>
+      - <%- article.description %>
+    <% } %>
+    </span>
+  </li>
+  <% } %>
+<% }); %>
+</ul>
