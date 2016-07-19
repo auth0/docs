@@ -39,7 +39,7 @@ To see the newly created rule working, just implement a login and check the user
   
 You can access the `country` added by the rule within the `extraInfo` hashmap from the `payload` object you receive in the callback:
   
-  ```android
+  ```java
 
     client.tokenInfo(${account.clientId})
                 .start(new BaseCallback<UserProfile>() {
