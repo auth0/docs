@@ -4,7 +4,7 @@ description: This tutorial will show you how to make authenticated api calls wit
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/05-Calling-Api',
+  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/08-Calling-Api',
 }) %>_
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header.
@@ -96,7 +96,7 @@ If you don't have a `.env` file in your project you can create your own using th
 $ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='account.secret'" > .env
 ```
 <% } else { %>
-If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [auth0 dashboard](https://manage.auth0.com).
+If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [auth0 dashboard](${uiURL}).
 
 ```bash
 $ cp .env.example .env
