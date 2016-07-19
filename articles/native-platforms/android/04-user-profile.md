@@ -1,9 +1,9 @@
 ---
-title: Auth0 Android Quickstarts - 4. User Profile
+title: User Profile
 description: This tutorial will show you how to use Lock10 to get the user's profile data.
 ---
 
-## Android - User Profile Tutorial
+
 
 This tutorial will show you how to use Lock10 to get the user's profile data in your android apps with Auth0.
 
@@ -23,7 +23,7 @@ Be sure that you have completed the [Basic Login](01-login.md) and the [Session 
 
 Your first step is instantiate the authentication API client. This will be used to request the user profile's data.
 
-```Android
+```java
 AuthenticationAPIClient client = new AuthenticationAPIClient(
 new Auth0(${account.clientId}, ${account.namespace}));
 ```
@@ -34,7 +34,7 @@ new Auth0(${account.clientId}, ${account.namespace}));
 
 Use your previously stored credentials (in this example, stored in the Application Singleton) to request the data.
 
-        client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
+```java        client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
                 .start(new BaseCallback<UserProfile>() {
                     @Override
                     public void onSuccess(UserProfile payload) { }
@@ -42,7 +42,7 @@ Use your previously stored credentials (in this example, stored in the Applicati
                     @Override
                     public void onFailure(Auth0Exception error) { }
                 });
-                
+```                
         
 ### 3. Access the data inside the UserProfile
 
@@ -51,7 +51,7 @@ You can use this data wherever you need it.
 
 Some examples are:
 
-```android
+```java
 payload.getName();
 payload.getEmail();
 payload.getPictureURL()
