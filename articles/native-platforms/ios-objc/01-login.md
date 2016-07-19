@@ -1,23 +1,7 @@
 ---
 title: Auth0 iOS ObjectiveC Quickstarts - 1. Login
 description: This tutorial will show you how to integrate Lock in your iOS ObjectiveC project in order to present a login screen.
-name: iOS - ObjectiveC
-alias:
-  - ios
-  - iphone
-  - ipad
-  - objectiveC
-  - login
-language:
-  - ObjectiveC
-hybrid: false
-image: /media/platforms/ios.png
-tags:
-  - quickstart
-  - login
-alias:
-  - ios
-seo_alias: ios-objc
+
 ---
 
 ## iOS ObjectiveC - Login Tutorial
@@ -41,8 +25,6 @@ This tutorial and seed project have been tested with the following:
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
-
-
 
 ### Before Starting
 
