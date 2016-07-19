@@ -12,10 +12,10 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-samples',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-objc',
-  pkgFilePath: 'iOS/basic-sample-objc/ObjcSample/Info.plist',
+  pkgPath: '07-Authorization',
+  pkgFilePath: '07-Authorization/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
@@ -29,7 +29,7 @@ It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) inte
 
 ### 1. Create a Rule to assign roles
 
-First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](https://manage.auth0.com/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
 ``` 
 if (user.email.indexOf('@example.com') > -1)
