@@ -1,5 +1,5 @@
 ---
-description: A refresh token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate.
+description: A refresh token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
 ---
 
 # Refresh Tokens
@@ -111,7 +111,7 @@ Response body:
 [
   {
     "id": "dcr_dFJiaAxbEroQ5xxx",
-    "device_name": "sample" // the value of 'device' provided in the authorize call when creating the token
+    "device_name": "sample" // the value of 'device' provided in the /authorize call when creating the token
   }
 ]
 ```
@@ -126,6 +126,8 @@ DELETE https://${account.namespace}/api/v2/device-credentials/{id}
 }
 
 ```
+
+The response will be a **204**: The credential no longer exists.
 
 ## SDK support
 
