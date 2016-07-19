@@ -4,9 +4,9 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 ### Create a Rule to assign roles
 
-First, we will create a rule that assigns our users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](https://manage.auth0.com/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, we will create a rule that assigns our users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
-``` 
+```
 if (user.email.indexOf('@example.com') > -1)
 ```
 
