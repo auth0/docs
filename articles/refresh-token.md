@@ -111,7 +111,7 @@ Response body:
 [
   {
     "id": "dcr_dFJiaAxbEroQ5xxx",
-    "device_name": "sample" // the value of 'device' provided in the /authorize call when creating the token
+    "device_name": "my-device" // the value of 'device' provided in the /authorize call when creating the token
   }
 ]
 ```
