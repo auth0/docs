@@ -87,3 +87,83 @@ To get a list of **all** client applications:
     "comment" : ""
 }
 ```
+
+To get a specific client via ID:
+
+```har
+{
+    "method": "GET",
+    "url": "https://${uiURL}/api/v2/clients/{id}",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name": "Authorization", "value": "Bearer ABCD" }
+    ],
+    "queryString" : [],
+    "postData" : {},
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
+}
+```
+
+### Updating Client Metadata
+
+Client metadata may be updated using the `PATCH /api/v2/clients/{id}` endpoint. You'll supply a client object with the client_metadata property, whose value is an object containing the metadata you'd like to change.
+
+Suppose this is what the JSON representing your client looks like prior to the update:
+
+```json
+{
+  "name": "myclient",
+  "client_metadata": {
+    "mycolor": "red",
+    "myflavor": "grape"
+  }
+}
+```
+
+Suppose that you make a `PATCH /api/v2/client/myclientid123` with body:
+
+```json
+{
+    "client_metadata": {
+        "mycolor": "blue"
+    }
+}
+```
+
+A sample request:
+
+```har
+{
+	"method": "PATCH",
+	"url": "https://${uiURL}/api/v2/client/{id}",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer ABCD"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"client_metadata\": {\"mycolor\": \"blue\"}}"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
+
+After the update, the client will show the following data:
+
+```json
+{
+  "name": "myclient",
+  "client_metadata": {
+    "mycolor": "blue",
+    "myflavor": "grape"
+  }
+}
+```
