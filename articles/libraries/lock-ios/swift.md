@@ -4,7 +4,7 @@ description:
 ---
 
 
-# Lock iOS: Using with Swift
+# Lock iOS: Using Swift
 
 **Lock** was written in Objective-C but it can be used from a pure Swift project or a Hybrid project (Swift & Objective-C).
 
