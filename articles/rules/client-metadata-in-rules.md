@@ -167,3 +167,28 @@ After the update, the client will show the following data:
   }
 }
 ```
+
+### Deleting Client Metadata
+
+`client_metadata` keys may be removed by issuing a PATCH request supplying a null for the key value.
+
+```har
+{
+	"method": "PATCH",
+	"url": "https://${uiURL}/api/v2/client/{id}",
+	"httpVersion": "HTTP/1.1",
+	"cookies": [],
+	"headers": [{
+		"name": "Authorization",
+		"value": "Bearer ABCD"
+	}],
+	"queryString": [],
+	"postData": {
+		"mimeType": "application/json",
+		"text": "{\"client_metadata\": {\"mycolor\": null}}"
+	},
+	"headersSize": -1,
+	"bodySize": -1,
+	"comment": ""
+}
+```
