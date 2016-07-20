@@ -15,7 +15,7 @@ export class MyApp {
 
   private rootPage:any;
 
-  constructor(private platform:Platform) {
+  constructor(private platform: Platform, private auth: AuthService) {
     this.rootPage = TabsPage;
 
     platform.ready().then(() => {

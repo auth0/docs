@@ -79,7 +79,7 @@ public getNewJwt() {
   // Get a new JWT from Auth0 using the refresh token saved
   // in local storage
   this.local.get('refresh_token').then(token => {
-    this.lock.getClient().refreshToken(token, (err, delegationRequest) => {
+    this.auth0.refreshToken(token, (err, delegationRequest) => {
       if (err) {
         alert(err);
       }
