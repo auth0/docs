@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * NodeJS 6.3
 * npm 3.10.3
 * @cycle/xstream-run 3.0.3
-* cyclejs-auth0 1.0.1
+* cyclejs-auth0 1.1.0
 :::
 
 ${include('../\_callback')}
