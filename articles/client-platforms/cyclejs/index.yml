@@ -1,0 +1,17 @@
+title: Cycle.js
+alias:
+  - cyclejs
+language:
+  - JavaScript
+framework:
+  - Cycle.js
+image: //cycle.js.org/img/cyclejs_logo.svg
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/cyclejs/dependencies
+  setup: client-platforms/cyclejs/setup
+  use: client-platforms/cyclejs/use
+seo_alias: cyclejs
+articles:
+  - 01-login
