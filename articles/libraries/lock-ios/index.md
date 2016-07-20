@@ -174,13 +174,6 @@ And you'll see TouchID login screen
 
 > Because it uses a Database connection, the user can change it's password and authenticate using email/password whenever needed. For example when you change your device.
 
-
-## SSO
-
-A very cool thing you can do with Lock is use SSO. Imagine you want to create 2 apps. However, you want that if the user is logged in in app A, he will be already logged in in app B as well. Something similar to what happens with Messenger and Facebook as well as Foursquare and Swarm.
-
-Read [this guide](/libraries/lock-ios/sso-on-mobile-apps) to learn how to accomplish this with this library.
-
 > For more information please check Lock's documentation in [CocoaDocs](http://cocoadocs.org/docsets/Lock).
 
 ## Additional Documents
