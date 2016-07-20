@@ -7,11 +7,13 @@ import {Injectable, NgZone} from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 
 // Avoid name not found warnings
+declare var Auth0: any;
 declare var Auth0Lock: any;
 
 @Injectable()
 export class AuthService {
   jwtHelper: JwtHelper = new JwtHelper();
+  auth0 = new Auth0({clientID: '<%= account.clientId %>', domain: '<%= account.namespace %>'});
   lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
     auth: {
       redirect: false,
