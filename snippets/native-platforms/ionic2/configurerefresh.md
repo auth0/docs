@@ -4,7 +4,7 @@
 ...
 
 export class MyApp {
-  rootPage: Type = TabsPage;
+  rootPage:any;
 
   constructor(platform: Platform, private authHttp: AuthHttp, private auth: AuthService) {
     platform.ready().then(() => {
