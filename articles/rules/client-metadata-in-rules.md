@@ -64,3 +64,26 @@ When creating a new `client` object via the `POST /api/v2/clients` endpoint, you
 	"comment": ""
 }
 ```
+
+### Reading Client Metadata
+
+`client_metadata` is included in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints.
+
+To get a list of **all** client applications:
+
+```har
+{
+    "method": "GET",
+    "url": "https://${uiURL}/api/v2/clients",
+    "httpVersion": "HTTP/1.1",
+    "cookies": [],
+    "headers": [
+      { "name": "Authorization", "value": "Bearer ABCD" }
+    ],
+    "queryString" : [],
+    "postData" : {},
+    "headersSize" : -1,
+    "bodySize" : -1,
+    "comment" : ""
+}
+```
