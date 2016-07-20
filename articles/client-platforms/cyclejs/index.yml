@@ -11,7 +11,11 @@ tags:
 snippets:
   dependencies: client-platforms/cyclejs/dependencies
   setup: client-platforms/cyclejs/setup
+  configure: client-platforms/cyclejs/configure
+  securize: client-platforms/cyclejs/securize
+  query: client-platforms/cyclejs/query
   use: client-platforms/cyclejs/use
+  logout: client-platforms/cyclejs/logout
 seo_alias: cyclejs
 articles:
   - 01-login
