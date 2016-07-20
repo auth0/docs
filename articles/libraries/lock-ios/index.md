@@ -138,7 +138,7 @@ And you'll see our native login screen
 
 > By default all social authentication will be done using Safari, if you want native integration please check this [wiki page](/libraries/lock-ios/native-social-authentication).
 
-Also you can check our [Swift](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/basic-sample-swift) and [Objective-C](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/basic-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
+Also you can check our [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
 
 ### TouchID
 
