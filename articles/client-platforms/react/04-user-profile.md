@@ -397,6 +397,6 @@ export class Home extends React.Component {
 
 If you reload you application you are now able to view and edit the `address` value for the current user profile.
 
-## 6.All done!
+## 6. All done!
 
 You have completed the implementation, showing and editing the Auth0 user profile in your ReactJS project.
