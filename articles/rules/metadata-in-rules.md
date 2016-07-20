@@ -8,7 +8,7 @@ Auth0 allows you to store custom data points, which are known as metadata.
 This article explains how to work with metadata in [Rules](/rules) code:
 
 * [Working with User Metadata](#working-with-user-metadata)
-* [Working with Client Metadata](#working-with-client-metadata)
+* [Working with Client Metadata](/rules/client-metadata-in-rules)
 
 ## Working with User Metadata
 
@@ -29,11 +29,11 @@ Each sample rule in this article assumes the user is represented by the followin
 }
 ```
 
-## Reading metadata
+### Reading metadata
 
 To read metadata from a rule, you only need to access the correct user property.
 
-### Reading app_metadata
+#### Reading app_metadata
 
 To make a decision based on the user's roles, you would write the following code:
 
@@ -48,7 +48,7 @@ function(user, context, callback){
 }
 ```
 
-### Reading user_metadata
+#### Reading user_metadata
 
 Similarly, you can use the color preference:
 
@@ -63,11 +63,11 @@ function(user, context, callback){
 }
 ```
 
-## Updating
+### Updating
 
 All rules have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0/tree/v2) that can use API v2) which is pre-configured with permissions to update users.
 
-### Updating app_metadata
+#### Updating app_metadata
 
 To add the admin role to a user:
 
@@ -106,7 +106,7 @@ The resulting user is:
 }
 ```
 
-### Updating user_metadata
+#### Updating user_metadata
 
 To add the add a `fontSize` preference:
 
@@ -146,7 +146,7 @@ The resulting user is:
 }
 ```
 
-### Updating app_metadata and user_metadata in the same rule
+#### Updating app_metadata and user_metadata in the same rule
 
 You can update both `user_metadata` and `app_metadata` in the same rule in parallel to reduce the rule's processing time:
 
@@ -197,11 +197,11 @@ The resulting user is:
 }
 ```
 
-## Deleting
+### Deleting
 
 There are different ways of deleting properties. This section explains them with examples.
 
-### Deleting all user's roles
+#### Deleting all user's roles
 
 To delete a property, set it to the `null` value. For example, to delete the user's roles:
 
@@ -238,7 +238,7 @@ The resulting user is:
 }
 ```
 
-### Deleting a user's roles
+#### Deleting a user's roles
 
 To delete the user's writer role:
 
@@ -282,7 +282,7 @@ The resulting user is:
 }
 ```
 
-### Deleting the user's color preference
+#### Deleting the user's color preference
 
 To delete the user's color preference:
 
@@ -319,7 +319,7 @@ The resulting user is:
 }
 ```
 
-### Considerations
+#### Considerations
 
 The metadata must be a valid JSON object and can not contain a dot in key field names in `user_metadata` or `app_metadata`.
 
