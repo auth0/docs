@@ -43,6 +43,7 @@ Then, run "Sync project with Gradle files".
 
 Add the following code to your project's `AndroidManifest.xml`:
 
+```xml
         <activity
             android:name="com.auth0.android.lock.LockActivity"
             android:label="@string/app_name"
@@ -63,18 +64,22 @@ Add the following code to your project's `AndroidManifest.xml`:
         </activity>
         
         <activity android:name="com.auth0.android.lock.provider.WebViewActivity"></activity>
+```
+
 
 Also, you need to add the following permissions inside the:
-        
+
+```xml        
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+```	
 	
 At last, don't forget to declare 	the activities you're using in the Manifest:
 	
-	
+```xml	
 	<activity android:name=".activities.LockActivity"/>
 	<activity android:name=".activities.MainActivity"/>
-	
+```	
 	
 > It's recommended to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file, rather than hardcode them in the manifest.
 
@@ -86,7 +91,7 @@ At this point, you're all set to implement the Login in any activity you want.
 
 First, add these lines in the ``onCreate`` method:
 
-```android
+```java
 Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
             this.lock = Lock.newBuilder(auth0, callback)
                     // Add parameters to the Lock Builder
@@ -95,7 +100,7 @@ Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
 
 Second, add these lines in the ``onDestroy`` method:
 
-```android
+```java
  protected void onDestroy() {
             super.onDestroy();
             // Your own Activity code
@@ -105,7 +110,7 @@ Second, add these lines in the ``onDestroy`` method:
 ```
 Third, add the authentication callback, inside your activity:
 
-```
+```java
 private LockCallback callback = new AuthenticationCallback() {
             @Override
             public void onAuthentication(Credentials credentials) {
@@ -126,7 +131,7 @@ private LockCallback callback = new AuthenticationCallback() {
 
 Finally, whenever you want to start the login widget, call:
 
-```
+```java
             startActivity(this.lock.newIntent(this));
 
 ```
