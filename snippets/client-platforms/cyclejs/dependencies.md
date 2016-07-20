@@ -1,1 +1,3 @@
-    npm install cyclejs-auth0 cyclic-router
+```bash
+npm install cyclejs-auth0 cyclic-router
+```

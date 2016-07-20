@@ -24,13 +24,13 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Instantiate the driver and configure the Auth0Lock
 
-In your main application file, you can now setup the `auth0Driver` and feed it you `client-ID` and `domain`:
+In your main application file, you can now setup the `auth0Driver` and feed it you `clientID` and `domain`:
 
 ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
-Now that everything is setted, you can activate authentication on some of your components. Activating authentication on a component is a simple as calling the `protect` function on that component.  
+Now that everything is set, you can activate authentication on some of your components. Activating authentication on a component is as simple as calling the `protect` function on that component.  
 Let's asume you have a `Todos` component and you want to ensure the user is logged in to see it.
 
 ${snippet(meta.snippets.use)}
@@ -39,7 +39,7 @@ Now if the user is not logged in when the component is instantiated, the Auth0 f
 
 ### 4. Configuring the login form
 
-You may want to use configure the behavior of the Auth0 login form. To achieve that, you can use the `auth0ShowParams` options on the `protect` function:
+You may want to configure the behavior of the Auth0 login form. To achieve that, you can use the `auth0ShowParams` options on the `protect` function:
 
 ${snippet(meta.snippets.configure)}
 
@@ -57,7 +57,7 @@ After authentication, the `protect` function will handle the token parsing and s
 
 ### 4. Configure secure calls to your API
 
-To configure secure calls to the API you are creating<%= configuration.api ? ' on ' + configuration.api : '' %>, you need to decorate all your newly secured component's http calls with the [JWT token](/jwt) that has been stored in `localStorage`. To do that, you can set a decorator that will be called on each http request and where you can add the `Authorization` header.
+To configure secure calls to the API you are creating<%= configuration.api ? ' on ' + configuration.api : '' %>, you need to decorate all your newly secured component's HTTP calls with the [JSON Web Token](/jwt) that has been stored in `localStorage`. To do that, you can set a decorator that will be called on each HTTP request and where you can add the `Authorization` header.
 
 ${snippet(meta.snippets.securize)}
 

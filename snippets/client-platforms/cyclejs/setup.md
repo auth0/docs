@@ -8,7 +8,7 @@ function main(sources) {
 }
 
 const drivers = {
-    auth0: makeAuth0Driver("client-ID", "domain"),
+    auth0: makeAuth0Driver('<%= account.clientId %>', '<%= account.namespace %>'),
     router: makeRouterDriver(createHistory())
 }
 ```
