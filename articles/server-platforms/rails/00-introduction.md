@@ -1,5 +1,24 @@
+---
+title: Introduction
+description: This tutorial will show you how to integrate Auth0 in your Rails app to add authentication and authorization.
+---
+
 ## Introduction
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your Ruby on Rails apps with Auth0.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.3.1
+* Rails 5.0.0
+:::
+
+<%= include('../../_includes/_package', {
+  pkgRepo: 'omniauth-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/ruby-on-rails-webapp',
+  pkgFilePath: null,
+  pkgType: 'server'
+}) %>
 
 ### Seed & Samples
 There are two options to following along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) or the [samples](https://github.com/auth0-samples/auth0-rubyonrails-sample) provided at each page of this quickstart.

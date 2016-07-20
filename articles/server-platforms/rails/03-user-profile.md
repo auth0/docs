@@ -4,6 +4,13 @@ description: Access the user profile information using OmniAuth-Auth0 strategy.
 ---
 
 ## Ruby On Rails - User Profile
+[Login](/quickstart/webapp/rails/01-login) explains how to login using a widget called Lock and a gem called [OmniAuth](https://github.com/intridea/omniauth) (and a specific Auth0 strategy for OmniAuth). In this step, you'll learn how to access the user profile data once the user has logged into the application.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.3.1
+* Rails 5.0.0
+:::
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
@@ -12,8 +19,6 @@ description: Access the user profile information using OmniAuth-Auth0 strategy.
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
-
-[Login](/quickstart/webapp/rails/01-login) explains how to login using a widget called Lock and a gem called [OmniAuth](https://github.com/intridea/omniauth) (and a specific Auth0 strategy for OmniAuth). In this step, you'll learn how to access the user profile data once the user has logged into the application.
 
 ### The OmniAuth auth hash
 Using Auth0's OmniAuth strategy, you need only to redirect users to `/auth/auth0` (which you did in [Login](/quickstart/webapp/rails/01-login)). From there, OmniAuth will take over and take the user through the necessary steps to authenticate them with the Auth0 strategy.

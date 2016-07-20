@@ -1,9 +1,16 @@
 ---
 title: Custom Login
-description: Learn how to login using the Authentication API SDK instead of omniauth
+description: Learn how to login using the Authentication API SDK instead of OmniAuth.
 ---
 
 ## Ruby On Rails - Custom Login
+[Login](/quickstart/webapp/rails/01-login) explains how to login using a widget called Lock and a gem called OmniAuth (and a specific Auth0 strategy for OmniAuth). You can build an application with Auth0 using your custom design without including neither Lock nor OmniAuth. In this section, you'll learn how to create a custom login form using the Auth0 Ruby SDK.
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.3.1
+* Rails 5.0.0
+:::
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
@@ -12,8 +19,6 @@ description: Learn how to login using the Authentication API SDK instead of omni
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
-
-[Login](/quickstart/webapp/rails/01-login) explains how to login using a widget called Lock and a gem called OmniAuth (and a specific Auth0 strategy for OmniAuth). You can build an application with Auth0 using your custom design without including neither Lock nor OmniAuth. In this section, you'll learn how to create a custom login form using the Auth0 Ruby SDK.
 
 ### 1. Add dependencies
 
