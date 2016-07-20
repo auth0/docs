@@ -1,9 +1,9 @@
 # Creating and Installing a Custom Extension
 
-Rather that using one of Auth0's provided extensions, you may choose to create your own.
+Rather than using one of Auth0's provided extensions, you may choose to create your own.
 
 ## Creating a Custom Extension
-To begin creating an your custom extension, please feel free to fork/clone any one of Auth0's extension repositories:
+To begin creating your custom extension, please feel free to fork/clone any one of Auth0's extension repositories:
 
 - [Auth0 Extension Boilerplate](https://github.com/auth0/auth0-extension-boilerplate)
 - [Auth0 Extension with API Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-api)
@@ -12,7 +12,7 @@ To begin creating an your custom extension, please feel free to fork/clone any o
 
 Alternatively, you may follow the _Development Instructions_ provided via the _New Extension_ window that appears when you click on the _+ CREATE EXTENSION_ button. To view the _Development Instructions_, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). Click on the _+ CREATE EXTENSION_ button. On the popup displayed click on the _Check out this command line tool_ link. The _Development Instructions_ popup is displayed. These instructions allow you to create your own extension using the command line.
 
-Extensions can also be installed using directly `wt-cli`. The command would look like the following:
+Extensions can also be installed using `wt-cli`. The command would look like the following:
 
 ```
 wt create {file} --name {extensionName} --param owner=“{tenant}” --param version="1.0.0"
@@ -87,7 +87,7 @@ The installation dialog will warn the user that the extension will have access t
 
 ![](/media/articles/extensions/custom/scopes-warning.png)
 
-The webtask will be created with the secrets `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_SECRET`.
+The webtask will be created with the `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_SECRET` information set as secrets.
 
 After the webtask is created, `/.webtask/on-install` (`POST /onInstallUrl`) is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
 
@@ -109,7 +109,7 @@ Install and uninstall URLs are configurable through `webtask.json`.
 
 When the user clicks on _Uninstall_, `/.webtask/on-uninstall` (`DELETE /onUninstallUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
 
-The JWT, the one being used for authenticating the calls to the hooks for both `/.webtask/on-install` and `/.webtask/on-uninstall`, looks like the following:
+The JWT, used for authenticating the calls to the hooks for both `/.webtask/on-install` and `/.webtask/on-uninstall`, looks like the following:
 
 ```json
 {
