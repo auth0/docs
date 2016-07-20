@@ -8,8 +8,8 @@ description: This tutorial will show you how to use the Auth0 Ionic 2 SDK to add
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 4.3.0
-* Ionic 2.0.0-beta.4
-* Angular 2.0.0-beta.13
+* Ionic 2.0.0-beta.32
+* Angular 2.0.0-rc.3
 :::
 
 <%= include('../../_includes/_package', {
@@ -51,7 +51,23 @@ Add the Auth0Lock widget to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.setup)}
 
-### 4. Create an Authentication Service and Configure Auth0Lock
+### 4. Add the `InAppBrowser` plugin
+
+You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. The seed project already has this plugin added, but if you are adding Auth0 to your own application you need to run the following command:
+
+```bash
+ionic plugin add cordova-plugin-inappbrowser
+```
+
+and then add the following configuration to the `config.xml` file:
+
+```xml
+<feature name="InAppBrowser">
+  <param name="ios-package" value="CDVInAppBrowser" />
+  <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+</feature>
+```
+### 5. Create an Authentication Service and Configure Auth0Lock
 
 It's best to set up an injectable authentication service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication status.
 
@@ -61,7 +77,7 @@ ${snippet(meta.snippets.use)}
 
 The service can now be injected wherever it is needed.
 
-### 5. Create a Profile Page
+### 6. Create a Profile Page
 
 You will likely require some kind of profile area for users to see their information. Depending on your needs, this can also serve as the place for them to log in and out.
 
@@ -75,7 +91,7 @@ ${snippet(meta.snippets.profiletemplate)}
 
 ![auth0 lock](https://cdn.auth0.com/blog/ionic2-auth/ionic2-auth-5.png)
 
-### 6. Optional: Implement Refresh Tokens
+### 7. Optional: Implement Refresh Tokens
 
 [Refresh tokens](https://auth0.com/docs/refresh-token) are special tokens that are used to retrieve a new JWT for the user so that they can remain authenticated.
 
@@ -89,13 +105,13 @@ To run the token refresh when the application is started, call the `startupToken
 
 ${snippet(meta.snippets.configurerefresh)}
 
-### 7. Make Authenticated HTTP Requests
+### 8. Make Authenticated HTTP Requests
 
 To make HTTP requests to a secure endpoint, simply use `AuthHttp` which will automatically attach the JWT as an `Authorization` header.
 
 ${snippet(meta.snippets.http)}
 
-### 8. Done!
+### 9. Done!
 
 Now it's time to sit back and relax. You've implemented authentication with Ionic 2 and Auth0.
 
