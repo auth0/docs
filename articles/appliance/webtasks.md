@@ -14,11 +14,13 @@ Auth0 provides different stages (which are known as sandboxes) on which you may 
 * `eval`: provides the best performance, but is the least secure of the three available modes;
 * `auth0-sandbox`: provides better performance that `node_sandbox`, improved isolation over `eval`, and offers a greater number of Node.js modules for use with your custom code.
 
-**Note:** The `auth0-sandbox` is only available for installations running Ubuntu 14.04.
+Please note that only one sandbox mode may be selected at any given time (for example, you may not run selected rules in one sandbox and other rules in another sandbox).
 
 ## Code Compatibility
 
-Much of the code written for use with `node-sandbox` or `eval` should work on `auth0-sandbox`. However, code that uses external modules (which execute in auth0-sandbox) will yield an exception in the other sandboxes.
+Code that you have written for use with `node-sandbox` or `eval` will work in `auth0-sandbox`. However, code that is written for `auth0-sandbox` may not be compatible with `node-sandbox` or `eval`, especially if your code uses modules.
+
+The `auth0-sandbox` is the recommended method for running your custom code.
 
 ## Working with Webtasks
 
