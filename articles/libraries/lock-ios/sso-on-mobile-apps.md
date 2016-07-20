@@ -6,6 +6,8 @@ description:
 
 # Lock iOS: SSO on Mobile Apps
 
+A very cool thing you can do with Lock is use SSO. Imagine you want to create 2 apps. However, you want that if the user is logged in in app A, he will be already logged in in app B as well. Something similar to what happens with Messenger and Facebook as well as Foursquare and Swarm.
+
 In order to do SSO on Mobile Apps, we need to use a shared keychain. We'll learn how to do this throughout this post.
 
 To enable keychain sharing you'll have to define a keychain access group with the following format:
