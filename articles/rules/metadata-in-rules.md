@@ -1,8 +1,16 @@
 # Metadata in Rules
 
-Auth0 allows you to store data related to each user that has not come from the identity provider. This is known as metadata. There are two kinds of metadata, **user_metadata** and **app_metadata**. You can read about both of these at [app_metadata and user_metadata](/api/v2/changes#app-_metadata-and-user-_metadata).
+Auth0 allows you to store custom data points, which are known as metadata.
 
-This article explains how to work with metadata in [Rules](/rules) code. 
+* **User Metadata**: Auth0 allows you to store data related to each user that has not come from the identity provider. There are two kinds of user metadata: **user_metadata** and **app_metadata**. You can read about both of these at [app_metadata and user_metadata](/api/v2/changes#app-_metadata-and-user-_metadata).
+* **Client Metadata**: Auth0 allows you to store up to **ten** custom key/value pairs to support extensibility requirements.
+
+This article explains how to work with metadata in [Rules](/rules) code:
+
+* [Working with User Metadata](#working-with-user-metadata)
+* [Working with Client Metadata](#working-with-client-metadata)
+
+## Working with User Metadata
 
 Each sample rule in this article assumes the user is represented by the following JSON:
 
@@ -349,4 +357,3 @@ You can convert the first example to something like this.
 ```
 
 Or you could use a different delimiter character besides `.` (dot) or `$` (dollar sign).
-
