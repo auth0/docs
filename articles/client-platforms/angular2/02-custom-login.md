@@ -10,7 +10,7 @@ description: This tutorial will show you how to use the Auth0 library to add cus
 
 The previous step explains how to login but with a widget called Lock. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
 
-### Custom Login
+## Custom Login
 
 First of all let's add `Auth0` library into your application:
 
@@ -88,7 +88,7 @@ Now, let's add a form to actually call login:
 </form>
 ```
 
-### Sign up
+## Sign up
 
 To do a Sign Up just call `signup` method on `auth0` instance:
 
@@ -115,7 +115,7 @@ and add the button to call this:
 ...
 ```
 
-### Social login
+## Social login
 
 To login using social connector, you just need to tell `Auth0` which connection you want to use:
 
@@ -137,6 +137,6 @@ and again add a button to call this:
 <button type="submit" class="btn btn-default btn-primary" (click)="auth.googleLogin()">Login with google</button>
 ```
 
-### Done!
+## Done!
 
 You have implemented login, signup and social login without using Lock. 
