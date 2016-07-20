@@ -27,13 +27,10 @@ To get a list of **all** client applications:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name" "Authorization", "value": "Bearer ABCD" }
+      { "name": "Authorization", "value": "Bearer ABCD" }
     ],
     "queryString" : [],
-    "postData" : {
-      "mimeType": "application/json",
-      "text" : "{ \"test\": \"foo\" }",
-    },
+    "postData" : {},
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
@@ -49,13 +46,10 @@ To get a specific client via ID:
     "httpVersion": "HTTP/1.1",
     "cookies": [],
     "headers": [
-      { "name" "Authorization", "value": "Bearer ABCD" }
+      { "name": "Authorization", "value": "Bearer ABCD" }
     ],
     "queryString" : [],
-    "postData" : {
-      "mimeType": "application/json",
-      "text" : "{ \"test\": \"foo\" }",
-    },
+    "postData" : {},
     "headersSize" : -1,
     "bodySize" : -1,
     "comment" : ""
