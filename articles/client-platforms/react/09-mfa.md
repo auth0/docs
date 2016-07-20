@@ -18,9 +18,8 @@ On this tutorial you'll learn how to enable MFA in a ReactJS application created
 
 ## 2. Login
 
-There is no need to update the code we have created in [Login](/docs/quickstart/spa/react/01-login) tutorial. As soon you try to sign in, you should be prompted to setup an 2-Factor authenticator application (auth0 Guardian is the default).
+<%= include('../_includes/_mfa-login') %>
 
-![verification code form screenshot]
 
 ## 3. All done!
 
