@@ -7,16 +7,16 @@ description: This tutorial will show you how to use the Auth0 Ionic 2 SDK to add
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 4.3.0
+* NodeJS 6.3.0
 * Ionic 2.0.0-beta.32
 * Angular 2.0.0-rc.3
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-ionic',
+  pkgRepo: 'auth0-ionic2',
   pkgBranch: 'master',
-  pkgPath: 'examples/ionic2-auth0-sample',
-  pkgFilePath: 'examples/ionic2-auth0-sample/app/auth0-variables.ts',
+  pkgPath: '',
+  pkgFilePath: 'app/auth0-variables.ts',
   pkgType: 'replace'
 }) %>
 
@@ -71,7 +71,7 @@ and then add the following configuration to the `config.xml` file:
 
 It's best to set up an injectable authentication service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication status.
 
-This is also where `Auth0Lock` can be configured with your Auth0 credentials.
+This is also where `Auth0Lock` can be configured with your Auth0 credentials. Be sure to configure Auth0Lock in Popup mode by setting `redirect` to `false`.
 
 ${snippet(meta.snippets.use)}
 
