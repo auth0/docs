@@ -33,7 +33,8 @@ To remove an existing key/value pair, click the "REMOVE" button associated with 
 
 To update an existing key/value pair, provide the key and the *new* value to associate with that key. Click "UPDATE". You will be asked to confirm whether you want to continue overwriting the original value. To confirm, click "OVERWRITE" to save your changes.
 
-![](/media/articles/rules/metadata/overwrite-client-metadata.png)
+![](/media/articles/rules/metadata/client-metadata.png)
+
 
 ## Working with Client Metadata Using Calls to the Auth0 Management API
 
@@ -61,47 +62,5 @@ When creating a new `client` object via the `POST /api/v2/clients` endpoint, you
 	"headersSize": -1,
 	"bodySize": -1,
 	"comment": ""
-}
-```
-
-### Reading Client Metadata
-
-`client_metadata` is included in the response to the `GET /api/v2/clients` and `GET /api/v2/client/{id}` endpoints.
-
-To get a list of **all** client applications:
-
-```har
-{
-    "method": "GET",
-    "url": "https://${uiURL}/api/v2/clients",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Authorization", "value": "Bearer ABCD" }
-    ],
-    "queryString" : [],
-    "postData" : {},
-    "headersSize" : -1,
-    "bodySize" : -1,
-    "comment" : ""
-}
-```
-
-To get a specific client via ID:
-
-```har
-{
-    "method": "GET",
-    "url": "https://${uiURL}/api/v2/clients/{id}",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Authorization", "value": "Bearer ABCD" }
-    ],
-    "queryString" : [],
-    "postData" : {},
-    "headersSize" : -1,
-    "bodySize" : -1,
-    "comment" : ""
 }
 ```
