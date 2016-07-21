@@ -3,6 +3,22 @@ title: MFA
 description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* CocoaPods 1.0.0
+* XCode 7.3 (7D175)
+* Simulator - iPhone 6 - iOS 9.3 (13E230)
+  :::
+
+<%= include('../../_includes/_package', {
+  pkgRepo: 'native-mobile-samples',
+  pkgBranch: 'master',
+  pkgPath: 'iOS/basic-sample-swift',
+  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
+  pkgType: 'replace'
+}) %>
+
 ### 1. Enable MFA in your account
 
 You have to enable the MFA feature in your account. 
