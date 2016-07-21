@@ -48,7 +48,7 @@ export class Ping {
   constructor(private auth: Auth, private authHttp: AuthHttp) {}
 
   public securedPing() {
-    this.authHttp.get(`${this.API_URL}/secured/ping`)
+    this.authHttp.get(`<%= "${this.API_URL}" %>/secured/ping`)
       .map(res => res.json())
       .subscribe(
         data => this.message= data.text,
@@ -115,7 +115,7 @@ export class Ping {
 
   // Makes a get to the api without authorization headers
   public ping() {
-    this.http.get(`${this.API_URL}/ping`)
+    this.http.get(`<%= "${this.API_URL}" %>/ping`)
       .map(res => res.json())
       .subscribe(
         data => this.message = data.text,
