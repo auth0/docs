@@ -6,7 +6,7 @@ description: This tutorial will show you how to use the Auth0 Cycle.js driver to
 ## Cycle.js Tutorial
 
 ::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+This tutorial have been tested with the following:
 
 * NodeJS 6.3
 * npm 3.10.3
