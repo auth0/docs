@@ -24,6 +24,6 @@ The following is a list of articles on this website which will help you to imple
 * [Integrating a Web App with Auth0](/oauth-web-protocol)
 * [Connect Active Directory with Auth0](/connections/enterprise/active-directory)
 * [SAML](/saml-configuration)
-* [What is SSO (Single Sign On)?](/sso/single-sign-on)
+* [What is SSO (Single Sign On)?](/sso)
 * [Auth0 SSO Dashboard (sample)](https://github.com/auth0-samples/auth0-sso-dashboard)
 
