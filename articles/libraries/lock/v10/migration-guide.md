@@ -4,7 +4,7 @@ Heads up! This document is using the latest version of Lock (version 10). See ch
 
 # Lock 9 to Lock 10 Migration Guide
 
-The following instructions assume you are migrating from Lock 9 to the latest Lock 10. If you are upgrading from a preview release, please refer to the [preview changes](#preview-changes).
+The following instructions assume you are migrating from Lock 9 to the latest Lock 10. If you are upgrading from a preview release, please refer to the [preview changes](#preview-changes). If you came here looking for the migration guide from the "Auth0Widget" to Lock v9, here's the [legacy-migration-guide](/libraries/lock/v9/migration-guide). Otherwise, read on!
 
 - The `show` method no longer takes any arguments. You pass the options to the constructor and you listen for an `authenticated` event instead of providing a callback. The examples above show how to listen for this event with the `on` method.
 - The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.

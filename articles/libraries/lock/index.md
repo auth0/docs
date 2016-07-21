@@ -154,7 +154,6 @@ If you have found a bug or if you have a feature request, please report them at 
 
 * [Lock 9 to Lock 10 Migration Guide][migration-guide]
 * [Complete API][lock-api]
-* [UI customization][ui-customization]
 * [Embedding Lock (Instead of a Modal)][display-modes]
 * [i18n][i18n-notes] notes. **Languages and Custom Text**
 * [Popup Mode][popup-mode] is an advanced option and is not recommended for most use cases
@@ -172,7 +171,6 @@ If you have found a bug or if you have a feature request, please report them at 
 [example-webpack]: https://github.com/auth0/lock/blob/v10/examples/bundling/webpack
 [lock-customization]: /libraries/lock/v10/customization
 [lock-api]: /libraries/lock/v10/api
-[ui-customization]: /libraries/lock/v10/ui-customization
 [display-modes]: /libraries/lock/v10/customization#container
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
