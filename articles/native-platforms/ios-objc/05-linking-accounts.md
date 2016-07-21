@@ -12,10 +12,10 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-objC',
-  pkgFilePath: 'iOS/basic-sample-objc/ObjCSample/Info.plist',
+  pkgPath: '05-Linking Accounts',
+  pkgFilePath: '05-Linking Accounts/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
@@ -38,15 +38,14 @@ To link two user profiles, you need to be signed in with the user you want to us
 You can use Lock, present the Auth0 sign in UI where the user can select what form of sign in he wants to use.
 
 ```objc
-    A0LockViewController *controller = [lock newLockViewController];
-    controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-        // dismiss the ViewController
-        [self dismissViewControllerAnimated:YES completion:nil];
-        // Link with the other user profile
-    };
-    
-    [self presentViewController:controller animated:YES completion:nil];
+A0LockViewController *controller = [lock newLockViewController];
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+    // dismiss the ViewController
+    [self dismissViewControllerAnimated:YES completion:nil];
+    // Link with the other user profile
+};
 
+[self presentViewController:controller animated:YES completion:nil];
 ```
 
 #### ii. Use Auth0 Toolkit
@@ -55,7 +54,10 @@ You might choose to avoid the Lock UI and only show the sign in options of third
 
 - Check that you have set up the URL Type with your app's bundle ID.
 - Check that you have on your `Application Support` panel, on the Auth0 web site, the `Allowed callback URLS` set up to handle this callback:
-  {application.bundleID}://{application.domain}/ios/{application.bundleID}/callback
+```
+{application.bundleID}://{application.domain}/ios/{application.bundleID}/callback
+```
+
 - Set up your AppDelegate to handle the URL redirection:
 
 ```objc
@@ -104,18 +106,18 @@ You might choose to avoid the Lock UI and only show the sign in options of third
 Now that you have the user information for both profiles, you can link them:
 
 ```objc
-    A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSURL *domain =  [NSURL a0_URLWithDomain: [infoDict objectForKey:@"Auth0Domain"]];
+A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
+NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+NSURL *domain =  [NSURL a0_URLWithDomain: [infoDict objectForKey:@"Auth0Domain"]];
 
-    A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:[keychain stringForKey:@"id_token"] url:domain];
+A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:[keychain stringForKey:@"id_token"] url:domain];
 
-    [authApi linkUserWithIdentifier:self.userProfile.userId  withUserUsingToken: credentials.idToken callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
-       
-        if(error){
-            //Something went wrong, tell the user
-        } else {
-            //The linking worked, update your profile and UI
-        }
-   }];
+[authApi linkUserWithIdentifier:self.userProfile.userId  withUserUsingToken: credentials.idToken callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
+   
+    if(error){
+        //Something went wrong, tell the user
+    } else {
+        //The linking worked, update your profile and UI
+    }
+}];
 ```
