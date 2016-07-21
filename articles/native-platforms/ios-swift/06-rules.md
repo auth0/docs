@@ -19,11 +19,11 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](https://auth0.com/docs/rules).
+Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](/rules).
 
 ### 1. Create a Rule
 
-To create a rule, just go to the [new rule page](https://manage.auth0.com/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
+To create a rule, just go to the [new rule page](${uiURL}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
 
 Let's use the template called "*Add country to the user profile*", under the *Enrich Profile* section:
 
