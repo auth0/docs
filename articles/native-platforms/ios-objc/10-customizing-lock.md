@@ -27,11 +27,11 @@ You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in
 
 Lock UI can be customized by creating your own `A0Theme` and overriding the default one anywhere before presenting the login dialog:
 
-```swift
+```objective-c
 #import <Lock/Lock.h>
 ```
 
-```swift
+```objective-c
 A0Theme *myAwesomeTheme = [[A0Theme alloc] init];
 // Configure your theme here (see step 2)
 [[A0Theme sharedInstance] registerTheme: myAwesomeTheme];
@@ -51,7 +51,7 @@ You can configure the following type of properties:
 
 For example:
 
-```
+```objective-c
 [myAwesomeTheme registerColor: [UIColor redColor] forKey: A0ThemePrimaryButtonNormalColor];
 ```
 
