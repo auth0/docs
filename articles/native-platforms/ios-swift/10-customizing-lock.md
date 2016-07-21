@@ -113,7 +113,7 @@ This is the whole list of properties that can be customized:
 
 - `A0ThemeCloseButtonTintColor`
 
-Have fun customizing whatever you need from there.
+Have fun customizing whatever you need from here.
 
 ### Done!
 
