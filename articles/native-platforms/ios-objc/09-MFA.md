@@ -23,20 +23,20 @@ This tutorial and seed project have been tested with the following:
 
 #### i. Be familiar with Auth0
 
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.** Some knowledge about [Rule](06-Rules.md) would be advisable too.
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.** Some knowledge about [Rules](06-rules.md) would be advisable too.
 
-### 1. Setting up the Multifactor Authentication
+### 1. Set up the Multifactor Authentication
 
-There are several MFA providers you can use with your app, we usually recomend our own `Guardian` app, but it's not currently supported on mobile enviroments, so we recomned you to use `Google Authenticator` as your provider.
+There are several MFA providers you can use with your app, we usually recomend our own `Guardian` app, but it's not currently supported on mobile environments, so we recommend you to use `Google Authenticator` as your provider.
 
 You can set it up either following this [link](${uiURL}/#/multifactor) or selecting `Multifactor Auth` on the Auth0 dashboard and then selecting the link under the `Push Notification` and `SMS` switches.
 
 ### 2. Configure your Rule
 
-Enabling this switches will create a Rule, and as any Rule you can tweak it as you see fit. You will be presented with a proposed code for the Rule, where you can set an array with the ClientIDs of the Apps you want to use MFA in. 
-You can also enforce MFA only on selected users, or following different criteria. 
+Enabling any these switches will create a Rule, and as any Rule you can tweak it as you see fit. You will be presented with a proposed code for the Rule, where you can set an array containing the ids for any client you want to use MFA in. 
+You can also enforce MFA only on certain users, by following any criteria you define. 
 
-```
+```javascript
 function (user, context, callback) {
   // Uncomment the following to skip MFA when impersonating a user
   // if (user.impersonated) { return callback(null, user, context); }
