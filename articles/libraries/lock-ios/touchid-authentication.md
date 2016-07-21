@@ -50,3 +50,7 @@ Lock provides passwordless authentication with TouchID for your Auth0 DB connect
   self.presentViewController(navController, animated: true, completion:nil)
   ```
   > It's mandatory to present `A0TouchIDLockViewController` embedded in a `UINavigationController`.
+
+And you'll see TouchID login screen
+
+[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-TouchID-Screenshot.png)](https://auth0.com)
