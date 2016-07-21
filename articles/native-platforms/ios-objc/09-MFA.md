@@ -33,7 +33,7 @@ You can set it up either following this [link](${uiURL}/#/multifactor) or select
 
 ### 2. Configure your Rule
 
-Enabling any these switches will create a Rule, and as any Rule you can tweak it as you see fit. You will be presented with a proposed code for the Rule, where you can set an array containing the ids for any client you want to use MFA in. 
+Enabling any of these switches will create a Rule, and as any Rule you can tweak it as you see fit. You will be presented with a proposed code for the Rule, where you can set an array containing the ids for any client you want to use MFA in. 
 You can also enforce MFA only on certain users, by following any criteria you define. 
 
 ```javascript
