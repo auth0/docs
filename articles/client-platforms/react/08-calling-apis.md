@@ -3,6 +3,13 @@ title: Calling APIs
 description: This tutorial will show you how to make authenticated api calls with ReactJS.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
+
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/08-Calling-Api',
 }) %>_
@@ -96,7 +103,7 @@ If you don't have a `.env` file in your project you can create your own using th
 $ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='account.secret'" > .env
 ```
 <% } else { %>
-If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [auth0 dashboard](${uiURL}).
+If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${uiURL}).
 
 ```bash
 $ cp .env.example .env
