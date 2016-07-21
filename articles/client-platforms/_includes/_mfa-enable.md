@@ -1,4 +1,4 @@
-The only action required in order to enable the MFA feature is open the [auth0 MFA settings](${uiURL}/#/guardian) and enable the __Push Notifications__ option. You should see a page like that:
+The only action required in order to enable the MFA feature is open the [Auth0 MFA settings](${uiURL}/#/guardian) and enable the __Push Notifications__ option. You should see a page like that:
 
 ![dashboard MFA with push notification enabled](/media/articles/mfa/guardian-push-enabled.png)
 
