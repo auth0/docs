@@ -54,28 +54,29 @@ ${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
 
-After authentication, Auth0 will redirect the user back to your application with an identifying `token` as a `hash` parameter of `window.location`. Use `lock.parseHash` to parse the `hash` and create the `token`. This `token` is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+After authentication, Auth0 will redirect the user back to your application.
 
 In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
 
 ```js
-var hash = lock.parseHash(window.location.hash);
-if (hash) {
-  if (hash.error) {
-    console.log("There was an error logging in", hash.error);
-    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-  } else {
-    //save the token in the session:
-    localStorage.setItem('id_token', hash.id_token);
-  }
-}
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('profile', JSON.stringify(profile));
+  });
+});
 ```
 ### 4. Retrieve the user profile and display user information
 
 Use the `id_token` to retrieve the user profile and display the user's name:
 
 ```js
-  //retrieve the profile:
+//retrieve the profile:
 var id_token = localStorage.getItem('id_token');
 if (id_token) {
   lock.getProfile(id_token, function (err, profile) {

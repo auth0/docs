@@ -47,21 +47,21 @@ ${snippet(meta.snippets.use)}
 
 To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
 
-After authentication, Auth0 will redirect the user back to your application with an identifying token as a hash parameter of `window.location`. Use `lock.parseHash` to parse the hash and create the token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
 In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
 
 ```js
-var hash = lock.parseHash(window.location.hash);
-if (hash) {
-  if (hash.error) {
-    console.log("There was an error logging in", hash.error);
-    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-  } else {
-    //save the token in the session:
-    localStorage.setItem('id_token', hash.id_token);
-  }
-}
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+
+    localStorage.setItem('id_token', authResult.idToken);
+  });
+});
 ```
 
 ${browser}
@@ -72,10 +72,23 @@ ${browser}
 
 To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
+Include `auth0.js` to your project by adding following to `index.html`: 
+
+```html
+<script src="${auth0js_url_no_scheme}"></script>
+```
+
 Modify the login code in [Step 3](#3-implement-the-login) by adding a call to get the new token:
 
 ```js
-lock.getClient().getDelegationToken({
+var auth0 = new Auth0({
+  domain: AUTH0_DOMAIN,
+  clientID: AUTH0_CLIENT_ID,
+});
+
+...
+
+auth0.getDelegationToken({
    id_token: token,
         // By default the first active third party add-on will be used
         // However, We can specify which third party API to use here by specifying the name of the add-on
