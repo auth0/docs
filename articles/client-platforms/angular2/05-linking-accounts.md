@@ -15,7 +15,7 @@ To link accounts you need to hit the [link user account endpoint](/api/managemen
 
 Let's make it work. As you need to do a second login to get the secondary account JWT, we will use another instance of `AuthLock`. This is to differentiate the login from the linking login.
 
-As all instances listen to the `authenticated` event (we are in redirect mode, so we don’t have a reliable way to determine which instance did the login) we need a way to know if the login came from a login or from a linking login. We can use [params auth option](https://github.com/auth0/lock/tree/v10.0.0-rc.2#authentication-options), setting a `state` property to `"linking"`.
+As all instances listen to the `authenticated` event (we are in redirect mode, so we don’t have a reliable way to determine which instance did the login) we need a way to know if the login came from a login or from a linking login. We can use [params auth option](https://github.com/auth0/lock/tree/v10.0.0#authentication-options), setting a `state` property to `"linking"`.
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
