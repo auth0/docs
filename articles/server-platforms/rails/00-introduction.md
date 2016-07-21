@@ -41,7 +41,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server'
 }) %>
 
-### 1. Create an Application
+### 1. Create a Client
 
 Get your credentials (Domain, Client ID, and Client Secret) from the dashboard. The sample will be configured with your Default App credentials.
 
@@ -49,7 +49,7 @@ Get your credentials (Domain, Client ID, and Client Secret) from the dashboard. 
 
 ### 2. Configure Callback URLs
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process is completed. Auth0 routes your application back to this URL and attaches some details to the user's session including a token. Since callback URLs can be manipulated, you will need to add your application's URL in the app's Allowed Callback URLs for security. This will enable Auth0 to recognize these URLs as valid. If omitted, the authentication will not be successful for the app instance.
+Callback URLs are the URLs that Auth0 invokes after the authentication process is completed. Auth0 routes your application back to this URL and attaches some details to the user's session including a token. Since callback URLs can be manipulated, you will need to add your application's URL in the client's Allowed Callback URLs for security. This will enable Auth0 to recognize these URLs as valid. If omitted, the authentication will not be successful for the application's instance.
 
 ${include('../_callbackRegularWebApp')}
 
