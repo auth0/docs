@@ -4,7 +4,7 @@ description: This tutorial will show you how to add Multifactor Authentication t
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-angularjs2-systemjs-sample/tree/master/09-MFA'
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/09-MFA'
 }) %>_
 
 <%= include('../_includes/_mfa-introduction') %>
