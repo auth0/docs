@@ -59,7 +59,7 @@ export default class AuthService {
 }
 ```
 
-In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](https://auth0.com/docs/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
+In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
 
 ## 2. Check If Session is Valid
 
