@@ -23,21 +23,20 @@ This tutorial and seed project have been tested with the following:
 
 #### Be familiar with Auth0
 
-This tutorial assumes you are already familiar with Auth0 and how to Sign up and Sign in using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.**
+This tutorial assumes you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.**
 
 ### 1. Remember me?
 
-To get your users information, you will need his token. You can get it either after your sign in ([Sign in Tutorial](01-login.md)) or getting it from your Keychain ([Session Handling Tutorial](03-session-handling.md)).
+To get your users information, you will need his token. You can get it either after your login ([Login tutorial](01-login.md)) or getting it from your Keychain ([Session Handling tutorial](03-session-handling.md)).
 Once you have the user's token, you can use it to restore the user's profile:
 
 ```objc
-    	[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:userToken 
-    	success:^(A0UserProfile * _Nonnull profile) {
-        	// You have successfully retreived the user's profile.
-		} failure:^(NSError * _Nonnull error) {
-			// Something went wrong, let the user know
-		}
-    }
+[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:userToken 
+success:^(A0UserProfile * _Nonnull profile) {
+	// You have successfully retreived the user's profile.
+} failure:^(NSError * _Nonnull error) {
+	// Something went wrong, let the user know
+}
 ```
 
 ### 2. Use the user's data
@@ -58,7 +57,7 @@ Use the image URL to download the image and display it on an `UIImageView`:
 
 #### ii. Get the basic user information
 
-On the profile you can get the user's name, email, when was the last time the user signed in, etc. Everything Auth0 uses to manage a user.
+On the profile you can get the user's name, email, when was the last time the user loged in, etc. Everything Auth0 uses to manage a user.
 
 ```objc
     self.welcomeLabel.text = [NSString stringWithFormat:@"Welcome, %@", self.userProfile.name];
