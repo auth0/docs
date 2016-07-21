@@ -39,7 +39,7 @@ if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 
 ### Done!
 
-Piece of cake, wasn't it? Now you should get a google authenticator screen when you try to login with social providers in your app using [Lock-iOS](https://github.com/auth0/Lock.iOS-OSX).
+Piece of cake, wasn't it? Now you should get a Google Authenticator screen when you try to login with social providers in your app using [Lock-iOS](https://github.com/auth0/Lock.iOS-OSX).
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-09.png)
 
