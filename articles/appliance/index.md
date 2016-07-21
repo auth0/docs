@@ -33,3 +33,4 @@ Auth0 is responsible for installation, maintenance, patching and updates. You ar
 * [Appliance Command-Line Interface Tools](/appliance/cli)
 * [Automatic Creation of Tenants](/appliance/admin/creating-tenants)
 * [Node.js Modules Available in Rules and Custom Database Connections for Appliances](/appliance/modules)
+* [Webtasks](/appliance/webtasks)
