@@ -687,5 +687,10 @@
   {
     "from": "/libraries/lock/sending-authentication-parameters",
     "to": "/libraries/lock/v10/sending-authentication-parameters"
+  },
+  {
+    "from": "/libraries/lock/v10",
+    "to": "/libraries/lock",
+    "status": 302
   }
 ]
