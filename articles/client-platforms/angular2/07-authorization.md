@@ -10,7 +10,7 @@ description: This tutorial will show you how assign roles to your users, and use
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/angular2/06-rules' }) %>
 
 
-### Restrict a route based on user's roles
+## Restrict a route based on user's roles
 
 In order to restric access to certain routes, we are going to use angular2 [CanActivate guard](https://angular.io/docs/ts/latest/guide/router.html#!#can-activate-guard)
 
@@ -100,6 +100,6 @@ this.lock.getProfile(authResult.idToken, (error, profile) => {
 
 That's it. Only if you login with a mail that contains `@example` you will be able to access `/admin` route.
 
-### Done!
+## Done!
 
 You have implement one of the availables way to add authorization to your app.

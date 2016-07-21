@@ -9,7 +9,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 
 In the [Login step](/quickstart/spa/angular2/01-login) of this tutorial, you find a detailed description of how to use auth0 lock widget to show a login window and authenticate the user. For this step, the focus is to present a way to retrieve and show the user profile information, using same `Auth` service defined in login tutorial.
 
-### Profile
+## Profile
 
 To fetch user profile information, you have to call `lock.getProfile` function, specifying the token and a callback to process response.
 
@@ -94,7 +94,7 @@ and then display the userProfile attributes in your component's template:
 <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 
-### Custom Sign Up Fields
+## Custom Sign Up Fields
 
 You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](https://github.com/auth0/lock/tree/v10.0.0-rc.2#additional-sign-up-fields).
 
@@ -123,7 +123,7 @@ To display, just read it from profile `user_metadata`:
 <strong>Address: </strong> {{auth.userProfile.user_metadata.address}}
 ```
 
-### Update user profile
+## Update user profile
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
@@ -212,6 +212,6 @@ Create a simple form template to add/update *address* attribute:
 </div>
 ```
 
-### Done!
+## Done!
 
 You have implemented the showing and editing of the Auth0 user profile in your project.
