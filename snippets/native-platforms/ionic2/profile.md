@@ -1,10 +1,10 @@
 ```js
 // app/pages/profile/profile.ts
 
-import {Page} from 'ionic-angular';
+import {Component} from '@angular/core';
 import {AuthService} from '../../services/auth/auth';
 
-@Page({
+@Component({
   templateUrl: 'build/pages/profile/profile.html',
 })
 export class ProfilePage {

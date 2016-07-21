@@ -10,12 +10,12 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 
 <%= include('../_includes/_rules-introduction') %>
 
-### Create a rule
+## Create a rule
 
 <%= include('../_includes/_rules-create-section') %>
 
 
-### Test rule result
+## Test rule result
 
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular2/04-user-profile' }) %>
 
@@ -35,5 +35,6 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
-### Done!
+## Done!
+
 That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.

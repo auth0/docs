@@ -138,7 +138,7 @@ And you'll see our native login screen
 
 > By default all social authentication will be done using Safari, if you want native integration please check this [wiki page](/libraries/lock-ios/native-social-authentication).
 
-Also you can check our [Swift](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/basic-sample-swift) and [Objective-C](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/basic-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
+Also you can check our [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
 
 ### TouchID
 
@@ -173,13 +173,6 @@ And you'll see TouchID login screen
 [![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-TouchID-Screenshot.png)](https://auth0.com)
 
 > Because it uses a Database connection, the user can change it's password and authenticate using email/password whenever needed. For example when you change your device.
-
-
-## SSO
-
-A very cool thing you can do with Lock is use SSO. Imagine you want to create 2 apps. However, you want that if the user is logged in in app A, he will be already logged in in app B as well. Something similar to what happens with Messenger and Facebook as well as Foursquare and Swarm.
-
-Read [this guide](/libraries/lock-ios/sso-on-mobile-apps) to learn how to accomplish this with this library.
 
 > For more information please check Lock's documentation in [CocoaDocs](http://cocoadocs.org/docsets/Lock).
 

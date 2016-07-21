@@ -1,6 +1,6 @@
 # Opening and Managing Tickets in Support Center
 
-With [Support Center](https://support.auth0.com), you can create various tickets for questions or issues you may be experiencing. You need to be a full dashboard administrator to access Support Center. 
+With [Support Center](https://support.auth0.com), you can create various tickets for questions or issues you may be experiencing. You need to be a full dashboard administrator to access Support Center.
 
 Existing Auth0 Appliance customers should create a new Auth0 cloud account to be able to login to Support Center (this account can also be used for dev/test purposes at no cost under your subscription). Request that account be associated with your existing subscription via your Customer Success Manager or Sales Executive.
 
@@ -8,13 +8,17 @@ Existing Auth0 Appliance customers should create a new Auth0 cloud account to be
 
 1. From [Support Center](https://support.auth0.com), click on the **OPEN TICKET** button.
 ![](/media/articles/support/open-ticket.png)
+1. Choose the "Affected Account" from the dropdown menu.
 1.  Under "What can we help you with?" select the type of issue that most fits your case.
 ![](/media/articles/support/issue-types.png)
-    * **Auth0 Service Issue** - choose this if something isn’t working correctly or you need help using a feature or getting something working. With a service issue, you will then need to select a severity:
-  	* Low - Product question - Question about how things work, whether we support something
-  	* Normal - General support question - If you are in development and have a question about how to configure something or how to resolve an error
-  	* High - Production application issue - your application which is in production is experiencing a minor outage impacting some users or one feature
-  	* Urgent - Production application offline - critical outage impacting all users of an application in production
+    * **Auth0 Service Issue** - choose this if something isn’t working correctly or you need help using a feature or getting something working.
+        * With Service Issues, you will be asked to select a severity...
+            *  **Low: Product question** - Question about how things work, whether we support something
+            * **Normal: General support question** - If you are in development and have a question about how to configure something or how to resolve an error
+            * **High: Production application issue** - your application which is in production is experiencing a minor outage impacting some users or one feature
+            * **Urgent: Production application offline** - critical outage impacting all users of an application in production
+        * ... and then asked to choose an option under "What is the service issue related to?"
+            *  _You may be prompted for additional information, depending on your selection here._
     * **Billing, Payments, or Account Issues** - billing incorrect, going to wrong email or card, etc
     * **Auth0 Service Feedback** - suggested product improvements/enhancement requests
     * **Vulnerability Reports or Legal Issues** - report security vulnerabilities or legal questions

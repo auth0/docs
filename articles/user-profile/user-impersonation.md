@@ -124,7 +124,7 @@ If not you should send a POST request to the token endpoint in Auth0. You will n
   "method": "POST",
   "url": "https://${account.namespace}/users/oauth/token",
   "headers": [
-    { "name": "Content-Type", "value": "application/x-www-form-urlencoded" }
+    { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
 		"mimeType": "application/json",

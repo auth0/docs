@@ -9,7 +9,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 
 In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can urge the user to link their account to an OAuth provider like Facebook or Google.
 
-### Linking Accounts
+## Linking Accounts
 
 To link accounts you need to hit the [link user account endpoint](/api/management/v2#!/Users/post_identities). You need the primary JWT (the token saved when you login), the user id (could be taken from the JWT or the profile) and the JWT of the account you want to link (secondary account).
 
@@ -99,7 +99,7 @@ export class Auth {
     });
 
     this.authHttp
-      .post('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
+      .post('https://' + '${account.namespace}' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
@@ -126,7 +126,7 @@ public linkAccount() {
 }
 ```
 
-### User profile linked accounts information
+## User profile linked accounts information
 
 User's profile contains an array of identities which is made of profile information from other providers. You can see this by accessing the [Auth0 users page](${uiURL}/#/users), select a user and scroll down to the identities. This is what it looks like after linking Gmail:
 
@@ -158,7 +158,7 @@ public linkedAccounts() {
 }
 ```
 
-### Un-Linking Accounts
+## Un-Linking Accounts
 
 You can also dissociate a linked account just hitting the [unlink user account endpoint](/api/management/v2#!/Users/delete_provider_by_user_id), using the primary user_id, and the provider/user_id of the identity you want to unlink.
 
@@ -183,6 +183,6 @@ public unLinkAccount(identity) {
 }
 ```
 
-### Done!
+## Done!
 
 You have implemented of linking and unlinking accounts in Auth0 user profile.
