@@ -185,7 +185,7 @@ After the update, the client will show the following data:
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"client_metadata\": {\"mycolor\": null}}"
+		"text": "{\"client_metadata\": {\"mycolor\": \"null\"}}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
