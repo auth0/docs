@@ -39,4 +39,4 @@ Here is the code you would add to your web application.
 </script>
 ```
 
-Notice that when you use the embedded mode the widget can't be "closed" unless you change the `closable` [property](/libraries/lock/customization#closable-boolean).
+Notice that when you use the embedded mode the widget can't be "closed" unless you change the `closable` [property](/libraries/lock/v9/customization#closable-boolean).

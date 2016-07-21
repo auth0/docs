@@ -73,7 +73,7 @@ app.UseAuth0Authentication(
 
 ${lockSDK}
 
-> If you selected one of the Lock widgets or Passwordless authentication methods above, please ensure that the `callbackURL` setting contains the correct callback URL to the `/signin-auth0` path, e.g. `http://YOUR_WEBSITE_URL/signin-auth0`.
+> If you selected one of the Lock widgets or Passwordless authentication methods above, please ensure that the `redirectUrl` setting contains the correct URL to the `/signin-auth0` path, e.g. `http://YOUR_WEBSITE_URL/signin-auth0`.
 
 ### 6. Accessing user information
 
