@@ -88,7 +88,7 @@ var auth0 = new Auth0({
 
 ...
 
-auth0.getClient().getDelegationToken({
+auth0.getDelegationToken({
    id_token: token,
         // By default the first active third party add-on will be used
         // However, We can specify which third party API to use here by specifying the name of the add-on
