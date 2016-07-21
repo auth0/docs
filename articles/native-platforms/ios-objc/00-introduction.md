@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: Brief introduction to the iOS-Swift tutorials.
+description: Brief introduction to the iOS-Objective-C tutorials.
 ---
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
@@ -14,10 +14,10 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
+  pkgPath: '00-introduction',
+  pkgFilePath: '00-introduction/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
