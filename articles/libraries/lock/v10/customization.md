@@ -274,10 +274,6 @@ var options = {
 };
 ```
 
-::: panel-info Disabling the header badge altogether
-To disable the header badge entirely, [UI customizations][ui-customization] are required.
-:::
-
 ---
 
 ## Social Options 
