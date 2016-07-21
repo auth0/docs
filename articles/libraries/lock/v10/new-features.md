@@ -1,3 +1,8 @@
+
+::: panel-info Lock Version
+Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
+:::
+
 # New Features in Lock 10
 
 ## Custom Sign Up Fields
@@ -15,11 +20,8 @@ var lock = new AuthLock(
       icon: "https://example.com/address_icon.png", // optional
       prefill: "street 123",                        // optional
       validator: function(value) {                  // optional
-        // only accept addresses with 10 or more chars
-        return {
-          valid: address.length >= 10,              // required
-          hint: "Must have 10 or more chars"        // optional
-        };
+        // only accept addresses with more than 10 chars
+        return value.length > 10;
       }
     }] // more fields could be specified
   });

@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "ASP.NET Core Quickstart"
+    tags:
+      - asp.net
+      - asp.net core
+    description: |
+      The [ASP.NET Core Quickstart for MVC applications](https://auth0.com/docs/quickstart/webapp/aspnet-core/) has been updated to demonstrate various scenarios for integrating Auth0 into your applications.

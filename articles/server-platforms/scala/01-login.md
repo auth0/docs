@@ -120,7 +120,7 @@ Your callback URL should look something like:
 
 ${lockSDK}
 
-**Note:** The `callbackURL` specified in the `Auth0Lock` constructor must match that specified in the previous step.
+**Note:** The `redirectUrl` specified in the `Auth0Lock` constructor must match the callback URL specified in the previous step.
 
 ## 4. Access user information
 

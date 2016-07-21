@@ -3,10 +3,6 @@ title: Login
 description: This tutorial will show you how to integrate Lock in your iOS Swift project in order to present a login screen.
 ---
 
-## iOS Swift - Login Tutorial
-
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
@@ -22,10 +18,6 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
   pkgType: 'replace'
 }) %>
-
-**Otherwise, if you already have an existing application, please follow the steps below.**
-
-
 
 ### Before Starting
 

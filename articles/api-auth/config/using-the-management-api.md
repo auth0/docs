@@ -4,8 +4,6 @@ description: How to enable API Authorization using the Auth0 Management API.
 
 # API Authorization: Using the Management API
 
-<%=include('../_preview-warning') %>
-
 If you do not want to use the Auth0 Dashboard to enable  API Authorization, you can achieve the same results using the Auth0 Management API.
 
 You will need the following:
@@ -17,7 +15,7 @@ You will need the following:
 
 ## Register your Resource Server
 
-The **Resource Server** entity represents the API that you want to issue access tokens for, identified by a friendly name and a URN identifier. 
+The **Resource Server** entity represents the API that you want to issue access tokens for, identified by a friendly name and a URN identifier.
 
 The following restrictions that apply for the identifier:
 
@@ -96,4 +94,4 @@ Next, update your API to parse the token from the request and validate it. You w
 
 Now that all the elements are in place, you can request access tokens for your API from Auth0.
 
-For details on generating access tokens, see: [API Authorization: Asking for Access Tokens](/api-auth/config/asking-for-access-tokens) 
+For details on generating access tokens, see: [API Authorization: Asking for Access Tokens](/api-auth#using-the-auth0-dashboard-for-setting-up-an-api-authorization-scenario)

@@ -1,5 +1,5 @@
 ---
-title: C#
+title: Ruby
 ---
 
 ```ruby

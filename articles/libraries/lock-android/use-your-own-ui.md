@@ -77,7 +77,12 @@ description: Customize the UI of Lock in your App
   ```java
       String email = ... // Get email
       String password = ... // Get password
-      Map<String, Object> authenticationParameters = ... // Additional authentication parameters
+      //add your DB connection name, since you are using email / pwd login
+      //will throw a 400 error if not set
+      ParameterBuilder parameterBuilder = ParameterBuilder.newBuilder();
+      Map<String, Object> authenticationParameters = parameterBuilder
+                .setConnection("YOUR_DB_CONNECTION_NAME")
+                .asDictionary();
       client.login(email, password)
           .addParameters(authenticationParameters)
           .start(new AuthenticationCallback() {

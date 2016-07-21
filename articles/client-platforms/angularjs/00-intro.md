@@ -11,7 +11,7 @@ Auth0 supports authentication in both redirect and pop-up modes. Although SPAs d
 
 ## Seed &amp; Samples
 
-There are two options for following along with these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter-Seed) or the samples. The seed project is a regular angular app can serve as a starting point for this quickstart. The samples are included with each step below.
+There are two options for following along with these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter-Seed) or the samples. The seed project is a regular angular app that can serve as a starting point for this quickstart. The samples are included with each step below.
 
 ## 1. Create an Application
 

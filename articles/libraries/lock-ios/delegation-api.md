@@ -50,5 +50,3 @@ The only two parameters required are `id_token` and the `api_type` (the value of
 * salesforce_sandbox_api: Salesforce Sandbox API.
 * sap_api: SAP OData.
 * wams: Windows Azure Mobile Services.
-
-Please check our examples on how to connect with [Firebase](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/Firebase) or [AWS](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/AWS)

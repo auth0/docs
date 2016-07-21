@@ -8,12 +8,11 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
 }) %>
 
 
-### Login
+## Login
 
-The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there. 
+The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there.
 
-To implement login, first create an `Auth0Lock` instance. 
-The instance creator receives your Auth0 credentials and an options object (available options [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#customization))
+We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](https://github.com/auth0/lock/tree/v10.0.0#customization))
 
 Then, just add a callback for the `authenticated` lock event, which receives one argument with login information. For now just store the `idToken` attribute into `localStorage`.
 
@@ -56,7 +55,7 @@ export class Auth {
 ```
 
 In `login` method, just call `lock.show()` to display the login widget.
-When the page is redirected after login, the callback defined for `authenticated` lock event will be inoked.
+When the page is redirected after login, the callback defined for `authenticated` lock event will be invoked.
 
 To know if a user is authenticated, just use `tokenNotExpired` from [angular2-jwt](https://github.com/auth0/angular2-jwt) which allows you to check whether there is a non-expired JWT in local storage.
 
@@ -67,7 +66,7 @@ To use this, just inject the `Auth` service into your component
 export class AppComponent {
   constructor(private auth: Auth) {}
 }
-``` 
+```
 
 and then in your component's template
 
@@ -86,6 +85,6 @@ The lock widget will pop up showing a Login form, when you click the Login butto
 ${browser}
 
 
-### Done!
+## Done!
 
 You've implemented Login and SignUp with Auth0 in your Angular2 project.

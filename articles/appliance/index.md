@@ -18,6 +18,7 @@ Auth0 is responsible for installation, maintenance, patching and updates. You ar
 
 * [Overview of the Auth0 Appliance](/appliance/appliance-overview)
     * [Overview of the Geographic High-Availability Appliance](/appliance/geo-ha)
+* [Appliance Deployment Modules](/appliance/modules)
 * [Appliance Infrastructure Requirements](/appliance/infrastructure)
 * [Appliance Sprint (Customer Onboarding)](/onboarding/appliance-sprint)
 
@@ -32,3 +33,4 @@ Auth0 is responsible for installation, maintenance, patching and updates. You ar
 * [Appliance Command-Line Interface Tools](/appliance/cli)
 * [Automatic Creation of Tenants](/appliance/admin/creating-tenants)
 * [Node.js Modules Available in Rules and Custom Database Connections for Appliances](/appliance/modules)
+* [Webtasks](/appliance/webtasks)

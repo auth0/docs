@@ -10,6 +10,7 @@ Rules can also be used to programatically redirect users before an authenticatio
 
 ::: panel-danger Caution:
 Redirect rules won't work for the [Resource Owner endpoint](/auth-api#!#post--oauth-ro) authentication endpoint.
+You can detect resource owner logins from a rule by checking `context.protocol === 'oauth2-resource-owner'`.
 :::
 
 ## How to implement a redirect

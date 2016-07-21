@@ -1,19 +1,20 @@
 ```js
 // app/pages/ping/ping.ts
 
-]import {Page} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {Http} from '@angular/http';
 import {AuthHttp} from 'angular2-jwt';
 import {AuthService} from '../../services/auth/auth';
 import 'rxjs/add/operator/map';
 
-@Page({
+@Component({
   templateUrl: 'build/pages/ping/ping.html',
 })
 export class PingPage {
   message: string;
   error: string;
   
-  constructor(private authHttp: AuthHttp, private auth: AuthService) {}
+  constructor(private http: Http, private authHttp: AuthHttp, private auth: AuthService) {}
   
   securedPing() {
     // Here we use authHttp to make an authenticated
