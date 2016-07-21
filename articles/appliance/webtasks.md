@@ -14,7 +14,7 @@ Auth0 provides different stages (which are known as sandboxes) on which you may 
 * `eval`: provides the best performance, but is the least secure of the three available modes;
 * `auth0-sandbox`: provides better performance that `node_sandbox`, improved isolation over `eval`, and offers a greater number of Node.js modules for use with your custom code.
 
-**Note**: Only one sandbox mode may be selected at any given time (for example, you may not run selected rules in one sandbox and other rules in another sandbox).
+**Note**: Only one sandbox mode may be selected at any given time (for example, you may not run selected rules in one sandbox and other rules in another sandbox). If you would like to change the sandbox mode, please discuss this with your Auth0 Customer Success Engineer.
 
 ## Code Compatibility
 
