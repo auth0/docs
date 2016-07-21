@@ -1,6 +1,6 @@
 ---
 title: MFA
-description: This tutorial will show you how to add Multi-factor Authentication to your ReactJS with auth0.
+description: This tutorial will show you how to add Multifactor Authentication to your ReactJS with auth0.
 ---
 
 <%= include('../../_includes/_github', {
@@ -23,4 +23,4 @@ On this tutorial you'll learn how to enable MFA in a ReactJS application created
 
 ## 3. All done!
 
-You have completed the Multi-factor authentication setup with Auth0 in your ReactJS project.
+You have completed the Multifactor authentication setup with Auth0 in your ReactJS project.
