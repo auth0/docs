@@ -6,6 +6,8 @@ description:
 
 # Lock iOS: SSO on Mobile Apps
 
+Lock allows you to easily implement single sign-on (SSO). Single sign-on is a mechanism that allows a user to use the same credentials between multiple applications. If you have two different applications and you have a user that is already authenticated app A, single sign-on allows that user to automatically be authenticated in app B as well. The experience is similar to what happens with Facebook and it's companion Messenger app, as well as Foursquare and Swarm.
+
 In order to do SSO on Mobile Apps, we need to use a shared keychain. We'll learn how to do this throughout this post.
 
 To enable keychain sharing you'll have to define a keychain access group with the following format:

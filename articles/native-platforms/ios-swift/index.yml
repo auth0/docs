@@ -11,7 +11,9 @@ tags:
   - quickstart
 seo_alias: swift
 articles:
+  - 00-introduction
   - 01-login
   - 02-custom-login
   - 03-session-handling
   - 04-user-profile
+  - 05-linking-accounts

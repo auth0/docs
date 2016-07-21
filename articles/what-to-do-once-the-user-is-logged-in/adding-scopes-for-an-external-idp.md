@@ -1,11 +1,15 @@
-# Adding scopes/permissions to call an external IdP's APIs
+---
+description: How to add scopes to your IdP connection.
+---
 
-The user is logged in. This means we can get the user's profile and his `accessToken` so that we can call the IdP (Facebook, Github, etc.) APIs.
+# Add scopes/permissions to call  Identity Provider's APIs
 
-> You can read [this article](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) If you don't know how to get the `accessToken` or how to call an IdP's API
+Once user is logged in, you can get the user profile and then the associated `accessToken` to call the Identity Provider APIs as described in: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api)
 
-However, when we try to call the API, we're getting Access Denied. This is probably because we haven't asked for the right permissions to the user when he was logging in.
+However, if you are receiving `Access Denied` when calling the IdP API, you probably have not requested the correct permissions for the user during login.
 
-In order to configure what scopes/permissions we need from the user, we must go to the [Connections](${uiURL}/#/connections/social) section in Auth0 Dashboard. In there, we can expand any of the Identity Providers and then choose the particular scopes we need. For example, for facebook, we can add new scopes as follows:
+To configure the scopes/permissions needed from the user, go to the [Connections > Social](${uiURL}/#/connections/social) section of Auth0 Dashboard. There, you can click on an IdP to select the particular scopes required. 
 
-![Scopes for facebook](/media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.gif)
+For example, if you click the Facebook connection, you can select the required scopes listed in the configuration pop-up:
+
+![Scopes for Facebook](/media/articles/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp/scopes.png)

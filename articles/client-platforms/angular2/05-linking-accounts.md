@@ -11,11 +11,11 @@ In some cases, there could be need for you to link multiple accounts. One very c
 
 ### Linking Accounts
 
-To link accounts you need to hit the [link user account endpoint](https://auth0.com/docs/api/management/v2#!/Users/post_identities). You need the primary JWT (the token saved when you login), the user id (could be taken from the JWT or the profile) and the JWT of the account you want to link (secondary account).
+To link accounts you need to hit the [link user account endpoint](/api/management/v2#!/Users/post_identities). You need the primary JWT (the token saved when you login), the user id (could be taken from the JWT or the profile) and the JWT of the account you want to link (secondary account).
 
 Let's make it work. As you need to do a second login to get the secondary account JWT, we will use another instance of `AuthLock`. This is to differentiate the login from the linking login.
 
-As all instances listen to the `authenticated` event (we are in redirect mode, so we don’t have a reliable way to determine which instance did the login) we need a way to know if the login came from a login or from a linking login. We can use [params auth option](https://github.com/auth0/lock/tree/v10.0.0-rc.1#authentication-options), setting a `state` property to `"linking"`.
+As all instances listen to the `authenticated` event (we are in redirect mode, so we don’t have a reliable way to determine which instance did the login) we need a way to know if the login came from a login or from a linking login. We can use [params auth option](https://github.com/auth0/lock/tree/v10.0.0-rc.2#authentication-options), setting a `state` property to `"linking"`.
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -99,7 +99,7 @@ export class Auth {
     });
 
     this.authHttp
-      .post('https://' + 'YOUR_DOMAIN' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
+      .post('https://' + '${account.namespace}' + '/api/v2/users/' + this.userProfile.user_id + '/identities', data, {headers: headers})
       .map(response => response.json())
       .subscribe(
         response => {
@@ -160,7 +160,7 @@ public linkedAccounts() {
 
 ### Un-Linking Accounts
 
-You can also dissociate a linked account just hitting the [unlink user account endpoint](https://auth0.com/docs/api/management/v2#!/Users/delete_provider_by_user_id), using the primary user_id, and the provider/user_id of the identity you want to unlink.
+You can also dissociate a linked account just hitting the [unlink user account endpoint](/api/management/v2#!/Users/delete_provider_by_user_id), using the primary user_id, and the provider/user_id of the identity you want to unlink.
 
 ```typescript
 public unLinkAccount(identity) {

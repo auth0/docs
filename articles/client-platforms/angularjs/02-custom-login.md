@@ -7,10 +7,10 @@ description: Learn how to login with custom widget rather than Lock
   link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/02-Custom-Login',
 }) %>
 
-The previous step explains how login but with a widget called Lock. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include Lock. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
+The previous step explains how to login with a widget called Lock. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include Lock. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
 
 ## Login
-The setup and APIs for logging in with Lock is same in this situation but with just an extra configuration.
+The setup and APIs for logging in with Lock is the same in this situation but with just an extra configuration.
 
 ```js
 /* ===== ./login/login.js ===== */
@@ -44,7 +44,7 @@ $scope.googleLogin = function () {
 };
 ```
 
-You can then provide the callbacks to handle each if the flow:
+You can then provide the callbacks to handle each in the flow:
 
 ```js
 /* ===== ./login/login.js ===== */
@@ -111,7 +111,7 @@ Below is the HTML template of the examples given above:
 </div>
 ```
 
-Now you see we can do with Lock and roll out our own fancy login/signup widget.
+Now you see what we can do with Lock and roll out your own fancy login/signup widget.
 
 ## Recap
 - Custom Login

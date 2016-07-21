@@ -6,9 +6,15 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 In the Dashboard under [Connections > Passwordless](${uiURL}/#/connections/passwordless), set the SMS slider to the right to enable the SMS Passwordless feature.
 
-Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
+Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields. 
 
-Enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio.
+**NOTE**: For information on obtaining a Twilio SID and Auth Token, see: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
+
+Select the **SMS Source** that users will see as the sender of the SMS.
+
+**NOTE**: For information on using Copilot, see: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+
+Enter either your **Twilio Messaging Service SID** or a **From** phone number, depending on the **SMS Source** selected above.
 
 Lastly, enter the **Message** that will appear in the body of the SMS.
 

@@ -19,7 +19,6 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 **Trigger:** *10* failed login attempts into a single account from the same IP address.
 
 **Actions**:
-* Notify dashboard owners
 * Send an email to the affected user
 * Block the suspicious IP address
 
