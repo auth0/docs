@@ -2,4 +2,4 @@ There is no need to update the code we have created in [Login](/docs/quickstart/
 
 ![guardian screen](/media/articles/mfa/choose-mfa.png)
 
-For detailed instructions on using guardian to authenticate, please refer to [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide)
+For detailed instructions on using guardian to authenticate, please refer to [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
