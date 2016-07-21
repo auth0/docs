@@ -3,6 +3,13 @@ title: User Profile
 description: This tutorial will show you how to integrate Auth0 with ReactJS to authenticate and fetch/show profile information.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
+
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/04-User-Profile',
 }) %>
