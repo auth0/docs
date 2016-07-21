@@ -88,4 +88,4 @@ Once you send a request and your API returns a response, its status code is goin
 
 > You can use your own API to test, or, if you want, you can use [this sample server](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server), which is quickly configurable.
 >
-> For further information on authentication API on the server-side, check [the official documentation](https://auth0.com/docs/api/authentication).
+> For further information on authentication API on the server-side, check [the official documentation](/api/authentication).
