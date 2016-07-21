@@ -22,7 +22,7 @@ You can [click here](/libraries/lock/types-of-applications#popup-mode) to learn 
 
 ### Database connections and popup mode
 
-Some Auth0 features such as [MFA](/multifactor-authentication) and [SSO](/sso/single-sign-on) between multiple applications depend on users being redirected to Auth0 to set a cookie on `https://YOUR_DOMAIN.auth0.com`.
+Some Auth0 features such as [MFA](/multifactor-authentication) and [SSO](/sso) between multiple applications depend on users being redirected to Auth0 to set a cookie on `https://YOUR_DOMAIN.auth0.com`.
 When using popup mode, a popup window will be displayed in order to set this cookie and display MFA prompts if necessary; this popup window will be blank if users are not prompted for MFA, which might not be a desirable UX.
 The reason for this is that [cross-origin requests](https://auth0.com/docs/auth-api#!#post--oauth-ro) sent from your application to Auth0 are not be able to set cookies.
 

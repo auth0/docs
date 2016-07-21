@@ -671,5 +671,9 @@
   {
     "from": "/multifactor-authentication2",
     "to": "/multifactor-authentication"
+  },
+  {
+    "from": "/sso/single-sign-on",
+    "to": "/sso"
   }
 ]

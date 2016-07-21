@@ -29,7 +29,7 @@ Auth0 supports [a wide variety of Connections](/identityproviders). Each connect
 
 Auth0 caches the User Profile received from a Connection prior to passing it on to the calling client application. This cache is stored in the Auth0 database. The information in the cache that originates from a Connection is refreshed each time the user authenticates.
 
-The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso/single-sign-on) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
+The User Profile is cached for several reasons. First, caching allows you the option of implementing [Single Sign-On](/sso) at the Auth0 layer to avoid going to the Connection for every request. Additionally, this provides resilience if a Connection is temporarily unavailable.
 
 You may delete a user's cached profile via the Auth0 Dashboard or the Management API.
 
