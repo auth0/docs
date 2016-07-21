@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
 
 You have to enable the MFA feature in your account. 
 
-First, follow [this link](https://manage.auth0.com/#/multifactor). Then, turn the switch on for **Google Authenticator**, under the *Choose a Provider* section.
+First, follow [this link](${uiURL}/#/multifactor). Then, turn the switch on for **Google Authenticator**, under the *Choose a Provider* section.
 
 > There are two other MFA providers that you can choose: Guardian and Duo. Just have in mind that Guardian isn't available yet for the Lock-iOS framework.
 
