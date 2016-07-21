@@ -41,7 +41,7 @@ A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
 
 Lock's widget UI is composed of several parts that can be customized. Here is a list of the available values that you can modify:
 
-![Lock.png](https://github.com/auth0/docs/blob/master/media/articles/libraries/lock-ios/customization/Lock-UI-Parts.png)
+![Lock.png](/media/articles/libraries/lock-ios/customization/Lock-UI-Parts.png)
 
 You can configure the following type of properties:
 
