@@ -5,4 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with Salesforce tokens
 logo_class: SalesforceAPI
 public: false
 image: /media/addons/salesforce-api.svg
+seo_alias: salesforce-api
 ---

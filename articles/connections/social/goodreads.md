@@ -1,6 +1,7 @@
 ---
 connection: Goodreads
-image:
+image: /media/connections/goodreads.png
+seo_alias: goodreads
 ---
 
 # Obtain a Consumer Keys and Consumer Secret for Goodreads

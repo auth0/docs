@@ -1,18 +1,16 @@
 ```xml
-<servlet>
-    <servlet-name>RedirectCallback</servlet-name>
-    <servlet-class>com.auth0.Auth0ServletCallback</servlet-class>
-    <init-param>
-        <param-name>auth0.redirect_on_success</param-name>
-        <param-value>/</param-value>
-    </init-param>
-    <init-param>
-        <param-name>auth0.redirect_on_error</param-name>
-        <param-value>/login</param-value>
-    </init-param>
-</servlet>
- <servlet-mapping>
-    <servlet-name>RedirectCallback</servlet-name>
-    <url-pattern>/callback</url-pattern>
-</servlet-mapping>
+<context-param>
+  <param-name>auth0.domain</param-name>
+  <param-value>${account.namespace}</param-value>
+</context-param>
+
+<context-param>
+  <param-name>auth0.client_id</param-name>
+  <param-value>${account.clientId}</param-value>
+</context-param>
+
+<context-param>
+  <param-name>auth0.client_secret</param-name>
+  <param-value>${account.clientSecret}</param-value>
+</context-param>
 ```

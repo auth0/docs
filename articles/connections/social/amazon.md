@@ -1,9 +1,11 @@
 ---
-connection: Amazon
+connection: Amazon Web Services
 image: /media/connections/amazon.png
 alias:
   - aws
   - amazon-web-services
+seo_alias: amazon
+index: 9
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Amazon
@@ -32,4 +34,3 @@ Expand the **Web Settings** section. Enter your Auth0 callback URL in the **Allo
 Go to your Auth0 Dashboard and select **Connections > Social**, then choose **Amazon**. Copy the `Client Id` and `Client Secret` from the **Web Settings** of your app on Amazon into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/amazon/amazon-add-connection.png)
-

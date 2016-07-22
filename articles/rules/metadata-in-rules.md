@@ -310,3 +310,43 @@ The resulting user is:
   }
 }
 ```
+
+### Considerations
+
+The metadata must be a valid JSON object and can not contain a dot in key field names in `user_metadata` or `app_metadata`.
+
+The following is not allowed.
+```js
+{
+
+"preference.color" : "pink"
+
+}
+```
+
+The following is accepted, however.
+
+```js
+{
+
+"color" : "light.blue"
+
+}
+```
+
+If you use a key field name with a dot in it you will get an Internal Server (500) error.
+
+A few workarounds are listed below:
+
+You can convert the first example to something like this.
+
+```js
+{
+
+"preference" : {"color" : "pink" }
+
+}
+```
+
+Or you could use a different delimiter character besides `.` (dot) or `$` (dollar sign).
+

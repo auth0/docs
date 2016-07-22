@@ -1,0 +1,39 @@
+added:
+  -
+    title: "Added Appliance Infrastructure docs"
+    tags:
+      - appliance
+      - infrastructure
+    description: |
+      A [new document](https://auth0.com/docs/client-platforms/aurelia) was added detailing the Appliance's infrastructure requirements.
+  -
+    title: "Added Appliance Geo HA doc"
+    tags:
+      - appliance
+      - infrastructure
+    description: |
+      A [new document](https://auth0.com/docs/appliance/geo-ha) providing a high-level overview of the Geo HA Appliance model was added.
+  -
+    title: "Added Appliance CLI Configuration doc"
+    tags:
+      - appliance
+    description: |
+      A [new document](https://auth0.com/docs/appliance/cli/configure-cli) detailing how to set up CLI integration with the Appliance was added.
+  -
+    title: "Added Appliance CLI Back Up doc"
+    tags:
+      - appliance
+    description: |
+      A [new tutorial](https://auth0.com/docs/appliance/cli/backing-up-the-appliance) on backing up the Appliance via CLI was added.
+  -
+    title: "Added Appliance Dashboard docs"
+    tags:
+      - appliance
+    description: |
+      A [new document](https://auth0.com/docs/appliance/dashboard) documenting various features of the Appliance dashboard/configuration area was added.
+  -
+    title: "Added Appliance Monitoring docs"
+    tags:
+      - appliance
+    description: |
+      A [new document](https://auth0.com/docs/appliance/monitoring) documenting various monitoring features of the Appliance was added.

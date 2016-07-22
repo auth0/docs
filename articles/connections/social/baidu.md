@@ -1,6 +1,7 @@
 ---
 connection: Baidu
 image: /media/connections/baidu.png
+seo_alias: baidu
 ---
 
 # Obtain an API Key and Secret Key for Baidu

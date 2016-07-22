@@ -1,6 +1,8 @@
 # Auth0 Appliance Dashboard: CLI
 
-If your Auth0 Appliance instances requires integration with any Command Line Interfaces (CLI), you may add the required access keys to this page.
+> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
+If your Auth0 Appliance instances requires integration with the Appliance Command Line Interface (CLI), you may add the required access keys to this page.
 
 ![](/media/articles/appliance/dashboard/cli-keys.png)
 

@@ -2,6 +2,7 @@
 order: 02
 title: Mobile + API
 image: /docs/media/articles/architecture-scenarios/mobile-api.png
+extract: Mobile Application “Client” which talks to an API (“Resource Server”). The application will use OpenID Connect with the Authorization Grant Flow (with the PKCE extension) to authenticate users.
 ---
 
 # Mobile + API
@@ -20,12 +21,11 @@ The application will usually store the information about the user’s session (i
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Native Mobile App](https://auth0.com/docs/quickstart/native-mobile/)
-* [Hybrid Mobile App](https://auth0.com/docs/quickstart/hybrid/)
-* [Lock for iOS and OS X](https://auth0.com/docs/libraries/lock-ios)
-* [Lock for Android](https://auth0.com/docs/libraries/lock-android)
-* [API Authentication and Authorization](https://auth0.com/docs/api-auth)
-* [API Auth: Authorization Code Grant](https://auth0.com/docs/api-auth/grant/authorization-code)
-* [Auth0 access_token](https://auth0.com/docs/tokens/access_token)
-* [Auth0 id_token](https://auth0.com/docs/tokens/id_token)
-* [Auth0 refresh_token](https://auth0.com/docs/tokens/refresh_token)
+* [Native Apps](/quickstart/native/)
+* [Lock for iOS and OS X](/libraries/lock-ios)
+* [Lock for Android](/libraries/lock-android)
+* [API Authentication and Authorization](/api-auth)
+* [API Auth: Authorization Code Grant](/api-auth/grant/authorization-code)
+* [Auth0 access_token](/tokens/access_token)
+* [Auth0 id_token](/tokens/id_token)
+* [Auth0 refresh_token](/tokens/refresh_token)

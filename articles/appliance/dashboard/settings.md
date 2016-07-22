@@ -1,5 +1,7 @@
 # Auth0 Appliance Dashboard: Settings
 
+> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
 The Settings page is where you will make most of the changes that pertain to your Appliance configuration.
 
 ![](/media/articles/appliance/dashboard/settings.png)
@@ -74,6 +76,8 @@ The Settings page is broken down into the following sections:
 * **Health service**: generates a key that authenticates your API calls for status information regarding your Appliance instances;
 
     ![](/media/articles/appliance/dashboard/health-keys-api-service.png)
+
+    **Please be sure to save the Settings page to persist the newly-generated key.**
 
 ## Advanced Settings
 

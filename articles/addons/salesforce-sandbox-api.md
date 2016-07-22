@@ -5,4 +5,5 @@ help: Enabling this add-on allows exchanging Auth0 tokens with Salesforce (sandb
 logo_class: SalesforceSandbox
 public: false
 image: /media/addons/salesforce_sandbox_api.svg
+seo_alias: salesforce-sandbox-api
 ---

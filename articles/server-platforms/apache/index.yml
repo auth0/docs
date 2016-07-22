@@ -1,0 +1,11 @@
+title: Apache
+image: /media/platforms/apache.jpg
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/apache/dependencies
+  setup: server-platforms/apache/setup
+  use: server-platforms/apache/use
+seo_alias: apache
+articles:
+  - 01-login

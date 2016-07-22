@@ -1,0 +1,18 @@
+title: ASP.NET Core
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/aspnet-core/dependencies
+alias:
+  - aspnetcore
+seo_alias: aspnet-core
+articles:
+  - 00-intro
+  - 01-login
+  - 02-login-embedded-lock
+  - 03-login-custom
+  - 04-storing-tokens
+  - 05-user-profile
+  - 07-rules
+  - 08-authorization

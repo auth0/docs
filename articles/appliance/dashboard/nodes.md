@@ -1,5 +1,7 @@
 # Auth0 Appliance Dashboard: Nodes
 
+> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
 The Nodes page located under the Appliance configuration area provides a high-level overview of the nodes you have running as part of your Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.
 
 ![](/media/articles/appliance/dashboard/nodes.png)
@@ -18,4 +20,4 @@ The Nodes page displays the following pieces of information for each of your nod
 At the end of each row detailing a Node instance are two buttons:
 
 * **Reboot**: if clicked, Auth0 reboots the node;
-* **Remove**: if clicked, Auth0 dissociates the node from this particular account/Appliance instance.
+* **Remove**: if clicked, Auth0 removes the node from the status list. If the node is still running, the configuration area will publish a new status.

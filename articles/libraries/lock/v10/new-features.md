@@ -1,8 +1,13 @@
+
+::: panel-info Lock Version
+Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
+:::
+
 # New Features in Lock 10
 
 ## Custom Sign Up Fields
 
-You can add input fields to the sing up form with the new option `additionalSignUpFields`.
+You can add input fields to the sign up form with the new option `additionalSignUpFields`.
 
 ```js
 var lock = new AuthLock(
@@ -19,10 +24,7 @@ var lock = new AuthLock(
         return value.length > 10;
       }
     }] // more fields could be specified
-  },
-  function(error, result) {
-    // handle auth
-});
+  });
 ```
 
 If the possible values for the field are predefined, you can add a field with the `"select"` `type`.
@@ -50,7 +52,7 @@ var lock = new AuthLock(
 });
 ```
 
-The `options` and `prefill` properties can also be functions, which is useful when you need to make a requests to obtain their values.
+The `options` and `prefill` properties can also be functions, which is useful when you need to make a request to obtain their values.
 
 ```js
 var lock = new AuthLock(
@@ -105,13 +107,11 @@ var lock = new AuthLock(
         cb(null, displayName);
       }
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
-If you don't want to display and avatar pass `null`.
+If you don't want to display an avatar pass `null`.
 
 ```js
 var lock = new AuthLock(
@@ -119,10 +119,8 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     avatar: null
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Prefilled Fields
@@ -138,10 +136,8 @@ var lock = new AuthLock(
       email: "someone@example.com",
       username: "someone"
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Authentication Options
@@ -154,24 +150,21 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     auth: {
-      jsonp: false,
       params: {name: "value"},
       redirect: true,
       redirectUrl: window.location.href
       responseType: "token",
       sso: true
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Initial Screen
 
 You may now choose the screen that will be first displayed when Lock is shown with the `initialScreen` option. The following are valid values:
 * `login` (default);
-* `resetPassword`;
+* `forgotPassword`;
 * `signUp`;
 
 ```js
@@ -179,11 +172,9 @@ var lock = new AuthLock(
   '${account.clientId}',
   '${account.namespace}',
   {
-    initialScreen: "signUp" // "login" or "resetPassword"
-  },
-  function(error, result) {
-    // handle auth
-});
+    initialScreen: "signUp" // "login" or "forgotPassword"
+  }
+);
 ```
 
 ## Theme Options
@@ -199,10 +190,8 @@ var lock = new AuthLock(
       logo: "https://example.com/icon.png",
       primaryColor: "#ec4889"
     }
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```
 
 ## Sign Up Terms Agreement
@@ -215,13 +204,9 @@ var lock = new AuthLock(
   '${account.namespace}',
   {
     languageDictionary: {
-      signUp: {
-        terms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
-      }
+      signUpTerms: "I agree to the <a href='/terms' target='_new'>terms of service</a> and <a href='/privacy' target='_new'>privacy policy</a>."
     },
     mustAcceptTerms: true
-  },
-  function(error, result) {
-    // handle auth
-});
+  }
+);
 ```

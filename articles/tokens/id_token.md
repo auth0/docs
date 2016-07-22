@@ -29,7 +29,7 @@ The `id_token` is returned when calling any of the Auth0 functions which invoke 
 
 ## How to control contents of `id_token`
 
-The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a parameter called `scope` which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
+The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/scopes) which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
 
 ```
 lock.show({
@@ -119,3 +119,4 @@ If there is any sensitive information included in the JWT, it should be encrypte
 * [Blog Post: Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Description of the JWT expiration](/applications)
 * [Discussion of web apps vs apis, cookies vs tokens](/apps-apis)
+* [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)

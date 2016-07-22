@@ -48,7 +48,7 @@ The common visible part of this process is that the user is redirected to the id
 
 Upon successful authentication, the user will eventually return to your web site with a URL that will look like (steps 3 & 4 in the diagram above):
 
-    http://CALLBACK/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
+    ${account.callback}/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
 
 `CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step /libraries/lock/customization#rememberlastlogin-boolean-.
 
@@ -56,8 +56,8 @@ Your web site will then call Auth0 again with a request to obtain an "Access Tok
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret` (step 5 in the diagram).
 
-	POST https://${account.namespace}/oauth/token
-
+	POST /oauth/token
+	Host: ${account.namespace}
 	Content-type: application/x-www-form-urlencoded
 
 	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code
@@ -76,11 +76,62 @@ If the request is successful, you will get a JSON object with an `access_token`.
 
 Notice that the call to exchange the `code` for an `access_token` is __server to server__ (usually your web backend to Auth0). The system initiating this call has to have access to the public internet to succeed. A common source of issues is the server running under an account that doesn't have access to internet.
 
-## OAuth for Native Clients and JavaScript in the browser
+## OAuth2 PKCE for Public Clients
 
-This protocol is best suited for mobile native apps and javascript running in a browser that need to access an API that expects an Access Token.
+This protocol is best suited for public clients that require increased security in the token exchange process. It is a better alternative to the [implicit flow]().
 
-> The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2) and it is referred to as the __Implicit Flow__.
+> The full spec of this protocol can be found [here](https://tools.ietf.org/html/rfc7636).
+
+![](https://docs.google.com/drawings/d/1VAhgi3-Gz7QZ5eBSmMY76L77awjrHWKmZ5qqIYqUqis/pub?w=752&h=282)
+
+### 1. Initiation
+
+The client requests authorization to Auth0 endpoint:
+
+	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}&code_challenge_method=S256&connection=YOUR_CONNECTION
+
+The `redirect_uri` __must__ match one of the addresses defined in your [settings](${uiURL}/#/settings) page.
+
+> Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
+
+### 2. Authentication
+
+Auth0 will redirect the user to the identity provider defined in the `connection` property.
+
+### 3. Getting the Authorization Code
+
+Upon successful authentication, Auth0 will return a redirection response with the following URL structure:
+
+	${account.callback}?code={THE CODE}
+
+### 4. Getting the token
+
+The client then issues a final request to Auth0, to exchange the `code` for a token:
+
+```
+POST /oauth/token HTTP/1.1
+Host: ${account.namespace}
+Content-type: application-json
+{
+  "code": {THE CODE},
+  "code_verifier": {THE VERIFIER},
+  "client_id": "${account.clientId}",
+  "grant_type": "authorization_code",
+  "redirect_uri": "${account.callback}"
+}
+``` 
+
+If successful the response is another JSON object, with an `id_token`, and `access_token`. 
+
+> Note that if the `verifier` doesn't match what is sent in the `/authorize` endpoint, the request will fail.
+
+You will have to set `Token Endpoint Authentication Method` to `none` in your application for this to work. Look under **Settings** of the app.
+
+## OAuth2 Implicit flow
+
+This protocol is available for public clients that might not require the additional security provisions of PKCE, as described above.
+
+> The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2).
 
 ![](https://docs.google.com/drawings/d/1S_p6WdsOno50aKlr08SueWL25a86l86e8CQLMyDQx_8/pub?w=752&amp;h=282)
 
@@ -90,7 +141,9 @@ The client requests authorization to Auth0 endpoint:
 
 	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=token&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
-The `redirect_uri` __must__ match one of the addresses defined in your [settings](${uiURL}/#/settings) page.
+> Notice `response_type=token` in this request.
+
+As before, the `redirect_uri` __must__ match one of the addresses defined in your [settings](${uiURL}/#/settings) page.
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
@@ -132,6 +185,7 @@ curl https://my-api.example.com/my-secured-endpoint -H "Authorization: Bearer ey
 ```
 
 Note that the header name in this case is `Authorization`, and its value is `Bearer eyJ...` (separated by one space).
+--------
 
 ## OAuth Resource Owner Password Credentials Grant
 

@@ -8,19 +8,18 @@ Let's say we have three applications
 
 > You can see an example of a Regular Web App configured to use SSO in [this github repository](https://github.com/auth0/auth0-sso-sample/tree/master/app3.com)
 
-## Case 1: The user is already logged in and clicks on a link that redirects to a specific url app3.com
+## Case 1: The user is already logged in and clicks on a link that redirects to a specific URL app3.com
 
-The user logs in on app1.com and click on some link should take him to a particular URL on app3.com. In these case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
+The user logs in on app1.com and clicks on a link that should take them to a particular URL on app3.com. In this case, you can create an endpoint on the target application (app3) that will redirect to the URL the user wanted to go after SSO. For example:
 
 ```
 https://app3.com/sso?targetUrl=/foo/bar
 ```
 
-This endpoint would check if the user is already logged in to this app. If it is, then redirect to the target URL. If the user is not logged in on the application, redirect to Auth0 for SSO:
-
+This endpoint would check if the user is already logged in to this app. If they are, then redirect to the target URL. If the user is not logged in to the application, then redirect to Auth0 for SSO:
 
 ```
-handle("/sso") 
+handle("/sso")
   if (user is already logged in)
     redirect to targetUrl
   else
@@ -51,7 +50,7 @@ When the user comes back from Auth0 you should check for the `state` parameter a
 ```
 handle("/callback")
   // process login with SDK
-  if (state) redirect to url on state parameter 
+  if (state) redirect to url on state parameter
   else redirect to base logged in URL
 ```
 
@@ -89,11 +88,11 @@ app.get('/',
     });
 ```
 
-If the user was already logged in before, then Auth0 will automatically redirect back to the application with a new token. If not, it will show the Auth0 Login Page.
+If the user was already logged in before, then Auth0 will automatically redirect back to the application with a new token. If not, then it will show the Auth0 Login Page.
 
 ## Case 3: The user has never logged in
 
-The user has never logged in to any app. In this case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not, and in the case he's not, redirects the user to the following url:
+The user has never logged in to any app. In this case, the filter or middleware mentioned in the previous point checks if the user is authenticated or not, and in the case they're not, redirects the user to the following URL:
 
 ```
 https://YOURS.auth0.com/authorize?client_id=…&response_type=code&redirect_uri=http://urlTo/callback

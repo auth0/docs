@@ -1,0 +1,33 @@
+title: Angular 2
+image: /media/platforms/angular.png
+alias:
+  - angular2
+  - angularjs
+language:
+  - Javascript
+framework:
+  - Angular 2
+tags:
+  - quickstart
+snippets:
+  dependencies: client-platforms/angular2/dependencies
+  install: client-platforms/angular2/install
+  observable: client-platforms/angular2/observable
+  request: client-platforms/angular2/request
+  router: client-platforms/angular2/router
+  setup: client-platforms/angular2/setup
+  system_map: client-platforms/angular2/system-map
+  use: client-platforms/angular2/use
+seo_alias: angular2
+articles:
+  - 00-intro
+  - 01-login
+  - 02-custom-login
+  - 03-session-handling
+  - 04-user-profile
+  - 05-linking-accounts
+  - 06-rules
+  - 07-authorization
+  - 08-calling-apis
+  - 09-mfa
+  - 10-customizing-lock

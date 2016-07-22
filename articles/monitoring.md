@@ -105,7 +105,7 @@ OK
 
 Individual nodes that are not responding, or timeout can be __removed from the load balancer without affecting the service__. All nodes of a cluster can serve requests to client applications. All configuration information is continuously replicated across nodes.
 
-> These endpoints are typcially used by the Load Balancer to decide whether a node should be removed from the cluster or not. If a node stops responding, and the Load Balancer removes it you must contact [Auth0 Support](https://support.auth0.com).
+> These endpoints are typically used by the Load Balancer to decide whether a node should be removed from the cluster or not. If a node stops responding, and the Load Balancer removes it you must contact [Auth0 Support](https://support.auth0.com).
 
 ### Configuring SCOM
 

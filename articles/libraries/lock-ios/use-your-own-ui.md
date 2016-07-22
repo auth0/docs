@@ -13,7 +13,7 @@ description: Customize the UI of Lock in your App
   ```ruby
   pod "Lock/Core", "~> 1.16"
   pod "Lock-Facebook", "~> 2.0" #If you need FB native integration
-  pod "Lock-Twitter", "~> 1.0" #If you need Twitter native integration
+  pod "Lock-Twitter", "~> 1.1" #If you need Twitter native integration
   ```
 
 2. Open your app's `Info.plist` file and add two new entries `Auth0ClientId` and `Auth0Domain` with the following values `${account.clientId}` and `${account.namespace}`
@@ -35,7 +35,7 @@ description: Customize the UI of Lock in your App
   A0APIClientAuthenticationSuccess success = ^(A0UserProfile *profile, A0Token *token) {
     NSLog(@"We did it!. Logged in with Auth0.");
   };
-  A0APIClientError error = ^(NSError *error){
+  A0APIClientError failure = ^(NSError *error){
     NSLog(@"Oops something went wrong: %@", error);
   };
   A0AuthParameters *params = [A0AuthParameters newDefaultParams];
@@ -44,7 +44,7 @@ description: Customize the UI of Lock in your App
                    password:password
                  parameters:params
                     success:success
-                    failure:failure];
+                    failure:error];
   ```
 
   ```swift
@@ -56,7 +56,7 @@ description: Customize the UI of Lock in your App
   client.loginWithUsername(email, password: password, parameters: parameters, success: { profile, token in
     println("We did it!. Logged in with Auth0.")
   }, failure: { error in
-    println("Oops something went wrong: \(error)"
+    println("Oops something went wrong: \(error)")
   })
   ```
 > More details about the parameters you can use check [this wiki page](/libraries/lock-ios/sending-authentication-parameters).
@@ -92,7 +92,7 @@ After that, you may want to save the user's token to be able to use them later, 
 3. Configure Facebook Native Integration
   ```objc
   A0Lock *lock = ... //Get your Lock instance
-  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticationWithDefaultPermissions];
+  A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
   [lock registerAuthenticators:@[facebook]];
   ```
   ```swift

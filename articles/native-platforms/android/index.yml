@@ -1,0 +1,18 @@
+title: Android
+alias:
+  - Android
+language:
+  - Java
+  - C
+hybrid: false
+image: /media/platforms/android.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/android/dependencies
+  setup: native-platforms/android/setup
+  use: native-platforms/android/use
+seo_alias: android
+articles:
+  - 01-login
+  - 02-custom-login

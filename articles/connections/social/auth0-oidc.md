@@ -1,5 +1,7 @@
 ---
 connection: Auth0 OpenIDConnect
+seo_alias: auth0-oidc
+image: /media/connections/auth0.png
 ---
 
 # Authenticate using OpenIDConnect to another Auth0 account
@@ -63,7 +65,7 @@ A direct link would look like:
 
 **NOTE:** To add a custom connection in lock, you can add a custom button as described in [Adding a new UI element using JavaScript](/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript) and use the direct link as the button `href`.
 
-The user will be redirected to the built-in login page of the child Auth0 account where they can choose their identity provider (from the enabled connections of the target App) and enter their credentials. 
+The user will be redirected to the built-in login page of the child Auth0 account where they can choose their identity provider (from the enabled connections of the target App) and enter their credentials.
 
 ![](/media/articles/connections/social/auth0-oidc/login-page.png)
 
@@ -96,7 +98,7 @@ Once the user is authenticated, the resulting profile will contain the [Auth0 No
 }
 ```
 
-Note that the generated `user_id` has the following format: 
+Note that the generated `user_id` has the following format:
 
 ```sh
 auth0-oidc|YOUR_AUTH0_CONNECTION_NAME|THE_CHILD_AUTH0_CONNECTION|THE_CHILD_USER_ID

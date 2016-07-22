@@ -26,6 +26,11 @@ Among many possibilities, Rules can be used to:
 
 **NOTE:** You can find more examples of common Rules on Github at [auth0/rules](https://github.com/auth0/rules).
 
+## Video: Using Rules
+Watch this video learn all about rules in just a few minutes.
+
+<%= include('../videos/_video', { id: 'g7dy1fpwc3' }) %>
+
 ## Rule Syntax
 
 A Rule is a function with the following arguments:
@@ -126,7 +131,7 @@ function (user, context, callback) {
 
 This will cause a redirect to your callback url with an `error` querystring parameter containing the message you set. (e.g.: `https://yourapp.com/callback?error=unauthorized&error_description=Only%20admins%20can%20use%20this`)
 
-> Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`. 
+> Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
 
 ## Debugging
 
@@ -157,17 +162,17 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 ## Caching expensive resources
 
-The code sandbox Rules run on allows storing _expensive_ resources that will survive individual execution. 
+The code sandbox Rules run on allows storing _expensive_ resources that will survive individual execution.
 
 This example, shows how to use the `global` object to keep a mongodb connection:
 
 ```js
-  
+
   ...
 
   //If the db object is there, use it.
   if(!global.db){
-    return query(global.db,callback); 
+    return query(global.db,callback);
   }
 
   //If not, get the db (mongodb in this case)
@@ -180,8 +185,8 @@ This example, shows how to use the `global` object to keep a mongodb connection:
   function query(db,cb){
     //Do something with db
     ...
-  });  
-  
+  });
+
   ...
 
 ```
@@ -196,5 +201,4 @@ For a list of currently supported sandbox modules, see: [Modules Supported by th
 
 ## Further reading
 
-* [Managing rules using source control with GitHub](source-control)
 * [Redirecting users from within rules](/rules/redirect)

@@ -1,13 +1,7 @@
 ```xml
 <dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>javax.servlet-api</artifactId>
-  <version>3.0.1</version>
-  <scope>provided</scope>
-</dependency>
-<dependency>
   <groupId>com.auth0</groupId>
   <artifactId>auth0-servlet</artifactId>
-  <version>2.1</version>
+  <version>3.0.0</version>
 </dependency>
 ```

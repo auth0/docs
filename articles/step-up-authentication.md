@@ -10,7 +10,7 @@ You can add step-up authentication to your app with Auth0's extensible multifact
 
 ## Custom Multifactor Authentication Rule
 
-The following [rule](rules/index) modifies the outgoing token by adding an `authentication_level` parameter. A regular login will be marked as `normal`.
+The following [rule](/rules) modifies the outgoing token by adding an `authentication_level` parameter. A regular login will be marked as `normal`.
 
 This rule also inspects the `scope`. If the login request is made with `step_up` scope, the application is requesting step-up authentication. In this case, this rule forces the user to additionally authenticate with multifactor authentication and sets the `authentication_level` to `mfa`.
 
@@ -44,7 +44,7 @@ function (user, context, callback) {
 }
 ```
 
-**NOTE:** In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication/index.md#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication/index.md#use-a-custom-mfa-service).
+**NOTE:** In addition to the [Auth0 supported mutlifactor authentication providers](/multifactor-authentication#using-auth0s-built-in-support) (Google Authenticator and Duo Security) you can plug in your own [custom provider](/multifactor-authentication#use-a-custom-mfa-service).
 
 ## Application Logic
 

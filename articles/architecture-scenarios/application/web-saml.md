@@ -2,6 +2,7 @@
 order: 05
 title: Regular Web App (using SAML)
 image: /docs/media/articles/architecture-scenarios/web-saml.png
+extract: Traditional web application which needs to authenticate users using SAML2
 ---
 
 # Regular Web App (using SAML)
@@ -16,5 +17,5 @@ In this scenario you have a traditional web application which needs to authentic
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Lock](https://auth0.com/docs/libraries/lock)
-* [SAML](https://auth0.com/docs/saml-configuration)
+* [Lock](/libraries/lock)
+* [SAML](/saml-configuration)

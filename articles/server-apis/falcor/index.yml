@@ -1,0 +1,16 @@
+title: Falcor API
+thirdParty: false
+alias:
+  - falcor
+languages:
+  - Javascript
+image: /media/platforms/falcor.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/falcor/dependencies
+  setup: server-apis/falcor/setup
+  use: server-apis/falcor/use
+  frontend: server-apis/falcor/frontend
+articles:
+  - authenticate

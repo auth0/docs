@@ -1,6 +1,8 @@
 ---
 connection: PayPal
 image: /media/connections/paypal.png
+seo_alias: paypal
+index: 10
 ---
 
 # Obtain a Client Id and Secret for PayPal
@@ -44,4 +46,3 @@ Your `Client Id` and `Secret` are displayed in the **Sandbox API Credentials** s
 Go to your Auth0 Dashboard and select **Connections > Social**, then choose **PayPal**. Copy the `Client Id` and `Client Secret` from the **PayPal Developer** portal into the fields on this page on Auth0 and click **Save**:
 
 ![](/media/articles/connections/social/paypal/paypal-5.png)
-

@@ -6,6 +6,10 @@ url: /link-accounts
 
 Auth0 supports the linking of user accounts from various identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 
+Note that Auth0 will treat all identities as separate by default. For example: if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.
+
+You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.  
+
 ## Advantages of linking accounts
 
 * Allows users to log in with any identity provider without creating a separate profile for each.
@@ -40,8 +44,6 @@ For example, if the profile of the **primary account** is:
   "identities": [
     {
         "provider": "google-oauth2",
-        "access_token": "ya29.BgIckzs2irmP...moC2xqsGbTRWI1ZSIBSTLQZw",
-        "expires_in": 3596,
         "user_id": "115015401343387192604",
         "connection": "google-oauth2",
         "isSocial": true
@@ -104,8 +106,6 @@ after linking, the resulting profile will be:
   "identities": [
     {
       "provider": "google-oauth2",
-      "access_token": "ya29.BgIckzs2irmP...moC2xqsGbTRWI1ZSIBSTLQZw",
-      "expires_in": 3599,
       "user_id": "115015401343387192604",
       "connection": "google-oauth2",
       "isSocial": true
@@ -142,7 +142,7 @@ Note that as a result of linking these accounts:
 * The `user_metadata` and `app_metadata` of the primary account is unchanged.
 * The `user_metadata` and `app_metadata` of the secondary account is discarded.
 * There is no automatic merging of user profiles with associated identities.
-* The secondary account is removed from the users list.
+* The secondary account is removed from the users list. 
 
 #### Merging Metadata
 

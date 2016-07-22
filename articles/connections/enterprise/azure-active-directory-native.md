@@ -1,6 +1,6 @@
 ---
 title: Native Azure Active Directory applications with Auth0
-connection: Azure Active Directory (for Native Apps)
+connection: Azure Active Directory Native
 image: /media/connections/azure.png
 alias:
   - azure-ad-native-resource-owner
@@ -9,6 +9,7 @@ alias:
   - windows-azure-active-directory-native-resource-owner
   - microsoft-azure-ad-native-resource-owner
   - microsoft-azure-active-directory-native-resource-owner
+seo_alias: azure-active-directory-native
 ---
 
 # Native Azure Active Directory applications with Auth0 (Resource Owner flow)
@@ -39,13 +40,13 @@ In this application, you'll need to configure the following permissions to other
 
  - **Windows Azure Active Directory**: *Read directory data* and *Enable sign-on and read users' profiles*
  - Your **Web Application and/or Web API**: *Access your API*
- 
+
 ![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-native-app-permissions.png)
 
 ## 3. Configure the connection in Auth0
 
 After creating both applications in Azure Active Directory, the Auth0 connection can be configured. The `App ID Uri` must be set to the Uri which was configured previously in the *Web Application and/or Web API* and the `Client ID` must be set to the `Client ID` of the *Native Client Application*. In this setup, the `Client Secret` does not matter and can be set to any value.
- 
+
 ![](/media/articles/connections/enterprise/azure-active-directory/azure-active-directory-create-native-connection.png)
 
 ## 4. Test the connection

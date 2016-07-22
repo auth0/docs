@@ -4,12 +4,52 @@ url: /architecture-scenarios
 
 # Architecture Scenarios
 
-This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0. 
+This page describes the typical architecture scenarios we have identified when working with customers on implementing Auth0.
 
-The first set, called Business Scenarios, describes the architecture depending on the type of businesses, whether that be B2C, B2B, B2E, or a combination of B2B and B2E.
+The first set, called Application Configurations, describes the typical application implementation patterns.
 
-The second set, called Application Configurations, describes the typical application implementation patterns.
+The second set, called Business Scenarios, describes the architecture depending on the type of businesses, whether that be B2C (Business to Consumer applications), B2B (Business to Business applications), B2E (Enterprise applications), or a combination of B2B and B2E.
+Click on any scenario to get more information.
 
-Click on any scenario to get more information.  
-
-<%= include('../_includes/_architecture-scenarios', { articles, articles }) %>
+<section class="architecture-scenarios-content">
+  <div class="showcase-section clearfix">
+    <h5>Application Configurations</h5>
+    <p>These scenarios describe the different type of technology architectures you application may use, and how Auth0 can help for each of those</p>
+    <% _.forEach(_.sortBy(articles.findByHash('architecture-scenarios/application').items, 'order'), function(article) { %>
+      <a href="<%- '/docs' + article.url %>" class="architecture-scenarios-card">
+        <article>
+          <header class="architecture-scenarios__img">
+              <figure><img src="<%- article.image %>"></figure>
+            </header>
+            <div class="architecture-scenarios__text">
+              <h3><%- article.title %></h3>
+              <p><%- article.extract %></p>
+            </div>
+            <footer class="architecture-scenarios__link">
+              <span>Read more</span>
+            </footer>
+          </article>
+      </a>
+    <% }); %>
+  </div>
+  <div class="showcase-section clearfix">
+    <h5>Business Scenarios</h5>
+    <p>These scenarios describe the type of businesses which implement Auth0, and how Auth0 can help in each of those business scenarios</p>
+    <% _.forEach(_.sortBy(articles.findByHash('architecture-scenarios/business').items, 'order'), function(article) { %>
+      <a href="<%- '/docs' + article.url %>" class="architecture-scenarios-card">
+        <article>
+          <header class="architecture-scenarios__img">
+              <figure><img src="<%- article.image %>"></figure>
+            </header>
+            <div class="architecture-scenarios__text">
+              <h3><%- article.title %></h3>
+              <p><%- article.extract %></p>
+            </div>
+            <footer class="architecture-scenarios__link">
+              <span>Read more</span>
+            </footer>
+          </article>
+      </a>
+    <% }); %>
+  </div>
+</section>

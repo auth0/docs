@@ -37,13 +37,28 @@ var App = Vue.extend({
   data() {
     return {
       authenticated: false,
-      secretThing: ''
+      secretThing: '',
+      lock: new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>')
     }
   },
   // Check the user's auth status when the app
   // loads to account for page refreshing
   ready() {
+    var self = this;
     this.authenticated = checkAuth();
+    this.lock.on("authenticated", function(authResult) {
+      self.lock.getProfile(authResult.idToken, function(error, profile) {
+        if (error) {
+          // Handle error
+          return;
+        }
+
+        localStorage.setItem('id_token', authResult.idToken);
+        localStorage.setItem('profile', JSON.stringify(profile));
+        self.authenticated = true;
+        self.lock.hide();
+      });
+    });
   }
   
   ...

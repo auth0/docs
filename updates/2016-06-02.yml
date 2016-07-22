@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated doc on configuring OneLogin as an Identity Provider"
+    tags:
+      - onelogin
+      - saml
+    description: |
+      Updated [doc](/saml/identity-providers/onelogin) with latest OneLogin and Auth0 screens and processes. Added new sections for [connection mappings](/saml/identity-providers/onelogin#edit-connection-mappings) and [user profile customization](/saml/identity-providers/onelogin#customize-the-user-profile).

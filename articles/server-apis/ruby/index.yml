@@ -1,0 +1,15 @@
+title: Ruby API
+alias:
+  - ruby
+languages:
+  - Ruby
+thirdParty: false
+image: /media/platforms/rails.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-apis/ruby/dependencies
+  setup: server-apis/ruby/setup
+  use: server-apis/ruby/use
+articles:
+  - authenticate

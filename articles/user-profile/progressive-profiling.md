@@ -10,7 +10,7 @@ For example, you might collect just the user's name, email, and password on init
 
 You can very easily implement **progressive profiling** with Auth0. Every user that authenticates through Auth0 gets User Profile, and its contents can come from three different sources:
 
-* Properties supplied by the identity provider properties (e.g. any user property coming from LinkedIN, Facebook, or any [connection](/identityproviders));
+* Properties supplied by the identity provider properties (e.g. any user property coming from LinkedIn, Facebook, or any [connection](/identityproviders));
 * Attributes that are dynamically created in [Auth0 Rules](/rules), e.g. calling APIs like [FullContact](https://www.fullcontact.com/) or [Clearbit](https://clearbit.com/);
 * Application-specific attributes that developers can collect on their apps. Auth0 calls this `metadata` for users.
 

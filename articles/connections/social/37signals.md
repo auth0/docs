@@ -1,9 +1,10 @@
 ---
-connection: Basecamp (37 Signals)
-image: /media/connections/37signals.jpg
+connection: Basecamp
+image: /media/connections/basecamp.png
 alias:
   - basecamp
   - thirtysevensignals
+seo_alias: 37signals
 ---
 
 # Obtain a *Client Id* and *Client Secret* for 37Signals

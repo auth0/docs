@@ -6,15 +6,21 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 In the Dashboard under [Connections > Passwordless](${uiURL}/#/connections/passwordless), set the SMS slider to the right to enable the SMS Passwordless feature.
 
-At this point, select the apps for which you'd like to use Passwordless SMS. To activate this feature for a given app, set the slider to the right of the app's name to the right so that it is green. Click "Continue" to bring up the configuration screen for you to populate with the appropriate credentials.
+Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields. 
 
-Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields.
+**NOTE**: For information on obtaining a Twilio SID and Auth Token, see: [How to create an Application SID](https://www.twilio.com/help/faq/twilio-basics/what-is-an-application-sid) and [Auth Tokens and how to change them](https://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it).
 
-Enter the **From** phone number that users will see as the sender of the SMS. You may also configure this in Twilio.
+Select the **SMS Source** that users will see as the sender of the SMS.
+
+**NOTE**: For information on using Copilot, see: [Sending Messages with Copilot](https://www.twilio.com/docs/api/rest/sending-messages-copilot).
+
+Enter either your **Twilio Messaging Service SID** or a **From** phone number, depending on the **SMS Source** selected above.
 
 Lastly, enter the **Message** that will appear in the body of the SMS.
 
-Please note that the `@@password@@` placeholder in the Message will be automatically replaced with the one-time password that is sent to the user.
+**NOTE:**  The `@@password@@` placeholder in the Message will be automatically replaced with the one-time password that is sent to the user.
+
+Click **SAVE**.
 
 ![](/media/articles/connections/passwordless/passwordless-sms-config.png)
 
@@ -22,33 +28,28 @@ Please note that the `@@password@@` placeholder in the Message will be automatic
 
 The Message area supports usage of multiple languages.
 
-By making the appropriate `PATCH` call to the Auth0 Management API, you can set the value of the 'X-Request-Language' header to your language of choice. If the value of this header is not set, Auth0 defaults to the fallback, which is the value in the 'Accepts-Language' header that is automatically set by your browser.
+By making a call to the [/passwordless/start](/api/authentication#!#post--with_sms) authentication endpoint, you can set the value of an 'x-request-language' header to the language of your choice. If the value of this header is not set, the language will be extracted from the value in the 'accept-language' header that is automatically set by the browser.
 
-```har
-{
-    "method": "PATCH",
-    "url": "https://${account.namespace}/api/v2/connections/CONNECTION_ID",
-    "httpVersion": "HTTP/1.1",
-    "cookies": [],
-    "headers": [
-      { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
-    ],
-    "queryString" : [],
-    "postData" : {"options":{"request_language":"en-US"}},
-    "headersSize" : -1,
-    "bodySize" : -1,
-    "comment" : ""
-}
-```
-
-The Message area accepts Liquid syntax, and you can use this, combined with the exposed value, to change the language of the message you send.
+The Message area accepts Liquid syntax. You can use this syntax, combined with exposed parameter values, to programmatically construct elements of the message. For example, you can reference the `request_language` parameter to change the language of the message:
 
 ```text
 {% if request_language contains 'dutch' %}
-   Hier is uw verificatie code: @@password@@
+   Hier is uw verificatie code: {{ password }}
 {% endif %}
 
 {% if request_language contains 'fr-FR' %}
-   Ceci est votre code: @@password@@
+   Ceci est votre code: {{ password }}
 {% endif %}
 ```
+The following paramaters are available when defining the template:
+
+| Exposed Parameter | Description |
+|:------------------|:---------|
+| `password` or `code` | the password to use |
+| `phone_number` | the user's phone number |
+| `application.name` | the name of the application name where the user is signing up |
+| `request_language` | the requested language for the message content |
+
+#### 3. Enable your apps
+
+Go to the **Apps** tab of the SMS settings and enable the apps for which you would like to use Passwordless SMS.

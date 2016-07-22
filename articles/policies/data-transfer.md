@@ -9,13 +9,15 @@ Auth0 will transfer customer data from one account to another in the following s
 
 * Account move from US to EU hosting environment due to Safe Harbor invalidation.  This is allowed for any plan.
 
+* Account move from US or EU regions and want to switch to the Australia Region.  This is allowed for any plan. 
+
 * Account move from an on-premise Auth0 appliance to a cloud account.  This is allowed for any plan.
 
 * One-time transfer of data from one non-production account to a production account prior to transition to production status.  This will be allowed for customers on an enterprise support plan that includes this feature.
 
-
 * A one-time account name change for an account.  This will be allowed for customers on an enterprise support plan that includes this feature.
-
+ 
+* If you are opting to move out from our service, then you might want to check [this section](https://auth0.com/docs/moving-out). Please notice that in order to make this request you must be signed in to the Silver plan for one month.
 
 ## Limitations
 

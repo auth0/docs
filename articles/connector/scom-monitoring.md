@@ -19,3 +19,6 @@ You can monitor the service status using System Center as you would do with any 
 * Select the limits of **CPU** and **Memory limits**. Eg: 10% of CPU and 200MB of RAM are good limits to trigger alerts.
 
 We also recommend setting up a _synthetic transaction_ to monitor end to end authentication. More information about monitoring is available [here](/monitoring).
+
+## AD/LDAP Connector Health Webtask
+[Here](https://github.com/sandrinodimattia/auth0-ldap-connector-health-webtask) is a way to monitor health of AD/LDAP connector from Auth0 perspective.  This can be done in addition to monitoring from an infrastructure perspective.

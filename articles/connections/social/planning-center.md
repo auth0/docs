@@ -1,6 +1,7 @@
 ---
 connection: Planning Center
-image:
+image: /media/connections/planning-center.png
+seo_alias: planning-center
 ---
 
 # Obtain a *Client ID* and *Secret* for Planning Center
@@ -36,4 +37,3 @@ Go to the [Social Connections](${uiURL}/#/connections/social) page of your Auth0
 Copy the `Client Id` and `Secret` from the **Developer Applications** page of the Planning Center Developer portal into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/planning-center/planning-center-api-4.png)
-

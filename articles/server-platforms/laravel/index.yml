@@ -1,0 +1,11 @@
+title: PHP (Laravel)
+image: /media/platforms/php.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/laravel/dependencies
+  setup: server-platforms/laravel/setup
+  use: server-platforms/laravel/use
+seo_alias: laravel
+articles:
+  - 01-login

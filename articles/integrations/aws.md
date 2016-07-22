@@ -207,6 +207,33 @@ function (user, context, callback) {
 
 ```
 
+You can optionally set `context.addonConfiguration.aws.region` to specifically target an AWS region. For example, `region: 'cn-north-1'` will direct requests to the Chinese north region. Temporary credentials from AWS GovCloud (US) and China (Beijing) can be used only in the region from which they originated. 
+
+The `context.addonConfiguration.aws.mappings` variable allows you to specify parameters that are sent to AWS to assume a Role. By default, Auth0 will use these mappings:
+
+    mappings: {
+          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': 'name',
+          'https://aws.amazon.com/SAML/Attributes/Role':                          'awsrole',
+          'https://aws.amazon.com/SAML/Attributes/RoleSessionName':               'rolesessionname'
+    }
+
+But [other mappings are available in AWS](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_saml_assertions.html). For example, if you wanted to use the `eduPersonAffiliation` AWS Context Key then you could set these mapping in a rule:
+
+```js
+    function(user,context,callback){
+    
+        context.addonConfiguration.aws.mappings: {
+              'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': 'name',
+              'https://aws.amazon.com/SAML/Attributes/Role':                          'awsrole',
+              'https://aws.amazon.com/SAML/Attributes/RoleSessionName':               'rolesessionname',
+              'urn:oid:1.3.6.1.4.1.5923.1.1.1.1':                                     'awsGroup'
+        };
+        
+        callback(null,user,context);
+    }
+```
+
+The example above assumes the `user` object contains an `awsGroup` property with the expected value. 
 
 **NOTE:** Copy the Provider ARN, and use this as the Principal ARN when obtaining the delegation token.
 

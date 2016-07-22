@@ -15,4 +15,5 @@ alias:
   - azure
   - azure-mobile
   - azure-mobile-services
+seo_alias: wams
 ---

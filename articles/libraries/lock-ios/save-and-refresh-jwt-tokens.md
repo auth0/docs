@@ -5,7 +5,7 @@ description: Keeping your user logged in
 
 # Lock iOS: Saving and Refreshing JWT Tokens
 
-When an authentication is performed with the `offline_scope` included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
+When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user his/her
 credentials again.
 
 > We are using [SimpleKeychain](https://github.com/auth0/SimpleKeychain) to handle iOS Keychain access.
@@ -45,7 +45,7 @@ Once you have those stored, you can at any point request a new `id_token` using 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
 A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:@"Auth0"];
-NSString* token = [keychain stringForKey:@"refresh_token"];
+NSString* token = [keychain stringForKey:@"id_token"];
 A0APIClient *client = [lock apiClient];
 [client fetchNewIdTokenWithIdToken:token parameters:nil success:^(A0Token *token) {
     [keychain setString:token.idToken forKey:@"id_token"];

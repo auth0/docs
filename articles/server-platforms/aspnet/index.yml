@@ -1,0 +1,15 @@
+title: ASP.NET
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: server-platforms/aspnet/dependencies
+  setup: server-platforms/aspnet/setup
+  use: server-platforms/aspnet/use
+alias:
+  - microsoft-net
+  - aspnet-mvc
+  - net-mvc
+seo_alias: aspnet
+articles:
+  - 01-login

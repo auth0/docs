@@ -49,7 +49,10 @@ HTTP Request:
     { "name": "Authorization", "value": "Bearer YOUR_TOKEN" }
   ],
   "queryString" : [],
-  "postData" : { "options": { "non_persistent_attrs": ["", ""] }, "enabled_clients": [""] },
+  "postData": {
+		"mimeType": "application/json",
+		"text": "{\"options\": {\"non_persistent_attrs\": [\"\", \"\"]}\", \"enabled_clients\": [\"\"]}"
+  },
   "headersSize" : -1,
   "bodySize" : -1,
   "comment" : ""
@@ -76,4 +79,4 @@ For `SAMLP` connections, if you enable 'Debug' mode, your logs will contain info
 
 ### Working with the Limitations
 
-If any of the above limitations regarding blacklisted attributes are unacceptable, you may write a [rule](/rule) to encrypt the data and have the data persist the `user.app_metadata` object.
+If any of the above limitations regarding blacklisted attributes are unacceptable, you may write a [rule](/rules) to encrypt the data and have the data persist the `user.app_metadata` object.

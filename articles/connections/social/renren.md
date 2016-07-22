@@ -1,6 +1,7 @@
 ---
 connection: RenRen
 image: /media/connections/renren.png
+seo_alias: renren
 ---
 
 # Obtain an *API Key* and *Secret Key* for RenRen

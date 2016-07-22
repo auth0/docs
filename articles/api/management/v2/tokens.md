@@ -6,7 +6,7 @@ The Auth0 APIv2 token is required to call v2 of the Auth0 Management API, freque
 
 ## How to get an APIv2 Token
 
-An Auth0 APIv2 token can be generated on the [Auth0 APIv2 explorer](/api/v2) page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant api key/secret.  
+An Auth0 APIv2 token can be generated on the [Auth0 APIv2 explorer](/api/v2) page or it can be created programmatically by building the JWT, including the desired scopes, and signing it with the tenant API key/secret.  You will need to use your Global Client Id and Global Client Secret to generate an API Token.
 
 The [Auth0 APIv2 explorer page](/api/v2) is very useful to experiment with Auth0 APIv2. Each endpoint shows its required scopes. By clicking the scope, it is automatically added to the token. For example, to make a call to the “List or search users” endpoint, one would click on the `read:users` scope to generate the token before invoking it:
 
@@ -41,3 +41,16 @@ You can terminate the APIv2 tokens calling the [blacklist endpoint](/api/v2#!/Bl
 ## Uses
 
 The Auth0 APIv2 access token is used to call the Auth0 Management APIv2.  This token is required to update the app_metadata portions of the user profile.
+
+## API Secret
+
+Keep your API secret secure. In the event that your API secret has been compromised or you need to invalidate all of your tokens you can change the API secret.
+
+In the event that the API secret has been compromised, or you need to invalidate all tokens generated with that API secret, one can change the API secret. 
+
+You can change the API secret  in the dashboard by visiting this URL directly:
+```
+https://manage.auth0.com/#/applications/YOUR_API_ID/settings
+```
+
+You can then change the `Client Secret` in that page to change your APIv2 secret.

@@ -1,0 +1,23 @@
+title: WPF / Winforms
+hybrid: false
+language:
+  - Javascript
+  - C#
+framework:
+  - WPF
+  - WinForms
+image: /media/platforms/asp.png
+tags:
+  - quickstart
+snippets:
+  dependencies: native-platforms/wpf-winforms/dependencies
+  setup: native-platforms/wpf-winforms/setup
+  use: native-platforms/wpf-winforms/use
+alias:
+  - wpf
+  - wiforms
+  - rich-client-application
+  - rich-client
+seo_alias: wpf-winforms
+articles:
+  - 01-login

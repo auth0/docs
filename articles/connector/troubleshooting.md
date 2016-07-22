@@ -78,15 +78,28 @@ This error applies to the AD/LDAP Connector in combination with the Auth0 Applia
 
 When the connector will fail to start if unable to validate the SSL certificate configured in the appliance. This can happen when the Root Certificate (or any Intermediate Certificates) are missing in the machine's Certificate Store (Windows). In order to solve this you should import the certificate chain in the **Local Machine > Trusted Root** certificate store on the machine where the AD/LDAP Connector is installed.
 
+### Running the connector behind a proxy
+
+If the machine hosting the connector is behind a proxy, you can configure an `HTTP_PROXY` system environment variable pointing to the URL of your proxy, or you can set this variable in the `config.json` file in the connector installation directory.
+If using an authenticated proxy, the URL must be in the format `http://USERNAME:PASSWORD@SERVER_URL:PORT`.
+
+> Changing the `config.json` file or setting environment variables requires restarting the connector service for the changes to take effect.
+
+The `HTTP_PROXY` URL cannot point to a [.pac (proxy auto-config) file](https://en.wikipedia.org/wiki/Proxy_auto-config), it must be the URL of the proxy itself.
+If your proxy is configured through a .pac file, you must download the .pac file and find the proxy URL there.
+
+An incorrectly configured proxy can result in several problems, such as:
+
+* Auth0 servers not reachable
+* `SELF_SIGNED_CERT_IN_CHAIN` errors
+
+If you have configured a proxy URL and restarted the connector service but are still seeing `SELF_SIGNED_CERT_IN_CHAIN` errors, make sure that your server is trusting the root certificate of the proxy.
+On Windows servers, you can check this by opening `certmgr.msc` and looking for your proxy's certificate.
+
 ### No internet connectivity
 
 `https://${account.namespace}` should be reachable from the server.
-
-If proxies are installed, make sure they are configured correctly.
-
 A quick test for this is to open a browser pointing to [https://${account.namespace}/test](https://${account.namespace}/test).
-
-We don't recommend using Proxies for the connector, but if you need to use one, you can setup an environment variable `HTTP_PROXY=http://your_proxy`.
 
 ### Service account permissions
 

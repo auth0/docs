@@ -1,0 +1,18 @@
+added:
+  -
+    title: "New Java Docs"
+    tags:
+      - java
+      - servlet
+      - java mvc
+      - java api
+      - java security
+      - java spring
+    description: |
+      New Java libraries, sample projects and docs have been released:
+      - [Java Spring Security API](/server-apis/java-spring-security)
+      - [Java Servlet](/server-platforms/java)
+      - [Java Spring MVC](/server-platforms/java-spring-mvc)
+      - [Java Spring Security MVC](/server-platforms/java-spring-security-mvc)
+      A [Java Overview](/java-overview) doc has been created, listing all available libraries/samples/docs and explaining in which case each SDK is applicable.
+      

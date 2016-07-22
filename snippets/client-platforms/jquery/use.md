@@ -3,7 +3,7 @@ var userProfile;
 
 $('.btn-login').click(function(e) {
   e.preventDefault();
-  lock.show({ authParams: { scope: 'openid' } });
+  lock.show();
 });
 ```
 

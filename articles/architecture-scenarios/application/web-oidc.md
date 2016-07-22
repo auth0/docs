@@ -2,6 +2,7 @@
 order: 04
 title: Regular Web App (using OIDC)
 image: /docs/media/articles/architecture-scenarios/web-oidc.png
+extract: Traditional web application which needs to authenticate users using OpenID Connect.
 ---
 
 # Regular Web APP (using OIDC)
@@ -18,6 +19,6 @@ The application will also typically create a user session which is stored in one
 
 The following is a list of articles on this website which will help you to implement this scenario:
 
-* [Regular Web App](https://auth0.com/docs/quickstart/webapp/)
-* [Lock](https://auth0.com/docs/libraries/lock)
-* [Auth0 id_token](https://auth0.com/docs/tokens/id_token)
+* [Regular Web App](/quickstart/webapp/)
+* [Lock](/libraries/lock)
+* [Auth0 id_token](/tokens/id_token)

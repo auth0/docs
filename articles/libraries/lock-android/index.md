@@ -94,7 +94,7 @@ public class MyApplication extends Application implements LockProvider {
 }
 ```
 
-> You can check [here](#lock.builder) for more configuration options
+> You can check [here](#lock-builder) for more configuration options
 
 You should also add your Application class to the `AndroidManifest.xml`.
 ```xml

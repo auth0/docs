@@ -196,7 +196,7 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 }
 ```
 
-***Callback URL**: `https://www.egencia.com/auth/v1/artifactConsumer`
+**Callback URL**: `https://www.egencia.com/auth/v1/artifactConsumer`
 
 
 ## Workday
@@ -219,4 +219,29 @@ Notice that Datadog has an option to automatically provision new users. Check [h
 }
 ```
 
-***Callback URL***: `https://impl.workday.com/<tenant>/fx/home.flex`
+**Callback URL**: `https://impl.workday.com/<tenant>/fx/home.flex`
+
+
+## Pluralsight
+
+```
+{
+  "audience":  "www.pluralsight.com",
+  "mappings": {
+    "user_id":     "id",
+    "email":       "email",
+    "given_name":  "firstName",
+    "family_name": "lastName"
+  },
+  "createUpnClaim":       false,
+  "passthroughClaimsWithNoMapping": false,
+  "mapUnknownClaimsAsIs": false,
+  "mapIdentities":        false,
+  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+  "nameIdentifierProbes": [
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+  ]
+}
+```
+
+**Callback URL**: `https://prod-pf.pluralsight.com/sp/ACS.saml2`

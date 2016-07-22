@@ -1,6 +1,7 @@
 ---
 connection: Dwolla
 image: /media/connections/dwolla.png
+seo_alias: dwolla
 ---
 
 # Obtain a *Client ID* and *Client Secret* for Dwolla
