@@ -67,7 +67,3 @@ By including the user's `id_token` in the `Authorization` header, you may make t
 	"comment": ""
 }
 ```
-
-"Bearer " + localStorage.getItem(\'id_token\')
-"Bearer " + localStorage.getItem(\'id_token\')
-`Bearer ${localStorage.getItem('id_token')}`
