@@ -9,10 +9,7 @@ Auth0 allows you to store **metadata**, or data related to each user that has no
 * **user_metadata**: stores user attributes, such as user preferences, that don't impact a user's core functionality;
 * **app_metadata**: stores information such as a user's support plan, security roles, or access control groups, which can impact a user's core functionality, such as how an application functions and/or what the user can access.
 
-Please note that:
-
-* Both metadata fields are limited to a size of 16 megabytes;
-* An authenticated user may modify data in their profile's `user_metadata`, but nothing in their `app_metadata`.
+Please note that an authenticated user may modify data in their profile's `user_metadata`, but nothing in their `app_metadata`.
 
 ## Metadata Usage
 
