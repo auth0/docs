@@ -55,7 +55,7 @@ By including the user's `id_token` in the `Authorization` header, you may make t
 	"cookies": [],
 	"headers": [{
 		"name": "Authorization",
-		"value": "\"Bearer \" + localStorage.getItem('id_token')"
+		"value": "\"Bearer \" + localStorage.getItem(id_token)"
 	}],
 	"queryString": [],
 	"postData": {
@@ -67,3 +67,7 @@ By including the user's `id_token` in the `Authorization` header, you may make t
 	"comment": ""
 }
 ```
+
+"Bearer " + localStorage.getItem(\'id_token\')
+"Bearer " + localStorage.getItem(\'id_token\')
+`Bearer ${localStorage.getItem('id_token')}`
