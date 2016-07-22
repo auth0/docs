@@ -16,8 +16,8 @@ This tutorial and seed project have been tested with the following:
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
   pkgBranch: 'master',
-  pkgPath: '00-introduction',
-  pkgFilePath: '00-introduction/Auth0Sample/Info.plist',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
