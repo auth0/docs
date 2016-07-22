@@ -16,7 +16,7 @@ alias:
   - ipad
 seo_alias: ios-objc
 articles:
-  - 00-introduction
+  - 00-starter-seed
   - 01-login
   - 02-custom-login
   - 03-session-handling
