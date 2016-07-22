@@ -6,11 +6,11 @@ description: This tutorial will show you how to use the ASP.NET Core JWT Middlew
 ## ASP.NET Core Web API Tutorial
 
 ::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+This tutorial has been tested with the following:
 
 * Microsoft Visual Studio 2015
-* .NET Core RC2
-* .NET Core RC2 Tools for Visual Studio 2015 (Preview 1)
+* .NET Core 1.0
+* .NET Core 1.0 Visual Studio 2015 Tooling Preview 2
 
 If you do not have the correct tools installed, please [follow the instructions](https://www.microsoft.com/net/core#windows) on the .NET Core Website.
 :::
@@ -36,6 +36,10 @@ ${snippet(meta.snippets.dependencies)}
 The first thing you need to do is to ensure that your Auth0 Application is configured to use RS256 to sign the JSON Web Token, which will sign the tokens using your Application's Client Secret.
 
 Go to the Application in your Auth0 Dashboard and go to Settings > Advanced Settings > OAuth and ensure the **JsonWebToken Signature Algorithm** is set to **RS256**.
+
+::: panel-info Using HS256
+Even though we recommend signing your JWTs using RS256 - and that is what we demonstrate in this Quickstart - you can also use HS256. Please refer to our sample on GitHub: [ASP.NET Core Web API using JWT (HS256)](https://github.com/auth0-samples/auth0-aspnetcore-webapi-hs256).
+:::
 
 ### 4. Specify Auth0 Settings
 

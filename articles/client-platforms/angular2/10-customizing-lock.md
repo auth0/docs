@@ -9,16 +9,16 @@ description: This tutorial will show you how to customize lock widget.
 
 Using Lock widget is great, but eventually you will want to customize the UI. There are several options to do that.
 
-### Lock options
+## Lock options
 
 Some UI customization can be done via the `options` parameter when creating a `Lock` instance.
 
 
-#### Theme options
+### Theme options
 
 You can set custom theme properties like using a different logo, or changing the primary color.
 Just add a `theme` property with custom values.
-See full details [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#theming-options)
+See full details [here](https://github.com/auth0/lock/tree/v10.0.0#theming-options)
 
 ```typescript
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -29,9 +29,9 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 });
 ```
 
-#### Language Dictionary Specification
+### Language Dictionary Specification
 
-You can also customize every piece of text `Lock` needs to display. The option parameter to do this is `languageDictionary `. See full details [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#language-dictionary-specification)
+You can also customize every piece of text `Lock` needs to display. The option parameter to do this is `languageDictionary `. See full details [here](https://github.com/auth0/lock/tree/v10.0.0#language-dictionary-specification)
 
 ```typescript
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -40,7 +40,7 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   }
 });
 ```
-#### Results
+### Results
 
 This is how it looks like using custom logo, color, and title:
 
@@ -49,6 +49,6 @@ This is how it looks like using custom logo, color, and title:
 
 <!-- CSS specification -->
 
-### Done!
+## Done!
 
 You have implemented the customization of the Lock widget.

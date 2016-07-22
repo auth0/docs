@@ -60,17 +60,17 @@ app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
 }]);
 ```
 
-Your controller needs to depend on `auth` so as to have access to it's methods. You can bind the function as an event to an on-click even in your view:
+Your controller needs to depend on `auth` so as to have access to it's methods. You can bind the function as an event to an on-click event in your view:
 ```html
 <!-- ===== ./login/login.html ===== -->
 <a ng-click="login()">Login</a>
 ```
 
-At this point, the lock widget will pop up showing a Sign In form,  when you click the Login button. If you choose not to use Lock, you will be redirected to Auth0 to login. The widget has options for non-existing users to signup or reset there passwords.
+At this point, the lock widget will pop up showing a Sign In form,  when you click the Login button. If you choose not to use Lock, you will be redirected to Auth0 to login. The widget has options for non-existing users to signup or reset their passwords.
 
 ${browser}
 
-Your app will need to exit and the user taken to the authentication provider when you try to login. After authentication, the user will be redirected to the app but with all states of the app lost (or rather reset). The implication is that callbacks cannot be used with `auth.signin()`, therefore, no way to get hold of user authentication details. You can use events provided in the SDK to manage lifecycle efficiently. The events are configured in the `config method`:
+Your app will need to exit and the user will be taken to the authentication provider when you try to login. After authentication, the user will be redirected to the app but with all states of the app lost (or rather reset). The implication is that callbacks cannot be used with `auth.signin()`, therefore, no way to get hold of user authentication details. You can use events provided in the SDK to manage lifecycle efficiently. The events are configured in the `config method`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -183,7 +183,7 @@ authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'stor
 
 ```
 
-With a persisted token and profile, you can do the following when you loose state (eg: page reload):
+With a persisted token and profile, you can do the following when you lose state (eg: page reload):
 
 ```javascript
 .run(['$rootScope', 'auth', 'store', 'jwtHelper', '$''location', function($rootScope, auth, store, jwtHelper, $location) {
@@ -214,7 +214,7 @@ With a persisted token and profile, you can do the following when you loose stat
 }])
 ```
 
-First thing to note is that we just introduced a dependency which is from the Angular JWT library. The `jwtHelper` helps you to check if the user's token is valid by passing the token to it's `isTokenExpired()` method. The most interesting to to note is that we listen to Angular's location change event, so some important check on the token and authentication status, and then re-authenticate the user with the stored profile. If the token is invalid, you have the option to redirect the user to login, or refresh their token with the expired token.
+First thing to note is that we just introduced a dependency which is from the Angular JWT library. The `jwtHelper` helps you to check if the user's token is valid by passing the token to it's `isTokenExpired()` method. The most interesting thing to note is that we listen to Angular's location change event, so some important check on the token and authentication status, and then re-authenticate the user with the stored profile. If the token is invalid, you have the option to redirect the user to login, or refresh their token with the expired token.
 
 It is also important to remember that the following event is called after re-authenticating:
 

@@ -128,5 +128,5 @@ Consider implementing a custom user interface in conjunction with the **auth0.js
 
 ## See also
 
-* [What is SSO](/sso/single-sign-on)
+* [What is SSO](/sso)
 * [Single Sign On with username/password logins](/sso/sso-username-password)

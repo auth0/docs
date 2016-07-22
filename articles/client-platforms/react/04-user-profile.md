@@ -4,7 +4,7 @@ description: This tutorial will show you how to integrate Auth0 with ReactJS to 
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/03-User-Profile',
+  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/04-User-Profile',
 }) %>
 
 In the [Login step](/quickstart/spa/react/01-login) of this tutorial, you find a detailed description of how to use auth0 lock widget to show a login window and authenticate the user. Also, it shows how to protect routes making them available only for authenticated users. For this step, the focus is to present a way to retrieve and show the user profile information.
@@ -397,6 +397,6 @@ export class Home extends React.Component {
 
 If you reload you application you are now able to view and edit the `address` value for the current user profile.
 
-## 6.All done!
+## 6. All done!
 
 You have completed the implementation, showing and editing the Auth0 user profile in your ReactJS project.

@@ -12,4 +12,5 @@ snippets:
   setup: server-platforms/java-spring/setup
   use: server-platforms/java-spring/use
 articles:
+  - 00-intro
   - 01-login

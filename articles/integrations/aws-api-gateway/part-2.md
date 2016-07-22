@@ -91,7 +91,7 @@ Our single page app will access web API methods from a different domain than the
 
 1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
 2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda, select your region, and then select *NoOp* for the *Lambda Function*. Click on **Save**.
-3. Click on **Method Response**, expand **200**, and then three headers: *Access-Control-Allow-Headers*, *Access-Control-Allow-Methods*,  *Access-Control-Allow-Origin*.
+3. Click on **Method Response**, expand **200**, and then add three headers: *Access-Control-Allow-Headers*, *Access-Control-Allow-Methods*,  *Access-Control-Allow-Origin*.
 4. Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`.
 5. For the *POST* and *GET* methods, follow the same process as above to add a single header, *Access-Control-Allow-Origin*, with the value `'*'`.
 
