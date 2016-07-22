@@ -20,7 +20,7 @@ The reason for implementing authentication in the first place is to protect info
 
 In order to make an authorized request in our example, we need to send the `Authorization` header containing the JWT Token. For more information, please refer to [JSON Web Tokens documentation](https://jwt.io/introduction/). The token will be extracted from request header and decoded by the server, validating the authencaticated user.
 
-To make it easy for us to send requests with the correct headers, let's update `AuthService` adding a new helper method to wrap the native [`fetch`](https://fetch.spec.whatwg.org/) and add the authorization value for us:
+To make it easy for us to send requests with the correct headers, let's update `AuthService` adding a new helper method to wrap the native [`fetch`](https://fetch.spec.whatwg.org/) and add the authorization value:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -68,7 +68,6 @@ As you see, there is a new `fetch` method created to send requests to private en
 ## 2. Create a Simple Server
 
 To exemplify how server would handle public and private endpoints, we're introducing a simple `node.js` server based on [`express`](https://expressjs.com/) and [`express-jwt`](https://github.com/auth0/express-jwt). It's very basic server with only two endpoints: `/api/public` and `/api/private`:
-
 
 ```javascript
 /* ===== ./server.js ===== */
@@ -148,14 +147,15 @@ var config = getConfig({
 ...
 ```
 
-With a proxy ready, let's update our `start` script to start both `webpack-dev-server` and our `server.js` at the same time. The updated `scripts` entry in `package.json` seems like:
+With a proxy ready, let's update our `start` script to start both `webpack-dev-server` and our `server.js` at the same time. As both servers will stay running in development mode, we need to introduce [`npm-run-all`](https://github.com/mysticatea/npm-run-all) tool in order to run both in parallel. The updated `scripts` entry in `package.json` seems like:
 
 ```javascript
 /* ===== ./package.json ===== */
 "scripts": {
-    "start": "cross-env NODE_ENV=development hjs-dev-server & node server.js",
+    "start": "npm-run-all --parallel dev-server server-api",
+    "dev-server": "NODE_ENV=development cross-env hjs-dev-server",
+    "server-api": "node server.js",
     ...
-}
 ```
 
 Now when you run `npm start` both servers should be up with the proxy active.
@@ -261,8 +261,8 @@ export class Login extends React.Component {
 export default Login;
 ```
 
-Finally, when you run the application you see the server api responses for public and private in Home and Login pages, with the difference that the private call in Login returns an authorization error.
+When you run the application you see the server api responses for public and private in Home and Login pages, with the difference that private call in Login returns an authorization error.
 
 ## 5. All Done!
 
-You have completed the implementation of calling protected apis with Auth0 user token in your ReactJS project.
+You have completed the implementation of calling apis protected by Auth0 user token in your ReactJS project.
