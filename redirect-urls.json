@@ -696,5 +696,9 @@
   {
     "from": "/libraries/lock/v10/installation",
     "to": "/libraries/lock#installation-and-dependencies"
+  },
+  {
+    "from": "/libraries/lock/customization",
+    "to": "/libraries/lock/v10/customization"
   }
 ]
