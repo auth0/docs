@@ -14,7 +14,7 @@ This tutorial demonstrates setting up MFA for iOS.
 
 If you don't already have an application you would like to add MFA to, you can download a seed project from one of the quickstarts.
 
-This tutorial uses the [iOS - Objective C](/quickstart/native-mobile/ios-objc/no-api) sample project.
+This tutorial uses the [iOS - Objective C](/quickstart/native/ios-objc) sample project.
 
 ### Configure the sample project
 

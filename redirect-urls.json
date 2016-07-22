@@ -671,5 +671,33 @@
   {
     "from": "/multifactor-authentication2",
     "to": "/multifactor-authentication"
+  },
+  {
+    "from": "/quickstart/native-mobile/windows-uwp-javascript",
+    "to": "/quickstart/native/windows-uwp-javascript"
+  },
+  {
+    "from": "/quickstart/native-mobile/ios-objc",
+    "to": "/quickstart/native/ios-objc"
+  },
+  {
+    "from": "/quickstart/native/ios-reactnative",
+    "to": "/quickstart/native/react-native-ios"
+  },
+  {
+    "from": "/quickstart/native-mobile/ionic",
+    "to": "/quickstart/native/ionic"
+  },
+  {
+    "from": "/quickstart/native-mobile",
+    "to": "/quickstart/native"
+  },
+  {
+    "from": "/api-auth/resource-servers/node-js",
+    "to": "/api-auth"
+  },
+  {
+    "from": "/api-auth/resource-servers/asp-net",
+    "to": "/api-auth"
   }
 ]
