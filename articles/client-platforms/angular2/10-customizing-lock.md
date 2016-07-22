@@ -44,7 +44,7 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 
 This is how it looks like using custom logo, color, and title:
 
-![Custom lock](/media/articles/login-widget/widget-custom-logo-color.png)
+![Custom lock](/media/articles/angularjs2/widget-custom-logo-color.png)
 
 
 <!-- CSS specification -->
