@@ -23,7 +23,7 @@ The following `POST` call to the Management API will create the user and set the
 ```har
 {
 	"method": "POST",
-	"url": "${uiURL}/api/v2/users",
+	"url": "http://${uiURL}/api/v2/users",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
