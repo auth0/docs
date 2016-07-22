@@ -25,7 +25,7 @@ This seed project can be useful as a starting point for the app to which you nee
 
 ## Sample Projects
 
-Each tutorial in the serie includes a link to its corresponding sample project, whose expose how to achieve the goal from the tutorial in question. You can check out all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
+Each tutorial in the serie includes a link to its corresponding sample project, which expose how to achieve the goal from the tutorial in question. You can check out all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
 
 
 
