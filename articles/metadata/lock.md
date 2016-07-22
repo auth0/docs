@@ -47,23 +47,18 @@ You may [update the `app_metadata` and `user_metadata` properties](/metadata/api
 
 By including the user's `id_token` in the `Authorization` header, you may make the appropriate `PATCH` call to [update the user's metadata fields](/metadata/apiv2#updating-a-user-s-metadata). Here is what a sample request might look like:
 
-```har
-{
-	"method": "PATCH",
-	"url": "https://manage.auth0.com/api/v2/users/{id}",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "\"Bearer \" + localStorage.getItem(id_token)"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\"}}}"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
-}
+```js
+var request = require("request");
+
+var options = { method: 'PATCH',
+  url: 'https://manage.auth0.com/api/v2/users/%7Bid%7D',
+  headers: { authorization: '"Bearer " + localStorage.getItem(id_token)' },
+  body: { user_metadata: { addresses: { home: '123 Main Street, Anytown, ST 12345' } } },
+  json: true };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
 ```
