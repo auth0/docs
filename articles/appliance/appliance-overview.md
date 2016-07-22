@@ -1,21 +1,24 @@
 # Auth0 Appliance Overview
 
-The Auth0 appliance offers an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in dedicated area of Auth0's cloud, your cloud, or your own datacenter as a managed service. As a managed service, Auth0 is responsible for installation, maintenance, patching and updates. When you choose to deploy to your own data center or cloud you supply and monitor the infrastructure Auth0 runs on. This includes the VM host, storage, network resources (e.g. load balancer, internet access, etc.), and other required dependencies (e.g. SMTP, NTP, etc.).
+The Auth0 Appliance offers an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in one of three places:
 
-You can deploy appliance in several different configurations, and use several different deployment models. The configurations support different levels of scale and high availability, and are available in any of the appliance deployment options. The following table shows the configuration options:
+* a dedicated cloud environment hosted by Auth0.
+* your cloud environment using *Amazon AWS*, *Microsoft Azure*, and/or *Google Cloud Platform*. For other cloud environments, please contact us for additional information;
+* your own datacenter (as a managed service) using *VMWare* and *Microsoft Hyper-V*. For other virtualization environments contact us.
+
+If you opt to use a dedicated cloud environment hosted by Auth0, Auth0 is responsible for installation, maintenance, patching and updates. If you choose to deploy to your own cloud environment or data center, you supply and monitor the infrastructure Auth0 runs on. This includes the VM host, storage, network resources (such as the load balancer, internet access, etc.), and other required dependencies (such as the SMTP, NTP, etc.).
+
+You may deploy the Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the Appliance deployment models. The following table shows the configuration options:
 
 ![](/media/articles/appliance/ha-options.png)
 
-For deployment options we support:
-* A dedicated cloud environment hosted by Auth0.
-* Your cloud environment using *Amazon AWS*, *Microsoft Azure*, and *Google Cloud Platform*. For other cloud environments contact us.
-* On premise using *VMWare* and *Microsoft Hyper-V*. For other virtualization environments contact us.
-
-[Auth0 Deployment Models](/deployment) provides additional details and differences between each of the appliance deployment models, and the standard multi-tenant cloud deployment.
+[Auth0 Deployment Models](/deployment) provides additional details and explains the differences between each of the Appliance deployment models and the standard multi-tenant cloud deployment.
 
 ## Maintenance and Connectivity
 
-As a managed service the Auth0 staff performs initial setup and configuration and ongoing maintenance operations like security patching, troubleshooting, and updating. Auth0 will closely coordinate access with your operations team since all these activities will often run on your infrastructure (e.g. your network, servers, etc.). When Auth0 is managing a dedicated environment for you, we will still get your consent before applying any updates or configuration changes. The Auth0 staff does not have access to any appliances without your consent, and no information will be transferred off of the Auth0 appliances without consent from you. Depending on your team’s ability to prepare the infrastructure and its complexity, the Appliance project will typically take between 1-5 weeks.
+As a managed service, Auth0 performs the initial setup and configuration and ongoing maintenance operations like security patching, troubleshooting, and updating. Auth0 will closely coordinate access to your Appliance instances with your operations team, since these activities will often run on your infrastructure (such as your network, servers, etc.). Depending on the time it takes to prepare the required infrastructure and the deployment complexity, the Appliance project typically takes between 1-5 weeks.
+
+If Auth0 is managing a dedicated environment for you, Auth0 will still obtain your consent prior to applying any updates or configuration changes. Auth0 will not access any Appliances without your consent, and no information will be transferred off of the Appliances without your consent.
 
 During maintenance operations the appliance instances contact external Auth0 endpoints for updating the appliance under your consent and supervision. After maintenance completes you can block internet access. For normal maintenance Auth0 will access the management dashboard (either over a temporary SSH connection or through remote control software)to apply the update. SSH access is also needed during updates in case there are any . If you expose API endpoints used for monitoring then Auth0 will access basic operational information to proactively monitor Auth0 Appliance behavior for you.
 
