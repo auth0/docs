@@ -88,7 +88,7 @@ export class LinkedAccountsList extends React.Component {
 export default LinkedAccountsList;
 ```
 
-Bascially `LinkedAccountsList` renders a container and then one `LinkedAccountItem` for each identity in current user profile. It's expecting `profile` and `auth` as props, which we'll the sent by its parent, the `Home` component:
+Basically `LinkedAccountsList` renders a container and then one `LinkedAccountItem` for each identity in current user profile. It's expecting `profile` and `auth` as props, which we'll the sent by its parent, the `Home` component:
 
 ```javascript
 /* ===== ./src/views/Main/Home/Home.js ===== */
