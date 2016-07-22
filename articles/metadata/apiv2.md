@@ -8,7 +8,7 @@ Suppose you wanted to create a user with the following profile details:
 
 ```json
 {
-    "emails": "jane.doe@example.com",
+    "email": "jane.doe@example.com",
     "user_metadata": {
         "hobby": "surfing"
     },
@@ -23,7 +23,7 @@ The following `POST` call to the Management API will create the user and set the
 ```har
 {
 	"method": "POST",
-	"url": "http://${uiURL}/api/v2/users",
+	"url": "${uiURL}/api/v2/users",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
