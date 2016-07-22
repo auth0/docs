@@ -50,7 +50,7 @@ By including the user's `id_token` in the `Authorization` header, you may make t
 ```har
 {
 	"method": "PATCH",
-	"url": "http://${uiURL}/api/v2/users/{id}",
+	"url": "http://{uiURL}/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{

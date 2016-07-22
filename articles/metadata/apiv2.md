@@ -73,7 +73,7 @@ The `PATCH` call to the API would therefore be:
 ```har
 {
 	"method": "PATCH",
-	"url": "http://${uiURL}/api/v2/users/{id}",
+	"url": "http://{uiURL}/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -128,7 +128,7 @@ The `PATCH` call to the API would therefore be:
 ```har
 {
 	"method": "PATCH",
-	"url": "http://${uiURL}/api/v2/users/{id}",
+	"url": "http://{uiURL}/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
