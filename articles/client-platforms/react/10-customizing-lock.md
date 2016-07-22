@@ -3,6 +3,13 @@ title: Customizing Lock
 description: This tutorial will show you how to customize lock widget.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
+
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/10-Customizing-Lock',
 }) %>_
