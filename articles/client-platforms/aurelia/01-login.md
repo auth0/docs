@@ -53,7 +53,7 @@ To log the user out, we just need to remove the their JWT and profile from local
 
 ${snippet(meta.snippets.logout)}
 
-__Note:__ There are multiple ways of implementing login. The example above displays the Lock Widget. However you may implement your own login UI by changing the line `<script src="${widget_url_no_scheme}"></script>` to `<script src="//cdn.auth0.com/w2/auth0-6.7.js"></script>`.
+__Note:__ There are multiple ways of implementing login. The example above displays the Lock Widget. However you may implement your own login UI by changing the line `<script src="${widget_url_no_scheme}"></script>` to `<script src="${auth0js_url_no_scheme}"></script>`.
 
 ### 3. Make Secure Calls to an API
 

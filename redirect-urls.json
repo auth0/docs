@@ -699,5 +699,26 @@
   {
     "from": "/api-auth/resource-servers/asp-net",
     "to": "/api-auth"
+  },
+  {
+    "from": "/sso/single-sign-on",
+    "to": "/sso"
+  },
+  {
+    "from": "/libraries/lock/i18n",
+    "to": "/libraries/lock/v10/i18n"
+  },
+  {
+    "from": "/libraries/lock/migration-guide",
+    "to": "/libraries/lock/v10/migration-guide"
+  },
+  {
+    "from": "/libraries/lock/sending-authentication-parameters",
+    "to": "/libraries/lock/v10/sending-authentication-parameters"
+  },
+  {
+    "from": "/libraries/lock/v10",
+    "to": "/libraries/lock",
+    "status": 302
   }
 ]

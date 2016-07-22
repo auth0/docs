@@ -7,14 +7,17 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/06-Rules',
 }) %>_
 
+
 <%= include('../_includes/_rules-introduction') %>
 
+## Create a rule
 
-### Test rule result
+<%= include('../_includes/_rules-create-section') %>
 
-To see the created rule results, just login and fetch user profile information (you can see how [here](/quickstart/spa/angular2/03-user-profile)).
 
-Then, display user profile's new `country` attribute added in the created rule attribute:
+## Test rule result
+
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular2/04-user-profile' }) %>
 
 ```html
 /* ===== ./profile_show.template.html ===== */
@@ -32,6 +35,6 @@ Then, display user profile's new `country` attribute added in the created rule a
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
-### Done!
-You have implemented the usage of rule for your application.   
-This is just one of the tons of cool things we can do with rules. Go ahead and create any rule that fits your needs.
+## Done!
+
+That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.

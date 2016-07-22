@@ -16,11 +16,11 @@ This is essentially a hybrid between B2B and B2E where you have a larger SAAS ap
 The following is a list of articles on this website which will help you to implement this scenario:
 
 * [Lock](https://auth0.com/lock)
-* [Identity Protocols supported by Auth0](https://auth0.com/docs/protocols)
-* [Integrating a Web App with Auth0](https://auth0.com/docs/oauth-web-protocol)
-* [Connect Active Directory with Auth0](https://auth0.com/docs/connections/enterprise/active-directory)
-* [SAML](https://auth0.com/docs/saml-configuration)
-* [Using Auth0 in SaaS, multi-tenant Apps](https://auth0.com/docs/saas-apps)
-* [Identity Providers supported by Auth0](https://auth0.com/docs/identityproviders)
+* [Identity Protocols supported by Auth0](/protocols)
+* [Integrating a Web App with Auth0](/oauth-web-protocol)
+* [Connect Active Directory with Auth0](/connections/enterprise/active-directory)
+* [SAML](/saml-configuration)
+* [Using Auth0 in SaaS, multi-tenant Apps](/saas-apps)
+* [Identity Providers supported by Auth0](/identityproviders)
 * [Social Login](https://auth0.com/learn/social-login/)
 * [Auth0 SSO Dashboard (sample)](https://github.com/auth0-samples/auth0-sso-dashboard)

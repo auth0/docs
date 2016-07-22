@@ -9,11 +9,11 @@ description: This tutorial will show you how to use angular2-jwt library in Angu
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header.
 
-### Meet AuthHttp
+## Meet AuthHttp
 
-In order to make an authorized request, [angular2-gwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+In order to make an authorized request, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
 
-First you need to add the `AUTH_PROVIDERS` from `angular-gwt`
+First you need to add the `AUTH_PROVIDERS` from `angular2-jwt`
 
 ```typescript
 /* ===== app/main.ts ===== */
@@ -27,7 +27,7 @@ bootstrap(AppComponent, [
 ])
 ```
 
-Then you can import `AuthHttp` in your component and make the authenticated request:
+Then you can import `AuthHttp`, inject it in your component and use it to make the authenticated request:
 
 
 ```typescript
@@ -48,7 +48,7 @@ export class Ping {
   constructor(private auth: Auth, private authHttp: AuthHttp) {}
 
   public securedPing() {
-    this.authHttp.get(`${this.API_URL}/secured/ping`)
+    this.authHttp.get(`<%= "${this.API_URL}" %>/secured/ping`)
       .map(res => res.json())
       .subscribe(
         data => this.message= data.text,
@@ -91,7 +91,7 @@ bootstrap(AppComponent, [
 ])
 ```
 
-### Not sending the JWT for specific requests
+## Not sending the JWT for specific requests
 
 When you don't want to send the authentication headers just use the default angular [Http](https://angular.io/docs/ts/latest/guide/server-communication.html) client.
 
@@ -115,27 +115,18 @@ export class Ping {
 
   // Makes a get to the api without authorization headers
   public ping() {
-    this.http.get(`${this.API_URL}/ping`)
+    this.http.get(`<%= "${this.API_URL}" %>/ping`)
       .map(res => res.json())
       .subscribe(
         data => this.message = data.text,
         error => this.message = error._body
       );
   }
-
-  // Makes an authorized get to the api
-  // adding authorization headers (automatically, using AuthHttp)
-  public securedPing() {
-    this.authHttp.get(`${this.API_URL}/secured/ping`)
-      .map(res => res.json())
-      .subscribe(
-        data => this.message= data.text,
-        error => this.message = error._body || error
-      );
-  }
+  
+  ...
 }
 ```
 
-### Done!
+## Done!
 
 You have implemented the way of calling an authorized api using Auth0 token.

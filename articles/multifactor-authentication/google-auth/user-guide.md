@@ -1,6 +1,10 @@
+---
+description: How to sign-up and login using the Google Authenticator app.
+---
+
 # How to Use Google Authenticator
 
-Google Authenticartor is a mobile app used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.
+Google Authenticator is a mobile app used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.
 
 This page will help to explain how to sign up and log in using the Google Authenticator app.
 
@@ -20,7 +24,7 @@ Requirements: Must have iOS 5.0 or later. In addition, in order to set up the ap
 
 To download the app:
 
-1. Visit the [App Store](itunes.apple.com/AppStore).
+1. Visit the [iTunes App Store](https://itunes.apple.com/us/genre/ios/id36).
 2. Search for Google Authenticator.
 3. Download and install the application.
 
@@ -31,7 +35,7 @@ Requirements: Must have OS 4.5-7.0. In addition, make sure your BlackBerry devic
 To download the app:
 
 1. Open the web browser on your BlackBerry.
-2. Visit [m.google.com/authenticator](m.google.com/authenticator).
+2. Visit [m.google.com/authenticator](https://m.google.com/authenticator).
 3. Download and install the application.
 
 ## Sign Up as a New User
@@ -66,4 +70,4 @@ For logging in with Google Authenticator, there is a timeout that occurs with th
 
 ### Additional Help
 
-For other issues/questions regarding Google Authenticator [see here.](https://support.google.com/accounts/answer/1066447) 
+For other issues/questions regarding Google Authenticator, see: [Install Google Authenticator](https://support.google.com/accounts/answer/1066447).

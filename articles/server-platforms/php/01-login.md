@@ -67,7 +67,7 @@ Once the user info is fetched, it'll be stored in the session. Therefore, from t
 
 ${include('../_callbackRegularWebApp')}
 
-In this case, the callbackURL should look something like:
+In this case, the redirectUrl should look something like:
 
 ```
 http://yourUrl/callback.php
@@ -77,7 +77,7 @@ http://yourUrl/callback.php
 
 ${lockSDK}
 
-> **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
 ### 5. Accessing user information
 

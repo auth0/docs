@@ -3,6 +3,11 @@ title: Java
 ---
 
 ```java
-final JwtVerifier jwtVerifier = new JwtVerifier("${'<%= api.signing_secret %>'}", "${'<%= api.identifier %>'}", "${'https://<%= tenantDomain %>'}/");
+final String issuer = "${'https://<%= tenantDomain %>'}/";
+final String audience = "${'<%= api.identifier %>'}";
+final String secret = "${'<%= api.signing_secret %>'}";
+
+final JWTVerifier jwtVerifier = new JWTVerifier(secret, audience, issuer);
+
 final Map<String,Object> decodedPayload = jwtVerifier.verify(token);
 ```

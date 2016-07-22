@@ -5,24 +5,7 @@
 
 public login() {
   // Show the Auth0 Lock widget
-  this.lock.show({
-    authParams: {
-      scope: 'openid offline_access',
-      device: 'Mobile device'
-    }
-  }, (err, profile, token, accessToken, state, refreshToken) => {
-    if (err) {
-      alert(err);
-    }
-    // If authentication is successful, save the items
-    // in local storage
-    this.local.set('profile', JSON.stringify(profile));
-    this.local.set('id_token', token);
-    this.local.set('refresh_token', refreshToken);
-    this.zoneImpl.run(() => this.user = profile);
-    // Schedule a token refresh
-    this.scheduleRefresh();
-  });    
+  this.lock.show();    
 }
 
 public logout() {
@@ -82,30 +65,30 @@ public startupTokenRefresh() {
         this.getNewJwt();
         this.scheduleRefresh();
       });
-    }
-  }
-  
-  public unscheduleRefresh() {
-    // Unsubscribe fromt the refresh
-    if (this.refreshSubscription) {
-      this.refreshSubscription.unsubscribe();
-    }
-  }
-  
-  public getNewJwt() {
-    // Get a new JWT from Auth0 using the refresh token saved
-    // in local storage
-    this.local.get('refresh_token').then(token => {
-      this.lock.getClient().refreshToken(token, (err, delegationRequest) => {
-        if (err) {
-          alert(err);
-        }
-        this.local.set('id_token', delegationRequest.id_token);
-      });
-    }).catch(error => {
-      console.log(error);
-    });
   }
 }
-  
- ...
+
+public unscheduleRefresh() {
+  // Unsubscribe fromt the refresh
+  if (this.refreshSubscription) {
+    this.refreshSubscription.unsubscribe();
+  }
+}
+
+public getNewJwt() {
+  // Get a new JWT from Auth0 using the refresh token saved
+  // in local storage
+  this.local.get('refresh_token').then(token => {
+    this.auth0.refreshToken(token, (err, delegationRequest) => {
+      if (err) {
+        alert(err);
+      }
+      this.local.set('id_token', delegationRequest.id_token);
+    });
+  }).catch(error => {
+    console.log(error);
+  });
+}
+
+...  
+```
