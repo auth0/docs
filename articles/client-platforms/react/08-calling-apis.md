@@ -147,14 +147,15 @@ var config = getConfig({
 ...
 ```
 
-With a proxy ready, let's update our `start` script to start both `webpack-dev-server` and our `server.js` at the same time. The updated `scripts` entry in `package.json` seems like:
+With a proxy ready, let's update our `start` script to start both `webpack-dev-server` and our `server.js` at the same time. As both servers will stay running in development mode, we need to introduce [`npm-run-all`](https://github.com/mysticatea/npm-run-all) tool in order to run both in parallel. The updated `scripts` entry in `package.json` seems like:
 
 ```javascript
 /* ===== ./package.json ===== */
 "scripts": {
-    "start": "cross-env NODE_ENV=development hjs-dev-server && node server.js",
+    "start": "npm-run-all --parallel dev-server server-api",
+    "dev-server": "NODE_ENV=development cross-env hjs-dev-server",
+    "server-api": "node server.js",
     ...
-}
 ```
 
 Now when you run `npm start` both servers should be up with the proxy active.
