@@ -23,7 +23,7 @@ The following `POST` call to the Management API will create the user and set the
 ```har
 {
 	"method": "POST",
-	"url": "https://${uiURL}/api/v2/users",
+	"url": "http://${uiURL}/api/v2/users",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -33,7 +33,7 @@ The following `POST` call to the Management API will create the user and set the
 	"queryString": [],
 	"postData": {
 		"mimeType": "application/json",
-		"text": "{\"emails\": \"jane.doe@example.com\", \"user_metadata\": {\"hobby\": \"surfing\"}, \"app_metadata\": {\"plan\": \"full\"}}"
+		"text": "{\"email\": \"jane.doe@example.com\", \"user_metadata\": {\"hobby\": \"surfing\"}, \"app_metadata\": {\"plan\": \"full\"}}"
 	},
 	"headersSize": -1,
 	"bodySize": -1,
@@ -49,7 +49,7 @@ We've created a user with the following metadata values:
 
 ```json
 {
-    "emails": "jane.doe@example.com",
+    "email": "jane.doe@example.com",
     "user_metadata": {
         "hobby": "surfing"
     },
@@ -72,8 +72,8 @@ The `PATCH` call to the API would therefore be:
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${uiURL}/api/v2/users/{id}",
+	"method": "PATCH",
+	"url": "http://${uiURL}/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -95,7 +95,7 @@ The user's profile now appears as follows:
 
 ```json
 {
-    "emails": "jane.doe@example.com",
+    "email": "jane.doe@example.com",
     "user_metadata": {
         "hobby": "surfing",
         "addresses": {
@@ -127,8 +127,8 @@ The `PATCH` call to the API would therefore be:
 
 ```har
 {
-	"method": "POST",
-	"url": "https://${uiURL}/api/v2/users/{id}",
+	"method": "PATCH",
+	"url": "http://${uiURL}/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{

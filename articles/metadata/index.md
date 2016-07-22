@@ -44,7 +44,7 @@ console.log(user.app_metadata.hobby); // "full"
 
 ### Naming Metadata Fields
 
-Metadata field names must not contain a dot. For example, use of the following returns an Internal Server (500) error:
+Metadata field names must not contain a dot. For example, use of the following returns a Bad Request (400) error:
 
 ```json
 {
