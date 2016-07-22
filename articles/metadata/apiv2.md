@@ -23,7 +23,7 @@ The following `POST` call to the Management API will create the user and set the
 ```har
 {
 	"method": "POST",
-	"url": "https://{uiURL}/api/v2/users",
+	"url": "https://manage.auth0.com/api/v2/users",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -73,7 +73,7 @@ The `PATCH` call to the API would therefore be:
 ```har
 {
 	"method": "PATCH",
-	"url": "http://{uiURL}/api/v2/users/{id}",
+	"url": "https://manage.auth0.com/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -128,7 +128,7 @@ The `PATCH` call to the API would therefore be:
 ```har
 {
 	"method": "PATCH",
-	"url": "http://{uiURL}/api/v2/users/{id}",
+	"url": "https://manage.auth0.com/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
