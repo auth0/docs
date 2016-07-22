@@ -7,12 +7,11 @@ description: This tutorial will show you how to use the Auth0 library to add cus
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/02-Custom-Login',
 }) %>
 
-
-The previous step explains how to login but with a widget called Lock. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
+In the previous step, you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](https://github.com/auth0/auth0.js).
 
 ## Custom Login
 
-First of all let's add `Auth0` library into your application:
+First, you must add the `Auth0.js` library to your application:
 
 ```typescript
 /* ===== ./index.html ===== */
@@ -21,8 +20,9 @@ First of all let's add `Auth0` library into your application:
 ...
 ```
 
-The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there. 
-We'll need an `Auth0` instance. Let's create one using your credentials and setting *'callbackOnLocationHash'* to *true*.
+The best way to have authentication utilities available across the application is to use an **Injectable** service.
+
+You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `callbackOnLocationHash` to `true`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -31,11 +31,11 @@ auth0 = new Auth0({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
   callbackOnLocationHash: true,
-  callbackURL: `${account.callback}`,
+  callbackURL: '${account.callback}',
 });
 ```
 
-In login method, just call `login` function on `auth0` instance:
+In the `login` method, call the `login` function on the `auth0` instance, setting `connection` to `Username-Password-Authentication` and `responseType` to `token`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -51,8 +51,11 @@ public login(username, password) {
 };
 ```
 
-`Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) as default, so after a successful login, the app will be redirected to the `callbackURL`. As we set the *'callbackOnLocationHash'* to true, we will receive the results appended to the URL.
-So, inside `Auth` service constructor you can check for `hash` information using  auth0's `parseHash` method, which will extract auth information:0
+Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login. 
+
+With `callbackOnLocationHash` set to `true`, the result will be appended to the URL.
+
+Inside the `Auth` service constructor, check for `hash` information using  Auth0's `parseHash` method, which will extract the `id_token`. Save it to `localStorage`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -71,7 +74,7 @@ export class Auth {
  ...
 ```
 
-Now, let's add a form to actually call login:
+Now, add a form to call the login:
 
 ```html
 /* ===== app/login.template.html ===== */
@@ -90,7 +93,7 @@ Now, let's add a form to actually call login:
 
 ## Sign up
 
-To do a Sign Up just call `signup` method on `auth0` instance:
+To allow Sign-up, call the `signup` method on the `auth0` instance:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -106,7 +109,7 @@ public signUp(username, password) {
 };
 ```
 
-and add the button to call this:
+and add a **Sign Up** button to call this method:
 
 ```html
 /* ===== app/login.template.html ===== */
@@ -117,7 +120,7 @@ and add the button to call this:
 
 ## Social login
 
-To login using social connector, you just need to tell `Auth0` which connection you want to use:
+To login using a social connection, set the `connection` property of the `login` method to the identity provider you want to use:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -130,13 +133,9 @@ public googleLogin() {
 };
 ```
 
-and again add a button to call this:
+and add a button to call this method:
 
 ```html
 /* ===== app/login.template.html ===== */
-<button type="submit" class="btn btn-default btn-primary" (click)="auth.googleLogin()">Login with google</button>
+<button type="submit" class="btn btn-default btn-primary" (click)="auth.googleLogin()">Login with Google</button>
 ```
-
-## Done!
-
-You have implemented login, signup and social login without using Lock. 
