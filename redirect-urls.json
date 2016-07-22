@@ -692,5 +692,9 @@
     "from": "/libraries/lock/v10",
     "to": "/libraries/lock",
     "status": 302
+  },
+  {
+    "from": "/libraries/lock/v10/installation",
+    "to": "/libraries/lock#installation-and-dependencies"
   }
 ]
