@@ -72,7 +72,7 @@ For more information, see: [Emails in Auth0](/email).
 
 | Severity | Platforms | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
-| Medium | Auth0 Cloud Only | 2016-04-04 | 2016-05-11 |
+| Medium | Auth0 Cloud Only | 2016-07-21 | 2016-08-29 |
 
 Auth0's built-in email provider will no longer be supported for use in a production environment. The emails sent using the Auth0 provider will no longer be customizable. They will be restricted to the template and you will not be able to change the *from address* or subject line.
 
