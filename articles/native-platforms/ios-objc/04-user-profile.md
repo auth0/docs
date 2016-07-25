@@ -11,13 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-samples/auth0-ios-objc-samples',
-  pkgBranch: 'master',
-  pkgPath: '04-user-profile',
-  pkgFilePath: '04-user-profile/Auth0Sample/Info.plist',
-  pkgType: 'replace'
-}) %>
+<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/04-User-Profile', }) %>
 
 ### In the Beginning
 
