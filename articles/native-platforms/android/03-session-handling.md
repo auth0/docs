@@ -3,7 +3,6 @@ title: Session Handling
 description: This tutorial will show you how to use Lock10 to mantain a session connected.
 ---
 
-## Android - Session Handling Tutorial
 
 This tutorial will show you how to use Lock10 to mantain an active session with Auth0.
 
