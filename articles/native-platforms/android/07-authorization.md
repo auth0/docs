@@ -5,7 +5,7 @@ seo_alias: android
 ---
  
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/07-Authorization',
+  link: 'https://github.com/inaka/auth0-android-sample/tree/07-Authorization',
 }) %>
  
 This is a simple quickstart that will show you how to use Auth0 to create access roles for your users. This way you can authorize or deny content to different users.
