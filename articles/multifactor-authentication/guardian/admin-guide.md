@@ -42,7 +42,7 @@ When your users sign up with SMS they enter their phone number's country code an
 
 ![](/media/articles/mfa/sms.png)
 
-After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](#reset-a-mfa-for-a-user).
+After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](/docs/multifactor-authentication/guardian/admin-guide#reset-mfa-for-a-user).
 
 ### Configuring Guardian SMS with Twilio
 
