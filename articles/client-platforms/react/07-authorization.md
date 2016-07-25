@@ -22,7 +22,7 @@ This tutorial and seed project have been tested with the following:
 
 ## 2. Check if user's role is present
 
-After creating the new rule, let's update our helper class `AuthService` to provide a new method `isAdmin`. This method will be useful in other parts of the application, returning `true` for admin users and `false` otherwise. Check the snippet included in `AuthService.js` file:
+After creating the new rule, let's update our helper class `AuthService` to provide a new method `isAdmin`. This method will be useful in other parts of the application. It returns `true` for admin users and `false` otherwise. Check the snippet included in `AuthService.js` file:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -38,9 +38,9 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-## 3. Restrict a route based on user's roles
+## 3. Restrict a route based on the user's roles
 
-In order to exemplify how to restric access to certain routes based on user roles, we are going to update the `routes.js` file. Now, besides of just protecting some routes for authenticated users, a new `/admin` route requires the current user to have __admin__ role, redirecting to `/unauthorized` if auth.isAdmin() returns `false`. Take a look at the full `routes.js` code:
+In order to exemplify how to restric access to certain routes based on the user's roles, we are going to update the `routes.js` file. Now, besides of just protecting some routes for authenticated users, a new `/admin` route requires the current user to have an __admin__ role, redirecting to `/unauthorized` if auth.isAdmin() returns `false`. Take a look at the full `routes.js` code:
 
 ```javascript
 /* ===== ./src/views/Main/routes.js ===== */
@@ -99,11 +99,11 @@ export const makeMainRoutes = () => {
 export default makeMainRoutes
 ```
 
-Another feature introduced in above code is the correct redirecting after a successful login. Now it's storing the current url as a localStorage item before moving the user to login page, retrieving the value later in `redirectAfterLogin` method.
+Another feature introduced in above code is the correct redirecting after a successful login. Now it's storing the current url as a localStorage item before moving the user to login page, retrieving the value later in the `redirectAfterLogin` method.
 
 ## 4. Admin and Unauthorized Views
 
-As a final step, you should add the View Components for the two new routes: `Admin` and `Unauthorized`. An example of their code is shown below:
+As a final step, add the View Components for the two new routes: `Admin` and `Unauthorized`. An example of their code is shown below:
 
 ```javascript
 /* ===== ./src/views/Main/Admin/Admin.js ===== */
@@ -144,8 +144,8 @@ export class Unauthorized extends React.Component {
 export default Unauthorized;
 ```
 
-That's it. Running the application you can test it and verify that only users logged in with an email that contains `@example` (or following the rule you've introduced) will be able to access the `/admin` route.
+That's it. Now you can verify that only users logged in with an email that contains `@example` (or following the rule you've introduced) will be able to access the `/admin` route.
 
 ## 5. Done!
 
-You have implement one of the available ways to add authorization with auth0 in your ReactJS project.
+You have implemented one of the available ways to add authorization with auth0 in your ReactJS project.
