@@ -1,5 +1,6 @@
 ---
 title: Auth0 refresh_token
+description: A refresh token allows an application to request Auth0 to issue a new id_token directly, without needing to re-authenticate the user.
 ---
 
 # Auth0 `refresh_token`
@@ -8,53 +9,56 @@ title: Auth0 refresh_token
 
 The Auth0 `refresh_token` is used to get a new `id_token` without requiring the user to re-authenticate.  This is primarily useful for mobile applications that are installed on a device.  
 
-See the [Refresh Token](/refresh-token) page for additional information.
+See the [Refresh Token](/refresh-token) page for more detailed information.
 
-## How to get the Auth0 refresh token
+## Obtain a refresh token
 
-The Auth0 refresh token can be obtained via specifying the offline-access scope as a parameter to the /authorize endpoint.   as documented for [Offline Access](/auth-api#offline-access)
+The Auth0 refresh token can be obtained by specifying the `offline_access` scope as a parameter to the `/authorize` endpoint as shown at [Offline Access (Refresh Tokens)](/api/authentication#offline-access).
 
 For more information see:
-* [Lock example using a refresh token](/libraries/lock/using-a-refresh-token)
 
-* [Angular example using refresh token](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
+* [Obtain a refresh token](/refresh-token#obtain-a-refresh-token).
 
-* [Auth0.js example](https://github.com/auth0/auth0.js#login)
+* [Lock: Using a refresh token](/libraries/lock/using-a-refresh-token)
 
-## How to control contents of Auth0 refresh token
+* [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 
-The Auth0 refresh token can be issued and revoked for any combination of application, user and device.   The client application is specified in the call that invokes the Auth0 authentication sequence, and the user and device are the user that authenticates and the device used at the time of authentication.   There is no ability to further influence the contents of the Auth0 refresh token besides the application, user and device for which it is issued.
+* [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login)
+
+## Refresh token properties
+
+The Auth0 refresh token can be issued and revoked for any combination of **client**, **user** and **device**. 
+
+The client is specified in the call that invokes the Auth0 authentication sequence. The user and device are the user that is authenticated and the device used at the time of authentication. 
+
+There is no option to change the properties of the Auth0 refresh token from the values of the client, user and device set during its creation.
 
 ## Validity
 
-The refresh token is valid indefinitely, but it can be revoked.  See the Termination section below.
+The refresh token is valid indefinitely, but it can be [revoked](#revoke-a-refresh-token).
 
-## Renewing the token
+## Renew a refresh token
 
-There is no need to renew the refresh token as it is valid forever.  If the refresh token is revoked for any reason, a new one can be obtained as described in the “How to get the Auth0 refresh token” section above.
+There is no need to renew the refresh token since it never expires. If the refresh token is revoked for any reason, a new one can be obtained as [described above](#obtain-a-refresh-token).
 
-## Termination of tokens
+## Revoke a refresh token
 
 Refresh tokens can be revoked either through the Auth0 Dashboard or the Auth0 API.
 
-To revoke a refresh token in the Dashboard, navigate to “Users” -> {Name of user} -> “Devices”
+To revoke a refresh token in the Dashboard, navigate to **[Users](${uiURL}/#/users) > {username} > Devices** and click the **X** to delete.
 
-To use the APIv2, navigate to “Documentation” -> “APIv2” and use the Device Credentials calls.
+To use API Explorer, go to [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint and provide the `id` of the refresh token.
 
-Further information is at the "Using a refresh token" section of the [Refresh Token](/refresh-token#using-a-refresh-token) page.
+To revoke a refresh token with calls to APIv2, see [Revoke a refresh token](/refresh-token#revoke-a-refresh-token) for a detailed explanation of the required procedure.
 
-## Uses
+## Use
 
-The Refresh Token is used to obtain a new Auth0 `id_token`.  This can be done with the /delegation endpoint in the [Auth0 Authentication API](/auth-api#delegated)
+The refresh token is used to obtain a new Auth0 `id_token` by calling the [/delegation](/api/authentication#!#post--delegation) endpoint when the existing `id_token` has expired.
 
-There is an [example of the delegation call](/refresh-token#using-a-refresh-token)
+For an example delegation call, see: [Use a refresh token](/refresh-token#use-a-refresh-token).
 
-To get a new `id_token` when the existing `id_token` has expired, use a refresh token to get a new id token, as explained in the [Refresh Token](/refresh-token) page.
+The `auth0.js` library can also be used to renew an `id_token` as shown at: [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token).
 
-The auth0.js library can also be used to refresh an id token as shown [here](https://github.com/auth0/auth0.js#refresh-token).
+## Validation
 
-## Best practices
-
-### Validation
-
-The refresh token is passed to Auth0 and Auth0 will perform any necessary validation.
+The refresh token is passed to Auth0 and Auth0 performs all necessary validation.
