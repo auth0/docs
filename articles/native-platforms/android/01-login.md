@@ -3,6 +3,9 @@ title: Login
 description: This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
 ---
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/01-login',
+}) %>
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your android apps with Auth0.
 
