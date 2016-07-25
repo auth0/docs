@@ -1,8 +1,8 @@
- ---
- title: Authorization
- description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
- seo_alias: android
- ---
+---
+title: Authorization
+description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
+seo_alias: android
+---
  
  This is a simple quickstart that will show you how to use Auth0 to create access roles for your users. This way you can authorize or deny content to different users.
  
