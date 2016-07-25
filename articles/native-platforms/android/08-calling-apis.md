@@ -4,7 +4,6 @@ description: This tutorial will show you how to use the Auth0 tokens to make aut
 seo_alias: android
 ---
 
-
 In this tutorial you will learn how to use a previously saved token, to authenticate in your API calls.
 
 ::: panel-info System Requirements
@@ -17,7 +16,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-You should know already how to manage the `Credentials` object, as explained in [Session Management](03-session-handling.md) tutorial.
+You should already know how to manage the `Credentials` object, as explained in [Session Management](03-session-handling.md) tutorial.
 
 ### 1. Get a token
 
@@ -68,7 +67,7 @@ Then need to add the token as a mean of authentication to the request header. In
                 });
 ```
 
-The customized AuthorizationRequestObject looks like:
+The customized `AuthorizationRequestObject` looks like:
 
 ```java
 	public class AuthorizationRequestObject extends JsonObjectRequest
@@ -91,7 +90,7 @@ The customized AuthorizationRequestObject looks like:
     }
 ```
 	
-> This customized request is meant to manipulate the header of the JsonObjectRequest.	
+> This customized request is meant to manipulate the header of the `JsonObjectRequest`.	
 	
 Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
 	
