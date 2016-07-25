@@ -4,6 +4,10 @@ description: This tutorial will show you how to use the Auth0 tokens to make aut
 seo_alias: android
 ---
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/08-callyourapi',
+}) %>
+
 In this tutorial you will learn how to use a previously saved token, to authenticate in your API calls.
 
 ::: panel-info System Requirements
