@@ -26,7 +26,7 @@ So, let's modify our `AuthService` helper to do that.
 
 You can set custom theme properties like using a different logo, or changing the primary color.
 Just add a `theme` property with custom values when initializing the auth0 Lock widget.
-See full details [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#theming-options)
+See full details [here](/libraries/lock/v10/customization#theming-options)
 
 
 ```javascript
@@ -53,7 +53,7 @@ export default class AuthService extends EventEmitter {
 ### Language Dictionary Specification
 
 You can also customize every piece of text `Lock` needs to display. The option parameter to do this is `languageDictionary`. 
-See full details [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#language-dictionary-specification)
+See full details [here](/libraries/lock/v10/customization#languagedictionary-object-)
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
