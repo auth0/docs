@@ -44,14 +44,14 @@ Then, run "Sync project with Gradle files".
 You need to add the following permissions inside the ``AndroidManifest.xml``:
         
 ```xml
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 Also, don't forget to declare the activities you're using in the Manifest:
 	
 ```xml	
-	<activity android:name=".activities.LoginActivity"/>
-	<activity android:name=".activities.MainActivity"/>
+<activity android:name=".activities.LoginActivity"/>
+<activity android:name=".activities.MainActivity"/>
 ```	
        
 ### 3. Implement the Login
@@ -62,29 +62,29 @@ First, in your customized login method, instantiate the Authentication API:
 
 ```java
 private void login(String email, String password) {
-        Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
-        AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
+	Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+	AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
         
-        // proper login
+	// proper login
         
-        }      
+}      
 ```
 
 Then, login using the newly created client:
 
 ```java
 client.login(email, password).start(new BaseCallback<Credentials, AuthenticationException>() {
-            @Override
-            public void onSuccess(Credentials payload) {
-                // Store credentials
-                // Navigate to your main activity
-            }
+	@Override
+	public void onSuccess(Credentials payload) {
+	// Store credentials
+	// Navigate to your main activity
+	}
 
-            @Override
-            public void onFailure(AuthenticationException error) {
+	@Override
+	public void onFailure(AuthenticationException error) {
 
-            }
-        });
+	}
+});
 
 ```
 
