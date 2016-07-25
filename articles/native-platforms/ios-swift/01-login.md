@@ -11,13 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
-  pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
-  pkgType: 'replace'
-}) %>
+<%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/01-Login', }) %>
 
 ### Before Starting
 
