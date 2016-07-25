@@ -4,15 +4,17 @@ description: This tutorial will show you how to use the Auth0 authentication API
 seo_alias: android
 ---
  
- This is a simple quickstart that will show you how to use Auth0 to create access roles for your users. This way you can authorize or deny content to different users.
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/07-Authorization',
+}) %>
  
- ::: panel-info System Requirements
- This tutorial and seed project have been tested with the following:
  
- * AndroidStudio 2.0
- * Emulator - Nexus5X - Android 6.0 
-   :::
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
  
+* AndroidStudio 2.0
+* Emulator - Nexus5X - Android 6.0 
+:::
  
  ### Before Starting
  
