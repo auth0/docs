@@ -693,28 +693,23 @@
     "to": "/quickstart/native"
   },
   {
-    "from": "/api-auth/resource-servers/node-js",
-    "to": "/api-auth"
-  },
-  {
-    "from": "/api-auth/resource-servers/asp-net",
-    "to": "/api-auth"
-  },
-  {
     "from": "/sso/single-sign-on",
     "to": "/sso"
   },
   {
     "from": "/libraries/lock/i18n",
-    "to": "/libraries/lock/v10/i18n"
+    "to": "/libraries/lock/v10/i18n",
+    "status": 302
   },
   {
     "from": "/libraries/lock/migration-guide",
-    "to": "/libraries/lock/v10/migration-guide"
+    "to": "/libraries/lock/v10/migration-guide",
+    "status": 302
   },
   {
     "from": "/libraries/lock/sending-authentication-parameters",
-    "to": "/libraries/lock/v10/sending-authentication-parameters"
+    "to": "/libraries/lock/v10/sending-authentication-parameters",
+    "status": 302
   },
   {
     "from": "/libraries/lock/v10",
@@ -723,10 +718,12 @@
   },
   {
     "from": "/libraries/lock/v10/installation",
-    "to": "/libraries/lock#installation-and-dependencies"
+    "to": "/libraries/lock#installation-and-dependencies",
+    "status": 302
   },
   {
     "from": "/libraries/lock/customization",
-    "to": "/libraries/lock/v10/customization"
+    "to": "/libraries/lock/v10/customization",
+    "status": 302
   }
 ]
