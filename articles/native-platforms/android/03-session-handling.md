@@ -35,13 +35,13 @@ Your first step is to save, through a secure method, the user's credentials obta
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
-            @Override
-            public void onAuthentication(Credentials credentials) {
-				// Login Success response
-				saveCredentials(credentials)
-            }
-				...
-        };
+	@Override
+	public void onAuthentication(Credentials credentials) {
+		// Login Success response
+		saveCredentials(credentials)
+	}
+	...
+};
 ```
 
  
@@ -50,24 +50,25 @@ private LockCallback callback = new AuthenticationCallback() {
 #### i. Using a non-expired tokenID
 
 In the case your current tokenID didn't expire, you can use it to get a new one, with a newer expire date.
+
 ```java
-        String idToken = // GET STORED TOKEN ID
-        AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
+String idToken = // TODO: GET STORED TOKEN ID
+AuthenticationAPIClient client = new AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
         
-        client.delegationWithIdToken(idToken).start(new BaseCallback<Delegation>() {
-            @Override
-            public void onSuccess(Delegation payload) {
+client.delegationWithIdToken(idToken).start(new BaseCallback<Delegation>() {
+	@Override
+	public void onSuccess(Delegation payload) {
             
-            payload.getIdToken(); // New ID Token
-            payload.getExpiresIn(); // New ID Token Expire Date
+		payload.getIdToken(); // New ID Token
+		payload.getExpiresIn(); // New ID Token Expire Date
             
-            }
+	}
 
-            @Override
-            public void onFailure(Auth0Exception error) {
-
-            }
-        });
+	@Override
+	public void onFailure(Auth0Exception error) {
+		
+	}
+});
 ```         
 
 #### ii. Using refreshToken
@@ -75,21 +76,21 @@ In the case your current tokenID didn't expire, you can use it to get a new one,
 If the ``tokenID`` already expired, you can always use the ``refreshToken`` to get a new one, without having to login again. For this reason, this token must be securely saved.
 
 ```java
-        String refreshToken = // GET STORED REFRESH ID
-        AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
+String refreshToken = // TODO: GET STORED REFRESH ID
+AuthenticationAPIClient(new Auth0(${account.clientId}, ${account.namespace}));
         
-        authenticationClient.delegationWithRefreshToken(refreshToken).start(new BaseCallback<Delegation>() {
-            @Override
-            public void onSuccess(Delegation payload) {
-                payload.getIdToken(); // New ID Token
-                payload.getExpiresIn(); // New ID Token Expire Date
-            }
+authenticationClient.delegationWithRefreshToken(refreshToken).start(new BaseCallback<Delegation>() {
+	@Override
+	public void onSuccess(Delegation payload) {
+		payload.getIdToken(); // New ID Token
+		payload.getExpiresIn(); // New ID Token Expire Date
+	}
 
-            @Override
-            public void onFailure(Auth0Exception error) {
+	@Override
+	public void onFailure(Auth0Exception error) {
 
-            }
-        });
+	}
+});
 ```                
 
         
@@ -101,13 +102,12 @@ An example would be:
 
 ```java
 private void logout() {
-        setUserCredentials(null); 
-        startActivity(new Intent(this, LoginActivity.class));
-    }
+	setUserCredentials(null); 
+	startActivity(new Intent(this, LoginActivity.class));
+}
 ```
 
-> Deleting the user credentials depends on how you store them.
-> 
+> Deleting the user credentials depends on how you store them. 
 
 ### Done!
 
