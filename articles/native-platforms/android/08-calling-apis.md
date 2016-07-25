@@ -24,14 +24,14 @@ Your first step is to save the `Credentials` object, here is a small memo of thi
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
-            @Override
-            public void onAuthentication(Credentials credentials) {
-				// Save your newly obtained credentials
-            }
+	@Override
+	public void onAuthentication(Credentials credentials) {
+		// Save your newly obtained credentials
+	}
 
-            ...
+	...
             
-        };
+};
 ```
 You can use any of the token strings contained in the `Credentials` object.
 
@@ -40,31 +40,29 @@ You can use any of the token strings contained in the `Credentials` object.
 First you need to prepare the request:
 
 ```java
-	RequestQueue queue = Volley.newRequestQueue(this);
-    String url = "YOUR API URL";
+RequestQueue queue = Volley.newRequestQueue(this);
+String url = "YOUR API URL";
 ```
 
 Then need to add the token as a mean of authentication to the request header. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
    
 ```java     
-	 // Retrieve the credentials from where you saved them
-    String tokenID = getCredentials.getTokenID();
+// Retrieve the credentials from where you saved them
+String tokenID = getCredentials.getTokenID();
 
-    AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject
-                (Request.Method.GET, url, App.getInstance().getUserCredentials().getIdToken(),
-                        null, new Response.Listener<JSONObject>() {
+AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url, 
+App.getInstance().getUserCredentials().getIdToken(), null, new Response.Listener<JSONObject>() {
+	@Override
+	public void onResponse(JSONObject response) {
+		// Parse Response
+	}
+}, new Response.ErrorListener() {
 
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        // Parse Response
-                    }
-                }, new Response.ErrorListener() {
+	@Override
+	public void onErrorResponse(VolleyError error) {
 
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                    }
-                });
+	}
+});
 ```
 
 The customized `AuthorizationRequestObject` looks like:
