@@ -24,5 +24,6 @@ articles:
   - 05-linking-accounts
   - 06-rules
   - 07-authorization 
-  - 08-calling-APIs
+  - 08-calling-apis
   - 09-mfa
+  - 10-customizing-lock
