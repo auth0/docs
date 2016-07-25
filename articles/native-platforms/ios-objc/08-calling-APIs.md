@@ -1,5 +1,5 @@
 ---
-title: Calling your API
+title: Calling APIs
 description: This tutorial will show you how to use Auth0 to authenticate with your own API server.
 ---
 
@@ -53,4 +53,6 @@ NSString *token = self.token.idToken;
 
 Notice that how you configure your authorization header should match the standards that you're using in your API; this is just an example of what it could look like.
 
-### That's it!
+### Done!
+
+That's just it.
