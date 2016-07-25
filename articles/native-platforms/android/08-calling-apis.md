@@ -1,5 +1,5 @@
 ---
-title: Call you API
+title: Calling APIs
 description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
 seo_alias: android
 ---
@@ -44,7 +44,7 @@ RequestQueue queue = Volley.newRequestQueue(this);
 String url = "YOUR API URL";
 ```
 
-Then need to add the token as a mean of authentication to the request header. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
+Then, you need to add the token as a mean of authentication to the request header. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
    
 ```java     
 // Retrieve the credentials from where you saved them
