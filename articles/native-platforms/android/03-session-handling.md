@@ -7,23 +7,17 @@ description: This tutorial will show you how to use Lock10 to mantain a session 
 
 This tutorial will show you how to use Lock10 to mantain an active session with Auth0.
 
-The user's ``credentials`` class contain three kind of tokens:
+For this, you will need to handle user's ``credentials``. Let's take a look on this class, which is composed by three objects:
 
 * ``idToken``: Identity Token that proves the identity of the user.
 * ``accessToken``: Access Token used by Auth0 API.
 * ``refreshToken``: Refresh Token that can be used to request new tokens without signing in again.
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
-  :::
-
+Those objects are the keys needed to keep the user connected, as they will be used in all the API-Calls`.
 
 ### Before Starting
 
-Be sure that you have completed the [Basic Login](01-login.md) Quickstart.
+Be sure that you have completed the [Login](01-login.md) Quickstart.
 
 ### 1. Save the User's Credentials
 
