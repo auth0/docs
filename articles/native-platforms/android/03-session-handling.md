@@ -3,6 +3,17 @@ title: Session Handling
 description: This tutorial will show you how to use Lock10 to mantain a session connected.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* AndroidStudio 2.0
+* Emulator - Nexus5X - Android 6.0 
+:::
+
+<%= include('../../_includes/_github', {
+link: 'https://github.com/inaka/auth0-android-sample/tree/03-sessionhandling',
+}) %>
+
 
 This tutorial will show you how to use Lock10 to mantain an active session with Auth0.
 
