@@ -74,7 +74,7 @@ The other helper methods you see above are `login`, to call `lock.show()` and di
 
 ## 2. Request User Profile Data
 
-To fetch user profile information, you have to call `lock.getProfile` function, specifying the token and a callback to process the response. Below you can the code that was added to `AuthService` to fetch the user profile right after a successful authentication, storing the response in `localStorage`. Also, since the profile data request is asynchronous, `EventEmitter` is added to allow sending notifications after a profile update.
+To fetch user profile information, you have to call `lock.getProfile` function, specifying the token and a callback to process the response. Below you can see the code that was added to `AuthService` to fetch the user profile right after a successful authentication, storing the response in `localStorage`. Also, since the profile data request is asynchronous, `EventEmitter` is added to allow sending notifications after a profile update.
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
