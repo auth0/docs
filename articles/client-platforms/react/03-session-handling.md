@@ -3,6 +3,13 @@ title: Session Handling
 description: This tutorial will show you how to integrate Auth0 with ReactJS to add session handling and logout to your web app.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
+
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/03-Session-Handling',
 }) %>
@@ -59,7 +66,7 @@ export default class AuthService {
 }
 ```
 
-In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](https://auth0.com/docs/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
+In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
 
 ## 2. Check If Session is Valid
 

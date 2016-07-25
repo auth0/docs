@@ -140,39 +140,6 @@ And you'll see our native login screen
 
 Also you can check our [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
 
-### TouchID
-
-`A0TouchIDLockViewController` authenticates without using a password with TouchID. In order to be able to authenticate the user, your application must have a Database connection enabled.
-
-First instantiate `A0TouchIDLockViewController` and register the authentication callback that will receive the authenticated user's credentials. Finally present it to the user:
-```objc
-A0Lock *lock = ... //Fetch Lock from where its stored
-A0TouchIDLockViewController *controller = [lock newTouchIDViewController];
-controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
-    // Do something with token & profile. e.g.: save them.
-    // Lock will not save the Token and the profile for you.
-    // And dismiss the UIViewController.
-    [self dismissViewControllerAnimated:YES completion:nil];
-};
-[lock presentTouchIDController:controller fromController:self];
-```
-
-```swift
-let lock = ... //Fetch Lock from where its stored
-let controller = lock.newTouchIDViewController()
-controller.onAuthenticationBlock = {(profile: A0UserProfile!, token: A0Token!) -> () in
-    // Do something with token & profile. e.g.: save them.
-    // Lock will not save the Token and the profile for you.
-    // And dismiss the UIViewController.
-    self.dismissViewControllerAnimated(true, completion: nil)
-}
-lock.presentTouchIDController(controller, fromController: self)
-```
-And you'll see TouchID login screen
-
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-TouchID-Screenshot.png)](https://auth0.com)
-
-> Because it uses a Database connection, the user can change it's password and authenticate using email/password whenever needed. For example when you change your device.
 
 > For more information please check Lock's documentation in [CocoaDocs](http://cocoadocs.org/docsets/Lock).
 

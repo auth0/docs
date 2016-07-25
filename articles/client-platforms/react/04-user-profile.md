@@ -3,6 +3,13 @@ title: User Profile
 description: This tutorial will show you how to integrate Auth0 with ReactJS to authenticate and fetch/show profile information.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
+
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/04-User-Profile',
 }) %>
@@ -100,7 +107,7 @@ export default class AuthService extends EventEmitter {
     })
   }
 
-  ... // ommiting some methods to keep it short
+  ... // omitting some methods to keep it short
 
   setProfile(profile){
     // Saves profile data to localStorage
@@ -283,7 +290,7 @@ export class ProfileDetails extends React.Component {
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-To update user profile info, you need to hit [user api endpoint](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id) sending the new profile values. In our example, we'll update `AuthService` class adding a new method `updateProfile` to handle this functionality, sending the correct request headers. To make the http request, we'll use [`fetch` standard](https://fetch.spec.whatwg.org/)
+To update user profile info, you need to hit [user api endpoint](/api/management/v2#!/Users/patch_users_by_id) sending the new profile values. In our example, we'll update `AuthService` class adding a new method `updateProfile` to handle this functionality, sending the correct request headers. To make the http request, we'll use [`fetch` standard](https://fetch.spec.whatwg.org/)
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
