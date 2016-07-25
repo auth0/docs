@@ -4,6 +4,9 @@ description: This tutorial will show you how to use the Auth0 authentication API
 seo_alias: android
 ---
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/02-customlogin',
+}) %>
 
 This is a simple quickstart that will show you how to add the Auth0 login capabilities while using a customized login screen.
 
