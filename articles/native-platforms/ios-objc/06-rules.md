@@ -11,13 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-samples/auth0-ios-objc-samples',
-  pkgBranch: 'master',
-  pkgPath: '06-Rules',
-  pkgFilePath: '06-Rules/Auth0Sample/Info.plist',
-  pkgType: 'replace'
-}) %>
+<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/06-Rules', }) %>
 
 Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](/rules).
 
