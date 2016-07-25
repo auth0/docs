@@ -17,10 +17,10 @@ There are two options to following along these steps. You can either download th
 * [karma](https://karma-runner.github.io), [enzyme](https://github.com/airbnb/enzyme) and [chai](http://chaijs.com) for unit testing
 * [auth0-lock](https://github.com/auth0/lock) for user authentication
 
-Auth0 Lock widget is included in `package.json` but it's not being used yet. The entire project just serves as a starting point for this quickstart. The samples are included in each step and contains the example for each of the step.
+Auth0 Lock widget is included in the `package.json` file but it's not being used yet. The entire project just serves as a starting point for this quickstart. The samples are included in each step.
 
 ## Prerequisites
-Before we embark on this journey of ours, it is important to setup our application buy following these process:
+Before we embark on this journey of ours, it is important to setup our application by following this process:
 
 ::: panel-info Can I Skip?
 You can skip this step if you think you can find your way around or just looking for something specific in the quickstart.
@@ -70,7 +70,7 @@ Throughout the steps, the seed and samples will have the following directory str
 
 ### 4. Dependencies
 
-All the project dependencies are managed by `npm` and listed in `package.json` file. Webpack is responsible to compile and bundle everything in a single javascript file for all the environments: for __development__ with code hot reload active, for __testing__ when karma is running and even when creating a __production__ release.
+All the project dependencies are managed by `npm` and listed in the `package.json` file. Webpack is responsible to compile and bundle everything in a single javascript file for all the environments: for __development__ with code hot reload active, for __testing__ when karma is running and even when creating a __production__ release.
 
 To install everything required to run the application, inside the project folder run:
 
