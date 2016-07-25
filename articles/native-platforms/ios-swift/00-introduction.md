@@ -11,7 +11,7 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 There is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed. 
 
-<%= include('../../_includes/_github', { link: '[https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed)', }) %>
+<%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed', }) %>
 
 This seed project can be useful as a starting point for the app to which you need to integrate authentication.
 
