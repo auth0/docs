@@ -11,16 +11,10 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-APIs',
-  pkgFilePath: '08-Calling-APIs/Auth0Sample/Info.plist',
-  pkgType: 'replace'
-}) %>
+<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/08-Calling-APIs', }) %>
 
 > This tutorial will enable you to delegate all your authentication needs on Auth0, leaving your API server to handle only your core business processes.
-To achieve this, we will send an Auth0 token to the server through the `Authentication` header of the request. The server in turn will have to check with Auth0 servers to corroborate that this token is valid. We will not go into details about this later part, since there are other very good tutorials that cover the server side of this process ([like this one](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server)). You can checkout [the official documentation](/api/authentication) for further information on authentication API on the server-side.
+> To achieve this, we will send an Auth0 token to the server through the `Authentication` header of the request. The server in turn will have to check with Auth0 servers to corroborate that this token is valid. We will not go into details about this later part, since there are other very good tutorials that cover the server side of this process ([like this one](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server)). You can checkout [the official documentation](/api/authentication) for further information on authentication API on the server-side.
 
 > We'll assume you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.**
 
