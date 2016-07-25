@@ -43,27 +43,25 @@ To see the newly created rule working, just implement a login and check the user
   
 You can access the `country` added by the rule within the `extraInfo` hashmap from the `payload` object you receive in the callback:
   
-  ```java
+```java
+client.tokenInfo(${account.clientId})
+	  .start(new BaseCallback<UserProfile>() {
 
-    client.tokenInfo(${account.clientId})
-                .start(new BaseCallback<UserProfile>() {
-                    @Override
-                    public void onSuccess(final UserProfile payload) {
-                        MainActivity.this.runOnUiThread(new Runnable() {
-                            public void run() {
-                            
-                                // Get the country from the user profile
+	@Override
+	public void onSuccess(final UserProfile payload) {
+		MainActivity.this.runOnUiThread(new Runnable() {
+			public void run() {
+				// Get the country from the user profile
 				String country = payload.getExtraInfo().get("country").toString());
-                            
-                            }
-                        });
-                    }
-                    @Override
-                    public void onFailure(Auth0Exception error) { }
-                });
-
-    }
-  ```
+			}
+		});
+	}
+	@Override
+	public void onFailure(Auth0Exception error) {
+	
+	}
+});
+```
   
   ### Done!
   
