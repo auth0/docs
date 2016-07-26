@@ -3,10 +3,7 @@ title: Authorization
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
 ---
- 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/inaka/auth0-android-sample/tree/07-Authorization',
-}) %>
+
  
 This is a simple quickstart that will show you how to use Auth0 to create access roles for your users. This way you can authorize or deny content to different users.
  
@@ -17,6 +14,9 @@ This tutorial and seed project have been tested with the following:
 * Emulator - Nexus5X - Android 6.0 
 :::
  
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/07-Authorization',
+}) %> 
  
 ### Before Starting
  
@@ -24,7 +24,7 @@ Be sure that you have completed the [user profile](04-user-profile.md) quickstar
  
 ### 1. Create a Rule to assing roles
  
-First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](https://manage.auth0.com/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
 ```java
 if (user.email.indexOf('@example.com') > -1)
