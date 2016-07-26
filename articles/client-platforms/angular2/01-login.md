@@ -13,9 +13,9 @@ The best way to have authentication utilities available across the application i
 
 You will need an `Auth0Lock` instance to receive your Auth0 credentials and an options object. (For a list of available options, see: [Customization](https://github.com/auth0/lock/tree/v10.0.0#customization).)
 
-Then, add a callback for the `authenticated` lock event, which receives one argument with the login information. When the page is redirected after login, the callback defined for the `authenticated` lock event will be invoked.
+Then, add a callback for the `authenticated` event, which receives one argument with the login information. When the page is redirected after login, the callback defined for the `authenticated` lock event will be invoked.
 
-For now, just store the `idToken` attribute into `localStorage`.
+For now, store the `idToken` attribute into `localStorage`.
 
 In the `login` method, call `lock.show()` to display the login widget.
 
@@ -79,6 +79,6 @@ and into your component's template:
 </div>
 ```
 
-The lock widget will display the Login pop-up form when the **Login** button is clicked.
+The Lock widget will be displayed when the **Login** button is clicked.
 
 ${browser}

@@ -93,7 +93,7 @@ Now, add a form to call the login:
 
 ## Sign up
 
-To allow Sign-up, call the `signup` method on the `auth0` instance:
+To allow users to sign up, provide a `signUp` method:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -120,7 +120,7 @@ and add a **Sign Up** button to call this method:
 
 ## Social login
 
-To login using a social connection, set the `connection` property of the `login` method to the identity provider you want to use:
+To log in using a social connection, set the `connection` property of the `login` method to the identity provider you want to use:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
