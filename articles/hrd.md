@@ -2,7 +2,7 @@
 
 Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multitenant apps in which a single app is used by many different organizations, each one potentially using different systems: LDAP, Active Directory, Google Apps, or username/password stores.
 
-![](https://docs.google.com/drawings/d/1h3-gOOLOEOzbqh5c3n_9p7YNHpkffHNH7nFOgG3KM8A/pub?w=744&amp;h=307)
+![](/media/articles/hrd/sd4h-6wlwOsQA1PCQKLAmtQ.png)
 
 > Selecting the appropriate Identity Providers from multiple options is called "Home Realm Discovery". A pompous name for a simple problem.
 
