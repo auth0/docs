@@ -4,10 +4,6 @@ description: This tutorial will show you how to add customized rules to your app
 seo_alias: android
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/inaka/auth0-android-sample/tree/06-rules',
-}) %>
-
 Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. This way, you can enhance Auth0 capabilities customizing it up to your needs. To see a detailed description, please refer to [the full documentation](/rules).
 
 ::: panel-info System Requirements
@@ -15,8 +11,11 @@ This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
-  :::
+:::
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/06-rules',
+}) %>
 
 ### Before Starting
 
