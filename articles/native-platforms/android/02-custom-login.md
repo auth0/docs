@@ -4,10 +4,6 @@ description: This tutorial will show you how to use the Auth0 authentication API
 seo_alias: android
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/inaka/auth0-android-sample/tree/02-customlogin',
-}) %>
-
 This is a simple quickstart that will show you how to add the Auth0 login capabilities while using a customized login screen.
 
 ::: panel-info System Requirements
@@ -17,6 +13,9 @@ This tutorial and seed project have been tested with the following:
 * Emulator - Nexus5X - Android 6.0 
   :::
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/02-customlogin',
+}) %>
 
 ### Before Starting
 
@@ -90,10 +89,9 @@ client.login(email, password).start(new BaseCallback<Credentials, Authentication
 });
 
 ```
-
-> It's suggested to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file rather than hardcode them in the ``new Auth0()`` constructor method.
-
 > There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example. 
+
+__NOTE__: It's suggested to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file rather than hardcode them in the ``new Auth0()`` constructor method.
 
 ### Done!
 
