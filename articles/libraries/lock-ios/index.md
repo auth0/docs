@@ -184,7 +184,7 @@ self.presentViewController(controller, animated: true, completion: nil)
 
 There are different approaches to implement the "Sign Up" functionality.
 
-1. You can just add or hide "Sign Up" button in Lock UI. For this you need to setup property `disableSignUp` which hides the Sign Up button. The default value for this attribute is `NO`.
+1. You can just add or hide the "Sign Up" button in Lock UI. For this you need to setup property `disableSignUp` which hides the Sign Up button. The default value for this attribute is `NO`.
 
 2. Another approach is to use `A0LockSignUpViewController` directly.
 
@@ -215,7 +215,7 @@ self.presentViewController(controller, animated: true, completion: nil)
 ```
 
 
-3. A third approach would be to add your own Sign Up View Controller which should implement the sign up logic with one of the `A0APIClient` method. Let's consider this, for example:
+3. A third approach would be to add your own Sign Up View Controller which will implement the sign up logic with one of the `A0APIClient` method. Let's consider this, for example:
 
 ```
 - (NSURLSessionDataTask *)signUpWithEmail:(NSString *)email
