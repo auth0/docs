@@ -72,24 +72,23 @@ App.getInstance().getUserCredentials().getIdToken(), null, new Response.Listener
 The customized `AuthorizationRequestObject` looks like:
 
 ```java
-	public class AuthorizationRequestObject extends JsonObjectRequest
-    {
-        private String headerTokenID = null;
+public class AuthorizationRequestObject extends JsonObjectRequest{
+	private String headerTokenID = null;
 
-        public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest, Response.Listener listener, Response.ErrorListener errorListener)
-        {
-            super(method, url, jsonRequest, listener, errorListener);
-            headerTokenID = tokenID;
-        }
+	public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest, 
+	Response.Listener listener, Response.ErrorListener errorListener){
+		super(method, url, jsonRequest, listener, errorListener);
+		headerTokenID = tokenID;
+	}
 
-        @Override
-        public Map getHeaders() throws AuthFailureError {
-            Map headers = new HashMap();
-            headers.put("Bearer \\"+headerTokenID, "Authorization");
-            return headers;
-        }
+	@Override
+	public Map getHeaders() throws AuthFailureError {
+		Map headers = new HashMap();
+		headers.put("Bearer \\"+headerTokenID, "Authorization");
+		return headers;
+	}
 
-    }
+}
 ```
 	
 > This customized request is meant to manipulate the header of the `JsonObjectRequest`.	
@@ -102,8 +101,8 @@ Notice that how you configure your authorization header should match the standar
 At this point, you only need to schedule the request.
 
 ```java
-		// Add the request to the RequestQueue.
-        queue.add(authorizationRequest);        
+// Add the request to the RequestQueue.
+queue.add(authorizationRequest);        
         }      
 ```
 
