@@ -6,7 +6,7 @@ If you have decided to purchase an Appliance that is hosted in a dedicated area 
 * The **email address for at least one administrator**. This administrator will be able to add additional administrators as necessary;
 * **Six (6) DNS names**:
     * Three (3) will be used for the non-Production node, and three (3) will be used for the Production cluster.
-    * **Important**: DNS names **must** be finalized for all tenants prior to Appliance deployment. They cannot be changed afterwards.
+    * **Important**: Please finalize DNS names prior to Appliance deployment
 
 ## Further Reading
 
