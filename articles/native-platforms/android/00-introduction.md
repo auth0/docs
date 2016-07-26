@@ -5,7 +5,7 @@ description: Short Introduction to the Auth0 Android Quickstarts.
 
 <%= include('../../_includes/_github', { link: 'https://github.com/inaka/auth0-android-sample/tree/00-introduction', }) %>
 
-This is a short introduction to the Auth0 Android Quickstarts.
+This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -53,13 +53,13 @@ Make sure you complete these steps before going through any tutorial:
 
 #### 1. Create an application
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('https://github.com/auth0/docs/blob/e213af18660b059cc09f0a067f7ecb47bfd0c158/articles/client-platforms/_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 #### 2. Configure your callback URLs
 
-<%= include('../_includes/_callback-url-introduction') %>
+<%= include('https://github.com/auth0/docs/blob/e213af18660b059cc09f0a067f7ecb47bfd0c158/articles/client-platforms/_includes/_callback-url-introduction') %>
 
 #### 3. Set your credentials
 
