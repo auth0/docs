@@ -145,7 +145,7 @@ You can add a "Close" button to Lock UI. For this you need to set the property `
 
 #### Objective-C example
 
-```objective-c
+```objc
 A0Lock *lock = [[AKAppLock sharedInstance] lock];
 A0LockViewController *controller = [lock newLockViewController];
 controller.closable = YES;
