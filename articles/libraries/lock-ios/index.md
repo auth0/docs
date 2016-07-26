@@ -138,6 +138,51 @@ And you'll see our native login screen
 
 > By default all social authentication will be done using Safari, if you want native integration please check this [wiki page](/libraries/lock-ios/native-social-authentication).
 
+
+### Close Lock UI
+
+You can add a "Close" button to Lock UI. For this you need to set the property `closable`. This property allows the `A0AuthenticationViewController` to be dismissed by adding a button. The default value is `NO`. If you want to handle the closing event you need to add the block `onUserDismissBlock`. This block will be called when the user dismisses the Login screen, only when the `closable` property is set to `YES`.
+
+#### Objective-C example
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+A0LockViewController *controller = [lock newLockViewController];
+controller.closable = YES;
+
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+};
+
+controller.onUserDismissBlock = ^(){
+  NSLog(@"User closed Lock UI");
+};
+
+[self presentViewController:controller animated:YES completion:nil];
+```
+
+#### Swift example
+
+```swift
+let controller = A0Lock.sharedLock().newLockViewController()
+controller.closable = true
+
+controller.onAuthenticationBlock = { (profile, token) in
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+}
+
+controller.onUserDismissBlock = { () in
+  print("User closed Lock UI")
+}
+
+self.presentViewController(controller, animated: true, completion: nil)
+```
+
+
+## Samples
+
 Also you can check our [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
 
 
