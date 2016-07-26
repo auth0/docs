@@ -36,7 +36,7 @@ params[A0ParameterConnection] = @"Username-Password-Authentication"; // Or your 
 
 ### Swift version
 
-```
+```swift
 let client = A0Lock.sharedLock().apiClient()
 let params = A0AuthParameters.newDefaultParams();
 params[A0ParameterConnection] = "Username-Password-Authentication";// Or your configured DB connection
