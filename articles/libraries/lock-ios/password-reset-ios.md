@@ -7,7 +7,7 @@ description: All you need to know about password reset in iOS
 
 ## Introduction
 You can allow the user to reset the password for any database connections. 
-We strongly suggest reading [this article](/articles/connections/database/password-strength.md) before implementing this.
+We strongly suggest reading [this article](/connections/database/password-strength) before implementing this.
 
 If you use Lock UI you can hide or show a "Reset password" button by setting property `disableResetPassword`, which default value is set to `false`.
 If you implement your custom UI you need to send a password reset email to a user using `A0APIClient`.
