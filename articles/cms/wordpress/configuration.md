@@ -60,6 +60,7 @@ Enable the supported social identity providers you want to allow users to login 
 * **Customize the Login Widget with custom JS:** Allows you to add JavaScript that will customize the Lock widget (to add custom buttons, for example). For more information, see [Adding custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
 ```js
+// javascript
 lock.once('signin ready', function() {
     var link = jQuery('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
@@ -122,6 +123,7 @@ This action accepts five parameters:
 To hook to this action, include the following code:
 
 ```js
+// php
 add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
 
 function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
