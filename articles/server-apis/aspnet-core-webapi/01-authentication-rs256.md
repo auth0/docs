@@ -23,7 +23,7 @@ Save your changes.
 
 You will need to add the JWT middleware to your application's middleware pipeline. 
 
-Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 Client ID as the `Audience`, and the path to your Auth0 domain as the `Authority`:
+Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 Client ID as the `Audience`, and the full path to your Auth0 domain as the `Authority`:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -98,17 +98,17 @@ IRestResponse response = client.Execute(request);
 
 ## 5. Testing your API in Postman
 
-During testing you may want to test your API with Postman.
+During development you may want to test your API with Postman.
 
 If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way is to obtain an `id_token` is to use Login using the Auth0 [Authentication API Explorer](https://auth0.com/docs/api/authentication#!#post--oauth-ro):
+As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](https://auth0.com/docs/api/authentication#!#post--oauth-ro):
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
 
-Now you can then use the `id_token` and pass it along in the Authorization header as a Bearer token:
+Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token:
 
 ![Authorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-authorized.png)
 

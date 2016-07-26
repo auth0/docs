@@ -21,7 +21,7 @@ Save your changes.
 
 ## 2. Update your settings
 
-When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `appsettings.json` file included in the seed project to also add a **ClientSecret** key, and be sure to set the correct values for the **Domain**, **ClientId** and **ClientSecret**:  
+When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `appsettings.json` file included in the seed project to also add a **ClientSecret** attribute, and be sure to set the correct values for the **Domain**, **ClientId** and **ClientSecret** attributes:   
 
 ```json
 {
@@ -61,7 +61,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 ```
 
 ::: panel-warning Do not forget the trailing backslash
-Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the value of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.   
+Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.   
 :::
 
 ## 4. Securing an API endpoint 
@@ -107,17 +107,17 @@ IRestResponse response = client.Execute(request);
 
 ## 6. Testing your API in Postman
 
-During testing you may want to test your API with Postman.
+During development you may want to test your API with Postman.
 
 If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way is to obtain an `id_token` is to use Login using the Auth0 [Authentication API Explorer](https://auth0.com/docs/api/authentication#!#post--oauth-ro):
+As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](https://auth0.com/docs/api/authentication#!#post--oauth-ro):
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
 
-Now you can then use the `id_token` and pass it along in the Authorization header as a Bearer token:
+Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token:
 
 ![Authorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-authorized.png)
 

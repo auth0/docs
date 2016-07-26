@@ -4,7 +4,7 @@ description: This tutorial will show you how assign roles to your users, and use
 ---
 
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/03-Authorization',
+  link: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample/tree/master/03-Authorization',
 }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
@@ -23,7 +23,7 @@ By default, it says that if the user email contains `@example.com` he will be gi
 
 ## 2. Restrict an action based on a user's roles
 
-ASP.NET Core will automatically map claims contained in the JWT to roles. Specifically, it will look for a "roles" claim on the `id_token`, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
+ASP.NET Core will automatically map claims contained in the JWT to claims on the `ClaimsIdentity`. Specifically, it will look for a "roles" claim on the `id_token`, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
 
 This means that it integrates seamlessly with the [Role based authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) inside ASP.NET Core.
 
