@@ -1,0 +1,10 @@
+added:
+  -
+    title: "New docs added on React quickstart"
+    tags:
+      - react
+    description: |
+      New documents have been added to the React quickstart:
+      - [Linking Accounts](https://auth0.com/docs/quickstart/spa/react/05-linking-accounts)
+      - [Calling APIs](https://auth0.com/docs/quickstart/spa/react/08-calling-apis)
+      - [Customizing Lock](https://auth0.com/docs/quickstart/spa/react/10-customizing-lock)

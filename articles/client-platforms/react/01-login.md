@@ -18,7 +18,7 @@ This tutorial and seed project have been tested with the following:
 
 The best way to have authentication utilities available across the application is to create a helper class an share its instance to the React Components passing it as their props. Let's create the helper inside the `src/utils` folder to encapsulate the login functionality and name it `AuthService`.
 
-We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](https://github.com/auth0/lock/tree/v10.0.0-rc.1#customization)). Instead of hard coding the credentials here, `AuthService` will receive Auth0 credentials as contructor parameters.
+We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](/libraries/lock/v10/customization)). Instead of hard coding the credentials, `AuthService` will receive them as contructor parameters.
 
 With the internal Auth0 Lock widget instance, we can hook a callback for the `authenticated` event. The event is emitted after every successful login, passing the user authentication token (`idToken`) as a parameter. For now we're storing the `idToken` value into `localStorage`.
 
@@ -106,7 +106,7 @@ export default makeMainRoutes
 ```
 ${snippet(meta.snippets.envFile)}
 
-Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exists yet, so let's create it next.
+Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exist yet, so let's create it.
 
 ## 3. Create the Login view
 
@@ -178,7 +178,7 @@ export class Container extends React.Component {
 export default Container;
 ```
 
-After the Container change, Login button should be working and redirecting to Home page after a successful authentication.
+After the Container change, the Login button should be working and redirecting to the Home page after a successful authentication.
 
 ### 5. All done!
 
