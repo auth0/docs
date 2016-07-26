@@ -52,7 +52,7 @@ var request = require("request");
 
 var options = { method: 'PATCH',
   url: 'https://manage.auth0.com/api/v2/users/%7Bid%7D',
-  headers: { authorization: '"Bearer " + localStorage.getItem(id_token)' },
+  headers: { authorization: "Bearer " + localStorage.getItem(id_token) },
   body: { user_metadata: { addresses: { home: '123 Main Street, Anytown, ST 12345' } } },
   json: true };
 
