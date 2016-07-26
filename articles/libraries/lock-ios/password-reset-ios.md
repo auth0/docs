@@ -19,7 +19,7 @@ Please note that passwords can only be changed for users signing in using databa
 
 ### Objective-C version
 
-```objective-c
+```objc
 A0Lock *lock = [A0Lock sharedLock];
 A0APIClient *client = [lock apiClient];
 A0AuthParameters *params = [A0AuthParameters newDefaultParams];
