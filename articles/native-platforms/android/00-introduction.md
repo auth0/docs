@@ -53,13 +53,13 @@ Make sure you complete these steps before going through any tutorial:
 
 #### 1. Create an application
 
-<%= include('https://github.com/auth0/docs/blob/e213af18660b059cc09f0a067f7ecb47bfd0c158/articles/client-platforms/_includes/_new_app') %>_
+<%= include('../../client-platforms/_includes/_callback-url-introduction') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 #### 2. Configure your callback URLs
 
-<%= include('https://github.com/auth0/docs/blob/e213af18660b059cc09f0a067f7ecb47bfd0c158/articles/client-platforms/_includes/_callback-url-introduction') %>
+<%= include('../../client-platforms/_includes/_callback-url-introduction') %>
 
 #### 3. Set your credentials
 
