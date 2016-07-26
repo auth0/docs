@@ -63,4 +63,4 @@ export default ProfileDetails;
 ![Country rule sample](/media/articles/reactjs/rule-country-show.png)
 
 ### Done!
-That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.
+That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create anything that fits your needs.
