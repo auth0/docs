@@ -3,19 +3,18 @@ title: Login
 description: This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/inaka/auth0-android-sample/tree/01-login',
-}) %>
-
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your android apps with Auth0.
+This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
-  :::
+:::
 
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/inaka/auth0-android-sample/tree/01-login',
+}) %>
 
 ### Before Starting
 
@@ -137,7 +136,7 @@ startActivity(this.lock.newIntent(this));
 
 ```
 
-[![Lock.png](/media/articles/libraries/lock-android/login.png)]
+![Lock.png](/media/articles/libraries/lock-android/login.png)
 
 > If you need in depth configuration, check more information on [Lock Builder](https://auth0.com/docs/libraries/lock-android#lock-builder)
 
