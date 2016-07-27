@@ -17,7 +17,7 @@ We can actually write a service that returns a token and attaches it to all HTTP
 
 ```js
 angular.module('app', ['auth0', 'angular-jwt', 'angular-storage',])
-.config(function Config(['$httpProvider', 'jwtInterceptorProvider', $httpProvider, jwtInterceptorProvider) {
+.config(['$httpProvider', 'jwtInterceptorProvider', function Config($httpProvider, jwtInterceptorProvider) {
 
   jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     return store.get('token');
@@ -43,7 +43,7 @@ Our basic example will attache the JWT to headers of all of our requests which m
 
 ```js
 angular.module('app', ['auth0', 'angular-jwt', 'angular-storage',])
-.config(function Config(['$httpProvider', 'jwtInterceptorProvider', $httpProvider, jwtInterceptorProvider) {
+.config(['$httpProvider', 'jwtInterceptorProvider', function Config($httpProvider, jwtInterceptorProvider) {
 
   jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     return store.get('token');
@@ -66,7 +66,7 @@ Remember that template requests via `ui-router` or `ng-router` are HTTP requests
 
 ```js
 angular.module('app', ['auth0', 'angular-jwt', 'angular-storage',])
-.config(function Config(['$httpProvider', 'jwtInterceptorProvider', $httpProvider, jwtInterceptorProvider) {
+.config(['$httpProvider', 'jwtInterceptorProvider', function Config($httpProvider, jwtInterceptorProvider) {
 
   jwtInterceptorProvider.tokenGetter = ['store', 'config', function(store, config) {
     // Skip authentication for any requests ending in .html
@@ -85,7 +85,7 @@ If for any reason you would want to send different tokens based on different URL
 
 ```js
 angular.module('app', ['auth0', 'angular-jwt', 'angular-storage',])
-.config(function Config(['$httpProvider', 'jwtInterceptorProvider', $httpProvider, jwtInterceptorProvider) {
+.config(['$httpProvider', 'jwtInterceptorProvider', function Config($httpProvider, jwtInterceptorProvider) {
 
   jwtInterceptorProvider.tokenGetter = ['store', 'config', function(store, config) {
       if (config.url.indexOf('http://auth0.com') === 0) {
@@ -104,7 +104,7 @@ You saw in the introduction that sending tokens as a header is just a standard a
 
 ```js
 angular.module('app', ['auth0', 'angular-jwt', 'angular-storage',])
-.config(function Config(['$httpProvider', 'jwtInterceptorProvider', $httpProvider, jwtInterceptorProvider) {
+.config(['$httpProvider', 'jwtInterceptorProvider', function Config($httpProvider, jwtInterceptorProvider) {
   // Will attach token as a URL param
   jwtInterceptorProvider.urlParam = 'token';
   jwtInterceptorProvider.tokenGetter = ['store', 'config', function(store, config) {
