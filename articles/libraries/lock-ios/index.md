@@ -302,6 +302,37 @@ Additionally, after a successful Signup the user could be logged in automaticall
 
 If you want to show Terms & Conditions of your app you need to set `signUpDisclaimerView`. This view will appear in the bottom of Signup screen.
 
+### WebView
+
+For a social connection you can choose between using Safari or an embedded webView. For this you need to set the property `useWebView`.  
+It will use an embedded webView instead of Safari if you set the property to `YES`. Please note that the default value is `YES`.
+
+#### Objective-C example
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+A0LockViewController *controller = [lock newLockViewController];
+controller.useWebView = NO;
+
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+};
+controller.onUserDismissBlock = ^(){
+[self presentViewController:controller animated:YES completion:nil];
+```
+
+#### Swift example
+
+```swift
+let controller = A0Lock.sharedLock().newLockViewController()
+controller.useWebView = false
+controller.onAuthenticationBlock = { (profile, token) in
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+}
+self.presentViewController(controller, animated: true, completion: nil)
+```
 
 ## Samples
 
