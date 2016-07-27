@@ -8,7 +8,7 @@ This tutorial and seed project have been tested with the following:
 
 * CocoaPods 1.0.0
 * XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
+* iOS 9.3 (13E230)
   :::
 
 <%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/03-Session-Handling', }) %>
