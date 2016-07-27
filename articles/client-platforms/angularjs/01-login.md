@@ -186,7 +186,7 @@ authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'stor
 With a persisted token and profile, you can do the following when you lose state (eg: page reload):
 
 ```javascript
-.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$''location', function($rootScope, auth, store, jwtHelper, $location) {
+.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location', function($rootScope, auth, store, jwtHelper, $location) {
   // Listen to a location change event
   $rootScope.$on('$locationChangeStart', function() {
     // Grab the user's token
