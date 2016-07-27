@@ -117,11 +117,11 @@ To track your deployments, navigate to the [extensions](${uiURL}/#/extensions) p
 
 ![](/media/articles/extensions/github-deploy/deployments-overview.png)
 
-If a deployment fails, you can examine the details of the deployment to determine why. 
+If a deployment fails, you can examine the details of the deployment to determine why. Details are also available for successful deployments.
 
 ![](/media/articles/extensions/github-deploy/deployment-log.png)
 
-Details are also available for successful deployments. Also, if you configured a **Slack Incoming Webhook**, you will be notified on Slack if a deployment has succeeded or failed.
+Also, if you configured a **Slack Incoming Webhook**, you will be notified on Slack if a deployment has succeeded or failed.
 
 ![](/media/articles/extensions/github-deploy/slack-messages.png)
 
