@@ -3,13 +3,13 @@ title: Login
 description: This tutorial will show you how to integrate Auth0 with angular2 to add authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
 }) %>
 
 ## Login
 
-The best way to have authentication utilities available across the application is to use an **Injectable** service. 
+The best way to have authentication utilities available across the application is to use an **Injectable** service.
 
 You will need an `Auth0Lock` instance to receive your Auth0 credentials and an options object. (For a list of available options, see: [Customization](https://github.com/auth0/lock/tree/v10.0.0#customization).)
 

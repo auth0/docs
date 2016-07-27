@@ -3,8 +3,8 @@ title: Login
 description: Login with Lock Tutorial
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/01-Login',
 }) %>
 
 ::: panel-info Running the Sample

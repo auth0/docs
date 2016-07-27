@@ -3,8 +3,8 @@ title: Custom Login
 description: This tutorial will show you how to use the Auth0 library to add custom authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/02-Custom-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/02-Custom-Login',
 }) %>
 
 In the previous step, you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](https://github.com/auth0/auth0.js).
@@ -51,7 +51,7 @@ public login(username, password) {
 };
 ```
 
-Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login. 
+Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
 
 With `callbackOnLocationHash` set to `true`, the result will be appended to the URL.
 

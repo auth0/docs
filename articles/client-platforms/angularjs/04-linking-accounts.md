@@ -3,8 +3,8 @@ title: Linking Accounts
 description: test
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/05-Linking-Accounts',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/05-Linking-Accounts',
 }) %>_
 
 In some cases, there could be the need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can urge the users to link their account to an OAuth provider like Facebook or Google. You will see how you can, with the minimal lines of codes and the help of the SDK link and un-link user accounts.

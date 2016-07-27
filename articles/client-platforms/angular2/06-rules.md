@@ -3,8 +3,8 @@ title: Rules
 description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/06-Rules',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/06-Rules',
 }) %>_
 
 

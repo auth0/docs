@@ -9,10 +9,24 @@
     <% } %>
     </div>
     <div class="button-area">
-    <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
-      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Get Seed Project</a>
-    <% } else { %>
-      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Get Seed Project</a>
+    <% if (typeof pkgRepo != 'undefined') { %>
+      <%
+      if (typeof pkgBranch === 'undefined') {
+        var pkgBranch = 'master';
+      }
+      if (typeof pkgFilePath === 'undefined') {
+        var pkgFilePath = '';
+      }
+      %>
+
+      <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
+      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <% } else { %>
+      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <% } %>
+    <% } %>
+    <% if (typeof githubUrl != 'undefined') { %>
+      <a href="${githubUrl}" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
     <% } %>
     </div>
   </div>

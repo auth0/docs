@@ -22,6 +22,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 [Review Apps](#review-apps)
 
 [Quickstarts](#quickstarts)
+  * [Seed Projects](#seed-projects)
 
 [Updates Feed](#updates-feed)
 
@@ -241,6 +242,61 @@ After you publish the doc update, the new quickstart will automatically appear o
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
 
 ...TODO...
+
+### Seed Projects
+Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
+
+The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
+
+| String | Description |
+| :------| :-----------|
+| `AUTH0_CLIENT_ID` | This sets the client ID of the currently selected application. |
+| `AUTH0_CLIENT_SECRET` | This sets the client secret of the currently selected application. |
+| `AUTH0_DOMAIN` | This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `AUTH0_CALLBACK_URL` | This sets the callback url for the application. |
+| `MOBILE_CUSTOM_SCHEME` | This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `RANDOM_STRING_64` | This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+
+There are four types of packaging that can happen with this service.
+
+1. `server` - This creates a `.env` file in the sample project with the configuration values set. The output file will contain the following.
+  ```
+  AUTH0_CLIENT_ID=VALUE
+  AUTH0_CLIENT_SECRET=VALUE
+  AUTH0_DOMAIN=VALUE
+  AUTH0_CALLBACK_URL=VALUE
+  ```
+2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
+  ```
+  var JS_CLIENT_ID='VALUE';
+  var JS_CALLBACK_URL='VALUE';
+  var JS_DOMAIN='VALUE';
+  ```
+3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
+4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.
+
+```
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/sample-project'
+  pkgRepo: 'node-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/nodejs-regular-webapp',
+  pkgFilePath: null,
+  pkgType: 'server'
+}) %>
+```
+
+The follow are the values for the package configuration.
+
+
+| Variable  | Description |
+| :---------------------------- | :----------------------------------------- |
+| `githubUrl` | The url to the github project. This will be used in the "Fork on Github" button. |
+| `pkgRepo` | The name of the github repository. |
+| `pkgBranch` | Optional. The branch of the repo to download from. Defaults to `master`. |
+| `pkgPath` | The path where the sample is contained. This will be the folder that gets downloaded. |
+| `pkgFilePath` | Optional. The path to the file to run the replacement on. i.e. the path to a config file. |
+| `pkgType` | The type of processing to perform on the page. Valid options are `server`, `js`, `replace`, and `none`. See above. |
 
 ## Updates Feed
 Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.

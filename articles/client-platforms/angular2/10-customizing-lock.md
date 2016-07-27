@@ -3,8 +3,8 @@ title: Customizing Lock
 description: This tutorial will show you how to customize lock widget.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/10-Customizing-Lock',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/10-Customizing-Lock',
 }) %>_
 
 Using Lock widget is great, but eventually you will want to customize the UI. There are several options to do that.

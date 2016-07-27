@@ -3,8 +3,8 @@ title: Calling APIs
 description: This tutorial will show you how to use angular2-jwt library in Angular2 to make authenticated api calls.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/08-Calling-Api',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/08-Calling-Api',
 }) %>_
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header.

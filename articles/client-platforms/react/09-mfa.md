@@ -10,8 +10,8 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/09-MFA'
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/09-MFA'
 }) %>_
 
 <%= include('../_includes/_mfa-introduction') %>

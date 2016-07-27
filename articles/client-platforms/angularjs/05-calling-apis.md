@@ -3,8 +3,8 @@ title: Calling APIs
 description: test
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Calling-Apis',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/06-Calling-Apis',
 }) %>_
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides squad of tools to assist you complete end to end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header (though you are not restricted to that).
