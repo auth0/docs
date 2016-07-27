@@ -304,7 +304,7 @@ If you want to show Terms & Conditions of your app you need to set `signUpDiscla
 
 ### WebView
 
-For a social connection you can choose between using Safari or an embedded webView. For this you need to set the property `useWebView`.  
+When authenticating with a social connection you can choose between using Safari or an embedded webView. For this you need to set the property `useWebView`.  
 It will use an embedded webView instead of Safari if you set the property to `YES`. Please note that the default value is `YES`.
 
 #### Objective-C example
