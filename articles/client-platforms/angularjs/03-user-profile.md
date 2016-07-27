@@ -134,7 +134,7 @@ app.controller('HomeCtrl', ['$scope', 'store', function ($scope, store){
 Just as you saw above, you can store a user's profile and have access to it from any part of your application. This becomes handy when handling page refresh as there is need to re-authenticate the user. Fortunately, Auth0 makes it easy to authenticate users with their profiles:
 
 ```js
-.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$''location',
+.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location',
   function($rootScope, auth, store, jwtHelper, $location) {
   // Listen to a location change event
   $rootScope.$on('$locationChangeStart', function() {
