@@ -19,7 +19,7 @@ You can subscribe to custom events which are called at certain phases of the aut
 
 ```js
 /* ===== ./app.js ===== */
-app.config(function myAppConfig (authProvider) {
+app.config(['authProvider', function myAppConfig (authProvider) {
   //Called when login is successful
   authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
   function($location, profilePromise, idToken, store, $rootScope) {
@@ -31,7 +31,7 @@ app.config(function myAppConfig (authProvider) {
     });
     $location.url('/');
   }]);
-});
+}]);
 ```
 
 The profile is a JavaScript object so you can access its properties. You have the profile data on Angular's scope object so you can bind to your view or do whatever you want with the information:
@@ -44,7 +44,7 @@ The profile is a JavaScript object so you can access its properties. You have th
 
 When using popup mode, callbacks can be used to get a user's profile if the authentication is successful:
 ```js
-app.controller('LoginCtrl', function ($scope, auth) {
+app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
   /* ===== ./login/login.js ===== */
 
   $scope.auth = auth;
@@ -58,7 +58,7 @@ app.controller('LoginCtrl', function ($scope, auth) {
         $scope.err = err;
       });
   }
-});
+}]);
 ```
 
 You can bind to view as well:
@@ -86,7 +86,7 @@ Now update the controller to store the profile as soon as it is retrieved:
 ```js
 /* ===== ./login/login.js ===== */
   // Don't forget to add store as a dependency
-app.controller('LoginCtrl', function ($scope, auth, store) {
+app.controller('LoginCtrl', ['$scope', 'auth', 'store', function ($scope, auth, store) {
   // Add auth to $scope object so we can bind to view
   $scope.auth = auth;
 
@@ -102,11 +102,11 @@ app.controller('LoginCtrl', function ($scope, auth, store) {
         $scope.err = err;
       });
   }
-});
+}]);
 
 // ================= OR
 /* ===== ./app.js ===== */
-app.config(function myAppConfig (authProvider) {
+app.config(['authProvider', function myAppConfig (authProvider) {
   //Called when login is successful
   authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
   function($location, profilePromise, idToken, store, $rootScope) {
@@ -118,7 +118,7 @@ app.config(function myAppConfig (authProvider) {
     });
     $location.url('/');
   }]);
-});
+}]);
 ```
 
 You can retrieve any of the stored details as well:
