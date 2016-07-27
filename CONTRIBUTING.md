@@ -22,6 +22,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 [Review Apps](#review-apps)
 
 [Quickstarts](#quickstarts)
+  * [Creating Quickstarts](#creating-quickstarts)
   * [Quickstart Guidelines](#quickstart-guidelines)
   * [Seed Projects](#seed-projects)
 
