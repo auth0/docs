@@ -57,7 +57,7 @@ If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `P
 
 ```ruby
 use_frameworks!
-pod 'Lock', '~> 1.24'
+pod 'Lock', '~> 1.26'
 pod 'Auth0', '1.0.0-beta.5'
 ```
 
