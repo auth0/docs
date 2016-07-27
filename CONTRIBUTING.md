@@ -241,7 +241,116 @@ After you publish the doc update, the new quickstart will automatically appear o
 ### Quickstart Guidelines
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
 
-...TODO...
+
+#### Library References
+Each library that we publish should have appropriate reference documentation. There will be two kinds of reference documentation for each library. The first is automatically generated. Each library should generate reference docs using a tool like jsDocs on every build/release. This will ensure consistent and up to date documentation.
+
+
+Additionally, many libraries may also need manual documentation showing more sophisticated scenarios. Certainly, Auth0.js and Lock will need significant manual documentation. Other libraries will as needed.
+
+#### Quickstarts
+Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
+
+
+##### Native
+0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
+1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
+2. Login with Custom UI - Using head-less library to do login without Lock
+3. Session Handling - How to store tokens, refresh tokens, and logout
+4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
+5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
+6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
+7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.[b]
+8. Calling Your API - How to take the access token from
+9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps[c].
+10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
+
+##### Web
+0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
+1. Login - Shows hot to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
+2. Login with Custom UI - Using auth0.js to build a custom login without Lock.
+3. Session Handling - How to store tokens, how to handle sessions (serialization, etc.), and logout
+4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
+5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
+6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
+7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.
+8. Multifactor Authentication - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
+9. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
+
+
+##### SPA
+0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
+1. Login - Shows hot to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
+2. Login with Custom UI - Using auth0.js to build a custom login without Lock.
+3. Session Handling - How to store tokens and logout
+4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
+5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
+6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
+7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application. This section will include information on how to use rules and authorization together.
+8. Calling Your API - How to take the access token from
+9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
+10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
+
+
+##### API/Services
+1. Authentication - How to authenticate a user to call an API
+2. Authorization - How to perform authorization in a API
+
+#### Libraries
+As appropriate every framework/language should have libraries to help with common functions. THese libraries will include things like:
+
+* Management API Libraries
+* Authentication API Libraries
+* Authentication Middlewares
+* Helpers Libraries
+
+We want to make authentication and authorization as easy as possible for our developers. These libraries are a critical part of that. However, libraries must not wrap functionality of the Lock widgets. We iterate on our Lock widgets too frequently to keep wrappers up to date. We can provide helpers that make Lock easier to include in an app for a particular framework, but these should only expose the core Lock functionality directly, never wrap or abstract it.
+
+#### Samples
+Each seed project will have a corresponding sample (seed project). The idea of a seed project is that a user can download this and everything is setup and ready for them to run.
+
+Each sample for a quickstart should have its own repository in github in the github.com/auth0-samples organization. The structure of the repository is as follows:
+
+```text
+/README.md
+/LICENSE
+/00-Start
+/01-Login
+/02-User-Profile
+/03-etc
+/04-etc
+```
+
+In this way, each section of the quickstart has a sample showing the appropriate step. The sample in the numbered folder should exactly match the completed code of the tutorial. The 00 step is the blank empty project. The empty project would typically start with the standard “File->New” project for that particular framework. This means that anyone who is familiar with the framework will understand the starting point.
+
+##### Sample README’s
+The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It’s important to make content within each README specific to the subject sample.
+
+* **Example**: 02-User-Profile
+* **Title**: “User Profile”
+* **Body**: “User information can be stored under user_metadata for any Auth0 user. You may choose to include this data in the user’s JWT or you can simply access it from the user’s profile object returned by Auth0. Many applications will require functionality that enables users to update their own profile information, and this can be done through Auth0’s Management API.
+
+This sample demonstrates how to retrieve an Auth0 user’s profile and how to update it via the Management API. After following the steps outlined here, you will be able to retrieve, set, and update a user profile.”
+
+
+* Add link to quickstart in README
+
+
+##### Important Snippets:
+1. Installation
+2. Retrieving the user’s profile
+3. Setting the user’s profile
+4. Updating the user’s profile
+
+
+#### Continuous Integration
+Each sample repo should have appropriate CI setup. You should use the appropriate CI system for the sample. Typically this is Travis CI. The CI system does not need to have extensive tests, but should simply ensure that the project downloads dependencies and builds correctly. If possible we should test to make sure there are no build warnings either.
+
+
+In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: https://travis-ci.org/auth0/Auth0.swift
+1. No need to write code or specialized guide for mobile
+2. We don't have a lot of stuff finished to be doing this one in mobile.
+3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
 Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
