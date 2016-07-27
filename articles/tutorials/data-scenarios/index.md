@@ -1,6 +1,6 @@
 #Auth0 User Data Storage
 
-Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely. It is also to give you a look at an end-to-end experience of an application using auth0 and an external database. We created an example application to illustrate the important distinctions a developer must make when storing their user data with Auth0. For this example case, we started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the mobile/backend [architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured. 
+Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely. It is also to give you a look at an end-to-end experience of an application using auth0 and an external database. We created an example application to illustrate the important distinctions a developer must make when storing their user data with Auth0. For this example case, we started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](https://auth0.com/docs/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the mobile/backend [architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured. 
 
 
 ##Where do I put my authentication data?
@@ -28,8 +28,8 @@ The two sets of data are also likely accessed with different frequencies, so it 
 
 Using the user’s unique `user_id` from their Auth0 user profile, we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from our `songs` table in our Heroku Postgres database:
 
-| song_id   | songname           | user_id                   |
-| --------- | ------------------ | ------------------------- |
+| song_id   | songname           | user_id                    |
+| --------- | ------------------ | -------------------------- |
 | "1a"      | "Yellow Submarine" | "google-oauth2\|xxxyyy123" |
 
 
