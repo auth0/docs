@@ -17,7 +17,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 
 #### Test rule result
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/angularjs/03-user-profile' }) %>
 
 ```html
 <div class="col-md-6 col-md-offset-3">
