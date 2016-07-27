@@ -7,7 +7,7 @@ If you have decided to purchase an Appliance that is hosted in a dedicated area 
 * **Six (6) DNS names**:
     * Three (3) will be used for the non-Production node, and three (3) will be used for the Production cluster;
     * **Important**: Please finalize DNS names prior to Appliance deployment.
-* **SMTP Settings** (including the hostname, port, username, and password). Auth0 will work with you to enter your settings. For additional details, please see the [SMTP section of the Appliance infrastructure manual](/appliance/infrastructure/security#smtp).
+* **SMTP Settings** (including the hostname, port number, username, and password). Auth0 will work with you to enter your settings. For additional details, please see the [SMTP section of the Appliance infrastructure manual](/appliance/infrastructure/security#smtp).
 
 ## Further Reading
 
