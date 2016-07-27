@@ -11,7 +11,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/10-Customizing-Lock', }) %>
+<%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/10-Customizing-Lock', }) %>
 
 ### Before Starting
 
