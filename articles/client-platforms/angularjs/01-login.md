@@ -36,9 +36,9 @@ We just need the configuration for now and you can achieve that by using `auth0`
 Angular's `config()` skeleton with required dependency:
 ```javascript
 /* ===== ./app.js ===== */
-app.config( function myAppConfig (authProvider) {
+app.config( ['authProvider', function myAppConfig (authProvider) {
   //authProvider init configuration
-})
+}])
 ```
 
 The `init()` method is used to configure Auth0 Angular SDK:
