@@ -1,6 +1,6 @@
 #Auth0 User Data Storage
 
-Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely and to give you a look at an end-to-end experience through an application connected to both auth0 and an external database. We created an example application to illustrate the important distinctions a developer must make when storing their user data with Auth0. For this example case, we started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the mobile/backend [architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured. 
+Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely. It is also to give you a look at an end-to-end experience of an application using auth0 and an external database. We created an example application to illustrate the important distinctions a developer must make when storing their user data with Auth0. For this example case, we started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the mobile/backend [architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured. 
 
 
 ##Where do I put my authentication data?
@@ -26,7 +26,7 @@ The two sets of data are also likely accessed with different frequencies, so it 
 
  Here is an example of data that is associated with a user but not with authenticating that user in the app: In the case of our mobile music application, the user’s music needs to be saved, so they can find it easily when they log in again. This data is not required in the process of authenticating the user for the app, but favorite songs and artists are personal data that should be associated with the user. So we would want to store this data in a separate database connected to the backend of our mobile app, instead of in the Auth0 database. Here is how we did this:
 
-Using the user’s unique “user_id” from their Auth0 user profile, we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from our "songs" table in our Heroku Postgres database:
+Using the user’s unique `user_id` from their Auth0 user profile, we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from our `songs` table in our Heroku Postgres database:
 
 | song_id   | songname           | user_id                   |
 | --------- | ------------------ | ------------------------- |
@@ -67,6 +67,9 @@ This is the function on the client that makes the request to our Heroku-hosted N
         task.resume()
     }
 ```
+
+This should not be confused with the `getGenre()` from the backend, which is what queries our separate database. This function is on the client (in the Swift code), and simply makes a request to the API/backend which handles the request. This function changes the interface of the app to display the response data of the request to `/secured/getFavGenre`.
+
 The function `buildAPIRequest()` takes the path and the type of HTTP request as parameters and builds a request using the base URL of our Node.js API hosted on Heroku.
 
 The Express server code from our Node.js API that handles the request to `/secured/getFavGenre` makes a call to `getGenre()` as discussed:
@@ -77,7 +80,7 @@ app.get('/secured/getFavGenre', function(req, res) {
 });
 ```
 
-Then `getGenre()` takes the user_id and queries the user_data table to find that user's favorite genre and returns it to the client:
+Then `getGenre()` takes the `user_id` and queries the `user_data` table to find that user's favorite genre and returns it to the client:
 
 ```
 function getGenre(user_id, res){
@@ -116,7 +119,7 @@ Metadata is JSON in the user profile that is used to store any extra data to be 
 
 Some data from our music app that would be appropriate to store in app metadata is a music streaming subscription. Another example is the user’s permission to edit the app’s featured playlists. Both of these are appropriate for metadata because they are important in authenticating the user and to customize their experience as they are logged in. What makes them app metadata (instead of user metadata) is that they must not be easily changed by the user. We implemented the permissions example with two Auth0 rules:
 
- The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign “playlist editor” as a value in the “roles” array in app_metadata. 
+ The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `"playlist editor"` as a value in the `“roles”` array in the app metadata. 
  
  ```
  function (user, context, callback) {
@@ -187,7 +190,7 @@ Some data from our music app that would be appropriate to store in app metadata 
 }
  ```
 
-The second rule gets the app metadata and assigns the “roles” array to a field of the user object so that it can be accessed without directly accessing the app metadata on the client. This way, the app metadata remains secure and a clever user cannot hack the app to change their app metadata. 
+The second rule gets the app metadata and assigns the `“roles”` array to a field of the user object so that it can be accessed without directly accessing the app metadata on the client. This way, the app metadata remains secure and a clever user cannot hack the app to change their app metadata. 
 
 ```
 function(user, context, callback) {
@@ -202,7 +205,7 @@ function(user, context, callback) {
 
 ***Is this the reason why we have the second rule? Does this make sense if the user object contains the app metadata itself anyway? Is it an issue of scope and whether you choose to include app_metadata or not?
 
-The app recognizes whether the user is a “playlist editor” or not and displays their permission when they are welcomed to the app (we didn’t implement the featured playlist itself for the simplicity of the example).This is a good example of app metadata because in this scenario, the user has no direct control over how many times other people play their playlist, and so they must not be able to change their own permission to edit the app’s featured playlist. This is a special permission they have to “earn,” in this case by getting more people to listen to their playlist.
+The app recognizes whether the user is a playlist editor or not and displays their permission when they are welcomed to the app. There is no actual featured playlist for the simplicity of the example. Instead, the user's permission is simply displayed upon login. This is a good example of app metadata because in this scenario, the user has no direct control over how many times other people play their playlist, and so they must not be able to change their own permission to edit the app’s featured playlist. This is a special permission they have to “earn,” in this case by getting more people to listen to their playlist.
 
 ###User metadata
 
@@ -210,9 +213,9 @@ User metadata is extra authentication data determined by the user, such as prefe
 
 ###Example of user metadata
 
-In the case of our music app, we should consider that the user would want to change their “display name,” which is displayed to other users of the app and to the user when they are welcomed to the app upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in user metadata. We stored the variable “display name” in user metadata and allowed the user to update their display name for the purpose of this example.
+In the case of our music app, we should consider that the user would want to change their `“display name”`, which is displayed to other users of the app and to the user when they are welcomed to the app upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in user metadata. We stored the variable `“displayName”` in user metadata and allowed the user to update their display name for the purpose of this example.
 
-We used an Auth0 rule to get the user.user_metadata every time the user logs in to display their “display name”.
+We used an Auth0 rule to get the `user.user_metadata` every time the user logs in to display their display name.
 
 ```
 function(user, context, callback){
@@ -245,8 +248,8 @@ Here is a review of the types of data and the best practices for storing them in
 | ------------------------------------------------------- | -------------------------------------------------------------- |
 | User profiles from Auth0 authentication                 | Auth0 database                                                 |
 | Songs, artists, and playlists saved to the user’s music | A separate database connected to the backend of the application|
-| User’s permission to edit the app’s featured playlist, stored in “roles” variable | App metadata |
-|User’s chosen display name that they are free to change, stored in “display name” variable| User metadata |
+| User’s permission to edit the app’s featured playlist, stored in `“roles”` variable | App metadata |
+|User’s chosen display name that they are free to change, stored in `“displayName”` variable| User metadata |
 
 
 This document is meant to give you a better idea of where to store different types of data both authentication-related and otherwise. Rules are a helpful tool to work with the authentication data of your application in a systematic and simple way. In general the ways Auth0 provides for you to store your users’ data are intended to be used for authentication data only, so if your data seems irrelevant to the authentication process, it is best stored in a separate database. This article should clear up any doubt you have about how to use Auth0’s data storage methods.
