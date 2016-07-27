@@ -47,13 +47,13 @@ Send a POST request to the /dbconnections/signup endpoint in Auth0. You will nee
 {
   "method": "POST",
   "url": "https://${account.namespace}/dbconnections/signup",
-  "headers": [
-    { "name": "Content-Type", "value": "application/json" }
-  ],
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",
-    \"user_metadata\": "{\"name\": \"john\",\"color\": \"red\"}"}"
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"user_metadata\": {\"name\": \"john\",\"color\": \"red\"}}"
   }
 }
 ```
