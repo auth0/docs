@@ -11,6 +11,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-vue-samples',
   pkgRepo: 'auth0-vue-samples',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
