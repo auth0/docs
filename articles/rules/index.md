@@ -160,6 +160,22 @@ Example of a body schema:
   "stage": "login_success"
 }
 ```
+Use this to create the POST request:
+
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/api/v2/rules",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {\n  callback(null, user, context);\n}\",\"order\":2,\"enabled\":true,\"stage\":\"login_success\"}'"
+  }
+}
+```
 
 ## Debugging
 
