@@ -152,22 +152,6 @@ authProvider.init({
 As you have seen, it is difficult to manage states in SPA if you are dealing with a lot of redirects and page reloads. One thing you need to make available to the client (browser) no matter what actions the user perform is the authentication token. What you can do is use the Angular Storage library to persist users tokens and profile details to the browser's storage (sessionStorage or localStorage). With that strategy, you can always use the user's profile to re-authenticate them, or do a token refresh if the token is no longer valid. Update the `signin` logic to store the credentials prior to authentication:
 
 ```javascript
-/* ===== ./login/login.js ===== */
-app.controller('LoginCtrl', ['$scope', 'auth', 'store', function ($scope, auth, store) {
-
-  $scope.login = function(){
-    // Set popup to true to use popup
-    auth.signin({popup: true}, function(profile, token){
-      store.set('profile', profile);
-      store.set('token', idToken);
-    }, function(err){
-      // If anything goes wrong
-    });
-  }
-
-}]);
-
-// ====================== OR
 /* ===== ./app.js ===== */
 //Called when login is successful
 authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', function($location, profilePromise, idToken, store) {
