@@ -8,78 +8,23 @@ This tutorial and seed project have been tested with the following:
 
 * CocoaPods 1.0.0
 * XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
+* iPhone 6 - iOS 9.3 (13E230)
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  githubUrl: 'https://github.com/auth0-samples'
+  pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
-  pkgType: 'replace'
+  pkgPath: '01-Login',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
-### Before Starting
+Or… Fork it from GitHub:
 
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+<%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/01-Login', }) %>
 
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
-</div>
-
-### 1. Add the Lock dependency
-
-Your first step is to add [Lock](https://github.com/auth0/Lock.iOS-OSX) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
-
-#### i. Carthage
-
-If you are using Carthage, add the following line to the `Cartfile`:
-
-```ruby
-github "auth0/Lock.iOS-OSX" -> 1.26
-```
-
-Then, run `carthage bootstrap`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-#### ii. Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
-
-```ruby
-use_frameworks!
-pod 'Lock', '~> 1.24'
-```
-
-Then, run `pod install`.
-
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
-
-### 2. Set your Credentials
-
-Add the following entries to your project's `Info.plist`:
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tr>
-    <td>Auth0ClientId</td>
-    <td>${account.clientId}</td>
-  </tr>
-  <tr>
-    <td>Auth0Domain</td>
-    <td>${account.namespace}</td>
-  </tr>
-</table>
-
-### 3. Implement the Login
-
-At this point, you're all set to implement the Login.
+### 1. Implement the Login
 
 First, import the `Lock` module in the file where you want to present the login dialog:
 
@@ -131,4 +76,4 @@ You've already implemented Login and Sign Up with Auth0 in your iOS Swift projec
 
 ### Optional: Log In with Social Connections
 
-In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [connections dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
