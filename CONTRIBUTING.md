@@ -16,6 +16,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
+  * [Front Matter](#front-matter)
 
 [Test Procedures](#text-procedures)
 
@@ -176,6 +177,28 @@ It is often best to shrink the screenshot slightly to avoid having the image of 
 #### Borders
 For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (**select all > edit > stroke**) of color **#cccccc** to keep the image from blending with the background and appearing to float.
 
+### Front Matter
+You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
+
+Example front matter:
+```
+---
+title: My Document
+description: This is a document
+---
+```
+
+#### URLs
+Document urls are by default in the same format as the forlder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
+
+If you create a folder that will have multiple articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document `/articles/my-folder/index.md`, you should set the url to be `/my-folder`.
+
+URL Front Matter
+```
+---
+url: /path/to/document
+---
+```
 
 ## Test Procedures
 When testing a document or tutorial:
