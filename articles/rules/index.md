@@ -172,7 +172,7 @@ Use this to create the POST request:
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {\n  callback(null, user, context);\n}\",\"order\":2,\"enabled\":true,\"stage\":\"login_success\"}'"
+    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {callback(null, user, context);}\",\"order\":2,\"enabled\":true,\"stage\":\"login_success\"}"
   }
 }
 ```
