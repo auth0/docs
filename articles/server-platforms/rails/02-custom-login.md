@@ -12,13 +12,8 @@ This tutorial and seed project have been tested with the following:
 * Rails 5.0.0
 :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'omniauth-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/ruby-on-rails-webapp',
-  pkgFilePath: null,
-  pkgType: 'server'
-}) %>
+<%= include('../../_includes/_package', { githubUrl: 'https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/02-Custom-Login' }) %>
+
 
 ### 1. Add dependencies
 
