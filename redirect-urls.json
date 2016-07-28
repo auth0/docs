@@ -725,5 +725,10 @@
     "from": "/libraries/lock/customization",
     "to": "/libraries/lock/v10/customization",
     "status": 302
+  },
+  {
+    "from": "/libraries/lock/display-modes",
+    "to": "/libraries/lock/v10/customization#container-string-",
+    "status": 302
   }
 ]
