@@ -419,7 +419,7 @@ There are four types of packaging that can happen with this service.
 
 ```
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/sample-project'
+  githubUrl: 'https://github.com/auth0-samples/sample-project',
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',
