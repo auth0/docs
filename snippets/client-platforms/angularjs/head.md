@@ -16,7 +16,6 @@
 <!-- Angular wrapper library for JWT-->
 <script src="http://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.min.js" type="text/javascript"> </script>
 <!-- Your angular app and other script files-->
-<script src="auth0-variables.js" type="text/javascript"> </script>
 <script src="app.js" type="text/javascript"> </script>
 <script src="home/home.js" type="text/javascript"> </script>
 <script src="login/login.js" type="text/javascript"> </script>
