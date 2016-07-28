@@ -104,6 +104,6 @@ Typically, Auth0 recommends performing a daily backup, but depending on your nee
 
 ## Further Reading
 
- [How to Configure the Command Line Interface for Use with Appliance Instances](/appliance/cli/adding-node-to-backup-role)
- [Backing Up Appliance Instances with the Command Line Interface](/appliance/cli/backing-up-the-appliance)
-     [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
+* [How to Configure the Command Line Interface for Use with Appliance Instances](/appliance/cli/adding-node-to-backup-role)
+* [Backing Up Appliance Instances with the Command Line Interface](/appliance/cli/backing-up-the-appliance)
+*     [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
