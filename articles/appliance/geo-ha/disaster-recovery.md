@@ -13,7 +13,7 @@ The following table details some of the ways in which the Geographic High-Availa
         <th>Performance Impact</th>
     </tr>
     <tr>
-        <td>Service *and* Data are available for Primary Cluster Nodes 1, 2, 3</td>
+        <td>Service and Data are available for Primary Cluster Nodes 1, 2, 3</td>
         <td>The Primary Appliance Cluster continues to serve all traffic.</td>
         <td>None.</td>
     </tr>
@@ -28,42 +28,42 @@ The following table details some of the ways in which the Geographic High-Availa
         <td>Overall handling capacity may be reduced by up to a third.</td>
     </tr>
     <tr>
-        <td>Service *and* Data Unavailable for Node 1</td>
+        <td>Service and Data Unavailable for Node 1</td>
         <td>Node 2 or Node 3 becomes the primary data node. Node 1 is pulled from the primary site load balancer and no longer serves requests.</td>
         <td>Overall handling capacity may be reduced by up to a third.</td>
     </tr>
     <tr>
-        <td>Data Unavailable for Nodes 1 *and* 2</td>
+        <td>Data Unavailable for Nodes 1 and 2</td>
         <td>Node 3 becomes the primary data node.</td>
         <td>None.</td>
     </tr>
     <tr>
-        <td>Service Unavailable for Nodes 1 *and* 2</td>
+        <td>Service Unavailable for Nodes 1 and 2</td>
         <td>All requests from the primary load balancer are routed to Node 3.</td>
         <td>Overall handling capacity is significantly reduced. Possibility of manual failover to a secondary node.</td>
     </tr>
     <tr>
-        <td>Service *and* Data Unavailable for Nodes 1 *and* 2</td>
+        <td>Service and Data Unavailable for Nodes 1 and 2</td>
         <td>All requests from the primary load balancer are routed to Node 3, which is also the primary data node.</td>
         <td>Overall handling capacity is significantly reduced. Possibility of manual failover to a secondary node.</td>
     </tr>
     <tr>
-        <td>Data Unavailable for Nodes 1, 2, *and* 3</td>
+        <td>Data Unavailable for Nodes 1, 2, and 3</td>
         <td>The Arbiter elects Node 4, 5, or 6 to become the primary data node.</td>
         <td>Some performance degradation due to gross-geography data requests.</td>
     </tr>
     <tr>
-        <td>Service Unavailable for Nodes 1, 2, *and* 3</td>
+        <td>Service Unavailable for Nodes 1, 2, and 3</td>
         <td>The Global Load Balancer will route traffic to the secondary application servers (Nodes 4-6). These servers will request data from the primary data server, which is still in the primary data center.</td>
         <td>Some performance degradation due to gross-geography data requests.</td>
     </tr>
     <tr>
-        <td>Data and Service Unavailable for Nodes 1, 2, *and* 3</td>
+        <td>Data and Service Unavailable for Nodes 1, 2, and 3</td>
         <td>The Appliance instances associated with the standby data center are now serving requests as described in [failover handling](/appliance/geo-ha#failover-handling)</td>
         <td>None.</td>
     </tr>
     <tr>
-        <td>*Connection* between the Global Load Balancer and the Primary Cluster Unavailable</td>
+        <td>Connection between the Global Load Balancer and the Primary Cluster Unavailable</td>
         <td>All requests are routed to the secondary site, but the secondary nodes continue to use data on the primary site</td>
         <td>Some performance degradation due to gross-geography data requests.</td>
     </tr>
@@ -78,7 +78,7 @@ The following table details some of the ways in which the Geographic High-Availa
         <td>Possible transient period of unavailability as the load balancer switches the routing of requests.</td>
     </tr>
     <tr>
-        <td>Nodes 1, 2, *and* 3 are available after a failover, but customers have logged in to the standby cluster</td>
+        <td>Nodes 1, 2, and 3 are available after a failover, but customers have logged in to the standby cluster</td>
         <td>If the nodes are again available in the primary cluster, the Global Load Balancer will automatically switch to routing requests to the primary cluster. The Arbiter sees the higher priority Mongo node and sets it as the primary (once it has been fully synced).</td>
         <td>None.</td>
     </tr>
@@ -91,7 +91,7 @@ To test the Geographic High-Availability Appliance (GEO HA) failover/failback pr
 1. Take all nodes in the primary data center offline.
 2. Run tests against the global load balancer to ensure that traffic gets rerouted to the standby site.
 
-Please note that the following is *not* included in GEO HA testing:
+Please note that the following is not included in GEO HA testing:
 
 * Performance testing;
 * Actions involving both the primary and standby sites being active. Auth0 does not support operating the primary and failover sites simultaneously.
@@ -104,6 +104,6 @@ Typically, Auth0 recommends performing a daily backup, but depending on your nee
 
 ## Further Reading
 
-* [How to Configure the Command Line Interface for Use with Appliance Instances](/appliance/cli/adding-node-to-backup-role)
-* [Backing Up Appliance Instances with the Command Line Interface](/appliance/cli/backing-up-the-appliance)
-    * [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
+ [How to Configure the Command Line Interface for Use with Appliance Instances](/appliance/cli/adding-node-to-backup-role)
+ [Backing Up Appliance Instances with the Command Line Interface](/appliance/cli/backing-up-the-appliance)
+     [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
