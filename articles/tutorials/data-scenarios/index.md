@@ -5,7 +5,7 @@ Auth0 provides multiple locations for storing different types of data associated
 
 ##Where do I put my authentication data?
 
-Auth0 has a built in database which serves as a way for developers to store their users’ profiles - the basic information associated with authenticating their users, i.e name, email, username, password, and so on. You can also use a [separate database](https://auth0.com/docs/connections/database/mysql) to store such information if your needs are different from what the built-in database of Auth0 offers. However, we recommend storing authentication-related data in Auth0’s built in database in order to make things less complicated by allowing you to easily manage user data through Auth0’s dashboard: ${https://manage.auth0.com/#/}.
+Auth0 has a built in database which serves as a way for developers to store their users’ profiles - the basic information associated with authenticating their users, i.e name, email, username, password, and so on. You can also use a [separate database](https://auth0.com/docs/connections/database/mysql) to store such information if your needs are different from what the built-in database of Auth0 offers. However, we recommend storing authentication-related data in Auth0’s built in database in order to make things less complicated by allowing you to easily manage user data through Auth0’s dashboard: ${uiURL}.
 
 
 ##Why not put all the app’s data in the Auth0 database?
