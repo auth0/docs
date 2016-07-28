@@ -11,6 +11,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 [Reusing Content](#reusing-content)
 
 [Markdown](#markdown)
+  * [Headings](#headings)
   * [Warning banner](#warning-banner)
   * [Panels](#panels)
   * [HTTP Request Snippets](#http-request-snippets)
@@ -70,6 +71,12 @@ Additionally, you can send variables to the included document:
 
 ## Markdown
 Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
+
+### Headings
+One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
+
+INVALID: `#My Heading`
+VALID: `# My Heading`
 
 ### Warning banner
 You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
