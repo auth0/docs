@@ -1,24 +1,21 @@
 ---
 title: Customizing Lock
-description: This tutorial will show you how to customize lock widget.
+description: This tutorial will show you how to customize Lock.
 ---
 
 <%= include('../../_includes/_github', {
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/10-Customizing-Lock',
 }) %>_
 
-Using Lock widget is great, but eventually you will want to customize the UI. There are several options to do that.
+Using Lock is easy, but you may want to customize your login UI. There are several options available.
 
-## Lock options
+## Lock Options
 
 Some UI customization can be done via the `options` parameter when creating a `Lock` instance.
 
+### Theme Options
 
-### Theme options
-
-You can set custom theme properties like using a different logo, or changing the primary color.
-Just add a `theme` property with custom values.
-See full details [here](https://github.com/auth0/lock/tree/v10.0.0#theming-options)
+You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values:
 
 ```typescript
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -28,10 +25,11 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   }
 });
 ```
+**NOTE**: For more information, see: [Theming options](https://github.com/auth0/lock/tree/v10.0.0#theming-options).
 
 ### Language Dictionary Specification
 
-You can also customize every piece of text `Lock` needs to display. The option parameter to do this is `languageDictionary `. See full details [here](https://github.com/auth0/lock/tree/v10.0.0#language-dictionary-specification)
+You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
 
 ```typescript
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
@@ -40,15 +38,12 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   }
 });
 ```
+
+**NOTE**: For more information, see: [Language Dictionary Specification](https://github.com/auth0/lock/tree/v10.0.0#language-dictionary-specification).
+
 ### Results
 
-This is how it looks like using custom logo, color, and title:
+This is how Lock will appear using a custom logo, color, and title:
 
 ![Custom lock](/media/articles/angularjs2/widget-custom-logo-color.png)
 
-
-<!-- CSS specification -->
-
-## Done!
-
-You have implemented the customization of the Lock widget.
