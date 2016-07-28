@@ -62,7 +62,7 @@ Depending on the type of two-factor authentication you chose when you were signi
 
 After entering your username and password, a push notification will be sent to the Guardian app on your mobile device. This notification is a login request, it includes the application name, the OS and browser of the request, the location and the date of the request. If you recognize this request as your own, tap the **Allow** button. You should now be logged in.
 
-If you are not currently connected to the internet on your mobile device to recieve push notifications, you can enter the OTP(One-time password) manually by clicking "enter the code".
+If you are not currently connected to the internet on your mobile device to receive push notifications, you can enter the OTP(One-time password) manually by clicking "enter the code".
 
 ![](/media/articles/mfa/guardian-enter-code.png)
 
