@@ -7,7 +7,7 @@ description: This tutorial will show you how to use angular2-jwt library in Angu
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/08-Calling-Api',
 }) %>_
 
-The reason to implement authentication is to protect information.  Auth0 provides an assortment of tools to assist you with end-to-end authentication in your application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header.
+Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.
 
 ## Meet AuthHttp
 
@@ -88,7 +88,7 @@ bootstrap(AppComponent, [
 
 ## Not sending the JWT for specific requests
 
-If you do not want to send the authorization header, you can use the default Angular [Http](https://angular.io/docs/ts/latest/guide/server-communication.html) client:
+If you do not want to send the access token in the authorization header, you can use the default Angular [Http](https://angular.io/docs/ts/latest/guide/server-communication.html) client:
 
 ```typescript
 /* ===== app/ping.component.ts ===== */
