@@ -1,3 +1,7 @@
+---
+url: /appliance/geo-ha
+---
+
 # Auth0 Appliance: High Availability Geo Cluster (Geo HA)
 
 The high availability geo cluster is an Appliance implementation that provides data center redundancy and automatic failure handling. This is the highest form of Appliance availability offered by Auth0.

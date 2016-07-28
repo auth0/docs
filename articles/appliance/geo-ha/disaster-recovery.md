@@ -6,7 +6,7 @@
 
 The following table details some of the ways in which the Geographic High-Availability Appliance may fail and what the implications of such a failure are.
 
-<table>
+<table class="table">
     <tr>
         <th>Event</th>
         <th>Outcome</th>
