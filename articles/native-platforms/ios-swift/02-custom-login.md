@@ -157,7 +157,8 @@ Auth0
     .authentication()
     .signUp("foo@email.com",
         password: "123456",
-        connection: "Username-Password-Authentication"
+        connection: "Username-Password-Authentication",
+        userMetadata: ["first_name": "Foo", "last_name": "Bar"] // or any extra user data you need
     )
     .start { result in
             switch result {
@@ -172,4 +173,71 @@ Auth0
 }
 ```
 
-As you might have observed, this code looks almost exactly the same as the Login snippet presented before. The code skeleton remains the same, the only thing that changes here is the function that you call.
+Notice that any extra information, other than the `email` and `password`, that you need to add to the user's profile, goes within the `userMetadata` dictionary, which is passed as a parameter to this function.
+
+### 4. Perform Social Authentication
+
+First, go to your [Client Dashboard](${uiAppSettingsURL}/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+
+```shell
+{YOUR_APP_BUNDLE_IDENTIFIER}://${account.domain}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback
+```
+
+In your application's `Info.plist` file, register your iOS Bundle Identifier as a custom scheme. To do so, open the `Info.plist` as source code, and add this chunk of code under the main `<dict>` entry:
+
+```xml
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>None</string>
+        <key>CFBundleURLName</key>
+        <string>auth0</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>{YOUR_APP_BUNDLE_IDENTIFIER}</string>
+        </array>
+    </dict>
+</array>
+```
+
+Remember to replace all the `{YOUR_APP_BUNDLE_IDENTIFIER}` appearances with your actual app's bundle identifier, which you can get from your project settings.
+
+> The **Auth0.swift** toolkit will only handle URLs with your Auth0 domain as host, for instance: `com.auth0.MyApp://samples.auth0.com/ios/com.auth0.MyApp/callback`
+
+Then, add the following function in your application's `AppDelegate`:
+
+```swift
+import Auth0
+```
+
+```swift
+func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+    return Auth0.resumeAuth(url, options: options)
+}
+```
+
+Finally, this is how you perform webauth social authentication. You have to specify a social connection, for instance, Facebook:
+
+```swift
+Auth0
+    .webAuth()
+    .connection("facebook")
+    .scope("openid")
+    .start { result in
+        switch result {
+        case .Success(let credentials):
+            // You've got your credentials
+        case .Failure(let error):
+            // Deal with error
+        }
+    }
+```
+
+Once you get the `credentials` object, upon a successful authentication, you deal with them as always. For more information on that, check out the [login](01-login.md) and [session handling](session-handling.md) tutorials.
+
+### Done!
+
+You've just implemented your own Login and Sign Up forms!
+
+

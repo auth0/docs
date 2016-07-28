@@ -58,18 +58,19 @@ Once the user has logged in, you get both an `A0Profile` and an `A0Token` object
 
 ```swift
 let controller = A0Lock.sharedLock().newLockViewController()
-controller.onAuthenticationBlock = { profile, token in
+controller.onAuthenticationBlock = { maybeProfile, maybeToken in
 	// do something with profile and token
 }
 ```
 
 > Even though `profile` and `token` come as optional values, the [A0LockViewController](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/UI/A0LockViewController.h) documentation guarantees that both of them will only be `nil` iff login is disabled after sign up. We assume that's not our case; therefore, we will perform force-unwrap to get their values.
 
-We need to store the `id_token` string value, which is inside the `token` object. To do so, we'll use an `A0SimpleKeychain` instance:
+We need to store the `id_token` string value, which is inside the `A0Token` instance that comes in `maybeToken`. To do so, we'll use an `A0SimpleKeychain` instance:
 
 ```swift
+guard let token = maybeToken else { return }
 let keychain = A0SimpleKeychain(service: "Auth0")
-keychain.setString(token!.idToken, forKey: "id_token")
+keychain.setString(token.idToken, forKey: "id_token")
 ```
 
 As you can see, `A0SimpleKeychain` can be seen as simple as a key-value storage.
@@ -115,6 +116,8 @@ client.fetchUserProfileWithIdToken(idToken,
         })
 ```
 
+> You can also verify whether a JWT token is valid or not by decoding it locally, to check its expiration. For further reference, you can check out this [JWT decoder for Swift](https://github.com/auth0/JWTDecode.swift).
+
 ### 4. Deal with a non-valid idToken
 
 How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios: Either you ask the user to re-enter his credentials, or you [use the refresh token to get a new valid idToken again](https://auth0.com/docs/refresh-token).
@@ -136,10 +139,16 @@ In this case, we're going to leverage the `refreshToken`. The refresh token is a
 Besides storing the `idToken`, we need to store the `refreshToken`. To do so, you can, upon login:
 
 ```swift
+guard 
+    let token = maybeToken,
+    let refreshToken = token.refreshToken
+    else { return }
 let keychain = A0SimpleKeychain(service: "Auth0")
-keychain.setString(token!.idToken, forKey: "id_token")
-keychain.setString(token!.refreshToken, forKey: "refresh_token") // Add this line
+keychain.setString(token.idToken, forKey: "id_token")
+keychain.setString(refreshToken, forKey: "refresh_token") // Add this line
 ```
+
+> The `refreshToken` can be `nil` if `offline_access` is not sent in the `scope` parameter during authentication.
 
 #### ii. Use the refreshToken to get a new idToken
 
