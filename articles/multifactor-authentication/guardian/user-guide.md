@@ -62,19 +62,27 @@ Depending on the type of two-factor authentication you chose when you were signi
 
 After entering your username and password, a push notification will be sent to the Guardian app on your mobile device. This notification is a login request, it includes the application name, the OS and browser of the request, the location and the date of the request. If you recognize this request as your own, tap the **Allow** button. You should now be logged in.
 
+If you do not have your mobile device available to you during sign in, you can enter the recovery code that was given when you signed up by clicking the "enter the code" link.
+
 ### Google Authenticator
 
 After entering your username and password, you will be prompted for a six digit code. Open the Google Authenticator app on your mobile device to find the correct code. If you use Google Authenticator for other applications as well, make sure you are using the code for the current application. After entering the six digit code you will be logged in.
+
+If you do not have your mobile device available to you during sign in, you can enter the recovery code that was given when you signed up by clicking the "Use Recovery Code" link.
 
 ### SMS
 
 After entering you enter your email and password, a SMS message will be sent to the phone number you entered when you signed up. Enter the six digit code from the message into the box to complete your login.
 
+If you do not have your mobile device available to you during sign in, you can enter the recovery code that was given when you signed up by clicking the "Use Recovery Code" link.
+
 ## Troubleshooting
 
-### If you do not have your mobile device
+### If you do not have your mobile device or it has no service or its turned off
 
-If you have lost your phone and are unable to finish the two-step authentication you will need the recovery code from when you signed up. Enter this code to access your account without your device.
+If you have lost your device or it is unable to recieve notifications, you can finish the two-step authentication with the recovery code from when you signed up. After entering your email and password to login, click the link that says "enter the code" to access your account without using your device.
+
+![](/media/articles/mfa/guardian-enter-code.png)
 
 If you don't have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
