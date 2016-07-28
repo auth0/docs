@@ -1,5 +1,5 @@
-There is no need to update the code we have created in [Login](/docs/quickstart/spa/react/01-login) tutorial. As soon you try to sign in, you should be prompted to setup a second factor authenticator application (Auth0 Guardian is the default).
+There is no need to update the code you created in **Login** step of this tutorial. As soon as a user initiates sign-in, they will be prompted to install a second-factor authenticator application (Auth0 Guardian is the default).
 
 ![guardian screen](/media/articles/mfa/choose-mfa.png)
 
-For detailed instructions on using guardian to authenticate, please refer to [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
+For detailed instructions on using Guardian to authenticate users, see: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
