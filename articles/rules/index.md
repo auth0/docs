@@ -35,7 +35,7 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure).) *Note:* the user parameter is excluded if you are changing the default `stage` of a rule. See [creating a Rule using the API]() for more details.
+* `user`: the user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure).) *Note:* the user parameter is excluded if you are changing the default `stage` of a rule. See [creating a Rule using the API](#creating-a-new-rule-using-the-api) for more details.
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
 * `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
@@ -151,7 +151,7 @@ This call takes a `body` parameter which contains:
 
 Example of a body schema:
 
-``
+```
 {
   "name": "my-rule",
   "script": "function (user, context, callback) {\n  callback(null, user, context);\n}",
@@ -159,7 +159,7 @@ Example of a body schema:
   "enabled": true,
   "stage": "login_success"
 }
-``
+```
 
 ## Debugging
 
