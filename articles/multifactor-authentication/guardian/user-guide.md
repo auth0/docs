@@ -90,7 +90,7 @@ If you do not have your mobile device available to you during sign in, you can e
 
 ### If you do not have your mobile device or it is turned off
 
-If you have lost your device or it is unable to recieve notifications, you can finish the two-step authentication with the recovery code from when you signed up. After entering your email and password to login, click the link that says "Use the recovery code" to access your account without using your device.
+If you have lost your device you can finish the two-step authentication with the recovery code from when you signed up. After entering your email and password to login, click the link that says "Use the recovery code" to access your account without using your device.
 
 If you don't have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
