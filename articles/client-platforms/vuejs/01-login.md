@@ -11,9 +11,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-vue',
+  pkgRepo: 'auth0-vue-samples',
   pkgBranch: 'master',
-  pkgPath: null,
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
