@@ -1,4 +1,4 @@
-There is no need to update the code you created in **Login** step of this tutorial. As soon as a user initiates sign-in, they will be prompted to install a second-factor authenticator application (Auth0 Guardian is the default).
+There is no need to update the code you created in [Login](/quickstart/spa/angular2/01-login) step of this tutorial. As soon as a user initiates sign-in, they will be prompted to install a second-factor authenticator application (Auth0 Guardian is the default).
 
 ![guardian screen](/media/articles/mfa/choose-mfa.png)
 

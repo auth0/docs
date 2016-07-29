@@ -7,7 +7,7 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
   link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/04-User-Profile',
 }) %>
 
-In this step, you will retrieve and display user profile information using the same `Auth` service defined in **Login** tutorial.
+In this step, you will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
 
 ## Profile
 
