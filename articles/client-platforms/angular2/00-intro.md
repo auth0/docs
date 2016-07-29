@@ -3,10 +3,10 @@ title: Introduction
 description: A simple, multi-step quickstart guide to setup and manage authentication in your Angular2 JS app using Auth0.
 ---
 
-This simple, multi-step quickstart will guide you through setting up and managing authentication in your Angular2 JS apps using Auth0.  
+This simple, multi-step quickstart will guide you through setting up and managing authentication in your Angular2 JS apps using Auth0.
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/00-Starter-Seed',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/00-Starter-Seed',
 }) %>
 
 ## 1. Create an Application
@@ -38,5 +38,3 @@ To integrate your Angular2 application with Auth0, you will need to add the foll
   From [npm](https://npmjs.org):
 
   `npm install --save angular2-jwt`
-
-
