@@ -41,5 +41,5 @@ Availability is calculated as follows:
 (Total Time) - (Permitted Downtime)
 ```
 
-If you require a different SLA or a dedicated instance of Auth0 in your own IT environment contact <sales@auth0.com>
+If you require a different SLA or a dedicated instance of Auth0 in your own IT environment [contact sales](https://auth0.com/?contact=true).
   
