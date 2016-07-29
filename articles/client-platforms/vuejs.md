@@ -28,9 +28,9 @@ alias:
 
 <%= include('../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-vue-samples/tree/master/00-Starter-Seed',
-  pkgRepo: 'auth0-vue-samples',
+  pkgRepo: 'auth0-vue',
   pkgBranch: 'master',
-  pkgPath: null,
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js' + account.clientParam
 }) %>
