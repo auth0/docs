@@ -11,7 +11,8 @@ This tutorial and seed project have been tested with the following:
 * Symfony 2.8
 :::
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-symfony-php-web-app/tree/master/00-Starter-Seed',
   pkgRepo: 'auth0-symfony-php-web-app',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
