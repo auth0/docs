@@ -109,4 +109,4 @@ Because the backup process puts a substantial load on the backup node, please co
 
 * [How to Configure the Command Line Interface for Use with Appliance Instances](/appliance/cli/adding-node-to-backup-role)
 * [Backing Up Appliance Instances with the Command Line Interface](/appliance/cli/backing-up-the-appliance)
-*     [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
+* [Adding Appliance Nodes to the Backup Role](/appliance/cli/configure-cli)
