@@ -59,7 +59,7 @@ The following table details some of the ways in which the Geographic High-Availa
     </tr>
     <tr>
         <td>Data and Service Unavailable for Nodes 1, 2, and 3</td>
-        <td>The Appliance instances associated with the standby data center are now serving requests.</td>
+        <td>The Appliance instances associated with the secondary site are now serving requests.</td>
         <td>None.</td>
     </tr>
     <tr>
@@ -74,12 +74,12 @@ The following table details some of the ways in which the Geographic High-Availa
     </tr>
     <tr>
         <td>After failover, some (not all) of the nodes resume operation</td>
-        <td>If some of the nodes are again available in the primary site, the Global Load Balancer will automatically switch to routing requests to the primary site. The Arbiter sees the higher priority Mongo node and sets it as the primary (once it has been fully synced).</td>
+        <td>If some of the nodes are again available in the primary site, the Global Load Balancer will automatically switch to routing requests to the primary site. The Arbiter sees the higher priority data node and sets it as the primary (once it has been fully synced).</td>
         <td>Possible transient period of unavailability as the load balancer switches the routing of requests.</td>
     </tr>
     <tr>
         <td>All nodes are available again after a failover event</td>
-        <td>If the nodes are again available in the primary site, the Global Load Balancer will automatically switch to routing requests to the primary site. The Arbiter sees the higher priority Mongo node and sets it as the primary (once it has been fully synced).</td>
+        <td>If the nodes are again available in the primary site, the Global Load Balancer will automatically switch to routing requests to the primary site. The Arbiter sees the higher priority data node and sets it as the primary (once it has been fully synced).</td>
         <td>None.</td>
     </tr>
 </table>
@@ -89,7 +89,7 @@ The following table details some of the ways in which the Geographic High-Availa
 To test the Geographic High-Availability Appliance (GEO HA) failover/failback procedure, Auth0 will:
 
 1. Take all nodes in the primary data center offline.
-2. Run tests against the global load balancer to ensure that traffic gets rerouted to the standby site.
+2. Run tests against the global load balancer to ensure that traffic gets rerouted to the secondary site.
 
 GEO HA does not support having both the primary and secondary sites disconnected and active at the same time. Because the data layer is arranged in one stretched cluster, the cluster only permits one data node to act as primary.
 
@@ -101,7 +101,9 @@ The application layer is always active on all nodes. For performance reasons, on
 
 As a customer, it is your responsibility to perform regular backups on your Geographic High-Availability Appliance (GEO HA). Auth0 recommends a single backup, since the GEO HA is a single cluster stretched over a distance.
 
-Typically, Auth0 recommends performing a daily backup, but depending on your needs, you may do so more frequently. If you have concerns about a logical data corruption, or you need greater assurance of up-to-date data, you might choose to backup more frequently. However, the backup process puts a substantial load on the backup node, so please speak to your Auth0 Customer Success Engineer about performance impact if backups are performed more frequently/during peak usage times.
+Typically, Auth0 recommends performing a daily backup. However, if you have concerns about a logical data corruption, or you need greater assurance of up-to-date data, you might choose to backup more frequently.
+
+Because the backup process puts a substantial load on the backup node, please contact your Auth0 Customer Success Manager to schedule a discussion about performance impact if backups are performed more frequently/during peak usage times.
 
 ## Further Reading
 
