@@ -9,9 +9,9 @@ description: This tutorial will show you how to use angular2-jwt library in Angu
 
 Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.
 
-## Meet AuthHttp
+## Sending Authenticated HTTP Requests
 
-In order to make an authorized request, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same interface as the `Http` module but automatically adds the authorization header to requests.
+In order to make an authenticated request, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same interface as the `Http` module but automatically adds the authorization header to requests.
 
 First, add `AUTH_PROVIDERS` from `angular2-jwt`:
 
