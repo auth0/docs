@@ -14,7 +14,7 @@ The following table details some of the ways in which the Geographic High-Availa
     </tr>
     <tr>
         <td>Service and Data are available for Primary Site Nodes 1, 2, 3</td>
-        <td>The Primary Appliance Site continues to serve all traffic.</td>
+        <td>The primary site continues to serve all traffic.</td>
         <td>None.</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ The following table details some of the ways in which the Geographic High-Availa
     </tr>
     <tr>
         <td>Data and Service Unavailable for Nodes 1, 2, and 3</td>
-        <td>The Appliance instances associated with the standby data center are now serving requests as described in [failover handling](/appliance/geo-ha#failover-handling)</td>
+        <td>The Appliance instances associated with the standby data center are now serving requests.</td>
         <td>None.</td>
     </tr>
     <tr>
