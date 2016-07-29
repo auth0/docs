@@ -16,4 +16,4 @@ snippets:
   use: client-platforms/angularjs/use
 seo_alias: angularjs
 articles:
-  - login
+  - 01-login
