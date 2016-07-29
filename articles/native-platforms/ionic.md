@@ -34,7 +34,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: '00-Starter-Seed/www/js',
+  pkgFilePath: '00-Starter-Seed/www/app',
   pkgType: 'js'
 }) %>
 
