@@ -1,9 +1,11 @@
-First, we will create a rule that assigns our users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you will create a rule that assigns users to either an `admin` role, or a single `user` role. Go to the [New Rule](${uiURL}/#/rules/new) page on the Auth0 dashboard and select the **Set Roles To A User** template, under **Access Control**. 
 
-```
-if (user.email.indexOf('@example.com') > -1)
-```
+By default, this rule will assign the user an `admin` role if their email contains `@example.com`. Otherwise, they will be assigned a regular `user` role .
 
-to match the condition that fits your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
+You can modify this line in the default script to change the domain name to one suitable for your setup:
 
-By default, it says that if the user email contains `@example.com` he will be given an `admin` role, otherwise a regular `user` role.
+`if (user.email.indexOf('@example.com') > -1)`
+
+**NOTE**: You can set roles other than `admin` and `user` or customize the rule as needed.
+
+
