@@ -1,25 +1,6 @@
 ---
 title: Auth0 AngularJS SDK Tutorial
 description: This tutorial will show you how to use the Auth0 AngularJS SDK to add authentication and authorization to your web app.
-name: Angular.js
-alias:
-  - angular
-  - angularjs
-language:
-  - Javascript
-framework:
-  - AngularJS
-image: /media/platforms/angular.png
-tags:
-  - quickstart
-snippets:
-  dependencies: client-platforms/angularjs/dependencies
-  head: client-platforms/angularjs/head
-  setup: client-platforms/angularjs/setup
-  use: client-platforms/angularjs/use
-alias:
-  - angular
-seo_alias: angularjs
 ---
 
 ## AngularJS SDK Tutorial
@@ -27,7 +8,7 @@ seo_alias: angularjs
 
 This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.
 
-<%= include('../_includes/_package', {
+<%= include('../../_includes/_package', {
   pkgRepo: 'auth0-angular',
   pkgBranch: 'master',
   pkgPath: 'examples/widget-redirect',
@@ -43,11 +24,11 @@ This tutorial and seed project have been tested with the following:
 * Angular version 1.5.0-rc.0
 :::
 
--${include('./\_callback')}
+-${include('../\_callback')}
 
 #### Create an Application Instance
 
-<%= include('../_includes/_new_app') %>_
+<%= include('../../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
