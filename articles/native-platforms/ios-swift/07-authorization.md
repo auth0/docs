@@ -12,17 +12,13 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples'
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/07-Authorization',
   pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
   pkgPath: '07-Authorization',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
-
-Or… Fork it from GitHub:
-
-<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/07-Authorization', }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
 

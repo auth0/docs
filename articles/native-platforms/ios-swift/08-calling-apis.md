@@ -12,17 +12,13 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples'
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/08-Calling-APIs',
   pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
   pkgPath: '08-Calling-APIs',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
-
-Or… Fork it from GitHub:
-
-<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/08-Calling-APIs', }) %>
 
 The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
 

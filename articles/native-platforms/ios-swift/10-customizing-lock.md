@@ -12,17 +12,13 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples'
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/10-Customizing-Lock',
   pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
   pkgPath: '10-Customizing-Lock',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
-
-Or… Fork it from GitHub:
-
-<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/10-Customizing-Lock', }) %>
 
 ### Before Starting
 
