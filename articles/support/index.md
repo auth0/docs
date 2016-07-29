@@ -67,4 +67,4 @@ Ticket response times will vary based on your support plan (shown below). Additi
   </tbody>
 </table>
 
-If you have specific support requirements or are interested in the __Enterprise Support__ option, please contact us at <sales@auth0.com>.
+If you have specific support requirements or are interested in the __Enterprise Support__ option, please [contact sales](https://auth0.com/?contact=true).
