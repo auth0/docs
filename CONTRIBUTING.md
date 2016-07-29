@@ -420,6 +420,7 @@ There are four types of packaging that can happen with this service.
 ```
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/sample-project',
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',
@@ -434,6 +435,7 @@ The follow are the values for the package configuration.
 | Variable  | Description |
 | :---------------------------- | :----------------------------------------- |
 | `githubUrl` | The url to the github project. This will be used in the "Fork on Github" button. |
+| `pkgOrg` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
 | `pkgRepo` | The name of the github repository. |
 | `pkgBranch` | Optional. The branch of the repo to download from. Defaults to `master`. |
 | `pkgPath` | The path where the sample is contained. This will be the folder that gets downloaded. |
