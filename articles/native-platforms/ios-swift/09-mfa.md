@@ -20,17 +20,23 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
-### 1. Enable MFA in your account
+### 1. Enable MFA in your client
 
-You have to enable the MFA feature in your account. 
+First, you have to enable the MFA feature in your account. Go to the [MFA configuration page](${uiURL}/#/multifactor) and turn the  **Google Authenticator** switch on, under the *Choose a Provider* section.
 
-First, follow [this link](${uiURL}/#/multifactor). Then, turn the switch on for **Google Authenticator**, under the *Choose a Provider* section.
+![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-01.png)
 
-> There are two other MFA providers that you can choose: Guardian and Duo. Just have in mind that Guardian isn't available yet for the Lock-iOS framework.
+> MFA for native apps currently supports **Google Authenticator** only.
 
 Then, you have to specify on which clients you want to enable MFA; you accomplish this by editing the snippet that appears below, replacing the placeholder with your actual client ids.
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-02.png)
+
+Make sure this line looks like this:
+
+```
+var CLIENTS_WITH_MFA = ['${account.clientId}'];
+```
 
 If you want to use MFA in **all** of your clients, the easiest you can do is disabling this conditional in the script:
 
@@ -38,10 +44,89 @@ If you want to use MFA in **all** of your clients, the easiest you can do is dis
 if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 ```
 
+Make sure you hit the **save** button.
+
+### 2. Configure the flags
+
+To enable multifactor authentication and enrollment in your database connection, you must set the `options.mfa.active` and`options.mfa.return_enroll_settings` flags using the `PATCH /api/v2/connections/:id` endpoint.
+
+First, go to [Database Connections]({$uiURL}/#/connections/database) and select the database you want to use MFA on.
+
+Then, copy the database `id` from the URL of the **Settings** page of your database. It will be in the form: `con_xxxxxxxxxxxxxxxx`.
+
+![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-03.png)
+
+Also, make sure that your client is enabled for this database:
+
+![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-04.png)
+
+After that, go to the [**PATCH /api/v2/connections/:id**](/api/management/v2#!/Connections/patch_connections_by_id) endpoint.
+
+![Patch Connections](/media/articles/mfa/mfa-native/mfa-native-05.png)
+
+On the top left, select the `connections: update` scope.
+
+In the `id` field, enter the connection `id` you previously obtained (`con_xxxxxxxxxxxxxxxx`).
+
+In the `body` field, enter the following:
+
+```json
+{
+ "options": {
+    "mfa": { "active" : true, "return_enroll_settings" : true }
+},
+ "enabled_clients": [
+   "${account.clientId}"
+ ]
+}
+```
+
+Click **TRY** to call the API and effectively set the flags. You should receive a response similar to this:
+
+```json
+{
+  "id": "con_xxxxxxxxxxxxxxxx",
+  "options": {
+    "mfa": {
+      "active": true,
+      "return_enroll_settings": true
+    },
+    "brute_force_protection": true
+  },
+  "strategy": "auth0",
+  "name": "Username-Password-Authentication",
+  "enabled_clients": [
+    "YOUR_CLIENT_ID"
+  ]
+}
+```
+
+### 3. Test your MFA
+
+Now, you can run the simulator in your project and sign-in to your Auth0 app with MFA.
+
+1. In XCode, run your project using the simulator.
+
+2. Click **Sign-in**:
+
+    ![Simulator](/media/articles/mfa/mfa-native/mfa-native-06.png)
+
+3. Select a provider (Google in this example):
+
+    ![Simulator](/media/articles/mfa/mfa-native/mfa-native-07.png)
+
+4. Scan the QR code with Google Authenticator:
+
+    ![Simulator](/media/articles/mfa/mfa-native/mfa-native-08.png)
+
+5. Enter the code provided by Google Authenticator:
+
+    ![Simulator](/media/articles/mfa/mfa-native/mfa-native-09.png)
+
+6. You're in!
+
+    ![Simulator](/media/articles/mfa/mfa-native/mfa-native-10.png)
+
 ### Done!
 
-Piece of cake, wasn't it? Now you should get a Google Authenticator screen when you try to login with social providers in your app using [Lock-iOS](https://github.com/auth0/Lock.iOS-OSX).
-
-![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-09.png)
-
-> For more information on how to configure Lock-iOS in your app, take a look at the [login tutorial](01-login.md).
+You've integrated MFA in your app.
