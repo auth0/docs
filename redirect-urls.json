@@ -640,19 +640,19 @@
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/hybrid/:platform/:api([^0-9]+)",
+    "from": "/quickstart/hybrid/:platform/:api",
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/spa/:platform/:api([^0-9]+)",
+    "from": "/quickstart/spa/:platform/:api",
     "to": "/quickstart/spa/:platform"
   },
   {
-    "from": "/quickstart/native/:platform/:api([^0-9]+)",
+    "from": "/quickstart/native/:platform/:api",
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/backend/:platform/:api([^0-9]+)",
+    "from": "/quickstart/backend/:platform/:api",
     "to": "/quickstart/backend/:platform"
   },
   {
