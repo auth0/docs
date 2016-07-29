@@ -12,8 +12,14 @@ This tutorial and seed project have been tested with the following:
 * Rails 5.0.0
 :::
 
-<%= include('../../_includes/_package', { githubUrl: 'https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/04-User-Profile' }) %>
-
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-rubyonrails-sample',
+  pkgRepo: 'auth0-rubyonrails-sample',
+  pkgBranch: 'master',
+  pkgPath: '04-User-Profile',
+  pkgFilePath: null,
+  pkgType: 'server'
+}) %>
 ### The OmniAuth auth hash
 Using Auth0's OmniAuth strategy, you need only to redirect users to `/auth/auth0` (which you did in [Login](/quickstart/webapp/rails/01-login)). From there, OmniAuth will take over and take the user through the necessary steps to authenticate them with the Auth0 strategy.
 
