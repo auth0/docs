@@ -13,11 +13,12 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic2-samples/tree/master/00-Starter-Seed',
   pkgRepo: 'auth0-ionic2-samples',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: '00-Starter-Seed/app/app.ts',
-  pkgType: 'replace'
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
