@@ -12,12 +12,14 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-electron',
+  pkgRepo: 'auth0-electron-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-electron-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
-  pkgPath: null,
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
+
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
