@@ -14,10 +14,11 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-cordova',
+  pkgRepo: 'auth0-cordova-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-cordova-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
-  pkgPath: 'examples/basic-sample',
-  pkgFilePath: 'examples/basic-sample/www/js',
+  pkgPath: '00-Starter-Seed/basic-sample',
+  pkgFilePath: '00-Starter-Seed/basic-sample/www/js',
   pkgType: 'js'
 }) %>
 
