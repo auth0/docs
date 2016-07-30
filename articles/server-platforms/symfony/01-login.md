@@ -17,7 +17,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
-  pkgType: 'null'
+  pkgType: 'none'
 }) %>
 
 If you have used [Symfony](http://symfony.com) before, you are probably already familiar with the [HWIOAuth Bundle](https://github.com/hwi/HWIOAuthBundle). We'll be using it to integrate a Symfony WebApp with [Auth0](https://auth0.com/) and achieve Single Sign On with a few simple steps.
