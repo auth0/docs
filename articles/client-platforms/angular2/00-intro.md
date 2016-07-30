@@ -6,7 +6,13 @@ description: A simple, multi-step quickstart guide to setup and manage authentic
 This simple, multi-step quickstart will guide you through setting up and managing authentication in your Angular2 JS apps using Auth0.
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/00-Starter-Seed',
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 ## 1. Create an Application

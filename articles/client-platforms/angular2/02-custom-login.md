@@ -4,7 +4,13 @@ description: This tutorial will show you how to use the Auth0 library to add cus
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/02-Custom-Login',
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '02-Custom-Login',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 In the [previous step](/quickstart/spa/angular2/01-login), you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](https://github.com/auth0/auth0.js).
