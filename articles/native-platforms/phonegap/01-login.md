@@ -4,8 +4,6 @@ description: This tutorial will show you how to use the Auth0 Phonegap SDK to ad
 ---
 
 ## Phonegap Tutorial
-
-## Phonegap Tutorial
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
