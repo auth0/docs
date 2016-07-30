@@ -11,7 +11,13 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/01-Login'
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 ## 1. Create the AuthService class

@@ -11,8 +11,14 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/10-Customizing-Lock',
-}) %>_
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '10-Customizing-Lock',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 Using Lock widget is great, but eventually you will want to customize the UI. There are several options to do that.
 

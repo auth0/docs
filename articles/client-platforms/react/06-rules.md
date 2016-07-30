@@ -11,9 +11,14 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/06-Rules',
-}) %>_
-
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '06-Rules',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 <%= include('../_includes/_rules-introduction') %>
 

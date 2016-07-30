@@ -11,8 +11,14 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/07-Authorization',
-}) %>_
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '07-Authorization',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/react/06-rules' }) %>_
 
