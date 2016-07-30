@@ -8,29 +8,38 @@ url: /tutorials/User-Data-Storage-Scenario
 
 Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely. It is also to give you a look at an end-to-end experience of an application using auth0 and an external database. We created an example application to illustrate the important distinctions a developer must make when storing their user data with Auth0. For this example case, we started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the mobile/backend [architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured. 
 
+## Table of Contents
+
+- [Where do I put my authentication data?](tutorials/User-Data-Storage-Scenario#where-do-i-put-my-authentication-data-)
+- [Why not put all the app’s data in the Auth0 data store?](tutorials/User-Data-Storage-Scenario#why-not-put-all-the-app-s-data-in-the-auth0-database-)
+- [When should I use the Auth0 data store?](tutorials/User-Data-Storage-Scenario#what-about-metadata-)
+- [Review](tutorials/User-Data-Storage-Scenario#review)
+
 
 ## Where do I put my authentication data?
 
-Auth0 has a built in database which serves as a way for developers to store their users’ profiles - the basic information associated with authenticating their users, i.e name, email, username, password, and so on. You can also use a [separate database](/connections/database/mysql) to store such information if your needs are different from what the built-in database of Auth0 offers. However, we recommend storing authentication-related data in Auth0’s built in database in order to make things less complicated by allowing you to easily manage user data through Auth0’s [dashboard](${uiURL}).
+Auth0 has a data store which serves as a way for developers to store data associated with their users’ profiles, beyond the basic information associated with authenticating their users, i.e name, email, username, password, and so on. You can also use a [separate database](/connections/database/mysql) to store such information if your needs are different from what the Auth0 data store offers. However, we recommend storing authentication-related data in Auth0’s data store in order to make things less complicated by allowing you to easily manage user data through Auth0’s [dashboard](${uiURL}).
 
 
-## Why not put all the app’s data in the Auth0 database?
+## Why not put all the app’s data in the Auth0 data store?
 
-### Scale
+The Auth0 data store is highly specialized for storing authentication data. Attempting to store any authentication-related data beyond the default user information in the Auth0 data store should only be done in specific cases. Here are some reason's why you should not use the Auth0 data store when you don't have to:
 
-Data that is not related to authentication should go in a separate database connected to your application. It is best not to store such additional data in the Auth0 database because the Auth0 database has limited scalability and your app’s data could exceed that limit. Instead, we recommend using an external database connected to your app for storing non-authentication-related data. This allows you to keep things simple on the Auth0 side, to be able to efficiently manage your user authentication, while leaving the heavy database lifting up to a separate database formatted to efficiently store your extra data. 
+### Scalability
 
-### Security
+It is best not to store such additional data in the Auth0 data store because the Auth0 data store has limited scalability and your app’s data could exceed that limit. Using an external database allows you to keep things simple on the Auth0 side, to be able to efficiently manage your user authentication, while leaving the heavy database lifting up to a separate database formatted to efficiently store your extra data. 
 
-Regardless of their scale, it is important for the two sets of data to remain distinct since they likely require different levels of security. The Auth0 database has a high level of security to protect users’ passwords and personal information with encryption. The security and efficiency of the application’s additional data can be distinguished from that of the application’s users’ authentication information by storing non-authentication-related data in a separate database. This way you can rely on the security of Auth0’s encryption to protect your users’ information and be free to set up your separate database in a way that best suits your app’s data. 
+### Performance
 
-### Convenience 
+The two sets of data are also likely accessed with different frequencies. Auth0 is not optimized so that you can be querying millions of times in short period of time. It is better to leave this up to a service like *INSERT DATABASE* which is  optimized for fast, large data operations.
 
-The two sets of data are also likely accessed with different frequencies, so it makes sense to separate them so that in your code, your access to the authentication data is concentrated in a small chunk, and your access to all other data is grouped separately. This way, if you have issues with authentication, you will know where to start debugging. This is especially true if you use Auth0’s rules to access authentication data when users are logged in, as your rules will be more easily debugged from the Rules tab on Auth0’s [dashboard](${uiURL}).
+### Flexibility 
+
+By using a separate database, your access to the authentication data is concentrated in a small chunk, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `JOIN`
 
 ### Example
 
-Here is an example of data that is associated with a user but not with authenticating that user in the app: In the case of our mobile music application, the user’s music needs to be saved, so they can find it easily when they log in again. This data is not required in the process of authenticating the user for the app, but favorite songs and artists are personal data that should be associated with the user. So we would want to store this data in a separate database connected to the backend of our mobile app, instead of in the Auth0 database. Here is how we did this:
+Here is an example of data that is associated with a user but not with authenticating that user in the app: In the case of our mobile music application, the user’s music needs to be saved, so they can find it easily when they log in again. This data is not required in the process of authenticating the user for the app, but favorite songs and artists are personal data that should be associated with the user. So we would want to store this data in a separate database connected to the backend of our mobile app, instead of in the Auth0 data store. Here is how we did this:
 
 Using the user’s unique `user_id` from their Auth0 user profile, we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from our `songs` table in our Heroku Postgres database:
 
@@ -108,7 +117,7 @@ function getGenre(user_id, res){
 };
 ```
 
-## What about metadata?
+## When should I use the Auth0 data store?
 
 Metadata is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of metadata: app metadata and user metadata.
 
@@ -124,7 +133,7 @@ Metadata is JSON in the user profile that is used to store any extra data to be 
 
 Some data from our music app that would be appropriate to store in app metadata is a music streaming subscription. Another example is the user’s permission to edit the app’s featured playlists. Both of these are appropriate for metadata because they are important in authenticating the user and customizing their experience as they are logged in. What makes them app metadata instead of user metadata is that they must not be easily changed by the user. We implemented the permissions example with two Auth0 [rules](/rules):
 
- The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `"playlist editor"` as a value in the `“roles”` array in the app metadata. 
+ The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in the app metadata. 
  
  ```
  function (user, context, callback) {
@@ -194,7 +203,7 @@ Some data from our music app that would be appropriate to store in app metadata 
 }
  ```
 
-The second rule gets the app metadata and assigns the `“roles”` array to a field of the user object so that it can be accessed without directly accessing the app metadata on the client and so that the `scope` parameter can specify `"roles"` upon login wihtout unnecessarily including all of the app metadata in the user object:
+The second rule gets the app metadata and assigns the `roles` array to a field of the user object so that it can be accessed without directly accessing the app metadata on the client and so that the `scope` parameter can specify `roles` upon login wihtout unnecessarily including all of the app metadata in the user object:
 
 ```
 function(user, context, callback) {
@@ -215,7 +224,7 @@ User metadata is extra authentication data determined by the user, such as prefe
 
 ### Example of user metadata
 
-In the case of our music app, we should consider that the user would want to change their `“display name”`, which is displayed to other users of the app and to the user when they are welcomed to the app upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in user metadata. We stored the variable `“displayName”` in user metadata and allowed the user to update their display name for the purpose of this example.
+In the case of our music app, we should consider that the user would want to change their `displayName`, which is displayed to other users of the app and to the user when they are welcomed to the app upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in user metadata. We stored the variable `displayName` in user metadata and allowed the user to update their display name for the purpose of this example.
 
 We used an Auth0 rule to get the `user.user_metadata` in order to show their display name every time the user logs in.
 
@@ -248,10 +257,9 @@ Here is a review of the types of data and the best practices for storing them in
 
 | Data (Music App Example)                                | Location |
 | ------------------------------------------------------- | -------------------------------------------------------------- |
-| User profiles from Auth0 authentication                 | Auth0 database                                                 |
 | Songs, artists, and playlists saved to the user’s music | A separate database connected to the backend of the application|
-| User’s permission to edit the app’s featured playlist, stored in `“roles”` variable | App metadata |
-| User’s chosen display name that they are free to change, stored in `“displayName”` variable | User metadata |
+| User’s permission to edit the app’s featured playlist, stored in `roles` variable | App metadata |
+| User’s chosen display name that they are free to change, stored in `displayName` variable | User metadata |
 
 
 This document is meant to give you a better idea of where to store different types of data both authentication-related and otherwise. Rules are a helpful tool to work with the authentication data of your application in a systematic and simple way. In general the ways Auth0 provides for you to store your users’ data are intended to be used for authentication data only, so if your data seems irrelevant to the authentication process, it is best stored in a separate database. This article should clear up any doubt you have about how to use Auth0’s data storage methods.
