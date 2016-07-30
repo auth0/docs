@@ -4,8 +4,14 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/06-Rules',
-}) %>_
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '06-Rules',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 <%= include('../_includes/_rules-introduction') %>
 
