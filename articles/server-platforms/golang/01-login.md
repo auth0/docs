@@ -7,7 +7,7 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* Go 1.5.3
+* Go 1.5.3 and up
 :::
 
 <%= include('../../_includes/_package', {
