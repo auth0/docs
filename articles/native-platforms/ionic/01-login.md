@@ -4,7 +4,14 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/01-Login',
+  pkgRepo: 'auth0-ionic-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/00-Starter-Seed',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/www/app',
+  pkgType: 'js'
+}) %>
+
 }) %>
 
 ::: panel-info Running the Sample
