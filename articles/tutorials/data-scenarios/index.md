@@ -10,10 +10,10 @@ Auth0 provides multiple locations for storing different types of data associated
 
 ## Table of Contents
 
-- [Where do I put my authentication data?](/User-Data-Storage-Scenario#where-do-i-put-my-authentication-data-)
-- [Why not put all the app’s data in the Auth0 data store?](/User-Data-Storage-Scenario#why-not-put-all-the-app's-data-in-the-auth0-data-store)
-- [When should I use the Auth0 data store?](/User-Data-Storage-Scenario#when-should-i-use-the-auth0-data-store-)
-- [Review](/User-Data-Storage-Scenario#review)
+- [Where do I put my authentication data?](/tutorials/User-Data-Storage-Scenario#where-do-i-put-my-authentication-data-)
+- [Why not put all the app’s data in the Auth0 data store?](/tutorials/User-Data-Storage-Scenario#why-not-put-all-the-app-s-data-in-the-auth0-data-store-)
+- [When should I use the Auth0 data store?](/tutorials/User-Data-Storage-Scenario#when-should-i-use-the-auth0-data-store-)
+- [Review](/tutorials/User-Data-Storage-Scenario#review)
 
 
 ## Where do I put my authentication data?
@@ -134,7 +134,7 @@ Some data from our music app that would be appropriate to store in app metadata 
  The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in the app metadata. 
  
  ```
- function (user, context, callback) {
+function (user, context, callback) {
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.roles = user.roles || [];
   
@@ -159,22 +159,23 @@ Some data from our music app that would be appropriate to store in app metadata 
                            new Buffer(CLIENT_SECRET, 'base64'),
                            options);
 
-  var auth = 'Bearer ' + id_token;
-
+   var auth = 'Bearer ' + id_token;
+  
    request.get({
-    url: 'https://auth0-node-data-api.herokuapp.com/secured/getPlays',
+    url: 'https://auth0-node-data-api.herokuapp.com/playlists/getPlays',
     headers: {
        'Authorization': auth, 
-       'Content-Type': 'text/html'
+      'Content-Type': 'text/html'
     },
     timeout: 15000
   }, function(err, response, body){
     if (err) 
       return callback(new Error(err));
     var plays = parseInt(body, 10);
-    if (plays >= 100 && user.roles.indexOf('playlist editor') < 0){
+   
+    if (plays >= 100 && user.roles.indexOf('playlist_editor') < 0){
       console.log('Making user an editor');
-      user.app_metadata.roles.push('playlist editor');
+      user.app_metadata.roles.push('playlist_editor');
       auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
         .then(function(){
           callback(null, user, context);
@@ -182,7 +183,7 @@ Some data from our music app that would be appropriate to store in app metadata 
         .catch(callback);
     }
     
-    else if (plays < 100 && user.roles.indexOf('playlist editor') >= 0){
+    else if (plays < 100 && user.roles.indexOf('playlist_editor') >= 0){
       console.log('Taking away privileges');
       user.app_metadata.roles = [];
       auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
@@ -194,7 +195,6 @@ Some data from our music app that would be appropriate to store in app metadata 
     else{
       callback(null, user, context);
     }
-    console.log(user.app_metadata.roles);
     
   });
   
@@ -209,7 +209,6 @@ function(user, context, callback) {
       user.roles = user.app_metadata.roles;
    }
    user.roles = user.roles || [];
-   console.log(user.roles);
    callback(null, user, context);
 }
 ```
