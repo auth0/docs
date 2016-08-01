@@ -29,12 +29,14 @@ Current migrations are listed below, newest first.
 | --- | --- | --- | --- |
 | Medium | 2016-07-11 | TBD |
 
-The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included in the user profile `identities` array.
+The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included in the user profile `identities` array. 
 
 Now, to obtain a user's IdP access token, you will need to make an HTTP GET call to the `/api/v2/user/{user-id}` endpoint containing an API token generated with  `read:user_idp_tokens` scope.
 
+> NOTE: You will still have access to the Identity Provider access token in the `user` argument in Auth0 [rules](/rules).
+
 #### Am I affected by the change? 
-You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) to call other services from the Identity Provider (e.g. Facebook Graph API, Google APIs, etc. ). 
+You are affected by the change only if you are using the Identity Provider access token (`identities[0].access_token` in the user profile) outside of rules to call other services from the Identity Provider (e.g. Facebook Graph API, Google APIs, etc. ). 
 
 For more information on how to obtain an access token, see: [Call an Identity Provider API](/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api) and [Identity Provider Access Token](/tokens/idp).
 
@@ -72,7 +74,7 @@ For more information, see: [Emails in Auth0](/email).
 
 | Severity | Platforms | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
-| Medium | Auth0 Cloud Only | 2016-04-04 | 2016-05-11 |
+| Medium | Auth0 Cloud Only | 2016-07-21 | 2016-08-29 |
 
 Auth0's built-in email provider will no longer be supported for use in a production environment. The emails sent using the Auth0 provider will no longer be customizable. They will be restricted to the template and you will not be able to change the *from address* or subject line.
 

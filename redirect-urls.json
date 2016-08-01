@@ -640,19 +640,19 @@
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/hybrid/:platform/:api",
+    "from": "/quickstart/hybrid/:platform/:api([^0-9]+)",
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/spa/:platform/:api",
+    "from": "/quickstart/spa/:platform/:api([^0-9]+)",
     "to": "/quickstart/spa/:platform"
   },
   {
-    "from": "/quickstart/native/:platform/:api",
+    "from": "/quickstart/native/:platform/:api([^0-9]+)",
     "to": "/quickstart/native/:platform"
   },
   {
-    "from": "/quickstart/backend/:platform/:api",
+    "from": "/quickstart/backend/:platform/:api([^0-9]+)",
     "to": "/quickstart/backend/:platform"
   },
   {
@@ -673,19 +673,62 @@
     "to": "/multifactor-authentication"
   },
   {
+    "from": "/quickstart/native-mobile/windows-uwp-javascript",
+    "to": "/quickstart/native/windows-uwp-javascript"
+  },
+  {
+    "from": "/quickstart/native-mobile/ios-objc",
+    "to": "/quickstart/native/ios-objc"
+  },
+  {
+    "from": "/quickstart/native/ios-reactnative",
+    "to": "/quickstart/native/react-native-ios"
+  },
+  {
+    "from": "/quickstart/native-mobile/ionic",
+    "to": "/quickstart/native/ionic"
+  },
+  {
+    "from": "/quickstart/native-mobile",
+    "to": "/quickstart/native"
+  },
+  {
     "from": "/sso/single-sign-on",
     "to": "/sso"
   },
   {
     "from": "/libraries/lock/i18n",
-    "to": "/libraries/lock/v10/i18n"
+    "to": "/libraries/lock/v10/i18n",
+    "status": 302
   },
   {
     "from": "/libraries/lock/migration-guide",
-    "to": "/libraries/lock/v10/migration-guide"
+    "to": "/libraries/lock/v10/migration-guide",
+    "status": 302
   },
   {
     "from": "/libraries/lock/sending-authentication-parameters",
-    "to": "/libraries/lock/v10/sending-authentication-parameters"
+    "to": "/libraries/lock/v10/sending-authentication-parameters",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/v10",
+    "to": "/libraries/lock",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/v10/installation",
+    "to": "/libraries/lock#installation-and-dependencies",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/customization",
+    "to": "/libraries/lock/v10/customization",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/display-modes",
+    "to": "/libraries/lock/v10/customization#container-string-",
+    "status": 302
   }
 ]

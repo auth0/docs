@@ -3,8 +3,8 @@ title: User Profile
 description: test
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/03-User-Profile',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/03-User-Profile',
 }) %>
 
 ::: panel-info Running the Sample

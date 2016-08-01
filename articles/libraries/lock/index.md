@@ -128,6 +128,9 @@ Then execute `npm i` to install dependencies (only once) and `npm example` from 
 
 Finally, point your browser at `http://localhost:3000/` and play around.
 
+## Start using Lock!
+
+${lockSDK}
 
 ## Using auth0.js
 

@@ -1,8 +1,8 @@
 ```html
 <!-- Auth0's lock widget library -->
-<script type="text/javascript" src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+<script type="text/javascript" src="https://cdn.auth0.com/js/lock-9.min.js"></script>
 <!-- AngularJS core -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.js"></script>
 <!-- Angular cookie wrapper library for client cookies -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-cookies.js"></script>
 <!-- Angular's Router Library for SPA -->

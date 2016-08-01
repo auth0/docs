@@ -3,18 +3,27 @@ title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/07-Authorization',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '07-Authorization',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/angular2/06-rules' }) %>
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angular2/06-rules' }) %>
 
+### Create a Rule to assign roles
+
+<%= include('../_includes/_authorization-create-rule') %>_
 
 ## Restrict a route based on user's roles
 
-In order to restric access to certain routes, we are going to use angular2 [CanActivate guard](https://angular.io/docs/ts/latest/guide/router.html#!#can-activate-guard)
+In order to restrict access to certain routes, this example uses Angular2 [CanActivate guard](https://angular.io/docs/ts/latest/guide/router.html#!#can-activate-guard).
 
-Let's add a new `AuthGuard` to the `/admin` route:
+First, add a new `AuthGuard` to the `/admin` route:
 
 ```typescript
 /* ===== app/app.routes.ts ===== */
@@ -31,7 +40,7 @@ export const APP_ROUTER_PROVIDERS = [
 ];
 ```
 
-We want only users who has admin roles to access this route, so we are going to check that in our guard:
+To only allow users who have admin roles to access this route, check their status in the guard:
 
 ```typescript
 /* ===== app/auth.guard.ts ===== */
@@ -56,7 +65,7 @@ export class AuthGuard implements CanActivate {
         return false;
       }
     } else {
-      // Save url to redirect on login (after fetching profile to have roles)
+      // Save URL to redirect to after login and fetching profile to get roles
       localStorage.setItem('redirect_url', state.url);
       this.auth.login();
       this.router.navigate(['']);
@@ -66,7 +75,7 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-Inside `canActivate` method we check if user is authenticated and if he is an admin using the new `isAdmin` function added to the `Auth` service. This method simply checks if the roles attribute (inside `app_metadata`) added by the rule  contains the `admin` role:
+The `canActivate` method checks if the user is authenticated then checks if they are an admin using a new `isAdmin` function added to the `Auth` service. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -79,7 +88,7 @@ public isAdmin() {
 ...
 ```
 
-We are also storing the target url to make a redirect when successfully login, so let's add that:
+After logging in successfully, the user will be redirected to the saved URL:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -88,7 +97,7 @@ We are also storing the target url to make a redirect when successfully login, s
 this.lock.getProfile(authResult.idToken, (error, profile) => {
   ...
 
-  // Redirect if there is a saved url to do so.
+  // Redirect to the saved URL, if present.
   var redirectUrl: string = localStorage.getItem('redirect_url');
   if(redirectUrl != undefined){
     this.router.navigate([redirectUrl]);
@@ -98,8 +107,6 @@ this.lock.getProfile(authResult.idToken, (error, profile) => {
 ...
 ```
 
-That's it. Only if you login with a mail that contains `@example` you will be able to access `/admin` route.
+Now, if a user logs in with an email that contains `@example`, they will be allowed access to the `/admin` route.
 
-## Done!
 
-You have implement one of the availables way to add authorization to your app.

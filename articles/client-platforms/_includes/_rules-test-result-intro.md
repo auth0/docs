@@ -1,3 +1,3 @@
-To see the created rule results, just login and fetch user profile information (you can see how in the [User Profile](${profilelink}) step).
+To see the results of a created rule, login and fetch user profile information as explained in the [User Profile](${profilelink}) step.
 
-Then, display user profile's new `country` attribute added by the rule:
+Then you can display the user profile's new `country` attribute added by the rule:

@@ -312,7 +312,3 @@ If you have found a bug or if you have a feature request, please report them at 
 [playground-url]: http://auth0.github.com/playground
 [sending-authentication-parameters]: /libraries/lock/v9/sending-authentication-parameters
 [migration-guide]: /libraries/lock/v9/migration-guide
-
-## Start using Auth0Lock
-
-${lockSDK}

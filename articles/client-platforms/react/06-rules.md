@@ -3,10 +3,22 @@ title: Rules
 description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/06-Rules',
-}) %>_
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
 
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '06-Rules',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 <%= include('../_includes/_rules-introduction') %>
 
@@ -56,4 +68,4 @@ export default ProfileDetails;
 ![Country rule sample](/media/articles/reactjs/rule-country-show.png)
 
 ### Done!
-That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.
+That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create anything that fits your needs.

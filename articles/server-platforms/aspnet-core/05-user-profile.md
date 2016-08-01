@@ -3,8 +3,8 @@ title: User Profile
 description: This tutorial will show you how to display get the user's profile and display it.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/05-User-Profile',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/05-User-Profile',
 }) %>
 
 

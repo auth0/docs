@@ -12,7 +12,7 @@ The example above uses a simple naming convention to distinguish each environmen
 
 ## Migration
 
-Through the API, you can automate the migration of assets (e.g. rules, database connections, etc.) between accounts.
+Through the [Management API v2](/api/management/v2), you can automate the migration of assets (e.g. rules, database connections, etc.) between accounts.
 
 For easier configuration management, save settings in the dashboard instead of hardcoded into your __rules__ or __db connections__ scripts.
 

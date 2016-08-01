@@ -16,9 +16,7 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',
-  pkgFilePath: null,
   pkgType: 'server'
 }) %>
 

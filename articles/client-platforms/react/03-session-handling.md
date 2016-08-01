@@ -3,11 +3,24 @@ title: Session Handling
 description: This tutorial will show you how to integrate Auth0 with ReactJS to add session handling and logout to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/03-Session-Handling',
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.2.0
+* NPM 3.3.12
+* React 15.0.2
+:::
+
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '03-Session-Handling',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
-The previous steps of this tutorial explain how to login using both `Lock` widget and `Auth0` library to authenticate users in your application. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. In the step you see how to do it.
+The previous steps of this tutorial explain how to login using both `Lock` widget and `Auth0` library to authenticate users in your application. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. In the following steps we show you how to implement it.
 
 ## 1. Create Session
 
@@ -59,11 +72,11 @@ export default class AuthService {
 }
 ```
 
-In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](https://auth0.com/docs/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
+In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
 
 ## 2. Check If Session is Valid
 
-In order to know if a user is authenticated, you need to make sure the `idToken` is stored and still valid. The token is valid if its expiration date is not reach, that's what we're checking in the method `isTokenExpired` introduced in a new helper file named `jwtHelper.js`:
+In order to know if a user is authenticated, you need to make sure the `idToken` is stored and still valid. The token is valid if its expiration date is not reached, that's what we're checking in the method `isTokenExpired` introduced in a new helper file named `jwtHelper.js`:
 
 ```javascript
 /* ===== ./src/utils/jwtHelper.js ===== */
@@ -90,7 +103,7 @@ export function isTokenExpired(token){
 }
 ```
 
-The `jwtHelper` library is exporting 2 methods: `isTokenExpired` and `getTokenExpirationDate`. Also, it's importing `jwt-decode` as a dependency you should include in your `package.json` or using npm:
+The `jwtHelper` library is exporting 2 methods: `isTokenExpired` and `getTokenExpirationDate`. Also, it's importing `jwt-decode` as a dependency, so you should include it in your `package.json` or use npm to install it:
 
 ```bash
 $ npm install jwt-decode --save
@@ -118,7 +131,7 @@ export default class AuthService {
 
 ## 3. Logout Button
 
-In Home view, you may want to show a button to logout, destroying the user session and redirecting to `/login` page. `AuthService` helper class already provides the `logout` function, and it's easy to hook it to a logout button. The updated Home component code with the logout button should be something like:
+In Home view, you may want to show a button to logout that destroys the user session and redirects to `/login` page. `AuthService` helper class already provides the `logout` function, and it's easy to hook it to a logout button. The updated Home component code with the logout button looks like this:
 
 ```javascript
 /* ===== ./src/views/Main/Home/Home.js ===== */
