@@ -31,7 +31,7 @@ It is best not to store such additional data in the Auth0 data store because the
 
 ### Performance
 
-The two sets of data are also likely accessed with different frequencies. Auth0 is not optimized so that you can be querying millions of times in short period of time. It is better to leave this up to a service like *INSERT DATABASE* which is  optimized for fast, large data operations.
+The two sets of data are also likely accessed with different frequencies. Auth0 is not optimized so that you can be querying millions of times in short period of time. It is better to leave this up to a service like MongoDB which is  optimized for fast, large data operations.
 
 ### Flexibility 
 
