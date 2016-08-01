@@ -4,9 +4,14 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/02-Custom-Login',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ionic-samples',
+  pkgBranch: 'master',
+  pkgPath: '02-Custom-Login',
+  pkgFilePath: '02-Custom-Login/www/app/auth0.variables.js',
+  pkgType: 'replace'
 }) %>
-
 ::: panel-info Running the Sample
 At any point in time you can run this sample by going to the `02-Custom-Login` folder of the sample project and running `ionic serve`
 :::

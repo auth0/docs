@@ -3,6 +3,16 @@ title: Introduction
 name: Introduction to the Quickstart, and configuring environment
 ---
 
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/SampleMvcApp/appsettings.json',
+  pkgType: 'replace'
+}) %>
+
 This Quickstart will guide you through the various tasks related to integrating Auth0 into your ASP.NET Core MVC application. 
 
 ## Seed & Samples

@@ -4,7 +4,13 @@ description: This tutorial will show you how assign roles to your users, and use
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/08-Authorization',
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-sample',
+  pkgBranch: 'master',
+  pkgPath: '08-Authorization',
+  pkgFilePath: '08-Authorization/SampleMvcApp/appsettings.json',
+  pkgType: 'replace'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/webapp/aspnet-core/07-rules' }) %>
