@@ -11,17 +11,22 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 [Reusing Content](#reusing-content)
 
 [Markdown](#markdown)
+  * [Headings](#headings)
   * [Warning banner](#warning-banner)
   * [Panels](#panels)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
+  * [Front Matter](#front-matter)
 
 [Test Procedures](#text-procedures)
 
 [Review Apps](#review-apps)
 
 [Quickstarts](#quickstarts)
+  * [Creating Quickstarts](#creating-quickstarts)
+  * [Quickstart Guidelines](#quickstart-guidelines)
+  * [Seed Projects](#seed-projects)
 
 [Updates Feed](#updates-feed)
 
@@ -66,6 +71,13 @@ Additionally, you can send variables to the included document:
 
 ## Markdown
 Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
+
+### Headings
+One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
+
+INVALID: `#My Heading`
+
+VALID: `# My Heading`
 
 ### Warning banner
 You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
@@ -173,6 +185,28 @@ It is often best to shrink the screenshot slightly to avoid having the image of 
 #### Borders
 For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (**select all > edit > stroke**) of color **#cccccc** to keep the image from blending with the background and appearing to float.
 
+### Front Matter
+You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
+
+Example front matter:
+```
+---
+title: My Document
+description: This is a document
+---
+```
+
+#### URLs
+Document urls are by default in the same format as the forlder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
+
+If you create a folder that will have multiple articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document `/articles/my-folder/index.md`, you should set the url to be `/my-folder`.
+
+URL Front Matter
+```
+---
+url: /path/to/document
+---
+```
 
 ## Test Procedures
 When testing a document or tutorial:
@@ -240,7 +274,173 @@ After you publish the doc update, the new quickstart will automatically appear o
 ### Quickstart Guidelines
 Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
 
-...TODO...
+
+#### Library References
+Each library that we publish should have appropriate reference documentation. There will be two kinds of reference documentation for each library. The first is automatically generated. Each library should generate reference docs using a tool like jsDocs on every build/release. This will ensure consistent and up to date documentation.
+
+
+Additionally, many libraries may also need manual documentation showing more sophisticated scenarios. Certainly, Auth0.js and Lock will need significant manual documentation. Other libraries will as needed.
+
+#### Quickstarts
+Each framework will have a set of articles that comprise the quickstarts. The set of articles each framework will have depends on the function of each. Below is an outline of the documentats that should be created for each framework.
+
+
+##### Native
+0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
+1. Login - Shows how to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
+2. Login with Custom UI - Using head-less library to do login without Lock
+3. Session Handling - How to store tokens, refresh tokens, and logout
+4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
+5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
+6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts[a].
+7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.[b]
+8. Calling Your API - How to take the access token from
+9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps[c].
+10. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
+
+##### Web
+0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
+1. Login - Shows hot to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
+2. Login with Custom UI - Using auth0.js to build a custom login without Lock.
+3. Session Handling - How to store tokens, how to handle sessions (serialization, etc.), and logout
+4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
+5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
+6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
+7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application.
+8. Multifactor Authentication - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
+9. Customizing Lock - Document explaining the basics of how to custom lock. There are full documents about this as well that show the complete details.
+
+
+##### SPA
+0. Intro - Introduction and summary of what the quickstart is about and a Table of Contents
+1. Login - Shows hot to create an auth0 application, add the login widget to your code, setup everything, and perform a login.
+2. Login with Custom UI - Using auth0.js to build a custom login without Lock.
+3. Session Handling - How to store tokens and logout
+4. User Profile - How to access the user profile from within the app. The core concepts of this are how to retrieve profile data as well as any claims that are present in the token.
+5. Linking Accounts - How to link two accounts using both the lock widget or using the API manually.
+6. Rules - Using rules to change what is in the token. This document is likely shared with all quickstarts.
+7. Authorization - How to pull scope or other access control claims from the token and use those claims to authorize a user to perform certain actions in the application. This section will include information on how to use rules and authorization together.
+8. Calling Your API - How to take the access token from
+9. MFA - how to add MFA to your app. This should probably be a single document that is shared with all native apps.
+10. Customizing Lock - Document explaining the basics of how to customize lock. There are full documents about this as well that show the complete details.
+
+
+##### API/Services
+1. Authentication - How to authenticate a user to call an API
+2. Authorization - How to perform authorization in a API
+
+#### Libraries
+As appropriate every framework/language should have libraries to help with common functions. THese libraries will include things like:
+
+* Management API Libraries
+* Authentication API Libraries
+* Authentication Middlewares
+* Helpers Libraries
+
+We want to make authentication and authorization as easy as possible for our developers. These libraries are a critical part of that. However, libraries must not wrap functionality of the Lock widgets. We iterate on our Lock widgets too frequently to keep wrappers up to date. We can provide helpers that make Lock easier to include in an app for a particular framework, but these should only expose the core Lock functionality directly, never wrap or abstract it.
+
+#### Samples
+Each seed project will have a corresponding sample (seed project). The idea of a seed project is that a user can download this and everything is setup and ready for them to run.
+
+Each sample for a quickstart should have its own repository in github in the github.com/auth0-samples organization. The structure of the repository is as follows:
+
+```text
+/README.md
+/LICENSE
+/00-Start
+/01-Login
+/02-User-Profile
+/03-etc
+/04-etc
+```
+
+In this way, each section of the quickstart has a sample showing the appropriate step. The sample in the numbered folder should exactly match the completed code of the tutorial. The 00 step is the blank empty project. The empty project would typically start with the standard “File->New” project for that particular framework. This means that anyone who is familiar with the framework will understand the starting point.
+
+##### Sample README’s
+The README for each sample folder should be written to reflect the objectives of the sample and should also show some important code snippets. The goal is to give the reader context in a quick and concise way while outlining exactly what learning outcomes can be expected. It’s important to make content within each README specific to the subject sample.
+
+* **Example**: 02-User-Profile
+* **Title**: “User Profile”
+* **Body**: “User information can be stored under user_metadata for any Auth0 user. You may choose to include this data in the user’s JWT or you can simply access it from the user’s profile object returned by Auth0. Many applications will require functionality that enables users to update their own profile information, and this can be done through Auth0’s Management API.
+
+This sample demonstrates how to retrieve an Auth0 user’s profile and how to update it via the Management API. After following the steps outlined here, you will be able to retrieve, set, and update a user profile.”
+
+
+* Add link to quickstart in README
+
+
+##### Important Snippets:
+1. Installation
+2. Retrieving the user’s profile
+3. Setting the user’s profile
+4. Updating the user’s profile
+
+
+#### Continuous Integration
+Each sample repo should have appropriate CI setup. You should use the appropriate CI system for the sample. Typically this is Travis CI. The CI system does not need to have extensive tests, but should simply ensure that the project downloads dependencies and builds correctly. If possible we should test to make sure there are no build warnings either.
+
+
+In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: https://travis-ci.org/auth0/Auth0.swift
+1. No need to write code or specialized guide for mobile
+2. We don't have a lot of stuff finished to be doing this one in mobile.
+3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
+
+### Seed Projects
+Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
+
+The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
+
+| String | Description |
+| :------| :-----------|
+| `AUTH0_CLIENT_ID` | This sets the client ID of the currently selected application. |
+| `AUTH0_CLIENT_SECRET` | This sets the client secret of the currently selected application. |
+| `AUTH0_DOMAIN` | This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `AUTH0_CALLBACK_URL` | This sets the callback url for the application. |
+| `MOBILE_CUSTOM_SCHEME` | This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `RANDOM_STRING_64` | This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+
+There are four types of packaging that can happen with this service.
+
+1. `server` - This creates a `.env` file in the sample project with the configuration values set. The output file will contain the following.
+  ```
+  AUTH0_CLIENT_ID=VALUE
+  AUTH0_CLIENT_SECRET=VALUE
+  AUTH0_DOMAIN=VALUE
+  AUTH0_CALLBACK_URL=VALUE
+  ```
+2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
+  ```
+  var JS_CLIENT_ID='VALUE';
+  var JS_CALLBACK_URL='VALUE';
+  var JS_DOMAIN='VALUE';
+  ```
+3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
+4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.
+
+```
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/sample-project',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'node-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/nodejs-regular-webapp',
+  pkgFilePath: null,
+  pkgType: 'server'
+}) %>
+```
+
+The follow are the values for the package configuration.
+
+
+| Variable  | Description |
+| :---------------------------- | :----------------------------------------- |
+| `githubUrl` | The url to the github project. This will be used in the "Fork on Github" button. |
+| `pkgOrg` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
+| `pkgRepo` | The name of the github repository. |
+| `pkgBranch` | Optional. The branch of the repo to download from. Defaults to `master`. |
+| `pkgPath` | The path where the sample is contained. This will be the folder that gets downloaded. |
+| `pkgFilePath` | Optional. The path to the file to run the replacement on. i.e. the path to a config file. |
+| `pkgType` | The type of processing to perform on the page. Valid options are `server`, `js`, `replace`, and `none`. See above. |
 
 ## Updates Feed
 Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.

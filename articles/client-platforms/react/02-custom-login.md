@@ -10,10 +10,15 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/02-Custom-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '02-Custom-Login',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
-
 
 The previous step explains how to login but with a widget called [Lock](/libraries/lock). Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](/libraries/auth0js). We'll show how in a few steps.
 

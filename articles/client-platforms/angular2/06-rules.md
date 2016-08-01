@@ -3,21 +3,25 @@ title: Rules
 description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/06-Rules',
-}) %>_
-
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '06-Rules',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 <%= include('../_includes/_rules-introduction') %>
 
-## Create a rule
+## Create a Rule
 
 <%= include('../_includes/_rules-create-section') %>
 
+## Test the Rule
 
-## Test rule result
-
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/angular2/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/angular2/04-user-profile' }) %>
 
 ```html
 /* ===== ./profile_show.template.html ===== */
@@ -34,7 +38,3 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 ```
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
-
-## Done!
-
-That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.

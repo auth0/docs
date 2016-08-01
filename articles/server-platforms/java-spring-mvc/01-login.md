@@ -3,8 +3,8 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Java Spring MVC SDK to add authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-link: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
 }) %>
 
 

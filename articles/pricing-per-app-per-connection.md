@@ -29,4 +29,4 @@ On the other hand, when multiple connections are setup to enable users from the 
 ![](https://docs.google.com/drawings/d/1Zx2ZDvW4sIfZ0Vz8ObTJlVlQL2CkVpNuPvjySJ5tZd8/pub?w=759&h=285)
 
 In case of multiple connections, Auth0 would charge the customer, based on the number of monthly active users per ___each___ connection. In a self service model, it would be 5 different subscriptions, one for each end customer connection.
-We offer __pooled user__ across multiple connections as well as __unlimited__ connection pricing in our custom orders. Please contact <sales@auth0.com> for more details.
+We offer __pooled user__ across multiple connections as well as __unlimited__ connection pricing in our custom orders. Please [contact sales](https://auth0.com/?contact=true) for more details.

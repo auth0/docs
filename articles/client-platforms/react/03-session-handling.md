@@ -10,8 +10,14 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/03-Session-Handling',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '03-Session-Handling',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 The previous steps of this tutorial explain how to login using both `Lock` widget and `Auth0` library to authenticate users in your application. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. In the following steps we show you how to implement it.

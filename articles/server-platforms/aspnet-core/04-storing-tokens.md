@@ -3,8 +3,8 @@ title: Storing Tokens
 description: This tutorial will show you how store the tokens returned from Auth0 in order to use them later on.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/04-Storing-Tokens',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/04-Storing-Tokens',
 }) %>
 
 The OIDC middleware in ASP.NET Core will automatically Decode the ID Token returned from Auth0 and will automatically add the claims contained in the ID Token as claims on the `ClaimsIdentity`.

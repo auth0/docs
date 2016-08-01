@@ -3,19 +3,27 @@ title: Linking Accounts
 description: This tutorial will show you how to integrate Auth0 with Angular2 to link accounts.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/05-Linking-Accounts',
-}) %>_
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '05-Linking-Accounts',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
-In some cases, there could be need for you to link multiple accounts. One very common situation is when a user signed up with email and password which provides very little information about the user. You can urge the user to link their account to an OAuth provider like Facebook or Google.
+In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
 
 ## Linking Accounts
 
-To link accounts you need to hit the [link user account endpoint](/api/management/v2#!/Users/post_identities). You need the primary JWT (the token saved when you login), the user id (could be taken from the JWT or the profile) and the JWT of the account you want to link (secondary account).
+To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the primary account JWT (the `id_token`), the user id (from the JWT or the user profile) and the JWT of the secondary account.
 
-Let's make it work. As you need to do a second login to get the secondary account JWT, we will use another instance of `AuthLock`. This is to differentiate the login from the linking login.
+To differentiate the login from the linking login, you will create a second instance of `AuthLock` to obtain the secondary account JWT.
 
-As all instances listen to the `authenticated` event (we are in redirect mode, so we don’t have a reliable way to determine which instance did the login) we need a way to know if the login came from a login or from a linking login. We can use [params auth option](https://github.com/auth0/lock/tree/v10.0.0#authentication-options), setting a `state` property to `"linking"`.
+Since all instances of `AuthLock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login. 
+
+You can use the `params` property of the `auth` property of the [options object](https://github.com/auth0/lock/tree/v10.0.0#authentication-options) of `AuthLock` to add a `state` property with the value `"linking"`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -31,14 +39,14 @@ lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 ...
 ```
 
-Then, when setting the `authenticated` callbacks we can know which login is, checking the `authResult.state` attribute.
+Then, when setting the callback for the `authenticated` event with the `on` method, you can determine which login has executed by checking the value of the `authResult.state` attribute:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
 ...
 // Add callback for lock `authenticated` event
 this.lock.on("authenticated", (authResult) => {
-  // Every lock instance listen to the same event, so we have to check if
+  // Every lock instance listens to the same event, so you have to check if
   // it's not the linking login here.
   if(authResult.state != "linking"){
     localStorage.setItem('id_token', authResult.idToken);
@@ -48,20 +56,21 @@ this.lock.on("authenticated", (authResult) => {
 
 // Add callback for lockLink `authenticated` event
 this.lockLink.on("authenticated", (authResult) => {
-  // Every lock instance listen to the same event, so we have to check if
+  // Every lock instance listens to the same event, so you have to check if
   // it's the linking login here.
   if(authResult.state == "linking"){
-    // If it's the linking login, then do the link through the API.
+    // If it's the linking login, then create the link through the API.
     this.doLinkAccounts(authResult.idToken);
   }
 });
 ...
 ```
 
-Now that we already have the second login handled let's see how to actually do the linking.
-To call the api, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+Now that the second login is handled, you will need to actually do the linking.
 
-First you need to add the AUTH_PROVIDERS from angular-jwt
+To call the API, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same interface  as the `Http` module but automatically adds the authorization header to requests.
+
+First, add the AUTH_PROVIDERS from angular-jwt:
 
 ```typescript
 /* ===== app/main.ts ===== */
@@ -75,7 +84,7 @@ bootstrap(AppComponent, [
 ])
 ```
 
-Then you can import `AuthHttp`, inject it in your component and use it to make the authenticated request:
+Then import `AuthHttp`, inject it into your component and use it to make the authenticated request:
 
 
 ```typescript
@@ -113,11 +122,9 @@ export class Auth {
 }
 ```
 
-The method takes the token of the account to link with, so we just make a post to the api, passing in the body a `link_with` parameter with the JWT value.
-We fetched the profile on success and we can see that the accounts are now linked.
+The function takes the `id_token` of the account to link with and posts to the API, passing the `link_with` parameter with the JWT value in the body. Then it fetches the profile on success to check that the accounts are now linked.
 
-
-To make everything works just call `show` method on `lockLink` instance:
+Now to begin the link process, call the `show` method on `lockLink` instance:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -126,13 +133,19 @@ public linkAccount() {
 }
 ```
 
-## User profile linked accounts information
+## User Profile Linked Accounts Information
 
-User's profile contains an array of identities which is made of profile information from other providers. You can see this by accessing the [Auth0 users page](${uiURL}/#/users), select a user and scroll down to the identities. This is what it looks like after linking Gmail:
+The user profile contains an array of identities which includes the profile information from linked providers. 
+
+To view a user's identities, access the [Users](${uiURL}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`. 
+
+This example shows a user with a linked Google account:
 
 ![User identities](/media/articles/users/user-identities-linked.png)
 
-So if you fetch the profile after linking the accounts, you will have the same information there. Let's show this information:
+Therefore, if you fetch the profile after linking accounts, this same information will be available. 
+
+You can display this information and provide an **Unlink** button:
 
 ```html
 /* ===== app/profile_show.template.html ===== */
@@ -147,7 +160,7 @@ So if you fetch the profile after linking the accounts, you will have the same i
 </div>
 ```
 
-We are using a helper method to filter the primary identity:
+This calls the following `linkedAccounts` helper method to filter the primary identity:
 
 ```typescript
 /* ===== ./auth.service.ts ===== */
@@ -158,9 +171,9 @@ public linkedAccounts() {
 }
 ```
 
-## Un-Linking Accounts
+## Unlinking Accounts
 
-You can also dissociate a linked account just hitting the [unlink user account endpoint](/api/management/v2#!/Users/delete_provider_by_user_id), using the primary user_id, and the provider/user_id of the identity you want to unlink.
+You can dissociate a linked account by calling the [Unlink a user account](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint using the primary `user_id`, and the `provider` and `user_id` of the identity to unlink:
 
 ```typescript
 public unLinkAccount(identity) {
@@ -183,6 +196,4 @@ public unLinkAccount(identity) {
 }
 ```
 
-## Done!
 
-You have implemented of linking and unlinking accounts in Auth0 user profile.

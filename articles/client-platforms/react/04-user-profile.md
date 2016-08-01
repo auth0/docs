@@ -10,8 +10,14 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/04-User-Profile',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '04-User-Profile',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 In the [Login step](/quickstart/spa/react/01-login) of this tutorial, you can find a detailed description of how to use auth0's lock widget to show a login window and authenticate the user. Also, it shows how to protect routes making them available only for authenticated users. In this step, the focus is to present a way to retrieve and show the user profile information.

@@ -138,6 +138,204 @@ And you'll see our native login screen
 
 > By default all social authentication will be done using Safari, if you want native integration please check this [wiki page](/libraries/lock-ios/native-social-authentication).
 
+
+### Close Lock UI
+
+You can add a "Close" button to Lock UI. For this you need to set the property `closable`. This property allows the `A0AuthenticationViewController` to be dismissed by adding a button. The default value is `NO`. If you want to handle the closing event you need to add the block `onUserDismissBlock`. This block will be called when the user dismisses the Login screen, only when the `closable` property is set to `YES`.
+
+#### Objective-C example
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+A0LockViewController *controller = [lock newLockViewController];
+controller.closable = YES;
+
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+};
+
+controller.onUserDismissBlock = ^(){
+  NSLog(@"User closed Lock UI");
+};
+
+[self presentViewController:controller animated:YES completion:nil];
+```
+
+#### Swift example
+
+```swift
+let controller = A0Lock.sharedLock().newLockViewController()
+controller.closable = true
+
+controller.onAuthenticationBlock = { (profile, token) in
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+}
+
+controller.onUserDismissBlock = { () in
+  print("User closed Lock UI")
+}
+
+self.presentViewController(controller, animated: true, completion: nil)
+```
+
+### Sign Up
+
+There are different approaches to implement the "Sign Up" functionality.
+
+1. You can just add or hide the "Sign Up" button in Lock UI. For this you need to setup property `disableSignUp` which hides the Sign Up button. The default value for this attribute is `NO`.
+
+2. Another approach is to use `A0LockSignUpViewController` directly.
+
+#### Objective-C example
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+A0LockSignUpViewController *controller = [lock newSignUpViewController];
+
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+};
+
+[self presentViewController:controller animated:YES completion:nil];
+```
+
+#### Swift example
+
+```swift
+let controller = A0Lock.sharedLock().newSignUpViewController()
+controller.onAuthenticationBlock = { (profile, token) in
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+}
+
+self.presentViewController(controller, animated: true, completion: nil)
+```
+
+
+3. A third approach would be to add your own Sign Up View Controller which will implement the sign up logic with one of the `A0APIClient` method. Let's consider this, for example:
+
+```
+- (NSURLSessionDataTask *)signUpWithEmail:(NSString *)email
+                                 username:(nullable NSString *)username
+                                 password:(NSString *)password
+                           loginOnSuccess:(BOOL)loginOnSuccess
+                               parameters:(nullable A0AuthParameters *)parameters
+                                  success:(A0APIClientSignUpSuccess)success
+                                  failure:(A0APIClientError)failure;
+```
+
+Also your `viewController` should implement the `A0LockEventDelegate` methods:
+
+```
+- (void)backToLock; - Dismiss all custom UIViewControllers pushed inside Lock and shows it's main UI.
+- (void)dismissLock; - Dismiss A0LockViewController, like tapping the close button if `closable` is true
+- (void)userAuthenticatedWithToken:(A0Token *)token profile:(A0UserProfile *)profile; - Calls `onAuthenticationBlock` of `A0LockViewController` with token and profile
+```
+
+After implementation of the Sign Up View Controller you need to return it in a block `customSignUp` of `A0LockViewController`. The default value for this block is `nil`.
+
+#### Objective-C example
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+
+A0LockViewController *controller = [lock newLockViewController];
+controller.closable = YES;
+
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+    [self dismissViewControllerAnimated:YES completion:nil];
+};
+
+//Create custom SignUp view controller
+controller.customSignUp = ^ UIViewController *(A0Lock *lock, A0LockEventDelegate *delegate) {
+    
+  YourCustomSignUpVC *signUpVC = …//your viewController;
+  signUpVC.delegate = delegate;
+  signUpVC.lock = lock;  
+  
+  return signUpVC;
+};
+
+UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
+
+if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+  navController.modalPresentationStyle = UIModalPresentationFormSheet;
+}
+
+[self presentViewController:navController animated:YES completion:nil];
+```
+
+#### Swift example
+
+```swift
+let controller = A0Lock.sharedLock().newLockViewController()
+
+controller.onAuthenticationBlock = { (profile, token) in
+    self.dismissViewControllerAnimated(true, completion: nil)
+}
+
+//Create custom SignUp view controller
+controller.customSignUp = { (lock:A0Lock, delegate:A0LockEventDelegate) in
+  let YourCustomSignUpVC = …//your viewController;
+  signUpVC.lock = lock
+  signUpVC.delegate = delegate
+
+  return signUpVC
+}
+
+let navController:UINavigationController = UINavigationController.init(rootViewController: controller)
+
+if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Pad) {
+    navController.modalPresentationStyle = UIModalPresentationStyle.FormSheet
+
+}
+self.presentViewController(navController, animated: true, completion: nil)
+```
+#### Further considerations
+
+Additionally, after a successful Signup the user could be logged in automatically. In order to perform this, you can use property `loginAfterSignUp`. So `A0AuthenticationViewController` will attempt to login the user if this property is set to `YES`, otherwise it will call `onAuthenticationBlock` with both parameters set to `nil`. Remember that the default value is `YES`.
+
+#### Terms & Conditions
+
+If you want to show Terms & Conditions of your app you need to set `signUpDisclaimerView`. This view will appear in the bottom of Signup screen.
+
+### WebView
+
+When authenticating with a social connection you can choose between using Safari or an embedded webView. For this you need to set the property `useWebView`.  
+It will use an embedded webView instead of Safari if you set the property to `YES`. Please note that the default value is `YES`.
+
+#### Objective-C example
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+A0LockViewController *controller = [lock newLockViewController];
+controller.useWebView = NO;
+
+controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+};
+controller.onUserDismissBlock = ^(){
+[self presentViewController:controller animated:YES completion:nil];
+```
+
+#### Swift example
+
+```swift
+let controller = A0Lock.sharedLock().newLockViewController()
+controller.useWebView = false
+controller.onAuthenticationBlock = { (profile, token) in
+  // Do something with token & profile. e.g.: save them.
+  // And dismiss the ViewController
+}
+self.presentViewController(controller, animated: true, completion: nil)
+```
+
+## Samples
+
 Also you can check our [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps. For more information on how to use **Lock** with Swift please check [this guide](/libraries/lock-ios/swift).
 
 

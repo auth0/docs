@@ -10,9 +10,15 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/08-Calling-Api',
-}) %>_
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '08-Calling-Api',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. Auth0 suggests you conform to RFC standards by sending the token through the Authorization header.
 

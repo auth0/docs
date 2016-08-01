@@ -5,26 +5,15 @@ description: This tutorial will show you how to setup and run the ReactJS Seed p
 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your ReactJS apps with Auth0. For that, you have to include the [Lock Widget](/libraries/lock) as a dependency in your project.
 
-## Seed &amp; Samples
-
-There are two options to following along these steps. You can either download the [seed project](https://github.com/auth0-samples/auth0-react-sample/tree/master/00-Starter-Seed) or the samples. The seed is a modern ReactJS application with some packages already setup:
-
-* [webpack](https://webpack.github.io) for assets building and hot code reloading
-* [babel](https://babeljs.io) to allow ES2015 Javascript syntax
-* [postcss](http://postcss.org) and [cssloader](https://github.com/webpack/css-loader) to allow css modules loading inside JS files
-* [react-router](https://github.com/reactjs/react-router)
-* [react-bootstrap](https://react-bootstrap.github.io/) for easy integration with [Bootstrap framework](http://getbootstrap.com/)
-* [karma](https://karma-runner.github.io), [enzyme](https://github.com/airbnb/enzyme) and [chai](http://chaijs.com) for unit testing
-* [auth0-lock](/libraries/lock) for user authentication
-
-Auth0 Lock widget is included in the `package.json` file but it's not being used yet. The entire project just serves as a starting point for this quickstart. The samples are included in each step.
-
-## Prerequisites
-Before we embark on this journey of ours, it is important to setup our application by following this process:
-
-::: panel-info Can I Skip?
-You can skip this step if you think you can find your way around or just looking for something specific in the quickstart.
-:::
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
 ### 1. Create an Application
 
