@@ -3,6 +3,16 @@ title: Introduction
 name: Introduction to the Quickstart, and configuring environment
 ---
 
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-webapi-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/appsettings.json',
+  pkgType: 'replace'
+}) %>
+
 This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API. 
 
 ## Seed & Samples

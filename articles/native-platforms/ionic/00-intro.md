@@ -3,6 +3,16 @@ title: Introduction
 description: test
 ---
 
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ionic-samples',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/www/app/auth0.variables.js',
+  pkgType: 'replace'
+}) %>
+
 Welcome to this quickstart which will guide you through the various steps of implementing Auth0 in your Ionic applications.
 
 <%= include('../../_includes/_package', {
