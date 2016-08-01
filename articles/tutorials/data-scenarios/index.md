@@ -35,7 +35,7 @@ The two sets of data are also likely accessed with different frequencies. Auth0 
 
 ### Flexibility 
 
-By using a separate database, your access to the authentication data is concentrated in a small chunk, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `JOIN`
+By using a separate database, your access to the authentication data is concentrated in a small chunk, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `SELECT users.favGenre, access.roles FROM users, access WHERE users.user_id = access.user_id`, this is something you can't customize to your database in the way you might want.
 
 ### Example
 
@@ -47,14 +47,12 @@ Using the user’s unique `user_id` from their Auth0 user profile, we can make s
 | --------- | ------------------ | -------------------------- |
 | "1a"      | "Yellow Submarine" | "google-oauth2\|xxxyyy123" |
 
-The Node.js seed project authenticates requests to the specific URI associated with getting the user’s personal data from the database. This is accomplished through the validation of a JSON Web Token. [Follow this link to learn about token based authentication and how to easily implement JWT in your applications.](https://auth0.com/learn/token-based-authentication-made-easy/) 
+The Node.js seed project authenticates requests to the specific URI associated with getting the user’s personal data from the database. This is accomplished through the validation of a JSON Web Token. [Learn about token based authentication and how to easily implement JWT in your applications.](https://auth0.com/learn/token-based-authentication-made-easy/) 
 
 Here is the code implementing JWT validation from the Node.js seed project:
 ```
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
-dotenv.load(); //environment variables are stored in a .env file
 
 var authenticate = jwt({
   secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'), //creating the JWT
@@ -66,7 +64,7 @@ app.use('/users', users);
 app.use('/secured', authenticate); //accessing secured path requires validation
 ```
 
-We added specific functionality for different data requests coming from our mobile app. For example, upon receiving a GET request to the path `/secured/getFavGenre`, the API calls the function we wrote called `getGenre()`, which queries the database for the user’s favorite genre and returns it in the response of the GET request.
+We added specific functionality for different data requests coming from our mobile app. For example, upon receiving a GET request to the path `/secured/getFavGenre`, the API calls the function we wrote called `queryGenre()`, which queries the database for the user’s favorite genre and returns it in the response of the GET request.
 
 This is the function on the client (Swift) that makes the request to our Heroku-hosted Node.js API:
 ```
@@ -82,22 +80,22 @@ This is the function on the client (Swift) that makes the request to our Heroku-
     }
 ```
 
-This should not be confused with the `getGenre()` from the backend, which queries our app's database. This function is on the client (in the Swift code), and simply makes a request to the API/backend which handles the request. This function changes the interface of the app to display the response data of the request to `/secured/getFavGenre`.
+This should not be confused with the `queryGenre()` from the backend, which queries our app's database. This function is on the client (in the Swift code), and simply makes a request to the API/backend which handles the request. This function changes the interface of the app to display the response data of the request to `/secured/getFavGenre`.
 
 The function `buildAPIRequest()` takes the path and the type of HTTP request as parameters and builds a request using the base URL of our Node.js API hosted on Heroku.
 
-The Express server code from our Node.js API that handles the request to `/secured/getFavGenre` makes a call to the backend function `getGenre()` as discussed:
+The Express server code from our Node.js API that handles the request to `/secured/getFavGenre` makes a call to the backend function `queryGenre()` as discussed:
 
 ```
 app.get('/secured/getFavGenre', function(req, res) {
-  getGenre(req.user.sub, res);
+  queryGenre(req.user.sub, res);
 });
 ```
 
-Then `getGenre()` takes the `user_id` and queries the `user_data` table in our app's database to find that user's favorite genre and returns it to the client:
+Then `queryGenre()` takes the `user_id` and queries the `user_data` table in our app's database to find that user's favorite genre and returns it to the client:
 
 ```
-function getGenre(user_id, res){
+function queryGenre(user_id, res){
 	
   pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
