@@ -131,11 +131,9 @@ The response will be a **204**: The credential no longer exists.
 
 ## SDK support
 
-The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support to obtain and use refresh tokens.
+The [auth0.js](/libraries/auth0js) and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support to obtain and use refresh tokens.
 
 For more information about using refresh tokens with these libraries, see:
-
-* [Lock: Using a refresh token](/libraries/lock/using-a-refresh-token)
 
 * [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login) and [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token)
 
