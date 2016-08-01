@@ -11,8 +11,8 @@ Auth0 provides multiple locations for storing different types of data associated
 ## Table of Contents
 
 - [Where do I put my authentication data?](tutorials/User-Data-Storage-Scenario#where-do-i-put-my-authentication-data-)
-- [Why not put all the app’s data in the Auth0 data store?](tutorials/User-Data-Storage-Scenario#why-not-put-all-the-app-s-data-in-the-auth0-database-)
-- [When should I use the Auth0 data store?](tutorials/User-Data-Storage-Scenario#what-about-metadata-)
+- [Why not put all the app’s data in the Auth0 data store?](tutorials/User-Data-Storage-Scenario#why-not-put-all-the-app's-data-in-the-auth0-data-store)
+- [When should I use the Auth0 data store?](tutorials/User-Data-Storage-Scenario#when-should-i-use-the-auth0-data-store-)
 - [Review](tutorials/User-Data-Storage-Scenario#review)
 
 
@@ -35,7 +35,7 @@ The two sets of data are also likely accessed with different frequencies. Auth0 
 
 ### Flexibility 
 
-By using a separate database, your access to the authentication data is concentrated in a small chunk, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `SELECT users.favGenre, access.roles FROM users, access WHERE users.user_id = access.user_id`, this is something you can't customize to your database in the way you might want.
+By using a separate database, your access to the authentication data is concentrated in a small chunk of code, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `SELECT users.favGenre, access.roles FROM users, access WHERE users.user_id = access.user_id`, this is something you can't do with in the auth0 data store. Using a separate database will allow you to manage your data however you see fit
 
 ### Example
 
@@ -117,7 +117,7 @@ function queryGenre(user_id, res){
 
 ## When should I use the Auth0 data store?
 
-Metadata is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of metadata: app metadata and user metadata.
+Any data you are storing with Auth0 in addition to what is already in the user profile should go in metadata. Metadata is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of metadata: app metadata and user metadata.
 
 ### App metadata
 
