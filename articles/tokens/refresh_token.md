@@ -19,7 +19,7 @@ For more information see:
 
 * [Obtain a refresh token](/refresh-token#obtain-a-refresh-token).
 
-* [Lock: Using a refresh token](/libraries/lock/using-a-refresh-token)
+* [Lock: Using a refresh token](/libraries/lock/v9/using-a-refresh-token)
 
 * [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 

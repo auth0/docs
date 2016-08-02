@@ -41,11 +41,10 @@ ${snippet(meta.snippets.setup)}
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses Lock's [redirect mode](/libraries/lock/authentication-modes).
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
+To discover all the available options for `Auth0Lock`, see [the Lock customization documentation)](/libraries/lock/customization).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 

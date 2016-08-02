@@ -75,7 +75,7 @@ successful login, Auth0 will redirect the user to the configured callback URL
 with a JWT (`id_token`) in the query string.
 
 > [To learn more about the differences between popup and redirect modes,
-please refer to this document](/libraries/lock/authentication-modes).
+please refer to this document](/libraries/lock/v10/popup-mode).
 
 ```js
 window.auth0 = new Auth0({

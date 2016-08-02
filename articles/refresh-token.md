@@ -135,7 +135,7 @@ The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.
 
 For more information about using refresh tokens with these libraries, see:
 
-* [Lock: Using a refresh token](/libraries/lock/using-a-refresh-token)
+* [Lock: Using a refresh token](/libraries/lock/v9/using-a-refresh-token)
 
 * [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login) and [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token)
 
