@@ -15,9 +15,9 @@ For more information see:
 
 * [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
 
-* [Lock Android: Refreshing JWT Tokens](/libraries/lock/lock-android/refresh-jwt-tokens)
+* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
 
-* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock/lock-ios/save-and-refresh-jwt-tokens)
+* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
 
 * [Using Refresh Tokens in Mobile Applications](https://github.com/auth0/auth0-angular/blob/master/docs/refresh-token.md)
 
