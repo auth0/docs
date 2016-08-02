@@ -31,7 +31,7 @@ It is best not to store such additional data in the Auth0 data store because the
 
 ### Performance
 
-The two sets of data are also likely accessed with different frequencies. Auth0 is not optimized so that you can be querying millions of times in short period of time. It is better to leave this up to a service like MongoDB which is  optimized for fast, large data operations.
+The two sets of data are also likely accessed with different frequencies. Auth0 is not optimized so that you can be querying millions of times in short period of time. It is better to leave this up to a specialized database service, optimized for fast, large data operations.
 
 ### Flexibility 
 
@@ -51,17 +51,20 @@ The Node.js seed project authenticates requests to the specific URI associated w
 
 Here is the code implementing JWT validation from the Node.js seed project:
 ```
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var genres = require('./routes/genres');
+var songs = require('./routes/songs');
+var playlists = require('./routes/playlists');
+var displayName = require('./routes/displayName');
 
 var authenticate = jwt({
-  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'), //creating the JWT
+  secret: new Buffer(process.env.AUTH0_CLIENT_SECRET, 'base64'),
   audience: process.env.AUTH0_CLIENT_ID
 });
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/secured', authenticate); //accessing secured path requires validation
+app.use('/genres', authenticate, genres);
+app.use('/songs', authenticate, songs);
+app.use('/playlists', authenticate, playlists);
+app.use('/displayName', authenticate, displayName);
 ```
 
 We added specific functionality for different data requests coming from our mobile app. For example, upon receiving a GET request to the path `/secured/getFavGenre`, the API calls the function we wrote called `queryGenre()`, which queries the database for the user’s favorite genre and returns it in the response of the GET request.
@@ -69,37 +72,25 @@ We added specific functionality for different data requests coming from our mobi
 This is the function on the client (Swift) that makes the request to our Heroku-hosted Node.js API:
 ```
 @IBAction func getGenre(sender: AnyObject) {
-        let request = buildAPIRequest("/secured/getFavGenre", type:"GET") 
+        let request = buildAPIRequest("/genres/getFav", type:"GET")
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {[unowned self](data, response, error) in
-            let genre = NSString(data: data!, encoding: NSUTF8StringEncoding) //get the result when the request returns
-            dispatch_async(dispatch_get_main_queue(), { 
-                self.favGenre.text = "Favorite Genre:  \(genre!)" //change the UI to display the result
+            let genre = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            dispatch_async(dispatch_get_main_queue(), {
+                self.favGenre.text = "Favorite Genre:  \(genre!)"
             })
         }
         task.resume()
     }
 ```
-
-This should not be confused with the `queryGenre()` from the backend, which queries our app's database. This function is on the client (in the Swift code), and simply makes a request to the API/backend which handles the request. This function changes the interface of the app to display the response data of the request to `/secured/getFavGenre`.
-
 The function `buildAPIRequest()` takes the path and the type of HTTP request as parameters and builds a request using the base URL of our Node.js API hosted on Heroku.
 
-The Express server code from our Node.js API that handles the request to `/secured/getFavGenre` makes a call to the backend function `queryGenre()` as discussed:
-
-```
-app.get('/secured/getFavGenre', function(req, res) {
-  queryGenre(req.user.sub, res);
-});
-```
-
-Then `queryGenre()` takes the `user_id` and queries the `user_data` table in our app's database to find that user's favorite genre and returns it to the client:
+On the client (in the Swift code), the `getGenre()` function simply makes a request to the API/backend which handles the request and changes the interface of the app to display the response of the request to `/genres/getFav`, handled on the backend by `queryGenre()`, which queries our app's database. Here is how `queryGenre()` gets the data and returns it to the client:
 
 ```
 function queryGenre(user_id, res){
 	
-  pg.connect(process.env.DATABASE_URL, function(err, client) {
+  db.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
-  console.log('Connected to postgres! Getting data...');
 
   client
     .query('SELECT fav_genre as value FROM user_data WHERE user_id = $1', [user_id], function(err, result) {
@@ -107,8 +98,7 @@ function queryGenre(user_id, res){
       if(err) {
         return console.error('error running query', err);
       }
-      res.writeHead(200, {"Accept": "text/html"});
-      res.end(result.rows[0].value);
+      res.send(result.rows[0].value);
     });
   });
 
@@ -117,7 +107,7 @@ function queryGenre(user_id, res){
 
 ## When should I use the Auth0 data store?
 
-Any data you are storing with Auth0 in addition to what is already in the user profile should go in metadata. Metadata is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of metadata: app metadata and user metadata.
+Any data you are storing with Auth0 in addition to what is already in the user profile should go in metadata. [Metadata](/metadata) is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of metadata: app metadata and user metadata.
 
 ### App metadata
 
@@ -141,7 +131,6 @@ function (user, context, callback) {
   var CLIENT_SECRET = configuration.AUTH0_CLIENT_SECRET;
   var CLIENT_ID = configuration.AUTH0_CLIENT_ID;
 
-  //Copies user profile attributes needed in the API (equivalent to `scope`)
   var scope = {
     user_id: user.user_id,
     email: user.email,
@@ -155,13 +144,11 @@ function (user, context, callback) {
     issuer: 'https://eliharkins.auth0.com'
   };
 
-  var id_token = jwt.sign(scope, 
-                           new Buffer(CLIENT_SECRET, 'base64'),
-                           options);
+  var id_token = jwt.sign(scope, new Buffer(CLIENT_SECRET, 'base64'), options);
 
-   var auth = 'Bearer ' + id_token;
+  var auth = 'Bearer ' + id_token;
   
-   request.get({
+  request.get({
     url: 'https://auth0-node-data-api.herokuapp.com/playlists/getPlays',
     headers: {
        'Authorization': auth, 
@@ -244,9 +231,9 @@ function(user, context, callback){
 
 We used the Auth0 Management API v2 to allow the app’s users to alter their metadata via GET and PATCH requests: 
 
-[Get users by id.](https://auth0.com/docs/api/management/v2#!/Users/get_users_by_id)
+[Get users by id.](/api/management/v2#!/Users/get_users_by_id)
 
-[Patch users by id.](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id)
+[Patch users by id.](/api/management/v2#!/Users/patch_users_by_id)
 
 ## Review
 
