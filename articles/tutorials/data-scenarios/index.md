@@ -35,7 +35,7 @@ The two sets of data are also likely accessed with different frequencies. Auth0 
 
 ### Flexibility 
 
-By using a separate database, your access to the authentication data is concentrated in a small chunk of code, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `SELECT users.favGenre, access.roles FROM users, access WHERE users.user_id = access.user_id`, this is something you can't do with in the auth0 data store. Using a separate database will allow you to manage your data however you see fit
+By using a separate database, your access to the authentication data is concentrated in a small chunk of code, and your access to all other data is grouped separately. The way you want to organize your data may not be possible in the Auth0 data store because of the way it is built to accomodate only the user profiles and their Metadata. Certain actions that you might require from a customizable database service are not possible in Auth0 data store. For example, if you wanted to make a specific query like `SELECT users.favGenre, access.roles FROM users, access WHERE users.user_id = access.user_id`, this is something you can't do with in the auth0 data store. Using a separate database will allow you to manage your data however you see fit
 
 ### Example
 
@@ -107,21 +107,21 @@ function queryGenre(user_id, res){
 
 ## When should I use the Auth0 data store?
 
-Any data you are storing with Auth0 in addition to what is already in the user profile should go in metadata. [Metadata](/metadata) is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of metadata: app metadata and user metadata.
+Any data you are storing with Auth0 in addition to what is already in the user profile should go in Metadata. [Metadata](/metadata) is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of Metadata: `app_metadata` and `user_metadata`.
 
-### App metadata
+### `app_metadata`
 
- App metadata is used for storing supplementary data associated with authentication that is read-only for the user. Its three most common uses are:
+ `app_metadata` is used for storing supplementary data associated with authentication that is read-only for the user. Its three most common uses are:
 
 - Permissions: Features the user must unlock through their achievement in the application, a special key they are given, or any other exclusive factor that allows certain users to have privileges within the application that others do not.
 - Plans: Settings that must not be freely changed by the user without confirmation of a subscription. These require the user to pay or provide proof of purchase through the app to alter their in-app experience in some way.
 - External IDs: Used in associating external accounts (not authentication providers) with the identity provider account that authenticated the user through Auth0.
 
-### Example of app metadata
+### Example of `app_metadata`
 
-Some data from our music app that would be appropriate to store in app metadata is a music streaming subscription. Another example is the user’s permission to edit the app’s featured playlists. Both of these are appropriate for metadata because they are important in authenticating the user and customizing their experience as they are logged in. What makes them app metadata instead of user metadata is that they must not be easily changed by the user. We implemented the permissions example with two Auth0 [rules](/rules):
+Some data from our music app that would be appropriate to store in `app_metadata` is a music streaming subscription. Another example is the user’s permission to edit the app’s featured playlists. Both of these are appropriate for Metadata because they are important in authenticating the user and customizing their experience as they are logged in. What makes them appropriate for `app_metadata` instead of `user_metadata` is that they must not be easily changed by the user. We implemented the permissions example with two Auth0 [rules](/rules):
 
- The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in the app metadata. 
+ The first sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in `app_metadata`. 
  
  ```
 function (user, context, callback) {
@@ -188,7 +188,7 @@ function (user, context, callback) {
 }
  ```
 
-The second rule gets the app metadata and assigns the `roles` array to a field of the user object so that it can be accessed without directly accessing the app metadata on the client and so that the `scope` parameter can specify `roles` upon login wihtout unnecessarily including all of the app metadata in the user object:
+The second rule gets `app_metadata` and assigns the `roles` array to a field of the user object so that it can be accessed without directly accessing `app_metadata` on the client and so that the `scope` parameter can specify `roles` upon login wihtout unnecessarily including all of `app_metadata` in the user object:
 
 ```
 function(user, context, callback) {
@@ -200,17 +200,17 @@ function(user, context, callback) {
 }
 ```
 
-The app recognizes whether the user is a playlist editor or not and displays their permission accordingly when they are welcomed to the app. There is no actual featured playlist for the simplicity of the example. This is a good example of app metadata because in this scenario, the user has no direct control over how many times other people play their playlist, and so they must not be able to change their own permission to edit the app’s featured playlist. This is a special permission they have to “earn,” in this case by getting more people to listen to their playlist.
+The app recognizes whether the user is a playlist editor or not and displays their permission accordingly when they are welcomed to the app. There is no actual featured playlist for the simplicity of the example. This is a good example of `app_metadata` because in this scenario, the user has no direct control over how many times other people play their playlist, and so they must not be able to change their own permission to edit the app’s featured playlist. This is a special permission they have to “earn,” in this case by getting more people to listen to their playlist.
 
-### User metadata
+### `user_metadata`
 
-User metadata is extra authentication data determined by the user, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in. 
+`user_metadata` is extra authentication data determined by the user, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in. 
 
-### Example of user metadata
+### Example of `user_metadata`
 
-In the case of our music app, we should consider that the user would want to change their `displayName`, which is displayed to other users of the app and to the user when they are welcomed to the app upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in user metadata. We stored the variable `displayName` in user metadata and allowed the user to update their display name for the purpose of this example.
+In the case of our music app, we should consider that the user would want to change their `displayName`, which is displayed to other users of the app and to the user when they are welcomed to the app upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in `user_metadata`. We stored the variable `displayName` in `user_metadata` and allowed the user to update their displayed name for the purpose of this example.
 
-We used an Auth0 rule to get the `user.user_metadata` in order to show their display name every time the user logs in.
+We used an Auth0 rule to get the `user.user_metadata` in order to show the user's display name every time they log in.
 
 ```
 function(user, context, callback){
@@ -229,7 +229,7 @@ function(user, context, callback){
 }
 ```
 
-We used the Auth0 Management API v2 to allow the app’s users to alter their metadata via GET and PATCH requests: 
+We used the Auth0 Management API v2 to allow the app’s users to alter their Metadata via GET and PATCH requests: 
 
 [Get users by id.](/api/management/v2#!/Users/get_users_by_id)
 
@@ -242,8 +242,8 @@ Here is a review of the types of data and the best practices for storing them in
 | Data (Music App Example)                                | Location |
 | ------------------------------------------------------- | -------------------------------------------------------------- |
 | Songs, artists, and playlists saved to the user’s music | A separate database connected to the backend of the application|
-| User’s permission to edit the app’s featured playlist, stored in `roles` variable | App metadata |
-| User’s chosen display name that they are free to change, stored in `displayName` variable | User metadata |
+| User’s permission to edit the app’s featured playlist, stored in `roles` variable | `app_metadata` |
+| User’s chosen display name that they are free to change, stored in `displayName` variable | `user_metadata` |
 
 
 This document is meant to give you a better idea of where to store different types of data both authentication-related and otherwise. Rules are a helpful tool to work with the authentication data of your application in a systematic and simple way. In general the ways Auth0 provides for you to store your users’ data are intended to be used for authentication data only, so if your data seems irrelevant to the authentication process, it is best stored in a separate database. This article should clear up any doubt you have about how to use Auth0’s data storage methods.
