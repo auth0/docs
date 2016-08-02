@@ -41,7 +41,7 @@ By using a separate database, your access to the authentication data is concentr
 
 Here is an example of data that is associated with a user but not with authenticating that user in the app: In the case of our mobile music application, the user’s music needs to be saved, so they can find it easily when they log in again. This data is not required in the process of authenticating the user for the app, but favorite songs and artists are personal data that should be associated with the user. So we would want to store this data in a separate database connected to the backend of our mobile app, instead of in the Auth0 data store. Here is how we did this:
 
-Using the user’s unique `user_id` from their Auth0 user profile, we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from our `songs` table in our Heroku Postgres database:
+Using the user’s unique `user_id` from their Auth0 [user profile](/user-profile/normalized), we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from our `songs` table in our Heroku Postgres database:
 
 | song_id   | songname           | user_id                    |
 | --------- | ------------------ | -------------------------- |
