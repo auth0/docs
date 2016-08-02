@@ -1,10 +1,6 @@
----
-description: How to use metadata in your rules.
----
+# Working with User Metadata in Rules
 
-# User Metadata in Rules
-
-This article contains samples that demonstrate how to work with [user_metadata](/metadata) in [Rules](/rules).
+This article contains samples that demonstrate how to work with [user metadata](/metadata) in [Rules](/rules).
 
 Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 
@@ -23,6 +19,12 @@ Each sample rule in this article assumes that the user and their information is 
 }
 ```
 
+## Contents:
+
+* [Reading Metadata](/metadata/rules#reading-metadata)
+* [Updating Metadata](/metadata/rules#updating-metadata)
+* [Deleting Metadata](/metadata/rules#deleting-metadata)
+
 ## Reading Metadata
 
 To read the available metadata, you will need to access the correct user property:
@@ -35,7 +37,9 @@ function(user, context, callback){
   if (user.app_metadata.roles.indexOf('writer')){
     // code to be executed
   }
+
   ...
+
 }
 ```
 
@@ -47,17 +51,19 @@ function(user, context, callback){
   if (user.user_metadata.preferences.color === 'black'){
     // code to be executed
   }
+
   ...
+
 }
 ```
 
 ## Updating Metadata
 
-All rules have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the Auth0 Management API v2. The `auth0` object is preconfigured with the necessary permissions to update users.
+All [rules](/rules) have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0) that is capable of calling the Auth0 Management API v2). The `auth0` object is preconfigured with the necessary permissions to update users.
 
 ### Updating `app_metadata`
 
-To add an administrative role to the user:
+Suppose you wanted to add an administrative role to the user:
 
 ```js
 function(user, context, callback){
@@ -96,7 +102,7 @@ This results in the following JSON representation of the user profile details:
 
 ### Updating `user_metadata`
 
-To add the user's `fontSize` preference to the user profile:
+Suppose you wanted to add the user's `fontSize` preference to their user profile:
 
 ```js
 function(user, context, callback){
@@ -134,7 +140,7 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-### Updating `app_metadata` and `user_metadata` simultaneously
+### Updating `app_metadata` and `user_metadata` Simultaneously
 
 To reduce the rule's processing time, you may update both the `app_metadata` and `user_metadata` in the same rule:
 
@@ -187,11 +193,11 @@ This results in the following JSON representation of the user profile details:
 
 ## Deleting Metadata
 
-### Deleting `app_metadata` properties and values
+### Deleting `app_metadata` Properties and Values
 
 To delete a property, set the property's value to `null`.
 
-For example, to delete the user's roles:
+For example, suppose you wanted to delete the user's roles:
 
 ```js
 function(user, context, callback){
@@ -227,7 +233,7 @@ This results in the following JSON representation of the user profile details:
 
 To delete a single value of a property, remove that value specifically.
 
-For example, to remove the `writer` role from the user profile:
+For example, suppose you wanted to remove the `writer` role from the user profile:
 
 ```js
 function(user, context, callback){
@@ -269,11 +275,11 @@ This results in the following JSON representation of the user profile details:
 }
 ```
 
-Note that the `roles` property still exists but does not contain any value.
+Notice how the `roles` property still exists; it does not, however, have any values associated.
 
-### Deleting `user_metadata` properties and values
+### Deleting `user_metadata` Properties and Values
 
-To delete the user's color preference:
+Suppose you wanted to delete the user's color preference:
 
 ```js
 function(user, context, callback){
