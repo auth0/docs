@@ -5,8 +5,10 @@ description: This tutorial will show you how to use the Auth0 AngularJS SDK to a
 
 ## AngularJS SDK Tutorial
 
-
-This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.
+::: panel-danger Lock 10
+The AngularJS SDK currently supports Lock versions up to 9.2.2.
+Support for Lock 10 is coming soon.
+:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0/auth0-angular/tree/master/examples/widget-redirect',
@@ -26,7 +28,7 @@ This tutorial and seed project have been tested with the following:
 * Angular version 1.5.0-rc.0
 :::
 
--${include('../\_callback')}
+${include('../\_callback')}
 
 #### Create an Application Instance
 
@@ -77,10 +79,6 @@ Right after including the scripts, add a viewport to make the lock widget fit in
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
-
-With all that, our entire `<head>` will look like this:
-
-${snippet(meta.snippets.head)}
 
 #### Step 2: Configure The Angular Application
 To use Auth0, your Angular App need to depend on the Auth0 SDK and other helpful dependencies like `ngRoute`, `angular-storage` and `angular-jwt`:
