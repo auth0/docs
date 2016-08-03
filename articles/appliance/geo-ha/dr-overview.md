@@ -32,17 +32,17 @@ The following table summarizes what might happen and its possible performance im
         <td>Reduction in overall handling capacity</td>
     </tr>
     <tr>
-        <td>Data unavailable for any node in the primary data center</td>
+        <td>Data unavailable for all nodes in the primary data center</td>
         <td>Arbiter elects one of the secondary site's nodes to become the primary data node</td>
         <td>Performance degradation due to cross-geography data requests</td>
     </tr>
     <tr>
-        <td>Service unavailable for any node in the primary data center</td>
+        <td>Service unavailable for all nodes in the primary data center</td>
         <td>Global load balancer redirects all requests to the secondary data center's nodes (but still serves data from the primary data center)</td>
         <td>Performance degradation due to cross-geography data requests</td>
     </tr>
     <tr>
-        <td>Neither data nor service is available for the primary data center is available</td>
+        <td>Neither data nor service for the primary data center is available</td>
         <td>Global load balancer redirects all requests to the secondary data center</td>
         <td>None</td>
     </tr>
