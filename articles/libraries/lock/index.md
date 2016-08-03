@@ -122,28 +122,26 @@ The [API reference][lock-api] provides more comprehensive documentation of the A
 
 ## Using auth0.js
 
-There is no need to use `getClient()` any more - instead, you can just instantiate a new `Auth0` object.
+If you have a need to use `auth0.js` alongside of Lock, you will find that you cannot use `getClient()` in Lock 10 - instead, you can just instantiate a new `Auth0` object.
 
-To get `Auth0` with Lock, if you used the CDN or bower for installation, you merely have to instantiate your object (see below). If you are retrieving Lock via npm, you will have to include `auth0.js` in your project's dependencies and import it.
+To get `Auth0` with Lock, if you included the script from our CDN or installed Lock from bower, you merely have to instantiate your object (see below). 
+
+**If you installed Lock from npm**, you will have to include `auth0-js` in your project's dependencies and import it. Before instantiating your `Auth0` object, you'll need to require `auth0-js`:
+
+```js
+var Auth0 = require('auth0-js');
+```
 
 In either case, you then simply use `auth0.js` by instantiating a new Auth0 object, as below.
 
 ```js
-var auth0 = new Auth0({
+var client = new Auth0({
   domain:       '${account.namespace}',
   clientID:     '${account.clientId}',
   callbackURL:  '{YOUR APP URL}',
   callbackOnLocationHash: true
 });
 ```
-
-## Examples
-
-The **example** directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
-
-Then execute `npm i` to install dependencies (only once) and `npm example` from the root of this project.
-
-Finally, point your browser at `http://localhost:3000/` and play around.
 
 ## Start using Lock!
 
