@@ -43,7 +43,7 @@ NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
     
 NSString *token = self.token.idToken;
 [request addValue:[NSString stringWithFormat:@"Bearer %@",token] forHTTPHeaderField:@"Authorization"];
-}
+
 // Set up your request (method, body, etc)
 
 [[[NSURLSession sharedSession] dataTaskWithRequest: request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
