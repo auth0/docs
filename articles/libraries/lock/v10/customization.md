@@ -363,7 +363,7 @@ WARNING: There is a known bug that prevents popup mode from functioning properly
 ```js
 var options = {
   auth: {
-    params: {redirect: false},
+    redirect: false
   }
 };  
 ```
@@ -375,7 +375,7 @@ The URL Auth0 will redirect back to after authentication. Defaults to the empty 
 ```js
 var options = {
   auth: {
-    params: {redirectUrl: 'http://testurl.com'}
+    redirectUrl: 'http://testurl.com'
   }
 };  
 ```
@@ -391,7 +391,7 @@ The value of `responseType` should be set to "token" for Single Page Application
 ```js
 var options = {
   auth: {
-    params: {responseType: 'token'}
+    responseType: 'token'
   }
 };  
 ```
@@ -407,7 +407,7 @@ Failing to set this to true will result in multifactor authentication not workin
 ```js
 var options = {
   auth: {
-    params: {sso: true}
+    sso: true
   }
 };  
 ```
