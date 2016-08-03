@@ -17,6 +17,8 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/ember2-auth0-sample',
+  pkgOrg: 'auth0',
   pkgRepo: 'auth0-ember-simple-auth',
   pkgBranch: 'master',
   pkgPath: 'examples/ember2-auth0-sample',
