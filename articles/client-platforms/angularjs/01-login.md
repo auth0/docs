@@ -100,10 +100,10 @@ Let's break it down.
 
 Angular's `config()` skeleton with required dependencies:
 ```javascript
-app.config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
-  jwtInterceptorProvider) {
+app.config(['$routeProvider', 'authProvider', '$httpProvider', '$locationProvider', 'jwtInterceptorProvider', 
+  function myAppConfig ($routeProvider, authProvider, $httpProvider, $locationProvider, jwtInterceptorProvider) {
 
-})
+}])
 ```
 
 The `authProvider` dependency is Auth0's API that exposes some methods which we will see how to make use of in a jiffy.
@@ -142,24 +142,27 @@ The `loginUrl` is the URL to be redirected to if authentication is not successfu
 You need to attach all Auth0 events once Angular is ready inside the `run()` method:
 
 ```javascript
-.run(function(auth) {
+.run(['auth', function(auth) {
   // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();
-});
+}]);
 ```
 
 Event listeners are available to handle different status of authentication. They are also configured in the `config()` method:
 
 ```javascript
 //Called when login is successful
-authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
-  console.log("Login Success");
-  profilePromise.then(function(profile) {
-    store.set('profile', profile);
-    store.set('token', idToken);
-  });
-  $location.path('/');
-});
+authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store',
+  function($location, profilePromise, idToken, store) {
+  
+    console.log("Login Success");
+    profilePromise.then(function(profile) {
+      store.set('profile', profile);
+      store.set('token', idToken);
+    });
+  
+    $location.path('/');
+}]);
 
 //Called when login fails
 authProvider.on('loginFailure', function() {
@@ -174,9 +177,9 @@ AngularJS interceptors offer a convenient way to modify request made by the $htt
 
 ```javascript
 //Angular HTTP Interceptor function
-jwtInterceptorProvider.tokenGetter = function(store) {
+jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     return store.get('token');
-}
+}]
 //Push interceptor function to $httpProvider's interceptors
 $httpProvider.interceptors.push('jwtInterceptor');
 ```
@@ -188,10 +191,10 @@ With just that little bit of code, Angular will now attach the JWT token to any 
 You have successfully configured you Angular App to use Auth0. Configs are vital but won't run an app, right? Let's add a login functionality:
 
 ```javascript
-app.controller( 'LoginCtrl', function ( $scope, auth) {
+app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
 
   $scope.auth = auth;
-});
+}]);
 ```
  `auth` is a service in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
 
@@ -226,7 +229,7 @@ The password reset trip is a breeze. Just like `signup()`, `signin()` and `signo
 
 
 ```javascript
-app.controller( 'LoginCtrl', function ( $scope, auth) {
+app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
 
 //... login logic
 
@@ -236,7 +239,7 @@ $scope.resetPassword = function(){
     });
 };
 
-});
+}]);
 ```
 
 `Username-Password-Authentication` is the name of a connection which is available via your dashboard. You can go ahead to add the reset button in your template:
@@ -284,23 +287,23 @@ You can log the `profile` of a user in the `loginSuccess` event listener and ins
 Page reload is a nightmare in Single Page Applications. If states are not managed well, once a page is refreshed, the states are lost. It is simple to keep things in sync even after a refresh:
 
 ```javascript
-app.run(function($rootScope, auth, store, jwtHelper, $location) {
-  $rootScope.$on('$locationChangeStart', function() {
-
-    var token = store.get('token');
-    if (token) {
-      if (!jwtHelper.isTokenExpired(token)) {
-        if (!auth.isAuthenticated) {
-          //Re-authenticate user if token is valid
-          auth.authenticate(store.get('profile'), token);
+app.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location', 
+  function($rootScope, auth, store, jwtHelper, $location) {
+    $rootScope.$on('$locationChangeStart', function() {
+      var token = store.get('token');
+      if (token) {
+        if (!jwtHelper.isTokenExpired(token)) {
+          if (!auth.isAuthenticated) {
+            //Re-authenticate user if token is valid
+            auth.authenticate(store.get('profile'), token);
+          }
+        } else {
+          // Either show the login page or use the refresh token to get a new idToken
+          $location.path('/');
         }
-      } else {
-        // Either show the login page or use the refresh token to get a new idToken
-        $location.path('/');
       }
-    }
-  });
-});
+    });
+}]);
 ```
 Angular's `run()` has become handy here. The `run()` method is called every time angular is instantiated therefore giving us the power to restore the state of our application with the data in our stores (`localStorage` or `cookies`).
 

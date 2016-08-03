@@ -68,7 +68,7 @@ If you are not currently connected to the internet on your mobile device to rece
 
 To find this code, go into the Guardian app on your device, and click on the application you are trying to log into. Then you should see information on your last sign in and a 6-digit code at the bottom which is your OTP.
 
-![](/media/articles/mfa/guardian-otp.png)
+![](/media/articles/mfa/guardian-otp-code.png)
 
 Enter this code to finish signing in.
 
