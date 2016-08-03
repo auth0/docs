@@ -72,7 +72,7 @@ You might choose to avoid the Lock UI and only show the sign in options of third
 - (IBAction)linkAccount:(id)sender{
     NSString* connection;
     
-    if(sender == self.linkGoogleButton) {
+    if (sender == self.linkGoogleButton) {
         connection = @"google-oauth2";
     } else if (sender == self.linkTwitterButton) {
         connection = @"twitter";
@@ -81,12 +81,8 @@ You might choose to avoid the Lock UI and only show the sign in options of third
     } else {
         return;
     }
-    
-    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-    NSURL *domain =  [NSURL a0_URLWithDomain: [infoDict objectForKey:@"Auth0Domain"]];
-    NSString *clientId = [infoDict objectForKey:@"Auth0ClientId"];
-    
-    A0WebAuth *webAuth = [[A0WebAuth alloc] initWithClientId:clientId url:domain];
+        
+    A0WebAuth *webAuth = [[A0WebAuth alloc] init];
     
     [webAuth setConnection:connection];
     [webAuth setScope:@"openid"];
@@ -107,14 +103,12 @@ Now that you have the user information for both profiles, you can link them:
 
 ```objc
 A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"];
-NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
-NSURL *domain =  [NSURL a0_URLWithDomain: [infoDict objectForKey:@"Auth0Domain"]];
 
-A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:[keychain stringForKey:@"id_token"] url:domain];
+A0ManagementAPI *authApi = [[A0ManagementAPI alloc] init];
 
 [authApi linkUserWithIdentifier:self.userProfile.userId  withUserUsingToken: credentials.idToken callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
    
-    if(error){
+    if (error){
         //Something went wrong, tell the user
     } else {
         //The linking worked, update your profile and UI
