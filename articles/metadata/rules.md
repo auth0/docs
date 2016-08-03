@@ -53,7 +53,7 @@ function(user, context, callback){
 
 ## Updating Metadata
 
-All rules have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the Auth0 Management API v2. The `auth0` object is preconfigured with the necessary permissions to update users.
+All rules include an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the Auth0 Management API v2. The `auth0` object is preconfigured with the necessary permissions to update users.
 
 ### Updating `app_metadata`
 

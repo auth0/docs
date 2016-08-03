@@ -96,7 +96,7 @@ you would make the following `PATCH` call to the API:
 }
 ```
 
-The user's profile will now appears as follows:
+The user's profile will now appear as follows:
 
 ```json
 {
@@ -117,7 +117,7 @@ The user's profile will now appears as follows:
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
 
-For example, to add a user's work address as an additional inner property, you would have to include the complete contents of address property. Since the `addresses` object is a root-level property, it will be merged into the final JSON object representing the user, but its sub-properties will not.
+For example, to add a user's work address as an additional inner property, you would have to include the complete contents of the `addresses` property. Since the `addresses` object is a root-level property, it will be merged into the final JSON object representing the user, but its sub-properties will not.
 
 ```json
 {
