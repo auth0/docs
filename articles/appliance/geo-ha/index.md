@@ -33,7 +33,7 @@ The Arbiter node acts as an independent witness to the primary and secondary dat
 
 ### Geographically-Aware Global Load Balancer/DNS Failover Configuration
 
-You will need to deploy a global load balancer that supports an active/standby configuration. This will be configured to fail over to the secondary site if the primary site load balancer is unavailable.
+You will need to deploy a global load balancer that supports an active/standby configuration. This will be configured to begin using the secondary site if the primary site load balancer is unavailable.
 
 Two examples of products that support this configuration are the F5 Global Traffic Manager and the AWS Route 53 DNS service. The global load balancer is typically positioned in front of the local load balancers in each data center.
 
