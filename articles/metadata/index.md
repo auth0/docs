@@ -1,20 +1,19 @@
 ---
 url: /metadata
-description: Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata.
 ---
 
 # User Metadata
 
 Auth0 allows you to store **metadata**, or data related to each user that has not come from the identity provider. There are two kinds of metadata:
 
-* **user\_metadata**: stores user attributes (such as user preferences) that do not impact a user's core functionality;
-* **app\_metadata**: stores information (such as a user's support plan, security roles, or access control groups) that can impact a user's core functionality, such as how an application functions or what the user can access.
+* **user_metadata**: stores user attributes, such as user preferences, that don't impact a user's core functionality;
+* **app_metadata**: stores information such as a user's support plan, security roles, or access control groups, which can impact a user's core functionality, such as how an application functions and/or what the user can access.
 
-**NOTE**: An authenticated user can modify data in their profile's `user_metadata`, but not in their `app_metadata`.
+Please note that an authenticated user may modify data in their profile's `user_metadata`, but nothing in their `app_metadata`.
 
 ## Metadata Usage
 
-Suppose the following data is stored for a user with the email address `jane.doe@example.com`:
+Suppose the following data is stored for a user with the email address "jane.doe@example.com":
 
 ```json
 {
@@ -28,9 +27,9 @@ Suppose the following data is stored for a user with the email address `jane.doe
 }
 ```
 
-**NOTE**: Any valid JSON snippet can be used as metadata.
+**Note**: Any valid JSON snippet may be used as metadata.
 
-To read metadata, simply access the correct property. For example, if you want to work with the values of the following properties in your Rules or via a call to the Management API:
+To read metadata, simply access the correct property. For example, suppose you wanted to work with the values of the following properties in your Rules or via a call to the Management API:
 
 ```js
 console.log(user.email); // "jane.doe@example.com"
@@ -38,11 +37,11 @@ console.log(user.user_metadata.hobby); // "surfing"
 console.log(user.app_metadata.hobby); // "full"
 ```
 
-**NOTE**: With APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
+> **Note**: With APIv1, all metadata was stored in the `metadata` field. Data stored in this field will now be available under `app_metadata`.
 
 ### Naming Metadata Fields
 
-Metadata field names must not contain a period. For example, use of the following returns a Bad Request (400) error:
+Metadata field names must not contain a dot. For example, use of the following returns a Bad Request (400) error:
 
 ```json
 {
@@ -50,7 +49,7 @@ Metadata field names must not contain a period. For example, use of the followin
 }
 ```
 
-One way of handling this is to nest attributes:
+One way of handling this is to nest the attributes:
 
 ```json
     {
@@ -60,9 +59,9 @@ One way of handling this is to nest attributes:
     }
 ```
 
-Alternately, you can use any delimiter that is not  `.` or `$`.
+Alternately, you may use a delimiter that is neither the `.` nor `$`.
 
-However, the usage of the `.` delimiter is acceptable in the data values:
+Note that the usage of the `.` delimiter is acceptable in the actual data values:
 
 ```json
 {

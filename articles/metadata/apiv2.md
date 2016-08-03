@@ -1,14 +1,10 @@
----
-description: How to update metadata through the Auth0 API.
----
+# Using Metadata with Auth0's Management APIv2
 
-# Using Metadata with Auth0's Management API
+Using Auth0's Management API, you may create a user and set both its `app_metadata` and `user_metadata`. You may also update those two fields.
 
-Using Auth0's Management APIv2, you can create a user and set both their `app_metadata` and `user_metadata`. You can also update these two fields.
+## Setting a User's Metadata Fields on Creation
 
-## Set User Metadata Fields on Creation
-
-For example, to create a user with the following profile details:
+Suppose you wanted to create a user with the following profile details:
 
 ```json
 {
@@ -22,12 +18,12 @@ For example, to create a user with the following profile details:
 }
 ```
 
-you would make the following `POST` call to the Management API to create the user and set the property values:
+The following `POST` call to the Management API will create the user and set the property values as necessary:
 
 ```har
 {
 	"method": "POST",
-	"url": "https://${account.namespace}/api/v2/users",
+	"url": "https://manage.auth0.com/api/v2/users",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -45,11 +41,11 @@ you would make the following `POST` call to the Management API to create the use
 }
 ```
 
-## Update User Metadata
+## Updating a User's Metadata
 
-You can update a user's metadata by making the appropriate `PATCH` call to the Management API.
+You may update a user's metadata by making the appropriate `PATCH` call to the Management API.
 
-Assuming you created the user as shown above with the following metadata values:
+We've created a user with the following metadata values:
 
 ```json
 {
@@ -62,8 +58,7 @@ Assuming you created the user as shown above with the following metadata values:
     }
 }
 ```
-
-To update `user_metadata` and add the user's home address as a second-level property:
+Suppose we wanted to update the `user_metadata` and add the user's home address as a second-level property:
 
 ```json
 {
@@ -73,12 +68,12 @@ To update `user_metadata` and add the user's home address as a second-level prop
 }
 ```
 
-you would make the following `PATCH` call to the API:
+The `PATCH` call to the API would therefore be:
 
 ```har
 {
 	"method": "PATCH",
-	"url": "https://${account.namespace}/api/v2/users/user_id",
+	"url": "https://manage.auth0.com/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -96,7 +91,7 @@ you would make the following `PATCH` call to the API:
 }
 ```
 
-The user's profile will now appears as follows:
+The user's profile now appears as follows:
 
 ```json
 {
@@ -113,11 +108,9 @@ The user's profile will now appears as follows:
 }
 ```
 
-### Merging 
+**Note:** Only properties at the root level are merged in to the object. All others replace the existing value. The following example demonstrates an example of this merging.
 
-Only properties at the root level are merged into the object. All lower-level properties will be replaced.
-
-For example, to add a user's work address as an additional inner property, you would have to include the complete contents of address property. Since the `addresses` object is a root-level property, it will be merged into the final JSON object representing the user, but its sub-properties will not.
+If we were to add the user's work address as an additional inner property, we have to send over the entire address block. Because the `addresses` object is a root-level property, it will be merged into the final JSON object representing the user, but its *properties* will not.
 
 ```json
 {
@@ -130,12 +123,12 @@ For example, to add a user's work address as an additional inner property, you w
 }
 ```
 
-Therefore, the corresponding `PATCH` call to the API would be:
+The `PATCH` call to the API would therefore be:
 
 ```har
 {
 	"method": "PATCH",
-	"url": "https://${account.namespace}/api/v2/users/user_id",
+	"url": "https://manage.auth0.com/api/v2/users/{id}",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{

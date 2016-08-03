@@ -120,6 +120,23 @@ This is just one example of how **Lock 10** could work with a **Single Page Appl
 
 The [API reference][lock-api] provides more comprehensive documentation of the API and its various available methods, and the [Customization reference][lock-customization] details out the different options that you have for customizing Lock to meet your specific needs.
 
+## Using auth0.js
+
+There is no need to use `getClient()` any more - instead, you can just instantiate a new `Auth0` object.
+
+To get `Auth0` with Lock, if you used the CDN or bower for installation, you merely have to instantiate your object (see below). If you are retrieving Lock via npm, you will have to include `auth0.js` in your project's dependencies and import it.
+
+In either case, you then simply use `auth0.js` by instantiating a new Auth0 object, as below.
+
+```js
+var auth0 = new Auth0({
+  domain:       '${account.namespace}',
+  clientID:     '${account.clientId}',
+  callbackURL:  '{YOUR APP URL}',
+  callbackOnLocationHash: true
+});
+```
+
 ## Examples
 
 The **example** directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
@@ -131,19 +148,6 @@ Finally, point your browser at `http://localhost:3000/` and play around.
 ## Start using Lock!
 
 ${lockSDK}
-
-## Using auth0.js
-
-When using functionality from auth0.js, instead of using `getClient()`, for example, you can simply instantiate a new Auth0 object and use plain auth0.js.
-
-```js
-var auth0 = new Auth0({
-  domain:       '${account.namespace}',
-  clientID:     '${account.clientId}',
-  callbackURL:  '{YOUR APP URL}',
-  callbackOnLocationHash: true
-});
-```
 
 ## Browser Compatibility
 
