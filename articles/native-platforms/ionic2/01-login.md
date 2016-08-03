@@ -13,10 +13,11 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic2-samples/tree/master/00-Starter-Seed',
-  pkgRepo: 'auth0-ionic2-samples',
+  githubUrl: 'https://github.com/auth0/auth0-ionic2',
+  pkgOrg: 'auth0',
+  pkgRepo: 'auth0-ionic2',
   pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
+  pkgPath: null,
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
