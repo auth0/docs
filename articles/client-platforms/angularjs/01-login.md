@@ -25,7 +25,7 @@ Support for Lock 10 is coming soon.
 This tutorial and seed project have been tested with the following:
 
 * NodeJS 4.4
-* Angular version 1.5.0-rc.0
+* Angular version 1.5.8
 :::
 
 ${include('../\_callback')}
@@ -114,12 +114,12 @@ Next, configure the routes you need:
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
-      templateUrl: 'templates/home.html',
+      templateUrl: 'home/home.html',
       requiresLogin: true
     })
     .when( '/login', {
       controller: 'LoginCtrl',
-      templateUrl: 'templates/login.html',
+      templateUrl: 'home/login.html',
       pageTitle: 'Login'
     });
    // ...config
@@ -140,7 +140,7 @@ The `loginUrl` is the URL to be redirected to if authentication is not successfu
 You need to attach all Auth0 events once Angular is ready inside the `run()` method:
 
 ```javascript
-.run(['auth', function(auth) {
+app.run(['auth', function(auth) {
   // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();
 }]);
@@ -164,9 +164,9 @@ authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'stor
 
 //Called when login fails
 authProvider.on('loginFailure', function() {
-  console.log("Error logging in");
-  $location.path('/login');
+  alert("Error");
 });
+
 ```
 
 The most prominent part of this code is the `loginSuccess` where we store the credentials and redirect the user after a successful login.
@@ -177,7 +177,7 @@ AngularJS interceptors offer a convenient way to modify request made by the $htt
 //Angular HTTP Interceptor function
 jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     return store.get('token');
-}]
+};
 //Push interceptor function to $httpProvider's interceptors
 $httpProvider.interceptors.push('jwtInterceptor');
 ```
@@ -197,7 +197,7 @@ app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
  `auth` is a service in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
 
 ```markup
-<a href="#" ng-click="auth.signin()">Sign In</a>
+<a href="#" ng-click="auth.signin()" class="btn btn-primary btn-lg btn-block">Sign In</a>
 ```
 ${browser}
 
