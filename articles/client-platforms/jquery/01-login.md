@@ -42,15 +42,15 @@ ${snippet(meta.snippets.setup)}
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses [Lock's](/libraries/lock) redirect mode.
+ __Note:__ This implementation uses [Lock](/libraries/lock) redirect mode.
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
+To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock/v9#-show-options-callback-).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
 ```js
 lock.on("authenticated", function(authResult) {
@@ -159,6 +159,3 @@ userProfile = null;
 window.location.href = "/";
 ```
 
-### 7. All done!
-
-You have completed the implementation of Login and Signup with Auth0 and jQuery.
