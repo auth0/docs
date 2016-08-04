@@ -28,7 +28,7 @@ For your users to utilize this type of MFA, they will need a supported mobile de
 
 For more information on using the Google Authenticator app [see here](/multifactor-authentication/google-authenticator).
 
-New users signing up will be prompted to download the Guardian app from either the App Store or Google Play. Once they indicate that they downloaded the app a code will appear. They will have five minutes to scan the code with the app before it expires. After the code has been successfully scanned, users will see a confirmation screen which includes a recovery code. They need to have this recovery code to login without their mobile device. If they lose both the recovery code and their mobile device, you will need to [reset their MFA](/admin-guide#reset-mfa-for-a-user). Then they will receive a push notification to their device and they will be logged
+New users signing up will be prompted to download the Guardian app from either the App Store or Google Play. Once they indicate that they downloaded the app a code will appear. They will have five minutes to scan the code with the app before it expires. After the code has been successfully scanned, users will see a confirmation screen which includes a recovery code. They need to have this recovery code to login without their mobile device. If they lose both the recovery code and their mobile device, you will need to [reset their MFA](#reset-a-mfa-for-a-user). Then they will receive a push notification to their device and they will be logged
 
 Users that were previously registered before you enable MFA, will complete the same process as new users on their next login.
 
@@ -42,7 +42,7 @@ When your users sign up with SMS they enter their phone number's country code an
 
 ![](/media/articles/mfa/sms.png)
 
-After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](/docs/multifactor-authentication/guardian/admin-guide#reset-mfa-for-a-user).
+After sign up they receive a six digit code to their phone.  They need to enter this code into the box, and then they will get a recovery code. They will need this code to login if you do not have their device. You may be contacted if they have lost their recovery code and their device, then you will need to [reset the user's MFA](#reset-a-mfa-for-a-user).
 
 ### Configuring Guardian SMS with Twilio
 
