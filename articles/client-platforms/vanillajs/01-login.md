@@ -7,12 +7,6 @@ description: This tutorial will show you how to use the Auth0 Javascript SDK to 
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 4.3
-:::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0/auth0-vanillajs-api-sample/tree/gh-pages/vanillajs-redirect-auth0-sample',
   pkgOrg: 'auth0',
