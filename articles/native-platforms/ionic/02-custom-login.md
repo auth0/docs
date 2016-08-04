@@ -9,8 +9,8 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '02-Custom-Login/www/app/auth0.variables.js',
+  pkgType: 'replace'
 }) %>
 
 ::: panel-info Running the Sample
