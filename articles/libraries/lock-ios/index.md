@@ -337,13 +337,13 @@ If you want to show a disclaimer for your app, you will need to set `signUpDiscl
 
 ### Logout
 
-If desired, you have ability to let the user logout. For this you need to call `clearSessions` for `A0Lock`. 
+If desired, you have the ability to let the user logout. For this you need to call `clearSessions` for `A0Lock`. 
 This method removes all stored sessions of any IdP in your application.
 
 #### Important notes:
 
-* If the user is logged in using Safari, those sessions will not be cleaned.
-* If you store the credentials in the keychain you need to clean them.
+* If the user is logged in using Safari, those sessions will not be cleared.
+* If you store the credentials in the keychain you need to clear them.
 
 #### Objective-C example:
 
