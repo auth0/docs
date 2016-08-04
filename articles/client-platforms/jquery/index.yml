@@ -16,3 +16,4 @@ seo_alias: jquery
 articles:
   - 00-intro
   - 01-login
+  - 02-custom-login
