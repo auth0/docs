@@ -5,6 +5,12 @@ description: test
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/03-User-Profile',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ionic-samples',
+  pkgBranch: 'master',
+  pkgPath: '03-User-Profile',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 ::: panel-info Running the Sample

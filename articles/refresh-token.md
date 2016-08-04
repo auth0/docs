@@ -4,26 +4,23 @@ description: A refresh token allows an application to request Auth0 to issue a n
 
 # Refresh Tokens
 
-A **refresh token** is a special kind of [JWT](/jwt) that is used to obtain a renewed `id_token` at any time.
+A **refresh token** is a special kind of [JWT](/jwt) that is used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.  
 
 For more information on the types of access tokens used by Auth0, see [Tokens](/tokens).
 
-**NOTE:** Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
+If you are new to refresh tokens, you can learn more about them in this blog post, [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
 ## Introduction
 
-The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0. This token is used to make authenticated calls to a secured API.
+The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0.  This token is used to make authenticated calls to a secured API. Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
 
-JWTs have an expiration date indicated by the `exp` claim, among other security measures (like signing).
+A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate. This will work as long as the refresh token has not been revoked. JWTs have an expiration date indicated by the `exp` claim, among other security measures (like signing).
 
-However, applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time the token expires.
+Refresh tokens can be issued or revoked for each combination of __app__, __user__ and __device__. But note there is no option to change the properties of the Auth0 refresh token from the values of the client, user and device set during its creation. The refresh tokens can be viewed and revoked [from the dashboard](#revoking-a-refresh-token-in-the-dashboard) or [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-api) programmatically through the Auth0 API.
 
-A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate. This will work as long as the refresh token has not been revoked.
+**NOTE:** Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
 
-Refresh tokens can be issued or revoked for each combination of __app__, __user__ and __device__. This can be done manually from the dashboard or programmatically through the Auth0 API.
-
-
-## Obtain a refresh token
+## Obtain a Refresh Token
 
 To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) and an arbitrary `device` name must be included when initiating an authentication request through the [authorize](/auth-api#!#get--offline-access) endpoint.
 
@@ -56,7 +53,7 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 
 **NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) (`response_type=token`) was used.
 
-## Use a refresh token
+## Use a Refresh Token
 
 To obtain a new `id_token`, call the [delegation](/auth-api#!#post--delegation) endpoint:
 
@@ -88,11 +85,13 @@ Obtaining new tokens using the `refresh_token` should occur only if the `id_toke
 :::
 
 
-## Revoke a refresh token
+## Revoke a Refresh Token
 
 Since refresh tokens never expire, it is important to be able to revoke them. 
 
-You will need the `id` of the refresh token. To obtain a list of existing refresh tokens, you can call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
+### Revoke a Refresh Token using the API
+
+To revoke a refresh token using the API you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, you can call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
 ```
 GET https://${account.namespace}/api/v2/device-credentials?
@@ -129,13 +128,25 @@ DELETE https://${account.namespace}/api/v2/device-credentials/{id}
 
 The response will be a **204**: The credential no longer exists.
 
-## SDK support
+### Revoking a Refresh Token in the Dashboard
+
+You can see if a user has any existing devices with a refresh token by going to the [Users section of the dashboard](${uiURL}/#/users). Click on the name of the user to view their details.
+
+Once you bring up the details of a user, select **Devices** from the menu. This page lists the device names and the number of refresh tokens associated with each one. To revoke a refresh token, click on the **X** to the right of the device name.
+
+![](/media/articles/tokens/dashboard-revoke-refresh-token.png)
+
+Click the **UNLINK** button to confirm.
+
+## SDK Support
 
 The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support to obtain and use refresh tokens.
 
 For more information about using refresh tokens with these libraries, see:
 
-* [Lock: Using a refresh token](/libraries/lock/using-a-refresh-token)
+* [Lock Android: Refreshing JWT Tokens](/libraries/lock-android/refresh-jwt-tokens)
+
+* [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens)
 
 * [Get a refresh token with Auth0.js](https://github.com/auth0/auth0.js#login) and [Use a refresh token to get new id_token](https://github.com/auth0/auth0.js#refresh-token)
 

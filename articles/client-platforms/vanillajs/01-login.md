@@ -15,6 +15,8 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/auth0-vanillajs-api-sample/tree/gh-pages/vanillajs-redirect-auth0-sample',
+  pkgOrg: 'auth0',
   pkgRepo: 'auth0-vanillajs-api-sample',
   pkgBranch: 'gh-pages',
   pkgPath: 'vanillajs-redirect-auth0-sample',

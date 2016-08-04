@@ -11,13 +11,14 @@ You can get started by either downloading the seed project or if you would like 
 This tutorial and seed project have been tested with the following:
 
 * NodeJS 4.3
-* Jquery 2.1.1
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-jquery',
-  pkgBranch: 'gh-pages',
-  pkgPath: (configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api-redirect',
+  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/master/02-Widget-With-Api',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-jquery-samples',
+  pkgBranch: 'master',
+  pkgPath: '02-Widget-With-Api',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
@@ -41,7 +42,7 @@ ${snippet(meta.snippets.setup)}
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses Lock's [redirect mode](/libraries/lock/authentication-modes).
+ __Note:__ This implementation uses [Lock's](/libraries/lock) redirect mode.
 
 ${snippet(meta.snippets.use)}
 
