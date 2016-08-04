@@ -9,8 +9,8 @@ description: test
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '03-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '03-User-Profile/www/app/auth0.variables.js',
+  pkgType: 'replace'
 }) %>
 
 ::: panel-info Running the Sample
