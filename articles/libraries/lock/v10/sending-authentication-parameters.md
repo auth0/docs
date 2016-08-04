@@ -37,6 +37,24 @@ There are different values supported for scope:
 * `scope: 'openid profile'`: (not recommended): will return all the user attributes in the token. This can cause problems when sending or receiving tokens in URLs (e.g. when using response_type=token) and will likely create an unnecessarily large token. Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
+#### Example: retrieve a token with the profile data
+
+If you want to do this using Lock widget version 10, you should add the `scope` parameter. For example in AngularJS you would use the initializing method of `authProvider`:
+
+```js
+authProvider.init({
+    domain: AUTH0_DOMAIN,
+    clientID: AUTH0_CLIENT_ID,
+    loginUrl: '/login',
+
+    auth: {
+        params: {
+            scope: 'openid profile'
+        }
+    }
+});
+```
+
 ### connection_scopes {Object}
 
 The `connection_scopes` parameter allows for dynamically specifying scopes on any connection. This is useful if you want to initially start with a set of scopes (defined on the dashboard), but later on request the user for extra permissions or attributes.
