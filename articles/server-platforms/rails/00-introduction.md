@@ -13,9 +13,10 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'omniauth-auth0',
+  githubUrl: 'https://github.com/auth0-samples/auth0-rubyonrails-sample',
+  pkgRepo: 'auth0-rubyonrails-sample',
   pkgBranch: 'master',
-  pkgPath: 'examples/ruby-on-rails-webapp',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
@@ -26,20 +27,6 @@ There are two options to following along this quickstart. You can either downloa
 The seed is a regular RoR app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) and follow along.
 
 Instead you can choose to follow the samples that are included in each step. Each sample uses the seed project as a starting point and applies to it the configuration of each step, so for example the Login sample would be the seed project plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Ruby 2.3.1
-* Rails 4.2.6
-:::
-
-<%= include('../../_includes/_package', {
-  pkgRepo: 'omniauth-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/ruby-on-rails-webapp',
-  pkgFilePath: null,
-  pkgType: 'server'
-}) %>
 
 ### 1. Create a Client
 
