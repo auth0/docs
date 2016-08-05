@@ -68,10 +68,11 @@ The structure of the project does not differ from a regular RoR application. The
 │   │   └── javascripts
 │   │       └──home.js.erb
 │   ├── controllers
+│   │   └── concerns
+│   │   |   └── secured.rb
 │   │   └── home_controller.rb
 │   │   └── dashboard_controller.rb
 │   │   └── auth0_controller.rb
-│   │   └── secured_controller.rb
 │   └── views
 │       └── auth0
 │       │   └── failure.html.rb

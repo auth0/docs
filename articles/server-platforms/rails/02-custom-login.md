@@ -55,22 +55,17 @@ Add the following actions in the `auth0` controller:
 
 ```ruby
 def callback
-  begin
-      if params[:signup]
-        signup
-      end
-      session[:token_id] = login
-    end
-    redirect_to '/dashboard'
+  if params[:user]
+    signup if params[:signup]
+    session[:token_id] = login
+  else
+    session[:token_id] = google_login
+  end
+  redirect_to '/dashboard'
   rescue Auth0::Unauthorized
     redirect_to '/', notice: 'Invalid email or password'
   rescue => ex
     redirect_to '/', notice: ex.message
-  end
-end
-
-def failure
-  @error_msg = request.params['message']
 end
 ```
 The `callback` controller action calls the `signup` or `login` actions, depending on the contents of the `params` hash. Upon successful execution of either, it redirects to `/dashboard`. In case of an exception, it redirects to `/` and flashes the exception message.
@@ -79,20 +74,18 @@ Next, add the definitions for the `login` and `signup` actions under `private`:
 
 ```ruby
 def login
-  token = client.login(
+  client.login(
     params[:user],
     params[:password],
     authParams: {
-     scope: 'openid name email'
+      scope: 'openid name email'
     },
-    connection:'Username-Password-Authentication'
+    connection: 'Username-Password-Authentication'
   )
-
-  session[:token_id] = token
 end
 
 def signup
-  token = client.signup(
+  client.signup(
     params[:user],
     params[:password]
   )
@@ -104,38 +97,41 @@ In order to call the API methods using the Auth0 Ruby SDK, you need to initializ
 
 ```ruby
 def client
-  creds = { client_id: ENV['AUTH0_CLIENT_ID'],
-    client_secret: ENV['AUTH0_CLIENT_SECRET'],
-    api_version: 1,
-    domain: ENV['AUTH0_DOMAIN'] }
-
-  @client = Auth0Client.new(creds)
+  creds = { client_id: Rails.application.secrets.auth0_client_id,
+            client_secret: Rails.application.secrets.auth0_client_secret,
+            api_version: 1,
+            domain: Rails.application.secrets.auth0_domain }
+  @client ||= Auth0Client.new(creds)
 end
 ```
 
 ### 5. Checking if the user is authenticated
-In [Login](/quickstart/webapp/rails/01-login) you used a parent controller with a `before_action` to prevent users from executing actions in controllers that inherited from it. You will use the same strategy now, but the code will change slightly.
+In [Login](/quickstart/webapp/rails/01-login) you used a controller concern with a `before_action` to prevent users from executing actions in controllers that included it. You will use the same strategy now, but the code will change slightly.
 
-Create a `SecuredController` class with the code below:
+Create a `Secured` controller concern with the code below:
 
 ```ruby
-class SecuredController < ApplicationController
-  before_action :logged_in?
+module Secured
+  extend ActiveSupport::Concern
 
-  private
+  included do
+    before_action :logged_in?
+  end
 
   def logged_in?
-    unless session[:token_id].present?
-      redirect_to '/'
-    end
+    redirect_to '/' unless session[:token_id].present?
   end
 end
 ```
 
-Then, update the `DashboardController` so that it inherits from `SecuredController`:
+Then, update the `DashboardController` so that it includes this concern:
 
 ```ruby
-class DashboardController < SecuredController
+class DashboardController < ApplicationController
+  include Secured
+  def show
+  end
+end
 ```
 
 This way, if a user attempts to access the routes governed by the `DashboardController` actions, it will be redirected to `/`.
@@ -154,14 +150,12 @@ To trigger initiation, you'll need to generate a redirect to the social provider
 
 ```ruby
 def google_authorize
-    redirect_to client.authorization_url(
-      ENV['AUTH0_CALLBACK_URL'],
-      {
-        connection: 'google-oauth2',
-        scope:'openid'
-      }
-    ).to_s
-  end
+  redirect_to client.authorization_url(
+    Rails.application.secrets.auth0_callback_url,
+    connection: 'google-oauth2',
+    scope: 'openid'
+  ).to_s
+end
 ```
 
 Next, add the actual link to the controller action in the home view:
@@ -181,7 +175,7 @@ Add the following method to the `Auth0Controller`:
 
 ```ruby
 def google_login
-  client.obtain_user_tokens(params['code'], ENV['AUTH0_CALLBACK_URL'] , 'google-oauth2', 'openid')['id_token']
+  client.obtain_user_tokens(params['code'], Rails.application.secrets.auth0_callback_url, 'google-oauth2', 'openid')['id_token']
 end
 ```
 

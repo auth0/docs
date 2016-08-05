@@ -80,7 +80,8 @@ Add the following lines in the dashboard view in order to retrieve the user prof
 Additionally, declare and assign the contents to the `user` variable in the dashboard controller:
 
 ```ruby
-class DashboardController < SecuredController
+class DashboardController < ApplicationController
+  include Secured
   def show
     @user = session[:userinfo]
   end
