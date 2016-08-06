@@ -335,6 +335,35 @@ After a successful sign-up, the user can be logged in automatically using the `l
 
 If you want to show a disclaimer for your app, you will need to set `signUpDisclaimerView`. This view will appear at the bottom of the sign-up screen.
 
+### Logout
+
+If desired, you have the ability to let the user logout. For this you need to call `clearSessions` for `A0Lock`. 
+This method removes all stored sessions of any IdP in your application.
+
+#### Important notes:
+
+* If the user is logged in using Safari, those sessions will not be cleared.
+* If you store the credentials in the keychain you need to clear them.
+
+#### Objective-C example:
+
+```objc
+A0Lock *lock = [A0Lock sharedLock];
+[lock clearSessions];
+A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:<Your_Keychain_Name>];
+[keychain clearAll];
+//redirect the user to Login Page
+```
+
+#### Swift example:
+
+```swift
+A0Lock.sharedLock().clearSessions()
+let keychain = A0SimpleKeychain(service: <Your_Keychain_Name>)
+keychain.clearAll()
+//redirect the user to Login Page
+```
+
 ### WebView
 
 When authenticating with a social connection, you can choose between using Safari or the embedded webView. To use embedded webView, set the `useWebView` property to `YES`. The default value is `YES`.
