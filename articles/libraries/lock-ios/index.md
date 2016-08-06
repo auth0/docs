@@ -337,7 +337,7 @@ If you want to show a disclaimer for your app, you will need to set `signUpDiscl
 
 ### Logout
 
-If desired, you have the ability to let the user logout. For this you need to call `clearSessions` for `A0Lock`. 
+If desired, you have the ability to let the user log out. For this you need to call `clearSessions` for `A0Lock`. 
 This method removes all stored sessions of any IdP in your application.
 
 #### Important notes:
