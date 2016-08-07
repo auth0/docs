@@ -103,7 +103,7 @@ Then display `userProfile` attributes in your component's template:
 
 You can add input fields to the sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation. 
 
-**NOTE:** See [Additional sign up fields](https://github.com/auth0/lock/tree/v10.0.0#additional-sign-up-fields) for more information.
+**NOTE:** See [Additional sign up fields](https://github.com/auth0/lock#additional-sign-up-fields) for more information.
 
 ```typescript
 /* ===== ./auth.service.ts ===== */

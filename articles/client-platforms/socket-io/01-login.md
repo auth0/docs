@@ -52,20 +52,19 @@ Configure Auth0Lock with your `clientId` and `domain`:
 
 ${snippet(meta.snippets.setup)}
 
+To discover all the available options, see [User configurable options](/libraries/lock/v10/customization).
+
 ### 5. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button, and save the JWT token to `localStorage` for later use in calling a server or an API:
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
-
 ### 6. Set Authorization for Socket.io
 
 Add the following to your `index.js` file.
 
 ```javascript
-
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
