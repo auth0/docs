@@ -63,7 +63,6 @@ ${snippet(meta.snippets.use)}
 Add the following to your `index.js` file.
 
 ```javascript
-
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
