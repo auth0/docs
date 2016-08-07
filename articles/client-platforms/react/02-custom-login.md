@@ -86,7 +86,7 @@ export default class AuthService {
 }
 ```
 
-`Auth0` uses [redirect mode](libraries/auth0js#redirect-mode) as default, so after a successful login, the app will be redirected to the `callbackURL` set in your account. With the callbackURL `Auth0` sends authentication data as hash parameters. The `parseHash` method you see above is responsible of extracting data from the URL hash and save the user authentication token(`idToken`) using localStorage.
+`Auth0` uses [redirect mode](/libraries/auth0js#redirect-mode) as default, so after a successful login, the app will be redirected to the `callbackURL` set in your account. With the callbackURL `Auth0` sends authentication data as hash parameters. The `parseHash` method you see above is responsible of extracting data from the URL hash and save the user authentication token(`idToken`) using localStorage.
 
 In the next topic you'll learn how to integrate `AuthService` in your react routes to protect private urls and parse the url params after a successful login.
 
