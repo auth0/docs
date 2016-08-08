@@ -8,7 +8,7 @@ index: 14
 # Obtain a *Client ID* and *Client Secret* for Fitbit
 
 ::: panel-warning Fitbit has ended support for OAuth 1.0
-New connections with Fitbit will use OAuth 2.0. Please see the following for reference on OAuth 2.0 at Fitbit: https://dev.fitbit.com/docs/oauth2/
+New connections with Fitbit will use OAuth 2.0. Please see the following documentation on [Using OAuth 2.0](https://dev.fitbit.com/docs/oauth2/) with Fitbit.
 :::
 
 To configure a Fitbit OAuth 2.0 connection, you will need to register a new application in Fitbit.
