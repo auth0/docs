@@ -84,3 +84,6 @@ This is the list of properties that can be customized:
 
 ### Close Button
 * A0ThemeCloseButtonTintColor
+
+### Label Customization
+* Needs documentation
