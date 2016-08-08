@@ -22,7 +22,7 @@ The following instructions assume you are migrating from **Lock 9** to the lates
 - The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
 
 ### Internationalization
-- Not all languages supported by Lock v9 are supported by Lock v10.
+- Not all languages supported by Lock v9 are supported by Lock v10. Please see the [i18n directory](https://github.com/auth0/lock/tree/master/src/i18n) in the GitHub repository for a current list of supported languages in Lock.
 
 ### Removed Methods
 - The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the [initialScreen](/libraries/lock/v10/customization#initialscreen-string-), [allowLogin](/libraries/lock/v10/customization#allowlogin-boolean-), [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-) and [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-) options.
