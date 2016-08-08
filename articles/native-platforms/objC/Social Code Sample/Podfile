@@ -1,0 +1,10 @@
+# Uncomment this line to define a global platform for your project
+
+platform :ios, '9.0'
+
+target 'LockTest' do
+	pod 'Lock'
+    pod 'Lock-Facebook', '~> 2.0'
+    pod 'Lock-Twitter', '~> 1.1'
+    pod 'AFNetworking'
+end
