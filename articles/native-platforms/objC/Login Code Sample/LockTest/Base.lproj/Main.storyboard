@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vgF-ls-cod">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="2MC-L2-0eA">
+            <objects>
+                <viewController id="JCq-LS-sxY" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FMG-ye-wmZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tn5-CF-xRA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="k9L-DG-Jxn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6f-vp-IsY">
+                                <rect key="frame" x="276.5" y="538" width="47" height="30"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="showLogin:" destination="JCq-LS-sxY" eventType="touchUpInside" id="qUo-Jc-JYM"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zqg-sa-M9m">
+                                <rect key="frame" x="180" y="124" width="240" height="258"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="258" id="3vG-mk-z7V"/>
+                                    <constraint firstAttribute="width" constant="240" id="iTr-9s-xJE"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tn5-CF-xRA" firstAttribute="top" secondItem="I6f-vp-IsY" secondAttribute="bottom" constant="32" id="5Fc-0y-u4R"/>
+                            <constraint firstItem="zqg-sa-M9m" firstAttribute="centerX" secondItem="k9L-DG-Jxn" secondAttribute="centerX" id="eln-3z-RKf"/>
+                            <constraint firstItem="zqg-sa-M9m" firstAttribute="top" secondItem="FMG-ye-wmZ" secondAttribute="bottom" constant="60" id="ly9-me-Dag"/>
+                            <constraint firstItem="I6f-vp-IsY" firstAttribute="centerX" secondItem="k9L-DG-Jxn" secondAttribute="centerX" id="use-fE-PIu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fkf-PH-59R"/>
+                    <connections>
+                        <segue destination="O2R-VO-qoA" kind="show" identifier="UserProfile" id="EEb-qo-UW4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="12G-8U-b9M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="454" y="-181"/>
+        </scene>
+        <!--User Profile View Controller-->
+        <scene sceneID="U4Z-Q0-4rX">
+            <objects>
+                <viewController id="O2R-VO-qoA" customClass="UserProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RYR-gD-hDE"/>
+                        <viewControllerLayoutGuide type="bottom" id="pR4-wD-dMC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pBl-0n-qaH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaB-Kq-pbN">
+                                <rect key="frame" x="20" y="235" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="htN-gQ-xoX">
+                                <rect key="frame" x="20" y="85" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="Hye-rB-G4g"/>
+                                    <constraint firstAttribute="height" constant="128" id="cLH-qW-xHr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpC-w8-OoB">
+                                <rect key="frame" x="20" y="276" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XaB-Kq-pbN" firstAttribute="top" secondItem="htN-gQ-xoX" secondAttribute="bottom" constant="22" id="DMM-Os-cNr"/>
+                            <constraint firstItem="FpC-w8-OoB" firstAttribute="leading" secondItem="htN-gQ-xoX" secondAttribute="leading" id="GZq-en-Xc9"/>
+                            <constraint firstItem="htN-gQ-xoX" firstAttribute="top" secondItem="RYR-gD-hDE" secondAttribute="bottom" constant="21" id="U5R-pF-J44"/>
+                            <constraint firstItem="FpC-w8-OoB" firstAttribute="top" secondItem="XaB-Kq-pbN" secondAttribute="bottom" constant="20" id="aVG-px-vvW"/>
+                            <constraint firstItem="XaB-Kq-pbN" firstAttribute="leading" secondItem="htN-gQ-xoX" secondAttribute="leading" id="d7V-8Q-dj5"/>
+                            <constraint firstItem="htN-gQ-xoX" firstAttribute="leading" secondItem="pBl-0n-qaH" secondAttribute="leadingMargin" id="uDe-JG-qKd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImg" destination="htN-gQ-xoX" id="c8V-if-H6w"/>
+                        <outlet property="userEmail" destination="FpC-w8-OoB" id="caI-bJ-5fh"/>
+                        <outlet property="userName" destination="XaB-Kq-pbN" id="dPm-Dn-FMG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8WL-RW-PHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1355" y="-141"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e7e-2G-AB2">
+            <objects>
+                <navigationController id="vgF-ls-cod" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F0h-JU-yXC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JCq-LS-sxY" kind="relationship" relationship="rootViewController" id="zo3-bc-dk6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xg-Tv-EB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-334" y="-141"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LockLogo" width="152" height="168"/>
+    </resources>
+</document>
