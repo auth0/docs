@@ -91,11 +91,11 @@ The following table describes operational and feature differences between each o
             <td>Webtask or in-process</td>
         </tr>
         <tr>
-            <th>Webtask</th>
-            <th>Multi-Tenant</th>
-            <th>Dedicated</th>
-            <th>Cloud</th>
-            <th>On-Premises</th>
+            <td>Webtask</td>
+            <td>Multi-Tenant</td>
+            <td>Dedicated</td>
+            <tdth>Cloud</td>
+            <td>On-Premises</td>
         </tr>
         <tr>
             <th>Anomaly Detection</th>
