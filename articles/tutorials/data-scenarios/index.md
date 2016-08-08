@@ -1,7 +1,7 @@
 ---
 title: User Data Storage Scenario
 description: Demonstrating the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
-url: /tutorials/User-Data-Storage-Scenario
+url: /tutorials/user-data-storage-scenario
 ---
 
 # Auth0 User Data Storage Scenario
