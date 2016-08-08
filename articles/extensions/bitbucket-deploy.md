@@ -80,7 +80,7 @@ For example, if you create the file `rules/set-country.js`, the extension will c
 
 **NOTE**: If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
 
-You can control the Rule order, status (`enabled`/`disabled`) and stage (`login_success`, `login_failure`, `user_registration`) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can control the Rule order, status (`enabled`/`disabled`) and stage (for now, only `login_success` is available) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript
@@ -101,7 +101,7 @@ __set-country.json__
 }
 ```
 
-You can find examples in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/rules). While the sample was authored for GitHub, it will work for a Bitbucket integration as well.
+You can find a `login_success` example in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/rules). While the sample was authored for GitHub, it will work for a Bitbucket integration as well.
 
 #### Set Rule Order
 
