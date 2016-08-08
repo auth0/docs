@@ -14,11 +14,11 @@ If you are new to refresh tokens, you can learn more about them in this blog pos
 
 The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0.  This token is used to make authenticated calls to a secured API. Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
 
-A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate. This will work as long as the refresh token has not been revoked or expired. JWTs have an expiration date indicated by the `exp` claim, among other security measures (like signing).
+A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate. This will work as long as the refresh token has not been revoked. JWTs have an expiration date indicated by the `exp` claim, among other security measures (like signing).
 
 Refresh tokens can be issued or revoked for each combination of __app__, __user__ and __device__. But note there is no option to change the properties of the Auth0 refresh token from the values of the client, user and device set during its creation. The refresh tokens can be viewed and revoked [from the dashboard](#revoking-a-refresh-token-in-the-dashboard) or [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-api) programmatically through the Auth0 API.
 
-**NOTE:** Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever depending on the expiration.
+**NOTE:** Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
 
 ## Obtain a Refresh Token
 
@@ -87,7 +87,7 @@ Obtaining new tokens using the `refresh_token` should occur only if the `id_toke
 
 ## Revoke a Refresh Token
 
-Since some refresh tokens never expire, it is important to be able to revoke them. 
+Since refresh tokens never expire, it is important to be able to revoke them. 
 
 ### Revoke a Refresh Token using the API
 

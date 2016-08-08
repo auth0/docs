@@ -5,8 +5,10 @@ description: This tutorial will show you how to use the Auth0 AngularJS SDK to a
 
 ## AngularJS SDK Tutorial
 
-
-This quickstart is designed to guide you on adding Auth0 to you angular applications using the Auth0's AngularJS SDK.The SDK is a service that wraps around Auth0.js APIs so you would not have to re-invent the wheel.
+::: panel-danger Lock 10
+The AngularJS SDK currently supports Lock versions up to 9.2.2.
+Support for Lock 10 is coming soon.
+:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0/auth0-angular/tree/master/examples/widget-redirect',
@@ -23,10 +25,10 @@ This quickstart is designed to guide you on adding Auth0 to you angular applicat
 This tutorial and seed project have been tested with the following:
 
 * NodeJS 4.4
-* Angular version 1.5.0-rc.0
+* Angular version 1.5.8
 :::
 
--${include('../\_callback')}
+${include('../\_callback')}
 
 #### Create an Application Instance
 
@@ -78,10 +80,6 @@ Right after including the scripts, add a viewport to make the lock widget fit in
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
 
-With all that, our entire `<head>` will look like this:
-
-${snippet(meta.snippets.head)}
-
 #### Step 2: Configure The Angular Application
 To use Auth0, your Angular App need to depend on the Auth0 SDK and other helpful dependencies like `ngRoute`, `angular-storage` and `angular-jwt`:
 
@@ -116,12 +114,12 @@ Next, configure the routes you need:
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
-      templateUrl: 'templates/home.html',
+      templateUrl: 'home/home.html',
       requiresLogin: true
     })
     .when( '/login', {
       controller: 'LoginCtrl',
-      templateUrl: 'templates/login.html',
+      templateUrl: 'home/login.html',
       pageTitle: 'Login'
     });
    // ...config
@@ -142,7 +140,7 @@ The `loginUrl` is the URL to be redirected to if authentication is not successfu
 You need to attach all Auth0 events once Angular is ready inside the `run()` method:
 
 ```javascript
-.run(['auth', function(auth) {
+app.run(['auth', function(auth) {
   // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();
 }]);
@@ -166,9 +164,9 @@ authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'stor
 
 //Called when login fails
 authProvider.on('loginFailure', function() {
-  console.log("Error logging in");
-  $location.path('/login');
+  alert("Error");
 });
+
 ```
 
 The most prominent part of this code is the `loginSuccess` where we store the credentials and redirect the user after a successful login.
@@ -179,7 +177,7 @@ AngularJS interceptors offer a convenient way to modify request made by the $htt
 //Angular HTTP Interceptor function
 jwtInterceptorProvider.tokenGetter = ['store', function(store) {
     return store.get('token');
-}]
+}];
 //Push interceptor function to $httpProvider's interceptors
 $httpProvider.interceptors.push('jwtInterceptor');
 ```
@@ -199,7 +197,7 @@ app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
  `auth` is a service in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
 
 ```markup
-<a href="#" ng-click="auth.signin()">Sign In</a>
+<a href="#" ng-click="auth.signin()" class="btn btn-primary btn-lg btn-block">Sign In</a>
 ```
 ${browser}
 

@@ -225,4 +225,6 @@ Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 
 As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account. The endpoint returns the updated array of identities.
 
-The unlinked account was never removed from the identity provider, so you can still use it to authenticate. When you login again with that account, it will be re-created in Auth0 as a new separate user.
+If the unlinked account is from an external provider (i.e. Facebook, Google), it was never removed from the identity provider, and so you can still use it to authenticate. When you login again with that account, it will be re-created in Auth0 as a new separate user.
+
+If, however, the unlinked account is an Auth0 database account, the account is not completely deleted, but is no longer visible in the Management dashboard, making it impossible to edit the unlinked account or remove it in order to recreate that user. We are aware that this is a less than ideal behavior, and are working on a more predictable and manageable solution to handle unlinked accounts.

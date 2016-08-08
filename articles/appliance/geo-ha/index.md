@@ -27,6 +27,16 @@ The arbiter does not store data or execute application logic, but acts as a witn
 
 > Ports 27017 and 7777 must be open between all instances in the cluster.
 
+### Arbiter
+
+The Arbiter node acts as an independent witness to the primary and secondary data centers. Since it isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
+
+### Geographically-Aware Global Load Balancer/DNS Failover Configuration
+
+You will need to deploy a global load balancer that supports an active/standby configuration. This will be configured to begin using the secondary site if the primary site load balancer is unavailable.
+
+Two examples of products that support this configuration are the F5 Global Traffic Manager and the AWS Route 53 DNS service. The global load balancer is typically positioned in front of the local load balancers in each data center.
+
 ### Application Tier
 
 Auth0 requires the use of a geographically-aware load balancer or DNS failover solution that prefers to serve application requests using the primary data center, despite the fact that the Appliance instances in the hot standby data center are active and able to serve the requests.
