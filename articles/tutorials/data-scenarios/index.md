@@ -200,8 +200,8 @@ function(user, context, callback) {
 
 The app recognizes whether the user is a playlist editor or not and displays their permission accordingly when they are welcomed to the home screen. There is no actual featured playlist for the simplicity of the example. This is a good example of `app_metadata` because in this scenario, the user has no direct control over how many times other people play their playlist, and so they must not be able to change their own permission to edit the app’s featured playlist. This is a special permission they have to “earn,” in this case by getting more people to listen to their playlist.
 
-Here's how the app might display the user's permissions stored in `app_metadata`:
-![](/media/media/articles/tutorials/data-scenarios/4-Home.png)
+We display the user's permissions by welcoming them as an "editor" if `playlist_editor` is in the `roles` array stored in their `user_metadata`:
+![](/media/articles/tutorials/data-scenarios/4-Home.png)
 
 ### `user_metadata`
 
@@ -229,7 +229,7 @@ function(user, context, callback){
 ```
 
 Here's a look at how we allowed the user to change their `displayName`:
-![](/media/media/articles/tutorials/data-scenarios/12-Settings.png)
+![](/media/articles/tutorials/data-scenarios/12-Settings.png)
 
 We used the Auth0 Management APIv2 to allow the app’s users to alter their Metadata via GET and PATCH requests: 
 
