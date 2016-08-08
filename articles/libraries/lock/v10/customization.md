@@ -200,7 +200,7 @@ var options = {
 
 ### languageDictionary {Object}
 
-Allows customization of every piece of text displayed in the Lock. Defaults to {}. See below Language Dictionary Specification for the details.
+Allows customization of every piece of text displayed in the Lock. Defaults to {}. See English language [Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for the full list of `languageDictionary` values able to be altered with this object.
 
 ```js
 var options = {
@@ -577,7 +577,7 @@ var options = {
 
 ### mustAcceptTerms {Boolean}
 
-When set to `true` displays a checkbox input along the terms and conditions that must be checked before signing up. The terms and conditions can be specified via the `languageDictionary` option, see the example below. Defaults to `false`.
+When set to `true` displays a checkbox input alongside the terms and conditions that must be checked before signing up (the terms and conditions can be specified via the `languageDictionary` option). Defaults to `false`.
 
 ```js
 //
