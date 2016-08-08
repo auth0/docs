@@ -12,7 +12,6 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
   pkgFilePath: '02-Custom-Login/www/app/auth0.variables.js',
   pkgType: 'replace'
 }) %>
-
 ::: panel-info Running the Sample
 At any point in time you can run this sample by going to the `02-Custom-Login` folder of the sample project and running `ionic serve`
 :::
