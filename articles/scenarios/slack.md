@@ -9,3 +9,10 @@ This is how it looks like when you login:
 This is how you configure it:
 
 ![](/media/articles/scenarios/slack/slack-config.gif)
+
+dashboard
+third party apps
+new
+slack
+settings tab: name and team name
+tutorial (follow directions)
