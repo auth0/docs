@@ -71,7 +71,7 @@ Some existing options suffered changes, in addition to the beforementioned remov
 
 ## Upgrading From Preview Releases
 
-**This section is only pertinent if you are currently using a pre-release version of Lock 10, and wish to update to the release version.** It is a summary of what you absolutely need to know before upgrading between preview releases. For the full list of changes, please see the project's [CHANGELOG](https://github.com/auth0/lock/blob/v10/CHANGELOG.md).
+**This section is only pertinent if you are currently using a pre-release version of Lock 10, and wish to update to the release version.** It is a summary of what you absolutely need to know before upgrading between preview releases. For the full list of changes, please see the project's [CHANGELOG](https://github.com/auth0/lock/blob/master/CHANGELOG.md).
 
 ### Upgrading from v10.0.0-beta.1 to v10.0.0-beta.2
 
