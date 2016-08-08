@@ -223,8 +223,11 @@ DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identit
 Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 ```
 
-As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account, and a new secondary user account is created. This means that if, for example, a user was `john@example.com` using Facebook to login, and used the same email address to login via Linkedin, and then unlinked those accounts, then we will end up with two separate accounts; both using `john@example.com`, one for each identity provider in question.
+As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account, and a new secondary user account is created. This means that if, for example, a user was `john@example.com` using Facebook to login, and used the same email address to login via Linkedin, and then unlinked those accounts, then you will end up with two separate accounts; both using `john@example.com`, one for each identity provider in question.
 
 ::: panel-warning Unlinking - Metadata
 Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata. 
 ::: 
+
+If your goal is to delete the secondary identity entirely, you'll want to first unlink the accounts, and then delete the newly (re)created secondary account.
+
