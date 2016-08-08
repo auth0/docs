@@ -31,7 +31,7 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   }
 });
 ```
-**NOTE**: For more information, see: [Theming options](https://github.com/auth0/lock/tree/v10.0.0#theming-options).
+**NOTE**: For more information, see: [Theming options](https://github.com/auth0/lock#theming-options).
 
 ### Language Dictionary Specification
 
@@ -45,7 +45,7 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 });
 ```
 
-**NOTE**: For more information, see: [Language Dictionary Specification](https://github.com/auth0/lock/tree/v10.0.0#language-dictionary-specification).
+**NOTE**: For more information, see: [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification).
 
 ### Results
 

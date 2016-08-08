@@ -1,3 +1,7 @@
+---
+description: How to link user accounts with server-side code.
+---
+
 # Account Linking from Server Side Code
 
 In this scenario, you will search for users with same verified email address, (as with an automatic linking rule). However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
@@ -100,7 +104,7 @@ At this point the user can choose which account to link to:
 
 ## 4. Verify and merge metadata before linking
 
-When the user clicks on the **Link** button, your custom endpoint for linking accounts is invoked. Before calling`linkAccounts` you can implement additional verification or retrieve the secondary account metadata for merging. This metadata is discarded after linking.
+When the user clicks on the **Link** button, your custom endpoint for linking accounts is invoked. Before calling`linkAccounts`, you can implement additional verification or retrieve the secondary account metadata for merging. This metadata is discarded after linking.
 
 Also, you can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
 

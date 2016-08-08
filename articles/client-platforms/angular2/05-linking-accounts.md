@@ -23,7 +23,7 @@ To differentiate the login from the linking login, you will create a second inst
 
 Since all instances of `AuthLock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login. 
 
-You can use the `params` property of the `auth` property of the [options object](https://github.com/auth0/lock/tree/v10.0.0#authentication-options) of `AuthLock` to add a `state` property with the value `"linking"`:
+You can use the `params` property of the `auth` property of the [options object](https://github.com/auth0/lock#authentication-options) of `AuthLock` to add a `state` property with the value `"linking"`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */

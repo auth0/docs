@@ -1,10 +1,14 @@
+---
+description: How to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
+---
+
 # User Initiated Account Linking
 
 In this scenario, your app provides a UI for the user to authenticate to their other accounts and to link these to their primary account.
 
 **NOTE:** You can find sample code at [User Initiated Account Linking within a Single Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
 
-The following steps implement user-initiated account linking for a Single Page Application:
+The following steps implement user-initiated account linking for a Single Page Application.
 
 ## 1. Initial login
 

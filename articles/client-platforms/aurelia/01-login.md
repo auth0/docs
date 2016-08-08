@@ -12,6 +12,8 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/auth0-aurelia',
+  pkgOrg: 'auth0',
   pkgRepo: 'auth0-aurelia',
   pkgBranch: 'master',
   pkgPath: null,

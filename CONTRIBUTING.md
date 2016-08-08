@@ -381,6 +381,7 @@ Each sample repo should have appropriate CI setup. You should use the appropriat
 
 
 In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: https://travis-ci.org/auth0/Auth0.swift
+
 1. No need to write code or specialized guide for mobile
 2. We don't have a lot of stuff finished to be doing this one in mobile.
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
