@@ -129,9 +129,9 @@ If Auth0 is acting as a SAML Service Provider, the Authentication Request sent t
 * Download the certificate underneath the **"Sign Request"** toggle and give it to the Identity Provider for use in validating the signature.
 
 ###### Turning Deflate encoding on and off
-Note that by default, SAML Authentication Requests are sent via HTTP-Redirect and using deflate encoding, which puts the signature in a query parameter.  To turn deflate encoding off, one can use the Auth0 APIv2 **"Update a connection"** endpoint to set the "deflate" option to false.  
+Note that by default, SAML Authentication Requests are sent via HTTP-Redirect and using deflate encoding, which puts the signature in a query parameter.  To turn deflate encoding off, one can use the Auth0 Management APIv2 **"Update a connection"** endpoint to set the "deflate" option to false.  
 
-First use the APIv2 Get a Connection to see and copy the list of all options.  Then use Update a Connection, adding the "deflate" option and setting it to false, and paste in the rest of the options and their values:
+First use the Management APIv2 Get a Connection to see and copy the list of all options.  Then use Update a Connection, adding the "deflate" option and setting it to false, and paste in the rest of the options and their values:
 
 ```
 {

@@ -16,7 +16,7 @@ The response of an [authentication request](/protocols) can result in an `id_tok
 
 A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate. This will work as long as the refresh token has not been revoked. JWTs have an expiration date indicated by the `exp` claim, among other security measures (like signing).
 
-Refresh tokens can be issued or revoked for each combination of __app__, __user__ and __device__. But note there is no option to change the properties of the Auth0 refresh token from the values of the client, user and device set during its creation. The refresh tokens can be viewed and revoked [from the dashboard](#revoking-a-refresh-token-in-the-dashboard) or [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-api) programmatically through the Auth0 API.
+Refresh tokens can be issued or revoked for each combination of __app__, __user__ and __device__. But note there is no option to change the properties of the Auth0 refresh token from the values of the client, user and device set during its creation. The refresh tokens can be viewed and revoked [from the dashboard](#revoking-a-refresh-token-in-the-dashboard) or [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
 
 **NOTE:** Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
 
@@ -55,7 +55,7 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 
 ## Use a Refresh Token
 
-To obtain a new `id_token`, call the [delegation](/auth-api#!#post--delegation) endpoint:
+To obtain a new `id_token`, call the [delegation](/auth-api#!#post--delegation) endpoint in the Authentication API:
 
 ```
 POST https://${account.namespace}/delegation
@@ -89,9 +89,9 @@ Obtaining new tokens using the `refresh_token` should occur only if the `id_toke
 
 Since refresh tokens never expire, it is important to be able to revoke them. 
 
-### Revoke a Refresh Token using the API
+### Revoke a Refresh Token using the Management API
 
-To revoke a refresh token using the API you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, you can call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
+To revoke a refresh token using the Management API you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, you can call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
 ```
 GET https://${account.namespace}/api/v2/device-credentials?

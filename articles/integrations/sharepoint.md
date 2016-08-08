@@ -180,7 +180,7 @@ namespace UserProfileSync
     {
         static void Main(string[] args)
         {
-            // Call the Auth0 API - https://docs.auth0.com/api/v2
+            // Call the Auth0 Management API - https://docs.auth0.com/api/v2
 
             using (var site = new SPSite("http://servername"))
             {

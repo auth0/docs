@@ -46,7 +46,7 @@ There is currently no way to validate user-supplied custom fields when signing u
 
 ### 2. Send the Form Data
 
-Send a POST request to the [/dbconnections/signup](/api/authentication#!#post--dbconnections-signup) endpoint in Auth0. You will need to send your `ClientId`, the `email` and `password` of the user being signed up, and the custom fields as part of `user_metadata`.
+Send a POST request to the [/dbconnections/signup](/api/authentication#!#post--dbconnections-signup) endpoint in the Authentication API. You will need to send your `ClientId`, the `email` and `password` of the user being signed up, and the custom fields as part of `user_metadata`.
 
 ```har
 {
@@ -88,7 +88,7 @@ window.auth0 = new Auth0({
 });
 ```
 
-Your server will then need to call APIv2 to add the necessary custom fields to the user's profile.
+Your server will then need to call the Management APIv2 to add the necessary custom fields to the user's profile.
 
 ## Add Username to Sign Up form
 
