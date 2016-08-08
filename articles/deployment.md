@@ -36,7 +36,7 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Updates</th>
-            <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.        </td>
+            <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
             <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
@@ -91,7 +91,7 @@ The following table describes operational and feature differences between each o
             <td>Webtask or in-process</td>
         </tr>
         <tr>
-            <td>Webtask</td>
+            <th>Webtask</th>
             <td>Multi-Tenant</td>
             <td>Dedicated</td>
             <tdth>Cloud</td>
