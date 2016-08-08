@@ -51,7 +51,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [forgotPasswordLink](#forgotpasswordlink-string-)
 - [mustAcceptTerms](#mustacceptterms-boolean-)
 - [prefill](#prefill-object-)
-- [signupLink](#signuplink-string-)
+- [signUpLink](#signuplink-string-)
 - [usernameStyle](#usernamestyle-string-)
 
 **Enterprise Options**:
@@ -597,7 +597,7 @@ var options = {
 };
 ```
 
-### signupLink {String}
+### signUpLink {String}
 
 Set the URL to be requested when clicking on the Signup button. 
 
@@ -607,9 +607,9 @@ When set to a non empty string, this option forces `allowSignUp` to `true`.
 
 ```js
 //
-lock.show({
-  signupLink: 'https://yoursite.com/signup'
-});
+var options = {
+  signUpLink: 'https://yoursite.com/signup'
+};
 ```
 
 ### usernameStyle {String}
