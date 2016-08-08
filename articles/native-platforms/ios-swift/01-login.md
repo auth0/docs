@@ -19,67 +19,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-### Before Starting
-
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
-
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
-</div>
-
-### 1. Add the Lock dependency
-
-Your first step is to add [Lock](https://github.com/auth0/Lock.iOS-OSX) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
-
-#### i. Carthage
-
-If you are using Carthage, add the following line to the `Cartfile`:
-
-```ruby
-github "auth0/Lock.iOS-OSX" -> 1.26
-```
-
-Then, run `carthage bootstrap`.
-
-> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
-
-#### ii. Cocoapods
-
-If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
-
-```ruby
-use_frameworks!
-pod 'Lock', '~> 1.24'
-```
-
-Then, run `pod install`.
-
-> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
-
-### 2. Set your Credentials
-
-Add the following entries to your project's `Info.plist`:
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Key</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-  <tr>
-    <td>Auth0ClientId</td>
-    <td>${account.clientId}</td>
-  </tr>
-  <tr>
-    <td>Auth0Domain</td>
-    <td>${account.namespace}</td>
-  </tr>
-</table>
-
-### 3. Implement the Login
-
-At this point, you're all set to implement the Login.
+### 1. Implement the Login
 
 First, import the `Lock` module in the file where you want to present the login dialog:
 
