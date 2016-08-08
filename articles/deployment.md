@@ -49,7 +49,7 @@ The following table describes operational and feature differences between each o
             <td>Monitored by Auth0 and Customer's tools</td>
         </tr>
         <tr>
-            <th>SLA Provided</th>
+            <th>Uptime SLA Provided</th>
             <td class="success">Yes</td>
             <td class="success">Yes</td>
             <td class="danger">No</td>
@@ -89,6 +89,20 @@ The following table describes operational and feature differences between each o
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
+        </tr>
+        <tr>
+            <th>Webtask</th>
+            <th>Multi-Tenant</th>
+            <th>Dedicated</th>
+            <th>Cloud</th>
+            <th>On-Premises</th>
+        </tr>
+        <tr>
+            <th>Anomaly Detection</th>
+            <td class="success">Brute Force and Breached Passwords</td>
+            <td class="success">Brute Force</td>
+            <td class="success">Brute Force</td>
+            <td class="success">Brute Force</td>
         </tr>
         <tr>
             <th>Extensions</th>
