@@ -662,9 +662,7 @@ var options = {
 };
 ```
 
-// Vars
+<!-- Vars-->
 
 [authparams-link]: /libraries/lock/v10/sending-authentication-parameters
 [windowopen-link]: https://developer.mozilla.org/en-US/docs/Web/API/Window.open#Position_and_size_features
-
-[ui-customization]: /libraries/lock/v10/ui-customization
