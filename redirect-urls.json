@@ -428,6 +428,10 @@
     "to": "/api/management/v2/changes"
   },
   {
+    "from": "/api/v2/tokens",
+    "to": "/tokens/apiv2"
+  },
+  {
     "from": "/apiv2",
     "to": "/api/management/v2"
   },
