@@ -150,13 +150,15 @@ Event listeners are available to handle different status of authentication. They
 
 ```javascript
 //Called when login is successful
-authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store',
-  function($location, profilePromise, idToken, store) {
+authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', 'refreshToken',
+  function($location, profilePromise, idToken, store, refreshToken) {
   
     console.log("Login Success");
     profilePromise.then(function(profile) {
       store.set('profile', profile);
       store.set('token', idToken);
+      if (refreshToken)
+        store.set('refresh-token', refreshToken);
     });
   
     $location.path('/');
@@ -197,7 +199,7 @@ app.controller('LoginCtrl', ['$scope', 'auth', function ($scope, auth) {
  `auth` is a service in the Angular SDK that exposes Auth0 APIs. With `$scope.auth`, you can make a binding to the view:
 
 ```markup
-<a href="#" ng-click="auth.signin()" class="btn btn-primary btn-lg btn-block">Sign In</a>
+<a href="#" ng-click="auth.signin({authParams: {scope: 'openid offline_access'}})" class="btn btn-primary btn-lg btn-block">Sign In</a>
 ```
 ${browser}
 
@@ -216,6 +218,7 @@ $scope.logout = function() {
   auth.signout();
   store.remove('profile');
   store.remove('token');
+  store.remove('refresh-token');
   $location.path('/login');
 }
 ```
@@ -289,6 +292,7 @@ app.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location',
   function($rootScope, auth, store, jwtHelper, $location) {
     $rootScope.$on('$locationChangeStart', function() {
       var token = store.get('token');
+      var refreshToken = store.get('refresh-token');
       if (token) {
         if (!jwtHelper.isTokenExpired(token)) {
           if (!auth.isAuthenticated) {
@@ -297,7 +301,14 @@ app.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location',
           }
         } else {
           // Either show the login page or use the refresh token to get a new idToken
-          $location.path('/');
+          if (refreshToken) {
+            auth.refreshIdToken().then(function(idToken) {
+              store.set('token', idToken);
+              auth.authenticate(store.get('profile'), idToken);
+            });
+          } else {
+            $location.path('/login');
+          }
         }
       }
     });
