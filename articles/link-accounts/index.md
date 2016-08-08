@@ -223,6 +223,5 @@ DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identit
 Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 ```
 
-As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account. The endpoint returns the updated array of identities.
+As a result of unlinking the accounts, **the secondary account is removed**. The endpoint returns the updated array of identities for the primary account.
 
-The unlinked account was never removed from the identity provider, so you can still use it to authenticate. When you login again with that account, it will be re-created in Auth0 as a new separate user.
