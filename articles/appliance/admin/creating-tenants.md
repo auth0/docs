@@ -60,7 +60,12 @@ Once you have created your New Client Grant, you may use it to complete the foll
         { "name": "cache-control", "value": "no-cache" },
         { "name": "content-type", "value": "application/json" }
     ],
-    "queryString" : [],
+    "queryString" : [
+        {"audience": "https://{RTA_DOMAIN}/api/v2/"},
+        {"grant_type": "client_credentials"},
+        {"client_id": "{CLIENT_ID}"},
+        {"client_secret": "{CLIENT_SECRET}"}
+    ],
     "postData" : {
         "mimeType": "application/json",
         "text": "{\"audience\": \"https://{RTA}/api/v2/\", \"grant_type\": \"client_credentials\",\"client_id\": \"{CLIENT_ID}\", \"client_secret\": \"{CLIENT_SECRET}\"}"
