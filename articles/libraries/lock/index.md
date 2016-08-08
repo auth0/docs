@@ -145,6 +145,29 @@ var auth0 = new Auth0({
 });
 ```
 
+## Using Lock with Multiple Clients and Connections
+
+If you have multiple [client applications](${uiURL}/#/applications) you can specify different connection types (such as Facebook, username/password, etc) for each client with Lock. First create a variable to specify which connections for each client:
+
+```js
+var connectionsByClient = {
+  'YOUR_AUTH0_CLIENT_ID_1': ['facebook', 'twitter'],
+  'YOUR_AUTH0_CLIENT_ID_2': ['Username-Password-Authentication'],
+  'YOUR_AUTH0_CLIENT_ID_3': ['google-oauth2', 'twitter']
+};
+```
+
+Then in `lock.show()` you can use this variable to show your desired connection types:
+
+```js
+var lock = new Auth0Lock(config.clientID, config.auth0Domain, initializationOptions);
+lock.show({
+  // ...
+  connections: connection ? [connection] : connectionsByClient[config.clientID],
+  // ...
+});
+```
+
 ## Browser Compatibility
 
 We ensure browser compatibility in `Chrome`, `Safari`, `Firefox` and `IE >= 9`. We currently use [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
