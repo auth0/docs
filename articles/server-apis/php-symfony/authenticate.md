@@ -6,10 +6,10 @@ description: This tutorial will show you how to use the Auth0 PHP Symfony SDK to
 # Symfony Auth0 JWT Bundle
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'jwt-auth-bundle',
+  pkgRepo: 'auth0-symfony-php-web-app',
   pkgBranch: 'master',
-  pkgPath: 'example',
-  pkgFilePath: 'example/app/config/config.yml',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/app/config/config.yml',
   pkgType: 'replace'
 }) %>
 
