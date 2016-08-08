@@ -22,7 +22,7 @@ Set the following configuration variables:
 * **BITBUCKET_PASSWORD**: the password associated with the username used to access the Bitbucket account;
 * **SLACK_INCOMING_WEBHOOK**: the Webhook URL for Slack used to notify you of successful and failed deployments;
 * **WT_URL**:
-* **AUTH0_DOMAIN**:
+* **AUTH0_DOMAIN**: the domain associated with the Auth0 client associated with the extension;
 * **EXTENSION_SECRET**:
 
 Once you have provided this information, click **Install**.
