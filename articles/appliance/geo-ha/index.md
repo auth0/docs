@@ -53,4 +53,4 @@ If the primary data center becomes available again and its instances are visible
 
 ### Further Reading
 
-* [Geographic High-Availability Appliance Failure Scenarios and Testing](/appliance/geo-ha/disaster-recovery.md)
+* [Geographic High-Availability Appliance Failure Scenarios and Testing](/appliance/geo-ha/disaster-recovery)
