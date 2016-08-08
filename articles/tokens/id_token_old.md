@@ -29,7 +29,7 @@ The `id_token` is returned when calling any of the Auth0 functions which invoke 
 
 ## How to control contents of `id_token`
 
-The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/scopes) which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
+The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a parameter called `scope` which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
 
 ```
 lock.show({
@@ -42,7 +42,7 @@ lock.show({
 The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The responseType should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the /authorize endpoint here:
 https://auth0.com/docs/auth-api
 
-The scope of the `id_token` JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
+The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
 
 There is a [sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
 
@@ -81,15 +81,23 @@ Once issued, tokens can not be revoked in the same fashion as cookies with sessi
 
 ## Uses
 
-The `id_token` is used by the client to obtain profile information about the user, by decoding and verifying the claims in the token. The `id_token` should never be sent to an API. The `id_token` is an optimization to avoid network requests to the `/userinfo` endpoint.
+The `id_token` is designed to be used to pass information about a user between websites,  web programs and APIs in an industry standard, URL-friendly fashion.  One advantage of using an `id_token` for this purpose is that the recipient can validate the token without having to make a call back to the issuer of the token.  The token is also designed to enable being passed from one web property to another, via an untrusted client, such that the client cannot alter the token without such tampering being evident to the recipient.
+
+The `id_token` can be used to call the /tokeninfo endpoint within the Auth0 authentication API to retrieve the user’s complete profile.  See the [/tokeninfo endpoint documentation](/auth-api#user-profile) for more details.
+
+The `id_token` can also be used to call the /delegation endpoint within the Auth0 authentication API to obtain another token for another API.  See the [/delegation endpoint documentation](/auth-api#delegated) for more information.
+
+The `id_token` can also be used to call other APIs.
+
+The [Delegation token request sample](https://github.com/auth0/auth0.js#delegation-token-request) provides further examples of using the id_token for other APIs.
+
+This [Animated Sequence Diagram](/sequence-diagrams) shows the sequence of calls used to get an `id_token`.
 
 ## Best Practices
 
 This section contains pointers on best practices related to the `id_token`.
 
 ### Token Validation
-
-?? Not sure whether the reference to SPAs are applicable anymore. Should now use the access token in SPAs ??
 
 Single Page Applications or mobile apps do not need to validate the JWT as they just pass it to something else.  Server side APIs that receive the JWT, however, do need to validate  it. There are server-side APIs to do such validation such as this [example for node.js](https://github.com/auth0/node-jsonwebtoken).
 
@@ -111,4 +119,3 @@ If there is any sensitive information included in the JWT, it should be encrypte
 * [Blog Post: Ten things about tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies/)
 * [Description of the JWT expiration](/applications)
 * [Discussion of web apps vs apis, cookies vs tokens](/apps-apis)
-* [What happens if the ID token is too large?](https://auth0.com/forum/t/id-token-is-too-large/3116)
