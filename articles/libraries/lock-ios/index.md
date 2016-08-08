@@ -120,8 +120,8 @@ Lastly, you will need to handle the already registered custom scheme in your `Ap
 #### Swift
 
 ```swift
-func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-    return self.lock.handleURL(url, sourceApplication: sourceApplication)
+func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+    return self.lock.handleURL(url, sourceApplication: options["UIApplicationOpenURLOptionsSourceApplicationKey"] as? String)
 }
 ```
 
