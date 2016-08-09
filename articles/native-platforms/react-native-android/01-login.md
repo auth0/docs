@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 React Native Android SDK to add authentication and authorization to your mobile app.
 ---
 
-## Android React Native Tutorial
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',

@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app.
 ---
 
-## Ruby On Rails Web App Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Ruby 2.1.8
