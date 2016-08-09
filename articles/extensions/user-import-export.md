@@ -4,7 +4,7 @@ The _User Import / Export_ is an extension that allows you to import / export us
 
 ## Configuring the Extension
 
-To install this extension, click on `User Import / Export` in the list of provided extensions on the [Extensions page](https://manage.auth0.com/#/extensions) of the Management Portal. When authorizing the application, you will be asked to provide the following information about your Auth0 account:
+To install this extension, click on `User Import / Export` in the list of provided extensions on the [Extensions page](${uiURL}/#/extensions) of the [Management Portal](${uiURL}). When authorizing the application, you will be asked to provide the following information about your Auth0 account:
 
  - __Users__: create and read your users.
  - __Connections__: read your connections.
