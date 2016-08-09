@@ -26,15 +26,15 @@ Once you have provided this information, click **Install**.
 
 Navigate to the [Extensions](${uiURL}/#/extensions) page and click on the **Installed Extensions** tab.
 
-Click on the row for the **Bitbucket Deployments** extension. The first time you click on your installed extension, you will be asked to grant it to access your Bitbucket account.
+![](/media/articles/extensions/bitbucket-deploy/webhook-setup.png)
 
-Once you agree, you will be directed to the **Bitbucket Integration** page.
+Click on the row for the **Bitbucket Deployments** extension. The first time you click on your installed extension, you will be asked to grant it to access your Bitbucket account. Once you agree, you will be directed to the **Bitbucket Integration** page.
 
-The **Configuration** page will display the **Payload URL** you will need to create a [webhook](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html) to your Bitbucket repository pointing to the extension. Copy this value into the **Add Webhook** page for your Bitbucket Repository.
+The **Configuration** page will display the **Payload URL** you will need to create a [webhook](https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html) to your Bitbucket repository pointing to the extension.
 
 ![](/media/articles/extensions/bitbucket-deploy/config-parameters.png)
 
-Copy this value into the **Add Webhook** page for your Bitbucket Repository.
+Copy and paste this value into the **Add Webhook** page for your Bitbucket Repository.
 
 ![](/media/articles/extensions/bitbucket-deploy/webhook-setup.png)
 
