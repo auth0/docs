@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Cycle.js driver to add authentication and authorization to your web app.
 ---
 
-## Cycle.js Tutorial
-
 ::: panel-info System Requirements
 This tutorial have been tested with the following:
 
