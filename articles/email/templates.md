@@ -65,7 +65,9 @@ If the **Subject** field is empty, Auth0 will auto-populate this text depending 
 
 You can redirect users to a specific page on the **Allowed Callback URL** using the following:
 
-`{application.callback_domain}/result_page`
+```
+{application.callback_domain}/result_page
+```
 
 If your application has multiple **Allowed Callback URL**s configured, Auth0 will use the first URL listed.
 
@@ -87,7 +89,9 @@ You can modify the lifetime of this link for security purposes. By default, the 
 
 If users click on an expired link and a **Redirect To** URL is configured, they will be redirected to the configured **Redirect To** URL. The following text will be appended to the query string:
 
-`http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false`
+```
+http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
+```
 
 ## Email Templates
 
