@@ -37,16 +37,15 @@ ${snippet(meta.snippets.dependencies)}
 
 Configure Auth0Lock with your `client-ID` and `domain`:
 
+To discover all the available options for `Auth0Lock`, see [the Lock customization documentation)](/libraries/lock/customization).
+
 ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses [Lock](/libraries/lock) redirect mode.
 
 ${snippet(meta.snippets.use)}
-
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock/v9#-show-options-callback-).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 

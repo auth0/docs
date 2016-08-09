@@ -176,6 +176,9 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
+ 
+#### Mobile Screenshots
+For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
 #### Close-ups
 The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example, to show a field requiring input.
