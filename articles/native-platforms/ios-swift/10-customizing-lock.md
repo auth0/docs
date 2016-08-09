@@ -56,7 +56,7 @@ myAwesomeTheme.registerColorForKey(UIColor.redColor(), A0ThemePrimaryButtonNorma
 
 So, for example, if you want to achieve something like this:
 
-![Lock.png](/media/articles/native-platforms/ios-swift/Custom-Lock-Widget-Screenshot.png)
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/Custom-Lock-Widget-Screenshot.png" alt="Mobile example screenshot"/></div>
 
 You will need to customize several parts... This is how you do it:
 
