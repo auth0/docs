@@ -83,6 +83,8 @@ Clients.create({
 });
 ```
 
+**NOTE**: If you are creating a Cron, then you can omit the `"createClient": true` from the `webtask.json` file. A Client is always created by default for Cron extensions.
+
 The installation dialog will warn the user that the extension will have access to certain scopes. In this case: `create:rules`.
 
 ![](/media/articles/extensions/custom/scopes-warning.png)
