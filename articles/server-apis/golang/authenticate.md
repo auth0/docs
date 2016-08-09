@@ -3,8 +3,6 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
 ---
 
-## GoLang API Tutorial
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-golang',
   pkgBranch: 'master',

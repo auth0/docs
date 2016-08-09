@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
 ---
 
-## jQuery Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
@@ -72,7 +70,7 @@ ${browser}
 
 To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
-Include `auth0.js` to your project by adding following to `index.html`: 
+Include `auth0.js` to your project by adding following to `index.html`:
 
 ```html
 <script src="${auth0js_url_no_scheme}"></script>
@@ -157,4 +155,3 @@ localStorage.removeItem('id_token');
 userProfile = null;
 window.location.href = "/";
 ```
-

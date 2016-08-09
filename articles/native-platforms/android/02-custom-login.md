@@ -4,15 +4,13 @@ description: This tutorial will show you how to use the Auth0 authentication API
 seo_alias: android
 ---
 
-## Android - Custom Login Tutorial
-
 This is a simple quickstart that will show you how to add the Auth0 login capabilities while using a customized login screen.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* Emulator - Nexus5X - Android 6.0
   :::
 
 
@@ -43,20 +41,20 @@ Then, run "Sync project with Gradle files".
 ### 2. Configure your Manifest File
 
 You need to add the following permissions inside the ``AndroidManifest.xml``:
-        
+
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	
+
 Also, don't forget to declare the activities you're using in the Manifest:
-	
-	
+
+
 	<activity android:name=".activities.LoginActivity"/>
 	<activity android:name=".activities.MainActivity"/>
-	
-       
+
+
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login in any activity you want. 
+At this point, you're all set to implement the Login in any activity you want.
 
 First, in your customized login method, instantiate the Authentication API:
 
@@ -64,9 +62,9 @@ First, in your customized login method, instantiate the Authentication API:
 private void login(String email, String password) {
         Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
         AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
-        
+
         // proper login
-        
+
         }      
 ```
 
@@ -88,9 +86,8 @@ Then, login using the newly created client:
 ```
 > It's suggested to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file rather than hardcode them in the ``new Auth0()`` constructor method.
 
-> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example. 
+> There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example.
 
 ### Done!
 
 You've already implemented a customized Login with Auth0 in your Android project!
-

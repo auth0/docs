@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 ASP Classic SDK to add authentication and authorization to your web app.
 ---
 
-## ASP Classic Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Microsoft Internet Information Services (IIS)

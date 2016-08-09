@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Windows Universal App C# SDK to add authentication and authorization to your app.
 ---
 
-# Windows UWP App in C# Tutorial
-
 This tutorial explains how to integrate Auth0 login with a Windows UWP (Universal Windows Platform) C# application. The Nuget package `Auth0.Windows.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 ## Tutorial
