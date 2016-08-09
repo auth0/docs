@@ -58,12 +58,12 @@ To deploy Database Connection scripts, you must first create a directory under `
 
 Under the created directory, create one file for each script you want to use. The allowed scripts are:
 
-- `get_user.js`;
-- `create.js`;
-- `verify.js`;
-- `login.js`;
-- `change_password.js`;
-- `delete.js`.
+- `get_user.js`
+- `create.js`
+- `verify.js`
+- `login.js`
+- `change_password.js`
+- `delete.js`
 
 For a generic Custom Database Connection, only the `login.js` script is required. If you enable the migration feature, you will also need to provide the `get_user.js` script.
 
