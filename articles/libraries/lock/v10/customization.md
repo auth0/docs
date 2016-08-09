@@ -577,7 +577,7 @@ var options = {
 
 ### mustAcceptTerms {Boolean}
 
-When set to `true` displays a checkbox input alongside the terms and conditions that must be checked before signing up (the terms and conditions can be specified via the `languageDictionary` option). Defaults to `false`.
+When set to `true` displays a checkbox input alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified via the `languageDictionary` option. This option will only take effect for users signing up with database connections. Defaults to `false`.
 
 ```js
 //
