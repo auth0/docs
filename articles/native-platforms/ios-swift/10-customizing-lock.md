@@ -24,9 +24,9 @@ This tutorial and seed project have been tested with the following:
 
 You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login.md) and you know how to present the login dialog.
 
-### 1. Register your Theme
+### 1. Create a Theme
 
-Lock UI can be customized by creating your own `A0Theme` and overriding the default one anywhere before presenting the login dialog:
+Lock UI can be customized by creating your own `A0Theme` instance:
 
 ```swift
 import Lock
@@ -34,29 +34,111 @@ import Lock
 
 ```swift
 let myAwesomeTheme = A0Theme()
-// Configure your theme here (see step 2)
-A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
 ```
 
 ### 2. Configure your Theme
 
-Lock's widget UI is composed of several parts that can be customized. Here is a list of the available values that you can modify:
+Lock's widget UI is composed of several parts that can be customized.
 
 ![Lock.png](/media/articles/libraries/lock-ios/customization/Lock-UI-Parts.png)
 
-You can configure the following type of properties:
+You can configure these type of properties:
 
-- **Color**: `UIColor` instance.
-- **Image**: `String` with image name.
-- **Font**: `UIFont` instance.
+- **Color**: By using a `UIColor` instance.
+- **Image**: By using a `String` representing the image's name.
+- **Font**: By using a `UIFont` instance.
 
-For example:
+For instance:
 
 ```
 myAwesomeTheme.registerColorForKey(UIColor.redColor(), A0ThemePrimaryButtonNormalColor);
 ```
 
-This is the whole list of properties that can be customized:
+So, for example, if you want to achieve something like this:
+
+![Lock.png](/media/articles/native-platforms/ios-swift/Custom-Lock-Widget-Screenshot.png)
+
+You will need to customize several parts... This is how you do it:
+
+```swift
+// 1. Change the logo:
+theme.registerImageWithName("custom-logo", bundle: NSBundle.mainBundle(), forKey: A0ThemeIconImageName)
+```
+
+```swift
+// 2. Customize the 'Login' text appearance:
+theme.registerColor(.whiteColor(), forKey: A0ThemeTitleTextColor)
+theme.registerFont(.appFontOfSize(24), forKey: A0ThemeTitleFont)
+```
+
+```swift
+// 3. Customize the 'OR' text appearance:
+theme.registerColor(.whiteColor(), forKey: A0ThemeSeparatorTextColor)
+theme.registerFont(.appFontOfSize(18), forKey: A0ThemeSeparatorTextFont)
+```
+
+```swift
+// 4. Customize the text fields:
+theme.registerColor(.lightVioletColor(), forKey: A0ThemeTextFieldIconColor)
+theme.registerColor(.lightVioletColor(), forKey: A0ThemeTextFieldPlaceholderTextColor)
+theme.registerColor(.whiteColor(), forKey: A0ThemeTextFieldTextColor)
+theme.registerFont(.appFontOfSize(14), forKey: A0ThemeTextFieldFont)
+```
+
+```swift
+// 5. Customize the primary button (ACCESS):
+theme.registerColor(.whiteColor(), forKey: A0ThemePrimaryButtonNormalColor)
+theme.registerColor(.lightVioletColor(), forKey: A0ThemePrimaryButtonHighlightedColor)
+theme.registerColor(.darkVioletColor(), forKey: A0ThemePrimaryButtonTextColor)
+theme.registerFont(.boldSystemFontOfSize(20), forKey: A0ThemePrimaryButtonFont)
+```
+
+```swift
+// 6. Configure the secondary buttons (sign up / reset password):
+theme.registerColor(.lightVioletColor(), forKey: A0ThemeSecondaryButtonBackgroundColor)
+theme.registerColor(.whiteColor(), forKey: A0ThemeSecondaryButtonTextColor)
+```
+
+```swift
+// 7. Add a background image:
+theme.registerImageWithName("custom-background", bundle: NSBundle.mainBundle(), forKey: A0ThemeScreenBackgroundImageName)
+```
+
+```swift
+// 8. Configure the X button:
+theme.registerColor(.lightVioletColor(), forKey: A0ThemeCloseButtonTintColor)
+```
+
+```swift
+// 9. Configure the status bar:
+theme.statusBarStyle = .LightContent
+```
+
+### 3. Register your Theme
+
+Last, but not least: You still need to register your theme before presenting the login dialog:
+
+```swift
+A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
+```
+
+### Done!
+
+In conclusion, here is the code snippet you need to keep on mind:
+
+```swift
+let myAwesomeTheme = A0Theme()
+// customize your theme here
+A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
+```
+
+Piece of cake. Wasn't it? You've just customized the Lock widget!
+
+
+
+### Appendix: Customizable Properties List
+
+Here is a list containing all the properties that can be customized:
 
 #### Primary Button
 
@@ -114,8 +196,4 @@ This is the whole list of properties that can be customized:
 
 - `A0ThemeCloseButtonTintColor`
 
-Have fun customizing whatever you need from here.
-
-### Done!
-
-Piece of cake. Wasn't it? You've just customized the Lock widget!
+Have fun customizing whatever you need from here!
