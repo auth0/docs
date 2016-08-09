@@ -14,7 +14,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-pkgOrg: 'auth0-samples' 
+pkgOrg: 'auth0-samples',
 pkgRepo: 'auth0-rubyonrails-sample', 
 githubUrl: 'https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed',
 pkgBranch: 'master', 
