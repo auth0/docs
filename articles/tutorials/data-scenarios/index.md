@@ -10,10 +10,10 @@ Auth0 provides multiple locations for storing different types of data associated
 
 ## Table of Contents
 
-- [Where do I put my authentication data?](/tutorials/User-Data-Storage-Scenario#where-do-i-put-my-authentication-data-)
-- [Why not put all the app’s data in the Auth0 data store?](/tutorials/User-Data-Storage-Scenario#why-not-put-all-the-app-s-data-in-the-auth0-data-store-)
-- [When should I use the Auth0 data store?](/tutorials/User-Data-Storage-Scenario#when-should-i-use-the-auth0-data-store-)
-- [Review](/tutorials/User-Data-Storage-Scenario#review)
+- [Where do I put my authentication data?](/tutorials/user-data-storage-scenario#where-do-i-put-my-authentication-data-)
+- [Why not put all the app’s data in the Auth0 data store?](/tutorials/user-data-storage-scenario#why-not-put-all-the-app-s-data-in-the-auth0-data-store-)
+- [When should I use the Auth0 data store?](/tutorials/user-data-storage-scenario#when-should-i-use-the-auth0-data-store-)
+- [Review](/tutorials/user-data-storage-scenario#review)
 
 
 ## Where do I put my authentication data?
