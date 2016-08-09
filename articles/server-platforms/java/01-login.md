@@ -4,7 +4,13 @@ description: This tutorial will show you how to use the Auth0 Java SDK to add au
 ---
 
 <%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
+  githubUrl: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-servlet-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 ### Add Auth0 callback handler
