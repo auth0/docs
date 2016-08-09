@@ -89,7 +89,7 @@ The installation dialog will warn the user that the extension will have access t
 
 The webtask will be created with the `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_SECRET` information set as secrets.
 
-After the webtask is created, `/.webtask/on-install` (`POST /onInstallUrl`) is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
+After the webtask is created, `/.extensions/on-install` (`POST /onInstallUrl`) is called sending a [JWT](/jwt) for validating that Auth0-manage is the one calling it.
 
 > The expected success status is `204`. Keep in mind that if the hooks fail, then the install (or uninstall) will fail as well.
 
@@ -107,9 +107,11 @@ Install and uninstall URLs are configurable through `webtask.json`.
 
 > _onInstallPath_ and _onUninstallPath_ are mandatory if you want auth0-dashboard to call them.
 
-When the user clicks on _Uninstall_, `/.webtask/on-uninstall` (`DELETE /onUninstallUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
+In order to edit an extension `/.extensions/on-update` (`PUT /onUpdateUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Once the validation is successful the webtask and the client associated to the webtask are updated with the changes. Again, the expected success status is `204`.
 
-The JWT, used for authenticating the calls to the hooks for both `/.webtask/on-install` and `/.webtask/on-uninstall`, looks like the following:
+When the user clicks on _Uninstall_, `/.extensions/on-uninstall` (`DELETE /onUninstallUrl`) is called, with a JWT for validating that Auth0-manage is the one calling it. Afterwards, the webtask and the client associated to the webtask are removed.
+
+The JWT, used for authenticating the calls to the hooks for both `/.extensions/on-install` and `/.extensions/on-uninstall`, looks like the following:
 
 ```json
 {
