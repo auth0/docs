@@ -6,6 +6,7 @@ description: This tutorial will show you how to use the Auth0 ASP.NET OWIN SDK t
 # ASP.NET (OWIN) Tutorial
 
 <%= include('../../_includes/_package', {
+  pkgOrg: 'auth0-samples' 
   pkgRepo: 'aspnet-owin-samples',
   githubUrl:'https://github.com/auth0-samples/aspnet-owin-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
