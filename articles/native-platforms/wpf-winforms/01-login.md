@@ -6,7 +6,7 @@ description: This tutorial will show you how to use the Auth0 WPF and Winforms S
 # WPF and Winforms Tutorial
 
 <%= include('../../_includes/_package', {
-  pkgOrg: 'auth0-samples' 
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-winformsWPF-samples',
   githubUrl:'https://github.com/auth0-samples/auth0-winformsWPF-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
