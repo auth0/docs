@@ -12,6 +12,7 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-nacyfx-samples',
   githubUrl:'https://github.com/auth0-samples/auth0-nancyfx-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
