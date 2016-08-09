@@ -120,24 +120,22 @@ This is just one example of how **Lock 10** could work with a **Single Page Appl
 
 The [API reference][lock-api] provides more comprehensive documentation of the API and its various available methods, and the [Customization reference][lock-customization] details out the different options that you have for customizing Lock to meet your specific needs.
 
-## Examples
-
-The **example** directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed.
-
-Then execute `npm i` to install dependencies (only once) and `npm example` from the root of this project.
-
-Finally, point your browser at `http://localhost:3000/` and play around.
-
-## Start using Lock!
-
-${lockSDK}
-
 ## Using auth0.js
 
-When using functionality from auth0.js, instead of using `getClient()`, for example, you can simply instantiate a new Auth0 object and use plain auth0.js.
+If you have a need to use `auth0.js` alongside of Lock, you will find that you cannot use `getClient()` in Lock 10 - instead, you can just instantiate a new `Auth0` object.
+
+To get `Auth0` with Lock, if you included the script from our CDN or installed Lock from bower, you merely have to instantiate your object (see below). 
+
+**If you installed Lock from npm**, you will have to include `auth0-js` in your project's dependencies and import it. Before instantiating your `Auth0` object, you'll need to require `auth0-js`:
 
 ```js
-var auth0 = new Auth0({
+var Auth0 = require('auth0-js');
+```
+
+In either case, you then simply use `auth0.js` by instantiating a new Auth0 object, as below.
+
+```js
+var client = new Auth0({
   domain:       '${account.namespace}',
   clientID:     '${account.clientId}',
   callbackURL:  '{YOUR APP URL}',
@@ -145,28 +143,9 @@ var auth0 = new Auth0({
 });
 ```
 
-## Using Lock with Multiple Clients and Connections
+## Start using Lock!
 
-If you have multiple [client applications](${uiURL}/#/applications) you can specify different connection types (such as Facebook, username/password, etc) for each client with Lock. First create a variable to specify which connections for each client:
-
-```js
-var connectionsByClient = {
-  'YOUR_AUTH0_CLIENT_ID_1': ['facebook', 'twitter'],
-  'YOUR_AUTH0_CLIENT_ID_2': ['Username-Password-Authentication'],
-  'YOUR_AUTH0_CLIENT_ID_3': ['google-oauth2', 'twitter']
-};
-```
-
-Then in `lock.show()` you can use this variable to show your desired connection types:
-
-```js
-var lock = new Auth0Lock(config.clientID, config.auth0Domain, initializationOptions);
-lock.show({
-  // ...
-  connections: connection ? [connection] : connectionsByClient[config.clientID],
-  // ...
-});
-```
+${lockSDK}
 
 ## Browser Compatibility
 
