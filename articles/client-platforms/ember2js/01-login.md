@@ -17,14 +17,15 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/ember2-auth0-sample',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-ember-simple-auth',
+  pkgOrg: 'auth0-samples' 
+  pkgRepo: 'auth0-emberjs2-sample',
+  githubUrl: 'https://github.com/auth0-samples/auth0-emberjs2-sample/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
-  pkgPath: 'examples/ember2-auth0-sample',
-  pkgFilePath: 'examples/ember2-auth0-sample/config/auth0-variables.js',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/config/environment.js',
   pkgType: 'replace'
 }) %>
+
 
 **If you have an existing application, follow the steps below.**
 
