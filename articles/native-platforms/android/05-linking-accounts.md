@@ -68,7 +68,7 @@ UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());    
 ```        
 ### 3. Retrieve linked accounts
 
-The linked accounts, are stored within the `UserProfile` as a list of `UserIdentity`. which we learnt how to by fetching the user profile, process that we already know from the [user profile tutorial](04-user-profile):
+The linked accounts, are stored within the `UserProfile` as a list of `UserIdentity`, something we've previously learned when fetching the user profile (a process that we already know from the [user profile tutorial](04-user-profile)):
 
 ```java
 @Override
