@@ -20,11 +20,11 @@ Each tutorial in the serie includes a link to its corresponding sample project, 
 
 ## Dependencies
 
-Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.Android) or the [Auth0.swift](https://github.com/auth0/Auth0.Android) library.
+Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.Android) or the [Auth0.android](https://github.com/auth0/Auth0.Android) library.
 
 Briefly speaking about them:
 
-- [**Lock**](https://github.com/auth0/Lock.Android) is a widget that is easy to present in your app. It contains default templates (that can be a customized) for login with email/password, sign up, social providers integration, and also password recovery.
+- [**Lock**](https://github.com/auth0/Lock.Android) is an `Activity` that is easy to present in your app. It contains default templates (that can be a customized) for login with email/password, sign up, social providers integration, and also password recovery.
 - [**Auth0.Android**](https://github.com/auth0/Auth0.Android) is a toolkit that lets you communicate with many of the basic [Auth0 API](https://auth0.com/docs/api) functions in a neat way.
 
 The `Lock` dependency is already integrated on each sample project through [Gradle](https://gradle.org/).
@@ -36,10 +36,16 @@ Otherwise, if you're starting an empty project by your own, or if you want to ad
 
 #### Gradle
 
-Inside the `app.gradle` dependencies section:
+Inside the `build.gradle` dependencies section:
 
 ```xml
-compile 'com.auth0.android:lock:2.0.0-beta.2'   
+apply plugin: 'com.android.application'
+android {
+	//..
+}
+dependencies {
+	compile 'com.auth0.android:lock:2.0.0-beta.3'   
+}
 ```
 
 Then, run `sync with gradle`.
@@ -51,19 +57,22 @@ Then, run `sync with gradle`.
 
 Make sure you complete these steps before going through any tutorial:
 
-#### 1. Create an application
+#### 1. Create a client
 
 <%= include('../../client-platforms/_includes/_callback-url-introduction') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 #### 2. Configure your callback URLs
+ 
+>If you wish to only use DB connections, skip this point.
 
-<%= include('../../client-platforms/_includes/_callback-url-introduction') %>
+The callback urls are meant to be used to receive the OAuth response when logging in with social connections or  enterprise connections.
+
 
 #### 3. Set your credentials
 
-The [dependencies](#dependencies) listed above will offer different functionalities that require your credientials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set. Anyway, you have to make sure they are there, otherwise your app might crash. 
+The [dependencies](#dependencies) listed above will offer different functionalities that require your credientials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set. Anyway, you have to make sure they are there, otherwise your app will not work properly. 
 
 The required credentials are, your ClientID > `${account.clientId}` and your domain > `${account.namespace}`.
 
@@ -78,7 +87,7 @@ Also, remember to update the Lock's data path
 ```xml
 <data
 	android:host="@string/auth0_domain"
-	android:pathPrefix="/android/auth0/YOUR_APP_PACKAGE/callback"
+	android:pathPrefix="/android/YOUR_APP_PACKAGE/callback"
 	android:scheme="https" />
 ```
 
