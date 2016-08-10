@@ -16,22 +16,21 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
-</div>
 
-### 1. Add the Auth0 Java dependency
+<pre><code>https://{DOMAIN}/android/{PACKAGE_NAME}/callback</pre></code>
 
-Your first step is to add [Auth0 Java](https://github.com/auth0/auth0-java) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
+### 1. Add the Auth0 Android dependency
+
+Your first step is to add [Auth0 Android](https://github.com/auth0/Auth0.Android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
 
 #### i. Gradle
 
 Add to your app's module gradle file:
 
 ```xml
-compile 'com.auth0:auth0:0.4.0'
+compile "com.auth0.android:auth0:1.0.0-beta.4"
 ```
 
 Then, run "Sync project with Gradle files".
@@ -59,7 +58,7 @@ At this point, you're all set to implement the Login in any activity you want.
 First, in your customized login method, instantiate the Authentication API:
 
 ```android
-private void login(String email, String password) {
+private void login(String email, String password){
         Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
         AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
 
@@ -71,7 +70,8 @@ private void login(String email, String password) {
 Then, login using the newly created client:
 
 ```android
- client.login(email, password).start(new BaseCallback<Credentials>() {
+ client.login(email, password)
+       .start(new BaseCallback<Credentials>() {
             @Override
             public void onSuccess(Credentials payload) {
                 // Store credentials
