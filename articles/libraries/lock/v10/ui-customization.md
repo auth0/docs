@@ -12,4 +12,4 @@ There is also a way to customize the text in your Lock. Again, more detail can b
 ## Overriding CSS
 If you intend to override CSS to further style your Lock, we recommend that you use a specific patch version of Lock rather than a major or minor version, so that you limit the amount of unexpected results that may occur when you alter the styles, and then another patch is deployed that might cause unexpected behavior in your UI due to the changes. 
 
-If you have specific changes that you would like to be able to make to your UI, feel free to ask. We are working on improving the available customization options through JavaScript, to prevent the unanticipated UI bugs that might result from customizing your CSS, and this list will be updated as new options are added.
+If you have specific theming options that you would like to see added, let us know. We are working on improving the available customization options through JavaScript, and this list will be updated as new options are added.
