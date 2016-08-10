@@ -40,5 +40,5 @@ Existing Auth0 Appliance customers should create a new Auth0 cloud account to be
 1. You can view the existing tickets you have filed on the [Support Center](https://support.auth0.com) page and clicking on the **Home** link. Select the ticket that you want to update by clicking on its subject.
 ![](/media/articles/support/select-ticket.png)
 
-1. Enter any additional details into the text box and then click the **REPLY** button. If the you are the ticket requester and the ticket is assigned to an agent but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
+1. Enter any additional details into the text box and then click the **REPLY** button. If you are the ticket requester and the ticket is assigned to an agent but is not solved or closed, you have the option to change the status of your ticket to **Solved** by checking the **Submit as solved** box next to the **REPLY** button.
 ![](/media/articles/support/update-ticket.png)
