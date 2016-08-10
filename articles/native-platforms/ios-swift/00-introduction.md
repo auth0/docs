@@ -13,6 +13,7 @@ There is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sampl
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',

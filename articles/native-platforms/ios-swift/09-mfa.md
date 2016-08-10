@@ -13,6 +13,7 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/09-MFA',
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
   pkgPath: '09-MFA',
