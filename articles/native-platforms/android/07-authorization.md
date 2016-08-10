@@ -35,7 +35,17 @@ By default, it says that if the user email contains `@example` he will be given 
    
 > You can define more roles other than `admin` and `user`, depending on your product requirements.
    
-> In the demo app, we use @admin.com to validate.
+> In the demo app, we use @admin.com to validate, like the next rule:
+ 
+```
+  var addRolesToUser = function(user, cb) {
+    if (user.email.indexOf('@admin.com') > -1) {
+      cb(null, ['admin']);
+    } else {
+      cb(null, ['user']);
+    }
+  };
+```
  
 ### 2. Test the rule in your project
  
