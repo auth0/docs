@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Apache SDK to add authentication and authorization to your web app.
 ---
 
-## Apache Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Apache 2.4

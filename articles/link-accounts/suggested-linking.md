@@ -35,7 +35,7 @@ The following is a sample login using Lock:
 <button onclick="signin()">Login</a>
 ```
 
-In the typical [Regular Web App login](/libraries/lock/v9/types-of-applications#regular-webapp), a **callbackURL** is passed to `lock.show`, which is then handled server-side. After successful authentication, a **session** is created containing the profile of the authenticated user.
+In the typical Regular Web App usage of Lock, a **redirectUrl** is passed to `Auth0Lock`, which is then handled server-side. After successful authentication, a **session** is created containing the profile of the authenticated user.
 
 **NOTE:** You can refer to the [Regular Web App Node.js Quickstart](/quickstart/webapp/nodejs) for more details. You can also see the [Passwordless for Regular Web Apps Tutorials](/connections/passwordless/regular-web-app) for examples of passwordless login.
 

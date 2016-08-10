@@ -46,7 +46,7 @@ There is currently no way to validate user-supplied custom fields when signing u
 
 ### 2. Send the Form Data
 
-Send a POST request to the [/dbconnections/signup](/api/authentication#!#post--dbconnections-signup) endpoint in the Authentication API. You will need to send your `ClientId`, the `email` and `password` of the user being signed up, and the custom fields as part of `user_metadata`.
+Send a POST request to the [/dbconnections/signup](/api/authentication#!#post--dbconnections-signup) endpoint in Auth0. You will need to send your `ClientId`, the `email` and `password` of the user being signed up, and the custom fields as part of `user_metadata`.
 
 ```har
 {
@@ -74,10 +74,9 @@ When your users sign up, the custom fields are sent as part of `user_metadata`. 
 
 ## Redirect mode
 
-Popup mode may be inappropriate for regular web apps or mobile apps. To use redirect mode, configure a callback URL when calling `auth0.signup`. After a
-successful login, Auth0 will redirect the user to the configured callback URL with a JWT (`id_token`) in the query string.
+After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (`id_token`) in the query string.
 
-**NOTE**: To learn more about the differences between popup and redirect modes, see: [Lock: Authentication Modes](/libraries/lock/v9/authentication-modes).
+**NOTE** To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).
 
 ```js
 window.auth0 = new Auth0({
@@ -88,7 +87,7 @@ window.auth0 = new Auth0({
 });
 ```
 
-Your server will then need to call the Management APIv2 to add the necessary custom fields to the user's profile.
+Your server will then need to call APIv2 to add the necessary custom fields to the user's profile.
 
 ## Add Username to Sign Up form
 
@@ -111,5 +110,3 @@ The configured password policies, along with other connection information, can b
 `https://cdn.auth0.com/client/${account.clientId}.js`
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard. For an example, see: [Custom signup with password policy](https://github.com/auth0/auth0-password-policy-sample).
-
-

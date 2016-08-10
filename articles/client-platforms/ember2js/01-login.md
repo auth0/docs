@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 EmberJS 2 SDK to add authentication and authorization to your web app.
 ---
 
-## EmberJS 2 Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
@@ -17,14 +15,15 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/ember2-auth0-sample',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-ember-simple-auth',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-emberjs2-sample',
+  githubUrl: 'https://github.com/auth0-samples/auth0-emberjs2-sample/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
-  pkgPath: 'examples/ember2-auth0-sample',
-  pkgFilePath: 'examples/ember2-auth0-sample/config/auth0-variables.js',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/config/environment.js',
   pkgType: 'replace'
 }) %>
+
 
 **If you have an existing application, follow the steps below.**
 

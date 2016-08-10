@@ -26,6 +26,22 @@ url: /saml-apps
 
 ---
 
+## Hosted Graphite
+
+```
+{
+  "audience": "https://www.hostedgraphite.com/metadata/{YOUR-USER-ID}/",
+  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+  "nameIdentifierProbes": [
+    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
+  ]
+}
+```
+
+**Callback URL**: `https://www.hostedgraphite.com/complete/saml/{YOUR-USER-ID}/`
+
+---
+
 ## Litmos
 
 ```

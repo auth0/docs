@@ -22,13 +22,13 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../_includes/_rules-introduction') %>
 
-## 1. Create a rule
+## 1. Create a Rule
 
 <%= include('../_includes/_rules-create-section') %>
 
-## 2. Test rule result
+## 2. Test the Rule Result
 
-<%= include('../_includes/_rules-test-result-intro', { profilelink: '/quickstart/spa/reactjs/04-user-profile' }) %>
+<%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/react/04-user-profile' }) %>
 
 ```javascript
 /* ===== ./src/components/Profile/ProfileDetails.js ===== */
@@ -67,5 +67,3 @@ export default ProfileDetails;
 
 ![Country rule sample](/media/articles/reactjs/rule-country-show.png)
 
-### Done!
-That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create anything that fits your needs.

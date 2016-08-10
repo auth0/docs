@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
 ---
 
-## jQuery Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
@@ -37,16 +35,15 @@ ${snippet(meta.snippets.dependencies)}
 
 Configure Auth0Lock with your `client-ID` and `domain`:
 
+To discover all the available options for `Auth0Lock`, see [the Lock customization documentation)](/libraries/lock/customization).
+
 ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses [Lock](/libraries/lock) redirect mode.
 
 ${snippet(meta.snippets.use)}
-
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock/v9#-show-options-callback-).
 
 After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
@@ -73,7 +70,7 @@ ${browser}
 
 To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
-Include `auth0.js` to your project by adding following to `index.html`: 
+Include `auth0.js` to your project by adding following to `index.html`:
 
 ```html
 <script src="${auth0js_url_no_scheme}"></script>
@@ -158,4 +155,3 @@ localStorage.removeItem('id_token');
 userProfile = null;
 window.location.href = "/";
 ```
-

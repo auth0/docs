@@ -3,8 +3,6 @@ title: Auth0 AngularJS SDK Tutorial
 description: This tutorial will show you how to use the Auth0 AngularJS SDK to add authentication and authorization to your web app.
 ---
 
-## AngularJS SDK Tutorial
-
 ::: panel-danger Lock 10
 The AngularJS SDK currently supports Lock versions up to 9.2.2.
 Support for Lock 10 is coming soon.
@@ -98,7 +96,7 @@ Let's break it down.
 
 Angular's `config()` skeleton with required dependencies:
 ```javascript
-app.config(['$routeProvider', 'authProvider', '$httpProvider', '$locationProvider', 'jwtInterceptorProvider', 
+app.config(['$routeProvider', 'authProvider', '$httpProvider', '$locationProvider', 'jwtInterceptorProvider',
   function myAppConfig ($routeProvider, authProvider, $httpProvider, $locationProvider, jwtInterceptorProvider) {
 
 }])
@@ -152,13 +150,13 @@ Event listeners are available to handle different status of authentication. They
 //Called when login is successful
 authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store',
   function($location, profilePromise, idToken, store) {
-  
+
     console.log("Login Success");
     profilePromise.then(function(profile) {
       store.set('profile', profile);
       store.set('token', idToken);
     });
-  
+
     $location.path('/');
 }]);
 
@@ -285,7 +283,7 @@ You can log the `profile` of a user in the `loginSuccess` event listener and ins
 Page reload is a nightmare in Single Page Applications. If states are not managed well, once a page is refreshed, the states are lost. It is simple to keep things in sync even after a refresh:
 
 ```javascript
-app.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location', 
+app.run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location',
   function($rootScope, auth, store, jwtHelper, $location) {
     $rootScope.$on('$locationChangeStart', function() {
       var token = store.get('token');
