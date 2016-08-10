@@ -43,3 +43,15 @@ Provide the following values:
 Save.
 
 # Configuring Your Slack Account
+
+When configuring your Slack Account, please refer to the **Slack Configuration Instructions** page in your Auth0 Management Dashboard for the required parameters.
+
+![](/media/articles/scenarios/slack/slack-config-instructions.png)
+
+1. Log in to the [Slack Authentication Settings](https://slack.com/admin/auth) page as an administrator.
+2. Under the **SAML Authentication** tab, click "Configure."
+3. Choose **Custom SAML 2.0** as the **SAML Provider**.
+4. Populate the **SAML 2.0 Endpoint (HTTP)** with the Auth0-provided URL. Alternatively, you can add a Connection parameter to log in with a specific identity provider. This results in Auth0 redirecting users to the specified Connection and not display the Auth0 log in widget.
+5. Provide the **Identity Provider Issuer** (optional);
+6. Provide the **Public Certificate** value.
+7. Save.
