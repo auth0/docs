@@ -1,0 +1,7 @@
+added:
+  -
+    title: "New quickstart on Cycle.js"
+    tags:
+      - cyclejs
+    description: |
+      A [new quickstart](https://auth0.com/docs/quickstart/spa/cyclejs) was added on how to configure and use the Auth0 with Cycle.js.

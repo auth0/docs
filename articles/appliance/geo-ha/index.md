@@ -1,3 +1,7 @@
+---
+url: /appliance/geo-ha
+---
+
 # Auth0 Appliance: High Availability Geo Cluster (Geo HA)
 
 The high availability geo cluster is an Appliance implementation that provides data center redundancy and automatic failure handling. This is the highest form of Appliance availability offered by Auth0.
@@ -23,6 +27,16 @@ The arbiter does not store data or execute application logic, but acts as a witn
 
 > Ports 27017 and 7777 must be open between all instances in the cluster.
 
+### Arbiter
+
+The Arbiter node acts as an independent witness to the primary and secondary data centers. Since it isn’t storing data and doesn’t run any services, it can be a small instance with two cores and 4GB of memory.
+
+### Geographically-Aware Global Load Balancer/DNS Failover Configuration
+
+You will need to deploy a global load balancer that supports an active/standby configuration. This will be configured to begin using the secondary site if the primary site load balancer is unavailable.
+
+Two examples of products that support this configuration are the F5 Global Traffic Manager and the AWS Route 53 DNS service. The global load balancer is typically positioned in front of the local load balancers in each data center.
+
 ### Application Tier
 
 Auth0 requires the use of a geographically-aware load balancer or DNS failover solution that prefers to serve application requests using the primary data center, despite the fact that the Appliance instances in the hot standby data center are active and able to serve the requests.
@@ -46,3 +60,7 @@ If the primary data center becomes available again and its instances are visible
 3. **The Appliances associated with the primary data center begin failing.** Because the primary data center instances cannot communicate with the instances in the standby data center, the associated Appliance instances begin to fail.
 4. **The geographically-aware global load balancer/DNS failover configuration detects that the nodes in the primary data center aren't serving.** It will then switch over to sending requests to the instances of the standby data center.
 5. **The Appliances associated with the standby data center are now serving requests** and acting as the primary data node due to its election in step 2.
+
+### Further Reading
+
+* [Geographic High-Availability Appliance Failure Scenarios and Testing](/appliance/geo-ha/disaster-recovery)

@@ -52,7 +52,7 @@ Upon successful authentication, the user will eventually return to your web site
 
 `CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step /libraries/lock/customization#rememberlastlogin-boolean-.
 
-Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's API.
+Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's APIs.
 
 To get an Access Token, you would send a POST request to the token endpoint in Auth0. You will need to send the `code` obtained before along with your `clientId` and `clientSecret` (step 5 in the diagram).
 
@@ -62,7 +62,7 @@ To get an Access Token, you would send a POST request to the token endpoint in A
 
 	client_id=CLIENT_ID&redirect_uri=REDIRECT_URI&client_secret=CLIENT_SECRET&code=AUTHORIZATION_CODE&grant_type=authorization_code
 
-If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 API and get additional information such as the user profile.
+If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call Auth0 APIs and get additional information such as the user profile.
 
 ##### Sample Access Token Response:
 
@@ -163,7 +163,7 @@ Optionally (if `scope=openid` is added in the authorization request):
 
 Clients typically extract the URI fragment with the __Access Token__ and cancel the redirection. The client code will then interact with other endpoints using the token in the fragment.
 
-> Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it. You can define specific attributes to return in the JWT (e.g. `scope=openid email name`).
+> Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it(especially with Azure AD which returns a fairly long JWT). You can define specific attributes to return in the JWT (e.g. `scope=openid email name`).
 
 ### 4. Calling your API with a JWT (optional)
 

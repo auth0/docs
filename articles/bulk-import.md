@@ -2,7 +2,7 @@
 
 Our focus has always been not only greenfield projects but also existing applications that want to extend their Authentication capabilities.
 
-With this in mind, our [API has an endpoint](/api/v2#!/jobs/post_users_imports) that allows consumers to populate a database connection with users obtained from a file. Each of those users will have to reset their password on they log in for the first time.
+With this in mind, our [Management API has an endpoint](/api/v2#!/jobs/post_users_imports) that allows consumers to populate a database connection with users obtained from a file. Each of those users will have to reset their password on they log in for the first time.
 
 ## Pre-requisites
 

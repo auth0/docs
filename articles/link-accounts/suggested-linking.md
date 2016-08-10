@@ -1,3 +1,7 @@
+---
+description: How to link user accounts with server-side code.
+---
+
 # Account Linking from Server Side Code
 
 In this scenario, you will search for users with same verified email address, (as with an automatic linking rule). However, instead of completing the link automatically on authentication, your app will first prompt the user to link their identities.
@@ -31,7 +35,7 @@ The following is a sample login using Lock:
 <button onclick="signin()">Login</a>
 ```
 
-In the typical [Regular Web App login](/libraries/lock/types-of-applications#regular-webapp), a **callbackURL** is passed to `lock.show`, which is then handled server-side. After successful authentication, a **session** is created containing the profile of the authenticated user.
+In the typical Regular Web App usage of Lock, a **redirectUrl** is passed to `Auth0Lock`, which is then handled server-side. After successful authentication, a **session** is created containing the profile of the authenticated user.
 
 **NOTE:** You can refer to the [Regular Web App Node.js Quickstart](/quickstart/webapp/nodejs) for more details. You can also see the [Passwordless for Regular Web Apps Tutorials](/connections/passwordless/regular-web-app) for examples of passwordless login.
 
@@ -58,7 +62,7 @@ router.get('/suggested-users',ensureLoggedIn, (req,res) => {
 });
 ```
 
-This endpoint will use the API V2 [List or search users endpoint](/api/v2#!/Users/get_users) for matching users with same verified email:
+This endpoint will use the Management API v2 [List or search users endpoint](/api/v2#!/Users/get_users) for matching users with same verified email:
 
 ```js
 const request = require('request');
@@ -100,7 +104,7 @@ At this point the user can choose which account to link to:
 
 ## 4. Verify and merge metadata before linking
 
-When the user clicks on the **Link** button, your custom endpoint for linking accounts is invoked. Before calling`linkAccounts` you can implement additional verification or retrieve the secondary account metadata for merging. This metadata is discarded after linking.
+When the user clicks on the **Link** button, your custom endpoint for linking accounts is invoked. Before calling`linkAccounts`, you can implement additional verification or retrieve the secondary account metadata for merging. This metadata is discarded after linking.
 
 Also, you can select which identity will be used as the primary account and which as the secondary when calling the account linking. This choice will depend on which set of attributes you wish to retain in the primary profile.
 
@@ -172,7 +176,7 @@ function _mergeMetadata(primaryUser, secondaryUser){
 
 ## 5. Link the accounts
 
-To link accounts, call the Auth0 API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using an [API V2 token](/api/v2/tokens) with `update:users` scope in the Authorization header:
+To link accounts, call the Auth0 Management API v2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using a [Management API v2 token](/api/v2/tokens) with `update:users` scope in the Authorization header:
 
 ```js
 const request = require('request');
@@ -235,7 +239,7 @@ router.post('/unlink-accounts/:targetUserProvider/:targetUserId',ensureLoggedIn,
 });
 ```
 
-Then invoke the API V2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [API V2 token](/api/v2/tokens) with `update:users` scope for authorization:
+Then invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using an [API v2 token](/api/v2/tokens) with `update:users` scope for authorization:
 
 ```js
 const request = require('request');

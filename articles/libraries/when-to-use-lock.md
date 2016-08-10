@@ -96,7 +96,7 @@ With **Lock**, you will be implementing a UI that:
 * Automatically accommodates internationalization;
 * Provides instant password policy checking at sign up.
 
-Although you cannot alter Lock's behavior, you can configure several [basic options](/libraries/lock/customization). You can also [customize its appearance](/libraries/lock/ui-customization).
+Although you cannot alter Lock's behavior, you can configure several [basic options](/libraries/lock/customization).
 
 ### When to Use Lock
 

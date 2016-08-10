@@ -3,18 +3,29 @@ title: Login
 description: This tutorial will show you how to integrate Auth0 with angular2 to add authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
-
 
 ## Login
 
-The best way to have authentication utilities available across the application is to use an Injectable service. So let's create that and add login functionality there.
+The best way to have authentication utilities available across the application is to use an **Injectable** service.
 
-We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](https://github.com/auth0/lock/tree/v10.0.0#customization))
+You will need an `Auth0Lock` instance to receive your Auth0 credentials and an options object. (For a list of available options, see: [Customization](https://github.com/auth0/lock#customization).)
 
-Then, just add a callback for the `authenticated` lock event, which receives one argument with login information. For now just store the `idToken` attribute into `localStorage`.
+Then, add a callback for the `authenticated` event, which receives one argument with the login information. When the page is redirected after login, the callback defined for the `authenticated` lock event will be invoked.
+
+For now, store the `idToken` attribute into `localStorage`.
+
+In the `login` method, call `lock.show()` to display the login widget.
+
+To check if a user is authenticated, use `tokenNotExpired` from [angular2-jwt](https://github.com/auth0/angular2-jwt), which allows you to see if there is a non-expired JWT in local storage.
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -43,7 +54,7 @@ export class Auth {
 
   public authenticated() {
     // Check if there's an unexpired JWT
-    // It searches for an item in localStorage with key == 'id_token'
+    // This searches for an item in localStorage with key == 'id_token'
     return tokenNotExpired();
   };
 
@@ -54,12 +65,7 @@ export class Auth {
 }
 ```
 
-In `login` method, just call `lock.show()` to display the login widget.
-When the page is redirected after login, the callback defined for `authenticated` lock event will be invoked.
-
-To know if a user is authenticated, just use `tokenNotExpired` from [angular2-jwt](https://github.com/auth0/angular2-jwt) which allows you to check whether there is a non-expired JWT in local storage.
-
-To use this, just inject the `Auth` service into your component
+To use this service, inject the `Auth` service into your component:
 
 ```typescript
 /* ===== app/app.component.ts ===== */
@@ -68,7 +74,7 @@ export class AppComponent {
 }
 ```
 
-and then in your component's template
+and into your component's template:
 
 ```html
 /* ===== app/app.template.html ===== */
@@ -77,14 +83,8 @@ and then in your component's template
   <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
   <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
 </div>
-
 ```
-The lock widget will pop up showing a Login form, when you click the Login button.
 
+The Lock widget will be displayed when the **Login** button is clicked.
 
 ${browser}
-
-
-## Done!
-
-You've implemented Login and SignUp with Auth0 in your Angular2 project.

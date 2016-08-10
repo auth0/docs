@@ -37,7 +37,7 @@ The attributes included in the issued token can be controlled with the `scope` p
 * `scope=openid`: will only return `iss`, `sub`, `aud`, `exp` and `iat` claims.
 * `scope=openid email nickname favorite_food`: will return claims for `openid` in addition to the `email`, `nickname` and `favorite_food` fields if they are available.
 * `scope=openid profile` (not recommended): will return all the user attributes in the token.
-This can cause problems when sending or receiving tokens in URLs (e.g. when using `response_type=token`) and will likely create an unnecessarily large token.
+This can cause problems when sending or receiving tokens in URLs (e.g. when using `response_type=token`) and will likely create an unnecessarily large token(especially with Azure AD which returns a fairly long JWT).
 Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible.
 
 > The `scope` parameter can used in the same way when calling the [Resource Owner endpoint](/auth-api#!#post--oauth-ro).

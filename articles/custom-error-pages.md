@@ -46,7 +46,7 @@ To redirect users to a custom error page:
 
 Instead of using the Management Portal, you may configure your error pages by making a `PATCH /api/v2/tenants/settings` call to the Management API.
 
-To assist you in creating the appropriate request, you may use the [Update Tenant Settings](/api/v2#!/Tenants/patch_settings) section of the [APIv2 Explorer Page](/api/v2).
+To assist you in creating the appropriate request, you may use the [Update Tenant Settings](/api/v2#!/Tenants/patch_settings) section of the [Management APIv2 Explorer Page](/api/v2).
 
 Prior to beginning, please ensure that you are logged in to an account that is permitted to make changes to your Auth0 configuration. This will allow the API Explorer to dynamically generate the required [API token](/api/v2/tokens) with the necessary API Key and Secret.
 

@@ -18,7 +18,7 @@ Here is an example of a command you can use to generate a random string:
 
 `dd if=/dev/random bs=48 count=1 | base64`
 
-## Using the API to set the new client_secret
+## Using the Management API to set the new client_secret
 
 You can also change your application's `client_secret` by using [Update a client](https://auth0.com/docs/api/v2#!/Clients/patch_clients_by_id) in the Management API.  Set the `id` of the client you are updating, and then in the `body` section enter your new `client_secret` as a JSON field.
 

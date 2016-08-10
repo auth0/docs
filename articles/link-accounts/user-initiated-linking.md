@@ -1,10 +1,14 @@
+---
+description: How to provide a UI for the user to authenticate to their other accounts and link these to their primary account.
+---
+
 # User Initiated Account Linking
 
 In this scenario, your app provides a UI for the user to authenticate to their other accounts and to link these to their primary account.
 
 **NOTE:** You can find sample code at [User Initiated Account Linking within a Single Page App](https://github.com/auth0/auth0-link-accounts-sample/tree/master/SPA) on Github.
 
-The following steps implement user-initiated account linking for a Single Page Application:
+The following steps implement user-initiated account linking for a Single Page Application.
 
 ## 1. Initial login
 
@@ -48,7 +52,7 @@ The following is a sample login using Lock:
 <button onclick="javascript:login()">Login</button>
 ```
 
-In the typical [SPA login](/libraries/lock/types-of-applications#single-page-app), the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single Page Apps](/connections/passwordless/spa) tutorials for examples of passwordless login.
+In the typical SPA login, the callback is handled client-side by the same page and a JWT is received after successful authentication. You can refer to the [Single Page Apps Quickstarts](/quickstart/spa) for more details. You can also see the [Passwordless for Single Page Apps](/connections/passwordless/spa) tutorials for examples of passwordless login.
 
 ## 2. User initiates account linking
 
@@ -133,9 +137,9 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   <button onclick="linkPasswordlessSMS()">SMS</a>
   ```
 
-## 3. Perform linking by calling the Auth0 API 
+## 3. Perform linking by calling the Auth0 Management API 
 
-In the `linkAccount` function, call the API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using both of the JWTs:
+In the `linkAccount` function, call the Management API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using both of the JWTs:
 
 ```js
 function linkAccount(secondaryJWT){
@@ -167,7 +171,7 @@ Also, you can select which identity will be used as the primary account and whic
 
 ## 4. Unlinking accounts
 
-For unlinking accounts, invoke the API V2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
+For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId){

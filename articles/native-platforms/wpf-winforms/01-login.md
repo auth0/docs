@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
 ---
 
-# WPF and Winforms Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015

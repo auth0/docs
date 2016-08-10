@@ -10,15 +10,25 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/03-Session-Handling',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '03-Session-Handling',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
-The previous steps of this tutorial explain how to login using both `Lock` widget and `Auth0` library to authenticate users in your application. Most of the time, when you login, you want to create a session for that user and also allow the user to logout. In the step you see how to do it.
+The previous steps of this tutorial explain how to implement login using either `Lock` or the `Auth0.js` library to authenticate users in your application. 
 
-## 1. Create Session
+Usually, when a user logs in, you will want to create a session for that user and also allow the user to logout. The following steps show you how to implement this.
 
-Once the user is logged in, we want to create a session for that user. To do this, we only need to store the `idToken` attribute, which came as a lock `authenticated` event callback parameter. Below you see how our helper class `AuthService` is using `localStorage` to keep the current user idToken valid for the session.
+## 1. Create a Session
+
+Once the user is logged in, you can create a session for that user by storing the `idToken` attribute, which is passed as a Lock `authenticated` event callback parameter. 
+
+The `AuthService` helper class uses `localStorage` to keep the current user idToken valid for the session:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -66,11 +76,15 @@ export default class AuthService {
 }
 ```
 
-In the code, you see `login` method using `Lock` widget feature to show the sign in window, and the `_doAuthentication` private method, responsible to store the `idToken` provided by auth0 using `localStorage`. The `logout` method then only removes the stored token while `loggedIn` checks if there is a token, returning a boolean. Unfortunately, just checking if there is a token stored is not enough to validate the session, because auth0 returns a [JSON Web Token](/jwt) and it has an expiration date. In the next session you learn how to properly validate the session.
+In the code, you see the `login` method using `Lock` to show the sign in window, and the `_doAuthentication` private method, which stores the `idToken` provided by Auth0 to `localStorage`. The `logout` method removes the stored token, and `loggedIn` checks if there is a token and returns a boolean. 
 
-## 2. Check If Session is Valid
+However, just checking if there is a stored token is not enough to validate the session because the returned [JSON Web Token](/jwt) has an expiration date. The next section explains how to properly validate the session.
 
-In order to know if a user is authenticated, you need to make sure the `idToken` is stored and still valid. The token is valid if its expiration date is not reach, that's what we're checking in the method `isTokenExpired` introduced in a new helper file named `jwtHelper.js`:
+## 2. Check if the Session is Valid
+
+In order to know if a user is authenticated, you need to make sure the `idToken` is stored and still valid. A token is valid if its expiration date has not passed.
+
+To check this, save the new `isTokenExpired` method in a new helper file named `jwtHelper.js`:
 
 ```javascript
 /* ===== ./src/utils/jwtHelper.js ===== */
@@ -97,13 +111,13 @@ export function isTokenExpired(token){
 }
 ```
 
-The `jwtHelper` library is exporting 2 methods: `isTokenExpired` and `getTokenExpirationDate`. Also, it's importing `jwt-decode` as a dependency you should include in your `package.json` or using npm:
+The `jwtHelper` library exports two methods: `isTokenExpired` and `getTokenExpirationDate`. It also imports `jwt-decode` as a dependency, so you must include it in your `package.json` or use npm to install it:
 
 ```bash
 $ npm install jwt-decode --save
 ```
 
-Now you are able to import `isTokenExpired` in `AuthService` to improve the `loggedIn` method:
+Now you are able to import `isTokenExpired` into `AuthService` to improve the `loggedIn` method:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -125,7 +139,9 @@ export default class AuthService {
 
 ## 3. Logout Button
 
-In Home view, you may want to show a button to logout, destroying the user session and redirecting to `/login` page. `AuthService` helper class already provides the `logout` function, and it's easy to hook it to a logout button. The updated Home component code with the logout button should be something like:
+In Home view, you may want to show a logout button that destroys the user session and redirects to the `/login` page. Since the `AuthService` helper class already includes a `logout` function, you can simply hook it to a logout button. 
+
+The updated Home component code with the logout button is as follows:
 
 ```javascript
 /* ===== ./src/views/Main/Home/Home.js ===== */
@@ -164,6 +180,3 @@ export class Home extends React.Component {
 export default Home;
 ```
 
-### 4. All done!
-
-You've implemented Session Handling and Logout with Auth0 in your ReactJS project.

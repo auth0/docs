@@ -22,7 +22,7 @@ You will be asked to authorize the Custom Social Connections app. After you do s
 
 ![](/media/articles/extensions/custom-social-connections.png)
 
-Click the slider next to the social provider you are interested in setting up. The slider will turn from grey to green, indicating that a connection to that provider exists.
+Click the slider next to the social provider you want to set up. The slider will turn from grey to green, indicating that a connection to that provider exists.
 
 ### Configuring Social Connection Settings
 
@@ -51,11 +51,11 @@ The Settings page is used to provide the information required to set up the soci
 }
 ```
 
-After you have provided values for the required fields, click **Save** to persist your changes.
+After you have provided values for the required fields, click **Save**.
 
 #### New Connection: Apps
 
-Once you have successfully configured the connection, you will be presented with a list of apps associated with your Auth0 account under the **Apps** tab of the New Connection window.
+Once you have successfully configured the connection, you will be presented with a list of apps associated with your Auth0 account under the **Apps** tab of the **New Connection** window.
 
 Using the slider, enable this social connection for the apps that you want to use it with.
 
@@ -69,13 +69,13 @@ A direct link would look like:
             
 `https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION`
 
-**NOTE**: Lock will not automatically show a button for the custom connection. If you want to add a button, see: [Adding a new UI element using JavaScript](/libraries/lock/ui-customization#adding-a-new-ui-element-using-javascript).
+**NOTE**: Lock will not automatically show a button for the custom connection. If you want to add a button, see: [Adding a new UI element using JavaScript](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript).
 
 ## Optional: Set up Basic Authentication
 
 By default, when invoking the __Token URL__ to exchange the authentication code for an access_token, Auth0 will provide the `client ID` and `client secret` as part of the body of the POST. Some identity providers require [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), which involves providing those same credentials in a HTTP header. 
 
-If the identity provider requires Basic Authentication you can be use the __Custom Headers__ setting with a JSON object like this:
+If the identity provider requires Basic Authentication, you can be use the __Custom Headers__ setting with a JSON object like this:
 
 ```
 {

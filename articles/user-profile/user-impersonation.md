@@ -31,7 +31,7 @@ You can also use the [Impersonation API](/api/authentication#!#post--users--user
 
 Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`.
 
-Your first step would be to generate a _Bearer_ token to be used with [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). You can generate it with the [Management API V1](/api/management/v1) `/oauth/token` enpoint using your _Global Client ID_ and _Global Client Secret_. The token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
+Your first step would be to generate a _Bearer_ token to be used with [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). You can generate it with the [Management API V1](/api/management/v1) `/oauth/token` endpoint using your _Global Client ID_ and _Global Client Secret_. The token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
 
 ```har
 {
@@ -47,7 +47,7 @@ Your first step would be to generate a _Bearer_ token to be used with [Impersona
 }
 ```
 
-> APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [APIv2 documentation page](/api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${uiURL}/#/account/advanced).
+> Management APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [Management APIv2 documentation page](/api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${uiURL}/#/account/advanced).
 
 Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
 
@@ -61,7 +61,7 @@ Afterwards, you would have to find out the user id of the user that you want to 
 }
 ```
 
-The `{bearer_token}` should be replaced with an Auth0 APIv2 token. Details on how to do this can be found [here](/api/management/v2/tokens).
+The `{bearer_token}` should be replaced with an Auth0 Management APIv2 token. Details on how to do this can be found [here](/api/management/v2/tokens).
 
 > You can also retrieve the `user_id` information from the Management Dashboard. Go to the [Users](${uiURL}/#/users) section and look at the user’s profile. The `user_id` is displayed under the _Identity Provider Attributes_ section.
 
@@ -135,7 +135,7 @@ If not you should send a POST request to the token endpoint in Auth0. You will n
 
 Replace the `{AUTHORIZATION_CODE}` with the `code` you received previously. Also, replace `{CALLBACK_URL}` with your application's callback URL.
 
-If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 API and get additional information such as the user profile.
+If the request is successful, you will get a JSON object with an `access_token`. You can use this token to call the Auth0 APIs and get additional information such as the user profile.
 
 
 ##### Sample Access Token Response:

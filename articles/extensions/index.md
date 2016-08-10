@@ -37,6 +37,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Real-time Webtask Logs](/extensions/realtime-webtask-logs): allows browser-based access to real-time webtask logs.
 - [Auth0 Logs to Logentries](/extensions/logentries): export Auth0 logs to Logentries.
 - [GitHub Deployments](/extensions/github-deploy): deploy rules and database connections from GitHub to Auth0.
+- [Bitbucket Deployments](/extensions/bitbucket-deploy): deploy rules and database connections from Bitbucket to Auth0.
 
 
 ## Creating Your Own Extension

@@ -3,17 +3,17 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Vue.js SDK to add authentication and authorization to your web app.
 ---
 
-## Vue.js Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Vue.js 1.0.16
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-vue',
+  pkgOrg: 'auth0-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-vue-samples/tree/master/00-Starter-Seed',
+  pkgRepo: 'auth0-vue-samples',
   pkgBranch: 'master',
-  pkgPath: null,
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>

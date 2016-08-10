@@ -10,19 +10,27 @@ This tutorial and seed project have been tested with the following:
 * React 15.0.2
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/07-Authorization',
-}) %>_
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '07-Authorization',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/quickstart/spa/react/06-rules' }) %>_
+<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/react/06-rules' }) %>_
 
-## 1. Create a Rule to assign roles
+## 1. Create a Rule to Assign Roles
 
 <%= include('../_includes/_authorization-create-rule') %>_
 
-## 2. Check if user's role is present
+## 2. Check if a User's Role is Present
 
-After creating the new rule, let's update our helper class `AuthService` to provide a new method `isAdmin`. This method will be useful in other parts of the application, returning `true` for admin users and `false` otherwise. Check the snippet included in `AuthService.js` file:
+After creating the new rule, update the `AuthService` helper class with a new `isAdmin` method. This method will be useful in other parts of your application. It returns `true` for admin users and `false` otherwise. 
+
+Included this snippet in the `AuthService.js` file:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -38,9 +46,13 @@ export default class AuthService extends EventEmitter {
 }
 ```
 
-## 3. Restrict a route based on user's roles
+## 3. Restrict a Route based on User's Roles
 
-In order to exemplify how to restric access to certain routes based on user roles, we are going to update the `routes.js` file. Now, besides of just protecting some routes for authenticated users, a new `/admin` route requires the current user to have __admin__ role, redirecting to `/unauthorized` if auth.isAdmin() returns `false`. Take a look at the full `routes.js` code:
+To demonstrate how to restrict access to certain routes based on a user's roles, you can update the `routes.js` file as shown below. 
+
+The new `/admin` route requires the current user to have an __admin__ role, and redirects to `/unauthorized` if `auth.isAdmin()` returns `false`. 
+
+Here is the complete `routes.js` code:
 
 ```javascript
 /* ===== ./src/views/Main/routes.js ===== */
@@ -99,11 +111,11 @@ export const makeMainRoutes = () => {
 export default makeMainRoutes
 ```
 
-Another feature introduced in above code is the correct redirecting after a successful login. Now it's storing the current url as a localStorage item before moving the user to login page, retrieving the value later in `redirectAfterLogin` method.
+Another feature introduced in the above code is correct redirection after a successful login. Now the current URL is stored as a `localStorage` item before the user is directed to the login page. Later, the value is retrieved in the `redirectAfterLogin` method.
 
 ## 4. Admin and Unauthorized Views
 
-As a final step, you should add the View Components for the two new routes: `Admin` and `Unauthorized`. An example of their code is shown below:
+As a final step, add View Components for the two new routes: `Admin` and `Unauthorized` as shown below:
 
 ```javascript
 /* ===== ./src/views/Main/Admin/Admin.js ===== */
@@ -144,8 +156,5 @@ export class Unauthorized extends React.Component {
 export default Unauthorized;
 ```
 
-That's it. Running the application you can test it and verify that only users logged in with an email that contains `@example` (or following the rule you've introduced) will be able to access the `/admin` route.
+Now you can verify that only users logged in with an email that contains `@example` (or whichever criteria is enforced by the rule you create) will be able to access the `/admin` route.
 
-## 5. Done!
-
-You have implement one of the available ways to add authorization with auth0 in your ReactJS project.

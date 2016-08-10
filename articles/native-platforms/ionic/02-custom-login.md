@@ -3,8 +3,14 @@ title: Custom Login
 description: This tutorial will show you how to use the Auth0 Ionic SDK to add authentication and authorization to your mobile app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/02-Custom-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ionic-samples',
+  pkgBranch: 'master',
+  pkgPath: '02-Custom-Login',
+  pkgFilePath: '02-Custom-Login/www/app/auth0.variables.js',
+  pkgType: 'replace'
 }) %>
 
 ::: panel-info Running the Sample

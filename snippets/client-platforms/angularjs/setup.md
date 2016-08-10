@@ -1,9 +1,8 @@
-```javascript
-// ...config
-//Configure Auth0 with credentials
+```js
+// app.js
 authProvider.init({
     domain: '<%= account.namespace %>',
-    clientID: '<%= account.clientId %>'
+    clientID: '<%= account.clientId %>',
+    loginUrl: '/login'
 });
-// ...config
 ```

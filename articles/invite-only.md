@@ -1,5 +1,5 @@
 ---
-description: This scenario demonstrates an invite-only sign-up implementation using the Auth0 API to customize the process and the email flow.
+description: This scenario demonstrates an invite-only sign-up implementation using the Auth0 Management API to customize the process and the email flow.
 ---
 
 # Invite-only Applications
@@ -17,7 +17,7 @@ This functionality can be achieved using an Enterprise Connection where you fede
 The invite-only flow will be setup as follows: 
 
 1. The tenant admnistrator will create new users in his subscription from within the application. 
-2. The application will call the Auth0 API to create these new users in a database connection. 
+2. The application will call the Auth0 Management API to create these new users in a database connection. 
 3. The application will send out activation emails to these users. 
 4. When users click the activation link, they will be redirected to Auth0 where their email address will be set to validated. 
 5. After validation, Auth0 will redirect users to the application where they will be presented with a password reset form. 
@@ -46,7 +46,7 @@ Analystick has built a simple user interface in their admin backend to allow the
 
 ![](/media/articles/invite-only/invite-only-new.png)
 
-This admin interface uses the Auth0 SDK for .NET to communicate with the Auth0 API:
+This admin interface uses the Auth0 SDK for .NET to communicate with the Auth0 Management API:
 
 ```
 public class UsersController : Controller
@@ -317,6 +317,6 @@ Once users have completed the entire flow, they will be able to access the membe
 
 ### Summary
 
-This scenario has demonstrated an invite-only sign-up implementation using the Auth0 API to customize the sign-up process and the email flow. 
+This scenario has demonstrated an invite-only sign-up implementation using the Auth0 Management API to customize the sign-up process and the email flow. 
 
-For more information about the API, see the [API Explorer](/api/v2) to try the various endpoints.
+For more information about the Management API, see the [Management API Explorer](/api/v2) to try the various endpoints.

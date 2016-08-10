@@ -36,9 +36,9 @@ Ticket response times will vary based on your support plan (shown below). Additi
     </tr>
     <tr>
       <th>Business Hours</th>
-      <td>M-F 7am-7pm (UTC−8)</td>
-      <td>M-F 7am-7pm (UTC−8)</td>
-      <td>Standard Issues: M-F 7am-7pm (UTC-8) / Critical Issues: 24/7</td>
+      <td>M-F 7am-7pm</td>
+      <td>M-F 7am-7pm</td>
+      <td>Standard Issues: M-F 7am-7pm / Critical Issues: 24/7</td>
     </tr>
     <tr>
       <th>First Response Time</th>
@@ -67,4 +67,4 @@ Ticket response times will vary based on your support plan (shown below). Additi
   </tbody>
 </table>
 
-If you have specific support requirements or are interested in the __Enterprise Support__ option, please contact us at <sales@auth0.com>.
+If you have specific support requirements or are interested in the __Enterprise Support__ option, please [contact sales](https://auth0.com/?contact=true).

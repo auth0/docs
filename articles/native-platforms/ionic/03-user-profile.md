@@ -3,8 +3,14 @@ title: User Profile
 description: test
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/03-User-Profile',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ionic-samples',
+  pkgBranch: 'master',
+  pkgPath: '03-User-Profile',
+  pkgFilePath: '03-User-Profile/www/app/auth0.variables.js',
+  pkgType: 'replace'
 }) %>
 
 ::: panel-info Running the Sample

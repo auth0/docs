@@ -43,15 +43,15 @@ Then, run "Sync project with Gradle files".
 
 You need to add the following permissions inside the ``AndroidManifest.xml``:
         
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
 Also, don't forget to declare the activities you're using in the Manifest:
-	
-	
-	<activity android:name=".activities.LoginActivity"/>
-	<activity android:name=".activities.MainActivity"/>
-	
+    
+    
+    <activity android:name=".activities.LoginActivity"/>
+    <activity android:name=".activities.MainActivity"/>
+    
        
 ### 3. Implement the Login
 
@@ -93,4 +93,3 @@ Then, login using the newly created client:
 ### Done!
 
 You've already implemented a customized Login with Auth0 in your Android project!
-

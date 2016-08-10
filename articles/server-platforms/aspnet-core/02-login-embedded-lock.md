@@ -3,8 +3,14 @@ title: Login with Embedded Lock
 description: This tutorial will show you can host the Lock widget inside your application instead of using the Lock widget which is hosted on the Auth0 domain.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/02-Login-Embedded-Lock',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-sample',
+  pkgBranch: 'master',
+  pkgPath: '02-Login-Embedded-Lock',
+  pkgFilePath: '02-Login-Embedded-Lock/SampleMvcApp/appsettings.json',
+  pkgType: 'replace'
 }) %>
 
 ## Background
