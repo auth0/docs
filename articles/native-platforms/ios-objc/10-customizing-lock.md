@@ -17,41 +17,122 @@ This tutorial and seed project have been tested with the following:
 
 You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login.md) and you know how to present the login dialog.
 
-### 1. Register your Theme
+### 1. Create a Theme
 
-Lock UI can be customized by creating your own `A0Theme` and overriding the default one anywhere before presenting the login dialog:
+Lock UI can be customized by creating your own `A0Theme` instance:
 
-```objective-c
+```objc
 #import <Lock/Lock.h>
 ```
 
-```objective-c
-A0Theme *myAwesomeTheme = [[A0Theme alloc] init];
-// Configure your theme here (see step 2)
-[[A0Theme sharedInstance] registerTheme: myAwesomeTheme];
+```objc
+A0Theme *theme = [[A0Theme alloc] init];
 ```
 
 ### 2. Configure your Theme
 
-Lock's widget UI is composed of several parts that can be customized. Here is a list of the available values that you can modify:
+Lock's widget UI is composed of several parts that can be customized.
 
 ![Lock.png](/media/articles/libraries/lock-ios/customization/Lock-UI-Parts.png)
 
-You can configure the following type of properties:
+You can configure these type of properties:
 
 - **Color**: `UIColor` instance.
-- **Image**: `String` with image name.
+- **Image**: By using a `String` representing the image's name.
 - **Font**: `UIFont` instance.
 
-For example:
+For instance:
 
-```objective-c
-[myAwesomeTheme registerColor: [UIColor redColor] forKey: A0ThemePrimaryButtonNormalColor];
+```objc
+[theme registerColor: [UIColor redColor] forKey: A0ThemePrimaryButtonNormalColor];
+```
+So, for example, if you want to achieve something like this:
+
+<div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/Custom-Lock-Widget-Screenshot.png" alt="Mobile example screenshot"/></div>
+
+You will need to customize several parts... This is how you do it:
+
+```objc
+// 1. Change the logo:
+[theme registerImageWithName: @"custom-logo"
+                      bundle: [NSBundle mainBundle]
+                      forKey: A0ThemeIconImageName];
 ```
 
-This is the whole list of properties that can be customized:
+```objc
+/// 2. Customize the 'Login' text appearance:
+[theme registerColor: [UIColor whiteColor] forKey: A0ThemeTitleTextColor];
+[theme registerFont: [UIFont systemFontOfSize: 24] forKey: A0ThemeTitleFont];
+```
 
-#### Primary Button
+```objc
+// 3. Customize the 'OR' text appearance:
+[theme registerColor: [UIColor whiteColor] forKey: A0ThemeSeparatorTextColor];
+[theme registerFont: [UIFont systemFontOfSize: 18] forKey: A0ThemeSeparatorTextFont];
+```
+
+```objc
+// 4. Customize the text fields:
+[theme registerColor: [self lightVioletColor] forKey: A0ThemeTextFieldIconColor];
+[theme registerColor: [self lightVioletColor] forKey: A0ThemeTextFieldPlaceholderTextColor];
+[theme registerColor: [UIColor whiteColor] forKey: A0ThemeTextFieldTextColor];
+[theme registerFont: [UIFont systemFontOfSize: 14] forKey: A0ThemeTextFieldFont];
+```
+
+```objc
+// 5. Customize the primary button (ACCESS):
+[theme registerColor: [UIColor whiteColor] forKey: A0ThemePrimaryButtonNormalColor];
+[theme registerColor: [self lightVioletColor] forKey: A0ThemePrimaryButtonHighlightedColor];
+[theme registerColor: [self darkVioletColor] forKey: A0ThemePrimaryButtonFont];
+[theme registerFont: [UIFont boldSystemFontOfSize: 20] forKey: A0ThemePrimaryButtonFont];
+```
+
+```objc
+// 6. Configure the secondary buttons (sign up / reset password):
+[theme registerColor: [self lightVioletColor] forKey: A0ThemeSecondaryButtonBackgroundColor];
+[theme registerColor: [UIColor whiteColor] forKey: A0ThemeSecondaryButtonTextColor];
+```
+
+```objc
+// 7. Add a background image:
+[theme registerImageWithName:@"custom-background"
+                      bundle:[NSBundle mainBundle]
+                      forKey:A0ThemeScreenBackgroundImageName];
+```
+
+```objc
+// 8. Configure the X button:
+[theme registerColor:[self lightVioletColor] forKey: A0ThemeCloseButtonTintColor];
+```
+
+```objc
+// 9. Configure the status bar:
+[theme setStatusBarStyle:UIStatusBarStyleLightContent];
+```
+
+### 3. Register your Theme
+
+Last, but not least: You still need to register your theme before presenting the login dialog:
+
+```objc
+[[A0Theme sharedInstance] registerTheme: theme];
+```
+
+### Done!
+
+In conclusion, here is the code snippet you need to keep on mind:
+
+```objc
+A0Theme *theme = [[A0Theme alloc] init];
+// customize your theme here
+[[A0Theme sharedInstance] registerTheme: theme];
+```
+
+Piece of cake. Wasn't it? You've just customized the Lock widget!
+
+### Appendix: Customizable Properties List
+
+Here is a list containing all the properties that can be customized:
 
 - `A0ThemePrimaryButtonNormalColor`
 - `A0ThemePrimaryButtonHighlightedColor`
@@ -108,7 +189,3 @@ This is the whole list of properties that can be customized:
 - `A0ThemeCloseButtonTintColor`
 
 Have fun customizing whatever you need from there.
-
-### Done!
-
-Piece of cake. Wasn't it? You've just customized the Lock widget!
