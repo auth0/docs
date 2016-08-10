@@ -39,7 +39,7 @@ Enable this new connection for your client (*Users Dashboard* in our case) and a
 
 We are now ready to setup our new extension. Before we do so head back to your new Client and copy the **Client ID** value.
 
-To install and configure this extension, click on the __Delegated Administration__ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the dashboard. The __Install Extension__ window will open.
+To install and configure this extension, click on the **Delegated Administration** box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the dashboard. The **Install Extension** window will open.
 
 ![](/media/articles/extensions/delegated-admin/install-extension.png)
 
@@ -47,7 +47,7 @@ To install and configure this extension, click on the __Delegated Administration
 Set the following configuration variables:
 
 - **EXTENSION_CLIENT_ID**: The **Client ID** value of the Client you will use.
-- **TITLE**: Optionally, you can set a title for your Client, for example *Fabrikam User Management*.
+- **TITLE**: Optionally, you can set a title for your Client. It will be displayed at the header of the page.
 - **CUSTOM_CSS**: Optionally, you can set a css file, to customize the look and feel of your Client.
 
 Once you have provided this information, click **Install**. Your extension is now ready to use!
@@ -64,10 +64,6 @@ Notice that there is no Sign Up option. That's because we disabled it earlier.
 Once you provide valid credentials you are navigated to the *Delegated Administration Dashboard*.
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
-
-This dashboard is using the standard UI. To change that, use the **Title** and **Custom_CSS** variables. For example, if we set **Title** to `Fabrikam User Management` and **Custom_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`, the dashboard would look like that:
-
-![](/media/articles/extensions/delegated-admin/custom-dashboard.png)
 
 
 <table class="table">
@@ -122,5 +118,18 @@ This dashboard is using the standard UI. To change that, use the **Title** and *
         <th>Yes</th>
     </tr>
 </table>
+
+
+## Customize the dashboard
+
+You can use the **Title** and **Custom_CSS** variables to customize the look and feel of your dashboard. 
+
+Navigate to the [Extensions](${uiURL}/#/extensions) page and go to the settings of the **Delegated Administration** extension. We are going to set a custom title and a custom css file:
+- Set the **Title** to `Fabrikam User Management`.
+- Set the **Custom_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`.
+
+Save your changes, navigate to the extension and login. The dashboard now looks like that:
+
+![](/media/articles/extensions/delegated-admin/custom-dashboard.png)
 
 
