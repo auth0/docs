@@ -24,7 +24,7 @@ You should already know how to manage the `Credentials` object, as explained in 
 
 ### 1. Get a token
 
-Your first step is to save the `Credentials` object, here is a small memo of this step.
+Your first step is to get the `Credentials` object, here is a reminder of this step.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -54,8 +54,9 @@ Then, you need to add the token as a mean of authentication to the request heade
 // Retrieve the credentials from where you saved them
 String tokenID = getCredentials.getTokenID();
 
-AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url, 
-App.getInstance().getUserCredentials().getIdToken(), null, new Response.Listener<JSONObject>() {
+AuthorizationRequestObject authorizationRequest = new 	AuthorizationRequestObject(Request.Method.GET,url, 
+	tokenID, null, new Response.Listener<JSONObject>(){
+	
 	@Override
 	public void onResponse(JSONObject response) {
 		// Parse Response
@@ -84,7 +85,7 @@ public class AuthorizationRequestObject extends JsonObjectRequest{
 	@Override
 	public Map getHeaders() throws AuthFailureError {
 		Map headers = new HashMap();
-		headers.put("Bearer \\"+headerTokenID, "Authorization");
+		headers.put("Authorization", "Bearer " + headerTokenID);
 		return headers;
 	}
 
@@ -103,7 +104,6 @@ At this point, you only need to schedule the request.
 ```java
 // Add the request to the RequestQueue.
 queue.add(authorizationRequest);        
-        }      
 ```
 
 ### Done!
