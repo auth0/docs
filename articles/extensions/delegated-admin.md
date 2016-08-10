@@ -65,6 +65,7 @@ Once you provide valid credentials you are navigated to the *Delegated Administr
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
 
+There are two available views, *Users* and *Logs*. At the *Users* view you can see all the users displayed and perform certain actions on them. In the table below you can see all the options you can perform on a user, which are available via the [dashboard](${uiURL}/#/) and which via the extension: 
 
 <table class="table">
     <tr>
@@ -119,6 +120,19 @@ Once you provide valid credentials you are navigated to the *Delegated Administr
     </tr>
 </table>
 
+Notice the new *Reset password* option available via the extension. This option will send an email to the user allowing them to choose a new password. To do this click on a user and select *Actions > Reset password*.
+
+![](/media/articles/extensions/delegated-admin/reset-pass-01.png)
+
+Once you confirm the action the user will receive an email, containing a link to change the password.
+
+![](/media/articles/extensions/delegated-admin/reset-pass-02.png)
+
+The link navigates the user to the Lock widget, asking for a new password.
+
+![](/media/articles/extensions/delegated-admin/reset-pass-03.png)
+
+The user now can login with the new password.
 
 ## Customize the dashboard
 
@@ -132,4 +146,8 @@ Save your changes, navigate to the extension and login. The dashboard now looks 
 
 ![](/media/articles/extensions/delegated-admin/custom-dashboard.png)
 
+
+## Keep it safe
+
+explain security considerations
 
