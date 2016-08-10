@@ -18,7 +18,7 @@ This tutorial and seed project have been tested with the following:
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
   pkgFilePath: '00-Starter-Seed/App.config',
-  pkgType: 'replace'
+  pkgType: 'none'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
