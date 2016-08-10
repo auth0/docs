@@ -4,13 +4,13 @@ description: This tutorial will show you how assign roles to your users, and use
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample/tree/master/03-Authorization',
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-aspnetcore-webapi-sample',
   pkgBranch: 'master',
   pkgPath: '03-Authorization',
-  pkgFilePath: null,
-  pkgType: 'server'
+  pkgFilePath: '03-Authorization/appsettings.json',
+  pkgType: 'replace'
 }) %>
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.

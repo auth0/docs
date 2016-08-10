@@ -4,9 +4,14 @@ description: This tutorial will show you how to display get the user's profile a
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/05-User-Profile',
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-sample',
+  pkgBranch: 'master',
+  pkgPath: '05-User-Profile',
+  pkgFilePath: '05-User-Profile/SampleMvcApp/appsettings.json',
+  pkgType: 'replace'
 }) %>
-
 
 ## Getting the profile
 
