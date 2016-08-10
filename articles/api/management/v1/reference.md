@@ -1,4 +1,4 @@
-# Auth0 API Reference
+# Auth0 Management API Reference
 
 ### API endpoint
 

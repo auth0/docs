@@ -2,7 +2,6 @@
 title: Login
 description: This tutorial will show you how to use the Auth0 EmberJS SDK to add authentication and authorization to your web app.
 ---
-## EmberJS Tutorial
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
@@ -17,6 +16,8 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/simple',
+  pkgOrg: 'auth0',
   pkgRepo: 'auth0-ember-simple-auth',
   pkgBranch: 'master',
   pkgPath: 'examples/simple',
@@ -91,7 +92,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         auth: {
           params: {scope: 'openid'} //Details: https://auth0.com/docs/scopes
         }
-      }; 
+      };
 
       this.get('session').authenticate('simple-auth-authenticator:lock', lockOptions);
     }

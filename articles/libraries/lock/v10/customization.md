@@ -51,7 +51,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [forgotPasswordLink](#forgotpasswordlink-string-)
 - [mustAcceptTerms](#mustacceptterms-boolean-)
 - [prefill](#prefill-object-)
-- [signupLink](#signuplink-string-)
+- [signUpLink](#signuplink-string-)
 - [usernameStyle](#usernamestyle-string-)
 
 **Enterprise Options**:
@@ -200,7 +200,7 @@ var options = {
 
 ### languageDictionary {Object}
 
-Allows customization of every piece of text displayed in the Lock. Defaults to {}. See below Language Dictionary Specification for the details.
+Allows customization of every piece of text displayed in the Lock. Defaults to {}. See English language [Language Dictionary Specification](https://github.com/auth0/lock/blob/master/src/i18n/en.js) for the full list of `languageDictionary` values able to be altered with this object.
 
 ```js
 var options = {
@@ -363,7 +363,7 @@ WARNING: There is a known bug that prevents popup mode from functioning properly
 ```js
 var options = {
   auth: {
-    params: {redirect: false},
+    redirect: false
   }
 };  
 ```
@@ -375,7 +375,7 @@ The URL Auth0 will redirect back to after authentication. Defaults to the empty 
 ```js
 var options = {
   auth: {
-    params: {redirectUrl: 'http://testurl.com'}
+    redirectUrl: 'http://testurl.com'
   }
 };  
 ```
@@ -391,7 +391,7 @@ The value of `responseType` should be set to "token" for Single Page Application
 ```js
 var options = {
   auth: {
-    params: {responseType: 'token'}
+    responseType: 'token'
   }
 };  
 ```
@@ -407,7 +407,7 @@ Failing to set this to true will result in multifactor authentication not workin
 ```js
 var options = {
   auth: {
-    params: {sso: true}
+    sso: true
   }
 };  
 ```
@@ -577,7 +577,7 @@ var options = {
 
 ### mustAcceptTerms {Boolean}
 
-When set to `true` displays a checkbox input along the terms and conditions that must be checked before signing up. The terms and conditions can be specified via the `languageDictionary` option, see the example below. Defaults to `false`.
+When set to `true` displays a checkbox input alongside the terms and conditions that must be checked before signing up. The terms and conditions can be specified via the `languageDictionary` option. This option will only take effect for users signing up with database connections. Defaults to `false`.
 
 ```js
 //
@@ -597,7 +597,7 @@ var options = {
 };
 ```
 
-### signupLink {String}
+### signUpLink {String}
 
 Set the URL to be requested when clicking on the Signup button. 
 
@@ -607,9 +607,9 @@ When set to a non empty string, this option forces `allowSignUp` to `true`.
 
 ```js
 //
-lock.show({
-  signupLink: 'https://yoursite.com/signup'
-});
+var options = {
+  signUpLink: 'https://yoursite.com/signup'
+};
 ```
 
 ### usernameStyle {String}
@@ -662,9 +662,7 @@ var options = {
 };
 ```
 
-// Vars
+<!-- Vars-->
 
 [authparams-link]: /libraries/lock/v10/sending-authentication-parameters
 [windowopen-link]: https://developer.mozilla.org/en-US/docs/Web/API/Window.open#Position_and_size_features
-
-[ui-customization]: /libraries/lock/v10/ui-customization

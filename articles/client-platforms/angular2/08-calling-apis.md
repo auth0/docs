@@ -4,16 +4,22 @@ description: This tutorial will show you how to use angular2-jwt library in Angu
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/08-Calling-Api',
-}) %>_
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '08-Calling-Api',
+  pkgFilePath: null,
+  pkgType: 'js'
+}) %>
 
-The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header.
+Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.
 
-## Meet AuthHttp
+## Sending Authenticated HTTP Requests
 
-In order to make an authorized request, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+In order to make an authenticated request, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same interface as the `Http` module but automatically adds the authorization header to requests.
 
-First you need to add the `AUTH_PROVIDERS` from `angular2-jwt`
+First, add `AUTH_PROVIDERS` from `angular2-jwt`:
 
 ```typescript
 /* ===== app/main.ts ===== */
@@ -27,8 +33,7 @@ bootstrap(AppComponent, [
 ])
 ```
 
-Then you can import `AuthHttp`, inject it in your component and use it to make the authenticated request:
-
+Then import `AuthHttp`, inject it in your component and use it to make the authenticated request:
 
 ```typescript
 /* ===== app/ping.component.ts ===== */
@@ -58,17 +63,13 @@ export class Ping {
 }
 ```
 
-With that your request will have Authorization in your request herders:
+Your request will have the `Authorization` header added automatically:
 
-```bash
-Authorization: Bearer eyJ0eXAiOiJKV1Qi...
-```
+`Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
 
-By default `AuthHttp` will fetch the token from `localStorage`, using `'id_token'` key. You can change the key used, or even set another function to get the token, setting the provider by yourself. More detailed options [here](https://github.com/auth0/angular2-jwt#configuration-options)
+By default, `AuthHttp` will fetch the token from `localStorage` using the `id_token` key. You can change the key used. Or you can create another function to get the token and set the provider manually. For more detail on available options, see: [Configuration Options](https://github.com/auth0/angular2-jwt#configuration-options).
 
-
-For example changing the tokenName (key used in localStorage):
-
+This example changes the `tokenName` to a different `localStorage` key:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -93,7 +94,7 @@ bootstrap(AppComponent, [
 
 ## Not sending the JWT for specific requests
 
-When you don't want to send the authentication headers just use the default angular [Http](https://angular.io/docs/ts/latest/guide/server-communication.html) client.
+If you do not want to send the access token in the authorization header, you can use the default Angular [Http](https://angular.io/docs/ts/latest/guide/server-communication.html) client:
 
 ```typescript
 /* ===== app/ping.component.ts ===== */
@@ -127,6 +128,3 @@ export class Ping {
 }
 ```
 
-## Done!
-
-You have implemented the way of calling an authorized api using Auth0 token.

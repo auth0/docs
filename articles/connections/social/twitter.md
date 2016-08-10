@@ -46,6 +46,8 @@ To connect your Auth0 app to Twitter, you will need to generate *Consumer* and *
 
   ![](/media/articles/connections/social/twitter/twitter-api-5.png)
 
+Unlike some other social connections, Twitter manages the permissions of attributes at an application level. By default, your application will request Read and Write permissions of the Twitter provided attributes, this can only be changed in the [Twitter Application Management page](https://apps.twitter.com) in the **Permissions** section. [Click here](https://dev.twitter.com/oauth/overview/application-permission-model) to learn more about Twitter's Application Permission Model.
+
 4. Click **Save**.
 
 ## 4. Enable the Connection
@@ -73,3 +75,19 @@ To connect your Auth0 app to Twitter, you will need to generate *Consumer* and *
 4. If you have configured everything correctly, you will see the **It works!!!** page:
 
   ![](/media/articles/connections/social/twitter/twitter-api-10.png)
+
+## 6. *Optional* Getting an Access Token from Twitter
+
+Twitter allows the ability to generate an OAuth access token for the owner of an application. This can be used to make API requests on your own account's behalf. 
+
+To generate an Access Token and Access Secret:  
+
+1. Visit Twitter's [Application Management](https://apps.twitter.com) page and select your application.
+
+2. Click on the link to **Keys and Access Tokens**.
+
+3. Near the bottom of the page you will see a button **Create my access token** click this to generate an authorized access token and secret. Remember, do not share your Access Token Secret.
+
+  ![](/media/articles/connections/social/twitter/twitter-api-11.png)
+
+4. On this page you can also regenerate or revoke your Access Token and Secret if you think they may have been compromised.

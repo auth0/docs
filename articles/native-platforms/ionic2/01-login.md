@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Ionic 2 SDK to add authentication and authorization to your mobile app.
 ---
 
-## Ionic 2 Framework Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 6.3.0
@@ -13,11 +11,13 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/auth0-ionic2',
+  pkgOrg: 'auth0',
   pkgRepo: 'auth0-ionic2',
   pkgBranch: 'master',
-  pkgPath: '',
-  pkgFilePath: 'app/auth0-variables.ts',
-  pkgType: 'replace'
+  pkgPath: null,
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**

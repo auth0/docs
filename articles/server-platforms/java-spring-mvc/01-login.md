@@ -5,6 +5,12 @@ description: This tutorial will show you how to use the Auth0 Java Spring MVC SD
 
 <%= include('../../_includes/_package', {
 githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
+pkgOrg: 'auth0-samples',
+pkgRepo: 'auth0-spring-mvc-sample',
+pkgBranch: 'master',
+pkgPath: '01-Login',
+pkgFilePath: null,
+pkgType: 'none'
 }) %>
 
 

@@ -36,7 +36,7 @@ After the code has been successfully scanned, you will see a confirmation screen
 > ![](/media/articles/mfa/android-passphrase.png)
 
 ### Google Authenticator
-If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator.  You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
+If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator. You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
 
 A code will appear, and you will have five minutes to scan the code before it expires. After scanning the code, you will get a six digit code to enter. Once you enter this code, you will see a confirmation screen which has a recovery code. If for some reason you do not have your mobile device, you will need this recovery code to login. Make sure to take note of this code and keep it somewhere safe. Check the box that you have recorded the code, and then you are logged in.
 
@@ -62,25 +62,47 @@ Depending on the type of two-factor authentication you chose when you were signi
 
 After entering your username and password, a push notification will be sent to the Guardian app on your mobile device. This notification is a login request, it includes the application name, the OS and browser of the request, the location and the date of the request. If you recognize this request as your own, tap the **Allow** button. You should now be logged in.
 
+If you are not currently connected to the internet on your mobile device to receive push notifications, you can enter the OTP(One-time password) manually by clicking "enter the code".
+
+![](/media/articles/mfa/guardian-enter-code.png)
+
+To find this code, go into the Guardian app on your device, and click on the application you are trying to log into. Then you should see information on your last sign in and a 6-digit code at the bottom which is your OTP.
+
+![](/media/articles/mfa/guardian-otp-code.png)
+
+Enter this code to finish signing in.
+
+If you do not have your mobile device available to you during sign in, you can enter the recovery code that was given when you signed up by clicking the "Use the Recovery Code" link.
+
 ### Google Authenticator
 
 After entering your username and password, you will be prompted for a six digit code. Open the Google Authenticator app on your mobile device to find the correct code. If you use Google Authenticator for other applications as well, make sure you are using the code for the current application. After entering the six digit code you will be logged in.
+
+If you do not have your mobile device available to you during sign in, you can enter the recovery code that was given when you signed up by clicking the "Use Recovery Code" link.
 
 ### SMS
 
 After entering you enter your email and password, a SMS message will be sent to the phone number you entered when you signed up. Enter the six digit code from the message into the box to complete your login.
 
+If you do not have your mobile device available to you during sign in, you can enter the recovery code that was given when you signed up by clicking the "Use Recovery Code" link.
+
 ## Troubleshooting
 
-### If you do not have your mobile device
+### If you do not have your mobile device or it is turned off
 
-If you have lost your phone and are unable to finish the two-step authentication you will need the recovery code from when you signed up. Enter this code to access your account without your device.
+If you have lost your device you can finish the two-step authentication with the recovery code from when you signed up. After entering your email and password to login, click the link that says "Use the recovery code" to access your account without using your device.
 
 If you don't have your recovery code you will not be able to login. Contact your system administrator for help accessing your account.
 
 ### If you forgot your password
 
 If you forgot your password when you are trying to login, click **Don't remember your password?** underneath the login. Enter your email to receive an email that will contain a link to reset your password.
+
+### If your OTP is not being accepted 
+
+If the 6-digit code in the Guardian or the Google Authenticator app are being rejected for sign in, first check that you are selecting the right application from the list on the landing page of each application. You should see the name of the application and the email you are using for sign in, make sure these are correct.
+
+If you know you are selecting the correct connection, make sure that your mobile device's clock settings are correct. One-time passwords are generated using Coordinated Universal Time(UTC) so your device time must be correct to generate the correct OTP.
 
 ### Transaction Expiration
 

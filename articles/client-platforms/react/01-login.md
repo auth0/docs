@@ -11,16 +11,24 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample/tree/master/01-Login'
+  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-react-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 ## 1. Create the AuthService class
 
-The best way to have authentication utilities available across the application is to create a helper class an share its instance to the React Components passing it as their props. Let's create the helper inside the `src/utils` folder to encapsulate the login functionality and name it `AuthService`.
+The best way to have authentication utilities available across your application is to create a helper class. Then you can share an instance of this class by passing it to the React Component as a prop.
 
-We'll need an `Auth0Lock` instance, which receives your Auth0 credentials and an options object (check the available options [here](/libraries/lock/v10/customization)). Instead of hard coding the credentials, `AuthService` will receive them as contructor parameters.
+First, you will create the `AuthService` helper class to encapsulate the login functionality and save it inside the `src/utils` folder as `AuthService.js`.
 
-With the internal Auth0 Lock widget instance, we can hook a callback for the `authenticated` event. The event is emitted after every successful login, passing the user authentication token (`idToken`) as a parameter. For now we're storing the `idToken` value into `localStorage`.
+Inside this class, you will create an `Auth0Lock` instance that receives your Auth0 credentials and an options object. (For a list of  available options, see: [Lock: User configurable options](/libraries/lock/v10/customization)). Instead of hard-coding your credentials in this class, they are passed from the `AuthService` constructor parameters to the `Auth0Lock` instance
+
+Then, with the `Auth0Lock` instance, you can hook a callback for the `authenticated` event. This event will be triggered after every successful login, passing the user authentication token (`idToken`) as a parameter. Then the `setToken` method stores the `idToken` value in `localStorage`.
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -68,11 +76,11 @@ export default class AuthService {
 }
 ```
 
-The other helper methods you see above are `login`, to call `lock.show()` and display the login widget, `logout` to remove the localStorage data and `loggedIn` that just checks if an `idToken` exists, returning a boolean.
+The other helper methods shown above include: `login` (to call `lock.show()` and display the login widget), `logout` (to remove the `localStorage` data), and `loggedIn` (that checks if an `idToken` exists and returns a boolean).
 
 ## 2. Use AuthService to protect private routes
 
-To use the new class to protect routes, just import `AuthService` in `src/views/Main/routes.js` and create a new instance. Below is the updated routes file.
+To use the new class to protect routes, import `AuthService` in `src/views/Main/routes.js` and create a new instance. Below is the updated file:
 
 ```javascript
 /* ===== ./src/views/Main/routes.js ===== */
@@ -106,11 +114,13 @@ export default makeMainRoutes
 ```
 ${snippet(meta.snippets.envFile)}
 
-Back to `routes.js`, we now have an onEnter callback assigned to `/home` route. It calls `requireAuth` to check if there is an authenticated user, redirecting to `/login` otherwise. The Login component does not exist yet, so let's create it.
+In the updated `routes.js`, you now have an `onEnter` callback assigned to the `/home` route. This calls `requireAuth`, which checks if there is an authenticated user, and redirects to `/login` if not. 
+
+Now you can create the Login component.
 
 ## 3. Create the Login view
 
-Login is a new view component that should be placed in `src/views/Main/Login/`:
+Login is a new view component that should be saved in `src/views/Main/Login/`. It is is a React Component that accepts into its props an `auth` object as an instance of `AuthService`.
 
 ```javascript
 /* ===== ./src/views/Main/Login/Login.js ===== */
@@ -141,13 +151,15 @@ export class Login extends React.Component {
 export default Login;
 ```
 
-Basically, it's a React Component that expects an `auth` objects into its props, validated as an instance of `AuthService`. The Login button onClick event is calling the `login` to show auth0 login window.
+The **Login** button `onClick` event calls `login` to show the Auth0 login window.
 
-If you run the application now you'll see an error in Login component, because `auth` is still not included in the props.
+Now, if you run the application, you will see an error in the Login component because `auth` is still not included in the props.
 
 ## 4. Send `auth` from router to Container children
 
-To fix the Login component missing dependency, we need to propagate the `auth` parameter from `Container` component, that is receiving it from the route, to its children. The updated `src/views/Main/Container.js` is:
+To fix the Login component's missing dependency, you need to propagate the `auth` parameter from the `Container` component (that receives it from the route) to the container's children. 
+
+The updated `src/views/Main/Container.js` is:
 
 ```javascript
 /* ===== ./src/views/Main/Container.js ===== */
@@ -178,8 +190,5 @@ export class Container extends React.Component {
 export default Container;
 ```
 
-After the Container change, the Login button should be working and redirecting to the Home page after a successful authentication.
+Now, the Login button should work and the user will be redirected to the home page after successful authentication.
 
-### 5. All done!
-
-You have completed the implementation of Login and Signup with Auth0 in your ReactJS project.

@@ -27,11 +27,15 @@ Subscriber shall receive no SLCs in connection with any unavailability of the Su
 
 #### IV.  Service Level Credits.  Auth0 shall apply the following Service Level Credits:
 
-![](https://docs.google.com/drawings/d/1rCj1NljHTV2wi7kmXdDxHGSS9shpWcp-4zdxCVLlxh8/pub?w=807&h=218)
+| Monthly Uptime Percentage | Days of Service added to the end of the Service term, at no charge to Customer |
+| :---: | :---: |
+| < 99.9% - >= 99.0% | 3 |
+| < 99.0%  - >= 95.0% | 7 |
+| < 95.0% | 15 |
 
 Availability is calculated as follows: 
 
-![](https://docs.google.com/drawings/d/1DJtyLsHJrZZySFWwtx0hEs3wTBbiJJ-zMrDjz0oOUFI/pub?w=549&h=100)
+![](/media/articles/sla/availability.svg)
 
-If you require a different SLA or a dedicated instance of Auth0 in your own IT environment contact <sales@auth0.com>
+If you require a different SLA or a dedicated instance of Auth0 in your own IT environment [contact sales](https://auth0.com/?contact=true).
   

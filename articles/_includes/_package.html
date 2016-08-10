@@ -17,16 +17,19 @@
       if (typeof pkgFilePath === 'undefined') {
         var pkgFilePath = '';
       }
+      if (typeof pkgOrg === 'undefined') {
+        var pkgOrg = 'auth0';
+      }
       %>
 
       <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
-      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <a href="/package/${pkgRepo}/${pkgBranch}?org=${pkgOrg}&path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
       <% } else { %>
-      <a href="/package/${pkgRepo}/${pkgBranch}?path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <a href="/package/${pkgRepo}/${pkgBranch}?org=${pkgOrg}&path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
       <% } %>
     <% } %>
     <% if (typeof githubUrl != 'undefined') { %>
-      <a href="${githubUrl}" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
+      <a href="${githubUrl}" target="_blank" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
     <% } %>
     </div>
   </div>

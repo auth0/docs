@@ -42,7 +42,7 @@ The following example will manually initiate the authentication transaction:
 
 The SDK for your platform should make the `access_token` available in simplest way for your platform. For example:
 
-* If you are using Lock in [Popup Mode](/libraries/lock/types-of-applications#popup-mode) in a SPA, the `access_token` is available as a callback parameter:
+* If you are using Lock in [Popup Mode](/libraries/lock/v10/popup-mode) in a SPA, the `access_token` is available as a callback parameter:
 
 	```js
 	var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');

@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Windows Universal App C# SDK to add authentication and authorization to your app.
 ---
 
-# Windows UWP App in C# Tutorial
-
 This tutorial explains how to integrate Auth0 login with a Windows UWP (Universal Windows Platform) C# application. The Nuget package `Auth0.Windows.UWP` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 ## Tutorial
@@ -83,7 +81,7 @@ The `Auth0User` has the following properties:
 
 * `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
-* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](/link-accounts).
+* `Auth0AccessToken`: the `access_token` that can be used to access Auth0's APIs. For example, you could use this token to [Link Accounts](/link-accounts).
 
 
 **Congratulations!**

@@ -36,7 +36,7 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Updates</th>
-            <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.        </td>
+            <td>Unscheduled. <br /> Multiple times per day. <br /><br />Staged in two zones.</td>
             <td>Cumulative. Deployed post multi-tenant update after coordination with Customer.</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
             <td>Scheduled with Customer. <br /><br />Minimum 1/month, except critical updates (e.g. vulnerabilities, security updates)</td>
@@ -49,7 +49,7 @@ The following table describes operational and feature differences between each o
             <td>Monitored by Auth0 and Customer's tools</td>
         </tr>
         <tr>
-            <th>SLA Provided</th>
+            <th>Uptime SLA Provided</th>
             <td class="success">Yes</td>
             <td class="success">Yes</td>
             <td class="danger">No</td>
@@ -89,6 +89,20 @@ The following table describes operational and feature differences between each o
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
             <td>Webtask or in-process</td>
+        </tr>
+        <tr>
+            <th>Webtask</th>
+            <td>Multi-Tenant</td>
+            <td>Dedicated</td>
+            <tdth>Cloud</td>
+            <td>On-Premises</td>
+        </tr>
+        <tr>
+            <th>Anomaly Detection</th>
+            <td class="success">Brute Force and Breached Passwords</td>
+            <td class="success">Brute Force</td>
+            <td class="success">Brute Force</td>
+            <td class="success">Brute Force</td>
         </tr>
         <tr>
             <th>Extensions</th>

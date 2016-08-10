@@ -11,11 +11,13 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 [Reusing Content](#reusing-content)
 
 [Markdown](#markdown)
+  * [Headings](#headings)
   * [Warning banner](#warning-banner)
   * [Panels](#panels)
   * [HTTP Request Snippets](#http-request-snippets)
   * [Escaping Strings](#escaping-strings)
   * [Screenshots](#screenshots)
+  * [Front Matter](#front-matter)
 
 [Test Procedures](#text-procedures)
 
@@ -69,6 +71,13 @@ Additionally, you can send variables to the included document:
 
 ## Markdown
 Markdown on this site conforms to the [CommonMark](http://commonmark.org/) spec. Additionally, there are a few custom markdown features available as described below.
+
+### Headings
+One common mistake with formatting of headings is to not include a space between the hashes and the text. Some markdown processors allow this, but we do not. You must put a space as shown below.
+
+INVALID: `#My Heading`
+
+VALID: `# My Heading`
 
 ### Warning banner
 You can add a warning banner to the top of a page to notify that a page is deprecated or other similar messages.
@@ -160,13 +169,18 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```
- 1. Auth0 screenshots should capture the complete browser window (**Control + Shift + 4**, then press **Space**).
+ 1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
  2. Resize image to a maximum 900px width.
 
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
+ 
+ **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
+ 
+#### Mobile Screenshots
+For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
 #### Close-ups
 The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example, to show a field requiring input.
@@ -176,6 +190,28 @@ It is often best to shrink the screenshot slightly to avoid having the image of 
 #### Borders
 For close-ups and other screenshots that do not include the browser window, apply a 1px centered border (**select all > edit > stroke**) of color **#cccccc** to keep the image from blending with the background and appearing to float.
 
+### Front Matter
+You can set various properties of articles in the front matter of the document. Each document should have the `title` and `description` properties set. You can set other variables depending on the document.
+
+Example front matter:
+```
+---
+title: My Document
+description: This is a document
+---
+```
+
+#### URLs
+Document urls are by default in the same format as the forlder structure after the `articles` folder. So for example if you document is stored at `articles/my-folder/document.md`, the url would be `/docs/my-folder/document`.
+
+If you create a folder that will have multiple articles, the best practice is to set the default document as `index.md`. However, the url must be set in that document to a friendly url. For example, if you have a document `/articles/my-folder/index.md`, you should set the url to be `/my-folder`.
+
+URL Front Matter
+```
+---
+url: /path/to/document
+---
+```
 
 ## Test Procedures
 When testing a document or tutorial:
@@ -350,6 +386,7 @@ Each sample repo should have appropriate CI setup. You should use the appropriat
 
 
 In the case of things like iOS and Android samples, we should build with multiple version of Android/Xcode, etc. You can see an example here: https://travis-ci.org/auth0/Auth0.swift
+
 1. No need to write code or specialized guide for mobile
 2. We don't have a lot of stuff finished to be doing this one in mobile.
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
@@ -388,7 +425,8 @@ There are four types of packaging that can happen with this service.
 
 ```
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/sample-project'
+  githubUrl: 'https://github.com/auth0-samples/sample-project',
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'node-auth0',
   pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',
@@ -403,6 +441,7 @@ The follow are the values for the package configuration.
 | Variable  | Description |
 | :---------------------------- | :----------------------------------------- |
 | `githubUrl` | The url to the github project. This will be used in the "Fork on Github" button. |
+| `pkgOrg` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
 | `pkgRepo` | The name of the github repository. |
 | `pkgBranch` | Optional. The branch of the repo to download from. Defaults to `master`. |
 | `pkgPath` | The path where the sample is contained. This will be the folder that gets downloaded. |
