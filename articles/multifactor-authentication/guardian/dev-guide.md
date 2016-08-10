@@ -120,5 +120,5 @@ Here are all the possible events related to MFA:
 | `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
 
-These events can also be searched using the [APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search  criteria using the `q` parameter or you can search by a specific log ID.
+These events can also be searched using the [Management APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search  criteria using the `q` parameter or you can search by a specific log ID.
 

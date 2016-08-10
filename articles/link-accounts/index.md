@@ -150,9 +150,9 @@ As stated above, [user_metadata and app_metadata](/api/v2/changes#app-_metadata-
 
 The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) is also available. You can find sample code for merging metadata before linking using this SDK [here](/link-accounts/suggested-linking#4-verify-and-merge-metadata-before-linking).
 
-## The API
+## The Management API
 
-The Auth0 API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways:
+The Auth0 Management API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways:
 
  1. With the JWT from both the primary and secondary accounts:
 
@@ -191,7 +191,7 @@ Below are implementation details for calling the Linking Account API in these sc
 
 **Auth0 does not support automatic linking**, per se. However, you can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address. For security purposes, it is best to link accounts **only if both e-mails are verified**.
 
-The rule is an example of linking accounts in server-side code using the Auth0 API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [API V2 token](/api/v2/tokens) with `update:users` scope.
+The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [Management API v2 token](/api/v2/tokens) with `update:users` scope.
 
 **NOTE:** For starting point, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md).
 
@@ -213,10 +213,10 @@ As with automatic linking, in this scenario you will set up a [Rule](/rules) tha
 
 ## Unlinking accounts
 
-The Auth0 API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
+The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
 
 * `update:current_user_identities`: when calling the endpoint from client-side code where you have the primary user's JWT (which comes with this scope).
-* `update:users`: when calling the endpoint from server-side code where you need to generate an [API V2 TOKEN](/api/v2/tokens) having this scope.
+* `update:users`: when calling the endpoint from server-side code where you need to generate an [Management API v2 TOKEN](/api/v2/tokens) having this scope.
 
 ```
 DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID

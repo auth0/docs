@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Electron SDK to add authentication and authorization to your app.
 ---
 
-## Electron Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 5.0.0

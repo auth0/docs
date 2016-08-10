@@ -2,7 +2,7 @@
 
 The [OAuth2](oauth2) or [OAuth1](oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.
 
-Here are a few examples of OAuth2/OAuth1 connections you can create through the [Auth0 API v2](/api/v2#!/Connections/post_connections). You will require an [API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the API:
+Here are a few examples of OAuth2/OAuth1 connections you can create through the [Management Auth0 API v2](/api/v2#!/Connections/post_connections). You will require a [Management API V2 token](/api/v2/tokens) with `create:connections` scope to invoke the API. Save these snippets to a file (sample-connection.json) and then use cURL to call the Management API:
 
 ```
 curl -vX POST https://${account.namespace}/api/v2/connections -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @sample-connection.json

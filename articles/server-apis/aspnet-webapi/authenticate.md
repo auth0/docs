@@ -3,8 +3,6 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 ASP.NET Web API SDK to add authentication and authorization to your API.
 ---
 
-## ASP.NET Web API Tutorial
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet',
   pkgBranch: 'master',
