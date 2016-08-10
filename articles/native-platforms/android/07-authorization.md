@@ -55,9 +55,9 @@ Inside it, you will have the Role, and you will be ready to perform the Access C
    
    
 ```java
-String role = mUserProfile.getAppMetadata().get("roles").toString();
+List<String> roles = (List<String>) mUserProfile.getAppMetadata().get("roles");
  
-if(role.contains("admin")){
+if(roles.contains("admin")){
  // perform any action
 }; 			
 ```
