@@ -1,6 +1,6 @@
 ---
 title: Rules
-description: This tutorial will show you how to add customized rules to your app.
+description: This tutorial will show you how to add customized Auth0 rules to your app.
 seo_alias: android
 ---
 
@@ -40,18 +40,18 @@ This is just a basic template. You can edit it to meet your business needs. Once
   
 To see the newly created rule working, just implement a login and check the user profile information (you can check out how to do it in the [user profile tutorial](04-user-profile.md)).
   
-You can access the `country` added by the rule within the `extraInfo` hashmap from the `payload` object you receive in the callback:
+You can access the `country` added by the rule within the `extraInfo` hashmap from the `userProfile` object you receive in the callback (named payload by default):
   
 ```java
 client.tokenInfo(${account.clientId})
 	  .start(new BaseCallback<UserProfile>() {
 
 	@Override
-	public void onSuccess(final UserProfile payload) {
+	public void onSuccess(final UserProfile userProfile) {
 		MainActivity.this.runOnUiThread(new Runnable() {
 			public void run() {
 				// Get the country from the user profile
-				String country = payload.getExtraInfo().get("country").toString());
+				String country = (String) payload.getExtraInfo().get("country");
 			}
 		});
 	}
