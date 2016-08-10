@@ -65,7 +65,7 @@ Once you provide valid credentials you are navigated to the *Delegated Administr
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
 
-This dashboard is using the standard UI. To change that, use the **Title** and **Custom_CSS** variables. For example, if we set the **Title* to `Fabrikam User Management` and the **Custom_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`, the dashboard would look like that:
+This dashboard is using the standard UI. To change that, use the **Title** and **Custom_CSS** variables. For example, if we set **Title** to `Fabrikam User Management` and **Custom_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`, the dashboard would look like that:
 
 ![](/media/articles/extensions/delegated-admin/custom-dashboard.png)
 
