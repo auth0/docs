@@ -1,5 +1,5 @@
 ---
-description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's API.
+description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
 ---
 
 # Query String Syntax

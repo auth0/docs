@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Node.js Express SDK to add authentication and authorization to your web app.
 ---
 
-## NodeJS Web App Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
@@ -16,9 +14,7 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
   pkgPath: 'examples/nodejs-regular-webapp',
-  pkgFilePath: null,
   pkgType: 'server'
 }) %>
 
@@ -96,7 +92,7 @@ http://yourUrl/callback
 
 ${lockSDK}
 
-> **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL specified in the previous step
 
 ### 7. Accessing user information
 

@@ -47,7 +47,9 @@ The DKIM configuration is configured by adding a TXT record to your domain's zon
 
 and the value to:
 
-`v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;`
+```
+v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;
+```
 
 ### Subject
 
@@ -63,7 +65,9 @@ If the **Subject** field is empty, Auth0 will auto-populate this text depending 
 
 You can redirect users to a specific page on the **Allowed Callback URL** using the following:
 
-`{application.callback_domain}/result_page`
+```
+{application.callback_domain}/result_page
+```
 
 If your application has multiple **Allowed Callback URL**s configured, Auth0 will use the first URL listed.
 
@@ -85,7 +89,9 @@ You can modify the lifetime of this link for security purposes. By default, the 
 
 If users click on an expired link and a **Redirect To** URL is configured, they will be redirected to the configured **Redirect To** URL. The following text will be appended to the query string:
 
-`http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false`
+```
+http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
+```
 
 ## Email Templates
 
@@ -145,7 +151,9 @@ The following macros are available in the **Verification Email** template:
 
 If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
 
-`http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.&success=true`
+```
+http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.&success=true
+```
 
 ### Welcome Email
 
@@ -169,7 +177,9 @@ The following macros are available in the **Change Password Confirmation** email
 
 If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
 
-`http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.`
+```
+http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
+```
 
 ### Blocked Account Email
 

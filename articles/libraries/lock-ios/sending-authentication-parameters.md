@@ -41,7 +41,7 @@ A0AuthParameters *parameters = [A0AuthParameters newDefaultParams];
 There are different values supported for scope:
 
 * `'openid'`: It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id (sub claim). You can use objc constant `A0ScopeOpenId`.
-* `'openid profile'`:(not recommended): will return all the user attributes in the token. This can cause problems when sending or receiving tokens in URLs (e.g. when using response_type=token) and will likely create an unnecessarily large token. Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible. You can use objc constant `A0ScopeProfile`.
+* `'openid profile'`:(not recommended): will return all the user attributes in the token. This can cause problems when sending or receiving tokens in URLs (e.g. when using response_type=token) and will likely create an unnecessarily large token(especially with Azure AD which returns a fairly long JWT). Keep in mind that JWTs are sent on every API request, so it is desirable to keep them as small as possible. You can use objc constant `A0ScopeProfile`.
 * `'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
 Also when need to keep the `id_token` alive, you can request a refresh_token adding to the scope the value `offline_access` (Or use the constant `A0ScopeOfflineAccess`).

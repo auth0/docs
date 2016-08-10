@@ -1,26 +1,20 @@
+---
+description: How to customize the user sign-up form with additional fields using Lock or the Auth0 API.
+---
+
 # Custom Signup
 
-In some cases, you may want to customize the user sign up form with more fields other than email and password. Read below to learn how to do it using Lock or the API.
+In some cases, you may want to customize the user sign up form with more fields other than email and password.
 
 ## Using Lock
 
-Lock 10 supports custom fields for the signup. Read more: [Lock 10 Preview Release](/libraries/lock/v10).
+Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-). For more information, see: [Lock 10 Preview Release](/libraries/lock/v10).
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
-# Using the API
+## Using the API
 
-You can find the [full source of this example on GitHub](https://github.com/auth0/auth0-custom-signup-apiv2-sample), or [see it live here](https://auth0.github.io/auth0-custom-signup-apiv2-sample/).
-
-## Overview
-
-We can describe a custom signup flow with the following steps:
-
-1. [Sign up the user](/auth-api#!#post--dbconnections-signup) with just their username and password
-2. [Log them in programatically](/auth-api#!#post--oauth-ro) and [get back a JWT](/scopes)
-3. [Call API v2 with the user's JWT](/api/v2#!/Users/patch_users_by_id) to [add the custom fields to `user_metadata`](/api/v2/changes#user-metadata)
-
-## 1. Signup form
+### 1. Create a Sign Up form to capture custom fields
 
 ```html
 <form id="signup">
@@ -44,110 +38,45 @@ We can describe a custom signup flow with the following steps:
 </form>
 ```
 
-Notice that `name` and `color` are custom fields.
+**NOTE**:  `name` and `color` are custom fields.
 
-> Note that there is currently no way to validate user-supplied custom fields when signing up.
-Validation must be done from an Auth0 rule when logging in, or with custom logic in your application.
+::: panel-info Custom field validation
+There is currently no way to validate user-supplied custom fields when signing up. Validation must be done from an Auth0 [Rule](/rules) at login, or with custom logic in your application.
+:::
 
-## 2. Auth0.js and dependencies
+### 2. Send the Form Data
 
-```html
-<script src="https://cdn.auth0.com/w2/auth0-6.7.js"></script>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-```
+Send a POST request to the [/dbconnections/signup](/api/authentication#!#post--dbconnections-signup) endpoint in Auth0. You will need to send your `ClientId`, the `email` and `password` of the user being signed up, and the custom fields as part of `user_metadata`.
 
-```js
-window.auth0 = new Auth0({
-  domain: '${account.namespace}',
-  clientID: '${account.clientId}'
-});
-```
-
-## 3. Submitting the form (popup mode)
-
-Here we are first signing up the user through Auth0. If the signup is successful,
-a call to `PATCH users/{user_id}` is made, which adds the custom fields to the
-`user_metadata` field of the user's profile.
-
-> This call to APIv2 is allowed from the client because all JWTs for logged-in
-users implicitly include the `update:current_user_metadata` scope by default.
-[This document describes how implicit scopes work when using APIv2](/api/v2/changes#scopes).
-
-```js
-$('#signup').submit(function (e) {
-  e.preventDefault();
-
-  function v2PatchUser (userId, id_token, data, successCallback, errorCallback) {
-    $.ajax({
-        method: 'patch',
-        url: apiEndpoint + 'users/' + userId,
-        dataType: 'json',
-        headers: {
-            'Authorization': 'Bearer ' + id_token
-        },
-        data: data,
-        success: successCallback,
-        error: errorCallback
-    });
+```har
+{
+  "method": "POST",
+  "url": "https://${account.namespace}/dbconnections/signup",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\",\"email\": \"$('#signup-email').val()\",\"password\": \"$('#signup-password').val()\",\"user_metadata\": {\"name\": \"john\",\"color\": \"red\"}}"
   }
-
-  function signupCallback (err, profile, id_token) {
-      if (err) {
-        alert('Something went wrong signing up: ' + err);
-      } else {
-        var data = {
-          user_metadata: {
-            favorite_color: $('#color').val(),
-            name: $('#name').val()
-          }
-        };
-        function updateSuccess () {
-          alert('Successfully signed up!');
-        }
-        function updateError (jqXHR) {
-          alert('Something went wrong signing up: ' + jqXHR.responseText);
-        }
-        v2PatchUser(profile.user_id, id_token, data, updateSuccess, updateError);
-      }
-  }
-
-  auth0.signup({
-    // Don't display a popup to set an SSO cookie
-    sso: false,
-    auto_login: true,
-    connection: 'Username-Password-Authentication',
-    email: $('#signup-email').val(),
-    password: $('#signup-password').val(),
-    user_metadata: {
-        field: "value",
-        field2: "value2"
-    }
-  }, signupCallback);
-
-});
+}
 ```
 
-> You may now send custom fields on user signup!
+## Custom Fields Limitations
 
-### Custom Fields
+When your users sign up, the custom fields are sent as part of `user_metadata`. The limitations of this field are:
 
-When your users sign up, you can have custom fields sent as part of `user_metadata`.
-
-Limitations:
-* `user_metadata` must contain no more than ten fields;
+* `user_metadata` must contain no more than 10 fields;
 * `user_metadata.field` must be a string;
 * `user_metadata.field.value.length` must be fewer than 500 characters;
 * `user_metadata.field.length` must be fewer than 100 characters.
 
 ## Redirect mode
 
-Popup mode may be inappropriate for regular web apps or mobile apps. To
-use redirect mode, configure a callback URL when calling `auth0.signup`. After a
-successful login, Auth0 will redirect the user to the configured callback URL
-with a JWT (`id_token`) in the query string.
+After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (`id_token`) in the query string.
 
-> [To learn more about the differences between popup and redirect modes,
-please refer to this document](/libraries/lock/authentication-modes).
+**NOTE** To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).
 
 ```js
 window.auth0 = new Auth0({
@@ -158,30 +87,26 @@ window.auth0 = new Auth0({
 });
 ```
 
-Your server will then need to call APIv2 to add the necessary custom fields to
-the user's profile.
+Your server will then need to call APIv2 to add the necessary custom fields to the user's profile.
 
+## Add Username to Sign Up form
+
+One common signup customization is to add a `username` to the signup.
+
+To enable this feature, turn on the `Requires Username` setting on the [Connections > Database](${uiURL}/#/connections/database/) section of the dashboard under the **Settings** tab for the connection you wish to edit.
+
+Once this has been set, when a user is created manually in the Auth0 dashboard, the screen where users enter their information will prompt them for both an email and a username.
+
+Similarly, the Lock widget in sign up mode will prompt for a username, email and password.
+
+Then users can log in with Username and Password.
 
 ## Optional: Verifying password strength
 
-Password policies for database connections can be configured in the dashboard.
-For more information, [check out the documentation](password-strength).
+Password policies for database connections can be configured in the dashboard. For more information, see: [Password Strength in Auth0 Database Connections](/connections/database/password-strength).
 
 The configured password policies, along with other connection information, can be retrieved publicly by accessing a JSONP file at the following URL:
 
-    https://cdn.auth0.com/client/${account.clientId}.js
+`https://cdn.auth0.com/client/${account.clientId}.js`
 
-This file can then be parsed client-side to find the current password policy configured in the dashboard.
-[Here is an example of how this can be done](https://github.com/auth0/auth0-password-policy-sample).
-
-## Add username to Sign Up form
-
-One very simple signup customization is to add a `username` to the signup.
-
-To set this up, turn on the `Requires username` setting for a Database connection.
-
-Once this has been done, when a user is created manually in the Auth0 dashboard, then the screen where you enter user information will prompt for both email and username.
-
-Similarly, the Lock widget in sign up mode will prompt for username, email and password.
-
-When a user authenticates, they can log in with username + Password.
+This file can then be parsed client-side to find the current password policy configured in the dashboard. For an example, see: [Custom signup with password policy](https://github.com/auth0/auth0-password-policy-sample).

@@ -96,7 +96,7 @@ With **Lock**, you will be implementing a UI that:
 * Automatically accommodates internationalization;
 * Provides instant password policy checking at sign up.
 
-Although you cannot alter Lock's behavior, you can configure several [basic options](/libraries/lock/customization). You can also [customize its appearance](/libraries/lock/ui-customization).
+Although you cannot alter Lock's behavior, you can configure several [basic options](/libraries/lock/customization).
 
 ### When to Use Lock
 
@@ -128,5 +128,5 @@ Consider implementing a custom user interface in conjunction with the **auth0.js
 
 ## See also
 
-* [What is SSO](/sso/single-sign-on)
+* [What is SSO](/sso)
 * [Single Sign On with username/password logins](/sso/sso-username-password)

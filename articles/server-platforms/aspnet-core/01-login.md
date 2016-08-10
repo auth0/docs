@@ -3,10 +3,15 @@ title: Login
 description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: '01-Login/SampleMvcApp/appsettings.json',
+  pkgType: 'replace'
 }) %>
-
 
 ## Configure OpenID Connect middleware
 
@@ -152,6 +157,24 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
         </div>
     </div>
 </div>
+<script src="${widget_url}"></script>
+<script>
+
+  var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {
+      container: 'root',
+      auth: {
+        redirectUrl: '@Model.CallbackUrl',
+        responseType: 'code',
+        params: {
+            scope: 'openid profile', //Details: https://auth0.com/docs/scopes
+            state: '@Model.State',
+            nonce: '@Model.Nonce'
+        }
+    }
+  });
+
+  lock.show();
+</script>
 ```
 
 ## Run your application

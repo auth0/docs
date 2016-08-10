@@ -3,21 +3,20 @@ title: Login
 description: This tutorial will show you how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
 ---
 
-## jQuery Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* NodeJS 4.3
-* Jquery 2.1.1
+* jQuery 2.1.1
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-jquery',
-  pkgBranch: 'gh-pages',
-  pkgPath: (configuration.thirdParty) ? 'examples/widget-with-thirdparty-api' : 'examples/widget-with-api-redirect',
+  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/master/02-Widget-With-Api',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-jquery-samples',
+  pkgBranch: 'master',
+  pkgPath: '02-Widget-With-Api',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
@@ -36,32 +35,31 @@ ${snippet(meta.snippets.dependencies)}
 
 Configure Auth0Lock with your `client-ID` and `domain`:
 
+To discover all the available options for `Auth0Lock`, see [the Lock customization documentation)](/libraries/lock/customization).
+
 ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
- __Note:__ This implementation uses Lock's [redirect mode](/libraries/lock/authentication-modes).
 
 ${snippet(meta.snippets.use)}
 
-To discover all the available arguments for `lock.show`, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
+After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
 
-After authentication, Auth0 will redirect the user back to your application with an identifying token as a hash parameter of `window.location`. Use `lock.parseHash` to parse the hash and create the token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
-
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
 ```js
-var hash = lock.parseHash(window.location.hash);
-if (hash) {
-  if (hash.error) {
-    console.log("There was an error logging in", hash.error);
-    alert('There was an error: ' + hash.error + '\n' + hash.error_description);
-  } else {
-    //save the token in the session:
-    localStorage.setItem('id_token', hash.id_token);
-  }
-}
+lock.on("authenticated", function(authResult) {
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      // Handle error
+      return;
+    }
+
+    localStorage.setItem('id_token', authResult.idToken);
+  });
+});
 ```
 
 ${browser}
@@ -72,10 +70,23 @@ ${browser}
 
 To enable calls to a third-party API <%= configuration.api %>, exchange the JWT token from Auth0 for a token that can be used to query <%= configuration.api %> securely.
 
+Include `auth0.js` to your project by adding following to `index.html`:
+
+```html
+<script src="${auth0js_url_no_scheme}"></script>
+```
+
 Modify the login code in [Step 3](#3-implement-the-login) by adding a call to get the new token:
 
 ```js
-lock.getClient().getDelegationToken({
+var auth0 = new Auth0({
+  domain: AUTH0_DOMAIN,
+  clientID: AUTH0_CLIENT_ID,
+});
+
+...
+
+auth0.getDelegationToken({
    id_token: token,
         // By default the first active third party add-on will be used
         // However, We can specify which third party API to use here by specifying the name of the add-on
@@ -144,7 +155,3 @@ localStorage.removeItem('id_token');
 userProfile = null;
 window.location.href = "/";
 ```
-
-### 7. All done!
-
-You have completed the implementation of Login and Signup with Auth0 and jQuery.

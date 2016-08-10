@@ -3,20 +3,21 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your web app.
 ---
 
-## Go Web App Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* Go 1.5.3
+* Go 1.5.3 and up
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-golang',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-golang-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-golang-samples/tree/master/00-Starter-Seed/regular-web-app',
   pkgBranch: 'master',
-  pkgPath: 'examples/regular-web-app',
+  pkgPath: '00-Starter-Seed/regular-web-app',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
+
 
 **Otherwise, Please follow the steps below to configure your existing GoLang WebApp to use it with Auth0.**
 
@@ -119,7 +120,7 @@ ${snippet(meta.snippets.setup)}
 
 ${include('../\_callbackRegularWebApp')}
 
-In this case, the callbackURL should look something like:
+In this case, the redirectUrl should look something like:
 
 ```
 http://yourUrl/callback
@@ -128,7 +129,7 @@ http://yourUrl/callback
 
 ${lockSDK}
 
-> **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
 ### 5. Accessing user information
 

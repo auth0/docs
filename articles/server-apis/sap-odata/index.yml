@@ -1,7 +1,6 @@
 title: SAP OData
 alias:
   - sap
-  - sap odata
 thirdParty: true
 image: /media/addons/sap_api.svg
 tags:

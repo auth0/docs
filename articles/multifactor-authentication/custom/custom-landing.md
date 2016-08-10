@@ -1,5 +1,5 @@
 ---
-title: Auth0 Guardian
+title: Configuring Custom Multifactor Authentication
 url: /multifactor-authentication/custom
 description: Examples for configuring custom MFA implementations.
 ---

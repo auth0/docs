@@ -1,16 +1,21 @@
 ```html
 <!-- Auth0's lock widget library -->
-<script type="text/javascript" src="https://cdn.auth0.com/js/lock-7.12.min.js"></script>
+<script type="text/javascript" src="https://cdn.auth0.com/js/lock-9.min.js"></script>
 <!-- AngularJS core -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
 <!-- Angular cookie wrapper library for client cookies -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-cookies.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
 <!-- Angular's Router Library for SPA -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular-route.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
 <!-- Auth0's Angular SDK Library -->
 <script type="text/javascript" src="https://cdn.auth0.com/w2/auth0-angular-4.js"></script>
 <!-- Angular wrapper for localStorage and sessionStorage. Defaults to ng-cookies if not available -->
 <script src="http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js" type="text/javascript"> </script>
 <!-- Angular wrapper library for JWT-->
 <script src="http://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js" type="text/javascript"> </script>
+<!-- Your app files -->
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="home/home.js"></script>
+<script type="text/javascript" src="login/login.js"></script>
+
 ```

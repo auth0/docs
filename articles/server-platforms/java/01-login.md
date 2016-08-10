@@ -3,8 +3,14 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Java SDK to add authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-link: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-servlet-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 ### Add Auth0 callback handler
@@ -28,7 +34,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
   <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
   <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
+  <script src="http://cdn.auth0.com/js/lock/10.0.0-rc.2/lock.min.js"></script>
   <script src="/js/jquery.growl.js" type="text/javascript"></script>
 </head>
 <body>
@@ -39,18 +45,19 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
       });
 
       $(function () {
-        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-        lock.showSignin({
-          authParams: {
-            state: <%= "${state}" %>,
-            // change scopes to whatever you like, see https://auth0.com/docs/scopes
-            // claims are added to JWT id_token - openid profile gives everything
-            scope: 'openid user_id name nickname email picture'
-          },
-          responseType: 'code',
-          popup: false,
-          callbackURL: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>' + '/callback'
+        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+          auth: {
+            params: {
+              state: <%= "${state}" %>,
+              // change scopes to whatever you like, see https://auth0.com/docs/scopes
+              // claims are added to JWT id_token - openid profile gives everything
+              scope: 'openid user_id name nickname email picture'
+            },
+            responseType: 'code',
+            redirectUrl: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>' + '/callback'
+          }
         });
+        lock.show();
       });
     </script>
   </div>

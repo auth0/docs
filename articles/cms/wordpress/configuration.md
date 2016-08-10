@@ -39,7 +39,7 @@ You must first create an app in the Auth0 dashboard before you can configure the
 ### Features
 
 * **Password Policy:** Select the level of complexity you want to enforce for user passwords. For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength).
-* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso/single-sign-on).
+* **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso).
 * **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-).
 * **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information.) You can enable other MFA providers on the [Auth0 dashboard](${uiURL}/#/multifactor).
 * **FullContact integration:** Enable this option to fill your user profiles with the data provided by FullContact. A valid API key is required. For more information, see [Augment User Profile with FullContact](/scenarios/mixpanel-fullcontact-salesforce#2-augment-user-profile-with-fullcontact-).
@@ -60,6 +60,7 @@ Enable the supported social identity providers you want to allow users to login 
 * **Customize the Login Widget with custom JS:** Allows you to add JavaScript that will customize the Lock widget (to add custom buttons, for example). For more information, see [Adding custom buttons to Lock](/hrd#option-3-adding-custom-buttons-to-lock). The following code adds a *Fabrikam Azure AD* button to the widget:
 
 ```js
+// javascript
 lock.once('signin ready', function() {
     var link = jQuery('<a class="a0-zocial a0-waad" href="#">' +
         '<span>Login with Fabrikam Azure AD</span></a>');
@@ -122,6 +123,7 @@ This action accepts five parameters:
 To hook to this action, include the following code:
 
 ```js
+// php
 add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
 
 function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {

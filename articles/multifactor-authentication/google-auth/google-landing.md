@@ -1,5 +1,5 @@
 ---
-title: Auth0 Guardian
+title: Multifactor Authentication - Google Authenticator
 url: /multifactor-authentication/google-authenticator
 ---
 

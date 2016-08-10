@@ -4,10 +4,11 @@
 ...
 
 export class MyApp {
-  rootPage: Type = TabsPage;
 
-  constructor(platform: Platform, private authHttp: AuthHttp, private auth: AuthService) {
+  constructor(platform: Platform, private auth: AuthService) {
     platform.ready().then(() => {
+
+      ...
       
       // When the app starts up, there might be a valid
       // token in local storage. If there is, we should

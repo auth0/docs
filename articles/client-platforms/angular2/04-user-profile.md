@@ -3,18 +3,23 @@ title: User Profile
 description: This tutorial will show you how to integrate Auth0 with Angular2 to authenticate and fetch/show profile information.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/04-User-Profile',
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs2-systemjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '04-User-Profile',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
-In the [Login step](/quickstart/spa/angular2/01-login) of this tutorial, you find a detailed description of how to use auth0 lock widget to show a login window and authenticate the user. For this step, the focus is to present a way to retrieve and show the user profile information, using same `Auth` service defined in login tutorial.
+In this step, you will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
 
-### Profile
+## Profile
 
-To fetch user profile information, you have to call `lock.getProfile` function, specifying the token and a callback to process response.
+To fetch user profile information, call the `lock.getProfile` function, specifying the `idToken` and a callback to process the response.
 
-You can do whatever you want with the profile.
-A good option is to store it in `localStorage` (or any store you want) and also assign it to a `userProfile` attribute so we can access it from anywhere.
+Once you retrieve the user profile, you can store it in `localStorage` (or any store) and assign it to a `userProfile` attribute so you can access it later.
 
 ```typescript
 /* ===== ./auth.service.ts ===== */
@@ -33,10 +38,10 @@ export class Auth {
   userProfile: Object;
 
   constructor() {
-    // Set userProfile attribute if already saved profile
+    // Set userProfile attribute of already saved profile
     this.userProfile = JSON.parse(localStorage.getItem('profile'));
 
-    // Add callback for lock `authenticated` event
+    // Add callback for the Lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
       localStorage.setItem('id_token', authResult.idToken);
 
@@ -64,7 +69,7 @@ export class Auth {
   };
 }
 ```
-To see user profile information, inject `Auth` service in a component:
+To see user profile information, inject the `Auth` service in a component:
 
 ```typescript
 /* ===== ./home.component.ts ===== */
@@ -73,7 +78,7 @@ export class HomeComponent {
 }
 ```
 
-and then display the userProfile attributes in your component's template:
+Then display `userProfile` attributes in your component's template:
 
 ```html
 /* ===== ./home.template.ts ===== */
@@ -94,9 +99,11 @@ and then display the userProfile attributes in your component's template:
 <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 
-### Custom Sign Up Fields
+## Custom Sign Up Fields
 
-You can add input fields to the sign up form adding to the options parameter the `additionalSignUpFields`. See full documentation [here](https://github.com/auth0/lock/tree/v10.0.0-rc.2#additional-sign-up-fields).
+You can add input fields to the sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation. 
+
+**NOTE:** See [Additional sign up fields](https://github.com/auth0/lock#additional-sign-up-fields) for more information.
 
 ```typescript
 /* ===== ./auth.service.ts ===== */
@@ -108,30 +115,32 @@ You can add input fields to the sign up form adding to the options parameter the
       placeholder: "enter your address",            // required
       icon: "https://example.com/address_icon.png", // optional
       validator: function(value) {                  // optional
-        // only accept addresses with more than 10 chars
+        // only accept addresses with more than 10 characters
         return value.length > 10;
       }
     }]
   });
 ...
 ```
-Each `additionalSignUpFields` value is saved into the profile in the `user_metadata` attribute.
-To display, just read it from profile `user_metadata`:
+
+Each `additionalSignUpFields` value is saved to the profile in the `user_metadata` attribute.
+
+To display this data, read it from the profile's `user_metadata`:
 
 ```html
 /* ===== ./profile_show.template.html ===== */
 <strong>Address: </strong> {{auth.userProfile.user_metadata.address}}
 ```
 
-### Update user profile
+## Update User Profile
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-Let's add an *address* attribute to the user profile using `user_metadata`. We can create a component with a simple form to update this.
+You can add an `address` attribute to the user profile's `user_metadata` by creating a component and a simple form. You will need to call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit. 
 
-On form submit, you need to hit [user api endpoint](/api/management/v2#!/Users/patch_users_by_id). For doing this [angular2-jwt](https://github.com/auth0/angular2-jwt) provides the `AuthHttp` helper which has the same `Http` module interface but automatically add the authorization header to the requests.
+To call the endpoint, you can use the [AuthHttp](https://github.com/auth0/angular2-jwt#sending-authenticated-requests) helper from `angular2-jwt` which provides the same interface as the `Http` module but automatically adds the authorization header to requests.
 
-First you need to add the `AUTH_PROVIDERS` from `angular-jwt`
+First, add `AUTH_PROVIDERS` from `angular-jwt`:
 
 ```typescript
 /* ===== app/main.ts ===== */
@@ -145,8 +154,9 @@ bootstrap(AppComponent, [
 ])
 ```
 
-Then you can import `AuthHttp`, inject it in your component and use it to make the authenticated request:
+Then import `AuthHttp`, inject it in your component, and use it to make the authenticated request. 
 
+In this example, the `patch` method takes the endpoint URL, body, and headers:
 
 ```typescript
 /* ===== app/edit_profile.component.ts ===== */
@@ -193,7 +203,7 @@ export class ProfileEdit {
 }
 ```
 
-Create a simple form template to add/update *address* attribute:
+Then create a simple form template to add/update the *address* attribute:
 
 ```html
 /* ===== app/profile_edit.template.html ===== */
@@ -212,6 +222,3 @@ Create a simple form template to add/update *address* attribute:
 </div>
 ```
 
-### Done!
-
-You have implemented the showing and editing of the Auth0 user profile in your project.

@@ -3,8 +3,14 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Java Spring MVC SDK to add authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_github', {
-link: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
+<%= include('../../_includes/_package', {
+githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
+pkgOrg: 'auth0-samples',
+pkgRepo: 'auth0-spring-mvc-sample',
+pkgBranch: 'master',
+pkgPath: '01-Login',
+pkgFilePath: null,
+pkgType: 'none'
 }) %>
 
 
@@ -49,18 +55,19 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
       });
 
       $(function () {
-        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-        lock.showSignin({
-          authParams: {
-            state: <%= "${state}" %>,
-            // change scopes to whatever you like, see https://auth0.com/docs/scopes
-            // claims are added to JWT id_token - openid profile gives everything
-            scope: 'openid user_id name nickname email picture'
-          },
-          responseType: 'code',
-          popup: false,
-          callbackURL: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>${account.callback}'
+        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+          auth: {
+            params: {
+              state: {state},
+              // change scopes to whatever you like, see https://auth0.com/docs/scopes
+              // claims are added to JWT id_token - openid profile gives everything
+              scope: 'openid user_id name nickname email picture'
+            },
+            responseType: 'code',
+            redirectUrl: '${account.callback}'
+          }
         });
+        lock.show();
       });
     </script>
   </div>

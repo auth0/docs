@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app.
 ---
 
-## Ruby On Rails Web App Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Ruby 2.1.8
@@ -81,7 +79,7 @@ http://yourUrl/auth/auth0/callback
 
 ${lockSDK}
 
-> **Note:** Please note that the `callbackURL` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
+> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the callback specified in the previous step
 
 Also if you need to force an identity provider just redirect to Omniauth's path like this:
 

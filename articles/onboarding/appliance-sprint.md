@@ -70,7 +70,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 [Common Architecture and Scenarios](/architecture-scenarios) - Quick guidance on common Business Scenarios and Application Configurations and the things you need to know to get started.
 
-[Auth0 Learn Resources](/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
+[Auth0 Learn Resources](/overview) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
 
 ### Step 7 - Management Dashboard Guidance
 **When?**  You can access self service resources immediately.  A live session is generally booked soon after the Technical Discovery & Guidance session.
@@ -91,7 +91,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 **What?** In this technical session, our Customer Success Engineers will review your implementation and integration to ensure best practices are applied.  This often includes reviewing rules you’ve written, how you’re calling our APIs and answering any questions you may have.
 
-[Auth0 Learn Resources](/learn/) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
+[Auth0 Learn Resources](/overview) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
 
 Pre-Production Checklist:  This list will walk through basic checks to make in Auth0 to ensure a smooth production launch (Coming soon).
 

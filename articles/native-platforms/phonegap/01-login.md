@@ -3,18 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Phonegap SDK to add authentication and authorization to your mobile app.
 ---
 
-## Phonegap Tutorial
-
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-cordova',
-  pkgBranch: 'master',
-  pkgPath: 'examples/phonegap-basic-sample',
-  pkgFilePath: 'examples/phonegap-basic-sample/www/js',
-  pkgType: 'js'
-}) %>
-
-**Otherwise, if you already have an existing application, please follow the steps below.**
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
@@ -22,6 +10,17 @@ This tutorial and seed project have been tested with the following:
 * Phonegap 5.5
 :::
 
+<%= include('../../_includes/_package', {
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-cordova-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-cordova-samples/tree/master/00-Starter-Seed/phonegap-basic-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed/phonegap-basic-sample',
+  pkgFilePath: '00-Starter-Seed/phonegap-basic-sample/www/js',
+  pkgType: 'js'
+}) %>
+
+**Otherwise, if you already have an existing application, please follow the steps below.**
 
 ### 1. Setting up the callback URL in Auth0
 

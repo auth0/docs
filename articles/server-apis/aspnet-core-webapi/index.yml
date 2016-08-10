@@ -13,4 +13,7 @@ tags:
 snippets:
   dependencies: server-apis/aspnet-core-webapi/dependencies
 articles:
-  - authenticate
+  - 00-intro
+  - 01-authentication-rs256
+  - 02-authentication-hs256
+  - 03-authorization
