@@ -18,15 +18,15 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-<pre><code>https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback</pre></code>
+Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+
+<pre><code>https://{DOMAIN}/android/{PACKAGE_NAME}/callback</pre></code>
 </div>
 
 ### 1. Add the Lock dependency
 
-Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
+Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different platforms via [auth0](https://auth0.com/).
 
 #### i. Gradle
 
@@ -74,16 +74,9 @@ Also, you need to add the following permissions inside the:
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```	
 	
-At last, don't forget to declare 	the activities you're using in the Manifest:
-	
-```xml	
-<activity android:name=".activities.LockActivity"/>
-<activity android:name=".activities.MainActivity"/>
-```	
-	
 > It's recommended to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file, rather than hardcode them in the manifest.
 
-> Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of Lock10.
+> Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of Lock.
         
 ### 3. Implement the Login
 
@@ -108,9 +101,11 @@ Second, add these lines in the ``onDestroy`` method:
 	lock = null;
 }
 ```
-Third, add the authentication callback, inside your activity:
+Third, add the `lock` class variable and the authentication callback, inside your activity:
 
 ```java
+private Lock lock;
+
 private LockCallback callback = new AuthenticationCallback() {
 	@Override
 	public void onAuthentication(Credentials credentials) {
@@ -132,8 +127,7 @@ private LockCallback callback = new AuthenticationCallback() {
 Finally, whenever you want to start the login widget, call:
 
 ```java
-startActivity(this.lock.newIntent(this));
-
+startActivity(lock.newIntent(this));
 ```
 
 ![Lock.png](/media/articles/libraries/lock-android/login.png)
