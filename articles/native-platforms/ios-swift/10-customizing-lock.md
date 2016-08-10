@@ -33,7 +33,7 @@ import Lock
 ```
 
 ```swift
-let myAwesomeTheme = A0Theme()
+let theme = A0Theme()
 ```
 
 ### 2. Configure your Theme
@@ -51,7 +51,7 @@ You can configure these type of properties:
 For instance:
 
 ```
-myAwesomeTheme.registerColorForKey(UIColor.redColor(), A0ThemePrimaryButtonNormalColor);
+theme.registerColorForKey(UIColor.redColor(), A0ThemePrimaryButtonNormalColor);
 ```
 
 So, for example, if you want to achieve something like this:
@@ -66,15 +66,15 @@ theme.registerImageWithName("custom-logo", bundle: NSBundle.mainBundle(), forKey
 ```
 
 ```swift
-// 2. Customize the 'Login' text appearance:
+/// 2. Customize the 'Login' text appearance:
 theme.registerColor(.whiteColor(), forKey: A0ThemeTitleTextColor)
-theme.registerFont(.appFontOfSize(24), forKey: A0ThemeTitleFont)
+theme.registerFont(.systemFontOfSize(24, weight: UIFontWeightThin), forKey: A0ThemeTitleFont)
 ```
 
 ```swift
 // 3. Customize the 'OR' text appearance:
 theme.registerColor(.whiteColor(), forKey: A0ThemeSeparatorTextColor)
-theme.registerFont(.appFontOfSize(18), forKey: A0ThemeSeparatorTextFont)
+theme.registerFont(.systemFontOfSize(12, weight: UIFontWeightSemibold), forKey: A0ThemeSeparatorTextFont)
 ```
 
 ```swift
@@ -82,7 +82,7 @@ theme.registerFont(.appFontOfSize(18), forKey: A0ThemeSeparatorTextFont)
 theme.registerColor(.lightVioletColor(), forKey: A0ThemeTextFieldIconColor)
 theme.registerColor(.lightVioletColor(), forKey: A0ThemeTextFieldPlaceholderTextColor)
 theme.registerColor(.whiteColor(), forKey: A0ThemeTextFieldTextColor)
-theme.registerFont(.appFontOfSize(14), forKey: A0ThemeTextFieldFont)
+theme.registerFont(.systemFontOfSize(14, weight: UIFontWeightRegular), forKey: A0ThemeTextFieldFont)
 ```
 
 ```swift
@@ -90,7 +90,7 @@ theme.registerFont(.appFontOfSize(14), forKey: A0ThemeTextFieldFont)
 theme.registerColor(.whiteColor(), forKey: A0ThemePrimaryButtonNormalColor)
 theme.registerColor(.lightVioletColor(), forKey: A0ThemePrimaryButtonHighlightedColor)
 theme.registerColor(.darkVioletColor(), forKey: A0ThemePrimaryButtonTextColor)
-theme.registerFont(.boldSystemFontOfSize(20), forKey: A0ThemePrimaryButtonFont)
+theme.registerFont(.systemFontOfSize(20, weight: UIFontWeightBold), forKey: A0ThemePrimaryButtonFont)
 ```
 
 ```swift
@@ -119,7 +119,7 @@ theme.statusBarStyle = .LightContent
 Last, but not least: You still need to register your theme before presenting the login dialog:
 
 ```swift
-A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
+A0Theme.sharedInstance().registerTheme(theme)
 ```
 
 ### Done!
@@ -127,9 +127,9 @@ A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
 In conclusion, here is the code snippet you need to keep on mind:
 
 ```swift
-let myAwesomeTheme = A0Theme()
+let theme = A0Theme()
 // customize your theme here
-A0Theme.sharedInstance().registerTheme(myAwesomeTheme)
+A0Theme.sharedInstance().registerTheme(theme)
 ```
 
 Piece of cake. Wasn't it? You've just customized the Lock widget!
