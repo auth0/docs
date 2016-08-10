@@ -6,17 +6,18 @@ description: This tutorial will show you how to link multiple accounts within th
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
+- CocoaPods 1.0.0
+- XCode 7.3 (7D175)
+- iPhone 6 - iOS 9.3 (13E230)
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/05-Linking-Accounts',
+  pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
-  pkgType: 'replace'
+  pkgPath: '05-Linking-Accounts',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 ### Before Starting
