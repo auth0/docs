@@ -22,7 +22,7 @@ You have to enable the MFA feature in your account.
 
 First, follow [this link](${uiURL}/#/multifactor). Then, turn the switch on for **Google Authenticator**, under the *Choose a Provider* section.
 
-> There are two other MFA providers that you can choose: Guardian and Duo. Just have in mind that Guardian isn't available yet for the Lock-Android framework.
+> There are two other MFA providers that you can choose: Guardian and Duo. Just have in mind that they rork only in web based auth which is social & enterprise.
 
 Then, you have to specify on which clients you want to enable MFA; you accomplish this by editing the snippet that appears below, replacing the placeholder with your actual client ids.
 
@@ -36,7 +36,7 @@ if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 
 ### Done!
 
-Piece of cake, wasn't it? Now you should get a google authenticator screen when you try to login with social providers in your app using [Lock-Android](https://github.com/auth0/Lock.Android).
+Piece of cake, wasn't it? Now you should get a google authenticator screen when you try to login in your app using **Lock-Android**
 
 
 > For more information on how to configure Lock-Android in your app, take a look at the [login tutorial](01-login.md).
