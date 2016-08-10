@@ -13,7 +13,7 @@ This tutorial and seed project have been tested with the following:
 <%= include('../../_includes/_package', {
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-golang-samples',
-  githubUrl:'https://github.com/auth0-samples/auth0-golang-samples/tree/master/00-Starter-Seed',
+  githubUrl:'https://github.com/auth0-samples/auth0-golang-samples/tree/master/00-Starter-Seed/regular-web-app',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed/regular-web-app',
   pkgFilePath: null,
