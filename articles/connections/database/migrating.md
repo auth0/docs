@@ -50,7 +50,7 @@ The **Get User** script will execute when any of the following actions are perfo
 
 * A user attempts to *sign-up*.
 * A user clicks on a valid [password change confirmation](/libraries/lock/customization#rememberlastlogin-boolean-) link.
-* An API call is made to [update a user's email or username](/api/v2#!/Users/patch_users_by_id).
+* A Management API call is made to [update a user's email or username](/api/v2#!/Users/patch_users_by_id).
 
 This script is needed because none of these actions require authentication on the user's behalf. The **Get User** script must provide a way of verifying that a user exists in the legacy database without requiring their password.
 
@@ -58,7 +58,7 @@ If an un-migrated user confirms a password change, their user profile will be cr
 
 ### 4. Complete the migration
 
-After importing users for a time, many of your users will have been migrated to the Auth0 database. You can verify this with the [List or search users](/api/v2#!/Users/get_users) API endpoint or by reviewing the [Users](${uiURL}/#/users) list on the Dashboard.
+After importing users for a time, many of your users will have been migrated to the Auth0 database. You can verify this with the [List or search users](/api/v2#!/Users/get_users) Management API endpoint or by reviewing the [Users](${uiURL}/#/users) list on the Dashboard.
 
 ![](/media/articles/connections/database/migrated-users.png)
 

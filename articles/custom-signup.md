@@ -110,4 +110,3 @@ The configured password policies, along with other connection information, can b
 `https://cdn.auth0.com/client/${account.clientId}.js`
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard. For an example, see: [Custom signup with password policy](https://github.com/auth0/auth0-password-policy-sample).
-

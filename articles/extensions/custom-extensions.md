@@ -53,7 +53,7 @@ Under the _Installed Extensions_ tab you will find your newly-installed extensio
 
 Let's have a look at what happens behind the scenes when installing and uninstalling custom extensions.
 
-When the user clicks on _Install_, a _Client_ and a _ClientGrant_ are created for the extension with the scopes defined on the `webtask.json`. Also, access is granted to APIv2 Resource Server.
+When the user clicks on _Install_, a _Client_ and a _ClientGrant_ are created for the extension with the scopes defined on the `webtask.json`. Also, access is granted to Management APIv2 Resource Server.
 
 For this `webtask.json`:
 

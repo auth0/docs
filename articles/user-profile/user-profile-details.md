@@ -8,7 +8,7 @@ The Auth0 **User Profile** is a set of attributes about a user, such as first na
 - [Structure of User Profile Data](#structure-of-user-profile-data)
 - [Storing Custom Profile Data](#storing-custom-profile-data)
 - [Application Access to User Profile](#application-access-to-user-profile)
-- [API Access to User Profiles](#api-access-to-user-profiles)
+- [Management API Access to User Profiles](#management-api-access-to-user-profiles)
 - [User Profile vs Tokens](#user-profile-vs-tokens)
 - [Modification of User Profiles](#modification-of-user-profiles)
 - [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-ad-ldap-connector)
@@ -74,13 +74,13 @@ One SDK is the Auth0 Lock widget, which provides a user login interface:
 
 Alternatively, if you'd like your web app to have a custom login UI, you can use [auth0.js](/libraries/auth0js), a headless JavaScript library for Auth0, which invokes authentication flow (as well as other tasks) and receives a User Profile object in return.
 
-## API Access to User Profiles
+## Management API Access to User Profiles
 
 Auth0 provides a REST API that allows applications and services to access and manipulate the User Profile object.
 
-The [API Explorer](/api/v2) allows users to interactively explore the API, view the API calls available, the information required for each call, and the information returned by each call. The explorer allows users to try out each endpoint in the explorer UI or via a CuRL command on the command line. To try out one of the API commands, select the access required under **Scopes** within that command, such as `update:users`, and then click on "TRY".
+The [API Explorer](/api/v2) allows users to interactively explore the Management API, view the API calls available, the information required for each call, and the information returned by each call. The explorer allows users to try out each endpoint in the explorer UI or via a CuRL command on the command line. To try out one of the Management API commands, select the access required under **Scopes** within that command, such as `update:users`, and then click on "TRY".
 
-Finally, there is an API specifically used for authentication flows. The documentation for these authentication API calls can be found [here](/auth-api). Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/auth-api#!#get--userinfo), which will be discussed later in this article.
+Finally, there is the Authentication API specifically used for authentication flows. The documentation for these Authentication API calls can be found [here](/auth-api). Typically, most of these endpoints are used by the various Auth0 SDKs, not your own code. However, one endpoint that is particularly important for User Profile is [`/userinfo`](/auth-api#!#get--userinfo), which will be discussed later in this article.
 
 ## User Profile vs Tokens
 
@@ -112,9 +112,9 @@ The User Profile can also be modified through the Auth0 Management Dashboard. Th
 
 In the Auth0 dashboard, click on "Users", then the user to be edited, then "EDIT". The User Profile attributes within USER metadata and APP metadata can be edited by specifying profile data in JSON format with a key (attribute name) and value (value of the attribute). Pressing "SAVE" will save the information to the Auth0 cache of User Profile information for the user where it will be visible by client applications integrated with Auth0. This "SAVE" will not alter information in the core user profile which is provided by the Connection.
 
-### API
+### Management API
 
-The Auth0 API provides access to read, update, and delete User Profiles stored in the Auth0 database.
+The Auth0 Management API provides access to read, update, and delete User Profiles stored in the Auth0 database.
 
 > You can setup Access Control List (ACL)/Roles functionality by adding custom attributes to the user profile. We actually have a [sample](https://github.com/auth0-samples/auth0-roles-permissions-dashboard-sample), that you can use a guide.
 
@@ -176,7 +176,7 @@ More info:
 
 The impact of rules which alter User Profile information will be visible in some situations but not in others. The results of rules will be visible when the profile is viewed or accessed in the context of a user's login transaction. If a client application calls an Auth0 library in the context of a user session, the SDK call will return the User Profile including any modifications made within rules. This also holds true for use of the [`/userinfo`](/auth-api#!#get--userinfo) authentication endpoint.
 
-When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using APIv2, the [`/tokeninfo`](/auth-api#!#post--tokeninfo) authentication endpoint, or the Auth0 Dashboard.
+When the profile is viewed outside the context of the user login transaction, the results of rules will not be included. This is the case when using the [`/tokeninfo`](/auth-api#!#post--tokeninfo) authentication endpoint, or the Auth0 Dashboard.
 
 ## Mapping User Profile Attributes in AD/LDAP Connector
 

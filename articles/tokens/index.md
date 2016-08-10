@@ -20,7 +20,7 @@ There are six primary tokens used in Auth0's token based authentication scenario
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
 - [Auth0 `refresh_token`](#auth0-refresh_token)
 - [Delegation Tokens](#delegation-tokens)
-- [Auth0 APIv2 Token](#auth0-apiv2-token)
+- [Auth0 Management APIv2 Token](#auth0-management-apiv2-token)
 
 ## Auth0 `id_token` (JWT)
 
@@ -52,9 +52,9 @@ The Auth0 [`id_token`](#auth0-idtoken-jwt)'s can be exchanged for another token,
 
 [More information](/tokens/delegation)
 
-## Auth0 APIv2 Token
+## Auth0 Management APIv2 Token
 
-The Auth0 APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scope claims, such as `read:users` or `update:clients`, and is signed with a client API key and secret for the entire tenant.
+The Auth0 Management APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scope claims, such as `read:users` or `update:clients`, and is signed with a client API key and secret for the entire tenant.
 
 [More information](/api/v2/tokens)
 
@@ -75,7 +75,7 @@ The Auth0 APIv2 token is used to call v2 of the Auth0 Management API.  This allo
 * [Getting user profile with Auth0.js library](https://github.com/auth0/auth0.js)
 * See the `/authorize`, `/userinfo` and `/tokeninfo` endpoints within the [Auth0 Authentication API](/auth-api)
 * [List of tutorials for other languages](/tutorials)
-* [APIv2 - User endpoints](/api/v2)
+* [Management APIv2 - User endpoints](/api/v2)
 
 ### Getting User Profile info from other providers
 
@@ -83,12 +83,12 @@ Some basic user profile information from third party providers is made available
 
 * [User profile overview](/user-profile)
 
-### Calling the Auth0 APIv2
+### Calling the Auth0 Management APIv2
 
-The Auth0 APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 APIv2 endpoints.
+The Auth0 Management APIv2 can be called from a web application (not a Single Page Application) by embedding the application’s client id and client secret in the calls to the Auth0 Management APIv2 endpoints.
 
-* [APIv2 Explorer page](/api/v2)
-* [APIv2 vs APIv1 and some discussion of authorization and scopes](/api/v2/changes)
+* [Management APIv2 Explorer page](/api/v2)
+* [Management APIv2 vs APIv1 and some discussion of authorization and scopes](/api/v2/changes)
 
 ### Calling the Auth0 Authentication API endpoints
 

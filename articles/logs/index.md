@@ -32,7 +32,7 @@ If you wish to keep data for longer than that, we recommend that you use the API
 * https://www.npmjs.com/package/auth0-logs-processor
 * https://github.com/auth0/logs-processor
  
-## Retrieving logs from the API
+## Retrieving logs from the Management API
 
 You can use the Management API v2 to do this, here are the two available endpoints:
 

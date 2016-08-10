@@ -29,7 +29,7 @@ This tutorial and seed project have been tested with the following:
 
 ### 1. Integrate the Auth0 Swift Toolkit
 
-Your first step is to add [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) into your project, which is a library that contains helper functions that will allow you to perform basic authentication operations (such as login, sign up, or retrieve and update profiles) against the Auth0 API in a very easy manner.
+Your first step is to add [Auth0 Swift Toolkit](https://github.com/auth0/Auth0.swift) into your project, which is a library that contains helper functions that will allow you to perform basic authentication operations (such as login, sign up, or retrieve and update profiles) against the Auth0 APIs in a very easy manner.
 
 #### i. Carthage
 
