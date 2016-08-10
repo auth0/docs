@@ -3,6 +3,7 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Node.js Hapi SDK to add authentication and authorization to your API.
 ---
 
+## Hapi API Tutorial
 In this tutorial you will learn how to use Auth0 to secure your [Hapi](http://hapijs.com/) API.
 
 <%= include('../../_includes/_package', {

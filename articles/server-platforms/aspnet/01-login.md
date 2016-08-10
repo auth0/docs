@@ -3,6 +3,8 @@ title: Login
 description: This tutorial will show you how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app.
 ---
 
+# ASP.NET Tutorial
+
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet',
@@ -112,7 +114,7 @@ public RedirectResult Logout()
 {
     // Clear the session cookie
     FederatedAuthentication.SessionAuthenticationModule.SignOut();
-
+    
     // Redirect to Auth0's logout endpoint
     var returnTo = Url.Action("Index", "Home", null, protocol: Request.Url.Scheme );
     return this.Redirect(
@@ -121,7 +123,7 @@ public RedirectResult Logout()
             ConfigurationManager.AppSettings["auth0:Domain"],
             this.Server.UrlEncode(returnTo)));
 }
-```
+``` 
 
 Note that the final destination URL (the `returnTo` value) needs to be in the list of `Allowed Logout URLs`. [Read more about this](/logout#redirecting-users-after-logout).
 

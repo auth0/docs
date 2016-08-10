@@ -3,6 +3,8 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP Symfony SDK to add authentication and authorization to your API.
 ---
 
+# Symfony Auth0 JWT Bundle
+
 <%= include('../../_includes/_package', {
   pkgRepo: 'jwt-auth-bundle',
   pkgBranch: 'master',

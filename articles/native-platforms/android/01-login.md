@@ -3,13 +3,15 @@ title: Login
 description: This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
 ---
 
+## Android - Login Tutorial
+
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0
+* Emulator - Nexus5X - Android 6.0 
   :::
 
 
@@ -59,28 +61,28 @@ Add the following code to your project's `AndroidManifest.xml`:
                     android:scheme="https" />
             </intent-filter>
         </activity>
-
+        
         <activity android:name="com.auth0.android.lock.provider.WebViewActivity"></activity>
 
 Also, you need to add the following permissions inside the:
-
+        
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+	
 At last, don't forget to declare 	the activities you're using in the Manifest:
-
-
+	
+	
 	<activity android:name=".activities.LockActivity"/>
 	<activity android:name=".activities.MainActivity"/>
-
-
+	
+	
 > It's recommended to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file, rather than hardcode them in the manifest.
 
 > Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of Lock10.
-
+        
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login in any activity you want.
+At this point, you're all set to implement the Login in any activity you want. 
 
 First, add these lines in the ``onCreate`` method:
 

@@ -3,6 +3,8 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Nginx SDK to add authentication and authorization to your API.
 ---
 
+## Nginx API Tutorial
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Openresty 1.9.7.2

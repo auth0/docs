@@ -3,6 +3,8 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your API.
 ---
 
+## PHP API Tutorial
+
 ::: panel-info System Requirements​
 This tutorial and seed project have been tested with the following:
 * PHP 5.6.14

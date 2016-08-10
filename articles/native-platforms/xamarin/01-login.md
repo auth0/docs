@@ -3,7 +3,9 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Xamarin SDK to add authentication and authorization to your mobile app.
 ---
 
-This tutorial explains how to integrate Auth0 with a Xamarin application.
+# Xamarin Tutorial
+
+This tutorial explains how to integrate Auth0 with a Xamarin application. 
 
 The `Xamarin.Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders) via the OpenId Connect protocol built on top of OAuth2. The library is cross-platform, so this information can be applied to either iOS or Android.
 
@@ -32,7 +34,7 @@ There are three options for implementing the integration:
 
 #### Option 1: Authentication using Lock
 
-**Lock** is the recommended option.
+**Lock** is the recommended option. 
 
 Here is a snippet of code to paste into your project:
 

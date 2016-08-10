@@ -3,6 +3,8 @@ title: Login
 description: This tutorial will show you how to use the Auth0 ASP.NET OWIN SDK to add authentication and authorization to your web app.
 ---
 
+# ASP.NET (OWIN) Tutorial
+
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
@@ -93,9 +95,9 @@ The user profile is normalized regardless of where the user came from, and the c
 
 ## Katana issue with cookies
 
-There is an bug with the Katana OWIN implementation (Microsoft.Owin.Host.SystemWeb), that causes cookies set in an OWIN middleware to sometimes disappear. This results in the authentication flow not being able to complete. The sympton in this case is that the `AuthenticationManager.GetExternalLoginInfo()` or similar calls that depend on a cookie being set will fail.
+There is an bug with the Katana OWIN implementation (Microsoft.Owin.Host.SystemWeb), that causes cookies set in an OWIN middleware to sometimes disappear. This results in the authentication flow not being able to complete. The sympton in this case is that the `AuthenticationManager.GetExternalLoginInfo()` or similar calls that depend on a cookie being set will fail. 
 
-The issue is described [here](https://katanaproject.codeplex.com/workitem/197), and the current workaround is installing the [Kentor.OwinCookieSaver package](https://www.nuget.org/packages/Kentor.OwinCookieSaver/).
+The issue is described [here](https://katanaproject.codeplex.com/workitem/197), and the current workaround is installing the [Kentor.OwinCookieSaver package](https://www.nuget.org/packages/Kentor.OwinCookieSaver/). 
 
 First install the package:
 

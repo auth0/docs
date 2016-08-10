@@ -3,6 +3,8 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your web app.
 ---
 
+## Go Web App Tutorial
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Go 1.5.3 and up

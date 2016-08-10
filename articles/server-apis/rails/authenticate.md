@@ -3,6 +3,8 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Ruby on Rails SDK to add authentication and authorization to your API.
 ---
 
+## Ruby on Rails API Tutorial
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Ruby 2.1.8
