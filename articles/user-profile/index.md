@@ -20,7 +20,7 @@ Within the Dashboard, you can create, view, modify, or delete users. These optio
 
 ### Creating a New User
 
-To create a new user and their corresponding User Profile, click the [Users](${uiURL}/#/users) page in the Dashboard. Click the **+ Create User** button at the top right of the Users page. You will be prompted to enter the following information:
+To create a new user and their corresponding User Profile, click the [Users](${uiURL}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the Users page. You will be prompted to enter the following information:
 
 * **Email**: the user's email address.
 * **Password**: the user's desired password.
