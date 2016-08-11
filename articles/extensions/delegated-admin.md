@@ -144,5 +144,20 @@ Save your changes, navigate to the extension and login. The dashboard now looks 
 
 ## Keep it safe
 
-explain security considerations
+Limiting the access of users to your Helpdesk is very important. In this tutorial we disabled all Connections for our new Client and added only a Database Connection where we explicitly added a subset of our users. We also disabled the sign ups in order to avoid unauthorized access in case someone gets hold of the link. In case you don't want to setup a Database Connection but use for example an Active Directory connection you need to make sure that you limit the access only to authorized employees and not to everyone in the domain. You could use [Rules](/rules) for that purpose. 
+
+For example, you could create a `Helpdesk Users` group in your directory and use a rule like the following.
+
+```js
+function (user, context, callback) {
+ if (context.clientID === 'CLIENT_ID') {
+   if (!user.groups || user.groups.indexOf('Helpdesk Users') < 0) {
+     return callback(new UnauthorizedError('Only helpdesk is allowed to use this application'));
+   }
+ }
+ 
+ callback(null, user, context);
+}
+```
+
 
