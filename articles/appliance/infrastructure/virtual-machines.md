@@ -21,6 +21,8 @@ When provisioning the Appliance from the templates, Auth0 recommends the followi
     * *For three-node, high availability Production clusters*:
         * Two of the virtual machines each should be allocated 40 GB for system/operating system storage and 100 GB for data storage;
         * One virtual machine should be allocated 100 GB for data storage and 100 GB for backup purposes.
+        * Solid state drives (SSD) are required. If you anticipate more than 1 million users, you must have SSD disks with RAID 0 or RAID 10.
+        * Drives should be thick provisioned.
 
 > Large installations will require higher IO performance. Auth0 will work with you to determine the required storage performance levels.
 
