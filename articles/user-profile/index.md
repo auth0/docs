@@ -20,7 +20,7 @@ Within the Dashboard, you can create, view, modify, or delete users. These optio
 
 ### Creating a New User
 
-To create a new user and their corresponding User Profile, click the [Users](${uiURL}/#/users) page in the Dashboard. Click the "+ Create User" button at the top right of the Users page. You will be prompted to enter the following information:
+To create a new user and their corresponding User Profile, click the [Users](${uiURL}/#/users) page in the Dashboard. Click the **+ Create User** button at the top right of the Users page. You will be prompted to enter the following information:
 
 * **Email**: the user's email address.
 * **Password**: the user's desired password.
@@ -92,7 +92,9 @@ A popup will display the URL to use to impersonate the user. You can copy the UR
 
 ![](/media/articles/user-profile/signin-as-user-02.png)
 
-> You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate) to impersonate a user. The API generates a link that you can used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+::: panel-info Impersonation API
+You can also use the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate) to impersonate a user. The API generates a link that you can used once to log in as a specific user. To distinguish between real logins and impersonation logins, the profile of the impersonated user will contain additional `impersonated` and `impersonator` properties.
+:::
 
 Please see [User Impersonation](/user-profile/user-impersonation) for more information about impersonating a user.
 
