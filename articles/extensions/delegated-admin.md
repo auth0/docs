@@ -124,6 +124,10 @@ Notice the new *Reset password* option available via the extension. This option 
 
 ![](/media/articles/extensions/delegated-admin/reset-pass-01.png)
 
+This will send an email to the user, containing a link to change the password.
+
+At the *Logs* view you can see log data of authentications made by your users. The contents of this view are a subset of the data displayed in the [Logs dashboard](${uiURL}/#/logs), which also displays data for the actions taken in the dashboard by the administrators.
+
 
 ## Customize the dashboard
 
