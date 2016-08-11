@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-python-web-app',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: 'null',
+  pkgFilePath: null,
   pkgType: 'server'
 }) %>
 

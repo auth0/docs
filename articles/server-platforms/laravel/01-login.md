@@ -18,7 +18,7 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
   pkgRepo: 'auth0-laravel-php-web-app',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: 'null',
+  pkgFilePath: null,
   pkgType: 'server'
 }) %>
 

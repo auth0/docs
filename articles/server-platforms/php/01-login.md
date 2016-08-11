@@ -18,7 +18,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-php-web-app',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed/basic-webapp',
-  pkgFilePath: 'null',
+  pkgFilePath: null,
   pkgType: 'server'
 }) %>
 
