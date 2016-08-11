@@ -48,3 +48,5 @@ When configuring your Slack Account, please refer to the **Slack Configuration I
 5. Provide the **Identity Provider Issuer** (optional);
 6. Provide the **Public Certificate** value.
 7. Save.
+
+For additional information, please consult Slack's article on [enabling SAML-based single sign-on](https://get.slack.help/hc/en-us/articles/203772216-Enabling-SAML-based-single-sign-on).
