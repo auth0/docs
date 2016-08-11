@@ -13,6 +13,8 @@ For **multi-node** clusters, all virtual machines must be:
 * on the same segment of the internal network;
 * able to communicate between each other via ports `7777` and `27017`.
 
+> Production and non-Production (test/development) must be on completely isolated networks.
+
 For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
 
 ## Internet Connectivity
