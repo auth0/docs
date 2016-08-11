@@ -50,7 +50,8 @@ import Lock
 ```swift
 let profile: A0UserProfile = ... // the user profile you get upon login
 guard let country = profile.extraInfo["country"] as? String else {
-    return // test failed
+    // test failed
+    return
 }
 print("user country is: \(country)")
 ```
