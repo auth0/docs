@@ -9,11 +9,14 @@ This tutorial and seed project have been tested with the following:
 * .NET Framework 4.5.2
 :::
 
+
 <%= include('../../_includes/_package', {
-  pkgRepo: 'Auth0.NancyFx.SelfHost',
+  githubUrl: 'https://github.com/auth0-samples/auth0-nancyfx-samples',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-nancyfx-samples',
   pkgBranch: 'master',
-  pkgPath: 'sample',
-  pkgFilePath: 'sample/App.config',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/App.config',
   pkgType: 'replace'
 }) %>
 

@@ -13,10 +13,12 @@ This tutorial and seed project have been tested with the following:
 
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-PHP',
+  githubUrl: 'https://github.com/auth0-samples/auth0-php-web-app',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-php-web-app',
   pkgBranch: 'master',
-  pkgPath: 'examples/basic-webapp',
-  pkgFilePath: null,
+  pkgPath: '00-Starter-Seed/basic-webapp',
+  pkgFilePath: 'null',
   pkgType: 'server'
 }) %>
 
