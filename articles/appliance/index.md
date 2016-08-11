@@ -1,5 +1,6 @@
 ---
 url: /appliance
+section: appliance
 ---
 
 # Auth0 Appliance

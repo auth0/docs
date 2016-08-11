@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Infrastructure Requirements: Security and Access
 
  This document details the security and access requirements for your Appliance instances.
