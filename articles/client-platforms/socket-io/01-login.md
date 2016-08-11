@@ -10,11 +10,11 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/socketio-jwt/tree/master/example/socketsio-auth0-sample',
-  pkgOrg: 'auth0',
-  pkgRepo: 'socketio-jwt',
+  githubUrl: 'https://github.com/auth0-samples/auth0-socket.io-samples/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-socket.io-samples',
   pkgBranch: 'master',
-  pkgPath: 'example/socketsio-auth0-sample',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>

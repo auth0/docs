@@ -223,8 +223,11 @@ DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identit
 Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 ```
 
-As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account. The endpoint returns the updated array of identities.
+As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account, and a new secondary user account is created. This means that if, for example, a user was `john@example.com` using Facebook to login, and used the same email address to login via Linkedin, and then unlinked those accounts, then you will end up with two separate accounts; both using `john@example.com`, one for each identity provider in question.
 
-If the unlinked account is from an external provider (i.e. Facebook, Google), it was never removed from the identity provider, and so you can still use it to authenticate. When you login again with that account, it will be re-created in Auth0 as a new separate user.
+::: panel-warning Unlinking - Metadata
+Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata. 
+::: 
 
-If, however, the unlinked account is an Auth0 database account, the account is not completely deleted, but is no longer visible in the Management dashboard, making it impossible to edit the unlinked account or remove it in order to recreate that user. We are aware that this is a less than ideal behavior, and are working on a more predictable and manageable solution to handle unlinked accounts.
+If your goal is to delete the secondary identity entirely, you'll want to first unlink the accounts, and then delete the newly (re)created secondary account.
+

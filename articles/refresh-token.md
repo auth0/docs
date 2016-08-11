@@ -8,17 +8,23 @@ A **refresh token** is a special kind of [JWT](/jwt) that is used to authenticat
 
 For more information on the types of access tokens used by Auth0, see [Tokens](/tokens).
 
-If you are new to refresh tokens, you can learn more about them in this blog post, [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
+If you are new to refresh tokens, you can learn more about them in this blog post: [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/).
 
 ## Introduction
 
-The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0.  This token is used to make authenticated calls to a secured API. Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
+The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0. This token is used to make authenticated calls to a secured API. JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing). Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
 
-A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate. This will work as long as the refresh token has not been revoked. JWTs have an expiration date indicated by the `exp` claim, among other security measures (like signing).
+A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked. 
 
-Refresh tokens can be issued or revoked for each combination of __app__, __user__ and __device__. But note there is no option to change the properties of the Auth0 refresh token from the values of the client, user and device set during its creation. The refresh tokens can be viewed and revoked [from the dashboard](#revoking-a-refresh-token-in-the-dashboard) or [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
+Refresh tokens can be issued for each combination of __app__, __user__ and __device__. Once the Auth0 refresh token is issued, the values of the client, user, and device set during its creation cannot be changed.
 
-**NOTE:** Refresh tokens must be stored securely by an application because they essentially allow a user to remain authenticated forever.
+::: panel-warning Secure Storage
+Refresh tokens must be stored securely by an application since they allow a user to remain authenticated essentially forever.
+:::
+
+Refresh tokens can be [obtained](#obtain-a-refresh-token) or [revoked](#revoke-a-refresh-token-using-the-management-api) programmatically through the Auth0 API.
+
+They can also be viewed and revoked [from the dashboard](#revoke-a-refresh-token-in-the-dashboard).
 
 ## Obtain a Refresh Token
 
@@ -38,7 +44,7 @@ GET https://${account.namespace}/authorize/?
 
 **NOTE**: The `device` parameter can be any value, such as a unique mobile device identifier.
 
-When the authentication flow finishes, Auth0 will redirect the user to the `callback_URL` as usual.
+When the authentication flow completes, Auth0 will redirect the user to the `callback_URL` as usual.
 The complete URL will be as follows:
 
 ```
@@ -91,7 +97,7 @@ Since refresh tokens never expire, it is important to be able to revoke them.
 
 ### Revoke a Refresh Token using the Management API
 
-To revoke a refresh token using the Management API you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, you can call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
+To revoke a refresh token using the Auth0 Management API, you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
 ```
 GET https://${account.namespace}/api/v2/device-credentials?
@@ -128,15 +134,15 @@ DELETE https://${account.namespace}/api/v2/device-credentials/{id}
 
 The response will be a **204**: The credential no longer exists.
 
-### Revoking a Refresh Token in the Dashboard
+### Revoke a Refresh Token in the Dashboard
 
-You can see if a user has any existing devices with a refresh token by going to the [Users section of the dashboard](${uiURL}/#/users). Click on the name of the user to view their details.
+To see if a user has existing devices with associated refresh tokens, go to the [Users section](${uiURL}/#/users) of the dashboard. Click the name of the user to view their **Details** page.
 
-Once you bring up the details of a user, select **Devices** from the menu. This page lists the device names and the number of refresh tokens associated with each one. To revoke a refresh token, click on the **X** to the right of the device name.
+Select the **Devices** tab. This page lists all device names and the number of refresh tokens associated with each. To revoke a refresh token, click the **X** to the right of the device name.
 
 ![](/media/articles/tokens/dashboard-revoke-refresh-token.png)
 
-Click the **UNLINK** button to confirm.
+Click **UNLINK** to confirm.
 
 ## SDK Support
 

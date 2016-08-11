@@ -5,13 +5,15 @@ description: A refresh token allows an application to request Auth0 to issue a n
 
 # Auth0 `refresh_token`
 
-Refresh tokens carry the information to get a new access token, this new token is then used to authenticate a user without them needing to re-authenticate. This is primarily useful for mobile applications that are installed on a device.  
+Refresh tokens contain the information required to obtain a new access token. This access token can then be used to authenticate the user without them having to re-authenticate. This is primarily useful for mobile applications that are installed on a device.  
 
-Usually a user only gets a new access token after old ones have expired, or if gaining access to a new resource for the first time. Refresh tokens are usually subject to strict storage requirements to ensure they are not leaked. They can also be blacklisted by the authorization server. 
+Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time. 
+
+Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Refresh tokens can also be blacklisted by the authorization server. 
 
 See the [Refresh Token](/refresh-token) page for information on how to obtain, view and revoke refresh tokens.
 
-For more information see:
+### Additional information
 
 * [Refresh Tokens: When to Use Them and How They Interact with JWTs](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
 
