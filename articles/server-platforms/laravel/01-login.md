@@ -13,7 +13,8 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-laravel-php-web-app',
-  githubUrl:'https://github.com/auth0-samples/auth0-laravel-php-web-app/tree/master/00-Starter-Seed';
+  pkgOrg: 'auth0-samples', 
+  githubUrl:'https://github.com/auth0-samples/auth0-laravel-php-web-app/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
   pkgFilePath: '.env',
