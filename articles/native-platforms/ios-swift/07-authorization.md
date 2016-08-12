@@ -54,7 +54,8 @@ import Lock
 ```swift
 let profile: A0UserProfile = ... // the user profile you get upon login
 guard let roles = profile.appMetadata["roles"] as? [String] else {
-    return // test failed, make sure you've configured your rule properly (check step 1 thoroughly)
+    // test failed, make sure you've configured your rule properly (check step 1 thoroughly)
+    return
 }
 if roles.contains("admin") {
     print("this user has admin access")

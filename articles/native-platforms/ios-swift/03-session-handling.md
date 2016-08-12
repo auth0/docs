@@ -67,7 +67,7 @@ Once the user has logged in, you get both an `A0Profile` and an `A0Token` object
 ```swift
 let controller = A0Lock.sharedLock().newLockViewController()
 controller.onAuthenticationBlock = { maybeProfile, maybeToken in
-	// do something with profile and token
+    // do something with profile and token
 }
 ```
 
@@ -96,7 +96,7 @@ let keychain = A0SimpleKeychain(service: "Auth0")
 guard let idToken = keychain.stringForKey("id_token") else {
     // idToken doesn't exist, user has to enter his credentials to log in
     // Present A0Lock Login
-	return
+    return
 }
 // idToken exists
 // We still need to validate it (see step 3)
@@ -117,7 +117,7 @@ client.fetchUserProfileWithIdToken(idToken,
         success: { profile in
             // Our idToken is still valid...
             // We store the fetched user profile
-                                            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
+            keychain.setData(NSKeyedArchiver.archivedDataWithRootObject(profile), forKey: "profile")
             // ✅ At this point, you can log the user into your app, by navigating to the corresponding screen
         },
         failure: { error in

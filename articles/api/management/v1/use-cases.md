@@ -1,5 +1,6 @@
 ---
 description: This page lists the API features that are only available in Management API v1.
+section: apis
 ---
 
 # Management API v1 Use Cases
@@ -43,7 +44,7 @@ Management API v1 allows you to search directly for users authenticated using en
 * Specific users from a given directory:
 [`/api/connections/{connection}/users?search={criteria}`](/api/v1#get--api-connections--connection--users-search--criteria-)
 
-* All users from all enterprise directories: 
+* All users from all enterprise directories:
 GET `/api/enterpriseconnections/users?search={criteria}`
 
 ## Impersonation

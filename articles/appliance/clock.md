@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Time Synchronization
 
 Auth0 uses several cryptographic functions that depend on the system clock.

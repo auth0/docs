@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Using the `testall` Endpoint
 
 The `testall` endpoint can be accessed via http or https:

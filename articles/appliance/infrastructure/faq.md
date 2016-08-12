@@ -1,5 +1,6 @@
 ---
 description: This page answers several common questions regarding the Auth0 Appliance infrastructure.
+section: appliance
 ---
 
 # Auth0 Appliance Infrastructure Requirements: Frequently Asked Questions

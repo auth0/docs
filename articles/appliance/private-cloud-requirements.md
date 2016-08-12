@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Information Requirements for Setting Up the Appliance in Auth0's Private Cloud
 
 If you have decided to purchase an Appliance that is hosted in a dedicated area of Auth0's cloud, Auth0 will set up the Appliance on your behalf. To do so, Auth0 asks that you provide the following information:

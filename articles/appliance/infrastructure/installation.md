@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Infrastructure Overview
 
 ## Project Coordination and Execution

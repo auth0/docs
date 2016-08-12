@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Appliance Administration: Automatic Creation of Tenants
 
 If your business needs require you to create tenants regularly, you may automate this process in your Appliance instances. For example, you might need to create one tenant for each customer or project that goes live.

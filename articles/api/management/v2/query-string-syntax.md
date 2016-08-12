@@ -1,5 +1,6 @@
 ---
 description: This page explains query string syntax, which you can use to construct custom queries when searching using Auth0's Management API.
+section: apis
 ---
 
 # Query String Syntax
@@ -18,7 +19,7 @@ Some examples of query string syntax are:
 
     `date:2016`
 
-* Where the `user_name` field contains `john` or `smith`. If you omit the OR operator the default operator will be used. 
+* Where the `user_name` field contains `john` or `smith`. If you omit the OR operator the default operator will be used.
 
     `user_name: (john OR smith)`
     `user_name: (john smith)`
@@ -143,7 +144,7 @@ Boosts can also be applied to phrases or groups:
 
 ### Boolean operators
 
-By default, all terms are optional as long as one term matches. A search for `foo bar baz` will find any document that contains one or more of `foo` or `bar` or `baz`. 
+By default, all terms are optional as long as one term matches. A search for `foo bar baz` will find any document that contains one or more of `foo` or `bar` or `baz`.
 
 Use of the `default_operator`, which allows you to force all terms to be required, is [discussed above](#field-name-examples). However, there are Boolean operators that can be used in the query string itself for more control.
 
