@@ -3,6 +3,13 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Java SDK to add authentication and authorization to your web app.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Java 1.7
+* Maven 3.3
+:::
+
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-servlet-sample/tree/master/01-Login',
   pkgOrg: 'auth0-samples',
