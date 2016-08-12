@@ -12,11 +12,11 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/master/02-Widget-With-Api',
+  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/master/01-Login',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-jquery-samples',
   pkgBranch: 'master',
-  pkgPath: '02-Widget-With-Api',
+  pkgPath: '01-Login',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
