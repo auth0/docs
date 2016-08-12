@@ -10,11 +10,13 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'Auth0.NancyFx.SelfHost',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-nacyfx-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-nancyfx-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
-  pkgPath: 'sample',
-  pkgFilePath: 'sample/App.config',
-  pkgType: 'replace'
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/App.config',
+  pkgType: 'none'
 }) %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
