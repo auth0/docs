@@ -9,6 +9,7 @@ You can get started by either downloading the seed project or if you would like 
 This tutorial and seed project have been tested with the following:
 
 * jQuery 2.1.1
+* jQuery 3.1.0
 :::
 
 <%= include('../../_includes/_package', {
@@ -58,6 +59,10 @@ lock.on("authenticated", function(authResult) {
     }
 
     localStorage.setItem('id_token', authResult.idToken);
+
+    // Display user information
+    $('.nickname').text(profile.nickname);
+    $('.avatar').attr('src', profile.picture);
   });
 });
 ```
@@ -126,7 +131,7 @@ __Note:__ The settings specified in `ajaxSetup` will affect all calls to $.ajax 
 Use the `id_token` to retrieve the user profile and display the user's nickname:
 
 ```js
-  //retrieve the profile:
+//retrieve the profile:
 var id_token = localStorage.getItem('id_token');
 if (id_token) {
   lock.getProfile(id_token, function (err, profile) {
@@ -135,12 +140,13 @@ if (id_token) {
     }
     // Display user information
     $('.nickname').text(profile.nickname);
-
+    $('.avatar').attr('src', profile.picture);
   });
 }
 ```
 
 ```html
+<img class="avatar">
 <p>Welcome <span class="nickname"></span></p>
 ```
 
