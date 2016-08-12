@@ -43,7 +43,7 @@ Copy these values into the **Add Webhook** page for your GitHub repository:
 
 ## Deployment
 
-Once you have setup the webhook in GutHub using the provided information, you are ready to start committing to your repository. 
+Once you have setup the webhook in GitHub using the provided information, you are ready to start committing to your repository. 
 
 With each commit you push to your configured GitHub repository, if changes were made in the `rules` or `database-connection` folders, the webhook will call the extension to initiate a deployment. 
 
@@ -70,7 +70,7 @@ Only the `login.js` script is required in a custom database connection.
 
 If you enabled the migration feature, you will also need to provide the `get_user.js` script.
 
-You can find an examples in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db).
+You can find an example in [this GitHub repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db).
 
 ### Deploy rules
 

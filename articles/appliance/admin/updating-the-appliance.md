@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Updating the Appliance
 
 Auth0 requires regular updates to your Appliance instances to ensure that you always have the latest features and improvements. The update interval is typically once per month.

@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Configuring and Using the Auth0 Appliance Command Line Interface
 
 The Auth0 Appliance Command Line Interface (CLI) allows you to perform operations on your Appliance instances via authorized workstations.

@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Infrastructure Requirements: Network
 
 This document details the requirements for the network on which the Appliance runs.
@@ -12,6 +16,8 @@ Each Appliance virtual machine (VM) must have its own private static IP address 
 For **multi-node** clusters, all virtual machines must be:
 * on the same segment of the internal network;
 * able to communicate between each other via ports `7777` and `27017`.
+
+> Production and non-Production (test/development) must be on completely isolated networks.
 
 For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
 
@@ -58,6 +64,6 @@ In addition to load balancing, you may use this for **IP address whitelisting** 
 
 #### SSL Offloading
 
-The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.  
+The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.
 
 Please note that the use of SSL offloading is not required to achieve high throughput.

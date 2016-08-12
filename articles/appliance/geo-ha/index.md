@@ -1,5 +1,6 @@
 ---
 url: /appliance/geo-ha
+section: appliance
 ---
 
 # Auth0 Appliance: High Availability Geo Cluster (Geo HA)

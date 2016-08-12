@@ -16,10 +16,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-
-Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
-
-<pre><code>https://{DOMAIN}/android/{PACKAGE_NAME}/callback</pre></code>
+<pre><code>https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback</pre></code>
 </div>
 
 ### 1. Add the Lock dependency
@@ -30,11 +27,11 @@ Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into you
 
 Add to your app's module gradle file:
 
-```xml
-compile 'com.auth0.android:lock:2.0.0'
+```gradle
+compile 'com.auth0.android:lock:2.0.0-beta.3'
 ```
 
-Then, run "Sync project with Gradle files".
+Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew clean assembleDebug` from the command line.
 
 > For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 
@@ -44,38 +41,36 @@ Add the following code to your project's `AndroidManifest.xml`:
 
 ```xml
 <activity
-	android:name="com.auth0.android.lock.LockActivity"
-	android:label="@string/app_name"
-	android:launchMode="singleTask"
-	android:screenOrientation="portrait"
-	android:theme="@style/Lock.Theme">
-		<intent-filter>
-			<action android:name="android.intent.action.VIEW" />
-			<category android:name="android.intent.category.DEFAULT" />
-			<category android:name="android.intent.category.BROWSABLE" />
+    android:name="com.auth0.android.lock.LockActivity"
+    android:label="@string/app_name"
+    android:launchMode="singleTask"
+    android:screenOrientation="portrait"
+    android:theme="@style/Lock.Theme">
+    <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
 
-			<data
-				android:host="${account.namespace}"
-                    android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
-                    android:scheme="https" />
-		</intent-filter>
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data
+            android:host="${account.namespace}"
+            android:pathPrefix="/android/YOUR_APP_PACKAGE_NAME/callback"
+            android:scheme="https" />
+    </intent-filter>
 </activity>
-        
+
 <activity android:name="com.auth0.android.lock.provider.WebViewActivity"></activity>
 ```
 
-
 Also, you need to add the following permissions inside the:
 
-```xml        
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-```	
-	
-> It's recommended to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file, rather than hardcode them in the manifest.
+```
 
-> Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of Lock.
-        
+> Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of **Lock**.
+
 ### 3. Implement the Login
 
 At this point, you're all set to implement the Login in any activity you want. 
@@ -83,49 +78,53 @@ At this point, you're all set to implement the Login in any activity you want.
 First, add these lines in the ``onCreate`` method:
 
 ```java
-Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
-this.lock = Lock.newBuilder(auth0, callback)
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+    this.lock = Lock.newBuilder(auth0, callback)
                     // Add parameters to the Lock Builder
-				.build();
+                    .build();
+    this.lock.onCreate(this);
+}
 ```
 
 Second, add these lines in the ``onDestroy`` method:
 
 ```java
- protected void onDestroy() {
-	super.onDestroy();
-	// Your own Activity code
-	lock.onDestroy(this);
-	lock = null;
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    // Your own Activity code
+    this.lock.onDestroy(this);
+    this.lock = null;
 }
 ```
-Third, add the `lock` class variable and the authentication callback, inside your activity:
+
+Third, add the authentication callback, inside your activity:
 
 ```java
-private Lock lock;
-
 private LockCallback callback = new AuthenticationCallback() {
-	@Override
-	public void onAuthentication(Credentials credentials) {
-		// Login Success response
-	}
+    @Override
+    public void onAuthentication(Credentials credentials) {
+        // Login Success response
+    }
 
-	@Override
-	public void onCanceled() {
-		// Login Cancelled response
-	}
+    @Override
+    public void onCanceled() {
+        // Login Cancelled response
+    }
 
-	@Override
-	public void onError(LockException error){
-		// Login Error response
-	}
+    @Override
+    public void onError(LockException error){
+        // Login Error response
+    }
 };
 ```
 
 Finally, whenever you want to start the login widget, call:
 
 ```java
-startActivity(lock.newIntent(this));
+startActivity(this.lock.newIntent(this));
 ```
 
 ![Lock.png](/media/articles/libraries/lock-android/login.png)

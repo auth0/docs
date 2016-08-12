@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Overview
 
 The Auth0 appliance offers an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in dedicated area of Auth0's cloud, your cloud, or your own datacenter as a managed service. As a managed service, Auth0 is responsible for installation, maintenance, patching and updates. When you choose to deploy to your own data center or cloud you supply and monitor the infrastructure Auth0 runs on. This includes the VM host, storage, network resources (e.g. load balancer, internet access, etc.), and other required dependencies (e.g. SMTP, NTP, etc.).

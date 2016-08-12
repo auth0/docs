@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Monitoring the Appliance
 
 In addition to providing tools for monitoring your Appliance instances, Auth0 provides integration with select third-party utilities.
