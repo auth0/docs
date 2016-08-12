@@ -15,3 +15,4 @@ snippets:
 seo_alias: jquery
 articles:
   - 01-login
+  - 10-customizing-lock
