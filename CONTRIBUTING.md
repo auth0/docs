@@ -47,7 +47,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 * Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
 * Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Parameter Aliases](#parameter-aliases), such as `${uiUrl}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a date in the file name, it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process.
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![ALT_TEXT](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process. Do not forget to set the alternate text for each image.
 * Keep images to no more than 750 pixels wide.
 * Screenshots of the Auth0 dashboard including the browser window with dropshadow can be up to 900 pixels wide to maintain legibility.
 * Run all images through [TinyPNG](https://tinypng.com/).
