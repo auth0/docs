@@ -173,7 +173,7 @@ In order to build and run the app using Maven, execute the following:
 mvn clean install tomcat7:run
 ```
 
-Then open your browser and go to http://localhost:3099/login. You can see the login screen.
+Then open your browser and go to [http://localhost:3099/login](http://localhost:3099/login). You can see the Lock widget.
 
 ![Login using Lock](/media/articles/java-spring-mvc/login-with-lock.png)
 
