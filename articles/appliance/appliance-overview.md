@@ -1,16 +1,20 @@
 # Auth0 Appliance Overview
 
-The Auth0 Appliance offers an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in one of three places:
+The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in one of three places:
 
 * a dedicated cloud environment hosted by Auth0.
 * your cloud environment using **Amazon AWS**, **Microsoft Azure**, and/or **Google Cloud Platform**;
 * your own datacenter (as a managed service) using **VMWare** or **Microsoft Hyper-V**.
 
-**Note**: Please contact us for additional information if you are interested in using cloud environments and/or virtualization environments not listed above.
+*__Note__: Please contact us for additional information if you are interested in using cloud environments and/or virtualization environments not listed above.*
+
+## Infrastructure
 
 If you opt to use a dedicated cloud environment hosted by Auth0, Auth0 is responsible for installation, maintenance, patching and updates.
 
 If you choose to deploy to your own cloud environment or data center, you supply and monitor the infrastructure Auth0 runs on. This includes the VM host, storage, network resources (such as the load balancer, internet access, etc.), and other required dependencies (such as the SMTP, NTP, etc.).
+
+## Deployment
 
 You may deploy the Appliance in several different configurations and use several different deployment models. The configurations support different levels of scale and high availability, and they are available in any of the Appliance deployment models. The following table shows the configuration options:
 
