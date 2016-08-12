@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Infrastructure Requirements: Network
 
 This document details the requirements for the network on which the Appliance runs.
@@ -60,6 +64,6 @@ In addition to load balancing, you may use this for **IP address whitelisting** 
 
 #### SSL Offloading
 
-The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.  
+The Appliance supports the use of SSL offloading at the load balancer if your IT standards require the use of HTTP within the local network. The load balancer must add a `X-Forwarded-Proto` header with the value `https`.
 
 Please note that the use of SSL offloading is not required to achieve high throughput.

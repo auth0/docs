@@ -1,5 +1,6 @@
 ---
 url: /appliance/custom-domains
+section: appliance
 ---
 
 # Custom Domains

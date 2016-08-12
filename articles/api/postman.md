@@ -1,3 +1,7 @@
+---
+section: apis
+---
+
 # Using the Auth0 API with our Postman Collections
 
 ## Installing the Collections
@@ -10,7 +14,7 @@ Next, head over to our new [API Landing Page](/api/info), and install the Collec
 
 ![](http://cdn.auth0.com/blog/postman-integration/auth0-api-landing.png)
 
-At this point Postman will prompt you whether you want to open the Collection in the Mac App or the Chrome App. Select the application you have installed. 
+At this point Postman will prompt you whether you want to open the Collection in the Mac App or the Chrome App. Select the application you have installed.
 
 ![](http://cdn.auth0.com/blog/postman-integration/postman-open-with-dialog.png)
 

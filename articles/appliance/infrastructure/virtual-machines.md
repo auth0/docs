@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Infrastructure Requirements: Virtual Machines
 
 You may deploy the Auth0 Appliance on your premises using your own infrastructure or the infrastructure of a cloud provider. Currently, Auth0 supports the following Appliance usage on the following cloud providers:

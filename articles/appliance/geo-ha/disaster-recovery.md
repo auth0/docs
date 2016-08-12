@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Geographic High-Availability Appliance Failure Scenarios and Testing
 
 [Overview of the Geographic High-Availability Appliance](/appliance/geo-ha)

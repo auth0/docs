@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Administration: Managing the Dashboard
 
 ### Accessing the Dashboard

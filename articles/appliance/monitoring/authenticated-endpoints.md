@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Using Authenticated Testing Endpoints
 
 For tests that provide detailed information, Auth0 requires that these requests be authenticated using a key generated in your Appliance configuration area. This key is used in the request header of the call sent to the endpoint.
@@ -33,7 +37,7 @@ The following authenticated endpoints are available for you to use:
 Your call might look something like the following:
 
 ```
-curl --user  
+curl --user
 api_keys_health:S9ranHlz0qQmIs0NgcYb8hU3MLKcBB4Khth2pom5VzLryYeW -v http://10.1.0.248:9110/status/cpu
 ```
 
@@ -42,7 +46,7 @@ You may also make the call via https, though you will have to make the following
  * Remove the port number from the IP address used.
 
 ```
-curl -k --user  
+curl -k --user
 api_keys_health:S9ranHlz0qQmIs0NgcYb8hU3MLKcBB4Khth2pom5VzLryYeW -v https://10.1.0.248/health/status/cpu
 ```
 

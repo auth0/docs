@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # DNS
 
 The following document details the requirements of DNS records used for Appliance instances.
