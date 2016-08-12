@@ -165,3 +165,25 @@ ${'<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>'}
 </html>
 ```
 
+### Run the app
+
+In order to build and run the app using Maven, execute the following:
+
+```
+mvn clean install tomcat7:run
+```
+
+Then open your browser and go to http://localhost:3099/login. You can see the login screen.
+
+![Login using Lock](/media/articles/java-spring-mvc/login-with-lock.png)
+
+The widget displays all the social and database connections that you have defined for this application in the [dashboard](${uiURL}/#/).
+
+Once you login you are redirected to the home page that displays your profile picture, user id, and nickname.
+
+![Display user information](/media/articles/java-spring-mvc/display-user-info.png)
+
+Logout by clicking the **Logout** button at the top right of the home page.
+
+That's it, you 're done! You added authentication to your Java Servlet web app using Lock!
+
