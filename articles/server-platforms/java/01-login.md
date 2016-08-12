@@ -13,7 +13,10 @@ description: This tutorial will show you how to use the Auth0 Java SDK to add au
   pkgType: 'none'
 }) %>
 
-### Add Auth0 callback handler
+In this step we will enable login with the [Lock widget](/libraries/lock). 
+
+
+### Authenticate the user
 
 You can use the `Auth0CallbackHandler` provided by the SDK to authenticate the user. This should work as-is based on the configuration you setup in `web.xml`.
 
@@ -74,10 +77,6 @@ var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
 
 Afterwards, we use the `showSignin` method to open the widget on signin mode. We set several parameters as input, like `authParams` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
-
-By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F`, where the value is a randomly generated UUID. The NonceFactory can be used to generate such a `nonce` value. 
-
-The `state` may need to hold other attribute values. For instance, in SSO you may need an `externalCallbackUrl` that also needs to be stored in the state parameter: `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback`.
 
 
 ### Display user information
@@ -175,13 +174,13 @@ mvn clean install tomcat7:run
 
 Then open your browser and go to [http://localhost:3099/login](http://localhost:3099/login). You can see the Lock widget.
 
-![Login using Lock](/media/articles/java-spring-mvc/login-with-lock.png)
+![Login using Lock](/media/articles/java/login-with-lock.png)
 
 The widget displays all the social and database connections that you have defined for this application in the [dashboard](${uiURL}/#/).
 
 Once you login you are redirected to the home page that displays your profile picture, user id, and nickname.
 
-![Display user information](/media/articles/java-spring-mvc/display-user-info.png)
+![Display user information](/media/articles/java/display-user-info.png)
 
 Logout by clicking the **Logout** button at the top right of the home page.
 
