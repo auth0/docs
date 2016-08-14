@@ -24,7 +24,7 @@ The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to
 Here is a sample request:
 
 ```sh
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/management/v2#!/Connections/post_connections
+curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/v2/connections
 ```
 
 with the **auth-oidc-connection.json** file containing:
