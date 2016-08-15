@@ -115,7 +115,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
         lock.showSignin({
           authParams: {
             state: <%= "${state}" %>,
-            // change scopes to whatever you like, see https://auth0.com/docs/scopes
+            // change scopes to whatever you like, see https:///scopes
             // claims are added to JWT id_token - openid profile gives everything
             scope: 'openid user_id name nickname email picture'
           },
