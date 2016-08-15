@@ -213,7 +213,7 @@ This example, shows how to use the `global` object to keep a mongodb connection:
   ...
 
   //If the db object is there, use it.
-  if(!global.db){
+  if(global.db){
     return query(global.db,callback);
   }
 
