@@ -11,14 +11,15 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-aurelia',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-aurelia',
+  pkgRepo: 'auth0-aurelia-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-aurelia-samples/tree/master/00-Starter-Seed',
+  pkgOrg:'auth0-samples',
   pkgBranch: 'master',
-  pkgPath: null,
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
+
 
 **If you have an existing application, follow the steps below.**
 
