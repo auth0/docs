@@ -219,7 +219,7 @@ Create an HTML page and insert the following HTML and javascript code:
             callbackURL: 'http://jwt.io'
           , responseType: 'token'
           , authParams: {
-            scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+            scope: 'openid name email' //Details: https:///scopes
           }
         });
       }

@@ -266,7 +266,7 @@ Create an HTML page and insert the following HTML and javascript code:
         callbackURL: 'http://jwt.io'
       , responseType: 'token'
       , authParams: {
-        // see https://auth0.com/docs/scopes
+        // see https:///scopes
         scope: 'openid'
       }
     });

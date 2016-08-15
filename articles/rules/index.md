@@ -135,7 +135,7 @@ This will cause a redirect to your callback url with an `error` querystring para
 
 ### Creating a new Rule using the Management API
 
-Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](https://auth0.com/docs/api/management/v2#!/Rules/post_rules).
+Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
 This will creates a new rule according to the JSON object received in body, which contains:
 

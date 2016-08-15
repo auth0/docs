@@ -85,12 +85,12 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     sessionRequiresAuthentication: function(){
       // For a list of user-configurable options, see:
-      // https://auth0.com/docs/libraries/lock/customization
+      // https:///libraries/lock/customization
 
       // This will launch lock.js in popup mode
       var lockOptions = {
         auth: {
-          params: {scope: 'openid'} //Details: https://auth0.com/docs/scopes
+          params: {scope: 'openid'} //Details: https:///scopes
         }
       };
 

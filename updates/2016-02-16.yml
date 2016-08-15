@@ -6,4 +6,4 @@ added:
       - dotnet
       - jwt
     description: |
-      A [new tutorial](https://auth0.com/docs/tutorials/generate-jwt-dotnet) was added showing how to generate a JWT using .NET. An [example](https://github.com/auth0/auth0.net/tree/master/examples/GenerateJWT/GenerateJWT) was also added to GitHub.
+      A [new tutorial](/tutorials/generate-jwt-dotnet) was added showing how to generate a JWT using .NET. An [example](https://github.com/auth0/auth0.net/tree/master/examples/GenerateJWT/GenerateJWT) was also added to GitHub.

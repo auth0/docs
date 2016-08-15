@@ -33,7 +33,7 @@ If you want to execute an API call, simply browse to the API call in the Sidebar
 
 ## Generating a token for the Management API
 
-For the Management API you will need a token to execute any of the API methods. To generate a token you can use the existing Token Builder which is part of the [Management API Explorer](https://auth0.com/docs/api/v2). In the API Explorer, browse to the API call you want to make and ensure that the required scopes for that API call is selected. Copy the token which was generated.
+For the Management API you will need a token to execute any of the API methods. To generate a token you can use the existing Token Builder which is part of the [Management API Explorer](/api/v2). In the API Explorer, browse to the API call you want to make and ensure that the required scopes for that API call is selected. Copy the token which was generated.
 
 ![](http://cdn.auth0.com/blog/postman-integration/generate-token.png)
 

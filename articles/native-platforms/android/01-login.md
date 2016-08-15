@@ -131,7 +131,7 @@ startActivity(this.lock.newIntent(this));
 
 ![Lock.png](/media/articles/libraries/lock-android/login.png)
 
-> If you need in depth configuration, check more information on [Lock Builder](https://auth0.com/docs/libraries/lock-android#lock-builder)
+> If you need in depth configuration, check more information on [Lock Builder](/libraries/lock-android#lock-builder)
 
 > There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login.md).
 

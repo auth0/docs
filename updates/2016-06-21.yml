@@ -12,7 +12,7 @@ changed:
     tags:
       - java
     description: |
-      Replace [Java library](https://github.com/auth0/auth0-servlet) URL with the [new page](https://auth0.com/docs/java-overview) that lists all available docs, libraries and samples that we offer on Java.
+      Replace [Java library](https://github.com/auth0/auth0-servlet) URL with the [new page](/java-overview) that lists all available docs, libraries and samples that we offer on Java.
   -
     title: "Updated Java docs"
     tags:
@@ -23,5 +23,5 @@ changed:
     description: |
       - Added Gradle dependecies for java-servlet, java-spring-security-mvc and java-spring-mvc.
       - Updated auth0.properties for java-spring-security, java-servlet, java-spring-security-mvc and java-spring-mvc.
-      - Updated [overview doc](https://auth0.com/docs/java-overview) with new section on Auth0 Resource Server Sample using Spring Boot and Spring Security sample.
+      - Updated [overview doc](/java-overview) with new section on Auth0 Resource Server Sample using Spring Boot and Spring Security sample.
       - Updated java-spring-security-mvc doc with section on endpoint security configuration and add note on the [sso sample](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample).

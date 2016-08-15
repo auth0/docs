@@ -132,7 +132,7 @@ For example:
 
 ```
 mycompany.auth0.com
-mycompany.eu.auth0.com 
+mycompany.eu.auth0.com
 mycompany.au.auth0.com
 ```
 
@@ -140,4 +140,4 @@ Note that with the public cloud service, the `*.auth0.com` endpoints are only us
 
 It is possible to have a custom domain name, which completely hides the Auth0 name, such as `mycompany.com`.  Use of a custom domain name requires a single-tenant version of Auth0, which can be deployed in either an Auth0-managed cloud, a customer-managed cloud, or an on-premise installation.  These three deployment options do have a higher cost, due to the extra administrative work to manage them, compared to the public cloud.
 
-If you cannot use a multi-tenant cloud service because of compliance or other policy requirements, please take a look at [the Auth0 appliance](https://auth0.com/docs/appliance).
+If you cannot use a multi-tenant cloud service because of compliance or other policy requirements, please take a look at [the Auth0 appliance](/appliance).

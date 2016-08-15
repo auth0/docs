@@ -93,7 +93,7 @@ The `appMetadata` dictionary contains fields that are usually added via [a rule]
 
 The `extraInfo` dictionary contains any other extra information stored in Auth0. That information is read-only for the native platform.
 
-> For further information on metadata, see [the full documentation](https://auth0.com/docs/rules/metadata-in-rules).
+> For further information on metadata, see [the full documentation](/rules/metadata-in-rules).
 
 ### 3. Update the User Profile
 
