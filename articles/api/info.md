@@ -1,3 +1,7 @@
+---
+section: apis
+---
+
 # Auth0 APIs
 Auth0 exposes two APIs for developers to consume in their applications. The first API is the Authentication API and handles all the primary identity related functions. The second API is the Management API which enables you to automate various tasks in Auth0 such as creating users. Below you will find more information about each of these APIs.
 
@@ -71,5 +75,5 @@ The Auth0 Management API v1 contains various management functions for your Auth0
     ));
   }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
 
-  _pm('env.create', '${account.tenant}', { auth0_domain: '${account.namespace}' }); 
+  _pm('env.create', '${account.tenant}', { auth0_domain: '${account.namespace}' });
 </script>

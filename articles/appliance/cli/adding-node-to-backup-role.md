@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Appliance: Adding a Node to the Backup Role
 
 > This document applies beginning with Appliance update **build 6868**.

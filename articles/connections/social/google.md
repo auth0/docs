@@ -2,7 +2,7 @@
 connection: Google
 index: 1
 image: /media/connections/google.png
-description: This page shows you how to connect your Auth0 app to Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
+description: This page shows you how to connect your Auth0 client to Google. You will need to generate keys, copy these into your Auth0 settings, and enable the connection.
 alias:
  - gmail
  - google-oauth
@@ -10,9 +10,9 @@ alias:
 seo_alias: google
 ---
 
-# Connect your app to Google
+# Connect your Client to Google
 
-To connect your Auth0 app to Google and Google Apps, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the connection.
+To connect your Auth0 client to Google and Google Apps, you will need to generate a *Client ID* and *Client Secret* in a Google project, copy these keys into your Auth0 settings, and enable the connection.
 
 ## 1. Access the Google API Manager
 
@@ -105,17 +105,17 @@ Click **Save**:
 
 ## 8. Enable the Connection
 
-Go to the **Apps** tab of the Google connection on Auth0 and select each of your existing Auth0 apps for which you want to enable this connection.
+Go to the **Clients** tab of the Google connection on Auth0 and select each of your existing Auth0 clients for which you want to enable this connection.
 
 Click **Save**.
 
 ![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
 
-## 9. Test your app
+## 9. Test your connection
 
 Go back to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard.
 
-If you have configured your app correctly, you will see a **Try** icon next to the Google logo:
+If you have configured your connection correctly, you will see a **Try** icon next to the Google logo:
 
 ![](/media/articles/connections/social/google/goog-api-trylogo.png)
 

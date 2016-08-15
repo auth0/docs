@@ -1,5 +1,6 @@
 ---
 url: /appliance/webtasks
+section: appliance
 ---
 
 # Auth0 Appliance: Webtasks

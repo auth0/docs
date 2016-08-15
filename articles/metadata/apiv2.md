@@ -1,5 +1,5 @@
 ---
-description: How to update metadata through the Auth0 API.
+description: How to update metadata through the Auth0 Management API.
 ---
 
 # Using Metadata with Auth0's Management API

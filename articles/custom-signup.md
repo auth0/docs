@@ -8,7 +8,7 @@ In some cases, you may want to customize the user sign up form with more fields 
 
 ## Using Lock
 
-Lock 10 supports custom fields signup. For more information, see: [Lock 10 Preview Release](/libraries/lock/v10).
+Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-). For more information, see: [Lock 10 Preview Release](/libraries/lock/v10).
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
@@ -74,10 +74,9 @@ When your users sign up, the custom fields are sent as part of `user_metadata`. 
 
 ## Redirect mode
 
-Popup mode may be inappropriate for regular web apps or mobile apps. To use redirect mode, configure a callback URL when calling `auth0.signup`. After a
-successful login, Auth0 will redirect the user to the configured callback URL with a JWT (`id_token`) in the query string.
+After a successful login, Auth0 will redirect the user to your configured callback URL with a JWT (`id_token`) in the query string.
 
-**NOTE**: To learn more about the differences between popup and redirect modes, see: [Lock: Authentication Modes](/libraries/lock/v9/authentication-modes).
+**NOTE** To learn more about the differences between popup and redirect modes, please refer to [this document](/libraries/lock/v10/popup-mode).
 
 ```js
 window.auth0 = new Auth0({
@@ -111,5 +110,3 @@ The configured password policies, along with other connection information, can b
 `https://cdn.auth0.com/client/${account.clientId}.js`
 
 This file can then be parsed client-side to find the current password policy configured in the dashboard. For an example, see: [Custom signup with password policy](https://github.com/auth0/auth0-password-policy-sample).
-
-

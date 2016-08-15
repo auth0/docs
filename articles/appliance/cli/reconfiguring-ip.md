@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # How to Reconfigure IP Addresses Using the Command Line Interface
 
 When running in a cluster, the Auth0 Appliance nodes need to know the IP addresses of the other nodes within the same cluster (they do not automatically detect each other). Whenever you move the network of the cluster, you may change the individual IP addresses using the console (TTY1) interface in the Virtual Machine Manager. However, there is no easy way to tell the cluster nodes the new IP addresses of the other members of the cluster.

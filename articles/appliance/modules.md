@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Node.js Modules Available in Rules and Custom Database Connections
 
 For security reasons, rules and custom database connections for Auth0 appliances run in a JavaScript sandbox. You can use the full power of the ECMAScript 5 language and a few selected libraries.

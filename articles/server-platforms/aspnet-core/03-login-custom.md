@@ -4,7 +4,13 @@ description: This tutorial will show you how to create a custom login page for y
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample/tree/master/03-Login-Custom',
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-aspnetcore-sample',
+  pkgBranch: 'master',
+  pkgPath: '03-Login-Custom',
+  pkgFilePath: '03-Login-Custom/SampleMvcApp/appsettings.json',
+  pkgType: 'replace'
 }) %>
 
 ## Add the Auth0 Authentication SDK 

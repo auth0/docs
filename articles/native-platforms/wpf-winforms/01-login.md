@@ -3,7 +3,15 @@ title: Login
 description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
 ---
 
-# WPF and Winforms Tutorial
+<%= include('../../_includes/_package', {
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-winformsWPF-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-winformsWPF-samples/tree/master/00-Starter-Seed',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: 'none',
+  pkgType: 'none'
+}) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -76,8 +84,5 @@ The `Auth0User` has the following properties:
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
 * `Auth0AccessToken`: the `access_token` that can be used to access Auth0's API. You would use this for example to [link user accounts](/link-accounts).
 
-## Download the samples
-
-Browse the samples on GitHub from [here](https://github.com/auth0/Auth0.WinformsWPF/tree/master/samples).
 
 **Congratulations!**

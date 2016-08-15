@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
 <%= include('../_includes/_mfa-introduction') %>
 
 
-On this tutorial you'll learn how to enable MFA in a ReactJS application created in the previous steps, such as [Login](/quickstart/spa/react/01-login).
+In this tutorial, you will learn how to enable MFA in the ReactJS application created in previous steps, such as [Login](/quickstart/spa/react/01-login).
 
 ## 1. Enable Multifactor Authentication in Your Account
 
@@ -31,9 +31,5 @@ On this tutorial you'll learn how to enable MFA in a ReactJS application created
 
 ## 2. Login
 
-<%= include('../_includes/_mfa-login') %>
+<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/react/01-login' }) %>
 
-
-## 3. All done!
-
-You have completed the Multifactor authentication setup with Auth0 in your ReactJS project.

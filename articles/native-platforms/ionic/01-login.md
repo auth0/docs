@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples/tree/master/01-Login',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
@@ -12,7 +12,6 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
   pkgFilePath: '01-Login/www/app/auth0.variables.js',
   pkgType: 'replace'
 }) %>
-
 ::: panel-info Running the Sample
 At any point in time you can run this sample by going to the `01-Login` folder of the sample project and running `ionic serve`
 :::

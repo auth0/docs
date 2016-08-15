@@ -51,20 +51,20 @@ To execute a client credentials exchange to obtain an access token to get author
 ```har
 {
   "method": "POST",
-  "url": "https://${account.namespace}.auth0.com/oauth/token",
+  "url": "https://${account.namespace}/oauth/token",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData":{
     "mimeType": "application/json",
-    "text": "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"https://${account.namespace}.auth0.com/api/v2/\", \"grant_type\": \"client_credentials\" }"
+    "text": "{ \"client_id\": \"${account.clientId}\", \"client_secret\": \"${account.clientSecret}\", \"audience\": \"https://${account.namespace}/api/v2/\", \"grant_type\": \"client_credentials\" }"
   }
 }
 ```
 
 The body of the request must include the following:
 
-- `audience`: APIv2 base url - `https://${account.namespace}.auth0.com/api/v2/`
+- `audience`: APIv2 base url - `https://${account.namespace}/api/v2/`
 - `client_id`: The client id of the new client you created.
 - `client_secret`:  The client secret of the new client you created.
 - `grant_type`: Grant type should be `client_credentials`.
@@ -76,7 +76,7 @@ With the Auth0 access token, call the `/api/v2/users/{user-id}` endpoint to get 
 ```har
 {
   "method": "GET",
-  "url": "https://${account.namespace}.auth0.com/api/v2/users/USER-ID",
+  "url": "https://${account.namespace}/api/v2/users/USER-ID",
   "headers": [
     { "name": "Content-Type", "value": "application/json" }
   ]

@@ -21,9 +21,9 @@ Auth0 provides the following ways to change the password for users of your appli
 **NOTE:** Passwords can only be changed for users signing in using database connections. If a user is signing in with a social or enterprise connection, their password would need to be reset in those systems.
 
 
-## Using the API
+## Using the Authentication API
 
-When calling the API, specify the email address of the account you want to reset the password for in the `email` field. A successful result of this request will send an email to the specified user for a password change request.
+When calling the Authentication API, specify the email address of the account you want to reset the password for in the `email` field. A successful result of this request will send an email to the specified user for a password change request.
 
 ```har
 {
@@ -40,7 +40,7 @@ When calling the API, specify the email address of the account you want to reset
 ```
 
 :::panel-warning Custom database
-If you have a custom database setup for your connection, you should first check if the user exists there. If so, invoke the API for `changePassword`.
+If you have a custom database setup for your connection, you should first check if the user exists there. If so, invoke the Authentication API for `changePassword`.
 :::
 
 The resulting email will contain a link to reset the password.
@@ -53,7 +53,7 @@ Clicking the link will send the user to a password reset page.
 
 **NOTE**: This email link is valid only once, and only for the amount of time specified in the `URL Lifetime` field. This field can be changed in the dashboard where you customize the change password email.
 
-See the [/dbconnections/change_password](/auth-api#!#post--dbconnections-change_password) API endpoint for more information.
+See the [/dbconnections/change_password](/auth-api#!#post--dbconnections-change_password) Authentication API endpoint for more information.
 
 
 ## Using Lock

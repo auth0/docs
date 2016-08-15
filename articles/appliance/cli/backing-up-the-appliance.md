@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # How to Back Up Appliance Instances Using the CLI
 
 You may use Appliance CLI to perform a backup on a specific node.
