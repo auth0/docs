@@ -15,7 +15,7 @@ If you are an existing Appliance customer, you will need to create an Auth0 clou
         * With Service Issues, you will be asked to select a severity:
             *  **Low: Product Question** - You have questions about how things work, whether we support something
             * **Normal: General Support Question** - You are in development and have a question about how to configure something or how to resolve an error
-            * **High: Production Application Issue** - Your Production application is experiencing a minor outage impacing some users/feature(s)
+            * **High: Production Application Issue** - Your Production application is experiencing a minor outage impacting some users/feature(s)
             * **Urgent: Production Application Offline** - Your Production application is experiencing a critical outage impacting all users
         *  You will then be asked to choose an option under "What is the service issue related to?"
             *  _You may be prompted for additional information depending on your selection._
