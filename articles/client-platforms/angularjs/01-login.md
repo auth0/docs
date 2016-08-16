@@ -3,8 +3,6 @@ title: Auth0 Angular 1.x Tutorial
 description: This tutorial will show you how to use the Auth0 with Angular 1.x applications.
 ---
 
-## AngularJS SDK Tutorial
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter-Seed',
   pkgOrg: 'auth0-samples',
@@ -101,7 +99,7 @@ Inject the modules necessary for the application, including **angular-lock** and
 
   angular
     .module('myApp', ['auth0.lock', 'angular-jwt', 'ngRoute'])
-    .configure(function config($routeProvider, lockProvider) {
+    .config(function($routeProvider, lockProvider) {
 
       lockProvider.init({
         clientID: '<%= account.clientId %>',
