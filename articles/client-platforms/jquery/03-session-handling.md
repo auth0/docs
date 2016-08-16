@@ -21,7 +21,7 @@ In this step, you will create a session for that user and also allow the user to
 
 Once the user is logged in, you will want to create a session for that user. To do this, you only need to store the value of the `id_token` attribute that is returned in the Lock `authenticated` callback parameter.
 
-**NOTE**: This example uses `localStorage`, but you can use any storage library.
+**NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide you can see how to do the same with `Lockr` storage library.
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -104,3 +104,41 @@ btn_logout.click(function(e) {
 });
 ...
 ```
+
+## Session handling example using [Lockr](https://github.com/tsironis/lockr) storage library
+
+```javascript
+/* ===== ./app.js ===== */
+
+// Create session
+...
+lock.on("authenticated", function(authResult) {
+  Lockr.set('id_token', authResult.idToken);
+...
+
+// Check session
+...
+var id_token = Lockr.get('id_token');
+if (null != id_token) {
+  lock.getProfile(id_token, function (err, profile) {
+    if (err) {
+      // Remove expired token (if any) from storage
+      Lockr.rm('id_token');
+      return alert('There was an error getting the profile: ' + err.message);
+    } // else: user is authenticated
+  });
+}
+...
+
+// Logout
+...
+var logout = function() {
+  Lockr.rm('id_token');
+  window.location.href = "/";
+};
+...
+```
+
+# Summary
+
+In this guide you learned how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status and end user session (logout).

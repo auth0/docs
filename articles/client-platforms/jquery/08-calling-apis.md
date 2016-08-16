@@ -35,4 +35,8 @@ Your requests will have the `Authorization` header added automatically:
 
 `Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
 
-Here, we are fetching the token from `localStorage` using the `id_token` key. You can change the key used. Or you can create another function to get the token and set the provider manually. For more detail on available options, see: [Configuration Options](https://github.com/auth0/angular2-jwt#configuration-options).
+Here, before every AJAX request we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you like.
+
+# Summary
+
+In this guide you learned how to make authenticated API calls by reading and using the `id_token` value stored in localStorage along with the use of $.ajaxSetup() jQuery function.

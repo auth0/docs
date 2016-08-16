@@ -108,9 +108,11 @@ var showUserProfile = function(profile) {
 
 ## Custom Sign Up Fields
 
+<%= include('../_includes/_profile-metadata-explanation') %>
+
 You can add input fields to the sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
 
-**NOTE:** See [Additional sign up fields](https://github.com/auth0/lock#additional-sign-up-fields) for more information.
+**NOTE:** See [Additional sign up fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -153,8 +155,6 @@ var showUserProfile = function(profile) {
 ```
 
 ## Update User Profile
-
-<%= include('../_includes/_profile-metadata-explanation') %>
 
 You can add an `address` attribute to the user profile's `user_metadata` by creating an ajax call and a simple form. You will need to call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit.
 
@@ -218,3 +218,7 @@ Then create a simple form to add/update the *address* attribute:
 </div>
 ...
 ```
+
+# Summary
+
+In this guide you learned how to manage user profile by fetching the user profile information from Auth0 and then storing that information in localStorage to avoid future requests and then read this information from localStorage in order to show user profile. You also learned how to add custom sign up fields to Auth0's sign up form and how to update user's profile information.

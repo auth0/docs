@@ -199,4 +199,6 @@ var unlinkAccount = function(identity) {
 ...
 ```
 
+# Summary
 
+In this guide you learned how to enrich your users profile information by linking their Auth0 accounts with an OAuth provider like Facebook and Google.

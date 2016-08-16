@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+description: This tutorial will show you how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 ---
 
 <%= include('../../_includes/_package', {
@@ -99,3 +99,7 @@ var isUser = function(profile) {
 ```
 
 Now, if a user logs in with an email that contains `@example`, he/she will be allowed to access the `/admin.html` route. Otherwise, the user is just allowed to access `/` and `/user.html` routes.
+
+# Summary
+
+In this guide you learned how to assign roles to your users through Auth0's management dashboard, and use those claims to authorize or deny a user to access certain routes in your jQuery project.

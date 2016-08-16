@@ -13,7 +13,7 @@ description: This tutorial will show you how to customize Lock.
   pkgType: 'js'
 }) %>
 
-Using Lock is easy, but you may want to customize your login UI. There are several options available.
+Using Lock is easy, but you may want to customize your login UI. There are several [customization](/libraries/lock/v10/customization) options available. The aspects explained here are not the only customizations available.
 
 ## Lock Options
 
@@ -31,13 +31,13 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   }
 });
 ```
-**NOTE**: For more information, see: [Theming options](https://github.com/auth0/lock#theming-options).
+For more information, see: [Theming options](/libraries/lock/v10/ui-customization).
 
 ### Language Dictionary Specification
 
 You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
 
-```typescript
+```javascript
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   languageDictionary: {
     title: "My Company"
@@ -45,11 +45,8 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 });
 ```
 
-**NOTE**: For more information, see: [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification).
+For more information, see: [Language Dictionary Specification](/libraries/lock/v10/i18n).
 
-### Results
+# Summary
 
-This is how Lock will appear using a custom logo, color, and title:
-
-![Custom lock](/media/articles/angularjs2/widget-custom-logo-color.png)
-
+In this guide you learned how to customize the default Auth0's login window appearance and how to add internationalization to it by using Auth0Lock's languageDictionary property.

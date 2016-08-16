@@ -25,3 +25,7 @@ In this tutorial, you will learn how to enable MFA in the jQuery application you
 ## Login
 
 <%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/jquery/01-login' }) %>
+
+# Summary
+
+In this guide you learned how to use Auth0 Guardian in order to add Multi Factor Authentication to your jQuery project.

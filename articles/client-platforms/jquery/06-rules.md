@@ -50,3 +50,7 @@ var showUserProfile = function(profile) {
 };
 ...
 ```
+
+# Summary
+
+In this guide you learned how to extend Auth0 default functionality by using Auth0 rules.

@@ -13,7 +13,7 @@ description: This tutorial will show you how to use the Auth0 library to add cus
   pkgType: 'js'
 }) %>
 
-In the [previous step](/quickstart/spa/jquery/01-login), you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](https://github.com/auth0/auth0.js).
+In the [previous step](/quickstart/spa/jquery/01-login), you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](/libraries/auth0js). In this case we will use Auth0's CDN (you can also use npm or bower for the same purpose).
 
 ## Custom Login
 
@@ -152,6 +152,6 @@ and add a button to call this method:
 ...
 ```
 
-## All done!
+# Summary
 
-You have completed the implementation of Login, Signup and Social Sign In with Auth0 in your jQuery project.
+In this guide you learned how to use `Auth0.js` library to log users into your jQuery project by using user and password or using social login. Also you learned how to register new users.
