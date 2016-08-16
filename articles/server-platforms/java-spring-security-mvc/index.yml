@@ -11,9 +11,13 @@ snippets:
   dependenciesGradle: server-platforms/java-spring-security/dependencies-gradle
   setup: server-platforms/java-spring-security/setup
   use: server-platforms/java-spring-security/use
+  rulesSetRoles: server-platforms/java-spring-security/rulesSetRoles
+  rulesAdminService: server-platforms/java-spring-security/rulesAdminService
+  rulesHomeController: server-platforms/java-spring-security/rulesHomeController
+  rulesHomeJsp: server-platforms/java-spring-security/rulesHomeJsp
 articles:
   - 00-intro
   - 01-login
   - 02-custom-login
   - 06-rules
-  - 09-MFA
+  - 09-mfa
