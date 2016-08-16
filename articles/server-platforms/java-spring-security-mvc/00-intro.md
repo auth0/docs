@@ -123,4 +123,6 @@ __NOTE__: Notice the format difference between `auth0.domain` and `auth0.issuer`
 
 You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock).
 
+**NOTE**: We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. The [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) contains  two demo websites that have been developed to demonstrate the Auth0 SSO capabilities between a main "portal" website and a Partner website that depends on the main "portal" site for SSO authentication. Fell free to check this out.
+
 
