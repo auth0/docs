@@ -71,7 +71,7 @@ The project contains also the following files:
 
 ## Configure callback URLs
 
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
+Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the client's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
 
 ![Callback error](/media/articles/java/callback_error.png)
 
@@ -103,13 +103,13 @@ ${snippet(meta.snippets.setup)}
 
 Here is a breakdown of what each attribute means:
 
-- `auth0.domain`: Your auth0 domain. You can find the correct value on the Settings tab of your app on the [dashboard](${uiURL}/#/applications).
+- `auth0.domain`: Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications).
 - `auth0.issuer`: The issuer of the JWT Token. This is typically the full URL of your auth0 tenant account, for example `https://{tenant_name}.auth0.com/`.
 
 __NOTE__: Notice the format difference between `auth0.domain` and `auth0.issuer`. If your `auth0.domain` is `johndoe.auth0.com` then the correct value for `auth0.issuer` is `https://johndoe.auth0.com/`. Mind the `https://` at the beginning and the `/` at the end.
 
-- `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings tab of your app on the [dashboard](${uiURL}/#/applications).
-- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings tab of your app on the [dashboard](${uiURL}/#/applications).
+- `auth0.clientId`: The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications).
+- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications).
 - `auth0.onLogoutRedirectTo`: The page that users of your site are redirected to on logout. Should start with `/`.
 - `auth0.securedRoute`: The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`. Note, if you are using the default library configuration (not overriding with your own) which just secures a single, specific context path then this value is important. However, if you are building an application which may have several different secured endpoints, or you don't want to specify an explicit configuration value in this `.properties` file then just set the value to something that signifies this. Perhaps `auth0.securedRoute: UNUSED`. Then just ignore the `securedRoute` entirely when you specify your own configuration. See the section [Extending Auth0SecurityConfig](https://github.com/auth0/auth0-spring-security-api#extending-auth0securityconfig) for further info. The takeaway message is that this property value is a convenience for the developer to configure an endpoint by context path (.eg all URLS with `/api/v1/` in their context path), but there is no obligation to actually reference this property in your own `HttpSecurity` configuration.
 - `auth0.loginCallback`: The URL context path for the login callback endpoint. Should start with `/`.
