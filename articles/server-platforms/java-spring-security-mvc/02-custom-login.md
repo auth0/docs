@@ -91,6 +91,8 @@ We are now ready to test the application!
 
 Build and run the project using `mvn spring-boot:run`. Then, go to [http://localhost:3099/login](http://localhost:3099/login).
 
+You should see the custom login page, instead of Lock.
+
 ![Custom Login](/media/articles/java/custom_login_form.png)
 
 Enter the credentials of the user you created earlier to test the login.
