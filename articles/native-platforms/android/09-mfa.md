@@ -14,7 +14,9 @@ This tutorial and seed project have been tested with the following:
 * Emulator - Nexus5X - Android 6.0 
   :::
   
-<%= include('../_includes/_mfa-introduction') %>
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/09-MFA',
+}) %>
 
 ### 1. Enable MFA in your account
 
