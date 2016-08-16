@@ -62,7 +62,7 @@ The project contains also the following files:
 - `LogoutController.java`: The controller that handles the logouts.
 
 
-## Create an application
+## Create a Client
 
 <%= include('../../_includes/_java_new_app') %>
 
