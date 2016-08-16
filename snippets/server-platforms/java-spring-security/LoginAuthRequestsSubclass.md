@@ -17,28 +17,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class AppConfig extends Auth0Config {
 
-    @Value(value = "${auth0.customLogin}")
-    protected boolean customLogin;
-
-    @Value(value = "${auth0.connection}")
-    protected String connection;
-
-
     @Override
     protected void authorizeRequests(final HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/fonts/**", "/js/**", "/login").permitAll()
-                .antMatchers("/portal/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .antMatchers("/portal/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers(securedRoute).authenticated();
     }
-
-    public boolean isCustomLogin() {
-        return customLogin;
-    }
-
-    public String getConnection() {
-        return connection;
-    }
-
 }
 ```
