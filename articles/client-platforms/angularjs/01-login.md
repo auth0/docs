@@ -104,8 +104,8 @@ Inject the modules necessary for the application, including **angular-lock** and
     .configure(function config($routeProvider, lockProvider) {
 
       lockProvider.init({
-        clientID: AUTH0_CLIENT_ID,
-        domain: AUTH0_DOMAIN
+        clientID: '<%= account.clientId %>',
+        domain: '<%= account.namespace %>'
       });
 
       $routeProvider
