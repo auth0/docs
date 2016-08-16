@@ -97,7 +97,7 @@ ${snippet(meta.snippets.dependenciesGradle)}
 
 ## Configure your Spring Security app
 
-Your Spring Security app needs some information in order to authenticate against your Auth0 account. Create a file called `auth0.properties` and place it under `src/main/resources`. Set the following:
+Your Spring Security app needs some information in order to authenticate against your Auth0 account. We have created a file for you but you need to update some of the entries with the valid values for your Client. The file is `/src/main/resources/auth0.properties` and it contains the following:
 
 ${snippet(meta.snippets.setup)}
 
