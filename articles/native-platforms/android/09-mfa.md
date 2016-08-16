@@ -12,11 +12,10 @@ This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
-  :::
+:::
   
 <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/09-MFA',
-}) %>
+  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/09-MFA', }) %>
 
 ### 1. Enable MFA in your account
 
