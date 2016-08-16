@@ -61,7 +61,7 @@ Once installed, the scripts for these libraries can be included in your project.
 ```html
 ...
 
-<script src="node_modules/auth0-lock/dist/lock.js"></script>
+<script src="node_modules/auth0-lock/build/lock.js"></script>
 <script src="node_modules/angular-lock/dist/angular-lock.js"></script>
 <script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
 
@@ -73,7 +73,7 @@ Once installed, the scripts for these libraries can be included in your project.
 ```html
 ...
 
-<script src="bower_components/auth0-lock/dist/lock.js"></script>
+<script src="bower_components/auth0-lock/build/lock.js"></script>
 <script src="bower_components/angular-lock/dist/angular-lock.js"></script>
 <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
 
@@ -327,7 +327,7 @@ Authentication for Angular apps isn't that useful if it can't be used to access 
     .configure(function config($routeProvider, $http, lockProvider, jwtOptionsProvider, jwtInterceptorProvider) {
 
       jwtOptionsProvider.config({
-        tokenGetter: function(store) {
+        tokenGetter: function() {
           return localStorage.getItem('id_token');
         }
       });
