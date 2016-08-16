@@ -11,6 +11,9 @@ snippets:
   dependenciesGradle: server-platforms/java-spring-security/dependencies-gradle
   setup: server-platforms/java-spring-security/setup
   use: server-platforms/java-spring-security/use
+  customLoginJsp: server-platforms/java-spring-security/customLoginJsp
+  customLoginGetValues: server-platforms/java-spring-security/customLoginGetValues
+  customLoginEditController: server-platforms/java-spring-security/customLoginEditController
   rulesSetRoles: server-platforms/java-spring-security/rulesSetRoles
   rulesAdminService: server-platforms/java-spring-security/rulesAdminService
   rulesHomeController: server-platforms/java-spring-security/rulesHomeController
