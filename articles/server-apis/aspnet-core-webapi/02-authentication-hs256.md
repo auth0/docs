@@ -119,7 +119,7 @@ If you make a request to the `/ping/secure` endpoint you will notice that the AP
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](https://auth0.com/docs/api/authentication#!#post--oauth-ro):
+As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
 

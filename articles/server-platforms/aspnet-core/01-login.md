@@ -166,7 +166,7 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
         redirectUrl: '@Model.CallbackUrl',
         responseType: 'code',
         params: {
-            scope: 'openid profile', //Details: https://auth0.com/docs/scopes
+            scope: 'openid profile', //Details: https:///scopes
             state: '@Model.State',
             nonce: '@Model.Nonce'
         }

@@ -4,12 +4,12 @@ changed:
     tags:
       - jwt
     description: |
-      Updated [JWT doc](https://auth0.com/docs/jwt) with info on signing algorithms.
+      Updated [JWT doc](/jwt) with info on signing algorithms.
   -
     title: "Updated Java landing page"
     tags:
       - java
     description: |
-      Updated [Java overview page](https://auth0.com/docs/java-overview) with info on new samples:
+      Updated [Java overview page](/java-overview) with info on new samples:
       - [Auth0 Spring Boot Application with Social and Database Connection, and Account Linking](https://github.com/auth0-samples/auth0-spring-boot-social-dbconnection-link)
       - [Auth0 (AngularJS) Single Page Application + API Server Sample](https://github.com/auth0-samples/auth0-spring-security-api-client-samples/tree/master/auth0-spring-security-api-angular-client)

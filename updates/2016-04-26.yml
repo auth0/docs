@@ -5,4 +5,4 @@ added:
       - architecture
       - scenarios
     description: |
-      Added a new section depicting the various [Architectural Scenarios](https://auth0.com/docs/architecture-scenarios) when implementing Auth0.
+      Added a new section depicting the various [Architectural Scenarios](/architecture-scenarios) when implementing Auth0.

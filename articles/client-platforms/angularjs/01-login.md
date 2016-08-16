@@ -254,7 +254,7 @@ All authenticated users are not to have access to the same resource and to restr
 
 Rule Templates make creating rules very simple. Most situations you can think of already have a template so you do not have to create from scratch
 
-Rules are managed via your [dashboard](https://manage.auth0.com/#/rules). You can create a fresh rule or select a template if one suits you. A situation like roles already has a template named "Set roles to user" under the "Access Control" section. Click on the template and update the `addRolesToUser` function:
+Rules are managed via your [dashboard](${uiURL}/#/rules). You can create a fresh rule or select a template if one suits you. A situation like roles already has a template named "Set roles to user" under the "Access Control" section. Click on the template and update the `addRolesToUser` function:
 
 ![Rules templates](/media/articles/angularjs/rule_template.png)
 

@@ -157,6 +157,8 @@ If you find a bug or have a feature request, report them in Github at [Auth0 Loc
 
 * [Lock 9 to Lock 10 Migration Guide][migration-guide]
 * [Complete API][lock-api]
+* [UI Customization][ui-customization]
+* [Customizing Lock to Your Needs][lock-customization]
 * [Embedding Lock (Instead of a Modal)][display-modes]
 * [i18n - Languages and Custom Text][i18n-notes]
 * [Popup Mode][popup-mode] - an advanced option (not recommended in most cases)

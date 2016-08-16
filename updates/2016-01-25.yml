@@ -22,4 +22,4 @@ added:
       - dotnet
       - windows
     description: |
-      New tutorials for Windows UWP Apps for both [C#](https://auth0.com/docs/quickstart/native/windows-uwp-csharp/) and [Javascript](https://auth0.com/docs/quickstart/native-mobile/windows-uwp-javascript/no-api) were published. Additionally, you can find [libraries and samples](https://github.com/auth0/Auth0.Windows.UWP) to make integrating Auth0 into your UWP app even easier.
+      New tutorials for Windows UWP Apps for both [C#](/quickstart/native/windows-uwp-csharp/) and [Javascript](/quickstart/native-mobile/windows-uwp-javascript/no-api) were published. Additionally, you can find [libraries and samples](https://github.com/auth0/Auth0.Windows.UWP) to make integrating Auth0 into your UWP app even easier.

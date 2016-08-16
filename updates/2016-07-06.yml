@@ -6,4 +6,4 @@ added:
       - github
       - rules
     description: |
-      A [new document](https://auth0.com/docs/extensions/github-deploy) was created on how to configure and use the GitHub Deployments extension.
+      A [new document](/extensions/github-deploy) was created on how to configure and use the GitHub Deployments extension.

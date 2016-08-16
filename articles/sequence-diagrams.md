@@ -6,7 +6,7 @@ The following sequence diagram shows the typical authentication flow of a single
 
 <i class="icon icon-play"></i>&nbsp;<a href="javascript:$('#implicit').attr('src', $('#implicit').attr('src'))">Replay</a>
 
-<img id="implicit" src="https://cdn.auth0.com/docs/img/implicit-diagram.gif">
+<img id="implicit" src="https://cdn./img/implicit-diagram.gif">
 
 1. Initiate the login transaction by redirecting the user to:
 

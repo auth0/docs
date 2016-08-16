@@ -93,7 +93,7 @@ ${snippet(meta.snippets.profiletemplate)}
 
 ### 7. Optional: Implement Refresh Tokens
 
-[Refresh tokens](https://auth0.com/docs/refresh-token) are special tokens that are used to retrieve a new JWT for the user so that they can remain authenticated.
+[Refresh tokens](/refresh-token) are special tokens that are used to retrieve a new JWT for the user so that they can remain authenticated.
 
 In Angular 1.x, obtaining a new JWT with a refresh token can be accomplished using HTTP interceptors. However, Angular 2 doesn't have the concept of HTTP interceptors, so another approach is needed. There are several different ways to implement token refreshing in Angular 2, and one of them is to use observables.
 
