@@ -1,29 +1,29 @@
 ---
 title: Login
-description: This tutorial will show you how to integrate Lock 10 in your Android project in order to present a login screen.
+description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.
 ---
-
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0
-  :::
+* Emulator - Nexus5X - Android 6.0 
+:::
+
+  
+<%= include('../../_includes/_github', {
+  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/01-Login',
+}) %> 
 
 
 ### Before Starting
-
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback</pre></code>
 </div>
 
 ### 1. Add the Lock dependency
 
-Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
+Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different platforms via [auth0](https://auth0.com/).
 
 #### i. Gradle
 
@@ -75,7 +75,7 @@ Also, you need to add the following permissions inside the:
 
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login in any activity you want.
+At this point, you're all set to implement the Login in any activity you want. 
 
 First, add these lines in the ``onCreate`` method:
 
