@@ -12,7 +12,7 @@ This tutorial and seed project have been tested with the following:
   :::
   
   <%= include('../../_includes/_github', {
-  link: 'https://github.com/inaka/auth0-android-sample/tree/10-Customizing-Lock',
+  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/10-Customizing-Lock',
 }) %> 
 
 
