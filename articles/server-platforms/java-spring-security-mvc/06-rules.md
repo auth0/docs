@@ -59,25 +59,6 @@ with this:
 
 Let's display some info to see that our rule actually works. 
 
-
-**WAITING ON FEEDBACK**
-
-Edit the `src/main/webapp/WEB-INF/jsp/login.jsp`. We need to add the `roles` scope so we can retrieve this information.
-
-Replace this:
-
-```html
-scope: 'openid user_id name nickname email picture'
-```
-
-with this:
-
-```html
-scope: 'openid roles user_id name nickname email picture'
-```
-
-**WAITING ON FEEDBACK**
-
 Add the following code at the `src/main/webapp/WEB-INF/jsp/home.jsp`, inside your `jumbotron` div:
 
 ${snippet(meta.snippets.rulesHomeJsp)}
