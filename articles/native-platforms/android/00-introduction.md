@@ -103,8 +103,6 @@ Also, remember to update the Lock's data path
 
 **You're all set up to start integrating Auth0 in your app!** 🎉
 
-The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
-
-Said that, we suggest you to start with the [login tutorial](01-login.md)...
+This tutorial will teach you the different things you can do with it. We recommend that you follow the steps sequentially, as they are progressive and there is content that usually needs to be learned from previous steps.
 
 Have fun!
