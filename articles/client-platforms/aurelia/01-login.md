@@ -3,13 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Aurelia SDK to add authentication and authorization to your web app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.0.0
-* JSPM 0.16.27
-* Aurelia-framework 1.0.0-beta.1.1.0
-:::
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aurelia-samples',
   githubUrl:'https://github.com/auth0-samples/auth0-aurelia-samples/tree/master/00-Starter-Seed',
@@ -20,6 +13,14 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 5.0.0
+* JSPM 0.16.27
+* Aurelia-framework 1.0.0-beta.1.1.0
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **If you have an existing application, follow the steps below.**
 
