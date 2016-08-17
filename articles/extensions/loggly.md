@@ -15,7 +15,7 @@ At this point you should set the following configuration variables:
 - __Auth0_Global_Client_ID__: The Global Client ID of your Auth0 client.
 - __Auth0_Global_Client_Secret__: The Global Client Secret of your Auth0 client.
 
-__NOTE__: You can find the _Global Client ID_ and _Global Client Secret_ information at the __Global Client information__ section of [your Account Advanced Settings](https://${uiURL}/#/account/advanced).
+__NOTE__: You can find the _Global Client ID_ and _Global Client Secret_ information at the __Global Client information__ section of [your Account Advanced Settings](${uiURL}/#/account/advanced).
 
 - __Loggly_Customer_Token__: The identifying token assigned to you by Loggly at set-up.
 - __Loggly_Subdomain__: The Loggly account name.
@@ -32,11 +32,11 @@ __NOTE__: We assume that you already know your __Loggly_Subdomain__ since it's p
 
 1. Login to your [Loggly](https://www.loggly.com/) account.
 
-1. Using the menu bar at the top, navigate to _Source Setup > Customer Tokens_. Your __Customer Token__ is displayed on the page. You can create a new one if you want.
+2. Using the menu bar at the top, navigate to _Source Setup > Customer Tokens_. Your __Customer Token__ is displayed on the page. You can create a new one if you want.
 
 ![](/media/articles/extensions/loggly/copy-source-setup.png)
 
-1. Copy this value and head back to the [Auth0 dashboard](${uiURL}). Set it at the __Loggly_Customer_Token__ field. You 're done!
+3. Copy this value and head back to the [Auth0 dashboard](${uiURL}). Set it at the __Loggly_Customer_Token__ field. You 're done!
 
 ## Use Your Installed Extension
 
