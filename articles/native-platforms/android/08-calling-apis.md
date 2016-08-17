@@ -23,8 +23,6 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
->>>>>>> auth0/master
-
 ### Before Starting
 
 You should already know how to manage the `Credentials` object, as explained in [Session Management](03-session-handling.md) tutorial.
