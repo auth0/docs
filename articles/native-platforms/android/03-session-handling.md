@@ -20,7 +20,6 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
-
 This tutorial will show you how to use Lock10 to mantain an active session with Auth0.
 
 For this, you will need to handle user's ``credentials``. Let's take a look on this class, which is composed by three objects:

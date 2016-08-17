@@ -13,8 +13,8 @@ This tutorial and seed project have been tested with the following:
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
 :::
-
- <%= include('../../_includes/_package', {
+ 
+<%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/07-Authorization',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-android-sample',
