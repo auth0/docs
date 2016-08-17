@@ -9,7 +9,7 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* Emulator - Nexus5X - Android 6.0
   :::
 
  <%= include('../../_includes/_package', {
@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
-  
+
 ## Sample Projects
 
 Each tutorial in the serie includes a link to its corresponding sample project, which expose how to achieve the goal from the tutorial in question. You can check out all the samples [here](https://github.com/auth0-samples/auth0-android-sample).
@@ -72,7 +72,7 @@ Make sure you complete these steps before going through any tutorial:
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
 #### 2. Configure your callback URLs
- 
+
 >If you wish to only use DB connections, skip this point.
 
 The callback urls are meant to be used to receive the OAuth response when logging in with social connections or  enterprise connections.
@@ -80,7 +80,7 @@ The callback urls are meant to be used to receive the OAuth response when loggin
 
 #### 3. Set your credentials
 
-The [dependencies](#dependencies) listed above will offer different functionalities that require your credientials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set. Anyway, you have to make sure they are there, otherwise your app will not work properly. 
+The [dependencies](#dependencies) listed above will offer different functionalities that require your credientials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set. Anyway, you have to make sure they are there, otherwise your app will not work properly.
 
 The required credentials are, your ClientID > `${account.clientId}` and your domain > `${account.namespace}`.
 
@@ -105,6 +105,6 @@ Also, remember to update the Lock's data path
 
 The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
 
-Said that, we suggest you to start with the [login tutorial](01-login.md)...
+Said that, we suggest you to start with the [login tutorial](/quickstart/native/android/01-login)...
 
 Have fun!
