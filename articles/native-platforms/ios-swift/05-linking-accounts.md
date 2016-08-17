@@ -28,7 +28,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 - You've integrated [Lock](https://github.com/auth0/Lock.iOS-OSX) and [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login.md) and the [session handling tutorial](03-session-handling.md) first.
 - You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [session handling](03-session-handling.md) and [user profile](04-user-profile.md) tutorials.
 
-> **It is highly recommended that you take a look at the [linking accounts documentation](https://auth0.com/docs/link-accounts)** to understand the process of linking accounts.
+> **It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts)** to understand the process of linking accounts.
 
 ### 1. Enter account credentials
 

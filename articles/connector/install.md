@@ -9,7 +9,7 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
     <ul>
       <li>
         <a class="download-link" href="http://cdn.auth0.com/adldap.msi">
-          <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
+          <img src="//cdn./img/node-windows.png" alt="">
           Auth0 Active Directory/LDAP Connector for Windows
           <small class="download-version"></small>
         </a>

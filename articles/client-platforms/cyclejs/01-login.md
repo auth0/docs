@@ -12,6 +12,8 @@ This tutorial have been tested with the following:
 * cyclejs-auth0 1.1.0
 :::
 
+<%= include('../../_includes/_signup') %>
+
 ${include('../\_callback')}
 
 ### 1. Install the cyclejs-auth0 package

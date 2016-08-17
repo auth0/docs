@@ -5,4 +5,4 @@ added:
       - tutorial
       - spa
     description: |
-      A [new tutorial](https://auth0.com/docs/client-platforms/vuejs) was added showing how to setup Auth0 with Vue.js.
+      A [new tutorial](/client-platforms/vuejs) was added showing how to setup Auth0 with Vue.js.

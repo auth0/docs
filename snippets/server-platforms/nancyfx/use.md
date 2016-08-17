@@ -9,7 +9,7 @@ function signin() {
       callbackURL: 'http://localhost:CHANGE-TO-YOUR-PORT/signin-auth0'
     , responseType: 'code'
     , authParams: {
-      scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+      scope: 'openid name email' //Details: https:///scopes
     }
   });
 }

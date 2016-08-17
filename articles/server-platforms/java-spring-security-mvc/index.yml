@@ -11,5 +11,21 @@ snippets:
   dependenciesGradle: server-platforms/java-spring-security/dependencies-gradle
   setup: server-platforms/java-spring-security/setup
   use: server-platforms/java-spring-security/use
+  LoginAuthRequestsMethod: server-platforms/java-spring-security/LoginAuthRequestsMethod
+  LoginAuthRequestsSubclass: server-platforms/java-spring-security/LoginAuthRequestsSubclass
+  LoginJsp: server-platforms/java-spring-security/LoginJsp
+  LoginHomeController: server-platforms/java-spring-security/LoginHomeController
+  LoginHomeJsp: server-platforms/java-spring-security/LoginHomeJsp
+  customLoginJsp: server-platforms/java-spring-security/customLoginJsp
+  customLoginGetValues: server-platforms/java-spring-security/customLoginGetValues
+  customLoginEditController: server-platforms/java-spring-security/customLoginEditController
+  rulesSetRoles: server-platforms/java-spring-security/rulesSetRoles
+  rulesAdminService: server-platforms/java-spring-security/rulesAdminService
+  rulesHomeController: server-platforms/java-spring-security/rulesHomeController
+  rulesHomeJsp: server-platforms/java-spring-security/rulesHomeJsp
 articles:
+  - 00-intro
   - 01-login
+  - 02-custom-login
+  - 06-rules
+  - 09-mfa

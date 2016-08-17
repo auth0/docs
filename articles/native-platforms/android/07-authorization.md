@@ -22,7 +22,7 @@ This tutorial and seed project have been tested with the following:
   pkgPath: '07-Authorization',
   pkgFilePath: null,
   pkgType: 'none'
-}) %>  
+}) %>
  
 ### Before Starting
  

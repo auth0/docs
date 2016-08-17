@@ -189,7 +189,7 @@ Where:
 * **target** identifies this API endpoint in Auth0 (often the same as client_id).
 * **api_type** must be aws
 
-Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate values via [Rules](https://manage.auth0.com/#/rules):
+Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${uiURL}/#/rules):
 
 ```js
 function (user, context, callback) {

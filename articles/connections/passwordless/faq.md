@@ -76,7 +76,7 @@ Auth0 supports **Twilio SMS** for passwordless login with codes sent via SMS, an
 
 ### Q: Can I configure a different messaging provider than the ones you support directly?
 
-**A:** Currently it is supported only for codes sent via SMS, you can follow [this link](https://auth0.com/docs/connections/passwordless/sms-gateway) to read more on how to configure your own SMS gateway to handle the delivery of those codes.
+**A:** Currently it is supported only for codes sent via SMS, you can follow [this link](/connections/passwordless/sms-gateway) to read more on how to configure your own SMS gateway to handle the delivery of those codes.
 
 ### Q: How can I use Passwordless as another factor in multi-factor authentication?
 

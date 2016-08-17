@@ -40,7 +40,7 @@ lock.show({
  });
 ```
 The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The responseType should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the /authorize endpoint here:
-https://auth0.com/docs/auth-api
+https:///auth-api
 
 The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
 

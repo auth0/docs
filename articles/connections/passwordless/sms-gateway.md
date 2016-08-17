@@ -10,7 +10,7 @@ Instead you'll want your own infrastructure to handle the delivery of these one 
 
 ## Configure your SMS Gateway
 
-The configuration of your own SMS Gateway currently needs to happen through the Management API. You would first need to get your connections (strategy: `sms`) from the [GET connections endpoint](https://auth0.com/docs/api/v2#!/Connections/get_connections).
+The configuration of your own SMS Gateway currently needs to happen through the Management API. You would first need to get your connections (strategy: `sms`) from the [GET connections endpoint](/api/v2#!/Connections/get_connections).
 
 This will return your SMS connection with your Twilio settings:
 
@@ -67,7 +67,7 @@ You can now modify the options of the connection:
 }
 ```
 
-You can then send the updated configuration to the Management API using the [PATCH connections endpoint](https://auth0.com/docs/api/v2#!/Connections/patch_connections_by_id).
+You can then send the updated configuration to the Management API using the [PATCH connections endpoint](/api/v2#!/Connections/patch_connections_by_id).
 
 After updating the connection for any user that signs up or authenticates using the Passwordless SMS connection the following payload will be sent to your SMS gateway:
 

@@ -21,7 +21,9 @@ This tutorial and seed project have been tested with the following:
   pkgPath: '08-Calling-APIs',
   pkgFilePath: null,
   pkgType: 'none'
-}) %>  
+}) %>
+
+>>>>>>> auth0/master
 
 ### Before Starting
 

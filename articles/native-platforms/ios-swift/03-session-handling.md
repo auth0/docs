@@ -128,7 +128,7 @@ client.fetchUserProfileWithIdToken(idToken,
 
 ### 4. Deal with a non-valid idToken
 
-How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios: Either you ask the user to re-enter his credentials, or you [use the refresh token to get a new valid idToken again](https://auth0.com/docs/refresh-token).
+How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios: Either you ask the user to re-enter his credentials, or you [use the refresh token to get a new valid idToken again](/refresh-token).
 
 If you aim for the former scenario, make sure you clear all the keychain stored values by doing:
 
@@ -140,14 +140,14 @@ However, in this tutorial, we'll focus on the latter scenario, where we still do
 
 In this case, we're going to leverage the `refreshToken`. The refresh token is another token string contained within the `A0Token` object that comes upon a successful login, which doesn't expire, and whose main purpose is retrieving new valid `idToken`s in spite of them having expired.
 
->It's recommendable that you read and understand the [refresh token documentation](https://auth0.com/docs/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+>It's recommendable that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
 
 #### i. Store the refreshToken
 
 Besides storing the `idToken`, we need to store the `refreshToken`. To do so, you can, upon login:
 
 ```swift
-guard 
+guard
     let token = maybeToken,
     let refreshToken = token.refreshToken
     else { return }

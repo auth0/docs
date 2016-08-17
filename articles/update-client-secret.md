@@ -20,7 +20,7 @@ Here is an example of a command you can use to generate a random string:
 
 ## Using the Management API to set the new client_secret
 
-You can also change your application's `client_secret` by using [Update a client](https://auth0.com/docs/api/v2#!/Clients/patch_clients_by_id) in the Management API.  Set the `id` of the client you are updating, and then in the `body` section enter your new `client_secret` as a JSON field.
+You can also change your application's `client_secret` by using [Update a client](/api/v2#!/Clients/patch_clients_by_id) in the Management API.  Set the `id` of the client you are updating, and then in the `body` section enter your new `client_secret` as a JSON field.
 
 **Note:** The `client_secret` can only be updated with the `update:client_keys` scope.
 
