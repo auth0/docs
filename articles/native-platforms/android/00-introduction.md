@@ -12,7 +12,15 @@ This tutorial and seed project have been tested with the following:
 * Emulator - Nexus5X - Android 6.0 
 :::
 
-<%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Starter-Seed', }) %>
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-android-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: null,
+  pkgType: 'none'
+}) %>
   
 ## Sample Projects
 
