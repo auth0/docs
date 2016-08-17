@@ -12,6 +12,16 @@ The first step is to create an OpenID Connect Provider pointing to your Auth0 ac
 
 > It's not necessary to set up an IAM role after creating the identity provider. If you don't have one already, Cognito will create a default IAM role in the next step.
 
+To obtain the Auth0 Dashboard's Thumbprint value:
+
+1. [Retrieve your Auth0 Domain's certificate chain.](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html?icmpid=docs_iam_console)
+2. Once you've obtained the certificate chain, isolate the last certificate in the chain.
+3. Using the last certificate in the chain, [compute the fingerprint](https://www.samltool.com/fingerprint.php).
+4. Convert the fingerprint to a thumbprint by removing all of the `:` characters.
+5. Use the computed thumbprint when calling the `aws iam create-open-id-connect-provider` command.
+
+Please do **not** use the certificate thumbprint shown on the Auth0 Application Dashboard.
+
 ### Create a Cognito Identity Pool
 Now, you need to create an Identity Pool in the [Cognito Console](https://console.aws.amazon.com/cognito/home). This will be used to log in to Amazon Cognito using the Auth0 Identity Provider that you created in the previous step.
 

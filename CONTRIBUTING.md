@@ -416,9 +416,9 @@ There are four types of packaging that can happen with this service.
   ```
 2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
   ```
-  var JS_CLIENT_ID='VALUE';
-  var JS_CALLBACK_URL='VALUE';
-  var JS_DOMAIN='VALUE';
+  var AUTH0_CLIENT_ID='VALUE';
+  var AUTH0_CALLBACK_URL='VALUE';
+  var AUTH0_DOMAIN='VALUE';
   ```
 3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
 4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.
