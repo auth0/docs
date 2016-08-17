@@ -5,15 +5,6 @@ description: This tutorial will show you how to use the Auth0 EmberJS 2 SDK to a
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Bower 1.7.7
-* NodeJS 5.11.0
-* Ember 2.5.0
-* jQuery 1.11.3
-* Ember Simple Auth 1.0.0
-:::
-
 <%= include('../../_includes/_package', {
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-emberjs2-sample',
@@ -24,6 +15,16 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Bower 1.7.7
+* NodeJS 5.11.0
+* Ember 2.5.0
+* jQuery 1.11.3
+* Ember Simple Auth 1.0.0
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **If you have an existing application, follow the steps below.**
 

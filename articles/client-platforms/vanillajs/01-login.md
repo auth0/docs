@@ -15,6 +15,8 @@ You can get started by either downloading the seed project or if you would like 
   pkgType: 'js'
 }) %>
 
+<%= include('../../_includes/_signup') %>
+
 **If you have an existing application, please follow the steps below.**
 
 ${include('../\_callback')}

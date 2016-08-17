@@ -20,6 +20,8 @@ This tutorial and seed project have been tested with the following:
 * Angular 1.5.8
 :::
 
+<%= include('../../_includes/_signup') %>
+
 ${include('../\_callback')}
 
 #### Create an Application Instance
@@ -270,7 +272,7 @@ A button responsible for logging the user out can be placed in the header toolba
   angular
     .module('app')
     .run(function($rootScope, authService, authManager) {
-      
+
       // Put the authService on $rootScope so its methods
       // can be accessed from the nav bar
       $rootScope.authService = authService;
@@ -311,7 +313,7 @@ In this example, the **Log In** link takes the user to the `/login` view and the
 
 ### Step 5: Make Authenticated HTTP Requests
 
-Authentication for Angular apps isn't that useful if it can't be used to access protected resources on the server. Once your server resources are protected by a JWT middleware, you can attach the user's JWT to the HTTP requests they make from your Angular app so they can access those resources. To do this, set a `tokenGetter` function in `jwtOptionsProvider.config` and push the `jwtInterceptor` that comes from **angular-jwt** onto the array of HTTP interceptors. 
+Authentication for Angular apps isn't that useful if it can't be used to access protected resources on the server. Once your server resources are protected by a JWT middleware, you can attach the user's JWT to the HTTP requests they make from your Angular app so they can access those resources. To do this, set a `tokenGetter` function in `jwtOptionsProvider.config` and push the `jwtInterceptor` that comes from **angular-jwt** onto the array of HTTP interceptors.
 
 ```js
 // app.js
@@ -357,7 +359,7 @@ We can use the `checkAuthOnRefresh` method from `authManager` to check for an un
   angular
     .module('app')
     .run(function($rootScope, authService, authManager) {
-      
+
       ...
 
       // Use the authManager from angular-jwt to check for
@@ -383,7 +385,7 @@ If the user's JWT expires, requests made to the server will be rejected and a `4
   angular
     .module('app')
     .run(function($rootScope, authService, authManager) {
-      
+
       ...
 
       // Listen for 401 unauthorized requests and redirect
