@@ -57,7 +57,7 @@ function(user, context, callback){
 
 ## Updating
 
-All rules have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0/tree/v2) that can use the Management API v2) which is pre-configured with permissions to update users.
+All rules have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0) that can use the Management API v2) which is pre-configured with permissions to update users.
 
 ### Updating app_metadata
 
