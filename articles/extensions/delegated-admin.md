@@ -15,9 +15,11 @@ Let's start with creating a new client application. Navigate to [Clients](${uiUR
 ![](/media/articles/extensions/delegated-admin/create-client.png)
 
 Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
-- For US based, use: `https://sandbox.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
-- For Europe based, use: `https://sandbox-eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
-- For Australia based, use: `https://sandbox-au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
+
+| Location | Allowed Callback URL |
+| USA | `https://sandbox.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
+| Europe | `https://sandbox-eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
+| Australia | `https://sandbox-au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
 
 Copy the **Client ID** value. 
 
