@@ -130,7 +130,7 @@ Finally, whenever you want to start the login widget, call:
 startActivity(this.lock.newIntent(this));
 ```
 
-![Lock.png](/media/articles/libraries/lock-android/login.png)
+<div class="phone-mockup"><img src="/media/articles/libraries/lock-android/login.png" alt="Mobile example screenshot"/></div>
 
 > If you need in depth configuration, check more information on [Lock Builder](/libraries/lock-android#lock-builder)
 
