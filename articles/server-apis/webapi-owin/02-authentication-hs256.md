@@ -4,12 +4,12 @@ name: Shows how to secure your API using the standard JWT middeware
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample',
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-webapi-sample',
   pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnetcore-webapi-sample',
+  pkgRepo: 'auth0-aspnet-owin-webapi-sample',
   pkgBranch: 'master',
-  pkgPath: '02-Authentication-HS256',
-  pkgFilePath: '02-Authentication-HS256/appsettings.json',
+  pkgPath: '02-Authentication-HS256/WebApi',
+  pkgFilePath: '02-Authentication-HS256/WebApi/WebApi/Web.config',
   pkgType: 'replace'
 }) %>
 
@@ -23,69 +23,72 @@ To configure the JWT Signature Algorithm, go to the settings for your applicatio
 
 Save your changes.
 
-![Configure JWT Signature Algorithm as HS256](/media/articles/server-apis/aspnet-core-webapi/jwt-signature-hs256.png)   
+![Configure JWT Signature Algorithm as HS256](/media/articles/server-apis/webapi-owin/jwt-signature-hs256.png)   
 
 ## 2. Update your settings
 
-When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `appsettings.json` file included in the seed project to also add a **ClientSecret** attribute, and be sure to set the correct values for the **Domain**, **ClientId** and **ClientSecret** attributes:   
+When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `web.config` file included in the seed project to also add a **Auth0ClientSecret** key, and be sure to set the correct values for the **Auth0Domain**, **Auth0ClientID** and **Auth0ClientSecret** element:   
 
 ```json
-{
-  "Auth0": {
-    "Domain": "{DOMAIN}",
-    "ClientId": "{CLIENT_ID}",
-    "ClientSecret": "{CLIENT_SECRET}"
-  }
-}
+<appSettings>
+  <add key="Auth0Domain" value="${account.namespace}" />
+  <add key="Auth0ClientID" value="${account.clientId}" />
+  <add key="Auth0ClientSecret" value="${account.clientSecret}" />
+</appSettings>
 ```
 
 ## 3. Configure the JWT Middleware
 
 You will need to add the JWT middleware to your application's middleware pipeline. 
 
-Go to the `Configure` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerOptions`. The `JwtBearerOptions` needs to specify your Auth0 Domain as the issuer, the Client ID as the Audience, and the Base64-decoded Client Secret as the issuer signing key: 
+Go to the `Configuration` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerAuthenticationOptions`. The `JwtBearerAuthenticationOptions` needs to specify the Client ID in the `AllowedAudiences` property and the Auth0 Domain as the `issuer` and the Base64-decoded Client Secret as the `key` parameters of the `SymmetricKeyIssuerSecurityTokenProvider`: 
 
 ```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+public void Configuration(IAppBuilder app)
 {
-    var keyAsBase64 = Configuration["auth0:clientSecret"].Replace('_', '/').Replace('-', '+');
-    var keyAsBytes = Convert.FromBase64String(keyAsBase64);
+    var issuer = $"https://{ConfigurationManager.AppSettings["Auth0Domain"]}/";
+    var audience = ConfigurationManager.AppSettings["Auth0ClientID"];
+    var secret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["Auth0ClientSecret"]);
 
-    var options = new JwtBearerOptions
-    {
-        TokenValidationParameters =
+    // Api controllers with an [Authorize] attribute will be validated with JWT
+    app.UseJwtBearerAuthentication(
+        new JwtBearerAuthenticationOptions
         {
-            ValidIssuer = $"https://{Configuration["auth0:domain"]}/",
-            ValidAudience = Configuration["auth0:clientId"],
-            IssuerSigningKey = new SymmetricSecurityKey(keyAsBytes)                
-        }
-    };
-    app.UseJwtBearerAuthentication(options);
+            AuthenticationMode = AuthenticationMode.Active,
+            AllowedAudiences = new[] { audience },
+            IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+            {
+                new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
+            },
+        });
 
-    app.UseMvc();
+    // Configure Web API
+    WebApiConfig.Configure(app);
 }
 ```
 
 ::: panel-warning Do not forget the trailing backslash
-Please ensure that the URL specified for `ValidIssuer` contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.   
+Please ensure that the URL specified for the `issuer` parameter contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.   
 :::
 
 ## 4. Securing an API endpoint 
 
-The JWT middleware integrates with the standard ASP.NET Core [Authentication](https://docs.asp.net/en/latest/security/authentication/index.html) and [Authorization](https://docs.asp.net/en/latest/security/authorization/index.html) mechanisms.
-
-You only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
+The JWT middleware integrates with the standard ASP.NET Core Authentication and Authorization mechanisms. You only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 
 ```csharp
-[Route("api")]
+[RoutePrefix("api")]
 public class PingController : Controller
 {
     [Authorize]
     [HttpGet]
     [Route("ping/secure")]
-    public string PingSecured()
+    public IHttpActionResult PingSecured()
     {
-        return "All good. You only get this message if you are authenticated.";
+        return Ok(new
+        {
+            Message = "All good. You only get this message if you are authenticated."
+        }
+        );
     }
 }
 ```
@@ -97,15 +100,15 @@ You can make calls to your API by authenticating a user using any of our Lock in
 Here is a sample RAW request:
 
 ```bash
-GET /ping/secure HTTP/1.1
-Host: localhost:5000
+GET /api/ping/secure HTTP/1.1
+Host: localhost:58105
 Authorization: Bearer <your token>
 ```
 
 Or using [RestSharp](http://restsharp.org/):
 
 ```csharp
-var client = new RestClient("http://localhost:5000/ping/secure");
+var client = new RestClient("http://localhost:58105/api/ping/secure");
 var request = new RestRequest(Method.GET);
 request.AddHeader("authorization", "Bearer <your token>");
 IRestResponse response = client.Execute(request);
@@ -115,17 +118,17 @@ IRestResponse response = client.Execute(request);
 
 During development you may want to test your API with Postman.
 
-If you make a request to the `/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
+If you make a request to the `/api/ping/secure` endpoint you will notice that the API returns an HTTP status code 401 (Unauthorized):
 
-![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
+![Unauthorized request in Postman](/media/articles/server-apis/webapi-owin/postman-not-authorized.png)
 
 As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
 
-![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
+![Obtain a JWT](/media/articles/server-apis/webapi-owin/request-jwt.png)
 
 Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token:
 
-![Authorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-authorized.png)
+![Authorized request in Postman](/media/articles/server-apis/webapi-owin/postman-authorized.png)
 
 ## Next Step
 

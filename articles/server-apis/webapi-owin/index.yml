@@ -9,12 +9,6 @@ framework:
 image: /media/platforms/asp.png
 tags:
   - quickstart
-snippets:
-  dependencies: server-apis/webapi-owin/dependencies
-  setup: server-apis/webapi-owin/setup
-  use: server-apis/webapi-owin/use
-snippets:
-  dependencies: server-apis/aspnet-core-webapi/dependencies
 articles:
   - 00-intro
   - 01-authentication-rs256
