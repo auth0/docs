@@ -205,7 +205,7 @@ We display the user's permissions by welcoming them as an "editor" if `playlist_
 
 ### `user_metadata`
 
-`user_metadata` is extra authentication data determined by the user, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in. 
+`user_metadata` is data determined by the user and stored in the user profile, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in. 
 
 ### Example of `user_metadata`
 
