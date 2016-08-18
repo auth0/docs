@@ -31,9 +31,11 @@ Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
 Save your changes.
 
-Navigate to the *Connections* tab. When you create a new client, by default all the connections are enabled. This is something you want to change in this case, for security reasons. For example, if you have a Social Connection enabled, like Google, then anyone with the link could access your app, which is not something you want. The approach we follow in this tutorial is to disable all connections, create a new Database Connection and enable only this one for our new client application.
+When you create a new client, by default all the connections are enabled. This is something you want to change in this case, for security reasons. For example, if you have a Social Connection enabled, like Google, then anyone with the link could access your app, which is not something you want. The approach we follow in this tutorial is to disable all connections, create a new Database Connection and enable only this one for our new client application.
 
-After you disable all connections using the switch, navigate to [Database Connections](${uiURL}/#/connections/database) and click on **+Create DB Connection**. Set a name for your connection, we will name ours *Helpdesk*. 
+Navigate to the *Connections* tab and disable all the connections using the switch.
+
+Following that, navigate to [Database Connections](${uiURL}/#/connections/database) and click on **+Create DB Connection**. Set a name for your connection, we will name ours *Helpdesk*. 
 
 ![](/media/articles/extensions/delegated-admin/create-connection.png)
 
