@@ -16,8 +16,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '09-MFA',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '09-MFA/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>  
 
 ### 1. Enable MFA in your account

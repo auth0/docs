@@ -21,8 +21,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '02-Custom-Login/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
 
 
