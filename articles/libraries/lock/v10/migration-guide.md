@@ -94,3 +94,5 @@ Some existing options suffered changes, in addition to the beforementioned remov
 ### Upgrading from v10.0.0-beta.5 to v10.0.0-rc.1
 
 - No API changes were made in this release.
+
+<%= include('../_includes/_lock-toc') %>

@@ -58,3 +58,5 @@ Lock will emit events during its lifecycle.
 - `unrecoverable_error`: emitted when there is an unrecoverable error, for instance when no connection is available. Has the error as the only argument.
 - `authenticated`: emitted after a successful authentication. Has the authentication result as the only argument.
 - `authorization_error`: emitted when authorization fails. Has error as the only argument.
+
+<%= include('../_includes/_lock-toc') %>

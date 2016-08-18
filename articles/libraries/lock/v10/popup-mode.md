@@ -60,3 +60,6 @@ var options = {
 ```
 
 **Redirect mode is recommended whenever possible to avoid potential browser compatibility issues.**
+
+<%= include('../_includes/_lock-toc') %>
+
