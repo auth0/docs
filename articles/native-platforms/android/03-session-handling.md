@@ -1,6 +1,6 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to use Lock10 to mantain a session connected.
+description: This tutorial will show you how to use Lock v2 to mantain a session connected.
 ---
 
 ::: panel-info System Requirements
@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-This tutorial will show you how to use Lock10 to mantain an active session with Auth0.
+This tutorial will show you how to use Lock v2 to mantain an active session with Auth0.
 
 For this, you will need to handle user's ``credentials``. Let's take a look on this class, which is composed by three objects:
 
@@ -125,5 +125,5 @@ private void logout() {
 
 ### Done!
 
-This exercise was simple! Look forward to other tutorials of Lock10.
+This exercise was simple! Look forward to other tutorials of Lock v2.
 
