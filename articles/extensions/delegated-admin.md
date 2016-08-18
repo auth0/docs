@@ -23,7 +23,9 @@ Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies b
 
 Copy the **Client ID** value. 
 
-Navigate to *Settings > Show Advanced Settings > OAuth* and paste the **Client ID** value to the **Allowed APPs / APIs** field. Set the **JsonWebToken Signature Algorithm** to *RS256*.
+Navigate to *Settings > Show Advanced Settings > OAuth* and paste the **Client ID** value to the **Allowed APPs / APIs** field. 
+
+Set the **JsonWebToken Signature Algorithm** to *RS256*.
 
 ![](/media/articles/extensions/delegated-admin/set-rs256.png)
 
