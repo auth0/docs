@@ -19,8 +19,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '08-Calling-APIs',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '08-Calling-APIs/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
 
 ### Before Starting

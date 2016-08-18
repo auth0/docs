@@ -16,8 +16,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '03-Session-Handling',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '03-Session-Handling/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
 
 This tutorial will show you how to use Lock10 to mantain an active session with Auth0.

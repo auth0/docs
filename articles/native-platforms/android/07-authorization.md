@@ -20,8 +20,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '07-Authorization/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
  
 ### Before Starting
