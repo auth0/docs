@@ -252,6 +252,6 @@ This document is meant to give you a better idea of where to store different typ
 
 If you want to take a closer look at how we implemented our example for this article beyond the Auth0 seed projects, go to github and dive into the code:
 
-- [iOS app (client)](https://github.com/auth0-samples/auth0-data-storage-scenarios-sample/auth0-swift-data-app)
+- [iOS app (client)](https://github.com/auth0-samples/auth0-data-storage-scenarios-sample/swift-data-app)
 
-- [Node.js API (server)](https://github.com/auth0-samples/auth0-data-storage-scenarios-sample/auth0-node-data-api)
+- [Node.js API (server)](https://github.com/auth0-samples/auth0-data-storage-scenarios-sample/node-data-api)
