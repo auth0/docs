@@ -1,3 +1,7 @@
+---
+section: apis
+---
+
 # Management API v1 vs v2
 
 This document describes the major differences between Auth0's Management API v1 and the new Management API v2, and details the reasons for each change.

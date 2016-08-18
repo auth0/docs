@@ -108,7 +108,7 @@ Auth0Mosca.prototype.authenticateWithCredentials = function(){
         password:    password.toString(),
         connection:  self.connection,
         grant_type:  "password",
-        scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+        scope: 'openid name email' //Details: https:///scopes
     };
 
     request.post({

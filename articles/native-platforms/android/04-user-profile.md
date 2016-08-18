@@ -1,9 +1,9 @@
 ---
 title: User Profile
-description: This tutorial will show you how to use Lock10 to get the user's profile data.
+description: This tutorial will show you how to use Lock v2 to get the user's profile data.
 ---
 
-This tutorial will show you how to use Lock10 to get the user's profile data in your android apps with Auth0.
+This tutorial will show you how to use Lock v2 to get the user's profile data in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -12,9 +12,15 @@ This tutorial and seed project have been tested with the following:
 * Emulator - Nexus5X - Android 6.0 
 :::
 
- <%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/03-Session-Handling',
-}) %> 
+ <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/04-User-Profile',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-android-sample',
+  pkgBranch: 'master',
+  pkgPath: '04-User-Profile',
+  pkgFilePath: '04-User-Profile/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
+}) %>
 
 
 ### Before Starting

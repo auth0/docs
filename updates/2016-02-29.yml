@@ -6,4 +6,4 @@ added:
       - javascript
       - mobile
     description: |
-      A [new tutorial](https://auth0.com/docs/quickstart/native-mobile/ionic2/) was added showing how to setup Auth0 with Ionic 2.
+      A [new tutorial](/quickstart/native-mobile/ionic2/) was added showing how to setup Auth0 with Ionic 2.

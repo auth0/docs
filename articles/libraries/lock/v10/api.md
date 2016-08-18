@@ -1,12 +1,10 @@
-::: panel-info Lock Version
-Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
-:::
+<%= include('../_includes/_lock-version') %>
 
 # API
 
 ## new Auth0Lock(clientID, domain, options)
 
-Initializes a new instance of `Auth0Lock` configured with your application `clientID` and your account's `domain` at [Auth0](https://manage.auth0.com/). You can find this information at your [application settings](https://manage.auth0.com/#/applications).
+Initializes a new instance of `Auth0Lock` configured with your application `clientID` and your account's `domain` at [Auth0](${uiURL}/). You can find this information at your [application settings](${uiURL}/#/applications).
 
 - **clientId {String}**: Your application _clientId_ in Auth0.
 - **domain {String}**: Your Auth0 _domain_. Usually _your-account.auth0.com_.

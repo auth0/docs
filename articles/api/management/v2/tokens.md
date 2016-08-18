@@ -1,3 +1,7 @@
+---
+section: apis
+---
+
 # The Auth0 Management APIv2 Token
 
 ## Overview
@@ -46,11 +50,11 @@ The Auth0 Management APIv2 access token is used to call the Auth0 Management API
 
 Keep your API secret secure. In the event that your API secret has been compromised or you need to invalidate all of your tokens you can change the API secret.
 
-In the event that the API secret has been compromised, or you need to invalidate all tokens generated with that API secret, one can change the API secret. 
+In the event that the API secret has been compromised, or you need to invalidate all tokens generated with that API secret, one can change the API secret.
 
 You can change the API secret  in the dashboard by visiting this URL directly:
 ```
-https://manage.auth0.com/#/applications/YOUR_API_ID/settings
+${uiURL}/#/applications/YOUR_API_ID/settings
 ```
 
 You can then change the `Client Secret` in that page to change your Management APIv2 secret.

@@ -6,17 +6,19 @@ description: This tutorial will show you how to access the user profile from wit
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
+- CocoaPods 1.0.0
+- XCode 7.3 (7D175)
+- iPhone 6 - iOS 9.3 (13E230)
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/04-User-Profile',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
-  pkgType: 'replace'
+  pkgPath: '04-User-Profile',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 ### Before Starting
@@ -91,7 +93,7 @@ The `appMetadata` dictionary contains fields that are usually added via [a rule]
 
 The `extraInfo` dictionary contains any other extra information stored in Auth0. That information is read-only for the native platform.
 
-> For further information on metadata, see [the full documentation](https://auth0.com/docs/rules/metadata-in-rules).
+> For further information on metadata, see [the full documentation](/rules/metadata-in-rules).
 
 ### 3. Update the User Profile
 

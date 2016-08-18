@@ -20,7 +20,7 @@ To clear the logs and start fresh select the the red _CLEAR CONSOLE_ button at t
 
 ## Debugging Rules
 
-The _Real-time Webtask Logs_ extension can be used to debug any [Rules](https://auth0.com/docs/rules) in your implementation. This includes all `console.log` output and exceptions. Let's follow a simple _hello world_ example.
+The _Real-time Webtask Logs_ extension can be used to debug any [Rules](/rules) in your implementation. This includes all `console.log` output and exceptions. Let's follow a simple _hello world_ example.
 
 Navigate to the [Rules](${uiURL}/#/rules) page of the [Management Portal](${uiURL}). Click the [Create Rule](${uiURL}/#/rules/new) button. Select the _empty rule_ button and paste the code below or modify it as you like.
 

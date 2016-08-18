@@ -114,7 +114,7 @@ If the `fetchUserProfileWithIdToken:` call is successful, you can continue as if
 
 If the `fetchNewIdTokenWithRefreshToken` call fails, it means your token has been revoked or for what ever reason it's become invalid. In this case, the user will have to sign in again.
 
->It's recommendable that you read and understand the [refresh token documentation](https://auth0.com/docs/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
+>It's recommendable that you read and understand the [refresh token documentation](/refresh-token) before proceeding. **You got to keep on mind, for example, that, even though the refresh token cannot expire, it can be revoked.**
 
 ### 3. Sign out
 

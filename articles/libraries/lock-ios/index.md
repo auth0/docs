@@ -15,8 +15,8 @@ Auth0 Lock makes it easy to integrate SSO into your app. Lock's many benefits in
 * Finding the right icons for popular social providers.
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign-in protocol (OpenID Connect / OAuth2 Login)
-
-  ![Lock iOS](/media/articles/libraries/lock-ios/lock-ios-animated.gif)
+  
+<div class="phone-mockup"><img src="/media/articles/libraries/lock-ios/lock-ios-animated.gif" alt="Lock iOS animation"/></div>
 
 ## Key features
 
@@ -165,7 +165,7 @@ self.presentViewController(controller, animated: true, completion: nil)
 
 You will see the Lock native login screen:
 
-![Lock-iOS](/media/articles/libraries/lock-ios/lock-ios.png)
+<div class="phone-mockup"><img src="/media/articles/libraries/lock-ios/lock-ios.png" alt="Lock-iOS"/></div>
 
 **NOTE**: By default, all social authentication will be done using Safari. If you want native integration, see: [Lock iOS: Native Social Authentication](/libraries/lock-ios/native-social-authentication).
 
@@ -337,15 +337,14 @@ If you want to show a disclaimer for your app, you will need to set `signUpDiscl
 
 ### Logout
 
-If desired, you have the ability to let the user log out. For this you need to call `clearSessions` for `A0Lock`. 
-This method removes all stored sessions of any IdP in your application.
+To log out a user, call `clearSessions` for `A0Lock`. This method removes all stored sessions of any IdP in your application.
 
 #### Important notes:
 
-* If the user is logged in using Safari, those sessions will not be cleared.
-* If you store the credentials in the keychain you need to clear them.
+* If the user has logged in using Safari, their sessions will not be cleared.
+* If you stored the credentials in the keychain, you need to clear them there as well.
 
-#### Objective-C example:
+#### Objective-C
 
 ```objc
 A0Lock *lock = [A0Lock sharedLock];
@@ -355,7 +354,7 @@ A0SimpleKeychain *keychain = [A0SimpleKeychain keychainWithService:<Your_Keychai
 //redirect the user to Login Page
 ```
 
-#### Swift example:
+#### Swift
 
 ```swift
 A0Lock.sharedLock().clearSessions()

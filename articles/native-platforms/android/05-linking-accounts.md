@@ -1,6 +1,6 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to use Lock V2 within your Android project to link two different accounts for the same user.
+description: This tutorial will show you how to use Lock v2 within your Android project to link two different accounts for the same user.
 ---
 
 ::: panel-info System Requirements
@@ -10,9 +10,16 @@ This tutorial and seed project have been tested with the following:
 * Emulator - Nexus5X - Android 6.0 
 :::
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/05-Linking-Accounts',
+ <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/05-Linking-Accounts',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-android-sample',
+  pkgBranch: 'master',
+  pkgPath: '05-Linking-Accounts',
+  pkgFilePath: '05-Linking-Accounts/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
+
 
 ### Before Starting
 

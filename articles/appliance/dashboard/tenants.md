@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Dashboard: Tenants
 
 > For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).

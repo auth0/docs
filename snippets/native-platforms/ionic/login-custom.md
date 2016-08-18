@@ -21,7 +21,7 @@
         username: vm.username,
         password: vm.password,
         authParams: {
-          scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+          scope: 'openid name email' //Details: https:///scopes
         }
       }, onLoginSuccess, onLoginFailed);
     }
@@ -31,7 +31,7 @@
       auth.signin({
         popup: true,
         connection: 'google-oauth2',
-        scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+        scope: 'openid name email' //Details: https:///scopes
       }, onLoginSuccess, onLoginFailed);
     }
 

@@ -6,4 +6,4 @@ added:
       - hapi
       - node
     description: |
-      A [new tutorial](https://auth0.com/docs/quickstart/backend/hapi) was added showing how to setup Auth0 with Hapi.
+      A [new tutorial](/quickstart/backend/hapi) was added showing how to setup Auth0 with Hapi.

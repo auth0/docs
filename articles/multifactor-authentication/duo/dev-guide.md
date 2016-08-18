@@ -82,7 +82,7 @@ To use Duo for logins only for the specified clients, replace `REPLACE_WITH_YOUR
 To use Duo for users of all your applications, you can comment or remove the sections regarding `CLIENTS_WITH_MFA`.
 
 #### Specify users to use MFA
-To only use Duo for MFA on users that have `user_metadata.use_mfa === true` uncomment this if block. This field can be updated using the [Management APIv2](https://auth0.com/docs/api/management/v2#!/Users/patch_users_by_id).
+To only use Duo for MFA on users that have `user_metadata.use_mfa === true` uncomment this if block. This field can be updated using the [Management APIv2](/api/management/v2#!/Users/patch_users_by_id).
 
 ### Setting `ignoreCookie: true`
 If `ignoreCookie: true` is set, then users will not have to login with Duo everytime they login. The browser will save a cookie that will persist for 30 days and this cannot be undone.

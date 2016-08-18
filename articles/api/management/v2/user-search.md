@@ -1,5 +1,6 @@
 ---
 description: This page lists several examples of users search queries using query string syntax.
+section: apis
 ---
 
 # Users Search

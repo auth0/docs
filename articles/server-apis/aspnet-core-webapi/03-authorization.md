@@ -39,9 +39,11 @@ The sample code below will restrict the particular action only to user who have 
 
 ```csharp
 [Authorize(Roles = "admin")]
-public IActionResult Admin()
+[HttpGet]
+[Route("ping/admin")]
+public string PingAdmin()
 {
-    return View();
+    return "All good. Only admins will be able to see this message.";
 }
 ```
 

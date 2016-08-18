@@ -19,6 +19,10 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
 
+[Finishing](#finishing)
+
+[Editing Text](#editing-with-wordy)
+
 [Test Procedures](#text-procedures)
 
 [Review Apps](#review-apps)
@@ -47,7 +51,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 * Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
 * Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Parameter Aliases](#parameter-aliases), such as `${uiUrl}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a date in the file name, it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process.
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![ALT_TEXT](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process. Do not forget to set the alternate text for each image.
 * Keep images to no more than 750 pixels wide.
 * Screenshots of the Auth0 dashboard including the browser window with dropshadow can be up to 900 pixels wide to maintain legibility.
 * Run all images through [TinyPNG](https://tinypng.com/).
@@ -176,9 +180,9 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
- 
+
  **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
- 
+
 #### Mobile Screenshots
 For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
@@ -212,6 +216,44 @@ URL Front Matter
 url: /path/to/document
 ---
 ```
+
+## Finishing
+
+Prior to submitting your pull request, please check and edit your work. You should:
+
+* Edit your text using [Wordy](#editing-with-wordy);
+* Run through [testing procedures](#test-procedures);
+* [Build a review app](#review-apps) (if necessary) to ensure that the build will success once your changes are merged.
+
+## Editing with Wordy
+
+Prior to submitting a pull request, please have your work edited by [Wordy](http://wordy.com).
+
+To create and submit a job to Wordy:
+
+1. Have your content ready in a common file format, such as `.doc`, `.rtf`, `.txt`, `.pdf`, `.xls`, `.html`, or `.tex`. You may also choose to paste in your text.
+2. Log in to Wordy.
+3. Under the **Jobs** page, click on **Create New Job**.
+
+  ![](media/readme/create-job.png)
+
+4. Provide the requested information so that your editor is clear on what needs to be done.
+
+  ![](media/readme/job-settings.png)
+
+  You will need to provide the following pieces of information:
+  * **Language**: Set to *English (US)*.
+  * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
+  * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work.
+  * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
+5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
+6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
+
+### Notes
+
+* You can cancel a job if it hasn’t been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
+* During the editing process, you can contact your editor from the job's page. You can include last-minute instructions, corrections, and so on. Conversely, your editor can contact you during the process if they have any questions about your text. You will be notified by email if you receive any messages.
+* If you are unsatisfied with the work completed by your editor, you can send your work back. This includes issues where you find errors in the text or the instructions in your brief haven't been followed. You can contact your editor by using the **Conversation History** feature on the job's page.
 
 ## Test Procedures
 When testing a document or tutorial:
@@ -416,9 +458,9 @@ There are four types of packaging that can happen with this service.
   ```
 2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
   ```
-  var JS_CLIENT_ID='VALUE';
-  var JS_CALLBACK_URL='VALUE';
-  var JS_DOMAIN='VALUE';
+  var AUTH0_CLIENT_ID='VALUE';
+  var AUTH0_CALLBACK_URL='VALUE';
+  var AUTH0_DOMAIN='VALUE';
   ```
 3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
 4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.

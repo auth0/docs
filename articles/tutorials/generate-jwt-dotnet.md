@@ -3,12 +3,12 @@
 JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with HMAC algorithm) or a public/private key pair using RSA.
 
 ::: panel-info More information on JSON Web Tokens
-For a more detailed background on JSON Web Tokens and how they are used in Auth0, please refer to the documents [Get Started with JSON Web Tokens](https://auth0.com/learn/json-web-tokens/) and [JsonWebTokens in Auth0](https://auth0.com/docs/jwt) on the Auth0 website.
+For a more detailed background on JSON Web Tokens and how they are used in Auth0, please refer to the documents [Get Started with JSON Web Tokens](https://auth0.com/learn/json-web-tokens/) and [JsonWebTokens in Auth0](/jwt) on the Auth0 website.
 :::
 
-When a user authenticates in your application using the [Auth0 Lock](https://auth0.com/lock), one of the parameters which are returned is a JWT ([see the Lock documentation](https://auth0.com/docs/libraries/lock)). You can also authenticate a user directly [using the Authentication API](https://auth0.com/docs/auth-api#!#post--oauth-ro) and obtain a JWT that way.
+When a user authenticates in your application using the [Auth0 Lock](https://auth0.com/lock), one of the parameters which are returned is a JWT ([see the Lock documentation](/libraries/lock)). You can also authenticate a user directly [using the Authentication API](/auth-api#!#post--oauth-ro) and obtain a JWT that way.
 
-There are however times when you may want to generate a JWT manually. Let us take an example where you have [secured your ASP.NET Web API using JWT](https://auth0.com/docs/quickstart/backend/webapi-owin/). Your users sign in using Lock and on every call to the API you pass along the JWT obtained during authentication.
+There are however times when you may want to generate a JWT manually. Let us take an example where you have [secured your ASP.NET Web API using JWT](/quickstart/backend/webapi-owin/). Your users sign in using Lock and on every call to the API you pass along the JWT obtained during authentication.
 
 Suppose that you now want to add the ability for another app, or perhaps guest users, to be able to make calls to API methods which are secured. In this case you do not have a JWT since there was no user who authenticated. In instances like these you can easily generate a JWT yourself, and pass that along in the Authentication header to API calls.
 
