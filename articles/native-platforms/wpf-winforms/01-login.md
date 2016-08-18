@@ -19,6 +19,8 @@ This tutorial and seed project have been tested with the following:
 * .NET Framework 4.5.2
 :::
 
+<%= include('../../_includes/_signup') %>
+
 This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
 ## Tutorial

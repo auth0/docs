@@ -25,6 +25,8 @@ This tutorial and seed project have been tested with the following:
 
 :::
 
+<%= include('../../_includes/_signup') %>
+
 ### 1. Install Auth0-ASPNET-Owin NuGet package
 
 Use the NuGet Package Manager (Tools -> NuGet Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:

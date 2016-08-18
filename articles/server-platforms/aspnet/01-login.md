@@ -21,6 +21,7 @@ This tutorial and seed project have been tested with the following:
 * Auth0-ASPNET v1.4.0
 :::
 
+<%= include('../../_includes/_signup') %>
 
 ## Tutorial
 

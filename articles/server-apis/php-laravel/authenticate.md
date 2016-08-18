@@ -3,13 +3,6 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your API.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Composer 1.0-dev
-* PHP 5.6.18
-* Laravel 5.1.31
-:::
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'laravel-auth0',
   pkgBranch: 'master',
@@ -17,6 +10,16 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
+
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Composer 1.0-dev
+* PHP 5.6.18
+* Laravel 5.1.31
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP Laravel app to use it with Auth0.**
 

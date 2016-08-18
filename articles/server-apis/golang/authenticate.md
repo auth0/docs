@@ -13,6 +13,8 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
 
 **Otherwise, Please follow the steps below to configure your existing Go Programming Language app to use it with Auth0.**
 
+<%= include('../../_includes/_signup') %>
+
 ### 1. Install `go-jwt-middleware` dependency
 
 Install `go-jwt-middleware` to check for JWTs on HTTP requests.
