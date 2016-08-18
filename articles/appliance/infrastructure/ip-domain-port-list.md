@@ -51,12 +51,86 @@ When possible, instances within a cluster should have full connectivity to each 
   </tr>
   <tr>
     <td>ICMP</td>
-    <td>Health Check</td>
+    <td>Healthcheck</td>
     <td>No</td>
-    <td>Network health check fails</td>
+    <td>Network Healthcheck fails</td>
   </tr>
 </table>
 
 ## External Connectivity
 
 Auth0 strives to keep these IP addresses stable, though this is not a given. From time to time, Auth0 may add IP addresses or additional servers. During updates and metrics, you must allow your Appliance instances to connect to these addresses.
+
+<table class="table">
+  <tr>
+    <th>Use</th>
+    <th>Direction</th>
+    <th>IP/DNS</th>
+    <th>Port</th>
+    <th>Implication</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td>Command Line Interface</td>
+    <td>Inbound</td>
+    <td>CLI Clients (often on the internal network)</td>
+    <td>10121</td>
+    <td>Healthcheck fails</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Updates</td>
+    <td>Outbound</td>
+    <td>apt-mirror.it.auth0.com (52.8.153.197)</td>
+    <td>80/443</td>
+    <td>Mandatory</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Updates</td>
+    <td>Outbound</td>
+    <td>docker.it.auth0.com (52.9.124.234)</td>
+    <td>5000</td>
+    <td>Mandatory</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Updates</td>
+    <td>Outbound</td>
+    <td>cdn.auth0.com</td>
+    <td>443</td>
+    <td>Mandatory for Appliance instances running build `6868` or earlier</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Usage & Telemetry</td>
+    <td>Outbound</td>
+    <td>app-gateway.it.auth0.com (52.40.103.203)</td>
+    <td>443</td>
+    <td>Mandatory</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Maintenance</td>
+    <td>Inbound</td>
+    <td>Jump Host</td>
+    <td>22</td>
+    <td>Quicker response</td>
+
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Healthcheck	</td>
+    <td>Inbound</td>
+    <td>Monitoring Endpoint</td>
+    <td>9110</td>
+    <td>The monitoring service can be accessed directly</td>
+    <td>No</td>
+  </tr>
+</table>
+
+## Notes
+
+* If you are using social providers for logins, the cluster must be able to connect to the social providers' endpoints.
+* The jump host IP is stable and provided at the time of setup.
+* You do not need to allow access to `cdn.auth0.com` for versions after `6868`.
