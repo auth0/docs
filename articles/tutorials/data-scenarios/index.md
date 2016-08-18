@@ -41,11 +41,11 @@ By using a separate database, your access to your users' authentication data is 
 
 Here is an example of data that is associated with a user but not with authenticating that user in the app: In the case of our mobile music application, the user’s music needs to be saved, so they can find it easily when they log in again. This data is not required in the process of authenticating the user for the app, but favorite songs and artists are personal data that should be associated with the user. So we would want to store this data in a separate database connected to the backend of our mobile app, instead of in the Auth0 data store. Here is how we did this:
 
-Using the user’s unique `user_id` from their Auth0 [user profile](/user-profile/normalized#storing-user-data), we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from the `songs` table in our Heroku Postgres database:
+Using the user’s unique `user_id` from their Auth0 [user profile](/user-profile/normalized#storing-user-data), we can make sure the data is associated with the user in our separate database in order to query by a unique identifier. Here is an example row from the `songs` table in our database:
 
 | song_id   | songname           | user_id                    |
 | --------- | ------------------ | -------------------------- |
-| "1a"      | "Yellow Submarine" | "google-oauth2|xxxyyy123" |
+| 1         | Number One Hit     | google-oauth2|xxxyyy123    |
 
 The Node.js backend authenticates requests to the specific URI associated with getting the user’s personal data from the database. This is accomplished through the validation of a JSON Web Token. [Learn about token based authentication and how to easily implement JWT in your applications.](https://auth0.com/learn/token-based-authentication-made-easy/) 
 
@@ -113,9 +113,9 @@ Any data you are storing with Auth0 in addition to what is already in the user p
 
  `app_metadata` is used for storing supplementary data associated with authentication that is read-only for the user. Its three most common uses are:
 
-- Permissions: Features the user must unlock through their achievement in the application, a special key they are given, or any other exclusive factor that allows certain users to have privileges within the application that others do not.
-- Plans: Settings that must not be freely changed by the user without confirmation of a subscription. These require the user to pay or provide proof of purchase through the app to alter their in-app experience in some way.
-- External IDs: Used in associating external accounts (not authentication providers) with the identity provider account that authenticated the user through Auth0.
+- Permissions: Priveleges granted to certain users. This includes features the user must unlock through their achievement in the application, a special key they are given, or any other exclusive factor that allows certain users to have privileges within the application that others do not.
+- Plans: Settings that must not be changed directly by the user without confirmation of a subscription. These require the user to pay or provide proof of purchase through the app to alter their in-app experience in some way. This includes things like a music or video streaming subsciption.
+- External IDs: Used in associating external accounts (not authentication providers) with the identity provider account that authenticated the user through Auth0. For example, Auth0 could use an employee ID which identifies the user's account with their employer.
 
 ### Example of `app_metadata`
 
@@ -141,7 +141,7 @@ function (user, context, callback) {
     subject: user.user_id,
     expiresInMinutes: 600, 
     audience: CLIENT_ID,
-    issuer: 'https://eliharkins.auth0.com'
+    issuer: 'https://example.auth0.com'
   };
 
   var id_token = jwt.sign(scope, new Buffer(CLIENT_SECRET, 'base64'), options);
@@ -149,7 +149,7 @@ function (user, context, callback) {
   var auth = 'Bearer ' + id_token;
   
   request.get({
-    url: 'https://auth0-node-data-api.herokuapp.com/playlists/getPlays',
+    url: 'https://example.com/playlists/getPlays',
     headers: {
        'Authorization': auth, 
       'Content-Type': 'text/html'
@@ -201,7 +201,7 @@ function(user, context, callback) {
 The app recognizes whether the user is a playlist editor or not and displays their permission accordingly when they are welcomed to the home screen. There is no actual featured playlist for the simplicity of the example. This is a good example of `app_metadata` because in this scenario, the user has no direct control over how many times other people play their playlist, and so they must not be able to change their own permission to edit the app’s featured playlist. This is a special permission they have to “earn,” in this case by getting more people to listen to their playlist.
 
 We display the user's permissions by welcoming them as an "editor" if `playlist_editor` is in the `roles` array stored in their `user_metadata`:
-![](/media/articles/tutorials/data-scenarios/3-home.png)
+<div class="phone-mockup"><img src="/media/articles/tutorials/data-scenarios/3-home.png" alt="Mobile example screenshot"/></div>
 
 ### `user_metadata`
 
@@ -229,7 +229,7 @@ function(user, context, callback){
 ```
 
 Here's a look at how we allowed the user to change their `displayName`:
-![](/media/articles/tutorials/data-scenarios/4-settings.png)
+<div class="phone-mockup"><img src="/media/articles/tutorials/data-scenarios/4-settings.png" alt="Mobile example screenshot"/></div>
 
 We used the Auth0 Management APIv2 to allow the app’s users to alter their Metadata via GET and PATCH requests: 
 
