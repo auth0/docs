@@ -3,20 +3,22 @@ title: MFA
 description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
 ---
 
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/inaka/auth0-android-sample/tree/09-mfa',
-}) %>
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
-  :::
-  
-<%= include('../../_includes/_github', {
-  link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/09-MFA',
-}) %>
+:::
+
+ <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/09-MFA',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-android-sample',
+  pkgBranch: 'master',
+  pkgPath: '09-MFA',
+  pkgFilePath: null,
+  pkgType: 'none'
+}) %>  
 
 ### 1. Enable MFA in your account
 

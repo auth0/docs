@@ -10,9 +10,17 @@ This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
-  :::
+:::
 
-<%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Starter-Seed', }) %>
+ <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-android-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: null,
+  pkgType: 'none'
+}) %>
   
 ## Sample Projects
 
@@ -95,8 +103,6 @@ Also, remember to update the Lock's data path
 
 **You're all set up to start integrating Auth0 in your app!** 🎉
 
-The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
-
-Said that, we suggest you to start with the [login tutorial](01-login.md)...
+This tutorial will teach you the different things you can do with it. We recommend that you follow the steps sequentially, as they are progressive and there is content that usually needs to be learned from previous steps.
 
 Have fun!

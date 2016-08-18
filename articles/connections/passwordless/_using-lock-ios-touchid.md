@@ -44,7 +44,7 @@ The private key is stored in the keystore of the device. Each time a user initia
 <%= include('./_touchid-controller-swift') %>
 <% } %>
 
-**NOTE:** A sample application is available in [the Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Examples/TouchID).
+
 
 ### Using your own UI
 
@@ -100,8 +100,6 @@ Then, to begin authentication, add this line:
 ```objc
 [self.authentication start];
 ```
-
-**NOTE:** [The Lock.iOS-OSX repository on GitHub](https://github.com/auth0/Lock.iOS-OSX/tree/master/Pod/Classes/TouchID) shows in detail how this same flow was used to build the UI of the Lock.iOS. You can use this as an example to build your own UI for *Touch ID* authentication.
 
 <% } else { %>
 ```swift
