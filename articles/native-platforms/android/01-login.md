@@ -22,9 +22,6 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-<pre><code>https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback</pre></code>
-</div>
-
 ### 1. Add the Lock dependency
 
 Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different platforms via [auth0](https://auth0.com/).
