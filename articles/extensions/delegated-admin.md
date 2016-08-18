@@ -14,14 +14,16 @@ Let's start with creating a new client application. Navigate to [Clients](${uiUR
 
 ![](/media/articles/extensions/delegated-admin/create-client.png)
 
-Navigate to *Settings > Show Advanced Settings > OAuth* and set the **JsonWebToken Signature Algorithm** to *RS256*. Click **Save Changes**.
-
-![](/media/articles/extensions/delegated-admin/set-rs256.png)
-
-While on the *Settings* tab set the **Allowed Callback URLs**. This varies based on your location.
+Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
 - For US based, use: `https://sandbox.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
 - For Europe based, use: `https://sandbox-eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
 - For Australia based, use: `https://sandbox-au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
+
+Copy the **Client ID** value. 
+
+Navigate to *Settings > Show Advanced Settings > OAuth* and paste the **Client ID** value to the **Allowed APPs / APIs** field. Set the **JsonWebToken Signature Algorithm** to *RS256*.
+
+![](/media/articles/extensions/delegated-admin/set-rs256.png)
 
 Save your changes.
 
