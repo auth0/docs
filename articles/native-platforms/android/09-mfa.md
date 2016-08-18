@@ -1,5 +1,5 @@
 ---
-title: MFA
+title: Multifactor Authentication
 description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
 ---
 
