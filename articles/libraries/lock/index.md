@@ -112,7 +112,7 @@ function showLoggedIn() {
  <h2>Welcome <span id="nick" class="nickname"></span></h2>
 ```
 
-**NOTE**: This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and [Customization Reference][lock-customization].
+**NOTE**: This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
 
 ## API Reference
 
@@ -120,9 +120,9 @@ The [API Reference][lock-api] provides comprehensive documentation of the API an
 
 ## Using auth0.js
 
-If you try to use `auth0.js` along with Lock 10, you will not be able to call `getClient()`. Instead, you should instantiate a second `Auth0` object.
+If you try to use `auth0.js` along with Lock 10, you will not be able to call `getClient()`. Instead, you should instantiate an `Auth0` object.
 
-If you included the script from the Auth0 CDN or installed Lock from bower, you only need to instantiate the `Auth0` object to use Lock (see below). 
+If you included the script from the Auth0 CDN or installed Lock from bower, you only need to instantiate the `Auth0` object to use it with Lock (see below). 
 
 If you installed Lock from npm, you must include `auth0-js` in your project dependencies and import it. Before instantiating the `Auth0` object, you will need to require `auth0-js`:
 
@@ -141,7 +141,7 @@ var client = new Auth0({
 });
 ```
 
-## Start using Lock
+## Start Using Lock
 
 ${lockSDK}
 
@@ -153,7 +153,7 @@ Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **I
 
 If you find a bug or have a feature request, report them in Github at [Auth0 Lock Issues](https://github.com/auth0/lock/issues). However, do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
 
-## Resources
+## Additional Resources
 
 * [Lock 9 to Lock 10 Migration Guide][migration-guide]
 * [Complete API][lock-api]
@@ -162,8 +162,8 @@ If you find a bug or have a feature request, report them in Github at [Auth0 Loc
 * [Embedding Lock (Instead of a Modal)][display-modes]
 * [i18n - Languages and Custom Text][i18n-notes]
 * [Popup Mode][popup-mode] - an advanced option (not recommended in most cases)
-* [Development][development-notes notes]
-* [Release process][release-process notes]
+* [Development notes][development-notes]
+* [Release process notes][release-process]
 * [Migration guide][legacy-migration-guide] for users of the legacy **Auth0 Widget**
 
 <!-- Variables-->
@@ -175,6 +175,7 @@ If you find a bug or have a feature request, report them in Github at [Auth0 Loc
 [example-browserify]: https://github.com/auth0/lock/tree/master/examples/bundling/browserify
 [example-webpack]: https://github.com/auth0/lock/tree/master/examples/bundling/webpack
 [lock-customization]: /libraries/lock/v10/customization
+[ui-customization]: /libraries/lock/v10/ui-customization
 [lock-api]: /libraries/lock/v10/api
 [display-modes]: /libraries/lock/v10/customization#container
 [development-notes]: https://github.com/auth0/lock
