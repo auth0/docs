@@ -3,6 +3,7 @@ alias:
   - owin
 languages:
   - C#
+  - Visual Basic .Net
 thirdParty: false
 framework:
   - OWIN
@@ -13,10 +14,5 @@ snippets:
   dependencies: server-apis/webapi-owin/dependencies
   setup: server-apis/webapi-owin/setup
   use: server-apis/webapi-owin/use
-snippets:
-  dependencies: server-apis/aspnet-core-webapi/dependencies
 articles:
-  - 00-intro
-  - 01-authentication-rs256
-  - 02-authentication-hs256
-  - 03-authorization
+  - authenticate
