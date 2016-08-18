@@ -16,7 +16,9 @@ Let's start with creating a new client application. Navigate to [Clients](${uiUR
 
 Click on the *Settings* tab and set the **Allowed Callback URLs**. This varies based on your location.
 
+
 | Location | Allowed Callback URL |
+| --- | --- |
 | USA | `https://sandbox.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
 | Europe | `https://sandbox-eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
 | Australia | `https://sandbox-au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login` |
