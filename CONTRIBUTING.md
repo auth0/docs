@@ -47,7 +47,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 * Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
 * Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Parameter Aliases](#parameter-aliases), such as `${uiUrl}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a date in the file name, it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process.
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![ALT_TEXT](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process. Do not forget to set the alternate text for each image.
 * Keep images to no more than 750 pixels wide.
 * Screenshots of the Auth0 dashboard including the browser window with dropshadow can be up to 900 pixels wide to maintain legibility.
 * Run all images through [TinyPNG](https://tinypng.com/).
@@ -169,13 +169,18 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```
- 1. Auth0 screenshots should capture the complete browser window (**Control + Shift + 4**, then press **Space**).
+ 1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
  2. Resize image to a maximum 900px width.
 
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
+ 
+ **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
+ 
+#### Mobile Screenshots
+For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
 #### Close-ups
 The exception to showing the full browser window is for highlighting a detail as part of a tutorial, for example, to show a field requiring input.
@@ -411,9 +416,9 @@ There are four types of packaging that can happen with this service.
   ```
 2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
   ```
-  var JS_CLIENT_ID='VALUE';
-  var JS_CALLBACK_URL='VALUE';
-  var JS_DOMAIN='VALUE';
+  var AUTH0_CLIENT_ID='VALUE';
+  var AUTH0_CALLBACK_URL='VALUE';
+  var AUTH0_DOMAIN='VALUE';
   ```
 3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
 4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.

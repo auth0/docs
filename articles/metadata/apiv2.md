@@ -1,5 +1,5 @@
 ---
-description: How to update metadata through the Auth0 API.
+description: How to update metadata through the Auth0 Management API.
 ---
 
 # Using Metadata with Auth0's Management API
@@ -27,7 +27,7 @@ you would make the following `POST` call to the Management API to create the use
 ```har
 {
 	"method": "POST",
-	"url": "https://manage.auth0.com/api/v2/users",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/users",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -78,7 +78,7 @@ you would make the following `PATCH` call to the API:
 ```har
 {
 	"method": "PATCH",
-	"url": "https://manage.auth0.com/api/v2/users/user_id",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{
@@ -113,7 +113,7 @@ The user's profile will now appear as follows:
 }
 ```
 
-### Merging 
+### Merging
 
 Only properties at the root level are merged into the object. All lower-level properties will be replaced.
 
@@ -135,7 +135,7 @@ Therefore, the corresponding `PATCH` call to the API would be:
 ```har
 {
 	"method": "PATCH",
-	"url": "https://manage.auth0.com/api/v2/users/user_id",
+	"url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
 	"httpVersion": "HTTP/1.1",
 	"cookies": [],
 	"headers": [{

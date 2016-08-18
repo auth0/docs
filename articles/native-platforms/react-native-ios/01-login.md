@@ -3,8 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 React Native iOS SDK to add authentication and authorization to your mobile app.
 ---
 
-## React Native iOS Tutorial
-
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * React Native 0.26.0

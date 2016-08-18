@@ -35,7 +35,8 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure).) **Note:** The user object is excluded if you are changing the default `stage` of a rule. See [creating a Rule using the API](#creating-a-new-rule-using-the-api) for more details.
+* `user`: the user object as it comes from the identity provider (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure)).
+
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
 * `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
@@ -113,7 +114,7 @@ After the rule executes, the output that the application will receive is the fol
 }
 ```
 
-> Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 API.
+> Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
 
 ### Deny access based on a condition
 
@@ -133,9 +134,9 @@ This will cause a redirect to your callback url with an `error` querystring para
 
 > Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
 
-### Creating a new Rule using the API
+### Creating a new Rule using the Management API
 
-Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](https://auth0.com/docs/api/management/v2#!/Rules/post_rules).
+Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
 This will creates a new rule according to the JSON object received in body, which contains:
 
@@ -147,8 +148,6 @@ This will creates a new rule according to the JSON object received in body, whic
 
 **enabled**: This field can contain an optional `boolean`. If true if the rule will be turned on, false otherwise.
 
-**stage**: This field contains an optional `string`. This represents the rule's execution stage (it is defaulted to `login_success`). The possible options for this field are: 'login_success', 'login_failure' or 'user_registration'. **Note:** if you set the `stage` to either 'login_failure' or 'user_registration', in your script the function will not contain the `user` argument. 
-
 Example of a body schema:
 
 ```
@@ -156,8 +155,7 @@ Example of a body schema:
   "name": "my-rule",
   "script": "function (user, context, callback) {\n  callback(null, user, context);\n}",
   "order": 2,
-  "enabled": true,
-  "stage": "login_success"
+  "enabled": true
 }
 ```
 Use this to create the POST request:
@@ -172,7 +170,7 @@ Use this to create the POST request:
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {callback(null, user, context);}\",\"order\":2,\"enabled\":true,\"stage\":\"login_success\"}"
+    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {callback(null, user, context);}\",\"order\":2,\"enabled\":true}"
   }
 }
 ```

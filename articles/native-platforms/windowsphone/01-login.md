@@ -3,12 +3,12 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Windows Phone SDK to add authentication and authorization to your mobile app.
 ---
 
-## Windows Phone Tutorial
-
 <%= include('../../_includes/_package', {
-  pkgRepo: 'Auth0.WindowsPhone',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-WindowsPhone-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-WindowsPhone-samples/tree/master/00-Starter-Seed/WindowsPhoneSilverlight',
   pkgBranch: 'master',
-  pkgPath: 'examples/WindowsPhoneSilverlight',
+  pkgPath: '00-Starter-Seed/WindowsPhoneSilverlight',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>

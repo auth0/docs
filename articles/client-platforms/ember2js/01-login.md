@@ -3,9 +3,17 @@ title: Login
 description: This tutorial will show you how to use the Auth0 EmberJS 2 SDK to add authentication and authorization to your web app.
 ---
 
-## EmberJS 2 Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+<%= include('../../_includes/_package', {
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-emberjs2-sample',
+  githubUrl: 'https://github.com/auth0-samples/auth0-emberjs2-sample/tree/master/00-Starter-Seed',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/config/environment.js',
+  pkgType: 'replace'
+}) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -16,15 +24,7 @@ This tutorial and seed project have been tested with the following:
 * Ember Simple Auth 1.0.0
 :::
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/ember2-auth0-sample',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-ember-simple-auth',
-  pkgBranch: 'master',
-  pkgPath: 'examples/ember2-auth0-sample',
-  pkgFilePath: 'examples/ember2-auth0-sample/config/auth0-variables.js',
-  pkgType: 'replace'
-}) %>
+<%= include('../../_includes/_signup') %>
 
 **If you have an existing application, follow the steps below.**
 
@@ -77,7 +77,7 @@ ENV['contentSecurityPolicy'] = {
 
 ### 3. Extend routes
 
-Extend a route and set [user-configurable options](https://auth0.com/docs/libraries/lock/customization):
+Extend a route and set [user-configurable options](/libraries/lock/customization):
 
 ```js
 // app/routes/application.js
@@ -90,7 +90,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     login () {
       var lockOptions = {
         auth: {
-          params: {scope: 'openid'} //Details: https://auth0.com/docs/scopes
+          params: {scope: 'openid'} //Details: https:///scopes
         }
       };
       this.get('session').authenticate('simple-auth-authenticator:lock', lockOptions);
@@ -151,7 +151,7 @@ You can access this session information in the ember templates by using `{{sessi
 
 ### 6. Using a JWT token to make API requests
 
-To make an API request, add the user's [JWT token](https://auth0.com/docs/jwt) to an `Authorization` HTTP header:
+To make an API request, add the user's [JWT token](/jwt) to an `Authorization` HTTP header:
 
 ```js
 fetch('/api/foo', {

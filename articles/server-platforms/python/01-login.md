@@ -3,22 +3,22 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Python SDK to add authentication and authorization to your web app.
 ---
 
-## Python Web App Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Python 2.7
-* Flask 0.10.1
-* Requests 2.3.0
+* Python 2.7, 3.5.1
+* Flask 0.10.1 and up
+* Requests 2.3.0 and up
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-python',
+  githubUrl: 'https://github.com/auth0-samples/auth0-python-web-app',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-python-web-app',
   pkgBranch: 'master',
-  pkgPath: 'examples/flask-webapp',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>

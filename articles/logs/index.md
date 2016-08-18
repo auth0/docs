@@ -22,7 +22,7 @@ If you wish to keep data for longer than that, we recommend that you use the API
 
 ### Here are some useful links related to the Splunk integration:
 
-* https://auth0.com/docs/scenarios/splunk
+* https:///scenarios/splunk
 * https://splunkbase.splunk.com/app/1884/
 * https://github.com/auth0/splunk-auth0
  
@@ -32,11 +32,11 @@ If you wish to keep data for longer than that, we recommend that you use the API
 * https://www.npmjs.com/package/auth0-logs-processor
 * https://github.com/auth0/logs-processor
  
-## Retrieving logs from the API
+## Retrieving logs from the Management API
 
 You can use the Management API v2 to do this, here are the two available endpoints:
 
-* [/api/v2/logs](https://auth0.com/docs/api/v2#!/Logs/get_logs) Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
+* [/api/v2/logs](/api/v2#!/Logs/get_logs) Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
 
-* [/api/v2/logs/{id}](https://auth0.com/docs/api/v2#!/Logs/get_logs_by_id) Retrieves the data related to the log entry identified by id. This returns a single log entry representation as specified in the schema.
+* [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id) Retrieves the data related to the log entry identified by id. This returns a single log entry representation as specified in the schema.
 

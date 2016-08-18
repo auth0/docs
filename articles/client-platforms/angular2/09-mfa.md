@@ -24,6 +24,4 @@ In this tutorial, you will learn how to enable MFA in the Angular2 application y
 
 ## Login
 
-<%= include('../_includes/_mfa-login') %>
-
-
+<%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/angular2/01-login' }) %>

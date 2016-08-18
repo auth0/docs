@@ -14,83 +14,84 @@ This tutorial and seed project have been tested with the following:
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
   :::
+  
+ <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/02-Custom-Login',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-android-sample',
+  pkgBranch: 'master',
+  pkgPath: '02-Custom-Login',
+  pkgFilePath: null,
+  pkgType: 'none'
+}) %>
 
 
 ### Before Starting
 
-<div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
+Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
-<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
+
+<pre><code>https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback</pre></code>
 </div>
 
-### 1. Add the Auth0 Java dependency
+### 1. Add the Auth0 Android dependency
 
-Your first step is to add [Auth0 Java](https://github.com/auth0/auth0-java) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
+Your first step is to add [Auth0 Android](https://github.com/auth0/Auth0.Android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
 
 #### i. Gradle
 
 Add to your app's module gradle file:
 
-```xml
-compile 'com.auth0:auth0:0.4.0'
+```gradle
+compile 'com.auth0.android:auth0:1.0.0-beta.4'
 ```
 
-Then, run "Sync project with Gradle files".
+Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew clean assembleDebug` from the command line.
 
 > For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 
 ### 2. Configure your Manifest File
 
 You need to add the following permissions inside the ``AndroidManifest.xml``:
-        
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	
-Also, don't forget to declare the activities you're using in the Manifest:
-	
-	
-	<activity android:name=".activities.LoginActivity"/>
-	<activity android:name=".activities.MainActivity"/>
-	
-       
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
 ### 3. Implement the Login
 
 At this point, you're all set to implement the Login in any activity you want. 
 
 First, in your customized login method, instantiate the Authentication API:
 
-```android
+```java
 private void login(String email, String password) {
-        Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
-        AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
-        
-        // proper login
-        
-        }      
+    Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
+    AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
+
+    // proper login
+}      
 ```
 
 Then, login using the newly created client:
 
-```android
- client.login(email, password).start(new BaseCallback<Credentials>() {
-            @Override
-            public void onSuccess(Credentials payload) {
-                // Store credentials
-                // Navigate to your main activity
-            }
+```java
+client.login(email, password, "YOUR_DATABASE_CONNECTION_NAME")
+    .start(new BaseCallback<Credentials>() {
+        @Override
+        public void onSuccess(Credentials payload) {
+            // Store credentials
+            // Navigate to your main activity
+        }
 
-            @Override
-            public void onFailure(Auth0Exception error) {
-
-            }
-        });
+        @Override
+        public void onFailure(AuthenticationException error) {
+            // Show error to user
+        }
+    });
 ```
-> It's suggested to add both the ``Auth0DomainID`` and ``Auth0ClientID`` to the ``Strings.xml`` file rather than hardcode them in the ``new Auth0()`` constructor method.
 
 > There are multiple ways of designing a customized login screen which are not covered in this tutorial. You can take the [Android Studio's login template](https://developer.android.com/studio/projects/templates.html) as an example. 
 
 ### Done!
 
 You've already implemented a customized Login with Auth0 in your Android project!
-

@@ -3,19 +3,19 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Javascript SDK to add authentication and authorization to your web app.
 ---
 
-## Generic SPA / Vanilla JS Tutorial
-
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-vanillajs-api-sample/tree/gh-pages/vanillajs-redirect-auth0-sample',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-vanillajs-api-sample',
-  pkgBranch: 'gh-pages',
-  pkgPath: 'vanillajs-redirect-auth0-sample',
+  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-javascript-spa',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
+
+<%= include('../../_includes/_signup') %>
 
 **If you have an existing application, please follow the steps below.**
 

@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Geographic High-Availability Appliance Failure & Disaster Recovery
 
 One key aspect of the Geographic High-Availability (GEO HA) Appliance is the data center redundancy and failure handling that ensures the highest form of Appliance uptime offered by Auth0.

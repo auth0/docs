@@ -5,7 +5,7 @@ added:
       - tutorial
       - spa
     description: |
-      A [new tutorial](https://auth0.com/docs/client-platforms/aurelia) was added showing how to setup Auth0 with Aurelia.
+      A [new tutorial](/client-platforms/aurelia) was added showing how to setup Auth0 with Aurelia.
   -
     title: "Added Electron Tutorial"
     tags:
@@ -13,4 +13,4 @@ added:
       - mobile
       - hybrid
     description: |
-      A [new tutorial](https://auth0.com/docs/native-platforms/electron) was added showing how to setup Auth0 with Electron.
+      A [new tutorial](/native-platforms/electron) was added showing how to setup Auth0 with Electron.

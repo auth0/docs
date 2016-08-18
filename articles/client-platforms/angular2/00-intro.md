@@ -17,7 +17,9 @@ This simple, multi-step quickstart will guide you through setting up and managin
 
 ## 1. Create an Application
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('../../_includes/_signup') %>
+
+<%= include('../../_includes/_new_app') %>
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 

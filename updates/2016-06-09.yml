@@ -6,11 +6,11 @@ added:
       - logs
       - splunk
     description: |
-      A [new document](https://auth0.com/docs/extensions/splunk) was added on how to configure and use the Auth0 to Splunk extension.
+      A [new document](/extensions/splunk) was added on how to configure and use the Auth0 to Splunk extension.
   -
     title: "Quickstarts for ASP.NET Core"
     tags:
       - asp.net
       - asp.net core
     description: |
-      Quickstarts have been added for ASP.NET Core, both for [MVC applications](https://auth0.com/docs/quickstart/webapp/aspnet-core/) and [Web API](https://auth0.com/docs/quickstart/backend/aspnet-core-webapi/).
+      Quickstarts have been added for ASP.NET Core, both for [MVC applications](/quickstart/webapp/aspnet-core/) and [Web API](/quickstart/backend/aspnet-core-webapi/).

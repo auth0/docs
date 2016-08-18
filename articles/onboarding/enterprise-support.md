@@ -12,7 +12,7 @@ __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a g
 
 [Auth0 Docs](https://auth0.com/docs) - Offers comprehensive documentation across the Auth0 platform.
 
-[Search all resources](https://auth0.com/docs/search#gsc.tab=0) - Quering from this search page will return results across Docs, Ask.Auth0 and our popular [Auth0 blog](https://auth0.com/blog).
+[Search all resources](/search#gsc.tab=0) - Quering from this search page will return results across Docs, Ask.Auth0 and our popular [Auth0 blog](https://auth0.com/blog).
 
 ## For issues impacting or blocking production (SLA applied)
 
@@ -27,7 +27,7 @@ __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a g
 ![](https://docs.google.com/drawings/d/1xd1oNTGDMbrScqeFVEb_9ykW8GLyDOBELenyZmiVCmA/pub?w=1440&h=792)
 
 ### Using Support Center
-[Learn more about creating tickets with Support Center](https://auth0.com/docs/support/tickets)
+[Learn more about creating tickets with Support Center](/support/tickets)
 
 
 ## Guidance for Logging a Support Issue
@@ -86,7 +86,7 @@ To speed resolution, please provide the following when logging an issue:
 * Issue experienced by users every time or just some times?
 * Issue experienced with all browsers or just one?
 * Screenshot of error message (if any)
-* HTTP trace in the form of a [.har file](http://auth0.com/docs/har)
+* HTTP trace in the form of a [.har file](http:///har)
 
 For Appliance Customers:
 * Appliance version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)

@@ -6,17 +6,19 @@ description: This tutorial will show you how to link multiple accounts within th
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
+- CocoaPods 1.0.0
+- XCode 7.3 (7D175)
+- iPhone 6 - iOS 9.3 (13E230)
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/05-Linking-Accounts',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
-  pkgType: 'replace'
+  pkgPath: '05-Linking-Accounts',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 ### Before Starting
@@ -26,7 +28,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 - You've integrated [Lock](https://github.com/auth0/Lock.iOS-OSX) and [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login.md) and the [session handling tutorial](03-session-handling.md) first.
 - You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [session handling](03-session-handling.md) and [user profile](04-user-profile.md) tutorials.
 
-> **It is highly recommended that you take a look at the [linking accounts documentation](https://auth0.com/docs/link-accounts)** to understand the process of linking accounts.
+> **It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts)** to understand the process of linking accounts.
 
 ### 1. Enter account credentials
 
@@ -91,7 +93,8 @@ import Lock
 let client = A0Lock.sharedLock().apiClient()
 client.fetchUserProfileWithIdToken(idToken,
     success: { profile in
-        let identities = profile.identities as! [A0UserIdentity] // you've got the linked accounts here
+        let identities = profile.identities as! [A0UserIdentity] 
+        // you've got the linked accounts here
         // do something with them, e.g. display them on a table view
     }, failure: { error in
         // deal with error

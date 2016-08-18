@@ -1,42 +1,75 @@
-::: panel-info Lock Version
-Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
-:::
+<%= include('../_includes/_lock-version') %>
 
 # Lock 9 to Lock 10 Migration Guide
 
-The following instructions assume you are migrating from Lock 9 to the latest Lock 10. If you are upgrading from a preview release, please refer to the [preview changes](#preview-changes). If you came here looking for the migration guide from the "Auth0Widget" to Lock v9, here's the [legacy-migration-guide](/libraries/lock/v9/migration-guide). Otherwise, read on!
+The following instructions assume you are migrating from **Lock 9** to the latest **Lock 10**. If you are upgrading from a preview release of Lock 10, please refer to the [preview changes](#upgrading-from-preview-releases). Otherwise, read on!
 
-- The `show` method no longer takes any arguments. You pass the options to the constructor and you listen for an `authenticated` event instead of providing a callback. The examples above show how to listen for this event with the `on` method.
-- The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
-- The profile is no longer fetched automatically after a successful login, you need to call `lock.getProfile`.
-- Lock now uses Redirect Mode by default. To use Popup Mode, you must enable this explicitly with the `auth: { redirect: false }` option.
+## General Changes and Additions
+
+### User Profiles
+- The profile is no longer fetched automatically after a successful login, you need to call [lock.getProfile](/libraries/lock/v10/api#getprofile-token-callback-).
+
+### Redirect Mode vs Popup Mode
+- Lock now uses Redirect Mode by default. To use [Popup Mode](/libraries/lock/v10/popup-mode), you must enable this explicitly with the [redirect](/libraries/lock/v10/customization#redirect-boolean-) option `auth: { redirect: false }`.
 - You no longer need to call `parseHash` when implementing Redirect Mode. The data returned by that method is provided to the `authenticated` event listener.
-- Not all languages supported by Lock v9 are supported by Lock v10.
-- The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the `initialScreen`, `allowLogin`, `allowSignUp` and `allowForgotPassword` options.
-- Some existing options suffered changes:
-  - The `authParams` option was renamed to `params` and namespaced under `auth`. Now you use it like this `auth: {params: {myparam: "myvalue"}}`.
-  - The `callbackURL` option was renamed to `redirectUrl` and namespaced under `auth`. Now you use it like this `auth: {redirectUrl: "https://example.com/callback"}`.
-  - The `connections` option was renamed to `allowedConnections`.
-  - The `defaultUserPasswordConnection` option has been replaced by the `defaultDatabaseConnection` and the `defaultEnterpriseConnection` options.
-  - The `dict` option was split into `language` and `languageDictionary`. The `language` option allows you to set the base dictionary for a given language and the `languageDictionary` option allows you to overwrite any translation. Also the structure of the dictionary has been changed, see the project's [README](https://github.com/auth0/lock/tree/v10#language-dictionary-specification) for more information.
-  - The `disableResetAction` option was renamed to `allowForgotPassword`.
-  - The `disableSignUpAction` option was renamed to `allowSignUp`.
-  - The `focusInput` option was renamed to `autofocus`.
+
+### Customizing Options
+- The `show` method no longer takes any arguments. You pass the options to the constructor and you listen for an `authenticated` event instead of providing a callback. You can listen for this event with the [on](/libraries/lock/v10/api#on-event-callback-) method.
+
+### Authenticated Event
+- The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
+
+### Internationalization
+- Not all languages supported by Lock v9 are supported by Lock v10. Please see the [i18n directory](https://github.com/auth0/lock/tree/master/src/i18n) in the GitHub repository for a current list of supported languages in Lock.
+
+### Removed Methods
+- The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the [initialScreen](/libraries/lock/v10/customization#initialscreen-string-), [allowLogin](/libraries/lock/v10/customization#allowlogin-boolean-), [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-) and [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-) options.
+- The `getClient` method is no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Lock 10 documentation](/libraries/lock#using-auth0-js).
+
+---
+
+## Changes to Customization Options
+Some existing options suffered changes, in addition to the beforementioned removals and additions. Please see below for brief descriptions, or consult the [customization reference](/libraries/lock/v10/customization) for more information.
+
+### Display Options
+  - The `connections` option was renamed to [allowedConnections](/libraries/lock/v10/customization#allowedconnections-array-).
+  - The `focusInput` option was renamed to [autofocus](/libraries/lock/v10/customization#autofocus-boolean-).  
+  - The `gravatar` option was renamed to [avatar](/libraries/lock/v10/customization#avatar-object-) and instead of taking `true` and `false` it now takes `null` or an object.
+  - The `dict` option was split into [language](/libraries/lock/v10/customization#language-string-) and [languageDictionary](/libraries/lock/v10/customization#languagedictionary-object-). The `language` option allows you to set the base dictionary for a given language and the `languageDictionary` option allows you to overwrite any translation. Also, the structure of the dictionary has been changed. 
+
+### Theming Options
+  - The `icon` option was renamed to [logo](/libraries/lock/v10/customization#logo-string-) and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
+  - The [primaryColor](/libraries/lock/v10/customization#primarycolor-string-) option was namespaced under `theme`. Now you use it like this `theme: {primaryColor: "#ec4889"}`.
+
+### Social Options
+  - The `socialBigButtons` option was renamed to [socialButtonStyle](/libraries/lock/v10/customization#socialbuttonstyle-string-) and its possible values are `"small"` or `"big"` instead of `true` or `false`.
+
+### Authentication Options
+  - The `authParams` option was renamed to [params](/libraries/lock/v10/customization#params-object-) and namespaced under `auth`. Now you use it like this `auth: {params: {myparam: "myvalue"}}`.
+  - The `popup` option was replaced by [redirect](/libraries/lock/v10/customization#redirect-boolean-) which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
+  - The `callbackURL` option was renamed to [redirectUrl](/libraries/lock/v10/customization#redirecturl-string-) and namespaced under `auth`. Now you use it like this `auth: {redirectUrl: "https://example.com/callback"}`.
+  - The [responseType](/libraries/lock/v10/customization#responsetype-string-) option was namespaced under `auth`.  Now you use it like this `auth: {responseType: "code"}`.
+  - The [sso](/libraries/lock/v10/customization#sso-boolean-) option was namespaced under `auth`.  Now you use it like this `auth: {sso: false}`.
+
+### Database Options
+  - The `disableResetAction` option was renamed to [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-).
+  - The `disableSignUpAction` option was renamed to [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-).
+  - The `defaultUserPasswordConnection` option has been replaced by the [defaultDatabaseConnection](/libraries/lock/v10/customization#defaultdatabaseconnection-string-) and the [defaultEnterpriseConnection](/libraries/lock/v10/customization#defaultenterpriseconnection-string-) options.
+  - The `resetLink` option was renamed to [forgotPasswordLink](/libraries/lock/v10/customization#forgotpasswordlink-string-).
+
+### Other Options
   - The `forceJSONP` option was removed.
-  - The `gravatar` option was renamed to `avatar` and instead of taking `true` and `false` it now takes `null` or an object. See the [New Features page](/libraries/lock/v10/new-features#custom-avatar-provider) for details.
-  - The `icon` option was renamed to `logo` and namespaced under `theme`. Now you use it like this `theme: {logo: "https://example.com/icon.png"}`.
-  - The `popup` option was replaced by `redirect` which is namespaced under `auth`. If you previously used `popup: true` now you need to provide `auth: {redirect: false}`.
-  - The `primaryColor` option was namespaced under `theme`. Now you use it like this `theme: {primaryColor: "#ec4889"}`.
-  - The `resetLink` option was renamed to `forgotPasswordLink`.
-  - The `responseType` option was namespaced under `auth`.  Now you use it like this `auth: {responseType: "code"}`.
-  - The `socialBigButtons` option was renamed to `socialButtonStyle` and its possible values are `"small"` or `"big"` instead of `true` or `false`.
-  - The `sso` option was namespaced under `auth`.  Now you use it like this `auth: {sso: false}`.
-- Some other options were added, see [New Features page](/libraries/lock/v10/new-features) for details.
 
+---
 
-## Upgrading Between (or From) Preview Releases
+## Further Reading
+  - Some other options were added, see [New Features page](/libraries/lock/v10/new-features) for details.
+  - Check out the [customization page](/libraries/lock/v10/customization) for more details on all of the customization options that are available.
+  - Take a look at the [api page](/libraries/lock/v10/api) for more details on Lock 10's API.
 
-This is a summary of what you absolutely need to know before upgrading between preview releases. For the full list of changes, please see the project's [CHANGELOG](https://github.com/auth0/lock/blob/v10/CHANGELOG.md).
+## Upgrading From Preview Releases
+
+**This section is only pertinent if you are currently using a pre-release version of Lock 10, and wish to update to the release version.** It is a summary of what you absolutely need to know before upgrading between preview releases. For the full list of changes, please see the project's [CHANGELOG](https://github.com/auth0/lock/blob/master/CHANGELOG.md).
 
 ### Upgrading from v10.0.0-beta.1 to v10.0.0-beta.2
 

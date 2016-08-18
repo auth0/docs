@@ -1,3 +1,7 @@
+---
+section: appliance
+---
+
 # Appliance Administration: Inviting Co-Administrators
 
 You may invite additional users to become co-administrators of your Appliance instances. This is done via the Appliance configuration area of the Management Dashboard.

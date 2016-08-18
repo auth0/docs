@@ -2,9 +2,18 @@
 title: Login
 description: This tutorial will show you how to use the Auth0 EmberJS SDK to add authentication and authorization to your web app.
 ---
-## EmberJS Tutorial
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/simple',
+  pkgOrg: 'auth0',
+  pkgRepo: 'auth0-ember-simple-auth',
+  pkgBranch: 'master',
+  pkgPath: 'examples/simple',
+  pkgFilePath: 'examples/simple/config/auth0-variables.js',
+  pkgType: 'replace'
+}) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -16,15 +25,7 @@ This tutorial and seed project have been tested with the following:
 * Ember Simple Auth 0.8.0
 :::
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/simple',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-ember-simple-auth',
-  pkgBranch: 'master',
-  pkgPath: 'examples/simple',
-  pkgFilePath: 'examples/simple/config/auth0-variables.js',
-  pkgType: 'replace'
-}) %>
+<%= include('../../_includes/_signup') %>
 
 **If you have an existing application, please follow the steps below.**
 
@@ -86,14 +87,14 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     sessionRequiresAuthentication: function(){
       // For a list of user-configurable options, see:
-      // https://auth0.com/docs/libraries/lock/customization
+      // https:///libraries/lock/customization
 
       // This will launch lock.js in popup mode
       var lockOptions = {
         auth: {
-          params: {scope: 'openid'} //Details: https://auth0.com/docs/scopes
+          params: {scope: 'openid'} //Details: https:///scopes
         }
-      }; 
+      };
 
       this.get('session').authenticate('simple-auth-authenticator:lock', lockOptions);
     }

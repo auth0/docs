@@ -38,7 +38,7 @@ console.log(user.user_metadata.hobby); // "surfing"
 console.log(user.app_metadata.hobby); // "full"
 ```
 
-**NOTE**: With APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
+**NOTE**: With Management APIv1, all metadata was stored in the `metadata` field. Data stored in this field is now available under `app_metadata`.
 
 ### Naming Metadata Fields
 
@@ -73,5 +73,5 @@ However, the usage of the `.` delimiter is acceptable in the data values:
 ## Further Reading
 
 * [Using Metadata in Rules](/metadata/rules)
-* [Using Metadata with APIv2](/metadata/apiv2)
+* [Using Metadata with Management APIv2](/metadata/apiv2)
 * [Using Metadata with Auth0 Lock](/metadata/lock)
