@@ -20,8 +20,8 @@ Navigate to *Settings > Show Advanced Settings > OAuth* and set the **JsonWebTok
 
 While on the *Settings* tab set the **Allowed Callback URLs**. This varies based on your location.
 - For US based, use: `https://sandbox.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
-- For Europe based, use: `https://sandbox.eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
-- For Australia based, use: `https://sandbox.au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
+- For Europe based, use: `https://sandbox-eu.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
+- For Australia based, use: `https://sandbox-au.it.auth0.com/api/run/${account.tenant}/8d6f0f0711daedc87d1a6d595771015a/login`
 
 Save your changes.
 
