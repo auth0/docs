@@ -260,19 +260,20 @@ description: Customize the UI of Lock in your App
   ```
   > **Note**: Before using Google+, you need to register your Application with Google as explained in this [guide](https://developers.google.com/+/mobile/android/getting-started)
 
-1. To trigger Facebook authentication just add the following code
+To trigger Facebook authentication just add the following code:
+
   ```java
     identity = facebook;
     identity.start(this, Strategies.Facebook.getName());
   ```
 
-1. To trigger Google+ authentication just add the following code
+To trigger Google+ authentication just add the following code:
   ```java
     identity = googleplus;
     identity.start(this, Strategies.GooglePlus.getName());
   ```
 
-1. To trigger authentication with any IdP without native integration just add the following code
+To trigger authentication with any IdP without native integration just add the following code:
   ```java
     identity = webProvider;
     identity.start(this, Strategies.Twitter.getName());
