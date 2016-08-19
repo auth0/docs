@@ -1,9 +1,9 @@
 ---
 title: User Profile
-description: This tutorial will show you how to use Lock v2 to get the user's profile data.
+description: This tutorial will show you how to use Lock to get the user's profile data.
 ---
 
-This tutorial will show you how to use Lock v2 to get the user's profile data in your android apps with Auth0.
+This tutorial will show you how to use Lock to get the user's profile data in your Android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -36,7 +36,7 @@ AuthenticationAPIClient client = new AuthenticationAPIClient(
 new Auth0(${account.clientId}, ${account.namespace}));
 ```
 
-> It's suggested to add both the `Auth0DomainID` and `Auth0ClientID` to the `Strings.xml` file rather than hardcode them in the manifest. 
+> It's suggested that you add both the `Auth0DomainID` and `Auth0ClientID` to the `Strings.xml` file rather than hardcode them in the manifest. 
 
 
 Then, use your previously stored credentials (in this example, stored in the Application Singleton) to request the data.
@@ -58,7 +58,7 @@ client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
 
 ##### I. DEFAULT INFO
 
-At this point, you already have access to the ``UserProfile``.
+At this point, you already have access to the `UserProfile`.
 You can use this data wherever you need it.
 
 Some examples are:
@@ -77,7 +77,7 @@ Besides the defaults, you can handle more information that is contained within a
 
 ##### A. USER METADATA
 
-The userMetadata `map` contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
+The userMetadata `map` contains fields related to the user profile that can be added from the client-side (e.g. when editing the profile). We're going to edit this one in this tutorial. You can access its fields as follows:
 
 ```java
 String country = payload.getUserMetadata().get("country").toString();
@@ -96,7 +96,6 @@ The extraInfo `map` contains any other extra information stored in Auth0. That i
 
 > For further information on metadata, see the full documentation.
 
-
 ### 2. Update the User Profile
 
 You can only update the user metadata. In order to do so you must:
@@ -106,7 +105,7 @@ Create a `Map<String, Object>` and add the new metadata:
 Map<String, Object> userMetadata = new HashMap<>();
         userMetadata.put("country", "USA");
 ```
-And then, with the `UserApiClient` perform the update:
+And then with the `UserApiClient`, perform the update:
 
 ```java
 UsersAPIClient userClient = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
@@ -123,8 +122,4 @@ userClient.updateMetadata(mUserProfile.getId(), userMetadata).start(new BaseCall
 	}
         });
 ```
-
-### Done!
-
-This exercise was simple! Look forward for other tutorials of Lock v2.
 
