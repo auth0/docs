@@ -1,16 +1,15 @@
 ---
-title: User Data Storage Scenario
+title: User Data Storage Guidance
 description: Demonstrating the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
-url: /tutorials/user-data-storage-scenario
 ---
 
-# Auth0 User Data Storage Scenario
+# Auth0 User Data Storage Guidance
 
 Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely.
 
 The document also gives you a look at an example of the end-to-end experience of an application using auth0 and an external database. We created an application to illustrate the important distinctions a developer must make when storing their user data with Auth0.
 
-For this example case we used the scenario of a mobile music application. We started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured. 
+For this example case we used the scenario of a mobile music application. We started with a basic mobile app for iOS (coded in Swift) from the Auth0 seed project for an [iOS mobile app](/quickstart/native/ios-swift). As a backend for the app, we used the Auth0 seed project for a simple [Node.js API](/quickstart/backend/nodejs). As we discuss the different types of data and the best places to store them, we will continue to use this application as the example case. See the [Mobile + API architecture scenario](/architecture-scenarios/application/mobile-api) from our documentation to give you a visual of how the application is structured.
 
 ## Table of Contents
 
@@ -29,7 +28,7 @@ Auth0 has a data store which serves as a way for developers to store data associ
 
 The Auth0 data store is highly specialized for storing authentication data. Storing any authentication-related data beyond the default user information in the Auth0 data store should only be done in specific cases. Here are some reasons why you should not use the Auth0 data store when you don't have to:
 
-- Scalability: The Auth0 data store because the Auth0 data store has limited scalability and your app’s data could exceed that limit. Using an external database allows you to keep things simple on the Auth0 side, while leaving the heavy database lifting up to a separate database formatted to efficiently store your extra data. 
+- Scalability: The Auth0 data store because the Auth0 data store has limited scalability and your app’s data could exceed that limit. Using an external database allows you to keep things simple on the Auth0 side, while leaving the heavy database lifting up to a separate database formatted to efficiently store your extra data.
 
 - Performance: Keeping your authentication data separate from any other data in your app is important because the two sets of data are also likely accessed with different frequencies. The Auth0 data store is not optimized to be queried with extremely high frequency. It is better to leave this up to a specialized database service, optimized for fast, large data operations.
 
@@ -45,9 +44,9 @@ We will use the [user_id](/user-profile/normalized#storing-user-data) as the use
 | --------- | ------------------ | -------------------------- |
 | 1         | Number One Hit     | google-oauth2|xxxyyy123    |
 
-The Node.js backend authenticates requests to the specific URI associated with getting the user’s personal data from the database. This is accomplished through the validation of a JSON Web Token. 
+The Node.js backend authenticates requests to the specific URI associated with getting the user’s personal data from the database. This is accomplished through the validation of a JSON Web Token.
 
->[Learn about token based authentication and how to easily implement JWT in your applications.](https://auth0.com/learn/token-based-authentication-made-easy/) 
+>[Learn about token based authentication and how to easily implement JWT in your applications.](https://auth0.com/learn/token-based-authentication-made-easy/)
 
 Here is the code implementing JWT validation from the Node.js seed project:
 ```
@@ -88,7 +87,7 @@ On the client (in the Swift code), the `getGenre()` function simply makes a requ
 
 ```
 function queryGenre(user_id, res){
-	
+
   db.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
 
@@ -121,13 +120,13 @@ Any data you are storing with Auth0 in addition to what is already in the user p
 
 Some data from our music app that would be appropriate to store in `app_metadata` is music streaming subscriptions. Another example is the user’s permission to edit the app’s featured playlists. Both of these are appropriate for Metadata because they are important in authenticating the user and customizing their experience as they are logged in. What makes them appropriate for `app_metadata` instead of `user_metadata` is that they must not be easily changed by the user. We implemented the permissions example with two Auth0 [rules](/rules).
 
- The first rule sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in `app_metadata`. 
- 
+ The first rule sends a request to our Node API which queries the database connected to heroku to check how many plays the user’s playlist has. If the number is 100 or greater, then we assign `playlist_editor` as a value in the `roles` array in `app_metadata`.
+
  ```
 function (user, context, callback) {
   user.app_metadata = user.app_metadata || {};
   user.app_metadata.roles = user.roles || [];
-  
+
   var CLIENT_SECRET = configuration.AUTH0_CLIENT_SECRET;
   var CLIENT_ID = configuration.AUTH0_CLIENT_ID;
 
@@ -139,7 +138,7 @@ function (user, context, callback) {
 
   var options = {
     subject: user.user_id,
-    expiresInMinutes: 600, 
+    expiresInMinutes: 600,
     audience: CLIENT_ID,
     issuer: 'https://example.auth0.com'
   };
@@ -147,19 +146,19 @@ function (user, context, callback) {
   var id_token = jwt.sign(scope, new Buffer(CLIENT_SECRET, 'base64'), options);
 
   var auth = 'Bearer ' + id_token;
-  
+
   request.get({
     url: 'https://example.com/playlists/getPlays',
     headers: {
-       'Authorization': auth, 
+       'Authorization': auth,
       'Content-Type': 'text/html'
     },
     timeout: 15000
   }, function(err, response, body){
-    if (err) 
+    if (err)
       return callback(new Error(err));
     var plays = parseInt(body, 10);
-   
+
     if (plays >= 100 && user.roles.indexOf('playlist_editor') < 0){
       user.app_metadata.roles.push('playlist_editor');
       auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
@@ -168,7 +167,7 @@ function (user, context, callback) {
         })
         .catch(callback);
     }
-    
+
     else if (plays < 100 && user.roles.indexOf('playlist_editor') >= 0){
       user.app_metadata.roles = [];
       auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
@@ -180,9 +179,9 @@ function (user, context, callback) {
     else{
       callback(null, user, context);
     }
-    
+
   });
-  
+
 }
  ```
 
@@ -205,7 +204,7 @@ We display the user's permissions by welcoming them as an "editor" if `playlist_
 
 ### `user_metadata`
 
-`user_metadata` is data determined by the user and stored in the user profile, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in. 
+`user_metadata` is data determined by the user and stored in the user profile, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in.
 
 ### Example of `user_metadata`
 
@@ -231,7 +230,7 @@ function(user, context, callback){
 Here's a look at how we allowed the user to change their `displayName`:
 <div class="phone-mockup"><img src="/media/articles/tutorials/data-scenarios/4-settings.png" alt="Mobile example screenshot"/></div>
 
-We used the Auth0 Management APIv2 to allow the app’s users to alter their Metadata via GET and PATCH requests: 
+We used the Auth0 Management APIv2 to allow the app’s users to alter their Metadata via GET and PATCH requests:
 
 - [Get users by id.](/api/management/v2#!/Users/get_users_by_id)
 
