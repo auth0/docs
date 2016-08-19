@@ -13,7 +13,7 @@ Cloud Sprint is Auth0’s onboarding program for enterprise customers.  It helps
 ![Cloud Sprint Program Overview](https://docs.google.com/drawings/d/1052cnwV-33ftuFmoRPCc-BWcyUqST9RKY_BFpes4FZE/pub?w=1244&h=1210
 )
 
-[Download the Cloud Sprint PDF here.](https://cdn./media/articles/onboarding/cloud-sprint-onboarding.pdf)
+[Download the Cloud Sprint PDF here.](/media/articles/onboarding/cloud-sprint-onboarding.pdf)
 
 *Hours allocated as “consulting” are delivered by our services team of system architects and software engineers for the purpose of guiding you through the common technical requirements, questions, advice and best practices to get successfully started with Auth0. If you have complex requirements needing deeper consulting and advice from our experts than the time allocated here will allow then ask your Sales Executive about purchasing Professional Services hours. These hours can be used for services including: Systems architecture design consulting; software development assistance related to integration of your application to Auth0; data migration from 3rd party/proprietary databases; performance & load testing.*
 
