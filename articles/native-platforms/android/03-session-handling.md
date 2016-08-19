@@ -20,23 +20,23 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-This tutorial will show you how to use Lock v2 to mantain an active session with Auth0.
+This tutorial will show you how to use Lock to mantain an active session with Auth0.
 
-For this, you will need to handle user's ``credentials``. Let's take a look on this class, which is composed by three objects:
+For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed by three objects:
 
 * ``idToken``: Identity Token that proves the identity of the user.
-* ``accessToken``: Access Token used by Auth0 API.
+* ``accessToken``: Access Token used by the Auth0 API.
 * ``refreshToken``: Refresh Token that can be used to request new tokens without signing in again.
 
-Those objects are the keys needed to keep the user connected, as they will be used in all the API-Calls`.
+Those objects are the keys needed to keep the user connected, as they will be used in all the API calls`.
 
 ### Before Starting
 
-Be sure that you have completed the [Login](01-login.md) Quickstart.
+Be sure that you have completed the [Login](01-login.md) quickstart.
 
 ### 1. Save the User's Credentials
 
-Your first step is to save, through a secure method, the user's credentials obtained in the login success response. We won't cover how to do that on this tutorial, feel free to save it as you like.
+Your first step is to save--through a secure method--the user's credentials obtained in the login success response. We won't cover how to do that in this tutorial, but feel free to save it as you like.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -50,7 +50,7 @@ private LockCallback callback = new AuthenticationCallback() {
 ```
 
  
-### 2. Request a new tokenID
+### 2. Request a new idToken
 
 First, for both cases, you need to instantiate an `AuthenticationAPIClient`:
 
@@ -59,9 +59,9 @@ AuthenticationAPIClient client = new AuthenticationAPIClient(
       new Auth0(${account.clientId}, ${account.namespace}));
 ```
 
-#### i. Using a non-expired tokenID
+#### i. Using a non-expired idToken
 
-In the case your current tokenID didn't expire, you can use it to get a new one, with a newer expire date.
+If your current idToken hasn't expired, you can use it to get a new one.
 
 ```java
 String idToken = // TODO: GET STORED TOKEN ID
@@ -86,7 +86,7 @@ client.delegationWithIdToken(idToken)
 
 #### ii. Using refreshToken
 
-If the ``tokenID`` already expired, you can always use the ``refreshToken`` to get a new one, without having to login again. For this reason, this token must be securely saved.
+If the `idToken` already expired, you can always use the `refreshToken` to get a new one, without having to login again. For this reason, the token must be securely saved.
 
 ```java
 String refreshToken = // TODO: GET STORED REFRESH ID
@@ -108,9 +108,9 @@ client.delegationWithRefreshToken(refreshToken)
 ```                
 
         
-### 3. Logout
+### 3. Log Out
 
-Whenever you want to Logout, you just need to erase the user's credentials, and navigate the user to the login screen.
+To log the user out, you just need to remove the user's credentials and navigate them to the login screen.
 
 An example would be:
 
@@ -121,9 +121,5 @@ private void logout() {
 }
 ```
 
-> Deleting the user credentials depends on how you store them. 
-
-### Done!
-
-This exercise was simple! Look forward to other tutorials of Lock v2.
+> **Note:** Deleting the user credentials depends on how you store them.
 
