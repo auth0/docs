@@ -3,13 +3,6 @@ title: iOS Objective-C
 description: This tutorial will show you how to use the Auth0 iOS Objective-C SDK to add authentication and authorization to your mobile app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* CocoaPods 0.39.0
-* XCode 7.2.1
-* Simulator - iOS 9.2 - iPhone 6
-:::
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'native-mobile-samples',
   pkgBranch: 'master',
@@ -17,6 +10,16 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist',
   pkgType: 'replace'
 }) %>
+
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* CocoaPods 0.39.0
+* XCode 7.2.1
+* Simulator - iOS 9.2 - iPhone 6
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
@@ -183,7 +186,7 @@ After the user has logged in, you can use the `profile` object which contains al
 
 ## Additional Information
 
-See [User Profile](/user-profile) to find out all of the available properties of the user profile. 
+See [User Profile](/user-profile) to find out all of the available properties of the user profile.
 
 Also see: [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h).
 

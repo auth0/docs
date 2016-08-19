@@ -3,13 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 NancyFX SDK to add authentication and authorization to your web app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Microsoft Visual Studio 2015
-* .NET Framework 4.5.2
-:::
-
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-nancyfx-samples',
   pkgOrg: 'auth0-samples',
@@ -19,6 +12,14 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: '00-Starter-Seed/App.config',
   pkgType: 'replace'
 }) %>
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
 

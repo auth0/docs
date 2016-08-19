@@ -22,6 +22,8 @@ This tutorial and seed project have been tested with the following:
 * Microsoft.AspNet.WebApi.Cors NuGet Package v5.2.3
 :::
 
+<%= include('../../_includes/_signup') %>
+
 ### 1. Install the WebApi.JsonWebToken &amp; Auth0-ASPNET packages
 
 You can either run the following commands or install them via **Package Manager**.

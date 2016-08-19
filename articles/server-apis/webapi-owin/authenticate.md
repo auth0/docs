@@ -3,12 +3,6 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 ASP.NET Web API OWIN SDK to add authentication and authorization to your API.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Microsoft Visual Studio 2015
-* .NET Framework 4.5.2
-:::
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet-owin',
   pkgBranch: 'master',
@@ -16,6 +10,15 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: 'examples/WebApi/Api/Web.config',
   pkgType: 'replace'
 }) %>
+
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Microsoft Visual Studio 2015
+* .NET Framework 4.5.2
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, please follow the steps below to configure your existing ASP.NET Web API OWIN app to use it with Auth0.**
 

@@ -15,6 +15,8 @@ In this tutorial you will learn how to use Auth0 to secure your [Hapi](http://ha
 
 **Otherwise, Please follow the steps below to configure your existing Hapi app to use it with Auth0.**
 
+<%= include('../../_includes/_signup') %>
+
 ### 1. Add hapi-auth-jwt dependency
 
 You need to add the hapi-auth-jwt dependency.
