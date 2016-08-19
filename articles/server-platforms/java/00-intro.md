@@ -89,19 +89,20 @@ Your java app needs some information in order to authenticate against your Auth0
 
 ${snippet(meta.snippets.setup)}
 
-As you can see in the seed project, there are many customizable attributes in the `web.xml`:
+As you can see in the seed project, there are many customizable attributes in the `web.xml`.
 
-- `auth0.domain`: Your auth0 domain (the tenant you have created when registering with auth0).
-- `auth0.issuer`: Your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then your `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important).
-- `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings of your app on [dashboard](${uiURL}).
-- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings of your app on [dashboard](${uiURL}).
+| Attribute | Description|
+| --- | --- |
+| `auth0.domain` | Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). * |
+| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). * |
+| `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). * |
+| `auth0.onLogoutRedirectTo` | The page that users of your site are redirected to on logout. Should start with `/`. |
+| `auth0.redirect_on_success` | The landing page URL context path for a successful authentication. Should start with `/`. |
+| `auth0.redirect_on_error` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
+| `auth0.redirect_on_authentication_error` | The URL context path for the page to redirect to upon authentication failure. Should start with `/`. |
 
 **NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
-
-- `auth0.onLogoutRedirectTo`: The page that users of your site are redirected to on logout. Should start with `/`.
-- `auth0.redirect_on_success`: The landing page URL context path for a successful authentication. Should start with `/`.
-- `auth0.redirect_on_error`: The URL context path for the page to redirect to upon failure. Should start with `/`.
-- `auth0.redirect_on_authentication_error`: The URL context path for the page to redirect to upon authentication failure. Should start with `/`.
 
 
 You are now ready to continue with [login](/quickstart/webapp/java/01-login) tutorial in order to implement basic login using [Lock](/libraries/lock).
