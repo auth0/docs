@@ -4,7 +4,11 @@ section: appliance
 
 # Auth0 Appliance Dashboard: Rate Limiting
 
-> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+::: panel-info Appliance Dashboard Navigation
+
+For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
+:::
 
 While the Auth0-managed cloud instances automatically includes rate limiting to ensure quality service, you must manually enable rate limiting if you are using Auth0 Appliance instances.
 

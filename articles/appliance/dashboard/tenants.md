@@ -4,7 +4,11 @@ section: appliance
 
 # Auth0 Appliance Dashboard: Tenants
 
-> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+::: panel-info Appliance Dashboard Navigation
+
+For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
+:::
 
 The Tenants page of the Appliance Dashboard lists all tenants associated with your Appliance instance.
 
