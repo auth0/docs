@@ -16,8 +16,8 @@ pkgOrg: 'auth0-samples',
 pkgRepo: 'auth0-spring-security-mvc-sample',
 pkgBranch: 'master',
 pkgPath: '02-Custom-Login',
-pkgFilePath: null,
-pkgType: 'none'
+pkgFilePath: '02-Custom-Login/src/main/resources/auth0.properties',
+pkgType: 'replace'
 }) %>
 
 
