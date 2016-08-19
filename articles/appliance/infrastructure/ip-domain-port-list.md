@@ -2,16 +2,16 @@
 
 The Appliance requires certain ports within the cluster to be open and able to access selected external sites.
 
-## Ports Within the Cluster
+## Between Cluster Nodes
 
-When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules in the event that Auth0 adds new features to the cluster. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Appliance instances in the same cluster:
+When possible, instances within a cluster should have full connectivity to each other so that you do not need to introduce new firewall rules if Auth0 adds new features. However, since this isn't possible in every environment, the following table lists the ports that are required to be open and accessible to other Appliance instances in the same cluster:
 
 <table class="table">
   <tr>
     <th>Port</th>
     <th>Use</th>
-    <th>Requred?</th>
-    <th>Implication</th>
+    <th>Required?</th>
+    <th>Notes</th>
   </tr>
   <tr>
     <td>27017</td>
@@ -47,13 +47,13 @@ When possible, instances within a cluster should have full connectivity to each 
     <td>22</td>
     <td>Maintenance</td>
     <td>No</td>
-    <td>Some operations may take longer to perform</td>
+    <td>Enables maintenance tasks to be done between nodes</td>
   </tr>
   <tr>
     <td>ICMP</td>
     <td>Healthcheck</td>
     <td>No</td>
-    <td>Network Healthcheck fails</td>
+    <td>Allows healthchecks between nodes</td>
   </tr>
 </table>
 
@@ -67,15 +67,15 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <th>Direction</th>
     <th>IP/DNS</th>
     <th>Port</th>
-    <th>Implication</th>
-    <th>Required</th>
+    <th>Notes</th>
+    <th>Required?</th>
   </tr>
   <tr>
     <td>Command Line Interface</td>
     <td>Inbound</td>
     <td>CLI Clients (often on the internal network)</td>
     <td>10121</td>
-    <td>Healthcheck fails</td>
+    <td>Allows use of the Appliance Command Line Interface</td>
     <td>No</td>
   </tr>
   <tr>
@@ -83,7 +83,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>apt-mirror.it.auth0.com (52.8.153.197)</td>
     <td>80/443</td>
-    <td>Mandatory</td>
+    <td>Provides update packages for Appliance instances</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -91,7 +91,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>docker.it.auth0.com (52.9.124.234)</td>
     <td>5000</td>
-    <td>Mandatory</td>
+    <td>Provides updates for Appliance Docker Packages</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -99,7 +99,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>cdn.auth0.com</td>
     <td>443</td>
-    <td>Mandatory for Appliance instances running build `6868` or earlier</td>
+    <td>Provides update packages for Appliance instances running versions `6868` or earlier</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -107,7 +107,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Outbound</td>
     <td>app-gateway.it.auth0.com (52.40.103.203)</td>
     <td>443</td>
-    <td>Mandatory</td>
+    <td>Provides usage and telemetry statistics</td>
     <td>Yes</td>
   </tr>
   <tr>
@@ -115,8 +115,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound</td>
     <td>Jump Host</td>
     <td>22</td>
-    <td>Quicker response</td>
-
+    <td>Allows access to Appliance instances for support purposes</td>
     <td>No</td>
   </tr>
   <tr>
@@ -124,7 +123,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Inbound</td>
     <td>Monitoring Endpoint</td>
     <td>9110</td>
-    <td>The monitoring service can be accessed directly</td>
+    <td>Allows access to Healthcheck endpoints</td>
     <td>No</td>
   </tr>
 </table>
@@ -132,5 +131,5 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
 ## Notes
 
 * If you are using social providers for logins, the cluster must be able to connect to the social providers' endpoints.
-* The jump host IP is stable and provided at the time of setup.
-* You do not need to allow access to `cdn.auth0.com` for versions after `6868`.
+* The Jump Host IP is stable and provided at the time of setup.
+* You do not need to allow access to `cdn.auth0.com` for Appliance versions after `6868`.
