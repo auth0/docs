@@ -53,7 +53,7 @@ RequestQueue queue = Volley.newRequestQueue(this);
 String url = "YOUR API URL";
 ```
 
-Next you need to add the token as a mean of authentication to the request header. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
+Next you need to add the token to the request header so that authenticated requests can be made. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
    
 ```java     
 // Retrieve the credentials from where you saved them
