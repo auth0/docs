@@ -72,6 +72,7 @@ However, the usage of the `.` delimiter is acceptable in the data values:
 
 ## Further Reading
 
+* [User Data Storage Guidance](/user-profile/user-data-storage)
 * [Using Metadata in Rules](/metadata/rules)
 * [Using Metadata with Management APIv2](/metadata/apiv2)
 * [Using Metadata with Auth0 Lock](/metadata/lock)
