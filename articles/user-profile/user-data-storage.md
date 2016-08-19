@@ -3,7 +3,7 @@ title: User Data Storage Guidance
 description: Demonstrating the best practices in using Auth0 storage mechanisms through the scenario of a native Swift app with a Node API backend.
 ---
 
-# Auth0 User Data Storage Guidance
+# User Data Storage Guidance
 
 Auth0 provides multiple locations for storing different types of data associated with authenticating an app’s users. The purpose of this document is to demonstrate the best practices in using these storage mechanisms efficiently and securely.
 
