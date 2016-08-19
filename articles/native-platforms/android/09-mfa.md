@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
+description: This tutorial will show you how to configure Multifactor Authentication (MFA) via Google Authenticator in your app.
 ---
 
 ::: panel-info System Requirements
@@ -20,15 +20,11 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>  
 
-### 1. Enable MFA in your account
+### 1. Enable Multifactor Authentication in Your Account
 
-You have to enable the MFA feature in your account. 
+Multifactor authentication can be enabled with the flip of a switch with Auth0. Go to the [MFA section](${uiURL}/#/multifactor) of your dashboard and flip the switch on for **Google Authenticator** under the *Choose a Provider* section.
 
-First, follow [this link](${uiURL}/#/multifactor). Then, turn the switch on for **Google Authenticator**, under the *Choose a Provider* section.
-
-> There are two other MFA providers that you can choose: Guardian and Duo. Just have in mind that they rork only in web based auth which is social & enterprise.
-
-Then, you have to specify on which clients you want to enable MFA; you accomplish this by editing the snippet that appears below, replacing the placeholder with your actual client ids.
+You must specify which clients you want to enable MFA for. This can be done by editing the snippet that appears below, replacing the placeholder with your actual client IDs.
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-02.png)
 
@@ -37,10 +33,5 @@ If you want to use MFA in **all** of your clients, the easiest you can do is dis
 ```javascript
 if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 ```
-
-### Done!
-
-Piece of cake, wasn't it? Now you should get a google authenticator screen when you try to login in your app using **Lock-Android**
-
 
 > For more information on how to configure Lock-Android in your app, take a look at the [login tutorial](01-login.md).
