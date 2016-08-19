@@ -101,28 +101,31 @@ Your Spring Security app needs some information in order to authenticate against
 
 ${snippet(meta.snippets.setup)}
 
-Here is a breakdown of what each attribute means:
+Let's see what each attribute means.
 
-- `auth0.domain`: Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications).
-- `auth0.issuer`: The issuer of the JWT Token. This is typically the full URL of your auth0 tenant account, for example `https://{tenant_name}.auth0.com/`.
+| Attribute | Description|
+| --- | --- |
+| `auth0.domain` | Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). * |
+| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). * |
+| `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). * |
+| `auth0.onLogoutRedirectTo` | The page that users of your site are redirected to on logout. Should start with `/`. |
+| `auth0.securedRoute` | The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`. * |
+| `auth0.loginCallback` | The URL context path for the login callback endpoint. Should start with `/`. |
+| `auth0.loginRedirectOnSuccess` | The landing page URL context path for a successful authentication. Should start with `/`. |
+| `auth0.loginRedirectOnFail` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
+| `auth0.base64EncodedSecret` | A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. Default is `true`. |
+| `auth0.authorityStrategy` | Indicates whether authorization claims against the Principal shall be `GROUPS`, `ROLES` or `SCOPE` based. Default is `ROLES`. |
+| `auth0.servletFilterEnabled` | A boolean value that switches having an authentication filter enabled or not. |
+| `auth0.defaultAuth0ApiSecurityEnabled` | A boolean value that switches having the default config enabled. It should be set to `false`. |
 
-__NOTE__: Notice the format difference between `auth0.domain` and `auth0.issuer`. If your `auth0.domain` is `johndoe.auth0.com` then the correct value for `auth0.issuer` is `https://johndoe.auth0.com/`. Mind the `https://` at the beginning and the `/` at the end.
+**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
 
-- `auth0.clientId`: The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications).
-- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications).
-- `auth0.onLogoutRedirectTo`: The page that users of your site are redirected to on logout. Should start with `/`.
-- `auth0.securedRoute`: The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`. Note, if you are using the default library configuration (not overriding with your own) which just secures a single, specific context path then this value is important. However, if you are building an application which may have several different secured endpoints, or you don't want to specify an explicit configuration value in this `.properties` file then just set the value to something that signifies this. Perhaps `auth0.securedRoute: UNUSED`. Then just ignore the `securedRoute` entirely when you specify your own configuration. See the section [Extending Auth0SecurityConfig](https://github.com/auth0/auth0-spring-security-api#extending-auth0securityconfig) for further info. The takeaway message is that this property value is a convenience for the developer to configure an endpoint by context path (.eg all URLS with `/api/v1/` in their context path), but there is no obligation to actually reference this property in your own `HttpSecurity` configuration.
-- `auth0.loginCallback`: The URL context path for the login callback endpoint. Should start with `/`.
-- `auth0.loginRedirectOnSuccess`: The landing page URL context path for a successful authentication. Should start with `/`.
-- `auth0.loginRedirectOnFail`: The URL context path for the page to redirect to upon failure. Should start with `/`.
-- `auth0.base64EncodedSecret`: A boolean value indicating whether the Secret used to verify the JWT is `base64` encoded. Default is `true`.
-- `auth0.authorityStrategy`: Indicates whether authorization claims against the Principal shall be `GROUPS`, `ROLES` or `SCOPE` based. Default is `ROLES`.
-- `auth0.servletFilterEnabled`: A boolean value that switches having an authentication filter enabled or not.
-- `auth0.defaultAuth0ApiSecurityEnabled`: A boolean value that switches having the default config enabled. It should be set to `false`.
-
-
-You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock).
+**NOTE**: If you are using the default library configuration (not overriding with your own) which just secures a single, specific context path then the `auth0.securedRoute` value is important. However, if you are building an application which may have several different secured endpoints, or you don't want to specify an explicit configuration value in this `.properties` file then just set `auth0.securedRoute` to something that signifies this. Perhaps `auth0.securedRoute: UNUSED`. Then just ignore the `securedRoute` entirely when you specify your own configuration. See the section [Extending Auth0SecurityConfig](https://github.com/auth0/auth0-spring-security-api#extending-auth0securityconfig) for further info. This property value is a convenience for the developer to configure an endpoint by context path (.eg all URLS with `/api/v1/` in their context path), but there is no obligation to actually reference this property in your own `HttpSecurity` configuration.
 
 **NOTE**: We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. The [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) contains  two demo websites that have been developed to demonstrate the Auth0 SSO capabilities between a main "portal" website and a Partner website that depends on the main "portal" site for SSO authentication. Fell free to check this out.
+
+
+You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock)!
 
 
