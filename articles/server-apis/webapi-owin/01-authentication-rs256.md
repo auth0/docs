@@ -31,7 +31,7 @@ You will need to add the Active Directory Services Bearer Token middleware to yo
 
 Go to the `Configuration` method of your `Startup` class and add a call to `UseActiveDirectoryFederationServicesBearerAuthentication` passing in the configured `ActiveDirectoryFederationServicesBearerAuthenticationOptions`. 
 
-The `ActiveDirectoryFederationServicesBearerAuthenticationOptions` needs to specify your Auth0 Client ID in the `ValidAudience` property, and the full path to your Auth0 domain as the `ValidIssuer`. You will also need to specify the `MetadataEndpoint` property which will allow the middleware to automatically download the public key from Auth0 in order to verify the signate of the JSON Web Tokens.
+The `ActiveDirectoryFederationServicesBearerAuthenticationOptions` needs to specify your Auth0 Client ID in the `ValidAudience` property, and the full path to your Auth0 domain as the `ValidIssuer`. You will also need to specify the `MetadataEndpoint` property which will allow the middleware to automatically download the public key from Auth0 in order to verify the signature of the JSON Web Tokens.
 
 ```csharp
 public void Configuration(IAppBuilder app)

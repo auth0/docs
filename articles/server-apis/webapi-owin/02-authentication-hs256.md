@@ -15,7 +15,7 @@ name: Shows how to secure your API using the standard JWT middeware
 
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using HS256.
 
-> If you want to use RS256 then please go to the [Authentication using RS256](/quickstart/backend/aspnet-core-webapi/01-authentication-rs256) tutorial.
+> If you want to use RS256 then please go to the [Authentication using RS256](/quickstart/backend/webapi-owin/01-authentication-rs256) tutorial.
 
 ## 1. Configure JSON Web Token Signature Algorithm
 
@@ -27,7 +27,7 @@ Save your changes.
 
 ## 2. Update your settings
 
-When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `web.config` file included in the seed project to also add a **Auth0ClientSecret** key, and be sure to set the correct values for the **Auth0Domain**, **Auth0ClientID** and **Auth0ClientSecret** element:   
+When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `web.config` file included in the seed project to also add a **Auth0ClientSecret** key, and be sure to set the correct values for the **Auth0Domain**, **Auth0ClientID** and **Auth0ClientSecret** elements:   
 
 ```json
 <appSettings>
@@ -73,7 +73,7 @@ Please ensure that the URL specified for the `issuer` parameter contains a trail
 
 ## 4. Securing an API endpoint 
 
-The JWT middleware integrates with the standard ASP.NET Core Authentication and Authorization mechanisms. You only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
+The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms. You only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 
 ```csharp
 [RoutePrefix("api")]
@@ -132,4 +132,4 @@ Now you can use the `id_token` and pass it along in the Authorization header as 
 
 ## Next Step
 
-To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/aspnet-core-webapi/03-authorization) tutorial.
+To learn how to allow only users in a certain role to access a particular endpoint, please continue with the [Authorization](/quickstart/backend/webapi-owin/03-authorization) tutorial.
