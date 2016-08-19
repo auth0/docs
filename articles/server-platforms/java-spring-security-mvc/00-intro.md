@@ -125,7 +125,7 @@ Here is a breakdown of what each attribute means:
 | `auth0.domain` | Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). |
 | `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
 | `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). |
-| `auth0.clientSecret` | This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). |
+| `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${uiURL}/#/applications). |
 
 
 You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock).
