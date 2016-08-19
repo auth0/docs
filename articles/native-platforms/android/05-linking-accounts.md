@@ -25,10 +25,10 @@ This tutorial and seed project have been tested with the following:
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
-* You've integrated [Lock for Android](https://github.com/auth0/Lock.Android) dependency in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login.md) and the [session handling](03-session-handling.md) tutorial first.
+* You've integrated [Lock for Android](https://github.com/auth0/Lock.Android) dependency in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login) and the [session handling](03-session-handling) tutorial first.
 * You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the session handling and user profile tutorials.
 
->It is highly recommended that you take a look at the [linking accounts](${uiURL}/#/link-accounts) documentation to understand the process of linking accounts
+>It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts
 
 ### 1. Enter account credentials
 
