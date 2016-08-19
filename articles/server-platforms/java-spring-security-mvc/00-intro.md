@@ -123,9 +123,9 @@ Let's see what each attribute means.
 
 **NOTE**: If you are using the default library configuration (not overriding with your own) which just secures a single, specific context path then the `auth0.securedRoute` value is important. However, if you are building an application which may have several different secured endpoints, or you don't want to specify an explicit configuration value in this `.properties` file then just set `auth0.securedRoute` to something that signifies this. Perhaps `auth0.securedRoute: UNUSED`. Then just ignore the `securedRoute` entirely when you specify your own configuration. See the section [Extending Auth0SecurityConfig](https://github.com/auth0/auth0-spring-security-api#extending-auth0securityconfig) for further info. This property value is a convenience for the developer to configure an endpoint by context path (.eg all URLS with `/api/v1/` in their context path), but there is no obligation to actually reference this property in your own `HttpSecurity` configuration.
 
-
-You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock).
-
 **NOTE**: We have created a [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) that demonstrates using Auth0 with Spring Boot and Spring Security to create two traditional server-side MVC web apps that are configured for Single Sign On with one another. The [sample application](https://github.com/auth0-samples/auth0-spring-security-mvc-sso-sample) contains  two demo websites that have been developed to demonstrate the Auth0 SSO capabilities between a main "portal" website and a Partner website that depends on the main "portal" site for SSO authentication. Fell free to check this out.
+
+
+You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock)!
 
 
