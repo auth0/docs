@@ -1,6 +1,6 @@
 ---
 title: Customizing Lock
-description: This tutorial will show you how to modify the Lock activity look and feel.
+description: This tutorial will show you how to modify the look and feel for the Lock activity.
 seo_alias: android
 ---
 
@@ -23,9 +23,9 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-We will assume that you completed the [Login Tutorial](01-login.md) before starting this one. 
+It is assumed that you have already completed the [Login Tutorial](01-login.md).
 
-### 1. Create a custom theme
+### 1. Create a Custom Theme
 
 Your first step is to create a `Theme` builder, in which you will specify your desired modifications. In this case, we modify the header's `Title`:
 
@@ -35,13 +35,14 @@ Theme customizedLockTheme = Theme.newBuilder()
 	.build();
 ```
 
-> We suggest you to add all the colors in the `color.xml` resource file, and all the texts in the `strings.xml`.
+> We suggest you to add all the colors to the `color.xml` resource file, and all text to the `strings.xml` file.
 
 #### Customizable parts of Lock
-Besides the header's `Title` you can modify:
+
+Besides the header's `Title`, you can modify:
 
 #### i. Header
-You can modify the header's `Color`, logo and text with: 
+You can modify the header's color, logo, and text with: 
 
 ```java
 .withHeaderTitle(R.string.app_name)
@@ -58,16 +59,12 @@ You can set the primary color, and the primary color for the dark theme with:
 ```
 
 
-### 2. Present the lock activity
+### 2. Present the Lock Activity
 
-Once you have the customized theme, you only need to add it while you're creating the lock activity.
+Once you have the customized theme, you only need to add it while you're creating the Lock activity.
 
 ```java
 this.lock = Lock.newBuilder(auth0, callback)
 	.withTheme(customizedLockTheme)
 	.build();
-```	
-       
-### Done!
-
-That's it! You've customized `Lock Activity` UI up to your preferences!
+```
