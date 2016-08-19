@@ -34,7 +34,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with. 
 
-To do this, we will use Lock for logging in as we did in the [Login tutorial](01-login). In this case, we will send as an Extra, a boolean value to indicate that this is a secondary login means.
+To do this, we will use Lock for logging in as we did in the [Login tutorial](01-login). In this case, we will send as an `Extra`, a boolean value to indicate that this is a secondary login means.
 
 ```java
 Intent lockToLinkAccounts = new Intent(this, LockActivity.class);        lockToLinkAccounts.putExtra(Constants.LINK_ACCOUNTS, true);
