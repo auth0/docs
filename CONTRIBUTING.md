@@ -249,9 +249,8 @@ To create and submit a job to Wordy:
 5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
 6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
 
-::: panel-info Word Count and Wordy Submissions
+### Word Count and Wordy Submissions
 Wordy charges based on total word count, which includes code snippets. If possible, remove code snippets prior to submitting your document to Wordy.
-:::
 
 ### Notes
 
