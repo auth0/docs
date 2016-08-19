@@ -24,7 +24,7 @@ This tutorial and seed project have been tested with the following:
 
 ### 1. Add the Lock dependency
 
-Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different platforms via [auth0](https://auth0.com/).
+Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into your project. Lock is a library for displaying a native UI in your app for logging in and signing up with different platforms via [Auth0](https://auth0.com/).
 
 #### i. Gradle
 
@@ -65,7 +65,7 @@ Add the following code to your project's `AndroidManifest.xml`:
 <activity android:name="com.auth0.android.lock.provider.WebViewActivity"></activity>
 ```
 
-Also, you need to add the following permissions inside the:
+Also, you need to add the following permissions:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -132,7 +132,7 @@ startActivity(this.lock.newIntent(this));
 
 <div class="phone-mockup"><img src="/media/articles/libraries/lock-android/login.png" alt="Mobile example screenshot"/></div>
 
-> If you need in depth configuration, check more information on [Lock Builder](/libraries/lock-android#lock-builder)
+> If you need in depth configuration, you can find more information on [Lock Builder](/libraries/lock-android#lock-builder)
 
 > There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login.md).
 
@@ -140,8 +140,6 @@ startActivity(this.lock.newIntent(this));
 
 You've already implemented Login and Sign Up with Auth0 in your Android project!
 
-
-
 ### Optional: Log In with Social Connections
 
-In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app.
