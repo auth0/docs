@@ -252,6 +252,11 @@ To create and submit a job to Wordy:
 ### Word Count and Wordy Submissions
 Wordy charges based on total word count, which includes code snippets. If possible, remove code snippets prior to submitting your document to Wordy.
 
+### Instructions for Editors
+It is helpful to include some instructions for the Wordy editors to let them know that the articles may have words that seem out of place because the article is about technology.
+
+> Please edit for spelling and grammar. Audience consists of programmers and technology readers. Grammar, casing, spelling etc will seem weird in some cases, especially with uses of the word "this", but chances are that those are cases of programming jargon or naming. The final article will include code snippets that have been removed from the text for brevity. Instead, a placeholder called CODE_SNIPPET has been used.
+
 ### Notes
 
 * You can cancel a job if it hasn’t been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
