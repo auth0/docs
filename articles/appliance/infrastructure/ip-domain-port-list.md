@@ -1,6 +1,6 @@
 # Appliance Infrastructure: IP/Domain and Port List
 
-The Appliance requires certain ports within the cluster to be open and able to access selected external sites.
+The Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
 
 ## Between Cluster Nodes
 
