@@ -14,6 +14,7 @@ At this point you should set the following configuration variables:
 - **SPLUNK_URL**: Your Splunk HTTP Collector Endpoint. 
 - **SPLUNK_TOKEN**: Your Splunk Token.
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint.
+- **SPLUNK_COLLECTOR_PATH**: The [HTTP Collector Endpoint](http://dev.splunk.com/view/event-collector/SP-CAAAE7H) to be used. If you use the `/raw` endpoint, make sure to append a channel as a querystring parameter, like this: `/services/collector/raw?channel=FE0ECFAD-13D5-401B-847D-77833BD77131`. More information can be found in the [Splunk documentation](http://dev.splunk.com/view/event-collector/SP-CAAAE8Y).
 - **BATCH_SIZE**: The ammount of logs to be read on each execution. Maximun is 100.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Splunk.
 - **LOG_TYPES**: The events for which logs should be exported.
