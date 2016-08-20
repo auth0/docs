@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 
 You should be familiar with previous tutorials. This tutorial assumes:
 
-- You're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out the [login tutorial](01-login.md) first.**
+- You're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out the [login tutorial](01-login) first.**
 - You're using the Auth0.swift and SimpleKeychain dependencies. **It's recommended that you take a look at the [session handling tutorial](03-session-handling.md) first.**
 
 ### 1. Fetch the User Profile

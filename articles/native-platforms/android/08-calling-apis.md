@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-You should already know how to manage the `Credentials` object, as explained in the [Session Management](03-session-handling.md) tutorial.
+You should already know how to manage the `Credentials` object, as explained in the [Session Management](03-session-handling) tutorial.
 
 ### 1. Get a token
 

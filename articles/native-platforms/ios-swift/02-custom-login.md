@@ -178,7 +178,7 @@ Auth0
     }
 ```
 
-Once you get the `credentials` object, upon a successful authentication, you deal with them as always. For more information on that, check out the [login](01-login.md) and [session handling](session-handling.md) tutorials.
+Once you get the `credentials` object, upon a successful authentication, you deal with them as always. For more information on that, check out the [login](01-login) and [session handling](session-handling) tutorials.
 
 ### Done!
 

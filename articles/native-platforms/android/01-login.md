@@ -7,7 +7,7 @@ description: This tutorial will show you how to integrate Lock v2 in your Androi
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* Emulator - Nexus5X - Android 6.0
 :::
 
 <%= include('../../_includes/_package', {
@@ -76,7 +76,7 @@ Also, you need to add the following permissions:
 
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login in any activity you want. 
+At this point, you're all set to implement the Login in any activity you want.
 
 First, add these lines in the ``onCreate`` method:
 
@@ -134,7 +134,7 @@ startActivity(this.lock.newIntent(this));
 
 > If you need in depth configuration, you can find more information on [Lock Builder](/libraries/lock-android#lock-builder)
 
-> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login.md).
+> There are multiple ways of implementing the login dialog. What you see above is the default widget; however, if you want, you can use [your own UI](02-custom-login).
 
 ### Done!
 

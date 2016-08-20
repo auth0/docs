@@ -25,8 +25,8 @@ This tutorial and seed project have been tested with the following:
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
-- You've integrated [Lock](https://github.com/auth0/Lock.iOS-OSX) and [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login.md) and the [session handling tutorial](03-session-handling.md) first.
-- You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [session handling](03-session-handling.md) and [user profile](04-user-profile.md) tutorials.
+- You've integrated [Lock](https://github.com/auth0/Lock.iOS-OSX) and [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login) and the [session handling tutorial](03-session-handling) first.
+- You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [session handling](03-session-handling) and [user profile](04-user-profile) tutorials.
 
 > **It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts)** to understand the process of linking accounts.
 
@@ -34,7 +34,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 Here's the scenario: You have a user which is logged in, and he wants to link one (or multiple) accounts to that account he's logged in with, such that, he can login with any of them and get into that account.
 
-Typically, you will need to present an extra login dialog to make the user enter the credentials for any account he wants to link with his main account. You can present this login as we saw in the [login tutorial](01-login.md):
+Typically, you will need to present an extra login dialog to make the user enter the credentials for any account he wants to link with his main account. You can present this login as we saw in the [login tutorial](01-login):
 
 ```swift
 import Lock
@@ -83,7 +83,7 @@ Auth0
 
 ### 3. Retrieve linked accounts
 
-Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user profile, process that we already know from the [user profile](04-user-profile.md) tutorial:
+Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user profile, process that we already know from the [user profile](04-user-profile) tutorial:
 
 ```swift
 import Lock

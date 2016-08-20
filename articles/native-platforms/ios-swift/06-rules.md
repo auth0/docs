@@ -39,7 +39,7 @@ This is just a starting template, you can edit it to meet your business needs. O
 
 ### 2. Test the Rule
 
-To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](01-login.md)).
+To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](01-login)).
 
 You can access the `country` added by the rule within the `extraInfo` dictionary from the `A0UserProfile` object, like so:
 

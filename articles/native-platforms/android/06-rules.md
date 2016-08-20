@@ -10,7 +10,7 @@ Rules are functions written in JavaScript that are executed in Auth0 as part of 
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* Emulator - Nexus5X - Android 6.0
 :::
 
  <%= include('../../_includes/_package', {
@@ -25,28 +25,28 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-Make sure you have completed either the [Login](01-login.md) or the [Custom Login](02-custom-login.md) examples.
- 
+Make sure you have completed either the [Login](01-login) or the [Custom Login](02-custom-login) examples.
+
 ### 1. Create a Rule
- 
+
 To create a rule, you need to go to the [new rule page](${uiURL}/#/rules/new). From there, you can either use a predefined template or create one from scratch.
-  
+
 In this example we will use "*Add country to the user profile*" template, under the *Enrich Profile* section:
-  
+
 ![Add country template](/media/articles/rules/rule-choose-add-country-template.png)
-  
+
 This rule gets the `country_name` from the context and adds it as a new `country` attribute to the user profile.
-  
+
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
-  
+
 This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever your users log in, the rule will be executed, and their country will be added.
-  
+
 ### 2. Test the Rule
-  
-To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile tutorial](04-user-profile.md)).
-  
+
+To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile tutorial](04-user-profile)).
+
 You can access the `country` added by the rule within the `extraInfo` hashmap from the `userProfile` object you receive in the callback (named payload by default):
-  
+
 ```java
 client.tokenInfo(${account.clientId})
 	  .start(new BaseCallback<UserProfile>() {
@@ -62,7 +62,7 @@ client.tokenInfo(${account.clientId})
 	}
 	@Override
 	public void onFailure(Auth0Exception error) {
-	
+
 	}
 });
 ```

@@ -27,7 +27,7 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 ### Before starting
 
-It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](01-login.md) for more information about it.
+It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](01-login) for more information about it.
 
 ### 1. Create a Rule to assign roles
 
@@ -45,7 +45,7 @@ By default, it says that if the user email contains `@example.com` he will be gi
 
 To test the rule, use the following code snippet once you've gotten the user profile.
 
-> Check out the [login](01-login.md) and [user profile](04-user-profile.md) tutorials for more information on how to get the user profile.
+> Check out the [login](01-login) and [user profile](04-user-profile) tutorials for more information on how to get the user profile.
 
 ```swift
 import Lock

@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-Be sure that you have completed the [Basic Login](01-login.md) and the [Session Handling](03-session-handling.md) Quickstarts.
+Be sure that you have completed the [Basic Login](01-login) and the [Session Handling](03-session-handling) Quickstarts.
 
 ### 1. Request User Data
 

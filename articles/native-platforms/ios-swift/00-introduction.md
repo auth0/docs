@@ -168,6 +168,6 @@ Also, make sure you have the following entries in a file named `Auth0.plist`. Yo
 
 The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
 
-Said that, we suggest you to start with the [login tutorial](01-login.md)...
+Said that, we suggest you to start with the [login tutorial](01-login)...
 
 Have fun!

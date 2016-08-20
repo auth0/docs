@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-It is assumed that you have already completed the [Login Tutorial](01-login.md).
+It is assumed that you have already completed the [Login Tutorial](01-login).
 
 ### 1. Create a Custom Theme
 

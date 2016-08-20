@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 
 #### i. Be familiar with Lock Login
 
-This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out [this tutorial](01-login.md) first.**
+This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out [this tutorial](01-login) first.**
 
 #### ii. Add the SimpleKeychain dependency
 

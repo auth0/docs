@@ -6,4 +6,4 @@
 4. Click *Upload & Install*.
 5. [Setup the plugin](/cms/joomla/configuration)
 
- <img src="/cms/joomla/joomla-auth0-install.gif" alt="Joomla Auth0 installation">
+ <img src="/media/articles/cms/joomla/setup.gif" alt="Joomla Auth0 installation">

@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to get a token, attach it to a request (using
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
-You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) instance from the [login tutorial](01-login.md). Anyway, here's a quick recap:
+You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) instance from the [login tutorial](01-login). Anyway, here's a quick recap:
 
 ```swift
 import Lock
