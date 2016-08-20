@@ -6,11 +6,11 @@ description: This tutorial will show you how to use the Auth0 Javascript SDK to 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa/tree/master/00-Starter-Seed',
+  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa/tree/master/01-Login',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-javascript-spa',
   pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
+  pkgPath: '01-Login',
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
