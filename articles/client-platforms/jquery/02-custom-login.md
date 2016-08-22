@@ -42,7 +42,7 @@ $(document).ready(function() {
 });
 ```
 
-In the `login` method, call the `login` function on the `auth0` instance, setting `connection` to `Username-Password-Authentication` and `responseType` to `token`:
+In the `login` method, call the `login` function on the `Auth0` instance, setting `connection` to `Username-Password-Authentication` and `responseType` to `token`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -154,4 +154,4 @@ and add a button to call this method:
 
 # Summary
 
-In this guide you learned how to use `Auth0.js` library to log users into your jQuery project by using user and password or using social login. Also you learned how to register new users.
+In this guide you learned how to use `Auth0.js` library to log users into your jQuery project by using user and password or social login. You also learned how to register new users.

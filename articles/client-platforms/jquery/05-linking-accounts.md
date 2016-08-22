@@ -13,17 +13,17 @@ description: This tutorial will show you how to integrate Auth0 with jQuery to l
   pkgType: 'js'
 }) %>
 
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile.
+In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with an email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile.
 
 ## Linking Accounts
 
 To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the `id_token` and `user_id` of the primary account and the `id_token` of the secondary account.
 
-To differentiate the login from the linking login, you will create a second instance of `AuthLock` to obtain the `id_token` of the secondary account.
+To differentiate the login from the linking login, you will create a second instance of `Auth0Lock` to obtain the `id_token` of the secondary account.
 
-Since all instances of `AuthLock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login.
+Since all instances of `Auth0Lock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login.
 
-You can use the `params` property of the `auth` property of the [options object](https://github.com/auth0/lock#authentication-options) of `AuthLock` to add a `state` property with the value `"linking"`:
+You can use the `params` sub-property of the `auth` property of the [options object](https://github.com/auth0/lock#authentication-options) of `Auth0Lock` to add a `state` property with the value `"linking"`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -75,7 +75,7 @@ lockLink.on("authenticated", function(authResult) {
 
 Now that the second login is handled, you will need to actually do the linking.
 
-Before doing the linking we need to configure Ajax to send `Authorization` header automatically for each request:
+Before doing the linking we need to configure AJAX to send an `Authorization` header automatically for each request:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -91,7 +91,7 @@ $.ajaxSetup({
 ...
 ```
 
-After that we are just good to go and link the accounts:
+After that we are good to go and can link the accounts:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -117,7 +117,7 @@ var linkAccount = function(id_token) {
 
 The function takes the `id_token` of the account to link with and posts to the API, passing the `link_with` parameter with the `id_token` value in the body. Then it fetches the profile on success to check that the accounts are now linked.
 
-Now to begin the link process, call the `show` method on `lockLink` instance:
+Now to begin the linking process, call the `show` method on `lockLink` instance:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -201,4 +201,4 @@ var unlinkAccount = function(identity) {
 
 # Summary
 
-In this guide you learned how to enrich your users profile information by linking their Auth0 accounts with an OAuth provider like Facebook and Google.
+In this guide you learned how to enrich your users' profile information by linking their Auth0 accounts with an OAuth provider like Facebook or Google.

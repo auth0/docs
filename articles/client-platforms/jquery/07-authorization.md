@@ -22,6 +22,7 @@ description: This tutorial will show you how to assign roles to your users, and 
 ## Restrict a route based on user's roles
 
 In order to restrict access to certain routes, we are going to use a `switch` inside *route* function (executed every time the page is loaded).
+
 ```javascript
 /* ===== ./app.js ===== */
 ...
@@ -69,7 +70,7 @@ route();
 ...
 ```
 
-The route function checks if the user is authenticated then checks if he/she is an *admin* or *user* using `isAdmin` and `isUser` functions respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin` or `user`:
+The route function checks if the user is authenticated then checks if he/she is an *admin* or *user* using `isAdmin` and `isUser` functions, respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin` or `user`:
 
 ```javascript
 /* ===== ./app.js ===== */

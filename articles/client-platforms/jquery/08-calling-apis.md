@@ -13,7 +13,7 @@ description: This tutorial will show you how to use $.ajaxSetup() to make authen
   pkgType: 'js'
 }) %>
 
-`Auth0` exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through `Authorization` header when calling an API.
+`Auth0` exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through the `Authorization` header when calling an API.
 
 ## Sending Authenticated HTTP Requests
 
@@ -35,7 +35,7 @@ Your requests will have the `Authorization` header added automatically:
 
 `Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
 
-Here, before every AJAX request we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you like.
+Here, before every AJAX request, we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you like.
 
 # Summary
 

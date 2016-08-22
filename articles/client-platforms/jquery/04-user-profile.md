@@ -60,7 +60,7 @@ $(document).ready(function() {
 });
 ```
 
-Then display `user profile` attributes in your component's template:
+Then display `user profile` attributes in your HTML:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -110,9 +110,9 @@ var showUserProfile = function(profile) {
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-You can add input fields to the sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
+You can add input fields to the sign-up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
 
-**NOTE:** See [Additional sign up fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
+**NOTE:** See [Additional Sign-Up Fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -156,11 +156,11 @@ var showUserProfile = function(profile) {
 
 ## Update User Profile
 
-You can add an `address` attribute to the user profile's `user_metadata` by creating an ajax call and a simple form. You will need to call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit.
+You can add an `address` attribute to the user profile's `user_metadata` by creating an AJAX call and a simple form. You will need to call the [Update a User](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit.
 
-To call the endpoint we need to add the authorization header to requests.
+To call the endpoint we need to add the Authorization header to requests.
 
-First, use `$.ajaxSetup()` for setting `authorization` header automatically for all the requests:
+First, use `$.ajaxSetup()` for setting `Authorization` header automatically for all the requests:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -176,7 +176,7 @@ $.ajaxSetup({
 ...
 ```
 
-Then use `$.ajax()` with `method = 'PATCH'` to update user's data.
+Then use `$.ajax()` with `method = 'PATCH'` to update the user's data.
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -221,4 +221,4 @@ Then create a simple form to add/update the *address* attribute:
 
 # Summary
 
-In this guide you learned how to manage user profile by fetching the user profile information from Auth0 and then storing that information in localStorage to avoid future requests and then read this information from localStorage in order to show user profile. You also learned how to add custom sign up fields to Auth0's sign up form and how to update user's profile information.
+In this guide you learned how to manage user profiles by fetching the user profile information from Auth0, storing that information in localStorage to avoid future requests, and then reading this information from localStorage to show the user profile. You also learned how to add custom sign-up fields to Auth0's sign-up form and how to update user profile information.

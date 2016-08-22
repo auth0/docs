@@ -15,7 +15,6 @@ description: This tutorial will show you how to add Multifactor Authentication t
 
 <%= include('../_includes/_mfa-introduction') %>
 
-
 In this tutorial, you will learn how to enable MFA in the jQuery application you created in the previous steps.
 
 ## Enable Multifactor Authentication in Your Account
@@ -28,4 +27,4 @@ In this tutorial, you will learn how to enable MFA in the jQuery application you
 
 # Summary
 
-In this guide you learned how to use Auth0 Guardian in order to add Multi Factor Authentication to your jQuery project.
+In this guide you learned how to use Auth0 Guardian to add multifactor authentication to your jQuery project.

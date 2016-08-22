@@ -3,7 +3,7 @@ title: Login
 description: This tutorial will show you how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps. In this case we will use Auth0's CDN.
+You can get started by either downloading the seed project or, if you would like to add Auth0 to an existing application, you can follow the tutorial steps. In this case, we will use Auth0's CDN.
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples/tree/master/01-Login',
@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
 * jQuery 2.1.1
 :::
 
-<%= include('../../_includes/_signup') %>
+<%= include('../../\_includes/\_signup') %>
 
 **If you have an existing application, follow the steps below.**
 
@@ -35,7 +35,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Lock
 
-Configure Lock with your `client-ID` and `domain`:
+Configure Lock with your `client ID` and `domain`:
 
 To discover all the available options for `Auth0Lock`, see [the Lock customization documentation](/libraries/lock/customization).
 
@@ -43,7 +43,7 @@ ${snippet(meta.snippets.setup)}
 
 ### 3. Implement the login
 
-To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
+To implement the login, call the `.show()` method of Auth0's `Lock` instance when a user clicks the login button.
 
 ${snippet(meta.snippets.use)}
 
@@ -98,7 +98,7 @@ To discover all the available properties of a user's profile, see [Auth0 Normali
 
 ### 5. Log out
 
-In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
+In this implementation, a logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
 localStorage.removeItem('id_token');
@@ -108,4 +108,4 @@ window.location.href = "/";
 
 # Summary
 
-In this guide you learned how to use `Lock` widget in order to log users into your jQuery project.
+In this guide you learned how to use the `Lock` widget to log users into your jQuery project.

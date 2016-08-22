@@ -15,7 +15,7 @@ description: This tutorial will show you how to integrate Auth0 with jQuery to a
 
 In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`.
 
-In this step, you will create a session for that user and also allow the user to logout.
+In this step, you will create a session for that user and also allow the user to log out.
 
 ## Create Session
 
@@ -61,7 +61,7 @@ if (null != id_token) {
 
 ## Logout
 
-To logout a user, remove the token from `localStorage`:
+To log out a user, remove the token from `localStorage`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -141,4 +141,4 @@ var logout = function() {
 
 # Summary
 
-In this guide you learned how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status and end user session (logout).
+In this guide you learned how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status, and end user session (logout).
