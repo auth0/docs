@@ -21,9 +21,9 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
-### 1. Enable MFA in your client
+### 1. Enable MFA in your Client
 
-First, you have to enable the MFA feature in your account. Go to the [MFA configuration page](${uiURL}/#/multifactor) and turn the  **Google Authenticator** switch on, under the *Choose a Provider* section.
+First, you have to enable the MFA feature in your account. Go to the [MFA configuration page](${uiURL}/#/multifactor) and turn the **Google Authenticator** switch on, under the *Choose a Provider* section.
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-01.png)
 
@@ -47,7 +47,7 @@ if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 
 Make sure you hit the **save** button.
 
-### 2. Configure the flags
+### 2. Configure the Flags
 
 To enable multifactor authentication and enrollment in your database connection, you must set the `options.mfa.active` and`options.mfa.return_enroll_settings` flags using the `PATCH /api/v2/connections/:id` endpoint.
 
