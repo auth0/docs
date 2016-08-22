@@ -446,14 +446,14 @@ Each quickstart should have a seed project. The seed projects are hosted in gith
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
-| String | Description |
+| String | Replace Value | Description |
 | :------| :-----------|
-| `AUTH0_CLIENT_ID` | This sets the client ID of the currently selected application. |
-| `AUTH0_CLIENT_SECRET` | This sets the client secret of the currently selected application. |
-| `AUTH0_DOMAIN` | This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
-| `AUTH0_CALLBACK_URL` | This sets the callback url for the application. |
-| `MOBILE_CUSTOM_SCHEME` | This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
-| `RANDOM_STRING_64` | This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+| `AUTH0_CLIENT_ID` | `{CLIENT_ID}` | This sets the client ID of the currently selected application. |
+| `AUTH0_CLIENT_SECRET` | `{CLIENT_SECRET}` |  This sets the client secret of the currently selected application. |
+| `AUTH0_DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `AUTH0_CALLBACK_URL` | N/A |  This sets the callback url for the application. |
+| `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
 There are four types of packaging that can happen with this service.
 
