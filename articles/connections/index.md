@@ -3,6 +3,31 @@ url: /identityproviders
 description: Auth0 is an identity hub that supports the many authentication providers listed here.
 ---
 
+<style>
+.connection {
+  padding: 15px;
+  /*border: 1px solid $gray-lighter;*/
+}
+.connection-content {
+  text-align: center;
+  min-height: 150px;
+}
+.connection-content:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 90px;
+}
+.connection-image-wrap {
+  display: inline-block;
+  vertical-align: middle;
+}
+.connection-image-wrap img {
+  max-height: 80px;
+  max-width: 120px;
+}
+</style>
+
 # Identity Providers Supported by Auth0
 
 Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, etc. Auth0 supports **Social**, **Enterprise**, **Database** and **Passwordless** connections.
@@ -11,49 +36,13 @@ Auth0 is an identity hub that supports many authentication providers using vario
 
 Auth0 supports the following social providers out of the box. You can also use any [OAuth2 Authorization Server](/connections/social/oauth2).
 
-<table width="100%">
-<tr>
-<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/social').items, 'index'), function(article) { %>
-<% if (article.connection) { %> 
-<td align="center">
-      <% if (article.public === false) { %>
-        <%- article.connection %>
-      <% } else { %>
-        <a href="<%- '/docs' + article.url %>">
-        <% if (article.image) { %>
-        <img width="75" src="<%- '/docs' + article.image %>"><br><% } %><%- article.connection %></a>
-      <% }; %>
-</td>
-  <% i++; if (i==3){i=0; %>
-</tr><tr>  
-<% }  } %>
-<% }); %>
-</tr>
-</table>
+<% var socialConnections = _.sortBy(articles.findByHash('connections/social').items, 'index'); %>
+<%= include('./_connections', { connections: socialConnections }) %>
 
 ## Enterprise
-<table width="100%">
-<tr>
-<% var i=0; _.forEach(_.sortBy(articles.findByHash('connections/enterprise').items, 'connection'), function(article) { %>
-<% if (article.connection) { %> 
-<td align="center">
-      <% if (article.public === false) { %>
-        <% if (article.image) { %>
-        <img width="75" src="<%- '/docs' + article.image %>"><br><% } %>
-        <%- article.connection %>
-      <% } else { %>
-        <a href="<%- '/docs' + article.url %>">
-        <% if (article.image) { %>
-        <img width="75" src="<%- '/docs' + article.image %>"><br><% } %><%- article.connection %></a>
-      <% }; %>
-</td>
-  <% i++; if (i==3){i=0; %>
-</tr><tr>
-<% }  } %>
-<% }); %>
-</tr>
-</table>
 
+<% var enterpriseConnections = _.sortBy(articles.findByHash('connections/enterprise').items, 'index'); %>
+<%= include('./_connections', { connections: enterpriseConnections }) %>
 
 ## Database and Custom Connections
 
