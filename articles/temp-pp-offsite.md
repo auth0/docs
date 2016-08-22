@@ -11,6 +11,8 @@ You can set up questions which will be asked to your users just after they authe
 ## Customization Options
 When setting up Progressive Profiling, you will have the option to set it up within Lock, to provide a seamless process for your application that uses Lock for authentication, or to use your own authentication UI to provide the Progressive Profiling questions. If you are using it within Lock, your questions will show up, one at a time, just after the user is authenticated in Lock, in the same widget, using the same customization options that you are already using in Lock (if any). If you are using your own custom UI for user signup and login, you can set up some customization options below to streamline the process.
 
+![Customization View](/media/articles/temp-pp-customization.png)
+
 ### Using Progressive Profiling in Lock
 If you are using Progressive Profiling alongside Lock, the UI will use the same theming options as you are using with your instance of Lock. There is no need to configure any UI options in the customization panel.
 
