@@ -9,7 +9,7 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 ## Seed Project
 
-There is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed. 
+There is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed',
@@ -33,7 +33,7 @@ Each tutorial in the series includes a link to its corresponding sample project,
 
 ## Dependencies
 
-Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.iOS-OSX) or the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit, or both. 
+Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.iOS-OSX) or the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit, or both.
 
 Briefly speaking about them:
 
@@ -167,7 +167,5 @@ Also, make sure you have the following entries in a file named `Auth0.plist`. Yo
 **You're all set up to start integrating Auth0 in your app!** 🎉
 
 The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
-
-Said that, we suggest you to start with the [login tutorial](01-login)...
 
 Have fun!
