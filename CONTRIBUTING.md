@@ -446,8 +446,8 @@ Each quickstart should have a seed project. The seed projects are hosted in gith
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
-| String | Replace Value | Description |
-| :------| :-----------|
+| Key Name | Replace Value | Description |
+| :------| :-----------| :-----------|
 | `AUTH0_CLIENT_ID` | `{CLIENT_ID}` | This sets the client ID of the currently selected application. |
 | `AUTH0_CLIENT_SECRET` | `{CLIENT_SECRET}` |  This sets the client secret of the currently selected application. |
 | `AUTH0_DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
