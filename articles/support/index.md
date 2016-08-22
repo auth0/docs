@@ -16,7 +16,7 @@ Additionally, subscribers can create a private ticket via [Support Center](https
 
 ### Ticket Response Times
 
-Ticket response times will vary based on your support plan (shown below). Additionally, our enterprise support customers will be provided a support phone number.
+Ticket response times will vary based on your support plan (shown below). Additionally, our platinum support customers will be provided a support phone number.
 
 <table class="table">
   <thead>
@@ -24,7 +24,7 @@ Ticket response times will vary based on your support plan (shown below). Additi
       <th></th>
       <th>Free Subscriptions</th>
       <th>Gold/Silver/Home Grown Subscriptions</th>
-      <th>Enterprise Support</th>
+      <th>Platinum Support</th>
     </tr>
   </thead>
   <tbody>
@@ -49,8 +49,8 @@ Ticket response times will vary based on your support plan (shown below). Additi
     <tr>
       <th>Subsequent Response Time</th>
       <td>2-5 Business Days</td>
-      <td>24 hours</td>
-      <td>Standard Issues: 48 hours / Critial Outages: ongoing</td>
+      <td>48 hours</td>
+      <td>Standard Issues: 24 hours / Critial Outages: ongoing</td>
     </tr>
     <tr>
       <th>Discussion Forum</th>
@@ -73,6 +73,6 @@ Ticket response times will vary based on your support plan (shown below). Additi
   </tbody>
 </table>
 
-If you have specific support requirements or are interested in the __Enterprise Support__ option, please [contact sales](https://auth0.com/?contact=true).
+If you have specific support requirements or are interested in the __Platinum Support__ option, please [contact sales](https://auth0.com/?contact=true).
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
