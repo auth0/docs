@@ -1,9 +1,9 @@
 ---
 title: Introduction
-description: Brief introduction to the iOS-Swift tutorials. First steps required to follow any of the tutorials.
+description: Brief introduction to the iOS Swift tutorials. First steps required to follow any of the tutorials.
 ---
 
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
+This is the very beginning of a simple, practical, and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
 
 
@@ -21,13 +21,13 @@ There is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sampl
   pkgType: 'none'
 }) %>
 
-This seed project can be useful as a starting point for the app to which you need to integrate authentication.
+This seed project can be useful as a starting point for the app where you need to integrate authentication.
 
 
 
 ## Sample Projects
 
-Each tutorial in the series includes a link to its corresponding sample project, which expose how to achieve the tutorial's goal. You can check out all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
+Each tutorial in the series includes a link to its corresponding sample project, which reveals how to achieve the tutorial's goal. You can check out all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
 
 
 
@@ -35,16 +35,16 @@ Each tutorial in the series includes a link to its corresponding sample project,
 
 Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.iOS-OSX) or the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit, or both.
 
-Briefly speaking about them:
+A brief description:
 
-- [**Lock**](https://github.com/auth0/Lock.iOS-OSX) is a widget that is easy to present in your app. It contains default templates (that can be a bit customized) for login with email/password, sign up, social providers integration, and also password recovery.
-- [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate with many of the basic [Auth0 API](/api/info) functions in a neat way.
+- [**Lock**](https://github.com/auth0/Lock.iOS-OSX) is a widget that is easy to present in your app. It contains default templates (that can be customized) for login with email/password, signup, social providers integration, and password recovery.
+- [**Auth0.swift**](https://github.com/auth0/Auth0.swift) is a toolkit that lets you communicate efficiently with many of the basic [Auth0 API](/api/info) functions.
 
-These dependencies are already integrated on each sample project through [Cocoapods](https://cocoapods.org/). We have chosen to use an approach of not git-ignoring them in the samples repo; that way, you don't have to worry about running pod commands: once you've cloned the repo, the samples are ready to be run!
+These dependencies are already integrated into each sample project through [Cocoapods](https://cocoapods.org/). We have chosen to use an approach of not git-ignoring them in the samples repo; that way, you don't have to worry about running pod commands— once you've cloned the repo, the samples are ready to be run!
 
 It's recommended that, as a starting point for your project, you download the [seed project](#seed-project) described above, which already includes these dependencies.
 
-Otherwise, if you're starting an empty project by your own, or if you want to add authentication to an existing project from yours, you have to make sure you install them:
+Otherwise, if you're starting an empty project on your own, or if you want to add authentication to an existing project of yours, you have to make sure you install them:
 
 #### Carthage
 
@@ -77,7 +77,7 @@ Then, run `pod install`.
 
 ## Your First Steps
 
-Make sure you complete these steps before going through any tutorial:
+Make sure you complete these steps before starting any tutorial:
 
 #### 1. Create an application
 
@@ -89,14 +89,14 @@ Make sure you complete these steps before going through any tutorial:
 
 Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your client's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
 
-Said that, go to your [Client's Dashboard](${uiURL}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+That being said, go to your [Client's Dashboard](${uiURL}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 ```shell
  ${account.clientId}://\*.auth0.com/authorize
 ```
 
 #### 3. Set your credentials
 
-The [dependencies](#dependencies) listed above requires that you set your credentials in two different `.plist` files in order to work. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set. Anyway, you have to make sure they are there, otherwise your app might crash.
+The [dependencies](#dependencies) listed above requires that you set your credentials in two different `.plist` files in order for them to work. If you downloaded the seed project, or any sample project from here, these credentials are automatically set. Either way, you have to make sure they are there—otherwise your app might crash.
 
 Make sure you have the following entries in your project's `Info.plist`:
 
@@ -129,7 +129,7 @@ Make sure you have the following entries in your project's `Info.plist`:
   </tr>
 </table>
 
-Also, make sure you have the following entries in a file named `Auth0.plist`. You have to create that file if it doesn't exist:
+Also, make sure you have the following entries in a file named `Auth0.plist`. You have to create that file if it doesn't already exist:
 
 <table class="table">
   <thead>
@@ -166,6 +166,8 @@ Also, make sure you have the following entries in a file named `Auth0.plist`. Yo
 
 **You're all set up to start integrating Auth0 in your app!** 🎉
 
-The tutorial guides contained in this section will teach you the different things you can do with it. It's recommendable that you follow them sequentially in order, as they are progressive and there is content that usually needs to be learned from previous tutorials.
+The tutorial guides contained in this section will teach you the different things you can do with Auth0 in iOS. It's recommendable that you follow them sequentially, as they are progressive: each guide teaches content that usually builds on previous tutorials.
+
+That said, we suggest you start with the [login tutorial](01-login)...
 
 Have fun!
