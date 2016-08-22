@@ -30,7 +30,7 @@ You should be familiar with previous tutorials. This tutorial assumes:
 
 ### 1. Fetch the User Profile
 
-First step is to fetch the user profile. To do so, you need a valid `idToken` first.
+The first step is to fetch the user profile. To do so, you need a valid `idToken` first.
 
 > Check out the [session handling tutorial](03-session-handling) if you're not sure about the `idToken`.
 
@@ -66,7 +66,7 @@ let email = profile.email
 let avatarURL = profile.picture
 ```
 
-> You can check out the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) class documentation to learn more about its fields.
+> Check out the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) class documentation to learn more about its fields.
 
 #### ii. Additional info
 
@@ -74,7 +74,7 @@ Besides the defaults, you can handle more information that is contained within a
 
 ##### a. User Metadata
 
-The `userMetadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with on this tutorial. You can access its fields as follows:
+The `userMetadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with in this tutorial. You can access its fields as follows:
 
 ```swift
 let firstName = profile.userMetadata["first_name"] as? String
