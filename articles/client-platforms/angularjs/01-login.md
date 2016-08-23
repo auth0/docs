@@ -182,7 +182,7 @@ The code for this should be kept in the `authService`, but it will be necessary 
       userProfile: userProfile,
       login: login,
       logout: logout,
-      registerAuthenticationListener: registerAuthenticationListener,
+      registerAuthenticationListener: registerAuthenticationListener
     }
   }
 })();
