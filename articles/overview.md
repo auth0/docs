@@ -2,7 +2,7 @@
 
 Auth0 is a service that abstracts how users authenticate to applications.
 
-![](https://docs.google.com/drawings/d/1yZhoSFzCaqUpYOYDSeGfJI_lUrZ2ApMqzHaeJ7lk5OU/pub?w=713&amp;h=216)
+![](/media/articles/overview/overview.png)
 
 You can connect any application (written in any language or on any stack) to Auth0 and define its **Connection**, the method used to authenticate the users of that application:
 
