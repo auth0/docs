@@ -19,3 +19,4 @@ alias:
 seo_alias: vanillajs
 articles:
   - 01-login
+  - 10-customizing-lock
