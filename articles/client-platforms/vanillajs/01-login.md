@@ -47,9 +47,7 @@ To discover all the available options for `Auth0Lock`, see [the Lock customizati
 ```javascript
 /* ===== ./app.js ===== */
 ...
-var AUTH0_CLIENT_ID = '${account.clientId}';
-var AUTH0_DOMAIN = '${account.namespace}';
-var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 ...
 ```
 
@@ -157,6 +155,6 @@ var logout = function() {
 ...
 ```
 
-# Summary
+## Summary
 
-In this guide you learned how to use `Lock` widget in order to log users into your VanillaJS project.
+In this guide we saw how to use `Lock` widget in order to log users into your VanillaJS project.

@@ -25,6 +25,6 @@ In this tutorial, you will learn how to enable MFA in the VanillaJS application 
 
 <%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/vanillajs/01-login' }) %>
 
-# Summary
+## Summary
 
-In this guide you learned how to use Auth0 Guardian to add multifactor authentication to your VanillaJS project.
+In this guide we saw how to use Auth0 Guardian to add multifactor authentication to your VanillaJS project.

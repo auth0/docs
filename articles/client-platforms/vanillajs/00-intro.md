@@ -40,6 +40,6 @@ To integrate your VanillaJS application with Auth0, you will need to add the fol
   `<script src="http://cdn.auth0.com/js/lock/10.1.0/lock.min.js"></script>`
 
 
-# Summary
+## Summary
 
-In this guide you learned how to get your application credentials from the `Auth0`'s dashboard and also you learned different ways for installing `Lock` widget in your VanillaJS project.
+In this guide we saw how to get your application credentials from the `Auth0`'s dashboard and we also saw different ways for installing `Lock` widget in your VanillaJS project.

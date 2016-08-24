@@ -13,7 +13,7 @@ description: This tutorial will show you how to make authenticated API calls.
   pkgType: 'js'
 }) %>
 
-`Auth0` exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through the `Authorization` header when calling an API.
+`Auth0` exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through the `Authorization` header when calling an API. For a detailed description of API tutorials, see the [full documentation](https://auth0.com/docs/quickstart/backend).
 
 ## Sending Authenticated HTTP Requests
 
@@ -35,6 +35,6 @@ Your requests will have the `Authorization` header added:
 
 Here, we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you like.
 
-# Summary
+## Summary
 
-In this guide you learned how to make authenticated API calls by reading and using the `id_token` value stored in localStorage along with the use of XMLHttpRequest.setRequestHeader() method.
+In this guide we saw how to authenticate requests by reading and using the `id_token` value stored in localStorage along with the use of XMLHttpRequest.setRequestHeader() method. For a real example of making authenticated API calls, please check our previous guide for [linking accounts](/quickstart/spa/vanillajs/05-linking-accounts).

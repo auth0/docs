@@ -28,18 +28,16 @@ First, you must add the `Auth0.js` library to your application:
 </head>
 ```
 
-You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `callbackOnLocationHash` to `true`:
+You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL`, and set `responseType` to `token`:
 
 ```javascript
 /* ===== ./app.js ===== */
 window.addEventListener('load', function() {
-  var AUTH0_CLIENT_ID = '${account.clientId}';
-  var AUTH0_DOMAIN = '${account.namespace}';
   auth0 = new Auth0({
-    domain: AUTH0_DOMAIN,
-    clientID: AUTH0_CLIENT_ID,
-    callbackOnLocationHash: true,
-    callbackURL: '${account.callback}'
+    domain: '<%= account.clientId %>',
+    clientID: '<%= account.namespace %>',
+    callbackURL: '<%= account.callback %>',
+    responseType: 'token'
   });
   ...
 });
@@ -69,9 +67,11 @@ document.getElementById('btn-login').addEventListener('click', function() {
 ...
 ```
 
+Note: this is just an example. [Here](https://auth0.com/docs/libraries/auth0js#login) you can see some examples for using different connection options.
+
 Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
 
-With `callbackOnLocationHash` set to `true`, the result will be appended to the URL.
+With `responseType` set to `token`, the access token will be appended to the URL.
 
 Check for `hash` information using  Auth0's `parseHash` method, which will extract the `id_token`. Save it to `localStorage`:
 
@@ -171,6 +171,6 @@ and add a button to call this method:
 ...
 ```
 
-# Summary
+## Summary
 
-In this guide you learned how to use `Auth0.js` library to log users into your VanillaJS projects by using user and password or using social login. Also you learned how to register new users.
+In this guide we saw how to use `Auth0.js` library to log users into your VanillaJS projects by using user and password or using social login. Also, we saw how to register new users.

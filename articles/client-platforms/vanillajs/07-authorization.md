@@ -111,6 +111,6 @@ var isUser = function(profile) {
 
 Now, if a user logs in with an email that contains `@example`, he/she will be allowed to access the `/admin.html` route. Otherwise, the user is just allowed to access `/` and `/user.html` routes.
 
-# Summary
+## Summary
 
-In this guide you learned how to assign roles to your users through Auth0's management dashboard, and use those claims to authorize or deny a user to access certain routes in your VanillaJS project.
+In this guide we saw how to assign roles to your users through Auth0's management dashboard, and use those claims to authorize or deny a user to access certain routes in your VanillaJS project.

@@ -26,9 +26,7 @@ Once the user is logged in, you will want to create a session for that user. To 
 ```javascript
 /* ===== ./app.js ===== */
 ...
-var AUTH0_CLIENT_ID = '';
-var AUTH0_DOMAIN = '';
-var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 
 ...
 
@@ -135,6 +133,6 @@ var logout = function() {
 ...
 ```
 
-# Summary
+## Summary
 
-In this guide you learned how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status and end user session (logout).
+In this guide we saw how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status and end user session (logout).

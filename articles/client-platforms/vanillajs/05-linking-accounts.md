@@ -13,7 +13,7 @@ description: This tutorial will show you how to integrate Auth0 with VanillaJS t
   pkgType: 'js'
 }) %>
 
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile.
+In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile. For a detailed description of linking accounts, see the [full documentation](https://auth0.com/docs/link-accounts).
 
 ## Linking Accounts
 
@@ -28,10 +28,10 @@ You can use the `params` property of the `auth` property of the [options object]
 ```javascript
 /* ===== ./app.js ===== */
 ...
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 
 // Lock instance to launch a login to obtain the secondary id_token
-lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+lockLink = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   auth: {params: {state: "linking"}},
   allowedConnections: ['Username-Password-Authentication', 'facebook', 'google-oauth2'],
   languageDictionary: { // allows to override dictionary entries
@@ -85,7 +85,7 @@ Now that the second login is handled, you will need to actually do the linking.
 var linkAccount = function(id_token) {
   // Get user_id value stored at login step
   var user_id = localStorage.getItem('user_id');
-  var url = 'https://' + '${account.namespace}' + '/api/v2/users/' + user_id + '/identities';
+  var url = 'https://' + ''<%= account.namespace %>'' + '/api/v2/users/' + user_id + '/identities';
   var data = JSON.stringify({ link_with: id_token });
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url);
@@ -178,7 +178,7 @@ You can disassociate a linked account by calling the [Unlink a user account](/ap
 var unlinkAccount = function(identity) {
   // Get user_id value stored at login step
   var user_id = localStorage.getItem('user_id');
-  var url = 'https://' + AUTH0_DOMAIN + '/api/v2/users/' + user_id + '/identities/' + identity.provider + '/' + identity.user_id;
+  var url = 'https://' + '<%= account.namespace %>' + '/api/v2/users/' + user_id + '/identities/' + identity.provider + '/' + identity.user_id;
   var xhr = new XMLHttpRequest();
   xhr.open('DELETE', url);
   xhr.setRequestHeader('Content-Type', 'application/json');
@@ -197,6 +197,6 @@ var unlinkAccount = function(identity) {
 ...
 ```
 
-# Summary
+## Summary
 
-In this guide you learned how to enrich your users profile information by linking their Auth0 accounts with an OAuth provider like Facebook and Google.
+In this guide we saw how to enrich your users profile information by linking their Auth0 accounts with an OAuth provider like Facebook and Google.

@@ -1,6 +1,6 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial will show you how to use rules to easily customize and extend Auth0's capabilities.
 ---
 
 <%= include('../../_includes/_package', {
@@ -51,6 +51,6 @@ var showUserProfile = function(profile) {
 ...
 ```
 
-# Summary
+## Summary
 
-In this guide you learned how to extend Auth0 default functionality by using Auth0 rules.
+In this guide we saw how to extend Auth0's default functionality by using rules.

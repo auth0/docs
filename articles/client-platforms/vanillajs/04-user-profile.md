@@ -22,10 +22,7 @@ Once you retrieve the user profile, you can store it in `localStorage` (or any s
 ```javascript
 /* ===== ./app.js ===== */
 window.addEventListener('load', function() {
-  var AUTH0_CLIENT_ID = '${account.clientId}';
-  var AUTH0_DOMAIN = '${account.namespace}';
-
-  var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+  var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 
   ...
 
@@ -114,10 +111,7 @@ You can add input fields to the sign up form by adding `additionalSignUpFields` 
 ```javascript
 /* ===== ./app.js ===== */
 ...
-var AUTH0_CLIENT_ID = '${account.clientId}';
-var AUTH0_DOMAIN = '${account.namespace}';
-
-var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   additionalSignUpFields: [{
     name: "address",                              // required
     placeholder: "Enter your address",            // required
@@ -166,7 +160,7 @@ You can add an `address` attribute to the user profile's `user_metadata` by crea
 ...
 document.getElementById('btn-edit-submit').addEventListener('click', function() {
   var user_address = document.getElementById('edit_address').value;
-  var url = 'https://' + AUTH0_DOMAIN + '/api/v2/users/' + user_id;
+  var url = 'https://' + '<%= account.namespace %>' + '/api/v2/users/' + user_id;
   var data = JSON.stringify({ user_metadata: {address: user_address} });
   var xhr = new XMLHttpRequest();
   xhr.open('PATCH', url);
@@ -208,6 +202,6 @@ Then create a simple form to add/update the *address* attribute:
 ...
 ```
 
-# Summary
+## Summary
 
-In this guide you learned how to manage user profile by fetching the user profile information from Auth0 and then storing that information in localStorage to avoid future requests and then read this information from localStorage in order to show user profile. You also learned how to add custom sign up fields to Auth0's sign up form and how to update user's profile information.
+In this guide we saw how to manage user profile by fetching the user profile information from Auth0 and then storing that information in localStorage to avoid future requests and then read this information from localStorage in order to show user profile. We also saw how to add custom sign up fields to Auth0's sign up form and how to update user's profile information.

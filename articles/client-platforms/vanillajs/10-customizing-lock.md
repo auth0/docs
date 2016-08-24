@@ -24,7 +24,7 @@ Some UI customization can be done via the `options` parameter when creating a `L
 You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values:
 
 ```javascript
-var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   theme: {
     logo: "test-icon.png",
     primaryColor: "#b81b1c"
@@ -38,7 +38,7 @@ For more information, see: [Theming options](/libraries/lock/v10/ui-customizatio
 You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
 
 ```javascript
-var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   languageDictionary: {
     title: "My Company"
   }
@@ -47,6 +47,6 @@ var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
 
 For more information, see: [Language Dictionary Specification](/libraries/lock/v10/i18n).
 
-# Summary
+## Summary
 
-In this guide you learned how to customize the default Auth0's login window appearance and how to add internationalization to it by using Auth0Lock's languageDictionary property.
+In this guide we saw how to customize the default Auth0's login window appearance and how to change the form's title by using Auth0Lock's languageDictionary property.
