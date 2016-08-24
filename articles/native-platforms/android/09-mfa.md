@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>  
 
-### 1. Enable Multifactor Authentication in Your Account
+### 1. Enable Multifactor Authentication In Your Account
 
 Multifactor authentication can be enabled with the flip of a switch with Auth0. Go to the [MFA section](${uiURL}/#/multifactor) of your dashboard and flip the switch on for **Google Authenticator** under the *Choose a Provider* section.
 

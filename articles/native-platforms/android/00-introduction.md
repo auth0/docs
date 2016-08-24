@@ -3,7 +3,7 @@ title: Introduction
 description: Short Introduction to the Auth0 Android Quickstarts.
 ---
 
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your android apps with Auth0.
+This is the very beginning of a simple, practical and multi-step Quickstarts that will guide you through managing authentication in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -28,7 +28,7 @@ Each tutorial in the series includes a link to its corresponding sample project.
 
 ## Dependencies
 
-Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.Android) or the [Auth0.android](https://github.com/auth0/Auth0.Android) library.
+Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.Android) or the [Auth0.Android](https://github.com/auth0/Auth0.Android) library.
 
 - [**Lock**](https://github.com/auth0/Lock.Android) is an `Activity` that is easy to present in your app. It contains default templates (that can be a customized) for login with email/password, sign up, social providers integration, and also password recovery.
 - [**Auth0.Android**](https://github.com/auth0/Auth0.Android) is a toolkit that lets you communicate with many of the basic [Auth0 API](https://auth0.com/docs/api) functions in a neat way.
@@ -69,13 +69,13 @@ Make sure you complete these steps before going through the tutorials:
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-#### 2. Configure your callback URLs
+#### 2. Configure Your Callback URLs
  
 > If you wish to only use DB connections, skip this point.
 
 The callback URLs are meant to be used to receive the OAuth response when logging in with social connections or enterprise connections.
 
-#### 3. Set your credentials
+#### 3. Set Your Credentials
 
 The [dependencies](#dependencies) listed above will offer different functionalities that require your credientials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set.
 

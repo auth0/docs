@@ -27,7 +27,7 @@ This tutorial and seed project have been tested with the following:
 
 You should already know how to manage the `Credentials` object, as explained in the [Session Management](03-session-handling) tutorial.
 
-### 1. Get a token
+### 1. Get A Token
 
 Your first step is to get the `Credentials` object.
 
@@ -44,7 +44,7 @@ private LockCallback callback = new AuthenticationCallback() {
 ```
 You can use any of the token strings contained in the `Credentials` object.
 
-### 2. Attach the token
+### 2. Attach The Token
 
 First you need to prepare the request.
 
@@ -101,7 +101,7 @@ public class AuthorizationRequestObject extends JsonObjectRequest{
 	
 Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
        
-### 3. Send the request
+### 3. Send The Request
 
 At this point, you only need to schedule the request.
 

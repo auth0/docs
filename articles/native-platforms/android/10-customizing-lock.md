@@ -4,6 +4,8 @@ description: This tutorial will show you how to modify the look and feel for the
 seo_alias: android
 ---
 
+This tutorial will show you how to modify the look and feel for the Lock activity.
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
@@ -25,7 +27,7 @@ This tutorial and seed project have been tested with the following:
 
 It is assumed that you have already completed the [Login Tutorial](01-login).
 
-### 1. Create a Custom Theme
+### 1. Create A Custom Theme
 
 Your first step is to create a `Theme` builder, in which you will specify your desired modifications. In this case, we modify the header's `Title`:
 
@@ -37,7 +39,7 @@ Theme customizedLockTheme = Theme.newBuilder()
 
 > We suggest you to add all the colors to the `color.xml` resource file, and all text to the `strings.xml` file.
 
-#### Customizable parts of Lock
+#### Customizable Parts Of Lock
 
 Besides the header's `Title`, you can modify:
 
@@ -59,7 +61,7 @@ You can set the primary color, and the primary color for the dark theme with:
 ```
 
 
-### 2. Present the Lock Activity
+### 2. Present The Lock Activity
 
 Once you have the customized theme, you only need to add it while you're creating the Lock activity.
 

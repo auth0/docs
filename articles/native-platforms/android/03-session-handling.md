@@ -1,7 +1,9 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to use Lock v2 to mantain a session connected.
+description: This tutorial will show you how to use Lock v2 to maintain a session’s connectivity.
 ---
+
+This tutorial will show you how to use Lock to mantain an active session with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -20,7 +22,6 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-This tutorial will show you how to use Lock to mantain an active session with Auth0.
 
 For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed by three objects:
 
@@ -34,7 +35,7 @@ Those objects are the keys needed to keep the user connected, as they will be us
 
 Be sure that you have completed the [Login](01-login.md) quickstart.
 
-### 1. Save the User's Credentials
+### 1. Save The User's Credentials
 
 Your first step is to save--through a secure method--the user's credentials obtained in the login success response. We won't cover how to do that in this tutorial, but feel free to save it as you like.
 
@@ -50,7 +51,7 @@ private LockCallback callback = new AuthenticationCallback() {
 ```
 
  
-### 2. Request a new idToken
+### 2. Request A New idToken
 
 First, for both cases, you need to instantiate an `AuthenticationAPIClient`:
 

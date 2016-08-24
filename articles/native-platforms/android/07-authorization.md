@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 authentication API
 seo_alias: android
 ---
 
-This quickstart will show you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny content to different users based on the level of access they have.
+This Quickstart will show you how to use Auth0 to create access roles for your users. With access roles, you can authorize or deny content to different users based on the level of access they have.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -27,7 +27,7 @@ This tutorial and seed project have been tested with the following:
 
 Be sure that you have completed the [user profile](04-user-profile) quickstart.
 
-### 1. Create a Rule to Assign Roles
+### 1. Create A Rule To Assign Roles
 
 First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
@@ -52,11 +52,11 @@ By default, it says that if the user email contains `@example` he will be given 
   };
 ```
 
-### 2. Test the rule in your project
+### 2. Test The Rule In Your Project
 
 Once you have the user profile (as explained in the [user profile](04-user-profile) tutorial), you can save it and access it at any point.
 
-Inside it, you will have the Role, and you will be ready to perform the Access Control.
+Inside it, you will have the role, and you will be ready to perform the access control.
 
 ```java
 List<String> roles = (List<String>) mUserProfile.getAppMetadata().get("roles");
@@ -68,6 +68,6 @@ if(roles.contains("admin")){
 
 > Notice that you'll find the `roles` information within the `appMetadata` hashmap and not in the `userMetadata`. Application metadata cannot be modified by users, whereas User metadata can be.
 
-### 3. Restrict Content Based on Access Level
+### 3. Restrict Content Based On Access Level
 
 At this point, you are able to distinguish the users' roles in your app and authorize or deny (depending on the user) access to a certain feature.
