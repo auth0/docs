@@ -38,6 +38,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Auth0 Logs to Logentries](/extensions/logentries): export Auth0 logs to Logentries.
 - [GitHub Deployments](/extensions/github-deploy): deploy rules and database connections from GitHub to Auth0.
 - [Bitbucket Deployments](/extensions/bitbucket-deploy): deploy rules and database connections from Bitbucket to Auth0.
+- [Delegated Administration](/extensions/delegated-admin): expose the Users dashboard to a group of users, without allowing them access to the dashboard.
 
 
 ## Creating Your Own Extension

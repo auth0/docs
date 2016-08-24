@@ -16,8 +16,8 @@ pkgOrg: 'auth0-samples',
 pkgRepo: 'auth0-spring-security-mvc-sample',
 pkgBranch: 'master',
 pkgPath: '01-Login',
-pkgFilePath: null,
-pkgType: 'none'
+pkgFilePath: '01-Login/src/main/resources/auth0.properties',
+pkgType: 'replace'
 }) %>
 
 In this step we will implement login functionality using Lock. Lock is an embeddable login form for desktop, tablet and mobile devices.

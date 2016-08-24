@@ -25,16 +25,16 @@ This tutorial and seed project have been tested with the following:
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
-- You've integrated [Lock](https://github.com/auth0/Lock.iOS-OSX) and [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login.md) and the [session handling tutorial](03-session-handling.md) first.
-- You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [session handling](03-session-handling.md) and [user profile](04-user-profile.md) tutorials.
+- You've integrated [Lock](https://github.com/auth0/Lock.iOS-OSX) and [Auth0.swift](https://github.com/auth0/Auth0.swift/) dependencies in your project and you're familiar with presenting the Lock login dialog. For further information, check out the [login tutorial](01-login) and the [session handling tutorial](03-session-handling) first.
+- You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the [session handling](03-session-handling) and [user profile](04-user-profile) tutorials.
 
 > **It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts)** to understand the process of linking accounts.
 
-### 1. Enter account credentials
+### 1. Enter Account Credentials
 
-Here's the scenario: You have a user which is logged in, and he wants to link one (or multiple) accounts to that account he's logged in with, such that, he can login with any of them and get into that account.
+Here's the scenario: You have a user who is logged in and wants to link one (or multiple) accounts to that logged in account, such that the user can login with any of them and get into that account.
 
-Typically, you will need to present an extra login dialog to make the user enter the credentials for any account he wants to link with his main account. You can present this login as we saw in the [login tutorial](01-login.md):
+Typically, you will need to present an extra login dialog to make users enter the credentials for any account they want to link with their main account. You can present this login as we saw in the [login tutorial](01-login):
 
 ```swift
 import Lock
@@ -52,9 +52,9 @@ A0Lock.sharedLock().presentLockController(controller, fromController: self)
 
 Upon success, you need to store the `token.idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
 
-### 2. Link an account
+### 2. Link an Account
 
-Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these 3 values:
+Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
 - `userId`: The `id` from the user that is logged in.
 - `idToken`: The `idToken` obtained upon your user login.
@@ -81,9 +81,9 @@ Auth0
     }
 ```
 
-### 3. Retrieve linked accounts
+### 3. Retrieve Linked Accounts
 
-Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user profile, process that we already know from the [user profile](04-user-profile.md) tutorial:
+Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user profile, a process that we already know from the [user profile](04-user-profile) tutorial:
 
 ```swift
 import Lock
@@ -103,7 +103,7 @@ client.fetchUserProfileWithIdToken(idToken,
 
 > Any linked account is handled as an `A0UserProfile` identity object. For further information on this object, check out its [class documentation](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserIdentity.h).
 
-### 4. Unlink an account
+### 4. Unlink an Account
 
 The unlinking process is quite similar to the linking one. This time, you just need the `userId`, the user's `idToken`, and the `identity` object that you want to unlink (you will only use its `userId` and `provider` values):
 
@@ -130,4 +130,4 @@ Auth0
 
 ### Done!
 
-That's just it! Wrapping up, you've just learned the whole process of linking accounts in your app, involving: How to link an account to a user, how to show the linked accounts for that user, and how to unlink an account from that user.
+That's just it! Wrapping up, you've just learned the whole process for linking accounts in your app: how to link an account to a user, how to show the linked accounts for that user, and how to unlink an account from that user.

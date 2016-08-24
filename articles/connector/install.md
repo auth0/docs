@@ -9,7 +9,7 @@ The Connector is packaged as a standard Microsoft Installer file (__MSI__). Down
     <ul>
       <li>
         <a class="download-link" href="http://cdn.auth0.com/adldap.msi">
-          <img src="//cdn./img/node-windows.png" alt="">
+          <img src="//cdn.auth0.com/docs/img/node-windows.png" alt="">
           Auth0 Active Directory/LDAP Connector for Windows
           <small class="download-version"></small>
         </a>
@@ -69,18 +69,18 @@ Congratulations, your connector is installed and ready to use.
 
 After clicking "Save", the AD/LDAP Connector configuration console will perform a series of tests to validate the entered information.  The results of the tests are displayed under the **"Configuration log"** heading in the console screen.  An explanation is provided below of the tests performed.
 
-Test 1: Attempts to establish a TCP connection to the LDAP server and port specified.  
+Test 1: Attempts to establish a TCP connection to the LDAP server and port specified.
 
 If Test 1 fails, check basic network connectivity and firewall settings that might prevent such a connection.
 
-Test 2: Attempts to perform an LDAP bind on the LDAP server and port specified and with the username and password provided.  
+Test 2: Attempts to perform an LDAP bind on the LDAP server and port specified and with the username and password provided.
 
-If Test 2 fails, check the LDAP connection string, search path, username and password. 
+If Test 2 fails, check the LDAP connection string, search path, username and password.
 
-Test 3: Attempts to perform an LDAP search against the directory to check the privileges of the specified username.  
+Test 3: Attempts to perform an LDAP search against the directory to check the privileges of the specified username.
 
 If Test 3 fails, check the privileges of the username in the target directory.
 
-Test 4: Attempts to establish a connection to the Auth0 server.  
+Test 4: Attempts to establish a connection to the Auth0 server.
 
 If Test 4 fails, check network connectivity and firewall settings that might prevent such a connection.

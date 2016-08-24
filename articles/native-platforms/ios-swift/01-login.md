@@ -51,7 +51,7 @@ A0Lock.sharedLock().presentLockController(controller, fromController: self)
 
 As you can see, upon successful authentication, the `onAuthenticationBlock` callback will yield the user's `profile` and `token`.
 
-A basic example on how to use this information could be:
+A basic example of how to use this information:
 
 ```swift
 self.usernameLabel.text = profile.name
@@ -61,7 +61,7 @@ MyApplication.sharedInstance.accessToken = token.accessToken
 
 > For further reference on the `profile` and `token` objects, check the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) and [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) classes' documentation.
 >
-> To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Notice that Lock on its own will not save these for you.
+> To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Notice that Lock on its own will not save the tokens and profile for you.
 
 
 

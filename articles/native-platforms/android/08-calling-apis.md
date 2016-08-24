@@ -19,17 +19,17 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '08-Calling-APIs',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '08-Calling-APIs/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
 
 ### Before Starting
 
-You should already know how to manage the `Credentials` object, as explained in [Session Management](03-session-handling.md) tutorial.
+You should already know how to manage the `Credentials` object, as explained in the [Session Management](03-session-handling) tutorial.
 
 ### 1. Get a token
 
-Your first step is to get the `Credentials` object, here is a reminder of this step.
+Your first step is to get the `Credentials` object.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -46,20 +46,20 @@ You can use any of the token strings contained in the `Credentials` object.
 
 ### 2. Attach the token
 
-First you need to prepare the request:
+First you need to prepare the request.
 
 ```java
 RequestQueue queue = Volley.newRequestQueue(this);
 String url = "YOUR API URL";
 ```
 
-Then, you need to add the token as a mean of authentication to the request header. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
+Next you need to add the token to the request header so that authenticated requests can be made. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
    
 ```java     
 // Retrieve the credentials from where you saved them
 String tokenID = getCredentials.getTokenID();
 
-AuthorizationRequestObject authorizationRequest = new 	AuthorizationRequestObject(Request.Method.GET,url, 
+AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url, 
 	tokenID, null, new Response.Listener<JSONObject>(){
 	
 	@Override
@@ -100,7 +100,6 @@ public class AuthorizationRequestObject extends JsonObjectRequest{
 > This customized request is meant to manipulate the header of the `JsonObjectRequest`.	
 	
 Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
-	
        
 ### 3. Send the request
 
@@ -111,10 +110,9 @@ At this point, you only need to schedule the request.
 queue.add(authorizationRequest);        
 ```
 
-### Done!
-
-And that's all! Check the response to see if everything went ok.
-Don't forget to configure your server-side accordingly.
+From here, check that the request was made and that the response came back as expected. You will need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application.
 
 > For further information on authentication API on the server-side, check [the official documentation](https://auth0.com/docs/api/authentication).
+
+
 

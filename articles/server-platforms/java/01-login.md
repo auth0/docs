@@ -16,8 +16,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-servlet-sample',
   pkgBranch: 'master',
   pkgPath: '01-Login',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '01-Login/src/main/webapp/WEB-INF/web.xml',
+  pkgType: 'replace'
 }) %>
 
 In this step we will enable login with the [Lock widget](/libraries/lock). 

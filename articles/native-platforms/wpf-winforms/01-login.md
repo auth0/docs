@@ -55,7 +55,13 @@ ${snippet(meta.snippets.use)}
 
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
-> For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
+::: panel-warning Handle Exceptions
+**Please note** that an `UnauthorizedAccessException` will be thrown when the user cancels the authentication dialog, so you will need to wrap the call to `LoginAsync` in a try-catch block. 
+:::
+
+::: panel-warning WPF Applications
+For __WPF__ apps you should use `auth0.LoginAsync(new WindowWrapper(new WindowInteropHelper(this).Handle))` instead of `auth0.LoginAsync(this)`
+:::
 
 #### Option 2: Authentication with your own UI
 

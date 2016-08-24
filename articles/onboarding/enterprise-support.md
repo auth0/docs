@@ -86,7 +86,7 @@ To speed resolution, please provide the following when logging an issue:
 * Issue experienced by users every time or just some times?
 * Issue experienced with all browsers or just one?
 * Screenshot of error message (if any)
-* HTTP trace in the form of a [.har file](http:///har)
+* HTTP trace in the form of a [.har file](/har)
 
 For Appliance Customers:
 * Appliance version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)

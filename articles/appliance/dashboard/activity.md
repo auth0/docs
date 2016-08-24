@@ -4,7 +4,11 @@ section: appliance
 
 # Auth0 Appliance Dashboard: Activity
 
-> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+::: panel-info Appliance Dashboard Navigation
+
+For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
+:::
 
 After you begin an update or make a change to the configuration, Auth0 displays progress and logs for those actions on this page in case you need the information for troubleshooting purposes.
 

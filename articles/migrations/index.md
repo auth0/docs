@@ -27,7 +27,7 @@ Current migrations are listed below, newest first.
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
-| Medium | 2016-07-11 | TBD |
+| Medium | 2016-07-11 | 2016-08-18 |
 
 The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included in the user profile `identities` array. 
 

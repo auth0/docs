@@ -673,20 +673,16 @@
     "to": "/multifactor-authentication"
   },
   {
-    "from": "/quickstart/native-mobile/windows-uwp-javascript",
-    "to": "/quickstart/native/windows-uwp-javascript"
-  },
-  {
-    "from": "/quickstart/native-mobile/ios-objc",
-    "to": "/quickstart/native/ios-objc"
-  },
-  {
     "from": "/quickstart/native/ios-reactnative",
     "to": "/quickstart/native/react-native-ios"
   },
   {
-    "from": "/quickstart/native-mobile/ionic",
-    "to": "/quickstart/native/ionic"
+    "from": "/quickstart/native-mobile/:platform",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform/no-api",
+    "to": "/quickstart/native/:platform"
   },
   {
     "from": "/quickstart/native-mobile",
@@ -730,5 +726,14 @@
     "from": "/libraries/lock/display-modes",
     "to": "/libraries/lock/v10/customization#container-string-",
     "status": 302
+  },
+  {
+    "from": "/libraries/lock/ui-customization",
+    "to": "/libraries/lock/v10/ui-customization",
+    "status": 302
+  },
+  {
+    "from": "/quickstart/spa/react/03-user-profile",
+    "to": "/quickstart/spa/react/04-user-profile"
   }
 ]

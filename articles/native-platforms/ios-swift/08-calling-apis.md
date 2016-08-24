@@ -25,11 +25,11 @@ The reason for implementing authentication, in the first place, is to protect in
 
 In this tutorial, you'll learn how to get a token, attach it to a request (using the authorization header), and call any API you need to authenticate with.
 
-### 1. Get a token
+### 1. Get a Token
 
 In order to make an authenticated request, you first need to obtain a token, against which your API can compare to detect whether or not the request is properly authenticated.
 
-You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) instance from the [login tutorial](01-login.md). Anyway, here's a quick recap:
+You should already know how to get an [A0Token](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0Token.h) instance from the [login tutorial](01-login). Anyway, here's a quick recap:
 
 ```swift
 import Lock
@@ -47,7 +47,7 @@ A0Lock.sharedLock().presentLockController(controller, fromController: self)
 
 In order to make authenticated requests, you can use any of the token strings inside that `A0Token` instance you just obtained; which one is up to you.
 
-### 2. Attach the token
+### 2. Attach the Token
 
 Supposing you have decided to use the `idToken` value, here is what you would do:
 
@@ -64,7 +64,7 @@ let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { data, res
 
 Notice that how you configure your authorization header should match the standards that you're using in your API; this is just an example of what it could look like.
 
-### 3. Send the request
+### 3. Send the Request
 
 Don't forget to actually send the request you just created, by executing:
 

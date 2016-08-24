@@ -32,9 +32,9 @@ When using HS256, you will need your application's **Client Secret** when config
 ```json
 {
   "Auth0": {
-    "Domain": "{DOMAIN}",
-    "ClientId": "{CLIENT_ID}",
-    "ClientSecret": "{CLIENT_SECRET}"
+    "Domain": "${account.namespace}",
+    "ClientId": "${account.clientId}",
+    "ClientSecret": "${account.clientSecret}"
   }
 }
 ```

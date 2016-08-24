@@ -19,6 +19,10 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
 
+[Finishing](#finishing)
+
+[Editing Text](#editing-with-wordy)
+
 [Test Procedures](#text-procedures)
 
 [Review Apps](#review-apps)
@@ -176,9 +180,9 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
- 
+
  **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
- 
+
 #### Mobile Screenshots
 For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
@@ -212,6 +216,52 @@ URL Front Matter
 url: /path/to/document
 ---
 ```
+
+## Finishing
+
+Prior to submitting your pull request, please check and edit your work. You should:
+
+* Edit your text using [Wordy](#editing-with-wordy);
+* Run through [testing procedures](#test-procedures);
+* [Build a review app](#review-apps) (if necessary) to ensure that the build will success once your changes are merged.
+
+## Editing with Wordy
+
+Prior to submitting a pull request, please have your work edited by [Wordy](http://wordy.com).
+
+To create and submit a job to Wordy:
+
+1. Have your content ready in a common file format, such as `.doc`, `.rtf`, `.txt`, `.pdf`, `.xls`, `.html`, or `.tex`. You may also choose to paste in your text.
+2. Log in to Wordy.
+3. Under the **Jobs** page, click on **Create New Job**.
+
+  ![](media/readme/create-job.png)
+
+4. Provide the requested information so that your editor is clear on what needs to be done.
+
+  ![](media/readme/job-settings.png)
+
+  You will need to provide the following pieces of information:
+  * **Language**: Set to *English (US)*.
+  * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
+  * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work.
+  * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
+5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
+6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
+
+### Word Count and Wordy Submissions
+Wordy charges based on total word count, which includes code snippets. If possible, remove code snippets prior to submitting your document to Wordy.
+
+### Instructions for Editors
+It is helpful to include some instructions for the Wordy editors to let them know that the articles may have words that seem out of place because the article is about technology.
+
+> Please edit for spelling and grammar. Audience consists of programmers and technology readers. Grammar, casing, spelling etc will seem weird in some cases, especially with uses of the word "this", but chances are that those are cases of programming jargon or naming. The final article will include code snippets that have been removed from the text for brevity. Instead, a placeholder called CODE_SNIPPET has been used.
+
+### Notes
+
+* You can cancel a job if it hasn’t been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
+* During the editing process, you can contact your editor from the job's page. You can include last-minute instructions, corrections, and so on. Conversely, your editor can contact you during the process if they have any questions about your text. You will be notified by email if you receive any messages.
+* If you are unsatisfied with the work completed by your editor, you can send your work back. This includes issues where you find errors in the text or the instructions in your brief haven't been followed. You can contact your editor by using the **Conversation History** feature on the job's page.
 
 ## Test Procedures
 When testing a document or tutorial:
@@ -396,14 +446,14 @@ Each quickstart should have a seed project. The seed projects are hosted in gith
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
-| String | Description |
-| :------| :-----------|
-| `AUTH0_CLIENT_ID` | This sets the client ID of the currently selected application. |
-| `AUTH0_CLIENT_SECRET` | This sets the client secret of the currently selected application. |
-| `AUTH0_DOMAIN` | This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
-| `AUTH0_CALLBACK_URL` | This sets the callback url for the application. |
-| `MOBILE_CUSTOM_SCHEME` | This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
-| `RANDOM_STRING_64` | This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+| Key Name | Replace Value | Description |
+| :------| :-----------| :-----------|
+| `AUTH0_CLIENT_ID` | `{CLIENT_ID}` | This sets the client ID of the currently selected application. |
+| `AUTH0_CLIENT_SECRET` | `{CLIENT_SECRET}` |  This sets the client secret of the currently selected application. |
+| `AUTH0_DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `AUTH0_CALLBACK_URL` | N/A |  This sets the callback url for the application. |
+| `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
 There are four types of packaging that can happen with this service.
 

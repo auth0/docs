@@ -75,7 +75,7 @@ Auth0
 }
 ```
 
-A trivial example on how to use some profile info could be:
+A trivial example of how to use some profile info:
 
 ```swift
 welcomeLabel.text = "Welcome, \(profile.name)!"
@@ -117,7 +117,7 @@ Auth0
 }
 ```
 
-Notice that any extra information, other than the `email` and `password`, that you need to add to the user's profile, goes within the `userMetadata` dictionary, which is passed as a parameter to this function.
+Notice that any extra information that you need to add to the user's profile, other than the `email` and `password`, goes within the `userMetadata` dictionary, which is passed as a parameter to this function.
 
 ### 4. Perform Social Authentication
 
@@ -161,7 +161,7 @@ func application(app: UIApplication, openURL url: NSURL, options: [String : AnyO
 }
 ```
 
-Finally, this is how you perform webauth social authentication. You have to specify a social connection, for instance, Facebook:
+Finally, perform webauth social authentication by specifying a social connection, for instance, Facebook:
 
 ```swift
 Auth0
@@ -178,7 +178,7 @@ Auth0
     }
 ```
 
-Once you get the `credentials` object, upon a successful authentication, you deal with them as always. For more information on that, check out the [login](01-login.md) and [session handling](session-handling.md) tutorials.
+Once you get the `credentials` object, upon a successful authentication, you deal with them as usual. For more information on that topic, check out the [login](01-login) and [session handling](session-handling) tutorials.
 
 ### Done!
 

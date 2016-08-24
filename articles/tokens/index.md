@@ -6,11 +6,11 @@ url: /tokens
 
 ## Overview
 
-This document is designed to clarify and disambiguate the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.  
+This document is designed to clarify and disambiguate the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
 
 First there are a couple different categories of tokens:
 
-* JSON Web Tokens (JWT) - These are tokens that conform to the [JSON Web Token standard](https://tools.ietf.org/html/rfc7519) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
+* JSON Web Tokens (JWT) - These are tokens that conform to the [JSON Web Token standard](/jwt) and contain information about an identity in the form of claims.  They are self-contained in that it is not necessary for the recipient to call a server to validate the token.
 * Opaque tokens - Opaque tokens are tokens in a proprietary format that typically contain some identifier to information in a server’s persistent storage.  To validate an opaque token, the recipient of the token needs to call the server that issued the token.
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
@@ -30,7 +30,7 @@ The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a
 
 ## Auth0 `access_token`
 
-The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.  
+The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
 
 [More information](/tokens/access_token)
 
@@ -42,13 +42,13 @@ When a user authenticates via Auth0 with another social provider's authenticatio
 
 ## Auth0 `refresh_token`
 
-The Refresh token is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.  
+The Refresh token is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.
 
 [More information](/tokens/refresh_token)
 
 ## Delegation Tokens
 
-The Auth0 [`id_token`](#auth0-idtoken-jwt)'s can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.  
+The Auth0 [`id_token`](#auth0-idtoken-jwt)'s can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
 
 [More information](/tokens/delegation)
 

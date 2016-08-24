@@ -17,8 +17,8 @@ pkgOrg: 'auth0-samples',
 pkgRepo: 'auth0-spring-mvc-sample',
 pkgBranch: 'master',
 pkgPath: '01-Login',
-pkgFilePath: null,
-pkgType: 'none'
+pkgFilePath: '01-Login/src/main/resources/auth0.properties',
+pkgType: 'replace'
 }) %>
 
 In this step we will enable login with the [Lock widget](/libraries/lock). 
