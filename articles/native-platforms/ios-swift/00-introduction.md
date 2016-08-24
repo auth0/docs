@@ -168,6 +168,4 @@ Also, make sure you have the following entries in a file named `Auth0.plist`. Yo
 
 The tutorial guides contained in this section will teach you the different things you can do with Auth0 in iOS. It's recommendable that you follow them sequentially, as they are progressive: each guide teaches content that usually builds on previous tutorials.
 
-That said, we suggest you start with the [login tutorial](01-login)...
-
 Have fun!
