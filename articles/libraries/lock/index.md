@@ -136,8 +136,7 @@ Then, to use `auth0.js`, simply instantiate a new `Auth0` object:
 var client = new Auth0({
   domain:       '${account.namespace}',
   clientID:     '${account.clientId}',
-  callbackURL:  '{YOUR APP URL}',
-  callbackOnLocationHash: true
+  callbackURL:  '{YOUR APP URL}'
 });
 ```
 
