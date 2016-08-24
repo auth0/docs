@@ -22,7 +22,7 @@ The default [protocol](/protocols) between your application(s) and Auth0 is **Op
 
 Auth0 ships SDKs for all major platforms (.NET, Java, PHP, Python, node, iOS, and many more), but the use of Auth0 SDKs is not mandatory.
 
-> Virtually anything able to send HTTPs requests can integrate with Auth0.
+> Virtually anything able to send HTTP requests can integrate with Auth0.
 
 Auth0 also supports other common identity protocols, such as WS-Federation and SAML. Applications that are already "claims enabled" can easily connect to Auth0.
 
