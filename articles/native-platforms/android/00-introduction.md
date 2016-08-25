@@ -3,7 +3,7 @@ title: Introduction
 description: Short Introduction to the Auth0 Android Quickstarts.
 ---
 
-This is the very beginning of a simple, practical and multi-step Quickstarts that will guide you through managing authentication in your android apps with Auth0.
+This is the very beginning of a simple, practical and multi-step quickstarts that will guide you through managing authentication in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:

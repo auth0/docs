@@ -140,7 +140,7 @@ startActivity(this.lock.newIntent(this));
 
 ### Done!
 
-You've already implemented both login and sign up process with Auth0 in your Android project!
+You've already implemented both login and signup with Auth0 in your Android project!
 
 ### Optional: Log In With Social Connections
 
