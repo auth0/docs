@@ -37,7 +37,7 @@ Be sure that you have completed the [Login](01-login.md) quickstart.
 
 ### 1. Save The User's Credentials
 
-Your first step is to save--through a secure method--the user's credentials obtained in the login success response. We won't cover how to do that in this tutorial, but feel free to save it as you like.
+Your first step is to save--through a secure method--the user's credentials obtained in the login success response. 
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
@@ -50,8 +50,51 @@ private LockCallback callback = new AuthenticationCallback() {
 };
 ```
 
+::: panel-info In the seed project, we use the `SharedPreference` object in private mode to store different `Credentials` values. There are other means of storage, but we won't cover them in this tutorial. Feel free to save them if you’d like.
+
+:::
+
+### 2. At Startup: Check idToken existence
+
+The main purpose of storing this token is to save users from having to re-enter their login credentials when relaunching the app. Once the app has launched, we need to check for the existence of an `idToken` to see if we can automatically log the user in and redirect the user straight into the app’s main flow, skipping the login screen.
+
+To do so, we check whether this value exists at startup to either prompt for login information or to try to perform an automated login.
+
+```java
+if(CredentialsManager.getCredentials(this).getIdToken() == null) {
+	// Prompt Login screen.
+} 
+else {
+	// Try to make an automatic login
+}
+```
+
+### 3. Validate an existent idToken
+
+If the idToken exists, we need to check whether it’s still valid. To do so, we will fetch the user profile with the `AuthenticationAPI`.
+
+```java
+AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
+aClient.tokenInfo(CredentialsManager.getCredentials(this).getIdToken())
+       .start(new BaseCallback<UserProfile, AuthenticationException>() {
+	@Override
+	public void onSuccess(final UserProfile payload) {
+		// Valid ID > Navigate to the app's MainActivity
+		startActivity(new Intent(getApplicationContext(), MainActivity.class));
+	}
+	@Override
+	public void onFailure(AuthenticationException error) {
+		// Invalid ID Scenario		
+	}
+});
+```
+
+How you deal with a non-valid idToken is up to you. You will normally choose between two scenarios. You can either ask users to re-enter their credentials or use the `refreshToken` to get a new valid `idToken`.
+
+>If you want users to re-enter their credentials, you should clear the stored data and prompt the login screen. 
+
  
-### 2. Request A New idToken
+### 4. Request A New idToken
 
 First, for both cases, you need to instantiate an `AuthenticationAPIClient`:
 
@@ -106,10 +149,11 @@ client.delegationWithRefreshToken(refreshToken)
 
 	}
 });
-```                
-
+```     
+::: panel-info We recommend that you read and understand the [refresh token documentation](/refresh-token) before proceeding. For example, you should remember that even though the refresh token cannot expire, it can be revoked.                
+:::
         
-### 3. Log Out
+### 4. Log Out
 
 To log the user out, you just need to remove the user's credentials and navigate them to the login screen.
 
@@ -123,4 +167,8 @@ private void logout() {
 ```
 
 > **Note:** Deleting the user credentials depends on how you store them.
+
+### Optional: Encapsulated session handling
+
+As you have probably realized by now, session handling is not a straightforward process. All the token-related information and processes can be encapsulated into a class that separates its logic from the activity. We recommend that you download the sample project from this tutorial and take a look at its implementation, focusing on the CredentialManager class, which is in charge of dealing with this process as well as saving and obtaining the credentials object from the SharedPreferences.
 
