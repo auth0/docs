@@ -17,7 +17,7 @@ Using Lock is easy, but you may want to customize your login UI. There are sever
 
 ## Lock Options
 
-Some UI customization can be done via the `options` parameter when creating a `Lock` instance.
+Some UI customizations can be done via the `options` parameter when creating a `Lock` instance.
 
 ### Theme Options
 
@@ -31,7 +31,8 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', 
   }
 });
 ```
-For more information, see: [Theming options](/libraries/lock/v10/ui-customization).
+
+For more information, see [Theming Options](/libraries/lock/v10/ui-customization).
 
 ### Language Dictionary Specification
 
@@ -45,8 +46,8 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', 
 });
 ```
 
-For more information, see: [Language Dictionary Specification](/libraries/lock/v10/i18n).
+For more information, see [Language Dictionary Specification](/libraries/lock/v10/i18n).
 
 ## Summary
 
-In this guide we saw how to customize the default Auth0's login window appearance and how to change the form's title by using Auth0Lock's languageDictionary property.
+In this guide, we saw how to customize the default Auth0's login window appearance and how to change the form's title by using Auth0Lock's languageDictionary property.

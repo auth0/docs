@@ -33,8 +33,8 @@ Your requests will have the `Authorization` header added:
 
 `Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
 
-Here, we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you like.
+Here, we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you’d like.
 
 ## Summary
 
-In this guide we saw how to authenticate requests by reading and using the `id_token` value stored in localStorage along with the use of XMLHttpRequest.setRequestHeader() method. For a real example of making authenticated API calls, please check our previous guide for [linking accounts](/quickstart/spa/vanillajs/05-linking-accounts).
+In this guide, we saw how to authenticate requests by reading and using the `id_token` value stored in localStorage along with the use of the XMLHttpRequest.setRequestHeader() method. For a real example of making authenticated API calls, please check our previous guide for [linking accounts](/quickstart/spa/vanillajs/05-linking-accounts).

@@ -15,7 +15,7 @@ description: This tutorial will show you how to add Multifactor Authentication t
 
 <%= include('../_includes/_mfa-introduction') %>
 
-In this tutorial, you will learn how to enable MFA in the VanillaJS application you created in the previous steps.
+In this tutorial, you will learn how to enable MFA in the VanillaJS application that you created in the previous steps.
 
 ## Enable Multifactor Authentication in Your Account
 
@@ -27,4 +27,4 @@ In this tutorial, you will learn how to enable MFA in the VanillaJS application 
 
 ## Summary
 
-In this guide we saw how to use Auth0 Guardian to add multifactor authentication to your VanillaJS project.
+In this guide, we saw how to use Auth0 Guardian to add multifactor authentication to your VanillaJS project.

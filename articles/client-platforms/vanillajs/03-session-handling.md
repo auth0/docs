@@ -13,15 +13,15 @@ description: This tutorial will show you how to integrate Auth0 with VanillaJS t
   pkgType: 'js'
 }) %>
 
-In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`.
+In the previous steps of this tutorial, you enabled the user login with `Lock` and then with `Auth0.js`.
 
-In this step, you will create a session for that user and also allow the user to logout.
+In this step, you will create a session for that user and also allow the user to log out.
 
 ## Create Session
 
 Once the user is logged in, you will want to create a session for that user. To do this, you only need to store the value of the `id_token` attribute that is returned in the Lock `authenticated` callback parameter.
 
-**NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide you can see how to do the same with `Lockr` storage library.
+**NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide, you can see how to do the same with the `Lockr` storage library.
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -59,7 +59,7 @@ init();
 
 ## Logout
 
-To logout a user, remove the token from `localStorage`:
+To log out a user, remove the token from `localStorage`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -100,7 +100,7 @@ btn_logout.addEventListener('click', function() {
 ...
 ```
 
-## Session handling example using [Lockr](https://github.com/tsironis/lockr) storage library
+## Session Handling Example using [Lockr](https://github.com/tsironis/lockr) Storage Library
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -135,4 +135,4 @@ var logout = function() {
 
 ## Summary
 
-In this guide we saw how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status and end user session (logout).
+In this guide, we saw how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check the session status, and end the user session (log out).

@@ -80,7 +80,7 @@ route();
 ...
 ```
 
-The route function checks if the user is authenticated then checks if he/she is an *admin* or *user* using `isAdmin` and `isUser` functions respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin` or `user`:
+The route function checks to determine whether the user is authenticated and then checks to see if he/she is an *admin* or *user* by employing the `isAdmin` and `isUser` functions, respectively. This method checks if the `roles` attribute of `app_metadata` added by the rule contains either `admin` or `user`:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -113,4 +113,4 @@ Now, if a user logs in with an email that contains `@example`, he/she will be al
 
 ## Summary
 
-In this guide we saw how to assign roles to your users through Auth0's management dashboard, and use those claims to authorize or deny a user to access certain routes in your VanillaJS project.
+In this guide, we saw how to assign roles to your users through Auth0's management dashboard, as well as how to use those claims to authorize or deny a user to access certain routes in your VanillaJS project.

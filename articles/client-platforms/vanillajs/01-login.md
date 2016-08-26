@@ -21,7 +21,7 @@ You can get started by either downloading the seed project or if you would like 
 
 ${include('../\_callback')}
 
-### 1. Add the Auth0 scripts and set the viewport
+### 1. Add the Auth0 Scripts and set the Viewport
 
 Add the code below to the `index.html` file to include Auth0 library and its dependencies and set the viewport:
 
@@ -40,7 +40,7 @@ Add the code below to the `index.html` file to include Auth0 library and its dep
 
 ### 2. Configure Lock
 
-Configure Lock with your `client-ID` and `domain`:
+Configure Lock with your `client ID` and `domain`:
 
 To discover all the available options for `Auth0Lock`, see [the Lock customization documentation](/libraries/lock/customization).
 
@@ -51,7 +51,7 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 ...
 ```
 
-### 3. Implement the login
+### 3. Implement the Login
 
 To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
 
@@ -97,7 +97,7 @@ lock.on("authenticated", function(authResult) {
 
 ${browser}
 
-### 4. Retrieve the user profile and display user information
+### 4. Retrieve the User Profile and Display User Information
 
 Use the `id_token` to retrieve the user profile and display the user's nickname:
 
@@ -139,11 +139,11 @@ retrieve_profile();
 ...
 ```
 
-To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all of the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
 ### 5. Log out
 
-In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
+In this implementation, a logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -157,4 +157,4 @@ var logout = function() {
 
 ## Summary
 
-In this guide we saw how to use `Lock` widget in order to log users into your VanillaJS project.
+In this guide, we saw how to use the `Lock` widget in order to log users into your VanillaJS project.

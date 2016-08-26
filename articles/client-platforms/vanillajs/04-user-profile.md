@@ -54,7 +54,7 @@ window.addEventListener('load', function() {
 });
 ```
 
-Then display `user profile` attributes in your HTML:
+Then display the `user profile` attributes in your HTML:
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -104,7 +104,7 @@ var showUserProfile = function(profile) {
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-You can add input fields to the sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
+You can add input fields to the signup form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
 
 **NOTE:** See [Additional sign up fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
 
@@ -151,9 +151,9 @@ var showUserProfile = function(profile) {
 
 ## Update User Profile
 
-You can add an `address` attribute to the user profile's `user_metadata` by creating an AJAX call and a simple form. You will need to call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit with `method = 'PATCH'` to update user's data. This endpoint will return the user profile information updated with the new address.
+You can add an `address` attribute to the user profile's `user_metadata` by creating an AJAX call and a simple form. You will need to call the [update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit with `method = 'PATCH'` to update the user's data. This endpoint will return the user profile information updated with the new address.
 
-**NOTE:** To call the endpoint we need to add the `Authorization` header to the request.
+**NOTE:** To call the endpoint, we need to add the `Authorization` header to the request.
 
 ```javascript
 /* ===== ./app.js ===== */
@@ -204,4 +204,4 @@ Then create a simple form to add/update the *address* attribute:
 
 ## Summary
 
-In this guide we saw how to manage user profile by fetching the user profile information from Auth0 and then storing that information in localStorage to avoid future requests and then read this information from localStorage in order to show user profile. We also saw how to add custom sign up fields to Auth0's sign up form and how to update user's profile information.
+In this guide, we saw how to manage a user’s profile by fetching the user profile information from Auth0 and then storing that information in localStorage to avoid future requests and then read this information from localStorage in order to show the user’s profile. We also saw how to add custom signup fields to Auth0's signup form and how to update a user's profile information.

@@ -1,1 +1,1 @@
-Auth0 allows you to store user information that has not come from the identity provider as metadata. There are two types of metadata, **user_metadata** and **app_metadata**. For more information, see: [User Metadata](/metadata).
+Auth0 allows you to store user information that has not come from the identity provider as metadata. There are two types of metadata: **user_metadata** and **app_metadata**. For more information, see User Metadata.
