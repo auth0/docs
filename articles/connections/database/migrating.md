@@ -1,8 +1,12 @@
-# Import users to Auth0
+---
+title: Migrating Users to Auth0
+description: Auth0 supports the automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time.
+---
+# Migrate Users to Auth0
 
 At Auth0, the focus has always been not only on greenfield projects but also on existing applications that would benefit from an extension to their authentication capabilities. For these added features, you may wish to migrate your existing users to Auth0 from a legacy user store.
 
-Auth0 has released a new feature that enables the automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time.
+Auth0 supports the automatic migration of users to Auth0 from a custom database connection. This feature adds your users to the Auth0 database one-at-a-time as each logs in and avoids asking your users to reset their passwords all at the same time.
 
 You can read more about database connections and the several user store options at [Database Identity Providers](/connections/database).
 
@@ -68,4 +72,3 @@ Go to your custom database connection on the [Dashboard](${uiURL}/#/connections/
 
 * Disable the **Import Users to Auth0** option under **Settings** page.
 * Disable the **Use my own database** option on the **Custom Database** page.
-
