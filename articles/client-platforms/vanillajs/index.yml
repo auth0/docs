@@ -18,14 +18,4 @@ alias:
   - javascript-app
 seo_alias: vanillajs
 articles:
-  - 00-intro
   - 01-login
-  - 02-custom-login
-  - 03-session-handling
-  - 04-user-profile
-  - 05-linking-accounts
-  - 06-rules
-  - 07-authorization
-  - 08-calling-apis
-  - 09-mfa
-  - 10-customizing-lock
