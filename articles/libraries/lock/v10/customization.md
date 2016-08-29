@@ -8,7 +8,7 @@ The **Auth0Lock** can be customized through the `options` parameter sent to the 
 var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ```
 
-## Table of Contents
+## Index of Configurable Options
 
 **Display Options**:
 - [allowedConnections](#allowedconnections-array-)
