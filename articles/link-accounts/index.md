@@ -1,5 +1,7 @@
 ---
 url: /link-accounts
+title: Linking User Accounts
+description: Auth0 supports the linking of user accounts from various identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 ---
 
 # Linking Accounts
@@ -8,7 +10,7 @@ Auth0 supports the linking of user accounts from various identity providers, all
 
 Note that Auth0 will treat all identities as separate by default. For example: if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.
 
-You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.  
+You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.
 
 ## Advantages of linking accounts
 
@@ -142,7 +144,7 @@ Note that as a result of linking these accounts:
 * The `user_metadata` and `app_metadata` of the primary account is unchanged.
 * The `user_metadata` and `app_metadata` of the secondary account is discarded.
 * There is no automatic merging of user profiles with associated identities.
-* The secondary account is removed from the users list. 
+* The secondary account is removed from the users list.
 
 #### Merging Metadata
 
@@ -226,8 +228,7 @@ Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account, and a new secondary user account is created. This means that if, for example, a user was `john@example.com` using Facebook to login, and used the same email address to login via Linkedin, and then unlinked those accounts, then you will end up with two separate accounts; both using `john@example.com`, one for each identity provider in question.
 
 ::: panel-warning Unlinking - Metadata
-Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata. 
-::: 
+Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata.
+:::
 
 If your goal is to delete the secondary identity entirely, you'll want to first unlink the accounts, and then delete the newly (re)created secondary account.
-

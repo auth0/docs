@@ -1,3 +1,6 @@
+---
+description: Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. SAML, WS-Federation, LDAP). This article will introduce you to these protocols and how you might use them.
+---
 # Identity Protocols supported by Auth0
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation, LDAP). In most cases you won't need to go this deep to use Auth0.
@@ -119,9 +122,9 @@ Content-type: application-json
   "grant_type": "authorization_code",
   "redirect_uri": "${account.callback}"
 }
-``` 
+```
 
-If successful the response is another JSON object, with an `id_token`, and `access_token`. 
+If successful the response is another JSON object, with an `id_token`, and `access_token`.
 
 > Note that if the `verifier` doesn't match what is sent in the `/authorize` endpoint, the request will fail.
 
