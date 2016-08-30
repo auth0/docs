@@ -44,13 +44,13 @@ Ticket response times will vary based on your support plan (shown below). Additi
       <th>First Response Time</th>
       <td>2-5 Business Days</td>
       <td>24 hours</td>
-      <td>Standard Issues: 3 hours / Critial Outages: 1 hour</td>
+      <td>Standard Issues: 3 hours / Critical Outages: 1 hour</td>
     </tr>
     <tr>
       <th>Subsequent Response Time</th>
       <td>2-5 Business Days</td>
       <td>48 hours</td>
-      <td>Standard Issues: 24 hours / Critial Outages: ongoing</td>
+      <td>Standard Issues: 24 hours / Critical Outages: ongoing</td>
     </tr>
     <tr>
       <th>Discussion Forum</th>
