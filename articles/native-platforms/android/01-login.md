@@ -76,7 +76,7 @@ Also, you need to add the following permissions:
 
 > Do not add ``<android:noHistory="true">`` to the ``LockActivity`` as this will alter the correct functionality of **Lock**.
 
-### 3. Implement The Login
+### 3. Implement the Login
 
 At this point, you're all set to implement the login in any activity you want.
 
@@ -142,6 +142,6 @@ startActivity(this.lock.newIntent(this));
 
 You've already implemented both login and signup with Auth0 in your Android project!
 
-### Optional: Log In With Social Connections
+### Optional: Log In with Social Connections
 
 In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the login screen of your app.

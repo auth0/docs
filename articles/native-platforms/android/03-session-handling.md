@@ -69,7 +69,7 @@ else {
 }
 ```
 
-### 3. Validate an existent idToken
+### 3. Validate an existing idToken
 
 If the idToken exists, we need to check whether it’s still valid. To do so, we will fetch the user profile with the `AuthenticationAPI`.
 
@@ -94,7 +94,7 @@ How you deal with a non-valid idToken is up to you. You will normally choose bet
 >If you want users to re-enter their credentials, you should clear the stored data and prompt the login screen. 
 
  
-### 4. Request A New idToken
+### 4. Check for an Existing idToken at Startup
 
 First, for both cases, you need to instantiate an `AuthenticationAPIClient`:
 
