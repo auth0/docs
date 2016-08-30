@@ -316,14 +316,14 @@ This results in the following JSON representation of the user profile details:
 
 The metadata must be a valid JSON object and can not contain a dot in key field names in `user_metadata` or `app_metadata`.
 
-The following is not allowed.
+This is not allowed:
 ```js
 {
   "preference.color" : "pink"
 }
 ```
 
-The following, however, is accepted.
+This, however, is accepted:
 
 ```js
 {
