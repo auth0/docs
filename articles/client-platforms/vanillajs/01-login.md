@@ -1,12 +1,12 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Javascript SDK to add authentication and authorization to your web app.
+description: This tutorial will show you how to use Auth0 to add authentication and authorization to your VanillaJS app.
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
+You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps. In this case we will use Auth0's CDN.
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa/tree/master/01-Login',
+  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-javascript-spa',
   pkgBranch: 'master',
@@ -17,109 +17,144 @@ You can get started by either downloading the seed project or if you would like 
 
 <%= include('../../_includes/_signup') %>
 
-**If you have an existing application, please follow the steps below.**
+**If you have an existing application, follow the steps below.**
 
 ${include('../\_callback')}
 
-### 1. Add the Auth0 scripts and set the viewport
+### 1. Add the Auth0 Scripts and set the Viewport
 
-Add the code below to the `index.html` file to include the Auth0 `lock` script and set the viewport:
-
-${snippet(meta.snippets.dependencies)}
-
-### 2. Configure Auth0Lock
-
-To have your app work with Auth0, configure Auth0Lock by creating an instance of the service:
-
-${snippet(meta.snippets.setup)}
-
-### 3. Implement the login
-
-Create a login button:
+Add the code below to the `index.html` file to include Auth0 library and its dependencies and set the viewport:
 
 ```html
-<!-- ... -->
-<input id="btn-login" class="btn-login" type="submit" />
-<!-- ... -->
+<!-- ===== ./index.html ===== -->
+<head>
+  ...
+  <!-- Auth0 lock script -->
+  <script src="//cdn.auth0.com/js/lock/10.1.0/lock.min.js"></script>
+
+  <!-- Setting the right viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  ...
+</head>
 ```
 
-To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks on the login button.
+### 2. Configure Lock
 
-${snippet(meta.snippets.use)}
+Configure Lock with your `client ID` and `domain`:
 
-To discover all the available arguments for `lock.show`, see the [Auth0Lock documentation](/libraries/lock#-show-options-callback-).
+To discover all the available options for `Auth0Lock`, see [the Lock customization documentation](/libraries/lock/customization).
 
-After authentication, Auth0 will redirect the user back to your application.
+```javascript
+/* ===== ./app.js ===== */
+...
+var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
+...
+```
 
-In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh.
+### 3. Implement the Login
 
-```js
+To implement the login, call the `.show()` method of Auth0's `lock` instance when a user clicks the login button.
+
+```javascript
+/* ===== ./app.js ===== */
+...
+var btn_login = document.getElementById('btn-login');
+...
+
+btn_login.addEventListener('click', function() {
+  lock.show();
+});
+...
+```
+
+```html
+<!-- ===== ./index.html ===== -->
+...
+<button type="submit" id="btn-login">Sign In</button>
+...
+```
+
+After authentication, Auth0 will redirect the user back to your application with an identifying token. This token is used to retrieve the user's profile from Auth0 and to call your backend APIs.
+
+In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
+
+```javascript
+/* ===== ./app.js ===== */
+...
 lock.on("authenticated", function(authResult) {
   lock.getProfile(authResult.idToken, function(error, profile) {
     if (error) {
       // Handle error
       return;
     }
-
     localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('profile', JSON.stringify(profile));
+    // Display user information
+    show_profile_info(profile);
   });
 });
+...
 ```
-### 4. Retrieve the user profile and display user information
 
-Use the `id_token` to retrieve the user profile and display the user's name:
+${browser}
 
-```js
-//retrieve the profile:
-var id_token = localStorage.getItem('id_token');
-if (id_token) {
-  lock.getProfile(id_token, function (err, profile) {
-    if (err) {
-      return alert('There was an error getting the profile: ' + err.message);
-    }
-    document.getElementById('name').textContent = profile.name;
-  });
-}
+### 4. Retrieve the User Profile and Display User Information
+
+Use the `id_token` to retrieve the user profile and display the user's nickname:
+
+```javascript
+/* ===== ./app.js ===== */
+...
+var retrieve_profile = function() {
+  var id_token = localStorage.getItem('id_token');
+  if (id_token) {
+    lock.getProfile(id_token, function (err, profile) {
+      if (err) {
+        return alert('There was an error getting the profile: ' + err.message);
+      }
+      // Display user information
+      show_profile_info(profile);
+    });
+  }
+};
+
+var show_profile_info = function(profile) {
+  var avatar = document.getElementById('avatar');
+  document.getElementById('nickname').textContent = profile.nickname;
+  btn_login.style.display = "none";
+  avatar.src = profile.picture;
+  avatar.style.display = "block";
+  btn_logout.style.display = "block";
+};
+
+...
+
+retrieve_profile();
 ```
 
 ```html
-<p>Welcome: <span id="name"></span></p>
+<!-- ===== ./index.html ===== -->
+...
+<img alt="avatar" id="avatar" style="display:none;">
+<p>Welcome <span id="nickname"></span></p>
+...
 ```
 
-To discover all the available properties of a user's profile, see [user-profile](/user-profile). Note that the properties available depend on the social provider used.
+To discover all of the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-### 5. Use the token to call your api
+### 5. Log out
 
-To perform secure calls to your API, include the `id_token` in the `Authorization` header:
+In this implementation, a logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
-```js
-var getFoos = fetch('/api/foo', {
-  headers: {
-    'Authorization': 'Bearer ' + localStorage.getItem('id_token')
-  },
-  method: 'GET',
-  cache: false
-});
-
-getFoos.then(function (response) {
-  response.json().then(function (foos) {
-    console.log('the foos:', foos);
-  });
-});
+```javascript
+/* ===== ./app.js ===== */
+...
+var logout = function() {
+  localStorage.removeItem('id_token');
+  window.location.href = "/";
+};
+...
 ```
 
-__Note:__ [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) is a new and experimental api not yet supported by all browsers. For this reason, you should use a [polyfill](https://github.com/github/fetch).
+## Summary
 
-### 6. Log out
-
-In this implementation, a log out involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
-
-```js
-localStorage.removeItem('id_token');
-window.location.href = "/";
-```
-
-### 7. All done!
-
-You have completed the implementation of Login and Signup with Auth0 and VanillaJS.
+In this guide, we saw how to use the `Lock` widget in order to log users into your VanillaJS project.
