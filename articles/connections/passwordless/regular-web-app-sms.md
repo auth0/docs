@@ -89,7 +89,7 @@ function sendSMS(){
 }
 ```
 
-This will send an sms containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
+This will send an SMS containing the one-time code. The user must now enter the code into your custom UI. Then you can continue with the login as follows:
 
 ```js
 function login(){
