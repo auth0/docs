@@ -214,18 +214,18 @@ This example, shows how to use the `global` object to keep a mongodb connection:
   ...
 
   //If the db object is there, use it.
-  if(!global.db){
-    return query(global.db,callback);
+  if (global.db){
+    return query(global.db, callback);
   }
 
   //If not, get the db (mongodb in this case)
   mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
     global.db = db;
-    return query(db,callback);
+    return query(db, callback);
   });
 
   //Do the actual work
-  function query(db,cb){
+  function query(db, cb){
     //Do something with db
     ...
   });
