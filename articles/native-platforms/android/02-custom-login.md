@@ -25,11 +25,12 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the value:
 
 
-<pre><code>https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback</pre></code>
-</div>
+```
+https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+```
 
 ### 1. Add The Auth0 Android Dependency
 
@@ -49,7 +50,8 @@ Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew c
 
 ### 2. Configure Your Manifest File
 
-You need to add the following permissions inside the ``AndroidManifest.xml``:
+You need to add the following permissions inside the `AndroidManifest.xml`:
+
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```

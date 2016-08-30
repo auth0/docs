@@ -2,6 +2,8 @@
 url: /libraries/lock
 ---
 
+# Lock for Web
+
 ![Auth0 Lock 10](/media/articles/libraries/lock/lock-10.png)
 
 <%= include('/_includes/_lock-version') %>

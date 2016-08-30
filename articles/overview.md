@@ -1,3 +1,7 @@
+---
+title: Auth0 Overview
+description: Learn the basics of Auth0 including how it can help secure your application, how you can extend Auth0 to meet the exact needs of your project, and about the flexible deployment options in both the cloud and even your own datacenter. 
+---
 # Auth0 Overview
 
 Auth0 is a service that abstracts how users authenticate to applications.

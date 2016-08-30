@@ -440,6 +440,10 @@
     "to": "/rules/metadata-in-rules"
   },
   {
+    "from": "/metadata/rules",
+    "to": "/rules/metadata-in-rules"
+  },
+  {
     "from": "/api-reference",
     "to": "/api/management/v1/reference"
   },
