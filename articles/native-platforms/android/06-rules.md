@@ -41,7 +41,7 @@ This rule gets the `country_name` from the context and adds it as a new `country
 
 This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever your users log in, the rule will be executed, and their country will be added.
 
-### 2. Test the Rule
+### 2. Test The Rule
 
 To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile tutorial](04-user-profile)).
 
@@ -66,3 +66,5 @@ client.tokenInfo(${account.clientId})
 	}
 });
 ```
+
+

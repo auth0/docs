@@ -3,6 +3,8 @@ title: Linking Accounts
 description: This tutorial will show you how to use Lock within your Android project to link two different accounts for the same user.
 ---
 
+This tutorial will show you how to use Lock within your Android project to link two different accounts for the same user.
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
@@ -65,7 +67,7 @@ public void onAuthentication(Credentials secondaryCredentials) {
 > Remember to instantiate the `auth0` object with `auth0 = new Auth0(${account.clientId}, ${account.namespace});`
 > Also, bear in mind that the `App.getInstance().getUserCredentials().getIdToken()` method depends on how you stored your user's `Credentials`.
 
-### 2. Link an Account
+### 2. Link An Account
 
 Now we can link the accounts, which is faily simple. You have a user, and another account you want to link with that user. All we need are the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response. 
 
@@ -87,15 +89,15 @@ public void onSuccess(final UserProfile payload) {
 
 > For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/cf98a17ddc26b85bd40daa8c69913c0df50d33d1/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) documentation.
 
-### 4. Unlink an Account
+### 4. Unlink An Account
 
-The unlink process is similar to the link one, the only difference being that you need to specify the `identityId` and `provider` for the connections to be unlinked. Also, as first parameter we use the main connection's `idToken`. 
+The unlink process is similar to the link one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections.  Also, as first parameter we use the main connection's `idToken`. 
 
 ```java
 UsersAPIClient client = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
 client.unlink(primaryUserId, secondaryUserId, secondaryProvider);
 ```
-> You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, knowing the position of the connection's position. 
+> You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position. 
 
 ### Done
 
