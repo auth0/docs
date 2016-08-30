@@ -85,7 +85,7 @@ Now that the second login is handled, you will need to actually do the linking.
 var linkAccount = function(id_token) {
   // Get user_id value stored at login step
   var user_id = localStorage.getItem('user_id');
-  var url = 'https://' + ''<%= account.namespace %>'' + '/api/v2/users/' + user_id + '/identities';
+  var url = 'https://' + '<%= account.namespace %>' + '/api/v2/users/' + user_id + '/identities';
   var data = JSON.stringify({ link_with: id_token });
   var xhr = new XMLHttpRequest();
   xhr.open('POST', url);
