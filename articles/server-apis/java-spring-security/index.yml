@@ -17,4 +17,5 @@ snippets:
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
 articles:
-  - authenticate
+  - 00-intro
+  - 03-authorization
