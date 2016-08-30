@@ -293,6 +293,7 @@ All quickstart data comes directly from the docs API at `/meta/quickstart`. This
 ---
 title: Quickstart Name
 image: //cdn.auth0.com/path/to/icon.png
+logo_name: name # Optional, for overriding the logo used to display the quickstart. Use the data-name attribute for the badges here: http://styleguide.auth0.com/#resources
 thirdParty: true|false  # For server apis only
 hybrid: true|false # For native platforms only
 snippets:
