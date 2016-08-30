@@ -4,7 +4,7 @@ description: How to use metadata in rules.
 
 # User Metadata in Rules
 
-This article explains how to read, update and delete [metadata](/metadata) using [Rules](/rules).
+This article explains how to [read](#reading-metadata), [update](#updating-metadata) and [delete](#deleting-metadata) [metadata](/metadata) using [Rules](/rules).
 
 Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 
