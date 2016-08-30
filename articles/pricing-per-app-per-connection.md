@@ -19,7 +19,7 @@ Frequently though, Auth0 customers use the platform for multiple applications. I
 ![](https://docs.google.com/drawings/d/16FjBPdKd0R0wDiIyHAGgbRMaTvIPdiW4l4soxV7diVo/pub?w=776&h=274)
 
 In this case, Auth0 would charge the customer, based on the number of monthly active users per ___each___ app. In a self service model, it would be 5 different subscriptions, one for each app based on the active user count for each app. In addition to that, for Box and Zendesk the "3rd Party App SSO" addon will have to be switched on. In other words, active users __cannot__ be pooled across apps in the self service model.
-We offer __pooled users__ across multiple apps pricing as well as __unlimited__ app pricing through our custom agreements. Please contact <sales@auth0.com> for more details.
+We offer __pooled users__ across multiple apps pricing as well as __unlimited__ app pricing through our custom agreements. Please [contact us](https://auth0.com/?contact=true) for more details.
 
 ### SaaS or On Prem ISV Model: 1 app, multiple connections
 
