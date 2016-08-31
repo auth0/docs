@@ -38,7 +38,7 @@ If this block is triggered, it can be cleared the following ways:
 
 If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = 1 additional attempt every 25 minutes.
 
-Auth0 does email the dashboard owner when this block is triggered. Within this email is a link the owner can click on to remove the block.
+Auth0 does email the dashboard owner when this block is triggered. Within this email there's a link the owner can click on to remove the block.
 
 #### Restrictions Regarding Brute Force Protection
 
