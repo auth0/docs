@@ -645,10 +645,11 @@ var options = {
 
 ### usernameStyle {String}
 
-Determines what will be used to identify the user, a `username` or an `email`. Defaults to `email`.
+Determines what will be used to identify the user for a Database connection that has the `requires_username` flag set (if it is not set, `usernameStyle` option will be ignored). Possible values are `"username"` and `"email"`. By default both `username` and `email` are allowed; setting this option will limit logins to use one or the other.
 
 ```js
 var options = {
+  // Limits logins to usernames only, not emails
   usernameStyle: 'username'
 };
 ```
