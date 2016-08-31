@@ -67,7 +67,7 @@ Users will not receive notification that their password has been manually change
 ```har
 {
 	"method": "PATCH",
-	"url": "https://${uiURL}/api/v2/users/USER_ID",
+	"url": "https://${uiURL}/api/v2/users/{id}",
 	"headers": [{
 		"name": "Content-Type",
 		"value": "application/json"
