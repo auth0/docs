@@ -244,7 +244,7 @@ To create and submit a job to Wordy:
   You will need to provide the following pieces of information:
   * **Language**: Set to *English (US)*.
   * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
-  * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work.
+  * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
   * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
 5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
 6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
