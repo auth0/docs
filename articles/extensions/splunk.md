@@ -11,7 +11,7 @@ To install and configure this extension, click on the _Auth0 Logs to Splunk_ box
 At this point you should set the following configuration variables:
 
 - **Schedule**: How often the job will run. The schedule can be customized even further after creation.
-- **SPLUNK_URL**: Your Splunk HTTP Collector Endpoint. 
+- **SPLUNK_URL**: Your Splunk Cloud URL. 
 - **SPLUNK_TOKEN**: Your Splunk Token.
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint.
 - **SPLUNK_COLLECTOR_PATH**: The [HTTP Collector Endpoint](http://dev.splunk.com/view/event-collector/SP-CAAAE7H) to be used. If you use the `/raw` endpoint, make sure to append a channel as a querystring parameter, like this: `/services/collector/raw?channel=FE0ECFAD-13D5-401B-847D-77833BD77131`. More information can be found in the [Splunk documentation](http://dev.splunk.com/view/event-collector/SP-CAAAE8Y).
