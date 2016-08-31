@@ -13,11 +13,11 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/06-Rules', }) %>
 
-Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](/rules).
+Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions that work like middleware. To see a detailed description, please refer to [the full documentation](/rules).
 
 ### 1. Create a Rule
 
-To create a rule, just go to the [new rule page](${uiURL}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
+To create a rule, just go to the [new rule page](${uiURL}/#/rules/new). You can create it from scratch or use an existing template These templates are written by Auth0 team to assist you with completing common tasks.
 
 Let's use the template called "*Add country to the user profile*", under the *Enrich Profile* section:
 
@@ -27,11 +27,11 @@ This rule just gets the `country_name` from the context and adds it as a new 
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
-This is just a starting template, you can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever you login, the rule will be executed, and the country will be added.
+This is just a starting template: you can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever you login, the rule will be executed, and the country will be added.
 
 ### 2. Test the Rule
 
-To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](01-login.md)).
+To see the results of the rule you created, just implement a login and fetch the user profile information (you can check out how to do this the [login tutorial](01-login.md)).
 
 You can access the `country` added by the rule within the `extraInfo` dictionary from the `A0UserProfile` object, like so:
 
@@ -45,4 +45,4 @@ NSString *userCountry = self.userProfile.extraInfo[@"country"];
 
 ### Done!
 
-That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fits your needs.
+That's it. You've just experienced how to implement a basic rule. This is just one of all the cool things you can do with them. Go ahead and create any that fit your needs.
