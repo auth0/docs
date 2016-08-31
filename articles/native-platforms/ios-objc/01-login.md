@@ -6,7 +6,7 @@ description: This tutorial will show you how to integrate Lock in your iOS Objec
 
 ## iOS ObjectiveC - Login Tutorial
 
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
+This is the very beginning of a simple, practical, multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -36,9 +36,9 @@ This tutorial and seed project have been tested with the following:
 
 
 
-### 1. Add the Auth0 dependency
+### 1. Add the Auth0 Dependency
 
-Your first step is to add [Lock](https://github.com/auth0/Lock.iOS-OSX) into your project, which is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
+Your first step is to add [Lock](https://github.com/auth0/Lock.iOS-OSX) into your project. It is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
 
 #### i. Carthage
 
@@ -66,7 +66,7 @@ Then, run `pod install`.
 
 
 
-### 2. Set your Credentials
+### 2. Set Your Credentials
 
 Add the following entries to your project's `Info.plist`:
 
@@ -119,7 +119,7 @@ Then, configure and present the login screen, like this:
 
 As you can see, upon successful authentication, the `onAuthenticationBlock` callback will yield the user's `profile` and `token`.
 
-A basic example on how to use this information could be:
+A basic example of how to use this information is:
 
 ```objc
 self.usernameLabel.text = profile.name
@@ -130,14 +130,10 @@ self.emailLabel.text = profile.email
 >
 > To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Note that Lock on its own will not save these for you.
 
-
-
 Done. You've implemented Login and SignUp with Auth0 in your iOS ObjectiveC project. You're awesome!
 
-> You can also <a href="/package/native-mobile-samples/master?path=iOS/profile-sample-objc&type=replace&filePath=iOS/profile-sample-objc/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project that shows how to store/update your user profile with Auth0.
+> You can also <a href="/package/native-mobile-samples/master?path=iOS/profile-sample-objc&type=replace&filePath=iOS/profile-sample-objc/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project, which shows how to store/update your user profile with Auth0.
 
+### Optional: Configure your Social Connections' Handlers
 
-
-### Optional: Configure your Social Connections' handlers
-
-In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there will appear in the Login screen of your app. That's pretty much it!
