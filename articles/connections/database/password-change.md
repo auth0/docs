@@ -126,8 +126,8 @@ Enter the new password and click **Save**.
 
 ## Customizing the Change Password Email
 
-You can change the content of the password change request emails in the  [Emails > Templates](${uiURL}/#/emails) section of the dashboard. Select the **Change Password Confirmation** tab to edit the email fields:
+You can change the content of the Change Password emails in the  [Emails > Templates](${uiURL}/#/emails) section of the Dashboard. Select the **Change Password Confirmation** tab to edit the email fields:
 
 ![](/media/articles/connections/database/change-password-email.png)
 
-**NOTE**: Email templates can only be changed after changing the email provider from Auth0's built-in provider. For more information, see: [Customizing Your Emails](/email/templates).
+**NOTE**: Email templates can only be changed for those *not* using Auth0's built-in email provider. For more information, please see: [Customizing Your Emails](/email/templates).
