@@ -13,25 +13,25 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/07-Authorization', }) %>
 
-Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
+Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative, which is to create a rule for assigning different roles to different users.
 
 > This tutorial assumes that you've already read the [rules tutorial](06-rules.md) and you know how to implement a basic rule in your app.
 
-### Before starting
+### Before Starting
 
-It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](01-login.md) for more information about it.
+It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) integrated in your project. You can check out the [login tutorial](01-login.md) for more information about this process.
 
-### 1. Create a Rule to assign roles
+### 1. Create a Rule to Assigning Roles
 
-First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you will create a rule that assigns your users either an `admin` role or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles to a User*" template, under *Access Control*. Then, replace this line from the default script:
 
 ``` 
 if (user.email.indexOf('@example.com') > -1)
 ```
 
-to match the condition that fits your needs. Notice that you can also set more roles other than `admin` and `user`, or customize the whole rule as you please.
+to match the condition that fits your needs. Notice that you can also set  roles other than `admin` and `user`, or customize the whole rule as you please.
 
-By default, it says that if the user email contains `@example.com` he will be given an `admin` role, otherwise a regular `user` role.
+By default, if the user email contains `@example.com` the user will be given an `admin` role, otherwise the user will be given a regular `user` role.
 
 ### 2. Test the Rule
 
@@ -52,11 +52,11 @@ if([self.userProfile.appMetadata[@"roles"] containsObject:@"admin"]){
 }
 ```
 
-Notice that you'll find the `roles` information within the `appMetadata` dictionary from the `A0UserProfile` object, that's because of what's defined inside the rule.
+Notice that you'll find the `roles` information within the `appMetadata` dictionary from the `A0UserProfile` object. That's because of what's defined inside the rule.
 
-### 3. Do your stuff
+### 3. Do Your Stuff
 
-At this point, you are able to distinguish the users' roles in your app to authorize or deny access to a certain feature.
+At this point, you are able to distinguish the users' roles in your app so you can authorize or deny access to a certain feature.
 
 All you have to do here is to replace the commented out statements from the previous step with the instructions you need to execute depending on your business rules.
 
