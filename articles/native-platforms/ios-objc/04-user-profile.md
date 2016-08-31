@@ -15,13 +15,13 @@ This tutorial and seed project have been tested with the following:
 
 ### In the Beginning
 
-#### Be familiar with Auth0
+#### Be Familiar with Auth0
 
 This tutorial assumes you are already familiar with Auth0 and how to Sign up and Login using Lock or Auth0 Toolkit. **If you're not sure, check out [this tutorial](01-login.md) first.**
 
-### 1. Remember me?
+### 1. Remember Me?
 
-To get your users information, you will need his token. You can get it either after your login ([Login tutorial](01-login.md)) or getting it from your Keychain ([Session Handling tutorial](03-session-handling.md)).
+To get your user's information, you will need the user's token. You can get it either after your login ([Login tutorial](01-login.md)) or by getting it from your Keychain ([Session Handling tutorial](03-session-handling.md)).
 Once you have the user's token, you can use it to restore the user's profile:
 
 ```objc
@@ -33,11 +33,11 @@ success:^(A0UserProfile * _Nonnull profile) {
 }
 ```
 
-### 2. Use the user's data
+### 2. Use the User's Data
 
-Now that you have the profile information, you can use it on your app:
+Now that you have the profile information, you can use it in your app:
 
-#### i. Get the user profile image
+#### i. Get the User Profile Image
 
 Use the image URL to download the image and display it on an `UIImageView`:
 
@@ -49,17 +49,17 @@ Use the image URL to download the image and display it on an `UIImageView`:
     }] resume];
 ```
 
-#### ii. Get the basic user information
+#### ii. Get the Basic User Information
 
-On the profile you can get the user's name, email, when was the last time the user loged in, etc. Everything Auth0 uses to manage a user.
+On the profile you can get the user's name and email, when was the last time the user logged in, and so on-everything Auth0 uses to manage a user.
 
 ```objc
     self.welcomeLabel.text = [NSString stringWithFormat:@"Welcome, %@", self.userProfile.name];
 ```
 
-#### iii. Everything else
+#### iii. Everything Else
 
-Also you can store your own app information for the user in the `userMetadata` dictionary.
+You can also store your own app information for the user in the `userMetadata` dictionary.
 
 ```objc
     self.userFirstNameField.text = [self.userProfile.userMetadata objectForKey:@"firstName"];
@@ -67,7 +67,7 @@ Also you can store your own app information for the user in the `userMetadata` d
     self.userCountryField.text = [self.userProfile.userMetadata objectForKey:@"country"];
 ```
 
-### 3. Saving the metadata
+### 3. Saving the Metadata
 
 This metadata field can be used to store any information about the user your app needs. You only need to send a dictionary with the fields that need updating.
 
