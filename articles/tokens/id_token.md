@@ -29,20 +29,28 @@ The `id_token` is returned when calling any of the Auth0 functions which invoke 
 
 ## How to control contents of `id_token`
 
-The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/scopes) which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
+The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/libraries/lock/v10/sending-authentication-parameters#scope-string-) which is passed to the authentication functions mentioned above.  For example, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
 
-```
-lock.show({
-   responseType: ‘token’,
-   authParams: {
-      scope: ‘openid name email’
-    }
- });
-```
-The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The responseType should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the /authorize endpoint here:
-https:///auth-api
+```js
+var options = {
+  auth: {
+    responseType: 'token',
+    params: {scope: 'openid name email'}
+  }
+}; 
 
-The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](/rules#context)
+var lock = new Auth0Lock(
+  'YOUR_CLIENT_ID',
+  'YOUR_NAMESPACE',
+  options
+);
+
+lock.show();
+```
+
+The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The `responseType` should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the `/authorize` endpoint in the [authentication API](https://auth0.com/docs/api/authentication)
+
+The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](/rules/context)
 
 There is a [sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
 
