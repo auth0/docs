@@ -29,7 +29,7 @@ Lock UI can be customized by creating your own `A0Theme` instance:
 A0Theme *theme = [[A0Theme alloc] init];
 ```
 
-### 2. Configure your Theme
+### 2. Configure Your Theme
 
 Lock's widget UI is composed of several parts that can be customized.
 
@@ -50,7 +50,7 @@ So, for example, if you want to achieve something like this:
 
 <div class="phone-mockup"><img src="/media/articles/native-platforms/ios-swift/Custom-Lock-Widget-Screenshot.png" alt="Mobile example screenshot"/></div>
 
-You will need to customize several parts... This is how you do it:
+You will need to customize several parts. This is how you do it:
 
 ```objc
 // 1. Change the logo:
@@ -110,7 +110,7 @@ You will need to customize several parts... This is how you do it:
 [theme setStatusBarStyle:UIStatusBarStyleLightContent];
 ```
 
-### 3. Register your Theme
+### 3. Register Your Theme
 
 Last, but not least: You still need to register your theme before presenting the login dialog:
 
@@ -120,7 +120,7 @@ Last, but not least: You still need to register your theme before presenting the
 
 ### Done!
 
-In conclusion, here is the code snippet you need to keep on mind:
+In conclusion, here is the code snippet you need to keep in mind:
 
 ```objc
 A0Theme *theme = [[A0Theme alloc] init];
@@ -128,7 +128,7 @@ A0Theme *theme = [[A0Theme alloc] init];
 [[A0Theme sharedInstance] registerTheme: theme];
 ```
 
-Piece of cake. Wasn't it? You've just customized the Lock widget!
+Piece of cake, wasn't it? You've just customized the Lock widget!
 
 ### Appendix: Customizable Properties List
 
