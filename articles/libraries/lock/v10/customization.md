@@ -11,7 +11,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ## Index of Configurable Options
 
 **Display Options**:
-- [allowedConnections](#allowedconnections-array-)
 - [autoclose](#autoclose-boolean-)
 - [autofocus](#autofocus-boolean-)
 - [avatar](#avatar-object-)
@@ -39,6 +38,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [responseMode](#responsemode-string-)
 - [responseType](#responsetype-string-)
 - [sso](#sso-boolean-)
+- [allowedConnections](#allowedconnections-array-)
 
 **Database Options**:
 - [additionalSignUpFields](#additionalsignupfields-array-)
@@ -61,29 +61,6 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ---
 
 ## Display Options
-
-### allowedConnections {Array}
-Array of connections that will be used for the `signin|signup|reset` actions. Defaults to all enabled connections.
-
-```js
-// The following will only display
-// username and password sign in form
-var options = {
-  allowedConnections: ['Username-Password-Authentication']
-};
-
-// ... social connections only
-var options = {
-  allowedConnections: ['twitter', 'facebook', 'linkedin']
-};
-
-// ... enterprise connections only
-var options = {
-  allowedConnections: ['qraftlabs.com']
-};
-```
-
-![](/media/articles/libraries/lock/customization/connections.png)
 
 ### autoclose {Boolean}
 
@@ -304,7 +281,9 @@ Determines the size of the buttons for the social providers. Possible values are
 ```js
 // First image, with three connections, and other connections - forcing small buttons
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon'],
+  auth: {
+    allowedConnections: ['facebook', 'linkedin', 'amazon']
+  },
   socialButtonStyle: 'small'
 };
 ```
@@ -312,21 +291,27 @@ var options = {
 ```js
 // Second image, with socialButtonStyle remaining at default behavior - three connections, no other connections
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon']
+  auth: {
+    allowedConnections: ['facebook', 'linkedin', 'amazon']
+  }
 };
 ```
 
 ```js
 // Third image, with socialButtonStyle remaining at default behavior - three connections, with other connections
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon']
+  auth: {
+    allowedConnections: ['facebook', 'linkedin', 'amazon']
+  }
 };
 ```
 
 ```js
 // Fourth image, with three connections, and no other connections - forcing small buttons
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon'],
+  auth: {
+    allowedConnections: ['facebook', 'linkedin', 'amazon']
+  },
   socialButtonStyle: 'small'
 };
 ```
@@ -348,7 +333,8 @@ var options = {
    redirect: true,
    redirectUrl: "some url",
    responseType: "token",
-   sso: true
+   sso: true,
+   allowedConnections: ['Username-Password-Authentication', 'google']
   }
 };
 ```
@@ -442,6 +428,35 @@ var options = {
   }
 };  
 ```
+
+### allowedConnections {Array}
+Array of connections that will be used for the `signin|signup|reset` actions. Defaults to all enabled connections.
+
+```js
+// The following will only display
+// username and password sign in form
+var options = {
+  auth: {
+    allowedConnections: ['Username-Password-Authentication']
+  }
+};
+
+// ... social connections only
+var options = {
+  auth: {
+    allowedConnections: ['twitter', 'facebook', 'linkedin']
+  }
+};
+
+// ... enterprise connections only
+var options = {
+  auth: {
+    allowedConnections: ['qraftlabs.com']
+  }
+};
+```
+
+![](/media/articles/libraries/lock/customization/connections.png)
 
 ---
 
