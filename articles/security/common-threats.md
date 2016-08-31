@@ -2,7 +2,7 @@
 
 ## Man-in-the-Middle(MiM or MitM) Attacks 
 
-One common type of threat is a Man-in-the-middle attack, sometimes called a bucket brigade attack. In this type of attack the attacker gets between two parties, where each party thinks they are interacting over a private connection, but it is actually being controlled by the third-party attacker. For this type of attack to succeed the attacker must create mutual authentication between both parties. 
+One type of threat is a Man-in-the-middle attack, sometimes called a bucket brigade attack. With this attack the attacker gets between two parties, where each party thinks they are interacting over a private connection, but it is actually being controlled by the third-party attacker. For this type of attack to succeed the attacker must create mutual authentication between both parties. 
 
 Usually MiM attacks involve the attacker using a WiFi router to intercept a user's communication. The user connects to the attacker's router then visits a website and logs in with their confidential credentials. The attacker saves that user's login credentials for which they can then use to impersonate the user.
 
@@ -18,7 +18,7 @@ Another type of attacks is a replay attacks, also sometimes called a playback at
 
 ### Preventing Replay Attacks
 
-Replay attacks are usually avoided by using session tokens. But if these credentials are stolen from local storage (such as from an XSS attack), there are alternatives that you could use to avoid someone having infinite tokens if one is stolen:
+Replay attacks are usually avoided by using session tokens. But if these credentials are stolen from local storage (such as from an XSS attack), there are alternatives that you could use to avoid someone having infinite tokens:
 
 1. Set expirations for tokens
 2. Provide a way to blacklist tokens that have not been used (perhaps even a user)
