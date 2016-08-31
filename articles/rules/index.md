@@ -1,5 +1,6 @@
 ---
 url: /rules
+description: Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 ---
 
 # Rules
@@ -213,18 +214,18 @@ This example, shows how to use the `global` object to keep a mongodb connection:
   ...
 
   //If the db object is there, use it.
-  if(!global.db){
-    return query(global.db,callback);
+  if (global.db){
+    return query(global.db, callback);
   }
 
   //If not, get the db (mongodb in this case)
   mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
     global.db = db;
-    return query(db,callback);
+    return query(db, callback);
   });
 
   //Do the actual work
-  function query(db,cb){
+  function query(db, cb){
     //Do something with db
     ...
   });

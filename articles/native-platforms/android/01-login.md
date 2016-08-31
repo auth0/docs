@@ -3,6 +3,8 @@ title: Login
 description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.
 ---
 
+This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
@@ -28,9 +30,9 @@ Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into you
 
 #### i. Gradle
 
-Add to your app's module gradle file:
+Add to your app's module Gradle file:
 
-```gradle
+```xml
 compile 'com.auth0.android:lock:2.0.0-beta.3'
 ```
 
@@ -38,7 +40,7 @@ Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew c
 
 > For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 
-### 2. Configure your Manifest File
+### 2. Configure Your Manifest File
 
 Add the following code to your project's `AndroidManifest.xml`:
 
@@ -76,7 +78,7 @@ Also, you need to add the following permissions:
 
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login in any activity you want.
+At this point, you're all set to implement the login in any activity you want.
 
 First, add these lines in the ``onCreate`` method:
 
@@ -138,8 +140,8 @@ startActivity(this.lock.newIntent(this));
 
 ### Done!
 
-You've already implemented Login and Sign Up with Auth0 in your Android project!
+You've already implemented both login and signup with Auth0 in your Android project!
 
 ### Optional: Log In with Social Connections
 
-In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app.
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the login screen of your app.

@@ -90,3 +90,5 @@ Lock will emit events during its lifecycle.
 - `authenticated`: emitted after a successful authentication. Has the authentication result as the only argument.
 - `authorization_error`: emitted when authorization fails. Has error as the only argument.
 - `hash_parsed`: every time a new Auth0Lock object is initialized in redirect mode (the default), it will attempt to parse the hash part of the URL, looking for the result of a login attempt. This is a low level event for advanced use cases, and `authenticated` and `authorization_error` should be preferred when possible. After that, this event will be emitted with `null` if it couldn't find anything in the hash. It will be emitted with the same argument as the `authenticated` event after a successful login or with the same argument as `authorization_error` if something went wrong. This event won't be emitted in [popup mode](/libraries/lock/v10/popup-mode) because in popup mode, there is no need to parse the URL's hash part.
+
+<%= include('../_includes/_lock-toc') %>

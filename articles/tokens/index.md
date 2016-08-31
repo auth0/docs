@@ -1,8 +1,9 @@
 ---
 url: /tokens
+description: Learn about the numerous types of tokens referenced in Auth0 documentation, what each is used for and how to use it.
 ---
 
-# Tokens
+# Tokens used by Auth0
 
 ## Overview
 

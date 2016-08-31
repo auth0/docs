@@ -8,7 +8,7 @@ In some cases, you may want to customize the user sign up form with more fields 
 
 ## Using Lock
 
-Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-). For more information, see: [Lock 10 Preview Release](/libraries/lock/v10).
+Lock 10 supports [custom fields signup](/libraries/lock/v10/customization#additionalsignupfields-array-).
 
 ![custom signup fields](/media/articles/libraries/lock/v10/signupcustom.png)
 
