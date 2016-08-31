@@ -13,7 +13,7 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/09-MFA', }) %>
 
-### 1. Enable MFA in your client
+### 1. Enable MFA in Your client
 
 First, you have to enable the MFA feature in your account. Go to the [MFA configuration page](${uiURL}/#/multifactor) and turn the  **Google Authenticator** switch on, under the *Choose a Provider* section.
 
@@ -21,7 +21,7 @@ First, you have to enable the MFA feature in your account. Go to the [MFA config
 
 > MFA for native apps currently supports **Google Authenticator** only.
 
-Then, you have to specify on which clients you want to enable MFA; you accomplish this by editing the snippet that appears below, replacing the placeholder with your actual client ids.
+Next, you have to specify which clients you want to enable MFA for; you accomplish this by editing the snippet that appears below, replacing the placeholder with your actual client ids.
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-02.png)
 
@@ -31,7 +31,7 @@ Make sure this line looks like this:
 var CLIENTS_WITH_MFA = ['${account.clientId}'];
 ```
 
-If you want to use MFA in **all** of your clients, the easiest you can do is disabling this conditional in the script:
+If you want to use MFA in **all** of your clients, the easiest thing to do is to disable this conditional in the script:
 
 ```javascript
 if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
@@ -39,7 +39,7 @@ if (CLIENTS_WITH_MFA.indexOf(context.clientID) !== -1)
 
 Make sure you hit the **save** button.
 
-### 2. Configure the flags
+### 2. Configure the Flags
 
 To enable multifactor authentication and enrollment in your database connection, you must set the `options.mfa.active` and`options.mfa.return_enroll_settings` flags using the `PATCH /api/v2/connections/:id` endpoint.
 
@@ -53,7 +53,7 @@ Also, make sure that your client is enabled for this database:
 
 ![MFA Rule Screenshot](/media/articles/mfa/mfa-native/mfa-native-04.png)
 
-After that, go to the [**PATCH /api/v2/connections/:id**](/api/management/v2#!/Connections/patch_connections_by_id) endpoint.
+Now, go to the [**PATCH /api/v2/connections/:id**](/api/management/v2#!/Connections/patch_connections_by_id) endpoint.
 
 ![Patch Connections](/media/articles/mfa/mfa-native/mfa-native-05.png)
 
@@ -104,7 +104,7 @@ Now, you can run the simulator in your project and sign-in to your Auth0 app wit
 
     ![Simulator](/media/articles/mfa/mfa-native/mfa-native-06.png)
 
-3. Select a provider (Google in this example):
+3. Select a provider (Google, in this example):
 
     ![Simulator](/media/articles/mfa/mfa-native/mfa-native-07.png)
 
