@@ -1,190 +1,139 @@
 ---
-title: iOS Objective-C
-description: This tutorial will show you how to use the Auth0 iOS Objective-C SDK to add authentication and authorization to your mobile app.
+title: Auth0 iOS ObjectiveC Quickstarts - 1. Login
+description: This tutorial will show you how to integrate Lock in your iOS ObjectiveC project in order to present a login screen.
+
 ---
+
+## iOS ObjectiveC - Login Tutorial
+
+This is the very beginning of a simple, practical, multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* CocoaPods 0.39.0
-* XCode 7.2.1
-* Simulator - iOS 9.2 - iPhone 6
-:::
+
+* CocoaPods 1.0.0
+* XCode 7.3 (7D175)
+* Simulator - iPhone 6 - iOS 9.3 (13E230)
+  :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample',
-  pkgFilePath: 'iOS/basic-sample/basic-sample/Info.plist',
+  pkgPath: '01-Login',
+  pkgFilePath: '01-Login/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
-## Initial Setup
+### Before Starting
 
-Go to the [Application Settings](${uiAppSettingsURL}) section of your app in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+<div class="setup-callback">
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <b>Allowed Callback URLs</b> contains the following value:</p>
 
-`a0${account.clientId}://\*.auth0.com/authorize`
-
-## Add the Auth0 dependencies
-
-Add the following to the `Podfile` and run `pod install`:
-
-${snippet(meta.snippets.dependencies)}
-
-**NOTE:** If you need help installing CocoaPods, see: [What is CocoaPods](http://guides.cocoapods.org/using/getting-started.html).
-
-## Configure Auth0 Lock for iOS
-
-1. Add the following entries to your app's `Info.plist`:
-
-| Key | Value |
-| --- | --- |
-| Auth0ClientId | `${account.clientId}` |
-| Auth0Domain | `${account.namespace}` |
+<pre><code>a0${account.clientId}://\*.auth0.com/authorize</pre></code>
+</div>
 
 
-2. Register a new _URL Type_ in  your app's **Targets** info section with the following scheme:
-`a0${account.clientId}`
 
-    ![Lock.png](/media/articles/native-platforms/ios-objc/url-type-register.png)
+### 1. Add the Auth0 Dependency
 
-3. Create and configure an instance of `A0Lock` with your Auth0 credentials from `Info.plist`. This sample uses a custom object called `MyApplication`:
+Your first step is to add [Lock](https://github.com/auth0/Lock.iOS-OSX) into your project. It is basically a library for displaying native UI in your app for logging in and signing up with different social platforms via [auth0](https://auth0.com/).
 
-${snippet(meta.snippets.setup)}
+#### i. Carthage
 
-**NOTE:** You can create `A0Lock` in any other class, even in your `AppDelegate`, the only requirement is that you keep it in a **strong** reference.
+If you are using Carthage, add the following line to the `Cartfile`:
 
-## Register Native Authentication Handlers
-
-1. In your `AppDelegate` method `application:didFinishLaunchingWithOptions:`, add the following lines:
-
-```objc
-A0Lock *lock = [[MyApplication sharedInstance] lock];
-[lock applicationLaunchedWithOptions:launchOptions];
+```ruby
+github "auth0/Lock.iOS-OSX" -> 1.26
 ```
 
-2. Add the following import:
+Then, run `carthage bootstrap`.
+
+> For more information about Carthage usage, check [their official documentation](https://github.com/Carthage/Carthage#if-youre-building-for-ios-tvos-or-watchos).
+
+#### ii. Cocoapods
+
+If you are using [Cocoapods](https://cocoapods.org/), add these lines to your `Podfile`:
+
+```ruby
+pod 'Lock', '~> 1.24'
+```
+
+Then, run `pod install`.
+
+> For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
+
+
+
+### 2. Set Your Credentials
+
+Add the following entries to your project's `Info.plist`:
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tr>
+    <td>Auth0ClientId</td>
+    <td>${account.clientId}</td>
+  </tr>
+  <tr>
+    <td>Auth0Domain</td>
+    <td>${account.namespace}</td>
+  </tr>
+</table>
+
+### 3. Implement the Login
+
+At this point, you're all set to implement the Login. 
+
+First, import the `Lock` module in the file where you want to present the login dialog:
 
 ```objc
 #import <Lock/Lock.h>
-#import “MyApplication.h"
 ```
 
-3. To allow native logins using other iOS apps (e.g: Twitter, Facebook, Safari etc.), add the following method:
+Then, configure and present the login screen, like this:
 
 ```objc
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    A0Lock *lock = [[MyApplication sharedInstance] lock];
-    return [lock handleURL:url sourceApplication:sourceApplication];
-}
+    A0Lock *lock = [A0Lock sharedLock];
+    
+    A0LockViewController *controller = [lock newLockViewController];
+    controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
+        // Do something with token & profile. e.g.: save them.
+        // And dismiss the ViewController
+        [self dismissViewControllerAnimated:YES completion:nil];
+    };
+    [self presentViewController:controller animated:YES completion:nil];
+
 ```
 
-**NOTE:** If you need Facebook or Twitter native authentication, continue reading to learn how to configure these. Otherwise, skip to [Implement the login](#implement-the-login).
+[![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)](https://auth0.com)
 
-::: panel-info Configuration
-Before continuing to configure either Facebook or Twitter integration, check that you have enabled and correctly configured the social connection with your credentials in the [Dashboard](${uiURL}/#/connections/social).
-:::
+> **Note**: There are multiple ways of implementing the login box. What you see above is the Login Widget, but if you want, you can use [your own UI](/libraries/lock-ios/use-your-own-ui).
+> Or, you can also try our passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid).
 
+As you can see, upon successful authentication, the `onAuthenticationBlock` callback will yield the user's `profile` and `token`.
 
-### Facebook
-
-Lock uses the native Facebook SDK to obtain the user's access token. Use the information from your app that is configured for Facebook connections in the Auth0 dashboard:
-
-1. Add the following entries to the `Info.plist`:
-
-  | Key | Value |
-| --- | --- |
-| FacebookAppID | `YOUR_FACEBOOK_APP_ID` |
-| FacebookDisplayName | `YOUR_FACEBOOK_DISPLAY_NAME` |
-
-
-2. Register a custom URL Type with the format `fb<FacebookAppID>`.
-
-**NOTE:** For more information on how to configure your app for Facebook, see: [Facebook Getting Started Guide](https://developers.facebook.com/docs/ios/getting-started) and [Connect your app to Facebook](/connections/social/facebook).
-
-Here is an example of how the entries should look:
-
-![FB plist](/media/articles/native-platforms/ios-objc/fb-plist.png)
-
-3. Add the following key to the `Info.plist` inside the main `<dict>` key. To open this file in Source Code mode within Xcode, **Control-Click** (or right click) on it, and select **Open As > Source Code**.
-
-```xml
-<key>LSApplicationQueriesSchemes</key>
-<array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-</array>
-```
-**NOTE:** These entries enable compatibility with iOS 9. You can get more information about this on Facebook's developer portal at: [Preparing your apps for iOS 9](https://developers.facebook.com/docs/ios/ios9).
-
-4. Add Lock Facebook's Pod:
-
-`pod 'Lock-Facebook', '~> 2.0'`
-
-5. Add to the import:
-
-`#import <Lock-Facebook/A0FacebookAuthenticator.h>`
-
-6. Register it after initializing `A0Lock`:
+A basic example of how to use this information is:
 
 ```objc
-A0FacebookAuthenticator *facebook = [A0FacebookAuthenticator newAuthenticatorWithDefaultPermissions];
-[lock registerAuthenticators:@[facebook]];
+self.usernameLabel.text = profile.name
+self.emailLabel.text = profile.email
 ```
 
-### Twitter
+> For further reference on the `profile` object, check the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) class documentation.
+>
+> To learn how to save and manage the tokens and profile in detail, please read [this guide](/libraries/lock-ios/save-and-refresh-jwt-tokens). Note that Lock on its own will not save these for you.
 
-1. Add Lock Twitter's Pod
+Done. You've implemented Login and SignUp with Auth0 in your iOS ObjectiveC project. You're awesome!
 
-`pod 'Lock-Twitter', '~> 1.1'`
+> You can also <a href="/package/native-mobile-samples/master?path=iOS/profile-sample-objc&type=replace&filePath=iOS/profile-sample-objc/ProfileSample/Info.plist${account.clientParam}">download</a> our sample project, which shows how to store/update your user profile with Auth0.
 
-2. Add to the import:
+### Optional: Configure your Social Connections' Handlers
 
-`#import <Lock-Twitter/A0TwitterAuthenticator.h>`
-
-3. Configure Auth0 Twitter authenticator after you initialize `A0Lock`:
-
-```objc
-NSString *twitterApiKey = ... //Remember to obfuscate your api key
-NSString *twitterApiSecret = ... //Remember to obfuscate your api secret
-A0TwitterAuthenticator *twitter = [A0TwitterAuthenticator newAuthenticatorWithKey:twitterApiKey andSecret:twitterApiSecret];
-[lock registerAuthenticators:@[twitter]];
-```
-
-**NOTE:** For more information on configuring your app for Twitter, see: [Connect your app to Twitter](/connections/social/twitter).
-
-## Implement the login
-
-Now you are ready to implement the Login using Lock. You only need to instantiate and present it from any of your `UIViewControllers`, like this:
-
-${snippet(meta.snippets.use)}
-
-![Lock.png](/media/articles/native-platforms/ios-objc/Lock-Widget-Screenshot.png)
-
-::: panel-info Login UI Options
-There are multiple ways of implementing the login box. What you see above is the Login Widget. You can also [Build your own UI](/libraries/lock-ios/use-your-own-ui), or implement one of the passwordless Login Widgets: [SMS](/libraries/lock-ios#sms) or [TouchID](/libraries/lock-ios#touchid).
-:::
-
-On successful authentication, `onAuthenticationBlock` will yield the user's profile and tokens.
-
-**NOTE:** To learn how to save and manage the tokens and profile, see: [Lock iOS: Saving and Refreshing JWT Tokens](/libraries/lock-ios/save-and-refresh-jwt-tokens).
-
-## 5. Showing user information
-
-After the user has logged in, you can use the `profile` object which contains all the user information:
-
-```objc
-  self.usernameLabel.text = profile.name;
-  self.emailLabel.text = profile.email;
-```
-
-## Additional Information
-
-See [User Profile](/user-profile) to find out all of the available properties of the user profile. 
-
-Also see: [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserProfile.h).
-
-You can also download a [sample project](/package/native-mobile-samples/master?path=iOS/profile-sample-swift&file_path=iOS/profile-sample-swift/ProfileSample/Info.plist&type=replace&client_id=${account.clientId}) that shows how to store/update your user profile with Auth0.
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there will appear in the Login screen of your app. That's pretty much it!
