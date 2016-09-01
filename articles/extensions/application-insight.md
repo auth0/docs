@@ -14,13 +14,13 @@ At this point you should set the following configuration variables:
 - __Batch_Size__: TThe amount of logs to be read on each execution. Maximun is 100.
 - __AppInsights_Instrumentation_Key__: The Application Insights instrumentation key.
 
- Once you have provided the appropriate values for the above fields, click "Install" to proceed.
+ Once you have provided the appropriate values for the above fields, click __Install__ to proceed.
 
 ## Retrieve the required information from Application Insights
 
 Let's see how we can retrieve the __AppInsights_Instrumentation_Key__ information.
 
-1. Go to your [Azure Portal](https://portal.azure.com/#) and add a new Application Insights instance in your subscription. To do so click __New__ and search for `Application Insights`.
+1. Login to your [Azure Portal](https://portal.azure.com/#) and add a new _Application Insights_ instance in your subscription. To do so click __New__ and search for `Application Insights`.
 
 ![New Application Insights instance](/media/articles/extensions/appinsights/new-appinsights.png)
 
@@ -28,11 +28,11 @@ Let's see how we can retrieve the __AppInsights_Instrumentation_Key__ informatio
 
 ![Configure Application Insights instance](/media/articles/extensions/appinsights/conf-appinsights.png)
 
-3. Once the provisioning is complete (after a few seconds usually) you can get the Instrumentation Key from the Properties page.
+3. Once the provisioning is complete (after a few seconds usually) you can get the __Instrumentation Key__ from the Properties page.
 
 ![Application Insights Properties](/media/articles/extensions/appinsights/appinsights-properties.png)
 
-4. Copy this value and head back to the [Auth0 dashboard](${uiURL}). Set it at the __AppInsights_Instrumentation_Key__ field. Save your changes.
+4. Copy this value and head back to your [Auth0 dashboard](${uiURL}). Set it at the __AppInsights_Instrumentation_Key__ field. Save your changes.
 
 
 ## Use Your Installed Extension
