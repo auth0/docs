@@ -26,7 +26,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Custom Social Connections](/extensions/custom-social-extensions): manage custom social connections in an easy way.
 - [Auth0 Management API Webhooks](/extensions/management-api-webhooks): webhooks definition for the Auth0 Management API; goes through the audit logs and calls the appropriate webhook for specific events.
 - [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector): exposes endpoint for AD/LDAP connections monitoring.
-- [Auth0 Logs to Application Insight](/extensions/application-insight): exports Auth0 logs to Application Insights.
+- [Auth0 Logs to Application Insights](/extensions/application-insight): exports Auth0 logs to Application Insights.
 - [Auth0 Logs to Azure Blob Storage](/extensions/azure-blob-storage): exports Auth0 logs to Azure Blob Storage
 - [Auth0 Authentication API Webhooks](/extensions/authentication-api-webhooks): webhooks definition for the Auth0 Authentication API; goes through the audit logs and calls the appropriate webhook for specific events.
 - [Auth0 Logs to Loggly](/extensions/loggly): exports Auth0 logs to Loggly.
