@@ -83,7 +83,7 @@ The following table lists the codes associated with the appropriate log events.
   <tr><td>scpn</td><td>Success Change Phone Number</td></tr>
   <tr><td>scpr</td><td>Success Change Password Request</td></tr>
   <tr><td>scu</td><td>Success Change Username</td></tr>
-  <tr><td>sdu</td><td>Successful User Deletion</td></tr>
+  <tr><td>sdu</td><td>Success User Deletion</td></tr>
   <tr><td>seacft</td><td>Success Exchange</td></tr>
   <tr><td>ss</td><td>Success Signup</td></tr>
   <tr><td>sv</td><td>Success Verification Email</td></tr>
