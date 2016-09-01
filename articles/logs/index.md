@@ -11,7 +11,7 @@ Using the Auth0 Dashboard, you can pull log data on:
 
 ## How to View Log Data
 
-The **Logs** page of the [Auth0 Dashboard](${uiUrl}) displays all events that occur, including user authentication and administrative actions such as adding/updating Clients, Connections, and Rules.
+The **Logs** page of the [Auth0 Dashboard](${uiURL}) displays all events that occur, including user authentication and administrative actions such as adding/updating Clients, Connections, and Rules.
 
 ![](/media/articles/logs/dashboard-logs.png)
 
