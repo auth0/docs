@@ -26,7 +26,8 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet that is applied automatically as a new [Rule](/rules). This rule will be executed in Auth0 as part of the transaction everytime a user authenticates to your application. By default, Auth0 enables Guardian for everything, but you may edit the rule so that MFA is applied only to some clients or users, as show below. 
+
 
 ```js
 function (user, context, callback) {
