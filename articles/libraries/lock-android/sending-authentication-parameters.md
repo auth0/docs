@@ -1,17 +1,13 @@
----
-toc_title: Sending Authentication Parameters
----
-
 # Lock Android: Sending Authentication Parameters
 
-You can specify additional authentication parameters, before starting `LockActivity` or when calling any API method using `APIClient`, by using `ParameterBuilder` object to build the parameter dictionary. By default `ParameterBuilder` has the parameter `scope` with `openid offline_access` and `device` with the name obtained from
+You can specify additional authentication parameters, before starting `LockActivity` or when calling any API method using `APIClient`, by using `ParameterBuilder` object to build the parameter map. By default `ParameterBuilder` has the parameter `scope` with `openid offline_access` and `device` with the name obtained from
 ```java
 android.os.Build.MODEL
 ```
 The following example adds a `scope` parameter with the value `login`.
 ```java
-ParameterBuilder builder = ParameterBuilder.newBuilder();
-Map<String, Object> parameters = builder.setScope("login").asDictionary();
+ParameterBuilder builder = ParameterBuilder.newAuthenticationBuilder();
+        Map<String, Object> parameters = builder.setScope("login").asDictionary();
 ```
 
 The following parameters are supported:
