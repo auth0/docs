@@ -4,39 +4,107 @@ url: /logs
 
 # Logs
 
-This document lists useful information regarding the Logs from the Auth0 Dashboard.
+Using the Auth0 Dashboard, you can pull log data on:
 
-## How to view Log data
+* Actions performed by administrators using the Dashboard;
+* Authentications made by your users.
 
-The Auth0 dashboard, in the "Logs" screen, shows all events, including authentication events and administrative events such as adding or updating clients, connections and rules.  Administrative type events will show up as type "API Operation".
+## How to View Log Data
 
-## For how long is log file data available?
+The **Logs** page of the [Auth0 Dashboard](${uiUrl}) displays all events that occur, including user authentication and administrative actions such as adding/updating Clients, Connections, and Rules.
 
-The amount of data visible in the Logs screen varies by the plan you signed up for.  
+![](/media/articles/logs/dashboard-logs.png)
 
-The "Logs" screen has a banner which shows you how long log data is kept for your plan.
+Please note that administrative actions will show up in the logs as `API Operation` events.
 
-## How to view or export log file data?
+## Frequently Asked Questions
 
-If you wish to keep data for longer than that, we recommend that you use the API feature which allows you to retrieve log data.  You can store it yourself or there is an integration which allows you to transmit log data to external services such as splunk.
+### How long is log file data available?
 
-### Here are some useful links related to the Splunk integration:
+The length of time for which your data is stored varies depending on your plan.
 
-* https:///scenarios/splunk
-* https://splunkbase.splunk.com/app/1884/
-* https://github.com/auth0/splunk-auth0
- 
+You can see how long data is kept for your existing plan using the **Learn More** banner.
 
-## Tools to process logs 
+![](/media/articles/logs/log-storage-period.png)
 
-* https://www.npmjs.com/package/auth0-logs-processor
-* https://github.com/auth0/logs-processor
- 
-## Retrieving logs from the Management API
+### How do I view or export log file data?
 
-You can use the Management API v2 to do this, here are the two available endpoints:
+If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
-* [/api/v2/logs](/api/v2#!/Logs/get_logs) Retrieves log entries that match the specified search criteria (or list all entries if no criteria is used).
+* Store the data yourself;
+* Transmit the data to an external service such as Splunk.
 
-* [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id) Retrieves the data related to the log entry identified by id. This returns a single log entry representation as specified in the schema.
+#### Retrieving Logs from the Management API
 
+You can use the Management API v2 retrieve your logs. There are the two available endpoints, each providing slightly different quantities of information:
+
+* [/api/v2/logs](/api/v2#!/Logs/get_logs): Retrieves log entries that match the provided search criteria. If you do not provide any search criteria, you will get a list of all available entries;
+* [/api/v2/logs/{id}](/api/v2#!/Logs/get_logs_by_id): Retrieves the single log entry associated with the provided ID.
+
+## Log Data Event Listing
+
+The following table lists the codes associated with the appropriate log events.
+
+<table>
+  <thead><tr><th>Event Code</th><th>Event</th></tr></thead>
+  <tbody>
+  <tr><td>admin_update_launch</td><td>Auth0 Update Launched</td></tr>
+  <tr><td>api_limit</td><td>Rate Limit On API</td></tr>
+  <tr><td>cls</td><td>Code/Link Sent</td></tr>
+  <tr><td>coff</td><td>Connector Offline</td></tr>
+  <tr><td>con</td><td>Connector Online</td></tr>
+  <tr><td>cs</td><td>Code Sent</td></tr>
+  <tr><td>du</td><td>Deleted User</td></tr>
+  <tr><td>f</td><td>Failed Login</td></tr>
+  <tr><td>fapi</td><td>Failed API Operation</td></tr>
+  <tr><td>fc</td><td>Failed by Connector</td></tr>
+  <tr><td>fce</td><td>Failed Change Email</td></tr>
+  <tr><td>fco</td><td>Failed by CORS</td></tr>
+  <tr><td>fcp</td><td>Failed Change Password</td></tr>
+  <tr><td>fcpn</td><td>Failed Change Phone Number</td></tr>
+  <tr><td>fcpr</td><td>Failed Change Password Request</td></tr>
+  <tr><td>fcpro</td><td>Failed Connector Provisioning</td></tr>
+  <tr><td>fcu</td><td>Failed Change Username</td></tr>
+  <tr><td>fdu</td><td>Failed User Deletion</td></tr>
+  <tr><td>feacft</td><td>Failed Exchange</td></tr>
+  <tr><td>fn</td><td>Failed Sending Notification</td></tr>
+  <tr><td>fp</td><td>Failed Login (Incorrect Password)</td></tr>
+  <tr><td>fs</td><td>Failed Signup</td></tr>
+  <tr><td>fu</td><td>Failed Login (Invalid Email/Username)</td></tr>
+  <tr><td>fv</td><td>Failed Verification Email</td></tr>
+  <tr><td>fvr</td><td>Failed Verification Email Request</td></tr>
+  <tr><td>limit_mu</td><td>Blocked IP Address</td></tr>
+  <tr><td>limit_ui</td><td>Too Many Calls to /userinfo Endpoint</td></tr>
+  <tr><td>limit_wc</td><td>Blocked Account</td></tr>
+  <tr><td>s</td><td>Success Login</td></tr>
+  <tr><td>sapi</td><td>Success API Operation</td></tr>
+  <tr><td>sce</td><td>Success Change Email</td></tr>
+  <tr><td>scp</td><td>Success Change Password</td></tr>
+  <tr><td>scpn</td><td>Success Change Phone Number</td></tr>
+  <tr><td>scpr</td><td>Success Change Password Request</td></tr>
+  <tr><td>scu</td><td>Success Change Username</td></tr>
+  <tr><td>sdu</td><td>Successful User Deletion</td></tr>
+  <tr><td>seacft</td><td>Success Exchange</td></tr>
+  <tr><td>ss</td><td>Success Signup</td></tr>
+  <tr><td>sv</td><td>Success Verification Email</td></tr>
+  <tr><td>svr</td><td>Success Verification Email Request</td></tr>
+  <tr><td>sys_os_update_end</td><td>Auth0 OS Update Ended</td></tr>
+  <tr><td>sys_os_update_start</td><td>Auth0 OS Update Started</td></tr>
+  <tr><td>sys_update_end</td><td>Auth0 Update Ended</td></tr>
+  <tr><td>sys_update_start</td><td>Auth0 Update Started</td></tr>
+  <tr><td>w</td><td>Warnings During Login</td></tr>
+  </tbody>
+</table>
+
+## External Resources
+
+### Useful Links for Integrating Auth0 with Splunk
+
+* [Sending events to Splunk from Auth0](/scenarios/splunk)
+* [Splunk App for Auth0](https://splunkbase.splunk.com/app/1884/)
+* [GitHub Repo for the Splunk App for Auth0](https://github.com/auth0/splunk-auth0)
+
+## Tools to Process Logs
+
+* [Auth0 Logs Processor](https://www.npmjs.com/package/auth0-logs-processor)
+* [GitHub Repo for the Auth0 Logs Processor](https://github.com/auth0/logs-processor)
