@@ -6,7 +6,7 @@
 
 <context-param>
     <param-name>auth0.issuer</param-name>
-    <param-value>{ISSUER}</param-value>
+    <param-value>https://${account.namespace}/</param-value>
 </context-param>
 
 <context-param>
