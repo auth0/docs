@@ -27,7 +27,7 @@ Construct a new instance of the Auth0 client as follows:
     domain:       '${account.namespace}',
     clientID:     '${account.clientId}',
     callbackURL:  '{YOUR APP URL}',
-    callbackOnLocationHash: true
+    responseType: 'token'
   });
 
   //...
