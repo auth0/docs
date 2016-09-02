@@ -24,7 +24,7 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 
 If this block is triggered, it can be cleared the following ways:
 
-* An administrator removes the block via the Dashboard (by clicking `unblock for all IPs` under the `ACTIONS` button when viewing the user's details) or by using the [Management API](https://auth0.com/docs/api/management/v2#!/User_Blocks/delete_user_blocks) ;
+* An administrator removes the block via the [Dashboard](${uiURL}) (by clicking **unblock for all IPs** under the **ACTIONS** button when viewing the user's details) or by using the [Management API](/api/management/v2#!/User_Blocks/delete_user_blocks) ;
 * The User clicks on the "unblock" link provided in the email sent when the block went into effect;
 * The User changes their password.
 
