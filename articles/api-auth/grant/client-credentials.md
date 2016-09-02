@@ -14,3 +14,7 @@ This flow is not redirect based but is an API call made by the Client to the Aut
 
  - Allow the Client to make calls to the Resource Server on its own behalf (machine to machine)
  - APIs and services that are not user centric
+
+## Using Rules with Client Credential Grants
+
+You can now [use Rules with Client Credential Grants](/api-auth/grant/using-rules).
