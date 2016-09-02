@@ -12,16 +12,16 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
-pkgOrg: 'auth0-samples',
-pkgRepo: 'auth0-spring-mvc-sample',
-pkgBranch: 'master',
-pkgPath: '01-Login',
-pkgFilePath: '01-Login/src/main/resources/auth0.properties',
-pkgType: 'replace'
+  githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-spring-mvc-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: '01-Login/src/main/resources/auth0.properties',
+  pkgType: 'replace'
 }) %>
 
-In this step we will enable login with the [Lock widget](/libraries/lock). 
+In this step we will enable login with the [Lock widget](/libraries/lock).
 
 
 ### Authenticate the user
@@ -48,43 +48,43 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
-  <script src="/js/jquery.growl.js" type="text/javascript"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+    <script src="/js/jquery.growl.js" type="text/javascript"></script>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <script type="text/javascript">
-      $(function () {
-        var error = <%= "${error}" %>;
-        if (error) {
-          $.growl.error({message: "An error was detected. Please log in"});
-        } else {
-          $.growl({title: "Welcome!", message: "Please log in"});
-        }
-      });
-
-      $(function () {
-        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-          auth: {
-            params: {
-              state: {state},
-              // change scopes to whatever you like, see https:///scopes
-              // claims are added to JWT id_token - openid profile gives everything
-              scope: 'openid user_id name nickname email picture'
-            },
-            responseType: 'code',
-            redirectUrl: '${account.callback}'
-          }
+        $(function () {
+            var error = <%= "${error}" %>;
+            if (error) {
+                $.growl.error({message: "Please log in"});
+            } else {
+                $.growl({title: "Welcome!", message: "Please log in"});
+            }
         });
-        lock.show();
-      });
+        $(function () {
+            var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+                auth: {
+                    redirectUrl: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>${account.callback}',
+                    responseType: 'code',
+                    params: {
+                        state: '<%= "${state}" %>',
+                        scope: 'openid user_id name nickname email picture'
+                    }
+                }
+            });
+            // delay to allow welcome message..
+            setTimeout(function () {
+                lock.show();
+            }, 1500);
+        });
     </script>
-  </div>
+</div>
 </body>
 </html>
 ```
