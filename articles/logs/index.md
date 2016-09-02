@@ -32,7 +32,7 @@ You can see how long data is kept for your existing plan using the **Learn More*
 If you would like to store log data longer than the time period offered by your subscription plan, we recommend you use the [Management API feature that allows you to retrieve the relevant data](api/management/v2#!/Logs/get_logs). Once you've retrieved your data, you can:
 
 * Store the data yourself;
-* Transmit the data to an external service such as Splunk.
+* Transmit the data to an external service such as Splunk (consider using the [Auth0 Logs to Splunk Extension](/extensions/splunk)).
 
 #### Retrieving Logs from the Management API
 
@@ -96,15 +96,7 @@ The following table lists the codes associated with the appropriate log events.
   </tbody>
 </table>
 
-## External Resources
-
-### Useful Links for Integrating Auth0 with Splunk
-
-* [Sending events to Splunk from Auth0](/scenarios/splunk)
-* [Splunk App for Auth0](https://splunkbase.splunk.com/app/1884/)
-* [GitHub Repo for the Splunk App for Auth0](https://github.com/auth0/splunk-auth0)
-
-## Tools to Process Logs
+### Tools to Process Logs
 
 * [Auth0 Logs Processor](https://www.npmjs.com/package/auth0-logs-processor)
 * [GitHub Repo for the Auth0 Logs Processor](https://github.com/auth0/logs-processor)
