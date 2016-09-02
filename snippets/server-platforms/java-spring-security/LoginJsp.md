@@ -30,7 +30,6 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
                     responseType: 'code',
                     params: {
                         state: <%= "${state}" %>,
-                        // Learn about scopes: https://auth0.com/docs/scopes
                         scope: 'openid user_id name nickname email picture'
                     }
                 }

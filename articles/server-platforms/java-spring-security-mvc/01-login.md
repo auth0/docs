@@ -63,12 +63,9 @@ First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
 
-Afterwards, we use the `showSignin` method to open the widget on signin mode. We set several parameters as input, like `authParams` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+We set several parameters as input, like `redirectUrl` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
 
-By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F` where `xyz` is a randomly generated UUID.
-
-The NonceFactory can be used to generate such a nonce value. State may be needed to hold other attribute values hence why it has its own keyed value of `nonce=B4AD596E418F7CE02A703B42F60BAD8F`. For instance in SSO you may need an `externalCallbackUrl` which also needs to be stored down in the state param: `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback`.
-
+Once the `Auth0Lock` is initialized we display the widget using `lock.show()`.
 
 ## Display user information
 
@@ -88,7 +85,7 @@ ${snippet(meta.snippets.LoginHomeJsp)}
 
 ## Test the app
 
-We are now ready to test the application! 
+We are now ready to test the application!
 
 Build and run the project using `mvn spring-boot:run`. Then, go to [http://localhost:3099/login](http://localhost:3099/login).
 
@@ -102,7 +99,6 @@ Enter the credentials of the user you created earlier to test the login. You sho
 
 ## Done!
 
-That's it, you're done! You implemented basic login functionality using [Lock](/libraries/lock). 
+That's it, you're done! You implemented basic login functionality using [Lock](/libraries/lock).
 
 Continue to the next tutorial to see how you can create your own custom login.
-
