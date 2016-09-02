@@ -63,7 +63,7 @@ function (user, context, callback) {
 
   if (user.lastLoginDeviceFingerPrint !== deviceFingerPrint) {
 
-    user.persistent.lasLoginDeviceFingerPrint = deviceFingerPrint;
+    user.persistent.lastLoginDeviceFingerPrint = deviceFingerPrint;
 
     context.multifactor = {
       ignoreCookie: true,
