@@ -93,7 +93,9 @@ First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
 
-Afterwards, we use the `showSignin` method to open the widget on signin mode. We set several parameters as input, like `authParams` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+We set several parameters as input, like `redirectUrl` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+
+Once the `Auth0Lock` is initialized we display the widget using `lock.show()`.
 
 
 ### Display user information
