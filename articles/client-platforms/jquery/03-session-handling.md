@@ -13,6 +13,12 @@ description: This tutorial will show you how to integrate Auth0 with jQuery to a
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`.
 
 In this step, you will create a session for that user and also allow the user to log out.
@@ -28,9 +34,9 @@ Once the user is logged in, you will want to create a session for that user. To 
 ...
 var lock = null;
 lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
-auth: {
-  params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
-}
+  auth: {
+    params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
+  }
 });
 
 lock.on("authenticated", function(authResult) {

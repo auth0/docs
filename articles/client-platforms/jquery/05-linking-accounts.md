@@ -13,6 +13,12 @@ description: This tutorial will show you how to integrate Auth0 with jQuery to l
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with an email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile.
 
 ## Linking Accounts

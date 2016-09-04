@@ -13,6 +13,12 @@ description: This tutorial will show you how to use the Auth0 library to add cus
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 In the [previous step](/quickstart/spa/jquery/01-login), you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](/libraries/auth0js). In this case we will use Auth0's CDN (you can also use npm or bower for the same purpose).
 
 ## Custom Login
