@@ -1,4 +1,4 @@
-Add static property to `App` class to save your authentication client
+Add `static` property to `App` class to save your authentication client
 
 ```cs
 public static Auth0Client Auth0 { get; private set; }
