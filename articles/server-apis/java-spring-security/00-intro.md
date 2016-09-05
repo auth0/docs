@@ -4,20 +4,20 @@ name: Introduction to the Quickstart, and configuring environment
 ---
 
 <%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-api-sample',
-pkgOrg: 'auth0-samples',
-pkgRepo: 'auth0-spring-security-api-sample',
-pkgBranch: 'master',
-pkgPath: null,
-pkgFilePath: null,
-pkgType: 'none'
+  githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-spring-security-api-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: '00-Starter-Seed/src/main/resources/auth0.properties',
+  pkgType: 'replace'
 }) %>
 
 This quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your Java Spring Security API.
 
 ## Seed & Samples
 
-If you prefer to follow along with this quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-spring-security-api-sample/00-Starter-Seed). The seed project is just a basic Spring Security API.
+If you prefer to follow along with this quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/00-Starter-Seed). The seed project is just a basic Spring Security API.
 
 The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-spring-security-api-sample). You can find the final result for each step in the relevant folder inside the repository.
 

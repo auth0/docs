@@ -8,20 +8,21 @@ You can get started by either downloading the seed project or if you would like 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* Java 1.7
+* Java 1.8
 * Maven 3.3
 * Spring 4.2.4
 * Spring Security 4.0.1
+* Spring Boot 1.3.5
 :::
 
 <%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-api-sample',
-pkgOrg: 'auth0-samples',
-pkgRepo: 'auth0-spring-security-api-sample',
-pkgBranch: 'master',
-pkgPath: null,
-pkgFilePath: null,
-pkgType: 'none'
+  githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/03-Authorization',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-spring-security-api-sample',
+  pkgBranch: 'master',
+  pkgPath: '03-Authorization',
+  pkgFilePath: '03-Authorization/src/main/resources/auth0.properties',
+  pkgType: 'replace'
 }) %>
 
 In this step we will see how we can add role based authorization to our API, using [Rules](/rules).
