@@ -24,23 +24,27 @@ pkgFilePath: null,
 pkgType: 'none'
 }) %>
 
-If you have an existing application, please follow the steps below. You can find some useful information on our [GitHub library](https://github.com/auth0/auth0-spring-security-api).
+In this step we will see how we can add role based authorization to our API, using [Rules](/rules).
 
+## 1. Create a Rule to assign roles
 
-### 2. Configure Spring to use Auth0
+In our example we will create a simple rule that assigns two roles (`ROLE_ADMIN` and `ROLE_USER`) to any user. Of course you can change our sample code to match your needs.
 
-Add these annotations to your application class:
+To create a new rule, navigate to the [new rule page](${uiURL}/#/rules/new) and select the __Set Roles To A User__ template, under _Access Control_. Then, replace the sample script with the following:
 
-${snippet(meta.snippets.configure)}
+${snippet(meta.snippets.newRule)}
 
+The first condition of this rule makes sure that it runs only for a specific `CLIENT_ID`. Make sure the value matches the `CLIENT_ID` of the Client you are using for this API.
 
-### 3. Create the controllers
+## 2. Secure the endpoints
 
-Now, you can create the controllers. Every controller that has a route inside `/secured/` will ask for the JWT.
+For our sample, we will allow anyone to call our `ping` endpoint. We will also allow both `ROLE_USER` and `ROLE_ADMIN` to perform `GET` operations on our `/api/v1/profiles/**` endpoints. However, we will restrict the `POST`, `PUT` and `DELETE` operations to strictly `ROLE_ADMIN` role privilege.
 
-${snippet(meta.snippets.use)}
+Add the following code at the `AppConfig.java`:
 
-### 4. Call Your API
+${snippet(meta.snippets.AppConfig)}
+
+### 3. Call Your API
 
 You can now make requests against your secure API by providing the Authorization header in your requests with a valid JWT [id_token](/tokens#auth0-id_token-jwt-).
 
@@ -56,6 +60,6 @@ You can now make requests against your secure API by providing the Authorization
 
 Before making the request you should replace the port (`8000`) with the one on which your app is listening.
 
-### 5. You're done!
+### 4. You're done!
 
 You have configured your Java Spring Security API to use Auth0. Congrats, you're awesome!

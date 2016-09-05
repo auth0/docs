@@ -13,7 +13,7 @@ pkgFilePath: null,
 pkgType: 'none'
 }) %>
 
-This quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your Java Spring Security API. 
+This quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your Java Spring Security API.
 
 ## Seed & Samples
 
@@ -27,7 +27,6 @@ The final project after each of the steps is also available in the [Sample repos
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-Be sure to update the `src/main/resources/auth0.properties` file in the seed project with the correct values for your application. 
 
 ## Setup dependencies
 
@@ -43,7 +42,7 @@ ${snippet(meta.snippets.dependenciesGradle)}
 
 ## Configure your Spring Security API
 
-Your Spring Security API needs some information in order to authenticate against your Auth0 account. We have created a file for you but you need to update some of the entries with the valid values for your Client. The file is `/src/main/resources/auth0.properties` and it contains the following:
+Your Spring Security API needs some information in order to authenticate against your Auth0 account. We have created a file for you but you may need to update some of the entries with the valid values for your Client. The file is `/src/main/resources/auth0.properties` and it contains the following:
 
 ${snippet(meta.snippets.setup)}
 
