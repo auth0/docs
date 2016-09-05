@@ -85,7 +85,7 @@ auth0.Login({
 Optionally you can specify the `scope` parameter. There are two possible values for scope:
 
 * __scope: "openid"__ _(default)_ - this returns the `access_token`, and an `id_token` as a JSON Web Token (JWT). The JWT will only contain the user id.
-* __scope: "openid {attr1} {attr2} {attrN}"__ - if you want only specific user attributes to be included in the `id_token` (for example: `__scope: "openid name email picture"`).
+* __scope: "openid {attr1} {attr2} {attrN}"__ - if you want only specific user attributes to be included in the `id_token` (for example: `scope: "openid name email picture"`).
 
 For more information, see: [Scopes](/scopes).
 
