@@ -70,7 +70,7 @@ lock.on("authenticated", function(authResult) {
       return;
     }
 
-    localStorage.setItem('token', authResult.idToken);
+    localStorage.setItem('idToken', authResult.idToken);
     localStorage.setItem('profile', JSON.stringify(profile));
   });
 });
