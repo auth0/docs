@@ -13,6 +13,12 @@ description: This tutorial will show you how to customize Lock.
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 Using Lock is easy, but you may want to customize your login UI. There are several [customization](/libraries/lock/v10/customization) options available. The aspects explained here are not the only customizations available.
 
 ## Lock Options

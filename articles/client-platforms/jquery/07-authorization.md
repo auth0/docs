@@ -13,6 +13,12 @@ description: This tutorial will show you how to assign roles to your users, and 
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/jquery/06-rules' }) %>
 
 ### Create a Rule to assign roles
