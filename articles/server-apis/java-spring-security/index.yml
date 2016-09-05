@@ -16,5 +16,8 @@ snippets:
   dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
+  newRule: server-apis/java-spring-security/newRule
+  AppConfig: server-apis/java-spring-security/AppConfig
 articles:
-  - authenticate
+  - 00-intro
+  - 03-authorization
