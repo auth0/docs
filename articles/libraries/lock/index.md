@@ -4,7 +4,11 @@ url: /libraries/lock
 
 <%= include('/_includes/_lock-version') %>
 
-# Lock - The Easiest Way of Securing Your Website and Mobile Apps
+# Lock
+
+You're looking at the documentation for the _easiest_ way of securing your website and mobile apps! 
+
+Lock is an embeddable login form, which is [configurable to your needs](lock-customization) and ready for use on mobile devices. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out one of the pages listed below to delve into details about Lock usage, if you know what you are looking for, or continue down this page for a basic installation and usage guide!
 
 <%= include('/_includes/_lock-toc') %>
 
