@@ -65,7 +65,7 @@ var user = await auth0.LoginAsync(
 Optionally you can specify the `scope` parameter. There are various possible values for `scope`:
 
 * __scope: "openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
-* __scope: "openid {attr1} {attr2} {attrN}"__ - If you want only specific user's attributes to be part of the `id_token` (For example: `__scope: "openid name email picture"`).
+* __scope: "openid {attr1} {attr2} {attrN}"__ - If you want only specific user's attributes to be part of the `id_token` (For example: `scope: "openid name email picture"`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
 
