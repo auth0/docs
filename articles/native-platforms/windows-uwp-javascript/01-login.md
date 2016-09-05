@@ -93,7 +93,7 @@ For more information, see: [Scopes](/scopes).
 
 The `Auth0User` has the following properties:
 
-* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object from [Json.NET component](http://components.xamarin.com/view/json.net/) containing all available user attributes (e.g.:`user.Profile["email"].ToString()`).
+* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object from [Json.NET component](http://www.newtonsoft.com/json) containing all available user attributes (e.g.:`user.Profile["email"].ToString()`).
 * `IdToken`: a JSON Web Token (JWT) containing all of the user attributes and signed with your client secret.
 
 * `Auth0AccessToken`: the `access_token` that can be used to call the Auth0 API. For example, you could use this token to [Link Accounts](/link-accounts).
