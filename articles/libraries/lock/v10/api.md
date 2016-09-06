@@ -5,13 +5,13 @@
 Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and to explain how to use them in your applications.
 
 * [new Auth0Lock](#new-auth0lock-clientid-domain-options-) - Instantiating Lock
-* [getProfile()](#show-options-) - Obtaining profile of a logged in user
+* [getProfile()](#getprofile-token-callback-) - Obtaining the profile of a logged in user
 * [show()](#show-options-) - Showing the Lock widget
 * [on()](#on-event-callback-) - Listening for events
 
 ## new Auth0Lock(clientID, domain, options)
 
-Initializes a new instance of `Auth0Lock` configured with your application `clientID` and your account's `domain` at [Auth0](${uiURL}/). The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${uiURL}/#/applications).
+Initializes a new instance of `Auth0Lock` configured with your client's `clientID` and your account's `domain` from your [Auth0](${uiURL}/) management dashboard. The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${uiURL}/#/applications).
 
 - **clientId {String}**: Required parameter. Your application's _clientId_ in Auth0.
 - **domain {String}**: Required parameter. Your Auth0 _domain_. Usually _your-account.auth0.com_.
