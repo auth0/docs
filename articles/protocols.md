@@ -30,7 +30,7 @@ The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/
 
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
-* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
+* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
