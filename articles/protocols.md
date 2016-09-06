@@ -73,7 +73,7 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "access_token": ".....Access Token.....",
        "token_type": "bearer",
        "id_token": "......The JWT......"
-  }
+	}
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). See [scopes](/scopes) for more details.
 
