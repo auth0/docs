@@ -24,7 +24,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Instantiate the driver and configure the Auth0Lock
 
-In your main application file, you can now setup the `auth0Driver` and feed it you `clientID` and `domain`:
+In your main application file, you can now setup the `auth0Driver` and feed it your `clientID` and `domain`:
 
 ${snippet(meta.snippets.setup)}
 
