@@ -23,8 +23,6 @@ You must first create an app in the Auth0 dashboard before you can configure the
 4. Copy the *Domain*, *Client Id* and *Client Secret* settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
 5. Click **Save Changes** at the bottom of the page.
 
-![](/media/articles/cms/wordpress/wp-auth0-initial-config.gif)
-
 ## *Auth0 for WordPress* Plugin Settings
 
 ### Basic
