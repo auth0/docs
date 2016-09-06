@@ -102,7 +102,7 @@ Example usage to hide (close) the Lock widget in popup mode:
 ```js
 // Listen for authenticated event and hide Lock
 lock.on("authenticated", function() {
-  lock.hide()
+  lock.hide();
 });
 ```
 
