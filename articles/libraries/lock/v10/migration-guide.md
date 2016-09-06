@@ -18,7 +18,7 @@ The following instructions assume you are migrating from **Lock 9** to the lates
 
 ### Events Changed
 - Events have significantly changed between Lock 9 and Lock 10. The events that were emitted [in Lock 9](/libraries/lock/v9/events) are no longer used in Lock 10. The new events list for Lock 10 can be found on the [Lock 10 API page](/libraries/lock/v10/api).
-- Important notes about the new 'authenticated' event: The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
+- Important notes about the new `authenticated` event: The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
 - See information on all of the new events in Lock 10 on the [Lock 10 API page](/libraries/lock/v10/api).
 
 ### Internationalization
