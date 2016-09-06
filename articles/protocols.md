@@ -81,7 +81,7 @@ Notice that the call to exchange the `code` for an `access_token` is __server to
 
 ## OAuth2 PKCE for Public Clients
 
-This protocol is best suited for public clients that require increased security in the token exchange process. It is a better alternative to the [implicit flow]().
+This protocol is best suited for public clients that require increased security in the token exchange process. It is a better alternative to the [implicit flow](/protocols#oauth2-implicit-flow).
 
 > The full spec of this protocol can be found [here](https://tools.ietf.org/html/rfc7636).
 
