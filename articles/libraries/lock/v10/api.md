@@ -80,7 +80,9 @@ Options override examples:
 ```js
 // Show the Lock widget, without overriding any options
 lock.show();
+```
 
+```js
 // Show the Lock widget, overriding some options
 lock.show({
   allowedConnections: ["twitter", "facebook"],
@@ -115,7 +117,7 @@ Lock will emit events during its lifecycle. The `on` method can be used to liste
 - `unrecoverable_error`: emitted when there is an unrecoverable error, for instance when no connection is available. Has the error as the only argument.
 - `authenticated`: emitted after a successful authentication. Has the authentication result as the only argument. The authentication result contains the token which can be used to get the user's profile or stored to log them in on subsequent checks. 
 
-The authenticated event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
+The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`.
 
 An example use of the `authenticated` event:
 
