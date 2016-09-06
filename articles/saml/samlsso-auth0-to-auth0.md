@@ -312,7 +312,7 @@ If sufficient time has passed, or if you delete your browser cookies before init
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 
-/libraries/lock/customization#rememberlastlogin-boolean-0. Troubleshooting.
+# 10. Troubleshooting
 
 This section has a few ideas for things to check if your sample doesn't work.
 
