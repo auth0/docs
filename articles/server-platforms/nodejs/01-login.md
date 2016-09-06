@@ -114,7 +114,7 @@ You have configured your NodeJS Webapp to use Auth0. Congrats, you're awesome!
 
 #### Checking if the user is authenticated
 
-You can add the following middleware to check if the user is authenticated and redirect him to the login page if he's not:
+You can add the following middleware to check if the user is authenticated and redirect to the login page if not:
 
 ```js
 // requiresLogin.js
