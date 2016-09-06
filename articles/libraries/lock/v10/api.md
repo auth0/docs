@@ -2,7 +2,7 @@
 
 # API
 
-Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them.
+Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and to explain how to use them in your applications.
 
 * [new Auth0Lock](#new-auth0lock-clientid-domain-options-) - Instantiating Lock
 * [getProfile()](#show-options-) - Obtaining profile of a logged in user
@@ -139,3 +139,4 @@ lock.on("authenticated", function(authResult) {
 - `authorization_error`: emitted when authorization fails. Has the error as its only argument.
 - `hash_parsed`: _Note that this is a low level event for advanced use cases, and `authenticated` and `authorization_error` should be preferred when possible._ Every time a new Auth0Lock object is initialized in redirect mode (the default), it will attempt to parse the hash part of the URL, looking for the result of a login attempt. After that, this event will be emitted with `null` if it couldn't find anything in the hash. It will be emitted with the same argument as the `authenticated` event after a successful login or with the same argument as `authorization_error` if something went wrong. This event won't be emitted in [popup mode](/libraries/lock/v10/popup-mode), because in popup mode, there is no need to parse the URL's hash part.
 
+<%= include('../_includes/_lock-toc') %>
