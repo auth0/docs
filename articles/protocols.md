@@ -30,7 +30,7 @@ The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/
 
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
-* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
+* `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
 * `scope: 'openid {attr1} {attr2} {attrN}'`: If you want only specific user's attributes to be part of the `id_token` (For example: `scope: 'openid name email picture'`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
@@ -53,7 +53,7 @@ Upon successful authentication, the user will eventually return to your web site
 
     ${account.callback}/?code=AUTHORIZATION_CODE&state=OPAQUE_VALUE
 
-`CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step /libraries/lock/customization#rememberlastlogin-boolean-.
+`CALLBACK` is the URL you specified in step #2 (and configured in your settings). `state` should be the same value you sent in step #1.
 
 Your web site will then call Auth0 again with a request to obtain an "Access Token" that can be further used to interact with Auth0's APIs.
 
@@ -73,7 +73,7 @@ If the request is successful, you will get a JSON object with an `access_token`.
        "access_token": ".....Access Token.....",
        "token_type": "bearer",
        "id_token": "......The JWT......"
-  }
+	}
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`). See [scopes](/scopes) for more details.
 
@@ -81,7 +81,7 @@ Notice that the call to exchange the `code` for an `access_token` is __server to
 
 ## OAuth2 PKCE for Public Clients
 
-This protocol is best suited for public clients that require increased security in the token exchange process. It is a better alternative to the [implicit flow]().
+This protocol is best suited for public clients that require increased security in the token exchange process. It is a better alternative to the [implicit flow](/protocols#oauth2-implicit-flow).
 
 > The full spec of this protocol can be found [here](https://tools.ietf.org/html/rfc7636).
 
