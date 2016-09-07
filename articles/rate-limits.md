@@ -60,6 +60,8 @@ API requests to selected Authentication or Management API endpoints will return 
 
 The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [API explorer](api/management/v2).
 
+> If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection]()/anomaly-detection) for additional information.
+
 <table class="table">
   <tr>
       <th>Endpoint</th>
