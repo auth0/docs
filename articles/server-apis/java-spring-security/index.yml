@@ -18,6 +18,9 @@ snippets:
   use: server-apis/java-spring-security/use
   newRule: server-apis/java-spring-security/newRule
   AppConfig: server-apis/java-spring-security/AppConfig
+  PingController: server-apis/java-spring-security/PingController
+  SecurePingController:server-apis/java-spring-security/SecurePingController
 articles:
   - 00-intro
-  - 03-authorization
+  - 01-authentication
+  - 02-authorization
