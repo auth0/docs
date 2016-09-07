@@ -89,12 +89,13 @@ If the token is not specified you will get the following JSON as response.
   "status":403,
   "error":"Forbidden",
   "message":"Access Denied",
-  "path":"/secured/ping"}
+  "path":"/secured/ping"
+}
 ```
 
 A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
 
-![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
+![Obtain a JWT](/media/articles/server-apis/java-spring-security/request-jwt.png)
 
 Now you can use the `id_token` and pass it along in the Authorization header as a Bearer token.
 
