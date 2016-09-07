@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/nancyfx/setup
   use: server-platforms/nancyfx/use
 seo_alias: nancyfx
+default_article: 01-login
 articles:
   - 01-login

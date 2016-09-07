@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/php/setup
   use: server-platforms/php/use
 seo_alias: php
+default_article: 01-login
 articles:
   - 01-login

@@ -10,8 +10,8 @@ snippets:
 alias:
   - java
 seo_alias: java
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login
   - 09-mfa
-  

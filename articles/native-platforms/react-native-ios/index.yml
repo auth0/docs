@@ -14,5 +14,6 @@ snippets:
   setup: native-platforms/reactnative-ios/setup
   use: native-platforms/reactnative-ios/use
 seo_alias: react-native-ios
+default_article: 01-login
 articles:
   - 01-login

@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/servicestack/setup
   use: server-platforms/servicestack/use
 seo_alias: servicestack
+default_article: 01-login
 articles:
   - 01-login

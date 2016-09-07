@@ -17,5 +17,6 @@ snippets:
   use: client-platforms/cyclejs/use
   logout: client-platforms/cyclejs/logout
 seo_alias: cyclejs
+default_article: 01-login
 articles:
   - 01-login

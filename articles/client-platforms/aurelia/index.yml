@@ -22,5 +22,6 @@ snippets:
   template: client-platforms/aurelia/template
   tokenisexpired: client-platforms/aurelia/tokenisexpired
 seo_alias: aurelia
+default_article: 01-login
 articles:
   - 01-login

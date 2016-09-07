@@ -19,5 +19,6 @@ alias:
   - rich-client-application
   - rich-client
 seo_alias: wpf-winforms
+default_article: 01-login
 articles:
   - 01-login

@@ -11,5 +11,6 @@ alias:
   - aspnet-mvc
   - net-mvc
 seo_alias: aspnet
+default_article: 01-login
 articles:
   - 01-login
