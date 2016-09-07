@@ -44,7 +44,7 @@ public void Configuration(IAppBuilder app)
 
 Next you will need to add `Login` and `Logout` actions to the `AccountController`. 
 
-For the `Login` action you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out and then redirect them back to the home page:
+For the `Login` action you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out of the Authentication Manager and then redirect them back to the home page:
 
 ```cs
 public class AccountController : Controller

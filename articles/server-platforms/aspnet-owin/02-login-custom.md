@@ -15,7 +15,7 @@ description: This tutorial will show you how to create a custom login page for y
 
 ## Add the Auth0 Authentication SDK 
 
-To log in the user you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
+To log the user in you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
 
 ```bash
 Install-package Auth0.AuthenticationApi
@@ -25,7 +25,7 @@ Install-package Auth0.AuthenticationApi
 
 You need to create a Login form which will capture the user's email address and password and then use the Authentication SDK to sign the user it. 
 
-First create a view model called `LoginViewModel` to bind the values in the form to:
+First create a `ViewModels` folder in your project and add a class called `LoginViewModel` to bind the values in the form to:
 
 ```csharp
 public class LoginViewModel
@@ -207,6 +207,6 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 
 ## Run your application
 
-You can now run your application. When you click on the Login link you will be taken to the new Login page where you can sign in with either your email address and password, or with your Google account.
+You can now run your application. When you click on the Login link you will be taken to the new Login page where you can sign in with your email address and password.
 
 Next up, you can move on to the [Storing Tokens step](/quickstart/webapp/aspnet-owin/03-storing-tokens) which will demonstrate how you can can store the tokens returned by Auth0.

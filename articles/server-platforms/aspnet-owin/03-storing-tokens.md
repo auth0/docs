@@ -15,9 +15,9 @@ description: This tutorial will show you how store the tokens returned from Auth
 
 The Auth0 OAuth2 middleware will automatically add the `id_token` and `access_token` as claims on the `ClaimsIdentity`.
 
-This means that inside any of the actions in your controllers you can simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
+This means that inside any of your controllers you can simply cast the `User.Identity` property to a `ClaimsIdentity`, and then find the particular claim by querying the `Claims` property.
 
-The sample code below shows how you can extract the claims:
+The sample code below shows how you can extract the claims for the `access_token` and `id_token` respectively:
 
 ``` csharp
 var claimsIdentity = User.Identity as ClaimsIdentity;
