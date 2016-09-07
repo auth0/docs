@@ -6,7 +6,7 @@ section: appliance
 
 ### Accessing the Dashboard
 
-::: panel-warning
+::: panel-warning Connections for the Auth0 Client
 The **Auth0** client in the Root Tenant Authority (RTA) controls access to the Management Dashboard, and the only Connections that you should enable for this client is the built-in Database Connection (the default Connection for this client is a Database Connection called *Initial-Connection*) or an enterprise connection like the AD-LDAP Connector. You should **never** enable a Social Connection for the **Auth0** client.
 
 Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for the **Auth0** client.
