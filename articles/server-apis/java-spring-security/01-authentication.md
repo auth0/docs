@@ -31,7 +31,7 @@ Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an 
 
 ## 1. Configure JSON Web Token Signature Algorithm
 
-To configure the JWT Signature Algorithm, go to the settings for your client in the Auth0 Dashboard, scroll down and click on **Show Advanced Settings**. Go to the **OAuth** tab and set the **JsonWebToken Signature Algorithm** to the algorithm you want to use: **RS256** or **HS256**.
+To configure the JWT Signature Algorithm, go to the settings for your client in the Auth0 Dashboard, scroll down and click on **Show Advanced Settings**. Go to the **OAuth** tab and set the **JsonWebToken Signature Algorithm** to the algorithm you want to use: `RS256` or `HS256`.
 
 Save your changes.
 
@@ -49,7 +49,7 @@ The [library](https://github.com/auth0/auth0-spring-security-api) uses the `sign
 
 ## 2. Configure the endpoints
 
-In our example we will create two endpoints: `ping` and `secured/ping`. The former will not require authentication, while the later will do.
+In our example we will assume two endpoints: `ping` and `secured/ping`. The former will not require authentication, while the later will do.
 
 First we need to create the controller for our endpoints: `PingController.java`.
 
@@ -63,6 +63,8 @@ ${snippet(meta.snippets.SecurePingController)}
 
 To test your endpoints you need to start the API and then send the relevant HTTP requests.
 
+In order to build and run our seed project use the command: `mvn spring-boot:run`.
+
 To test the non-secure endpoint send a `GET` request at `http://localhost:3001/ping`.
 
 ```bash
@@ -73,7 +75,7 @@ You should get the message: `All good. You DO NOT need to be authenticated to ca
 
 To test the secure endpoint send a `GET` request at `http://localhost:3001/secured/ping`. In this case you will also have to add a valid `id_token` to your request.
 
-``bash
+```bash
 curl -X GET -H "Authorization: Bearer {YOUR_ID_TOKEN}" -H "Cache-Control: no-cache" "http://localhost:3001/secured/ping"
 ```
 
