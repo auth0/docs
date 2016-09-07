@@ -1,6 +1,6 @@
 ---
-title: Authenticate
-description: This tutorial will show you how to use the Auth0 Java Spring Security SDK to add authentication and authorization to your API.
+title: Authorization
+description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain API endpoints.
 ---
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
@@ -16,12 +16,12 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/03-Authorization',
+  githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-api-sample/tree/master/02-Authorization',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-spring-security-api-sample',
   pkgBranch: 'master',
-  pkgPath: '03-Authorization',
-  pkgFilePath: '03-Authorization/src/main/resources/auth0.properties',
+  pkgPath: '02-Authorization',
+  pkgFilePath: '02-Authorization/src/main/resources/auth0.properties',
   pkgType: 'replace'
 }) %>
 
