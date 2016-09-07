@@ -118,6 +118,7 @@ Also, the one named `transition_mode` has been deprecated and removed from the l
 
 For more information about events, check [Auth0 Lock Events](/libraries/lock/v10/events) section.
 
+<%= include('../_includes/_lock-toc') %>
 
 <!-- Links -->
 [readme-url]: /libraries/lock
@@ -125,3 +126,5 @@ For more information about events, check [Auth0 Lock Events](/libraries/lock/v10
 [responseType]: /libraries/lock/v10/customization#responsetype-boolean
 [icon]: /libraries/lock/v10/customization#icon-string
 [callbackurl-link]: /libraries/lock/v10/customization#callbackurl-string
+
+

@@ -96,7 +96,7 @@ You can get more information about this in the [Scopes documentation](/scopes).
   ],
   "postData": {
 		"mimeType": "application/json",
-		"text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"response_type\": \"code\",\"state\": \"\"}"
+		"text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"additionalParameters\":{\"response_type\": \"code\",\"state\": \"\"}}"
 	}
 }
 ```

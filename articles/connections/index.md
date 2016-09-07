@@ -30,7 +30,7 @@ description: Auth0 is an identity hub that supports the many authentication prov
 
 # Identity Providers Supported by Auth0
 
-Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, etc. Auth0 supports **Social**, **Enterprise**, **Database** and **Passwordless** connections.
+Auth0 is an identity hub that supports many authentication providers using various protocols: **OAuth2**, **WS-Federation**, etc. Auth0 supports [Social](#social), [Enterprise](#enterprise), [Database](#database-and-custom-connections) and [Passwordless](#passwordless) connections.
 
 ## Social
 
@@ -46,7 +46,11 @@ Auth0 supports the following social providers out of the box. You can also use a
 
 ## Database and Custom Connections
 
-Auth0 provides database connections to authenticate users with an email or username and a password and securely store these credentials in the Auth0 user store, or in your own database. See [Database Connections](/connections/database) for the full documentation.
+If you want to create your own user store, instead of using external identity providers like Google or Facebook, you can use a Database Connection. This way you can can authenticate users with an email or username and a password. The credentials can be securely stored either in the Auth0 user store, or in your own database.
+
+You can create any number of custom fields and store this information as part of the `user_metadata`. You can easily import users from a legacy user store, enable or disable sign ups, configure your password policy or enable Multifactor Authentication.
+
+For more details refer to the [Database Connections](/connections/database) documentation.
 
 ## Passwordless
 Full documentation on Passwordless authentication can be found at the links below:

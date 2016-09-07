@@ -19,7 +19,7 @@
       exit();
     }
 
-    // // validate the token
+    // validate the token
     $token = str_replace('Bearer ', '', $authorizationHeader);
     $secret = '${account.clientSecret}';
     $client_id = '${account.clientId}';

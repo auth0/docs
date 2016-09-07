@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-In this step we will enable login with the [Lock widget](/libraries/lock). 
+In this step we will enable login with the [Lock widget](/libraries/lock).
 
 
 ### Authenticate the user
@@ -75,7 +75,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 </html>
 ```
 
-__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `webapp` directory and you don't need to include them if you don't want to. The only necessary file is the `http://cdn.auth0.com/js/lock-9.min.js`.
+__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `webapp` directory and you don't need to include them if you don't want to. The only necessary file is the `${widget_url}`.
 
 First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 
@@ -90,7 +90,7 @@ Afterwards, we use the `showSignin` method to open the widget on signin mode. We
 
 Depending on which `scopes` you specified upon login, some user information may be available in the [id_token](/tokens#auth0-id_token-jwt-) received.
 
-The full user profile information is available as a session object keyed on `Auth0User`, you can call `SessionUtils.getAuth0User()` to retrieve it. 
+The full user profile information is available as a session object keyed on `Auth0User`, you can call `SessionUtils.getAuth0User()` to retrieve it.
 
 However, because the authenticated user is also a `java.security.Principal` object we can inject it into the Controller automatically for secured endpoints.
 
@@ -192,4 +192,3 @@ Once you login you are redirected to the home page that displays your profile pi
 Logout by clicking the **Logout** button at the top right of the home page.
 
 That's it, you 're done! You added authentication to your Java Servlet web app using Lock!
-

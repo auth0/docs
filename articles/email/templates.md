@@ -1,5 +1,5 @@
 ---
-description: The Emails section of the Auth0 dashboard allows you to customize your emails with markdown templates and macros.
+description: The Emails section of the Auth0 dashboard allows you to customize your emails with Liquid templating syntax.
 ---
 
 # Customizing Your Emails
@@ -8,7 +8,7 @@ description: The Emails section of the Auth0 dashboard allows you to customize y
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 
-The [Emails](${uiURL}/#/emails) dashboard allows you to customize your emails with markdown templates and macros. This can include references to the context of the current application or user. 
+The [Emails](${uiURL}/#/emails) dashboard allows you to customize your emails, including templating with some user attributes [using Liquid syntax](#email-templates). This can include references to the context of the current application or user. 
 
 ![](/media/articles/email/index/emails-fields.png)
 
@@ -101,21 +101,8 @@ User attributes are available from the  **Verification Email**, **Welcome Email*
 
 The available attributes vary depending on the syntax used.
 
-#### Using Markdown Syntax
-
-* `email`
-* `email_verified`
-* `picture`
-* `name`
-* `nickname`
-* `given_name`
-* `family_name`
-
-For example, you can refer to attributes in the template as follows:
-
-`Hello @@user.given_name@@ @@user.family_name@@`
-
 #### HTML + Liquid syntax
+Liquid syntax is the currently supported templating syntax to use when accessing user attributes in your email templates. Here are the attributes available to you:
 
 * `email`
 * `email_verified`
@@ -138,6 +125,21 @@ For example, you can refer to attributes in the template to control flow as foll
   Hi {{ user.name }}, ...
 {% endif %}
 ```
+
+#### Using Markdown Syntax
+The use of Markdown in email templating has been deprecated, and is only available for templates which were already using Markdown as the templating syntax. The available attributes for Markdown syntax are:
+
+* `email`
+* `email_verified`
+* `picture`
+* `name`
+* `nickname`
+* `given_name`
+* `family_name`
+
+For example, you can refer to attributes in the template as follows:
+
+`Hello @@user.given_name@@ @@user.family_name@@`
 
 ### Verification Email
 

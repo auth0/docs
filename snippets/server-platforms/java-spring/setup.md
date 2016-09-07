@@ -1,8 +1,8 @@
 ```properties
-auth0.domain: {DOMAIN}
-auth0.issuer: {ISSUER}
-auth0.clientId: {CLIENT_ID}
-auth0.clientSecret: {CLIENT_SECRET}
+auth0.domain: ${account.namespace}
+auth0.issuer: https://${account.namespace}/
+auth0.clientId: ${account.clientId}
+auth0.clientSecret: ${account.clientSecret}
 auth0.onLogoutRedirectTo: /login
 auth0.securedRoute: /portal/*
 auth0.loginCallback: /callback

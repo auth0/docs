@@ -208,3 +208,5 @@ var lock = new AuthLock(
   }
 );
 ```
+
+<%= include('../_includes/_lock-toc') %>

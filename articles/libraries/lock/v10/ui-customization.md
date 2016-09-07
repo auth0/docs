@@ -60,3 +60,6 @@ If you're looking for more detailed information while working to customize Lock 
 
 If you have specific theming options that you would like to see added, let us know. We are working on improving the available customization options through JavaScript, and this list will be updated as new options are added.
 
+<%= include('../_includes/_lock-toc') %>
+
+

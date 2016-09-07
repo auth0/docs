@@ -15,8 +15,6 @@ Auth0 Lock makes it easy to integrate SSO into your app. Lock's many benefits in
 * Finding the right icons for popular social providers.
 * Solving the home realm discovery challenge with enterprise users (i.e.: asking the enterprise user the email, and redirecting to the right enterprise identity provider).
 * Implementing a standard sign-in protocol (OpenID Connect / OAuth2 Login)
-  
-<div class="phone-mockup"><img src="/media/articles/libraries/lock-ios/lock-ios-animated.gif" alt="Lock iOS animation"/></div>
 
 ## Key features
 
@@ -53,7 +51,7 @@ You will also need to register a **Custom URL** type with a custom scheme in the
 
 For example, if your Client ID is `Exe6ccNagokLH7mBmzFejP`, the custom scheme would be `a0Exe6ccNagokLH7mBmzFejP`.
 
-Before you can begin using Lock, you will need to import Lock into your codebase. 
+Before you can begin using Lock, you will need to import Lock into your codebase.
 
 If you are working in Objective-C, import this header when you need to use Lock's classes:
 
@@ -75,7 +73,7 @@ If you are working in Swift with Lock included as an framework, just include the
 import Lock
 ```
 
-Now you can initialize `A0Lock` (which handles authentication) and keep it in your `AppDelegate` as a **strong** property. 
+Now you can initialize `A0Lock` (which handles authentication) and keep it in your `AppDelegate` as a **strong** property.
 
 **NOTE**: You can store `A0Lock` in a different location as long as you keep it alive as long as it is needed.
 
@@ -171,7 +169,7 @@ You will see the Lock native login screen:
 
 ### Close Lock UI
 
-You can add a **Close** button to Lock UI. For this to function, you will need to set the `closable` property to allow the `A0AuthenticationViewController` to be dismissed. The default value is `NO`. 
+You can add a **Close** button to Lock UI. For this to function, you will need to set the `closable` property to allow the `A0AuthenticationViewController` to be dismissed. The default value is `NO`.
 
 If you want to handle the closing event, you will need to add the `onUserDismissBlock` block which will be called when the user dismisses the Login screen only if the `closable` property is set to `YES`.
 
@@ -283,11 +281,11 @@ controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
 
 //Create custom SignUp view controller
 controller.customSignUp = ^ UIViewController *(A0Lock *lock, A0LockEventDelegate *delegate) {
-    
+
   YourCustomSignUpVC *signUpVC = …//your viewController;
   signUpVC.delegate = delegate;
   signUpVC.lock = lock;  
-  
+
   return signUpVC;
 };
 
@@ -396,7 +394,7 @@ self.presentViewController(controller, animated: true, completion: nil)
 
 ## Additional Information
 
-See the [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps. 
+See the [Swift](https://github.com/auth0-samples/auth0-ios-swift-sample) and [Objective-C](https://github.com/auth0-samples/auth0-ios-objc-sample) example apps.
 
 For more information on how to use Lock with Swift, see: [Lock iOS: Using Swift](/libraries/lock-ios/swift).
 
