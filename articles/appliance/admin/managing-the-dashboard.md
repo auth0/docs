@@ -6,11 +6,20 @@ section: appliance
 
 ### Accessing the Dashboard
 
+::: panel-warning
+The **Auth0** client in the Root Tenant Authority (RTA) controls access to the Management Dashboard, and the only Connections that you should enable for this client is the built-in Database Connection or an enterprise connection like the AD-LDAP Connector. You should **never** enable a Social Connection for the **Auth0** client.
+
+Additionally, please [disable signups](/appliance/admin/disabling-sign-ups) for the **Auth0** client.
+:::
+
+
 The [Auth0 Dashboard](/appliance/dashboard) uses the Auth0 Appliance to authenticate its users.
 
 Within the list of applications, you will see the Auth0 Application, which represents the Dashboard itself. It uses a connection called `Initial-Connection`, which stores the credentials of the administrators that have access to the Dashboard.
 
-> Changes to the Auth0 application or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
+::: panel-warning
+Changes to the Auth0 application or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
+:::
 
 Because the Dashboard uses the Appliance for authentication, any configured rules will run whenever a user accesses the Dashboard. Because errors in one or more of your rules may result in you losing access to the Dashboard, Auth0 suggests writing rules that exclude the Auth0 application:
 
