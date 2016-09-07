@@ -58,23 +58,112 @@ API requests to selected Authentication or Management API endpoints will return 
   </tr>
 </table>
 
-The following endpoints return rate limit-related headers.
+The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [API explorer](api/management/v2).
 
-<table>
+<table class="table">
   <tr>
       <th>Endpoint</th>
       <th>GET</th>
-      <th>GET [All]</th>
       <th>POST</th>
       <th>DELETE</th>
       <th>PATCH</th>
   </tr>
   <tr>
       <td>Client Grants</td>
+      <td>/client-grants</td>
+      <td>/client-grants</td>
+      <td>/client-grants/{id}</td>
+      <td>/client-grants/{id}</td>
+  </tr>
+  <tr>
+      <td>Clients</td>
+      <td>/client <br />/client/{id}</td>
+      <td>/client</td>
+      <td>/client/{id}</td>
+      <td>/client/{id}</td>
+  </tr>
+  <tr>
+      <td>Connections</td>
+      <td>/connections <br />/connections/{id}</td>
+      <td>/connections</td>
+      <td>/connections/{id} <br />/connections/{id}/users</td>
+      <td>/connections/{id}</td>
+  </tr>
+  <tr>
+      <td>Device Credentials</td>
+      <td>/device-credentials</td>
+      <td>/device-credentials</td>
+      <td>/device-credentials/{id}</td>
       <td></td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
-      <td>X</td>
+  </tr>
+  <tr>
+      <td>Logs</td>
+      <td>/logs <br />/log/{id}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+  </tr>
+  <tr>
+      <td>Rules</td>
+      <td>/rules <br />/rules/{id}</td>
+      <td>/rules</td>
+      <td>/rules/{id}</td>
+      <td>/rules/{id}</td>
+  </tr>
+  <tr>
+      <td>User Blocks</td>
+      <td>/user-blocks <br />/user-blocks/{id}</td>
+      <td></td>
+      <td>/user-blocks <br />/user-blocks/{id}</td>
+      <td></td>
+  </tr>
+  <tr>
+      <td>Users</td>
+      <td>/users <br /> /users/{id} <br />/users/{id}/logs <br />/users/{id}/enrollments</td>
+      <td>/users <br />/users/{id}/identities</td>
+      <td>/users/{id} <br />/users/{id}/identities <br />/users/{id}/multifactor/{provider}</td>
+      <td>/users/{id}</td>
+  </tr>
+  <tr>
+      <td>Emails</td>
+      <td>/emails/provider</td>
+      <td>/emails/provider</td>
+      <td></td>
+      <td>/emails/provider</td>
+  </tr>
+  <tr>
+      <td>Jobs</td>
+      <td>/jobs/{id} <br /> /jobs/{id}/errors</td>
+      <td>/jobs/verification-email <br />/jobs/users-imports</td>
+      <td></td>
+      <td></td>
+  </tr>
+  <tr>
+      <td>Resource Servers</td>
+      <td>/resource-servers <br />/resource-servers/{id}</td>
+      <td>/resource-servers</td>
+      <td>/resource-servers/{id}</td>
+      <td>/resource-servers/{id}</td>
+  </tr>
+  <tr>
+      <td>Stats</td>
+      <td>/stats/active-users <br />/stats/daily</td>
+      <td></td>
+      <td></td>
+      <td></td>
+  </tr>
+  <tr>
+      <td>Tenants</td>
+      <td>/tenants/settings</td>
+      <td></td>
+      <td></td>
+      <td>/tenants/settings</td>
+  </tr>
+  <tr>
+      <td>Tickets</td>
+      <td></td>
+      <td>/tickets/email-verification</td>
+      <td></td>
+      <td></td>
   </tr>
 </table>
