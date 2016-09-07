@@ -6,12 +6,9 @@ description: This tutorial will show you how to setup and run the nodejs webapp 
 This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your express apps with Auth0.
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
+  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
   pkgType: 'server'
 }) %>
 
