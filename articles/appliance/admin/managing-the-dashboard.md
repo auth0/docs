@@ -17,7 +17,7 @@ The [Auth0 Dashboard](/appliance/dashboard) uses the Auth0 Appliance to authenti
 
 Within the list of applications, you will see the Auth0 Application, which represents the Dashboard itself. It uses a connection called `Initial-Connection`, which stores the credentials of the administrators that have access to the Dashboard.
 
-::: panel-warning Changing the Auth0 Client or Initial-Connection
+::: panel-warning Changing the Appliance Client/Connection
 Changes to the Auth0 Client or `Initial-Connection` may result in unexpected Dashboard behavior. Please makes changes with caution.
 :::
 
