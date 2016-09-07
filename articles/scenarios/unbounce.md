@@ -1,7 +1,5 @@
 # Get User Information with one-click social authentication on Unbounce Landing Pages
 
-![](/media/articles/scenarios/unbounce/unbounce.gif)
-
 ### Configuration on Auth0
 
 1. Create an account in [Auth0](https://auth0.com)
@@ -19,14 +17,14 @@
 ```
 <script src="${auth0js_url_no_scheme}"></script>
 <script type="application/javascript">
-  
+
   var auth0 = new Auth0({
     domain:                 'REPLACE_WITH_YOUR_AUTH0_DOMAIN',
-    clientID:               'REPLACE_WITH_YOUR_AUTH0_CLIENT_ID', 
+    clientID:               'REPLACE_WITH_YOUR_AUTH0_CLIENT_ID',
     callbackURL:            'REPLACE_WITH_YOUR_UNBOUNCE_PAGE_URL', // e.g http://unbouncepages.com/changeit
     callbackOnLocationHash: true
   });
-  
+
 </script>
 ```
 
@@ -44,13 +42,13 @@ $('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
     connection: 'REPLACE_WITH_CONNECTION_NAME',  // you get the connection name from Auth0 dashboard (expand social provider)
     popup: true
   }, callback);
-      
+
   return false;
 });
 
 function callback(err, profile, id_token, access_token, state) {
   if (err) alert('There was an error, please try again');
-  
+
   // normalized attributes from Auth0
   $('#INPUT_1').val(profile.name);
   $('#INPUT_2').val(profile.email);
@@ -58,7 +56,7 @@ function callback(err, profile, id_token, access_token, state) {
   $('#INPUT_4').val(profile.family_name);
   $('#INPUT_5').val(profile.nickname);
   $('#INPUT_6').val(profile.picture);
-  
+
   // provider-speicifc attributes
   if (profile.headline) $('#INPUT_7').val(profile.headline);
 }
@@ -66,4 +64,3 @@ function callback(err, profile, id_token, access_token, state) {
 ```
 
 > Note: the name of the connection (REPLACE_WITH_CONNECTION_NAME) can be taken from the Auth0 dashboard under Connections -> Social and expanding the provider. Also, make sure to change the input IDs.
-
