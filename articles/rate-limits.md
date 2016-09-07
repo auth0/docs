@@ -159,11 +159,4 @@ The following Auth0 API endpoints return rate limit-related headers. For additio
       <td></td>
       <td>/tenants/settings</td>
   </tr>
-  <tr>
-      <td>Tickets</td>
-      <td></td>
-      <td>/tickets/email-verification</td>
-      <td></td>
-      <td></td>
-  </tr>
 </table>
