@@ -11,13 +11,13 @@ description: Customize the UI of Lock in your App
 
 > We are going to use the library [EventBus](https://github.com/greenrobot/EventBus) in order to post authentication related events like *authentication done* and  *authentication failed*
 
-1.  Add the following dependencies to your project:
+Add the following dependencies to your project:
   ```gradle
   compile 'com.auth0.android:core:1.15.+'
   compile 'de.greenrobot:eventbus:2.4.+'
   ```
 
-1. Create a new resource file named `auth0.xml` under `values` and add the following content, replacing the values with your Auth0 ClientId and Domain
+Create a new resource file named `auth0.xml` under `values` and add the following content, replacing the values with your Auth0 ClientId and Domain
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <resources>
@@ -26,7 +26,7 @@ description: Customize the UI of Lock in your App
   </resources>
   ```
 
-1. Create two classes `AuthenticationEvent` and `ErrorEvent` that will represent a successful authentication or a failed one
+Create two classes `AuthenticationEvent` and `ErrorEvent` that will represent a successful authentication or a failed one
   ```java
   public class AuthenticationEvent {
       private final UserProfile profile;
@@ -60,20 +60,20 @@ description: Customize the UI of Lock in your App
   }
   ```
 
-1. Then in your Login *Activity* add the following fields
+Then in your Login *Activity* add the following fields
   ```java
       private AuthenticationAPIClient client;
       private EventBus eventBus;
   ```
 
-1. In the same *Activity* `onCreate` method add the following lines to initialize **Auth0** and the fields we added earlier
+In the same *Activity* `onCreate` method add the following lines to initialize **Auth0** and the fields we added earlier
   ```java
       Auth0 auth0 = new Auth0(getString(R.string.auth0_client_id), getString(R.string.auth0_domain_name));
       this.client = auth0.newAuthenticationAPIClient();
       this.eventBus = new EventBus();
   ```
 
-1. When you need to login your user with email/password credentials, just paste the following code
+When you need to login your user with email/password credentials, just paste the following code
   ```java
       String email = ... // Get email
       String password = ... // Get password
@@ -99,7 +99,7 @@ description: Customize the UI of Lock in your App
   ```
   > For more details about the parameters you can check [this wiki page](/libraries/lock-android/sending-authentication-parameters).
 
-1. Finally handle both `AuthenticationEvent` and `ErrorEvent`
+Finally handle both `AuthenticationEvent` and `ErrorEvent`
   ```java
       @Override
       protected void onStart() {
@@ -124,19 +124,19 @@ description: Customize the UI of Lock in your App
 
 ## Social Authentication
 
-1. Include the following libraries in your `build.gradle`:
+Include the following libraries in your `build.gradle`:
   ```gradle
       compile 'com.auth0.android:identity-core:1.15.+'
       compile 'com.auth0.android:lock-facebook:2.4.+'
       compile 'com.auth0.android:lock-googleplus:2.4.+'
   ```
 
-1. In your `auth0.xml` file add the following entry
+In your `auth0.xml` file add the following entry
   ```xml
   <string name="auth0_scheme">a0${account.clientId.toLowerCase()}</string>
   ```
 
-1. Configure your Login *Activity* adding the following intent filters in your `AndroidManifest.xml` file
+Configure your Login *Activity* adding the following intent filters in your `AndroidManifest.xml` file
   ```xml
   <intent-filter>
       <action android:name="android.intent.action.VIEW"/>
@@ -146,7 +146,7 @@ description: Customize the UI of Lock in your App
   </intent-filter>
   ```
 
-1. Create a new class that implements `IdentityProviderCallback`, that will handle social authentication (via native integration or using web browser) and post a new event either on success or failure
+Create a new class that implements `IdentityProviderCallback`, that will handle social authentication (via native integration or using web browser) and post a new event either on success or failure
   ```java
   public class MyIdentityProviderCallback implements IdentityProviderCallback {
       private final EventBus bus;
@@ -206,7 +206,7 @@ description: Customize the UI of Lock in your App
   }
   ```
 
-1. In your Login *Activity* add the following fields
+In your Login *Activity* add the following fields
   ```java
       private WebIdentityProvider webProvider;
       private IdentityProvider identity;
@@ -214,7 +214,7 @@ description: Customize the UI of Lock in your App
       private FacebookIdentityProvider facebook;
   ```
 
-1. And implement the following methods
+And implement the following methods
   ```java
       @Override
       protected void onStop() {
@@ -239,21 +239,21 @@ description: Customize the UI of Lock in your App
       }
   ```
 
-1. In the method `onCreate` initialize Auth0 web provider and store it in a field
+In the method `onCreate` initialize Auth0 web provider and store it in a field
   ```java
       final MyIdentityProviderCallback callback = new MyIdentityProviderCallback(eventBus, client);
       this.webProvider = new WebIdentityProvider(new CallbackParser(), auth0.getClientId(), auth0.getAuthorizeUrl());
       this.webProvider.setCallback(callback);
   ```
 
-1. Configure Facebook Native integration
+Configure Facebook Native integration
   ```java
     this.facebook = new FacebookIdentityProvider(this);
     this.facebook.setCallback(callback);
   ```
   > **Note**: You need to [configure](https://developers.facebook.com/docs/android/getting-started#app_id) your Android app for Facebook
 
-1. Configure Google+ Native integrationApplication class)
+Configure Google+ Native integrationApplication class)
   ```java
     this.googleplus = new GooglePlusIdentityProvider(this);
     this.googleplus.setCallback(callback);
