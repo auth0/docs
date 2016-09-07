@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: This tutorial will show you how to display get the user's profile and display it.
+description: This tutorial will show you how to get the user's profile and display it.
 ---
 
 <%= include('../../_includes/_package', {
