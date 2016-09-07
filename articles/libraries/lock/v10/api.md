@@ -2,7 +2,7 @@
 
 # API
 
-Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and to explain how to use them in your applications.
+Lock has many methods, features, and configurable options. This reference is designed to direct you to the ones that you need, and discuss how to use them. Click below to go straight the method you're looking for, or just browse! if you're looking for information about events emitted by Lock, they're listed under the [on()](#on-event-callback-) method section!
 
 * [new Auth0Lock](#new-auth0lock-clientid-domain-options-) - Instantiating Lock
 * [getProfile()](#getprofile-token-callback-) - Obtaining the profile of a logged in user
@@ -105,6 +105,9 @@ Example usage to hide (close) the Lock widget in popup mode:
 // Listen for authenticated event and hide Lock
 lock.on("authenticated", function() {
   lock.hide();
+  
+  // Whatever else you'd like to do on authenticated event
+  
 });
 ```
 
@@ -131,7 +134,7 @@ lock.on("authenticated", function(authResult) {
       return;
     }
     // Store the token from authResult for later use
-    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('idToken', authResult.idToken);
     // Display user information
     show_profile_info(profile);
   });
