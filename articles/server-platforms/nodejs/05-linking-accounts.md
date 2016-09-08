@@ -11,13 +11,9 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
+  pkgRepo: 'auth0-nodejs-webapp-sample',
   pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
