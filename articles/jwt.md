@@ -95,7 +95,7 @@ The signature is used to verify that the sender of the JWT is who it says it is 
 The output is three Base64 strings separated by dots that can be easily passed in HTML and HTTP environments, while being more compact when compared to XML-based standards such as SAML.
 
 The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret.
-![](/media/articles/jwt/encoded-jwt3.png)
+![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
 
 If you want to play with JWT and put these concepts into practice, you can use [jwt.io Debugger](http://jwt.io) to decode, verify, and generate JWTs.
 
@@ -117,7 +117,7 @@ This allows you to fully rely on data APIs that are stateless and even make requ
 
 The following diagram shows this process:
 
-![](/media/articles/jwt/jwt-diagram.png)
+![How a JSON Web Token works](/media/articles/jwt/jwt-diagram.png)
 
 ## Why should we use JSON Web Tokens?
 
