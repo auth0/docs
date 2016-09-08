@@ -13,4 +13,11 @@ alias:
   - passport
 seo_alias: nodejs
 articles:
+  - 00-intro
   - 01-login
+  - 02-login-custom
+  - 04-user-profile
+  - 05-linking-accounts
+  - 06-rules
+  - 07-authorization
+  - 10-customizing-lock
