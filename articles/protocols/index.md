@@ -338,7 +338,7 @@ function(user,context,callback){
 }
 ```
 
-if `context.redirect` is set, and after all rules are executed, the user will be redirected to the `url`, with at least one additional query string parameter `state`.
+if `context.redirect` is set, and after all rules are executed, the user will be redirected to the `url`, with a possible additional query string parameter `state`.
 
 What happens in that location is up to the developer. Typical uses of this facility include:
 
@@ -358,7 +358,7 @@ To resume the transaction, user needs to `POST` or `GET` to the url: `https://${
 
 	{body}
 
-Notice that `state` __must__ match what was sent by Auth0 to the endpoint. The `{body}` or other query string parameters are app specific.
+Notice that `state` __must__ match what was sent by Auth0 to the endpoint, if no `state` parameter was received by your endpoint you should set value to an empty string. The `{body}` or other query string parameters are app specific.
 
 Transactions that are resumed can be easily be identified with the `protocol=redirect-callback` property:
 
