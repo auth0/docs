@@ -6,7 +6,7 @@
 2. Go to **Applications -> NEW**. Crete an HTML5 Application on Auth0 dashboard and go to Settings and take note of the Client ID and Domain.
 3. Go to **Connections -> Social** and Turn on the Social Providers you want to support.
 
-![](https://cloudup.com/c-l39hZ2KH4+)
+![](/media/articles/scenarios/unbounce/social-connections.png)
 
 > NOTE: if you want to show your own logo on the consent page of the social provider, click on the provider logo and it will be expanded. Click on How to obtain a CLient ID link for instructions.
 
@@ -32,7 +32,7 @@
 
 3. You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and add Hidden fields for each field. In the following example we are using the [normalized profile](/user-profile) fields `name`, `email`, `given_name`, `family_name`, `nickname` and `picture` and at the end you can see a LinkedIn field called `headline`.
 
-  ![](https://cloudup.com/caDtUPj4EO3+)
+![](/media/articles/scenarios/unbounce/custom-fields.png)
 
 3. Finally, go back to the JavaScript editor at Unbounce and add a click handler for each button to trigger the social authentication.
 
