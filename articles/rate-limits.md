@@ -39,7 +39,7 @@ If your app triggers the rate limit, please refrain from making additional reque
 
 API requests to selected Authentication or Management API endpoints will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
-<table>
+<table class="table">
   <tr>
     <th>Header</th>
     <th>Description</th>
