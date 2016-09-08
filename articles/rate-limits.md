@@ -39,24 +39,9 @@ If your app triggers the rate limit, please refrain from making additional reque
 
 API requests to selected Authentication or Management API endpoints will return HTTP Response Headers that provide relevant data on where you are at for a given rate limit. If you receive a rate limit-related response header, it will include numeric information detailing your status.
 
-<table class="table">
-  <tr>
-    <th>Header</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>X-RateLimit-Limit</td>
-    <td>Request limit</td>
-  </tr>
-  <tr>
-    <td>X-RateLimit-Remaining</td>
-    <td>Requests available for the current time frame</td>
-  </tr>
-  <tr>
-    <td>X-RateLimit-Reset</td>
-    <td>Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))</td>
-  </tr>
-</table>
+* **X-RateLimit-Limit**: Request limit
+* **X-RateLimit-Remaining**: Requests available for the current time frame
+* **X-RateLimit-Reset**: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
 
 The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [API explorer](api/management/v2).
 
