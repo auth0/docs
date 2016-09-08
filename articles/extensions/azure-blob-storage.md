@@ -6,7 +6,9 @@ Azure Blob storage is a service that stores unstructured object data, such as te
 
 ## Configure the Extension
 
-To install and configure this extension, click on the __Auth0 Logs to Azure Blob Storage__ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}). The __Install Extension__ window pops open.
+To install and configure this extension, navigate to the [Extensions](${uiURL}/#/extensions) page and click on the __Auth0 Logs to Azure Blob Storage__ box in the list of provided extensions.
+
+The __Install Extension__ window pops open.
 
 ![Install Auth0 Logs to Azure Blob Storage Extension](/media/articles/extensions/azure/extension-mgmt-azure.png)
 
@@ -22,9 +24,9 @@ Once you have provided this information, click the *Install* button to finish in
 
 ## Retrieve the required information from Azure Portal
 
-We need the following information: Account Name, Account Key, and Container Name. Let's see how we can retrieve these from Azure Portal.
+We need the following information: Account Name, Account Key, and Container Name. Let's see how we can retrieve these values from Azure Portal.
 
-We assume here that you have an Azure account. If you don’t have one, you can go to [Azure](http://azure.microsoft.com/) and sign up.
+We assume that you have an Azure account. If you don’t have one, you can go to [Azure](http://azure.microsoft.com/) and sign up.
 
 Log into your Azure account and click on __Storage accounts__ on the left-hand side. Either select your storage account, or create a new one.
 
@@ -38,7 +40,7 @@ To retrieve the rest of the information, click on the Storage account name. The 
 
 You can create a new container or use an existing one. The one we created is named `auth0`.
 
-This value should be set as __Storage_Container_Name__
+This value should be set as __Storage_Container_Name__.
 
 ![Azure Container Name](/media/articles/extensions/azure/storage-container-name.png)
 
@@ -51,7 +53,7 @@ Now that you have retrieved all three values head back to the [Auth0 dashboard](
 
 ## Use Your Installed Extension
 
-To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}), click on the __Installed Extensions__ link, and select the __Auth0 Logs to Azure Blob Storage__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
+To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page, click on the __Installed Extensions__ link, and select the __Auth0 Logs to Azure Blob Storage__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
 
 ![View Cron Jobs](/media/articles/extensions/azure/view-cron-jobs.png)
 
