@@ -14,7 +14,7 @@ This protocol is best suited for web sites that need:
 
 > In the literature you might find this flow referred to as __Authorization Code Grant__. The full spec of this flow is [here](http://tools.ietf.org/html/rfc6749#section-4.1).
 
-![](https://docs.google.com/drawings/d/1RZYKxbO5LM3fBhL8hs5-wefUkwDgPo-lOuoHWBdc0RI/pub?w=793&amp;h=437)
+![](/media/articles/protocols/protocols1.png)
 
 ### 1. Initiation
 
@@ -85,7 +85,7 @@ This protocol is best suited for public clients that require increased security 
 
 > The full spec of this protocol can be found [here](https://tools.ietf.org/html/rfc7636).
 
-![](https://docs.google.com/drawings/d/1VAhgi3-Gz7QZ5eBSmMY76L77awjrHWKmZ5qqIYqUqis/pub?w=752&h=282)
+![](/media/articles/protocols/protocols2.png)
 
 ### 1. Initiation
 
@@ -136,7 +136,7 @@ This protocol is available for public clients that might not require the additio
 
 > The full spec of this protocol can be found [here](http://tools.ietf.org/html/rfc6749#section-4.2).
 
-![](https://docs.google.com/drawings/d/1S_p6WdsOno50aKlr08SueWL25a86l86e8CQLMyDQx_8/pub?w=752&amp;h=282)
+![](/media/articles/protocols/protocols3.png)
 
 ### 1. Initiation
 

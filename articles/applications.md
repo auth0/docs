@@ -41,7 +41,7 @@ On application level we are able to choose which connections are enabled, which 
 
 ### Rules
 
-![](//docs.google.com/drawings/d/16W_hTS_u2CeDFXkD2PlfituFl7b74EQ6HE_XYn3TdD0/pub?w=891&h=283)
+![](/media/articles/applications/rules-flow.png)
 
 [Rules](/rules) are code snippets written in JavaScript that are executed as part of the authentication pipeline in Auth0. This happens every time a user authenticates to an application. Rules enable very powerful customizations and extensions to be easily added to Auth0.
 
