@@ -128,7 +128,7 @@ For example, you can refer to attributes in the template to control flow as foll
 
 #### Using Markdown Syntax
 
-> Use of Markdown in email templates has been deprecated, so you will no longer be able to add new Markdown formatting. If you have an existing template in Markdown, you will be able to toggle from Markdown to Liquid, but changing this setting will result in  you losing any existing Markdown.
+> Use of Markdown in email templates has been deprecated, so you will no longer be able to add new Markdown formatting. If you have an existing template in Markdown, you will be able to toggle from Markdown to Liquid, but changing this setting will result in  you losing any existing Markdown, as well as the ability to use Markdown.
 
 The use of Markdown in email templating has been **deprecated**, and is only available for templates which were already using Markdown as the templating syntax. The available attributes for Markdown syntax are:
 
