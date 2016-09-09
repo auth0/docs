@@ -75,7 +75,7 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 </html>
 ```
 
-__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `webapp` directory and you don't need to include them if you don't want to. The only necessary file is the `${widget_url}`.
+__NOTE__: The sample also includes several css, js, and font files, which are not listed in this document for brevity. These files can be found under the `webapp` directory and you don't need to include them if you don't want to. The only necessary file is the `${lock_url}`.
 
 First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 
@@ -183,7 +183,7 @@ Then open your browser and go to [http://localhost:3099/login](http://localhost:
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-The widget displays all the social and database connections that you have defined for this application in the [dashboard](${uiURL}/#/).
+The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 Once you login you are redirected to the home page that displays your profile picture, user id, and nickname.
 

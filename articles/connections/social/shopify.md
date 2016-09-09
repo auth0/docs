@@ -41,7 +41,7 @@ On the page that follows, your `API Key` and `Shared Secret` will be displayed. 
 
 ### 4. Enter your API Key and Shared Secret into Auth0
 
-In a separate window, go to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 Dashboard.
+In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 Dashboard.
 
 Select Shopify:
 

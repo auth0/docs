@@ -26,11 +26,11 @@ You will need to create a client that you will call from your service to interac
 
 To create a client, follow these steps:
 
-1. Go to the [Clients](${uiURL}/#/applications) section of the Auth0 dashboard and click **Create Client**. Select **Non Interactive Clients** and click **Create**. Once the cient is created, copy the `Client ID` and `Client Secret` from the **Settings** page.
+1. Go to the [Clients](${manage_url}/#/applications) section of the Auth0 dashboard and click **Create Client**. Select **Non Interactive Clients** and click **Create**. Once the cient is created, copy the `Client ID` and `Client Secret` from the **Settings** page.
 
-2. Next, go to the [APIs](${uiURL}/#/apis) section of the Auth0 dashboard and select the **Auth0 Management API**.
+2. Next, go to the [APIs](${manage_url}/#/apis) section of the Auth0 dashboard and select the **Auth0 Management API**.
 
-    **NOTE:** If you do not see the **APIs** option in the left menu, you must enable it. Go to [Account Settings > Advanced](${uiURL}/#/account/advanced) and select **Enable APIs Section**.
+    **NOTE:** If you do not see the **APIs** option in the left menu, you must enable it. Go to [Account Settings > Advanced](${manage_url}/#/account/advanced) and select **Enable APIs Section**.
 
 3. Select the **Non Interactive Clients** tab and authorize the app you just created.
 

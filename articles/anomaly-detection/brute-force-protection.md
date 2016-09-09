@@ -13,4 +13,4 @@ The email sent to the user looks like this:
 
  ![docs/img/bfp-2015-12-29_1832.png](/media/articles/brute-force-protection/bfp-2015-12-29_1832.png)
 
-The template used for this message can be customized on the [Dashboard](${uiURL}/#/emails) under __Emails > Templates > Blocked Account Email__.
+The template used for this message can be customized on the [Dashboard](${manage_url}/#/emails) under __Emails > Templates > Blocked Account Email__.

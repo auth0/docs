@@ -4,7 +4,7 @@ You can configure Slack to log in with Auth0. That way, users would be able to l
 
 # Configuring Your Auth0 Account
 
-Log in to the Auth0 [Management Dashboard](${uiURL}).
+Log in to the Auth0 [Management Dashboard](${manage_url}).
 
 Select **SSO Integrations**.
 

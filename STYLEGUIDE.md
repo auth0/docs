@@ -119,7 +119,7 @@ Refer to the developer's customer as the "user". Be sure to keep the idea of the
 
 ### The dashboard
 
-The [Auth0 management console](${uiURL}) is referred to as the "dashboard".
+The [Auth0 management console](${manage_url}) is referred to as the "dashboard".
 
 
 

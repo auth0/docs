@@ -4,13 +4,13 @@ description: The Delegated Administration extension allows you to expose the Use
 
 # Delegated Administration
 
-The **Delegated Administration** extension allows you to expose the [Users dashboard](${uiURL}/#/users) to a group of users, without having to provide access to them to the [dashboard](${uiURL}/#/). Instead the [Users dashboard](${uiURL}/#/users) is exposed as an Auth0 client. Let's see how this is done.
+The **Delegated Administration** extension allows you to expose the [Users dashboard](${manage_url}/#/users) to a group of users, without having to provide access to them to the [dashboard](${manage_url}/#/). Instead the [Users dashboard](${manage_url}/#/users) is exposed as an Auth0 client. Let's see how this is done.
 
 **NOTE**: This extension is currently available only for the public cloud. Extensions are not yet supported in the [appliance](/appliance).
 
 ## Configure the extension
 
-Let's start with creating a new client application. Navigate to [Clients](${uiURL}/#/applications) and click on the **+Create Client** button. Set a name (we will name ours *Users Dashboard*) and choose *Single Page Web Applications* as client type. Click on **Create**.
+Let's start with creating a new client application. Navigate to [Clients](${manage_url}/#/applications) and click on the **+Create Client** button. Set a name (we will name ours *Users Dashboard*) and choose *Single Page Web Applications* as client type. Click on **Create**.
 
 ![](/media/articles/extensions/delegated-admin/create-client.png)
 
@@ -37,7 +37,7 @@ When you create a new client, by default all the connections are enabled. This i
 
 Navigate to the *Connections* tab and disable all the connections using the switch.
 
-Following that, navigate to [Database Connections](${uiURL}/#/connections/database) and click on **+Create DB Connection**. Set a name for your connection, we will name ours *Helpdesk*. 
+Following that, navigate to [Database Connections](${manage_url}/#/connections/database) and click on **+Create DB Connection**. Set a name for your connection, we will name ours *Helpdesk*. 
 
 ![](/media/articles/extensions/delegated-admin/create-connection.png)
 
@@ -49,7 +49,7 @@ Enable this new connection for your client (*Users Dashboard* in our case) and a
 
 We are now ready to setup our new extension. Before we do so head back to your new Client and copy the **Client ID** value.
 
-To install and configure this extension, click on the **Delegated Administration** box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the dashboard. The **Install Extension** window will open.
+To install and configure this extension, click on the **Delegated Administration** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The **Install Extension** window will open.
 
 ![](/media/articles/extensions/delegated-admin/install-extension.png)
 
@@ -65,7 +65,7 @@ Once you have provided this information, click **Install**. Your extension is no
 
 ## Use the extension
 
-To access your newly created dashboard, navigate to *[Extensions](${uiURL}/#/extensions) > Installed Extensions* and click on the **Delegated Administration Dashboard**. A new tab will open and display the login prompt. 
+To access your newly created dashboard, navigate to *[Extensions](${manage_url}/#/extensions) > Installed Extensions* and click on the **Delegated Administration Dashboard**. A new tab will open and display the login prompt. 
 
 ![](/media/articles/extensions/delegated-admin/login-prompt.png)
 
@@ -75,7 +75,7 @@ Once you provide valid credentials you are navigated to the *Delegated Administr
 
 ![](/media/articles/extensions/delegated-admin/standard-dashboard.png)
 
-There are two available views, *Users* and *Logs*. At the *Users* view you can see all the users displayed and perform certain actions on them. In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${uiURL}/#/) and which via the extension. 
+There are two available views, *Users* and *Logs*. At the *Users* view you can see all the users displayed and perform certain actions on them. In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${manage_url}/#/) and which via the extension. 
 
 <table class="table">
     <tr>
@@ -136,14 +136,14 @@ Notice the new *Reset password* option available via the extension. This option 
 
 This will send an email to the user, containing a link to change the password.
 
-At the *Logs* view you can see log data of authentications made by your users. The contents of this view are a subset of the data displayed in the [Logs dashboard](${uiURL}/#/logs), which also displays data for the actions taken in the dashboard by the administrators.
+At the *Logs* view you can see log data of authentications made by your users. The contents of this view are a subset of the data displayed in the [Logs dashboard](${manage_url}/#/logs), which also displays data for the actions taken in the dashboard by the administrators.
 
 
 ## Customize the dashboard
 
 You can use the **Title** and **Custom_CSS** variables to customize the look and feel of your dashboard. 
 
-Navigate to the [Extensions](${uiURL}/#/extensions) page and go to the settings of the **Delegated Administration** extension. We are going to set a custom title and a custom css file:
+Navigate to the [Extensions](${manage_url}/#/extensions) page and go to the settings of the **Delegated Administration** extension. We are going to set a custom title and a custom css file:
 - Set the **Title** to `Fabrikam User Management`.
 - Set the **Custom_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`.
 

@@ -9,7 +9,7 @@ Auth0 ships with AWS IAM integration that allows you to:
 
 By integrating Auth0 and AWS you will be able to login to the AWS Dashboard with any of the supported [Auth0 Identity Providers](/identityproviders). To configure Auth0 for federation with AWS using SAML, follow the steps below:
 
-1. On the Auth0 [Dashboard](${uiURL}/#/applications), add a new app. In the **Addons** tab of the app settings page, enable the **SAML2 Web App** add-on.
+1. On the Auth0 [Dashboard](${manage_url}/#/applications), add a new app. In the **Addons** tab of the app settings page, enable the **SAML2 Web App** add-on.
 
     ![](/media/articles/integrations/aws/addons.png)
 
@@ -132,7 +132,7 @@ The app can then use the AWS Token to connect with S3 or EC2 or any AWS API.
 
 ### Setup delegation
 
-On the Auth0 [Dashboard](${uiURL}/#/applications), select your app. In the **Addons** tab of the app settings page, enable the **Amazon Web Services** add-on.
+On the Auth0 [Dashboard](${manage_url}/#/applications), select your app. In the **Addons** tab of the app settings page, enable the **Amazon Web Services** add-on.
 
 ![](/media/articles/integrations/aws/aws-addon.png)
 
@@ -189,7 +189,7 @@ Where:
 * **target** identifies this API endpoint in Auth0 (often the same as client_id).
 * **api_type** must be aws
 
-Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${uiURL}/#/rules):
+Additionally, AWS requires two additional parameters, **role** and **principal**. To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${manage_url}/#/rules):
 
 ```js
 function (user, context, callback) {

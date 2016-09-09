@@ -78,7 +78,7 @@ Click **Yes** on the **App Review** page of your app to make it available to the
 
 ## 7. Copy your *App ID* and *App Secret* into Auth0
 
-Login to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** in the left navigation.
+Login to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left navigation.
 
 Select the connection with the Facebook logo to access this connection's **Settings** page.
 
@@ -100,7 +100,7 @@ Go to the **Apps** tab of the Facebook connection on Auth0 and select each of yo
 
 ## 9. Test your app
 
-Go back to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard.
+Go back to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
 
 A **TRY** icon will now be displayed next to the Facebook logo:
 

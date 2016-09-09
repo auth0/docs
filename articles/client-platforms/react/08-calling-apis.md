@@ -111,7 +111,7 @@ If you don't have a `.env` file in your project you can create your own using th
 $ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='${account.clientSecret}'" > .env
 ```
 <% } else { %>
-If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${uiURL}).
+If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${manage_url}).
 
 ```bash
 $ cp .env.example .env

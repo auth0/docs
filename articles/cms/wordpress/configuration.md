@@ -6,13 +6,13 @@ To configure the *Auth0 for WordPress* plugin, you will need to copy the *Domain
 
 You must first create an app in the Auth0 dashboard before you can configure the *Auth0 for WordPress* plugin. If you already have created the app you want to connect to WordPress, you can skip to the next section.
 
-1. Login to the [Auth0 dashboard](${uiURL}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
+1. Login to the [Auth0 dashboard](${manage_url}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
 2. Navigate to the *Apps / APIs* page and click **+ New App / API**.
 3. In the *Create Application* window, name your app and click **Save**.
 
 ### Get your *Domain*, *Client Id* and *Client Secret*
 
-1. Go to the [Apps / APIs](${uiURL}/#/applications) of the Auth0 dashboard and select the app you want to connect to WordPress.
+1. Go to the [Apps / APIs](${manage_url}/#/applications) of the Auth0 dashboard and select the app you want to connect to WordPress.
 2. Leave this browser window open.
 
 ### Copy your *Domain*, *Client Id* and *Client Secret*
@@ -39,14 +39,14 @@ You must first create an app in the Auth0 dashboard before you can configure the
 * **Password Policy:** Select the level of complexity you want to enforce for user passwords. For more information on password policies, see [Password Strength in Auth0 Database Connections](/password-strength).
 * **Single Sign On (SSO):** Enables SSO on your WordPress, allowing users to log in once and be automatically logged into any of your sites which use Auth0. For more information, see [What is SSO?](/sso).
 * **Single Logout:** Enable this option for Single Logout. For more information, see [What is Single Log Out?](/sso/single-sign-on#what-is-single-log-out-).
-* **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information.) You can enable other MFA providers on the [Auth0 dashboard](${uiURL}/#/multifactor).
+* **Multifactor Authentication (MFA):** Enable this option for multifactor authentication with Google Authenticator. (See [Multifactor Authentication in Auth0](/multifactor-authentication) for more information.) You can enable other MFA providers on the [Auth0 dashboard](${manage_url}/#/multifactor).
 * **FullContact integration:** Enable this option to fill your user profiles with the data provided by FullContact. A valid API key is required. For more information, see [Augment User Profile with FullContact](/scenarios/mixpanel-fullcontact-salesforce#2-augment-user-profile-with-fullcontact-).
 * **Store geolocation:** Enable this option to store geolocation information based on the IP addresses saved in `user_metadata`.
 * **Store zip-code income:** Enable this option to store income data based on the zip-code calculated from each user's IP address.
 
 ### Connections
 
-Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${uiURL}/#/connections/social).
+Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
 ### Appearance
 
@@ -87,7 +87,7 @@ lock.once('signin ready', function() {
 * **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
 * **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
 * **Facebook app key and app secret:** The credentials from your Facebook app. For instructions on creating an app on Facebook, see [Obtain an App ID and App Secret for Facebook](/connections/social/facebook).
-* **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${uiURL}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
+* **User Migration:** Enabling this option will expose the Auth0 migration web services. However, the connection will need to be manually configured in the [Auth0 dashboard](${manage_url}). For more information on the migration process, see [Import users to Auth0](/connections/database/migrating).
 * **Migration IPs whitelist:** Only requests from listed IPs will be allowed access to the migration webservice.
 * **Auth0 Implicit Flow:** If enabled, uses the [Implicit Flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) protocol for authorization in cases where the server is without internet access or behind a firewall.
 * **Login redirection URL:** If set, redirects users to the specified URL after login.

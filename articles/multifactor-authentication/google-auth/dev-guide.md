@@ -6,7 +6,7 @@ This page refers to using Google Authenticator instead of Auth0 Guardian. Google
 
 ## Enabling Google Authenticator for MFA
 
-To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${uiURL}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
+To turn on Google Authenticator for two-step verification, first visit the [Multifactor Auth](${manage_url}/#/guardian) page from the dashboard. Then click on the link to use a different provider.
 
 ![](/media/articles/mfa/change-provider.png)
 

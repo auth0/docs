@@ -28,7 +28,7 @@ New users are registered to Auth0 directly.
 
 ### 1. Create a new custom database
 
-You can create a new database connection or configure an existing one in the [Connections > Database](${uiURL}/#/connections/database) section of the Dashboard.
+You can create a new database connection or configure an existing one in the [Connections > Database](${manage_url}/#/connections/database) section of the Dashboard.
 
 On the **Custom Database** page, enable the **Use my own database** option:
 
@@ -62,13 +62,13 @@ If an un-migrated user confirms a password change, their user profile will be cr
 
 ### 4. Complete the migration
 
-After importing users for a time, many of your users will have been migrated to the Auth0 database. You can verify this with the [List or search users](/api/v2#!/Users/get_users) Management API endpoint or by reviewing the [Users](${uiURL}/#/users) list on the Dashboard.
+After importing users for a time, many of your users will have been migrated to the Auth0 database. You can verify this with the [List or search users](/api/v2#!/Users/get_users) Management API endpoint or by reviewing the [Users](${manage_url}/#/users) list on the Dashboard.
 
 ![](/media/articles/connections/database/migrated-users.png)
 
 Once all your users are in the Auth0 database, you are ready to turn off the import users feature and convert the database to Auth0.
 
-Go to your custom database connection on the [Dashboard](${uiURL}/#/connections/database) and:
+Go to your custom database connection on the [Dashboard](${manage_url}/#/connections/database) and:
 
 * Disable the **Import Users to Auth0** option under **Settings** page.
 * Disable the **Use my own database** option on the **Custom Database** page.

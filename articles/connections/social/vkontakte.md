@@ -59,7 +59,7 @@ From the top of the same page, copy the `Application ID` and `Secure Key` for us
 
 ## 4. Enter your *Application ID* and *Secure Key* into Auth0
 
-In a separate window, go to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 dashboard.
+In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Select **vKontakte**:
 

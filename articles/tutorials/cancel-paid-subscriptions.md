@@ -11,7 +11,7 @@ If you wish to cancel your Auth0 subscription, you have two options:
 
 ## Downgrade a Paid Subscription to a Free Subscription
 
-1. Log in to the Auth0 [Management Dashboard](${uiURL}).
+1. Log in to the Auth0 [Management Dashboard](${manage_url}).
 2. Click on your username in the top right corner to bring up the associated dropdown box.
 
 ![](/media/articles/subscriptions/dashboard.png)
@@ -33,7 +33,7 @@ If you wish to cancel your Auth0 subscription, you have two options:
 This action cannot be undone.
 :::
 
-1. Log in to the Auth0 [Management Dashboard](${uiURL}).
+1. Log in to the Auth0 [Management Dashboard](${manage_url}).
 2. Click on your username in the top right corner to bring up the associated dropdown box.
 
 ![](/media/articles/subscriptions/dashboard.png)

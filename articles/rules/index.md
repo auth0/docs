@@ -45,7 +45,7 @@ A Rule is a function with the following arguments:
 
 ## Examples
 
-To create a Rule, or try the examples below, go to [New Rule](${uiURL}/#/rules/create) in the Rule Editor on the dashboard.
+To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
 ### *Hello World*
 
@@ -143,7 +143,7 @@ This will creates a new rule according to the JSON object received in body, whic
 
 **name**: A `string` value, this field is the name of the rule. Can only contain alphanumeric characters, spaces and '-'. Can neither start nor end with '-' or spaces.
 
-**script**: A `string` value this is the script that contains the rule's code, as seen in some of the examples on this page. This is the same as what you would enter when creating a new rule using the [dashboard](${uiURL}/#/rules/create).
+**script**: A `string` value this is the script that contains the rule's code, as seen in some of the examples on this page. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
 
 **order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
 
@@ -178,7 +178,7 @@ Use this to create the POST request:
 
 ## Debugging
 
-You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${uiURL}/#/rules/create)  provides two ways for seeing the output:
+You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
 
 ![](/media/articles/rules/rule-editor.png)
 
@@ -186,7 +186,7 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 ![](/media/articles/rules/try-rule.png)
 
-2. **REALTIME LOGS**: an [extension](${uiURL}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
+2. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
 
 3. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 

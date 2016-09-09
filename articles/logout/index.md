@@ -54,7 +54,7 @@ You will need to add the `returnTo` URL as an `Allowed Logout URLs` in one of tw
 
 ### Setting *Allowed Logout URLs* at the Account Level
 
-To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${uiURL}/#/account/advanced) of the **Auth0 Management Console**.
+To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${manage_url}/#/account/advanced) of the **Auth0 Management Console**.
 
 ![](/media/articles/logout/account-level-logout.png)
 

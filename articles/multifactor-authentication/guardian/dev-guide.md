@@ -9,7 +9,7 @@ Guardian is Auth0's multifactor authentication (MFA) application that provides a
 For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on user login and sign-up process and common user questions at: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
 
 ## Implementing Multifactor Authentication
-Within Auth0, you may implement MFA via the [Multifactor Auth](${uiURL}/#/guardian) page of the Management Dashboard.
+Within Auth0, you may implement MFA via the [Multifactor Auth](${manage_url}/#/guardian) page of the Management Dashboard.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
@@ -97,7 +97,7 @@ All MFA related events are recorded for audit purposes. For example, each time a
 
 ![](/media/articles/mfa/log-example.png)
 
-You can view events in the [Logs](${uiURL}/#/logs) sections of the dashboard.
+You can view events in the [Logs](${manage_url}/#/logs) sections of the dashboard.
 
 ![](/media/articles/mfa/logs.png)
  

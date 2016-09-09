@@ -62,7 +62,7 @@ auth.getToken(options)
 });
 ```
 
-To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${uiURL}/#/rules):
+To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${manage_url}/#/rules):
 
 ```js
 function (user, context, callback) {

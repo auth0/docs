@@ -10,9 +10,9 @@ You can now add [rules](/rules) into the [client credentials](/api-auth/grant/cl
 
 Please ensure that:
 
-* You have the [Webtask Command Line Interface (CLI) installed](${uiURL}/#/account/webtasks);
-* You have created an [API defined with the appropriate scopes](${uiURL}/#/apis);
-* You have created a [non-interactive client](${uiURL}/#/applications) that is authorized to use the API created in the previous step.
+* You have the [Webtask Command Line Interface (CLI) installed](${manage_url}/#/account/webtasks);
+* You have created an [API defined with the appropriate scopes](${manage_url}/#/apis);
+* You have created a [non-interactive client](${manage_url}/#/applications) that is authorized to use the API created in the previous step.
 
 ## Creating the Rule
 
@@ -34,7 +34,7 @@ module.exports = function(client, scope, audience, context, cb) {
 This is a sample rule that will:
 
 * add an arbitrary claim (`https://foo.com/claim`) to the access_token;
-* add an extra scope to the default scopes configured on your [API](${uiURL}/#/apis).
+* add an extra scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
 ### 2. Create the Webtask to Use Your Rule
 

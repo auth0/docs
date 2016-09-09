@@ -17,7 +17,7 @@ Many identity providers will supply access claims, like roles or groups, with th
 
 ## 1.Create a Rule to assign roles
 
-First, you must create a rule that assigns users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you must create a rule that assigns users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
 ```
 if (user.email.indexOf('@example.com') > -1)

@@ -10,6 +10,6 @@ In addition, the credential used for authentication is automatically validated s
 
 ## Configuration
 
-These connections use an authentication channel like <% if (withFingerprint) { %> SMS, e-mail or Touch ID <% } else { %> SMS or e-mail <% } %>. Each of these channels can be configured in the dashboard under [Connections > Passwordless](${uiURL}/#/connections/passwordless).
+These connections use an authentication channel like <% if (withFingerprint) { %> SMS, e-mail or Touch ID <% } else { %> SMS or e-mail <% } %>. Each of these channels can be configured in the dashboard under [Connections > Passwordless](${manage_url}/#/connections/passwordless).
 
 ![](/media/articles/connections/passwordless/passwordless-connections.png)

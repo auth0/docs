@@ -46,7 +46,7 @@ Currently, the OpenID Connect middleware does not support JWT tokens signed with
 
 ### On the Auth0 dashboard:
 
-1. Go to ${uiURL}/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
+1. Go to ${manage_url}/#/applications/{YOUR_AUTH0_CLIENT_ID}/settings
 2. Click on `Show Advanced Settings`.
 3. Set `RS256` as `JsonWebToken Token Signature Algorithm` and click on `Save`.
 

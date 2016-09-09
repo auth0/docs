@@ -11,7 +11,7 @@ Lock has many methods, features, and configurable options. This reference is des
 
 ## new Auth0Lock(clientID, domain, options)
 
-Initializes a new instance of `Auth0Lock` configured with your client's `clientID` and your account's `domain` from your [Auth0](${uiURL}/) management dashboard. The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${uiURL}/#/applications).
+Initializes a new instance of `Auth0Lock` configured with your client's `clientID` and your account's `domain` from your [Auth0](${manage_url}/) management dashboard. The third and optional parameter is an `options` object used to configure Lock for your application's needs. You can find this information at your [application settings](${manage_url}/#/applications).
 
 - **clientId {String}**: Required parameter. Your application's _clientId_ in Auth0.
 - **domain {String}**: Required parameter. Your Auth0 _domain_. Usually _your-account.auth0.com_.

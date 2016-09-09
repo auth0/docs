@@ -28,7 +28,7 @@ Your `Consumer Key` and `Consumer Secret` will be displayed on the following pag
 
 ## 4. Copy your *Consumer Key* and *Consumer Secret*
 
-Go to the [Social Connections](${uiURL}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote Sandbox**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
+Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote Sandbox**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
 
 ![](/media/articles/connections/social/evernote/evernote-4.png)
 
@@ -46,6 +46,6 @@ Complete the information on this page, including you *API Consumer Key*, and cli
 
 ## 6. Copy your *Consumer Key* and *Consumer Secret*
 
-Go to the [Social Connections](${uiURL}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
+Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Evernote**. Copy the `Consumer Key` and `Consumer Secret` from the Evernote API Key page into the fields on this page on Auth0:
 
 ![](/media/articles/connections/social/evernote/evernote-7.png)

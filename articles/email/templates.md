@@ -8,7 +8,7 @@ description: The Emails section of the Auth0 dashboard allows you to customize y
 You must setup your own email provider using a [third-party service](/email/providers) ([Amazon SES](https://aws.amazon.com/ses/), [Mandrill](https://www.mandrill.com/signup/) or [SendGrid](https://sendgrid.com/pricing)) or a [custom provider](/email/custom) to be able to customize your emails.
 :::
 
-The [Emails](${uiURL}/#/emails) dashboard allows you to customize your emails, including templating with some user attributes [using Liquid syntax](#email-templates). This can include references to the context of the current application or user.
+The [Emails](${manage_url}/#/emails) dashboard allows you to customize your emails, including templating with some user attributes [using Liquid syntax](#email-templates). This can include references to the context of the current application or user.
 
 ![](/media/articles/email/index/emails-fields.png)
 

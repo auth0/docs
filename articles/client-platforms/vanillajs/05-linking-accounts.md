@@ -128,7 +128,7 @@ document.getElementById('btn-link-account').addEventListener('click', function()
 
 The user profile contains an array of identities, which includes the profile information from linked providers.
 
-To view a user's identities, access the [Users](${uiURL}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`.
+To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`.
 
 This example shows a user with a linked Google account:
 

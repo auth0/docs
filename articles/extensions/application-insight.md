@@ -4,7 +4,7 @@ The *Auth0 Logs to Application Insights* is a scheduled job takes all of your Au
 
 ## Configure the Extension
 
-To install and configure this extension, click on the __Auth0 Logs to Application Insights__ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}). The __Install Extension__ window pops open.
+To install and configure this extension, click on the __Auth0 Logs to Application Insights__ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [dashboard](${manage_url}). The __Install Extension__ window pops open.
 
 ![Install Extension](/media/articles/extensions/appinsights/ext-mgmt-appinsights.png)
 
@@ -32,12 +32,12 @@ Let's see how we can retrieve the __AppInsights_Instrumentation_Key__ informatio
 
 ![Application Insights Properties](/media/articles/extensions/appinsights/appinsights-properties.png)
 
-4. Copy this value and head back to your [Auth0 dashboard](${uiURL}). Set it at the __AppInsights_Instrumentation_Key__ field. Save your changes.
+4. Copy this value and head back to your [Auth0 dashboard](${manage_url}). Set it at the __AppInsights_Instrumentation_Key__ field. Save your changes.
 
 
 ## Use Your Installed Extension
 
-To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}), click on the __Installed Extensions__ link, and select the __Auth0 Logs to Application Insights__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
+To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [dashboard](${manage_url}), click on the __Installed Extensions__ link, and select the __Auth0 Logs to Application Insights__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
 
 ![View Cron Jobs](/media/articles/extensions/appinsights/view-cron-jobs.png)
 
@@ -45,4 +45,4 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![View Cron Details](/media/articles/extensions/appinsights/view-cron-details.png)
 
-That's it, you are done! You can now navigate to your [Azure Portal](https://portal.azure.com/#) and view your [Auth0 Logs](${uiURL}/#/logs).
+That's it, you are done! You can now navigate to your [Azure Portal](https://portal.azure.com/#) and view your [Auth0 Logs](${manage_url}/#/logs).

@@ -8,7 +8,7 @@
     <title>Testing Auth0 with Classic ASP</title>
 </head>
 <body>
-  <script src="${widget_url}"></script>
+  <script src="${lock_url}"></script>
   <script type="text/javascript">
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
       auth: {

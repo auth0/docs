@@ -29,7 +29,7 @@ Make sure you have completed either the [Login](01-login) or the [Custom Login](
 
 ### 1. Create a Rule
 
-To create a rule, you need to go to the [new rule page](${uiURL}/#/rules/new). From there, you can either use a predefined template or create one from scratch.
+To create a rule, you need to go to the [new rule page](${manage_url}/#/rules/new). From there, you can either use a predefined template or create one from scratch.
 
 In this example we will use "*Add country to the user profile*" template, under the *Enrich Profile* section:
 

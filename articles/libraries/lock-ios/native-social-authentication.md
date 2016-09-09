@@ -67,4 +67,4 @@ The first URL should have a scheme equal to your application Bundle Identifier, 
 > This last value can be found in `GoogleServices-Info.plist` under the key `REVERSED_CLIENT_ID`
 > For more information please check Google's [documentation](https://developers.google.com/identity/sign-in/ios/)
 
-And finally with your Mobile clientID from Google, go to [Social Connections](${uiURL}/#/connections/social), select **Google** and add the clientID to the field named `Allowed Mobile Client IDs`
+And finally with your Mobile clientID from Google, go to [Social Connections](${manage_url}/#/connections/social), select **Google** and add the clientID to the field named `Allowed Mobile Client IDs`

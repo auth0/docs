@@ -19,7 +19,7 @@ First, the user will authenticate to the Single Page App using either [Lock](htt
 The following is a sample login using Lock:
 
 ```js
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">  
   //Log in using Lock in Redirect Mode
   function login(){
@@ -65,7 +65,7 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
  * Handling the second authentication with Lock:
 
   ```js
-  <script src="${widget_url}"></script>
+  <script src="${lock_url}"></script>
   <script type="text/javascript">
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
   
