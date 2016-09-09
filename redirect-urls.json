@@ -955,5 +955,13 @@
   {
     "from": "/java-overview",
     "to": "/dev-centers/java"
+  },
+  {
+    "from": "/oauth-web-protocol",
+    "to": "/protocols/oauth-web-protocol"
+  },
+  {
+    "from": "/oauth-implicit-protocol",
+    "to": "/protocols/oauth-implicit-protocol"
   }
 ]
