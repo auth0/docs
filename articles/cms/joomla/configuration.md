@@ -25,8 +25,6 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 8. Click on *Save & Close*.
 9. Select the *Test* menu option to check that the Auth0 app data is complete.
 
- <img src="https://cdn./cms/joomla/joomla-auth0-component-setup.gif" alt="Joomla Auth0 component configuration">
-
 ## Module configuration
 
 1. From the Joomla administrator interface, select *Module Manager* from the **Extensions** drop-down menu.
@@ -36,8 +34,6 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 5. Under the *Menu Assignment* tab, select *On all pages* from the drop-down.
 6. Click on *Save & Close*.
 7. The Auth0 *Login* button will now appear on your Joomla homepage.
-
- <img src="https://cdn./cms/joomla/joomla-auth0-module-setup.gif" alt="Joomla Auth0 module configuration">
 
 ## Settings
 

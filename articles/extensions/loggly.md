@@ -6,7 +6,7 @@ The *Auth0 Logs to Loggly* is a scheduled job that takes all of your Auth0 logs 
 
 To install and configure this extension, click on the __Auth0 Logs to Loggly__ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}). The __Install Extension__ window pops open.
 
-![](/media/articles/extensions/loggly/extension-mgmt-loggly.png)
+![Install Auth0 Logs to Loggly Extension](/media/articles/extensions/loggly/extension-mgmt-loggly.png)
 
 At this point you should set the following configuration variables:
 
@@ -34,7 +34,7 @@ __NOTE__: We assume that you already know your __Loggly_Subdomain__ since it's p
 
 2. Using the menu bar at the top, navigate to _Source Setup > Customer Tokens_. Your __Customer Token__ is displayed on the page. You can create a new one if you want.
 
-![](/media/articles/extensions/loggly/copy-source-setup.png)
+![Customer Token](/media/articles/extensions/loggly/copy-source-setup.png)
 
 3. Copy this value and head back to the [Auth0 dashboard](${uiURL}). Set it at the __Loggly_Customer_Token__ field. You 're done!
 
@@ -42,13 +42,12 @@ __NOTE__: We assume that you already know your __Loggly_Subdomain__ since it's p
 
 To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [dashboard](${uiURL}), click on the __Installed Extensions__ link, and select the __Auth0 Logs to Loggly__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
 
-![](/media/articles/extensions/loggly/view-cron-jobs.png)
+![View Cron Jobs](/media/articles/extensions/loggly/view-cron-jobs.png)
 
 You can view more details by clicking on the job you created. In this page you can view details for each execution, reschedule, access realtime logs, and more.
 
-![](/media/articles/extensions/loggly/view-cron-details.png)
+![View Cron Details](/media/articles/extensions/loggly/view-cron-details.png)
 
 That's it, you are done! You can now navigate to [Loggly](https://www.loggly.com/) and view your [Auth0 Logs](${uiURL}/#/logs).
 
-![](/media/articles/extensions/loggly/auth0-logs-at-loggly.png)
-
+![View Auth0 Logs at Loggly](/media/articles/extensions/loggly/auth0-logs-at-loggly.png)

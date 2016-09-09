@@ -15,6 +15,7 @@ This document describes the major differences between Auth0's Management API v1 
 * New formats for `user_id` (available as `v2_id` with the "usr\_" prefix) and `clientID` (with the "cli\_" prefix) recognize the entity type based on its id.
 * Improved input validation and error messages.
 * Only one connection is exposed per tenant, instead of one per client. To enable/disable a connection for a client, use the `enabled_clients` property.
+* When updating field values, v2 removes fields with `null` values, instead of storing them with the value `null`
 
 ### User endpoints
 | v1 Endpoint | Change | v2 Endpoint |
@@ -202,3 +203,15 @@ Some endpoints, such as [`PUT /api/users/{email}/password`](/api/v1#!#put--api-u
 In Management API v2, all endpoints use [JSON schemas](http://json-schema.org) to validate input. Also, descriptive error messages are returned when a schema's constraints are not met.
 
 For an example, see the methods in our [Management API v2 explorer](/api/v2).
+
+## PATCH with null values
+In API v1, when updating field values, if the field is `null`, it will be saved as `null` in the database. In API v2, a `null` field will result in the field being deleted from the database. 
+
+Example: `{metadata: {color: null}}` 
+
+Will be stored as follows:
+
+* When using API v1: `{metadata: {color: null}}` 
+* When using API v2: `{user_metadata: {}}`
+
+So, in API v1, the field's value is stored as `null`, but in API v2, the field is simply removed.

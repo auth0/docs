@@ -46,5 +46,3 @@ You can view more details by clicking on the job you created. In this page you c
 ![View Cron Details](/media/articles/extensions/appinsights/view-cron-details.png)
 
 That's it, you are done! You can now navigate to your [Azure Portal](https://portal.azure.com/#) and view your [Auth0 Logs](${uiURL}/#/logs).
-
-![View Logs at Application Insights](/media/articles/extensions/appinsights/application-insights.gif)

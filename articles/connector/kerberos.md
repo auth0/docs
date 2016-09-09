@@ -4,7 +4,7 @@ Kerberos is a security protocol used by Active Directory which is based on ticke
 
 The AD/LDAP connector supports Kerberos to make it easer for your users to authenticate when they are on a domain-joined machine within the corporate network.
 
-## Configuration 
+## Configuration
 
 To activate Kerberos on an Active Directory, simply enable the option in the dashboard.
 
@@ -14,7 +14,7 @@ After enabling Kerberos you'll also be able to configure the **IP Ranges**. When
 
 > We recommend restarting the Windows Service that hosts the AD Connector every time this setting is changed. This way, changes will take effect immediately.
 
-The IP addresses are configured using the [CIDR-notation](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Note that these should be ranges that are visible by Auth0. If Auth0 is deployed on-premises you'll typically enter internal IP address ranges of your users. 
+The IP addresses are configured using the [CIDR-notation](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Note that these should be ranges that are visible by Auth0. If Auth0 is deployed on-premises you'll typically enter internal IP address ranges of your users.
 
 When Auth0 is running in the cloud, it won't be able to see your user's internal IP address. In that case you'd configure the public facing/WAN IP address(es) of your company.
 
@@ -33,16 +33,6 @@ Users connecting from within the building will all originate from `24.12.34.56` 
 On the other hand, when users are not in the corporate network (e.g.: at a customer, working from home without VPN) they won't be able to access the AD/LDAP Connector directly. The users will need to enter their username/password, and Auth0 will validate these credentials with the AD/LDAP Connector (which will in turn use Active Directory to validate those credentials).
 
 ![](/media/articles/connector/kerberos/connector-credentials-flow.png)
-
-## End-user Experience
-
-Users on a domain-joined machine, coming from the configured IP addres range:
-
-![Login Kerberos](/media/articles/connector/kerberos/office-365-idp-login-kerberos.gif)
-
-Users that are not in the corporate network will need to enter their AD credentials:
-
-![Login External](/media/articles/connector/kerberos/office-365-idp-login-external.gif)
 
 ## Auto-login with Lock
 

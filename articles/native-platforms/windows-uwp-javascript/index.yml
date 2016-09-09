@@ -16,5 +16,6 @@ alias:
   - windows-tablet
   - surface
 seo_alias: windows-uwp-javascript
+default_article: 01-login
 articles:
   - 01-login

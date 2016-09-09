@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/symfony/setup
   use: server-platforms/symfony/use
 seo_alias: symfony
+default_article: 01-login
 articles:
   - 01-login

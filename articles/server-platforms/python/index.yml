@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/python/setup
   use: server-platforms/python/use
 seo_alias: python
+default_article: 01-login
 articles:
   - 01-login

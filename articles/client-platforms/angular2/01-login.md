@@ -1,5 +1,6 @@
 ---
 title: Login
+default: true
 description: This tutorial will show you how to integrate Auth0 with angular2 to add authentication and authorization to your web app.
 ---
 

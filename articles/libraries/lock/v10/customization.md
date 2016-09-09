@@ -457,7 +457,7 @@ Extra input fields can be added to the sign up screen with the `additionalSignUp
 
 The new fields are rendered below the regular sign up input fields in the order they are provided. 
 
-#### Text Field
+#### Text Fields
 
 A `validator` function can also be provided.
 
@@ -475,6 +475,10 @@ var options = {
          hint: "Must have 10 or more chars" // optional
       };
     }
+  },
+  {
+    name: "full_name",
+    placeholder: "Enter your full name"
   }]
 }
 ```
