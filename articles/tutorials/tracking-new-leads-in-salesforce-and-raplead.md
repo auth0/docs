@@ -7,7 +7,7 @@ Upon a signup of a new user to a website with any social credential, we want to:
 
 Implementing this with Auth0 is very easy. You just need 2 [Rules](/rules) in your pipeline:
 
-![](https://docs.google.com/drawings/d/1PFj7JsAZiQCCQaM7pN5c0Fi8UbMvfAMGjgt-_SdTC6Q/pub?w=850&amp;h=430)
+![](/media/articles/tutorials/rapleaf-salesforce.png)
 
 ### 1. Augment __User Profile__ with RapLeaf:
 

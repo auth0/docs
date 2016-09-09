@@ -8,7 +8,7 @@ This example shows how you can very easily connect Auth0 to __Keen IO__ and stre
 
 Implementing this with Auth0 is very easy, only taking a few lines of code.
 
-![](https://docs.google.com/drawings/d/165a3-8aYTnOHQqBX-bGFFLfNcSJBfNmNuB_fnXX9-Fk/pub?w=833&amp;h=372)
+![](/media/articles/tutorials/keen-io-dataflow.png)
 
 ### 1. Recording a __SignUp__ event in Keen IO:
 
