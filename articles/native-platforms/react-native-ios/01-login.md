@@ -157,7 +157,7 @@ Then, register a custom URL Type with the format `fb<FacebookAppID>`.
 
 Here's an example of how the entries should look like:
 
-![FB plist](https://cloudup.com/cYOWHbPp8K4+)
+![FB plist](/media/articles/libraries/lock-ios/fb-plist.png)
 
 If you need have iOS 9 support for your app, then make sure to add the `LSApplicationQueriesSchemes` key to your Info.plist file and add the `fbauth2` value to it.
 
