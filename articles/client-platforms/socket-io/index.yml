@@ -13,5 +13,6 @@ snippets:
   setup: client-platforms/socket-io/setup
   use: client-platforms/socket-io/use
 seo_alias: socket-io
+default_article: 01-login
 articles:
   - 01-login

@@ -51,7 +51,7 @@ It defaults to:
 }
 ```
 
-All the available arguments for `lock.show` are supported, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
+All the available configurable parameters are supported, see [User configurable options](/libraries/lock/v10/customization).
 
 After authentication, the `protect` function will handle the token parsing and storing it to `localStorage`.
 

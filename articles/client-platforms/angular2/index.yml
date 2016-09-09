@@ -19,6 +19,7 @@ snippets:
   system_map: client-platforms/angular2/system-map
   use: client-platforms/angular2/use
 seo_alias: angular2
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login

@@ -17,5 +17,6 @@ alias:
   - windows-phone-8
   - microsoft-phone
 seo_alias: windowsphone
+default_article: 01-login
 articles:
   - 01-login

@@ -25,6 +25,7 @@ snippets:
   loginviewcustom: native-platforms/ionic/loginview-custom
   use: native-platforms/ionic/use
 seo_alias: ionic
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login

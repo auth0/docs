@@ -718,7 +718,7 @@
   },
   {
     "from": "/libraries/lock/v10/installation",
-    "to": "/libraries/lock#installation-and-dependencies",
+    "to": "/libraries/lock#lock-10-installation",
     "status": 302
   },
   {
@@ -739,5 +739,221 @@
   {
     "from": "/quickstart/spa/react/03-user-profile",
     "to": "/quickstart/spa/react/04-user-profile"
+  },
+  {
+    "from": "/cancel-paid-subscriptions",
+    "to": "/tutorials/cancel-paid-subscriptions"
+  },
+  {
+    "from": "/pricing-per-app-per-connection",
+    "to": "/tutorials/pricing-per-app-per-connection"
+  },
+  {
+    "from": "/local-testing-and-development",
+    "to": "/tutorials/local-testing-and-development"
+  },
+  {
+    "from": "/moving-out",
+    "to": "/tutorials/removing-auth0-exporting-data"
+  },
+  {
+    "from": "/lifecycle",
+    "to": "/tutorials/development-lifecycle-with-auth0"
+  },
+  {
+    "from": "/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp",
+    "to": "/tutorials/adding-scopes-for-an-external-idp"
+  },
+  {
+    "from": "/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api",
+    "to": "/tutorials/calling-an-external-idp-api"
+  },
+  {
+    "from": "/enable-simple-connection",
+    "to": "/tutorials/enabling-a-connection"
+  },
+  {
+    "from": "/oauth1",
+    "to": "/tutorials/adding-generic-oauth1-connection"
+  },
+  {
+    "from": "/oauth2-examples",
+    "to": "/tutorials/generic-oauth2-connection-examples"
+  },
+  {
+    "from": "/step-up-authentication",
+    "to": "/tutorials/setup-up-authentication"
+  },
+  {
+    "from": "/refresh-token",
+    "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/salesforce-community",
+    "to": "/connections/social/salesforce"
+  },
+  {
+    "from": "/update-client-secret",
+    "to": "/tutorials/how-to-update-applications-client-secret"
+  },
+  {
+    "from": "/test-partner-connection",
+    "to": "/tutorials/how-to-test-partner-connection"
+  },
+  {
+    "from": "/bulk-import",
+    "to": "/tutorials/bulk-importing-users-into-auth0"
+  },
+  {
+    "from": "/creating-users",
+    "to": "/tutorials/creating-users-in-the-management-portal"
+  },
+  {
+    "from": "/custom-signup",
+    "to": "/libraries/lock/v10/custom-signup"
+  },
+  {
+    "from": "/custom-error-pages",
+    "to": "/error-pages/custom"
+  },
+  {
+    "from": "/error-pages",
+    "to": "/error-pages/generic"
+  },
+  {
+    "from": "/google-admin-sdk",
+    "to": "/tutorials/configuration-to-query-users-from-google-apps"
+  },
+  {
+    "from": "/invite-only",
+    "to": "/tutorials/creating-invite-only-applications"
+  },
+  {
+    "from": "/saas-apps",
+    "to": "/tutorials/using-auth0-with-multi-tenant-apps"
+  },
+  {
+    "from": "/sla",
+    "to": "/support/sla"
+  },
+  {
+    "from": "/versioning",
+    "to": "/tutorials/how-auth0-versions-software"
+  },
+  {
+    "from": "/oidc-rs256-owin",
+    "to": "/tutorials/openid-connect-discovery"
+  },
+  {
+    "from": "/cli",
+    "to": "/tutorials/using-auth0-to-secure-an-api"
+  },
+  {
+    "from": "/apps-apis",
+    "to": "/tutorials/web-apps-vs-web-apis-cookies-vs-tokens"
+  },
+  {
+    "from": "/monitoring",
+    "to": "/tutorials/how-to-monitor-auth0"
+  },
+  {
+    "from": "/har",
+    "to": "/tutorials/troubleshootings-with-har-files"
+  },
+  {
+    "from": "/hrd",
+    "to": "/libraries/lock/v10/selecting-the-connection-for-multiple-logins"
+  },
+  {
+    "from": "/blacklist-attributes",
+    "to": "/tutorials/blacklisting-attributes"
+  },
+  {
+    "from": "/brute-force-protection",
+    "to": "/anomaly-detection/brute-force-protection"
+  },
+  {
+    "from": "/breached-password",
+    "to": "/anomaly-detection/breached-passwords"
+  },
+  {
+    "from": "/office365-deprecated",
+    "to": "/tutorials/office365-connection-deprecation-guide"
+  },
+  {
+    "from": "/scenarios/amazon-cognito",
+    "to": "/tutorials/integrating-auth0-amazon-cognito-mobile-apps"
+  },
+  {
+    "from": "/scenarios/github",
+    "to": "/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise"
+  },
+  {
+    "from": "/scenarios/ionic-and-firebase",
+    "to": "/tutorials/using-ionic-and-firebase"
+  },
+  {
+    "from": "/scenarios/keenio",
+    "to": "/tutorials/sending-events-to-keenio"
+  },
+  {
+    "from": "/scenarios/mixpanel-fullcontact-salesforce",
+    "to": "/tutorials/track-signups-enrich-user-profile-generate-leads"
+  },
+  {
+    "from": "/scenarios/mqtt",
+    "to": "/tutorials/authenticating-devices-using-mqtt"
+  },
+  {
+    "from": "/scenarios/multi-tenant-saas-azure-ad",
+    "to": "/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory"
+  },
+  {
+    "from": "/scenarios/rapleaf-salesforce",
+    "to": "/tutorials/tracking-new-leads-in-salesforce-and-raplead"
+  },
+  {
+    "from": "/scenarios/segmentio",
+    "to": "/tutorials/sending-events-to-segmentio"
+  },
+  {
+    "from": "/scenarios/slack",
+    "to": "/tutorials/integrating-with-slack"
+  },
+  {
+    "from": "/scenarios/splunk",
+    "to": "/tutorials/sending-events-to-splunk"
+  },
+  {
+    "from": "/scenarios/tessel",
+    "to": "/tutorials/authenticating-a-tessel-device"
+  },
+  {
+    "from": "/scenarios/unbounce",
+    "to": "/tutorials/get-user-information-with-unbounce-landing-pages"
+  },
+  {
+    "from": "/scenarios/zendesk-sso",
+    "to": "/tutorials/single-sign-on-with-zendesk-using-jwt"
+  },
+  {
+    "from": "/scenarios",
+    "to": "/tutorials"
+  },
+  {
+    "from": "/rate-limits",
+    "to": "/policies/rate-limits"
+  },
+  {
+    "from": "/sequence-diagrams",
+    "to": "/architecture-scenarios/sequence-diagrams"
+  },
+  {
+    "from": "/deployment",
+    "to": "/overview/deployment-models"
+  },
+  {
+    "from": "/java-overview",
+    "to": "/dev-centers/java"
   }
 ]

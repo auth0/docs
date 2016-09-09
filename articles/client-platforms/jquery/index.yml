@@ -13,6 +13,7 @@ snippets:
   setup: client-platforms/jquery/setup
   use: client-platforms/jquery/use
 seo_alias: jquery
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login

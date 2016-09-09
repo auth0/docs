@@ -23,5 +23,6 @@ snippets:
   setup: native-platforms/ionic2/setup
   use: native-platforms/ionic2/use
 seo_alias: ionic2
+default_article: 01-login
 articles:
   - 01-login
