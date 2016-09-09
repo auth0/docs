@@ -8,7 +8,7 @@ Upon a signup of a new user to a website with any social credential, we want to:
 
 Implementing this with Auth0 is very easy. You just need 3 [Rules](/rules) in your pipeline:
 
-![](media/articles/tutorials/signups.png)
+![](/media/articles/tutorials/signups.png)
 
 ### 1. Recording a __SignUp__ in MixPanel:
 

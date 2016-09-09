@@ -6,7 +6,7 @@ This example shows how you can very easily connect Auth0 to __segment.io__ and s
 
 Implementing this with Auth0 is very easy, only taking a few lines of code.
 
-![](media/articles/tutorials/segment-io-dataflow.png)
+![](/media/articles/tutorials/segment-io-dataflow.png)
 
 ### 1. Recording a __SignUp__ or __Login__ event in segment.io:
 
