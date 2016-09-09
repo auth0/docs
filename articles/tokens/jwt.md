@@ -1,4 +1,5 @@
 ---
+url: /jwt
 description: JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This article introduces you to all of the concepts needed to fully understand JWTs.
 ---
 # JSON Web Tokens (JWT) in Auth0

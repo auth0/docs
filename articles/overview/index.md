@@ -1,6 +1,6 @@
 ---
 title: Auth0 Overview
-description: Learn the basics of Auth0 including how it can help secure your application, how you can extend Auth0 to meet the exact needs of your project, and about the flexible deployment options in both the cloud and even your own datacenter. 
+description: Learn the basics of Auth0 including how it can help secure your application, how you can extend Auth0 to meet the exact needs of your project, and about the flexible deployment options in both the cloud and even your own datacenter.
 ---
 # Auth0 Overview
 
@@ -18,9 +18,9 @@ You can connect any application (written in any language or on any stack) to Aut
 ## Video: Developer Overview
 This video will give you a quick walkthrough of Auth0 and how it will help save you time adding identity to your application.
 
-<%= include('./videos/_video', { id: 's15ysw45uy' }) %>
+<%= include('../videos/_video', { id: 's15ysw45uy' }) %>
 
-## Integrating Auth0 Into Your Applicaton
+## Integrating Auth0 Into Your Application
 
 The default [protocol](/protocols) between your application(s) and Auth0 is **OpenID Connect**, a modern, lightweight, simple to use, and simple to integrate protocol.
 
