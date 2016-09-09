@@ -26,7 +26,7 @@ You need to add your Firebase account information to Auth0. Once the user logs i
 
 Go to [Application Settings](${uiAppSettingsURL}) and click on Addons. In there, turn on the __Firebase Addon__ and enter your Firebase secret.
 
-![Firebase secret](http://d.pr/i/1ejf7+)
+![Firebase secret](/media/articles/tutorials/firebase-config.gif)
 
 
 ### 3. Adding the needed dependencies

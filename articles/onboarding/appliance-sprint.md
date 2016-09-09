@@ -11,7 +11,7 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 ### Appliance Sprint Overview
 
-![Cloud Sprint Program Overview](https://docs.google.com/drawings/d/13Vic931FwevddTWfkTIce46Jmut5EgG0EVxZ44_HHAY/pub?w=950&h=1481)
+![Appliance Sprint Overview Program Overview](/media/articles/onboarding/appliance-sprint-overview.png)
 
 [Download the Appliance Sprint PDF.](/media/articles/onboarding/appliance-sprint-onboarding.pdf)
 

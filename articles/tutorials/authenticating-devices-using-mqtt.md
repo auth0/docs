@@ -16,7 +16,7 @@ This article shows an integration between nodejs based MQTT broker: [mosca](http
 
 > mosca is a nodejs based messaging broker that implements other protocols besides MQTT. It offers great extensibility features. It is surprisingly simple to integrate with Auth0.
 
-![](https://docs.google.com/drawings/d/1hMahWH3Q0YBs5vT8Ubl-uLgvkcoo5f6Q0crMHbAqi6k/pub?w=854&amp;h=521)
+![](/media/articles/scenarios/mqtt/mqtt-dataflow.png)
 
 ## Components of the solution
 
@@ -167,7 +167,7 @@ The `authenticateWithJWT` expects a JWT in the `password` field. The flow in thi
 3. `mosca` validates the JWT
 4. Messages are sent and re-transmitted to subscribers
 
-![](https://docs.google.com/drawings/d/1FAAm4yXd-lWlqE2SqNytTF-n9DUuKHaw_XqRGVICRBA/pub?w=854&amp;h=521")
+![](/media/articles/scenarios/mqtt/mqtt-dataflow2.png)
 
 Publishers and subscribers will obtain the JWT through some means. Notice that the broker doesn't need to communicate with Auth0 anymore. JWTs are self-contained artifacts that can be validated with the secret used to sign them.
 
