@@ -1,3 +1,6 @@
+---
+url: /aws-api-setup
+---
 # Setup AWS for Delegated Authentication with APIs
 
 To enable delegated authentication with AWS APIs, you must create a **SAML Provider** and one or more **Roles**.

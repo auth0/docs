@@ -1,3 +1,6 @@
+---
+url: /azure-tutorial
+---
 # Using Auth0 with Microsoft Azure
 
 From an Auth0 integration perspective, the code is the same, regardless of where your app is running: on Microsoft Azure or your local dev environment.
