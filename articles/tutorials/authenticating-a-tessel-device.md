@@ -2,7 +2,7 @@
 
 [Tessel](https://tessel.io) is an amazing board. Not only it has a great hardware spec and a great extensibility story, you can program it Javascript! When it was announced on Kickstarter we immediately supported it and waited long weeks to get hold of one.
 
-![](media/articles/scenarios/tessel/TM-00-04-ports.png)
+![](/media/articles/scenarios/tessel/TM-00-04-ports.png)
 
 It finally arrived and were able to write our first program: get a token from Auth0 and call an API.
 
@@ -16,7 +16,7 @@ This example is straight-forward:
 2. Get a token back
 3. We use the token to call an API
 
-![](media/articles/scenarios/tessel/tessel-flow.png
+![](/media/articles/scenarios/tessel/tessel-flow.png)
 
 
 ```
@@ -46,7 +46,7 @@ tessel.syncClock(function () {
           "Content-type": "application/json",
           "Authorization": "Bearer " + token
         },
-        null, 
+        null,
         function(e,response){
           if(e) return done(e);
           done(null, JSON.parse(response));
@@ -123,8 +123,3 @@ The `Resource Owner` endpoint requires credentials (e.g. username/password), so 
 Tessel is awesome. We see a lot of potential. This sample shows how easy it is to connect it with Auth0.
 
 > Always send credentials (e.g. `username`/`password`) over secured networks.
-
-
-
-
-
