@@ -34,7 +34,8 @@ Then, add the following code to perform a login:
 ```swift
 Auth0
     .authentication()
-    .login("email@foo.com",
+    .login(
+        emailOrUsername: "email@foo.com",
         password: "123456",
         connection: "Username-Password-Authentication"
     )
@@ -44,8 +45,7 @@ Auth0
                 // Logged in successfully
                 // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
             case .Failure(let error):
-                // You've got an Authentication.Error case
-                // Deal with it
+                // You've got an error
             }
     }
 ```
@@ -64,13 +64,13 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 guard let idToken = credentials.idToken else { return }
 Auth0
     .authentication()
-    .tokenInfo(idToken)
+    .tokenInfo(token: idToken)
     .start { result in
         switch result {
         case .Success(let profile):
             // You've got a UserProfile object
         case .Failure(let error):
-            // You've got an Authentication.Error case
+            // You've got an error
         }
 }
 ```
@@ -99,7 +99,8 @@ Then, all you have to do is:
 ```swift
 Auth0
     .authentication()
-    .signUp("foo@email.com",
+    .signUp(
+        email: "foo@email.com",
         password: "123456",
         connection: "Username-Password-Authentication",
         userMetadata: ["first_name": "Foo", "last_name": "Bar"] // or any extra user data you need
@@ -110,8 +111,7 @@ Auth0
             	// Registered successfully
             	// You've got a Credentials object
             case .Failure(let error):
-                // You've got an Authentication.Error case
-                // Deal with it
+                // You've got an error
             }
         }
 }
@@ -173,7 +173,7 @@ Auth0
         case .Success(let credentials):
             // You've got your credentials
         case .Failure(let error):
-            // Deal with error
+            // Handle the error
         }
     }
 ```
