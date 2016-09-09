@@ -22,7 +22,7 @@ First, you must add the `Auth0.js` library to your application:
 ```typescript
 /* ===== ./index.html ===== */
 ...
-<script src="//cdn.auth0.com/w2/auth0-7.0.3.min.js"></script>
+<script src="${auth0js_url}"></script>
 ...
 ```
 

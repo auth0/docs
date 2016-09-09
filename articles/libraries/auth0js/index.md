@@ -21,7 +21,7 @@ First, you need to import the library in your page. You have various options:
 Construct a new instance of the Auth0 client as follows:
 
 ```
-<script src="http://cdn.auth0.com/w2/auth0-6.7.js"></script>
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
     domain:       '${account.namespace}',
