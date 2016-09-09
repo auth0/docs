@@ -33,7 +33,7 @@ Once your app is registered, the page will diplay your `Consumer Key` and `Consu
 
 ## 4. Copy your *Consumer Key* and *Consumer Secret*
 
-Go to your Auth0 [Dashboard](${uiURL}/#/connections/social) and select **Connections > Social**, then choose **Salesforce**.
+Go to your Auth0 [Dashboard](${manage_url}/#/connections/social) and select **Connections > Social**, then choose **Salesforce**.
 
 Copy the `Consumer Key` and `Consumer Secret` from the **Connected App** page of your app on Salesforce into the fields on this page on Auth0 and click **Save**:
 

@@ -1,4 +1,4 @@
-To create a rule, go to the [New Rule](${uiURL}/#/rules/new) page. You can create a rule from scratch by selecting an empty rule, or you may use one of the existing templates. These templates are written by Auth0 to cover common scenarios and use cases.
+To create a rule, go to the [New Rule](${manage_url}/#/rules/new) page. You can create a rule from scratch by selecting an empty rule, or you may use one of the existing templates. These templates are written by Auth0 to cover common scenarios and use cases.
 
 For this example, select the **Add country to the user profile** rule.
 

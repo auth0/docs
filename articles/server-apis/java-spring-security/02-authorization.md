@@ -31,7 +31,7 @@ In this step we will see how we can add role based authorization to our API, usi
 
 In our example we will create a simple rule that assigns two roles (`ROLE_ADMIN` and `ROLE_USER`) to any user. Of course you can change our sample code to match your needs.
 
-To create a new rule, navigate to the [new rule page](${uiURL}/#/rules/new) and select the __Set Roles To A User__ template, under _Access Control_. Then, replace the sample script with the following:
+To create a new rule, navigate to the [new rule page](${manage_url}/#/rules/new) and select the __Set Roles To A User__ template, under _Access Control_. Then, replace the sample script with the following:
 
 ${snippet(meta.snippets.newRule)}
 

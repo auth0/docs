@@ -93,7 +93,7 @@ Your server will then need to call APIv2 to add the necessary custom fields to t
 
 One common signup customization is to add a `username` to the signup.
 
-To enable this feature, turn on the `Requires Username` setting on the [Connections > Database](${uiURL}/#/connections/database/) section of the dashboard under the **Settings** tab for the connection you wish to edit.
+To enable this feature, turn on the `Requires Username` setting on the [Connections > Database](${manage_url}/#/connections/database/) section of the dashboard under the **Settings** tab for the connection you wish to edit.
 
 Once this has been set, when a user is created manually in the Auth0 dashboard, the screen where users enter their information will prompt them for both an email and a username.
 

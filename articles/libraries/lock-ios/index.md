@@ -43,7 +43,7 @@ Then, in your project's `Info.plist` file, add the following string entries:
 For example:
 ![plist](/media/articles/libraries/lock-ios/plist.png)
 
-**NOTE**: You can find these values in your [Client Settings](${uiURL}/#/applications) in the Auth0 dashboard.
+**NOTE**: You can find these values in your [Client Settings](${manage_url}/#/applications) in the Auth0 dashboard.
 
 You will also need to register a **Custom URL** type with a custom scheme in the following format:
 
@@ -129,7 +129,7 @@ This call is required to be able to return to your application when authenticati
 
 ### Email/password, enterprise, and social provider authentication
 
-`A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your client in the [Auth0 Dashboard](${uiURL}/#/connections/social).
+`A0LockViewController` will handle email/password, enterprise, and social provider authentication based on the connections enabled on your client in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
 First, instantiate `A0LockViewController` and register the authentication callback that will receive the authenticated user's credentials. Then present it as a modal view controller:
 

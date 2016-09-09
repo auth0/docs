@@ -144,4 +144,4 @@ You've already implemented both login and signup with Auth0 in your Android proj
 
 ### Optional: Log In with Social Connections
 
-In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the login screen of your app.
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${manage_url}/#/connections/social). Every social connection you switch on there, will appear in the login screen of your app.

@@ -136,7 +136,7 @@ The response will be a **204**: The credential no longer exists.
 
 ### Revoke a Refresh Token in the Dashboard
 
-To see if a user has existing devices with associated refresh tokens, go to the [Users section](${uiURL}/#/users) of the dashboard. Click the name of the user to view their **Details** page.
+To see if a user has existing devices with associated refresh tokens, go to the [Users section](${manage_url}/#/users) of the dashboard. Click the name of the user to view their **Details** page.
 
 Select the **Devices** tab. This page lists all device names and the number of refresh tokens associated with each. To revoke a refresh token, click the **X** to the right of the device name.
 

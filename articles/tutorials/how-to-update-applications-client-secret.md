@@ -4,7 +4,7 @@ The `client_secret` of an application protects a service by only giving tokens t
 
 ## Changing your client_secret in the dashboard
 
-You can change your `client_secret` under [Applications]((${uiURL}/#/applications) in the dashboard. Choose the application you wish to edit by clicking on the **Settings** gear icon or the application name. You can edit the **Client Secret** field, and when you are finished, click the **SAVE CHANGES** button at the bottom of the page.
+You can change your `client_secret` under [Applications]((${manage_url}/#/applications) in the dashboard. Choose the application you wish to edit by clicking on the **Settings** gear icon or the application name. You can edit the **Client Secret** field, and when you are finished, click the **SAVE CHANGES** button at the bottom of the page.
 
 ## Updating authorized applications
 
@@ -24,7 +24,7 @@ You can also change your application's `client_secret` by using [Update a client
 
 **Note:** The `client_secret` can only be updated with the `update:client_keys` scope.
 
-You can get your `client_id` and `client_secret` by choosing your application in the [Applications](${uiURL}/#/applications) section of the dashboard.
+You can get your `client_id` and `client_secret` by choosing your application in the [Applications](${manage_url}/#/applications) section of the dashboard.
 
 Or you can update a `client_secret` by creating your own request to the API:
 

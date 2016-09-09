@@ -8,7 +8,7 @@ description: You can add any OAuth2 provider using the Auth0 Custom Social Conne
 
 # Add a generic OAuth2 Authorization Server to Auth0
 
-The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${uiURL}/#/extensions).
+The most common [identity providers](/identityproviders) are readily available on Auth0's dashboard. However, you can add any other OAuth2 provider using the **Custom Social Connections** [extension](${manage_url}/#/extensions).
 
 ![](/media/articles/connections/social/oauth2/custom-social-connections.png)
 

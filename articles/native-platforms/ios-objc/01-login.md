@@ -83,7 +83,7 @@ A0Lock *lock = [[MyApplication sharedInstance] lock];
 **NOTE:** If you need Facebook or Twitter native authentication, continue reading to learn how to configure these. Otherwise, skip to [Implement the login](#implement-the-login).
 
 ::: panel-info Configuration
-Before continuing to configure either Facebook or Twitter integration, check that you have enabled and correctly configured the social connection with your credentials in the [Dashboard](${uiURL}/#/connections/social).
+Before continuing to configure either Facebook or Twitter integration, check that you have enabled and correctly configured the social connection with your credentials in the [Dashboard](${manage_url}/#/connections/social).
 :::
 
 

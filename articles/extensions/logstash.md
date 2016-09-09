@@ -4,7 +4,7 @@ The _Auth0 Logs to Logstash_ is a scheduled job that takes all of your Auth0 log
 
 ## Configuring the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Logstash_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the _Auth0 Logs to Logstash_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
 
 ![](/media/articles/extensions/logstash/extension-mgmt-logstash.png)
 
@@ -21,7 +21,7 @@ Once you have provided this information, click the _Install_ button to finish in
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the _Installed Extensions_ link, and select the _Auth0 Logs to Logstash_ line. There you can see the job you just created, modify its state by toggling the _State_ switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the _Installed Extensions_ link, and select the _Auth0 Logs to Logstash_ line. There you can see the job you just created, modify its state by toggling the _State_ switch, see when the next run is due and what was the result of the last execution. 
 
 ![](/media/articles/extensions/logstash/view-cron-jobs.png)
 

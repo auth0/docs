@@ -34,7 +34,7 @@ Include via our CDN:
 
 ```html
 <!-- Latest minor release -->
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 
 <!-- Latest patch release (recommended for production) -->
 <script src="http://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>

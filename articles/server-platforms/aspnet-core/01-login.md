@@ -157,7 +157,7 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
         </div>
     </div>
 </div>
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script>
 
   var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {

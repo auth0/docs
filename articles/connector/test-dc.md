@@ -94,7 +94,7 @@ Install-ADDSForest –DomainName mycompany.local
 
 To easily test that everything is working using your Auth0 account, we're going to configure your **Default App** in Auth0 to use your new **Active Directory / LDAP** connection and then use the `/authorize` endpoint to initiate an authentication flow.
 
-1. In Auth0's Management Dashboard, browse to [your applications](${uiURL}/#/applications).
+1. In Auth0's Management Dashboard, browse to [your applications](${manage_url}/#/applications).
 1. Click the **Settings** gear of your **Default App**
 1. Make sure that `http://jwt.io` is in the list of the app's **Allowed Callback URLs**.
 1. Click the **Connections** tab.

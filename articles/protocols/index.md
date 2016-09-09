@@ -26,7 +26,7 @@ Someone using a browser hits a protected resource in your web app (a page that r
 
 > A note on `state`. This is an optional parameter, but we __strongly__ recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-The `redirect_uri` __must__ match what is defined in your [settings](${uiURL}/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
+The `redirect_uri` __must__ match what is defined in your [settings](${manage_url}/#/settings) page. `http://localhost` is a valid address and Auth0 allows you to enter many addresses simultaneously.
 
 Optionally you can specify a `scope` parameter. There are various possible values for `scope`:
 
@@ -93,7 +93,7 @@ The client requests authorization to Auth0 endpoint:
 
 	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&code_challenge={Base64UrlEncode(SHA256(THE VERIFIER))}&code_challenge_method=S256&connection=YOUR_CONNECTION
 
-The `redirect_uri` __must__ match one of the addresses defined in your [settings](${uiURL}/#/settings) page.
+The `redirect_uri` __must__ match one of the addresses defined in your [settings](${manage_url}/#/settings) page.
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
@@ -146,7 +146,7 @@ The client requests authorization to Auth0 endpoint:
 
 > Notice `response_type=token` in this request.
 
-As before, the `redirect_uri` __must__ match one of the addresses defined in your [settings](${uiURL}/#/settings) page.
+As before, the `redirect_uri` __must__ match one of the addresses defined in your [settings](${manage_url}/#/settings) page.
 
 > Adding a `scope=openid` parameter to the request sent to the `authorize` endpoint as indicated above, will result in an additional property called `id_token`. This is a [JSON Web Token](/jwt). You can control what properties are returned in the JWT (e.g. `scope=openid name email`).
 
@@ -297,7 +297,7 @@ The metadata endpoint that you can use to configure the __Relying Party__:
 
 	https://${account.namespace}/wsfed/${account.clientId}/FederationMetadata/2007-06/FederationMetadata.xml
 
-All options for WS-Fed are available under the [advanced settings](${uiURL}/#/applications/${account.clientId}/settings) for an App.
+All options for WS-Fed are available under the [advanced settings](${manage_url}/#/applications/${account.clientId}/settings) for an App.
 
 Claims sent in the SAML token, as well as other lower level settings of WS-Fed & SAML-P can also be configured with the `samlConfiguration` object through [rules](/saml-configuration).
 

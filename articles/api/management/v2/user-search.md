@@ -5,7 +5,7 @@ section: apis
 
 # Users Search
 
-You can search registered users using the [dashboard](${uiURL}/#/users) or the [Management APIv2](/api/v2#!/users/get_users) using [query string syntax](/api/management/v2/query-string-syntax) for the `q` field value.
+You can search registered users using the [dashboard](${manage_url}/#/users) or the [Management APIv2](/api/v2#!/users/get_users) using [query string syntax](/api/management/v2/query-string-syntax) for the `q` field value.
 
 Only fields in `user_metadata`, `app_metadata` or the [normalized user profile](/user-profile/normalized) are searchable. Note that users have read/write access to the `user_metadata` field but only read-only access to the `app_metadata` field.
 

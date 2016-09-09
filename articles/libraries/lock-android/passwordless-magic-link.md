@@ -20,7 +20,7 @@ In this article we'll show how Auth0 helps you set up your app to use app links 
 
 ## Auth0 account configuration
 
-Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically, all you need to do is configure the required parameters, some via API and others in your [dashboard](${uiURL}/#/connections/passwordless). We'll show you how to do it.
+Auth0 will generate the [Digital Asset Links](https://developers.google.com/digital-asset-links/) file automatically, all you need to do is configure the required parameters, some via API and others in your [dashboard](${manage_url}/#/connections/passwordless). We'll show you how to do it.
 
 ### Client configuration
 
@@ -66,7 +66,7 @@ Next we'll have to configure either the SMS or Email connection. This is availab
 
 ### SMS
 
-In case we'll use a passwordless connection via SMS, we'll need to update the SMS message template from the [dashboard](${uiURL}/#/connections/passwordless).
+In case we'll use a passwordless connection via SMS, we'll need to update the SMS message template from the [dashboard](${manage_url}/#/connections/passwordless).
  
 All you need to do is choose **Liquid** as the SMS Syntax and make sure the message contains something like this:
 

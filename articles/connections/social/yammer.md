@@ -39,7 +39,7 @@ Once your app is created, your `Client ID` and `Client Secret` will be displayed
 
 ## 4. Copy the *Client ID* and *Client Secret* into Auth0
 
-Go to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 dashboard and select **Yammer**.
+Go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard and select **Yammer**.
 Copy the `Client ID` and `Client Secret` from the **Basic Info** page of your app on Yammer into the fields on this page on Auth0.
 Click **Save**:
 
@@ -47,7 +47,7 @@ Click **Save**:
 
 ## 5. Test your app
 
-Go back to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 dashboard.
+Go back to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 If you have configured your app correctly, you will see a Try icon next to the Yammer logo.
 Toggle on the switch to enable Yammer authentication:

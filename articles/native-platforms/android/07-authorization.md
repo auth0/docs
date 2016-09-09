@@ -29,7 +29,7 @@ Be sure that you have completed the [user profile](04-user-profile) quickstart.
 
 ### 1. Create A Rule To Assign Roles
 
-First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${uiURL}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
+First, you need to create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
 ```java
 if (user.email.indexOf('@example.com') > -1)

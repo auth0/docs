@@ -5,7 +5,7 @@
 ## Link through Auth0 Login Widget
 
 ```js
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
   var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 

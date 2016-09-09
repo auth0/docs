@@ -6,7 +6,7 @@ Azure Blob storage is a service that stores unstructured object data, such as te
 
 ## Configure the Extension
 
-To install and configure this extension, navigate to the [Extensions](${uiURL}/#/extensions) page and click on the __Auth0 Logs to Azure Blob Storage__ box in the list of provided extensions.
+To install and configure this extension, navigate to the [Extensions](${manage_url}/#/extensions) page and click on the __Auth0 Logs to Azure Blob Storage__ box in the list of provided extensions.
 
 The __Install Extension__ window pops open.
 
@@ -48,12 +48,12 @@ Click on the __Access keys__ tab. Here you can find the value for __Storage_Acco
 
 ![Azure Storage Account Key](/media/articles/extensions/azure/storage-accnt-key.png)
 
-Now that you have retrieved all three values head back to the [Auth0 dashboard](${uiURL}) and set them at the corresponding fields. You 're done!
+Now that you have retrieved all three values head back to the [Auth0 dashboard](${manage_url}) and set them at the corresponding fields. You 're done!
 
 
 ## Use Your Installed Extension
 
-To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page, click on the __Installed Extensions__ link, and select the __Auth0 Logs to Azure Blob Storage__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
+To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page, click on the __Installed Extensions__ link, and select the __Auth0 Logs to Azure Blob Storage__ line. There you can see the job you just created, modify its state by toggling the __State__ switch, see when the next run is due and what was the result of the last execution.
 
 ![View Cron Jobs](/media/articles/extensions/azure/view-cron-jobs.png)
 
@@ -61,6 +61,6 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![View Cron Details](/media/articles/extensions/azure/view-cron-details.png)
 
-That's it, you are done! Your [Auth0 Logs](${uiURL}/#/logs) are now pushed to Azure and stored as objects at your storage account. You can view them by navigating to your [Microsoft Azure Portal](https://portal.azure.com).
+That's it, you are done! Your [Auth0 Logs](${manage_url}/#/logs) are now pushed to Azure and stored as objects at your storage account. You can view them by navigating to your [Microsoft Azure Portal](https://portal.azure.com).
 
 ![View Auth0 Logs at Azure Portal](/media/articles/extensions/azure/auth0-logs-at-azure.png)

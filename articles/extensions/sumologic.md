@@ -4,7 +4,7 @@ The _Auth0 Logs to Sumo Logic_ is a scheduled job that takes all of your Auth0 l
 
 ## Configuring the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Sumo Logic_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the _Auth0 Logs to Sumo Logic_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
 
 ![](/media/articles/extensions/sumologic/extension-mgmt-sumologic.png)
 
@@ -43,7 +43,7 @@ In order to configure a new system for Auth0 logs and acquire the *SUMOLOGIC_URL
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Sumo Logic* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Sumo Logic* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
 
 ![](/media/articles/extensions/sumologic/view-cron-jobs.png)
 
@@ -51,7 +51,7 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![](/media/articles/extensions/sumologic/view-cron-details.png)
 
-That's it, you are done! You can now navigate to [Sumo Logic](https://www.sumologic.com/) and view your [Auth0 Logs](${uiURL}/#/logs), by selecting the configured system.
+That's it, you are done! You can now navigate to [Sumo Logic](https://www.sumologic.com/) and view your [Auth0 Logs](${manage_url}/#/logs), by selecting the configured system.
 
 ![](/media/articles/extensions/sumologic/auth0-logs-at-sumologic.png)
 

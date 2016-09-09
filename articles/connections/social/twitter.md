@@ -38,7 +38,7 @@ To connect your Auth0 client to Twitter, you will need to generate *Consumer* an
 
 ## Copy your *Consumer Key* and *Consumer Secret* into Auth0
 
-1. In a separate window, login to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** in the left navigation.
+1. In a separate window, login to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left navigation.
 
 2. Select the connection with the Twitter logo to access this connection's **Settings** page.
 
@@ -62,7 +62,7 @@ Unlike many social identity providers, Twitter manages profile attribute permiss
 
 ## Test your connection
 
-1. Go back to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
+1. Go back to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard. If you have configured your app correctly, you will see a **Try** icon next to the Twitter logo:
 
     ![](/media/articles/connections/social/twitter/twitter-api-7.png)
 

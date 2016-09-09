@@ -73,4 +73,4 @@ You've already implemented Login and Sign Up with Auth0 in your iOS Swift projec
 
 ### Optional: Log In with Social Connections
 
-In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [connections dashboard](${uiURL}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
+In order to have a simple login mechanism through social connections, all you have to do is enable them in your account's [connections dashboard](${manage_url}/#/connections/social). Every social connection you switch on there, will appear in the Login screen of your app. That's pretty much it!
