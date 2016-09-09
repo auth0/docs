@@ -96,11 +96,11 @@ The signature is used to verify that the sender of the JWT is who it says it is 
 The output is three Base64 strings separated by dots that can be easily passed in HTML and HTTP environments, while being more compact when compared to XML-based standards such as SAML.
 
 The following shows a JWT that has the previous header and payload encoded, and it is signed with a secret.
-![Encoded JWT](https://cdn.auth0.com/content/jwt/encoded-jwt3.png)
+![Encoded JWT](/media/articles/jwt/encoded-jwt3.png)
 
 If you want to play with JWT and put these concepts into practice, you can use [jwt.io Debugger](http://jwt.io) to decode, verify, and generate JWTs.
 
-![JWT.IO Debugger](https://cdn.auth0.com/blog/legacy-app-auth/legacy-app-auth-5.png)
+![JWT.IO Debugger](/media/articles/jwt/legacy-app-auth-5.png)
 
 ## How do JSON Web Tokens work?
 In authentication, when the user successfully logs in using their credentials, a JSON Web Token will be returned and must be saved locally (typically in local storage, but cookies can be also used), instead of the traditional approach of creating a session in the server and returning a cookie.
@@ -118,7 +118,7 @@ This allows you to fully rely on data APIs that are stateless and even make requ
 
 The following diagram shows this process:
 
-![How does a JSON Web Token works](https://cdn.auth0.com/content/jwt/jwt-diagram.png)
+![How a JSON Web Token works](/media/articles/jwt/jwt-diagram.png)
 
 ## Why should we use JSON Web Tokens?
 
@@ -132,5 +132,5 @@ JSON parsers are common in most programming languages because they map directly 
 
 Regarding usage, JWT is used at Internet scale. This highlights the ease of client-side processing of the JSON Web token on multiple platforms, especially mobile.
 
-![Comparing the length of an encoded JWT and an encoded SAML](https://cdn.auth0.com/content/jwt/comparing-jwt-vs-saml2.png)
+![Comparing the length of an encoded JWT and an encoded SAML](/media/articles/jwt/comparing-jwt-vs-saml2.png)
 _Comparison of the length of an encoded JWT and an encoded SAML_
