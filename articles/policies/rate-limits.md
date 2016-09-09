@@ -1,6 +1,7 @@
 # Rate Limit Policy
 
 To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.
+To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.
 
 ## Limits
 
