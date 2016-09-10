@@ -43,11 +43,18 @@ Create the Webtask. You will need to set the following static metadata fields fo
 * `wt-compiler = auth0-ext-compilers/client-credentials-exchange`
 * `auth0-extension = runtime`
 * `auth0-extension-name = credentials-exchange`
+* `auth0-extension-secret = {random_secret}`
 
-You can also add secrets, which will be kept encrypted: `SOME_SECRET = shhh`
+The same `{random_secret}` value provided to the `auth0-extension-secret` metadata property must also be provided to the webtask code as an `auth0-extension-secret` secret parameter. This prevents unauthorized calls to this webtask. A secret may be conveniently created using `openssl` tool if your platform has it available:
 
 ```
-wt create myrule.js --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange --meta auth0-extension=runtime --meta auth0-extension-name=credentials-exchange --secret SOME_SECRET=shhhh
+SECRET=$(openssl rand 32 -base64) && \
+wt create myrule.js \
+  --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange \
+  --meta auth0-extension=runtime \
+  --meta auth0-extension-name=credentials-exchange \
+  --meta auth0-extension-secret=$SECRET \
+  --secret auth0-extension-secret=$SECRET
 ```
 
 ### 3. Test Your Setup
