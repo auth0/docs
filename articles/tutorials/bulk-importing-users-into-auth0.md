@@ -95,12 +95,12 @@ Your request should contain the following parameters:
 When you perform a request to the endpoint, it should look similar to this one:
 
  ```
-  {
-    users,
-    connection_id,
-    external_id,
-    upsert: true/false     (default as false)
-  }
+{
+    "users": [your users file],
+    "connection_id": "abcd",
+    "external_id": "contoso",
+    "upsert": true     //defauls to false
+}
  ```
 
 If it works, you will get a response similar to the following one:
