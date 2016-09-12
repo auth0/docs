@@ -9,8 +9,8 @@ description: test
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: '00-Starter-Seed/www/app/auth0.variables.js',
-  pkgType: 'replace'
+  pkgFilePath: '00-Starter-Seed/www/auth0.variables.js',
+  pkgType: 'js'
 }) %>
 
 Welcome to this quickstart which will guide you through the various steps of implementing Auth0 in your Ionic applications.
@@ -51,18 +51,23 @@ file://\*
 
 As stated before, the seed project contains all the required Bower dependencies and has the references added to the `index.html` file. If you would rather integrate Auth0 into an existing Ionic application instead of using our seed project, you will need to add the following Bower dependencies to your application:
 
-${snippet(meta.snippets.bower)}
+    bower install --save auth0-lock angular-lock angular-jwt
 
 You will also need to add the references to the libraries to your application's `index.html`:
 
-${snippet(meta.snippets.references)}
+```html
+<!-- Auth0 Lock -->
+<script src="lib/auth0-lock/build/lock.min.js"></script>
+<!-- lock-angular -->
+<script src="lib/angular-lock/dist/angular-lock.min.js"></script>
+<!-- angular-jwt -->
+<script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+```
 
 The purpose of each of these references are as follows:
 
  - **auth0-lock** is the default authentication widget provided by Auth0. It is completely optional but I suggest you stick to it as an Auth0 newbie.
- - **auth0.js** is Auth0's javascript library. This is not necessary if you choose to use Lock throughout.
- - **auth0-angular**: Auth0's SDK for Angular. It exposes most of the useful methods for authentication.
- - **angular-storage**: A `localStorage` and `sessionStorage` wrapper create with love by Auth0 team.
+ - **lock-angular**: Auth0's SDK for Angular. It exposes most of the useful methods for authentication.
  - **angular-jwt**: Angular service that makes using JSON Web Tokens easy in Angular apps.
 
 ### 4. Add the `InAppBrowser` plugin
