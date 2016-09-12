@@ -8,7 +8,6 @@ articles:
 
   - title: Getting Started
     url: "/overview"
-    icon: "icon-budicon-500"
     children:
       - title: Overview
         url: /overview
@@ -17,45 +16,95 @@ articles:
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
+  - title: "Lock"
+    url: "/libraries/lock"
+    children:
+      - title: "Lock for Web"
+        url: "/libraries/lock"
+
+      - title: "Lock for iOS"
+        url: "/libraries/lock-ios"
+
+      - title: "Lock for Android"
+        url: "/libraries/lock-android"
+
+      - title: "Lock vs. Custom UI"
+        url: "/libraries/when-to-use-lock"
+
   - title: "Applications"
     url: "/applications"
     icon: "icon-budicon-349"
 
   - title: "Rules"
     url: "/rules"
-    icon: "icon-budicon-173"
+    children:
+
+      - title: "Deploy Rules with Github"
+        url: "/extensions/github-deploy"
+
+      - title: "Deploy Rules with Bitbucket"
+        url: "/extensions/bitbucket-deploy"
+
+  - title: "Extensions"
+    url: "/extensions"
+    children:
+
+      - title: "Creating Extensions"
+        url: "/extensions/custom-extensions"
+
+      - title: "User Import / Export Extension"
+        url: "/extensions/user-import-export"
+
+      - title: "Authorization Extension"
+        url: "/extensions/authorization-extension"
 
   - title: "Identity Providers"
     url: "/identityproviders"
-    icon: "icon-budicon-297"
+    children:
+
+      - title: "Custom Social Connections"
+        url: "/extensions/custom-social-extensions"
 
   - title: "Single Sign-On"
     url: "/sso"
-    icon: "icon-budicon-170"
 
   - title: "User Profile"
     url: "/user-profile"
-    icon: "icon-budicon-289"
     children:
 
       - title: "Metadata"
         url: "/metadata"
+        children:
+
+          - title: "Updating with Lock"
+            url: "/metadata/lock"
+
+          - title: "Updating with API"
+            url: "/metadata/management-api"
+
+          - title: "Data Storage Guidance"
+            url: "/user-profile/user-data-storage"
+
+      - title: "Normalized User Profile"
+        url: "/user-profile/normalized"
+
+      - title: "Progressive Profiling"
+        url: "/user-profile/progressive-profiling"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
-    icon: "icon-budicon-243"
     children:
 
       - title: "Auth0 Guardian"
         url: "/multifactor-authentication/guardian"
         children:
-        
+
           - title: "Admin Guide"
             url: "/multifactor-authentication/guardian/admin-guide"
-        
+
           - title: "Dev Guide"
             url: "/multifactor-authentication/guardian/dev-guide"
-        
+
           - title: "User Guide"
             url: "/multifactor-authentication/guardian/user-guide"
 
@@ -68,8 +117,8 @@ articles:
       - title: "Duo Security"
         url: "/multifactor-authentication/duo"
 
-      - title: "Custom MFA"
-        url: "/multifactor-authentication#mfa-using-a-custom-provider"
+      # - title: "Custom MFA"
+      #   url: "/multifactor-authentication#mfa-using-a-custom-provider"
 
         # children:
         #
@@ -84,43 +133,27 @@ articles:
 
   - title: "Passwordless Authentication"
     url: "/connections/passwordless"
-    icon: "icon-budicon-499"
 
   - title: "AD Connector"
     url: "/connector"
-    icon: "icon-budicon-606"
-
-  - title: "Lock"
-    url: "/libraries/lock"
-    icon: "icon-budicon-399"
-    children:
-      - title: "Lock for Web"
-        url: "/libraries/lock"
-        
-      - title: "Lock for iOS"
-        url: "/libraries/lock-ios"
-
-      - title: "Lock for Android"
-        url: "/libraries/lock-android"
-
-      - title: "Lock vs. Custom UI"
-        url: "/libraries/when-to-use-lock"
-
-      
-
-  - title: "Plugins"
-    url: "/cms#wordpress-plugin"
-    icon: "icon-budicon-423"
     children:
 
-      - title: "Wordpress"
-        url: "/cms#wordpress-plugin"
+      - title: "Health Monitoring Extension"
+        url: "/extensions/adldap-connector"
 
-      - title: "Joomla"
-        url: "/cms#joomla-extension"
+  - title: "CMS Plugins"
+    url: "/cms"
+    children:
+
+      # - title: "Wordpress"
+      #   url: "/cms#wordpress-plugin"
+      #
+      # - title: "Joomla"
+      #   url: "/cms#joomla-extension"
 
       - title: "SharePoint"
         url: "https://github.com/auth0/auth0-sharepoint"
+
 
 apis:
 
@@ -154,11 +187,9 @@ apis:
 appliance:
 
   - title: "Introduction"
-    icon: "icon-budicon-714"
     url: "/appliance"
 
   - title: "Appliance Planning"
-    icon: "icon-budicon-494"
     url: "/appliance/appliance-overview"
     children:
       - title: Geographic High-Availability
@@ -171,7 +202,6 @@ appliance:
         url: /appliance/private-cloud-requirements
 
   - title: "Appliance Administration"
-    icon: "icon-budicon-327"
     url: "/appliance/admin"
     children:
       - title: Release Notes

@@ -8,9 +8,9 @@
   title: "Articles"
   url: "/overview"
 
-- id: "sdks"
-  title: "SDKs"
-  url: "/sdks"
+# - id: "sdks"
+#   title: "SDKs"
+#   url: "/sdks"
 
 - id: "apis"
   title: "APIs"

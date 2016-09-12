@@ -963,5 +963,9 @@
   {
     "from": "/oauth-implicit-protocol",
     "to": "/protocols/oauth-implicit-protocol"
+  },
+  {
+    "from": "/metadata/apiv2",
+    "to": "/metadata/management-api"
   }
 ]
