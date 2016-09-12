@@ -1,0 +1,9 @@
+{
+  "blacklisted_urls": [
+    "docs.auth0.com",
+    "app.auth0.com",
+    "github.com/auth0/Lock.iOS-OSX/wiki",
+    "github.com/auth0/Lock/wiki",
+    "github.com/auth0/Lock.Android/wiki"
+  ]
+}
