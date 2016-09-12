@@ -1,0 +1,194 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+  - title: Getting Started
+    url: "/overview"
+    icon: "icon-budicon-500"
+    children:
+      - title: Overview
+        url: /overview
+      - title: Developer Videos
+        url: /videos
+      - title: Architecture Scenarios
+        url: /architecture-scenarios
+
+  - title: "Applications"
+    url: "/applications"
+    icon: "icon-budicon-349"
+
+  - title: "Rules"
+    url: "/rules"
+    icon: "icon-budicon-173"
+
+  - title: "Identity Providers"
+    url: "/identityproviders"
+    icon: "icon-budicon-297"
+
+  - title: "Single Sign-On"
+    url: "/sso"
+    icon: "icon-budicon-170"
+
+  - title: "User Profile"
+    url: "/user-profile"
+    icon: "icon-budicon-289"
+    children:
+
+      - title: "Metadata"
+        url: "/metadata"
+
+  - title: "Multifactor Authentication"
+    url: "/multifactor-authentication"
+    icon: "icon-budicon-243"
+    children:
+
+      - title: "Auth0 Guardian"
+        url: "/multifactor-authentication/guardian"
+        children:
+        
+          - title: "Admin Guide"
+            url: "/multifactor-authentication/guardian/admin-guide"
+        
+          - title: "Dev Guide"
+            url: "/multifactor-authentication/guardian/dev-guide"
+        
+          - title: "User Guide"
+            url: "/multifactor-authentication/guardian/user-guide"
+
+      - title: "SMS"
+        url: "/multifactor-authentication#mfa-with-sms"
+
+      - title: "Google Authenticator"
+        url: "/multifactor-authentication/google-authenticator"
+
+      - title: "Duo Security"
+        url: "/multifactor-authentication/duo"
+
+      - title: "Custom MFA"
+        url: "/multifactor-authentication#mfa-using-a-custom-provider"
+
+        # children:
+        #
+        #   - title: "Admin Guide"
+        #     url: "/multifactor-authentication/google-auth/admin-guide"
+        #
+        #   - title: "Dev Guide"
+        #     url: "/multifactor-authentication/google-auth/dev-guide"
+        #
+        #   - title: "User Guide"
+        #     url: "/multifactor-authentication/google-auth/user-guide"
+
+  - title: "Passwordless Authentication"
+    url: "/connections/passwordless"
+    icon: "icon-budicon-499"
+
+  - title: "AD Connector"
+    url: "/connector"
+    icon: "icon-budicon-606"
+
+  - title: "Lock"
+    url: "/libraries/lock"
+    icon: "icon-budicon-399"
+    children:
+      - title: "Lock for Web"
+        url: "/libraries/lock"
+        
+      - title: "Lock for iOS"
+        url: "/libraries/lock-ios"
+
+      - title: "Lock for Android"
+        url: "/libraries/lock-android"
+
+      - title: "Lock vs. Custom UI"
+        url: "/libraries/when-to-use-lock"
+
+      
+
+  - title: "Plugins"
+    url: "/cms#wordpress-plugin"
+    icon: "icon-budicon-423"
+    children:
+
+      - title: "Wordpress"
+        url: "/cms#wordpress-plugin"
+
+      - title: "Joomla"
+        url: "/cms#joomla-extension"
+
+      - title: "SharePoint"
+        url: "https://github.com/auth0/auth0-sharepoint"
+
+apis:
+
+  - title: "Overview"
+    url: "/api/info"
+
+  - title: "Testing with Postman"
+    url: "/api/postman"
+
+  - title: Authentication API
+    url: "/api/authentication"
+    forceFullReload: true
+
+  - title: Management API
+    url: "/api/management/v2/"
+    forceFullReload: true
+    children:
+      - title: API Tokens
+        url: /api/management/v2/tokens
+        forceFullReload: true
+      - title: Query String Syntax
+        url: /api/management/v2/query-string-syntax
+        forceFullReload: true
+      - title: User Search
+        url: /api/management/v2/user-search
+        forceFullReload: true
+
+
+
+
+appliance:
+
+  - title: "Introduction"
+    icon: "icon-budicon-714"
+    url: "/appliance"
+
+  - title: "Appliance Planning"
+    icon: "icon-budicon-494"
+    url: "/appliance/appliance-overview"
+    children:
+      - title: Geographic High-Availability
+        url: /appliance/geo-ha
+      - title: Infrastructure Requirements
+        url: /appliance/infrastructure
+      - title: Customer Onboarding
+        url: /onboarding/appliance-sprint
+      - title: Onboarding Requirements
+        url: /appliance/private-cloud-requirements
+
+  - title: "Appliance Administration"
+    icon: "icon-budicon-327"
+    url: "/appliance/admin"
+    children:
+      - title: Release Notes
+        url: https://auth0.com/changelog/appliance
+      - title: Administrator's Manual
+        url: /appliance/admin
+      - title: Dashboard/Configuration Area
+        url: /appliance/dashboard
+      - title: Monitoring Tools
+        url: /appliance/monitoring
+      - title: Command-Line Interface Tools
+        url: /appliance/cli
+      - title: Automatic Tenant Creation
+        url: /appliance/admin/creating-tenants
+      - title: Node Module Availibility
+        url: /appliance/modules
+      - title: Webtasks
+        url: /appliance/webtasks
+      - title: Disaster Recovery
+        url: /appliance/geo-ha/disaster-recovery
