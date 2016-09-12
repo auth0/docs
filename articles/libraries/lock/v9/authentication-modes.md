@@ -16,7 +16,7 @@ If after you click on the IdP button (Facebook for example), a popup (new tab or
 
 > WARNING: There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
 
-![Widget Popup](https://cloudup.com/cg8u9kVV5Vh+)
+![Widget Popup](/media/articles/libraries/lock/v10/widget-popup.gif)
 
 You can [click here](/libraries/lock/v9/types-of-applications#popup-mode) to learn how to implement Popup mode with Single Page Apps.
 

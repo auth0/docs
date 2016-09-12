@@ -21,7 +21,7 @@ For this example case we used the scenario of a mobile music application. We sta
 
 ## Where do I put my authentication data?
 
-Auth0 has a data store which serves as a way for developers to store data associated with their users’ profiles, beyond the basic information Auth0 uses for authentication, i.e name, email, username, password, and so on. You can also [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) to store such information if your needs are different from what the Auth0 data store offers. However, we recommend storing authentication-related data in Auth0’s data store in order to make things less complicated by allowing you to easily manage user data through Auth0’s [dashboard](${uiURL}).
+Auth0 has a data store which serves as a way for developers to store data associated with their users’ profiles, beyond the basic information Auth0 uses for authentication, i.e name, email, username, password, and so on. You can also [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) to store such information if your needs are different from what the Auth0 data store offers. However, we recommend storing authentication-related data in Auth0’s data store in order to make things less complicated by allowing you to easily manage user data through Auth0’s [dashboard](${manage_url}).
 
 
 ## Why not put all the app’s data in the Auth0 data store?

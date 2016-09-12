@@ -56,7 +56,7 @@ The Settings page is broken down into the following sections:
 
 ## SMTP Server
 
-* **Send Mails From**: *Deprecated.* The email address used in the "From" field typically comes from that provided on your [custom email template](https://${uiURL}/#/emails);
+* **Send Mails From**: *Deprecated.* The email address used in the "From" field typically comes from that provided on your [custom email template](https://${manage_url}/#/emails);
 * **SMTP Server**: the name of your SMTP server;
 * **SMTP Port**: the port through which you access your SMTP server;
 * **SMTP User**: the username to log in to your SMTP server;

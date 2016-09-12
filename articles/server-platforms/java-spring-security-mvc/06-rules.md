@@ -24,7 +24,7 @@ Rules are one of the cool features of Auth0. The reason is their flexibility, wh
 
 ## Create a rule
 
-To create a rule go to the [Create Rule page](${uiURL}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks. 
+To create a rule go to the [Create Rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks. 
 
 Let's create a rule to implement some basic role-based authorization. If the user logs in using a `@gmail.com` or a `@auth0.com` email, the user will be assigned the `ROLE_ADMIN` role, otherwise the user will be assigned the `ROLE_USER` role. We will print some text on screen to see how this works. 
 

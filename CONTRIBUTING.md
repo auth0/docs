@@ -608,13 +608,11 @@ When writing docs you can use the following variables instead of hard-coding the
 
 | Variable  | Description | Default Value |
 | :---------------------------- | :----------------------------------------- | :-------------------------------------- |
-| `uiURL`                       | The url to the management portal.          | `https://manage.auth0.com`              |
+| `manage_url`                       | The url to the management portal.          | `https://manage.auth0.com`              |
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
 | `auth0js_url_no_scheme`       | The url to the auth0.js CDN location without the 'https:'. | |
-| `auth0_angular_url`           | The url to the auth0 angular script CDN location. | |
-| `auth0_angular_url_no_scheme` |  The url to the auth0 angular script in the CDN location without the 'https://'. | |
-| `widget_url`                  | The url to the Lock script CDN location.   | |
-| `widget_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
+| `lock_url`                  | The url to the Lock script CDN location.   | |
+| `lock_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
 | `browser`       | Displays a browser window with Lock. | |
 | `lockSDK`       | Displays a browser window with Lock and a dropdown with the options to trigger login. | |

@@ -34,4 +34,4 @@ lock.show({ dict: dict });
 ```
 These errors will be shown on the widget header:
 
-![](https://i.cloudup.com/9AfFb-pbwm.png)
+![Widget Header Errors](/media/articles/libraries/lock/v9/custom-error.png)

@@ -211,7 +211,7 @@ Then open your browser and go to [http://localhost:3099/login](http://localhost:
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-The widget displays all the social and database connections that you have defined for this application in the [dashboard](${uiURL}/#/).
+The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 Once you login you are redirected to the home page that displays your profile picture, user id, and nickname.
 

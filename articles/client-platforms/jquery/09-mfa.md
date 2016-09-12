@@ -13,6 +13,12 @@ description: This tutorial will show you how to add Multifactor Authentication t
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 <%= include('../_includes/_mfa-introduction') %>
 
 In this tutorial, you will learn how to enable MFA in the jQuery application you created in the previous steps.

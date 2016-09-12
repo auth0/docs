@@ -16,5 +16,11 @@ snippets:
   dependenciesGradle: server-apis/java-spring-security/dependencies-gradle
   setup: server-apis/java-spring-security/setup
   use: server-apis/java-spring-security/use
+  newRule: server-apis/java-spring-security/newRule
+  AppConfig: server-apis/java-spring-security/AppConfig
+  PingController: server-apis/java-spring-security/PingController
+  SecurePingController: server-apis/java-spring-security/SecurePingController
 articles:
-  - authenticate
+  - 00-intro
+  - 01-authentication
+  - 02-authorization

@@ -35,7 +35,7 @@ There are 6 steps to this sample:
 
 In this step, you will configure Auth0 as a Service Provider to communicate with the **SalesForce** Identity Provider for single sign on.
 
-1. Navigate to the [Connections > Enterprise](${uiURL}/#/connections/enterprise) section of the Auth0 dashboard.
+1. Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) section of the Auth0 dashboard.
 2. Click on **SAMLP Identity Provider**
 3. Click on **Create New Connection**
 4. In the **Create SAMLP Identity Provider connection** window, enter the following information into the **Configuration** tab:
@@ -110,7 +110,7 @@ In this step, you will configure SalesForce with the metadata from Auth0 so it c
 
 In this step, you will test the SAML configuration between Auth0 and SalesForce.
 
-* Navigate to the [Connections > Enterprise](${uiURL}/#/connections/enterprise) section of the Auth0 dashboard. Select the **SAMLP Identity Provider**.
+* Navigate to the [Connections > Enterprise](${manage_url}/#/connections/enterprise) section of the Auth0 dashboard. Select the **SAMLP Identity Provider**.
 * Click the **Try** button for the SAML connection you created earlier. You should be redirected from Auth0 to the SalesForce login page.
 * Once you are at the **SalesForce login screen**, login with the credentials you provided when you created the SalesForce account.
 

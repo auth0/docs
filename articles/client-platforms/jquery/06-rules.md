@@ -13,6 +13,12 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 <%= include('../_includes/_rules-introduction') %>
 
 ## Create a Rule

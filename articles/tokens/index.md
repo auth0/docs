@@ -99,7 +99,7 @@ The Auth0 Authentication API endpoints provide a rich set of features for authen
 
 ### Calling the API of the social provider through which the user authenticated
 
-* [Sample of what to do once the user is logged in](/what-to-do-once-the-user-is-logged-in/index)
+* [Sample of what to do once the user is logged in](/what-to-do-once-the-user-is-logged-in)
 
 ### Calling an API developed by a customer
 

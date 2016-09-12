@@ -32,7 +32,7 @@ Once your app is registered, your `Client Id` and `Secret` will be displayed:
 
 ## 4. Copy your *Client Id* and *Secret*
 
-Go to the [Social Connections](${uiURL}/#/connections/social) page of your Auth0 Dashboard and select **Planning Center**.
+Go to the [Social Connections](${manage_url}/#/connections/social) page of your Auth0 Dashboard and select **Planning Center**.
 
 Copy the `Client Id` and `Secret` from the **Developer Applications** page of the Planning Center Developer portal into the fields on this page on Auth0.
 

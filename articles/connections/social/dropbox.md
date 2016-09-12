@@ -48,7 +48,7 @@ On the same **Settings** page, your `App key` and `App secret` will be displayed
 
 ## 5. Copy your *Client Id* and *Client Secret* into Auth0
 
-In a separate window, login to your [Auth0 Dashboard](${uiURL}) and select **Connections > Social** in the left nav. 
+In a separate window, login to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left nav. 
 
 Select **Dropbox**. 
 
@@ -68,7 +68,7 @@ Select the **Apps** tab of the Dropbox connection on Auth0 and select each of yo
 
 ## 7 Test the connection
 
-Close the **Settings** window to return to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard.
+Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
 
 A **TRY** icon will now be displayed next to the Dropbox logo:
 

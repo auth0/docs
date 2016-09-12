@@ -4,7 +4,7 @@ You will need a [Twilio Account SID](https://www.twilio.com/help/faq/twilio-basi
 
 #### 2. Configure the connection
 
-In the Dashboard under [Connections > Passwordless](${uiURL}/#/connections/passwordless), set the SMS slider to the right to enable the SMS Passwordless feature.
+In the Dashboard under [Connections > Passwordless](${manage_url}/#/connections/passwordless), set the SMS slider to the right to enable the SMS Passwordless feature.
 
 Enter your **Twilio Account SID** and **Twilio Auth Token** in the appropriate fields. 
 

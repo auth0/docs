@@ -6,5 +6,6 @@ snippets:
   setup: server-platforms/asp-classic/setup
   use: server-platforms/asp-classic/use
 seo_alias: asp-classic
+default_article: 01-login
 articles:
   - 01-login

@@ -1,131 +1,138 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 ASP.NET OWIN SDK to add authentication and authorization to your web app.
+description: This tutorial will show you how to use the Auth0 OAuth2 middleware to add authentication to your web app.
 ---
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
   pkgOrg: 'auth0-samples',
-  pkgRepo: 'aspnet-owin-samples',
-  githubUrl:'https://github.com/auth0-samples/aspnet-owin-samples/tree/master/00-Starter-Seed/basic-mvc-sample',
+  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
   pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/basic-mvc-sample',
-  pkgFilePath: '00-Starter-Seed/basic-mvc-sample/BasicMvcSample/Web.config',
+  pkgPath: '01-Login',
+  pkgFilePath: '01-Login/MvcApplication/MvcApplication/web.config',
   pkgType: 'replace'
 }) %>
 
-This tutorial explains how to integrate Auth0 with an ASP.NET application (WebForms, MVC and even Web API) that uses the ASP.NET 4.5 OWIN infrastructure.
+## Install and Configure Auth0 OAuth2 middleware
 
-## Tutorial
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
+The easiest way to enable authentication with Auth0 in your ASP.NET MVC application is to use the Auth0 ASP.NET OAuth2 middleware which is available in the `Auth0-ASPNET-Owin` NuGet package, so install that first:
 
-* MicroSoft Visual Studio 2015
-* .NET Framework 4.5.2
-* Auth0-ASPNET-Owin NuGet Package v1.0.2
-
-:::
-
-### 1. Install Auth0-ASPNET-Owin NuGet package
-
-Use the NuGet Package Manager (Tools -> NuGet Package Manager -> Package Manager Console) to install the **Auth0-ASPNET-Owin** package, running the command:
-
-${snippet(meta.snippets.dependencies)}
-
-The NuGet package will install the Auth0 OWIN middleware library, update your web.config by adding Auth0-related settings, as well as add an `Auth0AccountController` class which handles the authentication response from Auth0. Customizing each of these are discussed in more detail below.
-
-### 2. Setting up the callback URL in Auth0
-
-<div class="setup-callback">
-<p>After the user has authenticated using Auth0, we will do an HTTP POST back to the <strong>/signin-auth0</strong> path of your website which will be intercepted by the Auth0 OWIN middleware. For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section of your Auth0 Dashboard.</p>
-
-<p>After the Auth0 OWIN middleware has processed the request, it will redirect to <strong>"/Auth0Account/ExternalLoginCallback"</strong> URL. (Please do not register this route on the dashboard).</p>
-
-So before proceeding further, be sure to register the URL <code>http://YOUR_WEBSITE_URL/signin-auth0</code> on the <a href="${uiAppSettingsURL}">Application Settings</a> section of your Auth0 Dashboard. (Replace "YOUR_WEBSITE_URL" with the actual base URL of your web application.)
-</div>
-
-### 3. Populating Web.Config with your Auth0 settings
-
-When you installed the NuGet package, it created three settings in `<appSettings>` section of the **web.config** file. Replace those with the following settings:
-
-```xml
-<add key="auth0:ClientId" value="${account.clientId}" />
-<add key="auth0:ClientSecret" value="${account.clientSecret}" />
-<add key="auth0:Domain" value="${account.namespace}" />
+``` bash
+Install-Package Auth0-ASPNET-Owin
 ```
 
-### 4. Configure authentication with Auth0
+Now go to the `Configuration` method of your `Startup` class and configure external cookies as well as the Auth0 middleware:
 
-${snippet(meta.snippets.setup)}
-
-The NuGet package provides a simple controller (`Auth0AccountController`) which will process the authentication response from Auth0. If you want to use your own controller, make sure you set the `redirectPath` parameter when registering the Auth0 middleware.
-
-For example, in order to use the implementation provided by the Visual Studio templates ("/Account/ExternalLoginCallback"), you can set the `redirectPath` parameter as follows:
-
-```
-app.UseAuth0Authentication(
-    clientId: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
-    clientSecret: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
-    domain: System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"],
-    redirectPath: "/Account/ExternalLoginCallback");
-```
-
-### 5. Triggering login manually or integrating the Auth0Lock
-
-${lockSDK}
-
-> If you selected one of the Lock widgets or Passwordless authentication methods above, please ensure that the `redirectUrl` setting contains the correct URL to the `/signin-auth0` path, e.g. `http://YOUR_WEBSITE_URL/signin-auth0`.
-
-### 6. Accessing user information
-
-Once the user has been successfully authenticated, you can access the user as a `ClaimsPrincipal` through the `ClaimsPrincipal.Current` property. You can then access information about the user through the various claims set by the Auth0 middleware. The following example demonstrates how you can access the user's email address through the **"email"** claim:
-
-```
-public ActionResult Index()
+```cs
+public void Configuration(IAppBuilder app)
 {
-	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+    // Code omitted for brevity...
+
+    // Use a cookie to temporarily store information about a user logging in with a third party login provider
+    app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+    // Configure Auth0 authentication
+    app.UseAuth0Authentication(
+        clientId: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"],
+        clientSecret: System.Configuration.ConfigurationManager.AppSettings["auth0:ClientSecret"],
+        domain: System.Configuration.ConfigurationManager.AppSettings["auth0:Domain"]);
+
 }
 ```
 
-The user profile is normalized regardless of where the user came from, and the claims will typically include the `user_id`, `name`, `email`, `nickname`, and `picture`. For more information about the user profile, see [this article](/user-profile).
+## Add Login and Logout methods
 
+Next you will need to add `Login` and `Logout` actions to the `AccountController`. 
 
-**Congratulations!**
+For the `Login` action you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out of the Authentication Manager and then redirect them back to the home page:
 
-----
+```cs
+public class AccountController : Controller
+{
+    public ActionResult Login()
+    {
+        return View();
+    }
 
-## Katana issue with cookies
+    [Authorize]
+    public ActionResult Logout()
+    {
+        HttpContext.GetOwinContext().Authentication.SignOut();
 
-There is an bug with the Katana OWIN implementation (Microsoft.Owin.Host.SystemWeb), that causes cookies set in an OWIN middleware to sometimes disappear. This results in the authentication flow not being able to complete. The sympton in this case is that the `AuthenticationManager.GetExternalLoginInfo()` or similar calls that depend on a cookie being set will fail.
-
-The issue is described [here](https://katanaproject.codeplex.com/workitem/197), and the current workaround is installing the [Kentor.OwinCookieSaver package](https://www.nuget.org/packages/Kentor.OwinCookieSaver/).
-
-First install the package:
-
-```
-Install-Package Kentor.OwinCookieSaver
-```
-
-and then configure the middleware. The `Kentor.OwinCookieSaver` middleware should be added before other cookie handling middleware:
-
-```
-app.UseKentorOwinCookieSaver();
-
-app.UseCookieAuthentication(new CookieAuthenticationOptions(...));
+        return RedirectToAction("Index", "Home");
+    }
+}
 ```
 
-Further details are provided at https://github.com/KentorIT/owin-cookie-saver.
-----
+## Add the Login view
 
-### More information
+For the Login view you can embed the [Auth0 Lock component](/libraries/lock). You can use the sample code below which adds a `<div>` to your view and then initializes the Lock component to display inside the view.
 
-#### Authorization
+``` html
+@using System.Configuration
+@{
+    ViewBag.Title = "Login";
+}
 
-You can use the declarative `[Authorize]`, `<location path='..'>` in `web.config` or code-based checks like `User.Identity.IsAuthenticated`.
 
-#### Log out
+<div id="root" style="width: 320px; margin: 40px auto;">
+</div>
 
-To clear the cookie generated on login, use the `HttpContext.GetOwinContext().Authentication.SignOut()` method.
+<script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+<script>
+    var lock = new Auth0Lock('@ConfigurationManager.AppSettings["auth0:ClientId"]', '@ConfigurationManager.AppSettings["auth0:Domain"]',
+        {
+            container: 'root',
+            auth: {
+                redirectUrl: window.location.origin + '/signin-auth0',
+                responseType: 'code',
+                params: {
+                    scope: 'openid'
+                }
+            }
+        });
+    lock.show();
+</script>
+```
 
-#### Download the sample
+## Add Login and Logout links
 
-Browse the sample on <a href="https://github.com/auth0/auth0-aspnet-owin/tree/master/examples/MvcSample">GitHub</a>.
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+
+```html
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+```
+
+## Run your application
+
+Now when you run the application you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.
+
+If you prefer to create a custom Login screen, refer to the [Custom Login step](/quickstart/webapp/aspnet-owin/02-login-custom). 
+
+Alternatively you can simply carry on to the [Storing Tokens step](/quickstart/webapp/aspnet-owin/03-storing-tokens) which will demonstrate how you can can store the tokens returned by Auth0.

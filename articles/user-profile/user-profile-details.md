@@ -36,7 +36,7 @@ You may delete a user's cached profile via the Auth0 Dashboard or the Management
 
 ## Structure of User Profile Data
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${uiURL}/#/users) in the Auth0 Dashboard and then on a particular user.
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user.
 
 "Details" consists of core User Profile object with basic information such as name, email, and the timestamp of the latest login. The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.
 

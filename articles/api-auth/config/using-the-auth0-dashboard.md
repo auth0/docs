@@ -4,7 +4,7 @@ description: How to enable API Authorization on the Auth0 dashboard.
 
 ### Using the Auth0 Dashboard for setting up an API Authorization scenario
 
-1. Open the [Auth0 Dashboard](${uiURL}) and browse to the Clients section.
+1. Open the [Auth0 Dashboard](${manage_url}) and browse to the Clients section.
 
 2. Create a new client of type **Non Interactive** for each of the applications that will consume the API you want to generate access tokens for.
 

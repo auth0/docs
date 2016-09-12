@@ -10,9 +10,9 @@ You can now add [rules](/rules) into the [client credentials](/api-auth/grant/cl
 
 Please ensure that:
 
-* You have the [Webtask Command Line Interface (CLI) installed](${uiURL}/#/account/webtasks);
-* You have created an [API defined with the appropriate scopes](${uiURL}/#/apis);
-* You have created a [non-interactive client](${uiURL}/#/applications) that is authorized to use the API created in the previous step.
+* You have the [Webtask Command Line Interface (CLI) installed](${manage_url}/#/account/webtasks);
+* You have created an [API defined with the appropriate scopes](${manage_url}/#/apis);
+* You have created a [non-interactive client](${manage_url}/#/applications) that is authorized to use the API created in the previous step.
 
 ## Creating the Rule
 
@@ -34,7 +34,7 @@ module.exports = function(client, scope, audience, context, cb) {
 This is a sample rule that will:
 
 * add an arbitrary claim (`https://foo.com/claim`) to the access_token;
-* add an extra scope to the default scopes configured on your [API](${uiURL}/#/apis).
+* add an extra scope to the default scopes configured on your [API](${manage_url}/#/apis).
 
 ### 2. Create the Webtask to Use Your Rule
 
@@ -43,11 +43,18 @@ Create the Webtask. You will need to set the following static metadata fields fo
 * `wt-compiler = auth0-ext-compilers/client-credentials-exchange`
 * `auth0-extension = runtime`
 * `auth0-extension-name = credentials-exchange`
+* `auth0-extension-secret = {random_secret}`
 
-You can also add secrets, which will be kept encrypted: `SOME_SECRET = shhh`
+The same `{random_secret}` value provided to the `auth0-extension-secret` metadata property must also be provided to the webtask code as an `auth0-extension-secret` secret parameter. This prevents unauthorized calls to this webtask. A secret may be conveniently created using `openssl` tool if your platform has it available:
 
 ```
-wt create myrule.js --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange --meta auth0-extension=runtime --meta auth0-extension-name=credentials-exchange --secret SOME_SECRET=shhhh
+SECRET=$(openssl rand 32 -base64) && \
+wt create myrule.js \
+  --meta wt-compiler=auth0-ext-compilers/client-credentials-exchange \
+  --meta auth0-extension=runtime \
+  --meta auth0-extension-name=credentials-exchange \
+  --meta auth0-extension-secret=$SECRET \
+  --secret auth0-extension-secret=$SECRET
 ```
 
 ### 3. Test Your Setup

@@ -65,7 +65,7 @@ var user = await auth0.LoginAsync(
 Optionally you can specify the `scope` parameter. There are various possible values for `scope`:
 
 * __scope: "openid"__ _(default)_ - It will return, not only the `access_token`, but also an `id_token` which is a Json Web Token (JWT). The JWT will only contain the user id.
-* __scope: "openid {attr1} {attr2} {attrN}"__ - If you want only specific user's attributes to be part of the `id_token` (For example: `__scope: "openid name email picture"`).
+* __scope: "openid {attr1} {attr2} {attrN}"__ - If you want only specific user's attributes to be part of the `id_token` (For example: `scope: "openid name email picture"`).
 
 You can get more information about this in the [Scopes documentation](/scopes).
 
@@ -79,7 +79,7 @@ Use the Package Manifest (Solution Explorer > Package.appxmanifest) to enable th
 
 The `Auth0User` has the following properties:
 
-* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://components.xamarin.com/view/json.net/)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
+* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object (from [Json.NET component](http://www.newtonsoft.com/json)) containing all available user attributes (e.g.: `user.Profile["email"].ToString()`).
 * `IdToken`: is a Json Web Token (JWT) containing all of the user attributes and it is signed with your client secret. This is useful to call your APIs and flow the user identity.
 * `Auth0AccessToken`: the `access_token` that can be used to access Auth0's APIs. For example, you could use this token to [Link Accounts](/link-accounts).
 

@@ -13,7 +13,7 @@ The way this works is by means of a "central service" (with Google this is https
 
 ## How to implement SSO with Auth0
 
-To enable SSO for one of your client applications (each client is independent) go to the [Clients section of the dashboard](${uiURL}/#/applications). Click on the **Settings** gear icon of the client you wish to add SSO.
+To enable SSO for one of your client applications (each client is independent) go to the [Clients section of the dashboard](${manage_url}/#/applications). Click on the **Settings** gear icon of the client you wish to add SSO.
 
 Then scroll down to toggle "Use Auth0 instead of the IdP to do Single Sign On".
 

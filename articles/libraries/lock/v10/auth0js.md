@@ -19,7 +19,7 @@ var client = new Auth0({
   domain:       '${account.namespace}',
   clientID:     '${account.clientId}',
   callbackURL:  '{YOUR APP URL}',
-  callbackOnLocationHash: true
+  responseType: 'token'
 });
 ```
 

@@ -54,7 +54,7 @@ In the event that the API secret has been compromised, or you need to invalidate
 
 You can change the API secret  in the dashboard by visiting this URL directly:
 ```
-${uiURL}/#/applications/YOUR_API_ID/settings
+${manage_url}/#/applications/YOUR_API_ID/settings
 ```
 
 You can then change the `Client Secret` in that page to change your Management APIv2 secret.
