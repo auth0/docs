@@ -43,9 +43,9 @@ API requests to selected Authentication or Management API endpoints will return 
 * **X-RateLimit-Remaining**: Requests available for the current time frame
 * **X-RateLimit-Reset**: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
 
-The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [API explorer](api/management/v2).
+The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [API explorer](/api/management/v2).
 
-> If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](anomaly-detection) for additional information.
+> If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
 
 <table class="table">
   <tr>
