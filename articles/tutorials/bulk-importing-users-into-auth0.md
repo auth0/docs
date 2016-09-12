@@ -86,22 +86,13 @@ Using the bulk import endpoints, you should be able to request a bulk import of 
 
 ### Requesting a Bulk Import
 
+[The users import endpoint](/api/management/v2#!/Jobs/post_users_imports) requires that your POST request be of encoding type `multipart/form-data`.
+
 Your request should contain the following parameters:
-* **users** (the file containing users)
+* **users** (the file, detailed above, that you are uploading, which contains JSON data for your users)
 * **connection_id** (a string, the connection id of the connection to which the above users will be inserted)
-* **external_id** (This is an optional user defined string that can be used for correlating multiple jobs, and is returned as part of the job status response)
+* **external_id** (This is an *optional* user defined string that can be used for correlating multiple jobs, and is returned as part of the job status response)
 * **upsert** (A boolean value, `false` by default. If it is false, users will only be inserted. If there are already user(s) with the same emails as one or more of those being inserted, they will fail. If this value is set to `true` and the user being imported already exists, the user will be updated with the new information.)
-
-When you perform a request to the endpoint, it should look similar to this one:
-
- ```
-{
-    "users": [your users file],
-    "connection_id": "abcd",
-    "external_id": "contoso",
-    "upsert": true     //defauls to false
-}
- ```
 
 If it works, you will get a response similar to the following one:
 
@@ -119,31 +110,9 @@ The returned entity represents the import job.
 
 Once the job finishes, whether it failed or was successful, the owner of the Auth0 account that the job is being run on will get an e-mail notifying them about the result.
 
-For example, one possible failure notification could be:
+For example, a notification email for a job that failed might notify the owner(s) that it failed to parse the users file JSON when importing users.
 
-```
-Subject
------
-[Auth0] Import user job for tenant contoso and connection abcd failed
-
-Body
----
-Failed to parse users file JSON when importing users. Make sure it is valid JSON.
-```
-
-If the job was successful owners would get an e-mail like this one:
-
-```
-Subject
------
-[Auth0] Import user job for tenant contoso and connection abcd completed
-
-Body
-----
-New users: 1
-Total users: 15
-Duplicate Users: 0
-```
+If the job was successful, owner(s) would get an e-mail notification that contains similar information to the summary returned when checking the status of a completed job, containing such data as the amount of successfully inserted and failed entries.
 
 ### Querying for Job Status
 
