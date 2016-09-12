@@ -89,8 +89,8 @@ Using the bulk import endpoints, you should be able to request a bulk import of 
 Your request should contain the following parameters:
 * **users** (the file containing users)
 * **connection_id** (a string, the connection id of the connection to which the above users will be inserted)
-* **external_id** (This is a user defined string that can be used for correlating multiple jobs, and is returned as part of the job status response)
-* **upsert** (A boolean value, `false` by default. If it is false, users will only be inserted. If there are already user(s) with the same emails as one or more of those being inserted, they will fail. If this value is set to `true`, and there are emails in the `users` which match pre-existing users, those pre-existing users will be updated with the new information.)
+* **external_id** (This is an optional user defined string that can be used for correlating multiple jobs, and is returned as part of the job status response)
+* **upsert** (A boolean value, `false` by default. If it is false, users will only be inserted. If there are already user(s) with the same emails as one or more of those being inserted, they will fail. If this value is set to `true` and the user being imported already exists, the user will be updated with the new information.)
 
 When you perform a request to the endpoint, it should look similar to this one:
 
@@ -147,7 +147,7 @@ Duplicate Users: 0
 
 ### Querying for Job Status
 
-You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is a parse error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). Additionally, the job status is added to [Tenant Logs](https://manage.auth0.com/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
+You can query a job's status using the [GET /api/v2/jobs/{id} endpoint](/api/management/v2#!/jobs/get_jobs_by_id). If the job is complete, the job status response will show summary totals of successful/failed/inserted/updated records, as well. If there is a error in the job, it will return as failed (however, note that invalid user information, such as an invalid email, for example, will not make the entire job fail). Additionally, the job status is added to [Tenant Logs](https://manage.auth0.com/#/logs), which allows for a custom WebHook to be triggered using the [WebHook Logs Extension](/extensions/management-api-webhooks).
 
 ### Retrieving Failed Entries
 
