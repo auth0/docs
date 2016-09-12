@@ -131,7 +131,7 @@ Body
 Failed to parse users file JSON when importing users. Make sure it is valid JSON.
 ```
 
-If the job was succesful owners would get an e-mail like this one:
+If the job was successful owners would get an e-mail like this one:
 
 ```
 Subject
