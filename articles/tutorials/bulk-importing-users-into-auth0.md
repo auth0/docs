@@ -111,7 +111,7 @@ If it works, you will get a response similar to the following one:
     "type":"users_import",
     "id":"job_abcdef1234567890",
     "connection":"abcd",
-    "external_id":"user defined value"
+    "external_id":"contoso"
 }
 ```
 
