@@ -10,3 +10,4 @@ Auth0 has established the following operational policies.
 -  [Dashboard Authentication](/policies/dashboard-authentication)
 -  [Load Testing](/policies/load-testing)
 -  [Rate Limits](/rate-limits)
+-  [Endpoints](/endpoints)
