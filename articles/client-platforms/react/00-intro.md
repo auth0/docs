@@ -1,19 +1,9 @@
 ---
 title: Introduction
-description: This tutorial will show you how to setup and run the ReactJS Seed project provided by Auth0 as integration sample.
+description: This tutorial will show you how to set up and run the React seed project provided by Auth0.
 ---
 
-This simple, multi-step quickstart will guide you through setting up and managing authentication in your ReactJS apps using Auth0.
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>
+This quickstart guide contains individual sections which demonstrate how to use various Auth0 features in your React applications. Each section has its own sample project which can be downloaded directly from the doc or forked on Github. If you are logged in to your Auth0 account, the samples will have your Auth0 credentials pre-populated for you.
 
 ### 1. Create an Application
 
@@ -25,18 +15,18 @@ This simple, multi-step quickstart will guide you through setting up and managin
 
 ### 2. Dependencies
 
-All the project dependencies are managed by `npm` and listed in the `package.json` file. Webpack is responsible for compiling and bundling everything into a single javascript file for all environments: for __development__ with code hot reload active, for __testing__ when karma is running and also when creating a __production__ release.
+All the project dependencies are managed by `npm` and listed in the `package.json` file. Webpack is responsible for compiling and bundling everything into a single JavaScript file for all environments, including __development__ with hot module replacement, __testing__ to have Karma running and __production__.
 
 To install everything required to run the application, inside the project folder, run:
 
-`$ npm install`
+`npm install`
 
 ### 3. Run in Development Mode
 
 After installing the required dependencies, you will be able to start a local server in development mode with:
 
-`$ npm start`
+`npm start`
 
-Now you should be able to open your browser and navigate to `localhost:3000` to view the welcome page:
+Once you start a sample application, you should be able to access it from `localhost:3000` in your browser.
 
 ![Starter](/media/articles/reactjs/starter_running.png)
