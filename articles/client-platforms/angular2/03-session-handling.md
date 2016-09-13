@@ -66,7 +66,6 @@ To use this service, inject the `Auth` service into your component:
 @Component({
     selector: 'my-app',
     providers: [ Auth ],
-    directives: [ ROUTER_DIRECTIVES ],
     templateUrl: 'app/app.template.html'
 })
 

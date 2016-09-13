@@ -73,15 +73,24 @@ To call the API, [angular2-jwt](https://github.com/auth0/angular2-jwt) provides 
 First, add the AUTH_PROVIDERS from angular-jwt:
 
 ```typescript
-/* ===== app/main.ts ===== */
+/* ===== app/app.module.ts ===== */
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [
-  ...
-  AUTH_PROVIDERS,
-  ...
-])
+@NgModule({
+    declarations: [
+                        AppComponent
+                  ],
+    providers:    [
+                        ...
+                        AUTH_PROVIDERS,
+                        ...
+                  ],
+    imports:      [
+                        ...
+                  ],
+    bootstrap:    [AppComponent],
+})
 ```
 
 Then import `AuthHttp`, inject it into your component and use it to make the authenticated request:
@@ -149,15 +158,30 @@ You can display this information and provide an **Unlink** button:
 
 ```html
 /* ===== app/profile_show.template.html ===== */
-<div *ngIf="auth.linkedAccounts().length > 0" >
-  <strong>Linked accounts: </strong>
-  <ul>
-    <li *ngFor="let identity of auth.linkedAccounts()">
-      {{identity.connection}} ({{identity.profileData.name}})
-      <button class="btn btn-default btn-primary" (click)="unLinkAccount(identity)">unlink</button>
-    </li>
-  </ul>
+<div *ngIf="auth.authenticated() && auth.userProfile">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Profile</h3>
+      <img [src]="auth.userProfile.picture" alt="" class="profile-img">
+      <p><strong>Name: </strong> {{auth.userProfile.name}}</p>
+      <p><strong>Email: </strong> {{auth.userProfile.email}}</p>
+      <p><strong>Nickname: </strong> {{auth.userProfile.nickname}}</p>
+      <p><strong>Created At: </strong> {{auth.userProfile.created_at}}</p>
+      <p><strong>Updated At: </strong> {{auth.userProfile.updated_at}}</p>
+      <div *ngIf="auth.linkedAccounts().length > 0" >
+        <strong>Linked accounts: </strong>
+        <ul>
+          <li *ngFor="let identity of auth.linkedAccounts()">
+            {{identity.connection}} ({{identity.profileData.name || identity.profileData.email }})
+            <button class="btn btn-default btn-primary" (click)="unLinkAccount(identity)">unlink</button>
+          </li>
+        </ul>
+      </div>
+      <button class="btn btn-default btn-primary" (click)="linkAccount()">Link accounts</button>
+    </div>
+  </div>
 </div>
+<h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 
 This calls the following `linkedAccounts` helper method to filter the primary identity:

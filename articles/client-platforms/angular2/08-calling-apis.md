@@ -22,15 +22,24 @@ In order to make an authenticated request, [angular2-jwt](https://github.com/aut
 First, add `AUTH_PROVIDERS` from `angular2-jwt`:
 
 ```typescript
-/* ===== app/main.ts ===== */
+/* ===== app/app.module.ts ===== */
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [
-  ...
-  AUTH_PROVIDERS,
-  ...
-])
+@NgModule({
+    declarations: [
+                        AppComponent
+                  ],
+    providers:    [
+                        ...
+                        AUTH_PROVIDERS,
+                        ...
+                  ],
+    imports:      [
+                        ...
+                  ],
+    bootstrap:    [AppComponent],
+})
 ```
 
 Then import `AuthHttp`, inject it in your component and use it to make the authenticated request:
@@ -68,29 +77,6 @@ Your request will have the `Authorization` header added automatically:
 `Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
 
 By default, `AuthHttp` will fetch the token from `localStorage` using the `id_token` key. You can change the key used. Or you can create another function to get the token and set the provider manually. For more detail on available options, see: [Configuration Options](https://github.com/auth0/angular2-jwt#configuration-options).
-
-This example changes the `tokenName` to a different `localStorage` key:
-
-```typescript
-/* ===== app/auth.service.ts ===== */
-...
-localStorage.setItem('another_token_name', authResult.idToken);
-...
-
-/* ===== app/main.ts ===== */
-bootstrap(AppComponent, [
-  ...
-  provide(AuthHttp, {
-    useFactory: (http) => {
-      return new AuthHttp(new AuthConfig({
-        tokenName: 'another_token_name'
-      }), http);
-    },
-    deps: [Http]
-  }),
-  ...
-])
-```
 
 ## Not sending the JWT for specific requests
 
