@@ -11,8 +11,13 @@ articles:
     children:
       - title: Overview
         url: /overview
+
+      - title: "Applications"
+        url: "/applications"
+
       - title: Developer Videos
         url: /videos
+
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
@@ -30,10 +35,6 @@ articles:
 
       - title: "Lock vs. Custom UI"
         url: "/libraries/when-to-use-lock"
-
-  - title: "Applications"
-    url: "/applications"
-    icon: "icon-budicon-349"
 
   - title: "Rules"
     url: "/rules"
@@ -58,6 +59,16 @@ articles:
       - title: "Authorization Extension"
         url: "/extensions/authorization-extension"
 
+  - title: "Anomaly Detection"
+    url: "/anomaly-detection"
+    children:
+
+      - title: "Breached Password Security"
+        url: "/anomaly-detection/breached-passwords"
+
+      - title: "Brute Force Protection"
+        url: "/anomaly-detection/brute-force-protection"
+
   - title: "Identity Providers"
     url: "/identityproviders"
     children:
@@ -65,8 +76,35 @@ articles:
       - title: "Custom Social Connections"
         url: "/extensions/custom-social-extensions"
 
+      - title: "Database Identity Providers"
+        url: "/connections/database"
+        children:
+
+          - title: "Custom Database"
+            url: "/connections/database/mysql"
+
+          - title: "Migrating Users to Auth0"
+            url: "/connections/database/migrating"
+
+          - title: "Password Strength"
+            url: "/connections/database/password-strength"
+
+          - title: "Rate Limits"
+            url: "/connections/database/rate-limits"
+
+          - title: "Usernames"
+            url: "/connections/database/require-username"
+
   - title: "Single Sign-On"
     url: "/sso"
+    children:
+
+      - title: "Server-side (Regular Web Apps)"
+        url: "/sso/regular-web-apps-sso"
+
+      - title: "Client-side (Single Page Apps)"
+        url: "/sso/single-page-apps-sso"
+
 
   - title: "User Profile"
     url: "/user-profile"
@@ -90,6 +128,16 @@ articles:
 
       - title: "Progressive Profiling"
         url: "/user-profile/progressive-profiling"
+
+      - title: "Linking User Accounts"
+        url: "/link-accounts"
+        children:
+
+          - title: "User Initiated Account Linking"
+            url: "/link-accounts/user-initiated-linking"
+
+          - title: "Server Side Account Linking"
+            url: "/link-accounts/suggested-linking"
 
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
@@ -133,6 +181,34 @@ articles:
 
   - title: "Passwordless Authentication"
     url: "/connections/passwordless"
+    children:
+
+      - title: "Email Passwordless Authentication"
+        url: "/connections/passwordless/email"
+
+      - title: "SMS Passwordless Authentication"
+        url: "/connections/passwordless/sms"
+
+      - title: "FAQ"
+        url: "/connections/passwordless/faq"
+
+  - title: "Email"
+    url: "/email"
+    children:
+
+      - title: "Custom Email Handling"
+        url: "/email/custom"
+
+      - title: "Customizing Your Emails"
+        url: "/email/templates"
+
+  - title: "Error Pages"
+    url: "/error-pages/generic"
+    children:
+
+      - title: "Custom Error Pages"
+        url: "/error-pages/custom"
+
 
   - title: "AD Connector"
     url: "/connector"
