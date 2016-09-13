@@ -81,7 +81,7 @@ On the **Admin SDK** page, click **Enable**.
 
 ![](/media/articles/connections/social/google/enable-admin-sdk.png)
 
-## 7. Copy your *Client Id* and *Client Secret* into Auth0
+## 7. Enable the Connection
 
 Login to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left navigation.
 
@@ -89,21 +89,21 @@ Select the connection with the Google logo to access this connection's **Setting
 
 ![](/media/articles/connections/social/google/goog-settings.png)
 
+Select each of your existing Auth0 Clients for which you want to enable this connection.
+
+Click **Save**.
+
+![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
+
+## 8. Copy your *Client Id* and *Client Secret* into Auth0
+
 Copy the `Client Id` and `Client Secret` from the Credentials page of your project in the **Google API Manager** into the fields on this page on Auth0.
 
 ![](/media/articles/connections/social/google/goog-api-aoth0-settings.png)
 
 Select the **Permissions** for each of the features you want to allow your app to access.
 
-Click **Save**:
-
-## 8. Enable the Connection
-
-Go to the **Clients** tab of the Google connection on Auth0 and select each of your existing Auth0 clients for which you want to enable this connection.
-
 Click **Save**.
-
-![](/media/articles/connections/social/google/goog-api-aoth0-apps.png)
 
 ## 9. Test your connection
 
