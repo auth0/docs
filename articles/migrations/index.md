@@ -25,7 +25,7 @@ Current migrations are listed below, newest first.
 
 ### Delete All Users Endpoint Change
 
-| Severity | Mandatory Opt-In|
+| Severity | Effective Date |
 | --- | --- | --- | --- |
 | Low | 2016-09-13 |
 
