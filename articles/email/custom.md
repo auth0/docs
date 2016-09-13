@@ -12,7 +12,7 @@ The default email flow in Auth0 can address the requirements of most application
 
 The Auth0 Management API provides endpoints that allow you to completely manage email flow, and control when and how emails are sent.
 
-To begin, you will need to disable automatic emails by deselecting **Status** under the **Verification Email** and **Welcome Email** tabs on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard.
+To begin, you will need to disable automatic emails by deselecting **Status** under the **Verification Email** and **Welcome Email** tabs on the [Email Templates](${manage_url}/#/emails) page of the Auth0 dashboard.
 
 ![](/media/articles/email/custom/email-custom.png)
 
@@ -62,7 +62,7 @@ A custom redirect is useful when you want to direct users to certain URLs based 
 The Auth0 Management API provides a [post_verification_email](/api/v2#!/Tickets/post_email_verification) endpoint that generates the verification link for each user. This endpoint allows you to specify the `resultUrl` to which users will be redirected after they have validated their email address by clicking the link in the verification email.
 
 ::: panel-info Using the Verification Email endpoint
-You could call the [post_verification_email](/api/v2#!/Jobs/post_verification_email) endpoint to send a verification email directly from Auth0, even when automatic emails are disabled. However, this endpoint will redirect all users to the same URL that is specified in the `Redirect To` field under the **Verification Email** tab on the [Email Templates](${uiURL}/#/emails) page of the Auth0 dashboard. Since you are already implementing your own email service, this endpoint may not provide all the functionality your app requires.
+You could call the [post_verification_email](/api/v2#!/Jobs/post_verification_email) endpoint to send a verification email directly from Auth0, even when automatic emails are disabled. However, this endpoint will redirect all users to the same URL that is specified in the `Redirect To` field under the **Verification Email** tab on the [Email Templates](${manage_url}/#/emails) page of the Auth0 dashboard. Since you are already implementing your own email service, this endpoint may not provide all the functionality your app requires.
 :::
 
 ## Welcome Email

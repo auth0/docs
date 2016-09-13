@@ -7,7 +7,7 @@
     "heroku-prebuild": "bash heroku.sh"
   },
   "engines": {
-    "node": "4.3"
+    "node": "4.5"
   },
   "devDependencies": {
     "commander": "^2.8.1",

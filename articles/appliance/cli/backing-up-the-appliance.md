@@ -10,7 +10,7 @@ You may use Appliance CLI to perform a backup on a specific node.
 
 Please ensure that your workstation has been [configured to perform operations](/appliance/cli/configure-cli) on your Appliance instances;
 
-> Do not perform backups on Appliance instances that are **not** running update **build 6868** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
+> Please perform backups only on Appliance instances running **build 7247** or later. Backups are only allowed on nodes added to the `backup` role. Please see [Adding a Node to the Backup Role](/appliance/cli/adding-node-to-backup-role) for additional information.
 
 Please be aware that, throughout this document, the following sample values are used:
 

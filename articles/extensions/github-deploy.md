@@ -10,7 +10,7 @@ __NOTE__: This extension is currently available only for the public cloud. Exten
 
 ## Configure the extension
 
-To install and configure this extension, click on the __GitHub Deployments__ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the dashboard. The __Install Extension__ window will open.
+To install and configure this extension, click on the __GitHub Deployments__ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The __Install Extension__ window will open.
 
 ![](/media/articles/extensions/github-deploy/install-extension.png)
 
@@ -23,7 +23,7 @@ Set the following configuration variables:
 
 Once you have provided this information, click **Install**.
 
-Navigate to the [Extensions](${uiURL}/#/extensions) page and click on the __Installed Extensions__ tab. 
+Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the __Installed Extensions__ tab. 
 
 Click on the row for the __GitHub Deployments__ extension. The first time you click on your installed extension, you will be asked to grant it to access your GitHub account. 
 
@@ -55,7 +55,7 @@ To maintain a consistent state, the extension will always do a full redeployment
 
 ### Deploy database connection scripts
 
-In order to deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${uiURL}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
+In order to deploy database connection scripts, you must first create a directory under `database-connections`. The name of the directory must __exactly__ match the name of your [database connection](${manage_url}/#/connections/database) in Auth0. Of course, you can create as many directories as you have database connections.
 
 Under the created directory, create one file for every script you want to use. The allowed scripts are:
 
@@ -113,7 +113,7 @@ After you deploy a rule, you cannot change its stage. You would have to create a
 
 ## Track deployments
 
-To track your deployments, navigate to the [extensions](${uiURL}/#/extensions) page, click on the row for the __GitHub Deployments__ extension, and select the __Deployments__ tab. You will see a list of all deployments, both successful and failed.
+To track your deployments, navigate to the [extensions](${manage_url}/#/extensions) page, click on the row for the __GitHub Deployments__ extension, and select the __Deployments__ tab. You will see a list of all deployments, both successful and failed.
 
 ![](/media/articles/extensions/github-deploy/deployments-overview.png)
 

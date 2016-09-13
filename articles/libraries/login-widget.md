@@ -25,7 +25,7 @@ The __Auth0 Login Widget__ makes it easy to integrate SSO in your app. You won't
 
 ## Including the Login Widget on your page
 
-    <script src="${sdkURL}/auth0.js#client=${account.clientId}"></script>
+    <script src="https://sdk.auth0.com/auth0.js#client=${account.clientId}"></script>
 
 Add the script tag to your page to get started with __Auth0 Login Widget__. This script will add an `Auth0` component to the `window` object.
 
@@ -139,7 +139,7 @@ These errors will be shown on the widget header:
 
 You can send extra parameters when starting a login by adding query strings in the `script` tag. The example below adds a `state` parameter with a value equal to `foo`.
 
-    <script src="${sdkURL}/auth0.js#client=${account.clientId}&state=foo"></script>
+    <script src="https://sdk.auth0.com/auth0.js#client=${account.clientId}&state=foo"></script>
 
 Common parameters are:
 

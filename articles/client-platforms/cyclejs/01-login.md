@@ -24,7 +24,7 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Instantiate the driver and configure the Auth0Lock
 
-In your main application file, you can now setup the `auth0Driver` and feed it you `clientID` and `domain`:
+In your main application file, you can now setup the `auth0Driver` and feed it your `clientID` and `domain`:
 
 ${snippet(meta.snippets.setup)}
 
@@ -51,7 +51,7 @@ It defaults to:
 }
 ```
 
-All the available arguments for `lock.show` are supported, see [.show\(\[options, callback\]\)](/libraries/lock#-show-options-callback-).
+All the available configurable parameters are supported, see [User configurable options](/libraries/lock/v10/customization).
 
 After authentication, the `protect` function will handle the token parsing and storing it to `localStorage`.
 

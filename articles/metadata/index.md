@@ -1,5 +1,4 @@
 ---
-url: /metadata
 description: "Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata."
 ---
 

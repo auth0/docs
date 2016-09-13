@@ -15,6 +15,7 @@ snippets:
   use: client-platforms/react/use
   envFile: client-platforms/react/env-file
 seo_alias: react
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login

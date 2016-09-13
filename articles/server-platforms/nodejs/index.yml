@@ -12,6 +12,7 @@ alias:
   - node-connect
   - passport
 seo_alias: nodejs
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login

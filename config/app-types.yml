@@ -1,0 +1,38 @@
+## ------------------------------------------------------------
+## Quickstart Configuration
+## This document contains configuration for the quickstart
+##
+## ------------------------------------------------------------
+
+appTypes:
+  - title: Mobile App
+    name: native
+    description: "Mobile, desktop, and hybrid apps"
+    example: "eg: iOS, Android"
+    question: "Select a native SDK"
+    budicon: 243
+    slug: native-platforms
+
+  - title: Single Page App
+    name: spa
+    description: "A JavaScript front-end app that uses an API"
+    example: "eg: AngularJS, React"
+    question: "What technology are you using for your web app?"
+    budicon: 349
+    slug: client-platforms
+
+  - title: Web App
+    name: webapp
+    description: "Traditional server rendered web app"
+    example: "eg: Express.js, ASP.NET"
+    question: "What technology are you using for your web app?"
+    budicon: 349
+    slug: server-platforms
+
+  - title: Backend/API
+    name: backend
+    description: "An API or service that does JWT validation"
+    example: "eg: Hapi.js API, ASP.NET API"
+    question: "Select an API or backend platform"
+    budicon: 649
+    slug: server-apis

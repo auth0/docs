@@ -14,13 +14,13 @@ For more information about User Profiles, please see [User Profile: In-Depth Det
 
 Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 
-Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${uiURL}/#/users) page.
+Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${manage_url}/#/users) page.
 
 ![](/media/articles/user-profile/user-profile-dashboard.png)
 
 ### Creating a New User
 
-To create a new user and their corresponding User Profile, click the [Users](${uiURL}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the Users page. You will be prompted to enter the following information:
+To create a new user and their corresponding User Profile, click the [Users](${manage_url}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the Users page. You will be prompted to enter the following information:
 
 * **Email**: the user's email address.
 * **Password**: the user's desired password.
@@ -31,7 +31,7 @@ After entering the required information, click "Save" to create the new user.
 
 ### Viewing Users
 
-The [Users](${uiURL}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.
+The [Users](${manage_url}/#/users) page lists the users who are associated with your apps. To open a particular user, click the user profile picture or name in the "Name" column. The User Details page will open and display information for that user.
 
 The User Details page has links for five tabs:
 
@@ -80,7 +80,7 @@ The Raw JSON tab displays all of the information contained on the user's profile
 
 If you need to log in to your app as a user, see everything exactly as the user sees it, and do everything exactly as the user does it, you can do this using the Dashboard. 
 
-Navigate to the [Users](${uiURL}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.
+Navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Select the user you want to impersonate from the list. When the User Details page opens, click the "Sign in as User" button. Select the app you want to log into from the dropdown menu.
 
 ![](/media/articles/user-profile/signin-as-user-01.png)
 
@@ -102,19 +102,19 @@ Please see [User Impersonation](/user-profile/user-impersonation) for more infor
 
 To disable a user's access to your apps, you can block the user in the Dashboard. 
 
-To block a user, navigate to the [Users](${uiURL}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select _Block User_ from the dropdown menu.
+To block a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to block. When the User Details page opens, click the "Actions" button. Select _Block User_ from the dropdown menu.
 
 ![](/media/articles/user-profile/block-user.png)
 
 If a blocked user tries to access an application, they will see the error message `user is blocked`. 
 
-To unblock a user, navigate to the [Users](${uiURL}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the "Actions" button. Select _Unblock User_ from the dropdown menu.
+To unblock a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to unblock. When the User Details page opens, click the "Actions" button. Select _Unblock User_ from the dropdown menu.
 
 ![](/media/articles/user-profile/unblock-user.png)
 
 ## Deleting a User
 
-To permanently delete a user, navigate to the [Users](${uiURL}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the "Actions" button. Select _Delete User_ from the dropdown menu.
+To permanently delete a user, navigate to the [Users](${manage_url}/#/users) page in the Dashboard. Click the name of the user you want to delete. When the User Details page opens, click the "Actions" button. Select _Delete User_ from the dropdown menu.
 
 ![](/media/articles/user-profile/delete-user.png)
 

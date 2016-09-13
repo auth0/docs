@@ -2,7 +2,7 @@ Rules are one of the cool features of Auth0. The reason behind that coolness is 
 
 ### Create a rule
 
-To create a rule just go to the [new rule page](${uiURL}/#/rules/new). You can create a new rule from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
+To create a rule just go to the [new rule page](${manage_url}/#/rules/new). You can create a new rule from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
 
 Select the template called "Add country to the user profile"
 

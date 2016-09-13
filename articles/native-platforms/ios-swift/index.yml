@@ -10,6 +10,7 @@ image: /media/platforms/ios.png
 tags:
   - quickstart
 seo_alias: swift
+default_article: 01-login
 articles:
   - 00-introduction
   - 01-login

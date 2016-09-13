@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/apache/setup
   use: server-platforms/apache/use
 seo_alias: apache
+default_article: 01-login
 articles:
   - 01-login

@@ -93,7 +93,7 @@ To publish the example configuration file use this command
 
 The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.2/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
-In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${uiURL}/#/applications) and also, add it as a route in Laravel
+In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${manage_url}/#/applications) and also, add it as a route in Laravel
 
 ```php
 Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');

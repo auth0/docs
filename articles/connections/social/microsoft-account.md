@@ -63,7 +63,7 @@ Click **Save**.
 
 ## 5. Copy your *Client Id* and *Client Secret*
 
-Go to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** from the left menu. 
+Go to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** from the left menu. 
 
 Select the **Microsoft** connection.
 
@@ -83,7 +83,7 @@ Click **Save**.
 
 ## 7. Test your connection
 
-On the [Social Connections](${uiURL}/#/connections/social) page in the Auth0 dashboard, click the **Try** button next to the Microsoft connection.
+On the [Social Connections](${manage_url}/#/connections/social) page in the Auth0 dashboard, click the **Try** button next to the Microsoft connection.
 
 ![](/media/articles/connections/social/microsoft-account/ma-portal-7.png)
 

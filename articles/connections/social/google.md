@@ -83,7 +83,7 @@ On the **Admin SDK** page, click **Enable**.
 
 ## 7. Copy your *Client Id* and *Client Secret* into Auth0
 
-Login to the [Auth0 Dashboard](${uiURL}) and select **Connections > Social** in the left navigation.
+Login to the [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left navigation.
 
 Select the connection with the Google logo to access this connection's **Settings** page:
 
@@ -107,7 +107,7 @@ Click **Save**.
 
 ## 9. Test your connection
 
-Go back to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard.
+Go back to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
 
 If you have configured your connection correctly, you will see a **Try** icon next to the Google logo:
 

@@ -32,6 +32,6 @@ Once the app is created, the `API Key` and `Secret Key` will be displayed on the
 
 ## 4. Copy your *API Key* and *Secret Key*
 
-Go to the [Social Connections](${uiURL}/#/connections/social) section of your Auth0 Dashboard and choose **RenRen**. Copy the `API Key` and `Secret Key` from the **New App** page on RenRen into fields on this page on Auth0:
+Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **RenRen**. Copy the `API Key` and `Secret Key` from the **New App** page on RenRen into fields on this page on Auth0:
 
 ![](/media/articles/connections/social/renren/renren-register-4.png)

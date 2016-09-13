@@ -40,6 +40,6 @@ To integrate your jQuery application with Auth0, you will need to add the follow
   `<script src="http://cdn.auth0.com/js/lock/10.1.0/lock.min.js"></script>`
 
 
-# Summary
+## Summary
 
 In this guide you learned how to get your application credentials from the `Auth0` dashboard, and learned different ways for installing `Lock` in your jQuery project.

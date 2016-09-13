@@ -5,9 +5,9 @@ description: This tutorial will show you how assign roles to your users, and use
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
+* Node 5.2.0
 * NPM 3.3.12
-* React 15.0.2
+* React 15.3.2
 :::
 
 <%= include('../../_includes/_package', {

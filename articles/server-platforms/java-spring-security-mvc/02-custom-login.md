@@ -31,7 +31,7 @@ First we will create a new database connection and we will name it `custom-login
 
 **NOTE:** If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
 
-Log into Auth0, and select the [Connections > Database](${uiURL}/#/connections/database) menu option. 
+Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. 
 
 Click the **Create DB Connection** button and provide a name for the database.
 
@@ -41,13 +41,13 @@ At the **Clients Using This Connection** section, enable the connection for your
 
 Now let's create a user. 
 
-Select the [Users](${uiURL}/#/users) menu option. 
+Select the [Users](${manage_url}/#/users) menu option. 
 
 Click the **Create User** button and fill in the email, password, and the database at which the user will be created. Use an email address you have access to since creating the user will trigger a verification email to be sent. 
 
 Click **Save**.
 
-Head back to [Connections > Database](${uiURL}/#/connections/database) and select the **Try** button on your new database so we can verify that our user can log in.
+Head back to [Connections > Database](${manage_url}/#/connections/database) and select the **Try** button on your new database so we can verify that our user can log in.
 
 **NOTE:** You can add also social connections. To do so you need to create the relevant button in your login form and the javascript to specify which connection to use, for example `google-oauth2`, `github`, etc. You can find details and some sample code on the [auth0.js](/libraries/auth0js#login) document.
 

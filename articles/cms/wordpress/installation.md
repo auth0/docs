@@ -13,8 +13,6 @@ There are two ways to install the Auth0 Single Sign On plugin.
 4. Once the installation completes, click **Activate Plugin**.
 5. [Configure the plugin](/cms/wordpress/configuration).
 
-![Auth0 WordPress installation](/media/articles/cms/wordpress/wp-auth0-install.gif)
-
 ## Upload the plugin zip file manually
 
 1. Download the plugin zip file from the [WordPress Plugins site](https://wordpress.org/plugins/auth0/).
@@ -24,5 +22,3 @@ There are two ways to install the Auth0 Single Sign On plugin.
 5. Select the zip file just downloaded and click on **Install Now**.
 6. Once the installation completes, click on **Activate Plugin**.
 7. [Configure the plugin](/cms/wordpress/configuration)
-
-![WP Auth0 manual installation](/media/articles/cms/wordpress/wp-auth0-install-manual.gif)

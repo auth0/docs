@@ -19,5 +19,6 @@ alias:
   - vue
   - vuejs
 seo_alias: vuejs
+default_article: 01-login
 articles:
   - 01-login

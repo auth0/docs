@@ -1,0 +1,296 @@
+## ------------------------------------------------------------
+## Sidebar Nav Configuration
+## This document contains configuration for the sidebar
+##
+## ------------------------------------------------------------
+
+articles:
+
+  - title: Getting Started
+    url: "/overview"
+    children:
+      - title: Overview
+        url: /overview
+
+      - title: "Applications"
+        url: "/applications"
+
+      - title: Developer Videos
+        url: /videos
+
+      - title: Architecture Scenarios
+        url: /architecture-scenarios
+
+  - title: "Lock"
+    url: "/libraries/lock"
+    children:
+      - title: "Lock for Web"
+        url: "/libraries/lock"
+
+      - title: "Lock for iOS"
+        url: "/libraries/lock-ios"
+
+      - title: "Lock for Android"
+        url: "/libraries/lock-android"
+
+      - title: "Lock vs. Custom UI"
+        url: "/libraries/when-to-use-lock"
+
+  - title: "Rules"
+    url: "/rules"
+    children:
+
+      - title: "User Metadata in Rules"
+        url: "/rules/metadata-in-rules"
+
+      - title: "Deploy Rules with Github"
+        url: "/extensions/github-deploy"
+
+      - title: "Deploy Rules with Bitbucket"
+        url: "/extensions/bitbucket-deploy"
+
+  - title: "Extensions"
+    url: "/extensions"
+    children:
+
+      - title: "Creating Extensions"
+        url: "/extensions/custom-extensions"
+
+      - title: "User Import / Export Extension"
+        url: "/extensions/user-import-export"
+
+      - title: "Authorization Extension"
+        url: "/extensions/authorization-extension"
+
+  - title: "Anomaly Detection"
+    url: "/anomaly-detection"
+
+  - title: "Identity Providers"
+    url: "/identityproviders"
+    children:
+
+      - title: "Custom Social Connections"
+        url: "/extensions/custom-social-extensions"
+
+      - title: "Database Identity Providers"
+        url: "/connections/database"
+        children:
+
+          - title: "Custom Database"
+            url: "/connections/database/mysql"
+
+          - title: "Migrating Users to Auth0"
+            url: "/connections/database/migrating"
+
+          - title: "Password Strength"
+            url: "/connections/database/password-strength"
+
+          - title: "Rate Limits"
+            url: "/connections/database/rate-limits"
+
+          - title: "Usernames"
+            url: "/connections/database/require-username"
+
+  - title: "Single Sign-On"
+    url: "/sso"
+    children:
+
+      - title: "Server-side (Regular Web Apps)"
+        url: "/sso/regular-web-apps-sso"
+
+      - title: "Client-side (Single Page Apps)"
+        url: "/sso/single-page-apps-sso"
+
+
+  - title: "User Profile"
+    url: "/user-profile"
+    children:
+
+      - title: "Metadata"
+        url: "/metadata"
+        children:
+
+          - title: "Updating with Lock"
+            url: "/metadata/lock"
+
+          - title: "Updating with API"
+            url: "/metadata/management-api"
+
+          - title: "Data Storage Guidance"
+            url: "/user-profile/user-data-storage"
+
+      - title: "Normalized User Profile"
+        url: "/user-profile/normalized"
+
+      - title: "Progressive Profiling"
+        url: "/user-profile/progressive-profiling"
+
+      - title: "Linking User Accounts"
+        url: "/link-accounts"
+        children:
+
+          - title: "User Initiated Account Linking"
+            url: "/link-accounts/user-initiated-linking"
+
+          - title: "Server Side Account Linking"
+            url: "/link-accounts/suggested-linking"
+
+  - title: "Multifactor Authentication"
+    url: "/multifactor-authentication"
+    children:
+
+      - title: "Auth0 Guardian"
+        url: "/multifactor-authentication/guardian"
+        children:
+
+          - title: "Admin Guide"
+            url: "/multifactor-authentication/guardian/admin-guide"
+
+          - title: "Dev Guide"
+            url: "/multifactor-authentication/guardian/dev-guide"
+
+          - title: "User Guide"
+            url: "/multifactor-authentication/guardian/user-guide"
+
+      - title: "SMS"
+        url: "/multifactor-authentication#mfa-with-sms"
+
+      - title: "Google Authenticator"
+        url: "/multifactor-authentication/google-authenticator"
+
+      - title: "Duo Security"
+        url: "/multifactor-authentication/duo"
+
+      # - title: "Custom MFA"
+      #   url: "/multifactor-authentication#mfa-using-a-custom-provider"
+
+        # children:
+        #
+        #   - title: "Admin Guide"
+        #     url: "/multifactor-authentication/google-auth/admin-guide"
+        #
+        #   - title: "Dev Guide"
+        #     url: "/multifactor-authentication/google-auth/dev-guide"
+        #
+        #   - title: "User Guide"
+        #     url: "/multifactor-authentication/google-auth/user-guide"
+
+  - title: "Passwordless Authentication"
+    url: "/connections/passwordless"
+    children:
+
+      - title: "Email Passwordless Authentication"
+        url: "/connections/passwordless/email"
+
+      - title: "SMS Passwordless Authentication"
+        url: "/connections/passwordless/sms"
+
+      - title: "FAQ"
+        url: "/connections/passwordless/faq"
+
+  - title: "Email"
+    url: "/email"
+    children:
+
+      - title: "Custom Email Handling"
+        url: "/email/custom"
+
+      - title: "Customizing Your Emails"
+        url: "/email/templates"
+
+  - title: "Error Pages"
+    url: "/error-pages/generic"
+    children:
+
+      - title: "Custom Error Pages"
+        url: "/error-pages/custom"
+
+
+  - title: "AD Connector"
+    url: "/connector"
+    children:
+
+      - title: "Health Monitoring Extension"
+        url: "/extensions/adldap-connector"
+
+  - title: "CMS Plugins"
+    url: "/cms"
+    children:
+
+      # - title: "Wordpress"
+      #   url: "/cms#wordpress-plugin"
+      #
+      # - title: "Joomla"
+      #   url: "/cms#joomla-extension"
+
+      - title: "SharePoint"
+        url: "https://github.com/auth0/auth0-sharepoint"
+
+
+apis:
+
+  - title: "Overview"
+    url: "/api/info"
+
+  - title: "Testing with Postman"
+    url: "/api/postman"
+
+  - title: Authentication API
+    url: "/api/authentication"
+    forceFullReload: true
+
+  - title: Management API
+    url: "/api/management/v2/"
+    forceFullReload: true
+    children:
+      - title: API Tokens
+        url: /api/management/v2/tokens
+        forceFullReload: true
+      - title: Query String Syntax
+        url: /api/management/v2/query-string-syntax
+        forceFullReload: true
+      - title: User Search
+        url: /api/management/v2/user-search
+        forceFullReload: true
+
+
+
+
+appliance:
+
+  - title: "Introduction"
+    url: "/appliance"
+
+  - title: "Appliance Planning"
+    url: "/appliance/appliance-overview"
+    children:
+      - title: Geographic High-Availability
+        url: /appliance/geo-ha
+      - title: Infrastructure Requirements
+        url: /appliance/infrastructure
+      - title: Customer Onboarding
+        url: /onboarding/appliance-sprint
+      - title: Onboarding Requirements
+        url: /appliance/private-cloud-requirements
+
+  - title: "Appliance Administration"
+    url: "/appliance/admin"
+    children:
+      - title: Release Notes
+        url: https://auth0.com/changelog/appliance
+      - title: Administrator's Manual
+        url: /appliance/admin
+      - title: Dashboard/Configuration Area
+        url: /appliance/dashboard
+      - title: Monitoring Tools
+        url: /appliance/monitoring
+      - title: Command-Line Interface Tools
+        url: /appliance/cli
+      - title: Automatic Tenant Creation
+        url: /appliance/admin/creating-tenants
+      - title: Node Module Availibility
+        url: /appliance/modules
+      - title: Webtasks
+        url: /appliance/webtasks
+      - title: Disaster Recovery
+        url: /appliance/geo-ha/disaster-recovery

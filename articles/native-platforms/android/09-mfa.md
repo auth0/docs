@@ -22,7 +22,7 @@ This tutorial and seed project have been tested with the following:
 
 ### 1. Enable Multifactor Authentication In Your Account
 
-Multifactor authentication can be enabled with the flip of a switch with Auth0. Go to the [MFA section](${uiURL}/#/multifactor) of your dashboard and flip the switch on for **Google Authenticator** under the *Choose a Provider* section.
+Multifactor authentication can be enabled with the flip of a switch with Auth0. Go to the [MFA section](${manage_url}/#/multifactor) of your dashboard and flip the switch on for **Google Authenticator** under the *Choose a Provider* section.
 
 You must specify which clients you want to enable MFA for. This can be done by editing the snippet that appears below, replacing the placeholder with your actual client IDs.
 

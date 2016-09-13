@@ -13,6 +13,12 @@ description: This tutorial will show you how to integrate Auth0 with jQuery to a
   pkgType: 'js'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* jQuery 3.1.0
+:::
+
 ## Profile
 
 To fetch user profile information, call the `lock.getProfile` function, specifying the `idToken` and a callback to process the response.

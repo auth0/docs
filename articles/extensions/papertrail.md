@@ -4,7 +4,7 @@ The Auth0 Logs to Papertrail is a scheduled job that takes all of your Auth0 log
 
 ## Configuring the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Papertrail_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the _Auth0 Logs to Papertrail_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
 
 ![](/media/articles/extensions/papertrail/extension-mgmt-papertrail.png)
 
@@ -40,7 +40,7 @@ If you already have a system you want to use, follow the next steps:
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Papertrail* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Papertrail* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
 
 ![](/media/articles/extensions/papertrail/view-cron-jobs.png)
 
@@ -48,7 +48,7 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![](/media/articles/extensions/papertrail/view-cron-details.png)
 
-That's it, you are done! You can now navigate to [Papertrail](https://papertrailapp.com) and view your [Auth0 Logs](${uiURL}/#/logs), by selecting the configured system.
+That's it, you are done! You can now navigate to [Papertrail](https://papertrailapp.com) and view your [Auth0 Logs](${manage_url}/#/logs), by selecting the configured system.
 
 ![](/media/articles/extensions/papertrail/auth0-logs-at-papertrail-01.png)
 

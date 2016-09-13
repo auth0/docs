@@ -111,7 +111,7 @@ This script returns all connections:
 
 ##### Options
 
-The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](${uiURL}/#/connections) screen.
+The `options` object returned in the `connection` will be different for each strategy and will typically contain the same information that was entered on the [connections](${manage_url}/#/connections) screen.
 
 ###### ADFS Strategy
 

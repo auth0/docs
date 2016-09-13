@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 to authenticate an
 ---
 ${include('../_thirdPartyApi')}
 
-### Additional information
+### Additional Information
 
 Here's a sample call to the delegation endpoint to get the SAS:
 
@@ -39,5 +39,3 @@ You can use the blob SAS token either by appending it to a url directly or by pa
 ```text
 GET https://{STORAGEACCOUNT}.blob.core.windows.net/mycontainer/myblob.txt?st=2015-01-08T18%3A45%3A14Z&se=2015-01-08T18%3A50%3A14Z&sp=r&sv=2014-02-14&sr=b&sig=13ABC456...
 ```
-
-![](https://docs.google.com/drawings/d/1aTHLCUPT4fCOXgX6fvUpxJdzd_rH_VzayBkLwLkwOBk/pub?w=784&amp;h=437)

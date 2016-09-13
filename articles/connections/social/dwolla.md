@@ -32,6 +32,6 @@ Once the application is registered, your app's `Key` and `Secret` will be displa
 
 ## 4. Copy your *Key* and *Secret*
 
-Go to the [Social Connections](${uiURL}/#/connections/social) section of your Auth0 Dashboard and choose **Dwolla**. Copy the `Key` and `Secret` from the **Application** page of your app on Dwolla into the `Client Id` and `Client Secret` fields on this page on Auth0:
+Go to the [Social Connections](${manage_url}/#/connections/social) section of your Auth0 Dashboard and choose **Dwolla**. Copy the `Key` and `Secret` from the **Application** page of your app on Dwolla into the `Client Id` and `Client Secret` fields on this page on Auth0:
 
 ![](/media/articles/connections/social/dwolla/dwolla-4.png)

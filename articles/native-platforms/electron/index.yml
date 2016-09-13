@@ -14,5 +14,6 @@ snippets:
 alias:
   - electron
 seo_alias: electron
+default_article: 01-login
 articles:
   - 01-login

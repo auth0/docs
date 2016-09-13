@@ -49,7 +49,7 @@ On the page that follows, click the name of your app under **OAuth consumers** t
 
 ## 4. Copy your *Client Id* and *Client Secret* into Auth0
 
-In a separate window, login to your [Auth0 Dashboard](${uiURL}) and select **Connections > Social** in the left nav. 
+In a separate window, login to your [Auth0 Dashboard](${manage_url}) and select **Connections > Social** in the left nav. 
 
 Select **Bitbucket**:
 
@@ -71,7 +71,7 @@ Go to the **Apps** tab of the Bitbucket connection on Auth0 and select each of y
 
 ## 6. Test the connection
 
-Close the **Settings** window to return to the [Connections > Social](${uiURL}/#/conncetions/social) section of the Auth0 dashboard.
+Close the **Settings** window to return to the [Connections > Social](${manage_url}/#/conncetions/social) section of the Auth0 dashboard.
 
 A **TRY** icon will now be displayed next to the Bitbucket logo:
 

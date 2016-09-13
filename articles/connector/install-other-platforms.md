@@ -7,7 +7,7 @@ description: A guide on installing the AD/LDAP Connector on different platforms.
 **NOTE**: On most platforms, you will need to run the following steps as root (e.g. `sudo su`).
 
 1. [Install Git](https://git-scm.com/download/linux).
-2. [Install node.js v0.10](https://nodejs.org).
+2. [Install Node.js](https://nodejs.org).
 3. [Install npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm).
 4. Use the GitHub repository to download the package <a class="download-github" href=""></a> to `/tmp`: <br>
     <code class="curl-example"></code>
@@ -31,7 +31,7 @@ description: A guide on installing the AD/LDAP Connector on different platforms.
 `"LDAP_BIND_CREDENTIALS":"hashed password"`
 
 7. Run `node server.js` and follow the steps to finish the process. Insert the full token URL from the **Setup AD/LDAP connector** screen when prompted for "token number".
-8. You will be asked to edit the `config.json` configuration file. If you're using LDAP, see: [Modifying the Connector Settings](/connector/modify). 
+8. You will be asked to edit the `config.json` configuration file. If you're using LDAP, see: [Modifying the Connector Settings](/connector/modify).
 9. Once the connector is running, you will need to daemonize the connector using a tool like upstart, systemd, init.d, etc.
 
 <script type="text/javascript">

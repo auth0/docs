@@ -10,8 +10,7 @@ Cloud Sprint is Auth0’s onboarding program for enterprise customers.  It helps
 
 ### Cloud Sprint Overview
 
-![Cloud Sprint Program Overview](https://docs.google.com/drawings/d/1052cnwV-33ftuFmoRPCc-BWcyUqST9RKY_BFpes4FZE/pub?w=1244&h=1210
-)
+![Cloud Sprint Program Overview](/media/articles/onboarding/cloud-sprint-program-overview.png)
 
 [Download the Cloud Sprint PDF here.](/media/articles/onboarding/cloud-sprint-onboarding.pdf)
 

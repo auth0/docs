@@ -21,7 +21,7 @@ As a secondary point of escalation, Appliance customers can also call our suppor
 
 Appliance customers may also use the [Auth0 Support Center](https://support.auth0.com) as a primary method of logging a critical support issue, or as a secondary point of escalation.  However, one current limitation of the Auth0 Support Center is customers must have an account with Auth0's cloud service to login to Support Center.  As creating a cloud account is not currently mandatory for Appliance customers, this could be a blocking factor in logging a ticket during a critical outage, and so the recommendation is to use the email option instead.
 
-![](https://docs.google.com/drawings/d/1JqvLTCbm8-DeGfIUd9OHDZHqN7ATL6C4ODPLAPrMtKE/pub?w=437&h=613)
+![](/media/articles/onboarding/critical-support.png)
 
 ### Information to provide when logging an issue
 
