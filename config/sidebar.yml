@@ -40,6 +40,9 @@ articles:
     url: "/rules"
     children:
 
+      - title: "User Metadata in Rules"
+        url: "/rules/metadata-in-rules"
+
       - title: "Deploy Rules with Github"
         url: "/extensions/github-deploy"
 
