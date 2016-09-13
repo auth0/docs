@@ -5,9 +5,9 @@ description: This tutorial will show you how to integrate Auth0 with ReactJS to 
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
+* Node 5.2.0
 * NPM 3.3.12
-* React 15.0.2
+* React 15.3.1
 :::
 
 <%= include('../../_includes/_package', {
@@ -16,8 +16,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '01-Login',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '.env.example',
+  pkgType: 'replace'
 }) %>
 
 ## 1. Create the AuthService class
