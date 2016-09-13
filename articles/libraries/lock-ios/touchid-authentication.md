@@ -53,4 +53,4 @@ Lock provides passwordless authentication with TouchID for your Auth0 DB connect
 
 And you'll see TouchID login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-TouchID-Screenshot.png)](https://auth0.com)
+![Lock Screenshot](/media/articles/libraries/lock-ios/Lock-TouchID-Screenshot.png)
