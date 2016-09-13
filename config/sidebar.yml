@@ -64,13 +64,6 @@ articles:
 
   - title: "Anomaly Detection"
     url: "/anomaly-detection"
-    children:
-
-      - title: "Breached Password Security"
-        url: "/anomaly-detection/breached-passwords"
-
-      - title: "Brute Force Protection"
-        url: "/anomaly-detection/brute-force-protection"
 
   - title: "Identity Providers"
     url: "/identityproviders"
