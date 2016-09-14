@@ -2,7 +2,7 @@
 description: The GitHub Deployments extension allows you to deploy rules and database connection scripts from GitHub to Auth0.
 ---
 
-# GitHub Deployments
+# Github Deployments
 
 The **GitHub Deployments** extension allows you to deploy [rules](/rules) and database connection scripts from GitHub to Auth0. You can configure a GitHub repository, keep all your rules and database connection scripts there, and have them automatically deployed to Auth0 each time you push to your repository.
 
@@ -12,7 +12,7 @@ __NOTE__: This extension is currently available only for the public cloud. Exten
 
 To install and configure this extension, click on the __GitHub Deployments__ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the dashboard. The __Install Extension__ window will open.
 
-![](/media/articles/extensions/github-deploy/install-extension.png)
+![Install Github Deployments Extension](/media/articles/extensions/github-deploy/install-extension.png)
 
 Set the following configuration variables:
 
@@ -27,17 +27,17 @@ Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the _
 
 Click on the row for the __GitHub Deployments__ extension. The first time you click on your installed extension, you will be asked to grant it to access your GitHub account.
 
-![](/media/articles/extensions/github-deploy/grant-access.png)
+![Grant Github Access](/media/articles/extensions/github-deploy/grant-access.png)
 
 Once you agree, you will be directed to the __GitHub Integration__ configuration page.
 
-![](/media/articles/extensions/github-deploy/configure-extension.png)
+![Configure Extension](/media/articles/extensions/github-deploy/configure-extension.png)
 
 The __Configuration__ page will display the settings you will need to create a [webhook](https://developer.github.com/webhooks/) in your GitHub repository pointing to the extension.
 
 Copy these values into the **Add Webhook** page for your GitHub repository:
 
-![](/media/articles/extensions/github-deploy/add-webhook.png)
+![Add Webhook](/media/articles/extensions/github-deploy/add-webhook.png)
 
 **NOTE**: You can find details on how to configure a webhook at [Creating Webhooks](https://developer.github.com/webhooks/creating/) on GitHub.
 
@@ -115,12 +115,12 @@ After you deploy a rule, you cannot change its stage. You would have to create a
 
 To track your deployments, navigate to the [extensions](${manage_url}/#/extensions) page, click on the row for the __GitHub Deployments__ extension, and select the __Deployments__ tab. You will see a list of all deployments, both successful and failed.
 
-![](/media/articles/extensions/github-deploy/deployments-overview.png)
+![Deployments Overview](/media/articles/extensions/github-deploy/deployments-overview.png)
 
 If a deployment fails, you can examine the details of the deployment to determine why. Details are also available for successful deployments.
 
-![](/media/articles/extensions/github-deploy/deployment-log.png)
+![Deployment Log](/media/articles/extensions/github-deploy/deployment-log.png)
 
 Also, if you configured a **Slack Incoming Webhook**, you will be notified on Slack if a deployment has succeeded or failed.
 
-![](/media/articles/extensions/github-deploy/slack-messages.png)
+![Slack Integration](/media/articles/extensions/github-deploy/slack-messages.png)
