@@ -6,22 +6,35 @@ To configure the *Auth0 for WordPress* plugin, you will need to copy the *Domain
 
 You must first create an app in the Auth0 dashboard before you can configure the *Auth0 for WordPress* plugin. If you already have created the app you want to connect to WordPress, you can skip to the next section.
 
-1. Login to the [Auth0 dashboard](${manage_url}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
-2. Navigate to the *Apps / APIs* page and click **+ New App / API**.
-3. In the *Create Application* window, name your app and click **Save**.
+1. Log in to the [Auth0 dashboard](${uiUrl}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
+2. Navigate to the *Clients* page and click **+ Create Client**.
+
+  ![](/media/articles/cms/wordpress/management-dashboard.png)
+
+3. In the *Create Client* window, name your Client and select your Client type, and click **Save**.
+
+  ![](/media/articles/cms/wordpress/create-client.png)
 
 ### Get your *Domain*, *Client Id* and *Client Secret*
 
-1. Go to the [Apps / APIs](${manage_url}/#/applications) of the Auth0 dashboard and select the app you want to connect to WordPress.
+1. Go to the [Clients](${manage_url}/#/clients) of the Auth0 dashboard and select the app you want to connect to WordPress.
+
+  ![](/media/articles/cms/wordpress/auth0-client-settings.png)
+
 2. Leave this browser window open.
 
 ### Copy your *Domain*, *Client Id* and *Client Secret*
 
-1. In a separate browser window, login as an administrator of your WordPress installation.
-2. Click on **Auth0** in the left menu of the WordPress dashboard and select **Settings**.
-3. Select the *Basic* settings tab of the *Auth0 Settings* page of the plugin.
-4. Copy the *Domain*, *Client Id* and *Client Secret* settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
-5. Click **Save Changes** at the bottom of the page.
+1. Log in as an administrator of your WordPress installation.
+2. Click on **Plugins** in the left menu of the WordPress dashboard and select the **Settings** link associated with the Auth0 plugin.
+
+  ![](/media/articles/cms/wordpress/plugin-settings.png)
+
+3. Copy the *Domain*, *Client Id* and *Client Secret* settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
+
+  ![](/media/articles/cms/wordpress/auth0-plugin-settings-page.png)
+
+4. Click **Save Changes** at the bottom of the page.
 
 ## *Auth0 for WordPress* Plugin Settings
 
@@ -30,7 +43,7 @@ You must first create an app in the Auth0 dashboard before you can configure the
 * **Domain:** The app domain copied from the app settings in your dashboard.
 * **Client Id:** The app client id copied from the app settings in your dashboard.
 * **Client Secret:** The app client secret copied from the app settings in your dashboard.
-* **App token:** The token required to allow the plugin to communicate with Auth0 to update your account settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes listed here.
+* **Client token:** The token required to allow the plugin to communicate with Auth0 to update your account settings. If the token has been set, this field will display "Not Visible". If blank, no token has been provided and you will have to [generate a token](/api/v2) with the appropriate scopes listed here.
 * **WordPress login enabled:** If enabled, displays a link on the login page to access the regular WordPress login.
 * **Allow signup:** User signup will be available only if the WordPress *Anyone can register* option is enabled. You can find this setting under **Settings > General > Membership**.
 
@@ -46,7 +59,7 @@ You must first create an app in the Auth0 dashboard before you can configure the
 
 ### Connections
 
-Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${manage_url}/#/connections/social).
+Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${uiUrl}/#/connections/social).
 
 ### Appearance
 
@@ -82,7 +95,7 @@ lock.once('signin ready', function() {
 * **Use passwordless login:** Enable this option to replace the login widget with Lock Passwordless.
 * **Widget URL:** The URL of to the latest available widget in the CDN.
 * **Connections:** List here each of the identity providers you want to allow users to login with. If left blank, all enabled providers will be allowed. (See [connections {Array}](/libraries/lock/customization#connections-array-) for more information.)
-**NOTE:** If you have enabled passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
+**NOTE:** If you have enabled Passwordless login, you must list here all allowed social identity providers. (See [.social(options, callback)](https://github.com/auth0/lock-passwordless#socialoptions-callback) for more information.)
 * **Remember users session:** By default, user sessions live for two days. Enable this setting to keep user sessions live for 14 days.
 * **Link users with same email:** This option enables the linking of accounts with the same verified e-mail address.
 * **Twitter consumer key and consumer secret:** The credentials from your Twitter app. For instructions on creating an app on Twitter, see [Obtain Consumer and Secret Keys for Twitter](/connections/social/twitter).
@@ -104,7 +117,7 @@ lock.once('signin ready', function() {
 
 Here you can customize the dashboard's display and segmentation of data.
 
-## Integrate the plugin
+## Integrate the Plugin
 
 The plugin includes an `auth0_user_login` action to provide notification for each time a user logs in or is created in WordPress.
 
