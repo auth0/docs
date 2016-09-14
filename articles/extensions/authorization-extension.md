@@ -101,9 +101,3 @@ You will be presented with a list of Groups that can be added to this applicatio
 Users who are not a part of either of these groups are not granted access to the application, and such access (or lack thereof) is enforced through an automatically-created rule when the extension is installed.
 
 ![](/media/articles/extensions/authorization/auth-groups.png)
-
-## Dashboard Integration
-
-Once you have installed the Authorization Extension, you will see a new item near the bottom of the left-hand navigation menu on the Management Dashboard. Clicking on this will open the extension immediately.
-
-![](/media/articles/extensions/authorization/nav-panel.png)

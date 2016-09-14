@@ -16,8 +16,8 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '01-Login',
-  pkgFilePath: '/.env.example',
-  pkgType: 'replace'
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 ## 1. Create the AuthService class
