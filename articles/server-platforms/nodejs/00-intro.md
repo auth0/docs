@@ -7,6 +7,8 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-nodejs-webapp-sample',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
   pkgType: 'server'
