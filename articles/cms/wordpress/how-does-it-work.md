@@ -43,7 +43,7 @@ In this scenario, the user has existed in your WordPress database and Auth0 *pri
 
 ### Scenario: Data Migration
 
-If you enable [data migration](/connections/database/migrating), the Auth0-WordPress plugin will expose two secure endpoints that allow Auth0 authenticate the users. These endpoints are secured with a secret token and only available to IP addresses associated with Auth0. You can change this in the Auth0 Dashboard's Client [Advanced Settings](${uiUrl}/#/clients) page.
+If you enable [data migration](/connections/database/migrating), the Auth0-WordPress plugin will expose two secure endpoints that allow Auth0 authenticate the users. These endpoints are secured with a secret token and only available to IP addresses associated with Auth0. You can change this in the Auth0 Dashboard's Client [Advanced Settings](${manage_url}/#/clients) page.
 
 The login flow is as follows:
 
