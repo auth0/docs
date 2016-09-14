@@ -25,7 +25,7 @@ In this step, you will modify the application you created in the [Login](/quicks
 
 ## 1. Show Linked Accounts Information
 
-The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${uiURL}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**.
+The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${manage_url}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**.
 
 This is how a profile looks after linking to Gmail:
 
