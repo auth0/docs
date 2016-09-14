@@ -1,14 +1,5 @@
 # User Guide: Passwordless
 
-Notes from Yvonne:
-
-* Describe the end-user experience with passwordless - what happens
-* Describe what to do if there are delays - don’t keep requesting new ones
-* Describe that there is a timeout on the link - configurable - but probably won’t work several days later
-* If end user requests multiple links - which one(s) are valid - all or just most recent
-* What to do if user has multiple devices
-* Can users share passwords with passwordless
-
 If you are using an app that allows for **Passwordless** authentication, you can register using either your **email address** or your **mobile phone number** instead of a login/password combination. Depending on which piece of information you provide, you will then access the app using a link that has been emailed to you or by providing a code that has been emailed or sent to you via SMS.
 
 * [Register and Authenticate Using Email](#register-and-authenticate-using-email)
@@ -56,6 +47,10 @@ The code can then be used as a one-time password to log in.
 
 The following section contains troubleshooting information that might be useful to you.
 
+### Can I share my password with others?
+
+No, because Passwordless authentication removes the need for and use of passwords.
+
 ### How long is the one-time use code/link valid?
 
 The amount of time the one-time use authentication code/link is valid can be set and changed by your app's administrator. It is unlikely, however, that the code/link is valid for a very long period of time, so you should use it as soon as possible.
@@ -63,6 +58,8 @@ The amount of time the one-time use authentication code/link is valid can be set
 ### What if I am using multiple devices?
 
 If you've requested your authentication links or codes via email, you can use any device that is capable of accessing that email account. You simply need to log in to your email account to get the required information and then provide the information when attempting to access the app.
+
+If the device you're using doesn't have access to the required email account, you can forward the email to an account accessible using that device.
 
 If you are requesting an authentication code via SMS message, you can use any device that will receive messages sent to the phone number associated with your account. Once you have that information, you will be able to provide the code to gain access to the application.
 
@@ -78,7 +75,6 @@ If you do not receive your requested email or SMS message, please do not request
 ### SMS Message
 
 * Do you have the connectivity to receive messages?
-
 
 ### What happens if I request and receive multiple authentication emails and/or SMS messages?
 
