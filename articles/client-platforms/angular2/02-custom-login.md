@@ -9,8 +9,8 @@ description: This tutorial will show you how to use the Auth0 library to add cus
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '02-Custom-Login/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 In the [previous step](/quickstart/spa/angular2/01-login), you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](https://github.com/auth0/auth0.js).

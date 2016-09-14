@@ -9,8 +9,8 @@ description: This tutorial will show you how to use angular2-jwt library in Angu
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '08-Calling-Api',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '08-Calling-Api/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 Auth0 exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through Authorization header when calling an API.

@@ -9,8 +9,8 @@ description: This tutorial will show you how to customize Lock.
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '10-Customizing-Lock',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '10-Customizing-Lock/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 Using Lock is easy, but you may want to customize your login UI. There are several options available.

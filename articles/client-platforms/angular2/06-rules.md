@@ -9,8 +9,8 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '06-Rules',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '06-Rules/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>

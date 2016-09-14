@@ -10,8 +10,8 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '01-Login',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '01-Login/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 ## Login

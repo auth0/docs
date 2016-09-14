@@ -9,8 +9,8 @@ description: This tutorial will show you how to add Multifactor Authentication t
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '09-MFA',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '09-MFA/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 <%= include('../_includes/_mfa-introduction') %>

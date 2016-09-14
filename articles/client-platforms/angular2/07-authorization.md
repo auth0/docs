@@ -9,8 +9,8 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '07-Authorization/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angular2/06-rules' }) %>

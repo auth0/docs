@@ -9,8 +9,8 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '04-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '04-User-Profile/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 In this step, you will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
