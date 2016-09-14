@@ -16,8 +16,8 @@ You can set custom theme properties, such as a different logo or primary color, 
 ```javascript
 var lock = new Auth0Lock(clientId, domain, {
   theme: {
-    logo: LogoImg,
-    primaryColor: "#b81b1c"
+    logo: 'https://example.com/assets/logo.png',
+    primaryColor: 'green'
   }
 });
 ```
@@ -34,3 +34,13 @@ var lock = new Auth0Lock(clientId, domain, {
   }
 });
 ```
+
+### Results
+
+This is how Lock will appear using a custom logo, color, and title:
+
+![Custom lock](/media/articles/reactjs/widget-custom-logo-color.png)
+
+## Further Reading
+
+You may read the full documentation on Lock customization options [here](https://auth0.com/docs/libraries/lock/v10/customization).
