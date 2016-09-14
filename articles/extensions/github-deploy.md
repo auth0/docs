@@ -1,5 +1,5 @@
 ---
-description: The GitHub Deployments extension allows you to deploy rules and database connection scripts from GitHub to Auth0. 
+description: The GitHub Deployments extension allows you to deploy rules and database connection scripts from GitHub to Auth0.
 ---
 
 # GitHub Deployments
@@ -16,16 +16,16 @@ To install and configure this extension, click on the __GitHub Deployments__ box
 
 Set the following configuration variables:
 
-- **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository. 
+- **GITHUB_REPOSITORY**: The repository from which you want to deploy rules and database scripts. This can be either a public or private repository.
 - **GITHUB_BRANCH**: The branch that the extension will monitor for commits.
 - **GITHUB_TOKEN**: Your GitHub personal access token. Follow the instructions at [Creating an access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/#creating-a-token) to create a token with `repo` scope.
 - **SLACK_INCOMING_WEBHOOK_URL**: The Webhook URL for Slack, used in order to receive Slack notifications for successful and failed deployments (optional).
 
 Once you have provided this information, click **Install**.
 
-Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the __Installed Extensions__ tab. 
+Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the __Installed Extensions__ tab.
 
-Click on the row for the __GitHub Deployments__ extension. The first time you click on your installed extension, you will be asked to grant it to access your GitHub account. 
+Click on the row for the __GitHub Deployments__ extension. The first time you click on your installed extension, you will be asked to grant it to access your GitHub account.
 
 ![](/media/articles/extensions/github-deploy/grant-access.png)
 
@@ -33,7 +33,7 @@ Once you agree, you will be directed to the __GitHub Integration__ configuration
 
 ![](/media/articles/extensions/github-deploy/configure-extension.png)
 
-The __Configuration__ page will display the settings you will need to create a [webhook](https://developer.github.com/webhooks/) in your GitHub repository pointing to the extension. 
+The __Configuration__ page will display the settings you will need to create a [webhook](https://developer.github.com/webhooks/) in your GitHub repository pointing to the extension.
 
 Copy these values into the **Add Webhook** page for your GitHub repository:
 
@@ -43,13 +43,13 @@ Copy these values into the **Add Webhook** page for your GitHub repository:
 
 ## Deployment
 
-Once you have setup the webhook in GitHub using the provided information, you are ready to start committing to your repository. 
+Once you have setup the webhook in GitHub using the provided information, you are ready to start committing to your repository.
 
-With each commit you push to your configured GitHub repository, if changes were made in the `rules` or `database-connection` folders, the webhook will call the extension to initiate a deployment. 
+With each commit you push to your configured GitHub repository, if changes were made in the `rules` or `database-connection` folders, the webhook will call the extension to initiate a deployment.
 
 The __Deploy__ button on the **Deployments** tab of the  extension allows you to manually deploy the rules and database connection scripts you already have in your GitHub repository. This is useful if you already have a repository filled with scripts that you want to deploy once you have setup the extension, or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
-::: panel-warning Full Deployment
+::: panel-warning WARNING: Deleting Rules and Scripts from GitHub
 To maintain a consistent state, the extension will always do a full redeployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be __deleted__.
 :::
 
@@ -66,7 +66,7 @@ Under the created directory, create one file for every script you want to use. T
 - `change_password.js`
 - `delete.js`
 
-Only the `login.js` script is required in a custom database connection. 
+Only the `login.js` script is required in a custom database connection.
 
 If you enabled the migration feature, you will also need to provide the `get_user.js` script.
 
@@ -74,9 +74,9 @@ You can find an example in [this GitHub repository](https://github.com/auth0-sam
 
 ### Deploy rules
 
-In order to deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitHub repository. Each rule must be in its own `.js` file. 
+In order to deploy a rule, you must first create a JavaScript file under the `rules` directory of your GitHub repository. Each rule must be in its own `.js` file.
 
-For example, if you create the file `rules/set-country.js`, then the extension will create a rule in Auth0 with the name `set-country`. 
+For example, if you create the file `rules/set-country.js`, then the extension will create a rule in Auth0 with the name `set-country`.
 
 __NOTE__: If you plan to use Source Control integration for an existing account, first rename your rules in Auth0 to the same name of the files you will be deploying to this directory.
 
@@ -124,5 +124,3 @@ If a deployment fails, you can examine the details of the deployment to determin
 Also, if you configured a **Slack Incoming Webhook**, you will be notified on Slack if a deployment has succeeded or failed.
 
 ![](/media/articles/extensions/github-deploy/slack-messages.png)
-
-
