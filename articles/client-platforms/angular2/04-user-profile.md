@@ -9,8 +9,8 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '04-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '04-User-Profile/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 In this step, you will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
@@ -143,15 +143,24 @@ To call the endpoint, you can use the [AuthHttp](https://github.com/auth0/angula
 First, add `AUTH_PROVIDERS` from `angular-jwt`:
 
 ```typescript
-/* ===== app/main.ts ===== */
+/* ===== app/app.module.ts ===== */
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [
-  ...
-  AUTH_PROVIDERS,
-  ...
-])
+@NgModule({
+    declarations: [
+                        AppComponent
+                  ],
+    providers:    [
+                        ...
+                        AUTH_PROVIDERS,
+                        ...
+                  ],
+    imports:      [
+                        ...
+                  ],
+    bootstrap:    [AppComponent],
+})
 ```
 
 Then import `AuthHttp`, inject it in your component, and use it to make the authenticated request. 
@@ -159,7 +168,7 @@ Then import `AuthHttp`, inject it in your component, and use it to make the auth
 In this example, the `patch` method takes the endpoint URL, body, and headers:
 
 ```typescript
-/* ===== app/edit_profile.component.ts ===== */
+/* ===== app/profile_edit.component.ts ===== */
 import { AuthHttp } from 'angular2-jwt';
 
 @Component({
@@ -195,7 +204,7 @@ export class ProfileEdit {
         	//Update profile
           this.auth.userProfile = response;
           localStorage.setItem('profile', JSON.stringify(response));
-          this.router.navigate(['/Profile']);
+          this.router.navigate(['/profile']);
         },
         error => alert(error.json().message)
       );
@@ -207,18 +216,21 @@ Then create a simple form template to add/update the *address* attribute:
 
 ```html
 /* ===== app/profile_edit.template.html ===== */
-<div class="row">
-  <div class="col-md-6">
-    <h3>Profile</h3>
-    <img [src]="auth.userProfile.picture" alt="" class="profile-img">
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Address</label>
-        <input type="text" class="form-control" [(ngModel)]="address" placeholder="Enter address">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+<div *ngIf="auth.authenticated() && auth.userProfile">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Profile</h3>
+      <img [src]="auth.userProfile.picture" alt="" class="profile-img">
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Address</label>
+          <input type="text" class="form-control" [(ngModel)]="address" name="address" placeholder="Enter address">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
   </div>
 </div>
+<h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 

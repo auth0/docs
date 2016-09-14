@@ -9,8 +9,8 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '03-Session-Handling',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '03-Session-Handling/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`. 
@@ -66,7 +66,6 @@ To use this service, inject the `Auth` service into your component:
 @Component({
     selector: 'my-app',
     providers: [ Auth ],
-    directives: [ ROUTER_DIRECTIVES ],
     templateUrl: 'app/app.template.html'
 })
 

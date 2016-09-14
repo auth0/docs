@@ -10,8 +10,8 @@ description: This tutorial will show you how to integrate Auth0 with angular2 to
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '01-Login',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '01-Login/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 ## Login
@@ -84,6 +84,37 @@ and into your component's template:
   <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
   <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
 </div>
+```
+
+And create your [NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html) in your root app module as follows:
+
+```typescript
+/* ===== app/app.module.ts ===== */
+import { NgModule }            from '@angular/core';
+import { BrowserModule  }      from '@angular/platform-browser';
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
+
+import { AppComponent }        from './app.component';
+import { HomeComponent }       from './home.component';
+import { routing,
+         appRoutingProviders } from './app.routes';
+
+@NgModule({
+    declarations: [
+        AppComponent,
+        HomeComponent
+    ],
+    providers:    [
+        appRoutingProviders,
+        AUTH_PROVIDERS
+    ],
+    imports:      [
+        BrowserModule,
+        routing
+    ],
+    bootstrap:    [AppComponent],
+})
+export class AppModule {}
 ```
 
 The Lock widget will be displayed when the **Login** button is clicked.

@@ -9,8 +9,8 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '07-Authorization/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angular2/06-rules' }) %>
@@ -27,17 +27,26 @@ First, add a new `AuthGuard` to the `/admin` route:
 
 ```typescript
 /* ===== app/app.routes.ts ===== */
+import { ModuleWithProviders }         from '@angular/core';
+import { Routes, RouterModule }        from '@angular/router';
+
+import { HomeComponent }               from './home.component';
+import { AdminComponent }              from './admin.component';
+import { UnauthorizedComponent }       from './unauthorized.component';
 import { AuthGuard }                   from './auth.guard';
 
-export const routes: RouterConfig = [
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
-  { path: 'unauthorized', component: UnauthorizedComponent }
+  { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: '**', redirectTo: '' }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes),
-  AuthGuard
+export const appRoutingProviders: any[] = [
+       AuthGuard
 ];
+
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 ```
 
 To only allow users who have admin roles to access this route, check their status in the guard:
