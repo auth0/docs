@@ -5,9 +5,9 @@ description: This tutorial will show you how to make authenticated api calls wit
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
+* Node 5.2.0
 * NPM 3.3.12
-* React 15.0.2
+* React 15.3.2
 :::
 
 <%= include('../../_includes/_package', {
@@ -108,13 +108,13 @@ Note that the `dotenv` package is used to load `process.env.AUTH0_SECRET` and `p
 If you don't have a `.env` file in your project you can create your own using the following command:
 
 ```bash
-$ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='${account.clientSecret}'" > .env
+echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='${account.clientSecret}'" > .env
 ```
 <% } else { %>
 If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${manage_url}).
 
 ```bash
-$ cp .env.example .env
+cp .env.example .env
 ```
 <% } %>
 
