@@ -86,6 +86,37 @@ and into your component's template:
 </div>
 ```
 
+And create your [NgModule](https://angular.io/docs/ts/latest/guide/ngmodule.html) in your root app module as follows:
+
+```typescript
+/* ===== app/app.module.ts ===== */
+import { NgModule }            from '@angular/core';
+import { BrowserModule  }      from '@angular/platform-browser';
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
+
+import { AppComponent }        from './app.component';
+import { HomeComponent }       from './home.component';
+import { routing,
+         appRoutingProviders } from './app.routes';
+
+@NgModule({
+    declarations: [
+                        AppComponent,
+                        HomeComponent
+                  ],
+    providers:    [
+                        appRoutingProviders,
+                        AUTH_PROVIDERS
+                  ],
+    imports:      [
+                        BrowserModule,
+                        routing
+                  ],
+    bootstrap:    [AppComponent],
+})
+export class AppModule {}
+```
+
 The Lock widget will be displayed when the **Login** button is clicked.
 
 ${browser}
