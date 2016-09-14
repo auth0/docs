@@ -28,7 +28,7 @@ First, you must add the `Auth0.js` library to your application:
 
 The best way to have authentication utilities available across the application is to use an **Injectable** service.
 
-You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `callbackOnLocationHash` to `true`:
+You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `responseType: 'token'`:
 
 ```typescript
 /* ===== app/auth.service.ts ===== */
@@ -36,7 +36,7 @@ You will need an `Auth0` instance. Create one using your client credentials. Inc
 auth0 = new Auth0({
   domain: '${account.namespace}',
   clientID: '${account.clientId}',
-  callbackOnLocationHash: true,
+  responseType: 'token',
   callbackURL: '${account.callback}',
 });
 ```
@@ -59,7 +59,7 @@ public login(username, password) {
 
 Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
 
-With `callbackOnLocationHash` set to `true`, the result will be appended to the URL.
+With `responseType: 'token'`, the result will be appended to the URL.
 
 Inside the `Auth` service constructor, check for `hash` information using  Auth0's `parseHash` method, which will extract the `id_token`. Save it to `localStorage`:
 

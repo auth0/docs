@@ -22,7 +22,7 @@
     domain:                 'REPLACE_WITH_YOUR_AUTH0_DOMAIN',
     clientID:               'REPLACE_WITH_YOUR_AUTH0_CLIENT_ID',
     callbackURL:            'REPLACE_WITH_YOUR_UNBOUNCE_PAGE_URL', // e.g http://unbouncepages.com/changeit
-    callbackOnLocationHash: true
+    responseType: 'token'
   });
 
 </script>

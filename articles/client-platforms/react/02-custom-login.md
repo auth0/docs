@@ -45,7 +45,7 @@ export default class AuthService {
     this.auth0 = new Auth0({
       clientID: clientId,
       domain: domain,
-      callbackOnLocationHash: true
+      responseType: 'token'
     });
 
     this.login = this.login.bind(this)
