@@ -1,5 +1,5 @@
 ---
-title: Custom Login
+title: User Profile
 description: This tutorial will show you how to fetch user profile information.
 ---
 
