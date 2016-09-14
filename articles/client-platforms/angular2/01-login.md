@@ -101,17 +101,17 @@ import { routing,
 
 @NgModule({
     declarations: [
-                        AppComponent,
-                        HomeComponent
-                  ],
+        AppComponent,
+        HomeComponent
+    ],
     providers:    [
-                        appRoutingProviders,
-                        AUTH_PROVIDERS
-                  ],
+        appRoutingProviders,
+        AUTH_PROVIDERS
+    ],
     imports:      [
-                        BrowserModule,
-                        routing
-                  ],
+        BrowserModule,
+        routing
+    ],
     bootstrap:    [AppComponent],
 })
 export class AppModule {}
