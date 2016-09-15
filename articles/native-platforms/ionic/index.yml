@@ -31,3 +31,9 @@ articles:
   - 01-login
   - 02-custom-login
   - 03-user-profile
+  - 04-linking-accounts
+  - 05-rules
+  - 06-authorization
+  - 07-calling-api
+  - 08-mfa
+  - 09-customizing-lock
