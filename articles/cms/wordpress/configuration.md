@@ -6,20 +6,20 @@ To configure the *Auth0 for WordPress* plugin, you will need to copy the *Domain
 
 You must first create an app in the Auth0 dashboard before you can configure the *Auth0 for WordPress* plugin. If you already have created the app you want to connect to WordPress, you can skip to the next section.
 
-1. Log in to the [Auth0 dashboard](http://${manage_url}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
+1. Log in to the [Auth0 dashboard](${manage_url}). (If you don't already have an Auth0 account, you can [create one](https://auth0.com).
 2. Navigate to the *Clients* page and click **+ Create Client**.
 
-  ![](/media/articles/cms/wordpress/management-dashboard.png)
+  ![Listing of Auth0 Clients in the Management Dashboard](/media/articles/cms/wordpress/management-dashboard.png)
 
 3. In the *Create Client* window, name your Client and select your Client type, and click **Save**.
 
-  ![](/media/articles/cms/wordpress/create-client.png)
+  ![Creating the Client in the Management Dashboard](/media/articles/cms/wordpress/create-client.png)
 
 ### Get your *Domain*, *Client Id* and *Client Secret*
 
 1. Go to the [Clients](${manage_url}/#/clients) of the Auth0 dashboard and select the app you want to connect to WordPress.
 
-  ![](/media/articles/cms/wordpress/auth0-client-settings.png)
+  ![Client Settings in the Management Dashboard](/media/articles/cms/wordpress/auth0-client-settings.png)
 
 2. Leave this browser window open.
 
@@ -28,11 +28,11 @@ You must first create an app in the Auth0 dashboard before you can configure the
 1. Log in as an administrator of your WordPress installation.
 2. Click on **Plugins** in the left menu of the WordPress dashboard and select the **Settings** link associated with the Auth0 plugin.
 
-  ![](/media/articles/cms/wordpress/plugin-settings.png)
+  ![Navigating to Settings Page in WordPress](/media/articles/cms/wordpress/plugin-settings.png)
 
 3. Copy the *Domain*, *Client Id* and *Client Secret* settings from the *Settings* page of your app in the Auth0 dashboard to the *Auth0 Settings > Basic* page of your WordPress account.
 
-  ![](/media/articles/cms/wordpress/auth0-plugin-settings-page.png)
+  ![Providing Auth0 Client Settings to WordPress](/media/articles/cms/wordpress/auth0-plugin-settings-page.png)
 
 4. Click **Save Changes** at the bottom of the page.
 
@@ -59,7 +59,7 @@ You must first create an app in the Auth0 dashboard before you can configure the
 
 ### Connections
 
-Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](http://${manage_url}/#/connections/social).
+Enable the supported social identity providers you want to allow users to login with. You can configure your own app keys and settings for these connections in the [Auth0 Dashboard](${manage_url}/#/connections/social).
 
 ### Appearance
 
