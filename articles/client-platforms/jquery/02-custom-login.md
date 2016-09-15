@@ -1,6 +1,6 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to use the Auth0 library to add custom authentication and authorization to your web app.
+description: This tutorial demonstrates how to use the Auth0 library to add custom authentication and authorization to your web app.
 ---
 
 <%= include('../../_includes/_package', {
@@ -26,32 +26,36 @@ In the [previous step](/quickstart/spa/jquery/01-login), you enabled login with 
 First, you must add the `Auth0.js` library to your application:
 
 ```html
-/* ===== ./index.html ===== */
-...
-<script src="${auth0js_url}"></script>
-...
+<!-- index.html -->
+  ...
+
+  <script src="${auth0js_url}"></script>
+
+  ...
 ```
 
 You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL` and set `responseType: 'token'`:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 $(document).ready(function() {
-    var auth0 = null;
-    // Configure Auth0
-    auth0 = new Auth0({
-      domain: '${account.namespace}',
-      clientID: '${account.clientId}',
-      responseType: 'token',
-      callbackURL: '${account.callback}'
-    });
+  var auth0 = null;
+  // Configure Auth0
+  auth0 = new Auth0({
+    domain: '${account.namespace}',
+    clientID: '${account.clientId}',
+    responseType: 'token',
+    callbackURL: '${account.callback}'
+  });
 });
 ```
 
 In the `login` method, call the `login` function on the `Auth0` instance, setting `connection` to `Username-Password-Authentication` and `responseType` to `token`:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 $('#btn-login').on('click', function(ev) {
   ev.preventDefault();
   var username = $('#username').val();
@@ -92,15 +96,16 @@ parseHash();
 Now, add a form to call the login:
 
 ```html
-/* ===== ./index.html ===== */
-<form class="form-signin">
-  <h2 class="form-signin-heading">Please sign in</h2>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="text" id="username" class="form-control" placeholder="Email address" autofocus required>
-  <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="password" class="form-control" placeholder="Password" required>
-  <button class="btn btn-lg btn-default" type="button" id="btn-login">Sign In</button>
-</form>
+  <!-- index.html -->
+
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="text" id="username" class="form-control" placeholder="Email address" autofocus required>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="password" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-default" type="button" id="btn-login">Sign In</button>
+  </form>
 ```
 
 ## Sign up
@@ -108,7 +113,8 @@ Now, add a form to call the login:
 To allow users to sign up, provide a `signUp` method:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 $('#btn-register').on('click', function(ev) {
   ev.preventDefault();
   var username = $('#username').val();
@@ -124,13 +130,16 @@ $('#btn-register').on('click', function(ev) {
 });
 ```
 
-and add a **Sign Up** button to call this method:
+and add a **Sign Up** button to call this method.
 
 ```html
-/* ===== ./index.html ===== */
-...
-<button class="btn btn-lg btn-primary" type="button" id="btn-register">Sign Up</button>
-...
+  <!-- index.html -->
+
+  ...
+
+  <button class="btn btn-lg btn-primary" type="button" id="btn-register">Sign Up</button>
+
+  ...
 ```
 
 ## Social login
@@ -138,7 +147,8 @@ and add a **Sign Up** button to call this method:
 To log in using a social connection, set the `connection` property of the `login` method to the identity provider you want to use:
 
 ```typescript
-/* ===== ./app.js ===== */
+// app.js
+
 $('#btn-google').on('click', function(ev) {
   ev.preventDefault();
   auth0.login({
@@ -152,12 +162,11 @@ $('#btn-google').on('click', function(ev) {
 and add a button to call this method:
 
 ```html
-/* ===== ./index.html ===== */
-...
-<button class="btn btn-lg btn-danger" type="button" id="btn-google">Google</button>
-...
+  <!-- index.html -->
+
+  ...
+
+  <button class="btn btn-lg btn-danger" type="button" id="btn-google">Google</button>
+
+  ...
 ```
-
-# Summary
-
-In this guide you learned how to use `Auth0.js` library to log users into your jQuery project by using user and password or social login. You also learned how to register new users.

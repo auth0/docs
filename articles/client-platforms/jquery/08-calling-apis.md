@@ -1,6 +1,6 @@
 ---
 title: Calling APIs
-description: This tutorial will show you how to use $.ajaxSetup() to make authenticated API calls.
+description: This tutorial demonstrates how to use $.ajaxSetup() to make authenticated API calls.
 ---
 
 <%= include('../../_includes/_package', {
@@ -26,12 +26,13 @@ This tutorial and seed project have been tested with the following:
 In order to make an authenticated request, you need to use `$.ajaxSetup()` in order to automatically add the `Authorization` header to every request.
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 $.ajaxSetup({
   'beforeSend': function(xhr) {
     if (localStorage.getItem('id_token')) {
       xhr.setRequestHeader('Authorization',
-            'Bearer ' + localStorage.getItem('id_token'));
+        'Bearer ' + localStorage.getItem('id_token'));
     }
   }
 });
@@ -42,7 +43,3 @@ Your requests will have the `Authorization` header added automatically:
 `Authorization: Bearer eyJ0eXAiOiJKV1Qi...`
 
 Here, before every AJAX request, we are fetching the token from `localStorage` stored in the `id_token` key. You can choose a different key name if you like.
-
-# Summary
-
-In this guide you learned how to make authenticated API calls by reading and using the `id_token` value stored in localStorage along with the use of $.ajaxSetup() jQuery function.

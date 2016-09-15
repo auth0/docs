@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: This tutorial will show you how to integrate Auth0 with jQuery to authenticate and fetch/show/update profile information.
+description: This tutorial demonstrates how to integrate Auth0 with jQuery to authenticate and fetch/show/update profile information.
 ---
 
 <%= include('../../_includes/_package', {
@@ -26,13 +26,16 @@ To fetch user profile information, call the `lock.getProfile` function, specifyi
 Once you retrieve the user profile, you can store it in `localStorage` (or any store).
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 $(document).ready(function() {
   var lock = null;
 
   lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     auth: {
-      params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
+      params: { 
+        scope: 'openid email'
+      } //Details: https://auth0.com/docs/scopes
     }
   });
 
@@ -69,8 +72,10 @@ $(document).ready(function() {
 Then display `user profile` attributes in your HTML:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var showUserProfile = function(profile) {
   // Editing purposes only
   user_id = profile.user_id;
@@ -87,29 +92,32 @@ var showUserProfile = function(profile) {
 ```
 
 ```html
-<!-- ===== ./index.html ===== -->
-...
-<div id="login" class="row">
-  <h4>You are not logged in</h4>
-  <button type="button" class="btn btn-primary" id="btn-login">Login</button>
-</div>
+  <!-- index.html -->
 
-<div id="logged" class="row" style="display: none;">
-  <h4>You are logged in</h4>
-  <div class="row">
-    <div class="col-md-6">
-      <h3>Profile</h3>
-      <img alt="" id="avatar">
-      <p><strong>Name: </strong> <span id="name"></span></p>
-      <p><strong>Email: </strong> <span id="email"></span></p>
-      <p><strong>Nickname: </strong> <span id="nickname"></span></p>
-      <p><strong>Created At: </strong> <span id="created_at"></span></p>
-      <p><strong>Updated At: </strong> <span id="updated_at"></span></p>
-    </div>
+  ...
+
+  <div id="login" class="row">
+    <h4>You are not logged in</h4>
+    <button type="button" class="btn btn-primary" id="btn-login">Login</button>
   </div>
-  <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
-</div>
-...
+
+  <div id="logged" class="row" style="display: none;">
+    <h4>You are logged in</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Profile</h3>
+        <img alt="" id="avatar">
+        <p><strong>Name: </strong> <span id="name"></span></p>
+        <p><strong>Email: </strong> <span id="email"></span></p>
+        <p><strong>Nickname: </strong> <span id="nickname"></span></p>
+        <p><strong>Created At: </strong> <span id="created_at"></span></p>
+        <p><strong>Updated At: </strong> <span id="updated_at"></span></p>
+      </div>
+    </div>
+    <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
+  </div>
+
+  ...
 ```
 
 ## Custom Sign Up Fields
@@ -121,9 +129,11 @@ You can add input fields to the sign-up form by adding `additionalSignUpFields` 
 **NOTE:** See [Additional Sign-Up Fields](/libraries/lock/v10/customization#additionalsignupfields-array-) for more information (**only available for Lock 10**).
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
-  lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     additionalSignUpFields: [{
       name: "address",                              // required
       placeholder: "Enter your address",            // required
@@ -134,6 +144,7 @@ You can add input fields to the sign-up form by adding `additionalSignUpFields` 
       }
     }]
   });
+
 ...
 ```
 
@@ -142,22 +153,30 @@ Each `additionalSignUpFields` value is saved to the profile in the `user_metadat
 To display this data, read it from the profile's `user_metadata`:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var showUserProfile = function(profile) {
+
   ...
+
   if (profile.hasOwnProperty('user_metadata')) {
     $('#address').text(profile.user_metadata.address);
   }
 }
+
 ...
 ```
 
 ```html
-<!-- ===== ./index.html ===== -->
-...
-<strong>Address: </strong> <span id="address"></span>
-...
+  <!-- index.html -->
+
+  ...
+
+  <strong>Address: </strong> <span id="address"></span>
+
+  ...
 ```
 
 ## Update User Profile
@@ -169,24 +188,29 @@ To call the endpoint we need to add the Authorization header to requests.
 First, use `$.ajaxSetup()` for setting `Authorization` header automatically for all the requests:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 $.ajaxSetup({
   'beforeSend': function(xhr) {
     if (localStorage.getItem('id_token')) {
       xhr.setRequestHeader('Authorization',
-            'Bearer ' + localStorage.getItem('id_token'));
+        'Bearer ' + localStorage.getItem('id_token'));
     }
   }
 });
+
 ...
 ```
 
 Then use `$.ajax()` with `method = 'PATCH'` to update the user's data.
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 $('#btn-edit-submit').on('click', function(ev) {
   ev.preventDefault();
   var user_address = $('#edit_address').val();
@@ -201,30 +225,30 @@ $('#btn-edit-submit').on('click', function(ev) {
     alert("Request failed: " + textStatus);
   });
 });
+
 ...
 ```
 
 Then create a simple form to add/update the *address* attribute:
 
 ```html
-<!-- ===== ./index.html ===== -->
-...
-<div id="edit_profile" class="row" style="display: none;">
-  <div class="col-md-6">
-    <h3>Profile</h3>
-    <img alt="" id="edit-avatar">
-    <form>
-      <div class="form-group">
-        <label for="name">Address</label>
-        <input type="text" class="form-control" id="edit_address" placeholder="Enter address">
-      </div>
-      <button type="submit" class="btn btn-default" id="btn-edit-submit">Submit</button>
-    </form>
+  <!-- index.html -->
+
+  ...
+
+  <div id="edit_profile" class="row" style="display: none;">
+    <div class="col-md-6">
+      <h3>Profile</h3>
+      <img alt="" id="edit-avatar">
+      <form>
+        <div class="form-group">
+          <label for="name">Address</label>
+          <input type="text" class="form-control" id="edit_address" placeholder="Enter address">
+        </div>
+        <button type="submit" class="btn btn-default" id="btn-edit-submit">Submit</button>
+      </form>
+    </div>
   </div>
-</div>
-...
+
+  ...
 ```
-
-# Summary
-
-In this guide you learned how to manage user profiles by fetching the user profile information from Auth0, storing that information in localStorage to avoid future requests, and then reading this information from localStorage to show the user profile. You also learned how to add custom sign-up fields to Auth0's sign-up form and how to update user profile information.
