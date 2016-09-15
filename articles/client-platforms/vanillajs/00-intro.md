@@ -5,16 +5,6 @@ description: A simple, multi-step quickstart guide to setup and manage authentic
 
 This simple, multi-step quickstart will guide you through setting up and managing authentication in your VanillaJS apps using Auth0.
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>
-
 ## 1. Create an Application
 
 <%= include('../../_includes/_new_app') %>

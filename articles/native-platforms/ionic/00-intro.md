@@ -3,16 +3,6 @@ title: Introduction
 description: test
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ionic-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ionic-samples',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: '00-Starter-Seed/www/app/auth0.variables.js',
-  pkgType: 'replace'
-}) %>
-
 Welcome to this quickstart which will guide you through the various steps of implementing Auth0 in your Ionic applications.
 
 Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular) which can be used with Ionic applications. This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) as well as the [Auth0.js library](https://github.com/auth0/auth0.js), so it makes it simple to integrate these in your Ionic applications. 

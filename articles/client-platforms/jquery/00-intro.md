@@ -5,16 +5,6 @@ description: A simple, multi-step quickstart guide to setup and manage authentic
 
 This simple, multistep quickstart will guide you through setting up and managing authentication in your jQuery apps using Auth0.
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>
-
 ## 1. Create an Application
 
 <%= include('../../_includes/_new_app') %>_
