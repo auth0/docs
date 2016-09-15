@@ -34,8 +34,8 @@ You will need an `Auth0` instance. Create one using your client credentials. Inc
 /* ===== ./app.js ===== */
 window.addEventListener('load', function() {
   auth0 = new Auth0({
-    domain: '<%= account.clientId %>',
-    clientID: '<%= account.namespace %>',
+    domain: '<%= account.namespace %>',
+    clientID: '<%= account.clientId %>',
     callbackURL: '<%= account.callback %>',
     responseType: 'token'
   });
