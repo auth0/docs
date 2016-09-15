@@ -3,17 +3,7 @@ title: Introduction
 description: A simple, multi-step quickstart guide to setup and manage authentication in your VanillaJS app using Auth0.
 ---
 
-This simple, multi-step quickstart will guide you through setting up and managing authentication in your VanillaJS apps using Auth0.
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>
+This multi-step quickstart guide will walk you through setting up and managing authentication in your vanilla JS apps using Auth0.
 
 ## 1. Create an Application
 
@@ -37,7 +27,7 @@ To integrate your VanillaJS application with Auth0, you will need to add the fol
 
   Or the Auth0 CDN:
 
-  `<script src="http://cdn.auth0.com/js/lock/10.1.0/lock.min.js"></script>`
+  `<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>`
 
 
 ## Summary
