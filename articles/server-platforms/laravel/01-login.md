@@ -26,13 +26,15 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 
 ## Laravel Compatibility
 
-The last version (2.x) targets Laravel 5 compatibility.
+The lastest version (4.x) targets Laravel 5.3 compatibility.
 
 If you are working with an older version (Laravel 4.x) you need to point to composer.json to the version 1.0.*
 
 ### 1. Install the plugin and its dependencies
 
 ${snippet(meta.snippets.dependencies)}
+
+> This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
 ### 2. Enable it in Laravel
 Add the following in the list of the services providers, located in `config/app.php`
@@ -48,22 +50,9 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 );
 ```
 
-Now, you will be able to access to the logged user info with `Auth0::getUser()` and hook to the onLogin event  `Auth0::onLogin(function(...))`.
+Now, you will be able to access to the logged user info with `Auth0::getUser()`.
 
-If you want to restrict access with the Auth0 Middleware, you will need to add it in `app/Http/Kernel.php`
-
-```php
-...
-
-protected $routeMiddleware = [
-		...
-		'auth0.jwt' => '\Auth0\Login\Middleware\Auth0JWTMiddleware',
-	];
-
-...
-```
-
-Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface).
+Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface, this is covered later).
 For this you need to add to your AppServiceProvider the following line:
 
 ```php
@@ -87,11 +76,13 @@ To configure the plugin, you need to publish the plugin configuration and comple
 
 To publish the example configuration file use this command
 
-    php artisan vendor:publish
+```bash
+php artisan vendor:publish
+```
 
 ### 4. Setup the callback action
 
-The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.2/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
+The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.3/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
 In other words, you need to select a uri (for example `/auth0/callback`) and configure it in your [Auth0 admin page](${manage_url}/#/applications) and also, add it as a route in Laravel
 
@@ -107,9 +98,7 @@ ${lockSDK}
 
 ### 6. Defining a user and a user provider
 
-The [Laravel authentication system](https://laravel.com/docs/5.2/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting an auth driver in `app/config/auth.php`. The default driver is Eloquent, which persists the User model in a database using the ORM.
-
-#### 6.1. Using the auth0 driver
+The [Laravel authentication system](https://laravel.com/docs/5.3/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
 The plugin comes with an authentication driver called auth0. This driver defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
 
@@ -119,46 +108,97 @@ To enable this driver, you need to change the following line in `/config/auth.ph
 
 ```php
 ...
-	'driver' => 'auth0',
+    'providers' => [
+        'users' => [
+            'driver' => 'auth0'
+        ],
+    ],
 ...
 ```
 
 If you need to implement a more advanced custom solution, you can always extend the Auth0UserRepository (or implement your own) in order to get and update the user data on your database and event more advaced validations.
 
-#### 6.2. Using other driver
-
-If you want to persist the user you can use the authentication driver you like. The plugin gives you a hook that is called with the *Normalized User Profile* when the callback is succesful, there you can store the user structure as you want. For example, if we use Eloquent, we can add the following code, to persist the user in the database
+For example, if you want to use the default `User` model and store the user profile in your database, you can use the following Repository:
 
 ```php
-Auth0::onLogin(function($auth0User) {
-    // See if the user exists
-    $user = User::where("auth0id", $auth0User->user_id)->first();
-    if ($user === null) {
-        // If not, create one
-        $user = new User();
-        $user->email = $auth0User->email;
-        $user->auth0id = $auth0User->user_id;
-        $user->nickname = $auth0User->nickname;
-        $user->name = $auth0User->name;
-        $user->save();
+<?php 
+namespace App\Repository;
+
+use Auth0\Login\Contract\Auth0UserRepository;
+
+class MyCustomUserRepository implements Auth0UserRepository {
+
+    /* This class is used on api authN to fetch the user based on the jwt.*/
+    public function getUserByDecodedJWT($jwt) {
+      /* 
+       * The `sub` claim in the token represents the subject of the token
+       * and it is always the `user_id`
+       */
+      $jwt->user_id = $jwt->sub;
+
+      return $this->upsertUser($jwt);
     }
-    return $user;
-});
+
+    public function getUserByUserInfo($userInfo) {
+      return $this->upsertUser($userInfo['profile']);
+    }
+
+    protected function upsertUser($profile) {
+
+      $user = User::where("auth0id", $profile->user_id)->first();
+
+      if ($user === null) {
+          // If not, create one
+          $user = new User();
+          $user->email = $profile->email; // you should ask for the email scope
+          $user->auth0id = $profile->user_id;
+          $user->name = $profile->name; // you should ask for the name scope
+          $user->save();
+      }
+
+      return $user;
+    }
+
+    public function getUserByIdentifier($identifier) {
+        //Get the user info of the user logged in (probably in session)
+        $user = \App::make('auth0')->getUser();
+
+        if ($user===null) return null;
+
+        // build the user
+        $user = $this->getUserByUserInfo($user);
+
+        // it is not the same user as logged in, it is not valid
+        if ($user && $user->auth0id == $identifier) {
+            return $auth0User;
+        }
+    }
+
+}
 ```
 
-Note that this hook must return the new user, which must implement the `Illuminate\Contracts\Auth\Authenticatable`. The onLogin function is going to be called just once, when the callback uri is called, then its up to the selected auth driver to get the user from the database.
+And change the binding in the second step:
+
+```php
+...
+
+public function register()
+{
+
+    $this->app->bind(
+        '\Auth0\Login\Contract\Auth0UserRepository',
+        '\App\Repository\MyCustomUserRepository');
+
+}
+
+...
+```
 
 ### 7. Use it!
 
-Now you can use Laravel middleware as you would normally do to restrict access, for example
+Now all your web routes will be secured by auth0.
 
-```php
-Route::get('admin', array('middleware' => 'auth0.jwt', function() {
-    // ...
-}));
-```
-
-Or add a logout action like this
+For loging out your users, you can set up a route like this:
 
 ```php
 Route::get('/logout', function() {
