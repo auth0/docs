@@ -11,9 +11,11 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'laravel-auth0',
+  githubUrl: 'https://github.com/auth0-samples/auth0-laravel-php-web-api',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-laravel-php-web-api',
   pkgBranch: 'master',
-  pkgPath: 'examples/laravel-api',
+  pkgPath: '00-Starter-Seed',
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
