@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial will show you how to add Multifactor Authentication to your Angular2 app with auth0.
+description: This tutorial demonstartes how to add Multifactor Authentication to your Angular 2 app with Auth0.
 ---
 
 <%= include('../../_includes/_package', {
@@ -14,9 +14,6 @@ description: This tutorial will show you how to add Multifactor Authentication t
 }) %>
 
 <%= include('../_includes/_mfa-introduction') %>
-
-
-In this tutorial, you will learn how to enable MFA in the Angular2 application you created in the previous steps.
 
 ## Enable Multifactor Authentication in Your Account
 

@@ -1,6 +1,6 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use Auth0 rules
 ---
 
 <%= include('../../_includes/_package', {
@@ -24,17 +24,17 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/angular2/04-user-profile' }) %>
 
 ```html
-/* ===== ./profile_show.template.html ===== */
-<div *ngIf="auth.authenticated() && auth.userProfile">
-  <div class="row">
-    <div class="col-md-6">
-      <h3>Profile</h3>
-      ...
-      <p><strong>Country (added by rule): </strong> {{auth.userProfile.country}}</p>
+  <!-- ./profile_show.template.html -->
+  <div *ngIf="auth.authenticated() && auth.userProfile">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Profile</h3>
+        ...
+        <p><strong>Country (added by rule): </strong> {{auth.userProfile.country}}</p>
+      </div>
     </div>
   </div>
-</div>
-<h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
+  <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)

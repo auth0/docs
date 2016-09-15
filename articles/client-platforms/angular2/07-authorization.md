@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+description: This tutorial demonstrates how to assign roles to your users and use those claims to authorize or deny a user to access certain routes in the app
 ---
 
 <%= include('../../_includes/_package', {
@@ -15,18 +15,19 @@ description: This tutorial will show you how assign roles to your users, and use
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angular2/06-rules' }) %>
 
-### Create a Rule to assign roles
+### Create a Rule to Assign Roles
 
 <%= include('../_includes/_authorization-create-rule') %>_
 
-## Restrict a route based on user's roles
+## Restrict a Route Based on User's Roles
 
-In order to restrict access to certain routes, this example uses Angular2 [CanActivate guard](https://angular.io/docs/ts/latest/guide/router.html#!#can-activate-guard).
+To restrict access to certain routes, Angular's [CanActivate guard](https://angular.io/docs/ts/latest/guide/router.html#!#can-activate-guard) can be used.
 
 First, add a new `AuthGuard` to the `/admin` route:
 
 ```typescript
-/* ===== app/app.routes.ts ===== */
+// app/app.routes.ts
+
 import { ModuleWithProviders }         from '@angular/core';
 import { Routes, RouterModule }        from '@angular/router';
 
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
 ];
 
 export const appRoutingProviders: any[] = [
-       AuthGuard
+  AuthGuard
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
@@ -52,7 +53,8 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 To only allow users who have admin roles to access this route, check their status in the guard:
 
 ```typescript
-/* ===== app/auth.guard.ts ===== */
+// app/auth.guard.ts
+
 import { Injectable }             from '@angular/core';
 import { Router,
          ActivatedRouteSnapshot,
@@ -84,24 +86,31 @@ export class AuthGuard implements CanActivate {
 }
 ```
 
-The `canActivate` method checks if the user is authenticated then checks if they are an admin using a new `isAdmin` function added to the `Auth` service. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`:
+The `canActivate` method checks if the user is authenticated and then checks if they are an admin using a new `isAdmin` function added to the `Auth` service. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`:
 
 ```typescript
-/* ===== app/auth.service.ts ===== */
+// app/auth.service.ts
+
 ...
+
 public isAdmin() {
   return this.userProfile && this.userProfile.app_metadata
     && this.userProfile.app_metadata.roles
     && this.userProfile.app_metadata.roles.indexOf('admin') > -1;
 }
+
 ...
 ```
+
+Since the user's `app_metadata` is read-only for users, checking for their role in this fashion is secure.
 
 After logging in successfully, the user will be redirected to the saved URL:
 
 ```typescript
-/* ===== app/auth.service.ts ===== */
+// app/auth.service.ts
+
 ...
+
 // Fetch profile information
 this.lock.getProfile(authResult.idToken, (error, profile) => {
   ...
