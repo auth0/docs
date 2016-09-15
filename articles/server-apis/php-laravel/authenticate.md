@@ -46,7 +46,7 @@ Optionally, if you want to use the [facade](http://laravel.com/docs/facades) cal
 );
 ```
 
-Now, you will be able to access to the logged user info with `Auth0::getUser()`.
+You will now be able to access to the logged user info with `Auth0::getUser()`.
 
 Finally, you will need to bind a class that provides the users (your app model user) each time a user is logged in or a JWT is decoded. You can use the `Auth0UserRepository` provided by this package or build your own (which should implement the `\Auth0\Login\Contract\Auth0UserRepository` interface, this is covered later).
 For this you need to add to your AppServiceProvider the following line:
@@ -89,7 +89,7 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
 The [Laravel authentication system](https://laravel.com/docs/5.3/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
-The plugin comes with an authentication driver called auth0. This driver defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
+The plugin comes with an authentication driver called `auth0`. This driver defines a user structure that wraps the [Normalized User Profile](/user-profile) defined by Auth0, and it doesn't actually persist the object, it just stores it in the session for future calls.
 
 This works fine for basic testing or if you don't really need to persist the user. At any point you can call `Auth::check()` to see if there is a user logged in and `Auth::user()` to get the wrapper with the user information.
 
@@ -105,7 +105,7 @@ To enable this driver, you need to change the following line in `/config/auth.ph
 ...
 ```
 
-If you need to implement a more advanced custom solution, you can always extend the Auth0UserRepository (or implement your own) in order to get and update the user data on your database and event more advaced validations.
+If you need to implement a more advanced custom solution, you can always extend the `Auth0UserRepository` (or implement your own) in order to get and update the user data on your database and event more advaced validations.
 
 For example, if you want to use the default `User` model and store the user profile in your database, you can use the following Repository:
 
@@ -152,7 +152,7 @@ class MyCustomUserRepository implements Auth0UserRepository {
         //Get the user info of the user logged in (probably in session)
         $user = \App::make('auth0')->getUser();
 
-        if ($user===null) return null;
+        if ($user === null) return null;
 
         // build the user
         $user = $this->getUserByUserInfo($user);
