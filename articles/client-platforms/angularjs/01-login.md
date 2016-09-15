@@ -328,7 +328,7 @@ Authentication for Angular apps isn't that useful if it can't be used to access 
 
   angular
     .module('myApp', ['auth0.lock', 'angular-jwt', 'ngRoute'])
-    .configure(function config($routeProvider, $http, lockProvider, jwtOptionsProvider, jwtInterceptorProvider) {
+    .configure(function config($routeProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider) {
 
       jwtOptionsProvider.config({
         tokenGetter: function() {
@@ -336,7 +336,7 @@ Authentication for Angular apps isn't that useful if it can't be used to access 
         }
       });
 
-      $http.interceptors.push('jwtInterceptor');
+      $httpProvider.interceptors.push('jwtInterceptor');
 
       ...
 
