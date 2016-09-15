@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to use the Auth0 jQuery SDK to add authentication and authorization to your web app.
 ---
 
 You can get started by either downloading the seed project or, if you would like to add Auth0 to an existing application, you can follow the tutorial steps. In this case, we will use Auth0's CDN.
@@ -35,9 +35,9 @@ ${snippet(meta.snippets.dependencies)}
 
 ### 2. Configure Lock
 
-Configure Lock with your `client ID` and `domain`:
+Configure Lock with your `clientID` and `domain`:
 
-To discover all the available options for `Auth0Lock`, see [the Lock customization documentation](/libraries/lock/customization).
+All of the available options for `Auth0Lock` can be viewed in the [Lock customization documentation](/libraries/lock/customization).
 
 ${snippet(meta.snippets.setup)}
 
@@ -52,6 +52,8 @@ After authentication, Auth0 will redirect the user back to your application with
 In this example, the `id_token` is stored in `localStorage` to keep the user authenticated after each page refresh:
 
 ```js
+// app.js
+
 lock.on("authenticated", function(authResult) {
   lock.getProfile(authResult.idToken, function(error, profile) {
     if (error) {
@@ -75,7 +77,8 @@ ${browser}
 Use the `id_token` to retrieve the user profile and display the user's nickname:
 
 ```js
-//retrieve the profile:
+//retrieve the profile
+
 var id_token = localStorage.getItem('id_token');
 if (id_token) {
   lock.getProfile(id_token, function (err, profile) {
@@ -90,8 +93,10 @@ if (id_token) {
 ```
 
 ```html
-<img class="avatar">
-<p>Welcome <span class="nickname"></span></p>
+  <!-- index.html -->
+
+  <img class="avatar">
+  <p>Welcome <span class="nickname"></span></p>
 ```
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
@@ -101,11 +106,9 @@ To discover all the available properties of a user's profile, see [Auth0 Normali
 In this implementation, a logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 
 ```js
+// app.js
+
 localStorage.removeItem('id_token');
 userProfile = null;
 window.location.href = "/";
 ```
-
-# Summary
-
-In this guide you learned how to use the `Lock` widget to log users into your jQuery project.

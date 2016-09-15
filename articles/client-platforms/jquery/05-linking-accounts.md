@@ -1,6 +1,6 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to integrate Auth0 with jQuery to link accounts.
+description: This tutorial demonstrates how to integrate Auth0 with jQuery to link accounts.
 ---
 
 <%= include('../../_includes/_package', {
@@ -32,24 +32,29 @@ Since all instances of `Auth0Lock` will receive the `authenticated` event, you w
 You can use the `params` sub-property of the `auth` property of the [options object](https://github.com/auth0/lock#authentication-options) of `Auth0Lock` to add a `state` property with the value `"linking"`:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 // Lock instance to launch a login to obtain the secondary id_token
-lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+var lockLink = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   auth: {params: {state: "linking"}},
   allowedConnections: ['Username-Password-Authentication', 'facebook', 'google-oauth2'],
   languageDictionary: { // allows to override dictionary entries
     title: "Link with:"
   }
 });
+
 ...
 ```
 
 Then, when setting the callback for the `authenticated` event with the `on` method, you can determine which login was executed by checking the value of the `authResult.state` attribute:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 lock.on("authenticated", function(authResult) {
   // Every lock instance listen to the same event, so we have to check if
   // it's not the linking login here.
@@ -84,8 +89,10 @@ Now that the second login is handled, you will need to actually do the linking.
 Before doing the linking we need to configure AJAX to send an `Authorization` header automatically for each request:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 $.ajaxSetup({
   'beforeSend': function(xhr) {
     if (localStorage.getItem('id_token')) {
@@ -94,14 +101,17 @@ $.ajaxSetup({
     }
   }
 });
+
 ...
 ```
 
 After that we are good to go and can link the accounts:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var linkAccount = function(id_token) {
   // Get user_id value stored at login step
   var user_id = localStorage.getItem('user_id');
@@ -118,6 +128,7 @@ var linkAccount = function(id_token) {
     alert("Request failed: " + textStatus);
   });
 };
+
 ...
 ```
 
@@ -126,18 +137,23 @@ The function takes the `id_token` of the account to link with and posts to the A
 Now to begin the linking process, call the `show` method on `lockLink` instance:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 $('#btn-link-account').on('click', function() {
   lockLink.show();
 });
+
 ...
 ```
 
 ```html
-...
-<button type="button" class="btn btn-default" id="btn-link-account">Link Account</button>
-...
+  ...
+
+  <button type="button" class="btn btn-default" id="btn-link-account">Link Account</button>
+
+  ...
 ```
 
 ## User Profile Linked Accounts Information
@@ -155,16 +171,22 @@ Therefore, if you fetch the profile after linking accounts, this same informatio
 You can display this information and provide an **Unlink** button:
 
 ```html
-<!-- ===== ./index.html ===== -->
+<!-- index.html -->
+
 ...
+
 <h3>Linked accounts</h3>
 <ul id="linked-accounts-list">
 </ul>
+
 ...
 ```
 
 ```javascript
+// app.js
+
 ...
+
 var showUserIdentities = function(profile) {
   var linked_accounts = '';
   $.each(profile.identities, function(index, identity) {
@@ -178,6 +200,7 @@ var showUserIdentities = function(profile) {
   })
   $('#linked-accounts-list').html(linked_accounts);
 };
+
 ...
 ```
 
@@ -186,8 +209,10 @@ var showUserIdentities = function(profile) {
 You can disassociate a linked account by calling the [Unlink a user account](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint using the primary `user_id`, and the `provider` and `user_id` of the identity to unlink:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var unlinkAccount = function(identity) {
   // Get user_id value stored at login step
   var user_id = localStorage.getItem('user_id');
@@ -202,9 +227,6 @@ var unlinkAccount = function(identity) {
     alert("Request failed: " + textStatus);
   });
 };
+
 ...
 ```
-
-# Summary
-
-In this guide you learned how to enrich your users' profile information by linking their Auth0 accounts with an OAuth provider like Facebook or Google.

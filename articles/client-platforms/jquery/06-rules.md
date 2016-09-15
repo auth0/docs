@@ -1,6 +1,6 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use Auth0 rules to extend what Auth0 has to offer.
 ---
 
 <%= include('../../_includes/_package', {
@@ -30,33 +30,38 @@ This tutorial and seed project have been tested with the following:
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/jquery/04-user-profile' }) %>
 
 ```html
-<!-- ===== ./index.html ===== -->
-...
-<div id="logged" class="row" style="display: none;">
-  <h4>You are logged in</h4>
-  <div class="row">
-    <div class="col-md-6">
-      <h3>Profile</h3>
-      <img alt="" id="avatar">
-      ...
-      <p><strong>Country (added by rule): </strong> <span id="country"></span></p>
+  <!-- index.html -->
+
+  ...
+
+  <div id="logged" class="row" style="display: none;">
+    <h4>You are logged in</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Profile</h3>
+        <img alt="" id="avatar">
+        ...
+        <p><strong>Country (added by rule): </strong> <span id="country"></span></p>
+      </div>
     </div>
+    <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
   </div>
-  <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
-</div>
-...
+
+  ...
+
 ```
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var showUserProfile = function(profile) {
+
   ...
+
   $('#country').text(profile.country);
 };
+
 ...
 ```
-
-# Summary
-
-In this guide you learned how to extend Auth0 default functionality by using Auth0 rules.

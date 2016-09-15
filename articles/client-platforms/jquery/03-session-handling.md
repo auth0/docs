@@ -1,6 +1,6 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to integrate Auth0 with jQuery to add session handling and logout to your web app.
+description: This tutorial demonstrates how to integrate Auth0 with jQuery to add session handling and logout to your web app.
 ---
 
 <%= include('../../_includes/_package', {
@@ -30,18 +30,22 @@ Once the user is logged in, you will want to create a session for that user. To 
 **NOTE**: This example uses `localStorage`, but you can use any storage library. At the end of this guide you can see how to do the same with `Lockr` storage library.
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
-var lock = null;
-lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
+
+var lock = new Auth0Lock(AUTH0_CLIENT_ID, AUTH0_DOMAIN, {
   auth: {
-    params: { scope: 'openid email' } //Details: https://auth0.com/docs/scopes
+    params: { 
+      scope: 'openid email'
+    } //Details: https://auth0.com/docs/scopes
   }
 });
 
 lock.on("authenticated", function(authResult) {
   localStorage.setItem('id_token', authResult.idToken);
 });
+
 ...
 ```
 
@@ -50,9 +54,12 @@ lock.on("authenticated", function(authResult) {
 To check if a user is authenticated, we read the `id_token` value from localStorage:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var id_token = localStorage.getItem('id_token');
+
 if (null != id_token) {
   lock.getProfile(id_token, function (err, profile) {
     if (err) {
@@ -70,30 +77,37 @@ if (null != id_token) {
 To log out a user, remove the token from `localStorage`:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var logout = function() {
   localStorage.removeItem('id_token');
   window.location.href = "/";
 };
+
 ...
 ```
 
 Then create the buttons for login and logout:
 
 ```html
-<!-- ===== ./index.html ===== -->
-...
-<button class="btn btn-primary btn-margin" id="btn-login">Log In</button>
-<button class="btn btn-primary btn-margin" id="btn-logout">Log Out</button>
-...
+  <!-- index.html -->
+  ...
+
+  <button class="btn btn-primary btn-margin" id="btn-login">Log In</button>
+  <button class="btn btn-primary btn-margin" id="btn-logout">Log Out</button>
+
+  ...
 ```
 
 And add their functionality:
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
+
 ...
+
 var btn_login = $('#btn-login');
 var btn_logout = $('#btn-logout');
 
@@ -114,16 +128,19 @@ btn_logout.click(function(e) {
 ## Session handling example using [Lockr](https://github.com/tsironis/lockr) storage library
 
 ```javascript
-/* ===== ./app.js ===== */
+// app.js
 
 // Create session
+
 ...
+
 lock.on("authenticated", function(authResult) {
   Lockr.set('id_token', authResult.idToken);
-...
+});
 
 // Check session
 ...
+
 var id_token = Lockr.get('id_token');
 if (null != id_token) {
   lock.getProfile(id_token, function (err, profile) {
@@ -137,14 +154,12 @@ if (null != id_token) {
 ...
 
 // Logout
+
 ...
+
 var logout = function() {
   Lockr.rm('id_token');
   window.location.href = "/";
 };
 ...
 ```
-
-# Summary
-
-In this guide you learned how to use `localStorage` directly or `Lockr` (localStorage wrapper) to create a new session, check session status, and end user session (logout).
