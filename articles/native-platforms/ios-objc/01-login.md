@@ -4,8 +4,6 @@ description: This tutorial will show you how to integrate Lock in your iOS Objec
 
 ---
 
-## iOS ObjectiveC - Login Tutorial
-
 This is the very beginning of a simple, practical, multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
 ::: panel-info System Requirements
