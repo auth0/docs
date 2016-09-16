@@ -45,7 +45,7 @@ The purpose of each of these references are as follows:
 
  - **auth0-lock** is the default authentication widget provided by Auth0. It is completely optional but I suggest you stick to it as an Auth0 newbie.
  - **auth0.js** is Auth0's javascript library. This is not necessary if you choose to use Lock throughout.
- - **auth0-angular**: Auth0's SDK for Angular. It exposes most of the useful methods for authentication.
+ - **angular-lock**: Auth0's SDK for Angular. It exposes most of the useful methods for authentication.
  - **angular-storage**: A `localStorage` and `sessionStorage` wrapper create with love by Auth0 team.
  - **angular-jwt**: Angular service that makes using JSON Web Tokens easy in Angular apps.
 

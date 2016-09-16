@@ -1,38 +1,19 @@
 ```js
-(function () {
-  'use strict';
+lock.on('authenticated', function(authResult) {
+  localStorage.setItem('id_token', authResult.idToken);
+  authManager.authenticate();
+  lock.hide();
 
-  angular
-    .module('app')
-    .controller('LoginController', LoginController)
+  // Redirect to default page
+  location.hash = '#/';
 
-  LoginController.$inject = ['$scope', '$state', 'auth', 'store'];
-
-  function LoginController($scope, $state, auth, store) {
-    var vm = this;
-
-    function doLogin() {
-      auth.signin({
-        container: 'lock-container',
-        authParams: {
-          scope: 'openid offline_access',
-          device: 'Mobile device'
-        }
-      }, function (profile, token, accessToken, state, refreshToken) {
-        // Success callback
-        store.set('profile', profile);
-        store.set('token', token);
-        store.set('accessToken', accessToken);
-        store.set('refreshToken', refreshToken);
-        
-         $state.go("home");
-      }, function () {
-        // Error callback
-      });
+  lock.getProfile(authResult.idToken, function(error, profile) {
+    if (error) {
+      console.log(error);
     }
 
-    doLogin();
-  }
-  
-} ());
+    localStorage.setItem('profile', JSON.stringify(profile));
+
+  });
+});
 ```
