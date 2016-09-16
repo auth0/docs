@@ -1,5 +1,5 @@
 ---
-title: Auth0 iOS ObjectiveC Quickstarts - 1. Login
+title: Login
 description: This tutorial will show you how to integrate Lock in your iOS ObjectiveC project in order to present a login screen.
 
 ---
@@ -89,7 +89,7 @@ Add the following entries to your project's `Info.plist`:
 
 ### 3. Implement the Login
 
-At this point, you're all set to implement the Login. 
+At this point, you're all set to implement the Login.
 
 First, import the `Lock` module in the file where you want to present the login dialog:
 
@@ -101,7 +101,7 @@ Then, configure and present the login screen, like this:
 
 ```objc
     A0Lock *lock = [A0Lock sharedLock];
-    
+
     A0LockViewController *controller = [lock newLockViewController];
     controller.onAuthenticationBlock = ^(A0UserProfile *profile, A0Token *token) {
         // Do something with token & profile. e.g.: save them.

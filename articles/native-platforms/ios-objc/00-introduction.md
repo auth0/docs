@@ -17,8 +17,8 @@ Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample
   pkgRepo: 'auth0-ios-objc-sample',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '01-Login/Auth0Sample/Info.plist',
+  pkgType: 'replace'
 }) %>
 
 This seed project can be useful as a starting point for the app to which you need to integrate authentication.
