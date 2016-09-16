@@ -11,7 +11,15 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/08-Calling-APIs', }) %>
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/08-Calling-APIs',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
+  pkgBranch: 'master',
+  pkgPath: '08-Calling-APIs',
+  pkgFilePath: '08-Calling-APIs/Auth0Sample/Info.plist',
+  pkgType: 'replace'
+}) %>
 
 > This tutorial will enable you to delegate all your authentication needs on Auth0, leaving your API server to handle only your core business processes.
 > To achieve this, we will send an Auth0 token to the server through the `Authentication` header of the request. The server in turn will have to check with Auth0 servers to corroborate that this token is valid. We will not go into detail about this latter part, since there are other very good tutorials that cover the server side of this process ([like this one](https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample/tree/master/Server)). You can check out [the official documentation](/api/authentication) for further information on authentication API on the server-side.
@@ -40,7 +48,7 @@ Once you have the user's token, you can use it to authenticate with your own ser
 ```objc
 NSURL* url =  [NSURL URLWithString:@"https://whateversyourAPI.com"];
 NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:url];
-    
+
 NSString *token = self.token.idToken;
 [request addValue:[NSString stringWithFormat:@"Bearer %@",token] forHTTPHeaderField:@"Authorization"];
 

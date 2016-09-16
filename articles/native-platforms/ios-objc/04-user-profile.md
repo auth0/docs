@@ -11,7 +11,15 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iPhone 6 - iOS 9.3 (13E230)
   :::
 
-<%= include('../../includes/github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/04-User-Profile', }) %>
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/04-User-Profile',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
+  pkgBranch: 'master',
+  pkgPath: '04-User-Profile',
+  pkgFilePath: '04-User-Profile/Auth0Sample/Info.plist',
+  pkgType: 'replace'
+}) %>
 
 ### In the Beginning
 
@@ -25,7 +33,7 @@ To get your user's information, you will need the user's token. You can get it e
 Once you have the user's token, you can use it to restore the user's profile:
 
 ```objc
-[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:userToken 
+[[A0Lock sharedLock].apiClient fetchUserProfileWithIdToken:userToken
 success:^(A0UserProfile * _Nonnull profile) {
 	// You have successfully retreived the user's profile.
 } failure:^(NSError * _Nonnull error) {
@@ -73,17 +81,17 @@ This metadata field can be used to store any information about the user your app
 
 ```objc
     NSDictionary* profileMetadata = @{
-                                @"firstName": self.userFirstNameField.text, 
+                                @"firstName": self.userFirstNameField.text,
                                 @"lastName":self.userLastNameField.text,
                                 @"country":self.userCountryField.text};
 
     A0ManagementAPI *authApi = [[A0ManagementAPI alloc] initWithToken:userToken url:domain];
-    
+
     [authApi patchUserWithIdentifier:self.userProfile.userId userMetadata:profileMetadata callback:^(NSError * _Nullable error, NSDictionary<NSString *,id> * _Nullable data) {
         if(error) {
         // Something went wrong, let the user know
         } else {
-        // The user was updated on the server, create a new instance of the 
+        // The user was updated on the server, create a new instance of the
         // profile with the new information and use this one from now on
 
         self.userProfile = [[A0UserProfile alloc] initWithDictionary:data];
