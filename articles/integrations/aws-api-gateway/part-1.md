@@ -11,7 +11,11 @@ After completing this step, you will have created two unauthenticated REST servi
 
 > Prior to beginning, please have [Node.js](https://nodejs.org/) installed.
 
-Perform the following steps to create an Amazon table and the AWS Lambda functions and Amazon API Gateway APIs after logging into the AWS console.
+Log in to the AWS console, and perform the following steps to create:
+
+* an Amazon table;
+* the AWS Lambda functions;
+* the Amazon API Gateway APIs.
 
 1. First create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *String*, and name the key `username`. Uncheck *Use default settings*, change the read and write units to *3*, and then press **Create**. While the table is being created, take note of the *Amazon Resource Name (ARN)* under the *Table details* section, you will need the table's ARN in the next step.
 
