@@ -3,7 +3,7 @@
 If you are using an app that allows for **Passwordless** authentication, you can register using either your **email address** or your **mobile phone number** instead of a login/password combination. Depending on which piece of information you provide, you will then access the app using a link that has been emailed to you or by providing a code that has been emailed or sent to you via SMS.
 
 * [Register and Authenticate Using Email](#register-and-authenticate-using-email)
-* [Register and Authenticate Using Email](#register-and-authenticate-using-sms)
+* [Register and Authenticate Using SMS](#register-and-authenticate-using-sms)
 * [Troubleshooting](#troubleshooting)
 
 ## Register and Authenticate Using Email
