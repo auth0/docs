@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: test
+description: This example shows how to display the user's profile
 ---
 
 <%= include('../../_includes/_package', {
@@ -9,7 +9,7 @@ description: test
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '03-User-Profile',
-  pkgFilePath: '03-User-Profile/www/app/auth0.variables.js',
+  pkgFilePath: '03-User-Profile/www/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
@@ -17,73 +17,166 @@ description: test
 At any point in time you can run this sample by going to the `03-Custom-Login` folder of the sample project and running `ionic serve`
 :::
 
-You can access obtain a user's profile from the success callback when calling the `signin()` method, or alternatively you can call the `getProfile()` method.
+You can access obtain a user's profile from the `getProfile()` method.
 
-### Accessing the user profile from the signin method
+### Accessing user profile with `lock.getProfile()`
 
-Callbacks can be used to get a user's profile if the authentication is successful. We have already done this in the code we completed in Step 1 and stored it in Localstorage. Here is a refresher on how to do that:
+At any given time, you can call `getProfile` on `lock` passing in a token and callback function.
 
 ```js
-/* ===== ./www/app/account/login.controller.js ===== */
+/* ===== www/components/auth/auth.service.js ===== */
+(function() {
+
+    ...
+  
+  function authService($rootScope, lock, authManager, jwtHelper) {
+
+    ...
+
+    // Set up the logic for when a user authenticates
+    // This method is called from app.run.js
+    function registerAuthenticationListener() {
+      lock.on('authenticated', function(authResult) {
+    
+    ...
+    
+        lock.getProfile(authResult.idToken, function(error, profile) {
+          if (error) {
+            console.log(error);
+          }
+
+          localStorage.setItem('profile', JSON.stringify(profile));
+
+        });
+    
+    ...
+    
+      });
+    }
+
+    ...
+
+  
+  }
+})();
+
+```
+
+As you can see we are storing the `profile` in Local storage in the success callback. Once that is done, all you need to do is to retrieve the profile from Localstorage at a later stage. An example can be found in the `HomeController`:
+
+```js
+/* ===== www/components/home/home.controller.js ===== */
 (function () {
+
   'use strict';
 
   angular
     .module('app')
-    .controller('LoginController', LoginController)
+    .controller('HomeController', HomeController);
 
-  LoginController.$inject = ['$scope', '$state', 'auth', 'store'];
+  HomeController.$inject = ['$state', 'authService', '$scope'];
 
-  function LoginController($scope, $state, auth, store) {
+  function HomeController($state, authService, $scope) {
     var vm = this;
 
-    function doLogin() {
-      auth.signin({
-        container: 'lock-container',
-        authParams: {
-          scope: 'openid offline_access',
-          device: 'Mobile device'
-        }
-      }, function (profile, token, accessToken, state, refreshToken) {
-        // Success callback
-        store.set('profile', profile);
-        store.set('token', token);
-        store.set('accessToken', accessToken);
-        store.set('refreshToken', refreshToken);
-        
-         $state.go("home");
-      }, function () {
-        // Error callback
+    vm.login = login;
+    vm.logout = logout;
+
+    $scope.$on("$ionicView.beforeEnter", function() {
+
+      authService.getProfileDeferred().then(function(profile) {
+        vm.profile = profile;
+      });
+
+    });
+
+    function login() {
+      $state.go("login");
+    }
+
+    function logout() {
+      authService.logout();
+
+      // Clear VM value
+      vm.profile = null;
+    }
+
+  }
+
+}());
+```
+
+We get the user profile using the `getProfileDeferred()` method which implemented in `authService` service:
+
+```js
+/* ===== www/components/auth/auth.service.js ===== */
+(function() {
+
+  ...
+
+  function authService($rootScope, lock, authManager, jwtHelper, $q) {
+
+    var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
+    var deferredProfile = $q.defer();
+
+    if (userProfile) {
+      deferredProfile.resolve(userProfile);
+    }
+
+    function login() {
+      lock.show();
+    }
+
+    // Logging out just requires removing the user's
+    // id_token and profile
+    function logout() {
+      deferredProfile = $q.defer();
+      localStorage.removeItem('id_token');
+      localStorage.removeItem('profile');
+      authManager.unauthenticate();
+      userProfile = {};
+    }
+
+    // Set up the logic for when a user authenticates
+    // This method is called from app.run.js
+    function registerAuthenticationListener() {
+      lock.on('authenticated', function(authResult) {
+        localStorage.setItem('id_token', authResult.idToken);
+        authManager.authenticate();
+        lock.hide();
+
+        lock.getProfile(authResult.idToken, function(error, profile) {
+          if (error) {
+            console.log(error);
+          }
+
+          localStorage.setItem('profile', JSON.stringify(profile));
+
+          // Redirect to default page
+          location.hash = '#/';
+
+          deferredProfile.resolve(profile);
+        });
       });
     }
 
-    doLogin();
-  }
-  
-} ());
-```
-
-As you can see we are storing the `profile`, `token`, `accessToken` and `refreshToken` in Local storage in the success callback. Once that is done, all you need to do is to retrieve the profile from Localstorage at a later stage. An example can be found in the `HomeController`:
-
-```js
-/* ===== ./www/app/home/home.controller.js ===== */
-(function () {
-    'use strict';
-
-    angular
-        .module('app')
-        .controller('HomeController', HomeController)
-
-    HomeController.$inject = ['$scope', '$state', 'auth', 'store'];
-
-    function HomeController($scope, $state, auth, store) {
-        var vm = this;
-
-        $scope.$on("$ionicView.beforeEnter", function() {
-            vm.profile = store.get('profile'); 
-        });
+    function getProfileDeferred() {
+      return deferredProfile.promise;
     }
-} ());
+
+    ...
+
+    return {
+      userProfile: userProfile,
+      login: login,
+      logout: logout,
+      registerAuthenticationListener: registerAuthenticationListener,
+      checkAuthOnRefresh: checkAuthOnRefresh,
+      getProfileDeferred: getProfileDeferred
+    }
+  }
+})();
+
 ```
 
 ::: panel-info This is info
@@ -93,16 +186,16 @@ Note that you must retrieve the profile in the Ionic `beforeEnter` event to ensu
 Once the profile is retrieved you can bind it to the view:
 
 ```html
-<!-- ===== ./www/app/home/home.html ===== -->
+<!-- ===== ./www/components/home/home.html ===== -->
  <ion-view view-title="Auth0 Ionic Quickstart" ng-controller="HomeController as vm">
   <ion-content class="padding">
-    <div ng-hide="vm.auth.isAuthenticated">
+    <div ng-hide="isAuthenticated">
       <p>Welcome to the Auth0 Ionic Sample! Please log in:</p>
       <button class="button button-full button-positive" ng-click="vm.login()">
         Log In
       </button>
     </div>
-    <div ng-show="vm.auth.isAuthenticated">
+    <div ng-show="isAuthenticated">
 
       <div class="list card">
 
@@ -116,19 +209,10 @@ Once the profile is retrieved you can bind it to the view:
         </a>
 
       </div>
+
+
     </div>
   </ion-content>
 </ion-view>
+
 ```
-
-### Accessing user profile with `auth.getProfile()`
-
-At any given time, you can call `getProfile` on `auth` passing in a token as the only argument. This method returns a promise which you can wait to resolve and grab the profile data:
-
-```js
-auth.getProfile(token).then(function(profile){
-  // Profile can be used from here
-})
-```
-
-Once you have the profile data you can store it in your controller and bind it to the view in exactly the same way as before.
