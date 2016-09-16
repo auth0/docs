@@ -12,10 +12,12 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/03-Session-Handling',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-objC',
-  pkgFilePath: 'iOS/basic-sample-objc/ObjCSample/Info.plist',
+  pkgPath: '03-Session-Handling',
+  pkgFilePath: '03-Session-Handling/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 

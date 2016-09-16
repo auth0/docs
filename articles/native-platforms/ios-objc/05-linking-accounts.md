@@ -12,10 +12,12 @@ This tutorial and seed project have been tested with the following:
   :::
 
 <%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/05-Linking-Accounts',
+  pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-samples/auth0-ios-objc-sample',
   pkgBranch: 'master',
-  pkgPath: '05-Linking Accounts',
-  pkgFilePath: '05-Linking Accounts/Auth0Sample/Info.plist',
+  pkgPath: '05-Linking-Accounts',
+  pkgFilePath: '05-Linking-Accounts/Auth0Sample/Info.plist',
   pkgType: 'replace'
 }) %>
 
@@ -27,13 +29,13 @@ This tutorial assumes you are already familiar with Auth0 and how to Sign up and
 
 ### 1. Setting Up
 
-For this tutorial we are going to use the Auth0 Toolkit, and import the toolkit (which is writen in Swift) into our Objective-C project. All the necessary steps for this are covered in the [Custom Login](02-custom-login.md) tutorial. 
+For this tutorial we are going to use the Auth0 Toolkit, and import the toolkit (which is writen in Swift) into our Objective-C project. All the necessary steps for this are covered in the [Custom Login](02-custom-login.md) tutorial.
 
-### 2. Getting Your Second Token 
+### 2. Getting Your Second Token
 
 To link two user profiles, you need to be signed in as the user you want to use as your primary profile, the one you want to merge the other user into. Once you're signed in, you need to show the login for the second user profile, for which you have two options.
 
-#### i. Use Lock 
+#### i. Use Lock
 
 You can use Lock, and present the Auth0 sign in UI where users can select the form of sign in they want to use.
 
@@ -71,7 +73,7 @@ You might prefer to avoid the Lock UI and only show the sign in options of third
 ```objc
 - (IBAction)linkAccount:(id)sender{
     NSString* connection;
-    
+
     if (sender == self.linkGoogleButton) {
         connection = @"google-oauth2";
     } else if (sender == self.linkTwitterButton) {
@@ -81,9 +83,9 @@ You might prefer to avoid the Lock UI and only show the sign in options of third
     } else {
         return;
     }
-        
+
     A0WebAuth *webAuth = [[A0WebAuth alloc] init];
-    
+
     [webAuth setConnection:connection];
     [webAuth setScope:@"openid"];
 
@@ -107,7 +109,7 @@ A0SimpleKeychain* keychain = [[A0SimpleKeychain alloc] initWithService:@"Auth0"]
 A0ManagementAPI *authApi = [[A0ManagementAPI alloc] init];
 
 [authApi linkUserWithIdentifier:self.userProfile.userId  withUserUsingToken: credentials.idToken callback:^(NSError * _Nullable error, NSArray<NSDictionary<NSString *,id> *> * _Nullable payload) {
-   
+
     if (error){
         //Something went wrong, tell the user
     } else {
