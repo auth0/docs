@@ -9,7 +9,7 @@ This is the very beginning of a simple, practical, multi-step quickstart that wi
 
 ## Seed Project
 
-Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed. 
+Here is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
 
 <%= include('../../_includes/_github', { link: 'https://github.com/auth0-samples/auth0-ios-objc-sample/tree/master/00-Starter-Seed', }) %>
 
@@ -25,7 +25,7 @@ Each tutorial in the series includes a link to its corresponding sample project,
 
 ## Dependencies
 
-Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.iOS-OSX) or the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit, or both. 
+Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.iOS-OSX) or the [Auth0.swift](https://github.com/auth0/Auth0.swift) toolkit, or both.
 
 A brief overview:
 
@@ -79,7 +79,7 @@ Make sure you complete these steps before going through any tutorial:
 
 #### 2. Configure your callback URLs
 
-<%= include('../_includes/_callback-url-introduction') %>
+TO BE UPDATED: The initial PR had this include `'../_includes/_callback-url-introduction'`. Neither the file nor the directory exist and the page could not load due to that.
 
 #### 3. Set your credentials
 
