@@ -1,35 +1,32 @@
 ```js
 (function () {
-    'use strict';
 
-    angular
-        .module('app')
-        .controller('HomeController', HomeController)
+  'use strict';
 
-    HomeController.$inject = ['$state', 'auth', 'store'];
+  angular
+    .module('app')
+    .controller('HomeController', HomeController);
 
-    function HomeController($state, auth, store) {
-        var vm = this;
+  HomeController.$inject = ['$state', 'authManager'];
 
-        vm.auth = auth;
+  function HomeController($state, authManager) {
+    var vm = this;
 
-        vm.login = login;
-        vm.logout = logout;
+    vm.login = login;
+    vm.logout = logout;
 
-        function login() {
-            $state.go("login");
-        }
-
-        function logout() {
-            auth.signout();
-
-            store.remove('profile');
-            store.remove('token');
-            store.remove('accessToken');
-            store.remove('refreshToken');
-        }
-
+    function login() {
+      $state.go("login");
     }
 
-} ());
+    function logout() {
+      localStorage.removeItem('id_token');
+      localStorage.removeItem('profile');
+      authManager.unauthenticate();
+      userProfile = {};
+    }
+
+  }
+
+}());
 ```
