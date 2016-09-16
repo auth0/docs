@@ -5,7 +5,7 @@ language:
   - JavaScript
 framework:
   - Cycle.js
-image: //cycle.js.org/img/cyclejs_logo.svg
+image: /media/platforms/cyclejs.svg
 tags:
   - quickstart
 snippets:
