@@ -155,7 +155,6 @@ Check to make sure that the callback URL specified by your application in its au
 
 The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
 
-# Additional information
 ## Supported algorithms for signatures
 
 We currently support the following algorithms for processing XML Digital Signatures:
