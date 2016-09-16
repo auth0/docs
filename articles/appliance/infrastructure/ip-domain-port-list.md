@@ -103,6 +103,14 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>Yes</td>
   </tr>
   <tr>
+    <td>GitHub</td>
+    <td>Outbound</td>
+    <td>github.com</td>
+    <td>443</td>
+    <td>Source to download and repackage example applications</td>
+    <td>No</td>
+  </tr>
+  <tr>
     <td>Usage & Telemetry</td>
     <td>Outbound</td>
     <td>app-gateway.it.auth0.com (52.40.103.203)</td>
