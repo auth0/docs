@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 title: Javascript Developer Center
 subtitle: Resources and documentation for Javascript developers
 logo: javascript
