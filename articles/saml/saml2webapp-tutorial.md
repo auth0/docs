@@ -1,5 +1,5 @@
 ---
-url: saml2webapp-tutorial
+url: /saml2webapp-tutorial
 ---
 
 # Using Auth0 in SAML2 Web App
