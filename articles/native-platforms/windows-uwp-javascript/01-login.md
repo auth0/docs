@@ -3,6 +3,25 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Windows Universal App Javascript SDK to add authentication and authorization to your app.
 ---
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Microsoft Visual Studio 2015
+* Windows 10 SDK (10.0.14393)
+:::
+
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0/Auth0.Windows.UWP',
+  pkgOrg: 'auth0',
+  pkgRepo: 'Auth0.Windows.UWP',
+  pkgBranch: 'master',
+  pkgPath: 'samples/LoginClientSample.Js',
+  pkgFilePath: 'samples/LoginClientSample.Js/js/default.js',
+  pkgType: 'replace'
+}) %>
+
+**Otherwise, if you already have an existing application, please follow the steps below.**
+
 This tutorial explains how to integrate Auth0 with a Windows UWP application written in JavaScript. `Auth0.Windows.UWP.JavaScript` helps you authenticate users with any [Auth0 supported Identity Provider](/identityproviders).
 
 ## Tutorial
