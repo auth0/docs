@@ -121,7 +121,7 @@ var options = {
   avatar: {
     url: function(email, cb) {
       // Obtain the avatar url for the email input by the user, Lock
-      // will preload the image it before displaying it.
+      // will preload the image before displaying it.
       // Note that in case of an error you call cb with the error in
       // the first arg instead of `null`.
       var url = obtainAvatarUrl(email);
