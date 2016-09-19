@@ -7,19 +7,69 @@ description: Step 1 of Amazon API Gateway Tutorial
 ## Step 1 - Setting up the Amazon API Gateway
 [Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway/part-2)
 
-After completing this step, you will have created two unauthenticated REST service methods for getting and updating a list of pets. You will set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table.
+After completing this step, you will have:
+
+* created two unauthenticated REST service methods for getting and updating a list of pets;
+* set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table.
 
 > Prior to beginning, please have [Node.js](https://nodejs.org/) installed.
 
-Log in to the AWS console, and perform the following steps to create:
+### Log in to the AWS Console
+
+Log in to the [AWS console](https://console.aws.amazon.com), and perform the following steps to create:
 
 * an Amazon table;
 * the AWS Lambda functions;
 * the Amazon API Gateway APIs.
 
-1. First create a table in Amazon DynamoDB. In the Amazon DynamoDB console, click on **Create Table**, name the table `Pets`, select a *Primary Key Type* of *String*, and name the key `username`. Uncheck *Use default settings*, change the read and write units to *3*, and then press **Create**. While the table is being created, take note of the *Amazon Resource Name (ARN)* under the *Table details* section, you will need the table's ARN in the next step.
+### 1. Create the Amazon DynamoDB Table
 
-2. Next create a policy that allows your AWS Lambda functions to access CloudWatch logs and the Pets table. Select the AWS IAM console. Click on **Roles** in the left menu, and then click the **Create New Role** button. Name the role `APIGatewayLambdaExecRole` and click **Next Step**. Under *AWS Service Roles*, select *AWS Lambda*. For Attach Policy just skip by clicking **Next Step**. Click **Create Role**. Now select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **click here** link. Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following for the policy document (first update the amazon resource name (arn) for your DynamoDB table). Click **Apply Policy**.
+In the [Amazon DynamoDB Console](https://console.aws.amazon.com/dynamodb), click on **Create Table**.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/dynamodb-create-table.png)
+
+Configure the variables associated with the table:
+
+* **Table name**: Pets
+* **Primary key**: username
+* **Primary key type**: String
+* **Use default settings**: *unchecked*
+* **Read capacity units**: 3
+* **Write capacity units**: 3
+
+![](/media/articles/integrations/aws-api-gateway/part-1/configure-newly-created-table.png)
+
+Click **Create** to create the table with your provided settings.
+
+While the table is being created, take note of the *Amazon Resource Name (ARN)* under the *Table details* section. You will need the table's ARN in the next step.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/table-arn.png)
+
+### 2. Create the Policy that Grants AWS Lambda Functions Access to CloudWatch Logs and the DynamoDB Pets Table
+
+Navigate to the [AWS IAM Console](https://console.aws.amazon.com/iam).
+
+Click on **Roles** in the left menu, and then click the **Create New Role** button.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/roles.png)
+
+Name the role `APIGatewayLambdaExecRole` and click **Next Step**.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/set-role-name.png)
+
+Select the Role Type. Under *AWS Service Roles*, select *AWS Lambda*.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/select-role-type.png)
+
+On the Attach Policy screen, skip this by clicking **Next Step**. Review the information you provided. If all looks correct, click **Create Role**. When finished, you should see your role listed on the IAM homepage.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/iam-roles-list.png)
+
+Select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **click here** link.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/create-inline-policies.png)
+
+Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following code as the policy document (be sure to first update the Amazon Resource Name (ARN) for your DynamoDB table). Click **Apply Policy**.
 
     ```js
     {
@@ -46,7 +96,15 @@ Log in to the AWS console, and perform the following steps to create:
     }
     ```
 
-3. The next three steps create the AWS Lambda functions for getting and putting pet information. In the AWS Lambda console, select **Create a Lambda function** (if you have not created an AWS Lambda function before, you will click **Get Started Now**). Click **Skip** for selecting a blueprint, and enter `GetPetInfo` for the *Name*. Select *Node.js* for the runtime, and paste the following code to read pets from the dynamodb table:
+![](/media/articles/integrations/aws-api-gateway/part-1/custom-policy.png)
+
+### 2. Create the AWS Lambda Functions
+
+The next three steps create the AWS Lambda functions for getting and putting pet information.
+
+#### Create the Lambda Function for `GetPetInfo`
+
+In the [AWS Lambda Console](https://console.aws.amazon.com/lambda), select **Create a Lambda function** (if you have not created an AWS Lambda function before, you will click **Get Started Now**). Click **Skip** for selecting a blueprint, and enter `GetPetInfo` for the *Name*. Select *Node.js* for the runtime, and paste the following code to read pets from the dynamodb table:
 
     ```js
     var AWS = require('aws-sdk');
@@ -72,7 +130,9 @@ Log in to the AWS console, and perform the following steps to create:
     ```
 For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leave the default for all other settings. Click **Next**, and then click **Create function**. Click **Test**. You should see an empty output (`{}`) in the *Execution Results* section since the table is empty.
 
-4. Repeat the previous step, naming the new function `UpdatePetInfo` and paste this code:
+#### Create the Lambda Function for `UpdatePetInfo`
+
+Repeat the instructions for the previous step, but paste the following code instead:
 
     ```js
     var AWS = require('aws-sdk');
@@ -95,25 +155,32 @@ For *Role*, select the *APIGatewayLambdaExecRole* role you just created and leav
         dynamo.putItem({TableName:"Pets", Item:item}, cb);
     };
     ```
-5. Test the function by clicking on the *Actions* drop down and choosing **Configure sample event**. Enter the following for sample data, and click **Submit**:
+
+Test the function by clicking on the *Actions* drop down and choosing **Configure sample event**. Enter the following for sample data, and click **Submit**:
+
     ```js
     {"pets": [ {"id": 1, "type": "dog", "price": 249.99}]}
     ```
+
 You should see an empty return result (`{}`). Go to your `GetPetInfo` Lambda, and click **Test** again. You should now see a single pet.
 
-6. One more AWS Lambda function is required that does nothing. This is needed by the OPTIONS method for CORS as described in the next step. Repeat the steps for creating a Lambda function and name it `NoOp`. For the code add the following:
+#### Create the Third Lambda Function
+
+One more AWS Lambda function is required that does nothing. This is needed by the OPTIONS method for CORS as described in the next step. Repeat the steps for creating a Lambda function and name it `NoOp`. For the code add the following:
     ```js
     exports.handler = function(event, context) {
         context.succeed('');
     }
     ```
-7. Go to the Amazon API Gateway console, and click **Create API**. Name the API `SecurePets` and click **Create API**.
 
-8. Click **Create Resource**. Name the resource `Pets`, and click **Create Resource** again.
+Go to the Amazon API Gateway console, and click **Create API**. Name the API `SecurePets` and click **Create API**.
 
-9. In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select *Lambda Function* for integration type, select the region you are in, and select *GetPetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
+Click **Create Resource**. Name the resource `Pets`, and click **Create Resource** again.
 
-10. In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select *Lambda Function* for integration type, select the region you are in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
+In the left pane, select `/pets` and then click the **CreateMethod** button. In the drop down, select *GET* and click the checkmark button. Select *Lambda Function* for integration type, select the region you are in, and select *GetPetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. Click **Test**, and you should see the single pet returned in the response body.
+
+In the left pane, select `/pets` again, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select *Lambda Function* for integration type, select the region you are in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** in the popup. click **Test**, and for the request body paste:
+
     ```js
     {"pets": [ {"id": 1, "type": "dog", "price": 249.99},
                {"id": 2, "type": "cat", "price": 124.99}
