@@ -13,11 +13,11 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgType: 'replace'
 }) %>
 
-<%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/native/ionic/05-rules' }) %>
+<%= include('../../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/native/ionic/05-rules' }) %>
 
 ### Create a Rule to assign roles
 
-<%= include('../_includes/_authorization-create-rule') %>_
+<%= include('../../_includes/_authorization-create-rule') %>_
 
 
 ## Restrict access to secure content
