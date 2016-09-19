@@ -13,6 +13,14 @@ description: This tutorial will show you how to customize Lock.
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Ionic 1.3.1
+:::
+
+<%= include('../../_includes/_signup') %>
+
 Using Lock is easy, but you may want to customize your login UI. There are several options available.
 
 ## Lock Options

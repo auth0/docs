@@ -13,7 +13,13 @@ description: This tutorial will show you how to use angular2-jwt library in Ioni
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
 
+* Ionic 1.3.1
+:::
+
+<%= include('../../_includes/_signup') %>
 
 The reason for implementing authentication in the first place is to protect information. In this case your information is a resource served from a server of any sort. Auth0 provides squad of tools to assist you complete end to end authentication in an application. Auth0 suggests you conform to RFC standard by sending the token through Authorization header (though you are not restricted to that).
 
