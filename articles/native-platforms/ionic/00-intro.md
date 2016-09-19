@@ -3,6 +3,8 @@ title: Introduction
 description: test
 ---
 
+<%= include('../../_includes/_signup') %>
+
 Welcome to this quickstart which will guide you through the various steps of implementing Auth0 in your Ionic applications.
 
 Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular) which can be used with Ionic applications. This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) as well as the [Auth0.js library](https://github.com/auth0/auth0.js), so it makes it simple to integrate these in your Ionic applications.    
