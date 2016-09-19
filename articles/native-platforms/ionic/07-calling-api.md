@@ -9,7 +9,7 @@ description: This tutorial will show you how to use angular2-jwt library in Ioni
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '07-Calling-Api',
-  pkgFilePath: null,
+  pkgFilePath: '07-Calling-Api/www/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
