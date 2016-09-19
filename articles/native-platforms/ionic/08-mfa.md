@@ -9,7 +9,7 @@ description: This tutorial will show you how to add Multifactor Authentication t
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '08-MFA',
-  pkgFilePath: null,
+  pkgFilePath: '08-MFA/www/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
