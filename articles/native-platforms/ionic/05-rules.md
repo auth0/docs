@@ -13,15 +13,15 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/server-platform/_rules-introduction') %>
+<%= include('../../_includes/native-platforms/_rules-introduction') %>
 
 ## Create a Rule
 
-<%= include('../../_includes/server-platform/_rules-create-section') %>
+<%= include('../../_includes/native-platforms/_rules-create-section') %>
 
 ## Test the Rule
 
-<%= include('../../_includes/server-platform/_rules-test-result-intro', { profilelink: '/docs/quickstart/native/ionic/03-user-profile' }) %>
+<%= include('../../_includes/native-platforms/_rules-test-result-intro', { profilelink: '/docs/quickstart/native/ionic/03-user-profile' }) %>
 
 ```html
 /* ===== www/components/home/home.html ===== */
