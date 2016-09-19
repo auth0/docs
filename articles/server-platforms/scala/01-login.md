@@ -3,14 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Scala 2.11.7
-* Typesafe Activator 1.3.7
-* Play framework 2.4.6
-:::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-scala-samples/tree/master/00-Starter-Seed/regular-webapp',
   pkgOrg: 'auth0-samples',
@@ -20,6 +12,16 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: '00-Starter-Seed/regular-webapp/conf/application.conf',
   pkgType: 'replace'
 }) %>
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Scala 2.11.7
+* Typesafe Activator 1.3.7
+* Play framework 2.4.6
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, follow the steps below to configure your existing Play2 Scala WebApp for use with Auth0.**
 

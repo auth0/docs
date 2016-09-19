@@ -11,6 +11,9 @@ description: This tutorial will show you how to use the Auth0 React Native Andro
   pkgType: 'replace'
 }) %>
 
+
+<%= include('../../_includes/_signup') %>
+
 **Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
 First you need to run the following command to install **react-native-lock**

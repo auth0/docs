@@ -4,6 +4,8 @@ description: This tutorial will show you how to use the Auth0 to authenticate an
 ---
 > This integration is in __experimental mode__. Contact us if you have questions.
 
+<%= include('../../_includes/_signup') %>
+
 ${include('../_thirdPartyApi')}
 
 ### Additional Information

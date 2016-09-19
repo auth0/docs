@@ -5,7 +5,7 @@ description: Brief introduction to the iOS Swift tutorials. First steps required
 
 This is the very beginning of a simple, practical, and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
 
-
+<%= include('../../_includes/_signup') %>
 
 ## Seed Project
 
