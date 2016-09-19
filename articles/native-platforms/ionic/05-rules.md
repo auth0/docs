@@ -9,7 +9,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '05-Rules',
-  pkgFilePath: null,
+  pkgFilePath: '05-Rules/www/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
