@@ -9,7 +9,7 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '06-Authorization',
-  pkgFilePath: null,
+  pkgFilePath: '06-Authorization/www/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
