@@ -13,7 +13,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/native-platforms/_rules-introduction') %>
+<%= include('../_includes/native-platforms/_rules-introduction') %>
 
 ## Create a Rule
 
