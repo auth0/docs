@@ -1,6 +1,5 @@
-<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
-<div class="wistia_responsive_padding" style="padding:56.25% 0 28px 0;position:relative;">
-  <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
-    <div class="wistia_embed wistia_async_${id} videoFoam=true playerPreference=html5" style="height:100%;width:100%">&nbsp;</div>
-  </div>
-</div>
+<iframe src="//fast.wistia.net/embed/iframe/${id}?videoFoam=true"
+allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
+name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen
+oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+<script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>

@@ -10,7 +10,7 @@ function Component(sources) {
         auth0: token$
             .filter(token => !!token) //filter empty tokens
             //send the getProfile action to the auth0 driver
-            .map(token => ({ action: "getProfile", params: token })
+            .map(token => ({ action: "getProfile", params: token })),
 
         DOM: userProfile$ //displays the user profile once fetched
             .map(user => p([

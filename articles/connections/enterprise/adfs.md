@@ -98,4 +98,18 @@ If you don't feel comfortable executing the script, you can follow these steps:
 
     ![](/media/articles/connections/enterprise/adfs/adfs-claimrules.png)
 
+16. (Optional) Adding additional LDAP attributes
+
+  The mappings created on step **15** are the most commonly used, but if you need additional LDAP attributes with information about the user, you can add more claim mappings. 
+  
+ > If you already closed the window on the previous step, select **Edit Claim Rules** on the context menu for the Relying Party Trust you created, and edit the rule from step **14**).
+ 
+  Create a row for every additional LDAP attribute you need, choosing the attribute name on the left column and desired claim type on the right column. 
+  If the claim type you are looking for doesn't exist, you have two options:
+ 
+  - Type a namespace-qualified name for the new claim (i.e. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`).
+  - Register a new claim type (under **AD FS | Services | Claim Descriptions**) on the ADFS admin console), and use the claim name in the mapping.
+
+  Auth0 will use the name part of the claim type (i.e. `department` in `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`) as the attribute name for the user profile.
+
 Yes, running the script is definitely easier.

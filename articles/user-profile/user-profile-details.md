@@ -14,6 +14,7 @@ The Auth0 **User Profile** is a set of attributes about a user, such as first na
 - [Mapping User Profile Attributes in AD/LDAP Connector](#mapping-user-profile-attributes-in-ad-ldap-connector)
 - [Mapping User Profile Attributes in SAML Assertions](#mapping-user-profile-attributes-in-saml-assertions)
 - [User Profile with Account Linking](#user-profile-with-account-linking)
+- [User Data Storage Guidance](/user-profile/user-data-storage)
 
 ## Sources of User Profile Data
 
@@ -35,7 +36,7 @@ You may delete a user's cached profile via the Auth0 Dashboard or the Management
 
 ## Structure of User Profile Data
 
-There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${uiURL}/#/users) in the Auth0 Dashboard and then on a particular user.
+There are several components to the User Profile data structure in Auth0. This structure can be viewed by clicking on the [Users tab](${manage_url}/#/users) in the Auth0 Dashboard and then on a particular user.
 
 "Details" consists of core User Profile object with basic information such as name, email, and the timestamp of the latest login. The core User Profile object may contain additional attributes from its source Connection, in addition to the normalized Auth0 User Profile attributes.
 
@@ -60,7 +61,7 @@ Auth0 also supports the ability for users to [link their profile to multiple ide
 
 You can use `user_profile` to store custom attributes such as the user's favorite color or phone number.
 
-Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allosws the user to update their profile information.
+Auth0 provides a [JS widget](https://github.com/auth0/auth0-editprofile-widget) that allows the user to update their profile information.
 
 ## Application Access to User Profile
 
@@ -104,7 +105,7 @@ The information contained in a User Profile and in an `id_token` can be modified
 
 ### Scopes
 
-The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the `id_token` (JWT). Examples of different scopes are discussed [here](/jwt#2-body).
+The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the `id_token` (JWT). Examples of different scopes are discussed [here](/scopes).
 
 ### Dashboard
 

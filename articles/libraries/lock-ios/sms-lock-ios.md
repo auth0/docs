@@ -5,7 +5,7 @@ description: How to use SMS in Lock iOS
 
 ## SMS
 
-`A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${uiURL}/#/connections/passwordless).
+`A0SMSLockViewController` authenticates without using a password with SMS. In order to be able to authenticate the user, your application must have the SMS connection enabled and configured in your [dashboard](${manage_url}/#/connections/passwordless).
 
 First instantiate `A0SMSLockViewController` and register the authentication callback that will receive the authenticated user's credentials.
 
@@ -41,4 +41,4 @@ lock.presentSMSController(controller, fromController: self)
 ```
 And you'll see SMS login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Screenshot.png)](https://auth0.com)
+![Lock SMS Screenshot](/media/articles/libraries/lock-ios/Lock-SMS-Screenshot.png)

@@ -5,9 +5,9 @@ description: This tutorial will show you how to use the Auth0 library to add cus
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
+* Node 5.2.0
 * NPM 3.3.12
-* React 15.0.2
+* React 15.3.1
 :::
 
 <%= include('../../_includes/_package', {
@@ -45,7 +45,7 @@ export default class AuthService {
     this.auth0 = new Auth0({
       clientID: clientId,
       domain: domain,
-      callbackOnLocationHash: true
+      responseType: 'token'
     });
 
     this.login = this.login.bind(this)
@@ -92,7 +92,7 @@ export default class AuthService {
 }
 ```
 
-`Auth0` uses [redirect mode](/libraries/auth0js#redirect-mode) by default. Therefore, after a successful login, your app will be redirected to the `callbackURL` set for your client in the [Auth0 dashboard](${uiURL}/#/applications). 
+`Auth0` uses [redirect mode](/libraries/auth0js#redirect-mode) by default. Therefore, after a successful login, your app will be redirected to the `callbackURL` set for your client in the [Auth0 dashboard](${manage_url}/#/applications). 
 
 `Auth0` appends authentication data to the callbackURL as hash parameters. The `parseHash` method above extracts this data from the URL hash and saves the user authentication token(`idToken`) to `localStorage`.
 

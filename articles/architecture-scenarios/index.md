@@ -1,5 +1,7 @@
 ---
 url: /architecture-scenarios
+title: Architecture Scenarios
+description: Learn about the common architecture scenarios that you will use to solve the authorization and authentication needs of your application.
 ---
 
 # Architecture Scenarios

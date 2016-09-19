@@ -208,7 +208,7 @@ return function (context, req, res) {
 
 *Rules* code is automatically packaged as Webtasks by Auth0. Since this is a custom Webtask, it must be created with the Webtask CLI.
 
-Follow the instructions for installing Webtask CLI under [Account Settings > Webtasks](${uiURL}/#/account/webtasks) on the Auth0 dashboard.
+Follow the instructions for installing Webtask CLI under [Account Settings > Webtasks](${manage_url}/#/account/webtasks) on the Auth0 dashboard.
 
 Once the Webtask CLI is installed, run:
 
@@ -216,7 +216,7 @@ Once the Webtask CLI is installed, run:
 wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --output url --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
-**NOTE:** Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${uiURL}/#/account/webtasks) page.
+**NOTE:** Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${manage_url}/#/account/webtasks) page.
 
 The `create` command will generate a URL that will look like:
 

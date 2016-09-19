@@ -7,22 +7,23 @@ url: /samlsso-auth0-to-auth0
 This tutorial will create a simple example application that uses Auth0 to do SAML Single Sign On (SSO), using one Auth0 account (account 1) as a SAML Service Provider(SP), authenticating users against a second Auth0 account (account 2) serving as SAML Identity Provider(IDP).  This gives you a way to test your Auth0 SAML account (account 1) configuration, using Auth0 as an IDP so you don't have to learn and set up another IDP.
 
 There are **9 sections** to this sample and a troubleshooting section at the end.
-CLI
-1. Establish two Auth0 accounts.
-2. Set up the Auth0 Identity Provider (IDP) (account 2).
-3. Set up the Auth0 Service Provider (SP) (account 1).
-4. Add your Service Provider metadata to the Identity Provider.
-5. Test Identity Provider.
-6. Test the connection from Service Provider to Identity Provider.
-7. Register a simple HTML application with which to test the end-to-end connection.
-8. Create the HTML page for a test application.
-9. Test your creation.
 
-## 1. Establish two Auth0 accounts
+1. [Establish two Auth0 accounts](#1-establish-two-auth0-accounts)
+2. [Set up the Auth0 Identity Provider (IDP) (account 2)](#2-set-up-the-auth0-idp-account-2-)
+3. [Set up the Auth0 Service Provider (SP) (account 1)](#3-set-up-the-auth0-service-provider-account-1-)
+4. [Add your Service Provider metadata to the Identity Provider](#4-add-your-service-provider-metadata-to-the-identity-provider)
+5. [Test the Identity Provider](#5-test-identity-provider)
+6. [Test the connection from Service Provider to Identity Provider](#6-test-the-connection-from-service-provider-to-identity-provider)
+7. [Register a simple HTML application with which to test the end-to-end connection](#7-register-a-simple-html-application-with-which-to-test-the-end-to-end-connection-)
+8. [Create the HTML page for the application](#8-create-the-html-page-for-a-test-application)
+9. [Test your sample application](#9-test-your-sample-application)
+10. [Troubleshooting](#10-troubleshooting)
+
+## 1. Establish two Auth0 Accounts
 
 If you do not already have two Auth0 accounts, you will need to create them.
 
-### In the Auth0 dashboard:
+### In the Auth0 Dashboard
 
 In the upper right corner, click on the name of your account and in the popup menu which appears, select **"New Account"**.  
 
@@ -136,7 +137,7 @@ You need to locate the row that starts with **"AssertionConsumerService"** and c
 Copy and save this URL.  This is the URL on account 1 that will receive the SAML assertion from the IDP.  In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
 
-# 4. Add your Service Provider metadata to the Identity Provider
+## 4. Add your Service Provider metadata to the Identity Provider
 
 In this section you will go back and add some information about the Service Provider (account 1) to the Identity Provider (account 2) so the Identity Provider Auth0 account knows how to receive and respond to SAML-based authentication requests from the Service Provider Auth0 account.
 
@@ -171,7 +172,7 @@ Next, replace the original value (urn:foo) with the **Entity ID** value you save
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-7.png)
 
 
-# 5. Test Identity Provider
+## 5. Test Identity Provider
 
 In the same screen, click on the red **"DEBUG"** button.
 
@@ -189,7 +190,7 @@ Click on **"Close this window"** at the bottom of the screen.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-8.png)
 
-# 6. Test the connection from Service Provider to Identity Provider
+## 6. Test the connection from Service Provider to Identity Provider
 
 In this section, you will test to make sure the SAML configuration between Auth0 account 1 (Service Provider) and Auth0 account 2 (Identity Provider) is working.
 
@@ -214,7 +215,7 @@ Here is a sample of the **"It Works"** screen:
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-9.png)
 
-# 7. Register a simple HTML application with which to test the end-to-end connection.
+## 7. Register a simple HTML application with which to test the end-to-end connection.
 
 In this section, you will register an application in Auth0 that will use the SAML connection you set up in the above steps.
 
@@ -244,7 +245,7 @@ Make sure you are logged into the **Account 1 Auth0 dashboard**.
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/saml-auth0-12.png)
 
-# 8. Create the HTML page for a test application
+## 8. Create the HTML page for a test application
 
 In this section you will create a very simple HTML page that invokes the **Auth0 Lock Widget** which will trigger the SAML login sequence.  This will enable an end-to-end test of the SAML SSO.
 
@@ -257,19 +258,18 @@ Create an HTML page and insert the following HTML and javascript code:
 <BODY>
 <p> Click on the button to log in </p>
 
-<script src="https://cdn.auth0.com/js/lock-9.0.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
 <script type="text/javascript">
-  var lock = new Auth0Lock('YOUR-APP-CLIENT-ID', '${account.namespace}');
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}',{
+        redirectUrl: 'http://jwt.io',
+        responseType: 'token',
+        auth: {
+          params: {scope: 'openid'}
+        }
+    });
 
   function signin() {
-    lock.show({
-        callbackURL: 'http://jwt.io'
-      , responseType: 'token'
-      , authParams: {
-        // see https:///scopes
-        scope: 'openid'
-      }
-    });
+    lock.show();
   }
 </script>
 <button onclick="signin()">Login</button>
@@ -284,7 +284,7 @@ The client ID for your application can be found in the **Auth0 dashboard** for *
 Save this file in a place where you can access it via a browser.
 For this example, we'll call it **"hello-saml.html"**.
 
-# 9. Test your sample application
+## 9. Test your sample application
 
 In this step, you will test your sample HTML application that uses the Auth0 SAML connection you set up in Account 1 to perform SSO via SAML against Account 2, serving as the SAML Identity Provider.
 
@@ -312,7 +312,7 @@ If sufficient time has passed, or if you delete your browser cookies before init
 
 Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io).
 
-/libraries/lock/customization#rememberlastlogin-boolean-0. Troubleshooting.
+## 10. Troubleshooting
 
 This section has a few ideas for things to check if your sample doesn't work.
 

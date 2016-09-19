@@ -8,7 +8,7 @@ description: Auth0's Password Strength feature allows you to customize the level
 The **Password Strength** feature is only available for Database connections. The password complexity in Social and Enterprise connections is enforced by each provider.
 :::
 
-An important concern when using passwords for authentication is password strength. A strong password policy will make it difficult, if not improbable, for someone to guess a password through either manual or automated means. 
+An important concern when using passwords for authentication is password strength. A strong password policy will make it difficult, if not improbable, for someone to guess a password through either manual or automated means.
 
 The following characteristics define a strong password:
 
@@ -31,7 +31,7 @@ At each level, new passwords must meet the following criteria:
 
 ## Changing your policy
 
-To change the password strength policy, go to [Database connections](${uiURL}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
+To change the password strength policy, go to [Database connections](${manage_url}/#/connections/database). Select the database connection you want to change and click on the **Password Strength** tab:
 
 ![Password Strength Panel in Auth0](/media/articles/connections/database/password-strength/jH0kabJPoi.png)
 

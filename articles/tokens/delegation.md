@@ -24,7 +24,7 @@ See the [delegation endpoint](/api/authentication#delegated) in the [Authenticat
 
 ## Validity
 
-For customer application APIs registered in Auth0, the validity of a delegation token issued for that target is governed by the _JWT Expiration (seconds)_ value. This is set for each application in _[Applications](${uiURL}/#/applications) > Settings_.
+For customer application APIs registered in Auth0, the validity of a delegation token issued for that target is governed by the _JWT Expiration (seconds)_ value. This is set for each application in _[Applications](${manage_url}/#/applications) > Settings_.
 
 For APIs registered as Addons in Auth0, the validity period of the token will vary by individual Addon.  The documentation available from the provider of any Addon API should be consulted for further information on tokens and expirations.
 
@@ -44,7 +44,7 @@ Consider the following scenario. You have two web applications: _appA_ and _appB
 
 1. Register _appA_ and _appB_ in Auth0. Now each app has its own client secret.
 2. Register your backend API _apiC_ in Auth0. Now the API has its own client secret as well.
-3. Navigate to the [Applications](${uiURL}/#/applications), select _apiC_ and click on _Settings > Show Advanced Settings > OAuth_. In the _Allowed APPs / APIs_ field set the applications _appA_ and _appB_. This will set these two apps as clients that are allowed to make delegation requests to _apiC_. You have to set the client ID of your two apps in this field, separated by comma or newline.
+3. Navigate to the [Applications](${manage_url}/#/applications), select _apiC_ and click on _Settings > Show Advanced Settings > OAuth_. In the _Allowed APPs / APIs_ field set the applications _appA_ and _appB_. This will set these two apps as clients that are allowed to make delegation requests to _apiC_. You have to set the client ID of your two apps in this field, separated by comma or newline.
 4. In your implementation, the applications _appA_ and _appB_ would invoke an Auth0 method (lock or SDK call) to authenticate a user and request an `id_token` be returned.
 5. The applications _appA_ and _appB_ would then use the [delegation endpoint](/api/authentication#delegated) to exchange the original `id_token` for a new token with which to call _apiC_.
 6. The generated delegation token will be signed with the target API's (_apiC_) client secret. The target API should validate that signature. Some information on validating tokens is [here](/protocols#validating-tokens).

@@ -9,7 +9,7 @@ Copy the *Auth0 Domain*, *Client Id* and *Client Secret* settings from your app'
 #### Existing App
 1. From the Joomla administrator interface, select *Auth0 > Auth0* from the **Components** dropdown menu.
 2. Click on the *Options* button on the upper right of the *Auth0 Setup* page.
-So, go to your account and under the [Apps section](${uiURL}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
+So, go to your account and under the [Apps section](${manage_url}/#/applications) and access to the setting of the app you want to use (or create a new one). If you don't have an account, create one [here](https://auth0.com) and the create a new app.
 4. From the *Application Settings* page on Auth0, copy the *Auth0 Domain*, *Client Id* and *Client Secret* to the *Auth0 Setup* page of the Joomla interface.
 5. Click on *Save & Close*.
 6. Select the *Test* menu option to check that the Auth0 app data is complete.
@@ -25,8 +25,6 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 8. Click on *Save & Close*.
 9. Select the *Test* menu option to check that the Auth0 app data is complete.
 
- <img src="https://cdn./cms/joomla/joomla-auth0-component-setup.gif" alt="Joomla Auth0 component configuration">
-
 ## Module configuration
 
 1. From the Joomla administrator interface, select *Module Manager* from the **Extensions** drop-down menu.
@@ -36,8 +34,6 @@ So, go to your account and under the [Apps section](${uiURL}/#/applications) and
 5. Under the *Menu Assignment* tab, select *On all pages* from the drop-down.
 6. Click on *Save & Close*.
 7. The Auth0 *Login* button will now appear on your Joomla homepage.
-
- <img src="https://cdn./cms/joomla/joomla-auth0-module-setup.gif" alt="Joomla Auth0 module configuration">
 
 ## Settings
 

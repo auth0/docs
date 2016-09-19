@@ -1,8 +1,10 @@
 ---
 url: /saml-configuration
+title: SAML Configuration in Auth0
+description: This article explains the various configuration options of SAML available with Auth0.
 ---
 
-# SAML
+# SAML Configuration
 
 ## Overview
 
@@ -13,7 +15,7 @@ Auth0 supports the SAML protocol and can serve in either a SAML Service Provider
 
 ### SAML Identity Provider
 
-Some Applications, such as Salesforce, Box, Workday, can be configured to allow users to authenticate against an external Identity Provider using the SAML protocol.  Such applications can be integrated with Auth0 and in this case Auth0 will serve as the SAML IDP for the application.  
+Some Applications, such as Salesforce, Box, Workday, can be configured to allow users to authenticate against an external Identity Provider using the SAML protocol.  Such applications can be integrated with Auth0 and in this case Auth0 will serve as the SAML IDP for the application.
 
 Users of the application will be redirected to Auth0 to log in, and Auth0 can authenticate them using any backend authentication connection, such as an LDAP directory, a database, or even other SAML IDPs or Social Providers.  Once the user is authenticated, Auth0 will return a SAML assertion to the application indicating that the user has been successfully authenticated.
 
@@ -21,7 +23,7 @@ Users of the application will be redirected to Auth0 to log in, and Auth0 can au
 
 ### SAML Service Provider
 
-Other applications, especially custom applications, may externalize authentication against an external Identity Provider using a protocol such as OpenID Connect or OAuth2.  In such cases, even though the application was written to utilize the OpenID Connect or OAuth2 protocol, it may be desirable to leverage an enterprise SAML provider for authentication.  
+Other applications, especially custom applications, may externalize authentication against an external Identity Provider using a protocol such as OpenID Connect or OAuth2.  In such cases, even though the application was written to utilize the OpenID Connect or OAuth2 protocol, it may be desirable to leverage an enterprise SAML provider for authentication.
 
 In this situation, Auth0 will receive an authentication request from the application using the OpenID Connect or OAuth2 protocol, and Auth0 will translate the request into a SAML Authentication Request and send it on to a SAML Identity Provider.  In this case, Auth0 serves as a SAML Service Provider in the federation with the Identity Provider.
 
@@ -31,7 +33,7 @@ In this situation, Auth0 will receive an authentication request from the applica
 
 Auth0 can also serve as an authentication hub between applications making a SAML request and backend SAML Identity Providers.  In this case, Auth0 would serve as a SAML Identity Provider to the applications, and it would also serve as a SAML Service Provider to backend SAML Identity Providers.  This use case is advantageous when applications need to support multiple backend Identity Providers.
 
-![](/media/articles/saml/saml-configuration/saml-case3.png)  
+![](/media/articles/saml/saml-configuration/saml-case3.png)
 
 ## Configuring Auth0 as a Service Provider
 
@@ -129,7 +131,7 @@ If Auth0 is acting as a SAML Service Provider, the Authentication Request sent t
 * Download the certificate underneath the **"Sign Request"** toggle and give it to the Identity Provider for use in validating the signature.
 
 ###### Turning Deflate encoding on and off
-Note that by default, SAML Authentication Requests are sent via HTTP-Redirect and using deflate encoding, which puts the signature in a query parameter.  To turn deflate encoding off, one can use the Auth0 Management APIv2 **"Update a connection"** endpoint to set the "deflate" option to false.  
+Note that by default, SAML Authentication Requests are sent via HTTP-Redirect and using deflate encoding, which puts the signature in a query parameter.  To turn deflate encoding off, one can use the Auth0 Management APIv2 **"Update a connection"** endpoint to set the "deflate" option to false.
 
 First use the Management APIv2 Get a Connection to see and copy the list of all options.  Then use Update a Connection, adding the "deflate" option and setting it to false, and paste in the rest of the options and their values:
 
@@ -221,7 +223,7 @@ In the "Settings" field, enter a specification for logout callback URL:
 
 ### Selecting between multiple Identity Providers (Auth0 connections)
 
-If you have a multi-tenant application, or even a single-tenant application, that needs to select between multiple Identity Providers (Auth0 connections), this is called Home Realm Discovery. This can be done by programmatically specifying the connection in the call which invokes authentication, or by specifying the email domain(s) for each connection in the connection settings, or by adding custom buttons to the Lock widget.  
+If you have a multi-tenant application, or even a single-tenant application, that needs to select between multiple Identity Providers (Auth0 connections), this is called Home Realm Discovery. This can be done by programmatically specifying the connection in the call which invokes authentication, or by specifying the email domain(s) for each connection in the connection settings, or by adding custom buttons to the Lock widget.
 
 Information on how to do each of these options is at:
 
@@ -359,7 +361,7 @@ In selecting an approach, careful consideration should be given to utilize an ap
 
 Deprovisioning of accounts should be done, at minimum, at the Identity Provider.  Once an account is removed or disabled at the Identity Provider, the user will not be able to log in.
 
-It may also be desirable to remove accounts at Auth0 if it is acting as Service Provider or an application integrated with Auth0.  Regardless of whether Auth0 is acting as a Service Provider or an Identity Provider, user accounts can be removed from Auth0 via the Auth0 dashboard or via the Auth0 API.  
+It may also be desirable to remove accounts at Auth0 if it is acting as Service Provider or an application integrated with Auth0.  Regardless of whether Auth0 is acting as a Service Provider or an Identity Provider, user accounts can be removed from Auth0 via the Auth0 dashboard or via the Auth0 API.
 
 # Troubleshooting
 

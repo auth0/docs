@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 title: Ruby Developer Center
 subtitle: Resources and documentation for Ruby developers
 logo: ruby

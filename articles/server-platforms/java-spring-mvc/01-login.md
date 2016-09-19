@@ -12,16 +12,16 @@ This tutorial and seed project have been tested with the following:
 :::
 
 <%= include('../../_includes/_package', {
-githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
-pkgOrg: 'auth0-samples',
-pkgRepo: 'auth0-spring-mvc-sample',
-pkgBranch: 'master',
-pkgPath: '01-Login',
-pkgFilePath: null,
-pkgType: 'none'
+  githubUrl: 'https://github.com/auth0-samples/auth0-spring-mvc-sample/tree/master/01-Login',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-spring-mvc-sample',
+  pkgBranch: 'master',
+  pkgPath: '01-Login',
+  pkgFilePath: '01-Login/src/main/resources/auth0.properties',
+  pkgType: 'replace'
 }) %>
 
-In this step we will enable login with the [Lock widget](/libraries/lock). 
+In this step we will enable login with the [Lock widget](/libraries/lock).
 
 
 ### Authenticate the user
@@ -34,10 +34,6 @@ Create a new `CallbackController.java` file and set the following contents:
 
 ${snippet(meta.snippets.use)}
 
-By default, this library expects a Nonce value in the state query param as follows `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F`, where `xyz` is a randomly generated UUID.
-
-The NonceFactory can be used to generate such a nonce value. State may be needed to hold other attribute values hence why it has its own keyed value of `nonce=B4AD596E418F7CE02A703B42F60BAD8F`. For instance in SSO you may need an `externalCallbackUrl` which also needs to be stored down in the state param: `state=nonce=B4AD596E418F7CE02A703B42F60BAD8F&externalCallbackUrl=http://localhost:3099/callback`.
-
 
 ### Display Lock widget
 
@@ -48,43 +44,43 @@ ${'<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>'}
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-  <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
-  <script src="http://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.auth0.com/js/lock-9.min.js"></script>
-  <script src="/js/jquery.growl.js" type="text/javascript"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery.growl.css"/>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+    <script src="/js/jquery.growl.js" type="text/javascript"></script>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <script type="text/javascript">
-      $(function () {
-        var error = <%= "${error}" %>;
-        if (error) {
-          $.growl.error({message: "An error was detected. Please log in"});
-        } else {
-          $.growl({title: "Welcome!", message: "Please log in"});
-        }
-      });
-
-      $(function () {
-        var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
-          auth: {
-            params: {
-              state: {state},
-              // change scopes to whatever you like, see https:///scopes
-              // claims are added to JWT id_token - openid profile gives everything
-              scope: 'openid user_id name nickname email picture'
-            },
-            responseType: 'code',
-            redirectUrl: '${account.callback}'
-          }
+        $(function () {
+            var error = <%= "${error}" %>;
+            if (error) {
+                $.growl.error({message: "Please log in"});
+            } else {
+                $.growl({title: "Welcome!", message: "Please log in"});
+            }
         });
-        lock.show();
-      });
+        $(function () {
+            var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+                auth: {
+                    redirectUrl: '<%= "${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, '')}" %>${account.callback}',
+                    responseType: 'code',
+                    params: {
+                        state: '<%= "${state}" %>',
+                        scope: 'openid user_id name nickname email picture'
+                    }
+                }
+            });
+            // delay to allow welcome message..
+            setTimeout(function () {
+                lock.show();
+            }, 1500);
+        });
     </script>
-  </div>
+</div>
 </body>
 </html>
 ```
@@ -97,7 +93,9 @@ First, we initialize `Auth0Lock` with a `clientID` and the account's `domain`.
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 ```
 
-Afterwards, we use the `showSignin` method to open the widget on signin mode. We set several parameters as input, like `authParams` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+We set several parameters as input, like `redirectUrl` and `responseType`. For details on what each parameter does, refer to [Lock: User configurable options](/libraries/lock/customization).
+
+Once the `Auth0Lock` is initialized we display the widget using `lock.show()`.
 
 
 ### Display user information
@@ -213,7 +211,7 @@ Then open your browser and go to [http://localhost:3099/login](http://localhost:
 
 ![Login using Lock](/media/articles/java/login-with-lock.png)
 
-The widget displays all the social and database connections that you have defined for this application in the [dashboard](${uiURL}/#/).
+The widget displays all the social and database connections that you have defined for this application in the [dashboard](${manage_url}/#/).
 
 Once you login you are redirected to the home page that displays your profile picture, user id, and nickname.
 

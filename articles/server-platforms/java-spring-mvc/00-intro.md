@@ -101,17 +101,22 @@ Your Java Spring app needs some information in order to authenticate against you
 
 ${snippet(meta.snippets.setup)}
 
-Here is a breakdown of what each attribute means:
+Let's see what each attribute means.
 
-- `auth0.domain`: Your auth0 domain (the tenant you have created when registering with auth0).
-- `auth0.clientId`: The unique identifier for your application. You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
-- `auth0.clientSecret`: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code). You can find the correct value on the Settings of your app on [Auth0 dashboard](${uiURL}/#/).
-- `auth0.onLogoutRedirectTo`: This is the page that users of your site are redirected to on logout. Should start with `/`.
-- `auth0.securedRoute`: The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`.
-- `auth0.loginCallback`: The URL context path for the login callback endpoint. Should start with `/`.
-- `auth0.loginRedirectOnSuccess`: The landing page URL context path for a successful authentication. Should start with `/`.
-- `auth0.loginRedirectOnFail`: The URL context path for the page to redirect to upon failure. Should start with `/`.
-- `auth0.servletFilterEnabled`: A boolean value that switches having an authentication filter enabled or not.
+| Attribute | Description|
+| --- | --- |
+| `auth0.domain` | Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
+| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
+| `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
+| `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
+| `auth0.onLogoutRedirectTo` | The page that users of your site are redirected to on logout. Should start with `/`. |
+| `auth0.securedRoute` | The URL pattern that should map to the URL endpoint you wish to secure. You should replace its value with the correct value for your implementation. It should start with `/`. * |
+| `auth0.loginCallback` | The URL context path for the login callback endpoint. Should start with `/`. |
+| `auth0.loginRedirectOnSuccess` | The landing page URL context path for a successful authentication. Should start with `/`. |
+| `auth0.loginRedirectOnFail` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
+| `auth0.servletFilterEnabled` | A boolean value that switches having an authentication filter enabled or not. |
+
+**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
 
 
 You are now ready to continue with [login](/quickstart/webapp/java-spring-mvc/01-login) tutorial in order to implement basic login using [Lock](/libraries/lock).

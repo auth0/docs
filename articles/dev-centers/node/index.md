@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 title: Node Developer Center
 subtitle: Resources and documentation for Node developers
 logo: node

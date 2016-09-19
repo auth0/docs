@@ -12,5 +12,6 @@ snippets:
   setup: native-platforms/xamarin/setup
   use: native-platforms/xamarin/use
 seo_alias: xamarin
+default_article: 01-login
 articles:
   - 01-login

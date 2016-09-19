@@ -7,5 +7,6 @@ snippets:
   setup: server-platforms/scala/setup
   use: server-platforms/scala/use
 seo_alias: scala
+default_article: 01-login
 articles:
   - 01-login

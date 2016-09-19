@@ -8,7 +8,7 @@ The **Auth0Lock** can be customized through the `options` parameter sent to the 
 var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 ```
 
-## Table of Contents
+## Index of Configurable Options
 
 **Display Options**:
 - [allowedConnections](#allowedconnections-array-)
@@ -24,6 +24,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 
 **Theming Options**:
 - [theme](#theme-object-)
+- [labeledSubmitButton](#labeledsubmitbutton-boolean-)
 - [logo](#logo-string-)
 - [primaryColor](#primarycolor-string-)
 
@@ -35,6 +36,7 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [params](#params-object-)
 - [redirect](#redirect-boolean-)
 - [redirectUrl](#redirecturl-string-)
+- [responseMode](#responsemode-string-)
 - [responseType](#responsetype-string-)
 - [sso](#sso-boolean-)
 
@@ -184,7 +186,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 
 ### language {String}:
 
-Specifies the language of the widget. Defaults to "en".
+Specifies the language of the widget. Defaults to "en". See the [internationalization directory](https://github.com/auth0/lock/blob/master/src/i18n/) for a current list of provided languages.
 
 
 ```js
@@ -246,6 +248,23 @@ var options = {
 ### theme {Object}
 
 Theme options are grouped in the `theme` property of the `options` object.
+
+#### labeledSubmitButton {Boolean}
+
+This option indicates whether or not the submit button should have a label, and defaults to `true`. When set to `false`, an icon will be shown instead. 
+
+```js
+var options = {
+  theme: {
+    labeledSubmitButton: false
+  }  
+};
+```
+
+::: panel-info Customizing Text
+The label can be customized through the [languageDictionary](#languagedictionary-object-) option.
+:::
+
 
 #### logo {String}
 
@@ -382,6 +401,20 @@ var options = {
 When the `redirectUrl` is provided (set to non blank value) the `responseType` option will be defaulted to `code` if not manually set.
 :::
 
+#### responseMode {String}
+
+Should be set to `"form_post"` if you want the code or the token to be transmitted via an HTTP POST request to the `redirectUrl`, instead of being included in its query or fragment parts. 
+
+Otherwise, this option should be omitted, and is omitted by default.
+
+```js
+var options = {
+  auth: {
+    responseMode: 'form_post'
+  }
+};  
+```
+
 #### responseType {String}
 
 The value of `responseType` should be set to "token" for Single Page Applications, and "code" otherwise. Defaults to "code" when redirectUrl is provided, and to "token" otherwise.
@@ -424,7 +457,7 @@ Extra input fields can be added to the sign up screen with the `additionalSignUp
 
 The new fields are rendered below the regular sign up input fields in the order they are provided. 
 
-#### Text Field
+#### Text Fields
 
 A `validator` function can also be provided.
 
@@ -442,6 +475,10 @@ var options = {
          hint: "Must have 10 or more chars" // optional
       };
     }
+  },
+  {
+    name: "full_name",
+    placeholder: "Enter your full name"
   }]
 }
 ```
@@ -612,10 +649,11 @@ var options = {
 
 ### usernameStyle {String}
 
-Determines what will be used to identify the user, a `username` or an `email`. Defaults to `email`.
+Determines what will be used to identify the user for a Database connection that has the `requires_username` flag set (if it is not set, `usernameStyle` option will be ignored). Possible values are `"username"` and `"email"`. By default both `username` and `email` are allowed; setting this option will limit logins to use one or the other.
 
 ```js
 var options = {
+  // Limits logins to usernames only, not emails
   usernameStyle: 'username'
 };
 ```
@@ -659,6 +697,8 @@ var options = {
   integratedWindowsLogin: false
 };
 ```
+
+<%= include('../_includes/_lock-toc') %>
 
 <!-- Vars-->
 

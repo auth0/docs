@@ -45,8 +45,10 @@ The easiest way to add authentication to any app with Auth0 is to use the Lock w
 **Installing Dependencies with npm**
 
 ```bash
-npm install auth0-lock angular-lock angular-jwt
+npm install angular-lock angular-jwt
 ```
+
+or,
 
 **Installing Dependencies with Bower**
 
@@ -61,12 +63,14 @@ Once installed, the scripts for these libraries can be included in your project.
 ```html
 ...
 
-<script src="node_modules/auth0-lock/build/lock.js"></script>
+<script type="text/javascript" src="https://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
 <script src="node_modules/angular-lock/dist/angular-lock.js"></script>
 <script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
 
 ...
 ```
+
+or,
 
 **After Installation with Bower**
 
@@ -89,6 +93,12 @@ To ensure that the Lock widget displays properly on all devices, add a `meta` ta
 ### Step 2: Add Configuration for Your App
 
 This guide assumes that you are using Angular Router in your application, but you are free to use UI Router if you wish.
+
+**Note:** If you are using HTML5 mode by setting `$locationProvider.html5Mode(true)`, add a hash to your `<base>` tag.
+
+```html
+  <base href="/#">
+```
 
 Inject the modules necessary for the application, including **angular-lock** and **angular-jwt**. Add configuration for an **angular-lock** instance with your application's client ID and domain using the `lockProvider`.
 
@@ -182,7 +192,7 @@ The code for this should be kept in the `authService`, but it will be necessary 
       userProfile: userProfile,
       login: login,
       logout: logout,
-      registerAuthenticationListener: registerAuthenticationListener,
+      registerAuthenticationListener: registerAuthenticationListener
     }
   }
 })();

@@ -9,7 +9,7 @@ Guardian is Auth0's multifactor authentication (MFA) application that provides a
 For applications where Guardian MFA is enabled, the user will be required to sign in **and** confirm the login with a verified mobile device. You can find additional information on user login and sign-up process and common user questions at: [How to Use the Guardian App](/multifactor-authentication/guardian/user-guide).
 
 ## Implementing Multifactor Authentication
-Within Auth0, you may implement MFA via the [Multifactor Auth](${uiURL}/#/guardian) page of the Management Dashboard.
+Within Auth0, you may implement MFA via the [Multifactor Auth](${manage_url}/#/guardian) page of the Management Dashboard.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
@@ -26,7 +26,8 @@ To enable either Push Notifications or SMS verification, move the appropriate sl
 
 ![](/media/articles/mfa/guardian-both.png)
 
-Once you have enabled either option, you will be presented with the **Customize MFA** code snippet you may edit to ensure that MFA is applied to the appropriate Clients. By default, Auth0 enables Guardian for all accounts).
+Once you have enabled either option, you will be presented with the **Customize MFA** code snippet that is applied automatically as a new [Rule](/rules). This rule will be executed in Auth0 as part of the transaction everytime a user authenticates to your application. By default, Auth0 enables Guardian for everything, but you may edit the rule so that MFA is applied only to some clients or users, as shown below. 
+
 
 ```js
 function (user, context, callback) {
@@ -96,7 +97,7 @@ All MFA related events are recorded for audit purposes. For example, each time a
 
 ![](/media/articles/mfa/log-example.png)
 
-You can view events in the [Logs](${uiURL}/#/logs) sections of the dashboard.
+You can view events in the [Logs](${manage_url}/#/logs) sections of the dashboard.
 
 ![](/media/articles/mfa/logs.png)
  

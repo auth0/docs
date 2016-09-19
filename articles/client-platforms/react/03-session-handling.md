@@ -5,9 +5,9 @@ description: This tutorial will show you how to integrate Auth0 with ReactJS to 
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
+* Node 5.2.0
 * NPM 3.3.12
-* React 15.0.2
+* React 15.3.1
 :::
 
 <%= include('../../_includes/_package', {
@@ -114,7 +114,7 @@ export function isTokenExpired(token){
 The `jwtHelper` library exports two methods: `isTokenExpired` and `getTokenExpirationDate`. It also imports `jwt-decode` as a dependency, so you must include it in your `package.json` or use npm to install it:
 
 ```bash
-$ npm install jwt-decode --save
+npm install jwt-decode --save
 ```
 
 Now you are able to import `isTokenExpired` into `AuthService` to improve the `loggedIn` method:

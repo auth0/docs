@@ -20,7 +20,7 @@ Keep this page open. The two parameters you will need in the next step are:
 
 ## 2. Register Heroku in Auth0 
 
-Log in to your dashboard and [create a new application](${uiURL}/#/applications). Pick a name (e.g. Heroku), select the __Addons__ section of the new app, and enable __SAML2__:
+Log in to your dashboard and [create a new application](${manage_url}/#/applications). Pick a name (e.g. Heroku), select the __Addons__ section of the new app, and enable __SAML2__:
 
 ![](/media/articles/saml/saml-apps/heroku/auth0-dashboard.png)
 

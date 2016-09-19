@@ -6,7 +6,7 @@ You can display Lock embedded or as a modal dialog with an overlay
 
 Shows the widget on top of your web page. This is the default mode.
 
-![](https://auth0.com/lib/lock/img/mode-1.png)
+![](/media/articles/libraries/lock/v9/mode-1.png)
 
 Here is the code you would add to your web application.
 
@@ -22,7 +22,7 @@ Here is the code you would add to your web application.
 
 The embedded mode will render the widget inside a `<div>` that you specify.
 
-![](https://auth0.com/lib/lock/img/mode-2.png)
+![](/media/articles/libraries/lock/v9/mode-2.png)
 
 ```html
 <div id="hiw-login-container"></div>

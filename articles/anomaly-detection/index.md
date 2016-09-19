@@ -4,7 +4,7 @@ url: /anomaly-detection
 
 # Anomaly Detection
 
-Auth0 provides built-in tools to detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts. You can set your preferences on the notifications that get sent and whether to block a suspicious IP address.
+Auth0 provides built-in tools to detect anomalies and stop malicious attempts to access your application. Anomaly detection can alert you and your users of suspicious activity, as well as block further login attempts. You can set your preferences on the notifications that get sent and you can decide whether to block a suspicious IP address or not.
 
 ## What Anomaly Detection Provides
 
@@ -24,13 +24,13 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 
 If this block is triggered, it can be cleared the following ways:
 
-* An administrator removes the block via the Management Dashboard or API;
+* An administrator removes the block via the [Dashboard](${manage_url}) (by clicking **unblock for all IPs** under the **ACTIONS** button when viewing the user's details) or by using the [Management API](/api/management/v2#!/User_Blocks/delete_user_blocks) ;
 * The User clicks on the "unblock" link provided in the email sent when the block went into effect;
 * The User changes their password.
 
 ### 2nd Level Brute Force Protection
 
-**Trigger:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords.
+**Triggers:** *100* failed login attempts from a single IP address using different usernames, all with incorrect passwords in 24 hours. 50 sign ups attempts per minute from the same IP address.
 
 **Actions:**
 * Notify dashboard owners
@@ -38,7 +38,7 @@ If this block is triggered, it can be cleared the following ways:
 
 If this block is triggered, additional access attempts are released one at a time over the course of 24 hours until 100 attempts are allocated. More specifically, you will gain 100 attempts / 24 hours * 60 minutes = 1 additional attempt every 25 minutes.
 
-Auth0 does email the dashboard owner when this block is triggered. Within this email is a link the owner may click to remove the block.
+Auth0 does email the dashboard owner when this block is triggered. Within this email there's a link the owner can click on to remove the block.
 
 #### Restrictions Regarding Brute Force Protection
 
@@ -49,7 +49,7 @@ Both of these anomaly types depend on the IP address of the user. Because of thi
 
 ### Breached Password Detection
 
-Every day malicious hackers penetrate websites and applications, exposing thousands of email and passwords. Given that is quite common for users to use the same password to login to multiples sites, this poses a problem, not only for the hacked system, but to any application that shares those credentials.
+Every day malicious hackers penetrate websites and applications, exposing thousands of email and passwords. Given that it's quite common for users to use the same password to login to multiples sites, this poses a problem, not only for the hacked system, but to any application that shares those credentials.
 
 Auth0 tracks large security breaches that are happening on major third party sites to help keep your users and system secure. By enabling Breached Password Detection, your users can be notified and/or blocked from logging in if we suspect their credentials were part of a published security breach.
 
@@ -63,7 +63,7 @@ This block remains in place until the user changes their password.
 
 ## Setting Your Preferences
 
-To customize the **actions** that get taken from the **triggers**, go to the [Anomaly Detection](${uiURL}/#/anomaly) section on the dashboard.
+To customize the **actions** that get taken from the **triggers**, go to the [Anomaly Detection](${manage_url}/#/anomaly) section on the dashboard.
 
 ![](/media/articles/anomaly-detection/anomaly-detection-overview.png)
 

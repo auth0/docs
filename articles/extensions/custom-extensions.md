@@ -10,7 +10,7 @@ To begin creating your custom extension, please feel free to fork/clone any one 
 - [Auth0 Extension with React Boilerplate](https://github.com/auth0/auth0-extension-boilerplate-with-react)
 - [Auth0 Extension with Hooks](https://github.com/auth0/auth0-extension-boilerplate-hooks)
 
-Alternatively, you may follow the _Development Instructions_ provided via the _New Extension_ window that appears when you click on the _+ CREATE EXTENSION_ button. To view the _Development Instructions_, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). Click on the _+ CREATE EXTENSION_ button. On the popup displayed click on the _Check out this command line tool_ link. The _Development Instructions_ popup is displayed. These instructions allow you to create your own extension using the command line.
+Alternatively, you may follow the _Development Instructions_ provided via the _New Extension_ window that appears when you click on the _+ CREATE EXTENSION_ button. To view the _Development Instructions_, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). Click on the _+ CREATE EXTENSION_ button. On the popup displayed click on the _Check out this command line tool_ link. The _Development Instructions_ popup is displayed. These instructions allow you to create your own extension using the command line.
 
 Extensions can also be installed using `wt-cli`. The command would look like the following:
 
@@ -27,7 +27,7 @@ wt update {extensionName} {file} -p {tenant}
 Learn more about `wt-cli` by visiting the [documentation](https://webtask.io/docs/wt-cli) and the [github repository](https://github.com/auth0/wt-cli).
 
 ## Installing a Custom Extension
-Once you have created your own extension, you may install it manually via the [Extensions](${uiURL}/#/extensions) page of the [Auth0 Management Portal](${uiURL}).
+Once you have created your own extension, you may install it manually via the [Extensions](${manage_url}/#/extensions) page of the [Auth0 Management Portal](${manage_url}).
 
 Near the top right-hand side of the window, click the _+ CREATE EXTENSION_ button.
 

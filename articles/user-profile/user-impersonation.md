@@ -9,7 +9,7 @@ Auth0 provides a _Sign in As_ feature for user impersonation, and provides the f
 
 ## Impersonate a User using the Management Dashboard
 
-Navigate to the [Users](${uiURL}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the _Sign in as User_ and select the app you want to log into using the dropdown menu.
+Navigate to the [Users](${manage_url}/#/users) page in the Management Dashboard and select the user you want to login as. Click on the _Sign in as User_ and select the app you want to log into using the dropdown menu.
 
 ![](/media/articles/user-profile/signin-as-user-01.png)
 
@@ -31,7 +31,7 @@ You can also use the [Impersonation API](/api/authentication#!#post--users--user
 
 Let's assume that you have two apps, `app1` and `app2`, and you want to impersonate the users of `app2`.
 
-Your first step would be to generate a _Bearer_ token to be used with [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). You can generate it with the [Management API V1](/api/management/v1) `/oauth/token` endpoint using your _Global Client ID_ and _Global Client Secret_. The token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
+Your first step would be to generate a _Bearer_ token to be used with [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). You can generate it with the [Authentication API](/api/authentication) `/oauth/token` endpoint using your _Global Client ID_ and _Global Client Secret_. The token will be valid for 24 hours, so you should ask for a token everytime you make a request to the API or handle vigorously `401` responses.
 
 ```har
 {
@@ -47,7 +47,7 @@ Your first step would be to generate a _Bearer_ token to be used with [Impersona
 }
 ```
 
-> Management APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [Management APIv2 documentation page](/api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${uiURL}/#/account/advanced).
+> Management APIv2 calls are made with tokens issued by your _Global Client ID_, which is a unique identifier for your Auth0 account. You can retrieve your _Global Client ID_ and _Global Client Secret_ in the [Management APIv2 documentation page](/api/management/v2) (click on API Key/Secret). They are also available at the _Advanced_ section under _Account Settings_ in the Auth0 [Management Dashboard](${manage_url}/#/account/advanced).
 
 Afterwards, you would have to find out the user id of the user that you want to impersonate. That would be the user of `app2`. You can retrieve this information with the [Management API /api/v2/users](/api/management/v2#!/Users/get_users) endpoint.
 
@@ -63,7 +63,7 @@ Afterwards, you would have to find out the user id of the user that you want to 
 
 The `{bearer_token}` should be replaced with an Auth0 Management APIv2 token. Details on how to do this can be found [here](/api/management/v2/tokens).
 
-> You can also retrieve the `user_id` information from the Management Dashboard. Go to the [Users](${uiURL}/#/users) section and look at the user’s profile. The `user_id` is displayed under the _Identity Provider Attributes_ section.
+> You can also retrieve the `user_id` information from the Management Dashboard. Go to the [Users](${manage_url}/#/users) section and look at the user’s profile. The `user_id` is displayed under the _Identity Provider Attributes_ section.
 
 You are now ready to call the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). The request should include an `Authorization` header with `Bearer bearer-token`, where `bearer-token` is the token you retrieved at the first step. The data part of the request should include the following:
 - `protocol`: the protocol to use against the identity provider. It could be `oauth2` again or something else. (e.g. Office 365 uses WS-Federation, Google Apps uses OAuth2, AD will use LDAP or Kerberos).
@@ -79,7 +79,7 @@ You are now ready to call the [Impersonation API](/api/authentication#!#post--us
 
 The `state` is an optional parameter, but we strongly recommend you use it as it mitigates [CSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery).
 
-The `callback_url` must match what is defined in your [settings](${uiURL}/#/settings) page.
+The `callback_url` must match what is defined in your [settings](${manage_url}/#/settings) page.
 
 There are various possible values for `scope`:
 - `scope: 'openid'`: _(default)_ It will return, not only the `access_token`, but also an `id_token` which is a _JSON Web Token ([JWT](/jwt)). The JWT will only contain the user id (`sub` claim).
@@ -96,7 +96,7 @@ You can get more information about this in the [Scopes documentation](/scopes).
   ],
   "postData": {
 		"mimeType": "application/json",
-		"text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"response_type\": \"code\",\"state\": \"\"}"
+		"text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"additionalParameters\":{\"response_type\": \"code\",\"state\": \"\"}}"
 	}
 }
 ```
@@ -111,7 +111,7 @@ Upon successful authentication, a URL will be returned as response that will loo
 
     ${account.callback}/?code=AUTHORIZATION_CODE&state=STATE_VALUE
 
-`${account.callback}` is the URL you specified as `callback_url` (and configured in your [settings](${uiURL}/#/settings) page), `state` should match the `state` value you sent with your request and `code` is the authorization code you need.
+`${account.callback}` is the URL you specified as `callback_url` (and configured in your [settings](${manage_url}/#/settings) page), `state` should match the `state` value you sent with your request and `code` is the authorization code you need.
 
 > The process described applies to Regular Web Applications. In case yours is a Single Page Application (SPA) you would have to use `"response_type":"token"` when invoking the [Impersonation API](/api/authentication#!#post--users--user_id--impersonate). Once you do this Auth0 will redirect to your SPA _Callback URL_ with `access_token` and `id_token` in the `#` params. You can read more on the OAuth2 Implicit flow [here](/protocols#oauth2-implicit-flow).
 

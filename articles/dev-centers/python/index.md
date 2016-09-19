@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 title: Python Developer Center
 subtitle: Resources and documentation for Python developers
 logo: python

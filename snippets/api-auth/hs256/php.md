@@ -3,7 +3,12 @@ title: PHP
 ---
 
 ```php
-use Auth0\SDK\Auth0JWT;
+use Auth0\SDK\JWTVerifier;
 
-$decodedToken = Auth0JWT::decode( $token, ['${"<%= api.identifier %>"}'], '${"<%= api.signing_secret %>"}');
+$verifier = new JWTVerifier([
+    'valid_audiences' => ['${"<%= api.identifier %>"}'],
+    'client_secret' => '${"<%= api.signing_secret %>"}'
+]);
+
+$decoded = $verifier->verifyAndDecode($token);
 ```

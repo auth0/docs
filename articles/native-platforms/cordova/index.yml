@@ -15,5 +15,6 @@ alias:
   - cordova
   - apache-cordova
 seo_alias: cordova
+default_article: 01-login
 articles:
   - 01-login

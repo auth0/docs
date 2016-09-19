@@ -1,10 +1,15 @@
-# User Import / Export 
+---
+title: User Import / Export Extension
+description: The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account.
+---
+
+# User Import / Export
 
 The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account.
 
 ## Configuring the Extension
 
-To install this extension, click on `User Import / Export` in the list of provided extensions on the [Extensions page](${uiURL}/#/extensions) of the [Management Portal](${uiURL}). When authorizing the application, you will be asked to provide the following information about your Auth0 account:
+To install this extension, click on `User Import / Export` in the list of provided extensions on the [Extensions page](${manage_url}/#/extensions) of the [Management Portal](${manage_url}). When authorizing the application, you will be asked to provide the following information about your Auth0 account:
 
  - __Users__: create and read your users
  - __Connections__: read your connections

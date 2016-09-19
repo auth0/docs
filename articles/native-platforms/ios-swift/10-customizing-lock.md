@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
 
 ### Before Starting
 
-You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login.md) and you know how to present the login dialog.
+You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login) and you know how to present the login dialog.
 
 ### 1. Create a Theme
 

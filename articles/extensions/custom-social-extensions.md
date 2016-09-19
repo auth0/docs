@@ -8,7 +8,7 @@ The Custom Social Connections extension allows you to easily manage multiple soc
 
 ## Set Up a New Social Connection
 
-To install the Custom Social Connection app, click on the **Custom Social Connections** box on the main [Extensions](${uiURL}/#/extensions) page of the Management Portal. You will be prompted to install the app.
+To install the Custom Social Connection app, click on the **Custom Social Connections** box on the main [Extensions](${manage_url}/#/extensions) page of the Management Portal. You will be prompted to install the app.
 
 ![](/media/articles/extensions/installing-custom-social-connections.png)
 

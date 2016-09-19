@@ -25,7 +25,7 @@ The Authentication API exposes all of the identity functionality of Auth0 as wel
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Authentication API in Postman.</p>
-            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="608670c820cda215594c"></div></p>
+            <p><a href="https://www.getpostman.com/run-collection/608670c820cda215594c" target="_blank"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
             <p><a href="/api/postman">How to use our Postman Collections</a></p>
           </div>
         </div>
@@ -54,7 +54,7 @@ The Auth0 Management API can be used to manage all aspects of your Auth0 account
             <span href="#" class="illustration i-postman"></span>
             <h4>Postman</h4>
             <p>Try the Auth0 Management API in Postman.</p>
-            <p><div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="d2692b755f949f85f9f5"></div></p>
+            <p><a href="https://www.getpostman.com/run-collection/d2692b755f949f85f9f5" target="_blank"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></p>
             <p><a href="/api/postman">How to use our Postman Collections</a></p>
           </div>
         </div>
@@ -65,15 +65,3 @@ The Auth0 Management API can be used to manage all aspects of your Auth0 account
 
 ## Management API v1 (deprecated)
 The Auth0 Management API v1 contains various management functions for your Auth0 account. This API is **deprecated** and should not be used for new projects. If you have an existing app that uses the v1 Management API you can browse the [API explorer](/api/v1).
-
-<script type="text/javascript">
-  (function (p,o,s,t,m,a,n) {
-    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
-    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
-      (n = o.createElement("script")),
-      (n.id = s+t), (n.async = 1), (n.src = m), n
-    ));
-  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
-
-  _pm('env.create', '${account.tenant}', { auth0_domain: '${account.namespace}' });
-</script>

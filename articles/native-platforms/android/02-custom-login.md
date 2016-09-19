@@ -4,16 +4,14 @@ description: This tutorial will show you how to use the Auth0 authentication API
 seo_alias: android
 ---
 
-## Android - Custom Login Tutorial
-
-This is a simple quickstart that will show you how to add the Auth0 login capabilities while using a customized login screen.
+This quickstart will show you how to add Auth0 login capabilities while using a customized login screen.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
 * AndroidStudio 2.0
 * Emulator - Nexus5X - Android 6.0 
-  :::
+:::
   
  <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/02-Custom-Login',
@@ -21,26 +19,26 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-android-sample',
   pkgBranch: 'master',
   pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'none'
+  pkgFilePath: '02-Custom-Login/app/src/main/res/values/strings.xml',
+  pkgType: 'replace'
 }) %>
-
 
 ### Before Starting
 
-Go to the [Client Settings](${uiURL}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+Go to the [Client Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the value:
 
 
-<pre><code>https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback</pre></code>
-</div>
+```
+https://${account.namespace}/android/YOUR_APP_PACKAGE_NAME/callback
+```
 
-### 1. Add the Auth0 Android dependency
+### 1. Add The Auth0 Android Dependency
 
 Your first step is to add [Auth0 Android](https://github.com/auth0/Auth0.Android) into your project, which is basically the library that will manage the login process, via [Auth0](https://auth0.com/) Authentication Client.
 
 #### i. Gradle
 
-Add to your app's module gradle file:
+Add to your app's module Gradle file:
 
 ```gradle
 compile 'com.auth0.android:auth0:1.0.0-beta.4'
@@ -50,16 +48,17 @@ Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew c
 
 > For more information about Gradle usage, check [their official documentation](http://tools.android.com/tech-docs/new-build-system/user-guide).
 
-### 2. Configure your Manifest File
+### 2. Configure Your Manifest File
 
-You need to add the following permissions inside the ``AndroidManifest.xml``:
+You need to add the following permissions inside the `AndroidManifest.xml`:
+
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-### 3. Implement the Login
+### 3. Implement The Login
 
-At this point, you're all set to implement the Login in any activity you want. 
+At this point, you're all set to implement the login in any activity you want. 
 
 First, in your customized login method, instantiate the Authentication API:
 

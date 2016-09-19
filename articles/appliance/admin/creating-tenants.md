@@ -12,7 +12,7 @@ If your business needs require you to create tenants regularly, you may automate
 2. Go to the Applications page.
 3. Create an application called 'Tenant Provisioning.'
 4. Once you have created the 'Tenant Provisioning' client, go to the Connections tab and disable **all** Connections for this client.
-5. Navigate to `${uiURL}/#/apis`. Click the link to open the Auth0 Management API.
+5. Navigate to `${manage_url}/#/apis`. Click the link to open the Auth0 Management API.
 6. Go to the Non Interactive Clients tab, and enable Tenant Provisioning by moving the associated slide to the right.
 7. Create the new client grant.
 

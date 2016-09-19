@@ -1,0 +1,971 @@
+[
+  {
+    "from": "/ionic-tutorial",
+    "to": "/native-platforms/ionic"
+  },
+  {
+    "from": "/javaapi-tutorial",
+    "to": "/server-apis/java"
+  },
+  {
+    "from": "/laravelapi-tutorial",
+    "to": "/server-apis/php-laravel"
+  },
+  {
+    "from": "/nodeapi-tutorial",
+    "to": "/server-apis/nodejs"
+  },
+  {
+    "from": "/nodejs-tutorial",
+    "to": "/server-platforms/nodejs"
+  },
+  {
+    "from": "/phpapi-tutorial",
+    "to": "/server-apis/php"
+  },
+  {
+    "from": "/pythonapi-tutorial",
+    "to": "/server-apis/python"
+  },
+  {
+    "from": "/rubyapi-tutorial",
+    "to": "/server-apis/rails"
+  },
+  {
+    "from": "/awsapi-tutorial",
+    "to": "/server-apis/aws"
+  },
+  {
+    "from": "/wams",
+    "to": "/server-apis/azure-mobile-services"
+  },
+  {
+    "from": "/firebaseapi-tutorial",
+    "to": "/server-apis/firebase"
+  },
+  {
+    "from": "/salesforcesandboxapi-tutorial",
+    "to": "/server-apis/salesforce-sandbox"
+  },
+  {
+    "from": "/salesforceapi-tutorial",
+    "to": "/server-apis/salesforce"
+  },
+  {
+    "from": "/sapapi-tutorial",
+    "to": "/server-apis/sap-odata"
+  },
+  {
+    "from": "/rails-tutorial",
+    "to": "/server-platforms/rails"
+  },
+  {
+    "from": "/python-tutorial",
+    "to": "/server-platforms/python"
+  },
+  {
+    "from": "/php-tutorial",
+    "to": "/server-platforms/php"
+  },
+  {
+    "from": "/java-tutorial",
+    "to": "/server-platforms/java"
+  },
+  {
+    "from": "/phonegap-tutorial",
+    "to": "/native-platforms/phonegap"
+  },
+  {
+    "from": "/widget",
+    "to": "/login-widget2"
+  },
+  {
+    "from": "/scenarios-keenio",
+    "to": "/scenarios/keenio"
+  },
+  {
+    "from": "/scenarios-mixpanel-fullcontact-salesforce",
+    "to": "/scenarios/mixpanel-fullcontact-salesforce"
+  },
+  {
+    "from": "/scenarios-mqtt",
+    "to": "/scenarios/mqtt"
+  },
+  {
+    "from": "/scenarios-parse",
+    "to": "/scenarios/parse"
+  },
+  {
+    "from": "/scenarios-rapleaf-salesforce",
+    "to": "/scenarios/rapleaf-salesforce"
+  },
+  {
+    "from": "/scenarios-segmentio",
+    "to": "/scenarios/segmentio"
+  },
+  {
+    "from": "/scenarios-splunk",
+    "to": "/scenarios/splunk"
+  },
+  {
+    "from": "/scenarios-tessel",
+    "to": "/scenarios/tessel"
+  },
+  {
+    "from": "/scenarios-unbounce",
+    "to": "/scenarios/unbounce"
+  },
+  {
+    "from": "/updating-appliance",
+    "to": "/appliance/update"
+  },
+  {
+    "from": "/adldap-auth",
+    "to": "/connector/install"
+  },
+  {
+    "from": "/adldap-x",
+    "to": "/connector/install-other-platforms"
+  },
+  {
+    "from": "/aspnet-tutorial",
+    "to": "/server-platforms/aspnet"
+  },
+  {
+    "from": "/aspnet-owin-tutorial",
+    "to": "/server-platforms/aspnet-owin"
+  },
+  {
+    "from": "/servicestack-tutorial",
+    "to": "/server-platforms/servicestack"
+  },
+  {
+    "from": "/laravel-tutorial",
+    "to": "/server-platforms/laravel"
+  },
+  {
+    "from": "/symfony-tutorial",
+    "to": "/server-platforms/symfony"
+  },
+  {
+    "from": "/sharepoint-apps",
+    "to": "/integrations/sharepoint-apps"
+  },
+  {
+    "from": "/ad",
+    "to": "/connections/enterprise/active-directory"
+  },
+  {
+    "from": "/adfs",
+    "to": "/connections/enterprise/adfs"
+  },
+  {
+    "from": "/37signals-clientid",
+    "to": "/connections/social/37signals"
+  },
+  {
+    "from": "/amazon-clientid",
+    "to": "/connections/social/amazon"
+  },
+  {
+    "from": "/aol-clientid",
+    "to": "/connections/social/aol"
+  },
+  {
+    "from": "/dwolla-clientid",
+    "to": "/connections/social/dwolla"
+  },
+  {
+    "from": "/baidu-clientid",
+    "to": "/connections/social/baidu"
+  },
+  {
+    "from": "/box-clientid",
+    "to": "/connections/social/box"
+  },
+  {
+    "from": "/evernote-clientid",
+    "to": "/connections/social/evernote"
+  },
+  {
+    "from": "/exact-clientid",
+    "to": "/connections/social/exact"
+  },
+  {
+    "from": "/facebook-clientid",
+    "to": "/connections/social/facebook"
+  },
+  {
+    "from": "/fitbit-clientid",
+    "to": "/connections/social/fitbit"
+  },
+  {
+    "from": "/github-clientid",
+    "to": "/connections/social/github"
+  },
+  {
+    "from": "/goodreads-clientid",
+    "to": "/connections/social/goodreads"
+  },
+  {
+    "from": "/goog-clientid",
+    "to": "/connections/social/google"
+  },
+  {
+    "from": "/miicard-clientid",
+    "to": "/connections/social/miicard"
+  },
+  {
+    "from": "/ms-account-clientid",
+    "to": "/connections/social/microsoft-account"
+  },
+  {
+    "from": "/o365-clientid",
+    "to": "/connections/enterprise/o365-deprecated"
+  },
+  {
+    "from": "/paypal-clientid",
+    "to": "/connections/social/paypal"
+  },
+  {
+    "from": "/planningcenter-clientid",
+    "to": "/connections/social/planning-center"
+  },
+  {
+    "from": "/salesforce-clientid",
+    "to": "/connections/social/salesforce"
+  },
+  {
+    "from": "/renren-clientid",
+    "to": "/connections/social/renren"
+  },
+  {
+    "from": "/sharepoint-clientid",
+    "to": "/connections/enterprise/sharepoint-online"
+  },
+  {
+    "from": "/shopify-clientid",
+    "to": "/connections/social/shopify"
+  },
+  {
+    "from": "/soundcloud-clientid",
+    "to": "/connections/social/soundcloud"
+  },
+  {
+    "from": "/thecity-clientid",
+    "to": "/connections/social/thecity"
+  },
+  {
+    "from": "/twitter-clientid",
+    "to": "/connections/social/twitter"
+  },
+  {
+    "from": "/vkontakte-clientid",
+    "to": "/connections/social/vkontakte"
+  },
+  {
+    "from": "/waad-clientid",
+    "to": "/connections/enterprise/azure-active-directory"
+  },
+  {
+    "from": "/weibo-clientid",
+    "to": "/connections/social/weibo"
+  },
+  {
+    "from": "/wordpress-clientid",
+    "to": "/connections/social/wordpress"
+  },
+  {
+    "from": "/yahoo-clientid",
+    "to": "/connections/social/yahoo"
+  },
+  {
+    "from": "/yandex-clientid",
+    "to": "/connections/social/yandex"
+  },
+  {
+    "from": "/instagram-clientid",
+    "to": "/connections/social/instagram"
+  },
+  {
+    "from": "/linkedin-clientid",
+    "to": "/connections/social/linkedin"
+  },
+  {
+    "from": "/checksum",
+    "to": "/appliance/checksum"
+  },
+  {
+    "from": "/android-tutorial",
+    "to": "/native-platforms/android"
+  },
+  {
+    "from": "/angular-tutorial",
+    "to": "/client-platforms/angularjs"
+  },
+  {
+    "from": "/aspnetwebapi-owin-tutorial",
+    "to": "/server-apis/webapi-owin"
+  },
+  {
+    "from": "/aspnetwebapi-tutorial",
+    "to": "/server-apis/aspnet-webapi"
+  },
+  {
+    "from": "/ember-tutorial",
+    "to": "/client-platforms/emberjs"
+  },
+  {
+    "from": "/ios-tutorial",
+    "to": "/native-platforms/ios-objc"
+  },
+  {
+    "from": "/java-tutorial",
+    "to": "/server-platforms/java"
+  },
+  {
+    "from": "/mvc3-tutorial",
+    "to": "/server-platforms/aspnet"
+  },
+  {
+    "from": "/mvc-tutorial-enterprise",
+    "to": "/tutorials/aspnet-mvc4-enterprise-providers"
+  },
+  {
+    "from": "/phonegap-plugin-tutorial",
+    "to": "/native-platforms/cordova"
+  },
+  {
+    "from": "/singlepageapp-tutorial",
+    "to": "/client-platforms/vanillajs"
+  },
+  {
+    "from": "/wcf-tutorial",
+    "to": "/server-apis/wcf-service"
+  },
+  {
+    "from": "/win8-cs-tutorial",
+    "to": "/native-platforms/windows-store-csharp"
+  },
+  {
+    "from": "/windowsstore-auth0-tutorial",
+    "to": "/native-platforms/windows-store-csharp"
+  },
+  {
+    "from": "/windowsstore-js-auth0-tutorial",
+    "to": "/native-platforms/windows-store-javascript"
+  },
+  {
+    "from": "/win8-tutorial",
+    "to": "/native-platforms/windows-store-javascript"
+  },
+  {
+    "from": "/windowsphone-tutorial",
+    "to": "/native-platforms/windowsphone"
+  },
+  {
+    "from": "/wpf-winforms-tutorial",
+    "to": "/native-platforms/wpf-winforms"
+  },
+  {
+    "from": "/xamarin-tutorial",
+    "to": "/native-platforms/xamarin"
+  },
+  {
+    "from": "/auth0js",
+    "to": "/libraries/auth0js"
+  },
+  {
+    "from": "/aws",
+    "to": "/integrations/aws"
+  },
+  {
+    "from": "/lock",
+    "to": "/libraries/lock"
+  },
+  {
+    "from": "/login-widget",
+    "to": "/libraries/login-widget"
+  },
+  {
+    "from": "/login-widget2",
+    "to": "/libraries/login-widget2"
+  },
+  {
+    "from": "/webapi",
+    "to": "/server-apis/aspnet-webapi"
+  },
+  {
+    "from": "/okta",
+    "to": "/saml/identity-providers/okta"
+  },
+  {
+    "from": "/onelogin",
+    "to": "/saml/identity-providers/onelogin"
+  },
+  {
+    "from": "/ping7",
+    "to": "/saml/identity-providers/ping7"
+  },
+  {
+    "from": "/passwordless",
+    "to": "/connections/passwordless"
+  },
+  {
+    "from": "/siteminder",
+    "to": "/saml/identity-providers/siteminder"
+  },
+  {
+    "from": "/ssocircle",
+    "to": "/saml/identity-providers/ssocircle"
+  },
+  {
+    "from": "/wsfedwebapp-tutorial",
+    "to": "/tutorials/wsfed-web-app"
+  },
+  {
+    "from": "/apiv2Changes",
+    "to": "/api/management/v2/changes"
+  },
+  {
+    "from": "/apiv2",
+    "to": "/api/management/v2"
+  },
+  {
+    "from": "/tokens/apiv2",
+    "to": "/api/management/v2/tokens"
+  },
+  {
+    "from": "/metadata-in-rules",
+    "to": "/rules/metadata-in-rules"
+  },
+  {
+    "from": "/metadata/rules",
+    "to": "/rules/metadata-in-rules"
+  },
+  {
+    "from": "/api-reference",
+    "to": "/api/management/v1/reference"
+  },
+  {
+    "from": "/api/v1",
+    "to": "/api/management/v1"
+  },
+  {
+    "from": "/api/v1/reference",
+    "to": "/api/management/v1/reference"
+  },
+  {
+    "from": "/api/v1/use-cases",
+    "to": "/api/management/v1/use-cases"
+  },
+  {
+    "from": "/api",
+    "to": "/api/info"
+  },
+  {
+    "from": "/api/v2",
+    "to": "/api/management/v2"
+  },
+  {
+    "from": "/api/v2/tokens",
+    "to": "/api/management/v2/tokens"
+  },
+  {
+    "from": "/api/v2/changes",
+    "to": "/api/management/v2/changes"
+  },
+  {
+    "from": "/auth-api",
+    "to": "/api/authentication"
+  },
+  {
+    "from": "/oauth2",
+    "to": "/connections/social/oauth2"
+  },
+  {
+    "from": "/mysql-connection-tutorial",
+    "to": "/connections/database/mysql"
+  },
+  {
+    "from": "/migrating",
+    "to": "/connections/database/migrating"
+  },
+  {
+    "from": "/quickstart/native-mobile/windows8-cp/:client",
+    "to": "/quickstart/native-mobile/windows-store-csharp/:client"
+  },
+  {
+    "from": "/quickstart/native-mobile/windows8/:client",
+    "to": "/quickstart/native-mobile/windows-store-javascript/:client"
+  },
+  {
+    "from": "/quickstart/spa/angular/:client",
+    "to": "/quickstart/spa/angularjs/:client"
+  },
+  {
+    "from": "/quickstart/spa/javascript/:client",
+    "to": "/quickstart/spa/vanillajs/:client"
+  },
+  {
+    "from": "/quickstart/native-mobile/wpf-winforms/aspnetweb-api",
+    "to": "/quickstart/native-mobile/wpf-winforms/aspnet-webapi"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform/laravel-api",
+    "to": "/quickstart/native-mobile/:platform/php-laravel"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform/rails-api",
+    "to": "/quickstart/native-mobile/:platform/rails"
+  },
+  {
+    "from": "/mfa",
+    "to": "/multifactor-authentication"
+  },
+  {
+    "from": "/multi-factor-authentication",
+    "to": "/multifactor-authentication"
+  },
+  {
+    "from": "/multi-factor-authentication/yubikey",
+    "to": "/multifactor-authentication/yubikey"
+  },
+  {
+    "from": "/quickstart",
+    "to": "/"
+  },
+  {
+    "from": "/link-accounts/user-initiated",
+    "to": "/link-accounts/user-initiated-linking"
+  },
+  {
+    "from": "/libraries/lock/using-refresh-tokens",
+    "to": "/libraries/lock/using-a-refresh-token"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/node-api",
+    "to": "/quickstart/native-mobile/:client/nodejs"
+  },
+  {
+    "from": "/quickstart/webapp/play-2-scala",
+    "to": "/quickstart/webapp/scala"
+  },
+  {
+    "from": "/quickstart/hybrid/:client/python-api",
+    "to": "/quickstart/hybrid/:client/python"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/ruby-api",
+    "to": "/quickstart/native-mobile/:client/ruby"
+  },
+  {
+    "from": "/quickstart/native-mobile/:client/aspnetweb-owin-api",
+    "to": "/quickstart/native-mobile/:client/webapi-owin"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-ios",
+    "to": "/quickstart/:platform/react-native-ios"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-ios/:backend",
+    "to": "/quickstart/:platform/react-native-ios/:backend"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-android",
+    "to": "/quickstart/:platform/react-native-android"
+  },
+  {
+    "from": "/quickstart/:platform/reactnative-android/:backend",
+    "to": "/quickstart/:platform/react-native-android/:backend"
+  },
+  {
+    "from": "/connections/passwordless/ios-sms",
+    "to": "/connections/passwordless/ios-sms-objc"
+  },
+  {
+    "from": "/premium-support",
+    "to": "/support"
+  },
+  {
+    "from": "/multifactor-authentication/custom-provider",
+    "to": "/multifactor-authentication"
+  },
+  {
+    "from": "/native-platforms/windows-store-javascript",
+    "to": "/native-platforms/windows-uwp-javascript"
+  },
+  {
+    "from": "/native-platforms/windows-store-csharp",
+    "to": "/native-platforms/windows-uwp-csharp"
+  },
+  {
+    "from": "/tutorials/aspnet-mvc4-enterprise-providers",
+    "to": "/server-platforms/aspnet"
+  },
+  {
+    "from": "/password-strength",
+    "to": "/connections/database/password-strength"
+  },
+  {
+    "from": "/users-search",
+    "to": "/api/v2/user-search"
+  },
+  {
+    "from": "/api/v2/user-search",
+    "to": "/api/management/v2/user-search"
+  },
+  {
+    "from": "/appliance/checksum",
+    "to": "/appliance"
+  },
+  {
+    "from": "/appliance/proxy-updater",
+    "to": "/appliance"
+  },
+  {
+    "from": "/appliance/update",
+    "to": "/appliance"
+  },
+  {
+    "from": "/enterprise-support",
+    "to": "/onboarding/enterprise-support"
+  },
+  {
+    "from": "/extensions/azure-blog-storage",
+    "to": "/extensions/azure-blob-storage"
+  },
+  {
+    "from": "/quickstart/hybrid",
+    "to": "/quickstart/native"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/hybrid/:platform/:api([^0-9]+)",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/spa/:platform/:api([^0-9]+)",
+    "to": "/quickstart/spa/:platform"
+  },
+  {
+    "from": "/quickstart/native/:platform/:api([^0-9]+)",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/backend/:platform/:api([^0-9]+)",
+    "to": "/quickstart/backend/:platform"
+  },
+  {
+    "from": "/quickstart/backend/java",
+    "to": "/quickstart/backend/java-spring-security",
+    "status": 302
+  },
+  {
+    "from": "/policies/rate-limit",
+    "to": "/policies/rate-limits"
+  },
+  {
+    "from": "/i18n/password-strength",
+    "to": "/i18n/password-options"
+  },
+  {
+    "from": "/multifactor-authentication2",
+    "to": "/multifactor-authentication"
+  },
+  {
+    "from": "/quickstart/native/ios-reactnative",
+    "to": "/quickstart/native/react-native-ios"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native-mobile/:platform/no-api",
+    "to": "/quickstart/native/:platform"
+  },
+  {
+    "from": "/quickstart/native-mobile",
+    "to": "/quickstart/native"
+  },
+  {
+    "from": "/sso/single-sign-on",
+    "to": "/sso"
+  },
+  {
+    "from": "/libraries/lock/i18n",
+    "to": "/libraries/lock/v10/i18n",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/migration-guide",
+    "to": "/libraries/lock/v10/migration-guide",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/sending-authentication-parameters",
+    "to": "/libraries/lock/v10/sending-authentication-parameters",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/v10",
+    "to": "/libraries/lock",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/v10/installation",
+    "to": "/libraries/lock#lock-10-installation",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/customization",
+    "to": "/libraries/lock/v10/customization",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/display-modes",
+    "to": "/libraries/lock/v10/customization#container-string-",
+    "status": 302
+  },
+  {
+    "from": "/libraries/lock/ui-customization",
+    "to": "/libraries/lock/v10/ui-customization",
+    "status": 302
+  },
+  {
+    "from": "/quickstart/spa/react/03-user-profile",
+    "to": "/quickstart/spa/react/04-user-profile"
+  },
+  {
+    "from": "/cancel-paid-subscriptions",
+    "to": "/tutorials/cancel-paid-subscriptions"
+  },
+  {
+    "from": "/pricing-per-app-per-connection",
+    "to": "/tutorials/pricing-per-app-per-connection"
+  },
+  {
+    "from": "/local-testing-and-development",
+    "to": "/tutorials/local-testing-and-development"
+  },
+  {
+    "from": "/moving-out",
+    "to": "/tutorials/removing-auth0-exporting-data"
+  },
+  {
+    "from": "/lifecycle",
+    "to": "/tutorials/development-lifecycle-with-auth0"
+  },
+  {
+    "from": "/what-to-do-once-the-user-is-logged-in/adding-scopes-for-an-external-idp",
+    "to": "/tutorials/adding-scopes-for-an-external-idp"
+  },
+  {
+    "from": "/what-to-do-once-the-user-is-logged-in/calling-an-external-idp-api",
+    "to": "/tutorials/calling-an-external-idp-api"
+  },
+  {
+    "from": "/enable-simple-connection",
+    "to": "/tutorials/enabling-a-connection"
+  },
+  {
+    "from": "/oauth1",
+    "to": "/tutorials/adding-generic-oauth1-connection"
+  },
+  {
+    "from": "/oauth2-examples",
+    "to": "/tutorials/generic-oauth2-connection-examples"
+  },
+  {
+    "from": "/step-up-authentication",
+    "to": "/tutorials/setup-up-authentication"
+  },
+  {
+    "from": "/refresh-token",
+    "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/salesforce-community",
+    "to": "/connections/social/salesforce"
+  },
+  {
+    "from": "/update-client-secret",
+    "to": "/tutorials/how-to-update-applications-client-secret"
+  },
+  {
+    "from": "/test-partner-connection",
+    "to": "/tutorials/how-to-test-partner-connection"
+  },
+  {
+    "from": "/bulk-import",
+    "to": "/tutorials/bulk-importing-users-into-auth0"
+  },
+  {
+    "from": "/creating-users",
+    "to": "/tutorials/creating-users-in-the-management-portal"
+  },
+  {
+    "from": "/custom-signup",
+    "to": "/libraries/lock/v10/custom-signup"
+  },
+  {
+    "from": "/custom-error-pages",
+    "to": "/error-pages/custom"
+  },
+  {
+    "from": "/error-pages",
+    "to": "/error-pages/generic"
+  },
+  {
+    "from": "/google-admin-sdk",
+    "to": "/tutorials/configuration-to-query-users-from-google-apps"
+  },
+  {
+    "from": "/invite-only",
+    "to": "/tutorials/creating-invite-only-applications"
+  },
+  {
+    "from": "/saas-apps",
+    "to": "/tutorials/using-auth0-with-multi-tenant-apps"
+  },
+  {
+    "from": "/sla",
+    "to": "/support/sla"
+  },
+  {
+    "from": "/versioning",
+    "to": "/tutorials/how-auth0-versions-software"
+  },
+  {
+    "from": "/oidc-rs256-owin",
+    "to": "/tutorials/openid-connect-discovery"
+  },
+  {
+    "from": "/cli",
+    "to": "/tutorials/using-auth0-to-secure-an-api"
+  },
+  {
+    "from": "/apps-apis",
+    "to": "/tutorials/web-apps-vs-web-apis-cookies-vs-tokens"
+  },
+  {
+    "from": "/monitoring",
+    "to": "/tutorials/how-to-monitor-auth0"
+  },
+  {
+    "from": "/har",
+    "to": "/tutorials/troubleshootings-with-har-files"
+  },
+  {
+    "from": "/hrd",
+    "to": "/libraries/lock/v10/selecting-the-connection-for-multiple-logins"
+  },
+  {
+    "from": "/blacklist-attributes",
+    "to": "/tutorials/blacklisting-attributes"
+  },
+  {
+    "from": "/brute-force-protection",
+    "to": "/anomaly-detection/brute-force-protection"
+  },
+  {
+    "from": "/breached-password",
+    "to": "/anomaly-detection/breached-passwords"
+  },
+  {
+    "from": "/office365-deprecated",
+    "to": "/tutorials/office365-connection-deprecation-guide"
+  },
+  {
+    "from": "/scenarios/amazon-cognito",
+    "to": "/tutorials/integrating-auth0-amazon-cognito-mobile-apps"
+  },
+  {
+    "from": "/scenarios/github",
+    "to": "/tutorials/using-auth0-as-an-identity-provider-with-github-enterprise"
+  },
+  {
+    "from": "/scenarios/ionic-and-firebase",
+    "to": "/tutorials/using-ionic-and-firebase"
+  },
+  {
+    "from": "/scenarios/keenio",
+    "to": "/tutorials/sending-events-to-keenio"
+  },
+  {
+    "from": "/scenarios/mixpanel-fullcontact-salesforce",
+    "to": "/tutorials/track-signups-enrich-user-profile-generate-leads"
+  },
+  {
+    "from": "/scenarios/mqtt",
+    "to": "/tutorials/authenticating-devices-using-mqtt"
+  },
+  {
+    "from": "/scenarios/multi-tenant-saas-azure-ad",
+    "to": "/tutorials/building-multi-tenant-saas-applications-with-azure-active-directory"
+  },
+  {
+    "from": "/scenarios/rapleaf-salesforce",
+    "to": "/tutorials/tracking-new-leads-in-salesforce-and-raplead"
+  },
+  {
+    "from": "/scenarios/segmentio",
+    "to": "/tutorials/sending-events-to-segmentio"
+  },
+  {
+    "from": "/scenarios/slack",
+    "to": "/tutorials/integrating-with-slack"
+  },
+  {
+    "from": "/scenarios/splunk",
+    "to": "/tutorials/sending-events-to-splunk"
+  },
+  {
+    "from": "/scenarios/tessel",
+    "to": "/tutorials/authenticating-a-tessel-device"
+  },
+  {
+    "from": "/scenarios/unbounce",
+    "to": "/tutorials/get-user-information-with-unbounce-landing-pages"
+  },
+  {
+    "from": "/scenarios/zendesk-sso",
+    "to": "/tutorials/single-sign-on-with-zendesk-using-jwt"
+  },
+  {
+    "from": "/scenarios",
+    "to": "/tutorials"
+  },
+  {
+    "from": "/rate-limits",
+    "to": "/policies/rate-limits"
+  },
+  {
+    "from": "/sequence-diagrams",
+    "to": "/architecture-scenarios/sequence-diagrams"
+  },
+  {
+    "from": "/deployment",
+    "to": "/overview/deployment-models"
+  },
+  {
+    "from": "/java-overview",
+    "to": "/dev-centers/java"
+  },
+  {
+    "from": "/oauth-web-protocol",
+    "to": "/protocols/oauth-web-protocol"
+  },
+  {
+    "from": "/oauth-implicit-protocol",
+    "to": "/protocols/oauth-implicit-protocol"
+  },
+  {
+    "from": "/metadata/apiv2",
+    "to": "/metadata/management-api"
+  }
+]

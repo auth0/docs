@@ -19,7 +19,7 @@ First, the user will authenticate to the website using either [Lock](https://git
 The following is a sample login using Lock:
 
 ```js
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
   function signin() {    
 	  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');

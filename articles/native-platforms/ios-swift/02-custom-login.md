@@ -34,7 +34,8 @@ Then, add the following code to perform a login:
 ```swift
 Auth0
     .authentication()
-    .login("email@foo.com",
+    .login(
+        emailOrUsername: "email@foo.com",
         password: "123456",
         connection: "Username-Password-Authentication"
     )
@@ -44,8 +45,7 @@ Auth0
                 // Logged in successfully
                 // You've got a Credentials instance, which you'll use, for example, to retrieve the User Profile
             case .Failure(let error):
-                // You've got an Authentication.Error case
-                // Deal with it
+                // You've got an error
             }
     }
 ```
@@ -64,18 +64,18 @@ Once you've obtained a `Credentials` object, retrieving a user profile is quite 
 guard let idToken = credentials.idToken else { return }
 Auth0
     .authentication()
-    .tokenInfo(idToken)
+    .tokenInfo(token: idToken)
     .start { result in
         switch result {
         case .Success(let profile):
             // You've got a UserProfile object
         case .Failure(let error):
-            // You've got an Authentication.Error case
+            // You've got an error
         }
 }
 ```
 
-A trivial example on how to use some profile info could be:
+A trivial example of how to use some profile info:
 
 ```swift
 welcomeLabel.text = "Welcome, \(profile.name)!"
@@ -99,7 +99,8 @@ Then, all you have to do is:
 ```swift
 Auth0
     .authentication()
-    .signUp("foo@email.com",
+    .signUp(
+        email: "foo@email.com",
         password: "123456",
         connection: "Username-Password-Authentication",
         userMetadata: ["first_name": "Foo", "last_name": "Bar"] // or any extra user data you need
@@ -110,14 +111,13 @@ Auth0
             	// Registered successfully
             	// You've got a Credentials object
             case .Failure(let error):
-                // You've got an Authentication.Error case
-                // Deal with it
+                // You've got an error
             }
         }
 }
 ```
 
-Notice that any extra information, other than the `email` and `password`, that you need to add to the user's profile, goes within the `userMetadata` dictionary, which is passed as a parameter to this function.
+Notice that any extra information that you need to add to the user's profile, other than the `email` and `password`, goes within the `userMetadata` dictionary, which is passed as a parameter to this function.
 
 ### 4. Perform Social Authentication
 
@@ -161,7 +161,7 @@ func application(app: UIApplication, openURL url: NSURL, options: [String : AnyO
 }
 ```
 
-Finally, this is how you perform webauth social authentication. You have to specify a social connection, for instance, Facebook:
+Finally, perform webauth social authentication by specifying a social connection, for instance, Facebook:
 
 ```swift
 Auth0
@@ -173,12 +173,12 @@ Auth0
         case .Success(let credentials):
             // You've got your credentials
         case .Failure(let error):
-            // Deal with error
+            // Handle the error
         }
     }
 ```
 
-Once you get the `credentials` object, upon a successful authentication, you deal with them as always. For more information on that, check out the [login](01-login.md) and [session handling](session-handling.md) tutorials.
+Once you get the `credentials` object, upon a successful authentication, you deal with them as usual. For more information on that topic, check out the [login](01-login) and [session handling](session-handling) tutorials.
 
 ### Done!
 

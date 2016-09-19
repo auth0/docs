@@ -6,7 +6,7 @@ title: Auth0 id_token
 
 ## Overview
 
-The `id_token` is referred to by several names, including `id_token`, the JSON Web Token or abbreviated as the JWT.  It conforms to an industry standard (IETF RFC 7519) and contains three parts: A header, a body and a signature. The header contains the type of token and the hash algorithm used on the contents of the token.  The body, also called the payload, contains identity claims about a user.  There are some non-mandatory claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  The third part of the JWT is the signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
+The `id_token` is referred to by several names, including `id_token`, the [JSON Web Token](/jwt) or abbreviated as the JWT.  It conforms to an industry standard (IETF RFC 7519) and contains three parts: A header, a body and a signature. The header contains the type of token and the hash algorithm used on the contents of the token.  The body, also called the payload, contains identity claims about a user.  There are some non-mandatory claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  The third part of the JWT is the signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
 
 ## How to get the `id_token`
 
@@ -29,20 +29,28 @@ The `id_token` is returned when calling any of the Auth0 functions which invoke 
 
 ## How to control contents of `id_token`
 
-The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/scopes) which is passed to the authentication functions mentioned above.  For example, the call to the Lock widget’s `.show` function can specify optional authentication parameters as follows:
+The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/libraries/lock/v10/sending-authentication-parameters#scope-string-) which is passed to the authentication functions mentioned above.  For example, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
 
-```
-lock.show({
-   responseType: ‘token’,
-   authParams: {
-      scope: ‘openid name email’
-    }
- });
-```
-The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The responseType should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the /authorize endpoint here:
-https:///auth-api
+```js
+var options = {
+  auth: {
+    responseType: 'token',
+    params: {scope: 'openid name email'}
+  }
+}; 
 
-The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
+var lock = new Auth0Lock(
+  'YOUR_CLIENT_ID',
+  'YOUR_NAMESPACE',
+  options
+);
+
+lock.show();
+```
+
+The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The `responseType` should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the `/authorize` endpoint in the [authentication API](https://auth0.com/docs/api/authentication)
+
+The scope of the id_token JWT can also be altered via Rules, through the context.jwtConfiguration.scopes object as documented [here](/rules/context)
 
 There is a [sample for altering scopes in a Rule](https://github.com/auth0/rules/blob/dff2a3e72f01d33af3086414be7cf115b19eea0c/rules/custom-scopes.md)
 
@@ -58,7 +66,7 @@ A [blog entry on JWT](https://auth0.com/blog/2015/07/21/jwt-json-webtoken-logo/)
 
 The `id_token` is valid for 10 hours (36000 seconds) by default.  The expiration of this token can be set in the `Apps/APIs` -> Settings screen using the `JWT expiration` field.
 
-The validity period of the token can be altered via Auth0 Rules using the context.jwtConfiguration.lifetimeInSeconds object as documented [here](https://github.com/auth0/docs/blob/32033877180affa26233b8f65cb28bd532514eab/articles/rules/index.md#context)
+The validity period of the token can be altered via Auth0 Rules using the context.jwtConfiguration.lifetimeInSeconds object as documented [here](/rules#context)
 
 For example, the following code in a Rule would set the id_token JWT expiration to 1 hour.
 ```
@@ -67,7 +75,7 @@ context.jwtConfiguration.lifetimeInSeconds = 3600;
 
 ## Renewing the token
 
-A new `id_token` can be obtained using an existing, unexpired `id_token` or by using a refresh token and the `/delegation` endpoint.  
+A new `id_token` can be obtained using an existing, unexpired `id_token` or by using a refresh token and the `/delegation` endpoint.
 
 To use an existing, unexpired `id_token` to obtain a new one, use the `renewIdToken` function within auth0.js library as shown [here](https://github.com/auth0/auth0.js#refresh-token)
 

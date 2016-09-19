@@ -18,13 +18,11 @@ __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a g
 
 ### Standard Enterprise Support
 
-![](https://docs.google.com/drawings/d/1rtsaGO511GtRGA0ubg0-ReTpwITBEKOUyS75e7SI3mc/pub?w=1439&h=710)
-
+![](/media/articles/onboarding/standard-enterprise-support.png)
 
 ### Premium Enterprise Support
 
-
-![](https://docs.google.com/drawings/d/1xd1oNTGDMbrScqeFVEb_9ykW8GLyDOBELenyZmiVCmA/pub?w=1440&h=792)
+![](/media/articles/onboarding/premium-enterprise-support.png)
 
 ### Using Support Center
 [Learn more about creating tickets with Support Center](/support/tickets)
@@ -86,7 +84,7 @@ To speed resolution, please provide the following when logging an issue:
 * Issue experienced by users every time or just some times?
 * Issue experienced with all browsers or just one?
 * Screenshot of error message (if any)
-* HTTP trace in the form of a [.har file](http:///har)
+* HTTP trace in the form of a [.har file](/har)
 
 For Appliance Customers:
 * Appliance version/build number (top left hand corner of configuration screen on config tenant, e.g. https://yourmanage.yourdomain.com/configuration#/)

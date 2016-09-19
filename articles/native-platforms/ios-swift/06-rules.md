@@ -25,7 +25,7 @@ Rules are one of the cool features of Auth0. The reason behind that coolness is 
 
 ### 1. Create a Rule
 
-To create a rule, just go to the [new rule page](${uiURL}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
+To create a rule, just go to the [new rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
 
 Let's use the template called "*Add country to the user profile*", under the *Enrich Profile* section:
 
@@ -39,7 +39,7 @@ This is just a starting template, you can edit it to meet your business needs. O
 
 ### 2. Test the Rule
 
-To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](01-login.md)).
+To see the created rule results, just implement a login and fetch the user profile information (you can check out how to do it in the [login tutorial](01-login)).
 
 You can access the `country` added by the rule within the `extraInfo` dictionary from the `A0UserProfile` object, like so:
 

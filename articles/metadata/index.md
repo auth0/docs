@@ -1,6 +1,5 @@
 ---
-url: /metadata
-description: Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata.
+description: "Auth0 allows you to store data related to each user that has not come from the identity provider as either of two kinds of metadata: user_metadata and app_metadata."
 ---
 
 # User Metadata
@@ -72,6 +71,7 @@ However, the usage of the `.` delimiter is acceptable in the data values:
 
 ## Further Reading
 
+* [User Data Storage Guidance](/user-profile/user-data-storage)
 * [Using Metadata in Rules](/metadata/rules)
 * [Using Metadata with Management APIv2](/metadata/apiv2)
 * [Using Metadata with Auth0 Lock](/metadata/lock)

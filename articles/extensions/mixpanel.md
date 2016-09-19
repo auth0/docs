@@ -4,7 +4,7 @@ The Auth0 Logs to Mixpanel is a scheduled job that takes all of your Auth0 logs 
 
 ## Configuring the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Mixpanel_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the _Auth0 Logs to Mixpanel_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
 
 ![](/media/articles/extensions/mixpanel/extension-mgmt-mixpanel.png)
 
@@ -26,7 +26,7 @@ In order to acquire the *MIXPANEL_TOKEN* and *MIXPANEL_KEY* information, navigat
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Mixpanel* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Mixpanel* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
 
 ![](/media/articles/extensions/mixpanel/view-cron-jobs.png)
 
@@ -34,6 +34,6 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![](/media/articles/extensions/mixpanel/view-cron-details.png)
 
-That's it, you are done! You can now navigate to [Mixpanel](https://mixpanel.com) and view your [Auth0 Logs](${uiURL}/#/logs).
+That's it, you are done! You can now navigate to [Mixpanel](https://mixpanel.com) and view your [Auth0 Logs](${manage_url}/#/logs).
 
 ![](/media/articles/extensions/mixpanel/auth0-logs-at-mixpanel.png)

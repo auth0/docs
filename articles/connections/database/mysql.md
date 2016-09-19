@@ -13,7 +13,7 @@ In this tutorial, you will be guided through a series of steps to connect your c
 
 ## 1. Create a database connection
 
-Log into Auth0, and select the [Connections > Database](${uiURL}/#/connections/database) menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created previously.
+Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. Click the **New Database Connection** button and provide a name for the database, or select a database you have created previously.
 
 ![](/media/articles/connections/database/database-connections.png)
 

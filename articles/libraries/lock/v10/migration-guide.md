@@ -4,6 +4,8 @@
 
 The following instructions assume you are migrating from **Lock 9** to the latest **Lock 10**. If you are upgrading from a preview release of Lock 10, please refer to the [preview changes](#upgrading-from-preview-releases). Otherwise, read on!
 
+The goal of this page is to provide you with all of the information you would need to update your Lock 9 installation to Lock 10. Of course, your first step is to include the latest version of Lock 10 rather than Lock 9. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation to reflect the new changes, not only the initialization of Lock and your calls to Lock methods, but especially any customization options you were implementing may need inspected and changed. Take a look below for more information!
+
 ## General Changes and Additions
 
 ### User Profiles
@@ -16,15 +18,17 @@ The following instructions assume you are migrating from **Lock 9** to the lates
 ### Customizing Options
 - The `show` method no longer takes any arguments. You pass the options to the constructor and you listen for an `authenticated` event instead of providing a callback. You can listen for this event with the [on](/libraries/lock/v10/api#on-event-callback-) method.
 
-### Authenticated Event
-- The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
+### Events Changed
+- Events have significantly changed between Lock 9 and Lock 10. The events that were emitted [in Lock 9](/libraries/lock/v9/events) are no longer used in Lock 10. The new events list for Lock 10 can be found on the [Lock 10 API page](/libraries/lock/v10/api).
+- Important notes about the new `authenticated` event: The `authenticated` event listener has a single argument, an `authResult` object. This object contains the following properties: `idToken`, `accessToken`, `state`, `refreshToken` and `idTokenPayload`. Most of them correspond to the arguments passed to the `show` method's callback.
+- See information on all of the new events in Lock 10 on the [Lock 10 API page](/libraries/lock/v10/api).
 
 ### Internationalization
 - Not all languages supported by Lock v9 are supported by Lock v10. Please see the [i18n directory](https://github.com/auth0/lock/tree/master/src/i18n) in the GitHub repository for a current list of supported languages in Lock.
 
 ### Removed Methods
 - The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the [initialScreen](/libraries/lock/v10/customization#initialscreen-string-), [allowLogin](/libraries/lock/v10/customization#allowlogin-boolean-), [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-) and [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-) options.
-- The `getClient` method is no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Lock 10 documentation](/libraries/lock#using-auth0-js).
+- The `getClient` method is no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Using Lock with auth0js page](/libraries/lock/v10/auth0js).
 
 ---
 
@@ -94,3 +98,5 @@ Some existing options suffered changes, in addition to the beforementioned remov
 ### Upgrading from v10.0.0-beta.5 to v10.0.0-rc.1
 
 - No API changes were made in this release.
+
+<%= include('../_includes/_lock-toc') %>

@@ -9,20 +9,21 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '04-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '04-User-Profile/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
-In this step, you will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
+In this step, we will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
 
 ## Profile
 
 To fetch user profile information, call the `lock.getProfile` function, specifying the `idToken` and a callback to process the response.
 
-Once you retrieve the user profile, you can store it in `localStorage` (or any store) and assign it to a `userProfile` attribute so you can access it later.
+Once the user profile is retrieved, we can store it in `localStorage` (or another form of storage if you prefer) and assign it to a `userProfile` attribute so you can access it later.
 
 ```typescript
-/* ===== ./auth.service.ts ===== */
+// ./auth.service.ts
+
 import {Injectable} from '@angular/core';
 import {tokenNotExpired} from 'angular2-jwt';
 
@@ -69,45 +70,52 @@ export class Auth {
   };
 }
 ```
-To see user profile information, inject the `Auth` service in a component:
+
+To see user profile information, inject the `Auth` service into a component:
 
 ```typescript
-/* ===== ./home.component.ts ===== */
+// home.component.ts
+
 export class HomeComponent {
+
   constructor(private auth: Auth) {}
+
 }
 ```
 
-Then display `userProfile` attributes in your component's template:
+Then display the `userProfile` attributes in your component's template:
 
 ```html
-/* ===== ./home.template.ts ===== */
-<div *ngIf="auth.authenticated() && auth.userProfile">
-  <h4>You are logged in</h4>
-  <div class="row">
-    <div class="col-md-6">
-      <h3>Profile</h3>
-      <img [src]="auth.userProfile.picture" alt="" class="profile-img">
-      <p><strong>Name: </strong> {{auth.userProfile.name}}</p>
-      <p><strong>Email: </strong> {{auth.userProfile.email}}</p>
-      <p><strong>Nickname: </strong> {{auth.userProfile.nickname}}</p>
-      <p><strong>Created At: </strong> {{auth.userProfile.created_at}}</p>
-      <p><strong>Updated At: </strong> {{auth.userProfile.updated_at}}</p>
+  <!-- ./home.template.ts -->
+
+  <div *ngIf="auth.authenticated() && auth.userProfile">
+    <h4>You are logged in</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Profile</h3>
+        <img [src]="auth.userProfile.picture" alt="" class="profile-img">
+        <p><strong>Name: </strong> {{auth.userProfile.name}}</p>
+        <p><strong>Email: </strong> {{auth.userProfile.email}}</p>
+        <p><strong>Nickname: </strong> {{auth.userProfile.nickname}}</p>
+        <p><strong>Created At: </strong> {{auth.userProfile.created_at}}</p>
+        <p><strong>Updated At: </strong> {{auth.userProfile.updated_at}}</p>
+      </div>
     </div>
   </div>
-</div>
-<h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
+  <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 
-## Custom Sign Up Fields
+## Custom Sign Up Fields for Lock
 
-You can add input fields to the sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation. 
+You can add additional input fields to Lock's sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation. 
 
 **NOTE:** See [Additional sign up fields](https://github.com/auth0/lock#additional-sign-up-fields) for more information.
 
 ```typescript
-/* ===== ./auth.service.ts ===== */
+// auth.service.ts
+
 ...
+
   // Configure Auth0
   lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     additionalSignUpFields: [{
@@ -120,19 +128,20 @@ You can add input fields to the sign up form by adding `additionalSignUpFields` 
       }
     }]
   });
+
 ...
 ```
 
-Each `additionalSignUpFields` value is saved to the profile in the `user_metadata` attribute.
+Each `additionalSignUpFields` value is saved to the profile in the `user_metadata` attribute of the user's Auth0 profile.
 
 To display this data, read it from the profile's `user_metadata`:
 
 ```html
-/* ===== ./profile_show.template.html ===== */
-<strong>Address: </strong> {{auth.userProfile.user_metadata.address}}
+  <!-- profile_show.template.html -->
+  <strong>Address: </strong> {{auth.userProfile.user_metadata.address}}
 ```
 
-## Update User Profile
+## Update the User's Profile
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
@@ -143,15 +152,24 @@ To call the endpoint, you can use the [AuthHttp](https://github.com/auth0/angula
 First, add `AUTH_PROVIDERS` from `angular-jwt`:
 
 ```typescript
-/* ===== app/main.ts ===== */
+/* ===== app/app.module.ts ===== */
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AppComponent } from './app.component';
 
-bootstrap(AppComponent, [
-  ...
-  AUTH_PROVIDERS,
-  ...
-])
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  providers: [
+    ...
+    AUTH_PROVIDERS,
+    ...
+  ],
+  imports: [
+    ...
+  ],
+  bootstrap: [AppComponent]
+})
 ```
 
 Then import `AuthHttp`, inject it in your component, and use it to make the authenticated request. 
@@ -159,7 +177,8 @@ Then import `AuthHttp`, inject it in your component, and use it to make the auth
 In this example, the `patch` method takes the endpoint URL, body, and headers:
 
 ```typescript
-/* ===== app/edit_profile.component.ts ===== */
+// app/profile_edit.component.ts
+
 import { AuthHttp } from 'angular2-jwt';
 
 @Component({
@@ -168,7 +187,9 @@ import { AuthHttp } from 'angular2-jwt';
 })
 
 export class ProfileEdit {
+
   address: String
+
   constructor(private auth: Auth, private authHttp: AuthHttp, private router: Router) {
     if(auth.userProfile.user_metadata && auth.userProfile.user_metadata.address){
       this.address = auth.userProfile.user_metadata.address;
@@ -195,7 +216,7 @@ export class ProfileEdit {
         	//Update profile
           this.auth.userProfile = response;
           localStorage.setItem('profile', JSON.stringify(response));
-          this.router.navigate(['/Profile']);
+          this.router.navigate(['/profile']);
         },
         error => alert(error.json().message)
       );
@@ -206,19 +227,23 @@ export class ProfileEdit {
 Then create a simple form template to add/update the *address* attribute:
 
 ```html
-/* ===== app/profile_edit.template.html ===== */
-<div class="row">
-  <div class="col-md-6">
-    <h3>Profile</h3>
-    <img [src]="auth.userProfile.picture" alt="" class="profile-img">
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="name">Address</label>
-        <input type="text" class="form-control" [(ngModel)]="address" placeholder="Enter address">
+  <!-- app/profile_edit.template.html -->
+
+  <div *ngIf="auth.authenticated() && auth.userProfile">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Profile</h3>
+        <img [src]="auth.userProfile.picture" alt="" class="profile-img">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Address</label>
+            <input type="text" class="form-control" [(ngModel)]="address" name="address" placeholder="Enter address">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+    </div>
   </div>
-</div>
+  <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
 

@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 to authenticate an
 ---
 ${include('../_thirdPartyApi')}
 
-### Additional information
+### Additional Information
 
 Here's a sample call to the delegation endpoint to get the SAS:
 
@@ -33,5 +33,3 @@ The result of calling the delegation endpoint will be something like:
   "azure_sb_sas": "SharedAccessSignature sig=k8bNfT81R8L...LztXvY%3D&se=14098336&skn=PolicyName&sr=http%3A%2F%2Fnamespace.servicebus.windows.net%2Fmy_queue"
 }
 ```
-
-![](https://docs.google.com/drawings/d/1aTHLCUPT4fCOXgX6fvUpxJdzd_rH_VzayBkLwLkwOBk/pub?w=784&amp;h=437)
