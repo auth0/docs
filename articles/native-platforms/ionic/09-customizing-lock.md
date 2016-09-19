@@ -9,7 +9,7 @@ description: This tutorial will show you how to customize Lock.
   pkgRepo: 'auth0-ionic-samples',
   pkgBranch: 'master',
   pkgPath: '09-Customizing-Lock',
-  pkgFilePath: null,
+  pkgFilePath: '09-Customizing-Lock/www/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
