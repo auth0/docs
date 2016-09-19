@@ -33,6 +33,7 @@ A callback URL is a URL in your application where Auth0 redirects to after the u
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 
+
 Also, if you are testing your application locally, make sure to add your local URL as an **Allowed Callback URL** and the following as an **Allowed Origin (CORS)**:
 
 ```bash
