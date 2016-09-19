@@ -1,5 +1,6 @@
 ---
 url: /libraries/lock
+description: Lock 10 is the easiest and best way to secure your web applications! This widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app.
 ---
 
 <%= include('/_includes/_lock-version') %>

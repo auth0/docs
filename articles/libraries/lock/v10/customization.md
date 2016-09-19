@@ -1,8 +1,11 @@
+---
+description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+---
 
 <%= include('../_includes/_lock-version') %>
 
 # Lock: User configurable options
-The **Auth0Lock** can be customized through the `options` parameter sent to the constructor.
+The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
 var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
