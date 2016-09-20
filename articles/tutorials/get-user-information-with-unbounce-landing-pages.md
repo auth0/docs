@@ -67,4 +67,4 @@ $('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
  
 ```
 
-That's it! Now you will be able to see the information provided by the IdP in the `Leads` section of your Unbounce Admin Panel.
+That's it! Now you will be able to see the information provided by the IdP in the `Leads` section of your Unbounce Admin Panel, after the user submits the form.
