@@ -46,6 +46,18 @@ When you send a request to the Falcor model, you need to include the JWT as an `
 
 ${snippet(meta.snippets.frontend)}
 
+Don't forget to include [falcor.browser](https://github.com/Netflix/falcor#retrieving-data-from-the-virtual-json-resource) to your front end:
+
+${snippet(meta.snippets.falcorbrowser)}
+
 ### 5. You're done!
 
 Your Falcor app is now secure with Auth0 and `express-jwt`. Congrats, you're awesome!
+
+### Optional steps
+
+#### Configuring CORS
+
+If you want to configure CORS, just add this code to your Falcor app (assuming your Falcor app is hosted on `http://localhost:3000`):
+
+${snippet(meta.snippets.cors)}
