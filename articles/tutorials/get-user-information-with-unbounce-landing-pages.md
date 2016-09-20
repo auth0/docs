@@ -43,24 +43,9 @@
 $('#REPLACE_WITH_BUTTON_ID').bind('click', function() {
   auth0.login({
     connection: 'REPLACE_WITH_CONNECTION_NAME',  // you get the connection name from Auth0 dashboard (expand social provider)
-    popup: true
   });
 });
 
-function callback(err, profile, id_token, access_token, state) {
-  if (err) alert('There was an error, please try again');
-
-  // normalized attributes from Auth0
-  $('#INPUT_1').val(profile.name);
-  $('#INPUT_2').val(profile.email);
-  $('#INPUT_3').val(profile.given_name);
-  $('#INPUT_4').val(profile.family_name);
-  $('#INPUT_5').val(profile.nickname);
-  $('#INPUT_6').val(profile.picture);
-
-  // provider-speicifc attributes
-  if (profile.headline) $('#INPUT_7').val(profile.headline);
-}
   var result = auth0.parseHash(window.location.hash);
 
   if (result && result.idToken) {
