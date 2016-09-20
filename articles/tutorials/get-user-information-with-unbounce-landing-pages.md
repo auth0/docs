@@ -3,11 +3,10 @@
 ### Configuration on Auth0
 
 1. Create an account in [Auth0](https://auth0.com)
-2. Go to **Clients -> + Create Client**. Crete a Single Page Application on the Auth0 dashboard, go to Settings and take note of the Client ID and Domain.
-3. Go to the **settings tab** in your Auth0 client and add the `callback URL` in both `Allowed Callback URLs` and `Allowed Origins (CORS)` (it should be your unbounce page URL. For example:`http://unbouncepages.com/changeit`)
-4. Go to **Connections -> Social** and Turn on the Social Providers you want to support.
+2. Go to **Clients -> + Create Client**. Crete a Single Page Application on the Auth0 dashboard, go to Settings and take note of the Client ID and Domain. Also, add the `callback URL` in both `Allowed Callback URLs` and `Allowed Origins (CORS)` (it should be your unbounce page URL. For example:`http://unbouncepages.com/changeit`).
+3. Go to **Connections -> Social** and Turn on the Social Providers you want to support.
 
-> NOTE: you should configure your Client ID and Secret for each social connection.
+> NOTE: you should configure the Client ID and Secret for each social connection.
 
 ![](/media/articles/scenarios/unbounce/social-connections.png)
 
