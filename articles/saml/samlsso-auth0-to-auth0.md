@@ -28,7 +28,7 @@ If you do not already have two Auth0 accounts, you will need to create them. If 
 
 In the upper right corner, click on the name of your account and in the popup menu which appears, select **"New Account"**.  
 
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-01.png)
+![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-01.jpg)
 
 In the window which appears, enter a name for your second account in the **"Your Auth0 domain"** field and press the **"SAVE"** button.
 
