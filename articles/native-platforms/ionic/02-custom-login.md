@@ -13,6 +13,14 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Ionic 1.3.1
+:::
+
+<%= include('../../_includes/_signup') %>
+
 ::: panel-info Running the Sample
 At any point in time you can run this sample by going to the `02-Custom-Login` folder of the sample project and running `ionic serve`
 :::

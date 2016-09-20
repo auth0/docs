@@ -13,6 +13,14 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Ionic 1.3.1
+:::
+
+<%= include('../../_includes/_signup') %>
+
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/native/ionic/05-rules' }) %>
 
 ### Create a Rule to assign roles

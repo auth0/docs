@@ -13,6 +13,14 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Ionic 1.3.1
+:::
+
+<%= include('../../_includes/_signup') %>
+
 <%= include('../_includes/_rules-introduction') %>
 
 ## Create a Rule
