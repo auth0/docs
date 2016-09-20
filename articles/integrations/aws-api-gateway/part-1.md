@@ -71,7 +71,7 @@ Select the role you just created, **APIGatewayLambdaExecRole**. Click the down a
 
 Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following code as the policy document (be sure to first update the Amazon Resource Name (ARN) for your DynamoDB table). Click **Apply Policy**.
 
-    ```js
+    ```json
     {
       "Version": "2012-10-17",
       "Statement": [
@@ -182,8 +182,14 @@ Repeat the instructions used to create the `GetPetInfo` function, but use the fo
 
 Test the function by clicking on the *Actions* drop down and choosing **Configure sample event**. Enter the following for sample data, and click **Submit**:
 
-    ```js
-    {"pets": [ {"id": 1, "type": "dog", "price": 249.99}]}
+    ```json
+    {
+    	"pets": [{
+    		"id": 1,
+    		"type": "dog",
+    		"price": 249.99
+    	}]
+    }
     ```
 
 You should see an empty return result (`{}`).
@@ -265,17 +271,18 @@ Creating the API used to `POST` pet information is similar to creating the one u
 In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select *Lambda Function* for integration type, select the region you are located in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** when prompted in the popup to grant permissions to the Lambda function. Click **Test**, and paste the following for the request body:
 
     ```js
-    {"pets": [ {"id": 1, "type": "dog", "price": 249.99},
-               {"id": 2, "type": "cat", "price": 124.99}
-             ]
-     }
+    {"pets": [
+        {"id": 1, "type": "dog", "price": 249.99},
+        {"id": 2, "type": "cat", "price": 124.99}
+      ]
+    }
     ```
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/post-method-request-test.png)
 
 You should see an empty return result (`{}`).
 
-Return to the *GET* API, and click **Test** again to see that the response body indicates there are two pets listed in the table:
+Return to the *GET* method, and click **Test** again to see that the response body indicates there are two pets listed in the table:
 
 ```json
 [
