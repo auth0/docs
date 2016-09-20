@@ -12,5 +12,7 @@ snippets:
   setup: server-apis/falcor/setup
   use: server-apis/falcor/use
   frontend: server-apis/falcor/frontend
+  cors: server-apis/falcor/cors
+  falcorbrowser: server-apis/falcor/falcorbrowser
 articles:
   - authenticate
