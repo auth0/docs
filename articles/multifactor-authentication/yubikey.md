@@ -177,12 +177,12 @@ return function (context, req, res) {
             <div class="modal">
               <form onsubmit="showSpinner();" action="" method="POST" enctype="application/x-www-form-urlencoded">
                 <div class="head"><img src="https://cdn.auth0.com/styleguide/2.0.9/lib/logos/img/badge.png" class="logo auth0"><span class="first-line">Yubikey 2FA</span></div>
-                <div class="errors <%- (errors.length === 0 ? 'hidden' : '') %>">
-                  <% errors.forEach(function(error){ %>
-                  <div class="p"><%= error %></div>
-                  <%})%>
+                <div class="errors ${"<%- (errors.length === 0 ? 'hidden' : '') %>"}">
+                  ${"<% errors.forEach(function(error){ %>"}
+                  <div class="p">${"<%= error %>"}</div>
+                  ${"<%"}})${"%>"}
                 </div>
-                <div class="body"><span class="description">Hi <strong><%- user || "" %></strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
+                <div class="body"><span class="description">Hi <strong>${'<%- user || "" %>'}</strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
                     <input type="text" autocomplete="off" name="otp" required autofocus id="otp"></span></div>
                 <div id="ok-button" class="ok-cancel">
                   <button class="ok full-width">
