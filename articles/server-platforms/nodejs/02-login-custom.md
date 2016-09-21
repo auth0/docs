@@ -8,7 +8,7 @@ description: This tutorial demonstrates how to create a custom login page for yo
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-nodejs-webapp-sample',
   pkgBranch: 'master',
-  pkgPath: '02-Login-Custom',
+  pkgPath: '02-Custom-Login',
   pkgType: 'server'
 }) %>
 
