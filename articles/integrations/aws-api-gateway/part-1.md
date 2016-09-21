@@ -9,18 +9,10 @@ description: Step 1 of Amazon API Gateway Tutorial
 
 After completing this step, you will have:
 
-* created two unauthenticated REST service methods for getting and updating a list of pets;
-* set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table.
+* set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table;
+* created two unauthenticated REST service methods for getting and updating a list of pets.
 
 > Prior to beginning, please have [Node.js](https://nodejs.org/) installed.
-
-### Log in to the AWS Console
-
-Log in to the [AWS console](https://console.aws.amazon.com), and perform the following steps to create:
-
-* an Amazon DynamoDB table;
-* the AWS Lambda functions;
-* the Amazon API Gateway APIs.
 
 ### 1. Create the Amazon DynamoDB Table
 
@@ -45,7 +37,7 @@ While the table is being created, take note of the *Amazon Resource Name (ARN)* 
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/table-arn.png)
 
-### 2. Create the Policy that Grants AWS Lambda Functions Access to CloudWatch Logs and the DynamoDB Pets Table
+### 2. Create the Policy that Grants AWS Lambda Functions Access to the DynamoDB Pets Table
 
 Navigate to the [AWS IAM Console](https://console.aws.amazon.com/iam).
 
@@ -61,7 +53,7 @@ Select the Role Type. Under *AWS Service Roles*, select *AWS Lambda*.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/select-role-type.png)
 
-On the Attach Policy screen, skip this by clicking **Next Step**. Review the information you provided. If all looks correct, click **Create Role**. When finished, you should see your role listed on the IAM homepage.
+On the Attach Policy screen, skip this step by clicking **Next Step**. At this point, review the information you provided. If all looks correct, click **Create Role**. When finished, you should see your role listed on the IAM homepage.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/iam-roles-list.png)
 
@@ -100,7 +92,7 @@ Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamo
 
 ### 2. Create the AWS Lambda Functions
 
-The next three steps create the AWS Lambda functions for getting and putting pet information.
+The next three steps create the AWS Lambda functions for retrieving and updating pet information in the DynamoDB table.
 
 #### Create the Lambda Function for `GetPetInfo`
 
@@ -210,9 +202,11 @@ Using the steps described above, create a Lambda function named `NoOp`. The func
     }
     ```
 
+> Instead of creating this third Lambda function, you may choose to [create an OPTIONS method](#method-options) on the API Gateway.
+
 ### 3. Create the Amazon API Gateway API
 
-You will create an APIs with two methods: one will `GET` pet information, and one will `POST` pet information.
+You will create an API with two methods: one will `GET` pet information, and one will `POST` pet information.
 
 #### Method: `GET` Pet Information
 
@@ -298,6 +292,17 @@ Return to the *GET* method, and click **Test** again to see that the response bo
   }
 ]
 ```
+
+#### Method: `OPTIONS`
+
+If, instead of creating a lambda function that performs no action, you would like to create an `OPTIONS` method on the API Gateway:
+
+In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, select *OPTIONS*, and click the checkmark button. Select *Mock* for integration type. Click **Save**.
+
+![](/media/articles/integrations/aws-api-gateway/part-1/options-method.png)
+
+Leaving the Response Body blank, click **Test**. You should receive a Response Body indicating `no data`.
+
 
 At this point the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
