@@ -312,6 +312,8 @@ For each quickstart, you must specify the snippets and create the associated sni
 ${snippet(meta.snippets.use)}
 ```
 
+**NOTE:** You only need to use these three snippets. The rest of the quickstart snippets should be inlined unless you are sharing them.
+
 For each article inside a quickstart you create a markdown file for the article as well as add it to the `articles` list in the `index.yml` file.
 
 The markdown for a quickstart article is of the normal format. You must specify the following front matter for every article:
