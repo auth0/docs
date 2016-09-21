@@ -14,8 +14,8 @@ There are **9 steps** to this sample and the tenth is a troubleshooting section 
 3. [Set up the Auth0 Service Provider (SP) (account 1)](#3-set-up-the-auth0-service-provider-account-1-)
 4. [Add your Service Provider metadata to the Identity Provider](#4-add-your-service-provider-metadata-to-the-identity-provider)
 5. [Test the Identity Provider](#5-test-identity-provider)
-6. [Test the connection from Service Provider to Identity Provider](#6-test-the-connection-from-service-provider-to-identity-provider)
-7. [Register a simple HTML application with which to test the end-to-end connection](#7-register-a-simple-html-application-with-which-to-test-the-end-to-end-connection-)
+6. [Register a simple HTML application with which to test the end-to-end connection](#6-register-a-simple-html-application-with-which-to-test-the-end-to-end-connection-)
+7. [Test the connection from Service Provider to Identity Provider](#7-test-the-connection-from-service-provider-to-identity-provider)
 8. [Create the HTML page for the application](#8-create-the-html-page-for-a-test-application)
 9. [Test your sample application](#9-test-your-sample-application)
 10. [Troubleshooting](#10-troubleshooting)
@@ -195,34 +195,7 @@ Check the decoded SAML response and locate (about half-way down) the `"<saml:Aud
 
 Click on **"Close this window"** at the bottom of the screen.
 
-## 6. Test the connection from Service Provider to Identity Provider
-
-In this section, you will test to make sure the SAML configuration between Auth0 account 1 (Service Provider) and Auth0 account 2 (Identity Provider) is working.
-
-Log out of Account 2 and return to Account 1.
-
-* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
-
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-14.jpg)
-
-* Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
-
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-15.jpg)
-
-* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test account you created earlier.
-
-You will then be redirected to the Lock login widget of the Identity Provider.  Login with the credentials for the test user you created.
-
-![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-16.jpg)
-
-If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __"It works!!!"__.  This page will display the contents of the SAML authentication assertion sent by the Auth0 Identity Provider to Auth0 Service Provider.
-This means the SAML connection from Auth0 Service Provider to Auth0 Identity Provider is working.
-
-If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
-
-> NOTE: the **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
-
-## 7. Register a simple HTML application with which to test the end-to-end connection.
+## 6. Register a simple HTML application with which to test the end-to-end connection.
 
 In this section, you will register an application in Auth0 that will use the SAML connection you set up in the above steps.
 
@@ -251,6 +224,31 @@ Make sure you are logged into the **Account 1 Auth0 dashboard**.
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-17.jpg)
 
 * Find the row for the SAML connection you created above and click on the on/off toggle at right so that it is green, for "on".  That enables the SAML connection for this application.  
+
+## 7. Test the connection from Service Provider to Identity Provider
+
+In this section, you will test to make sure the SAML configuration between Auth0 account 1 (Service Provider) and Auth0 account 2 (Identity Provider) is working.
+
+* In the **Auth0 dashboard**, navigate to:  __Connections -> Enterprise -> SAMLP Identity Provider__.
+
+![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-14.jpg)
+
+* Click on the triangular **"Try"** button for the SAML connection you created earlier.  This button is to the right of the name of the connection.  You can hover your mouse over the button to have the text label appear.
+
+![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-15.jpg)
+
+* You will first see a Lock login widget appear that is triggered by the Service Provider.  Enter the username of the test account you created earlier.
+
+You will then be redirected to the Lock login widget of the Identity Provider.  Login with the credentials for the test user you created.
+
+![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-16.jpg)
+
+If the SAML configuration works, your browser will be redirected back to an Auth0 page that says __"It works!!!"__.  This page will display the contents of the SAML authentication assertion sent by the Auth0 Identity Provider to Auth0 Service Provider.
+This means the SAML connection from Auth0 Service Provider to Auth0 Identity Provider is working.
+
+If it didn't work, double check the above steps and then consult the **troubleshooting** section at the end of this document.
+
+> NOTE: the **Try** button only works for users logged in to the Auth0 dashboard.  You cannot send this to an anonymous user to have them try it.
 
 ## 8. Create the HTML page for a test application
 
