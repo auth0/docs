@@ -12,13 +12,6 @@ description: This tutorial demonstrates how to integrate Auth0 with ReactJS to a
   pkgType: 'server'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Node 5.2.0
-* NPM 3.3.12
-* React 15.3.1
-:::
-
 ## 1. Create the AuthService class
 
 The best way to have authentication utilities available across your application is to create a helper class. Then you can share an instance of this class by passing it to the React Component as a prop.
