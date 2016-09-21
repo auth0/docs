@@ -1,14 +1,7 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to integrate Auth0 with ReactJS to link accounts.
+description: This tutorial demonstrates how to integrate Auth0 with ReactJS to link accounts.
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Node 5.2.0
-* NPM 3.3.12
-* React 15.3.2
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
@@ -16,8 +9,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
