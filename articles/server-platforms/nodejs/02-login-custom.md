@@ -1,18 +1,7 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to create a custom login page for your web application by using the auth0.js library
+description: This tutorial demonstrates how to create a custom login page for your web application by using the auth0.js library
 ---
-
-## NodeJS Web App Tutorial
-
-You can get started by downloading the seed project and following the tutorial steps.
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 4.3 or superior
-* Express 4.11
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
@@ -23,25 +12,26 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server'
 }) %>
 
-### 1. Auth0.js
+### 1. auth0.js
 
-The previous guide explained how to login with the Auth0Lock widget. In this tutorial
-(based on the previous tutorial's source code) we are going to learn how to create a custom
-login page by using [Auth0.js library](/libraries/auth0js)
+The previous step explained how to provide a login screen with Auth0's Lock widget. In this tutorial (based on the previous tutorial's source code) we are going to learn how to create a custom login page by using the [auth0.js library](/libraries/auth0js).
 
-### 2. Add auth0.js dependency
+### 2. Add the auth0.js Dependency
 
-We need to import the auth0.js library in our template.
-Add the following `<script>` tag to the `views/index.jade` template.
+To begin, we need to add the `auth0.js` library in our `layout` template. The library can be retrieved from Auth0's CDN.
 
 ```jade
-...
-block content
-  //- import the auth0.js library
-  script(src="http://cdn.auth0.com/w2/auth0-6.7.js")
+// views/layout.jade
 
-  h1= title
-...
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    // auth0.js
+    script(src="http://cdn.auth0.com/w2/auth0-7.2.js")
+  body
+    block content
 ```
 
 ### 3. Login with Auth0.js
@@ -49,8 +39,11 @@ block content
 To login with `auth0.js` we first need to create an Auth0 instance which will
 then be used to initiate the login process.
 
-```js
-var auth0 = new Auth0({
+```jade
+// views/index.jade
+
+script.
+  var auth0 = new Auth0({
     domain:      '#{env.AUTH0_DOMAIN}',
     clientID:    '#{env.AUTH0_CLIENT_ID}',
     callbackURL: '#{env.AUTH0_CALLBACK_URL}',
@@ -60,50 +53,55 @@ var auth0 = new Auth0({
 Initiating the login process is done by calling the `.signin()` method of `auth0`
 passing the connection to use.
 
-Let's see an example of how to use `.signin()` to login with Google.
+Here is an example of how to use `.signin()` to login with Google.
 
-```js
-function signinGoogle() {
-  auth0.signin({
-    connection: 'google-oauth2',
-  });
-}
+```jade
+// views/index.jade
+
+script.
+
+  ...
+
+  function signinGoogle() {
+    auth0.signin({
+      connection: 'google-oauth2',
+    });
+  }
 ```
 
-That's it.
+### 4. Username and Password Login
 
-### 4. Username - Password Login
+Logging in with a username and password is very similar to the previous case, but we need to pass the user's credentials to the `.signin()` method.
 
-The username/password case is very similar to the previous one, but you also need
-to pass the credentials to the `.signin()` method, like so:
+```jade
+// views/index.jade
 
-```js
-function signinDb() {
-  auth0.signin({
-    // The conenction name may not be the same as the one used here,
-    // look in your dashboard for the proper name.
-    connection: 'Username-Password-Authentication',
-    username: <username>,
-    password: <password>,
-  });
-}
+script.
+
+  ...
+
+  function signinDb() {
+    auth0.signin({
+      connection: 'Username-Password-Authentication',
+      username: document.getElementById('username').value,
+      password: document.getElementById('password').value,
+    });
+  }
 ```
 
-### 5. Putting it all together.
+### 5. Putting it All Together
 
-Adding a few buttons and inputs you'll get something like this:
-
+We can now add some input fields and buttons to make a complete custom login page.
 
 ```jade
 extends layout
 
 block content
-  script(src="http://cdn.auth0.com/w2/auth0-6.7.js")
 
   h1= title
   p Welcome to #{title}
   br
-  button(onclick="signinGoogle()") Login Google
+  button(onclick="signinGoogle()") Log In with Google
   br
   br
   label Username
@@ -112,7 +110,7 @@ block content
   label Password
   input(id='password', type='password')
   br
-  button(onclick="signinDb()") Login Db
+  button(onclick="signinDb()") Log In
 
   script.
     var auth0 = new Auth0({

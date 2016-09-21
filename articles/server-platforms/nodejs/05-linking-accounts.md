@@ -1,14 +1,7 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to integrate Auth0 with NodeJS to link accounts.
+description: This tutorial demonstrates how to integrate Auth0 with NodeJS to link accounts
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 4.3 or superior
-* Express 4.11
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
@@ -19,9 +12,9 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server'
 }) %>
 
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
+There may be situations where your users want to log in with multiple accounts that they own. In these cases, you may want to link these accounts together so that they are all reflected in the user's Auth0 profile. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
 
-In this step, you will modify the application you created in the [Login](/quickstart/server-platforms/nodejs/01-login) step to allow users to link or unlink other OAuth providers to their account.
+In this step, we'll modify the application we created in the [Login](/quickstart/server-platforms/nodejs/01-login) step to allow users to link or unlink other OAuth providers to their account.
 
 ## 1. Show Linked Accounts Information
 
@@ -41,6 +34,8 @@ In order to get the user tokens we must make a small modification to the `Auth0S
 the user tokens are stored in the user object.
 
 ```js
+// app.js
+
 // This will configure Passport to use Auth0
 var strategy = new Auth0Strategy({
     domain:       process.env.AUTH0_DOMAIN,
@@ -56,13 +51,12 @@ var strategy = new Auth0Strategy({
   });
 ```
 
-Add a new view `views/callback.jade` that will help us store the primary user's JWT after a successful login in the client's localStorage.
+We need a new view called `callback.jade` that will help us store the primary user's JWT after a successful login in the client's `localStorage`.
 
 ```jade
 extends layout
 
 block content
-  script(src="https://cdn.auth0.com/js/lock/10.0/lock.min.js")
 
   script.
     // Use local storage to keep track of the user's token and id.
@@ -75,6 +69,8 @@ block content
 Modify `routes/index.js` so that the `/callback` route renders the new template.
 
 ```js
+// routes/index.js
+
 router.get('/callback',
   passport.authenticate('auth0', {
     failureRedirect: '/url-if-something-fails',
@@ -87,14 +83,15 @@ router.get('/callback',
   });
 ```
 
-We now need to provide a means for the user to link another account, let's add a `Link Account` button to `views/user.jade`
+We now need to provide a means for the user to link another account. Let's add a `Link Account` button to `views/user.jade`
 that uses `Auth0Lock` to perform the secondary login.
 
 ```jade
+// views/user.jade
+
 extends layout
 
 block content
-  script(src="https://cdn.auth0.com/js/lock/10.0/lock.min.js")
   img(src="#{user.profile.picture}")
   h2 Welcome #{user.profile.nickname}!
   br
@@ -118,14 +115,15 @@ block content
     }
 ```
 
-Let's now add a `/link` endpoint.
-First we need to create the template we are going to render when `/link` is reached, create a `views/link.jade` file with the following contents.
+Let's now add a `/link` endpoint and create the template to be rendered when `/link` is reached.
 
 ```jade
+// views/link.jade
+
 extends layout
 
 block content
-  script(src="https://cdn.auth0.com/js/lock/10.0/lock.min.js")
+  // We're using jQuery to do the POST request
   script(src="https://code.jquery.com/jquery-3.1.0.min.js")
 
   script.
@@ -161,13 +159,15 @@ block content
     }
 ```
 
-The `linkAccount()` function is in charge of sending a `POST` request to the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint with
-both user tokens.
+The `linkAccount()` function is in charge of sending a `POST` request to the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint with both user tokens.
 
-The `/link` endpoint simply renders the template.
-Add the following route to `routes/index.js`
+The `/link` endpoint simply renders the template. Add the following route to `routes/index.js`
 
 ```js
+// routes/index.js
+
+...
+
 router.get('/link',
   ensureLoggedIn,
   function(req, res) {

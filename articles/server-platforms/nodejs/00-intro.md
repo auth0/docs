@@ -3,20 +3,18 @@ title: Introduction
 description: This tutorial will show you how to setup and run the nodejs webapp sample project provided by Auth0.
 ---
 
-This is the very beginning of a simple, practical and multi-step quickstart that will guide you through managing authentication in your express apps with Auth0.
+This multistep quickstart guide will walk you through setting up and managing authentication in your Node.js web apps using Auth0. Each step demonstrates how to implement a specific feature of Auth0 and is accompanied by a downloadable sample project showing the complete solution.
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-nodejs-webapp-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgType: 'server'
-}) %>
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* NodeJS 4.3 or superior
+* Express 4.11
+:::
 
 ### 1. Create an Application
 
-<%= include('../../_includes/_new_app') %>_
+<%= include('../../_includes/_new_app') %>
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
@@ -25,7 +23,9 @@ This is the very beginning of a simple, practical and multi-step quickstart that
 <%= include('../_includes/_callback-url-introduction') %>
 
 ### 3. Structure
-Throughout the steps, the seed and samples will have the following directory structure:
+
+The sample projects which accompany each of these steps will have the following directory structure:
+
 ```bash
 ├── app.js
 ├── bin
@@ -45,20 +45,28 @@ Throughout the steps, the seed and samples will have the following directory str
 
 ### 4. Dependencies
 
-All the project dependencies are managed by `npm` and listed in the `package.json` file.
+All the project dependencies are managed by npm and listed in the `package.json` file for each of the samples.
 
 Run the following command to install the required packages.
 
 ```bash
-$ npm install
+npm install
 ```
 
-### 5. Running the application.
+Auth0's Lock widget and `auth0.js` library are used throughout these quickstarts. These scripts can be obtained from the following CDN links:
 
-Right after installing the dependencies, you'll be able to start a local server with:
+**Lock**
+`https://cdn.auth0.com/js/lock/10.3/lock.min.js`
+
+**auth0.js**
+`http://cdn.auth0.com/w2/auth0-7.2.js`
+
+### 5. Running the Sample Applications
+
+After installing the dependencies for each of the samples, start the application:
 
 ```bash
-$ npm start
+npm start
 ```
 
-With everything set, you are now able to open your browser, navigate to `localhost:3000` and see the welcome page
+With everything set, the app will be available at `localhost:3000`.
