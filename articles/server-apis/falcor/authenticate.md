@@ -44,11 +44,28 @@ ${snippet(meta.snippets.use)}
 
 When you send a request to the Falcor model, you need to include the JWT as an `Authorization` header.
 
-${snippet(meta.snippets.frontend)}
+```js
+var token = localStorage.getItem('id_token');
+
+var model = new falcor.Model({
+  source: new falcor.HttpDataSource('/api/model.json', {
+    // Send the token as an Authorization header
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
+});
+
+```
 
 Don't forget to include [falcor.browser](https://github.com/Netflix/falcor#retrieving-data-from-the-virtual-json-resource) to your front end:
 
-${snippet(meta.snippets.falcorbrowser)}
+```html
+<!-- Do _not_  rely on this URL in production. Use only during development.  -->
+<script src="https://netflix.github.io/falcor/build/falcor.browser.js"></script>
+<!-- For production use. -->
+<!-- <script src="https://cdn.jsdelivr.net/falcor/{VERSION}/falcor.browser.min.js"></script> -->
+```
 
 ### 5. You're done!
 
@@ -60,4 +77,11 @@ Your Falcor app is now secure with Auth0 and `express-jwt`. Congrats, you're awe
 
 If you want to configure CORS, just add this code to your Falcor app (assuming your Falcor app is hosted on `http://localhost:3000`):
 
-${snippet(meta.snippets.cors)}
+```js
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers", "Authorization, Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
+```
