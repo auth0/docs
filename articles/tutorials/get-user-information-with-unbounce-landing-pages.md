@@ -2,17 +2,17 @@
 
 ### Configuration on Auth0
 
-1. Create an account in [Auth0](https://auth0.com)
-2. Go to **Clients -> + Create Client**. Crete a Single Page Application on the Auth0 dashboard, go to Settings and take note of the Client ID and Domain. Also, add the `callback URL` in both `Allowed Callback URLs` and `Allowed Origins (CORS)` (it should be your unbounce page URL. For example:`http://unbouncepages.com/changeit`).
+1. Create an account in [Auth0](https://auth0.com) and navigate to the [dashboard](${manage_url}).
+2. Go to **Clients -> + Create Client**. Create a Single Page Application on the Auth0 dashboard, go to Settings and take note of the Client ID and Domain. Also, add the `callback URL` in both **Allowed Callback URLs** and **Allowed Origins (CORS)** (it should be your unbounce page URL. For example:`http://unbouncepages.com/changeit`).
 3. Go to **Connections -> Social** and Turn on the Social Providers you want to support.
 
-> NOTE: you should configure the Client ID and Secret for each social connection.
+**NOTE:** you should configure the Client ID and Secret for each social connection.
 
 ![](/media/articles/scenarios/unbounce/social-connections.png)
 
 ## Configuration on Unbounce
 
-* Add a button (or whatever UI element you consider) that will trigger the login with the provider. Take note of the button ID under `Properties`->`Element Metadata`.
+* Add a button (or whatever UI element you consider) that will trigger the login with the provider. Take note of the button ID under **Properties**->**Element Metadata**.
 
 * Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
 
@@ -30,7 +30,7 @@
 </script>
 ```
 
-> Note: You should use the clientID and Domain of the client you just configured.
+**NOTE:** You should use the clientID and Domain of the client you just configured.
 
 * You need a way to pass the information coming from the social providers to Unbounce. The way you do that is by creating a Form and adding `Hidden fields` for each field. In the following example we are using the [normalized profile](/user-profile/normalized) fields `name`, `email`, `given_name`, `family_name`, `nickname` and `picture`. You can also include IdPs specific attributes such as `headline` if you are using LinkedIn.
 
