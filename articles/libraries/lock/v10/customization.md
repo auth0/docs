@@ -276,7 +276,7 @@ The value for `logo` is an URL for an image that will be placed in the Lock's he
 ```js
 var options = {
   theme: {
-    logo: 'https://jwt.io/img/pic_logo.svg'
+    logo: 'https://example.com/logo.png'
   }  
 };
 ```
@@ -290,8 +290,8 @@ The `primaryColor` property defines the primary color of the Lock; all colors us
 ```js
 var options = {
   theme: {
-    logo: 'https://jwt.io/img/pic_logo.svg',
-    primaryColor: 'blue'
+    logo: 'https://example.com/logo.png',
+    primaryColor: '#31324F'
   }  
 };
 ```
