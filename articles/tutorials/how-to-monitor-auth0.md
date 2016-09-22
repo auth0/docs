@@ -34,7 +34,7 @@ OK
 The `/testall` endpoint checks that the core Auth0 authentication service is up as well as additional services such as the management dashboard and documentation pages.
 If any of those services are down, the response code from `/testall` will be 5xx.
 
-If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can also build a synthetic transaction that excercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimic what a user would do (e.g. follow redirects, input username/password on a form, etc.).
+If you've extended Auth0 through [rules](/rules) or [a custom database connection](/connections/database/mysql), you can also build a synthetic transaction that exercises these capabilities. We recommend using an authentication flow that won't require a UI (e.g. `Resource Owner flow`). Other ones might require a monitoring tool able to mimic what a user would do (e.g. follow redirects, input username/password on a form, etc.).
 
 ```
 POST https://${account.namespace}/oauth/ro
