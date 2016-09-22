@@ -94,7 +94,7 @@ The following table describes operational and feature differences between each o
             <th>Webtask</th>
             <td>Multi-Tenant</td>
             <td>Dedicated</td>
-            <tdth>Cloud</td>
+            <td>Cloud</td>
             <td>On-Premises</td>
         </tr>
         <tr>
