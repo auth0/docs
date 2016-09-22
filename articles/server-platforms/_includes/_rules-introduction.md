@@ -1,8 +1,8 @@
-Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middleware. To see a detailed description, please refer to [the full documentation](/rules).
+Rules are one of the most powerful features of Auth0. As JavaScript functions that execute each time a user authenticates, rules serve as middleware to extend the flexibility of your authentication flow. For a detailed description of rules, see the [full documentation](/rules).
 
 ### Create a rule
 
-To create a rule just go to the [new rule page](${uiURL}/#/rules/new). You can create a new rule from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
+To create a rule, go to the [new rule page](${manage_url}/#/rules/new). You can create a new rule from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks.
 
 Select the template called "Add country to the user profile"
 

@@ -3,6 +3,8 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Windows Universal App Javascript SDK to add authentication and authorization to your app.
 ---
 
+<%= include('../../_includes/_signup') %>
+
 This tutorial explains how to integrate Auth0 with a Windows UWP application written in JavaScript. `Auth0.Windows.UWP.JavaScript` helps you authenticate users with any [Auth0 supported Identity Provider](/identityproviders).
 
 ## Tutorial
@@ -85,7 +87,7 @@ auth0.Login({
 Optionally you can specify the `scope` parameter. There are two possible values for scope:
 
 * __scope: "openid"__ _(default)_ - this returns the `access_token`, and an `id_token` as a JSON Web Token (JWT). The JWT will only contain the user id.
-* __scope: "openid {attr1} {attr2} {attrN}"__ - if you want only specific user attributes to be included in the `id_token` (for example: `__scope: "openid name email picture"`).
+* __scope: "openid {attr1} {attr2} {attrN}"__ - if you want only specific user attributes to be included in the `id_token` (for example: `scope: "openid name email picture"`).
 
 For more information, see: [Scopes](/scopes).
 
@@ -93,6 +95,7 @@ For more information, see: [Scopes](/scopes).
 
 The `Auth0User` has the following properties:
 
-* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object from [Json.NET component](http://components.xamarin.com/view/json.net/) containing all available user attributes (e.g.:`user.Profile["email"].ToString()`).
+* `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object from [Json.NET component](http://www.newtonsoft.com/json) containing all available user attributes (e.g.:`user.Profile["email"].ToString()`).
 * `IdToken`: a JSON Web Token (JWT) containing all of the user attributes and signed with your client secret.
+
 * `Auth0AccessToken`: the `access_token` that can be used to call the Auth0 API. For example, you could use this token to [Link Accounts](/link-accounts).

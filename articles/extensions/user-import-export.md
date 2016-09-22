@@ -1,16 +1,21 @@
-# User Import / Export 
+---
+title: User Import / Export Extension
+description: The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account.
+---
+
+# User Import / Export
 
 The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account.
 
 ## Configuring the Extension
 
-To complete installation of this extension, click on the Auth0 `User Import / Export` in the list of provided extensions on the Extensions page of the Management Portal. When authorizing the application, you will be asked to provide the following information about your Auth0 account:
+To install this extension, click on `User Import / Export` in the list of provided extensions on the [Extensions page](${manage_url}/#/extensions) of the [Management Portal](${manage_url}). When authorizing the application, you will be asked to provide the following information about your Auth0 account:
 
- - __Users__: create and read your users;
- - __Connections__: read your connections;
- - __Profile__: access to your profile;
+ - __Users__: create and read your users
+ - __Connections__: read your connections
+ - __Profile__: access to your profile
 
-Once you have provided the appropriate values for the above fields, click "Install" to proceed.
+Once you have provided the appropriate values for the above fields, click on "Install" to proceed.
 
 ## Using Your Installed Extension
 
@@ -26,9 +31,9 @@ There are two ways of using this extension, they are described below:
 ### Export of users
 
 1. Select the Export option in the menu from the left.
-2. You may query the users that you want to export via using the [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) in the search bar. An example to return all the users that have the `user_metadata` attribute would be `_exists_:user_metadata`.
-3. Regarding columns, you can decided which attributes should be included in the export. The user attribute can be a static value like `user.app_metadata.name` or a Javascript expression like `user.app_metadata.name || user.name` which will then be evaluated during the export. The column name is how the value will be represented in the export. A good way of seeing an example of this is by clicking on the `Add default columns` blue button on the right.
-4. Regarding settings, you may sort out the output file by writing a `User Attribute` and click on Descending order if you toggle the button on. Ascending order is the default, that is when the button is toggled off. You can also choose between two output formats, either a `.csv` or `.json` file.
+2. You can query the users that you want to export by using the [Lucene query syntax](http://www.lucenetutorial.com/lucene-query-syntax.html) in the search bar. For example, to return all the users that have the `user_metadata` attribute you can use: `_exists_:user_metadata`.
+3. In the columns section you can decide which attributes should be included in the export. The user attribute can be a static value like `user.app_metadata.name` or a Javascript expression like `user.app_metadata.name || user.name` which will then be evaluated during the export. The column name is how the value will be represented in the export. A good way of seeing an example of this is by clicking on the `Add default columns` blue button on the right.
+4. In the settings section you can configure the sorting options of the output by writing a `User Attribute` in the text field, and the sorting order (descending or ascending) by toggling the button on and off respectively. You can also choose between two output formats, either a `.csv` or `.json` file.
 
 ### Observations
 

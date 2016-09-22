@@ -5,19 +5,23 @@ description: This tutorial will show you how to use the Auth0 Cordova SDK to add
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
+<%= include('../../_includes/_package', {
+  pkgOrg:'auth0-samples',
+  pkgRepo:'auth0-cordova-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-cordova-samples/tree/master/00-Starter-Seed/basic-sample',
+  pkgBranch:'master',
+  pkgPath:'00-Starter-Seed/basic-sample',
+  pkgFilePath:'00-Starter-Seed/basic-sample/www/js',
+  pkgType:'js'
+}) %>
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 5
-* Cordova 5.4
+* Cordova 5.4 or later
 :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-cordova',
-  pkgBranch: 'master',
-  pkgPath: 'examples/basic-sample',
-  pkgFilePath: 'examples/basic-sample/www/js',
-  pkgType: 'js'
-}) %>
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 

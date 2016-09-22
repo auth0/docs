@@ -1,5 +1,6 @@
 title: Java Spring MVC
 image: /media/platforms/spring.png
+logo_name: java
 tags:
   - quickstart
 alias:
@@ -11,6 +12,8 @@ snippets:
   dependenciesGradle: server-platforms/java-spring/dependencies-gradle
   setup: server-platforms/java-spring/setup
   use: server-platforms/java-spring/use
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login
+  - 09-mfa

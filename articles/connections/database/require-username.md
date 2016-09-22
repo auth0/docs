@@ -4,7 +4,7 @@ For database connections, you can have your users sign in with a username instea
 
 ### To add a required username:
 
-1. Go to the [Connections -> Database](${uiURL}/#/connections/database) section of the dashboard.
+1. Go to the [Connections -> Database](${manage_url}/#/connections/database) section of the dashboard.
 
 1. Select the connection you wish to edit by clicking on the connection name or the Settings gear icon.  
 ![](/media/articles/connections/database/db-connections-page.png)

@@ -4,14 +4,14 @@ description: How to enable API Authorization using the Auth0 Management API.
 
 # API Authorization: Using the Management API
 
-If you do not want to use the Auth0 Dashboard to enable  API Authorization, you can achieve the same results using the Auth0 Management API.
+If you do not want to use the Auth0 Dashboard to enable API Authorization, you can achieve the same results using the Auth0 Management API.
 
 You will need the following:
 
-- APIv2 token with the following scopes:
+- Management APIv2 token with the following scopes:
   - `create:resource_server`
   - `create:client_grant`
-- `Client_Id` and `Client_Secret` for the client application which must already be created and visible in your [Auth0 dashboard](${uiURL}).
+- `Client_Id` and `Client_Secret` for the client application which must already be created and visible in your [Auth0 dashboard](${manage_url}).
 
 ## Register your Resource Server
 

@@ -19,12 +19,12 @@ You can use a Client on another Auth0 account (referred to below as the **child 
 
 ## Configure the Master Auth0 Account
 
-The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [API V2 token](/api/management/v2/tokens) with `create:connections` scope.
+The Auth0-to-Auth0 connection is not yet supported in the Dashboard. You need to create the connection using the [Create a connection](/api/v2#!/Connections/post_connections) endpoint, which will require an [Management API V2 token](/api/management/v2/tokens) with `create:connections` scope.
 
 Here is a sample request:
 
 ```sh
-curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/management/v2#!/Connections/post_connections
+curl -H "Content-Type: application/json" -H 'Authorization: Bearer {YOUR_API_V2_TOKEN}' -d @auth0-oidc-connection.json https://${account.namespace}/api/v2/connections
 ```
 
 with the **auth-oidc-connection.json** file containing:

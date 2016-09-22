@@ -23,11 +23,22 @@ If you need help with the migration, create a ticket in our [Support Center](htt
 ## Current Migrations
 Current migrations are listed below, newest first.
 
+### Delete All Users Endpoint Change
+
+| Severity | Effective Date |
+| --- | --- | --- | --- |
+| Low | 2016-09-13 |
+
+The previous endpoint for deleting all users was `DELETE	/api/v2/users`. This is rather similar to the endpoint to delete _one_ user: `DELETE /api/v2/users/{id}`. To prevent accidental requests to the delete all users endpoint, the url has been changed to `DELETE /api/v2/allusers`. This should ensure that only intentional calls to this endpoint get made.
+
+#### Am I affected by the change? 
+You are affected by the change only if you currently make use of the delete all users endpoint. If so, the only change you need to make is to change the URL as explained above.
+
 ### Identity Provider access tokens removed from user profile and id_token
 
 | Severity | Grace Period Start | Mandatory Opt-In|
 | --- | --- | --- | --- |
-| Medium | 2016-07-11 | TBD |
+| Medium | 2016-07-11 | 2016-08-18 |
 
 The format of the user profile JSON object (id_token) that is returned by Auth0 Authentication APIs has been changed to remove the Identity Provider's access token, which had been included in the user profile `identities` array. 
 

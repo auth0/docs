@@ -1,6 +1,14 @@
+---
+section: appliance
+---
+
 # Auth0 Appliance Dashboard: Nodes
 
-> For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+::: panel-info Appliance Dashboard Navigation
+
+For additional information on navigating to and using the Appliance Dashboard, please see the section on [Appliance Controls](/appliance/dashboard#appliance-controls).
+
+:::
 
 The Nodes page located under the Appliance configuration area provides a high-level overview of the nodes you have running as part of your Appliance setup. Each instance that you have with your web service provider is considered a node and is listed individually on this page.
 

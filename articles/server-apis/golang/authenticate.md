@@ -11,6 +11,9 @@ description: This tutorial will show you how to use the Auth0 Go SDK to add auth
   pkgType: 'server'
 }) %>
 
+
+<%= include('../../_includes/_signup') %>
+
 **Otherwise, Please follow the steps below to configure your existing Go Programming Language app to use it with Auth0.**
 
 ### 1. Install `go-jwt-middleware` dependency

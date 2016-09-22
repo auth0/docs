@@ -1,7 +1,7 @@
 <% if (account.userName) { %>
-  <p>Fetch your credentials (Domain, Client ID, and Client Secret) from your <a href="https://manage.auth0.com/#/">dashboard</a> and store somewhere safe. You will need them while configuring your application. The sample is configured with your `Default App` credentials if you prefer to start with having a look at it.</p>
+  <p>Fetch your credentials (Domain, Client ID, and Client Secret) from your <a href="${manage_url}/#/">dashboard</a> and store them somewhere safe. You will need them while configuring your application. The sample is configured with your `Default App` credentials if you prefer to start with having a look at it.</p>
 <% } else { %>
-  <p>Create an <a href="https://manage.auth0.com/login">Auth0 account</a> (or login) and an authentication application instance from your <a href="https://manage.auth0.com/#/">dashboard</a>. Once you create an app, you'll be provided with credentials (Domain, Client ID, and Client Secret) which should be stored somewhere safe (do not commit this information to your git repo!). You can start by downloading the sample after you login as it is configured with your Default App credentials</p>
+  <p>Create an <a href="${manage_url}/login">Auth0 account</a> (or login) and an authentication application instance from your <a href="${manage_url}/#/">dashboard</a>. Once you create an app, you'll be provided with credentials (Domain, Client ID, and Client Secret) which should be stored somewhere safe (do not commit this information to your git repo!). You can start by downloading the sample after you login as it is configured with your Default App credentials</p>
 <% } %>
-<p> Make sure that your Auth0 app has one or more connections configured, for example Google Social Connection, or username-password DB connection.
+<p> Make sure that your Auth0 Client has one or more connections configured, for example Google Social Connection, or username-password DB connection.
 </p>

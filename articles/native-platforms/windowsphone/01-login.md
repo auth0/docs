@@ -4,12 +4,16 @@ description: This tutorial will show you how to use the Auth0 Windows Phone SDK 
 ---
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'Auth0.WindowsPhone',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-WindowsPhone-samples',
+  githubUrl:'https://github.com/auth0-samples/auth0-WindowsPhone-samples/tree/master/00-Starter-Seed/WindowsPhoneSilverlight',
   pkgBranch: 'master',
-  pkgPath: 'examples/WindowsPhoneSilverlight',
+  pkgPath: '00-Starter-Seed/WindowsPhoneSilverlight',
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
@@ -22,7 +26,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that the <strong>Allowed Callback URLs list</strong> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 </div>

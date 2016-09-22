@@ -3,6 +3,14 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Xamarin SDK to add authentication and authorization to your mobile app.
 ---
 
+::: panel-info System Requirements
+This tutorial has been tested with the following:
+* Microsoft Visual Studio 2015
+* Xamarin for Visual Studio 4.2
+:::
+
+<%= include('../../_includes/_signup') %>
+
 This tutorial explains how to integrate Auth0 with a Xamarin application.
 
 The `Xamarin.Auth0Client` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders) via the OpenId Connect protocol built on top of OAuth2. The library is cross-platform, so this information can be applied to either iOS or Android.
@@ -71,7 +79,7 @@ The `Auth0User` has the following properties:
 
 * `Profile`: returns a `Newtonsoft.Json.Linq.JObject` object from [Json.NET component](http://components.xamarin.com/view/json.net/) containing all available user attributes (e.g.:`user.Profile["email"].ToString()`).
 * `IdToken`: a JSON Web Token (JWT) containing all of the user attributes and signed with your client secret.
-* `Auth0AccessToken`: the `access_token` that can be used to call the Auth0 API. For example, you could use this token to [Link Accounts](/link-accounts).
+* `Auth0AccessToken`: the `access_token` that can be used to call the Auth0 APIs. For example, you could use this token to [Link Accounts](/link-accounts).
 
 ## Download samples
 

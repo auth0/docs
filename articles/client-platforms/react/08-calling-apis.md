@@ -3,21 +3,13 @@ title: Calling APIs
 description: This tutorial will show you how to make authenticated api calls with ReactJS.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
-* NPM 3.3.12
-* React 15.0.2
-:::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '08-Calling-Api',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 
@@ -108,13 +100,13 @@ Note that the `dotenv` package is used to load `process.env.AUTH0_SECRET` and `p
 If you don't have a `.env` file in your project you can create your own using the following command:
 
 ```bash
-$ echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='${account.clientSecret}'" > .env
+echo "AUTH0_CLIENT_ID='${account.clientId}\nAUTH0_DOMAIN='${account.namespace}'\nAUTH0_SECRET='${account.clientSecret}'" > .env
 ```
 <% } else { %>
-If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${uiURL}).
+If you don't have a `.env` file in you project, please copy `.env.example` and add your own credentials from [dashboard](${manage_url}).
 
 ```bash
-$ cp .env.example .env
+cp .env.example .env
 ```
 <% } %>
 

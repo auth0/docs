@@ -4,18 +4,18 @@ name: Shows how to secure your API using the standard JWT middeware
 ---
 
 <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample/tree/master/01-Authentication-RS256',
+  githubUrl: 'https://github.com/auth0-samples/auth0-aspnetcore-webapi-sample',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-aspnetcore-webapi-sample',
   pkgBranch: 'master',
   pkgPath: '01-Authentication-RS256',
-  pkgFilePath: null,
-  pkgType: 'server'
+  pkgFilePath: '01-Authentication-RS256/appsettings.json',
+  pkgType: 'replace'
 }) %>
 
 Auth0 can sign JSON Web Tokens (JWT) using either a symmetric key (HS256) or an asymmetric key (RS256). This particular document will describe how to configure Auth0 to sign tokens using RS256.
 
-> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/01-authentication-hs256) tutorial.
+> If you want to use HS256 then please go to the [Authentication using HS256](/quickstart/backend/aspnet-core-webapi/02-authentication-hs256) tutorial.
 
 ## 1. Configure JSON Web Token Signature Algorithm
 
@@ -110,7 +110,7 @@ If you make a request to the `/ping/secure` endpoint you will notice that the AP
 
 ![Unauthorized request in Postman](/media/articles/server-apis/aspnet-core-webapi/postman-not-authorized.png)
 
-As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](https://auth0.com/docs/api/authentication#!#post--oauth-ro):
+As mentioned in the previous step, you will need to pass along an `id_token` in the HTTP Authorization header. A quick and easy way to obtain an `id_token` is to call the `/oauth/ro` endpoint using the Auth0 [Authentication API Explorer](/api/authentication#!#post--oauth-ro):
 
 ![Obtain a JWT](/media/articles/server-apis/aspnet-core-webapi/request-jwt.png)
 

@@ -24,15 +24,15 @@ In this section you will configure Auth0 to serve as an Identity Provider.  You 
 
 **In the Auth0 dashboard:**
 
-1. Click on **"Applications"** link at left.
+1. Click on **"Clients"** link at left.
 
-2. Click on the red **"+ CREATE APP"** button on the right.
+2. Click on the red **"+ CREATE CLIENT"** button on the right.
 
 3. In the **Name** field, enter a name like "MySAMLApp".
 
 4. Press the blue **"SAVE"** button.
 
-5. In the **Auth0 dashboard**, click again on the **"Applications"** link at left
+5. In the **Auth0 dashboard**, click again on the **"Clients"** link at left
 
 6. Find the row for the application you just created, and click on the **"Settings"** icon to the right of the application name. (the round gear icon)
 

@@ -6,31 +6,33 @@ description: This tutorial will show you how to access the user profile from wit
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* Simulator - iPhone 6 - iOS 9.3 (13E230)
+- CocoaPods 1.0.0
+- XCode 7.3 (7D175)
+- iPhone 6 - iOS 9.3 (13E230)
   :::
 
 <%= include('../../_includes/_package', {
-  pkgRepo: 'native-mobile-samples',
+  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/04-User-Profile',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-ios-swift-sample',
   pkgBranch: 'master',
-  pkgPath: 'iOS/basic-sample-swift',
-  pkgFilePath: 'iOS/basic-sample-swift/SwiftSample/Info.plist',
-  pkgType: 'replace'
+  pkgPath: '04-User-Profile',
+  pkgFilePath: null,
+  pkgType: 'none'
 }) %>
 
 ### Before Starting
 
 You should be familiar with previous tutorials. This tutorial assumes:
 
-- You're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out the [login tutorial](01-login.md) first.**
-- You're using the Auth0.swift and SimpleKeychain dependencies. **It's recommended that you take a look at the [session handling tutorial](03-session-handling.md) first.**
+- You're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out the [login tutorial](01-login) first.**
+- You're using the Auth0.swift and SimpleKeychain dependencies. **It's recommended that you take a look at the [session handling tutorial](03-session-handling) first.**
 
 ### 1. Fetch the User Profile
 
-First step is to fetch the user profile. To do so, you need a valid `idToken` first.
+The first step is to fetch the user profile. To do so, you need a valid `idToken` first.
 
-> Check out the [session handling tutorial](03-session-handling.md) if you're not sure about the `idToken`.
+> Check out the [session handling tutorial](03-session-handling) if you're not sure about the `idToken`.
 
 You need to call a function from the `Lock` module that allows you to fetch the user profile given an `idToken`:
 
@@ -64,7 +66,7 @@ let email = profile.email
 let avatarURL = profile.picture
 ```
 
-> You can check out the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) class documentation to learn more about its fields.
+> Check out the [A0UserProfile](https://github.com/auth0/Lock.iOS-OSX/blob/master/Pod/Classes/Core/A0UserProfile.h) class documentation to learn more about its fields.
 
 #### ii. Additional info
 
@@ -72,7 +74,7 @@ Besides the defaults, you can handle more information that is contained within a
 
 ##### a. User Metadata
 
-The `userMetadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with on this tutorial. You can access its fields as follows:
+The `userMetadata` dictionary contains fields related to the user profile that can be added from client-side (e.g. when editing the profile). This is the one we're going to work with in this tutorial. You can access its fields as follows:
 
 ```swift
 let firstName = profile.userMetadata["first_name"] as? String
@@ -85,13 +87,13 @@ let isActive = profile.userMetadata["active"] as? Bool
 
 ##### b. App Metadata
 
-The `appMetadata` dictionary contains fields that are usually added via [a rule](06-rules.md), which is read-only for the native platform.
+The `appMetadata` dictionary contains fields that are usually added via [a rule](06-rules), which is read-only for the native platform.
 
 ##### c. Extra Info
 
 The `extraInfo` dictionary contains any other extra information stored in Auth0. That information is read-only for the native platform.
 
-> For further information on metadata, see [the full documentation](https://auth0.com/docs/rules/metadata-in-rules).
+> For further information on metadata, see [the full documentation](/rules/metadata-in-rules).
 
 ### 3. Update the User Profile
 

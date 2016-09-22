@@ -1,5 +1,5 @@
 ```html
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script>
 var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
 
@@ -9,7 +9,7 @@ function signin() {
       callbackURL: 'http://localhost:CHANGE-TO-YOUR-PORT/LoginCallback.ashx'
     , responseType: 'code'
     , authParams: {
-      scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+      scope: 'openid name email' //Details: https:///scopes
     }
   });
 }

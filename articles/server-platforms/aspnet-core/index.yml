@@ -7,6 +7,7 @@ snippets:
 alias:
   - aspnetcore
 seo_alias: aspnet-core
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login

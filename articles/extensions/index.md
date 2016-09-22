@@ -1,5 +1,7 @@
 ---
 url: /extensions
+title: Auth0 Extensions
+description: Auth0 Extensions enable you to install applications or run commands/scripts that extend the functionality of the Auth0 base product.
 ---
 
 # Auth0 Extensions
@@ -24,7 +26,7 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Custom Social Connections](/extensions/custom-social-extensions): manage custom social connections in an easy way.
 - [Auth0 Management API Webhooks](/extensions/management-api-webhooks): webhooks definition for the Auth0 Management API; goes through the audit logs and calls the appropriate webhook for specific events.
 - [Auth0 AD/LDAP Connector Health Monitor](/extensions/adldap-connector): exposes endpoint for AD/LDAP connections monitoring.
-- [Auth0 Logs to Application Insight](/extensions/application-insight): exports Auth0 logs to Application Insights.
+- [Auth0 Logs to Application Insights](/extensions/application-insight): exports Auth0 logs to Application Insights.
 - [Auth0 Logs to Azure Blob Storage](/extensions/azure-blob-storage): exports Auth0 logs to Azure Blob Storage
 - [Auth0 Authentication API Webhooks](/extensions/authentication-api-webhooks): webhooks definition for the Auth0 Authentication API; goes through the audit logs and calls the appropriate webhook for specific events.
 - [Auth0 Logs to Loggly](/extensions/loggly): exports Auth0 logs to Loggly.
@@ -37,6 +39,8 @@ Auth0 provides the following pre-defined extensions, and they are available for 
 - [Real-time Webtask Logs](/extensions/realtime-webtask-logs): allows browser-based access to real-time webtask logs.
 - [Auth0 Logs to Logentries](/extensions/logentries): export Auth0 logs to Logentries.
 - [GitHub Deployments](/extensions/github-deploy): deploy rules and database connections from GitHub to Auth0.
+- [Bitbucket Deployments](/extensions/bitbucket-deploy): deploy rules and database connections from Bitbucket to Auth0.
+- [Delegated Administration](/extensions/delegated-admin): expose the Users dashboard to a group of users, without allowing them access to the dashboard.
 
 
 ## Creating Your Own Extension

@@ -1,14 +1,15 @@
 ---
 sitemap: false
+section: appliance
 ---
 
 # Critical Support Issue Guidance for Appliance Customers
 
-This document outlines additional support procedure information for enterprise subscription customers with an Auth0 Appliance and shoud be read in conjunction with the general [Enterprise Support Guidance document](https://auth0.com/docs/enterprise-support).
+This document outlines additional support procedure information for enterprise subscription customers with an Auth0 Appliance and shoud be read in conjunction with the general [Enterprise Support Guidance document](/enterprise-support).
 
-Appliance customers must have [Premium Enterprise Support](https://auth0.com/docs/enterprise-support#premium-enterprise-support) as a minimum. Refer to your subscription agreement to confirm if other custom support or SLA coverage has been included.
+Appliance customers must have [Premium Enterprise Support](/enterprise-support#premium-enterprise-support) as a minimum. Refer to your subscription agreement to confirm if other custom support or SLA coverage has been included.
 
-Below are special procedures Appliance customers should follow for Critical Support Issues.  All other information as outlined in the [Enterprise Support Guidance document](https://auth0.com/docs/enterprise-support) is still valid and should be followed.
+Below are special procedures Appliance customers should follow for Critical Support Issues.  All other information as outlined in the [Enterprise Support Guidance document](/enterprise-support) is still valid and should be followed.
 
 ## Special procedures for critical issues impacting production applications for Appliance customers
 
@@ -20,11 +21,11 @@ As a secondary point of escalation, Appliance customers can also call our suppor
 
 Appliance customers may also use the [Auth0 Support Center](https://support.auth0.com) as a primary method of logging a critical support issue, or as a secondary point of escalation.  However, one current limitation of the Auth0 Support Center is customers must have an account with Auth0's cloud service to login to Support Center.  As creating a cloud account is not currently mandatory for Appliance customers, this could be a blocking factor in logging a ticket during a critical outage, and so the recommendation is to use the email option instead.
 
-![](https://docs.google.com/drawings/d/1JqvLTCbm8-DeGfIUd9OHDZHqN7ATL6C4ODPLAPrMtKE/pub?w=437&h=613)
+![](/media/articles/onboarding/critical-support.png)
 
 ### Information to provide when logging an issue
 
-To speed resolution, please provide the following when logging an issue via email (in addition to other information listed in the [Enterprise Support Guidance document](https://auth0.com/docs/enterprise-support):
+To speed resolution, please provide the following when logging an issue via email (in addition to other information listed in the [Enterprise Support Guidance document](/enterprise-support):
 
 * Your Company Name and specific project name (some customers have more than one instance of Auth0)
 * Your contact details and the contact details of relevant colleagues such as IT operations staff, including email address and phone numbers with relevant country and area codes.

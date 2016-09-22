@@ -1,0 +1,3 @@
+::: panel-info Lock Version
+This document uses the latest version of Lock (version 10). Changes from the previous version are listed on the [New Features](/libraries/lock/v10/new-features) page. Learn how to migrate from version 9 to version 10 in the [Migration Guide](/libraries/lock/v10/migration-guide). If you need information about using Lock 9, see the [Lock 9 Documentation](/libraries/lock/v9).
+:::

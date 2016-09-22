@@ -5,5 +5,3 @@
 3. Select *Choose File* under *Upload & Install Joomla Extension* and select the downloaded zip file.
 4. Click *Upload & Install*.
 5. [Setup the plugin](/cms/joomla/configuration)
-
- <img src="https://cdn.auth0.com/docs/cms/joomla/joomla-auth0-install.gif" alt="Joomla Auth0 installation">

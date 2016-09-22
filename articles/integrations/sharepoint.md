@@ -6,7 +6,7 @@ Auth0 can help radically simplify the authentication process for SharePoint. In 
 
 ### 1. Adding the Integration to your account
 
-The first thing you need to do is go to the [SSO Integrations](${uiURL}/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
+The first thing you need to do is go to the [SSO Integrations](${manage_url}/#/externalapps/create) section in the dashboard and choose **SharePoint** from the list of apps.
 
 ![Create a new SSO Integration](/media/articles/integrations/sharepoint/sharepoint-new-sso.png)
 
@@ -100,7 +100,7 @@ When David logs in using his Azure AD account (and the Security Groups attribute
 
 ![User Groups](/media/articles/integrations/sharepoint/sharepoint-profile-groups.png)
 
-If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${uiURL}/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
+If we want to make these groups available as Roles in SharePoint we'll need to write a [Rule](${manage_url}/#/rules) that adds this to the SAML configuration. This rule will only run for the application named **Fabrikam Intranet (SharePoint)**.
 
 ```
 function (user, context, callback) {
@@ -180,7 +180,7 @@ namespace UserProfileSync
     {
         static void Main(string[] args)
         {
-            // Call the Auth0 API - https://docs.auth0.com/api/v2
+            // Call the Auth0 Management API - https://docs.auth0.com/api/v2
 
             using (var site = new SPSite("http://servername"))
             {

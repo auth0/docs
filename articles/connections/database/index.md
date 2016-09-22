@@ -6,7 +6,7 @@ url: /connections/database
 
 Auth0 provides database connections to authenticate users with an email or username and a password and securely store these credentials in the Auth0 user store, or in your own database.
 
-You can create a new database connection or manage existing ones in the [Dashboard](${uiURL}/#/connections/database):
+You can create a new database connection or manage existing ones in the [Dashboard](${manage_url}/#/connections/database):
 
 ![](/media/articles/connections/database/database-connections.png)
 

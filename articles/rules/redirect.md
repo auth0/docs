@@ -33,10 +33,15 @@ Once all rules have finished executing, the user will be redirected to the speci
 An authentication transaction that has been interrupted by setting `context.redirect` can be resumed by redirecting the user to the following URL:
 
 ```text
-https://${account.namespace}/continue
+https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 ```
 
 When a user has been redirected to the `/continue` endpoint, all rules will be run again.
+
+::: panel-danger Caution:
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 loose the context of the login transaction.
+:::
+
 
 To distinguish between user-initiated logins and resumed login flows, the `context.protocol` property can be checked:
 
@@ -56,7 +61,7 @@ Suppose you would like to force users to change their passwords under specific c
 
 1. The user attempts to log in and needs to change their password.
 2. The user is redirected to an application-specific page with a JWT in the query string. This JWT ensures that only this user's password can be changed and **must be validated** by the application.
-3. The user changes their password in the application-specific page by having the application call the [Auth0 API](/api/v2#!/Users/patch_users_by_id)
+3. The user changes their password in the application-specific page by having the application call the [Auth0 Management API](/api/v2#!/Users/patch_users_by_id)
 4. The application redirects back to `/continue`, with a JWT in the query string. This token must be issued for the same user that is attempting to log in, and must contain a `passwordChanged: true` claim.
 
 ```js

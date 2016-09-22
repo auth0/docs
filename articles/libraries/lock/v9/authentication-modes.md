@@ -6,7 +6,7 @@ After Auth0 Lock is opened, you can choose any of the Identity Providers (IdP) t
 
 If after you click on the IdP button (Facebook for example), the Webapp you built gets redirected to Facebook, it means you're using Redirect Mode. Once you successfully login to Facebook, Facebook will redirect you back to your app (through Auth0). This means that if you had **any state in memory in your WebApp, it will be lost**. This is why a successful login with Redirect mode **cannot be handled with a callback** and must be handled with the `parseHash` method.
 
-![Widget redirect](http://cl.ly/image/2o423i362s2P/WidgetRedirect.gif)
+![Widget redirect](/media/articles/libraries/lock/v9/WidgetRedirect.gif)
 
 You can [click here](/libraries/lock/v9/types-of-applications#redirect-mode) to learn how to implement Redirect mode with Single Page Apps, or you can [click here](/libraries/lock/v9/types-of-applications#redirect-mode-1) to learn how to implement it with Regular WebApps.
 
@@ -16,7 +16,7 @@ If after you click on the IdP button (Facebook for example), a popup (new tab or
 
 > WARNING: There is a known bug that prevents popup mode from functioning properly in Android or Firefox on iOS, and in Internet Explorer under certain circumstances. As such we recommend either only using redirect mode or detecting these special cases and selectively enabling redirect mode. See more info [here](https://ask.auth0.com/t/popup-login-window-is-not-closed-after-authentication/2843).
 
-![Widget Popup](https://cloudup.com/cg8u9kVV5Vh+)
+![Widget Popup](/media/articles/libraries/lock/v10/widget-popup.gif)
 
 You can [click here](/libraries/lock/v9/types-of-applications#popup-mode) to learn how to implement Popup mode with Single Page Apps.
 
@@ -24,7 +24,7 @@ You can [click here](/libraries/lock/v9/types-of-applications#popup-mode) to lea
 
 Some Auth0 features such as [MFA](/multifactor-authentication) and [SSO](/sso) between multiple applications depend on users being redirected to Auth0 to set a cookie on `https://YOUR_DOMAIN.auth0.com`.
 When using popup mode, a popup window will be displayed in order to set this cookie and display MFA prompts if necessary; this popup window will be blank if users are not prompted for MFA, which might not be a desirable UX.
-The reason for this is that [cross-origin requests](https://auth0.com/docs/auth-api#!#post--oauth-ro) sent from your application to Auth0 are not be able to set cookies.
+The reason for this is that [cross-origin requests](/auth-api#!#post--oauth-ro) sent from your application to Auth0 are not be able to set cookies.
 
 If you do not want to display a popup window and do not need MFA or SSO between multiple applications, you can set `sso: false` when using Lock or auth0.js.
 For example:

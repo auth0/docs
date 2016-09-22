@@ -5,7 +5,7 @@ language:
   - JavaScript
 framework:
   - Cycle.js
-image: //cycle.js.org/img/cyclejs_logo.svg
+image: /media/platforms/cyclejs.svg
 tags:
   - quickstart
 snippets:
@@ -17,5 +17,6 @@ snippets:
   use: client-platforms/cyclejs/use
   logout: client-platforms/cyclejs/logout
 seo_alias: cyclejs
+default_article: 01-login
 articles:
   - 01-login

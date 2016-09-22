@@ -168,13 +168,13 @@ startActivity(lockIntent);
 ```
 And you'll see our native login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
+![Lock Screenshot](/media/articles/libraries/lock-android/Lock-Widget-Android-Screenshot.png)
 
 > By default all social authentication will be done using an external browser, if you want native integration please check this [wiki page](/libraries/lock-android/native-social-authentication).
 
 ### Passwordless
 
-`LockPasswordlessActivity` authenticates users by sending them an Email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS/Email connection enabled and configured in your [dashboard](https://manage.auth0.com/#/connections/passwordless).
+`LockPasswordlessActivity` authenticates users by sending them an Email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS/Email connection enabled and configured in your [dashboard](${manage_url}/#/connections/passwordless).
 
 `LockPasswordlessActivity` is not included in `com.auth0:lock:aar` as it's part of the library `lock-passwordless`, but you can add it with this line in your `build.gradle`:
 ```gradle
@@ -243,7 +243,7 @@ LockPasswordlessActivity.showFrom(MyActivity.this, LockPasswordlessActivity.MODE
 
 and you'll see the **SMS** login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Android-Screenshot.png)](https://auth0.com)
+![Lock Screenshot](/media/articles/libraries/lock-android/Lock-SMS-Android-Screenshot.png)
 
 Passworless scenarios and types:
 

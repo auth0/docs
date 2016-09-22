@@ -1,5 +1,6 @@
 ---
 url: /rules
+description: Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. Rules allow you to easily customize and extend Auth0's capabilities. Rules can be chained together for modular coding and can be turned on and off individually.
 ---
 
 # Rules
@@ -35,7 +36,8 @@ Watch this video learn all about rules in just a few minutes.
 
 A Rule is a function with the following arguments:
 
-* `user`: the user object as it comes from the identity provider. (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure).) **Note:** The user object is excluded if you are changing the default `stage` of a rule. See [creating a Rule using the API](#creating-a-new-rule-using-the-api) for more details.
+* `user`: the user object as it comes from the identity provider (For a complete list of the user properties, see: [User Profile Structure](/user-profile/user-profile-structure)).
+
 * `context`: an object containing contextual information of the current authentication transaction, such as user's IP address, application, location. (A complete list of context properties is available here: [Context Argument Properties in Rules](/rules/context).)
 * `callback`: a function to send back the potentially modified `user` and `context` objects back to Auth0 (or an error).
 
@@ -43,7 +45,7 @@ A Rule is a function with the following arguments:
 
 ## Examples
 
-To create a Rule, or try the examples below, go to [New Rule](${uiURL}/#/rules/create) in the Rule Editor on the dashboard.
+To create a Rule, or try the examples below, go to [New Rule](${manage_url}/#/rules/create) in the Rule Editor on the dashboard.
 
 ### *Hello World*
 
@@ -113,7 +115,7 @@ After the rule executes, the output that the application will receive is the fol
 }
 ```
 
-> Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 API.
+> Properties added in a rule are __not persisted__ in the Auth0 user store. Persisting properties requires calling the Auth0 Management API.
 
 ### Deny access based on a condition
 
@@ -133,21 +135,19 @@ This will cause a redirect to your callback url with an `error` querystring para
 
 > Error reporting to the app depends on the protocol. OpenID Connect apps will receive the error in the querystring. SAML apps will receive the error in a `SAMLResponse`.
 
-### Creating a new Rule using the API
+### Creating a new Rule using the Management API
 
-Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](https://auth0.com/docs/api/management/v2#!/Rules/post_rules).
+Rules can also be created by creating a POST request to `/api/v2/rules` using the [Management APIv2](/api/management/v2#!/Rules/post_rules).
 
 This will creates a new rule according to the JSON object received in body, which contains:
 
 **name**: A `string` value, this field is the name of the rule. Can only contain alphanumeric characters, spaces and '-'. Can neither start nor end with '-' or spaces.
 
-**script**: A `string` value this is the script that contains the rule's code, as seen in some of the examples on this page. This is the same as what you would enter when creating a new rule using the [dashboard](${uiURL}/#/rules/create).
+**script**: A `string` value this is the script that contains the rule's code, as seen in some of the examples on this page. This is the same as what you would enter when creating a new rule using the [dashboard](${manage_url}/#/rules/create).
 
 **order**: This field is optional and contains a `number`. This number represents the rule's order in relation to other rules. A rule with a lower order than another rule executes first. If no order is provided it will automatically be one greater than the current maximum.
 
 **enabled**: This field can contain an optional `boolean`. If true if the rule will be turned on, false otherwise.
-
-**stage**: This field contains an optional `string`. This represents the rule's execution stage (it is defaulted to `login_success`). The possible options for this field are: 'login_success', 'login_failure' or 'user_registration'. **Note:** if you set the `stage` to either 'login_failure' or 'user_registration', in your script the function will not contain the `user` argument. 
 
 Example of a body schema:
 
@@ -156,8 +156,7 @@ Example of a body schema:
   "name": "my-rule",
   "script": "function (user, context, callback) {\n  callback(null, user, context);\n}",
   "order": 2,
-  "enabled": true,
-  "stage": "login_success"
+  "enabled": true
 }
 ```
 Use this to create the POST request:
@@ -172,14 +171,14 @@ Use this to create the POST request:
   }],
   "postData": {
     "mimeType": "application/json",
-    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {callback(null, user, context);}\",\"order\":2,\"enabled\":true,\"stage\":\"login_success\"}"
+    "text": "{\"name\":\"my-rule\",\"script\":\"function (user, context, callback) {callback(null, user, context);}\",\"order\":2,\"enabled\":true}"
   }
 }
 ```
 
 ## Debugging
 
-You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${uiURL}/#/rules/create)  provides two ways for seeing the output:
+You can add `console.log` lines in the rule's code for debugging. The [Rule Editor](${manage_url}/#/rules/create)  provides two ways for seeing the output:
 
 ![](/media/articles/rules/rule-editor.png)
 
@@ -187,7 +186,7 @@ You can add `console.log` lines in the rule's code for debugging. The [Rule Edit
 
 ![](/media/articles/rules/try-rule.png)
 
-2. **REALTIME LOGS**: an [extension](${uiURL}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
+2. **REALTIME LOGS**: an [extension](${manage_url}/#/extensions) that displays all logs in real-time for all custom code in your account. This includes all `console.log` output, and exceptions.
 
 3. **DEBUG RULE**: similar to the above, displays instructions for installing, configuring and running the [webtask CLI](https://github.com/auth0/wt-cli) for debugging rules. Paste these commands into a terminal to see the `console.log` output and any unhandled exceptions that occur during Rule execution.
 
@@ -215,18 +214,18 @@ This example, shows how to use the `global` object to keep a mongodb connection:
   ...
 
   //If the db object is there, use it.
-  if(!global.db){
-    return query(global.db,callback);
+  if (global.db){
+    return query(global.db, callback);
   }
 
   //If not, get the db (mongodb in this case)
   mongo('mongodb://user:pass@mymongoserver.com/my-db',  function (db){
     global.db = db;
-    return query(db,callback);
+    return query(db, callback);
   });
 
   //Do the actual work
-  function query(db,cb){
+  function query(db, cb){
     //Do something with db
     ...
   });

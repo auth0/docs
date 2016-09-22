@@ -4,7 +4,7 @@ alias:
   - relay
 languages:
   - Javascript
-image: /media/platforms/relay.png
+image: /media/platforms/relay.svg
 tags:
   - quickstart
 snippets:

@@ -19,6 +19,10 @@ The following is a set of guidelines for contributing to the Auth0 documentation
   * [Screenshots](#screenshots)
   * [Front Matter](#front-matter)
 
+[Finishing](#finishing)
+
+[Editing Text](#editing-with-wordy)
+
 [Test Procedures](#text-procedures)
 
 [Review Apps](#review-apps)
@@ -47,7 +51,7 @@ The following is a set of guidelines for contributing to the Auth0 documentation
 * Always use relative URLs for internal `auth0.com/docs` links. For example, if the absolute path to the document is `https://auth0.com/docs/identityproviders`, use `/identityproviders`. These links will be correctly formatted in the build process.
 * Do not hard code links to Auth0 sites like `docs.auth0.com` or `manage.auth0.com`. Instead, use [Parameter Aliases](#parameter-aliases), such as `${uiUrl}`.
 * Name files with all lowercase using dashes (-) to separate words. If using a date in the file name, it should be in the format YYYY-MM-DD. For example, `this-is-my-file.md` or `this-is-a-title-2015-10-01.md`.
-* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process.
+* Do not store images in external locations like Dropbox, CloudUp, or the Auth0 CDN. Link to images in this repo using a relative path `![ALT_TEXT](/media/folder/image-name.png)`. The image will be uploaded to the CDN and the link will be formatted during the build process. Do not forget to set the alternate text for each image.
 * Keep images to no more than 750 pixels wide.
 * Screenshots of the Auth0 dashboard including the browser window with dropshadow can be up to 900 pixels wide to maintain legibility.
 * Run all images through [TinyPNG](https://tinypng.com/).
@@ -169,14 +173,16 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```bash
   osascript -e 'tell application "Chrome" to set the bounds of the front window to {100, 150, 1200, 900}'
   ```
- 1. Auth0 screenshots should capture the complete browser window (**Control + Shift + 4**, then press **Space**).
+ 1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
  2. Resize image to a maximum 900px width.
 
  Example:
 
  ![Sample CDN image](https://cdn.auth0.com/docs/img/chrome-sample-screenshot.png)
- 
+
+ **NOTE**: When you use the `Command + Shift + 4 + Space bar` shortcut Mac adds a drop shadow to your screenshot. This is normal and you don't have to remove it.
+
 #### Mobile Screenshots
 For mobile screenshots you should use the [Phone Mockup](http://styleguide.auth0.com/#phone-mockup) component from styleguide.
 
@@ -211,6 +217,52 @@ url: /path/to/document
 ---
 ```
 
+## Finishing
+
+Prior to submitting your pull request, please check and edit your work. You should:
+
+* Edit your text using [Wordy](#editing-with-wordy);
+* Run through [testing procedures](#test-procedures);
+* [Build a review app](#review-apps) (if necessary) to ensure that the build will success once your changes are merged.
+
+## Editing with Wordy
+
+Prior to submitting a pull request, please have your work edited by [Wordy](http://wordy.com).
+
+To create and submit a job to Wordy:
+
+1. Have your content ready in a common file format, such as `.doc`, `.rtf`, `.txt`, `.pdf`, `.xls`, `.html`, or `.tex`. You may also choose to paste in your text.
+2. Log in to Wordy.
+3. Under the **Jobs** page, click on **Create New Job**.
+
+  ![](media/readme/create-job.png)
+
+4. Provide the requested information so that your editor is clear on what needs to be done.
+
+  ![](media/readme/job-settings.png)
+
+  You will need to provide the following pieces of information:
+  * **Language**: Set to *English (US)*.
+  * **Content rewrite**: Select this option if you are okay with your editor rewriting your text for improved flow and natural use of langauge. If this option is *not* selected, your editor will simply check for spelling, grammar, punctuation, consistency, and structure.
+  * **Brief to editor**: Provide any information you'd like your editor to keep in mind when editing your work. For a starter snippet, please see our sample on [Notes to Wordy Editors](wordy-guide.md)
+  * **Save my brief and language settings for future jobs**: Select this box to persist your chosen settings.
+5. Upload files. You may choose to upload external files containing your text or paste in the text you want edited.
+6. After you've completed the above steps, you'll get an instant price quote and an approximate delivery time for your job. If this is acceptable to you, click on **Create Job** to begin the editing process.
+
+### Word Count and Wordy Submissions
+Wordy charges based on total word count, which includes code snippets. If possible, remove code snippets prior to submitting your document to Wordy.
+
+### Instructions for Editors
+It is helpful to include some instructions for the Wordy editors to let them know that the articles may have words that seem out of place because the article is about technology.
+
+> Please edit for spelling and grammar. Audience consists of programmers and technology readers. Grammar, casing, spelling etc will seem weird in some cases, especially with uses of the word "this", but chances are that those are cases of programming jargon or naming. The final article will include code snippets that have been removed from the text for brevity. Instead, a placeholder called CODE_SNIPPET has been used.
+
+### Notes
+
+* You can cancel a job if it hasn’t been picked up by an editor. If the job has been picked up, you can contact the editor and request a cancellation, though it is at the editor's discretion whether or not to cancel the job.
+* During the editing process, you can contact your editor from the job's page. You can include last-minute instructions, corrections, and so on. Conversely, your editor can contact you during the process if they have any questions about your text. You will be notified by email if you receive any messages.
+* If you are unsatisfied with the work completed by your editor, you can send your work back. This includes issues where you find errors in the text or the instructions in your brief haven't been followed. You can contact your editor by using the **Conversation History** feature on the job's page.
+
 ## Test Procedures
 When testing a document or tutorial:
 
@@ -241,6 +293,7 @@ All quickstart data comes directly from the docs API at `/meta/quickstart`. This
 ---
 title: Quickstart Name
 image: //cdn.auth0.com/path/to/icon.png
+logo_name: name # Optional, for overriding the logo used to display the quickstart. Use the data-name attribute for the badges here: http://styleguide.auth0.com/#resources
 thirdParty: true|false  # For server apis only
 hybrid: true|false # For native platforms only
 snippets:
@@ -258,6 +311,8 @@ For each quickstart, you must specify the snippets and create the associated sni
 ```md
 ${snippet(meta.snippets.use)}
 ```
+
+**NOTE:** You only need to use these three snippets. The rest of the quickstart snippets should be inlined unless you are sharing them.
 
 For each article inside a quickstart you create a markdown file for the article as well as add it to the `articles` list in the `index.yml` file.
 
@@ -390,46 +445,37 @@ In the case of things like iOS and Android samples, we should build with multipl
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
-Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
+Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package2` include.
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
-| String | Description |
-| :------| :-----------|
-| `AUTH0_CLIENT_ID` | This sets the client ID of the currently selected application. |
-| `AUTH0_CLIENT_SECRET` | This sets the client secret of the currently selected application. |
-| `AUTH0_DOMAIN` | This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
-| `AUTH0_CALLBACK_URL` | This sets the callback url for the application. |
-| `MOBILE_CUSTOM_SCHEME` | This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
-| `RANDOM_STRING_64` | This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+These values can be replaced in any file in the repo. Common examples of where you would include these values are in a `.env` file or `auth0-variables.js` file.
 
-There are four types of packaging that can happen with this service.
+| Key Name | Replace Value | Description |
+| :------| :-----------| :-----------|
+| `CLIENT_ID` | `{{CLIENT_ID}}` | This sets the client ID of the currently selected application. |
+| `CLIENT_SECRET` | `{{CLIENT_SECRET}}` |  This sets the client secret of the currently selected application. |
+| `DOMAIN` | `{{DOMAIN}}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `TENANT` | `{{TENANT}}` | The tenant name of the currentAuth0 account.
+| `CALLBACK_URL` | `{{CALLBACK_URL}}` |  This sets the callback url for the application. |
+| `MOBILE_CUSTOM_SCHEME` | `{{{MOBILE_CUSTOM_SCHEME}}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `RANDOM_STRING_64` | `{{RANDOM_STRING_64}}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
-1. `server` - This creates a `.env` file in the sample project with the configuration values set. The output file will contain the following.
-  ```
-  AUTH0_CLIENT_ID=VALUE
-  AUTH0_CLIENT_SECRET=VALUE
-  AUTH0_DOMAIN=VALUE
-  AUTH0_CALLBACK_URL=VALUE
-  ```
-2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
-  ```
-  var JS_CLIENT_ID='VALUE';
-  var JS_CALLBACK_URL='VALUE';
-  var JS_DOMAIN='VALUE';
-  ```
-3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
-4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.
+
+Example `.env` file:
+```
+AUTH0_CLIENT_ID={{CLIENT_ID}}
+AUTH0_DOMAIN={{DOMAIN}}
+AUTH0_CLIENT_SECRET={{CLIENT_SECRET}}
+```
+
+##### Include Code
 
 ```
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/sample-project',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/nodejs-regular-webapp',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'node-auth0',
+  path: 'examples/nodejs-regular-webapp'
 }) %>
 ```
 
@@ -438,13 +484,9 @@ The follow are the values for the package configuration.
 
 | Variable  | Description |
 | :---------------------------- | :----------------------------------------- |
-| `githubUrl` | The url to the github project. This will be used in the "Fork on Github" button. |
-| `pkgOrg` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
-| `pkgRepo` | The name of the github repository. |
-| `pkgBranch` | Optional. The branch of the repo to download from. Defaults to `master`. |
-| `pkgPath` | The path where the sample is contained. This will be the folder that gets downloaded. |
-| `pkgFilePath` | Optional. The path to the file to run the replacement on. i.e. the path to a config file. |
-| `pkgType` | The type of processing to perform on the page. Valid options are `server`, `js`, `replace`, and `none`. See above. |
+| `org` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
+| `repo` | The name of the github repository. |
+| `path` | The path where the sample is contained. This will be the folder that gets downloaded. |
 
 ## Updates Feed
 Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.
@@ -555,13 +597,11 @@ When writing docs you can use the following variables instead of hard-coding the
 
 | Variable  | Description | Default Value |
 | :---------------------------- | :----------------------------------------- | :-------------------------------------- |
-| `uiURL`                       | The url to the management portal.          | `https://manage.auth0.com`              |
+| `manage_url`                       | The url to the management portal.          | `https://manage.auth0.com`              |
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
 | `auth0js_url_no_scheme`       | The url to the auth0.js CDN location without the 'https:'. | |
-| `auth0_angular_url`           | The url to the auth0 angular script CDN location. | |
-| `auth0_angular_url_no_scheme` |  The url to the auth0 angular script in the CDN location without the 'https://'. | |
-| `widget_url`                  | The url to the Lock script CDN location.   | |
-| `widget_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
+| `lock_url`                  | The url to the Lock script CDN location.   | |
+| `lock_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
 | `browser`       | Displays a browser window with Lock. | |
 | `lockSDK`       | Displays a browser window with Lock and a dropdown with the options to trigger login. | |

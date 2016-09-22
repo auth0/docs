@@ -10,5 +10,6 @@ image: /media/platforms/emberjs.png
 tags:
   - quickstart
 seo_alias: emberjs
+default_article: 01-login
 articles:
   - 01-login

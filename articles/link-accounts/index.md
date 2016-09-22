@@ -1,5 +1,7 @@
 ---
 url: /link-accounts
+title: Linking User Accounts
+description: Auth0 supports the linking of user accounts from various identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 ---
 
 # Linking Accounts
@@ -8,7 +10,7 @@ Auth0 supports the linking of user accounts from various identity providers, all
 
 Note that Auth0 will treat all identities as separate by default. For example: if a user logs in first against the Auth0 database and then via Google or Facebook, these two attempts would appear to Auth0 as two separate users.
 
-You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.  
+You can implement functionality to enable a user to explicitly link accounts.  In this scenario, the user would log in with an initial provider, perhaps Google. Your application would provide a link or button to enable them to link another account to the first one.  The user would click on this link/button and your application would make a call so that when the user logs in with the second provider, the 2nd account is linked with the first.
 
 ## Advantages of linking accounts
 
@@ -142,7 +144,7 @@ Note that as a result of linking these accounts:
 * The `user_metadata` and `app_metadata` of the primary account is unchanged.
 * The `user_metadata` and `app_metadata` of the secondary account is discarded.
 * There is no automatic merging of user profiles with associated identities.
-* The secondary account is removed from the users list. 
+* The secondary account is removed from the users list.
 
 #### Merging Metadata
 
@@ -150,9 +152,9 @@ As stated above, [user_metadata and app_metadata](/api/v2/changes#app-_metadata-
 
 The [Auth0 Node.js SDK for APIv2](https://github.com/auth0/node-auth0/tree/v2) is also available. You can find sample code for merging metadata before linking using this SDK [here](/link-accounts/suggested-linking#4-verify-and-merge-metadata-before-linking).
 
-## The API
+## The Management API
 
-The Auth0 API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways:
+The Auth0 Management API V2 provides a [Link a user account endpoint](/api/v2#!/Users/post_identities), which can be invoked in two ways:
 
  1. With the JWT from both the primary and secondary accounts:
 
@@ -191,7 +193,7 @@ Below are implementation details for calling the Linking Account API in these sc
 
 **Auth0 does not support automatic linking**, per se. However, you can implement automatic linking by setting up a [Rule](/rules) that will link accounts with the same e-mail address. For security purposes, it is best to link accounts **only if both e-mails are verified**.
 
-The rule is an example of linking accounts in server-side code using the Auth0 API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [API V2 token](/api/v2/tokens) with `update:users` scope.
+The rule is an example of linking accounts in server-side code using the Auth0 Management API [Link a user account endpoint](/api/v2#!/Users/post_identities) where you have both the primary and secondary user ids and an [Management API v2 token](/api/v2/tokens) with `update:users` scope.
 
 **NOTE:** For starting point, see [Link Accounts with Same Email Address](https://github.com/auth0/rules/blob/master/rules/link-users-by-email.md).
 
@@ -213,18 +215,20 @@ As with automatic linking, in this scenario you will set up a [Rule](/rules) tha
 
 ## Unlinking accounts
 
-The Auth0 API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
+The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) which can be used with either of these two **scopes**:
 
 * `update:current_user_identities`: when calling the endpoint from client-side code where you have the primary user's JWT (which comes with this scope).
-* `update:users`: when calling the endpoint from server-side code where you need to generate an [API V2 TOKEN](/api/v2/tokens) having this scope.
+* `update:users`: when calling the endpoint from server-side code where you need to generate an [Management API v2 TOKEN](/api/v2/tokens) having this scope.
 
 ```
 DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
 Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 ```
 
-As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account. The endpoint returns the updated array of identities.
+As a result of unlinking the accounts, the secondary account is removed from the identities array of the primary account, and a new secondary user account is created. This means that if, for example, a user was `john@example.com` using Facebook to login, and used the same email address to login via Linkedin, and then unlinked those accounts, then you will end up with two separate accounts; both using `john@example.com`, one for each identity provider in question.
 
-If the unlinked account is from an external provider (i.e. Facebook, Google), it was never removed from the identity provider, and so you can still use it to authenticate. When you login again with that account, it will be re-created in Auth0 as a new separate user.
+::: panel-warning Unlinking - Metadata
+Note that any metadata stored in the primary user account will not be in the secondary account when unlinked. When accounts are linked, the secondary account's metadata is not linked; thus, when unlinked and the secondary account becomes separated again, it will have no metadata.
+:::
 
-If, however, the unlinked account is an Auth0 database account, the account is not completely deleted, but is no longer visible in the Management dashboard, making it impossible to edit the unlinked account or remove it in order to recreate that user. We are aware that this is a less than ideal behavior, and are working on a more predictable and manageable solution to handle unlinked accounts.
+If your goal is to delete the secondary identity entirely, you'll want to first unlink the accounts, and then delete the newly (re)created secondary account.

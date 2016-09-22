@@ -25,8 +25,15 @@ snippets:
   loginviewcustom: native-platforms/ionic/loginview-custom
   use: native-platforms/ionic/use
 seo_alias: ionic
+default_article: 01-login
 articles:
   - 00-intro
   - 01-login
   - 02-custom-login
   - 03-user-profile
+  - 04-linking-accounts
+  - 05-rules
+  - 06-authorization
+  - 07-calling-api
+  - 08-mfa
+  - 09-customizing-lock

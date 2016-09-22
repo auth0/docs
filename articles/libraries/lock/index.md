@@ -1,26 +1,21 @@
 ---
 url: /libraries/lock
+description: Lock 10 is the easiest and best way to secure your web applications! This widget is a simple way to integrate Auth0 into existing projects and provide the frictionless login and signup experience that you want for your app.
 ---
 
-::: panel-info Lock Version
-Heads up! This document is using the latest version of Lock (version 10). See changes from the old version in the [new features](/libraries/lock/v10/new-features) page, see a learn how to migrate from version 9 to version 10 in the [migration guide](/libraries/lock/v10/migration-guide), or see the [Lock 9 Documentation](/libraries/lock/v9) if you're looking for information about Lock 9.
-:::
+<%= include('/_includes/_lock-version') %>
 
-[![Auth0](https://cloudup.com/c2evgl2cz3j+)](http://auth0.com)
+# Lock
 
-[Auth0][auth0-main] is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps, Salesforce.
+You're looking at the documentation for the _easiest_ way of securing your website and mobile apps! 
 
-Lock makes it easy to integrate SSO in your app. You won't have to worry about:
+Lock is an embeddable login form, which is [configurable to your needs][lock-customization] and ready for use on mobile devices. It's easier than ever to add social identity providers to Lock, as well, allowing your users to login seamlessly using whichever providers make sense for your application. Check out one of the pages listed below to delve into details about Lock usage, if you know what you are looking for, or continue down this page for a basic installation and usage guide!
 
-* Having a professional looking login dialog that displays well at any resolution and on any device
-* Finding the right icons for popular social providers
-* Remembering what identity provider the user chose on their last login
-* Solving the home realm discovery challenge with enterprise users (having to ask enterprise users for their email, and then attempting to redirect to the right enterprise identity provider)
-* Implementing a standard sign in protocol (OpenID Connect / OAuth2 Login)
+<%= include('/_includes/_lock-toc') %>
 
-## Installation and Dependencies
+## Lock 10 Installation
 
-Let's get started with Lock! You can install Lock 10 via several methods. Pick one of the following installation sources; whichever best suits your environment and appliation.
+You can install Lock 10 via several methods. Select any of the following installation sources that best suit your environment and application.
 
 ### Installation Sources
 
@@ -40,17 +35,17 @@ Include via our CDN:
 
 ```html
 <!-- Latest minor release -->
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 
 <!-- Latest patch release (recommended for production) -->
 <script src="http://cdn.auth0.com/js/lock/10.x.y/lock.min.js"></script>
 ```
 
-_Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock) for production environments_
+**NOTE**: Replace `.x` and `.y` with the latest minor and patch release numbers from the [Lock Github repository](https://github.com/auth0/lock) for production environments.
 
 ### Mobile
 
-If you are targeting mobile audiences, it's recommended that you add the following meta tag to your application's `head`:
+If you are targeting mobile audiences, Auth0 recommendeds that you add the following meta tag to your application's `head`:
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
@@ -58,7 +53,7 @@ If you are targeting mobile audiences, it's recommended that you add the followi
 
 ### Bundling Dependencies
 
-If using browserify or webpack to build your project and bundle its dependencies, after installing the `auth0-lock` module, you'll need bundle it up along with all of its dependencies. We have examples for [Browserify][example-browserify] and [webpack][example-webpack].
+If you are using browserify or webpack to build your project and bundle its dependencies, after installing the `auth0-lock` module, you will need to bundle it with all its dependencies. Examples are available for [Browserify][example-browserify] and [webpack][example-webpack].
 
 ## Usage
 
@@ -80,13 +75,13 @@ lock.on("authenticated", function(authResult) {
       return;
     }
 
-    localStorage.setItem('token', authResult.idToken);
+    localStorage.setItem('idToken', authResult.idToken);
     localStorage.setItem('profile', JSON.stringify(profile));
   });
 });
 ```
 
-### Showing the Lock
+### Showing Lock
 
 ```js
 document.getElementById('btn-login').addEventListener('click', function() {
@@ -114,72 +109,35 @@ function showLoggedIn() {
  <h2>Welcome <span id="nick" class="nickname"></span></h2>
 ```
 
-This is just one example of how **Lock 10** could work with a **Single Page Application** (_SPA_). Take a look at our [API reference][lock-api] and [customization options][lock-customization] to see how Lock can be adjusted to provide frictionless authentication for your app!
+**NOTE**: This example demonstrates using Lock 10 with a Single Page Application (SPA). To learn how Lock can be modified to provide frictionless authentication for any app, see the [API Reference][lock-api] and the [Configuration Options Reference][lock-customization]. For details specifically about customizing the look and feel of Lock in your app, please take a look at the [UI Customization][ui-customization] page.
 
-## API Reference
-
-The [API reference][lock-api] provides more comprehensive documentation of the API and its various available methods, and the [Customization reference][lock-customization] details out the different options that you have for customizing Lock to meet your specific needs.
-
-## Using auth0.js
-
-If you have a need to use `auth0.js` alongside of Lock, you will find that you cannot use `getClient()` in Lock 10 - instead, you can just instantiate a new `Auth0` object.
-
-To get `Auth0` with Lock, if you included the script from our CDN or installed Lock from bower, you merely have to instantiate your object (see below). 
-
-**If you installed Lock from npm**, you will have to include `auth0-js` in your project's dependencies and import it. Before instantiating your `Auth0` object, you'll need to require `auth0-js`:
-
-```js
-var Auth0 = require('auth0-js');
-```
-
-In either case, you then simply use `auth0.js` by instantiating a new Auth0 object, as below.
-
-```js
-var client = new Auth0({
-  domain:       '${account.namespace}',
-  clientID:     '${account.clientId}',
-  callbackURL:  '{YOUR APP URL}',
-  callbackOnLocationHash: true
-});
-```
-
-## Start using Lock!
+## Start Using Lock
 
 ${lockSDK}
 
 ## Browser Compatibility
 
-We ensure browser compatibility in `Chrome`, `Safari`, `Firefox` and `IE >= 9`. We currently use [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
+Browser compatibility is ensured for **Chrome**, **Safari**, **Firefox** and **IE >= 9**. Auth0 currently uses [zuul](https://github.com/defunctzombie/zuul) along with [Saucelabs](https://saucelabs.com) to run integration tests on each push.
 
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
-## Resources
-
-* [Lock 9 to Lock 10 Migration Guide][migration-guide]
-* [Complete API][lock-api]
-* [Embedding Lock (Instead of a Modal)][display-modes]
-* [i18n][i18n-notes] notes. **Languages and Custom Text**
-* [Popup Mode][popup-mode] is an advanced option and is not recommended for most use cases
-* [Development][development-notes] notes.
-* [Release process][release-process] notes.
-* [Migration guide][legacy-migration-guide] for users of the Legacy **Auth0Widget** to migrate to **Auth0Lock**
-
-<!-- Variables-->
+<!--vars-->
 
 [auth0-main]: https://auth0.com
 [playground-url]: http://auth0.github.com/playground
-[migration-guide]: /libraries/lock/v10/migration-guide
 [new-features]: /libraries/lock/v10/new-features
-[example-browserify]: https://github.com/auth0/lock/blob/v10/examples/bundling/browserify
-[example-webpack]: https://github.com/auth0/lock/blob/v10/examples/bundling/webpack
-[lock-customization]: /libraries/lock/v10/customization
-[lock-api]: /libraries/lock/v10/api
+[example-browserify]: https://github.com/auth0/lock/tree/master/examples/bundling/browserify
+[example-webpack]: https://github.com/auth0/lock/tree/master/examples/bundling/webpack
 [display-modes]: /libraries/lock/v10/customization#container
 [development-notes]: https://github.com/auth0/lock
 [release-process]: https://github.com/auth0/lock
 [sending-authentication-parameters]: /libraries/lock/v10/sending-authentication-parameters
-[legacy-migration-guide]: /libraries/lock/v9/migration-guide
+
+[getting-started]: /libraries/lock#lock-10-installation
+[lock-customization]: /libraries/lock/v10/customization
+[ui-customization]: /libraries/lock/v10/ui-customization
+[lock-api]: /libraries/lock/v10/api
+[lock-auth0js]: /libraries/lock/v10/auth0js
+[lock-issues]: /libraries/lock/v10/issues
+[migration-guide]: /libraries/lock/v10/migration-guide
 [i18n-notes]: /libraries/lock/v10/i18n
 [popup-mode]: /libraries/lock/v10/popup-mode
+

@@ -4,16 +4,17 @@ The _Auth0 Logs to Splunk_ is a scheduled job that takes all of your Auth0 logs 
 
 ## Configuring the Extension
 
-To install and configure this extension, click on the _Auth0 Logs to Splunk_ box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}). The _Install Extension_ window pops open.
+To install and configure this extension, click on the _Auth0 Logs to Splunk_ box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}). The _Install Extension_ window pops open.
 
 ![](/media/articles/extensions/splunk/extension-mgmt-splunk.png)
 
 At this point you should set the following configuration variables:
 
 - **Schedule**: How often the job will run. The schedule can be customized even further after creation.
-- **SPLUNK_URL**: Your Splunk HTTP Collector Endpoint. 
+- **SPLUNK_URL**: Your Splunk Cloud URL. 
 - **SPLUNK_TOKEN**: Your Splunk Token.
 - **SPLUNK_COLLECTOR_PORT**: The Port of your HTTP Collector Endpoint.
+- **SPLUNK_COLLECTOR_PATH**: The [HTTP Collector Endpoint](http://dev.splunk.com/view/event-collector/SP-CAAAE7H) to be used. If you use the `/raw` endpoint, make sure to append a channel as a querystring parameter, like this: `/services/collector/raw?channel=FE0ECFAD-13D5-401B-847D-77833BD77131`. More information can be found in the [Splunk documentation](http://dev.splunk.com/view/event-collector/SP-CAAAE8Y).
 - **BATCH_SIZE**: The ammount of logs to be read on each execution. Maximun is 100.
 - **LOG_LEVEL**: The minimal log level of events that you would like sent to Splunk.
 - **LOG_TYPES**: The events for which logs should be exported.
@@ -85,7 +86,7 @@ Save your changes. A new CRON job is created and will be executed according to t
 
 ## Using Your Installed Extension
 
- To view all scheduled jobs, navigate to the [Extensions](${uiURL}/#/extensions) page of the [Management Portal](${uiURL}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Splunk* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
+ To view all scheduled jobs, navigate to the [Extensions](${manage_url}/#/extensions) page of the [Management Portal](${manage_url}), click on the *Installed Extensions* link, and select the *Auth0 Logs to Splunk* line. There you can see the job you just created, modify its state by toggling the *State* switch, see when the next run is due and what was the result of the last execution. 
 
 ![](/media/articles/extensions/splunk/view-cron-jobs.png)
 
@@ -93,7 +94,7 @@ You can view more details by clicking on the job you created. In this page you c
 
 ![](/media/articles/extensions/splunk/view-cron-details.png)
 
-That's it, you are done! When the CRON job has executed at least one you can now navigate to your _Splunk Cloud URL_ and view your [Auth0 Logs](${uiURL}/#/logs). Follow the same steps as before to search for the data associated with your host (Search & Reporting > Data Summary > select host).
+That's it, you are done! When the CRON job has executed at least one you can now navigate to your _Splunk Cloud URL_ and view your [Auth0 Logs](${manage_url}/#/logs). Follow the same steps as before to search for the data associated with your host (Search & Reporting > Data Summary > select host).
 
 ![](/media/articles/extensions/splunk/auth0-logs-at-splunk.png)
 

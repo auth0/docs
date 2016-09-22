@@ -1,14 +1,7 @@
 ---
 title: Linking Accounts
-description: This tutorial will show you how to integrate Auth0 with ReactJS to link accounts.
+description: This tutorial demonstrates how to integrate Auth0 with ReactJS to link accounts.
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
-* NPM 3.3.12
-* React 15.0.2
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
@@ -16,8 +9,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
@@ -26,7 +18,7 @@ In this step, you will modify the application you created in the [User Profile](
 
 ## 1. Show Linked Accounts Information
 
-The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${uiURL}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**. 
+The user profile contains an array of identities which consists of profile information from all linked providers. You can verify this by accessing the Auth0 [Users page](${manage_url}/#/users), selecting a user and scrolling down to `identities` under **Identity Provider Attributes**. 
 
 This is how a profile looks after linking to Gmail:
 

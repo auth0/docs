@@ -24,11 +24,11 @@ Provide a name for your app.
 
 In the **Site address** field, enter the following:
 
-`https://${account.tenant}.auth0.com`
+`https://${account.namespace}`
 
 In the **Base domain** field, enter the following:
 
-`${account.tenant}.auth0.com`
+`${account.namespace}`
 
 ![](/media/articles/connections/social/vkontakte/vkontakte-create-app.png)
 
@@ -45,7 +45,7 @@ Once the application is created, select **Settings** in the left nav.
 
 In the **Authorized redirect URI** field, enter the following:
 
-`https://${account.tenant}.auth0.com/login/callback`
+`https://${account.namespace}/login/callback`
 
 Click **Save**.
 
@@ -59,7 +59,7 @@ From the top of the same page, copy the `Application ID` and `Secure Key` for us
 
 ## 4. Enter your *Application ID* and *Secure Key* into Auth0
 
-In a separate window, go to the [Connections > Social](${uiURL}/#/connections/social) section of the Auth0 dashboard.
+In a separate window, go to the [Connections > Social](${manage_url}/#/connections/social) section of the Auth0 dashboard.
 
 Select **vKontakte**:
 

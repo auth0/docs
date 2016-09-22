@@ -19,7 +19,7 @@ First, the user will authenticate to the Single Page App using either [Lock](htt
 The following is a sample login using Lock:
 
 ```js
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">  
   //Log in using Lock in Redirect Mode
   function login(){
@@ -65,7 +65,7 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
  * Handling the second authentication with Lock:
 
   ```js
-  <script src="${widget_url}"></script>
+  <script src="${lock_url}"></script>
   <script type="text/javascript">
     var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
   
@@ -137,9 +137,9 @@ When the user clicks on any of the **Link Account** buttons, your app will trigg
   <button onclick="linkPasswordlessSMS()">SMS</a>
   ```
 
-## 3. Perform linking by calling the Auth0 API 
+## 3. Perform linking by calling the Auth0 Management API 
 
-In the `linkAccount` function, call the API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using both of the JWTs:
+In the `linkAccount` function, call the Management API V2 [Link a user account endpoint](/api/v2#!/Users/post_identities) using both of the JWTs:
 
 ```js
 function linkAccount(secondaryJWT){
@@ -171,7 +171,7 @@ Also, you can select which identity will be used as the primary account and whic
 
 ## 4. Unlinking accounts
 
-For unlinking accounts, invoke the API V2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
+For unlinking accounts, invoke the Management API v2 [Unlink a user account endpoint](/api/v2#!/Users/delete_provider_by_user_id) using the JWT from the primary account for authorization:
 
 ```js
 function unlinkAccount(secondaryProvider, secondaryUserId){

@@ -1,4 +1,4 @@
-<div id="package" class="package">
+<div id="package" class="package" data-swiftype-index="false">
   <div class="row">
     <div class="info">
       <i class="icon-budicon-715"></i>
@@ -26,9 +26,9 @@
       <a href="/package/${pkgRepo}/${pkgBranch}?org=${pkgOrg}&path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
       <% } else { %>
       <a href="/package/${pkgRepo}/${pkgBranch}?org=${pkgOrg}&path=${pkgPath}&file_path=${pkgFilePath}&type=${pkgType}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <a href="https://github.com/${pkgOrg}/${pkgRepo}/tree/master/${pkgPath}" target="_blank" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
       <% } %>
-    <% } %>
-    <% if (typeof githubUrl != 'undefined') { %>
+    <% } else if (typeof githubUrl != 'undefined') { %>
       <a href="${githubUrl}" target="_blank" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
     <% } %>
     </div>

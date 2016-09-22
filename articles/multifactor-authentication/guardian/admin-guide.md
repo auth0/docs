@@ -12,7 +12,7 @@ For information for your users on Guardian, how to download the app, and common 
  
 ## Support for Push Notifications
 
-To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
+To enable Push Notifications MFA for sign in and sign up for your application by your users, go to the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Then toggle the **Push Notification** slider to enable it.
 
 ![](/media/articles/mfa/guardian-dashboard.png)
 
@@ -34,7 +34,7 @@ Users that were previously registered before you enabled MFA will need to comple
 
 ## Support for SMS
 
-You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications. 
+You can enable SMS messages to use as a form of multifactor authentication. This is also under the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. By toggling the **SMS** slider, you can enable using SMS for sign in and sign up for your application. SMS can be used as your only form of MFA or in addition to Push Notifications. 
 
 Your users must have a device capable of using SMS to use this option. If your users are unable to always receive SMS messages (such as when traveling), they will be unable sign up with SMS and unable to login without the recovery code.
 
@@ -103,7 +103,7 @@ Once you have finished making your desired changes, click **Save**.
 
 ## Customizing the Guardian Screen
 
-You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate setting changes from the Guardian page's link to [Account Settings](${uiURL}/#/account). You can also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting **Account Settings** from the dropdown menu.
+You may change the logo and the friendly name that is displayed to your users. To do so, make the appropriate setting changes from the Guardian page's link to [Account Settings](${manage_url}/#/account). You can also reach the Account Settings page by clicking on your user name on the top right of the page and then selecting **Account Settings** from the dropdown menu.
  
 ![](/media/articles/mfa/guardian-logo-and-name-settings.png)
 
@@ -114,7 +114,7 @@ Auth0 recommends using a logo image that is at least 100x100 pixels, although an
 
 ## Tracking your Users MFA Events 
 
-In the [Logs](${uiURL}/#/logs) section of the dashboard, you can see the various events related to your users signing up and signing in using MFA.
+In the [Logs](${manage_url}/#/logs) section of the dashboard, you can see the various events related to your users signing up and signing in using MFA.
 
 ![](/media/articles/mfa/logs.png)
  
@@ -138,7 +138,7 @@ Here are all the possible events related to MFA:
 | `gd_otp_rate_limit_exceed` | When One Time Password fails validation because rate limit is exceeded |
 | `gd_recovery_rate_limit_exceed` | When recovery validation fails because rate limit is exceeded |
  
-These events can also be searched using the [APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
+These events can also be searched using the [Management APIv2](/api/management/v2#!/Logs) using [query string syntax](/api/management/v2/query-string-syntax). You can search criteria using the `q` parameter or you can search by a specific log ID.
 
 ### Examples searching with the `q` parameter
 
@@ -156,7 +156,7 @@ If a user has lost their mobile device, they will need their recovery code to be
 
 To reset a user's MFA:
 
-1.  Find and select the user in the [Users](${uiURL}/#/users) section of the dashboard.
+1.  Find and select the user in the [Users](${manage_url}/#/users) section of the dashboard.
 2. Once you have selected the affected user, click on the **Actions** button on the top right of the screen. 
 3. Select **Reset Multi Factor (Auth0)** from the dropdown.
 4. There will be a pop up box to confirm your decision.  Click **YES, RESET IT** to reset the user's MFA.
@@ -167,6 +167,6 @@ The next time the user logs in they will need to re-setup their MFA just like a 
 
 ## Disabling Guardian and other MFA
 
-Guardian, and other types of MFA, can be disabled from the [Multifactor Auth](${uiURL}/#/guardian) section of the dashboard. Toggle the button to disabled for the type of MFA you wish to turn off. A confirmation popup will appear.
+Guardian, and other types of MFA, can be disabled from the [Multifactor Auth](${manage_url}/#/guardian) section of the dashboard. Toggle the button to disabled for the type of MFA you wish to turn off. A confirmation popup will appear.
 
 By disabling a type of MFA, you will un-enroll all your current users of that type of MFA. They will be asked to re-enroll next time they try to login. This action cannot be reverted.

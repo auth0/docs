@@ -1,15 +1,17 @@
-# Metadata in Rules
+---
+description: How to use metadata in rules.
+---
 
-Auth0 allows you to store data related to each user that has not come from the identity provider. This is known as metadata. There are two kinds of metadata, **user_metadata** and **app_metadata**. You can read about both of these at [app_metadata and user_metadata](/api/v2/changes#app-_metadata-and-user-_metadata).
+# User Metadata in Rules
 
-This article explains how to work with metadata in [Rules](/rules) code. 
+This article explains how to [read](#reading-metadata), [update](#updating-metadata) and [delete](#deleting-metadata) [metadata](/metadata) using [Rules](/rules).
 
-Each sample rule in this article assumes the user is represented by the following JSON:
+Each sample rule in this article assumes that the user and their information is represented by the following JSON snippet:
 
 ```json
 {
-  "user_id": "google-oauth2|1234",
-  "email": "john.doe@gmail.com",
+  "user_id": "jdoe",
+  "email": "john.doe@example.com",
   "app_metadata": {
     "roles": [ "writer" ]
   },
@@ -21,26 +23,25 @@ Each sample rule in this article assumes the user is represented by the followin
 }
 ```
 
-## Reading metadata
+## Reading Metadata
 
-To read metadata from a rule, you only need to access the correct user property.
+To read the available metadata, you will need to access the correct user property.
 
-### Reading app_metadata
+### Reading `app_metadata`
 
-To make a decision based on the user's roles, you would write the following code:
+Make a decision based on the user's roles:
 
 ```js
 function(user, context, callback){
   user.app_metadata = user.app_metadata || {};
   if (user.app_metadata.roles.indexOf('writer')){
-    // this code would be executed for the user
+    // code to be executed
   }
-
   ...
 }
 ```
 
-### Reading user_metadata
+### Reading `user_metadata`
 
 Similarly, you can use the color preference:
 
@@ -48,27 +49,26 @@ Similarly, you can use the color preference:
 function(user, context, callback){
   user.user_metadata = user.user_metadata || {};
   if (user.user_metadata.preferences.color === 'black'){
-    // this code would not be executed for the user
+    // code to be executed
   }
-
   ...
 }
 ```
 
-## Updating
+## Updating Metadata
 
-All rules have available an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0/tree/v2) that can use API v2) which is pre-configured with permissions to update users.
+All rules include an `auth0` object (which is an instance of the [node-auth0 SDK](https://github.com/auth0/node-auth0)) that is capable of calling the [Auth0 Management API v2](/api/management/v2). The `auth0` object is preconfigured with the necessary permissions to update users.
 
-### Updating app_metadata
+### Updating `app_metadata`
 
-To add the admin role to a user:
+To add an administrative role to the user:
 
 ```js
 function(user, context, callback){
   user.app_metadata = user.app_metadata || {};
   // update the app_metadata that will be part of the response
   user.app_metadata.roles = user.app_metadata.roles || [];
-  user.app_metadata.roles.push('admin');
+  user.app_metadata.roles.push('administrator');
 
   // persist the app_metadata update
   auth0.users.updateAppMetadata(user.user_id, user.app_metadata)
@@ -81,14 +81,14 @@ function(user, context, callback){
 }
 ```
 
-The resulting user is:
+This results in the following JSON representation of the user profile details:
 
 ```json
 {
-  "user_id": "google-oauth2|1234",
-  "email": "john.doe@gmail.com",
+  "user_id": "jdoe",
+  "email": "john.doe@example.com",
   "app_metadata": {
-    "roles": [ "writer", "admin" ]
+    "roles": [ "writer", "administrator" ]
   },
   "user_metadata": {
     "preferences": {
@@ -98,9 +98,9 @@ The resulting user is:
 }
 ```
 
-### Updating user_metadata
+### Updating `user_metadata`
 
-To add the add a `fontSize` preference:
+To add the user's `fontSize` preference to the user profile:
 
 ```js
 function(user, context, callback){
@@ -120,12 +120,12 @@ function(user, context, callback){
 }
 ```
 
-The resulting user is:
+This results in the following JSON representation of the user profile details:
 
 ```json
 {
-  "user_id": "google-oauth2|1234",
-  "email": "john.doe@gmail.com",
+  "user_id": "jdoe",
+  "email": "john.doe@example.com",
   "app_metadata": {
     "roles": [ "writer" ]
   },
@@ -138,9 +138,9 @@ The resulting user is:
 }
 ```
 
-### Updating app_metadata and user_metadata in the same rule
+### Updating `app_metadata` and `user_metadata` simultaneously
 
-You can update both `user_metadata` and `app_metadata` in the same rule in parallel to reduce the rule's processing time:
+To reduce the rule's processing time, you may update both the `app_metadata` and `user_metadata` in the same rule:
 
 ```js
 function(user, context, callback){
@@ -171,12 +171,12 @@ function(user, context, callback){
 }
 ```
 
-The resulting user is:
+This results in the following JSON representation of the user profile details:
 
 ```json
 {
-  "user_id": "google-oauth2|1234",
-  "email": "john.doe@gmail.com",
+  "user_id": "jdoe",
+  "email": "john.doe@example.com",
   "app_metadata": {
     "roles": [ "writer", "admin" ]
   },
@@ -189,13 +189,13 @@ The resulting user is:
 }
 ```
 
-## Deleting
+## Deleting Metadata
 
-There are different ways of deleting properties. This section explains them with examples.
+### Deleting `app_metadata` properties and values
 
-### Deleting all user's roles
+To delete a property, set the property's value to `null`.
 
-To delete a property, set it to the `null` value. For example, to delete the user's roles:
+For example, to delete the user's roles:
 
 ```js
 function(user, context, callback){
@@ -214,14 +214,13 @@ function(user, context, callback){
 }
 ```
 
-The resulting user is:
+This results in the following JSON representation of the user profile details:
 
 ```json
 {
-  "user_id": "google-oauth2|1234",
-  "email": "john.doe@gmail.com",
-  "app_metadata": {
-  },
+  "user_id": "jdoe",
+  "email": "john.doe@example.com",
+  "app_metadata": { },
   "user_metadata": {
     "preferences": {
       "color": "blue"
@@ -230,9 +229,9 @@ The resulting user is:
 }
 ```
 
-### Deleting a user's roles
+To delete a single value of a property, remove that value specifically.
 
-To delete the user's writer role:
+For example, to remove the `writer` role from the user profile:
 
 ```js
 function(user, context, callback){
@@ -257,7 +256,7 @@ function(user, context, callback){
 }
 ```
 
-The resulting user is:
+This results in the following JSON representation of the user profile details:
 
 ```json
 {
@@ -274,7 +273,9 @@ The resulting user is:
 }
 ```
 
-### Deleting the user's color preference
+Note that the `roles` property still exists but does not contain any value.
+
+### Deleting `user_metadata` properties and values
 
 To delete the user's color preference:
 
@@ -292,16 +293,16 @@ function(user, context, callback){
     })
     .catch(function(err){
       callback(err);
-    });
+  });
 }
 ```
 
-The resulting user is:
+This results in the following JSON representation of the user profile details:
 
 ```json
 {
-  "user_id": "google-oauth2|1234",
-  "email": "john.doe@gmail.com",
+  "user_id": "jdoe",
+  "email": "john.doe@example.com",
   "app_metadata": {
     "roles": [ "writer" ]
   },
@@ -311,42 +312,33 @@ The resulting user is:
 }
 ```
 
-### Considerations
+## Considerations
 
 The metadata must be a valid JSON object and can not contain a dot in key field names in `user_metadata` or `app_metadata`.
 
-The following is not allowed.
+This is not allowed:
 ```js
 {
-
-"preference.color" : "pink"
-
+  "preference.color" : "pink"
 }
 ```
 
-The following is accepted, however.
+This, however, is accepted:
 
 ```js
 {
-
-"color" : "light.blue"
-
+  "color" : "light.blue"
 }
 ```
 
 If you use a key field name with a dot in it you will get an Internal Server (500) error.
 
-A few workarounds are listed below:
-
-You can convert the first example to something like this.
+As a workaround, you can convert the first example to something like this.
 
 ```js
 {
-
-"preference" : {"color" : "pink" }
-
+  "preference" : {"color" : "pink" }
 }
 ```
 
 Or you could use a different delimiter character besides `.` (dot) or `$` (dollar sign).
-

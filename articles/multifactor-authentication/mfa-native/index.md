@@ -39,7 +39,7 @@ Then, in terminal, `cd` to the `native-mobile-samples-sample` directory and exec
 
 ## Dashboard settings
 
-Go to the [Multifactor Auth](${uiURL}/#/multifactor) page in the Auth0 Dashboard and enable **Google Authenticator**:
+Go to the [Multifactor Auth](${manage_url}/#/multifactor) page in the Auth0 Dashboard and enable **Google Authenticator**:
 
 ![Multifactor Auth](/media/articles/mfa/mfa-native/mfa-native-01.png)
 
@@ -57,7 +57,7 @@ Click **SAVE**.
 
 To enable Multifactor Authentication and enrollment, you must set the `options.mfa.active` and `options.mfa.return_enroll_settings` flags using the `PATCH	/api/v2/connections/{id}` endpoint.
 
-1. Go to [Database Connections](${uiURL}/#/connections/database) and select the database you want to use. 
+1. Go to [Database Connections](${manage_url}/#/connections/database) and select the database you want to use. 
 
 2. Copy the database `id` from the URL of the **Settings** page of your database. It will be in the form: `con_xxxxxxxxxxxxxxxx`.
 

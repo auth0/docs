@@ -1,5 +1,5 @@
 ```html
-<script src="${widget_url}"></script>
+<script src="${lock_url}"></script>
 <script type="text/javascript">
 
     var lock = new Auth0Lock('{{ $auth0Config['client_id'] }}', '{{ $auth0Config['domain'] }}');
@@ -9,7 +9,7 @@
             callbackURL: '{{ $auth0Config['redirect_uri'] }}'
             , responseType: 'code'
             , authParams: {
-                scope: 'openid name email' //Details: https://auth0.com/docs/scopes
+                scope: 'openid name email' //Details: https:///scopes
             });
     }
 </script>
