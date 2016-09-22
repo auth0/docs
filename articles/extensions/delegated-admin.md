@@ -62,12 +62,12 @@ function (user, context, callback) {
  if (context.clientID === 'CLIENT_ID') {
    if (user.groups && user.groups.indexOf('IT Department') > -1) {
      user.roles = user.roles || [ ];
-	 user.roles.push('Delegated Admin - Administrator');
-	 return callback(null, user, context);
+     user.roles.push('Delegated Admin - Administrator');
+     return callback(null, user, context);
    } else if (user.app_metadata && user.app_metadata.isDepartmentManager && user.app_metadata.department && user.app_metadata.department.length) {
      user.roles = user.roles || [ ];
-	 user.roles.push('Delegated Admin - User');
-	 return callback(null, user, context);
+     user.roles.push('Delegated Admin - User');
+     return callback(null, user, context);
    }
 
    return callback(new UnauthorizedError('You are not allowed to use this application.'));
@@ -156,7 +156,7 @@ Hook contract:
      - `user`: The current logged in user.
    - `payload`: The payload object.
      - `action`: The current action (eg: `delete:user`) that is being executed.
-	 - `user`: The user on which the action is being executed
+     - `user`: The user on which the action is being executed
  - `callback(error)`: The callback to which you can return an error if access is denied.
 
 Example: **Kelly** manages the Finance department and she should only be able to access users within her department.
@@ -196,9 +196,9 @@ Hook contract:
      - `user`: The current logged in user.
    - `payload`: The payload object.
      - `memberships`: An array of memberships that were selected in the UI when creating the user.
-	 - `email`: The email address of the user.
-	 - `password`: The password of the user.
-	 - `connection`: The name of the user.
+     - `email`: The email address of the user.
+     - `password`: The password of the user.
+     - `connection`: The name of the user.
  - `callback(error, user)`: The callback to which you can return an error and the user object that should be sent to the Management API.
 
 Example: **Kelly** manages the Finance department. When she creates users, these users should be assigned to the same department she's in.
@@ -243,9 +243,9 @@ Hook contract:
      - `user`: The current logged in user.
    - `payload`: The payload object.
      - `memberships`: An array of memberships that were selected in the UI when creating the user.
-	 - `email`: The email address of the user.
-	 - `password`: The password of the user.
-	 - `connection`: The name of the user.
+     - `email`: The email address of the user.
+     - `password`: The password of the user.
+     - `connection`: The name of the user.
  - `callback(error)`: The callback to which you can return an error and an array containing the list of memberships.
 
 Example: Users of the IT department should be able to create users in other departments. Users from other deparments, should only see their own department.
@@ -258,7 +258,7 @@ function(ctx, callback) {
   }
 
   if (currentDepartment === 'IT') {
-	return callback(null, [ 'IT', 'HR', 'Finance', 'Marketing' ]);
+    return callback(null, [ 'IT', 'HR', 'Finance', 'Marketing' ]);
   }
 
   return callback(null, [ ctx.request.user.app_metadata.department ]);
@@ -286,15 +286,15 @@ function(ctx, callback) {
   var department = ctx.request.user.app_metadata.department;
 
   return callback(null, {
-	// Only these connections should be visible in the connections picker.
-	// If only one connection is available, the connections picker will not be shown in the UI.
+    // Only these connections should be visible in the connections picker.
+    // If only one connection is available, the connections picker will not be shown in the UI.
     connections: [ 'Username-Password-Authentication', 'My-Custom-DB' ],
-	// The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
+    // The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
     dict: {
       title: department ? department + ' User Management' : 'User Management Dashboard',
       memberships: 'Vendors'
     },
-	// The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
+    // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
     css: department && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
   });
 }
