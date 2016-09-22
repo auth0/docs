@@ -6,7 +6,7 @@ section: appliance
 
 The Auth0 Appliance is an option for your organization when compliance or other policy requirements prevent you from using a multi-tenant cloud service. The Auth0 Appliance can be deployed in one of three places:
 
-* a dedicated cloud environment hosted by Auth0.
+* a dedicated cloud environment hosted by Auth0 (you may opt for a shared cloud environment or an environment where resources are allocated only to your company).
 * your cloud environment using **Amazon AWS**, **Microsoft Azure**, and/or **Google Cloud Platform**;
 * your own datacenter (as a managed service) using **VMWare** or **Microsoft Hyper-V**.
 

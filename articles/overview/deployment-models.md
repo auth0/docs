@@ -132,5 +132,12 @@ The following table describes operational and feature differences between each o
             <td class="success">Yes</td>
             <td class="success">Yes</td>
         </tr>
+        <tr>
+            <th>Shared Resources Among Multiple Customers</th>
+            <td class>Yes</td>
+            <td class>No</td>
+            <td class>No</td>
+            <td class>No</td>
+        </tr>
     </tbody>
 </table>
