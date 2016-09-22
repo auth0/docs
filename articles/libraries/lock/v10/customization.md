@@ -83,7 +83,9 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/connections.png)
+Examples of `allowedConnections`:
+![](/media/articles/libraries/lock/customization/lock-allowedconnections-username-password.png)
+![](/media/articles/libraries/lock/customization/lock-allowedconnections-social.png)
 
 ### autoclose {Boolean}
 
@@ -143,7 +145,8 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/gravatar.png)
+Default behavior with Gravatar:
+![](/media/articles/libraries/lock/customization/lock-avatar-default.png)
 
 ### closable {Boolean}
 
@@ -155,7 +158,7 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/closable.png)
+![](/media/articles/libraries/lock/customization/lock-closable-false.png)
 
 ### container {String}
 
@@ -182,7 +185,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 </script>
 ```
 
-![](/media/articles/libraries/lock/customization/container.png)
+![](/media/articles/libraries/lock/customization/lock-container.png)
 
 ### language {String}:
 
@@ -192,11 +195,11 @@ Specifies the language of the widget. Defaults to "en". See the [internationaliz
 ```js
 // select a supported language
 var options = {
-  language: 'en'
+  language: 'es'
 };
 ```
 
-![](/media/articles/libraries/lock/customization/language.png)
+![](/media/articles/libraries/lock/customization/lock-language.png)
 
 ### languageDictionary {Object}
 
@@ -211,7 +214,7 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/languageDictionary.png)
+![](/media/articles/libraries/lock/customization/lock-languagedictionary.png)
 
 ### popupOptions {Object}
 
@@ -226,8 +229,6 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/popupOptions.png)
-
 ### rememberLastLogin {Boolean}
 
 Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time. Defaults to true.
@@ -238,8 +239,6 @@ var options = {
   rememberLastLogin: false
 };
 ```
-
-![](/media/articles/libraries/lock/customization/rememberLastLogin.png)
 
 ---
 
@@ -265,6 +264,7 @@ var options = {
 The label can be customized through the [languageDictionary](#languagedictionary-object-) option.
 :::
 
+![](/media/articles/libraries/lock/customization/lock-labeledsubmitbutton-false.png)
 
 #### logo {String}
 
@@ -277,6 +277,8 @@ var options = {
   }  
 };
 ```
+
+![](/media/articles/libraries/lock/customization/lock-theme-logo.png)
 
 #### primaryColor {String}
 
@@ -291,6 +293,8 @@ var options = {
 };
 ```
 
+![](/media/articles/libraries/lock/customization/lock-theme-color.png)
+
 ---
 
 ## Social Options 
@@ -304,34 +308,39 @@ Determines the size of the buttons for the social providers. Possible values are
 ```js
 // First image, with three connections, and other connections - forcing small buttons
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon'],
   socialButtonStyle: 'small'
 };
 ```
+
+![](/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png)
 
 ```js
 // Second image, with socialButtonStyle remaining at default behavior - three connections, no other connections
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon']
+  allowedConnections: ['facebook', 'linkedin', 'twitter']
 };
 ```
+
+![](/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png)
 
 ```js
 // Third image, with socialButtonStyle remaining at default behavior - three connections, with other connections
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon']
+  allowedConnections: ['facebook', 'linkedin', 'twitter']
 };
 ```
+
+![](/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_default.png)
 
 ```js
 // Fourth image, with three connections, and no other connections - forcing small buttons
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon'],
+  allowedConnections: ['facebook', 'linkedin', 'twitter'],
   socialButtonStyle: 'small'
 };
 ```
 
-![](/media/articles/libraries/lock/customization/socialBigButtons.png)
+![](/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png)
 
 ---
 
@@ -483,6 +492,8 @@ var options = {
 }
 ```
 
+![](/media/articles/libraries/lock/customization/lock-additionalsignupfields.png)
+
 #### Select Field
 
 ```js
@@ -537,6 +548,15 @@ Some use cases may be able to use `additionalSignupFields` data for email templa
 
 When set to `false` the widget won't display the login screen. This is useful if you want to use the widget just for signups (the login and signup tabs in the signup screen will be hidden) or to reset passwords (the back button in the forgot password screen will be hidden). In such cases you may also need to specify the `initialScreen`, `allowForgotPassword` and `allowSignUp` options. It defaults to `true`.
 
+```js
+//
+var options = {
+  allowLogin: false
+};
+```
+
+![](/media/articles/libraries/lock/customization/lock-allowlogin-false.png)
+
 ### allowForgotPassword {Boolean}
 
 When set to false, `allowForgotPassword` hides the "Don't remember your password?" link in the Login screen, making the Forgot Password screen unreachable. Defaults to true. 
@@ -545,15 +565,14 @@ When set to false, `allowForgotPassword` hides the "Don't remember your password
 Keep in mind that if you are using a database connection with a custom database which doesn't have a change password script the Forgot Password screen won't be available.
 :::
 
-
 ```js
 //
 var options = {
-  allowForgotPassword: true
+  allowForgotPassword: false
 };
 ```
 
-![](/media/articles/libraries/lock/customization/allowForgotPassword.png)
+![](/media/articles/libraries/lock/customization/lock-allowforgotpassword-false.png)
 
 ### allowSignUp {Boolean}
 
@@ -567,7 +586,7 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/disableSignupAction.png)
+![](/media/articles/libraries/lock/customization/lock-allowsignup-false.png)
 
 ### defaultDatabaseConnection {String}
 
@@ -658,8 +677,6 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/usernameStyle.png)
-
 ---
 
 ## Enterprise Options
@@ -683,8 +700,6 @@ var options = {
   defaultADUsernameFromEmailPrefix: false
 };
 ```
-
-![](/media/articles/libraries/lock/customization/defaultADUsernameFromEmailPrefix.png)
 
 ### integratedWindowsLogin {Boolean}
 
