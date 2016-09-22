@@ -3,13 +3,10 @@ title: Custom Login
 description: This tutorial demonstrates how to create a custom login page for your web application by using the auth0.js library
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-nodejs-webapp-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-nodejs-webapp-sample',
+  path: '02-Custom-Login'
 }) %>
 
 ### 1. auth0.js

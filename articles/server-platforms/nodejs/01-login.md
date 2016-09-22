@@ -3,13 +3,10 @@ title: Login
 description: This tutorial demonstrates how to add authentication to a Node.js and Express web app
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-nodejs-webapp-sample',
-  pkgBranch: 'master',
-  pkgPath: '01-Login',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-nodejs-webapp-sample',
+  path: '01-Login'
 }) %>
 
 ### 1. Add New Dependencies
@@ -148,7 +145,7 @@ router.get('/', ensureLoggedIn, function(req, res, next) {
 module.exports = router;
 ```
 
-We can now add some template files for these pages. Start with a base template called `layout.jade`. The CDN link to Auth0's Lock widget can be placed here. Alternatively, may prefer to place this `script` tag in another layout which places it after the `head` of the page.  
+We can now add some template files for these pages. Start with a base template called `layout.jade`. The CDN link to Auth0's Lock widget can be placed here. Alternatively, may prefer to place this `script` tag in another layout which places it after the `head` of the page.
 
 ```jade
 // views/layout.jade

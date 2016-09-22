@@ -1,0 +1,20 @@
+<div id="package" class="package" data-swiftype-index="false">
+  <div class="row">
+    <div class="info">
+      <i class="icon-budicon-715"></i>
+    <% if (account.userName) { %>
+      <p class="configured">Download a sample project configured with your Auth0 API Keys.</p>
+    <% } else { %>
+      <p>Download a sample project.</p>
+    <% } %>
+    </div>
+    <div class="button-area">
+      <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
+      <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <% } else { %>
+      <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow">Download Sample</a>
+      <% } %>
+      <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" target="_blank" class="btn btn-sm btn-default" rel="nofollow">Fork on Github</a>
+    </div>
+  </div>
+</div>

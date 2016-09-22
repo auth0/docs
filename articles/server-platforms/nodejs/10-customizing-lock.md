@@ -3,13 +3,10 @@ title: Customizing Lock
 description: This tutorial will show you how to customize lock widget.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-nodejs-webapp-sample',
-  pkgBranch: 'master',
-  pkgPath: '10-Customizing-Lock',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-nodejs-webapp-sample',
+  path: '10-Customizing-Lock'
 }) %>
 
 Using the Lock widget is easy, but it might be necessary to customize the UI for it. There are several options available to do so.

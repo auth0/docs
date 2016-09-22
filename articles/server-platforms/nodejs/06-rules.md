@@ -3,13 +3,10 @@ title: Rules
 description: This tutorial demonstrates how to use Auth0 rules
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-nodejs-webapp-sample',
-  pkgBranch: 'master',
-  pkgPath: '06-Rules',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-nodejs-webapp-sample',
+  path: '06-Rules'
 }) %>
 
 ## 1. Create a Rule
