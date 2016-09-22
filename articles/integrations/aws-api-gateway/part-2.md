@@ -169,15 +169,36 @@ Click the **Method Request** link.
 
 Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now click the **Check Button** beside the field to save the setting.
 
-## Set up CORS and deploy the API
+### 2. Set Up CORS and Deploy the API
 
-Our single page app will access web API methods from a different domain than the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to permit access to the AWS API Gateway site. Typically, a browser will first issue an OPTIONS request to see what the site will permit. See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details. Here is a summary of the steps:
+Our Single Page Application (SPA) will access web API methods from a domain different from that of the page. To do so, the *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to allow access to the AWS API Gateway. Typically, the browser will first issue an `OPTIONS` request to see what actions the site will permit.
 
-1. Select `/pets` in resources, and then click **Create Method**. In the drop down select **OPTIONS**, and click the **check** button to save the setting.
-2. The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda, select your region, and then select *NoOp* for the *Lambda Function*. Click on **Save**.
-3. Click on **Method Response**, expand **200**, and then add three headers: *Access-Control-Allow-Headers*, *Access-Control-Allow-Methods*,  *Access-Control-Allow-Origin*.
-4. Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`.
-5. For the *POST* and *GET* methods, follow the same process as above to add a single header, *Access-Control-Allow-Origin*, with the value `'*'`.
+> See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details.
+
+
+Select `/pets` under Resources, and click **Create Method**. In the drop-down, select **OPTIONS**, and click the **check** button to save the setting.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/create-options-method.png)
+
+The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda, select your region, and then select *NoOp* for the *Lambda Function*. Click on **Save**.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/config-options-method.png)
+
+Open up the *Method Response* page.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/method-request.png)
+
+Expand the **200** section located under the *HTTP Status* bar, and add the following response headers:
+
+* *Access-Control-Allow-Headers*;
+* *Access-Control-Allow-Methods*;
+* *Access-Control-Allow-Origin*.
+
+Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/integration-response.png)
+
+Finally, repeat the above steps to enable CORS for the *POST* and *GET* methods. However, for these two methods, you will add one header, *Access-Control-Allow-Origin*, and its value should be set to `'*'`.
 
 ### Deploy the API
 
