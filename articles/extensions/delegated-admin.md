@@ -125,17 +125,25 @@ Example: If **Kelly** manages the Finance department, she should only see the us
 
 ```js
 function(ctx, callback) {
-  var department = ctx.request.user.app_metadata.department;
+  // Get the department from the current user's metadata.
+  var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
   if (!department || !department.length) {
     return callback(new Error('The current user is not part of any department.'));
+  }
+
+  // The IT department can see all users.
+  if (department === 'IT') {
+    return callback();
   }
 
   // Prevent issues with departments containing a single or a double quote.
   department = department.replace(/\'/g,'\\\'').replace(/\"/g,'\\\"');
 
+  // Any other department can only see users within their own department.
   var luceneQuery = 'app_metadata.department:"' + department + '"';
   ctx.log('Filtering users with:', luceneQuery);
 
+  // Return the lucene query.
   return callback(null, luceneQuery);
 }
 ```
@@ -167,14 +175,20 @@ function(ctx, callback) {
     return callback(new Error('You are not allowed to delete users.'));
   }
 
-  var department = ctx.request.user.app_metadata.department;
+  // Get the department from the current user's metadata.
+  var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
   if (!department || !department.length) {
     return callback(new Error('The current user is not part of any department.'));
   }
 
+  // The IT department can access all users.
+  if (department === 'IT') {
+    return callback();
+  }
+
   ctx.log('Verifying access:', ctx.payload.user.app_metadata.department, department);
 
-  if (!ctx.payload.user.app_metadata.department || ctx.payload.user.app_metadata.department !== department) {
+  if (!ctx.payload.user.app_metadata.department || ctx.payload.user.app_metadata.department !== department) {
     return callback(new Error('You can only access users within your own department.'));
   }
 
@@ -209,12 +223,15 @@ function(ctx, callback) {
     return callback(new Error('The user must be created within a department.'));
   }
 
-  var currentDepartment = ctx.request.user.app_metadata.department;
+  // Get the department from the current user's metadata.
+  var currentDepartment = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
   if (!currentDepartment || !currentDepartment.length) {
     return callback(new Error('The current user is not part of any department.'));
   }
 
-  if (ctx.payload.memberships[0] !== currentDepartment) {
+  // If you're not in the IT department, you can only create users within your own department.
+  // IT can create users in all departments.
+  if (currentDepartment !== 'IT' && ctx.payload.memberships[0] !== currentDepartment) {
     return callback(new Error('You can only create users within your own department.'));
   }
 
@@ -283,7 +300,7 @@ Example:
 
 ```js
 function(ctx, callback) {
-  var department = ctx.request.user.app_metadata.department;
+  var department = ctx.request.user.app_metadata && ctx.request.user.app_metadata.department;
 
   return callback(null, {
     // Only these connections should be visible in the connections picker.
@@ -292,10 +309,10 @@ function(ctx, callback) {
     // The dictionary allows you to overwrite the title of the dashboard and the "Memberships" label in the Create User dialog.
     dict: {
       title: department ? department + ' User Management' : 'User Management Dashboard',
-      memberships: 'Vendors'
+      memberships: 'Departments'
     },
     // The CSS option allows you to inject a custom CSS file depending on the context of the current user (eg: a different CSS for every customer)
-    css: department && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
+    css: (department && department !== 'IT') && 'https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css'
   });
 }
 ```
