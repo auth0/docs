@@ -946,7 +946,11 @@
   },
   {
     "from": "/sequence-diagrams",
-    "to": "/architecture-scenarios/sequence-diagrams"
+    "to": "/architecture-scenarios/application/spa-api"
+  },
+  {
+    "from": "/architecture-scenarios/sequence-diagrams",
+    "to:": "/architecture-scenarios/application/spa-api"
   },
   {
     "from": "/deployment",
