@@ -46,25 +46,29 @@ The AWS IAM SAML Integration lets the trusted identity provider (IDP) specify an
 
 Log in to your Auth0 account. You will be brought to the Management Dashboard. Click on **+ New Client**, which is located in the top right corner of the page.
 
-![](/media/articles/integrations/part-2/mgmt-dashboard.png)
+![](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
 
 Name your new client *AWS API Gateway*, and indicate that this Client is going to be a *Single Page Application*. Click **Create**.
 
-![](/media/articles/integrations/part-2/create-new-client.png)
+![](/media/articles/integrations/aws-api-gateway/part-2/create-new-client.png)
 
 Navigate to the *Addons* tab for your newly-created Client. Using the appropriate slide, enable *Amazon Web Services*. This turns on AWS Delegation.
 
-![](/media/articles/integrations/part-2/enable-aws-addon.png)
+![](/media/articles/integrations/aws-api-gateway/part-2/enable-aws-addon.png)
 
 #### Configuring AWS
 
-Follow the [How to Setup AWS to do Delegated Authentication with APIs](/aws-api-setup) tutorial to configure AWS for delegated access, which uses SAML. Some caveats:
+Follow the [Set Up AWS for Delegated Authentication with APIs](/aws-api-setup) tutorial to configure AWS for delegated access, which uses SAML. Some caveats:
 
 * Follow the [instructions below](#setting-the-permissions-policy-on-your-iws-iam-role) for attaching the permissions policy to your Role instead of the one for the linked tutorial;
 * Name the SAML provider you create `auth0`;
 * Name the AWS IAM role `auth0-api-role`.
 
 ##### Setting the Permissions Policy on your IWS IAM Role
+
+Once you have configured the AWS IAM role, you will add a policy to `auth0-api-role` that lets you execute your API Gateway methods.
+
+> For more information on this process, please see [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
 
 ::: panel-info Getting the Gateway API ARN
 
@@ -75,22 +79,30 @@ Before you begin, you will need the ARN for your Gateway API. You can see the AR
 3. Click on any of the Methods associated with the API to bring up the *Method Execution* page.
 4. On the *Method Execution* page, the *Method Request* box in the top left corner displays the **ARN** for the API, though it includes the Method name:
 
-  `ARN: arn:aws:execute-api:us-west-2:482656107747:97i1dwv0j4/*/POST/`
+  `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/POST/`
 
   What you'll want to do is strip the method name to get the base ARN for the API:
 
-  `ARN: arn:aws:execute-api:us-west-2:482656107747:97i1dwv0j4/*/`
+  `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/`
 
   The wildcard (`*`) in the ARN above enables permissions to your API for all stages, but you can deploy different stages individually (for example, developement, then test, then production).
 
 :::
 
-Once you have configured the AWS IAM role, you will add a policy to `auth0-api-role` that lets you execute your API Gateway methods.
+Select the `auth0-api-role` role you just created to open up its *Summary* page.
 
-> For more information on this process, please see [User Access Permissions for Amazon API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/permissions.html).
+![](/media/articles/integrations/aws-api-gateway/part-2/select-iam-role.png)
 
+Expand **Inline Policies**, and click **click here**.
 
-Select the role you just created, and expand **Inline Policies**, and click the **click here** link. Select **Custom Policy**, click the **Select** button, and pick a name like "api-gateway-policy". To enable access to allow of your api methods for the role, apply the following policy after updating the arn with the one for your API. Click **Apply Policy**.
+![](/media/articles/integrations/aws-api-gateway/part-2/attach-policy.png)
+
+Select **Custom Policy** and click **Select**.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/custom-policy.png)
+
+Edit your policy document. You can set the **Policy Name** to whatever you would like, but we suggest something like `api-gateway-policy`. To enable access to the API methods for this role, apply the following policy *after* updating the ARN with the one for your API.
+
 ```js
 {
     "Version": "2012-10-17",
@@ -101,13 +113,21 @@ Select the role you just created, and expand **Inline Policies**, and click the 
                 "execute-api:*"
             ],
             "Resource": [
-                "arn:aws:execute-api:us-east-1:1234567890:1234abcdef/*/pets"
+                "arn:[YOUR_ARN]"
             ]
         }
     ]
 }
 ```
-You'll need to make one additional change. Since the API gateway will assume this role on a user's behalf, the trust policy needs to permit this action. Click on **Edit Trust Relationship** and add the policy statement for gateway. The final trust relationship should look similar to the following:
+
+![](/media/articles/integrations/aws-api-gateway/part-2/edit-custom-policy.png)
+
+Click **Apply Policy**.
+
+Since the API Gateway will assume this role on behalf of the user, the trust policy needs to permit this action. To do so, you will need to edit the role's *Trust Relationships* by navigating to this tab on the role's *Summary* page.
+
+The final trust relationship should look similar to the following:
+
 ```js
 {
   "Version": "2012-10-17",
@@ -136,7 +156,18 @@ You'll need to make one additional change. Since the API gateway will assume thi
   ]
 }
 ```
-At this point you are finished with IAM. Go back to the API gateway. In the **Resources** view, select the *POST* method under `/pets`. Click the **Method Request** link. Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now click the **Check Button** beside the field to save the setting.
+
+At this point, you will need to set the *Authorization Settings* on the [API Gateway](https://console.aws.amazon.com/apigateway).
+
+In the **Resources** view, select the *POST* method under `/pets`.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/post-method-request.png)
+
+Click the **Method Request** link.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/auth-settings.png)
+
+Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now click the **Check Button** beside the field to save the setting.
 
 ## Set up CORS and deploy the API
 
