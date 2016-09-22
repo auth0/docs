@@ -175,18 +175,26 @@ Our Single Page Application (SPA) will access web API methods from a domain diff
 
 > See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details.
 
-
-Select `/pets` under Resources, and click **Create Method**. In the drop-down, select **OPTIONS**, and click the **check** button to save the setting.
+Select `/pets` under Resources, and click **Create Method**. In the drop-down, select **OPTIONS**, and click the **checkmark** to save the setting.
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/create-options-method.png)
 
-The Options method is used by the browser to get headers, but the function needs to work. For options setup, select Lambda, select your region, and then select *NoOp* for the *Lambda Function*. Click on **Save**.
+The Options method is used by the browser to get the necessary HTTP headers, but the function needs further instructions on what to do. Under the `OPTIONS` Setup screen, set the following variables/parameters:
+
+* **Integration type**: Lambda Function;
+* **Use Lambda Proxy integration**: *leave unchecked*;
+* **Lambda Region**: *select your region*;
+* **Lambda Function**: NoOp.
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/config-options-method.png)
 
-Open up the *Method Response* page.
+Click **Save**. On the next pop-up screen, grant your Lambda function the permissions it needs.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/method-request.png)
+![](/media/articles/integrations/aws-api-gateway/part-2/permissions.png)
+
+You will then be auto-directed to the `OPTIONS` *Method Execution* page. Open up the *Method Response* page.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/method-response.png)
 
 Expand the **200** section located under the *HTTP Status* bar, and add the following response headers:
 
@@ -194,7 +202,13 @@ Expand the **200** section located under the *HTTP Status* bar, and add the foll
 * *Access-Control-Allow-Methods*;
 * *Access-Control-Allow-Origin*.
 
-Now you need to map values. Click the **Method Execution** link, and then click the **Integration Response** link. Expand the **200** response, and then expand the **Header Mappings**. For *Access-Control-Allow-Headers*, enter `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`.  For *Access-Control-Allow-Origin*, enter `'*'`. For *Access-Control-Allow-Methods*, enter `'POST, GET, OPTIONS'`.
+![](/media/articles/integrations/aws-api-gateway/part-2/add-headers.png)
+
+Next, map the appropriate values to each of the response headers. After returning to the *Method Execution* page, click on **Integration Response**. After expanding the row associated with the **200** method response status, expand the **Header Mappings**, and apply the following mappings:
+
+* *Access-Control-Allow-Headers*: `'Content-Type,X-Amz-Date,Authorization,x-api-key,x-amz-security-token'`;
+* *Access-Control-Allow-Origin*: `'*'`
+* *Access-Control-Allow-Methods*: `'POST, GET, OPTIONS'`
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/integration-response.png)
 
@@ -202,6 +216,18 @@ Finally, repeat the above steps to enable CORS for the *POST* and *GET* methods.
 
 ### Deploy the API
 
-Select the **DEPLOY API** button from the **RESOURCES** view. Select **New Stage** for deploy state, and name the stage "test". Click the **Deploy** button. On the result page, you will see a tab for **SDK Generation**. Click the tab, and select *JavaScript* for the platform. Click the **Generate SDK** button. Save the downloaded zip file for later use.
+Return to the **Resources** view for your API. Click on **Actions**, and select **DEPLOY API**.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/choose-deploy-stage.png)
+
+Select **New Stage** for deploy state, and name the stage `Test`. Click the **Deploy** button.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/test-stage-editor.png)
+
+On the result page, you will see a tab for **SDK Generation**. Click the tab, and select *JavaScript* for the platform. Click the **Generate SDK** button.
+
+![](/media/articles/integrations/aws-api-gateway/part-2/sdk-generation.png)
+
+Save the downloaded zip file for later use.
 
   [Prev](/integrations/aws-api-gateway/part-1) ----- [ Next](/integrations/aws-api-gateway/part-3)
