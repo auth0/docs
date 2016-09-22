@@ -34,7 +34,7 @@ Save your changes.
 
 ### Enable Connections on the Client
 
-When you create a new client, by default all the connections are enabled. This is something you want to change in this case, for security reasons. The approach we follow in this tutorial is to disable all connections, create a new Database Connection and enable only this one for our new client application. But you could do the same with an AD, ADFS, ... connection for example.
+When you create a new client, by default all the connections are enabled. This is something you want to change in this case, for security reasons. The approach we follow in this tutorial is to disable all connections, create a new Database Connection and enable only this one for our new client application. But you could do the same with another type of connection, like AD, ADFS, and so forth.
 
 Navigate to the *Connections* tab and disable all the connections using the switch.
 
@@ -48,14 +48,14 @@ Navigate to the *Settings* tab of the new connection and enable the **Disable Si
 
 Enable this new connection for your client (*Users Dashboard* in our case) and add at least one user.
 
-### Assing the right Roles to your Users
+### Assign the right Roles to your Users
 
 Access to the extension requires your users to have the right roles:
 
- - `Delegated Admin - User`: These users can search for users, create users, open users and execute actions on these users (like Delete, Block ...)
- - `Delegated Admin - Administrator`: These users can additional see all logs in an account and configure Hooks
+ - `Delegated Admin - User`: These users can search for users, create users, open users and execute actions on these users (like Delete, Block, and so forth).
+ - `Delegated Admin - Administrator`: These users can additional see all logs in an account and configure Hooks.
 
-Only users that have these roles defined in `user.roles`, `user.app_metadata.roles` or `user.app_metadata.authorization.roles` will be able to use the extension. You could manually set these roles in your users or use a rule in order to do this. The following rule shows how users from the `IT Department` are given the Administrator role while "Department Managers" are given the User role.
+Only users that have these roles defined in `user.roles`, `user.app_metadata.roles` or `user.app_metadata.authorization.roles` will be able to use the extension. You could manually set these roles in your users or use a rule in order to do this. The following rule shows how users from the `IT Department` are given the `Delegated Admin - Administrator` role while `Department Managers` are given the `Delegated Admin - User` role.
 
 ```js
 function (user, context, callback) {
@@ -109,9 +109,11 @@ Once you provide valid credentials you are navigated to the *Delegated Administr
 
 Users with the `Delegated Admin - Administrator` role will see a *Configure* option in the top-right dropdown. On the Configuration page you can manage the different hooks and queries in the dashboard, which allows you to customize the behavior of the dashboard.
 
+![](/media/articles/extensions/delegated-admin/dashboard-configuration.png)
+
 #### Filter Hook
 
-By default, users with the `Delegated Admin - User` role will see all users in an Auth0 account. This could be fine if the dashboard is used by your Helpdesk department. But if you want to delegate administration to your departments (eg: Finance, HR, IT ...) or to your customers, your vendors, your offices ... you'll want to filter the data users can see. With the **Filter Hook** you can decide how the list of users is filtered.
+By default, users with the `Delegated Admin - User` role will see all users in an Auth0 account. This could be fine if the dashboard is used by your Helpdesk department. But if you want to delegate administration to your departments (Finance, HR, IT, and so forth) or to your customers, your vendors, or your offices you'll want to filter the data users can see. With the **Filter Hook** you can decide how the list of users is filtered.
 
 Hook contract:
 
@@ -119,7 +121,7 @@ Hook contract:
    - `log`: A method that allows you to write something to Webtask logs
    - `request`: The current request.
      - `user`: The current logged in user.
- - `callback(error, query)`: The callback to which you can return an error or the [lucene query](https://auth0.com/docs/api/management/v2/query-string-syntax) which should be used when filtering the users. The extension will send this query to the [`GET Users` endpoint](https://auth0.com/docs/api/management/v2#!/Users/get_users) of the Management API.
+ - `callback(error, query)`: The callback to which you can return an error or the [lucene query](/api/management/v2/query-string-syntax) which should be used when filtering the users. The extension will send this query to the [`GET Users` endpoint](/api/management/v2#!/Users/get_users) of the Management API.
 
 Example: If **Kelly** manages the Finance department, she should only see the users that are also part of the Finance department. So we'll filter the users based on the department of the current user.
 
@@ -148,13 +150,13 @@ function(ctx, callback) {
 }
 ```
 
-> Note: We highly suggest you to not use single or double quotes in your department/group/... name on which you'll want to filter since this might cause issues with the Lucene query.
+> Note: We highly suggest not to use single or double quotes in your department or group name on which you'll want to filter since this might cause issues with the Lucene query.
 
 If this hook is not configure, **all users** will be returned.
 
 #### Access Hook
 
-While the **Filter Hook** only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock ... a specific user.
+While the **Filter Hook** only applies filtering logic you'll need a second layer of logic to determine if the current user is allowed to access a specific user. This is what the **Access Hook** allows you to do, determine if the current user is allowed to read, delete, block, unblock, etc a specific user.
 
 Hook contract:
 
@@ -265,7 +267,7 @@ Hook contract:
      - `connection`: The name of the user.
  - `callback(error)`: The callback to which you can return an error and an array containing the list of memberships.
 
-Example: Users of the IT department should be able to create users in other departments. Users from other deparments, should only see their own department.
+Example: Users of the IT department should be able to create users in other departments. Users from other departments, should only see their own department.
 
 ```js
 function(ctx, callback) {
@@ -319,7 +321,11 @@ function(ctx, callback) {
 
 ### Manage Users
 
-There are two available views, *Users* and *Logs*. At the *Users* view you can see the users displayed and perform certain actions on them. In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${manage_url}/#/) and which via the extension.
+There are two available views, *Users* and *Logs*. At the *Users* view you can see the users displayed and perform certain actions on them.
+
+Keep in mind that by default all users are displayed, but you can constrain that by configuring a [filter hook](#filter-hook).
+
+In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${manage_url}/#/) and which via the extension. Once more, keep in mind that this is the superset of the actions a user can perform. It can always be constrained by configuring an [access hook](#access-hook).
 
 <table class="table">
     <tr>
@@ -381,6 +387,18 @@ Notice the new *Reset Password* option available via the extension. This option 
 This will send an email to the user, containing a link to change the password.
 
 At the *Logs* view you can see log data of authentications made by your users (this tab is only visible to users with the `Delegated Admin - Administrator` role). The contents of this view are a subset of the data displayed in the [Logs Dashboard](${manage_url}/#/logs), which also displays data for the actions taken in the dashboard by the administrators.
+
+### Create Users
+
+You can create a new user by selecting the **+ Create User** button at the *Users* view. The information you need to specify are email and password. Depending on your role you may or may be able to set the *Department* that the new user belongs to.
+
+For example, users with the `Delegated Admin - Administrator` role can see the **Department** field and select any of its values.
+
+![](/media/articles/extensions/delegated-admin/create-user-admin.png)
+
+On the other hand, Kelly who has the `Delegated Admin - User` role and belongs to the Finance department, cannot see this field. The user she will create will be automatically assigned to the Finance department.
+
+![](/media/articles/extensions/delegated-admin/create-user-kelly.png)
 
 ## Customize the dashboard
 
