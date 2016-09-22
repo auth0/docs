@@ -84,7 +84,9 @@ var options = {
 ```
 
 Examples of `allowedConnections`:
+
 ![](/media/articles/libraries/lock/customization/lock-allowedconnections-username-password.png)
+
 ![](/media/articles/libraries/lock/customization/lock-allowedconnections-social.png)
 
 ### autoclose {Boolean}
@@ -146,6 +148,7 @@ var options = {
 ```
 
 Default behavior with Gravatar:
+
 ![](/media/articles/libraries/lock/customization/lock-avatar-default.png)
 
 ### closable {Boolean}
@@ -273,7 +276,7 @@ The value for `logo` is an URL for an image that will be placed in the Lock's he
 ```js
 var options = {
   theme: {
-    logo: 'https://example.com/assets/logo.png'
+    logo: 'https://jwt.io/img/pic_logo.svg'
   }  
 };
 ```
@@ -287,8 +290,8 @@ The `primaryColor` property defines the primary color of the Lock; all colors us
 ```js
 var options = {
   theme: {
-    logo: 'https://example.com/assets/logo.png',
-    primaryColor: 'green'
+    logo: 'https://jwt.io/img/pic_logo.svg',
+    primaryColor: 'blue'
   }  
 };
 ```
