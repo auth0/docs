@@ -325,7 +325,7 @@ There are two available views, *Users* and *Logs*. At the *Users* view you can s
 
 Keep in mind that by default all users are displayed, but you can constrain that by configuring a [filter hook](#filter-hook).
 
-In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${manage_url}/#/) and which via the extension. Once more, keep in mind that this is the superset of the actions a user can perform. It can always be constrained by configuring an [access hook](#access-hook).
+In the table below you can see all the options you can perform on a user, which ones are available via the [dashboard](${manage_url}/#/) and which via the extension. Once more, keep in mind that this is the superset of the actions a user can perform using the extension. It can always be constrained by configuring an [access hook](#access-hook).
 
 <table class="table">
     <tr>
@@ -390,7 +390,7 @@ At the *Logs* view you can see log data of authentications made by your users (t
 
 ### Create Users
 
-You can create a new user by selecting the **+ Create User** button at the *Users* view. The information you need to specify are email and password. Depending on your role you may or may be able to set the *Department* that the new user belongs to.
+You can create a new user by selecting the **+ Create User** button at the *Users* view. The information you need to specify are email and password. Depending on your role you may or may not be able to set the *Department* that the new user belongs to.
 
 For example, users with the `Delegated Admin - Administrator` role can see the **Department** field and select any of its values.
 
@@ -406,7 +406,7 @@ You can use the **Title** and **Custom_CSS** variables to customize the look and
 
 Navigate to the [Extensions](${manage_url}/#/extensions) page and go to the settings of the **Delegated Administration** extension. We are going to set a custom title and a custom css file:
 
-- Set the **TITLE** to `Fabrikam User Management`.
+- Set the **TITLE** to `Finance User Management`.
 - Set the **CUSTOM_CSS** to `https://rawgit.com/auth0-extensions/auth0-delegated-administration-extension/master/docs/theme/fabrikam.css`.
 
 Save your changes, navigate to the extension and login. The dashboard now looks like that:
