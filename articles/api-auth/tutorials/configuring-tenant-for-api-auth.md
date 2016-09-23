@@ -4,4 +4,11 @@ description: How to configure you tenant to enable the new API Authorization Flo
 
 # Configuring your tenant for the new API Authorization flows
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+If you want to unlock the new API Authorization scenario, you will need to enable a flag under your [Account Settings](${manage_url}/#/account/advanced). This will allow you to opt-in and out of this feature at any point in time while it remains under preview.
+
+1. Open the Management Dashboard and browse to your Account Settings.
+1. Scroll down to the Settings tab and turn on the flag "OAuth2 as a Service (Preview)"
+
+  ![](/media/articles/api-auth/account-settings.png)
+
+You will see that the API section is now displayed on your sidebar.
