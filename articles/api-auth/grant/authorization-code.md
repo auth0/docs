@@ -1,7 +1,7 @@
 # API Auth: Authorization Code Grant
 <%=include('../_preview-warning') %>
 
-The [Authorization Code Grant](https://tools.ietf.org/html/rfc6749#section-4.1) is a redirect-based flow where the User Agent receives an `authorization_code` from the Authorization Server and transfers this to the Client. The Client will then interact with the Authorization Server and exchange the `authorization_code` for an `access_token` (and optionally also a `refresh_token`). The Client can now use this `access_token` to call the Resource Server on behalf of the Resource Owner.
+The Authorization Code Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.1)) is a redirect-based flow where the User Agent receives an `authorization_code` from the Authorization Server and transfers this to the Client. The Client will then interact with the Authorization Server and exchange the `authorization_code` for an `access_token` (and optionally also a `refresh_token`). The Client can now use this `access_token` to call the Resource Server on behalf of the Resource Owner.
 
 ![](/media/articles/api-auth/authorization-code-grant.png)
 
@@ -18,3 +18,7 @@ The first time the user goes through this flow a consent page will be shown wher
 
  - Allow the Client to make calls to the Resource Server on behalf of the Resource Owner (Delegation)
  - The Client is typically a traditional web application
+
+ ## How to implement this scenario with Auth0
+
+ You can follow [this step-by-step tutorial](/api-auth#tutorial) to configure an Authorization Code Grant with Auth0.

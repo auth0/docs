@@ -34,13 +34,14 @@ Using different grants (or flows), these participants will interact to grant Cli
 
 ## Tutorials
 
-See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable [Client Credentials Grants](/api-auth/grant/client-credentials).
+See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable the API Authorization scenarios.
 
-<%=include('./config/using-the-auth0-dashboard') %>
+ - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
+ - [Setting up a Client Credentials Grant](/api-auth/config/using-the-auth0-dashboard)
 
 ## Additional Information
 
-- [How to ask Auth0 Authorization Server for an access token for a Resource Server](/api-auth/config/asking-for-access-tokens)
+- [How to ask the Auth0 Authorization Server for an access token for a Resource Server in a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
 
 - [Using Auth0's Management API for setting up Resource Services and Client Grants](/api-auth/config/using-the-management-api)
 

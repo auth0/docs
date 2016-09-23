@@ -2,7 +2,7 @@
 description: How to request tokens for your applications.
 ---
 
-# API Authorization: Asking for Access Tokens
+# API Authorization: Asking for Access Tokens for a Client Credentials Grant
 
 To ask Auth0 for tokens for any of your authorized client applications, perform a `POST` operation to the `https://${account.namespace}/oauth/token` endpoint with a payload in the following format:
 
