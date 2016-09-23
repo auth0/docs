@@ -7,10 +7,13 @@ description: Step 3 of Amazon API Gateway Tutorial
 ## Step 3 - Building the Client Application
 [Prev](/integrations/aws-api-gateway/part-2) ----- [Next](/integrations/aws-api-gateway/part-4)
 
-The client application will be a single page, serverless application based on the AngularJS framework that you will serve out of an S3 bucket configured as a website. To begin, create a bucket for the application and configure it as a website with a home page of `index.html`. You can find instructions at [Hosting a Static Website on Amazon Web Services](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html).
+In this step, you will build a single page, serverless client application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
 
-For a simple starter app, download this seed project which pre-configures your account settings.
+### 1. Setting Up Your Sample Application
 
+For a simple starter app, download this seed project, which comes pre-configured with your account settings.
+
+```
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
@@ -18,14 +21,24 @@ For a simple starter app, download this seed project which pre-configures your a
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
-
-Copy the contents of this seed project to a local folder called `pets`. You will be using the `pets` folder for the remainder of this tutorial. From the `pets` folder, copy the contents to your S3 bucket for the website. An easy way to do this is with the [AWS CLI](https://aws.amazon.com/cli/).
 ```
-aws s3 cp --recursive --acl "public-read" ./ s3://your-bucket/
-```
-Although the sample project is functional, you need to make a few configuration changes for it to work with your AWS API Gateway APIs. With Auth0, you can use many different sources of users to authenticate called connections and grant access to applications like AWS. Begin with using the users of the built-in Auth0 database *Username-Password-Authentication* that was created when you opened your account. From the Auth0 console, click on the **Connections** tab of your application and you should see that this connection is enabled. Click on **Users** in the left column, and click **New User**. Fill in the information for the user, make sure *Username-Password-Authentication* is selected for the connection, and click **Save**. You now have one user available to authenticate. Often when interacting with Auth0 you start with obtaining an *OpenId* identity JSON Web Token (JWT) token based on your credentials, and the seed project is setup to do that.
 
-There is one last step to get authentication to work. The website runs at a url that looks something like `http://your-bucket.s3-website-us-east-1.amazonaws.com/index.html`, which is shown under the properties of your S3 bucket. To tell Auth0 that it is OK to permit authentication from your website, add `http://your-bucket-domain` to the *Allowed Origins* in the Auth0 *Default App* application settings.
+Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial.
+
+> Be sure that you have [created the AWS S3 bucket that you have configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
+>
+> If you are using a pre-existing bucket, you can move the files with the [AWS CLI](https://aws.amazon.com/cli/) using the following command:
+> ```
+> aws s3 cp --recursive --acl "public-read" ./ s3://YOUR-BUCKET/
+> ```
+
+Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* Connection. In order to fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
+
+Lastly, ensure that Auth0 allows authentication from your website by providing the URL in the **Allowed Origins** field in the *Settings* page of your Client. Your website's URL should look something like this:
+
+`http://your-bucket.s3-website-us-east-1.amazonaws.com/index.html`
+
+If you don't know what your URL is, you can find it listed under the **Properties** tab of your S3 bucket.
 
 Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in with the user you just created you should see an alert box pop up that says "getPets not implemented", with the page for viewing pets.
 
