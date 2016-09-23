@@ -36,7 +36,7 @@ Using different grants (or flows), these participants will interact to grant Cli
 
 See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable the API Authorization scenarios.
 
-At this moment we have tutorials for the Client Credentials Grant. Tutorials for the other grant types are on the making. In the meantime, if you need assistance or more information please contact our [Support Center](https://support.auth0.com).
+<%=include('./_pending-tutorials-notice') %>
 
 #### Dependencies
 

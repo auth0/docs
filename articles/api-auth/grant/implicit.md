@@ -17,3 +17,7 @@ The first time the user goes through this flow a consent page will be shown wher
 
 - Allow the Client to make calls to the Resource Server on behalf of the Resource Owner (Delegation)
 - The Client is typically a Single Page Application or a Mobile Application
+
+## Tutorials
+
+<%=include('../_pending-tutorials-notice') %>

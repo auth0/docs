@@ -61,9 +61,6 @@ articles:
       - title: "Client Credentials Grant"
         url: "/api-auth/grant/client-credentials"
 
-      - title: "Rules with Client Credentials"
-        url: "/api-auth/grant/using-rules"
-
       - title: "FAQ"
         url: "/api-auth/faq"
 

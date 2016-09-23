@@ -6,7 +6,7 @@ description: API Authentication and Authorization FAQ
 
 ### Q: Can I execute a user consent flow?
 
-**A:** Yes! We are working on creating documentation an tutorials for implementing this flow. In the meantime, if you need assistance or more information please contact our [Support Center](https://support.auth0.com).
+**A:** Yes! We are working on creating documentation and tutorials for implementing this flow. In the meantime, if you need assistance or more information please contact our [Support Center](https://support.auth0.com).
 
 ### Q: I have a Client that needs to talk to different Resource Servers.
 
