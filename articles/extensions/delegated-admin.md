@@ -93,6 +93,12 @@ Set the following configuration variables:
 
 Once you have provided this information, click **Install**. Your extension is now ready to use!
 
+If you navigate back to the [Clients](${manage_url}/#/clients) view, you will see that there is an additional client created.
+
+![](/media/articles/extensions/delegated-admin/two-clients.png)
+
+The `auth0-delegated-admin` client is created automatically when you install the extension. It's a client authorized to access the [Management API](/api/management/v2) and you shouldn't modify it.
+
 ## Use the Extension
 
 To access your newly created dashboard, navigate to *[Extensions](${manage_url}/#/extensions) > Installed Extensions* and click on the **Delegated Administration Dashboard**. A new tab will open and display the login prompt.
