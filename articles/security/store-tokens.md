@@ -1,6 +1,6 @@
 # Where to Store Tokens
 
- This document explains how to securely store tokens used in token-based authentication. The following assumes a basic knowledge of JSON Web Tokens(JWTs). To learn more about JWTs see:
+ This document explains how to securely store tokens used in token-based authentication. The following assumes a basic knowledge of JSON Web Tokens (JWTs). To learn more about JWTs see:
 
  * [Auth0 Tokens](/tokens)
  * [JSON Web Tokens (JWT) in Auth0](/jwt)
@@ -30,3 +30,4 @@ There are different options to control the lifetime of a cookie:
 * Cookies can be destroyed after the browser is closed (session cookies).
 * Implement a server side check (typically done for you by the web framework in use), and you could implement expiration or sliding window expiration.
 * Cookies can be persistent (not destroyed after the browser is closed) with an expiration.
+* Cookies can be read by both the JavaScript and the server side code or only server side if the `httpOnly` flag is set.
