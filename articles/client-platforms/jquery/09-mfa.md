@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial will show you how to add Multifactor Authentication to your jQuery app with auth0.
+description: This tutorial demonstrates how to add Multifactor Authentication to your jQuery app with auth0.
 ---
 
 <%= include('../../_includes/_package', {

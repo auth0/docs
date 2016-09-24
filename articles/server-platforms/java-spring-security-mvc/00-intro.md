@@ -3,16 +3,18 @@ title: Introduction
 description: This tutorial will show you how to use the Auth0 Java Spring Security MVC SDK to add authentication and authorization to your web app, using Spring Boot.
 ---
 
+<%= include('../../_includes/_signup') %>
+
 This multi-step quickstart will guide you through the process of managing authentication in your Java Spring Security Web Application with Auth0.
 
 Auth0 provides and manages a [Spring Security MVC SDK](https://github.com/auth0/auth0-spring-security-mvc). This SDK allows you to use Auth0 with Java for server-side Spring Security web apps, leveraging Spring Boot dependencies.
 
-__NOTE:__ You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview). 
+__NOTE:__ You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview).
 
 
 ## Seed &amp; Samples
 
-There are two options to follow along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart. 
+There are two options to follow along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
 
 The seed is a regular Java Spring Security app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) and follow along.
 
@@ -21,7 +23,7 @@ Instead you can choose to follow the samples that are included in each step. Eac
 
 ### Seed project structure
 
-Let's take some time and explain how our [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) is structured. 
+Let's take some time and explain how our [seed project](https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/00-Starter-Seed) is structured.
 
 
 ```
@@ -127,5 +129,3 @@ Let's see what each attribute means.
 
 
 You are now ready to continue with the next tutorial in order to implement basic login using [Lock](/libraries/lock)!
-
-

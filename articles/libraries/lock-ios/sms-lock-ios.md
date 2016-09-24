@@ -41,4 +41,4 @@ lock.presentSMSController(controller, fromController: self)
 ```
 And you'll see SMS login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Screenshot.png)](https://auth0.com)
+![Lock SMS Screenshot](/media/articles/libraries/lock-ios/Lock-SMS-Screenshot.png)

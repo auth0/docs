@@ -13,7 +13,9 @@ name: Introduction to the Quickstart, and configuring environment
   pkgType: 'replace'
 }) %>
 
-This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API. 
+<%= include('../../_includes/_signup') %>
+
+This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API.
 
 ## Seed & Samples
 
@@ -27,7 +29,7 @@ The final project after each of the steps is also available in the [Sample repos
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-Be sure to update the `appsettings.json` file in the seed project with the correct values for your application. 
+Be sure to update the `appsettings.json` file in the seed project with the correct values for your application.
 
 ## Dependencies
 
@@ -39,6 +41,6 @@ Install-Package Microsoft.AspNetCore.Authentication.Jwt
 
 This was already done for you in the seed project, so no need to add it if you are using the seed project as a starting point.
 
-That's all you need to start working with Auth0 in your Web API! 
+That's all you need to start working with Auth0 in your Web API!
 
 Please continue with the [Authentication](/quickstart/backend/aspnet-core-webapi/01-authentication-rs256) tutorial to secure your Web API.

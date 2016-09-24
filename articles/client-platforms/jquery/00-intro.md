@@ -1,19 +1,9 @@
 ---
 title: Introduction
-description: A simple, multi-step quickstart guide to setup and manage authentication in your jQuery app using Auth0.
+description: A multi-step quickstart guide to setup and manage authentication in your jQuery app using Auth0.
 ---
 
-This simple, multistep quickstart will guide you through setting up and managing authentication in your jQuery apps using Auth0.
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
-}) %>
+This multistep quickstart guide will walk you through setting up and managing authentication in your jQuery apps using Auth0.
 
 ## 1. Create an Application
 
@@ -37,9 +27,4 @@ To integrate your jQuery application with Auth0, you will need to add the follow
 
   Or the Auth0 CDN:
 
-  `<script src="http://cdn.auth0.com/js/lock/10.1.0/lock.min.js"></script>`
-
-
-## Summary
-
-In this guide you learned how to get your application credentials from the `Auth0` dashboard, and learned different ways for installing `Lock` in your jQuery project.
+  `<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>`

@@ -70,7 +70,7 @@ To test your newly-created rule and webtask, make the following `POST` call:
   ],
   "postData": {
 		"mimeType": "application/json",
-		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_crentials\"}"
+		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_credentials\"}"
 	}
 }
 ```

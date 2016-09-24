@@ -105,7 +105,7 @@ The information contained in a User Profile and in an `id_token` can be modified
 
 ### Scopes
 
-The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the `id_token` (JWT). Examples of different scopes are discussed [here](/jwt#2-body).
+The authentication flows supported by Auth0 includes an optional parameter that allows you to specify a scope. This controls the User Profile information (claims) included in the `id_token` (JWT). Examples of different scopes are discussed [here](/scopes).
 
 ### Dashboard
 

@@ -6,7 +6,7 @@ After Auth0 Lock is opened, you can choose any of the Identity Providers (IdP) t
 
 If after you click on the IdP button (Facebook for example), the Webapp you built gets redirected to Facebook, it means you're using Redirect Mode. Once you successfully login to Facebook, Facebook will redirect you back to your app (through Auth0). This means that if you had **any state in memory in your WebApp, it will be lost**. This is why a successful login with Redirect mode **cannot be handled with a callback** and must be handled with the `parseHash` method.
 
-![Widget redirect](http://cl.ly/image/2o423i362s2P/WidgetRedirect.gif)
+![Widget redirect](/media/articles/libraries/lock/v9/WidgetRedirect.gif)
 
 You can [click here](/libraries/lock/v9/types-of-applications#redirect-mode) to learn how to implement Redirect mode with Single Page Apps, or you can [click here](/libraries/lock/v9/types-of-applications#redirect-mode-1) to learn how to implement it with Regular WebApps.
 

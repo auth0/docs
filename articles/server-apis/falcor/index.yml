@@ -11,6 +11,5 @@ snippets:
   dependencies: server-apis/falcor/dependencies
   setup: server-apis/falcor/setup
   use: server-apis/falcor/use
-  frontend: server-apis/falcor/frontend
 articles:
   - authenticate

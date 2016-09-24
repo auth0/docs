@@ -5,6 +5,14 @@ description: This tutorial will show you how to use the Auth0 Relay SDK to add a
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
+<%= include('../../_includes/_package', {
+  pkgRepo: 'node-auth0',
+  pkgBranch: 'master',
+  pkgPath: 'examples/relay-api',
+  pkgFilePath: null,
+  pkgType: 'server'
+}) %>
+
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
@@ -15,13 +23,7 @@ This tutorial and seed project have been tested with the following:
 * Graphql 0.4.4
 :::
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/relay-api',
-  pkgFilePath: null,
-  pkgType: 'server'
-}) %>
+<%= include('../../_includes/_signup') %>
 
 **If you have an existing application, please follow the steps below.**
 

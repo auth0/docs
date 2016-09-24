@@ -23,7 +23,7 @@ First, you must add the `Auth0.js` library to your application:
 <!-- ===== ./index.html ===== -->
 <head>
   ...
-  <script src="//cdn.auth0.com/w2/auth0-7.0.3.min.js"></script>
+  <script src="${auth0js_url}"></script>
   ...
 </head>
 ```
@@ -34,8 +34,8 @@ You will need an `Auth0` instance. Create one using your client credentials. Inc
 /* ===== ./app.js ===== */
 window.addEventListener('load', function() {
   auth0 = new Auth0({
-    domain: '<%= account.clientId %>',
-    clientID: '<%= account.namespace %>',
+    domain: '<%= account.namespace %>',
+    clientID: '<%= account.clientId %>',
     callbackURL: '<%= account.callback %>',
     responseType: 'token'
   });

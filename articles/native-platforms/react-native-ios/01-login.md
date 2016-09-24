@@ -3,13 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 React Native iOS SDK to add authentication and authorization to your mobile app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* React Native 0.26.0
-* CocoaPods 1.0.0
-* NodeJS 4.3
-:::
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'Mobile-Samples.React',
   pkgBranch: 'master',
@@ -17,6 +10,15 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: 'Classic/Lock/auth0-credentials.js',
   pkgType: 'replace'
 }) %>
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* React Native 0.26.0
+* CocoaPods 1.0.0
+* NodeJS 4.3
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, if you already have an existing React Native application, please follow the steps below.**
 
@@ -163,7 +165,7 @@ If you need have iOS 9 support for your app, then make sure to add the `LSApplic
 
 Here's how the entries for `LSApplicationQueriesSchemes` should look like:
 
-![FB LSApplicationQueriesSchemes](https://i.stack.imgur.com/YkwEp.png)
+![FB LSApplicationQueriesSchemes](/media/articles/native-platforms/reactnative-ios/FB-LSApplicationQueriesSchemes.png)
 
 Then add Lock Facebook's Pod in `ios/Podfile` file and run `pod install --project-directory=ios`
 

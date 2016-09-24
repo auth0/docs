@@ -3,13 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Ionic 2 SDK to add authentication and authorization to your mobile app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 6.3.0
-* Ionic 2.0.0-beta.32
-* Angular 2.0.0-rc.3
-:::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0/auth0-ionic2',
   pkgOrg: 'auth0',
@@ -19,6 +12,15 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: null,
   pkgType: 'none'
 }) %>
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 6.3.0
+* Ionic 2.0.0-beta.32
+* Angular 2.0.0-rc.3
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, if you already have an existing application, please follow the steps below.**
 
@@ -89,7 +91,7 @@ The `AuthService` is now accessible in the view and can be used to conditionally
 
 ${snippet(meta.snippets.profiletemplate)}
 
-![auth0 lock](https://cdn.auth0.com/blog/ionic2-auth/ionic2-auth-5.png)
+![auth0 lock](/media/articles/native-platforms/ionic2/ionic2-auth-5.png)
 
 ### 7. Optional: Implement Refresh Tokens
 

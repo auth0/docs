@@ -94,6 +94,12 @@ To ensure that the Lock widget displays properly on all devices, add a `meta` ta
 
 This guide assumes that you are using Angular Router in your application, but you are free to use UI Router if you wish.
 
+**Note:** If you are using HTML5 mode by setting `$locationProvider.html5Mode(true)`, add a hash to your `<base>` tag.
+
+```html
+  <base href="/#">
+```
+
 Inject the modules necessary for the application, including **angular-lock** and **angular-jwt**. Add configuration for an **angular-lock** instance with your application's client ID and domain using the `lockProvider`.
 
 ```js
@@ -328,7 +334,7 @@ Authentication for Angular apps isn't that useful if it can't be used to access 
 
   angular
     .module('myApp', ['auth0.lock', 'angular-jwt', 'ngRoute'])
-    .configure(function config($routeProvider, $http, lockProvider, jwtOptionsProvider, jwtInterceptorProvider) {
+    .configure(function config($routeProvider, $httpProvider, lockProvider, jwtOptionsProvider, jwtInterceptorProvider) {
 
       jwtOptionsProvider.config({
         tokenGetter: function() {
@@ -336,7 +342,7 @@ Authentication for Angular apps isn't that useful if it can't be used to access 
         }
       });
 
-      $http.interceptors.push('jwtInterceptor');
+      $httpProvider.interceptors.push('jwtInterceptor');
 
       ...
 

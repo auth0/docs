@@ -20,8 +20,12 @@ This sample uses a single Webtask to handle 3 states:
 * **Capture** the YubiKey-NEO code and validate it with the Yubico API.
 * **Return** the result to Auth0. If validation succeeds, the result is returned to Auth0 to continue the login transaction.
 
-Save this code locally in a file named `yubico-mfa-wt.js`. The full source code is also available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md). 
+Save this code locally in a file named `yubico-mfa-wt.js`. The full source code is also available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
 
+::: panel-info
+The styling of the HTML form below was omitted for brevity.
+Please check the [full source code for a styled example](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md)
+:::
 
 ```JS
 var request = require('request');
@@ -30,125 +34,127 @@ var jwt = require('jsonwebtoken');
 
 return function (context, req, res) {
 
-  require('async').series([
+    require('async').series([
     /*
      * We only care about POST and GET
      */
-    function(callback) {
-      if (req.method !== 'POST' && req.method !== 'GET') {
-        res.writeHead(404);
-        return res.end('Page not found');
-      }
-      return callback();
-    },
+        function(callback) {
+            if (req.method !== 'POST' && req.method !== 'GET') {
+                res.writeHead(404);
+                return res.end('Page not found');
+            }
+            return callback();
+        },
 
     /*
      * 1. GET: Render initial View with OTP.
      */
-    function(callback) {
-      if (req.method === 'GET') {
-        renderOtpView();
-      }
-      return callback();
-    },
+        function(callback) {
+            console.log('get callback is ', callback);
+            if (req.method === 'GET') {
+                renderOtpView();
+            }
+            return callback();
+        },
 
     /*
      * 2. Validate OTP
      */
-    function(callback) {
-      if (req.method === 'POST') {
+        function(callback) {
+            if (req.method === 'POST') {
+                yubico_validate(context.data.yubikey_clientid, context.data.otp, function(err,resp) {
+                    if (err) {
+                        return callback(err);
+                    }
 
-      yubico_validate(context.data.yubikey_clientid, context.body.otp, function(err,resp) {
-        if (err) {
-            return callback(err);
-        }
-
-        if(resp.status==='OK'){
+                    if(resp.status==='OK'){
           //Return result to Auth0 (includes OTP and Status. Only when OK)
-          var token = jwt.sign({
-                status: resp.status,
-                otp: resp.otp
-                },
+                        var token = jwt.sign({
+                            status: resp.status,
+                            otp: resp.otp
+                        },
                 new Buffer(context.data.yubikey_secret, 'base64'),
-                      {
-                subject: context.data.user,
-                expiresInMinutes: 1,
-                audience: context.data.yubikey_clientid,
-                issuer: 'urn:auth0:yubikey:mfa'
-            });
+                            {
+                                subject: context.data.user,
+                                expiresIn: 60,
+                                audience: context.data.yubikey_clientid,
+                                issuer: 'urn:auth0:yubikey:mfa'
+                            });
+                        res.writeHead(301, {Location: context.data.returnUrl + "?id_token=" + token + "&state=" + context.data.state});
+                        res.end();
+                        callback();
+                    } else {
+                        return callback([resp.status]);
+                    }
+                });
 
-        res.writeHead(301, {Location: context.data.returnUrl + "?id_token=" + token + "&state=" + context.data.state});
-        res.end();
+      //return callback();
+            }
+        },
+    ], function(err) {
+        if (Array.isArray(err)) {
+            return renderOtpView(err);
         }
-        return callback([resp.status]);
-      });
 
-    return callback();
-     }
-    },
-  ], function(err) {
-
-      if (Array.isArray(err)) {
-          return renderOtpView(err);
-      }
-
-      if (typeof err === 'string') {
-          return renderOtpView([err]);
-      }
-
-      if (typeof err === 'object') {
-          var errors = [];
-          errors.push(err.message || err);
-          return renderOtpView(errors);
+        if (typeof err === 'string') {
+            return renderOtpView([err]);
         }
-  });
 
-  function yubico_validate(clientId, otp, done){
-    var params = {
-        id: clientId,
-        otp: otp,
-        nonce: uid(16)
-      };
-
-    request.get('http://api.yubico.com/wsapi/2.0/verify',
-    {
-      qs: params
-    },function(e,r,b){
-      if(e) return done(e);
-      if(r.statusCode !== 200) return done(new Error('Error: ' + r.statusCode));
-      var yubico_response=qs.parse(b.replace(/\r\n/g, '&'));
-      if(yubico_response.nonce !== params.nonce) return done(new Error('Invalid response - nonce doesn\'t match'));
-      done(null,yubico_response);
+        if (err !== null && typeof err === 'object') {
+            var errors = [];
+            errors.push(err.message || err);
+            return renderOtpView(errors);
+        }
     });
-  }
 
-  function uid(len) {
-      var buf = []
-      , chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-      , charlen = chars.length;
+    function yubico_validate(clientId, otp, done){
+        var params = {
+            id: clientId,
+            otp: otp,
+            nonce: uid(16)
+        };
 
-      for (var i = 0; i < len; ++i) {
-        buf.push(chars[getRandomInt(0, charlen - 1)]);
-      }
+        request.get('http://api.yubico.com/wsapi/2.0/verify',
+            {
+                qs: params
+            },function(e,r,b){
+                if (e) { return done(e); }
+                if (r.statusCode !== 200) { return done(new Error('Error: ' + r.statusCode)); }
+                var yubico_response = qs.parse(b.replace(/\r\n/g, '&'));
+                if (yubico_response.nonce !== params.nonce) {
+                  return done(new Error('Invalid response - nonce doesn\'t match'));
+                }
+                done(null,yubico_response);
+            });
+    }
 
-      return buf.join('');
-  }
+    function uid(len) {
+        var buf = [],
+        chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+        charlen = chars.length;
 
-  function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+        for (var i = 0; i < len; ++i) {
+            buf.push(chars[getRandomInt(0, charlen - 1)]);
+        }
 
-  function renderOtpView(errors) {
-      res.writeHead(200, {
-        'Content-Type': 'text/html'
-      });
-      res.end(require('ejs').render(otpForm.stringify(), {
-        user: context.data.user,
-        errors: errors || []
-      }));
-  }
+        return buf.join('');
+    }
 
-  function otpForm() {
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function renderOtpView(errors) {
+        res.writeHead(200, {
+            'Content-Type': 'text/html'
+        });
+        res.end(require('ejs').render(otpForm.toString().match(/[^]*\/\*([^]*)\*\/\s*\}$/)[1], {
+            user: context.data.user,
+            errors: errors || []
+        }));
+    }
+
+    function otpForm() {
     /*
     <!DOCTYPE html>
     <html lang="en">
@@ -171,12 +177,12 @@ return function (context, req, res) {
             <div class="modal">
               <form onsubmit="showSpinner();" action="" method="POST" enctype="application/x-www-form-urlencoded">
                 <div class="head"><img src="https://cdn.auth0.com/styleguide/2.0.9/lib/logos/img/badge.png" class="logo auth0"><span class="first-line">Yubikey 2FA</span></div>
-                <div class="errors <${'%'}- (errors.length === 0 ? 'hidden' : '') ${'%'}>">
-                  <${'%'} errors.forEach(function(error){ ${'%'}>
-                  <div class="p"><${'%'}= error ${'%'}></div>
-                  <${'%'}})${'%'}>
+                <div class="errors ${"<%- (errors.length === 0 ? 'hidden' : '') %>"}">
+                  ${"<% errors.forEach(function(error){ %>"}
+                  <div class="p">${"<%= error %>"}</div>
+                  ${"<%"}})${"%>"}
                 </div>
-                <div class="body"><span class="description">Hi <strong><${'%'}- user || "" ${'%'}></strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
+                <div class="body"><span class="description">Hi <strong>${'<%- user || "" %>'}</strong>, please tap your Yubikey.</span><span class="description domain"><span>Yubikey OTP:</span>
                     <input type="text" autocomplete="off" name="otp" required autofocus id="otp"></span></div>
                 <div id="ok-button" class="ok-cancel">
                   <button class="ok full-width">
@@ -213,7 +219,7 @@ Follow the instructions for installing Webtask CLI under [Account Settings > Web
 Once the Webtask CLI is installed, run:
 
 ```txt
-wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --output url --profile {WEBTASK PROFILE} yubico-mfa-wt.js
+wt create --name yubikey-mfa --secret yubikey_secret={YOUR YUBIKEY SECRET} --secret yubikey_clientid={YOUR YUBIKEY CLIENT ID} --secret returnUrl=https://${account.namespace}/continue --profile {WEBTASK PROFILE} yubico-mfa-wt.js
 ```
 
 **NOTE:** Replace `WEBTASK PROFILE` in the code above with the value of the -p parameter shown at the end of the code in Step 2 of the [Account Settings > Webtasks](${manage_url}/#/account/webtasks) page.
@@ -228,7 +234,7 @@ Keep a copy of this URL.
 
 ## Configure the Rule
 
-This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned result. 
+This sample uses a single rule that handles both the initial redirect to the Webtask, and the returned result.
 
  * The `context.redirect` statement instructs Auth0 to redirect the user to the Webtask URL instead of calling back to the app.
 
@@ -236,17 +242,17 @@ This sample uses a single rule that handles both the initial redirect to the Web
 
 ```JS
 function (user, context, callback) {
-
+  var jwt = require('jsonwebtoken@5.7.0');
   var yubikey_secret = configuration.YUBIKEY_SECRET;
 
   //Returning from OTP validation
   if(context.protocol === 'redirect-callback') {
-    var decoded = jwt.verify(context.request.query.id_token,
-                               new Buffer(yubikey_secret,'base64'));
-    if(!decoded) return callback(new Error('Invalid OTP'));
-    if(decoded.status !== 'OK') return callback(new Error('Invalid OTP Status'));
-
-    user.otp = decoded.otp;
+    var decoded = jwt.verify(
+      context.request.query.id_token,
+      new Buffer(yubikey_secret,'base64')
+    );
+    if (!decoded) { return callback(new Error('Invalid OTP')); }
+    if (decoded.status !== 'OK') { return callback(new Error('Invalid OTP Status')); }
 
     return callback(null,user,context);
   }

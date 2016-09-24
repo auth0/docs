@@ -2,7 +2,7 @@
 url: /cms
 ---
 
-# CMS
+# CMS Identity Plugins
 
 Auth0 provides Content Management System Plugins/Extensions to integrate your CMS installation with your Auth0 account. These plugins enable Single Sign On for Enterprises, social login and user/password login through all your instances and platforms.
 

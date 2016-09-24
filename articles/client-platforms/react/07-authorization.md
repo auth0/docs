@@ -3,21 +3,13 @@ title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* NodeJS 5.2.0
-* NPM 3.3.12
-* React 15.0.2
-:::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/react/06-rules' }) %>_

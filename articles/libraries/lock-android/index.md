@@ -168,7 +168,7 @@ startActivity(lockIntent);
 ```
 And you'll see our native login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-Widget-Android-Screenshot.png)](https://auth0.com)
+![Lock Screenshot](/media/articles/libraries/lock-android/Lock-Widget-Android-Screenshot.png)
 
 > By default all social authentication will be done using an external browser, if you want native integration please check this [wiki page](/libraries/lock-android/native-social-authentication).
 
@@ -243,7 +243,7 @@ LockPasswordlessActivity.showFrom(MyActivity.this, LockPasswordlessActivity.MODE
 
 and you'll see the **SMS** login screen
 
-[![Lock.png](http://blog.auth0.com.s3.amazonaws.com/Lock-SMS-Android-Screenshot.png)](https://auth0.com)
+![Lock Screenshot](/media/articles/libraries/lock-android/Lock-SMS-Android-Screenshot.png)
 
 Passworless scenarios and types:
 
