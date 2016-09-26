@@ -3,29 +3,19 @@ sitemap: false
 section: appliance
 ---
 
-# Appliance Sprint
+# Appliance Deployment Project
 
-### Auth0 Appliance Customer Onboarding Program
+### Sprint Customer Onboarding Program
 
-Appliance Sprint is Auth0’s onboarding program for enterprise customers choosing an Auth0 Appliance.  It helps you achieve value quickly with your Auth0 enterprise subscription.  The 6 steps in the onboarding program set both you and Auth0 up for success.
+Sprint is Auth0’s onboarding program for enterprise customers.  For customers subscribed to an Auth0 private instance to be deployed on-premises or in the customers cloud provider of choice, the first part of the Sprint program will be the appliance deployment project.  Here's an overview of the main steps:
 
-### Appliance Sprint Overview
-
-![Appliance Sprint Overview Program Overview](/media/articles/onboarding/appliance-sprint-overview.png)
-
-[Download the Appliance Sprint PDF.](/media/articles/onboarding/appliance-sprint-onboarding.pdf)
-
-
-*Hours allocated as “consulting” are delivered by our services team of system architects and software engineers for the purpose of guiding you through the common technical requirements, questions, advice and best practices to get successfully started with Auth0. If you have complex requirements needing deeper consulting and advice from our experts than the time allocated here will allow then ask your Sales Executive about purchasing Professional Services hours. These hours can be used for services including: Systems architecture design consulting; software development assistance related to integration of your application to Auth0; data migration from 3rd party/proprietary databases; performance & load testing.*
-
-
-## Appliance Sprint - Further Details & Resources
+## Appliance Deployment Project Overview
 
 ### Step 1 - Project Kickoff
 
 **When?**  This session is generally booked within 5 days of signing your subscription agreement.
 
-**What?** Deploying the Auth0 Appliance on your cloud or on-premises infrastructure is a team effort.  This is where we run through how we’re going to get it done!
+**What?** Deploying the Auth0 Appliance on your cloud or on-premises infrastructure is a team effort.  This is where we run through how we’re going to get it done!  An Auth0 project manager will work with your designated project manager to build the project plan in this session.
 
 [Appliance Docs](/appliance) - Get up to speed on all things appliance in this high level overview doc.
 
@@ -54,49 +44,6 @@ Appliance Sprint is Auth0’s onboarding program for enterprise customers choosi
 
 [Appliance Administrator's Manual](/appliance/admin)
 
-### Step 5 - Welcome & Orientation
+### What's next?
 
-**When?**  This session is generally booked within 5 days of Appliance handover.
-
-**What?** Congrats, the Appliance is ready!  Our Customer Success team are devoted to learning more about your business and what you want to achieve with Auth0.  In this short, casual session our Customer Success Managers will ask lots of questions and do lots of listening.
-
-[Auth0 support resources and guidance for enterprise customers.](/onboarding/enterprise-support) - Already developing?  No need to wait, you can plug in to our support resources immediately!
-
-[Critical Appliance support issue guidance](/onboarding/appliance-outage)
-
-### Step 6 - Technical Discovery & Guidance
-**When?**  This session is generally booked within 14 days of Appliance handover.
-
-**What?** The goal of this technical session is to send you forward on the best path.  It’s an opportunity for our Customer Success Engineers to understand your software architecture and integration plans and for your team to ask questions or seek advice.
-
-[Common Architecture and Scenarios](/architecture-scenarios) - Quick guidance on common Business Scenarios and Application Configurations and the things you need to know to get started.
-
-[Auth0 Learn Resources](/overview) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
-
-### Step 7 - Management Dashboard Guidance
-**When?**  You can access self service resources immediately.  A live session is generally booked soon after the Technical Discovery & Guidance session.
-
-**What?** The goal of this light technical session is to familiarize your team with the Auth0 Management Dashboard to understand both some of the administrative elements (e.g. setting up new Dashboard Admin users) as well as functional elements.
-
-[Comprehensive Dashboard Walkthrough](https://youtu.be/hkMHBXRImPk?t=8m9s) - This 40 minute video walks you through many elements of the Auth0 Dashboard in a practical manner.
-
-### Step 8 - Customer Integration
-**When?**  Varies by customer and project.
-
-**What?** This is where it all comes together and your team integrates Auth0 with your application/project.  Our support resources are always there to help and our Customer Success Managers will be following your progress and removing any blockers.
-
-[Auth0 support resources and guidance for enterprise customers.](/onboarding/enterprise-support) - Our support resources are there to help during implementation and integration.
-
-### Step 9 - Integration Best Practice Review
-**When?**  Soon after your initial implementation or integration and before you move to beta/UAT or production.
-
-**What?** In this technical session, our Customer Success Engineers will review your implementation and integration to ensure best practices are applied.  This often includes reviewing rules you’ve written, how you’re calling our APIs and answering any questions you may have.
-
-[Auth0 Learn Resources](/overview) - Explore these resources for guidance on topics including refresh tokens, 2FA, implementing SSO and migrating existing user data.
-
-Pre-Production Checklist:  This list will walk through basic checks to make in Auth0 to ensure a smooth production launch (Coming soon).
-
-### Step 10 - Achieve First Value Goal
-**When?**  45-60 days after signing your subscription agreement.
-
-**What?** Ultimately, this is the goal our team will be focussed on moving towards as the outcome of the onboarding process.  It’s something we’ll agree on with you in Step 5.
+Once the appliance is deployed, an Auth0 Customer Success Manager will work with you to complete the rest of the [Sprint onboarding program](https://auth0.com/docs/onboarding/sprint) - the end result being a joint success plan to drive value throughout the subscription lifecycle.
