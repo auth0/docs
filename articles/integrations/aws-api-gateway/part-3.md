@@ -11,7 +11,7 @@ In this step, you will build a single page, serverless client application using 
 
 ### 1. Setting Up Your Sample Application
 
-For a simple starter app, download this seed project, which comes pre-configured with your account settings.
+For a simple starter app, download this seed project.
 
 ```
 <%= include('../../_includes/_package', {
@@ -36,19 +36,19 @@ Prior to proceeding, please be sure that you have at least one user associated w
 
 Lastly, ensure that Auth0 allows authentication from your website by providing the URL in the **Allowed Origins** field in the *Settings* page of your Client. Your website's URL should look something like this:
 
-`http://your-bucket.s3-website-us-east-1.amazonaws.com/index.html`
+`http://your-bucket.s3-website-us-east-1.amazonaws.com`
 
 If you don't know what your URL is, you can find it listed under the **Properties** tab of your S3 bucket.
 
-Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in with the user you just created you should see an alert box pop up that says "getPets not implemented", with the page for viewing pets.
+Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in, you should see an alert box pop up that says "getPets not implemented", with the page for viewing pets.
 
 ### Use Delegation to get an AWS Token
 
-At this point you have authenticated with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code.
+At this point, you have authentication set up with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code.
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
-You can use Auth0's delegation capability to obtain a token to access AWS based on our identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the add-on that you configured as part of the [previous section](#configure-iam-and-auth0-for-saml-integration-and-the-api-gateway).
+You can use Auth0's delegation capability to obtain an AWS access token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
 
 Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a social connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 
@@ -76,6 +76,8 @@ auth.getToken(options)
 });
 ```
 
+#### Modifying the `role` and `principal` Strings
+
 To modify the `role` and `principal` strings, specify the appropriate values via [Rules](${manage_url}/#/rules):
 
 ```js
@@ -91,10 +93,11 @@ function (user, context, callback) {
 
   callback(null, user, context);
 }
-
 ```
 
-Copy the updated files to your S3 bucket for your web site. Optionally set a breakpoint in the browser at `          store.set('awstoken', delegation.Credentials);`. Log out and back in, then inspect `delegation.Credentials` when you hit the breakpoint. You will see a familiar values like *AccessKeyId* and *SecretAccessKey* if you've accessed AWS APIs programmatically before (if you don't then make sure you have the *AWS* enabled in the *Addons* tab for your Auth0 application):
+Copy the updated files to your S3 bucket for your web site.
+
+Optionally, you can set a breakpoint in the browser at `store.set('awstoken', delegation.Credentials);`. When you log out and and log back in, inspect `delegation.Credentials` when you arrive at the breakpoint. You will see a familiar values like *AccessKeyId* and *SecretAccessKey*:
 
 ```js
 {
@@ -105,12 +108,18 @@ Copy the updated files to your S3 bucket for your web site. Optionally set a bre
 }
 ```
 
+If you don't see these values, be sure that you have the *Amazon Web Services addon* enabled in the *Addons* tab for your Auth0 Client.
+
 ### Display Pets with the AWS API Service
 
-First, show the pets to end users. To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you previously downloaded to the `pets` directory. The contents should include `apiClient.js`, a `lib` folder, and a `README.md`. There is already a `README.md` in the `pets` directory, so just keep both. (The `README.md` for the API gateway explains how to use the api client from your application.) Open `index.html`, and add all of the scripts listed at the top of the API readme to `index.html`. For example:
+The first thing you will do is show the pets to the end users.
+
+To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you [previously downloaded](/integrations/aws-api-gateway/part-2/#deploy-the-api) to the `pets` directory. The contents should include `apiClient.js`, a `lib` folder, and a `README.md`. (There is already a `README.md` in the `pets` directory, so you will need to rename one of the files to keep both in the directory. The `README.md` for the API gateway explains how to use the API client from your Auth0 Client.)
+
+Open `index.html` to add all of the scripts listed at the top of the API readme to `index.html`:
 
 ```html
-<!-- scripts for aws api gateway -->
+<!-- scripts for aws api gateway include after you create your package from aws for api gateway. -->
 <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
@@ -125,7 +134,9 @@ First, show the pets to end users. To add the API code for adding a call to your
 <script type="text/javascript" src="apigClient.js"></script>
 ```
 
-If you open `apiClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. Don't modify this generated code. Open `home.js` and update the contents of `getPets` with a method for getting pets as follows (update the region if you are not running in `us-east-1`):
+If you open `apigClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. You do not need to modify this generated code.
+
+Open `home.js` in the `home` folder, and update the contents of `getPets` with a method for retrieving pets data (be sure to update the region if you are not running in `us-east-1`):
 
 ```js
 function getPets() {
@@ -145,7 +156,8 @@ function getPets() {
     });
 }
 ```
-Copy the updated code to your S3 bucket. If you refresh the page, you should see two animals listed (assuming you ran the previously described test on your API's that created these pets).
+
+Copy the updated code to your S3 bucket. Refresh the page to see two animals listed (if you ran the previously described test on your APIs that created these pets).
 
 ### Update Pets with the AWS API Service
 
