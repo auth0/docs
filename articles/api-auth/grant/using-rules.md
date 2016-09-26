@@ -1,8 +1,5 @@
 # Using Rules with Client Credentials Grants
-
-::: panel-warning Preliminary Feature
-Using rules with client credentials grants is a preliminary feature. Please use discretion during implementation and use.
-:::
+<%=include('../_preview-warning') %>
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 

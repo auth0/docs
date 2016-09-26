@@ -1,7 +1,7 @@
 # API Auth: Implicit Grant
 <%=include('../_preview-warning') %>
 
-The [Implicit Grant](https://tools.ietf.org/html/rfc6749#section-4.2) is also a redirect-based flow, similar to the Authorization Code Grant, but the main difference is that all of the interactions with the Authorization Server happen through the User Agent (this includes receiving the access token). After receiving the `access_token` (and optionally also the `refresh_token`), the User Agent will expose this to the Client, allowing it to call the Resource Server on behalf of the Resource Owner.
+The Implicit Grant (defined in [RFC 6749, section 4.1](https://tools.ietf.org/html/rfc6749#section-4.2)) is also a redirect-based flow, similar to the Authorization Code Grant, but the main difference is that all of the interactions with the Authorization Server happen through the User Agent (this includes receiving the access token). After receiving the `access_token`, the User Agent will expose this to the Client, allowing it to call the Resource Server on behalf of the Resource Owner.
 
 ![](/media/articles/api-auth/implicit-grant.png)
 
@@ -17,3 +17,7 @@ The first time the user goes through this flow a consent page will be shown wher
 
 - Allow the Client to make calls to the Resource Server on behalf of the Resource Owner (Delegation)
 - The Client is typically a Single Page Application or a Mobile Application
+
+## Tutorials
+
+<%=include('../_pending-tutorials-notice') %>
