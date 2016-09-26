@@ -9,7 +9,7 @@ This Quickstart will show you how to use Auth0 to create access roles for your u
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
+* AndroidStudio 2.2
 * Emulator - Nexus5X - Android 6.0
 :::
 
@@ -36,7 +36,7 @@ if (user.email.indexOf('@example.com') > -1)
 ```
 to match the condition that fits your needs.
 
-By default, it says that if the user email contains `@example` he will be given an `admin` role, otherwise a regular `user` role.
+By default, it says that if the user email contains `@example.com` he will be given an `admin` role, otherwise a regular `user` role.
 
 > You can define more roles other than `admin` and `user`, depending on your product requirements.
 
@@ -61,13 +61,13 @@ Inside it, you will have the role, and you will be ready to perform the access c
 ```java
 List<String> roles = (List<String>) mUserProfile.getAppMetadata().get("roles");
 
-if(roles.contains("admin")){
+if (roles.contains("admin")) {
  // perform any action
 };
 ```
 
-> Notice that you'll find the `roles` information within the `appMetadata` hashmap and not in the `userMetadata`. Application metadata cannot be modified by users, whereas User metadata can be.
+> Notice that you'll find the `roles` information within the `appMetadata` HashMap and not in the `userMetadata`. Application metadata cannot be modified by users, whereas User metadata can be.
 
 ### 3. Restrict Content Based On Access Level
 
-At this point, you are able to distinguish the users' roles in your app and authorize or deny (depending on the user) access to a certain feature.
+At this point, you are able to distinguish the users roles in your app and authorize or deny (depending on the user) access to a certain feature.
