@@ -168,6 +168,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
 
  1. The browser cannot show any plugins, customizations, or bookmarks.
  1. The browser cannot be in incognito mode.
+ 1. The browser should have only one tab open, the one in the screenshot.
  1. The browser needs to be resized to the standard size. Using the below script:
 
   ```bash
@@ -175,7 +176,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```
  1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
- 2. Resize image to a maximum 900px width.
+ 1. Resize image to a maximum 900px width.
 
  Example:
 
