@@ -3,17 +3,7 @@ title: Introduction
 description: Short Introduction to the Auth0 Android Quickstarts.
 ---
 
-This is the very beginning of a simple, practical and multi-step quickstarts that will guide you through managing authentication in your android apps with Auth0.
-
- <%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/00-Starter-Seed',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-android-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: '00-Starter-Seed/app/src/main/res/values/strings.xml',
-  pkgType: 'replace'
-}) %>
+This multistep quickstart guide will walk you through managing authentication in your android apps with Auth0.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -37,10 +27,6 @@ Each tutorial will require you to use either [Lock](https://github.com/auth0/Loc
 
 The `Lock` dependency is already integrated in each sample project through [Gradle](https://gradle.org/).
 `Lock` packs most of the `Auth0.Android` functionality inside.
-
-It's recommended that, as a starting point for your project, you download the [seed project](#seed-project) described above, which already includes these dependencies.
-
-Otherwise, if you're starting an empty project on your own, or if you want to add authentication to an existing project of yours, you have to make sure you install them:
 
 #### Gradle
 
