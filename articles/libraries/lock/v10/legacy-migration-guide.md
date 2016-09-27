@@ -1,5 +1,5 @@
 ---
-description: Lcok V10 migration guide to move from Auth0 Widget to Lock.
+description: Lock V10 migration guide to move from Auth0 Widget to Lock.
 ---
 
 # Lock: Migration Guide
