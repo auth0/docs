@@ -1,5 +1,5 @@
 ---
-description: Supported parameters that can be used with Lock.
+description: Supported parameters that can be used with Lock V9.
 ---
 
 # Lock: Authentication Parameters
