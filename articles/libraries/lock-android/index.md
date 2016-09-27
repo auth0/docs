@@ -1,5 +1,6 @@
 ---
 url: /libraries/lock-android
+description: Basics of Lock for Android
 ---
 
 # Lock for Android

@@ -1,3 +1,7 @@
+---
+description:  API authentication-related errors using Auth0 libraries
+---
+
 # API Authentication-Related Errors Using Auth0 Libraries
 
 If you are using any of the Auth0-provided libraries, your users may trigger one or more of the following API authentication-related error messages when they either sign up or log in. While this is not an exhaustive list of all possible errors, these are the ones that may be easily handled by the end users themselves.

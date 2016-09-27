@@ -1,3 +1,7 @@
+---
+description:  Information for how to use Duo Security for users.
+---
+
 # How to Use Duo
 
 Duo is a service and has a mobile app used for two-factor authentication when logging into an application, which helps create a more secure login.  With two-factor authentication you will always need your mobile device when you log in.

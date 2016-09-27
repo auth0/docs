@@ -1,3 +1,7 @@
+---
+description:  Information for how to use Duo Security for administrators.
+---
+
 # Duo for Administrators
 
 ## Enabling Duo for MFA

@@ -1,3 +1,7 @@
+---
+description:  Using Google Authenticator with Auth0 for administrators
+---
+
 # Google Authenticator for Administrators
 
 ::: panel-info Note:
