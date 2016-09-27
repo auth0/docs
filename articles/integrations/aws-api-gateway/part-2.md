@@ -85,7 +85,7 @@ Before you begin, you will need the ARN for your Gateway API. You can see the AR
 
   `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/`
 
-  The wildcard (`*`) in the ARN above enables permissions to your API for all stages, but you can deploy different stages individually (for example, developement, then test, then production).
+  The wildcard (`*`) in the ARN above enables permissions to your API for all stages, but you can deploy different stages individually (for example, development, then test, then production).
 
 :::
 

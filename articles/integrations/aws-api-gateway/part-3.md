@@ -23,7 +23,7 @@ For a simple starter app, download this seed project.
 }) %>
 ```
 
-Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial.
+Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial. Within this folder, update `auth0-variables.js` with your Auth0 Client `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_ID` (this information is available in the [Management Dashboard](${manage_url}/#/clients) for the client in question).
 
 > Be sure that you have [created the AWS S3 bucket that you have configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
 >
@@ -32,7 +32,7 @@ Copy the contents of this seed project to a local folder called `pets`, which yo
 > aws s3 cp --recursive --acl "public-read" ./ s3://YOUR-BUCKET/
 > ```
 
-Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* Connection. In order to fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
+Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* (or the Database Connection associated with the Client you are using) Connection. In order to fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
 
 Lastly, ensure that Auth0 allows authentication from your website by providing the URL in the **Allowed Origins** field in the *Settings* page of your Client. Your website's URL should look something like this:
 
@@ -41,6 +41,8 @@ Lastly, ensure that Auth0 allows authentication from your website by providing t
 If you don't know what your URL is, you can find it listed under the **Properties** tab of your S3 bucket.
 
 Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in, you should see an alert box pop up that says "getPets not implemented", with the page for viewing pets.
+
+![](/media/articles/integrations/aws-api-gateway/log-in-success.png)
 
 ### Use Delegation to get an AWS Token
 
@@ -95,6 +97,8 @@ function (user, context, callback) {
 }
 ```
 
+Be sure to update the `role` and `[principal]` ARN values with the ones for your integration.
+
 Copy the updated files to your S3 bucket for your web site.
 
 Optionally, you can set a breakpoint in the browser at `store.set('awstoken', delegation.Credentials);`. When you log out and and log back in, inspect `delegation.Credentials` when you arrive at the breakpoint. You will see a familiar values like *AccessKeyId* and *SecretAccessKey*:
@@ -114,9 +118,17 @@ If you don't see these values, be sure that you have the *Amazon Web Services ad
 
 The first thing you will do is show the pets to the end users.
 
-To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you [previously downloaded](/integrations/aws-api-gateway/part-2/#deploy-the-api) to the `pets` directory. The contents should include `apiClient.js`, a `lib` folder, and a `README.md`. (There is already a `README.md` in the `pets` directory, so you will need to rename one of the files to keep both in the directory. The `README.md` for the API gateway explains how to use the API client from your Auth0 Client.)
+#### Adding the API Code to Call Your API
 
-Open `index.html` to add all of the scripts listed at the top of the API readme to `index.html`:
+To add the API code for adding a call to your service, copy the contents of *apiGateway-js-sdk.zip* you [previously downloaded](/integrations/aws-api-gateway/part-2/#deploy-the-api) to the `pets` directory. The contents should include:
+
+* `apiClient.js`;
+* `lib` folder;
+* `README.md`.
+
+There is already a `README.md` in the `pets` directory, so you will need to rename one of the files to keep both in the directory. The `README.md` for the API gateway explains how to use the API client from your Auth0 Client.
+
+Open the `index.html` file located in the root of your `pets` folder to add all of the scripts listed at the top of the API readme to `index.html`:
 
 ```html
 <!-- scripts for aws api gateway include after you create your package from aws for api gateway. -->
@@ -125,7 +137,6 @@ Open `index.html` to add all of the scripts listed at the top of the API readme 
 <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
 <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
-<script type="text/javascript" src="lib/moment/moment.js"></script>
 <script type="text/javascript" src="lib/url-template/url-template.js"></script>
 <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
 <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
@@ -134,7 +145,9 @@ Open `index.html` to add all of the scripts listed at the top of the API readme 
 <script type="text/javascript" src="apigClient.js"></script>
 ```
 
-If you open `apigClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. You do not need to modify this generated code.
+If you open `apigClient.js`, you can see that the downloaded library has created wrappers like `petsPost` and `petsGet` for your API methods. You do *not* need to modify this generated code.
+
+#### Configuring the `getPets` Method
 
 Open `home.js` in the `home` folder, and update the contents of `getPets` with a method for retrieving pets data (be sure to update the region if you are not running in `us-east-1`):
 
@@ -161,9 +174,11 @@ Copy the updated code to your S3 bucket. Refresh the page to see two animals lis
 
 ### Update Pets with the AWS API Service
 
-Now that you have a working application with the API Gateway, add a method for updating the pets. First try it without authentication, and then add it in.
+Now that you have a working Auth0 Client with the API Gateway, you will add a method for updating the `pets` table. You will first attempt this *without* authentication, and then add it in at a later point.
 
-Append code for adding a pet. Remember that when you modified `auth.signin`, you set any user that is not a social user to admin. This includes users authenticated from the *Username-Password-Authentication* store). Modify the `putPets` logic to update pets using your API function. This function will be used for both adding and removing pets.
+> Remember that, when you modified `auth.signin`, you set any user that is not a social user to be an admin, including those authenticated from the *Username-Password-Authentication* store.
+
+Modify the `putPets` method logic to update pets using your API function. This function will be used for both adding and removing pets.
 
 ```js
 function putPets(updatedPets) {
@@ -183,7 +198,9 @@ function putPets(updatedPets) {
 }
 ```
 
-The update logic will fail because you are not yet authenticating the AWS API Gateway method using IAM for *petsPost*, but you should test it. Copy the updated code to your S3 bucket. Add a frog for 4.99. You should see a failure occurring when you try to save. The error code is likely a failure due to the absence of the `Access-Control-Allow-Origin` header. When you setup CORS, it was only configured up for a *200* status code. You'll need to set this up for each status code you want to go through to the end user. If you look in the browser debugger, you'll see that the underlying status is a 403.
+At this point, the update logic will fail because you are not yet authenticating the AWS API Gateway method using IAM for *petsPost*. You can see this by testing.
+
+Copy the updated code to your S3 bucket. Add a frog for 4.99. You should see a failure occurring when you try to save. The error code is likely a failure due to the absence of the `Access-Control-Allow-Origin` header. When you set up CORS, it was only configured up for a *200* status code. You'll need to set this up for each status code you want to go through to the end user. If you look in the browser debugger, you'll see that the underlying status is a 403.
 
 Now add security by using the `getSecureApiClient` function at the start of the `putPets` method:
 
