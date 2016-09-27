@@ -8,17 +8,34 @@ description: Step 4 of Amazon API Gateway Tutorial
 
 [Prev](/integrations/aws-api-gateway/part-3) ----- [Next](/integrations/aws-api-gateway/part-5)
 
-In this step you'll assign different AWS IAM roles to users based upon authentication information. Users that authenticate with social sources will be treated as buyers, while users authenticated with a database source will be treated as admins. You will perform this role assignment logic using client side Javascript code as well as service side by using Auth0 rules.
+In this step, you'll assign different AWS IAM roles to users based on authentication information:
 
-For many applications, you'll want different users to have different levels of access, and often you'll want more information about an identity to use in your service logic. For cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to add and remove pets, but social users can only buy pets).
+* users that authenticate with Social Connections will be treated as buyers;
+* users authenticated with a Database Connection will be treated as admins.
 
-The following diagram illustrates AWS IAM role assignments for two different user classes, social and database authenticated users. It also illustrates that AWS IAM roles can be assigned to other entities, like AWS Lamdba functions, to control the permissions these entities are assigned for an account. In short, an IAM role is as a group of permissions to AWS capabilities defined by one or more policies and assigned to an entity.
+You will perform this role assignment logic in two different ways:
+
+* client-side: JavaScript;
+* server-side: Auth0 rules.
+
+
+For many Auth0 Clients, you'll want different users to have different levels of access, and you'll want additional information about a given identity to use in your service logic. In cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to *add* and *remove* pets, but social users can only *buy* pets).
+
+The following diagram illustrates AWS IAM role assignments for two different user classes: users authenticated via Social Connections and users authenticated via Database Connections. It also illustrates that AWS IAM roles can be assigned to other entities, like AWS Lamdba functions, to control the permissions these entities are assigned for an account. In short, an IAM role is a group of permissions to AWS capabilities  that is defined by one or more policies and then assigned to an entity.
 
 ![](/media/articles/integrations/aws-api-gateway/roles-in-use.png)
 
-For cases where you want to make decisions within your code, (e.g. a credit check of a user buying a pet) you will want to flow identity as well. This will be demonstrated below in the [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5) section.
+For cases where you want to make decisions within your code (for example, you might want a credit check of a user buying a pet), you will want to flow identity as well. This will be demonstrated below in [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5).
 
-### Create the PetPurchase API resource
+### Create the PetPurchase API Resource
+
+Using the [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway), select your *Pets* API. You will be taken to its *Resources* page.
+
+![](/media/articles/integrations/aws-api-gateway/part-4/create-resource.png)
+
+Click on **Actions** and **Create Resource**. Name the *New Child Resource* `Purchase`. Click **Create Resource**.
+
+![](/media/articles/integrations/aws-api-gateway/part-4/new-child-resource.png)
 
 From the Amazon API Gateway console, create a new API resource by selecting `pets`, and clicking **Create Resource**. Name the new API resource "purchase". Add an *OPTIONS* method for the `purchase` resource as outlined previously for `pets` in [Step 2 - Securing and Deploying the Amazon API Gateway](/integrations/aws-api-gateway/part-2) in the *Set up CORS* section. Create a new AWS Lambda function for purchasing a pet called "PetPurchase", which adds a `isSold` and `soldTo` attribute to a pet as follows:
 

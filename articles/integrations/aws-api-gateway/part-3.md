@@ -176,6 +176,8 @@ function getPets() {
 
 Copy the updated code to your S3 bucket. Refresh the page to see two animals listed (if you ran the previously described test on your APIs that created these pets).
 
+![](/media/articles/integrations/aws-api-gateway/part-3/get-success.png)
+
 ### Update Pets with the AWS API Service
 
 Now that you have a working Auth0 Client with the API Gateway, you will add a method for updating the `pets` table.
