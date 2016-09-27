@@ -40,9 +40,13 @@ Lastly, ensure that Auth0 allows authentication from your website by providing t
 
 If you don't know what your URL is, you can find it listed under the **Properties** tab of your S3 bucket.
 
-Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in, you should see an alert box pop up that says "getPets not implemented", with the page for viewing pets.
+Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in, you should see an alert box pop up that says "getPets not implemented":
 
-![](/media/articles/integrations/aws-api-gateway/log-in-success.png)
+![](/media/articles/integrations/aws-api-gateway/part-3/log-in-popup.png)
+
+You should also see the page for viewing pets.
+
+![](/media/articles/integrations/aws-api-gateway/part-3/log-in-success.png)
 
 ### Use Delegation to get an AWS Token
 
@@ -174,9 +178,7 @@ Copy the updated code to your S3 bucket. Refresh the page to see two animals lis
 
 ### Update Pets with the AWS API Service
 
-Now that you have a working Auth0 Client with the API Gateway, you will add a method for updating the `pets` table. You will first attempt this *without* authentication, and then add it in at a later point.
-
-> Remember that, when you modified `auth.signin`, you set any user that is not a social user to be an admin, including those authenticated from the *Username-Password-Authentication* store.
+Now that you have a working Auth0 Client with the API Gateway, you will add a method for updating the `pets` table.
 
 Modify the `putPets` method logic to update pets using your API function. This function will be used for both adding and removing pets.
 
@@ -198,11 +200,17 @@ function putPets(updatedPets) {
 }
 ```
 
-At this point, the update logic will fail because you are not yet authenticating the AWS API Gateway method using IAM for *petsPost*. You can see this by testing.
+Copy the updated code to your S3 bucket. You can test this method by:
 
-Copy the updated code to your S3 bucket. Add a frog for 4.99. You should see a failure occurring when you try to save. The error code is likely a failure due to the absence of the `Access-Control-Allow-Origin` header. When you set up CORS, it was only configured up for a *200* status code. You'll need to set this up for each status code you want to go through to the end user. If you look in the browser debugger, you'll see that the underlying status is a 403.
+1. Log out and log back in.
+2. Enter in values for `Pet Type` and `Pet Price`.
+3. Click **Save** to post your data.
 
-Now add security by using the `getSecureApiClient` function at the start of the `putPets` method:
+You should see a message that says, "We have a `<Pet Type>` for sale for `<Pet Price>`" with a red **REMOVE** button to its left.
+
+![](/media/articles/integrations/aws-api-gateway/part-3/add-frog-success.png)
+
+To add security, add the `getSecureApiClient` function at the start of the `putPets` method:
 
 ```js
 
@@ -211,9 +219,9 @@ function putPets(updatedPets) {
 }
 ```
 
-Copy the code to your S3 bucket. The API The update should now succeed.
+Copy the code to your S3 bucket.
 
-The `getSecureApiClient` function provided for you retrieves the AWS token from local storage acquired by using delegation to the API, and uses the access key, secret, and session token:
+The `getSecureApiClient` function provided for you retrieves the AWS token from local storage acquired using delegation to the API, and uses the access key, secret, and session token:
 
 ```js
   function getSecureApiClient() {
