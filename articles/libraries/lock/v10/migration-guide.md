@@ -1,3 +1,7 @@
+---
+description: Lock 9 to Lock 10 Migration Guide
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # Lock 9 to Lock 10 Migration Guide

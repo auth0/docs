@@ -1,3 +1,7 @@
+---
+description: How to select different connection types for multiple login options with Lock V10.
+---
+
 # Selecting the connection in Auth0 for multiple login options
 
 Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multitenant apps in which a single app is used by many different organizations, each one potentially using different systems: LDAP, Active Directory, Google Apps, or username/password stores.

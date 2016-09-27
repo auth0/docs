@@ -1,3 +1,7 @@
+---
+description: Lcok V10 migration guide to move from Auth0 Widget to Lock.
+---
+
 # Lock: Migration Guide
 
 This guide will walk you through the needed changes to migrate from **Auth0Widget** to **Auth0Lock**.

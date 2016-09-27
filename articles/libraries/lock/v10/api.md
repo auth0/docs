@@ -1,3 +1,7 @@
+---
+description: Details on the Lock V10 API.
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # API
