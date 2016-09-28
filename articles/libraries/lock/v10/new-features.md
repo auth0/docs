@@ -1,3 +1,6 @@
+---
+description: Describes the new features with Lock V10.
+---
 
 <%= include('../_includes/_lock-version') %>
 

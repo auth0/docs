@@ -1,5 +1,5 @@
 ---
-sitemap: false
+public: false
 title: Android Developer Center
 subtitle: Resources and documentation for Android developers
 logo: android

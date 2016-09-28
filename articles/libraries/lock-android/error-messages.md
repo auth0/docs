@@ -1,3 +1,7 @@
+---
+description: Types of error messages with Lock for Android
+---
+
 # Android Lock: Error Messages
 
 You may encounter one or more of the following messages when signing up using Lock for Android:

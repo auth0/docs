@@ -3,17 +3,24 @@ title: Introduction
 description: test
 ---
 
-Welcome to this quickstart which will guide you through the various steps of implementing Auth0 in your Ionic applications.
 
-Auth0 provides and manages an [AngularJS SDK](https://github.com/auth0/auth0-angular) which can be used with Ionic applications. This SDK wraps Auth0's [Lock Widget](https://github.com/auth0/lock) as well as the [Auth0.js library](https://github.com/auth0/auth0.js), so it makes it simple to integrate these in your Ionic applications.    
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Ionic 1.3.1
+:::
+
+<%= include('../../_includes/_signup') %>
+
+Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and the [auth0.js](https://github.com/auth0/auth0.js) library in Anguar apps, and these wrappers will be used throughout these quickstart guides.
+
+## Samples Projects
+
+If you want to follow along with these quickstart guides, download the [seed project](https://github.com/auth0-samples/auth0-ionic-samples/tree/master/00-Starter-Seed) as a starting point. The seed project is just a basic, blank Ionic application with all the Bower dependencies included and the required references added to the `index.html` file. You can also download the source code for each quickstart step from these docs.
 
 ## Prerequisites
 
-Before we start with this Quickstart, it is important to set up our application by following these steps:
-
-::: panel-info Can I Skip?
-You can skip this step if you think you can find your way around or just looking for something specific in the quickstart.
-:::
+Before starting, it is important to ensure your application is set up correctly by following these steps:
 
 ### 1. Create an Application
 
@@ -25,7 +32,7 @@ A callback URL is a URL in your application where Auth0 redirects to after the u
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 
-Also, if you are testing your application locally, make sure to add your local URL as an **Allowed Callback URL** and the following as an **Allowed Origin (CORS)**:
+If you are testing your application locally, make sure to add your local URL as an **Allowed Callback URL** and the following as an **Allowed Origin (CORS)**:
 
 ```bash
 file://\*
@@ -35,19 +42,26 @@ file://\*
 
 As stated before, the seed project contains all the required Bower dependencies and has the references added to the `index.html` file. If you would rather integrate Auth0 into an existing Ionic application instead of using our seed project, you will need to add the following Bower dependencies to your application:
 
-${snippet(meta.snippets.bower)}
+```bash
+bower install --save auth0-lock angular-lock angular-jwt
+```
 
 You will also need to add the references to the libraries to your application's `index.html`:
 
-${snippet(meta.snippets.references)}
+```html
+<!-- Auth0 Lock -->
+<script src="lib/auth0-lock/build/lock.min.js"></script>
+<!-- lock-angular -->
+<script src="lib/angular-lock/dist/angular-lock.min.js"></script>
+<!-- angular-jwt -->
+<script src="lib/angular-jwt/dist/angular-jwt.min.js"></script>
+```
 
 The purpose of each of these references are as follows:
 
- - **auth0-lock** is the default authentication widget provided by Auth0. It is completely optional but I suggest you stick to it as an Auth0 newbie.
- - **auth0.js** is Auth0's javascript library. This is not necessary if you choose to use Lock throughout.
- - **auth0-angular**: Auth0's SDK for Angular. It exposes most of the useful methods for authentication.
- - **angular-storage**: A `localStorage` and `sessionStorage` wrapper create with love by Auth0 team.
- - **angular-jwt**: Angular service that makes using JSON Web Tokens easy in Angular apps.
+ - **auth0-lock** is the default authentication widget provided by Auth0
+ - **angular-lock**: Auth0's wrapper for using Lock with Angular
+ - **angular-jwt**: Library that contains several useful services which make using JSON Web Tokens in Angular apps easy
 
 ### 4. Add the `InAppBrowser` plugin
 

@@ -12,7 +12,7 @@ articles:
       - title: Overview
         url: /overview
 
-      - title: "Applications"
+      - title: "Clients"
         url: "/applications"
 
       - title: Developer Videos
@@ -48,6 +48,21 @@ articles:
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
+
+  - title: "API Authorization"
+    url: "/api-auth"
+    children:
+      - title: "Authorization Code Grant"
+        url: "/api-auth/grant/authorization-code"
+
+      - title: "Implicit Grant"
+        url: "/api-auth/grant/implicit"
+
+      - title: "Client Credentials Grant"
+        url: "/api-auth/grant/client-credentials"
+
+      - title: "FAQ"
+        url: "/api-auth/faq"
 
   - title: "Extensions"
     url: "/extensions"

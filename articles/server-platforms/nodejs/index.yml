@@ -14,4 +14,12 @@ alias:
 seo_alias: nodejs
 default_article: 01-login
 articles:
+  - 00-intro
   - 01-login
+  - 02-login-custom
+  - 04-user-profile
+  - 05-linking-accounts
+  - 06-rules
+  - 07-authorization
+  - 09-mfa
+  - 10-customizing-lock

@@ -3,12 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Ruby 2.1.8
-* Rails 4.2.5.1
-:::
-
 <%= include('../../_includes/_package', {
   pkgRepo: 'omniauth-auth0',
   pkgBranch: 'master',
@@ -16,6 +10,14 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Ruby 2.1.8
+* Rails 4.2.5.1
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, Please follow the steps below to configure your existing Ruby On Rails WebApp to use it with Auth0.**
 

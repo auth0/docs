@@ -1,3 +1,7 @@
+---
+description: Details on the Lock V10 API.
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # API
@@ -23,7 +27,7 @@ Initializes a new instance of `Auth0Lock` configured with your client's `clientI
 var clientId = '${account.clientId}';
 var domain = '${account.namespace}';
 // Instantiate Lock - without custom options
-var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+var lock = new Auth0Lock(clientId, domain);
 
 // Listen for the authenticated event and get profile
 lock.on("authenticated", function(authResult) {

@@ -13,7 +13,9 @@ name: Introduction to the Quickstart, and configuring environment
   pkgType: 'replace'
 }) %>
 
-This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API. 
+<%= include('../../_includes/_signup') %>
+
+This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API.
 
 ## Seed & Samples
 
@@ -27,13 +29,13 @@ The final project after each of the steps is also available in the [Sample repos
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-Be sure to update the `appSettings` section in your `web.config` file in the seed project with the correct values for your application. 
+Be sure to update the `appSettings` section in your `web.config` file in the seed project with the correct values for your application.
 
 ## Dependencies
 
 The JWT middleware you will use depends on whether your JWT tokens are signed using HS256 or RS256.
 
-For HS256 signed tokens you will need to add the standard JWT middleware which is included in the `System.IdentityModel.Tokens.Jwt` NuGet package. For RS256 signed tokens you will need to add the Active Directory Services Bearer Token middleware which is included in the `Microsoft.Owin.Security.ActiveDirectory` NuGet package. 
+For HS256 signed tokens you will need to add the standard JWT middleware which is included in the `System.IdentityModel.Tokens.Jwt` NuGet package. For RS256 signed tokens you will need to add the Active Directory Services Bearer Token middleware which is included in the `Microsoft.Owin.Security.ActiveDirectory` NuGet package.
 
 ```bash
 Install-Package System.IdentityModel.Tokens.Jwt
@@ -42,6 +44,6 @@ Install-Package Microsoft.Owin.Security.ActiveDirectory
 
 The seed project contains both these NuGet packages, but if you are adding it to your own existing project you will only need to add the one which is relevant for your scenario.
 
-That's all you need to start working with Auth0 in your Web API! 
+That's all you need to start working with Auth0 in your Web API!
 
 Please continue with the [Authentication](/quickstart/backend/webapi-owin/01-authentication-rs256) tutorial to secure your Web API.

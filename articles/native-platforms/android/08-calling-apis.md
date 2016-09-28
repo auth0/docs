@@ -9,8 +9,8 @@ In this tutorial you will learn how to use a previously saved token, to authenti
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* AndroidStudio 2.2
+* Emulator - Nexus5X - Android 6.0
 :::
 
 <%= include('../../_includes/_package', {
@@ -39,7 +39,7 @@ private LockCallback callback = new AuthenticationCallback() {
 	}
 
 	...
-            
+
 };
 ```
 You can use any of the token strings contained in the `Credentials` object.
@@ -54,14 +54,14 @@ String url = "YOUR API URL";
 ```
 
 Next you need to add the token to the request header so that authenticated requests can be made. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
-   
+
 ```java     
 // Retrieve the credentials from where you saved them
 String tokenID = getCredentials.getTokenID();
 
-AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url, 
+AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url,
 	tokenID, null, new Response.Listener<JSONObject>(){
-	
+
 	@Override
 	public void onResponse(JSONObject response) {
 		// Parse Response
@@ -78,11 +78,11 @@ AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject
 The customized `AuthorizationRequestObject` looks like:
 
 ```java
-public class AuthorizationRequestObject extends JsonObjectRequest{
+public class AuthorizationRequestObject extends JsonObjectRequest {
 	private String headerTokenID = null;
 
-	public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest, 
-	Response.Listener listener, Response.ErrorListener errorListener){
+	public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest,
+	Response.Listener listener, Response.ErrorListener errorListener) {
 		super(method, url, jsonRequest, listener, errorListener);
 		headerTokenID = tokenID;
 	}
@@ -96,11 +96,11 @@ public class AuthorizationRequestObject extends JsonObjectRequest{
 
 }
 ```
-	
-> This customized request is meant to manipulate the header of the `JsonObjectRequest`.	
-	
+
+> This customized request is meant to manipulate the header of the `JsonObjectRequest`.
+
 Notice that how you configure your authorization header should match the standards that you're using in your API, this is just an example of what it could look like.
-       
+
 ### 3. Send The Request
 
 At this point, you only need to schedule the request.
@@ -113,6 +113,3 @@ queue.add(authorizationRequest);
 From here, check that the request was made and that the response came back as expected. You will need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application.
 
 > For further information on authentication API on the server-side, check [the official documentation](https://auth0.com/docs/api/authentication).
-
-
-

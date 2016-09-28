@@ -3,21 +3,13 @@ title: Calling APIs
 description: This tutorial will show you how to make authenticated api calls with ReactJS.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Node 5.2.0
-* NPM 3.3.12
-* React 15.3.2
-:::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
   pkgOrg: 'auth0-samples',
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '08-Calling-Api',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 

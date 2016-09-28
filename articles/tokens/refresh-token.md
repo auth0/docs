@@ -14,7 +14,7 @@ If you are new to refresh tokens, you can learn more about them in this blog pos
 
 The response of an [authentication request](/protocols) can result in an `id_token` (JWT) being issued by Auth0. This token is used to make authenticated calls to a secured API. JWTs have an expiration date indicated by the `exp` claim (among other security measures, like signing). Applications that are installed locally on a device (such as a desktop or smartphone) may want to avoid asking the user to enter their credentials each time this token expires.
 
-A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked. 
+A refresh token allows the application to request Auth0 to issue a new `id_token` directly, without needing to re-authenticate the user. This will work as long as the refresh token has not been revoked.
 
 Refresh tokens can be issued for each combination of __app__, __user__ and __device__. Once the Auth0 refresh token is issued, the values of the client, user, and device set during its creation cannot be changed.
 
@@ -57,7 +57,7 @@ GET https://YOUR_CALLBACK_URL#
 
 The refresh token is returned as part of the URL, in the form of an opaque string.
 
-**NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) (`response_type=token`) was used.
+**NOTE**: In this case, the token was returned to the client directly in the URL because the [implicit flow](/protocols#oauth2-implicit-flow) (`response_type=token`) was used.
 
 ## Use a Refresh Token
 
@@ -93,7 +93,7 @@ Obtaining new tokens using the `refresh_token` should occur only if the `id_toke
 
 ## Revoke a Refresh Token
 
-Since refresh tokens never expire, it is important to be able to revoke them. 
+Since refresh tokens never expire, it is important to be able to revoke them.
 
 ### Revoke a Refresh Token using the Management API
 
@@ -104,7 +104,7 @@ GET https://${account.namespace}/api/v2/device-credentials?
   type=refresh_token
   &client_id={}
   &user_id={}
-  
+
 {
   "Authorization":   "Bearer {your_access_token}"
 }

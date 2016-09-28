@@ -1,3 +1,7 @@
+---
+description: Lock 9 to Lock 10 Migration Guide
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # Lock 9 to Lock 10 Migration Guide
@@ -28,7 +32,7 @@ The goal of this page is to provide you with all of the information you would ne
 
 ### Removed Methods
 - The `showSignin`, `showSignup` and `showReset` methods are no longer available. You can emulate the behavior of this options with the [initialScreen](/libraries/lock/v10/customization#initialscreen-string-), [allowLogin](/libraries/lock/v10/customization#allowlogin-boolean-), [allowSignUp](/libraries/lock/v10/customization#allowsignup-boolean-) and [allowForgotPassword](/libraries/lock/v10/customization#allowforgotpassword-boolean-) options.
-- The `getClient` method is no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Using Lock with auth0js page](/libraries/lock/v10/auth0js).
+- The `getClient` method and the `$auth0` property are no longer available. You can, instead, simply instantiate `Auth0` when using functionality from `auth0.js`. If you need help with how to do this, see the [Using Lock with auth0js page](/libraries/lock/v10/auth0js).
 
 ---
 

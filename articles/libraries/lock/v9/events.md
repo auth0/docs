@@ -1,3 +1,7 @@
+---
+description: Lock V9 API syntax
+---
+
 ## Lock: API syntax
 
 ```js

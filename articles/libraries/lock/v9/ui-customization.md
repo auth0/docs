@@ -1,3 +1,7 @@
+---
+description: Customizing how Lock with CSS and Javascript
+---
+
 # Lock: Customize the look and feel
 
 You can apply your own styles to the elements of the Lock.

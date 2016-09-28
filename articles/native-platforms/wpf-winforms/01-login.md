@@ -9,8 +9,8 @@ description: This tutorial will show you how to use the Auth0 WPF and Winforms S
   githubUrl:'https://github.com/auth0-samples/auth0-winformsWPF-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: 'none',
-  pkgType: 'none'
+  pkgFilePath: 'auth0-variables.cs',
+  pkgType: 'replace'
 }) %>
 
 ::: panel-info System Requirements
@@ -18,6 +18,8 @@ This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015
 * .NET Framework 4.5.2
 :::
+
+<%= include('../../_includes/_signup') %>
 
 This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
 
@@ -56,7 +58,7 @@ ${snippet(meta.snippets.use)}
 ![](/media/articles/native-platforms/wpf-winforms/wpf-winforms-step1.png)
 
 ::: panel-warning Handle Exceptions
-**Please note** that an `UnauthorizedAccessException` will be thrown when the user cancels the authentication dialog, so you will need to wrap the call to `LoginAsync` in a try-catch block. 
+**Please note** that an `UnauthorizedAccessException` will be thrown when the user cancels the authentication dialog, so you will need to wrap the call to `LoginAsync` in a try-catch block.
 :::
 
 ::: panel-warning WPF Applications

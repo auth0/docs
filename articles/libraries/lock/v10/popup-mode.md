@@ -1,3 +1,7 @@
+---
+description: Details about Popup Mode with Lock V10.
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # Popup Mode

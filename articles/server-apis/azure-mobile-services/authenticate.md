@@ -2,6 +2,8 @@
 title: Authenticate
 description: This tutorial will show you how to use the Auth0 to authenticate and authorize Azure Mobile Services.
 ---
+<%= include('../../_includes/_signup') %>
+
 ${include('../_thirdPartyApi')}
 
 ### Additional Information

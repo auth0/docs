@@ -1,5 +1,6 @@
 ---
 toc_title: Native Social Authentication
+description: How to implement native social authentication with Lock Android
 ---
 
 # Lock Android: Native Social Authentication

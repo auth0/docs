@@ -1,3 +1,7 @@
+---
+description: How to use Lock V10 with auth0.js
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # Using Lock With auth0.js
