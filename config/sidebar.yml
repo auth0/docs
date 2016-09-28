@@ -285,7 +285,7 @@ appliance:
         url: /appliance/infrastructure
       - title: Customer Onboarding
         url: /onboarding/appliance-sprint
-      - title: Auth0’s Private Cloud Requirements
+      - title: Private Cloud Requirements
         url: /appliance/private-cloud-requirements
 
   - title: "Appliance Administration"
