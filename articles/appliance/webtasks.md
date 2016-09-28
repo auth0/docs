@@ -27,6 +27,12 @@ The `auth0-sandbox` is the recommended method for running your custom code.
 
 You may use Webtasks by calling its endpoints directly. This can be done using the Webtask Command Line Interface (`wt-cli`) and specifying the ``--url "https://webtask.<a0url>.com"`` parameter (where `a0url` is the address of the Appliance node). For additional information on setting up the `wt-cli`, please see [Getting Started with Webtasks](https://webtask.io/docs/101).
 
+## Webtask Modules
+
+Currently, not all of the [Webtask modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for the Appliance.
+
+To see which modules are available for Webtasks running on Appliance instances, execute the []`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your Appliance instance.
+
 ## Further Reading
 
 * [Getting Started with Webtasks](https://webtask.io/docs/101)
