@@ -62,7 +62,7 @@ If you provide access to the appropriate monitoring endpoints, Auth0 will monito
 If Auth0 hosts the Appliance for you, then Auth0 will monitor the related services.
 
 ### Monitoring Endpoints
-Auth0 provides specific monitoring endpoints that you can attach to your own monitoring tools (such as Microsoft System Center, IBM Tivoli, HP OpenView, and so on) for auditing, load balancing, and performance monitoring, such as in cases where the transaction under test includes application specific functionality (for example, a `rule` that integrates Auth0 with your own CRM).
+Auth0 provides specific monitoring endpoints that you can attach to your own monitoring tools (such as Microsoft System Center, IBM Tivoli, HP OpenView, and so on) for auditing, load balancing, and performance monitoring, such as in cases where the transaction under test includes application specific functionality (for example, a [rule](/rules) that integrates Auth0 with your own CRM).
 
 You may find detailed guidance at [Monitoring Auth0](/monitoring).
 
