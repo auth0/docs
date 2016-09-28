@@ -9,8 +9,8 @@ description: This tutorial will show you how to use the Auth0 WPF and Winforms S
   githubUrl:'https://github.com/auth0-samples/auth0-winformsWPF-samples/tree/master/00-Starter-Seed',
   pkgBranch: 'master',
   pkgPath: '00-Starter-Seed',
-  pkgFilePath: 'none',
-  pkgType: 'none'
+  pkgFilePath: 'auth0-variables.cs',
+  pkgType: 'replace'
 }) %>
 
 ::: panel-info System Requirements
