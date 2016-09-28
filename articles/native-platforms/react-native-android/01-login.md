@@ -11,6 +11,12 @@ description: This tutorial will show you how to use the Auth0 React Native Andro
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 6.5.0
+* react-native-lock 0.4.0
+* rnpm 1.9.0
+:::
 
 <%= include('../../_includes/_signup') %>
 
