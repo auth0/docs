@@ -31,7 +31,7 @@ You may use Webtasks by calling its endpoints directly. This can be done using t
 
 Currently, not all of the [Webtask modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for the Appliance.
 
-To see which modules are available for Webtasks running on Appliance instances, execute the []`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your Appliance instance.
+To see which modules are available for Webtasks running on Appliance instances, execute the [`List Modules` Webtask](https://github.com/tehsis/webtaskio-canirequire/blob/gh-pages/tasks/list_modules.js) using the appropriate sandbox on your Appliance instance.
 
 ## Further Reading
 
