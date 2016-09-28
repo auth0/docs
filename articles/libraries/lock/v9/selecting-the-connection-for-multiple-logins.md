@@ -1,7 +1,3 @@
----
-description: How to select different connection types for multiple login options with Lock V10.
----
-
 # Selecting the connection in Auth0 for multiple login options
 
 Auth0 allows you to offer your users multiple ways of authenticating. This is especially important with SaaS, multitenant apps in which a single app is used by many different organizations, each one potentially using different systems: LDAP, Active Directory, Google Apps, or username/password stores.
@@ -46,3 +42,80 @@ If a connection has this setup, then the password textbox gets disabled automati
 In the example above the domain `companyx.com` has been mapped to an enterprise connection.
 
 Notice that you can associate multiple domains to a single connection.
+
+## Option 3: adding custom buttons to Lock
+
+Using [Lock](/lock)'s [support for customization and extensibility](/libraries/lock/customization) it's also possible to add buttons for your Custom Social or Enterprise Connections. The following example (written in jQuery) adds a button for Azure AD to Lock:
+
+```
+var lock = new Auth0Lock(cid, domain);
+lock.once('signin ready', function() {
+  var link = $('<a class="a0-zocial a0-waad" href="#">' +
+    '<span>Login with Fabrikam Azure AD</span></a>');
+  link.on('click', function() {
+    lock.getClient().login({
+      connection: 'fabrikamdirectory.onmicrosoft.com'
+    });
+    return false;
+  });
+
+
+  $('.a0-iconlist', this.$container)
+    .append(link)
+    .removeClass('a0-hide');
+});
+
+lock.show({
+  connections: ['facebook', 'google-oauth2', 'windows-live']
+});
+```
+
+This is useful when you want to give users a consistent login experience where they click on the connection they want to use.
+
+![](/media/articles/hrd/hrd-custom-buttons-lock.png)
+
+Lock's stylesheet contains the following provider icons which can be used when adding custom buttons:
+
+```
+.a0-amazon
+.a0-aol
+.a0-baidu
+.a0-box
+.a0-dropbox
+.a0-dwolla
+.a0-ebay
+.a0-evernote
+.a0-exact
+.a0-facebook
+.a0-fitbit
+.a0-github
+.a0-gmail
+.a0-google
+.a0-googleplus
+.a0-guest
+.a0-ie
+.a0-instagram
+.a0-linkedin
+.a0-miicard
+.a0-office365
+.a0-openid
+.a0-paypal
+.a0-planningcenter
+.a0-renren
+.a0-salesforce
+.a0-sharepoint
+.a0-shopify
+.a0-soundcloud
+.a0-stackoverflow
+.a0-thecity
+.a0-thirtysevensignals
+.a0-twitter
+.a0-vk
+.a0-waad
+.a0-weibo
+.a0-windows
+.a0-wordpress
+.a0-yahoo
+.a0-yammer
+.a0-yandex
+```
