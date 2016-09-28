@@ -22,11 +22,11 @@ This tutorial and seed project have been tested with the following:
 }) %>
 
 ### Seed & Samples
-There are two options to following along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) or the [samples](https://github.com/auth0-samples/auth0-rubyonrails-sample) provided at each page of this quickstart.
+To follow along this quickstart you can either download the [seed project](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) or the [samples](https://github.com/auth0-samples/auth0-rubyonrails-sample) provided at each page of this quickstart.
 
 The seed is a regular RoR app, with all the Auth0 dependencies set, but nothing more. It's an empty canvas meant to be filled as you follow along the steps of this quickstart. If you prefer this option download the seed from our [GitHub repository](https://github.com/auth0-samples/auth0-rubyonrails-sample/tree/master/00-Starter-Seed) and follow along.
 
-Instead you can choose to follow the samples that are included in each step. Each sample uses the seed project as a starting point and applies to it the configuration of each step, so for example the Login sample would be the seed project plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
+You can also follow the samples that are included in each step. Each sample uses the seed project as starting point and applies each step configuration to it, so for example the Login sample would be the seed project plus the login configuration. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
 
 ### 1. Create a Client
 
@@ -36,18 +36,18 @@ Get your credentials (Domain, Client ID, and Client Secret) from the dashboard. 
 
 ### 2. Configure Callback URLs
 
-Callback URLs are the URLs that Auth0 invokes after the authentication process is completed. Auth0 routes your application back to this URL and attaches some details to the user's session including a token. Since callback URLs can be manipulated, you will need to add your application's URL in the client's Allowed Callback URLs for security. This will enable Auth0 to recognize these URLs as valid. If omitted, the authentication will not be successful for the application's instance.
+A user will be redirected to a "Callback URL" on your application, as part of the authorization flow. To keep this flow secure, you must configure your Auth0 client with one or more Allowed Callback URLs.
 
 ${include('../_callbackRegularWebApp')}
 
 In this case, the callbackURL should look something like:
 
 ```
-http://yourUrl/auth/auth0/callback
+https://yourUrl/auth/auth0/callback
 ```
 
 ### 3. Structure
-The structure of the project does not differ from a regular RoR application. The tree below displays the location of the files most referred to in the quickstart.
+The project structure follows the regular RoR application structure. The tree below displays the location of the most referred files in the quickstart.
 
 ```bash
 ├── app

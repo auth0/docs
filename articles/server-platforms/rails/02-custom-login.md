@@ -4,7 +4,7 @@ description: Learn how to login using the Authentication API SDK instead of Omni
 ---
 
 ## Ruby On Rails - Custom Login
-[Login](/quickstart/webapp/rails/01-login) explains how to login using a widget called Lock and a gem called OmniAuth (and a specific Auth0 strategy for OmniAuth). You can build an application with Auth0 using your custom design without including neither Lock nor OmniAuth. In this section, you'll learn how to create a custom login form using the Auth0 Ruby SDK.
+[Login](/quickstart/webapp/rails/01-login) explains how to login using Lock and OmniAuth. You can also design your custom login custom design without including neither Lock nor OmniAuth. In this section, you'll learn how to create a custom login form using the Auth0 Ruby SDK.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
@@ -44,7 +44,8 @@ ${snippet(meta.snippets.dependencies)}
 </div>
 ```
 
-In order for this form to post its contents to the auth action of the home controller, you need to make this a valid route. To do so, add the following to your `config/routes.rb` file:
+Add the following to your `config/routes.rb` file in order for the form to post its contents to the auth action of the home controller:
+
 ```ruby
 post "/" => "auth0#callback"
 ```
@@ -68,7 +69,7 @@ def callback
     redirect_to '/', notice: ex.message
 end
 ```
-The `callback` controller action calls the `signup` or `login` actions, depending on the contents of the `params` hash. Upon successful execution of either, it redirects to `/dashboard`. In case of an exception, it redirects to `/` and flashes the exception message.
+The `callback` controller action calls the `signup` or `login` actions based on the `params` hash. Upon successful execution, it redirects to `/dashboard`. In case of an exception, it redirects to `/` and flashes the exception message.
 
 Next, add the definitions for the `login` and `signup` actions under `private`:
 
@@ -93,10 +94,10 @@ end
 ```
 
 ### 4. Add an SDK client instance in the Application Controller
-In order to call the API methods using the Auth0 Ruby SDK, you need to initialize a client instance. Add the following code in your Application Controller (`controllers/application_controller.rb`):
+To call the API methods using the Auth0 Ruby SDK, you need to initialize an auth0 client instance. Add the following code in your Application Controller (`controllers/application_controller.rb`):
 
 ```ruby
-def client
+def auth_client
   creds = { client_id: Rails.application.secrets.auth0_client_id,
             client_secret: Rails.application.secrets.auth0_client_secret,
             api_version: 1,
@@ -106,7 +107,7 @@ end
 ```
 
 ### 5. Checking if the user is authenticated
-In [Login](/quickstart/webapp/rails/01-login) you used a controller concern with a `before_action` to prevent users from executing actions in controllers that included it. You will use the same strategy now, but the code will change slightly.
+In [Login](/quickstart/webapp/rails/01-login) describes how to prevent users from executing restricted actions with a `before_action` concern. You will use the same strategy now, but the code will change slightly.
 
 Create a `Secured` controller concern with the code below:
 
@@ -140,13 +141,13 @@ This way, if a user attempts to access the routes governed by the `DashboardCont
 
 For your users to login using a Social Connection without using neither Lock nor OmniAuth, follow these steps:
 
-**NOTE**: Social connections support only browser based (passive) authentication. The providers don't allow entering the user/password in applications that don't belong to them, so the user gets redirected to the provider (e.g. Google sign in page). Three steps take place in this process: initiation, authentication, and getting the access token. You'll trigger the Initiation, Auth0 will take care of the Authentication, and then you'll obtain the access and id token for the user (*to learn more about this process go to: [Authentication API](/api/authentication#!%23get--authorize_social) and [OAuth Server Side](/protocols#oauth-server-side) documents*).
+**NOTE**: Social connections support only browser based (passive) authentication. This is because most of these providers don't allow entering the user/password in applications that don't belong to them, so the user gets redirected to the provider (e.g. Google sign in page). Three steps take place in this process: initiation, authentication, and getting the access token. You'll begin the authentication flow, Auth0 will take care of the Authentication, and then you'll obtain the access and id token for the user (*to learn more about this process go to: [Authentication API](/api/authentication#!%23get--authorize_social) and [OAuth Server Side](/protocols#oauth-server-side) documents*).
 
 For this particular example, you'll configure Google as your social provider. The API methods called by the API also support Facebook, Twitter and Weibo.
 
 **Prerequisite**: configure your Google Social Connection by following [this tutorial](/connections/social/google).
 
-To trigger initiation, you'll need to generate a redirect to the social provider. To do so, create the `google_authorize method` in the `Auth0Controller`:
+To begin the authentication flow, you'll need to generate a redirect to the social provider. To do so, create the `google_authorize method` in the `Auth0Controller`:
 
 ```ruby
 def google_authorize
@@ -169,7 +170,7 @@ And the corresponding route in the `routes` file:
 get 'auth0/google_authorize' => 'auth0#google_authorize'
 ```
 
-The authentication will be handled by Auth0, the common visible part of this process is that the user is redirected to the identity provider site. When this process finishes, a request will be made to the callback URL, which will be handled by the application. You'll need to extract the access_code in this request and post a request to the Auth0 token endpoint using the SDK to get the access and id tokens.
+The authentication will be handled by Auth0. The user is redirected to the identity provider site. When this process finishes, a request is made to the callback URL and handled by the application. You'll need to extract the access_code and get the access and id tokens posting a request to the Auth0 token endpoint using the SDK.
 
 Add the following method to the `Auth0Controller`:
 

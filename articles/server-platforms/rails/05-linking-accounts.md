@@ -19,11 +19,9 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server'
 }) %>
 
-/_ TODO: REMOVE THIS line
+In this tutorial you'll learn how to use the Auth0 Rails SDK to link user accounts from different identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
 
-In this tutorial you'll learn how to use the Auth0 Rails SDK to explicitly link user accounts from different identity providers, allowing a user to authenticate from any of their accounts and still be recognized by your app and associated with the same user profile.
-
-The sample application allows the users to log in with an initial provider, and provides a form that enables them to link another account to the first one using Auth0 Lock. Click [here](/link-accounts) to learn more about account linking.
+The sample application allows the users to log in with an initial provider, and provides a form that enables them to link another account using Auth0 Lock. Click [here](/link-accounts) to learn more about account linking.
 
 ### 1. Add dependencies
 

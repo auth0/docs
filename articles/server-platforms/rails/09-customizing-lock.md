@@ -4,7 +4,7 @@ description: This tutorial will show you how to customize lock widget.
 ---
 
 ## Ruby On Rails - Customizing Lock
-Using Lock widget is great, but eventually you will want to customize the UI. There are several options to do that.
+In addition to a carefully-considered default user interface, Lock offers UI customization functionality.
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:

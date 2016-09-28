@@ -49,14 +49,14 @@ In the Admin Controller, add a ```before_action``` to check if the user has the 
 ```ruby
 class AdminController < ApplicationController
   include Secured
-  before_action :isAdmin?
+  before_action :admin?
 
   def show
   end
 
   private
 
-  def isAdmin?
+  def admin?
     redirect_to unauthorized_show_path unless roles.include?('admin')
   end
 

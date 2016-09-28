@@ -21,9 +21,9 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server'
 }) %>
 ### The OmniAuth auth hash
-Using Auth0's OmniAuth strategy, you need only to redirect users to `/auth/auth0` (which you did in [Login](/quickstart/webapp/rails/01-login)). From there, OmniAuth will take over and take the user through the necessary steps to authenticate them with the Auth0 strategy.
+Using Auth0's OmniAuth strategy, you only need to redirect users to `/auth/auth0` (which you did in [Login](/quickstart/webapp/rails/01-login)). From there, OmniAuth will take over and take the user through the necessary steps to authenticate them with the Auth0 strategy.
 
-Once the user has authenticated, OmniAuth sets a special hash called the Authentication Hash on the Rack environment of a request to `/auth/auth0/callback`. This hash contains information about the user that OmniAuth was able to glean from the Auth0 strategy.
+After receiving a successful callback at /auth/auth0/callback, OmniAuth provides the available user profile information via the request.env['omniauth.auth'] hash.
 
 **NOTE**: The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
 
@@ -50,7 +50,7 @@ redirect_to '/dashboard'
 ```
 
 ### 3. Display the User Profile data
-The auth hash built by the OmniAuth Auth0 strategy has the data corresponding to the normalized user profile under the `info` key. Each element is named according to [the normalized user profile definition](/user-profile/normalized).
+The auth hash built by the OmniAuth Auth0 strategy has the user profile data under the `info` key. Each element is named according to [the normalized user profile definition](/user-profile/normalized).
 
 The auth hash also contains the full user profile under the `raw` key. The difference is that the normalized user profile data is pre-processed and guaranteed to be present, while as the full user profile data may vary depending on several factors, such as the user's identity provider and its linked profile, among others.
 
