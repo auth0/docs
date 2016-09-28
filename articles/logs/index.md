@@ -1,4 +1,5 @@
 ---
+description: How to view log data.
 url: /logs
 ---
 

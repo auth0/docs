@@ -1,3 +1,7 @@
+---
+description: Lock V9 guide to initialization
+---
+
 # Lock: Initialization
 
 ```javascript

@@ -1,5 +1,6 @@
 ---
 toc_title: Sending Authentication Parameters
+description: Sending Authentication parameters with Lock Android
 ---
 
 # Lock Android: Sending Authentication Parameters

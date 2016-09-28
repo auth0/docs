@@ -1,3 +1,7 @@
+---
+description: How to configure user options with Lock V9
+---
+
 ## Lock: User configurable options
 The **Auth0Lock** can be customized through the `options` parameter sent to the `.show()` methods.
 

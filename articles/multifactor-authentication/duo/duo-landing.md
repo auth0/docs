@@ -1,5 +1,6 @@
 ---
-title: Duo
+title: Duo Security with Auth0
+description:  Links to documentation on using Duo with Auth0 for each user type.
 url: /multifactor-authentication/duo
 ---
 

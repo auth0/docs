@@ -1,3 +1,7 @@
+---
+description: Lock V10 documentation on setting authentication parameters.
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # Lock: Authentication Parameters

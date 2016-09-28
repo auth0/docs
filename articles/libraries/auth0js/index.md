@@ -1,4 +1,5 @@
 ---
+description: How to install, initilize and use auth0.js
 url: /libraries/auth0js
 ---
 

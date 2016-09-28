@@ -1,3 +1,7 @@
+---
+description:  Using Google Authenticator with Auth0 for developers
+---
+
 # Google Authenticator for Developers
 
 ::: panel-info Note:
