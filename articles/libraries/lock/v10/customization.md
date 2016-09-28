@@ -589,7 +589,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-forgotpassword.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowforgotpassword.png" />
 
 
 ### allowSignUp {Boolean}
