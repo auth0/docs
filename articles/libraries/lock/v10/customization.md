@@ -87,7 +87,9 @@ Examples of `allowedConnections`:
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-usernamepassword.png" />
 
+
 <img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
+
 
 ### autoclose {Boolean}
 
@@ -151,6 +153,7 @@ Default behavior with Gravatar:
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-avatar.png" />
 
+
 ### closable {Boolean}
 
 Determines whether or not the Lock can be closed. When a `container` option is provided its value is always `false`, otherwise it defaults to `true`.
@@ -162,6 +165,7 @@ var options = {
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-closable.png" />
+
 
 ### container {String}
 
@@ -190,6 +194,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
 
+
 ### language {String}:
 
 Specifies the language of the widget. Defaults to "en". See the [internationalization directory](https://github.com/auth0/lock/blob/master/src/i18n/) for a current list of provided languages.
@@ -203,6 +208,7 @@ var options = {
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-language.png" />
+
 
 ### languageDictionary {Object}
 
@@ -218,6 +224,7 @@ var options = {
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-languagedictionary.png" />
+
 
 ### popupOptions {Object}
 
@@ -265,6 +272,7 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-labeledsubmitbutton.png" />
 
+
 ::: panel-info Customizing Text
 The label can be customized through the [languageDictionary](#languagedictionary-object-) option.
 :::
@@ -283,6 +291,7 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-logo.png" />
 
+
 #### primaryColor {String}
 
 The `primaryColor` property defines the primary color of the Lock; all colors used in the widget will be calculated from it. This option is useful when providing a custom `logo`, to ensure all colors go well together with the `logo`'s color palette. Defaults to `#ea5323`.
@@ -297,6 +306,7 @@ var options = {
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-primarycolor.png" />
+
 
 ---
 
@@ -317,6 +327,7 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
 
+
 ```js
 // Second image, with socialButtonStyle remaining at default behavior - three connections, no other connections
 var options = {
@@ -326,12 +337,14 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
 
+
 ```js
 // Third image, with socialButtonStyle remaining at default behavior - the app has three social connections, with other connections allowed
 var options = { };
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
+
 
 ```js
 // Fourth image, with three connections, and no other connections - forcing small buttons
@@ -341,7 +354,8 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-small_limited.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
+
 
 ---
 
@@ -495,6 +509,7 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-additionalsignupfields.png" />
 
+
 #### Select Field
 
 ```js
@@ -558,6 +573,7 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-allowlogin.png" />
 
+
 ### allowForgotPassword {Boolean}
 
 When set to false, `allowForgotPassword` hides the "Don't remember your password?" link in the Login screen, making the Forgot Password screen unreachable. Defaults to true. 
@@ -575,6 +591,7 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-forgotpassword.png" />
 
+
 ### allowSignUp {Boolean}
 
 When set to `false`, hides the login and sign up tabs in the login screen, making the sign up screen unreachable. Defaults to `true`. Keep in mind that if the database connection has sign ups disabled or you are using a custom database which doesn't have a create script, then the sign up screen won't be available.
@@ -588,6 +605,7 @@ var options = {
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-allowsignup.png" />
+
 
 ### defaultDatabaseConnection {String}
 
