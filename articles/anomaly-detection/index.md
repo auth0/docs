@@ -22,6 +22,12 @@ A **trigger** is a suspicious event that is detected when someone is trying to l
 * Send an email to the affected user
 * Block the suspicious IP address
 
+::: panel-info Note
+The way this anomaly protection works is that if user with "user_id1" signs in from IP1 and fails to login consecutively for 10 attempts their login from this IP - IP1 will be blocked. 
+Another user, say user_id2 signing in from the same IP - IP1 will not be blocked. 
+The mechanism to clear this block is described below:
+:::
+
 If this block is triggered, it can be cleared the following ways:
 
 * An administrator removes the block via the [Dashboard](${manage_url}) (by clicking **unblock for all IPs** under the **ACTIONS** button when viewing the user's details) or by using the [Management API](/api/management/v2#!/User_Blocks/delete_user_blocks) ;
