@@ -151,7 +151,7 @@ You can create a social role using Login with Amazon (LWA).
 
 Go to the [Auth0 Management Dashboard](${manage_url}). Select **Connections** then **Social** in the drop-down menu. Enable the connection for Amazon by setting the slide to the right so that it turns green.
 
-![](/media/articles/integrations/aws-api-gateway/part-4/enable-amazon-social-connnection.png)
+![](/media/articles/integrations/aws-api-gateway/part-4/enable-amazon.png)
 
 You will now see a pop-up that walks you through the configuration process.
 
@@ -301,11 +301,9 @@ Be sure to adjust the above code with the correct values for your integration. T
 
 #### Caveats
 
-* Rules run at a global scope for every authentication.
-
-You should only run the logic on authentication requests associated with a given client (which is why the script used asks for the *clientID*. Without this information, the logic runs for every authentication request associated with your Auth0 account.
-- Information is passed into the rule with the *context* and the *user*.
-- You can extend the objects passed in to the rule. In the code above, the rule checks the body of the request for the role information. The role is set into the context *addonConfiguration* of the allowed role, which always overrides settings in the request body.
+* Rules run at a global scope for every authentication. You should only run the logic on authentication requests associated with a given client (which is why the script used asks for the *clientID*. Without this information, the logic runs for every authentication request associated with your Auth0 account.
+* Information is passed into the rule with the *context* and the *user*.
+* You can extend the objects passed in to the rule. In the code above, the rule checks the body of the request for the role information. The role is set into the context *addonConfiguration* of the allowed role, which always overrides settings in the request body.
 
 #### Debug Your Rule
 

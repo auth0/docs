@@ -14,7 +14,15 @@ In this final step, you will:
 * extract profile information to assign a buyer for a pet.
 
 ## Use An Identity Token
-Often, you will want to do the processing of a user's role based on the users identity in the logic of your Lambda function. In the purchasing example above, you retrieved the user name from the profile returned with the identity token. Another option is to have the user information embedded with the identity, which is a JSON web token (JWT). The advantage of this method is that you can verify the authenticity of the JWT, and be assured that the calling user is authenticated rather than relying on a plain-text parameter that could be tampered with. You could also use the JWT for authorization and bypass the IAM integration with the Amazon API Gateway. However, by using the API Gateway for authorization, you have the opportunity of halting the API call before your Lambda function is ever invoked.
+
+Often, you will want to use your Lambda function to process the user's role based on the user's identity . For example, during a purchasing transaction, you retrieved the username from the profile returned with the identity token.
+
+Alternatively, you can choose to have the user's information embedded with the identity itself, which is a JSON Web Token (JWT). The advantage of this method is that you can:
+
+1. verify the authenticity of the JWT;
+2. be sure that the calling user is authenticated (instead of relying on a plain-text parameter that could have been tampered with).
+
+In addition, you can also use the JWT for authorization, allowing you to bypass the IAM integration with Amazon API Gateway. The caveat to this, however, is that using the API Gateway for authorization allows you to halt the API call prior to invocation of your Lambda function.
 
 ![](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
