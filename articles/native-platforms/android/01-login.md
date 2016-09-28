@@ -8,7 +8,7 @@ This tutorial will show you how to integrate Lock v2 in your Android project in 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
+* AndroidStudio 2.2
 * Emulator - Nexus5X - Android 6.0
 :::
 
@@ -33,7 +33,7 @@ Your first step is to add [Lock](https://github.com/auth0/Lock.Android) into you
 Add to your app's module Gradle file:
 
 ```xml
-compile 'com.auth0.android:lock:2.0.0-beta.3'
+compile 'com.auth0.android:lock:2.0.0'
 ```
 
 Then, run "Sync project with Gradle files" inside Android Studio or `./gradlew clean assembleDebug` from the command line.
@@ -64,7 +64,7 @@ Add the following code to your project's `AndroidManifest.xml`:
     </intent-filter>
 </activity>
 
-<activity android:name="com.auth0.android.lock.provider.WebViewActivity"></activity>
+<activity android:name="com.auth0.android.lock.provider.WebViewActivity"/>
 ```
 
 Also, you need to add the following permissions:
@@ -86,10 +86,9 @@ First, add these lines in the ``onCreate`` method:
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
-    this.lock = Lock.newBuilder(auth0, callback)
+    lock = Lock.newBuilder(auth0, callback)
                     // Add parameters to the Lock Builder
-                    .build();
-    this.lock.onCreate(this);
+                    .build(this);
 }
 ```
 
@@ -100,8 +99,8 @@ Second, add these lines in the ``onDestroy`` method:
 protected void onDestroy() {
     super.onDestroy();
     // Your own Activity code
-    this.lock.onDestroy(this);
-    this.lock = null;
+    lock.onDestroy(this);
+    lock = null;
 }
 ```
 
@@ -129,7 +128,7 @@ private LockCallback callback = new AuthenticationCallback() {
 Finally, whenever you want to start the login widget, call:
 
 ```java
-startActivity(this.lock.newIntent(this));
+startActivity(lock.newIntent(this));
 ```
 
 <div class="phone-mockup"><img src="/media/articles/libraries/lock-android/login.png" alt="Mobile example screenshot"/></div>

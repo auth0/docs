@@ -8,8 +8,8 @@ This tutorial will show you how to use Lock within your Android project to link 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* AndroidStudio 2.2
+* Emulator - Nexus5X - Android 6.0
 :::
 
  <%= include('../../_includes/_package', {
@@ -30,20 +30,21 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 * You've integrated [Lock for Android](https://github.com/auth0/Lock.Android) as a dependency in your project and you're familiar with presenting the Lock login dialog. For further information, see the [login tutorial](01-login) and the [session handling](03-session-handling) tutorial first.
 * You're familiar with the concepts of `userId` and `idToken`. You can find info about them in the session handling and user profile tutorials.
 
-> It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts
+> It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts.
 
 ### 1. Enter Account Credentials
 
-Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with. 
+Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with.
 
-To do this, we will use Lock for logging in as we did in the [Login tutorial](01-login). In this case, we will send as an `Extra`, a boolean value to indicate that this is a secondary login means.
+To do this, we will use Lock for logging in as we did in the [Login tutorial](01-login). In this case, we will send as an `Extra`, a boolean value to indicate that this is a secondary login.
 
 ```java
-Intent lockToLinkAccounts = new Intent(this, LockActivity.class);        lockToLinkAccounts.putExtra(Constants.LINK_ACCOUNTS, true);
-startActivity(lockToLinkAccounts);
+Intent intent = new Intent(this, LoginActivity.class);        intent.putExtra(Constants.LINK_ACCOUNTS, true);
+intent.putExtra(Constants.PRIMARY_USER_ID, mUserProfile.getId());
+startActivity(intent);
 ```
 
-In the `LockActivity.java` we obtain that value:
+In the `LoginActivity.java` we obtain that value:
 
 ```java
 mLinkSessions = getIntent().getExtras().getBoolean(Constants.LINK_ACCOUNTS, false);
@@ -59,7 +60,7 @@ public void onAuthentication(Credentials secondaryCredentials) {
 	}
 	else {
 		App.getInstance().setUserCredentials(credentials);
-		startActivity(new Intent(getApplicationContext(), MainActivity.class));
+		startActivity(new Intent(LoginActivity.this, MainActivity.class));
 	}
 }
 ```
@@ -69,11 +70,12 @@ public void onAuthentication(Credentials secondaryCredentials) {
 
 ### 2. Link An Account
 
-Now we can link the accounts, which is faily simple. You have a user, and another account you want to link with that user. All we need are the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response. 
+Now we can link the accounts. You have a user, and another account you want to link with that user. All we need is the `id` of the logged user and the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response.
 
 ```java
-UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());                client.link(App.getInstance().getUserCredentials().getIdToken(),
-                        secondaryCredentials.getIdToken());
+UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
+  String primaryUserId = mUserProfile.getId();
+  client.link(primaryUserId, secondaryCredentials.getIdToken());
 ```        
 ### 3. Retrieve Linked Accounts
 
@@ -82,23 +84,23 @@ The linked accounts are stored within the `UserProfile` as a list of `UserIdenti
 ```java
 @Override
 public void onSuccess(final UserProfile payload) {
-	mUserProfile = payload;
-	mUserProfile.getIdentities();
+	mUserProfile.getIdentities();  //Get all the profile accounts
 }
 ```
 
-> For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/cf98a17ddc26b85bd40daa8c69913c0df50d33d1/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) documentation.
+> For more information, check the [UserIdentity.java](https://github.com/auth0/Auth0.Android/blob/master/auth0/src/main/java/com/auth0/android/result/UserIdentity.java) documentation.
 
 ### 4. Unlink An Account
 
-The unlink process is similar to the link one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections.  Also, as first parameter we use the main connection's `idToken`. 
+The unlink process is similar to the link one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections. Also, as first parameter we use the main connection's `idToken`.
 
 ```java
 UsersAPIClient client = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
 client.unlink(primaryUserId, secondaryUserId, secondaryProvider);
 ```
-> You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position. 
+
+> You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position in the array.
 
 ### Done
 
-That's it! Now, your users can login with different accounts! 
+That's it! Now, your users can login with different accounts!

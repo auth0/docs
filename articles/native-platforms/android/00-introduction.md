@@ -8,7 +8,7 @@ This multistep quickstart guide will walk you through managing authentication in
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
+* AndroidStudio 2.2
 * Emulator - Nexus5X - Android 6.0
 :::
 
@@ -22,7 +22,7 @@ Each tutorial in the series includes a link to its corresponding sample project.
 
 Each tutorial will require you to use either [Lock](https://github.com/auth0/Lock.Android) or the [Auth0.Android](https://github.com/auth0/Auth0.Android) library.
 
-- [**Lock**](https://github.com/auth0/Lock.Android) is an `Activity` that is easy to present in your app. It contains default templates (that can be a customized) for login with email/password, sign up, social providers integration, and also password recovery.
+- [**Lock**](https://github.com/auth0/Lock.Android) is an `Activity` that is easy to present in your app. It contains default templates (that can be customized) for login with email/password, sign up, social providers integration, and also password recovery.
 - [**Auth0.Android**](https://github.com/auth0/Auth0.Android) is a toolkit that lets you communicate with many of the basic [Auth0 API](https://auth0.com/docs/api) functions in a neat way.
 
 The `Lock` dependency is already integrated in each sample project through [Gradle](https://gradle.org/).
@@ -38,7 +38,7 @@ android {
 	//..
 }
 dependencies {
-	compile 'com.auth0.android:lock:2.0.0-beta.3'   
+	compile 'com.auth0.android:lock:2.0.0'   
 }
 ```
 
@@ -65,11 +65,11 @@ The callback URLs are meant to be used to receive the OAuth response when loggin
 
 #### 3. Set Your Credentials
 
-The [dependencies](#dependencies) listed above will offer different functionalities that require your credientials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set.
+The [dependencies](#dependencies) listed above will offer different functionalities that require your credentials inside the app. If you downloaded the seed project, or any sample project from here, these credentials must come automatically set.
 
 The required credentials are, your ClientID > `${account.clientId}` and your domain > `${account.namespace}`.
 
-The suggested approach is to add them in the `Strings.xml` file, and access them whenever you want:
+The suggested approach is to add them in the `strings.xml` file, and access them whenever you want:
 
 ```xml
 <string name="auth0_client_id">${account.clientId}</string>

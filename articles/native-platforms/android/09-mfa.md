@@ -6,8 +6,8 @@ description: This tutorial will show you how to configure Multifactor Authentica
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0 
+* AndroidStudio 2.2
+* Emulator - Nexus5X - Android 6.0
 :::
 
  <%= include('../../_includes/_package', {
