@@ -1,6 +1,6 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to use the Auth0 library to add custom authentication and authorization to your web app.
+description: This tutorial demonstrates how to use the Auth0 library to add custom authentication and authorization to your web app
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,25 +13,31 @@ description: This tutorial will show you how to use the Auth0 library to add cus
   pkgType: 'js'
 }) %>
 
-In the [previous step](/quickstart/spa/vanillajs/01-login), you enabled login with the Auth0 Lock widget. You can also build your application with a custom design without using Lock by including the [Auth0.js library](/libraries/auth0js). In this case, we will use Auth0's CDN (you can also use npm or bower for the same purpose).
+In the [previous step](/quickstart/spa/vanillajs/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
-## Custom Login
 
-First, you must add the `Auth0.js` library to your application:
+## Add Custom Login
+
+First, add the `auth0.js` library to your application:
 
 ```html
-<!-- ===== ./index.html ===== -->
+<!-- index.html -->
+
 <head>
+
   ...
+
   <script src="${auth0js_url}"></script>
+
   ...
 </head>
 ```
 
-You will need an `Auth0` instance. Create one using your client credentials. Include your `callbackURL`, and set `responseType` to `token`:
+Create an `Auth0` instance and pass in your client credentials. Include your `callbackURL`, and set `responseType` to `token`:
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 window.addEventListener('load', function() {
   auth0 = new Auth0({
     domain: '<%= account.namespace %>',
@@ -39,15 +45,18 @@ window.addEventListener('load', function() {
     callbackURL: '<%= account.callback %>',
     responseType: 'token'
   });
+
   ...
 });
 ```
 
 In the `login` method, call the `login` function on the `auth0` instance, setting `connection` to `Username-Password-Authentication` and `responseType` to `token`:
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 document.getElementById('btn-login').addEventListener('click', function() {
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
@@ -64,10 +73,11 @@ document.getElementById('btn-login').addEventListener('click', function() {
     }
   });
 });
+
 ...
 ```
 
-Note: this is just an example. [Here](https://auth0.com/docs/libraries/auth0js#login), you can see some examples for using different connection options.
+> **Note:** This example uses `Username-Password-Authentication`, but there are other connection types. Find out more about other connection options [here](https://auth0.com/docs/libraries/auth0js#login).
 
 Since `Auth0` uses [redirect mode](https://github.com/auth0/auth0.js#redirect-mode) by default, the app will be redirected to the `callbackURL` after a successful login.
 
@@ -75,9 +85,11 @@ With `responseType` set to `token`, the access token will be appended to the URL
 
 Check for `hash` information using Auth0's `parseHash` method, which will extract the `id_token`. Save it to `localStorage`:
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 var parseHash = function() {
   var token = localStorage.getItem('id_token');
   if (token) {
@@ -98,11 +110,13 @@ parseHash();
 ...
 ```
 
-Now, add a form to call the login:
+Add a form to call the login:
 
 ```html
-<!-- ===== ./index.html ===== -->
+<!-- index.html -->
+
 ...
+
 <form class="form-signin">
   <h2 class="form-signin-heading">Please sign in</h2>
   <label for="inputEmail" class="sr-only">Email address</label>
@@ -111,16 +125,19 @@ Now, add a form to call the login:
   <input type="password" id="password" class="form-control" placeholder="Password" required>
   <button class="btn btn-lg btn-default" type="button" id="btn-login">Sign In</button>
 </form>
+
 ...
 ```
 
-## Sign up
+## Add Sign Up
 
 To allow users to sign up, provide a `signup` method:
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 document.getElementById('btn-register').addEventListener('click', function() {
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
@@ -133,25 +150,31 @@ document.getElementById('btn-register').addEventListener('click', function() {
     if (err) alert("something went wrong: " + err.message);
   });
 });
+
 ...
 ```
 
-and add a **Sign Up** button to call this method:
+Add a **Sign Up** button to call this method:
 
 ```html
-<!-- ===== ./index.html ===== -->
+<!-- index.html -->
+
 ...
+
 <button class="btn btn-lg btn-primary" type="button" id="btn-register">Sign Up</button>
+
 ...
 ```
 
-## Social Login
+## Add Social Login
 
 To log in using a social connection, set the `connection` property of the `login` method to the identity provider you want to use:
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 document.getElementById('btn-google').addEventListener('click', function() {
   auth0.login({
     connection: 'google-oauth2'
@@ -159,18 +182,18 @@ document.getElementById('btn-google').addEventListener('click', function() {
     if (err) alert("something went wrong: " + err.message);
   });
 });
+
 ...
 ```
 
-and add a button to call this method:
+Add a button to call this method:
 
 ```html
-<!-- ===== ./index.html ===== -->
+<!-- index.html -->
+
 ...
+
 <button class="btn btn-lg btn-danger" type="button" id="btn-google">Google</button>
+
 ...
 ```
-
-## Summary
-
-In this guide, we saw how to use `Auth0.js` library to log users into your VanillaJS projects by using user and password or using social login. Also, we saw how to register new users.

@@ -19,19 +19,9 @@ This tutorial and seed project have been tested with the following:
 * jQuery 3.1.0
 :::
 
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with an email and password (which provides very little information about the user), you can ask the user to link their account to an `OAuth` provider like Facebook or Google to gain access to their social profile.
+<%= include('../../_includes/_linking_accounts') %>
 
-## Linking Accounts
-
-To link accounts, call the [Link a user account](/api/management/v2#!/Users/post_identities) endpoint. You will need the `id_token` and `user_id` of the primary account and the `id_token` of the secondary account.
-
-To differentiate the login from the linking login, you will create a second instance of `Auth0Lock` to obtain the `id_token` of the secondary account.
-
-Since all instances of `Auth0Lock` will receive the `authenticated` event, you will need a way to determine if the login came from the login or the linking login.
-
-You can use the `params` sub-property of the `auth` property of the [options object](https://github.com/auth0/lock#authentication-options) of `Auth0Lock` to add a `state` property with the value `"linking"`:
-
-```javascript
+```js
 // app.js
 
 ...

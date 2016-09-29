@@ -1,5 +1,6 @@
 ---
 title: Login
+default: true
 description: This tutorial demonstrates how to integrate Auth0 with Angular 2 to add user login to your app
 ---
 
@@ -12,5 +13,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 2 to
   pkgFilePath: '01-Login/app/auth.config.ts',
   pkgType: 'replace'
 }) %>
+
+<%= include('_includes/_dependencies') %>
 
 <%= include('_includes/_login') %>

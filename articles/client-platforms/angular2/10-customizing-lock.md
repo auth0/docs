@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to customize Lock.
   pkgType: 'replace'
 }) %>
 
-Using Lock is easy, but you may want to customize your login UI. There are several options available.
+Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
 
 ## Lock Options
 
