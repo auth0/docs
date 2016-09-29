@@ -325,7 +325,9 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
  
-Second example, with `ocialButtonStyle` remaining at default behavior - three social connections, no other connections
+---
+
+Second example, with `socialButtonStyle` remaining at default behavior - three social connections, no other connections
 
 ```js
 var options = {
@@ -335,6 +337,8 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
  
+---
+
 Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections allowed.
 
 ```js
@@ -342,6 +346,8 @@ var options = {};
 ```
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
+
+---
  
 Fourth example, with three social connections, and no other connections - forcing small buttons.
 
@@ -354,7 +360,6 @@ var options = {
 
 <img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
  
-
 ---
 
 ## Authentication Options
