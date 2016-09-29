@@ -1,3 +1,7 @@
+---
+description: Explains the basics of creating and using Auth0 Clients.
+---
+
 # Core Concepts: Clients
 
 A client is one of the core concepts in Auth0, which is why it's important to know how this relates to your applications and the impact this will have on auditing, authorization, billing, etc.

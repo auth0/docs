@@ -3,6 +3,7 @@ connection: Fitbit
 image: /media/connections/fitbit.png
 seo_alias: fitbit
 index: 14
+description: How to obtain a Client Id and Client Secret for Fitbit.
 ---
 
 # Obtain a *Client ID* and *Client Secret* for Fitbit

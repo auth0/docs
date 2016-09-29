@@ -5,6 +5,7 @@ image: /media/connections/ms.png
 alias:
   - ad
 seo_alias: active-directory
+description: How to connect to Active Directory with Auth0.
 ---
 
 

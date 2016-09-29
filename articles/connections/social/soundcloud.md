@@ -3,6 +3,7 @@ connection: SoundCloud
 index: 5
 image: /media/connections/soundcloud.png
 seo_alias: soundcloud
+description: How to obtain a Client Id and Client Secret for SoundCloud.
 ---
 
 # Obtaining a Client ID and Client Secret for SoundCloud

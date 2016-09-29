@@ -1,3 +1,7 @@
+---
+description: Describes the Authentication API Implicit Grant.
+---
+
 # API Auth: Implicit Grant
 <%=include('../_preview-warning') %>
 

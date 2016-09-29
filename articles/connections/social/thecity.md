@@ -2,9 +2,10 @@
 connection: The City
 image: /media/connections/thecity.png
 seo_alias: thecity
+description: How to obtain an App ID and Secret with The City.
 ---
 
-# Obtaining a App ID and Secret with The City
+# Obtaining an App ID and Secret with The City
 
 ## 1. Log in into The City portal
 

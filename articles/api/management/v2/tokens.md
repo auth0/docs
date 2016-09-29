@@ -1,4 +1,5 @@
 ---
+description: Details generating and using an Auth0 Management APIv2 token.
 section: apis
 ---
 

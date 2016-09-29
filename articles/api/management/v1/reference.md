@@ -1,4 +1,5 @@
 ---
+description: Management API V1 reference page.
 section: apis
 ---
 

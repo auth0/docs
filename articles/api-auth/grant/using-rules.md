@@ -1,3 +1,7 @@
+---
+description: Describes using rules with Client Credentials Grants.
+---
+
 # Using Rules with Client Credentials Grants
 <%=include('../_preview-warning') %>
 

@@ -2,6 +2,7 @@
 connection: Dwolla
 image: /media/connections/dwolla.png
 seo_alias: dwolla
+description: How to obtain a Client Id and Client Secret for Dwolla.
 ---
 
 # Obtain a *Client ID* and *Client Secret* for Dwolla
