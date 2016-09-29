@@ -3,25 +3,15 @@ title: Introduction
 name: Introduction to the Quickstart, and configuring environment
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: '00-Starter-Seed/MvcApplication/MvcApplication/web.config',
-  pkgType: 'replace'
-}) %>
-
-This Quickstart will guide you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
+This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
 
 <%= include('../../_includes/_signup') %>
 
 ## Seed & Samples
 
-If you would like to follow along with this Quickstart you can download the [seed project](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/tree/master/00-Starter-Seed). This is just a regular ASP.NET MVC application with a home page and a `web.config` file where you can configure the various Auth0-related settings for your application.
+If you would like to follow along with this quickstart, you can download a blank starter [seed project](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample/tree/master/00-Starter-Seed). This is just a regular ASP.NET MVC application with a home page and a `web.config` file where you can configure the various Auth0-related settings for your application.
 
-The final project after each of the steps is also available in the [Sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample). You can find the final result for each step in the relevant folder inside the repository.
+Each of the steps in this guide contains a sample project download that shows the completion of the step. These projects can also be downloaded from the [sample repository](https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample) where you can find the final result for each step in the relevant folder.
 
 ## Create an Application
 
