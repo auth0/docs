@@ -85,10 +85,10 @@ var options = {
 
 Examples of `allowedConnections`:
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-usernamepassword.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-usernamepassword.png" />
 
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
 
 
 ### autoclose {Boolean}
@@ -151,7 +151,7 @@ var options = {
 
 Default behavior with Gravatar:
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-avatar.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-avatar.png" />
 
 
 ### closable {Boolean}
@@ -164,7 +164,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-closable.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-closable.png" />
 
 
 ### container {String}
@@ -192,7 +192,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 </script>
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
 
 
 ### language {String}:
@@ -207,7 +207,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-language.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-language.png" />
 
 
 ### languageDictionary {Object}
@@ -223,7 +223,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-languagedictionary.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-languagedictionary.png" />
 
 
 ### popupOptions {Object}
@@ -270,7 +270,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-labeledsubmitbutton.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-labeledsubmitbutton.png" />
 
 
 ::: panel-info Customizing Text
@@ -289,7 +289,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-logo.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-logo.png" />
 
 
 #### primaryColor {String}
@@ -305,7 +305,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-primarycolor.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-primarycolor.png" />
 
 
 ---
@@ -325,8 +325,8 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
-
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
+ 
 
 ```js
 // Second image, with socialButtonStyle remaining at default behavior - three connections, no other connections
@@ -335,16 +335,16 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
-
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
+ 
 
 ```js
 // Third image, with socialButtonStyle remaining at default behavior - the app has three social connections, with other connections allowed
 var options = { };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
-
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
+ 
 
 ```js
 // Fourth image, with three connections, and no other connections - forcing small buttons
@@ -354,8 +354,8 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
-
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
+ 
 
 ---
 
@@ -507,7 +507,7 @@ var options = {
 }
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-additionalsignupfields.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-additionalsignupfields.png" />
 
 
 #### Select Field
@@ -571,7 +571,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-allowlogin.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowlogin.png" />
 
 
 ### allowForgotPassword {Boolean}
@@ -589,7 +589,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-allowforgotpassword.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowforgotpassword.png" />
 
 
 ### allowSignUp {Boolean}
@@ -604,7 +604,7 @@ var options = {
 };
 ```
 
-<img width="300" src="/media/articles/libraries/lock/customization/lock-allowsignup.png" />
+<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowsignup.png" />
 
 
 ### defaultDatabaseConnection {String}
