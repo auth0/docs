@@ -1,5 +1,6 @@
 ---
 url: /connector
+description: Explains what the connector is and links to resources to learn more about it.
 ---
 
 ## Connector

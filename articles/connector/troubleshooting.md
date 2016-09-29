@@ -1,3 +1,6 @@
+---
+description: This page has help and troubleshooting with using the connector.
+
 # Troubleshooting
 
 We do our best to support many scenarios and different configurations.
