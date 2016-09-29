@@ -17,7 +17,7 @@ description: This tutorial demonstrates how to assign roles to your users and us
 
 ### Create a Rule to Assign Roles
 
-<%= include('../_includes/_authorization-create-rule') %>_
+<%= include('../_includes/_authorization-create-rule') %>
 
 ## Restrict a Route Based on User's Roles
 

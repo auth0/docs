@@ -1,6 +1,6 @@
 ---
 title: Rules
-description: This tutorial will show you how to use rules to easily customize and extend Auth0's capabilities.
+description: This tutorial demonstrates how to use rules to easily customize and extend Auth0's capabilities
 ---
 
 <%= include('../../_includes/_package', {
@@ -24,8 +24,10 @@ description: This tutorial will show you how to use rules to easily customize an
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/vanillajs/04-user-profile' }) %>
 
 ```html
-<!-- ===== ./index.html ===== -->
+<!-- index.html -->
+
 ...
+
 <div id="logged" class="row" style="display: none;">
   <h4>You are logged in</h4>
   <div class="row">
@@ -38,19 +40,22 @@ description: This tutorial will show you how to use rules to easily customize an
   </div>
   <button type="button" class="btn btn-default" id="btn-logout">Logout</button>
 </div>
+
 ...
 ```
 
-```javascript
-/* ===== ./app.js ===== */
+```js
+// app.js
+
 ...
+
 var showUserProfile = function(profile) {
+
   ...
+
   document.getElementById('country').textContent = profile.country;
+
 };
+
 ...
 ```
-
-## Summary
-
-In this guide, we saw how to extend Auth0's default functionality by using rules.

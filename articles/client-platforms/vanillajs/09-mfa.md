@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial will show you how to add Multifactor Authentication to your VanillaJS app with auth0.
+description: This tutorial demonstrates how to add Multifactor Authentication to your web app
 ---
 
 <%= include('../../_includes/_package', {
@@ -15,8 +15,6 @@ description: This tutorial will show you how to add Multifactor Authentication t
 
 <%= include('../_includes/_mfa-introduction') %>
 
-In this tutorial, you will learn how to enable MFA in the VanillaJS application that you created in the previous steps.
-
 ## Enable Multifactor Authentication in Your Account
 
 <%= include('../_includes/_mfa-enable') %>
@@ -24,7 +22,3 @@ In this tutorial, you will learn how to enable MFA in the VanillaJS application 
 ## Login
 
 <%= include('../_includes/_mfa-login', { loginlink: '/docs/quickstart/spa/vanillajs/01-login' }) %>
-
-## Summary
-
-In this guide, we saw how to use Auth0 Guardian to add multifactor authentication to your VanillaJS project.

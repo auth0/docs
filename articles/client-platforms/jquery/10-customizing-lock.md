@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * jQuery 3.1.0
 :::
 
-Using Lock is easy, but you may want to customize your login UI. There are several [customization](/libraries/lock/v10/customization) options available. The aspects explained here are not the only customizations available.
+Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
 
 ## Lock Options
 

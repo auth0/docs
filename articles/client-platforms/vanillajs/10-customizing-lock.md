@@ -1,6 +1,6 @@
 ---
 title: Customizing Lock
-description: This tutorial will show you how to customize Lock.
+description: This tutorial demonstrates how to customize the Lock widget
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,17 +13,19 @@ description: This tutorial will show you how to customize Lock.
   pkgType: 'js'
 }) %>
 
-Using Lock is easy, but you may want to customize your login UI. There are several [customization](/libraries/lock/v10/customization) options available. The aspects explained here are not the only customizations available.
+Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
 
 ## Lock Options
 
-Some UI customizations can be done via the `options` parameter when creating a `Lock` instance.
+Some UI customization can be done via the `options` parameter when creating a `Auth0Lock` instance.
 
 ### Theme Options
 
-You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values:
+You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values.
 
-```javascript
+```js
+// app.js
+
 var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   theme: {
     logo: "test-icon.png",
@@ -32,13 +34,15 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', 
 });
 ```
 
-For more information, see [Theming Options](/libraries/lock/v10/ui-customization).
+For more information, see the [theming options](/libraries/lock/v10/ui-customization).
 
 ### Language Dictionary Specification
 
-You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
+You can also customize the text that Lock will display with the `languageDictionary` option parameter.
 
-```javascript
+```js
+// app.js
+
 var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
   languageDictionary: {
     title: "My Company"
@@ -46,8 +50,4 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', 
 });
 ```
 
-For more information, see [Language Dictionary Specification](/libraries/lock/v10/i18n).
-
-## Summary
-
-In this guide, we saw how to customize the default Auth0's login window appearance and how to change the form's title by using Auth0Lock's languageDictionary property.
+For more information, see [language dictionary specification](/libraries/lock/v10/i18n).

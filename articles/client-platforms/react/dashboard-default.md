@@ -1,5 +1,6 @@
 ---
 title: Login
+default: true
 description: This tutorial demonstrates how to integrate Auth0 with ReactJS to add authentication and authorization to your app
 ---
 
@@ -11,5 +12,9 @@ description: This tutorial demonstrates how to integrate Auth0 with ReactJS to a
   pkgPath: '01-Login',
   pkgType: 'server'
 }) %>
+
+## Install the Dependencies
+
+<%= include('_includes/_dependencies') %>
 
 <%= include('_includes/_login') %>
