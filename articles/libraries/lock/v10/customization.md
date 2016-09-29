@@ -85,10 +85,10 @@ var options = {
 
 Examples of `allowedConnections`:
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-usernamepassword.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-usernamepassword.png" />
 
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
 
 
 ### autoclose {Boolean}
@@ -151,7 +151,7 @@ var options = {
 
 Default behavior with Gravatar:
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-avatar.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-avatar.png" />
 
 
 ### closable {Boolean}
@@ -164,7 +164,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-closable.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-closable.png" />
 
 
 ### container {String}
@@ -192,7 +192,7 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 </script>
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
 
 
 ### language {String}:
@@ -207,7 +207,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-language.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-language.png" />
 
 
 ### languageDictionary {Object}
@@ -223,7 +223,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-languagedictionary.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-languagedictionary.png" />
 
 
 ### popupOptions {Object}
@@ -270,12 +270,9 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-labeledsubmitbutton.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-labeledsubmitbutton.png" />
 
-
-::: panel-info Customizing Text
-The label can be customized through the [languageDictionary](#languagedictionary-object-) option.
-:::
+If the label is set to true, which is the default, the label's text can be customized through the [languageDictionary](#languagedictionary-object-) option.
 
 #### logo {String}
 
@@ -289,7 +286,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-logo.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-logo.png" />
 
 
 #### primaryColor {String}
@@ -305,7 +302,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-primarycolor.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-primarycolor.png" />
 
 
 ---
@@ -318,43 +315,44 @@ Determines the size of the buttons for the social providers. Possible values are
  - If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
  - If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
 
+First example, with three social connections, and other connections - forcing small buttons.
+
 ```js
-// First image, with three connections, and other connections - forcing small buttons
 var options = {
   socialButtonStyle: 'small'
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
  
+Second example, with `ocialButtonStyle` remaining at default behavior - three social connections, no other connections
 
 ```js
-// Second image, with socialButtonStyle remaining at default behavior - three connections, no other connections
 var options = {
   allowedConnections: ['facebook', 'linkedin', 'twitter']
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
  
+Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections allowed.
 
 ```js
-// Third image, with socialButtonStyle remaining at default behavior - the app has three social connections, with other connections allowed
-var options = { };
+var options = {};
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
  
+Fourth example, with three social connections, and no other connections - forcing small buttons.
 
 ```js
-// Fourth image, with three connections, and no other connections - forcing small buttons
 var options = {
   allowedConnections: ['facebook', 'linkedin', 'twitter'],
   socialButtonStyle: 'small'
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
  
 
 ---
@@ -507,7 +505,7 @@ var options = {
 }
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-additionalsignupfields.png" />
+<img width="300" src="/media/articles/libraries/lock/customization/lock-additionalsignupfields.png" />
 
 
 #### Select Field
@@ -571,8 +569,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowlogin.png" />
-
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowlogin.png" />
 
 ### allowForgotPassword {Boolean}
 
@@ -589,8 +586,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowforgotpassword.png" />
-
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowforgotpassword.png" />
 
 ### allowSignUp {Boolean}
 
@@ -604,8 +600,7 @@ var options = {
 };
 ```
 
-<img style="margin-bottom:25px;" width="300" src="/media/articles/libraries/lock/customization/lock-allowsignup.png" />
-
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowsignup.png" />
 
 ### defaultDatabaseConnection {String}
 
