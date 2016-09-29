@@ -25,7 +25,7 @@ There are six primary tokens used in Auth0's token based authentication scenario
 
 ## Auth0 `id_token` (JWT)
 
-The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a mechanism for transferring claims about a user from Identity Providers, who are authoritative sources of such information, to other relying parties, such as websites or web services, also known as service providers, who need such information.  The claims included in a JWT can be basic profile attributes such as a name or email address as well as security information such as a group membership or the support plan a user is entitled to use.
+The Auth0 `id_token` is a token in JSON Web Token (JWT) format, that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display.
 
 [More information](/tokens/id_token)
 
