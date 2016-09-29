@@ -10,6 +10,7 @@ alias:
   - microsoft-azure-ad
   - microsoft-azure-active-directory
 seo_alias: azure-active-directory
+description: How to obtain a ClientId and Client Secret for a Microsoft Azure Active Directory.
 ---
 
 # Obtain a *ClientId* and *Client Secret* for a Microsoft Azure Active Directory

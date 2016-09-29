@@ -1,3 +1,7 @@
+---
+description: Describes the Authentication API Code Grant.
+---
+
 # API Auth: Authorization Code Grant
 <%=include('../_preview-warning') %>
 

@@ -2,9 +2,10 @@
 connection: Goodreads
 image: /media/connections/goodreads.png
 seo_alias: goodreads
+description: How to obtain a Consumer Key and Consumer Secret for Goodreads.
 ---
 
-# Obtain a Consumer Keys and Consumer Secret for Goodreads
+# Obtain a Consumer Key and Consumer Secret for Goodreads
 
 To configure a Goodreads connection with Auth0, you will need to register your app on the Goodreads developers site.
 

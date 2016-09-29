@@ -1,3 +1,7 @@
+---
+description: Describes the Authentication API Client Credentials Grant.
+---
+
 # API Auth: Client Credentials Grant
 
 With Client Credentials Grant (defined in [RFC 6749, section 4.4](https://tools.ietf.org/html/rfc6749#section-4.4)) a Client can directly request an `access_token` to the Authorization Server by using its Client Credentials (a Client Id and a Client Secret). Instead of identifying a Resource Owner, this token will represent the Client itself.

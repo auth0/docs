@@ -3,6 +3,7 @@ connection: Github
 image: /media/connections/github.png
 seo_alias: github
 index: 7
+description: How to obtain a Client Id and Client Secret for GitHub.
 ---
 
 # Obtain a *Client Id* and *Client Secret* for GitHub

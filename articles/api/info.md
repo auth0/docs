@@ -1,4 +1,5 @@
 ---
+description: This page explains the basics of Auth0's APIs, the Management and Authentication API.
 section: apis
 ---
 
