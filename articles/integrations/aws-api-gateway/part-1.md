@@ -1,5 +1,5 @@
 ---
-title: Amazon API Gateway Tutorial - Setup the Amazon API Gateway
+title: Amazon API Gateway Tutorial - Set Up the Amazon API Gateway
 description: Step 1 of Amazon API Gateway Tutorial
 ---
 
@@ -9,8 +9,8 @@ description: Step 1 of Amazon API Gateway Tutorial
 
 After completing this step, you will have:
 
-* set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table;
-* created two unauthenticated REST service methods for getting and updating a list of pets.
+* Set up Amazon API Gateway using AWS Lambda functions to execute your service logic that stores and retrieves pets from an [Amazon DynamoDB](https://aws.amazon.com/dynamodb) table;
+* Created two unauthenticated REST service methods for getting and updating a list of pets.
 
 > Prior to beginning, please have [Node.js](https://nodejs.org/) installed.
 
@@ -57,7 +57,7 @@ On the Attach Policy screen, skip this step by clicking **Next Step**. At this p
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/iam-roles-list.png)
 
-Select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **click here** link.
+Select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **Click Here** link.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/create-inline-policies.png)
 
@@ -96,11 +96,11 @@ The next three steps create the AWS Lambda functions for retrieving and updating
 
 #### Create the Lambda Function for `GetPetInfo`
 
-In the [AWS Lambda Console](https://console.aws.amazon.com/lambda), select **Create a Lambda function** (if you have not created an AWS Lambda function before, you will click **Get Started Now**).
+In the [AWS Lambda Console](https://console.aws.amazon.com/lambda), select **Create a Lambda Function** (if you have not created an AWS Lambda function before, you will click **Get Started Now**).
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/lambda-get-started-now.png)
 
-On the *Select blueprint* screen, click **Skip** (without selecing a particular blueprint). You will then be prompted to *Configure triggers*. Click **Next** to proceed, since you do not have to do so at this point.
+On the *Select blueprint* screen, click **Skip** (without selecing a particular blueprint). You will then be prompted to *Configure triggers*. Click **Next** to proceed. You do not have to do so at this point.
 
 Finally, you will be asked to *Configure function*.
 
@@ -142,7 +142,7 @@ For *Role*, select *APIGatewayLambdaExecRole*. Leave all other settings at their
 
 Click **Next** to review the information you provided. If all looks correct, click **Create function**.
 
-Click **Test**, leaving the *Input test event* at its default (which uses the Hello World template). When the test completes, you should see an empty output (`{}`) in the *Execution Result* section, since the table is empty.
+Click **Test**, leaving the *Input test event* at its default (which uses the Hello World template). When the test completes, you should see an empty output (`{}`) in the *Execution Result* section. The table is empty.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/execution-result.png)
 
@@ -172,7 +172,7 @@ Repeat the instructions used to create the `GetPetInfo` function, but use the fo
     };
     ```
 
-Test the function by clicking on the *Actions* drop down and choosing **Configure sample event**. Enter the following for sample data, and click **Submit**:
+Test the function by clicking the *Actions* drop-down and choosing **Configure sample event**. Enter the following for sample data and click **Submit**:
 
     ```json
     {
@@ -186,13 +186,13 @@ Test the function by clicking on the *Actions* drop down and choosing **Configur
 
 You should see an empty return result (`{}`).
 
-Return to your `GetPetInfo` Lambda function, and click **Test** again. You should now see a single pet.
+Return to your `GetPetInfo` Lambda function and click **Test** again. You should now see a single pet.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/test-result-one-pet.png)
 
 #### Create the Third Lambda Function
 
-Lastly, you will create one addition Lambda function. While this function will do nothing, it is required by the *OPTIONS* method for CORS as described in a later section.
+You will create one additional Lambda function. While this function will do nothing, it is required by the *OPTIONS* method for CORS as described in a later section.
 
 Using the steps described above, create a Lambda function named `NoOp`. The function's code will be as follows:
 
@@ -222,11 +222,11 @@ Name the API `SecurePets` and click **Create API**.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/create-new-api.png)
 
-Navigate to the *Resources* tab of the `SecurePets` API, and click on the **Create Resource** action.
+Navigate to the *Resources* tab of the `SecurePets` API and click the **Create Resource** action.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/create-resource.png)
 
-Name the resource `Pets`, and click **Create Resource** again.
+Name the resource `Pets` and click **Create Resource** again.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/name-resource.png)
 
@@ -234,15 +234,15 @@ In the left pane, select `/pets` and then click the **CreateMethod** button.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/create-pets-method.png)
 
-In the drop down, select *GET* and click the checkmark button.
+In the drop-down, select *GET* and click the checkmark button.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/pets-method-get.png)
 
 Provide the following configuration values for the `GET` method:
 
-**Integration type**: Lambda Function
-**Lambda Region**: [Region you are located in]
-**Lambda Function**: GetPetInfo
+* **Integration type**: Lambda Function;
+* **Lambda Region**: [Region you are located in];
+* **Lambda Function**: GetPetInfo.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/pets-get-method-setup.png)
 
@@ -262,7 +262,15 @@ You should see the single pet returned in the response body.
 
 Creating the API used to `POST` pet information is similar to creating the one used to `GET` pet information.
 
-In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, select *POST*, and click the checkmark button. Select *Lambda Function* for integration type, select the region you are located in, and select *UpdatePetInfo* for the Lambda function. Click **Save** and then **OK** when prompted in the popup to grant permissions to the Lambda function. Click **Test**, and paste the following for the request body:
+In the left pane, select `/pets`, and click **CreateMethod**.
+
+In the drop-down, select *POST*, and click the checkmark button.
+
+Select *Lambda Function* for Integration Type, select the region you are located in, and select *UpdatePetInfo* for the Lambda function.
+
+Click **Save** and then **OK** when prompted in the popup to grant permissions to the Lambda function.  
+
+**Test**, and paste the following for the request body:
 
     ```js
     {"pets": [
@@ -295,15 +303,15 @@ Return to the *GET* method, and click **Test** again to see that the response bo
 
 #### Method: `OPTIONS`
 
-If, instead of creating a lambda function that performs no action, you would like to create an `OPTIONS` method on the API Gateway:
+Instead of creating a lambda function that performs no action, you can create an `OPTIONS` method on the API Gateway.
 
-In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, select *OPTIONS*, and click the checkmark button. Select *Mock* for integration type. Click **Save**.
+In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, select *OPTIONS*, and click the checkmark button. Select *Mock* for Integration Type. Click **Save**.
 
 ![](/media/articles/integrations/aws-api-gateway/part-1/options-method.png)
 
 Leaving the Response Body blank, click **Test**. You should receive a Response Body indicating `no data`.
 
 
-At this point the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
+At this point, the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
 [Prev](/integrations/aws-api-gateway) ----- [Next](/integrations/aws-api-gateway/part-2)
