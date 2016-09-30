@@ -183,7 +183,3 @@ Once you have configured the connection and the connector, be sure to enable you
 Now that we have designed our solution and discussed the configurations needed on Auth0 side, we can proceed with integrating Auth0 with our Timesheets web app. That’s what the next paragraph is all about, so keep reading!
 
 ## Inside the implementation
-
-## Frequently Asked Questions
-
-## More information
