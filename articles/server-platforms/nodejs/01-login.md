@@ -1,139 +1,200 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Node.js Express SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to add authentication to a Node.js and Express web app
 ---
 
-You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* NodeJS 4.3 or superior
-* Express 4.11
-:::
-
-<%= include('../../_includes/_package', {
-  pkgRepo: 'node-auth0',
-  pkgPath: 'examples/nodejs-regular-webapp',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-nodejs-webapp-sample',
+  path: '01-Login'
 }) %>
 
-**If you have an existing application, follow the steps below.**
+### 1. Add New Dependencies
 
-### 1. Add Passport dependencies
+Run the following commands to install the required dependencies:
 
-Just run the following code to install the dependencies and add them to your `package.json`
+```bash
+# Authentication middleware
+npm install passport --save
 
-${snippet(meta.snippets.dependencies)}
+# Auth0 strategy for Passport.js
+npm install passport-auth0 --save
 
-### 2. Configure passport-auth0
+# Simple helper middleware to ensure the user is authenticated
+npm install connect-ensure-login --save
+```
 
-We need to configure Passport to use Auth0 strategy.
+### 2. Add Requires and Initialize Passport Configuration
 
-Create a file called `setup-passport.js` and add these contents to it:
-
-${snippet(meta.snippets.setup)}
-
-### 3. Add needed requires & initialize passport configuration
-
-In the startup file (e.g. _server.js_ or _app.js_) add:
+First we need to require `passport` and `passport-auth0` in `app.js`.
 
 ```js
+// app.js
+
+...
+
 var passport = require('passport');
+var Auth0Strategy = require('passport-auth0');
 
-// This is the file we created in step 2.
-// This will configure Passport to use Auth0
-var strategy = require('./setup-passport');
-
-// Session and cookies middlewares to keep user logged in
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-```
-
-### 4. Configure the middlewares
-
-Now, just add the following middlewares to your app:
-
-```js
-app.use(cookieParser());
-// See express session docs for information on the options: https://github.com/expressjs/session
-app.use(session({ secret: '${account.clientSecret}', resave: false,  saveUninitialized: false }));
-...
-app.use(passport.initialize());
-app.use(passport.session());
 ...
 ```
 
-### 5. Add Auth0 callback handler
-
-We need to add the handler for the Auth0 callback so that we can authenticate the user and get their information.
+Next we need to setup and configure Passport to use the Auth0 strategy.
 
 ```js
-// Auth0 callback handler
-app.get('/callback',
-  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
-  function(req, res) {
-    if (!req.user) {
-      throw new Error('user null');
-    }
-    res.redirect("/user");
+// app.js
+
+// Configure Passport to use Auth0
+var strategy = new Auth0Strategy({
+    domain:       process.env.AUTH0_DOMAIN,
+    clientID:     process.env.AUTH0_CLIENT_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    callbackURL:  process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+  }, function(accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
   });
-```
 
-${include('../_callbackRegularWebApp')}
+passport.use(strategy);
 
-In this case, the callbackURL should look something like:
+// This can be used to keep a smaller payload
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
 
-```
-http://yourUrl/callback
-```
-
-### 6. Triggering login manually or integrating the Auth0Lock
-
-${lockSDK}
-
-> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL specified in the previous step
-
-### 7. Accessing user information
-
-You can access the user information via the `user` field in the `request`
-
-```js
-app.get('/user', function (req, res) {
-  res.render('user', {
-    user: req.user
-  });
+passport.deserializeUser(function(user, done) {
+  done(null, user);
 });
 ```
 
-### 8. You're done!
+### 3. Configure the Middlewares
 
-You have configured your NodeJS Webapp to use Auth0. Congrats, you're awesome!
-
-### Optional steps
-
-#### Checking if the user is authenticated
-
-You can add the following middleware to check if the user is authenticated and redirect to the login page if not:
+Add the following middlewares to your app:
 
 ```js
-// requiresLogin.js
-module.exports = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    return res.redirect('/');
-  }
-  next();
-}
+// app.js
+
+...
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+...
 ```
-```js
-// user.js
-var requiresLogin = require('requiresLogin');
 
-app.get('/user',
-  requiresLogin,
-  function (req, res) {
-    res.render('user', {
-      user: req.user
-    });
+### 4. Add Route Handlers
+
+The route handlers will be created in the next step. In preparation for that, require `./routes/user` in `app.js`.
+
+```js
+// app.js
+
+...
+
+var user = require('./routes/user');
+
+...
+```
+
+### 5. Authentication Using Lock
+
+Using Auth0's Lock widget is the simplest and most robust way of handling user logins. Client side, the `Auth0Lock` library will initiate the login process and once the user is authenticated with the chosen provider, the useragent will perform a redirect to the URL specified in `AUTH0_CALLBACK_URL`. This URL will be picked up by Passport.js.
+
+We will need to add a few routes for the application, including: `/login` `/logout'` `/callback` and `/user`. We will also need template files for `login` and `user`.
+
+```js
+// routes/index.js
+
+// Render the login template
+router.get('/login',
+  function(req, res){
+    res.render('login', { env: env });
   });
+
+// Perform session logout and redirect to homepage
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
+// Perform the final stage of authentication and redirect to '/user'
+router.get('/callback',
+  passport.authenticate('auth0', { failureRedirect: '/url-if-something-fails' }),
+  function(req, res) {
+    res.redirect(req.session.returnTo || '/user');
+  });
+```
+
+After the authetication is complete, the `user` page should be displayed. Add a new file called `routes/user.js`.
+
+```js
+// routes/user.js
+
+var express = require('express');
+var passport = require('passport');
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
+var router = express.Router();
+
+// Get the user profile
+router.get('/', ensureLoggedIn, function(req, res, next) {
+  res.render('user', { user: req.user });
+});
+
+module.exports = router;
+```
+
+We can now add some template files for these pages. Start with a base template called `layout.jade`. The CDN link to Auth0's Lock widget can be placed here. Alternatively, may prefer to place this `script` tag in another layout which places it after the `head` of the page.
+
+```jade
+// views/layout.jade
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://cdn.auth0.com/js/lock/10.3/lock.min.js")
+  body
+    block content
+```
+
+Next, create the `login` view.
+
+```jade
+// views/login.jade
+
+extends layout
+
+block content
+
+  div(id="root" style="width: 280px; margin: 40px auto; padding: 10px;")
+
+  script.
+    // Construct an instance of Auth0Lock with your clientId and aut0 domain name
+    var lock = new Auth0Lock('#{env.AUTH0_CLIENT_ID}', '#{env.AUTH0_DOMAIN}',{ auth: {
+          redirectUrl: '#{env.AUTH0_CALLBACK_URL}'
+        , responseType: 'code'
+        , params: {
+          scope: 'openid name email picture'
+        }
+      }});
+
+    // Show lock's login widget
+    lock.show();
+```
+
+> **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the URL for the callback route.
+
+In `views/user.jade` we simply display the user's nickname and profile picture.
+
+```jade
+extends layout
+
+block content
+  img(src="#{user.picture}")
+  h2 Welcome #{user.nickname}!
+  br
+  a(href='/logout') Logout
 ```

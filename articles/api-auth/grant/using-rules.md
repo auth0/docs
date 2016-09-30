@@ -1,8 +1,9 @@
-# Using Rules with Client Credentials Grants
+---
+description: Describes using rules with Client Credentials Grants.
+---
 
-::: panel-warning Preliminary Feature
-Using rules with client credentials grants is a preliminary feature. Please use discretion during implementation and use.
-:::
+# Using Rules with Client Credentials Grants
+<%=include('../_preview-warning') %>
 
 You can now add [rules](/rules) into the [client credentials](/api-auth/grant/client-credentials) exchange pipeline where you exchange a `client_id` and `secret` for an `access_token`.
 
@@ -70,7 +71,7 @@ To test your newly-created rule and webtask, make the following `POST` call:
   ],
   "postData": {
 		"mimeType": "application/json",
-		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_crentials\"}"
+		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"YOUR_CLIENT_SECRET\",\"audience\": \"API_IDENTIFIER\",\"grant_type\": \"client_credentials\"}"
 	}
 }
 ```

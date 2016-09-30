@@ -1,6 +1,6 @@
 ---
 title: Customizing Lock
-description: This tutorial will show you how to customize Lock.
+description: This tutorial demonstrates how to customize Lock.
 ---
 
 <%= include('../../_includes/_package', {
@@ -9,11 +9,11 @@ description: This tutorial will show you how to customize Lock.
   pkgRepo: 'auth0-angularjs2-systemjs-sample',
   pkgBranch: 'master',
   pkgPath: '10-Customizing-Lock',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgFilePath: '10-Customizing-Lock/app/auth.config.ts',
+  pkgType: 'replace'
 }) %>
 
-Using Lock is easy, but you may want to customize your login UI. There are several options available.
+Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
 
 ## Lock Options
 
@@ -24,6 +24,8 @@ Some UI customization can be done via the `options` parameter when creating a `L
 You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values:
 
 ```typescript
+// auth.service.ts
+
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   theme: {
     logo: "test-icon.png",
@@ -38,6 +40,8 @@ lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
 You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
 
 ```typescript
+// auth.service.ts
+
 lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
   languageDictionary: {
     title: "My Company"

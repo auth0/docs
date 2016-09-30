@@ -1,8 +1,11 @@
+---
+description: Lock 10 has many configurable options that allow you to change the behavior, appearance, and connectivity of the Lock widget - this resource provides the details on those options for you!
+---
 
 <%= include('../_includes/_lock-version') %>
 
 # Lock: User configurable options
-The **Auth0Lock** can be customized through the `options` parameter sent to the constructor.
+The **Auth0Lock** can be configured through the `options` parameter sent to the constructor. These options can alter the way that the Lock widget behaves, how it deals with connections, additional signup fields that you require for your project, the language and text values, colors, and images on the widget, and many more. Take a look at the index below if you know what you are looking for, or browse the options for more details.
 
 ```js
 var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
@@ -83,7 +86,13 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/connections.png)
+Examples of `allowedConnections`:
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-usernamepassword.png" />
+
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowedconnections-social.png" />
+
 
 ### autoclose {Boolean}
 
@@ -118,7 +127,7 @@ var options = {
   avatar: {
     url: function(email, cb) {
       // Obtain the avatar url for the email input by the user, Lock
-      // will preload the image it before displaying it.
+      // will preload the image before displaying it.
       // Note that in case of an error you call cb with the error in
       // the first arg instead of `null`.
       var url = obtainAvatarUrl(email);
@@ -143,7 +152,10 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/gravatar.png)
+Default behavior with Gravatar:
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-avatar.png" />
+
 
 ### closable {Boolean}
 
@@ -155,7 +167,8 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/closable.png)
+<img width="300" src="/media/articles/libraries/lock/customization/lock-closable.png" />
+
 
 ### container {String}
 
@@ -182,7 +195,8 @@ This makes the widget appear inline within your `div` instead of in a modal pop-
 </script>
 ```
 
-![](/media/articles/libraries/lock/customization/container.png)
+<img width="300" src="/media/articles/libraries/lock/customization/lock-container.png" />
+
 
 ### language {String}:
 
@@ -192,11 +206,12 @@ Specifies the language of the widget. Defaults to "en". See the [internationaliz
 ```js
 // select a supported language
 var options = {
-  language: 'en'
+  language: 'es'
 };
 ```
 
-![](/media/articles/libraries/lock/customization/language.png)
+<img width="300" src="/media/articles/libraries/lock/customization/lock-language.png" />
+
 
 ### languageDictionary {Object}
 
@@ -211,7 +226,8 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/languageDictionary.png)
+<img width="300" src="/media/articles/libraries/lock/customization/lock-languagedictionary.png" />
+
 
 ### popupOptions {Object}
 
@@ -226,8 +242,6 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/popupOptions.png)
-
 ### rememberLastLogin {Boolean}
 
 Determines whether or not to show a screen that allows you to quickly log in with the account you used the last time. Defaults to true.
@@ -238,8 +252,6 @@ var options = {
   rememberLastLogin: false
 };
 ```
-
-![](/media/articles/libraries/lock/customization/rememberLastLogin.png)
 
 ---
 
@@ -261,10 +273,9 @@ var options = {
 };
 ```
 
-::: panel-info Customizing Text
-The label can be customized through the [languageDictionary](#languagedictionary-object-) option.
-:::
+<img width="300" src="/media/articles/libraries/lock/customization/lock-labeledsubmitbutton.png" />
 
+If the label is set to true, which is the default, the label's text can be customized through the [languageDictionary](#languagedictionary-object-) option.
 
 #### logo {String}
 
@@ -273,10 +284,13 @@ The value for `logo` is an URL for an image that will be placed in the Lock's he
 ```js
 var options = {
   theme: {
-    logo: 'https://example.com/assets/logo.png'
+    logo: 'https://example.com/logo.png'
   }  
 };
 ```
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-logo.png" />
+
 
 #### primaryColor {String}
 
@@ -285,11 +299,14 @@ The `primaryColor` property defines the primary color of the Lock; all colors us
 ```js
 var options = {
   theme: {
-    logo: 'https://example.com/assets/logo.png',
-    primaryColor: 'green'
+    logo: 'https://example.com/logo.png',
+    primaryColor: '#31324F'
   }  
 };
 ```
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-primarycolor.png" />
+
 
 ---
 
@@ -301,38 +318,51 @@ Determines the size of the buttons for the social providers. Possible values are
  - If only social connections are available, it will default to `big` when there are 5 connections at most, and default to `small` otherwise.
  - If connections from types other than social are also available, it will default to `big` when there are 3 social connections at most, and default to `small` otherwise.
 
+First example, with three social connections, and other connections - forcing small buttons.
+
 ```js
-// First image, with three connections, and other connections - forcing small buttons
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon'],
   socialButtonStyle: 'small'
 };
 ```
 
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_default.png" />
+ 
+---
+
+Second example, with `socialButtonStyle` remaining at default behavior - three social connections, no other connections
+
 ```js
-// Second image, with socialButtonStyle remaining at default behavior - three connections, no other connections
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon']
+  allowedConnections: ['facebook', 'linkedin', 'twitter']
 };
 ```
 
-```js
-// Third image, with socialButtonStyle remaining at default behavior - three connections, with other connections
-var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon']
-};
-```
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-default_limited.png" />
+ 
+---
+
+Third example, with `socialButtonStyle` remaining at default behavior - the app has three social connections, with other connections allowed.
 
 ```js
-// Fourth image, with three connections, and no other connections - forcing small buttons
+var options = {};
+```
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-default.png" />
+
+---
+ 
+Fourth example, with three social connections, and no other connections - forcing small buttons.
+
+```js
 var options = {
-  allowedConnections: ['facebook', 'linkedin', 'amazon'],
+  allowedConnections: ['facebook', 'linkedin', 'twitter'],
   socialButtonStyle: 'small'
 };
 ```
 
-![](/media/articles/libraries/lock/customization/socialBigButtons.png)
-
+<img width="300" src="/media/articles/libraries/lock/customization/lock-socialbuttonstyle-small_limited.png" />
+ 
 ---
 
 ## Authentication Options
@@ -483,6 +513,9 @@ var options = {
 }
 ```
 
+<img width="300" src="/media/articles/libraries/lock/customization/lock-additionalsignupfields.png" />
+
+
 #### Select Field
 
 ```js
@@ -537,6 +570,15 @@ Some use cases may be able to use `additionalSignupFields` data for email templa
 
 When set to `false` the widget won't display the login screen. This is useful if you want to use the widget just for signups (the login and signup tabs in the signup screen will be hidden) or to reset passwords (the back button in the forgot password screen will be hidden). In such cases you may also need to specify the `initialScreen`, `allowForgotPassword` and `allowSignUp` options. It defaults to `true`.
 
+```js
+//
+var options = {
+  allowLogin: false
+};
+```
+
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowlogin.png" />
+
 ### allowForgotPassword {Boolean}
 
 When set to false, `allowForgotPassword` hides the "Don't remember your password?" link in the Login screen, making the Forgot Password screen unreachable. Defaults to true. 
@@ -545,15 +587,14 @@ When set to false, `allowForgotPassword` hides the "Don't remember your password
 Keep in mind that if you are using a database connection with a custom database which doesn't have a change password script the Forgot Password screen won't be available.
 :::
 
-
 ```js
 //
 var options = {
-  allowForgotPassword: true
+  allowForgotPassword: false
 };
 ```
 
-![](/media/articles/libraries/lock/customization/allowForgotPassword.png)
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowforgotpassword.png" />
 
 ### allowSignUp {Boolean}
 
@@ -567,7 +608,7 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/disableSignupAction.png)
+<img width="300" src="/media/articles/libraries/lock/customization/lock-allowsignup.png" />
 
 ### defaultDatabaseConnection {String}
 
@@ -658,8 +699,6 @@ var options = {
 };
 ```
 
-![](/media/articles/libraries/lock/customization/usernameStyle.png)
-
 ---
 
 ## Enterprise Options
@@ -683,8 +722,6 @@ var options = {
   defaultADUsernameFromEmailPrefix: false
 };
 ```
-
-![](/media/articles/libraries/lock/customization/defaultADUsernameFromEmailPrefix.png)
 
 ### integratedWindowsLogin {Boolean}
 

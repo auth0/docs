@@ -9,7 +9,7 @@ Rules are functions written in JavaScript that are executed in Auth0 as part of 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 
-* AndroidStudio 2.0
+* AndroidStudio 2.2
 * Emulator - Nexus5X - Android 6.0
 :::
 
@@ -39,7 +39,7 @@ This rule gets the `country_name` from the context and adds it as a new `country
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
-This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever your users log in, the rule will be executed, and their country will be added.
+This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever your users log in, the rule will be executed and their country will be added.
 
 ### 2. Test The Rule
 
@@ -49,22 +49,24 @@ You can access the `country` added by the rule within the `extraInfo` hashmap fr
 
 ```java
 client.tokenInfo(${account.clientId})
-	  .start(new BaseCallback<UserProfile>() {
+	  .start(new BaseCallback<UserProfile, AuthenticationException>() {
 
 	@Override
 	public void onSuccess(final UserProfile userProfile) {
-		MainActivity.this.runOnUiThread(new Runnable() {
+		runOnUiThread(new Runnable() {
 			public void run() {
 				// Get the country from the user profile
-				String country = (String) payload.getExtraInfo().get("country");
+        if (payload.getExtraInfo().containsKey("country")){
+          String country = (String) payload.getExtraInfo().get("country");
+          //Show the country          
+        }
 			}
 		});
 	}
+  
 	@Override
-	public void onFailure(Auth0Exception error) {
+	public void onFailure(AuthenticationException error) {
 
 	}
 });
 ```
-
-

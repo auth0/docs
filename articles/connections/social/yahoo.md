@@ -3,6 +3,7 @@ connection: Yahoo!
 image: /media/connections/yahoo.png
 seo_alias: yahoo
 index: 15
+description: How to obtain a Consumer Key and Consumer Secret for Yahoo!
 ---
 
 # Obtaining a Consumer Key and Consumer Secret for Yahoo!

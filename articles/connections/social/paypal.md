@@ -3,6 +3,7 @@ connection: PayPal
 image: /media/connections/paypal.png
 seo_alias: paypal
 index: 10
+description: How to obtain a Client Id and Client Secret for PayPal.
 ---
 
 # Obtain a Client Id and Secret for PayPal

@@ -154,3 +154,24 @@ Be sure to check to make sure cookies and javascript are enabled for your browse
 Check to make sure that the callback URL specified by your application in its authentication request is listed in the **Allowed Callback URLs** field in the __"Settings"__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
 
 The **[http://samltool.io](http://samltool.io)** tool can decode a SAML assertion and is a useful debugging tool.
+
+## Supported algorithms for signatures
+
+We currently support the following algorithms for processing XML Digital Signatures:
+
+* Canonicalization
+  * 'http://www.w3.org/2001/10/xml-exc-c14n#'
+  * 'http://www.w3.org/2001/10/xml-exc-c14n#WithComments'
+  * 'http://www.w3.org/2000/09/xmldsig#enveloped-signature'
+
+* Signature
+
+  * 'http://www.w3.org/2000/09/xmldsig#rsa-sha1'
+  * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
+  * 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha512'
+
+* Digest
+  
+  * 'http://www.w3.org/2000/09/xmldsig#sha1'
+  * 'http://www.w3.org/2001/04/xmlenc#sha256'
+  * 'http://www.w3.org/2001/04/xmlenc#sha512'

@@ -33,6 +33,9 @@ you would make the following `POST` call to the Management API to create the use
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer ABCD"
+	}, {
+		"name": "Content-Type",
+		"value": "application/json"
 	}],
 	"queryString": [],
 	"postData": {
@@ -84,6 +87,9 @@ you would make the following `PATCH` call to the API:
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer ABCD"
+	}, {
+		"name": "Content-Type",
+		"value": "application/json"
 	}],
 	"queryString": [],
 	"postData": {
@@ -141,6 +147,9 @@ Therefore, the corresponding `PATCH` call to the API would be:
 	"headers": [{
 		"name": "Authorization",
 		"value": "Bearer ABCD"
+	}, {
+		"name": "Content-Type",
+		"value": "application/json"
 	}],
 	"queryString": [],
 	"postData": {

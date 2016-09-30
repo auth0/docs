@@ -3,14 +3,6 @@ title: Login
 description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your web app.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Apache 2.4.4
-* PHP 5.6.14 and up
-:::
-
-
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-php-web-app',
@@ -21,6 +13,15 @@ This tutorial and seed project have been tested with the following:
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
+
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+
+* Apache 2.4.4
+* PHP 5.6.14 and up
+:::
+
+<%= include('../../_includes/_signup') %>
 
 **Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
 

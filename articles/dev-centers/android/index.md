@@ -1,7 +1,8 @@
 ---
-sitemap: false
+public: false
 title: Android Developer Center
 subtitle: Resources and documentation for Android developers
+description: Resources and documentation for Android developers
 logo: android
 url: /dev-centers/android
 tutorials:

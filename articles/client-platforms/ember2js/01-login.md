@@ -1,5 +1,6 @@
 ---
 title: Login
+default: true
 description: This tutorial will show you how to use the Auth0 EmberJS 2 SDK to add authentication and authorization to your web app.
 ---
 
@@ -26,13 +27,11 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_signup') %>
 
-**If you have an existing application, follow the steps below.**
-
 ${include('../\_callback')}
 
 __Note:__ This quickstart and seed project are for Ember >= 2.x.x.
 
-### 1. Install the add-on
+## 1. Install the add-on
 
 Auth0 Ember simple-auth is an add-on for the [simple-auth](http://ember-simple-auth.com) library, and it's installed via [ember-cli](http://www.ember-cli.com).
 
@@ -46,7 +45,7 @@ ember generate scaffold-auth0
 
 __Note:__ If you are not already using ember-cli, see [ember-cli migration](http://www.ember-cli.com/user-guide/#migrating-an-existing-project-that-doesnt-yet-use-ember-cli).
 
-### 2. Configure the add-on
+## 2. Configure the add-on
 
 ```js
 // config/environment.js
@@ -75,7 +74,7 @@ ENV['contentSecurityPolicy'] = {
 };
 ```
 
-### 3. Extend routes
+## 3. Extend routes
 
 Extend a route and set [user-configurable options](/libraries/lock/customization):
 
@@ -123,7 +122,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin);
 ```
 
-### 4. Login and logout
+## 4. Login and logout
 
 Add login and logout links. These routes are handled according to the simple-auth configuration settings.
 
@@ -135,7 +134,7 @@ Add login and logout links. These routes are handled according to the simple-aut
 {{/if}}
 ```
 
-### 5. Authenticated user session data
+## 5. Authenticated user session data
 
 Once a user is authenticated, session data received from the popup window will be stored in `localStorage` under the `ember_simple_auth:session` key. This session object is a JSON object that contains user profile data, a JWT token and an access token.
 
@@ -149,7 +148,7 @@ You can access this session information in the ember templates by using `{{sessi
 </div>
 ```
 
-### 6. Using a JWT token to make API requests
+## 6. Using a JWT token to make API requests
 
 To make an API request, add the user's [JWT token](/jwt) to an `Authorization` HTTP header:
 
@@ -165,10 +164,6 @@ fetch('/api/foo', {
 });
 ```
 
-### 7. All done!
-
-You have completed the implementation of Login and Signup with Auth0 and Ember.
-
-#### Additional information
+### Additional Information
 
 For Additional information on how to use this SDK, see [Auth0 Ember simple auth](http://github.com/auth0/auth0-ember-simple-auth/blob/master/README.md).

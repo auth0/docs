@@ -2,6 +2,7 @@
 connection: Baidu
 image: /media/connections/baidu.png
 seo_alias: baidu
+description: How to obtain an API Key and Secret Key for Baidu.
 ---
 
 # Obtain an API Key and Secret Key for Baidu

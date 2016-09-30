@@ -1,7 +1,8 @@
 ---
-sitemap: false
+public: false
 title: iOS Developer Center
 subtitle: Resources and documentation for iOS developers
+description: Resources and documentation for iOS developers
 logo: ios
 url: /dev-centers/ios
 tutorials:

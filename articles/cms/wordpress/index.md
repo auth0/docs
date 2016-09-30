@@ -1,5 +1,6 @@
 ---
 url: /cms/wordpress
+description: This page explains the basics of the WordPress plugin.
 ---
 
 # Auth0 WordPress plugin

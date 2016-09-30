@@ -1,3 +1,7 @@
+---
+description: Lists all the prerequisites to installing and configuring the connector.
+---
+
 # Prerequisites
 
 Typically the AD/LDAP Connector needs to be installed by a sys admin or an operations engineer vs. a developer, since it often requires access to production resources. Following is a checklist of things they should consider ahead of the actual install:

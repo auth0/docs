@@ -5,6 +5,7 @@ alias:
   - basecamp
   - thirtysevensignals
 seo_alias: 37signals
+description: How to obtain a Client Id and Client Secret for 37Signals.
 ---
 
 # Obtain a *Client Id* and *Client Secret* for 37Signals

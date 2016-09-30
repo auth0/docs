@@ -1,4 +1,5 @@
 ---
+description: Describes the major differences between Auth0's Management API v1 and Management API v2, and details the reasons for each change.
 section: apis
 ---
 

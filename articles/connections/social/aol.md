@@ -2,6 +2,7 @@
 connection: AOL Reader
 image: /media/connections/aol.png
 seo_alias: aol
+description: How to obtain a Client Id and Client Secret for AOL Reader.
 ---
 
 # Obtain an *Client Id* and *Client Secret* for AOL Reader

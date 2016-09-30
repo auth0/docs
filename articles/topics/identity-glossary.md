@@ -3,7 +3,7 @@ title: Identity Glossary
 articles:
   - protocols
   - tokens
-  - jwt
+  - tokens/jwt
 ---
 
 # Identity Glossary
