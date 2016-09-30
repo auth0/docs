@@ -19,8 +19,10 @@ __Table of Contents__
   - [Which protocol to use](#which-protocol-to-use)
   - [Authentication Flow](#authentication-flow)
     - [How to validate an ID Token](#how-to-validate-an-id-token)
-- Auth0 Configuration
-  - [Clients & Connections](#clients-connections)
+- [Auth0 Configuration](#auth0-configuration)
+  - [Client](#client)
+    - [Create a Client](#create-a-client)
+  - [Connections](#connections)
     - [Create a database connection](#create-a-database-connection)
     - [Create an Active Directory / LDAP Connection](#create-an-active-directory-ldap-connection)
 - [Inside the Implementation](#inside-the-implementation)
