@@ -13,7 +13,6 @@ In this step, you will build a single page, serverless client application using 
 
 For a simple starter app, download this seed project.
 
-```
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
@@ -21,18 +20,17 @@ For a simple starter app, download this seed project.
   pkgFilePath: null,
   pkgType: 'js'
 }) %>
-```
 
 Copy the contents of this seed project to a local folder called `pets`, which you will be using for the remainder of this tutorial. Within this folder, update `auth0-variables.js` with your Auth0 Client `AUTH0_CLIENT_ID` and `AUTH0_CLIENT_ID` (this information is available in the [Management Dashboard](${manage_url}/#/clients) for the client in question).
 
-> Be sure that you have [created the AWS S3 bucket that you have configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
+> Be sure that you have [created the AWS S3 bucket configured to act as a static website](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html). During the setup process, copy the contents of the `pets` folder to your S3 bucket to provide content for the website.
 >
 > If you are using a pre-existing bucket, you can move the files with the [AWS CLI](https://aws.amazon.com/cli/) using the following command:
 > ```
 > aws s3 cp --recursive --acl "public-read" ./ s3://YOUR-BUCKET/
 > ```
 
-Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* (or the Database Connection associated with the Client you are using) Connection. In order to fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
+Prior to proceeding, please be sure that you have at least one user associated with your *Username-Password-Authentication* (or the Database Connection associated with the Client you are using) Connection. To fully utilize the functionality of your sample app and its integration with AWS, you will need that user to test authentication and gain access.
 
 Lastly, ensure that Auth0 allows authentication from your website by providing the URL in the **Allowed Origins** field in the *Settings* page of your Client. Your website's URL should look something like this:
 
@@ -48,15 +46,15 @@ You should also see the page for viewing pets.
 
 ![](/media/articles/integrations/aws-api-gateway/part-3/log-in-success.png)
 
-### Use Delegation to get an AWS Token
+### Use Delegation to Get an AWS Token
 
-At this point, you have authentication set up with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code.
+At this point, you have authentication set up with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code:
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
 You can use Auth0's delegation capability to obtain an AWS access token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
 
-Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a social connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
+Update `pets/login/login.js` as follows to get an AWS delegation token from the identity token after a successful signin with `auth.signin`. Note that you are treating any user not logged in using a Social Connection as an admin. Later, we'll code a second role and show better ways to enforce role selection.
 
 
 ```js
@@ -202,7 +200,7 @@ function putPets(updatedPets) {
 }
 ```
 
-Copy the updated code to your S3 bucket. You can test this method by:
+Copy the updated code to your S3 bucket. Test the method:
 
 1. Log out and log back in.
 2. Enter in values for `Pet Type` and `Pet Price`.
