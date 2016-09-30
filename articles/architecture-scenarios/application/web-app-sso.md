@@ -180,6 +180,304 @@ Once you have configured the connection and the connector, be sure to enable you
 
 ![Enable the client to use this AD connection](/media/articles/architecture-scenarios/web-app-sso/enable-client-ad.png)
 
-Now that we have designed our solution and discussed the configurations needed on Auth0 side, we can proceed with integrating Auth0 with our Timesheets web app. That’s what the next paragraph is all about, so keep reading!
+Now that we have designed our solution and discussed the configurations needed on Auth0 side, we can proceed with integrating Auth0 with our Timesheets web app. That's what the next paragraph is all about, so keep reading!
 
 ## Inside the implementation
+
+Let's walk through the implementation of our regular web application. We used ASP .NET Core for the implementation, you can find the code in [this GitHub repository](https://github.com/auth0-samples/auth0-pnp-webapp-oidc).
+
+The sample contains an application which uses Active Directory integration to authenticate company employees and an Auth0 database connection for external contractors. Authorization is implemented using rules and claims as we will see in detail in this paragraph.
+
+### User Login
+
+Auth0 provides a Lock widget which serves as a login component for your application, meaning that you do not have to implement your own login screen. The Lock widget seamlessly integrates with all of the connections you configure inside your Auth0 dashboard, whether they be database, social or enterprise connections.
+
+There are a number of different ways in which you can implement a Login screen using a web application and Auth0:
+- __Hosted Lock__: Use an instance of the Lock widget which is hosted on the Auth0 infrastructure.
+- __Embedded Lock__: Embed the Lock widget inside a web page of your application. You have some customization options for the actual Lock widget, and full control over the rest of the HTML on the page.
+- __Custom UI__: Develop a completely custom web page for the login screen. The custom HTML form will post back to your server which will in turn authenticate the user using the Authentication API. For more information on when to use a Custom UI refer to [Lock vs. a Custom UI](/libraries/when-to-use-lock).
+
+The recommended best practice is to use Hosted Lock because it is the most secure option and the easiest way to enable users to log in to your application.
+
+### Session Management
+
+When talking about managing sessions, there are typically three layers of sessions we need to consider:
+
+- __Application Session__: The first is the session inside the application. Even though your application uses Auth0 to authenticate users, you will still need to keep track of the fact that the user has logged in to your application. In a normal web application this is achieved by storing information inside a cookie.
+- __Auth0 session__: Next, Auth0 will also keep a session and store the user's information inside a cookie. Next time when a user is redirected to the Auth0 Lock screen, the user's information will be remembered.
+- __Identity Provider session__: The last layer is the Identity Provider, for example Facebook or Google. When you allow users to sign in with any of these providers, and they are already signed into the provider, they will not be prompted to sign in. They may simply be required to give permissions to share their information with Auth0 and in turn your application.
+
+When developing a web application, you will therefore need to keep track of the fact that the user has logged in to your Web application. You can do this by making use of a cookie-based session to keep track of the fact that the user has signed in, and also store any of the user related information or tokens.
+
+::: panel-info How do I control the duration of the user's local application session? Can I drive that from Auth0?
+The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT `id_token` returned by Auth0 to control their session duration or ignore it completely. Some developers store the `id_token` itself in session state and end the user's session when it has expired.
+:::
+
+The login flow is as follows:
+
+![Login Flow Diagram](/media/articles/architecture-scenarios/web-app-sso/login-flow.png)
+
+1. The user's browser will send a request to Auth0 to initiate the OIDC flow.
+1. Auth0 will set a cookie to store the user's information.
+1. Auth0 will make a request back to the web server and return the code. The web server will exchange the code for an ID token.
+1. The web server will send a response back to the browser and set the application authentication cookie to store the user's session information.
+1. The application authentication cookie will be sent on every subsequent request as proof that the user is authenticated.
+
+::: panel-info How does Auth0's SSO session impact the application's session?
+Auth0 manages its own single-sign-on session. Applications can choose to honor or ignore that SSO session when it comes to maintaining their own local session. The Lock widget even has a special feature where it can detect if an Auth0 SSO session exists and ask the user if they wish to log in again as that same user. If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new `id_token`, which can be used to then manage the new local application session.
+:::
+
+#### ASP.NET Core: Configure the Cookie and OIDC Middleware
+
+For the purposes this guide we will be using a simple hosted login. You can use the standard cookie and OIDC middleware which is available with ASP.NET Core, so ensure that you install the NuGet packages.
+
+```csharp
+Install-Package Microsoft.AspNetCore.Authentication.Cookies
+Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
+```
+
+Then configure the cookie and OIDC middleware inside your application's middleware pipeline.
+
+```csharp
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Add authentication services
+        services.AddAuthentication(
+            options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
+
+        // Code omitted for brevity...
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IOptions<Auth0Settings> auth0Settings)
+    {
+        // Code omitted for brevity...
+
+        // Add the cookie middleware
+        app.UseCookieAuthentication(new CookieAuthenticationOptions
+        {
+            AutomaticAuthenticate = true,
+            AutomaticChallenge = true
+        });
+
+        // Add the OIDC middleware
+        app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
+        {
+            // Set the authority to your Auth0 domain
+            Authority = "https://${account.namespace}/",
+
+            // Configure the Auth0 Client ID and Client Secret
+            ClientId = ${account.clientId},
+            ClientSecret = ${account.clientSecret},
+
+            // Do not automatically authenticate and challenge
+            AutomaticAuthenticate = false,
+            AutomaticChallenge = false,
+
+            // Set response type to code
+            ResponseType = "code",
+
+            CallbackPath = new PathString("/signin-auth0"),
+
+            // Configure the Claims Issuer to be Auth0
+            ClaimsIssuer = "Auth0"
+        });
+
+        // Code omitted for brevity...
+    }
+}
+```
+
+As you can see in the code above, we have configured two different types of authentication middleware.
+
+The first is the cookie middleware which was registered with the call to `UseCookieAuthentication`.
+The second is the OIDC middleware which is done with the call to `UseOpenIdConnectAuthentication`.
+
+Once the user has signed in to Auth0 using the OIDC middleware, their information will automatically be stored inside a session cookie. All you need to do is to configure the middleware as above and it will take care of managing the user session.
+
+The OpenID Connect middleware will also extract all the claims from the `id_token`, which is sent from Auth0 once the user has authenticated, and add them as claims on the `ClaimsIdentity`.
+
+### User Logout
+
+When logging the user out, you will once again need to think about the three layers of sessions which we spoke about before. In this case only the first two layers are within your control, namely the application session and the Auth0 session.
+
+The logout flow is as follows:
+
+![Logout Flow Diagram](/media/articles/architecture-scenarios/web-app-sso/logout-flow.png)
+
+1. The logout flow will be initiated from the browser and a logout request will be sent to Auth0.
+1. The user will be logged out of Auth0 and the SSO cookie will be cleared.
+1. Auth0 will redirect back to the post-logout URL on the web server.
+1. The web server will clear the cookie and send a response back to the user, typically redirecting the user to the application's home page or login screen.
+
+#### ASP.NET Core: Implement the Logout
+
+You can control both the application session and the Auth0 session using the `SignOutAsync` method of the `AuthenticationManager` class, and passing along the authentication scheme from which you want to sign out.
+
+As an example to sign out of the cookie middleware, and thereby clearing the authentication cookie for your application, you can make the following call:
+
+```csharp
+await HttpContext.Authentication.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+```
+
+Similarly you can log the user out from Auth0 by making a call to the `SignOutAsync` method and passing along `Auth0` as the authentication scheme to sign out of.
+
+```csharp
+await HttpContext.Authentication.SignOutAsync("Auth0");
+```
+
+For the above to work you will however also need to add extra configuration when registering the OIDC middleware by handling the `OnRedirectToIdentityProviderForSignOut` event. Inside the event you will need to redirect to the [Auth0 logout endpoint](/api/authentication#!#get--v2-logout) which will clear the Auth0 cookie.
+
+```csharp
+app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
+{
+    // Some code omitted for brevity
+    Events = new OpenIdConnectEvents
+    {
+        OnRedirectToIdentityProviderForSignOut = context =>
+        {
+            context.Response.Redirect($"https://{auth0Settings.Value.Domain}/v2/logout?client_id={auth0Settings.Value.ClientId}&returnTo={context.Request.Scheme}://{context.Request.Host}/");
+            context.HandleResponse();
+
+            return Task.FromResult(0);
+        }
+    }
+});
+```
+
+You will also need to ensure that you add your application's URL to the __Allowed Logout URLs__ for your application inside the Auth0 dashboard. For more information refer to [Logout](/logout).
+
+### Access Control
+
+Authorization refers to the process of determining what actions a user can perform inside your application.
+
+There are various ways in which you can implement authorization inside your application when using Auth0:
+- Using the Auth0 Authorization Extension.
+- Using Active Directory groups. These can be used in combination with the Authorization Extension by mapping Active Directory Groups to Groups you define using the Authorization extension.
+- Add metadata to the user's profile by making use of rules. You can also call an external services from inside a rule.
+- The application can manage its own permissions independently of Auth0 and the user profile inside Auth0.
+
+For this application we will enforce access control using the Authorization Extension in combination with Active Directory groups.
+
+::: panel-info NOTE
+At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (i.e. whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
+:::
+
+All users will implicitly be regular users, but timesheet administrators will be assigned to an `Admin` group which will allow them to approve timesheets. The Authorization Extension allows for mapping groups to existing group membership.
+
+All timesheet administrators will be assigned to the `Timesheet Administrators` group on Active Directory, which will be automatically mapped to the `Admin` group inside the Timesheet Application.
+
+When you install the Authorization Extension, it creates a rule in the background, which does the following:
+1. Determine the user's group membership.
+1. Store the user's group membership info as part of the `app_metadata`.
+1. Add the user's group membership to the outgoing token.
+1. Verify that the user has been granted access to the current application.
+
+::: panel-info Retrieve updated authorization related claims
+In the scenario described in this document, the web app does not handle its own authorization, but instead Auth0 delivers the authorization claims. User group membership is retrieved from the Active Directory and passed in the web app as claims in the `id_token`.
+There is a scenario where after a user has logged in and the app has parsed and applied the access control granted by the claims contained in the `id_token`, the user's right change. For example, the user is fired (so all access should be revoked) or get's Admin privileges. What we want in this scenario is to propagate these access control changes at our app at the soonest possible.
+
+In this case the developer can pick one of the following solution to this problem:
+- The web app falls back on the Auth0 SSO session when it wants to refresh the `id_token` by performing another authorization flow with Auth0.
+- When performing the initial authorization flow, the web app requests a `refresh_token`. Then when it determines that a session needs to be refreshed, it uses the `refresh_token` on the backend to obtain a new `id_token`. This will result in re-querying the Active Directory, get the updated information, which would include any new groups the user has been added to since the last time, and sending this information to the web app as part of the `id_token` claims.
+
+The question on how often this should be triggered depends on the specific use case, and to answer that you need to consider items like how often the user profile data change and how crucial it is to propagate these changes to your web app as fast as possible. This way you can decide on the time interval you want to propagate this change and configure your web app to refresh the authorization claims based on that. Of course, if a user knows their rights changed (for example, they can now approve timesheets), but the application isn't reflecting this quickly enough, they can just log back out and log in again.  This will force an new `id_token` to be issued, with a corresponding query to Active Directory for the latest information.
+
+For more information on how to retrieve and use a refresh token refer to [Refresh Tokens](/tokens/refresh-token).
+:::
+
+#### Install the Authorization Extension
+
+To install the Authorization extension navigate to the [Extensions](${manage_url}/#/extensions) view of your Auth0 Dashboard, and select and install the Auth0 Authorization extension.
+
+![Install the Authorization Extension](/media/articles/architecture-scenarios/web-app-sso/install-authz-ext.png)
+
+Once installed, you will see the app listed under _Installed Extensions_.
+
+When you click on the link to open the extension for the first time, you will be prompted to provide permission for the extension to access your Auth0 account. If you do so, you will be redirected to the Authorization Dashboard.
+
+Once on the Authorization Dashboard, navigate to Groups in the navigation menu, and create a new group called `Admin`.
+
+![Create Admin Group](/media/articles/architecture-scenarios/web-app-sso/create-admin-group.png)
+
+After the group has been added you can click on the new group to go to the group management section. Go to the _Group Mappings_ tab and add a new group mapping which will map all Active Directory users in the `Timesheet Admins` groups to the `Admin` group you just created.
+
+![Add Admin Group Mapping](/media/articles/architecture-scenarios/web-app-sso/add-group-mapping.png)
+
+Once you click __Save__ you can see the new mapping listed.
+
+![View Admin Group Mapping](/media/articles/architecture-scenarios/web-app-sso/view-group-mapping.png)
+
+With the mapping configured you only need to maintain membership to the `Timesheet Admins` group in Active Directory, and those users will be automatically mapped to the `Admin` group inside our application.
+
+For more information refer to the [Authorization Extension documentation](/extensions/authorization-extension).
+
+#### ASP .NET Core: Implement Admin permissions
+
+The easiest way to integrate the groups into an ASP.NET Core application is to user the built-in [Role based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core.
+
+In order to achieve this we will need to add a Claim of type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` for each of the groups a user is assigned to.
+
+Once the claims has been added we can easily ensure that a specific action is available only to `Admin` users by decorating the claim with the `[Authorize(Roles = "Admin")]` attribute.
+
+You can also check whether a user is in a specific role from code by making a call to `User.IsInRole("Admin")` from inside your controller.
+
+When a user signs in, the Authorization Extension will add the list of Roles to an `authorization` claim in the JWT which is returned by Auth0. This is an example of a JWT returned from Auth0:
+
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "authorization": {
+    "groups": ["Admin"]
+  }
+}
+```
+The ASP.NET OIDC middleware will automatically add all claims returned in the JWT as claims to the `ClaimsIdentity`. We would therefore need to extract the information from the `authorization` claim, deserialize the JSON body of the claim, and for each of the groups add a `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` claim to the `ClaimsIdentity`.
+
+```csharp
+app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
+{
+    // Some configuration omitted for brevity
+
+    Events = new OpenIdConnectEvents
+    {
+        OnTicketReceived = context =>
+        {
+            var options = context.Options as OpenIdConnectOptions;
+
+            // Get the ClaimsIdentity
+            var identity = context.Principal.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                // Add the groups as roles
+                var authzClaim = context.Principal.FindFirst(c => c.Type == "authorization");
+                if (authzClaim != null)
+                {
+                    var authorization = JsonConvert.DeserializeObject<Auth0Authorization>(authzClaim.Value);
+                    if (authorization != null)
+                    {
+                        foreach (var group in authorization.Groups)
+                        {
+                            identity.AddClaim(new Claim(ClaimTypes.Role, group, ClaimValueTypes.String, options.Authority));
+                        }
+                    }
+                }
+            }
+
+            return Task.FromResult(0);
+        }
+    }
+});
+```
+
+And subsequently we can add an action which allows Administrators to approve timesheets:
+
+```csharp
+[Authorize(Roles = "Admin")]
+public IActionResult TimesheetApproval()
+{          
+    return View();
+}
+```
