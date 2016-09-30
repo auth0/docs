@@ -145,7 +145,7 @@ public class HelloService : Service
 
 ### 7. Triggering login manually or integrating the Auth0Lock
 
-<%= include('../../_includes/_lock-sdk')
+<%= include('../../_includes/_lock-sdk') %>
 
 ### 8. Add UI code to Login and invoke the `HelloService`
 

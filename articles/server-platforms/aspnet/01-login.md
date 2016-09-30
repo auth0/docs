@@ -49,7 +49,7 @@ ${snippet(meta.snippets.setup)}
 
 ### 4. Triggering login manually or integrating the Auth0Lock
 
-<%= include('../../_includes/_lock-sdk')
+<%= include('../../_includes/_lock-sdk') %>
 
 ### 5. Accessing user information
 

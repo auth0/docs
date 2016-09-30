@@ -113,7 +113,7 @@ function showLoggedIn() {
 
 ## Start Using Lock
 
-<%= include('../../_includes/_lock-sdk')
+<%= include('../../_includes/_lock-sdk') %>
 
 ## Browser Compatibility
 
