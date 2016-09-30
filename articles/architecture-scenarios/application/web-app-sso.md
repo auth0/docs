@@ -14,15 +14,16 @@ By _Regular Web App_, we mean an app that uses primarily server side, page `GET`
 __Table of Contents__
 - [The Premise](#the-premise)
   - [Goals & Requirements](#goals-requirements)
-- [Overview of the solution](#overview-of-the-solution)
+- [Overview of the Solution](#overview-of-the-solution)
   - [Identity Management](#identity-management)
   - [Which protocol to use](#which-protocol-to-use)
   - [Authentication Flow](#authentication-flow)
     - [How to validate an ID Token](#how-to-validate-an-id-token)
+- Auth0 Configuration
   - [Clients & Connections](#clients-connections)
-    - [Create a database Connections](#create-a-database-connection)
+    - [Create a database connection](#create-a-database-connection)
     - [Create an Active Directory / LDAP Connection](#create-an-active-directory-ldap-connection)
-- [Inside the implementation](#inside-the-implementation)
+- [Inside the Implementation](#inside-the-implementation)
   - [User Login](#user-login)
     - [Automate Home Realm Discovery (HRD)](#automate-home-realm-discovery-hrd-)
   - [Session Management](#session-management)
@@ -149,7 +150,11 @@ The validation of an ID token requires several steps:
 
 Note that if you store ID tokens on your server, you must store them securely.
 
-### Clients & Connections
+## Auth0 Configuration
+
+In this section we will review all the configurations we need to apply using the [Auth0 Dashboard](${manage_url}).
+
+### Client
 
 The Auth0 configuration part starts with registering the timesheets app at the Auth0 dashboard as a __client__. A client is an application making protected resource requests on behalf of the resource owner (end-user).
 
@@ -163,6 +168,12 @@ The main characteristics of a Client in Auth0 are:
 - __Client secret__ (read-only): A base64 encoded string, used to sign and validate tokens which will be used in the different authentication flows. It is auto-generated and it must be kept confidential.
 - __Domain__: The domain name assigned to the Auth0 account. The format of the domain is `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`, for example `abc.auth0.com`.
 - __Callback URL__: The URL where the user is redirected after they authenticate.
+
+#### Create a Client
+
+TO-BE-UPDATED (create client + configure callback URLs)
+
+### Connections
 
 The next step is to configure the identity providers that will be used for authentication at the web app. Each identity provides maps to a __connection__ in Auth0. Each client needs at least one connection, and each connection can be used for more than one client.
 
