@@ -5,11 +5,32 @@ description: A regular web application which needs to authenticate users using O
 
 # SSO for Regular Web Apps
 
-In this scenario we will build a web application for a fictitious company named ABC Inc.The app is meant to be used by ABC's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
+In this scenario we will build a web application for a fictitious company named ABC Inc. The app is meant to be used by ABC's employees and contractors. Employees will use their existing corporate directory (Active Directory), while contractors will be managed in a separate user store.
 
 ::: panel-info NOTE
-By _Regular Web App_, we mean an app that uses primarily server side, page GETs, POST, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
+By _Regular Web App_, we mean an app that uses primarily server side, page `GET`, `POST`, and cookies for maintaining state. This is contrast with a Web _SPA_ (Single Page App), that heavily relies on client side JavaScript code calling an API.
 :::
+
+__Table of Contents__
+- [The Premise](#the-premise)
+  - [Goals & Requirements](#goals-requirements)
+- [Overview of the solution](#overview-of-the-solution)
+  - [Identity Management](#identity-management)
+  - [Which protocol to use](#which-protocol-to-use)
+  - [Authentication Flow](#authentication-flow)
+    - [How to validate an ID Token](#how-to-validate-an-id-token)
+  - [Clients & Connections](#clients-connections)
+    - [Create a database Connections](#create-a-database-connection)
+    - [Create an Active Directory / LDAP Connection](#create-an-active-directory-ldap-connection)
+- [Inside the implementation](#inside-the-implementation)
+  - [User Login](#user-login)
+  - [Session Management](#session-management)
+    - [ASP.NET Core: Configure the Cookie and OIDC Middleware](#asp-net-core-configure-the-cookie-and-oidc-middleware)
+  - [User Logout](#user-logout)
+    - [ASP.NET Core: Implement the Logout](#asp-net-core-implement-the-logout)
+  - [Access Control](#access-control)
+    - [Install the Authorization Extension](#install-the-authorization-extension)
+    - [ASP .NET Core: Implement Admin permissions](#asp-net-core-implement-admin-permissions)
 
 ## The Premise
 
@@ -53,10 +74,10 @@ The solution should be available both to the employees with a physical presence 
 ABC decided to use Auth0 as their Identity as a Service (IDaaS) provider. The reasoning behind this decision was that the company did not want to commit resources on  training, implementation and maintenance of identity and access management. Furthermore, the company plans on building into this solution in the future, possibly adding a mobile native app and an API to push approved timesheets to their internal systems. Auth0 provides the flexibility to incorporate such changes in their architecture with minimum effort.
 
 ::: panel-info Identity-as-Service
-Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include SSO, Federated Identity, password management, and more.
+Identity-as-Service ("IDaaS") is a cloud-based service for identity and access management. The offered services often include SSO, federated identity, password management, and more.
 :::
 
-### Which protocol to use?
+### Which protocol to use
 
 The next decision has to do with which protocol to use, OAuth 2.0 with OpenID Connect (OIDC) or SAML.
 
@@ -64,7 +85,7 @@ The next decision has to do with which protocol to use, OAuth 2.0 with OpenID Co
 Auth0 implements proven, common and popular identity protocols, both for consumer oriented web products (OAuth 2.0, OAuth 1.0, OpenID) and for enterprise deployments (SAML, WS-Federation, LDAP). You have complete freedom to use the one that best meets your business needs.
 :::
 
-OpenID Connect is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple JSON identity tokens (JWT) delivered via the OAuth 2.0 protocol.
+__OpenID Connect__ is an authentication protocol, based on the OAuth 2.0 family of specifications. It uses simple JSON identity tokens (JWT) delivered via the OAuth 2.0 protocol.
 
 ::: panel-info OAuth vs OpenID Connect (OIDC)
 OAuth 2.0 and OpenID Connect (OIDC) are often mistaken for the same thing, but this is not exact.
@@ -72,7 +93,7 @@ __OAuth 2.0__ is a protocol that lets you authorize one website (the consumer or
 __OpenID Connect__, on the other hand, is a simple identity layer built on top of the OAuth 2.0 protocol. It gives you one login for multiple sites. Each time you need to log in to a website using OIDC, you are redirected to your OpenID site where you login, and then taken back to the website. At the core, OIDC is concerned with user authentication.
 :::
 
-SAML is an XML-based protocol, that provides both authentication and authorization between trusted parties.
+__SAML__ is an XML-based protocol, that provides both authentication and authorization between trusted parties.
 
 Compared to SAML, OpenID Connect is lighter weight and simpler to deal with. SAML is proven, powerful and flexible, but for the requirements of this app, that flexibility and power is not required. Identity federation (one of the most compelling reasons for adopting SAML) is not required here either, And if it ever became a requirement, it can be easily handled by Auth0, in the same way it deals with AD (that uses LDAP).
 
@@ -154,7 +175,7 @@ Auth0 supports a vast variety of protocols and identity providers:
 - Passwordless authentication: Allow your users to login without the need to remember a password and use an authentication channel like SMS or e-mail.
 :::
 
-#### Creating a database connection
+#### Create a database connection
 
 To register a database connection, go to the [Auth0 dashboard](${manage_url}) and in the side navigation select [Connections > Database](${manage_url}/#/connections/database).
 
@@ -168,7 +189,7 @@ When you click __Save__ you will be navigated to the _Settings_ page for the new
 
 For more information on database connections refer to [Database Identity Providers](/connections/database).
 
-#### Creating an Active Directory / LDAP Connection
+#### Create an Active Directory / LDAP Connection
 
 Next you need to configure your Active Directory / LDAP connection. Go to the [Auth0 dashboard](${manage_url}) and in the side navigation select the [Connections > Enterprise](${manage_url}/#/connections/enterprise)).
 
