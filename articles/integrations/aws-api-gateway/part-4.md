@@ -10,14 +10,13 @@ description: Step 4 of Amazon API Gateway Tutorial
 
 In this step, you'll assign different AWS IAM roles to users based on authentication information:
 
-* users that authenticate with Social Connections will be treated as buyers;
-* users authenticated with a Database Connection will be treated as admins.
+* Users authenticating with Social Connections will be treated as buyers;
+* Users authenticating with Database Connections will be treated as admins.
 
 You will perform this role assignment logic in two different ways:
 
-* client-side: JavaScript;
-* server-side: Auth0 rules.
-
+* JavaScript;
+* Auth0 rules.
 
 For many Auth0 Clients, you'll want different users to have different levels of access, and you'll want additional information about a given identity to use in your service logic. In cases where it's sufficient to lock down access at the API level, you can use different AWS IAM roles (for example, administrators can use the update function to *add* and *remove* pets, but social users can only *buy* pets).
 
@@ -140,7 +139,7 @@ Go to the [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway
 
 At this point, you have defined two roles that you can use with the API gateway:
 
-* `auth0-api-role`: permits updating the pets
+* `auth0-api-role`: permits updating pets
 * `auth0-api-social-role`: permits purchasing a pet
 
 #### Configure Login with Amazon and Update Auth0
@@ -149,7 +148,7 @@ You can create a social role using Login with Amazon (LWA).
 
 > While this tutorial includes instructions for using Login with Amazon, please note that you can use other social providers as well.
 
-Go to the [Auth0 Management Dashboard](${manage_url}). Select **Connections** then **Social** in the drop-down menu. Enable the connection for Amazon by setting the slide to the right so that it turns green.
+Go to the [Auth0 Management Dashboard](${manage_url}). Select **Connections**, then **Social** in the drop-down menu. Enable the connection for Amazon by setting the slide to the right so that it turns green.
 
 ![](/media/articles/integrations/aws-api-gateway/part-4/enable-amazon.png)
 
@@ -168,7 +167,7 @@ Once you've entered the appropriate information, click **Try** to ensure that ev
 
 > When you configure LWA using the Amazon console, be sure to enter into *Allowed Return URLs* the callback URL to your Auth0 Client, which should look something like `https://johndoe.auth0.com/login/callback`. The Auth0 help page will show you specifically what to enter.
 
-In the Auth0 Dashboard, go back to **Clients**, select your Client, and then open up the **Connections** page. Ensure that *amazon* is enabled under your section of Social connections.
+In the Auth0 Dashboard, go back to **Clients**, select your Client, and then open up the **Connections** page. Ensure that *amazon* is enabled under Social Connections.
 
 ![](/media/articles/integrations/aws-api-gateway/part-4/aws-connections.png)
 
@@ -178,15 +177,15 @@ In the Auth0 Dashboard, go back to **Clients**, select your Client, and then ope
 
 Using the [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway), you will again [deploy the API and generate a new JavaScript SDK](/integrations/aws-api-gateway/part-2#set-up-cors-and-deploy-the-api).
 
-At this point, you have made all of the necessary configuration changes to enable pet purchases. To make this live, copy your newly-downloaded SDK over the previous one in your `pets` folder, as well as your Amazon S3 bucket.
+At this point, you have made the necessary configuration changes to enable pet purchases. To make this live, copy your newly downloaded SDK over the previous one in your `pets` folder, as well as your Amazon S3 bucket.
 
 ##### Update the Login Controller Logic to Choose Different Roles for Different Types of Users
 
-The login controller logic uses `getOptionsForRole` to select different roles for different users. When you obtain the delegation token, you can tell Auth0 which role to use (that is, if the user is an admin or if not).
+The login controller logic uses `getOptionsForRole` to select different roles for different users. When you obtain the delegation token, you can tell Auth0 which role to use (that is, the user is an admin or not).
 
 In the `pets/login/login.js` file, modify the `role` and `principal` values for the non-admin user for the social user IAM role you just created.
 
-At this point, you should be able to login using Amazon credentials **or** the database user you previously created. Notice that the UI lets a social user buy pets, while an admin user can add and remove pets.
+At this point, you should be able to log in using Amazon credentials **or** the database user you previously created. Notice that the UI lets a social user buy pets, while an admin user can add and remove pets.
 
 To test this functionality, you can temporarily hide the remove button in the UI by removing `ng-show="isAdmin"` in `/pets/home/home.html`:
 
@@ -225,16 +224,16 @@ Note that, as an Amazon user, you can buy a pet, but not add or remove pets. How
 
 ### Enforce Role Assignment with Auth0 Rules
 
-In some cases, determine the appropriate role in the Client is appropriate (as shown here), but you might want to determine user privileges on the server-side to prevent the user from assuming a more privileged role than necessary.
+In some cases, you might determine the appropriate role using the Client (as shown here), but for security reasons (you might want to prevent the user from assuming a more privileged role than necessary), you might want to determine user privileges on the server-side.
 
 With Auth0, this is done via [rules](/rules), which are service logic statements you define that are then run during the Auth0 authentication process. For example, you could create rules to:
 
-* eliminate the passing of role information from the browser to the Client;
-* insert role information into the delegation request based on the authentication source.
+* Eliminate the passing of role information from the browser to the Client;
+* Insert role information into the delegation request based on the authentication source.
 
 #### Enforce Role Assignment
 
-You will add a rule that will check to see if the role requested by the user is allowed, depending on whether they are associated with a Social or Database Connection.
+You will add a rule that will check to see if the role requested by the user is allowed, depending on its association with a Social or Database Connection.
 
 Go to the [Auth0 Management Dashboard](${manage_url}), and click on **Rules** in the left-hand menu.
 
@@ -297,7 +296,7 @@ Be sure to adjust the above code with the correct values for your integration. T
 * `Role` ARN;
 * Client Secret
 
-**Save** to persist your changes.
+**Save** your changes.
 
 #### Caveats
 
