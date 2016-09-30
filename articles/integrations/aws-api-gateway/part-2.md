@@ -9,9 +9,9 @@ description: Step 2 of Amazon API Gateway Tutorial
 
 Now that you have your API running, you need to add security. In this step, you will:
 
-* secure the update API to limit access to authenticated users with a specific AWS IAM role;
-* configure Auth0 delegation to use AWS IAM federation capabilities;
-* obtain an AWS access token that uses the AWS IAM role.
+* Secure the update API to limit access to authenticated users with a specific AWS IAM role;
+* Configure Auth0 delegation to use AWS IAM federation capabilities;
+* Obtain an AWS access token that uses the AWS IAM role.
 
 Once your API is secure, you'll build a serverless, single page application (SPA). The SPA will rely on federating identity to determine which users are allowed access. By combining AWS IAM Integration for AWS Gateway API, AWS IAM Identity Federation for SAML, and Auth0 Delegation for AWS, you can enable users from many different sources, including Social Providers or enterprise connections, to access your APIs. The following diagram illustrates a sample flow using a SAML-based Identity Provider and Auth0 SAML Federation and Delegation for AWS.
 
@@ -33,8 +33,8 @@ AWS API Gateway provides two different methods to secure your APIs:
 
 Using API keys is typically appropriate for a service-to-service interaction, as illustrated below. However, there are several downsides to this approach:
 
-* placing a secret with a long lifetime on the client is risky, since clients are easier to compromise;
-* creating a framework to issue and manage API keys requires a secure implementation that can be challenging to develop.
+* Placing a secret with a long lifetime on the client is risky (clients are easier to compromise);
+* Creating a framework to issue and manage API keys requires a secure implementation that can be challenging to develop.
 
 ![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-key.png)
 
@@ -60,11 +60,11 @@ Navigate to the *Addons* tab for your newly-created Client. Using the appropriat
 
 Follow the [Set Up AWS for Delegated Authentication with APIs](/aws-api-setup) tutorial to configure AWS for delegated access, which uses SAML. Some caveats:
 
-* Follow the [instructions below](#setting-the-permissions-policy-on-your-iws-iam-role) for attaching the permissions policy to your Role instead of the one for the linked tutorial;
+* Follow the [instructions below](#setting-the-permissions-policy-on-your-iws-iam-role) for attaching the permissions policy to your role instead of the one for the linked tutorial;
 * Name the SAML provider you create `auth0`;
 * Name the AWS IAM role `auth0-api-role`.
 
-##### Setting the Permissions Policy on your IWS IAM Role
+##### Setting the Permissions Policy on Your IWS IAM Role
 
 Once you have configured the AWS IAM role, you will add a policy to `auth0-api-role` that lets you execute your API Gateway methods.
 
@@ -72,16 +72,16 @@ Once you have configured the AWS IAM role, you will add a policy to `auth0-api-r
 
 ::: panel-info Getting the Gateway API ARN
 
-Before you begin, you will need the ARN for your Gateway API. You can see the ARN by:
+Before you begin, you will need the ARN for your Gateway API:
 
-1. Navigating to [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway) and log in.
+1. Navigate to [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway) and log in.
 2. Select the appropriate API.
 3. Click on any of the Methods associated with the API to bring up the *Method Execution* page.
 4. On the *Method Execution* page, the *Method Request* box in the top left corner displays the **ARN** for the API, though it includes the Method name:
 
   `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/POST/`
 
-  What you'll want to do is strip the method name to get the base ARN for the API:
+  You'll strip the method name to get the base ARN for the API:
 
   `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/`
 
@@ -89,7 +89,7 @@ Before you begin, you will need the ARN for your Gateway API. You can see the AR
 
 :::
 
-Select the `auth0-api-role` role you just created to open up its *Summary* page.
+Select the `auth0-api-role` role you just created to open its *Summary* page.
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/select-iam-role.png)
 
@@ -124,7 +124,7 @@ Edit your policy document. You can set the **Policy Name** to whatever you would
 
 Click **Apply Policy**.
 
-Since the API Gateway will assume this role on behalf of the user, the trust policy needs to permit this action. To do so, you will need to edit the role's *Trust Relationships* by navigating to this tab on the role's *Summary* page.
+Since the API Gateway will assume this role on behalf of the user, the trust policy needs to permit this action. To do so, edit the role's *Trust Relationships* by navigating to this tab on the role's *Summary* page.
 
 The final trust relationship should look similar to the following:
 
@@ -171,7 +171,7 @@ Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now
 
 ### 2. Set Up CORS and Deploy the API
 
-Our Single Page Application (SPA) will access web API methods from a domain different from that of the page. To do so, the *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to allow access to the AWS API Gateway. Typically, the browser will first issue an `OPTIONS` request to see what actions the site will permit.
+Our Single Page Application (SPA) will access web API methods from a domain different from that of the page. The *Cross-Origin Resource Sharing* setting needs to explicitly permit this action for the browser to allow access to the AWS API Gateway. Typically, the browser will first issue an `OPTIONS` request to see what actions the site will permit.
 
 > See [Enable CORS for a Method in API Gateway](http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html) for details.
 
@@ -181,8 +181,8 @@ Select `/pets` under Resources, and click **Create Method**. In the drop-down, s
 
 The Options method is used by the browser to get the necessary HTTP headers, but the function needs further instructions on what to do. Under the `OPTIONS` Setup screen, set the following variables/parameters:
 
-* **Integration type**: Lambda Function;
-* **Use Lambda Proxy integration**: *leave unchecked*;
+* **Integration Type**: Lambda Function;
+* **Use Lambda Proxy Integration**: *leave unchecked*;
 * **Lambda Region**: *select your region*;
 * **Lambda Function**: NoOp.
 
@@ -192,11 +192,11 @@ Click **Save**. On the next pop-up screen, grant your Lambda function the permis
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/permissions.png)
 
-You will then be auto-directed to the `OPTIONS` *Method Execution* page. Open up the *Method Response* page.
+You will then be auto-directed to the `OPTIONS` *Method Execution* page. Open the *Method Response* page.
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/method-response.png)
 
-Expand the **200** section located under the *HTTP Status* bar, and add the following response headers:
+Expand the **200** section located under the *HTTP Status* bar and add the following response headers:
 
 * *Access-Control-Allow-Headers*;
 * *Access-Control-Allow-Methods*;
@@ -220,11 +220,11 @@ Return to the **Resources** view for your API. Click on **Actions**, and select 
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/choose-deploy-stage.png)
 
-Select **New Stage** for deploy state, and name the stage `Test`. Click the **Deploy** button.
+Select **New Stage** for Deploy State, and name the stage `Test`. Click the **Deploy** button.
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/test-stage-editor.png)
 
-On the result page, you will see a tab for **SDK Generation**. Click the tab, and select *JavaScript* for the platform. Click the **Generate SDK** button.
+On the result page, you will see a tab for **SDK Generation**. Click the tab and select *JavaScript* for the platform. Click the **Generate SDK** button.
 
 ![](/media/articles/integrations/aws-api-gateway/part-2/sdk-generation.png)
 
