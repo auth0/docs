@@ -21,7 +21,7 @@ ${snippet(meta.snippets.setup)}
 
 ### 2. Set up the callback URL in Auth0
 
-Go to the [Application Settings](${uiAppSettingsURL}) section of the Auth0 Admin app and make sure that **App Callbacks URLs** has the following value:
+Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section of the Auth0 Admin app and make sure that **App Callbacks URLs** has the following value:
 
 `https://${account.namespace}/mobile`
 

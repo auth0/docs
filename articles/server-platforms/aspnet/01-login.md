@@ -36,7 +36,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section on Auth0 Admin app.</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app.</p>
 
 <pre><code>http://localhost:PORT/LoginCallback.ashx</pre></code>
 </div>

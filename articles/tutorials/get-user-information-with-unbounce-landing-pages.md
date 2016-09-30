@@ -17,7 +17,7 @@
 * Add a new JavaScript to your Unbounce landing page, select `Before Body End Tag` under `Placement` and add this code. Also make sure to check jQuery as a dependency.
 
 ```
-<script src="${auth0js_url_no_scheme}"></script>
+<script src="${auth0js_url}"></script>
 <script type="application/javascript">
 
   var auth0 = new Auth0({

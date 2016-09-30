@@ -27,7 +27,7 @@ For more information, see: [How to include a Component in a Xamarin Project](htt
 
 ### 2. Set up the callback URL in Auth0
 
-Go to the [Application Settings](${uiAppSettingsURL}) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
 `https://${account.namespace}/mobile`
 

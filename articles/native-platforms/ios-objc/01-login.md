@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 
 ## Initial Setup
 
-Go to the [Application Settings](${uiAppSettingsURL}) section of your app in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section of your app in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
 `a0${account.clientId}://\*.auth0.com/authorize`
 

@@ -34,7 +34,7 @@ ${snippet(meta.snippets.dependencies)}
 ### 2. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>Go to the <a href="${uiAppSettingsURL}">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
+<p>Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section in the Auth0 dashboard and make sure that <strong>Allowed Callback URLs</strong> contains the following value:</p>
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 </div>
