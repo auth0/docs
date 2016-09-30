@@ -24,6 +24,7 @@ __Table of Contents__
     - [Create an Active Directory / LDAP Connection](#create-an-active-directory-ldap-connection)
 - [Inside the implementation](#inside-the-implementation)
   - [User Login](#user-login)
+    - [Automate Home Realm Discovery (HRD)](#automate-home-realm-discovery-hrd-)
   - [Session Management](#session-management)
     - [ASP.NET Core: Configure the Cookie and OIDC Middleware](#asp-net-core-configure-the-cookie-and-oidc-middleware)
   - [User Logout](#user-logout)
@@ -197,6 +198,11 @@ There you need to create the AD / LDAP connection and install the AD Connector. 
 - [How to connect your Active Directory with Auth0](/connections/enterprise/active-directory)
 - [How to install the Active Directory/LDAP Connector](/connector)
 
+::: panel-info AD/LDAP Connector
+The AD/LDAP Connector, is a bridge between your Active Directory and the Auth0 Service. This bridge is necessary because AD is typically locked down to your internal network, and Auth0 is a cloud service running on a completely different context.
+[More information](/connector/overview)
+:::
+
 Once you have configured the connection and the connector, be sure to enable your client to use this AD / LDAP connection:
 
 ![Enable the client to use this AD connection](/media/articles/architecture-scenarios/web-app-sso/enable-client-ad.png)
@@ -220,7 +226,7 @@ There are a number of different ways in which you can implement a Login screen u
 
 The recommended best practice is to use Hosted Lock because it is the most secure option and the easiest way to enable users to log in to your application.
 
-#### Automating Home Realm Discovery (HRD)
+#### Automate Home Realm Discovery (HRD)
 
 By default, Lock will display all the connections available for login. Selecting the appropriate Identity Providers from multiple options is called _Home Realm Discovery (HRD)_. In our case the options are either authenticating with Active Directory (for company employees) or using email/password for our database connection (external contractors).
 
