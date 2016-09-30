@@ -220,6 +220,19 @@ There are a number of different ways in which you can implement a Login screen u
 
 The recommended best practice is to use Hosted Lock because it is the most secure option and the easiest way to enable users to log in to your application.
 
+#### Automating Home Realm Discovery (HRD)
+
+By default, Lock will display all the connections available for login. Selecting the appropriate Identity Providers from multiple options is called _Home Realm Discovery (HRD)_. In our case the options are either authenticating with Active Directory (for company employees) or using email/password for our database connection (external contractors).
+
+You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
+
+- __Identity the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. Using Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`. There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
+
+- __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain. Note that you can associate multiple domains to a single connection.
+
+For additional information on this topic refer to: [Selecting the connection in Auth0 for multiple login options](/libraries/lock/v10/selecting-the-connection-for-multiple-logins).
+
+
 ### Session Management
 
 When talking about managing sessions, there are typically three layers of sessions we need to consider:
