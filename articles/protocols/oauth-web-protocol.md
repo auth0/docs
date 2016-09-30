@@ -14,14 +14,7 @@ The steps are quite simple though:
 
 2. Triggering login manually or integrating the Auth0Lock
 
-  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/authorize/?
-          response_type=code
-          &client_id=${account.clientId}
-          &redirect_uri=${account.callback}
-          &state=VALUE_THAT_SURVIVES_REDIRECTS
-          &scope=openid</code></pre>
-
-<%= include('../../_includes/_lock-sdk') %>
+<%= include('../_includes/_lock-sdk') %>
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 
