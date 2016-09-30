@@ -6,7 +6,7 @@ description: How to build a serverless application using Token-based Authenticat
 
 # Amazon API Gateway Tutorial
 
-## Building a Serverless Application using Token-based Authentication with AWS API Gateway and Lambda
+## Building a Serverless Application Using Token-Based Authentication with AWS API Gateway and Lambda
 
 With AWS, you can create powerful, serverless, highly scalable APIs and applications through AWS Lambda, Amazon API Gateway, and a JavaScript client.
 
