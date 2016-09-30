@@ -46,7 +46,7 @@ Once you have set the SSO flag in Auth0, you must add logic to your Client to ch
 
 If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any user authenticating via that Client. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Client that created the session within the given timeframe.
 
-# What is Single Log Out?
+## What is Single Log Out?
 
 Single Logout is the process where you terminate the session of each application or service where the user is logged in. To continue with the Google example, if you logout from Gmail, you get logged out also from YouTube, Google Analytics, etc.
 
