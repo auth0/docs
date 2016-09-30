@@ -79,7 +79,7 @@ http://yourUrl/auth/auth0/callback
 ```
 ### 5. Triggering login manually or integrating the Auth0Lock
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk')
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the callback specified in the previous step
 

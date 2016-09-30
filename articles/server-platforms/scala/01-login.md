@@ -120,7 +120,7 @@ Your callback URL should look something like:
 
 ## 3. Trigger login manually or integrate Auth0Lock
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk')
 
 **Note:** The `redirectUrl` specified in the `Auth0Lock` constructor must match the callback URL specified in the previous step.
 

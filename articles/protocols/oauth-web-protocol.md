@@ -21,7 +21,7 @@ The steps are quite simple though:
           &state=VALUE_THAT_SURVIVES_REDIRECTS
           &scope=openid</code></pre>
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk')
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 

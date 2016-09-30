@@ -96,7 +96,7 @@ Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 
 You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk')
 
 ### 6. Defining a user and a user provider
 
