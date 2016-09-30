@@ -13,12 +13,6 @@ description: This tutorial demonstrates how to integrate Auth0 with jQuery to ad
   pkgType: 'js'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
-
 In the previous steps of this tutorial, you enabled user login with the `Lock` widget and then with `Auth0.js`.
 
 In this step, you will create a session for that user and also allow the user to log out.

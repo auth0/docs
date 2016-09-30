@@ -1,16 +1,8 @@
 ---
 title: Login
+default: true
 description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.
 ---
-
-This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* AndroidStudio 2.2
-* Emulator - Nexus5X - Android 6.0
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/01-Login',
@@ -22,12 +14,13 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
+<%= include('_includes/_callback_urls') %>
+
+<%= include('_includes/_credentials') %>
+
 <%= include('_includes/_lock') %>
 
 <%= include('_includes/_manifest') %>
 
 <%= include('_includes/_login') %>
 
-### Optional: Log In with Social Connections
-
-To have a simple login mechanism through social connections, all you have to do is enable them in your account's [dashboard](${manage_url}/#/connections/social). Every social connection you switch on there, will appear in the login screen of your app.

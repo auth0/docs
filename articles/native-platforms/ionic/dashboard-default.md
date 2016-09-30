@@ -1,5 +1,6 @@
 ---
 title: Login
+default: true
 description: This tutorial demonstrates how to use the Auth0 Ionic SDK to add authentication and authorization to your mobile app
 ---
 
@@ -13,6 +14,6 @@ description: This tutorial demonstrates how to use the Auth0 Ionic SDK to add au
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+<%= include('_includes/_setup') %>
 
 <%= include('_includes/_login') %>

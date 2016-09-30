@@ -1,6 +1,6 @@
 ---
 title: Customizing Lock
-description: This tutorial will show you how to customize Lock.
+description: This tutorial demonstrates how to customize the Lock widget
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,26 +13,21 @@ description: This tutorial will show you how to customize Lock.
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Ionic 1.3.1
-:::
-
 <%= include('../../_includes/_signup') %>
 
-Using Lock is easy, but you may want to customize your login UI. There are several options available.
+Using Lock is easy, but you may want to customize your login UI. There are several options available for this.
 
 ## Lock Options
 
 Some UI customization can be done via the `options` parameter when initializing a `lockProvider`.
 
-### Theme Options
+## Theme Options
 
 You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values:
 
 ```js
-/* ===== www/app.js ===== */
+// www/app.js
+
 (function () {
 
 	...
@@ -64,14 +59,15 @@ You can set custom theme properties, such as a different logo or primary color, 
 })();
 ```
 
-**NOTE**: For more information, see: [Theming options](https://github.com/auth0/lock#theming-options).
+**NOTE**: For more information, see the [theming options](https://github.com/auth0/lock#theming-options).
 
-### Language Dictionary Specification
+## Language Dictionary Specification
 
 You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
 
 ```js
-/* ===== www/app.js ===== */
+// www/app.js
+
 (function () {
 
 	...
@@ -102,9 +98,7 @@ You can also customize the text that `Lock` will display with the `languageDicti
 })();
 ```
 
-**NOTE**: For more information, see: [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification).
-
-### Results
+> **NOTE**: For more information, see the [Language Dictionary Specification](https://github.com/auth0/lock#language-dictionary-specification).
 
 This is how Lock will appear using a custom logo, color, and title:
 
