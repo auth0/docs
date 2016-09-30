@@ -7,6 +7,13 @@ section: appliance
 
 Beginning with Build 7247, you may use the Appliance's version of  [Webtasks](http://webtask.io/) to execute your rules and custom database logic.
 
+::: panel-info Using the Appliance Command Line Interface (CLI)
+Prior to working with Webtasks, please ensure that you have configured the:
+
+* [Appliance Command Line Interface (CLI)](/appliance/cli/configure-cli);
+* [Webtask Command Line Interface (`wt-cli`)](https://webtask.io/docs/101)
+:::
+
 ## Sandboxes
 
 Auth0 provides different stages (which are known as sandboxes) on which you may run your rules and custom database logic:
@@ -27,7 +34,7 @@ The `auth0-sandbox` is the recommended method for running your custom code.
 
 You may use Webtasks by calling its endpoints directly. This can be done using the Webtask Command Line Interface (`wt-cli`) and specifying the ``--url "https://webtask.<a0url>.com"`` parameter (where `a0url` is the address of the Appliance node). For additional information on setting up the `wt-cli`, please see [Getting Started with Webtasks](https://webtask.io/docs/101).
 
-## Webtask Modules
+### Webtask Modules
 
 Currently, not all of the [Webtask modules available for the Auth0 Cloud Environment](https://tehsis.github.io/webtaskio-canirequire/) are available for the Appliance.
 
