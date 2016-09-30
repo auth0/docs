@@ -1,3 +1,7 @@
+---
+description: This page explains the scenarios of how Auth0 integrates with WordPress.
+---
+
 # How Auth0 Integrates with WordPress
 
 There are several business flows that can occur when integrating Auth0 with your WordPress site.

@@ -1,3 +1,7 @@
+---
+description: How to setup a custom error page for authorization error events.
+---
+
 # Custom Error Pages
 
 In the event of an authorization error, you may choose to display to your users either the default Auth0 error page or a customized error page.

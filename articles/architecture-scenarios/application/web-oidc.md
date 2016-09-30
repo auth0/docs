@@ -3,6 +3,7 @@ order: 04
 title: Regular Web App (using OIDC)
 image: /docs/media/articles/architecture-scenarios/web-oidc.png
 extract: Traditional web application which needs to authenticate users using OpenID Connect.
+description: Explains the architecture scenario with a traditional web application that authenticates users using OpenID Connect.
 ---
 
 # Regular Web APP (using OIDC)
