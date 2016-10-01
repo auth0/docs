@@ -1,3 +1,7 @@
+---
+description: This page explains how to configure and install Auth0's Logs to Application Insights extension.
+---
+
 # Auth0 Logs to Application Insights
 
 The *Auth0 Logs to Application Insights* is a scheduled job takes all of your Auth0 logs and exports them to [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/).
