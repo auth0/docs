@@ -3,14 +3,10 @@ title: Login
 description: This tutorial will show you how to use the Auth0 OAuth2 middleware to add authentication to your web app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
-  pkgBranch: 'master',
-  pkgPath: '01-Login',
-  pkgFilePath: '01-Login/MvcApplication/MvcApplication/web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-mvc-sample',
+  path: '01-Login'
 }) %>
 
 ## Install and Configure Auth0 OAuth2 middleware
@@ -42,7 +38,7 @@ public void Configuration(IAppBuilder app)
 
 ## Add Login and Logout methods
 
-Next you will need to add `Login` and `Logout` actions to the `AccountController`. 
+Next you will need to add `Login` and `Logout` actions to the `AccountController`.
 
 For the `Login` action you can simply return the Login view which we will create in the next step. For the `Logout` action you will need to sign the user out of the Authentication Manager and then redirect them back to the home page:
 
@@ -97,7 +93,7 @@ For the Login view you can embed the [Auth0 Lock component](/libraries/lock). Yo
 
 ## Add Login and Logout links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -133,6 +129,6 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 
 Now when you run the application you can select the Login link to log in to the application. This will display the Login page with the Auth0 Lock component embedded in the page. The user can enter their username and password to log in, or alternatively log in with any of the social login providers you may have configured.
 
-If you prefer to create a custom Login screen, refer to the [Custom Login step](/quickstart/webapp/aspnet-owin/02-login-custom). 
+If you prefer to create a custom Login screen, refer to the [Custom Login step](/quickstart/webapp/aspnet-owin/02-login-custom).
 
 Alternatively you can simply carry on to the [Storing Tokens step](/quickstart/webapp/aspnet-owin/03-storing-tokens) which will demonstrate how you can can store the tokens returned by Auth0.

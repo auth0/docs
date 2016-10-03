@@ -3,17 +3,13 @@ title: Custom Login
 description: This tutorial will show you how to create a custom login page for your web application by using the Auth0 .NET SDK and OpenID Connect middleware.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Login-Custom',
-  pkgFilePath: '02-Login-Custom/MvcApplication/MvcApplication/web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-mvc-sample',
+  path: '02-Login-Custom'
 }) %>
 
-## Add the Auth0 Authentication SDK 
+## Add the Auth0 Authentication SDK
 
 To log the user in you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
 
@@ -23,7 +19,7 @@ Install-package Auth0.AuthenticationApi
 
 ## Create the Login Form
 
-You need to create a Login form which will capture the user's email address and password and then use the Authentication SDK to sign the user it. 
+You need to create a Login form which will capture the user's email address and password and then use the Authentication SDK to sign the user it.
 
 First create a `ViewModels` folder in your project and add a class called `LoginViewModel` to bind the values in the form to:
 
@@ -76,7 +72,7 @@ Create a Razor view called `Login.cshtml` in your `\Views\Account` folder which 
 </div>
 ```
 
-Next, you will need to update your `AccountController` as per the code below: 
+Next, you will need to update your `AccountController` as per the code below:
 
 ```csharp
 public class AccountController : Controller
@@ -163,17 +159,17 @@ public class AccountController : Controller
     }
 }
 ```
- 
+
 This code does the following:
 
-1. First, and `AuthenticationManager` property is added which will simply get the Authentication Manager from the OWIN context. This is needed to sign the user in. 
+1. First, and `AuthenticationManager` property is added which will simply get the Authentication Manager from the OWIN context. This is needed to sign the user in.
 2. Create a `Login` action for GET requests which will return the Login view.
 3. Create a `Login` action for POST requests which will call the Authentication API to authenticate the user. If the user is successfully authenticated, the user's information is obtained from the token and a new `ClaimsIdentity` is created with the relevant claims. Finally the user is signed in to the Authentication Manager.
-4. Create a `Logout` method which will sign the user out of the Authentication Manager. 
+4. Create a `Logout` method which will sign the user out of the Authentication Manager.
 
 ## Add Login and Logout links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. These will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">
