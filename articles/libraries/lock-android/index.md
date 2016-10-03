@@ -3,6 +3,10 @@ url: /libraries/lock-android
 description: Basics of Lock for Android
 ---
 
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
+
 # Lock for Android
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.

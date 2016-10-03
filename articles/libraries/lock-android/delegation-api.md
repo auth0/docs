@@ -3,6 +3,10 @@ toc_title: Delegation API
 description: Integrate with third-party apps with the delegation API.
 ---
 
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
+
 # Lock Android: Delegation API
 
 After a successful authentication, you can request credentials to access third party apps like Firebase or AWS that are configured in your Auth0 App's Add-On section. In order to do that you need to make a request to our [Delegation API](/auth-api#!#post--delegation) using a valid JWT.

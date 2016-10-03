@@ -2,6 +2,11 @@
 description: Types of error messages with Lock for Android
 ---
 
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
+
+
 # Android Lock: Error Messages
 
 You may encounter one or more of the following messages when signing up using Lock for Android:
