@@ -3,14 +3,6 @@ title: User Profile
 description: This tutorial will show you how to access the user profile from within your app, as well as how to update it.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-- CocoaPods 1.0.0
-- XCode 7.3 (7D175)
-- iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/04-User-Profile',
   pkgOrg: 'auth0-samples',
@@ -21,6 +13,8 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
+<%= include('../../_includes/_signup') %>
+
 ### Before Starting
 
 You should be familiar with previous tutorials. This tutorial assumes:
@@ -28,7 +22,7 @@ You should be familiar with previous tutorials. This tutorial assumes:
 - You're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out the [login tutorial](01-login) first.**
 - You're using the Auth0.swift and SimpleKeychain dependencies. **It's recommended that you take a look at the [session handling tutorial](03-session-handling) first.**
 
-### 1. Fetch the User Profile
+## Fetch the User Profile
 
 The first step is to fetch the user profile. To do so, you need a valid `idToken` first.
 
@@ -54,7 +48,7 @@ client.fetchUserProfileWithIdToken(idToken,
     })
 ```
 
-### 2. Show User Profile's data
+## Show User Profile's Data
 
 #### i. Default info
 
@@ -95,7 +89,7 @@ The `extraInfo` dictionary contains any other extra information stored in Auth0.
 
 > For further information on metadata, see [the full documentation](/rules/metadata-in-rules).
 
-### 3. Update the User Profile
+## Update the User Profile
 
 You can only update the user metadata. In order to do so, you need to perform a `patch`:
 
@@ -119,7 +113,3 @@ Auth0
         }
 }
 ```
-
-### Done!
-
-That's pretty much it! You've fetched and stored the user profile, played with it, an even updated it, in just a few simple steps.

@@ -11,7 +11,7 @@ description: This tutorial demonstrates how to add Multifactor Authentication to
   pkgPath: '08-MFA',
   pkgFilePath: '08-MFA/www/auth0.variables.js',
   pkgType: 'replace'
-}) %>=
+}) %>
 
 <%= include('../../_includes/_signup') %>
 

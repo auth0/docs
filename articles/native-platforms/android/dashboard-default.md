@@ -14,6 +14,8 @@ description: This tutorial will show you how to integrate Lock v2 in your Androi
   pkgType: 'replace'
 }) %>
 
+<%= include('_includes/_prerequisite') %>
+
 <%= include('_includes/_callback_urls') %>
 
 <%= include('_includes/_credentials') %>

@@ -3,14 +3,6 @@ title: Customizing Lock
 description: This tutorial will show you how to customize the Lock widget UI.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-- CocoaPods 1.0.0
-- XCode 7.3 (7D175)
-- iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/10-Customizing-Lock',
   pkgOrg: 'auth0-samples',
@@ -21,11 +13,13 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
-### Before Starting
+<%= include('../../_includes/_signup') %>
+
+## Before Starting
 
 You need the [Lock](https://github.com/auth0/Lock.iOS-OSX) library integrated in your project. Make sure you've followed the [login tutorial](01-login) and you know how to present the login dialog.
 
-### 1. Create a Theme
+## Create a Theme
 
 Lock UI can be customized by creating your own `A0Theme` instance:
 
@@ -37,7 +31,7 @@ import Lock
 let theme = A0Theme()
 ```
 
-### 2. Configure your Theme
+## Configure the Theme
 
 Lock's widget UI is composed of several parts that can be customized.
 
@@ -115,7 +109,7 @@ theme.registerColor(.lightVioletColor(), forKey: A0ThemeCloseButtonTintColor)
 theme.statusBarStyle = .LightContent
 ```
 
-### 3. Register your Theme
+### 3. Register the Theme
 
 Last, but not least: You still need to register your theme before presenting the login dialog:
 
@@ -132,10 +126,6 @@ let theme = A0Theme()
 // customize your theme here
 A0Theme.sharedInstance().registerTheme(theme)
 ```
-
-Piece of cake. Wasn't it? You've just customized the Lock widget!
-
-
 
 ### Appendix: Customizable Properties List
 
@@ -196,5 +186,3 @@ Here is a list containing all the properties that can be customized:
 #### Close Button
 
 - `A0ThemeCloseButtonTintColor`
-
-Have fun customizing whatever you need from here!

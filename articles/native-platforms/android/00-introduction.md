@@ -5,18 +5,13 @@ description: Short Introduction to the Auth0 Android Quickstarts.
 
 This multistep quickstart guide will walk you through managing authentication in your android apps with Auth0.
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* AndroidStudio 2.2
-* Emulator - Nexus5X - Android 6.0
-:::
-
 <%= include('../../_includes/_signup') %>
 
 ## Sample Projects
 
-Each tutorial in the series includes a link to its corresponding sample project. You can check out all the samples [here](https://github.com/auth0-samples/auth0-android-sample).
+<%= include('_includes/_prerequisite') %>
+
+Each tutorial in the series includes a link to its corresponding sample project. You can find all the samples [here](https://github.com/auth0-samples/auth0-android-sample).
 
 ## Dependencies
 

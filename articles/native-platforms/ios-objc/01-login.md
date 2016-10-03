@@ -1,6 +1,7 @@
 ---
 title: iOS Objective-C
-description: This tutorial will show you how to use the Auth0 iOS Objective-C SDK to add authentication and authorization to your mobile app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 iOS Objective-C SDK to add authentication and authorization to your mobile app
 ---
 
 <%= include('../../_includes/_package', {
@@ -21,15 +22,13 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_signup') %>
 
-**Otherwise, if you already have an existing application, please follow the steps below.**
-
 ## Initial Setup
 
 Go to the [Application Settings](${uiAppSettingsURL}) section of your app in the Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
 `a0${account.clientId}://\*.auth0.com/authorize`
 
-## Add the Auth0 dependencies
+## Add the Auth0 Dependencies
 
 Add the following to the `Podfile` and run `pod install`:
 
