@@ -66,9 +66,9 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     </tr>
     <tr>
       <th>Ticket Response Channels</th>
-      <td>class="warning">Support forum, Support Center</td>
-      <td>class="success">Support forum, Support Center, chat, web conference</td>
-      <td>class="success">Support forum, Support Center, chat, web conference</td>
+      <td class="warning">Support forum, Support Center</td>
+      <td class="success">Support forum, Support Center, chat, web conference</td>
+      <td class="success">Support forum, Support Center, chat, web conference</td>
     </tr>
     <tr>
       <th>Onboarding Experience</th>
