@@ -417,13 +417,15 @@ You will also need to ensure that you add your application's URL to the __Allowe
 
 Authorization refers to the process of determining what actions a user can perform inside your application.
 
-There are various ways in which you can implement authorization inside your application when using Auth0:
-- Using the Auth0 Authorization Extension.
-- Using Active Directory groups. These can be used in combination with the Authorization Extension by mapping Active Directory Groups to Groups you define using the Authorization extension.
-- Add metadata to the user's profile by making use of rules. You can also call an external services from inside a rule.
-- The application can manage its own permissions independently of Auth0 and the user profile inside Auth0.
+You can either implement authorization directly inside your application, independently of Auth0, or use one of the available ways to retrieve the user authorization levels, put them as authorization claims inside the `id_token` and validate these claims inside your application, once you retrieve the token, to control access.
 
-For this application we will enforce access control using the Authorization Extension in combination with Active Directory groups.
+There are various ways in which you can retrieve and set the user authorization claims when using Auth0:
+- By configuring and using the [Auth0 Authorization Extension](/extensions/authorization-extension).
+- By using Active Directory groups. These can be used in combination with the Authorization Extension by mapping Active Directory Groups to Groups you define using the Authorization extension.
+- Add metadata to the user's profile by making use of [rules](/rules#add-roles-to-a-user).
+- By calling an external services from inside a [rule](/rules).
+
+Since in our case the company has already Active Directory set up, we will enforce access control using the Authorization Extension in combination with Active Directory groups.
 
 ::: panel-info NOTE
 At this point in time the authorization extension is primarily designed to enforce coarse-grained authorization, for example to control access to an application based on a user's group membership. It is not necessarily designed to control fine-grained access (i.e. whether a user can perform a specific action inside the application), even though this is how we are utilizing it in this instance.
