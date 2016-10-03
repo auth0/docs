@@ -360,9 +360,14 @@ The OpenID Connect middleware will also extract all the claims from the `id_toke
 
 ### User Logout
 
-When logging the user out, you will once again need to think about the three layers of sessions which we spoke about before. In this case only the first two layers are within your control, namely the application session and the Auth0 session.
+When logging the user out, you will once again need to think about the three layers of sessions which we spoke about before:
+- __Application Session__: You need to log out the user from your Web Application, by clearing their session.
+- __Auth0 session__: You need to log out the used from Auth0. To do this you redirect the user to `https://${account.namespace}/v2/logout`. Redirecting the user to this URL clears all single sign-on cookies set by Auth0 for the user.
+- __Identity Provider session__: Although this is not common practice, you can force the user to log out from the Identity Provider used, for example Facebook or Google. To do this add a `federated` querystring parameter to the logout URL: `https://${account.namespace}/v2/logout?federated`.
 
-The logout flow is as follows:
+To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value: `https://${account.namespace}/v2/logout?returnTo=http://www.example.com`. Note, that you will need to add the `returnTo` URL as an __Allowed Logout URLs__. For more information on how to implement this refer to: [Logout](/logout).
+
+The logout flow (not including federated logout) is as follows:
 
 ![Logout Flow Diagram](/media/articles/architecture-scenarios/web-app-sso/logout-flow.png)
 
