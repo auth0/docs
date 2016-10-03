@@ -95,9 +95,6 @@ Standard: Defined as an Auth0 issue impacting your live or in-production systems
 
 Critical: Defined as an Auth0 issue severely impacting your live or in-production systems where:
 
-Major business processes and functions are stopped;
-majority of users are adversely impacted;
-there is no workaround.
 - Major business processes and functions are stopped for all or most users;
 - Majority of users are significantly impacted, for example: unable to log in;
 - There is no workaround.
