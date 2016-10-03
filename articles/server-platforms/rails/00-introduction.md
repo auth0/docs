@@ -43,7 +43,7 @@ ${include('../_callbackRegularWebApp')}
 In this case, the callbackURL should look something like:
 
 ```
-https://yourUrl/auth/auth0/callback
+https://yourUrl/auth/oauth2/callback
 ```
 
 ### 3. Structure

@@ -21,9 +21,9 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'server'
 }) %>
 ### The OmniAuth auth hash
-Using Auth0's OmniAuth strategy, you only need to redirect users to `/auth/auth0` (which you did in [Login](/quickstart/webapp/rails/01-login)). From there, OmniAuth will take over and take the user through the necessary steps to authenticate them with the Auth0 strategy.
+Using Auth0's OmniAuth strategy, you only need to redirect users to `/auth/oauth2` (which you did in [Login](/quickstart/webapp/rails/01-login)). From there, OmniAuth will take over and take the user through the necessary steps to authenticate them with the Auth0 strategy.
 
-After receiving a successful callback at /auth/auth0/callback, OmniAuth provides the available user profile information via the request.env['omniauth.auth'] hash.
+After receiving a successful callback at /auth/oauth2/callback, OmniAuth provides the available user profile information via the request.env['omniauth.auth'] hash.
 
 **NOTE**: The full contents of the authentication hash retrieved by the Auth0 strategy are detailed [here](https://github.com/auth0/omniauth-auth0#auth-hash).
 
@@ -38,7 +38,7 @@ ${snippet(meta.snippets.dependencies)}
 In [Login](/quickstart/webapp/rails/01-login) you configured the application for Lock to start the OmniAuth strategy, and for OmniAuth to take over and complete the authentication process. Also, you set a route that matches the callback URL in the application routes.
 
 ```ruby
-get "/auth/auth0/callback" => "auth0#callback"
+get "/auth/oauth2/callback" => "auth0#callback"
 ```
 
 The `callback` action in the auth0 controller retrieves the auth hash and stores it in the application's session hash. It then redirects to the dashboard controller `show` action, which renders the dashboard view.

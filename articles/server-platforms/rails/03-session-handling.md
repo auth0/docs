@@ -23,10 +23,10 @@ This tutorial and seed project have been tested with the following:
 
 
 ### 1. Store session data upon login
-Upon successful authentication, OmniAuth-Auth0 sets a special hash called the Authentication Hash of a request to `/auth/auth0/callback`. To handle this request, add a new route in your routes file:
+Upon successful authentication, OmniAuth-Auth0 sets a special hash called the Authentication Hash of a request to `/auth/oauth2/callback`. To handle this request, add a new route in your routes file:
 
 ```ruby
-get "/auth/auth0/callback" => "auth0#callback"
+get "/auth/oauth2/callback" => "auth0#callback"
 ```
 
 And store the user information in the session adding the following code to the `auth0_controller\callback` method:
