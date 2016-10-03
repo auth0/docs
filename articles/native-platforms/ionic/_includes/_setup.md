@@ -1,6 +1,6 @@
 ## Configure Callback URLs
 
-A callback URL is a URL in your application where Auth0 redirects to after the user has authenticated. You can set the Callback URL by going to the [Application Settings](${uiAppSettingsURL}) section of your Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
+A callback URL is a URL in your application where Auth0 redirects to after the user has authenticated. You can set the Callback URL by going to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section of your Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
 <pre><code>https://${account.namespace}/mobile</pre></code>
 

@@ -25,7 +25,7 @@ The `Lock` dependency is already integrated in each sample project through [Grad
 
 ## Create a Client
 
-If you haven't already done so, create a new client application in your [Auth0 dashboard](${uiAppSettingsURL}) and choose **Native**.
+If you haven't already done so, create a new client application in your [Auth0 dashboard](${manage_url}/#/applications/${account.clientId}/settings) and choose **Native**.
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
