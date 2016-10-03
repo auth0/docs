@@ -10,21 +10,21 @@ Auth0 offers support for __all__ subscribers. All customers, even on free accoun
 
 ## Support Center
 
-Additionally, subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
+Additionally, paid subscribers can create a private ticket via [Support Center](https://support.auth0.com). All account administrators will be able to view and add comments to Support Center tickets. Support Center can be accessed by clicking on the **Get Support** link on the [dashboard](${manage_url}).
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
 ### Ticket Response Times
 
-Ticket response times will vary based on your support plan (shown below). Additionally, our platinum support customers will be provided a support phone number.
+Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center however there is no support response SLA and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets, generally resulting in a 2-5+ business day response.
 
 <table class="table">
   <thead>
     <tr>
       <th></th>
-      <th>Free Subscriptions</th>
-      <th>Gold/Silver/Home Grown Subscriptions</th>
-      <th>Platinum Support</th>
+      <th> Developer Support Plan </th>
+      <th> Enterprise Support Plan </th>
+      <th> Premiere Support Plan</th>
     </tr>
   </thead>
   <tbody>
@@ -35,22 +35,22 @@ Ticket response times will vary based on your support plan (shown below). Additi
       <td>Prioritized</td>
     </tr>
     <tr>
-      <th>Business Hours</th>
-      <td>M-F 7am-7pm</td>
-      <td>M-F 7am-7pm</td>
-      <td>Standard Issues: M-F 7am-7pm / Critical Outages: 24/7</td>
+      <th> Support Hours</th>
+      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (PST)</td>
+      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
+      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
     </tr>
     <tr>
-      <th>First Response Time</th>
-      <td>2-5 Business Days</td>
-      <td>24 hours</td>
-      <td>Standard Issues: 3 hours / Critical Outages: 1 hour</td>
+      <th>First Response Time Target</th>
+      <td>2-5+ Business Days</td>
+      <td>Standard: 4 hours / Critical Outage: 1 hour</td>
+      <td>Standard: 1 hours / Critical Outage: 1 hour</td>
     </tr>
     <tr>
-      <th>Subsequent Response Time</th>
-      <td>2-5 Business Days</td>
-      <td>48 hours</td>
-      <td>Standard Issues: 24 hours / Critical Outages: ongoing</td>
+      <th>Subsequent Response Time Target</th>
+      <td>Best Effort after paid subscriptions</td>
+      <td>Standard: 8 hours / Critical Outage: ongoing</td>
+      <td>Standard: 4 hours / Critical Outage: ongoing</td>
     </tr>
     <tr>
       <th>Discussion Forum</th>
@@ -60,19 +60,50 @@ Ticket response times will vary based on your support plan (shown below). Additi
     </tr>
     <tr>
       <th>Ticketed Support</th>
-      <td class="warning">Limited</td>
+      <td class="warning">Limited - Best effort</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
     </tr>
     <tr>
-      <th>Phone Support</th>
-      <td class="danger">No</td>
-      <td class="danger">No</td>
-      <td class="success">Yes</td>
+      <th>Ticket Response Channels</th>
+      <td>class="warning">Support forum, Support Center</td>
+      <td>class="success">Support forum, Support Center, chat, web conference</td>
+      <td>class="success">Support forum, Support Center, chat, web conference</td>
+    </tr>
+    <tr>
+      <th>Onboarding Experience</th>
+      <td>Self-service in app and email</td>
+      <td>Sprint Onboarding</td>
+      <td>Sprint Premier Onboarding</td>
+    </tr>
+    <tr>
+      <th>Ongoing Customer Success Engagement </th>
+      <td>none </td>
+      <td>Customer Success Team </td>
+      <td>Allocated Success Manager </td>
     </tr>
   </tbody>
 </table>
 
-If you have specific support requirements or are interested in the __Platinum Support__ option, please [contact sales](https://auth0.com/?contact=true).
+### Ticket Severity
+
+Standard: Defined as an Auth0 issue impacting your live or in-production systems or your ability to progress to production where:
+
+- Business processes and functions are degraded;
+- A group or groups of users are impacted;
+- There is a reasonable workaround.
+
+Critical: Defined as an Auth0 issue severely impacting your live or in-production systems where:
+
+Major business processes and functions are stopped;
+majority of users are adversely impacted;
+there is no workaround.
+- Major business processes and functions are stopped for all or most users;
+- Majority of users are significantly impacted, for example: unable to log in;
+- There is no workaround.
+
+Critical Production issues should always be reported via the Support Center for fastest response.
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
+
+If you have specific support requirements or are interested in the __Enterprise Support__ or __Premiere Support__ option, please [contact sales](https://auth0.com/?contact=true).
