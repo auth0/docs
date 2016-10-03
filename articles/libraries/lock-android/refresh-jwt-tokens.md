@@ -3,6 +3,10 @@ toc_title: Refreshing JWT Tokens
 description: Keeping your user logged in
 ---
 
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
+
 # Lock Android: Refreshing JWT Tokens
 
 When an authentication is performed with the `offline_access` scope included, it will return a [refresh token](/refresh-token) that can be used to request a new JWT token and avoid asking the user their credentials again.

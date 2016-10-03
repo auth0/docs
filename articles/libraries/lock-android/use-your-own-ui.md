@@ -3,6 +3,10 @@ toc_title: Build your own UI
 description: Customize the UI of Lock in your App
 ---
 
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
+
 # Lock Android: Build your own UI
 
 <%= include('../../_includes/_package', { pkgRepo: 'native-mobile-samples', pkgBranch: 'master', pkgPath: 'Android/custom-ui-sample', pkgFilePath: 'Android/custom-ui-sample/app/src/main/res/values/auth0.xml', pkgType: 'replace' }) %>
