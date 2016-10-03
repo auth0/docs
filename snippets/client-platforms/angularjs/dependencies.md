@@ -1,21 +1,49 @@
+Install the dependencies with Bower or npm.
+
+**Bower**
+
+```bash
+bower install auth0-lock angular-lock angular-jwt
+```
+
 ```html
-<!-- Auth0's lock widget library -->
-<script type="text/javascript" src="https://cdn.auth0.com/js/lock-9.min.js"></script>
-<!-- AngularJS core -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
-<!-- Angular cookie wrapper library for client cookies -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
-<!-- Angular's Router Library for SPA -->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
-<!-- Auth0's Angular SDK Library -->
-<script type="text/javascript" src="https://cdn.auth0.com/w2/auth0-angular-4.js"></script>
-<!-- Angular wrapper for localStorage and sessionStorage. Defaults to ng-cookies if not available -->
-<script src="http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js" type="text/javascript"> </script>
-<!-- Angular wrapper library for JWT-->
-<script src="http://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js" type="text/javascript"> </script>
-<!-- Your app files -->
+<!-- index.html -->
+
+...
+
+<!-- Dependencies -->
+<script src="bower_components/auth0-lock/build/lock.js"></script>
+<script src="bower_components/angular-lock/dist/angular-lock.js"></script>
+<script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+
+<!-- App Scripts -->
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="home/home.js"></script>
 <script type="text/javascript" src="login/login.js"></script>
 
+...
+```
+
+**npm**
+
+```bash
+npm install angular-lock angular-jwt
+```
+
+```html
+<!-- index.html -->
+
+...
+
+<!-- Dependencies -->
+<script type="text/javascript" src="https://cdn.auth0.com/js/lock/10.4/lock.js"></script>
+<script src="node_modules/angular-lock/dist/angular-lock.js"></script>
+<script src="node_modules/angular-jwt/dist/angular-jwt.js"></script>
+
+<!-- App Scripts -->
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="home/home.js"></script>
+<script type="text/javascript" src="login/login.js"></script>
+
+...
 ```
