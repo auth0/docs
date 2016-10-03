@@ -3,14 +3,6 @@ title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-- CocoaPods 1.0.0
-- XCode 7.3 (7D175)
-- iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/05-Linking-Accounts',
   pkgOrg: 'auth0-samples',
@@ -21,7 +13,9 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
-### Before Starting
+<%= include('../../_includes/_signup') %>
+
+## Before Starting
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
@@ -30,7 +24,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 > **It is highly recommended that you take a look at the [linking accounts documentation](/link-accounts)** to understand the process of linking accounts.
 
-### 1. Enter Account Credentials
+## Enter Account Credentials
 
 Here's the scenario: You have a user who is logged in and wants to link one (or multiple) accounts to that logged in account, such that the user can login with any of them and get into that account.
 
@@ -52,7 +46,7 @@ A0Lock.sharedLock().presentLockController(controller, fromController: self)
 
 Upon success, you need to store the `token.idToken` value for later use, which is the `idToken` for the secondary account that the user is linking with.
 
-### 2. Link an Account
+## Link an Account
 
 Linking an account is simple. You have a user, and another account you want to link with that user. All you need to grab is these three values:
 
@@ -81,7 +75,7 @@ Auth0
     }
 ```
 
-### 3. Retrieve Linked Accounts
+## Retrieve Linked Accounts
 
 Linked accounts, a.k.a. user's identities, can be easily retrieved by fetching the user profile, a process that we already know from the [user profile](04-user-profile) tutorial:
 
@@ -103,7 +97,7 @@ client.fetchUserProfileWithIdToken(idToken,
 
 > Any linked account is handled as an `A0UserProfile` identity object. For further information on this object, check out its [class documentation](https://github.com/auth0/Lock.iOS-OSX/blob/master/Lock/Core/A0UserIdentity.h).
 
-### 4. Unlink an Account
+## Unlink an Account
 
 The unlinking process is quite similar to the linking one. This time, you just need the `userId`, the user's `idToken`, and the `identity` object that you want to unlink (you will only use its `userId` and `provider` values):
 
@@ -127,7 +121,3 @@ Auth0
             }
      }
 ```
-
-### Done!
-
-That's just it! Wrapping up, you've just learned the whole process for linking accounts in your app: how to link an account to a user, how to show the linked accounts for that user, and how to unlink an account from that user.

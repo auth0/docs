@@ -13,13 +13,7 @@ description: This tutorial demonstrates how to use $.ajaxSetup() to make authent
   pkgType: 'js'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
-
-`Auth0` exposes an assortment of API endpoints to assist you with authentication in your application. Auth0 suggests you conform to the RFC standard by sending the token through the `Authorization` header when calling an API.
+<%= include('../../_includes/_calling_apis') %>
 
 ## Sending Authenticated HTTP Requests
 

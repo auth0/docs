@@ -13,12 +13,6 @@ description: This tutorial demonstrates how to use the Auth0 library to add cust
   pkgType: 'js'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
-
 In the [previous step](/quickstart/spa/jquery/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
 ## Custom Login

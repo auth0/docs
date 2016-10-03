@@ -5,13 +5,6 @@ description: This tutorial will show you how to use Lock within your Android pro
 
 This tutorial will show you how to use Lock within your Android project to link two different accounts for the same user.
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* AndroidStudio 2.2
-* Emulator - Nexus5X - Android 6.0
-:::
-
  <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/05-Linking-Accounts',
   pkgOrg: 'auth0-samples',
@@ -23,7 +16,7 @@ This tutorial and seed project have been tested with the following:
 }) %>
 
 
-### Before Starting
+## Before Starting
 
 You should be familiar with previous tutorials. This tutorial assumes that:
 
@@ -32,7 +25,7 @@ You should be familiar with previous tutorials. This tutorial assumes that:
 
 > It is highly recommended that you take a look at the [linking accounts](/link-accounts) documentation to understand the process of linking accounts.
 
-### 1. Enter Account Credentials
+## Enter Account Credentials
 
 Here's the scenario: Your logged-in user wants to link one (or multiple) accounts to the account they are logged in with.
 
@@ -68,7 +61,7 @@ public void onAuthentication(Credentials secondaryCredentials) {
 > Remember to instantiate the `auth0` object with `auth0 = new Auth0(${account.clientId}, ${account.namespace});`
 > Also, bear in mind that the `App.getInstance().getUserCredentials().getIdToken()` method depends on how you stored your user's `Credentials`.
 
-### 2. Link An Account
+## Link an Account
 
 Now we can link the accounts. You have a user, and another account you want to link with that user. All we need is the `id` of the logged user and the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response.
 
@@ -76,8 +69,9 @@ Now we can link the accounts. You have a user, and another account you want to l
 UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
   String primaryUserId = mUserProfile.getId();
   client.link(primaryUserId, secondaryCredentials.getIdToken());
-```        
-### 3. Retrieve Linked Accounts
+```   
+
+## Retrieve Linked Accounts
 
 The linked accounts are stored within the `UserProfile` as a list of `UserIdentity`, something we've previously learned when fetching the user profile (a process that we already know from the [user profile tutorial](04-user-profile)):
 
@@ -100,7 +94,3 @@ client.unlink(primaryUserId, secondaryUserId, secondaryProvider);
 ```
 
 > You can access the userId directly from the list, `userProfile.getIdentities().get(0).getId()`, if you know the connection's position in the array.
-
-### Done
-
-That's it! Now, your users can login with different accounts!

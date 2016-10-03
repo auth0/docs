@@ -13,8 +13,6 @@ description: This tutorial demonstrates how to use the Auth0 jQuery SDK to add a
   pkgType: 'js'
 }) %>
 
-<%= include('_includes/_prerequisite') %>
-
 <%= include('../../\_includes/\_signup') %>
 
 **If you have an existing application, follow the steps below.**

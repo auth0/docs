@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to make authenticated API calls
   pkgType: 'js'
 }) %>
 
-A common need for any client-side application is to access resources from a data API. Some of these data resources will likely need to be protected such that only the user who is authenticated in the client-side app can access them. This can be achieved by protecting your API's endpoints with your Auth0 secret key and sending the user's JWT as an `Authorization` header when calling the API. For more detail on how to secure your API, see the [server API documentation](https://auth0.com/docs/quickstart/backend).
+<%= include('../../_includes/_calling_apis') %>
 
 ## Sending Authenticated HTTP Requests
 

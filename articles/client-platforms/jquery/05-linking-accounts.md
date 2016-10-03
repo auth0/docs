@@ -13,12 +13,6 @@ description: This tutorial demonstrates how to integrate Auth0 with jQuery to li
   pkgType: 'js'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
-
 <%= include('../../_includes/_linking_accounts') %>
 
 ```js

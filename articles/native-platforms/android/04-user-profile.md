@@ -5,13 +5,6 @@ description: This tutorial will show you how to use Lock to get the user's profi
 
 This tutorial will show you how to use Lock to get the user's profile data in your Android apps with Auth0.
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* AndroidStudio 2.2
-* Emulator - Nexus5X - Android 6.0
-:::
-
  <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/04-User-Profile',
   pkgOrg: 'auth0-samples',
@@ -23,11 +16,11 @@ This tutorial and seed project have been tested with the following:
 }) %>
 
 
-### Before Starting
+## Before Starting
 
 Be sure that you have completed the [Basic Login](01-login) and the [Session Handling](03-session-handling) Quickstarts.
 
-### 1. Request User Data
+## Request User Data
 
 Your first step is instantiate the authentication API client. This will be used to request the user's profile data.
 
@@ -54,7 +47,7 @@ client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
 });
 ```                
 
-### 2. Access The Data Inside The UserProfile
+## Access The Data Inside The UserProfile
 
 ##### I. DEFAULT INFO
 
@@ -71,7 +64,7 @@ payload.getPictureURL();
 
 > Remember that you can't modify the UI inside the onSuccess() method, as it works in a second thread. To solve this, you can persist the data, create a task in the UI thread or create a handler to receive that information.
 
-##### I. ADDITIONAL INFO
+#### I. ADDITIONAL INFO
 
 Besides the defaults, you can handle more information that is contained within any of the following `map`:
 
@@ -96,7 +89,7 @@ The extraInfo `map` contains any other extra information stored in Auth0. That i
 
 > For further information on metadata, see the full documentation.
 
-### 2. Update the User Profile
+## Update the User Profile
 
 You can only update the user metadata. In order to do so you must:
 Create a `Map<String, Object>` and add the new metadata:

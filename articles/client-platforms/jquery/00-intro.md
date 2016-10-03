@@ -5,6 +5,8 @@ description: A multi-step quickstart guide to setup and manage authentication in
 
 This multistep quickstart guide will walk you through setting up and managing authentication in your jQuery apps using Auth0.
 
+<%= include('_includes/_prerequisite') %>
+
 ## 1. Create an Application
 
 <%= include('../../_includes/_new_app') %>_
