@@ -67,8 +67,8 @@ module LogoutHelper
     client_secret: ENV['AUTH0_CLIENT_SECRET'],
     api_version: 1,
     domain: ENV['AUTH0_DOMAIN'] }
-    client = Auth0Client.new(creds)
-    client.logout_url(root_url)
+    auth0_client = Auth0Client.new(creds)
+    auth0_client.logout_url(root_url)
   end
 end
 ```

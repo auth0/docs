@@ -75,7 +75,7 @@ Next, add the definitions for the `login` and `signup` actions under `private`:
 
 ```ruby
 def login
-  client.login(
+  auth0_client.login(
     params[:user],
     params[:password],
     authParams: {
@@ -86,7 +86,7 @@ def login
 end
 
 def signup
-  client.signup(
+  auth0_client.signup(
     params[:user],
     params[:password]
   )
@@ -102,7 +102,7 @@ def auth_client
             client_secret: Rails.application.secrets.auth0_client_secret,
             api_version: 1,
             domain: Rails.application.secrets.auth0_domain }
-  @client ||= Auth0Client.new(creds)
+  @auth0_client ||= Auth0Client.new(creds)
 end
 ```
 

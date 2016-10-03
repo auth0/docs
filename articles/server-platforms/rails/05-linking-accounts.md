@@ -117,7 +117,7 @@ Next, create the `link_provider` and `unlink_provider` actions
 ```ruby
     @user = session[:userinfo]
     link_user = session[:linkuserinfo]
-    ClientHelper.client(user).link_user_account(user['uid'], link_with: link_user[:credentials][:id_token])
+    ClientHelper.auth0_client(user).link_user_account(user['uid'], link_with: link_user[:credentials][:id_token])
     redirect_to '/settings', notice: 'Provider succesfully linked.'
   end
 ```
@@ -128,7 +128,7 @@ Next, create the `link_provider` and `unlink_provider` actions
 def unlink_provider
   @user = session[:userinfo]
   unlink_user_id = unlink_providers[params['unlink_provider']]
-  ClientHelper.client(user).unlink_users_account(user['uid'], params['unlink_provider'], unlink_user_id)
+  ClientHelper.auth0_client(user).unlink_users_account(user['uid'], params['unlink_provider'], unlink_user_id)
   redirect_to '/settings', notice: 'Provider succesfully unlinked.'
 end
 ```
@@ -136,7 +136,7 @@ Add the `unlink_providers` private method, which will build a hash of the user i
 
 ```ruby
 def unlink_providers
-  user_info = ClientHelper.client_user(user).user_info
+  user_info = ClientHelper.auth0_client_user(user).user_info
   Hash[user_info['identities'].collect { |identity| [identity['provider'], identity['user_id']] }]
 end
 ```
@@ -145,7 +145,7 @@ And finally, create the private `link_providers` method, which retrieves the pro
 
 ```ruby
 def link_providers
-  connections = ClientHelper.client_admin.connections
+  connections = ClientHelper.auth0_client_admin.connections
   connections.map do |connection|
     connection['strategy'] if connection['enabled_clients'].include?(ENV['AUTH0_CLIENT_ID'])
   end.compact
@@ -174,7 +174,7 @@ Since linking and unlinking accounts will change the user profile, you will need
 ```ruby
 include ClientHelper
 def show
-  @user = ClientHelper.client_user(session[:userinfo]).user_info
+  @user = ClientHelper.auth0_client_user(session[:userinfo]).user_info
 end
 ```
 
@@ -182,7 +182,7 @@ end
 Last, but not least, add the following methods to `helpers\client_helper`. It will allow you to call the Authentication SDK with different credentials:
 
 ```ruby
-def self.client_user(user)
+def self.auth0_client_user(user)
   creds = { client_id: Rails.application.secrets.auth0_client_id,
             token: user[:credentials][:token],
             api_version: 2,
@@ -191,7 +191,7 @@ def self.client_user(user)
   Auth0Client.new(creds)
 end
 
-def self.client(user)
+def self.auth0_client(user)
   creds = { client_id: Rails.application.secrets.auth0_client_id,
             token: user[:credentials][:id_token],
             api_version: 2,
@@ -200,7 +200,7 @@ def self.client(user)
   Auth0Client.new(creds)
 end
 
-def self.client_admin
+def self.auth0_client_admin
   creds = { client_id: Rails.application.secrets.auth0_client_id,
             token: Rails.application.secrets.auth0_master_jwt,
             api_version: 2,
