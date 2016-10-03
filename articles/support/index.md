@@ -6,7 +6,7 @@ url: /support
 
 ## Public Forum
 
-Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to receive support from our engineers and search existing questions.
+Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked.
 
 ## Support Center
 
@@ -23,7 +23,8 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     <tr>
       <th></th>
       <th> Developer Support Plan </th>
-      <th> Enterprise Support Plan </th>
+      <th> Standard Support Plan (legacy**) </th>
+      <th> Platinum Support Plan </th>
       <th> Premiere Support Plan</th>
     </tr>
   </thead>
@@ -31,29 +32,34 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     <tr>
       <th>Ticket Prioritization</th>
       <td>Lowest</td>
-      <td>Normal</td>
+      <td>Standard</td>
+      <td>High</td>
       <td>Prioritized</td>
     </tr>
     <tr>
       <th> Support Hours</th>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (PST)</td>
+      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (local timezone)</td>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
     </tr>
     <tr>
       <th>First Response Time Target</th>
       <td>2-5+ Business Days</td>
-      <td>Standard: 4 hours / Critical Outage: 1 hour</td>
-      <td>Standard: 1 hours / Critical Outage: 1 hour</td>
+      <td>2 Business Days</td>
+      <td>Standard: 4 business hours / Critical Outage: 1 hour</td>
+      <td>Standard: 1 business hours / Critical Outage: 1 hour</td>
     </tr>
     <tr>
       <th>Subsequent Response Time Target</th>
       <td>Best Effort after paid subscriptions</td>
-      <td>Standard: 8 hours / Critical Outage: ongoing</td>
-      <td>Standard: 4 hours / Critical Outage: ongoing</td>
+      <td>Standard: 16 business hours / Critical Outage: ongoing within support hours</td>
+      <td>Standard: 8 business hours / Critical Outage: ongoing within support hours</td>
+      <td>Standard: 4 business hours / Critical Outage: ongoing within support hours</td>
     </tr>
     <tr>
       <th>Discussion Forum</th>
+      <td class="success">Yes</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
@@ -63,9 +69,11 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <td class="warning">Limited - Best effort</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
+      <td class="success">Yes</td>
     </tr>
     <tr>
       <th>Ticket Response Channels</th>
+      <td class="warning">Support forum, Support Center</td>
       <td class="warning">Support forum, Support Center</td>
       <td class="success">Support forum, Support Center, chat, web conference</td>
       <td class="success">Support forum, Support Center, chat, web conference</td>
@@ -73,11 +81,13 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     <tr>
       <th>Onboarding Experience</th>
       <td>Self-service in app and email</td>
+      <td>Self-service in app and email</td>
       <td>Sprint Onboarding</td>
       <td>Sprint Premier Onboarding</td>
     </tr>
     <tr>
       <th>Ongoing Customer Success Engagement </th>
+      <td>none </td>
       <td>none </td>
       <td>Customer Success Team </td>
       <td>Allocated Success Manager </td>
@@ -91,16 +101,18 @@ Standard: Defined as an Auth0 issue impacting your live or in-production systems
 
 - Business processes and functions are degraded;
 - A group or groups of users are impacted;
-- There is a reasonable workaround.
+- There is a reasonable workaround;
+- Application is not yet in live, production status.
 
 Critical: Defined as an Auth0 issue severely impacting your live or in-production systems where:
 
 - Major business processes and functions are stopped for all or most users;
 - Majority of users are significantly impacted, for example: unable to log in;
-- There is no workaround.
+- There is no workaround;
+- Application is in live, production status.
 
 Critical Production issues should always be reported via the Support Center for fastest response.
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
 
-If you have specific support requirements or are interested in the __Enterprise Support__ or __Premiere Support__ option, please [contact sales](https://auth0.com/?contact=true).
+If you have specific support requirements or are interested in the __Platinum Support__ or __Premiere Support__ option, please [contact sales](https://auth0.com/?contact=true).
