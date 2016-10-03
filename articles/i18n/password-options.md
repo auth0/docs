@@ -1,3 +1,7 @@
+---
+description: How to customize the translation of Lock password features.
+---
+
 ## Password Options Translation
 
 You can customize the translation of the following Lock password features in your own code:

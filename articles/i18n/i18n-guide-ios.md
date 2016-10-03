@@ -1,3 +1,7 @@
+---
+description: This page is themguide to internationalizing an iOS application.
+---
+
 ## iOS guide to i18n
 
 Here are the instructions to internationalize your iOS application. Please follow the steps below:

@@ -1,3 +1,7 @@
+---
+description: This page explains how to setup and manage the Authorization Extension.
+---
+
 # Auth0 Extension: Authorization Extension
 
 The Auth0 Authorization Extension provides user authorization support in Auth0. Currently, this extension supports authorizations using Groups.
