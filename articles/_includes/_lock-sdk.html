@@ -1,0 +1,154 @@
+
+<p>For more information on using Lock <a href="/libraries/lock">see the documentation.</a></p>
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li class="active"><a href="#lock-modal" data-toggle="tab">Lock (Modal)</a></li>
+      <li><a href="#lock-inline" data-toggle="tab">Lock (Inline)</a></li>
+      <li class="dropdown"><a href="#" data-toggle="dropdown">Passwordless</a>
+       <ul class="dropdown-menu">
+         <li><a href="#passwordless-sms" data-toggle="tab">Passwordless (SMS)</a></li>
+         <li><a href="#passwordless-magiclink" data-toggle="tab">Passwordless (Magic Link)</a></li>
+         <li><a href="#passwordless-emailcode" data-toggle="tab">Passwordless (Email Code)</a></li>
+       </ul>
+     </li>
+      <li><a href="#customui" data-toggle="tab">Custom UI</a></li>
+      <li><a href="#plainlink" data-toggle="tab">Plain Links</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="lock-modal" class="tab-pane active">
+      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock/10.2/lock.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+    auth: {
+      redirectUrl: '${account.callback}',
+      responseType: 'code',
+      params: {
+        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    }
+  });
+&lt;/script&gt;
+&lt;button onclick=&quot;lock.show();&quot;&gt;Login&lt;/button&gt;</code></pre>
+    </div>
+    <div id="lock-inline" class="tab-pane">
+      <pre class="hljs html"><code>&lt;div id=&quot;root&quot; style=&quot;width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px; box-sizing: border-box;&quot;&gt;
+    embedded area
+&lt;/div&gt;
+&lt;script src=&quot;https://cdn.auth0.com/js/lock/10.2/lock.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
+    container: 'root',
+    auth: {
+      redirectUrl: '${account.callback}',
+      responseType: 'code',
+      params: {
+        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    }
+  });
+  lock.show();
+&lt;/script&gt;</code></pre>
+    </div>
+    <div id="passwordless-sms" class="tab-pane">
+      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+  function open() {
+    lock.sms({
+      callbackURL: '${account.callback}',
+      authParams: {
+        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    });
+  }
+&lt;/script&gt;
+&lt;button onclick=&quot;window.open();&quot;&gt;SMS&lt;/button&gt;</code></pre>
+    </div>
+    <div id="passwordless-magiclink" class="tab-pane">
+      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+  function open() {
+    lock.magiclink({
+      callbackURL: '${account.callback}',
+      authParams: {
+        scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    });
+  }
+&lt;/script&gt;
+&lt;button onclick=&quot;window.open();&quot;&gt;Magic Link&lt;/button&gt;</code></pre>
+    </div>
+    <div id="passwordless-emailcode" class="tab-pane">
+      <pre class="hljs html"><code>&lt;script src=&quot;https://cdn.auth0.com/js/lock-passwordless-2.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var lock = new Auth0LockPasswordless('${account.clientId}', '${account.namespace}');
+  function open() {
+    lock.emailcode({
+      callbackURL: '${account.callback}',
+      authParams: {
+        scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes
+      }
+    });
+  }
+&lt;/script&gt;
+&lt;button onclick=&quot;window.open();&quot;&gt;Email Code&lt;/button&gt;</code></pre>
+    </div>
+    <div id="customui" class="tab-pane">
+      <pre class="hljs html"><code>&lt;button class=&quot;signin-google&quot;&gt;Sign in with Google (redirect)&lt;/button&gt;&lt;br&gt;
+&lt;button class=&quot;signin-google-popup&quot;&gt;Sign in with Google (popup)&lt;/button&gt;&lt;br&gt;
+&lt;br&gt;&lt;p&gt;--- or ---&lt;/p&gt;
+&lt;label&gt;Email&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;email&quot;&gt;&lt;br&gt;
+&lt;label&gt;Password&lt;/label&gt;&lt;input type=&quot;password&quot; id=&quot;password&quot;&gt;&lt;br&gt;
+&lt;button class=&quot;signin-db&quot;&gt;Sign in with Email/Password&lt;/button&gt;
+
+&lt;script src=&quot;https://cdn.auth0.com/w2/auth0-7.1.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://code.jquery.com/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  var auth0 = new Auth0({
+    domain:         '${account.namespace}',
+    clientID:       '${account.clientId}',
+    callbackURL:    '${account.callback}'
+  });
+  // sign-in with social provider with plain redirect
+  $('.signin-google').on('click', function() {
+    auth0.signin({connection: 'google-oauth2'}); // use connection identifier
+  });
+  // sign-in with social provider using a popup (window.open)
+  $('.signin-google-popup').on('click', function() {
+    auth0.signin({popup: true, connection: 'google-oauth2'},
+                function(err, profile, id_token, access_token, state) {
+                    /*
+                      store the profile and id_token in a cookie or local storage
+                        $.cookie('profile', profile);
+                        $.cookie('id_token', id_token);
+                    */
+                });
+  });
+  $('.signin-db').on('click', function() {
+    auth0.signin({
+      connection: 'foo',
+      username: 'bar',
+      password: 'foobar'
+    },
+    function (err, profile, id_token, access_token, state) {
+      /*
+          store the profile and id_token in a cookie or local storage
+            $.cookie('profile', profile);
+            $.cookie('id_token', id_token);
+        */
+    });
+  });
+&lt;/script&gt;</code></pre>
+    </div>
+    <div id="plainlink" class="tab-pane">
+      <pre class="hljs md"><code>https://${account.namespace}/authorize?response_type=code
+&nbsp;&nbsp;&amp;scope=openid%20profile
+&nbsp;&nbsp;&amp;client_id=${account.clientId}
+&nbsp;&nbsp;&amp;redirect_uri=${account.callback}
+&nbsp;&nbsp;&amp;connection=CONNECTION_NAME</code></pre>
+    </div>
+  </div>
+</div>

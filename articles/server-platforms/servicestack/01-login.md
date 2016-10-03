@@ -84,7 +84,7 @@ ${snippet(meta.snippets.setup)}
 ### 4. Setting up the callback URL in Auth0
 
 <div class="setup-callback">
-<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${uiAppSettingsURL}">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
+<p>After authenticating the user on Auth0, we will do a POST to a URL on your web site. For security purposes, you have to register this URL on the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> section on Auth0 Admin app (make sure to change the port).</p>
 
 <pre><code>http://localhost:PORT/api/auth/auth0/</pre></code>
 </div>
@@ -145,7 +145,7 @@ public class HelloService : Service
 
 ### 7. Triggering login manually or integrating the Auth0Lock
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk') %>
 
 ### 8. Add UI code to Login and invoke the `HelloService`
 

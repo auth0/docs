@@ -43,8 +43,6 @@ With the `authService` injected in this controller, the `login` method can now b
 
 When the user clicks the **Log In** button, the Lock widget will be displayed.
 
-${browser}
-
 #### Log Out
 
 A button responsible for logging the user out can be placed in the header toolbar, but to do this, the toolbar needs to have access to the `authService`. This can be accomplished either by creating a controller and view for the header toolbar and injecting the auth service there, or by keeping the toolbar in the root view (commonly the `index.html` file) and relying on `$rootScope` to get access to the auth service. For this example, we'll attach the `authService` to `$rootScope`.

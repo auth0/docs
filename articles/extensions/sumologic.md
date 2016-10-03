@@ -1,3 +1,7 @@
+---
+description: How to configure and retrieve information using the Auth0 Logs to Sumo Logic extension.
+---
+
 # Auth0 Logs to Sumo Logic
 
 The _Auth0 Logs to Sumo Logic_ is a scheduled job that takes all of your Auth0 logs and exports them to [Sumo Logic](https://www.sumologic.com/).

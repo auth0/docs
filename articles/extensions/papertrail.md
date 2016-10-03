@@ -1,3 +1,7 @@
+---
+description: How to configure and retrieve information from the Auth0 Logs to Papertrail extension. 
+---
+
 # Auth0 Logs to Papertrail
 
 The Auth0 Logs to Papertrail is a scheduled job that takes all of your Auth0 logs and exports them to [Papertrail](https://papertrailapp.com).

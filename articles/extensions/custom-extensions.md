@@ -1,3 +1,7 @@
+---
+description: How to create and install a custom extension.
+---
+
 # Creating and Installing a Custom Extension
 
 Rather than using one of Auth0's provided extensions, you may choose to create your own.

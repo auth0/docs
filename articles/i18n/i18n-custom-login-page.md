@@ -1,3 +1,7 @@
+---
+description: Instruction on how to display the login page using the user's browser preferred language.
+---
+
 ## Internationalize (i18n) the default login page
 
 Below you will find instruction on how to display the login page using the user's browser preferred language:

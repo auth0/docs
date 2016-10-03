@@ -86,5 +86,3 @@ lock.on("authenticated", function(authResult) {
 
 ...
 ```
-
-${browser}

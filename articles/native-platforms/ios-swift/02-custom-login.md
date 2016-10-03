@@ -121,7 +121,7 @@ Notice that any extra information that you need to add to the user's profile, ot
 
 ### 4. Perform Social Authentication
 
-First, go to your [Client Dashboard](${uiAppSettingsURL}/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
+First, go to your [Client Dashboard](${manage_url}/#/applications/${account.clientId}/settings/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
 
 ```shell
 {YOUR_APP_BUNDLE_IDENTIFIER}://${account.domain}/ios/{YOUR_APP_BUNDLE_IDENTIFIER}/callback

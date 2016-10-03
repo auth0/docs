@@ -31,7 +31,7 @@ ${snippet(meta.snippets.setup)}
 
 ## 3. Implement the Login
 
-Now that everything is set, you can activate authentication on some of your components. Activating authentication on a component is as simple as calling the `protect` function on that component.  
+Now that everything is set, you can activate authentication on some of your components. Activating authentication on a component is as simple as calling the `protect` function on that component.
 Let's asume you have a `Todos` component and you want to ensure the user is logged in to see it.
 
 ${snippet(meta.snippets.use)}
@@ -59,7 +59,7 @@ After authentication, the `protect` function will handle the token parsing and s
 
 ## 4. Configure Secure Calls to Your API
 
-To configure secure calls to the API you are creating<%= configuration.api ? ' on ' + configuration.api : '' %>, you need to decorate all your newly secured component's HTTP calls with the [JSON Web Token](/jwt) that has been stored in `localStorage`. To do that, you can set a decorator that will be called on each HTTP request and where you can add the `Authorization` header.
+To configure secure calls to the API you are creating, you need to decorate all your newly secured component's HTTP calls with the [JSON Web Token](/jwt) that has been stored in `localStorage`. To do that, you can set a decorator that will be called on each HTTP request and where you can add the `Authorization` header.
 
 ${snippet(meta.snippets.securize)}
 

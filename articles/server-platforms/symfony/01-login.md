@@ -120,7 +120,7 @@ Notice that we need to identify the user provided selected in step 6 both in the
 
 ### 8. Triggering login manually or integrating the Auth0Lock
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk') %>
 
 ### Troubleshooting
 
