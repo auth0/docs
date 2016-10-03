@@ -18,7 +18,7 @@ After completing this step, you will have:
 
 In the [Amazon DynamoDB Console](https://console.aws.amazon.com/dynamodb), click on **Create Table**.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/dynamodb-create-table.png)
+![Create DB Table](/media/articles/integrations/aws-api-gateway/part-1/dynamodb-create-table.png)
 
 Configure the variables associated with the table:
 
@@ -29,13 +29,13 @@ Configure the variables associated with the table:
 * **Read capacity units**: 3
 * **Write capacity units**: 3
 
-![](/media/articles/integrations/aws-api-gateway/part-1/configure-newly-created-table.png)
+![Create Table Settings](/media/articles/integrations/aws-api-gateway/part-1/configure-newly-created-table.png)
 
 Click **Create** to create the table with your provided settings.
 
 While the table is being created, take note of the *Amazon Resource Name (ARN)* under the *Table details* section. You will need the table's ARN in the next step.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/table-arn.png)
+![ARN value](/media/articles/integrations/aws-api-gateway/part-1/table-arn.png)
 
 ### 2. Create the Policy that Grants AWS Lambda Functions Access to the DynamoDB Pets Table
 
@@ -43,23 +43,23 @@ Navigate to the [AWS IAM Console](https://console.aws.amazon.com/iam).
 
 Click on **Roles** in the left menu, and then click the **Create New Role** button.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/roles.png)
+![IAM Landing](/media/articles/integrations/aws-api-gateway/part-1/roles.png)
 
 Name the role `APIGatewayLambdaExecRole` and click **Next Step**.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/set-role-name.png)
+![Set Role Name](/media/articles/integrations/aws-api-gateway/part-1/set-role-name.png)
 
 Select the Role Type. Under *AWS Service Roles*, select *AWS Lambda*.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/select-role-type.png)
+![Select Role Type](/media/articles/integrations/aws-api-gateway/part-1/select-role-type.png)
 
 On the Attach Policy screen, skip this step by clicking **Next Step**. At this point, review the information you provided. If all looks correct, click **Create Role**. When finished, you should see your role listed on the IAM homepage.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/iam-roles-list.png)
+![Roles List](/media/articles/integrations/aws-api-gateway/part-1/iam-roles-list.png)
 
 Select the role you just created, **APIGatewayLambdaExecRole**. Click the down arrow for *Inline Policies* and click the **Click Here** link.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/create-inline-policies.png)
+![Create Policy](/media/articles/integrations/aws-api-gateway/part-1/create-inline-policies.png)
 
 Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following code as the policy document (be sure to first update the Amazon Resource Name (ARN) for your DynamoDB table). Click **Apply Policy**.
 
@@ -88,7 +88,7 @@ Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamo
     }
     ```
 
-![](/media/articles/integrations/aws-api-gateway/part-1/custom-policy.png)
+![Create Custom Policy](/media/articles/integrations/aws-api-gateway/part-1/custom-policy.png)
 
 ### 2. Create the AWS Lambda Functions
 
@@ -98,13 +98,13 @@ The next three steps create the AWS Lambda functions for retrieving and updating
 
 In the [AWS Lambda Console](https://console.aws.amazon.com/lambda), select **Create a Lambda Function** (if you have not created an AWS Lambda function before, you will click **Get Started Now**).
 
-![](/media/articles/integrations/aws-api-gateway/part-1/lambda-get-started-now.png)
+![Get Started with Lambda](/media/articles/integrations/aws-api-gateway/part-1/lambda-get-started-now.png)
 
 On the *Select blueprint* screen, click **Skip** (without selecing a particular blueprint). You will then be prompted to *Configure triggers*. Click **Next** to proceed. You do not have to do so at this point.
 
 Finally, you will be asked to *Configure function*.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/configure-function.png)
+![Configure Lambda function](/media/articles/integrations/aws-api-gateway/part-1/configure-function.png)
 
 Populate the appropriate fields with the following information:
 
@@ -138,13 +138,13 @@ Paste the following code to read pet information from the DynamoDB table into th
 
 For *Role*, select *APIGatewayLambdaExecRole*. Leave all other settings at their default values.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/lambda-handler-role.png)
+![Lambda Handler](/media/articles/integrations/aws-api-gateway/part-1/lambda-handler-role.png)
 
 Click **Next** to review the information you provided. If all looks correct, click **Create function**.
 
 Click **Test**, leaving the *Input test event* at its default (which uses the Hello World template). When the test completes, you should see an empty output (`{}`) in the *Execution Result* section. The table is empty.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/execution-result.png)
+![Execution Result](/media/articles/integrations/aws-api-gateway/part-1/execution-result.png)
 
 #### Create the Lambda Function for `UpdatePetInfo`
 
@@ -188,7 +188,7 @@ You should see an empty return result (`{}`).
 
 Return to your `GetPetInfo` Lambda function and click **Test** again. You should now see a single pet.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/test-result-one-pet.png)
+![Test result](/media/articles/integrations/aws-api-gateway/part-1/test-result-one-pet.png)
 
 #### Create the Third Lambda Function
 
@@ -212,31 +212,31 @@ You will create an API with two methods: one will `GET` pet information, and one
 
 Go to the [Amazon API Gateway Console](https://console.aws.amazon.com/apigateway), and click **Create API**. If this is the first time you are creating an API, you will see a screen prompting you to **Get Started** instead.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/get-started-with-api-gateway.png)
+![Get started with API Gateway](/media/articles/integrations/aws-api-gateway/part-1/get-started-with-api-gateway.png)
 
 If this is the first time you are creating an API, you will be prompted to create an *Example API*. Click **OK** to exit the pop-up notification, and choose the **New API** radio button instead of the **Example API** button.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/create-example-api.png)
+![Create API Sample](/media/articles/integrations/aws-api-gateway/part-1/create-example-api.png)
 
 Name the API `SecurePets` and click **Create API**.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/create-new-api.png)
+![Create New API](/media/articles/integrations/aws-api-gateway/part-1/create-new-api.png)
 
 Navigate to the *Resources* tab of the `SecurePets` API and click the **Create Resource** action.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/create-resource.png)
+![Create Resource](/media/articles/integrations/aws-api-gateway/part-1/create-resource.png)
 
 Name the resource `Pets` and click **Create Resource** again.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/name-resource.png)
+![Create Name Resource](/media/articles/integrations/aws-api-gateway/part-1/name-resource.png)
 
 In the left pane, select `/pets` and then click the **CreateMethod** button.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/create-pets-method.png)
+![Create Pets Method](/media/articles/integrations/aws-api-gateway/part-1/create-pets-method.png)
 
 In the drop-down, select *GET* and click the checkmark button.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/pets-method-get.png)
+![Get Pets Method](/media/articles/integrations/aws-api-gateway/part-1/pets-method-get.png)
 
 Provide the following configuration values for the `GET` method:
 
@@ -244,19 +244,19 @@ Provide the following configuration values for the `GET` method:
 * **Lambda Region**: [Region you are located in];
 * **Lambda Function**: GetPetInfo.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/pets-get-method-setup.png)
+![Setup Get Pets Method](/media/articles/integrations/aws-api-gateway/part-1/pets-get-method-setup.png)
 
 Click **Save** and then **OK** when prompted in the popup to grant permissions to the Lambda function.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/lambda-permissions.png)
+![Set Lambda Permissions](/media/articles/integrations/aws-api-gateway/part-1/lambda-permissions.png)
 
 In the *Method Execution* window that appears next, click **Test**.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/method-execution.png)
+![Method Execution](/media/articles/integrations/aws-api-gateway/part-1/method-execution.png)
 
 You should see the single pet returned in the response body.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/method-execution-results.png)
+![Method Execution Results](/media/articles/integrations/aws-api-gateway/part-1/method-execution-results.png)
 
 #### Method: `POST` Pet Information
 
@@ -280,7 +280,7 @@ Click **Save** and then **OK** when prompted in the popup to grant permissions t
     }
     ```
 
-![](/media/articles/integrations/aws-api-gateway/part-1/post-method-request-test.png)
+![Post Method Request Test](/media/articles/integrations/aws-api-gateway/part-1/post-method-request-test.png)
 
 You should see an empty return result (`{}`).
 
@@ -307,10 +307,9 @@ Instead of creating a lambda function that performs no action, you can create an
 
 In the left pane, select `/pets`, and click **CreateMethod**. In the drop down, select *OPTIONS*, and click the checkmark button. Select *Mock* for Integration Type. Click **Save**.
 
-![](/media/articles/integrations/aws-api-gateway/part-1/options-method.png)
+![Configure Options Method](/media/articles/integrations/aws-api-gateway/part-1/options-method.png)
 
 Leaving the Response Body blank, click **Test**. You should receive a Response Body indicating `no data`.
-
 
 At this point, the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 

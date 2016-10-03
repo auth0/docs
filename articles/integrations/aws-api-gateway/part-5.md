@@ -24,7 +24,7 @@ Alternatively, you can choose to have the user's information embedded with the i
 
 In addition, you can use the JWT for authorization, allowing you to bypass the IAM integration with Amazon API Gateway. The caveat to this, however, is that using the API Gateway for authorization allows you to halt the API call prior to invocation of your Lambda function.
 
-![](/media/articles/integrations/aws-api-gateway/identity-flow.png)
+![AWS Identity Flow](/media/articles/integrations/aws-api-gateway/identity-flow.png)
 
 ### Adding Email Information to the JWT
 

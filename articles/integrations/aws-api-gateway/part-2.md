@@ -15,7 +15,7 @@ Now that you have your API running, you need to add security. In this step, you 
 
 Once your API is secure, you'll build a serverless, single page application (SPA). The SPA will rely on federating identity to determine which users are allowed access. By combining AWS IAM Integration for AWS Gateway API, AWS IAM Identity Federation for SAML, and Auth0 Delegation for AWS, you can enable users from many different sources, including Social Providers or enterprise connections, to access your APIs. The following diagram illustrates a sample flow using a SAML-based Identity Provider and Auth0 SAML Federation and Delegation for AWS.
 
-![](/media/articles/integrations/aws-api-gateway/auth-flow.png)
+![Authentication Flow](/media/articles/integrations/aws-api-gateway/auth-flow.png)
 
 You will see two ways of implementing this flow:
 
@@ -36,8 +36,6 @@ Using API keys is typically appropriate for a service-to-service interaction, as
 * Placing a secret with a long lifetime on the client is risky (clients are easier to compromise);
 * Creating a framework to issue and manage API keys requires a secure implementation that can be challenging to develop.
 
-![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-key.png)
-
 ### 1. Configure IAM and Auth0 for SAML Integration with the API Gateway
 
 The AWS IAM SAML Integration lets the trusted identity provider (IDP) specify an AWS IAM role in the SAML token used to obtain an AWS token. The returned token has the AWS access permissions of that role. Your SAML IDP controls the level of access for your users by issuing SAML tokens with different AWS IAM roles. For example, the IDP could specify the IAM role based on group membership (for example, an administrator in Active Directory) or authentication source (for example, a database connection or a social provider like Facebook). This approach lets you differentiate user access to your Amazon API Gateway methods when secured using AWS IAM.
@@ -46,15 +44,15 @@ The AWS IAM SAML Integration lets the trusted identity provider (IDP) specify an
 
 Log in to your Auth0 account. You will be brought to the Management Dashboard. Click on **+ New Client**, which is located in the top right corner of the page.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
+![Auth0 nManagement Dashboard](/media/articles/integrations/aws-api-gateway/part-2/mgmt-dashboard.png)
 
 Name your new client *AWS API Gateway*, and indicate that this Client is going to be a *Single Page Application*. Click **Create**.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/create-new-client.png)
+![Create Client](/media/articles/integrations/aws-api-gateway/part-2/create-new-client.png)
 
 Navigate to the *Addons* tab for your newly-created Client. Using the appropriate slide, enable *Amazon Web Services*. This turns on AWS Delegation.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/enable-aws-addon.png)
+![Enable AWS for Client](/media/articles/integrations/aws-api-gateway/part-2/enable-aws-addon.png)
 
 #### Configuring AWS
 
@@ -91,15 +89,15 @@ Before you begin, you will need the ARN for your Gateway API:
 
 Select the `auth0-api-role` role you just created to open its *Summary* page.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/select-iam-role.png)
+![Select IAM Role](/media/articles/integrations/aws-api-gateway/part-2/select-iam-role.png)
 
 Expand **Inline Policies**, and click **click here**.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/attach-policy.png)
+![Attach Policy](/media/articles/integrations/aws-api-gateway/part-2/attach-policy.png)
 
 Select **Custom Policy** and click **Select**.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/custom-policy.png)
+![Custom Policy](/media/articles/integrations/aws-api-gateway/part-2/custom-policy.png)
 
 Edit your policy document. You can set the **Policy Name** to whatever you would like, but we suggest something like `api-gateway-policy`. To enable access to the API methods for this role, apply the following policy *after* updating the ARN with the one for your API.
 
@@ -120,7 +118,7 @@ Edit your policy document. You can set the **Policy Name** to whatever you would
 }
 ```
 
-![](/media/articles/integrations/aws-api-gateway/part-2/edit-custom-policy.png)
+![Edit custom policy](/media/articles/integrations/aws-api-gateway/part-2/edit-custom-policy.png)
 
 Click **Apply Policy**.
 
@@ -161,11 +159,11 @@ At this point, you will need to set the *Authorization Settings* on the [API Gat
 
 In the **Resources** view, select the *POST* method under `/pets`.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/post-method-request.png)
+![Post Method](/media/articles/integrations/aws-api-gateway/part-2/post-method-request.png)
 
 Click the **Method Request** link.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/auth-settings.png)
+![Set Authorization Settings for Method](/media/articles/integrations/aws-api-gateway/part-2/auth-settings.png)
 
 Click the edit icon beside the **Authorization Type**, and select *AWS_IAM*. Now click the **Check Button** beside the field to save the setting.
 
@@ -177,7 +175,7 @@ Our Single Page Application (SPA) will access web API methods from a domain diff
 
 Select `/pets` under Resources, and click **Create Method**. In the drop-down, select **OPTIONS**, and click the **checkmark** to save the setting.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/create-options-method.png)
+![Create Options Method](/media/articles/integrations/aws-api-gateway/part-2/create-options-method.png)
 
 The Options method is used by the browser to get the necessary HTTP headers, but the function needs further instructions on what to do. Under the `OPTIONS` Setup screen, set the following variables/parameters:
 
@@ -186,15 +184,15 @@ The Options method is used by the browser to get the necessary HTTP headers, but
 * **Lambda Region**: *select your region*;
 * **Lambda Function**: NoOp.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/config-options-method.png)
+![Configure Options Method](/media/articles/integrations/aws-api-gateway/part-2/config-options-method.png)
 
 Click **Save**. On the next pop-up screen, grant your Lambda function the permissions it needs.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/permissions.png)
+![Set Lambda Permissions](/media/articles/integrations/aws-api-gateway/part-2/permissions.png)
 
 You will then be auto-directed to the `OPTIONS` *Method Execution* page. Open the *Method Response* page.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/method-response.png)
+![Method Response](/media/articles/integrations/aws-api-gateway/part-2/method-response.png)
 
 Expand the **200** section located under the *HTTP Status* bar and add the following response headers:
 
@@ -202,7 +200,7 @@ Expand the **200** section located under the *HTTP Status* bar and add the follo
 * *Access-Control-Allow-Methods*;
 * *Access-Control-Allow-Origin*.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/add-headers.png)
+![Add headers](/media/articles/integrations/aws-api-gateway/part-2/add-headers.png)
 
 Next, map the appropriate values to each of the response headers. After returning to the *Method Execution* page, click on **Integration Response**. After expanding the row associated with the **200** method response status, expand the **Header Mappings**, and apply the following mappings:
 
@@ -210,7 +208,7 @@ Next, map the appropriate values to each of the response headers. After returnin
 * *Access-Control-Allow-Origin*: `'*'`
 * *Access-Control-Allow-Methods*: `'POST, GET, OPTIONS'`
 
-![](/media/articles/integrations/aws-api-gateway/part-2/integration-response.png)
+![Configure headers](/media/articles/integrations/aws-api-gateway/part-2/integration-response.png)
 
 Finally, repeat the above steps to enable CORS for the *POST* and *GET* methods. However, for these two methods, you will add one header, *Access-Control-Allow-Origin*, and its value should be set to `'*'`.
 
@@ -218,15 +216,15 @@ Finally, repeat the above steps to enable CORS for the *POST* and *GET* methods.
 
 Return to the **Resources** view for your API. Click on **Actions**, and select **DEPLOY API**.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/choose-deploy-stage.png)
+![Choose Deployment Stage](/media/articles/integrations/aws-api-gateway/part-2/choose-deploy-stage.png)
 
 Select **New Stage** for Deploy State, and name the stage `Test`. Click the **Deploy** button.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/test-stage-editor.png)
+![Test Stage Editor](/media/articles/integrations/aws-api-gateway/part-2/test-stage-editor.png)
 
 On the result page, you will see a tab for **SDK Generation**. Click the tab and select *JavaScript* for the platform. Click the **Generate SDK** button.
 
-![](/media/articles/integrations/aws-api-gateway/part-2/sdk-generation.png)
+![Generate SDK](/media/articles/integrations/aws-api-gateway/part-2/sdk-generation.png)
 
 Save the downloaded zip file for later use.
 

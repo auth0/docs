@@ -40,17 +40,17 @@ If you don't know what your URL is, you can find it listed under the **Propertie
 
 Before going further, test logging into your application. Open `http://your-bucket-domain/index.html` in your browser. After logging in, you should see an alert box pop up that says "getPets not implemented":
 
-![](/media/articles/integrations/aws-api-gateway/part-3/log-in-popup.png)
+![Pop up with Get Method Error](/media/articles/integrations/aws-api-gateway/part-3/log-in-popup.png)
 
 You should also see the page for viewing pets.
 
-![](/media/articles/integrations/aws-api-gateway/part-3/log-in-success.png)
+![Log in success screen](/media/articles/integrations/aws-api-gateway/part-3/log-in-success.png)
 
 ### Use Delegation to Get an AWS Token
 
 At this point, you have authentication set up with Auth0, and you have an OpenId JWT. Here is the directory structure for the generated code:
 
-![](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
+![S3 website directory structure](/media/articles/integrations/aws-api-gateway/aws-api-gateway-project.png)
 
 You can use Auth0's delegation capability to obtain an AWS access token that is based on the Auth0 identity token. Behind the scenes, Auth0 authenticates your identity token, and then uses SAML based on the addon that you configured.
 
@@ -174,7 +174,7 @@ function getPets() {
 
 Copy the updated code to your S3 bucket. Refresh the page to see two animals listed (if you ran the previously described test on your APIs that created these pets).
 
-![](/media/articles/integrations/aws-api-gateway/part-3/get-success.png)
+![API Get Method Success](/media/articles/integrations/aws-api-gateway/part-3/get-success.png)
 
 ### Update Pets with the AWS API Service
 
@@ -208,7 +208,7 @@ Copy the updated code to your S3 bucket. Test the method:
 
 You should see a message that says, "We have a `<Pet Type>` for sale for `<Pet Price>`" with a red **REMOVE** button to its left.
 
-![](/media/articles/integrations/aws-api-gateway/part-3/add-frog-success.png)
+![Post Method Success Screen](/media/articles/integrations/aws-api-gateway/part-3/add-frog-success.png)
 
 To add security, add the `getSecureApiClient` function at the start of the `putPets` method:
 
