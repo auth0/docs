@@ -2,6 +2,8 @@
 description: Customizing error messages with Lock V9
 ---
 
+<%= include('../_includes/_lock-version-9') %>
+
 # Lock: Customizing Error Messages
 
 You can customize the error messages that will be displayed on certain situations by providing a [dict option](/libraries/lock/v9/customization#dict-object) at the [customization options](/libraries/lock/v9/customization):
