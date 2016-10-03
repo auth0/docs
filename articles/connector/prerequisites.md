@@ -8,7 +8,7 @@ Typically the AD/LDAP Connector needs to be installed by a sys admin or an opera
 
 ## Host Servers
 
-The Connector can be install on an existing server, even a Domain Controller. However, more often it's installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
+The Connector can be installed on an existing server, even a Domain Controller. However, more often it's installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
 
 #### Hardware Requirements
 
