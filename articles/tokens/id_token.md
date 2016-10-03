@@ -2,15 +2,16 @@
 title: Auth0 id_token
 ---
 
-# Auth0 `id_token`
+# Auth0 ID Token
 
 ## Overview
 
-The id token, usually referred to as `id_token` in code samples, is a JWT that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display.
+The id token, usually referred to as `id_token` in code samples, is a JWT that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
-> The `id_token﻿⁠⁠⁠⁠` should not be used to secure server-side APIs. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests, and it should be used as such.
-
-The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: A header, a body and a signature. The header contains the type of token and the hash algorithm used on the contents of the token.  The body, also called the payload, contains identity claims about a user.  There are some non-mandatory claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  The third part of the JWT is the signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
+The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
+- The header contains the type of token and the hash algorithm used on the contents of the token.  
+- The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  
+- The signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
 
 ## How to get the id_token
 
