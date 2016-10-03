@@ -2,6 +2,8 @@
 description: Supported parameters that can be used with Lock V9.
 ---
 
+<%= include('../_includes/_lock-version-9') %>
+
 # Lock: Authentication Parameters
 
 You can send parameters when starting a login by adding them to the options object. The example below adds a `state` parameter with a value equal to `'foo'`.

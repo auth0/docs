@@ -2,6 +2,8 @@
 description: Lock V9 guide to initialization
 ---
 
+<%= include('../_includes/_lock-version-9') %>
+
 # Lock: Initialization
 
 ```javascript
