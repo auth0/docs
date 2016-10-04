@@ -6,8 +6,6 @@ description: Step 4 of Amazon API Gateway Tutorial
 # AWS API Gateway Tutorial
 ## Step 4 - Using Multiple Roles with Amazon API Gateway
 
-[Prev](/integrations/aws-api-gateway/part-3) ----- [Next](/integrations/aws-api-gateway/part-5)
-
 In this step, you'll assign different AWS IAM roles to users based on authentication information:
 
 * Users authenticating with Social Connections will be treated as buyers;
@@ -318,4 +316,7 @@ You will then be presented with the output of running your rule.
 
 ![Output from Trying Rules](/media/articles/integrations/aws-api-gateway/part-4/try-rules-output.png)
 
-[Prev](/integrations/aws-api-gateway/part-3) ----- [Next](/integrations/aws-api-gateway/part-5)
+<%= include('./_stepnav', {
+ prev: ["3. Building the Client Application", "/docs/integrations/aws-api-gateway/part-3"],
+ next: ["5. Using Identity Tokens", "/docs/integrations/aws-api-gateway/part-5"]
+}) %>

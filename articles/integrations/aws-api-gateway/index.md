@@ -26,4 +26,6 @@ You will be taken through the following steps:
 * [Step 4 - Using Multiple Roles with Amazon API Gateway](/integrations/aws-api-gateway/part-4)
 * [Step 5 - Using Identity Tokens to Flow Identity](/integrations/aws-api-gateway/part-5)
 
-  [Next](/integrations/aws-api-gateway/part-1)
+<%= include('./_stepnav', {
+ next: ["1. Setup", "/docs/integrations/aws-api-gateway/part-1"]
+}) %>

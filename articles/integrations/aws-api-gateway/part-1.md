@@ -5,7 +5,6 @@ description: Step 1 of Amazon API Gateway Tutorial
 
 # Amazon API Gateway Tutorial
 ## Step 1 - Setting up the Amazon API Gateway
-[Prev](/integrations/aws-api-gateway) - - - - - [Next](/integrations/aws-api-gateway/part-2)
 
 After completing this step, you will have:
 
@@ -268,7 +267,7 @@ In the drop-down, select *POST*, and click the checkmark button.
 
 Select *Lambda Function* for Integration Type, select the region you are located in, and select *UpdatePetInfo* for the Lambda function.
 
-Click **Save** and then **OK** when prompted in the popup to grant permissions to the Lambda function.  
+Click **Save** and then **OK** when prompted in the popup to grant permissions to the Lambda function.
 
 **Test**, and paste the following for the request body:
 
@@ -313,4 +312,7 @@ Leaving the Response Body blank, click **Test**. You should receive a Response B
 
 At this point, the AWS Lambda functions and the Amazon API Gateway methods are defined with no security.
 
-[Prev](/integrations/aws-api-gateway) - - - - - [Next](/integrations/aws-api-gateway/part-2)
+<%= include('./_stepnav', {
+ prev: ["0. Introduction", "/docs/integrations/aws-api-gateway"],
+ next: ["2. Securing and Deploying", "/docs/integrations/aws-api-gateway/part-2"]
+}) %>

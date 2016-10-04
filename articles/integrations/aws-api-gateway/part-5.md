@@ -5,7 +5,6 @@ description: Step 5 of Amazon API Gateway Tutorial
 
 # AWS API Gateway Tutorial
 ## Step 5 - Using Identity Tokens to Flow Identity
-[Prev](/integrations/aws-api-gateway/part-4)
 
 In this final step, you will:
 
@@ -129,7 +128,6 @@ If you choose to use a custom header, you'll also need to do some mapping for th
 To keep the validation process simple, pass the JWT in the body of the post to the AWS Lambda function. To do this, update the `buyPet` method in `home.js` by removing the `userName` from the body, and adding `authToken` as follows:
 
 ```js
-
 function buyPet(user, id) {
     var apigClient = getSecureApiClient();
     var body = {
@@ -164,4 +162,6 @@ In this tutorial, you have:
 * Used an Auth0 rule to enforce role assignment;
 * Used a JWT to provide further authorization context and pass identity information into the appropriate Lambda function.
 
-[Prev](/integrations/aws-api-gateway/part-4)
+<%= include('./_stepnav', {
+ prev: ["4. Using Multiple Roles", "/docs/integrations/aws-api-gateway/part-4"]
+}) %>

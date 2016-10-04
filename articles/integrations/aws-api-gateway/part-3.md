@@ -5,7 +5,6 @@ description: Step 3 of Amazon API Gateway Tutorial
 
 # AWS API Gateway Tutorial
 ## Step 3 - Building the Client Application
-[Prev](/integrations/aws-api-gateway/part-2) ----- [Next](/integrations/aws-api-gateway/part-4)
 
 In this step, you will build a single page, serverless client application using the AngularJS framework that you will serve out of an AWS S3 bucket configured to act as a static website.
 
@@ -236,4 +235,7 @@ The `getSecureApiClient` function provided for you retrieves the AWS token from 
   }
 ```
 
-[Prev](/integrations/aws-api-gateway/part-2) ----- [Next](/integrations/aws-api-gateway/part-4)
+<%= include('./_stepnav', {
+ prev: ["2. Securing and Deploying", "/docs/integrations/aws-api-gateway/part-2"],
+ next: ["4. Using Multiple Roles", "/docs/integrations/aws-api-gateway/part-4"]
+}) %>

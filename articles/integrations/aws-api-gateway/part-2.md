@@ -5,7 +5,6 @@ description: Step 2 of Amazon API Gateway Tutorial
 
 # AWS API Gateway Tutorial
 ## Step 2 - Securing and Deploying the Amazon API Gateway
-[Prev](/integrations/aws-api-gateway/part-1) ----- [Next](/integrations/aws-api-gateway/part-3)
 
 Now that you have your API running, you need to add security. In this step, you will:
 
@@ -228,4 +227,7 @@ On the result page, you will see a tab for **SDK Generation**. Click the tab and
 
 Save the downloaded zip file for later use.
 
-  [Prev](/integrations/aws-api-gateway/part-1) ----- [ Next](/integrations/aws-api-gateway/part-3)
+<%= include('./_stepnav', {
+ prev: ["1. Setup", "/docs/integrations/aws-api-gateway/part-1"],
+ next: ["3. Building the Client Application", "/docs/integrations/aws-api-gateway/part-3"]
+}) %>
