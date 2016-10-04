@@ -744,7 +744,7 @@ var options = {
 
 ### clientBaseUrl {String}
 
-Can be defined with a URL to override client settings base url. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. Otherwise, it uses the provided domain.
+This option can overr URL to override client settings base url. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
 
 ```js
 var options = {
@@ -754,7 +754,7 @@ var options = {
 
 ### languageBaseUrl {String}
 
-Overrides the language source url for Auth0's provided translations. By default it uses to Auth0's CDN URL https://cdn.auth0.com. By providing another value, you can use another source for the language translations as needed.
+Overrides the language source url for Auth0's provided translations. By default, this option uses Auth0's CDN URL `https://cdn.auth0.com` since this is where all of the provided translations are stored. By providing another value, you can use another source for the language translations if needed.
 
 ```js
 var options = {
