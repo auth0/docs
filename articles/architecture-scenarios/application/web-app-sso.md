@@ -172,7 +172,26 @@ The main characteristics of a Client in Auth0 are:
 
 #### Create a Client
 
-TO-BE-UPDATED (create client + configure callback URLs)
+ABC's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
+
+To register a database connection, go to the [dashboard](${manage_url}){:target="_blank"} and in the side navigation select [Clients](${manage_url}/#/clients).
+
+Click on the button __+ Create Client__. You will be prompted for the name and the type of the client. We will name our client `Timesheet-App` and select `Regular Web Applications` as the client type. Click .
+
+![Create Client Dialog Box](/media/articles/architecture-scenarios/web-app-sso/new-client.png)
+
+When you click __Create__ you will be navigated to the [Quick Start view](${manage_url}/#/clients/${account.clientId}/quickstart). Here you can pick the technology you plan on using to build your app and the relevant how-to quickstart will be displayed.
+
+The other available views are:
+- [Settings](${manage_url}/#/clients/${account.clientId}/settings): Here you can view and update the settings of your client. This is the page you will use to retrieve information like _Domain_, _Client ID_, and _Client Secret_. In this page you will also have to [set the __Callback URL__ for your client](#configure-callback-urls).
+- [Addons](${manage_url}/#/clients/${account.clientId}/addons): Addons are plugins associated with a client in Auth0. Usually, they are third party APIs used by the client that Auth0 generates access tokens for (for example Salesforce, Azure Service Bus, Azure Mobile Services, SAP, and so forth). We will not use any Addons in this scenario.
+- [Connections](${manage_url}/#/clients/${account.clientId}/connections): Connections are sources of users. We will use this view shortly to enable specific connections for our client.
+
+#### Configure Callback URLs
+
+The __Allowed Callback URLs__ field contains the URL(s) where Auth0 will redirect to after the user has authenticated in order for the OpenID Connect to complete the authentication process. You can specify multiple valid URLs by comma-separating them. You can use the star symbol as a wildcard for subdomains, for example `*.google.com`. Make sure to specify the protocol, `http://` or `https://`, otherwise the callback may fail in some cases.
+
+The Callback URL for our sample project is `http://localhost:5000/signin-auth0`. Go ahead and set this value to the __Allowed Callback URLs__ field if you plan on using our sample, otherwise add the URL you chose to deploy your application to.
 
 ### Connections
 
@@ -190,9 +209,9 @@ Auth0 supports a vast variety of protocols and identity providers:
 
 #### Create a database connection
 
-To register a database connection, go to the [Auth0 dashboard](${manage_url}) and in the side navigation select [Connections > Database](${manage_url}/#/connections/database).
+To register a database connection, go to the [dashboard](${manage_url}) and in the side navigation select [Connections > Database](${manage_url}/#/connections/database).
 
-Click on the button __+ Create DB Connection__. You will be prompted for the name of the connection. We will name our connection `Timesheet-Users`:
+Click on the button __+ Create DB Connection__. You will be prompted for the name of the connection. We will name our connection `Timesheet-Users`.
 
 ![Create DB Connection Dialog Box](/media/articles/architecture-scenarios/web-app-sso/new-db-conn.png)
 
