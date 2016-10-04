@@ -29,12 +29,10 @@ __Table of Contents__
   - [User Login](#user-login)
     - [Automate Home Realm Discovery (HRD)](#automate-home-realm-discovery-hrd-)
   - [Session Management](#session-management)
-    - [ASP.NET Core: Configure the Cookie and OIDC Middleware](#asp-net-core-configure-the-cookie-and-oidc-middleware)
   - [User Logout](#user-logout)
-    - [ASP.NET Core: Implement the Logout](#asp-net-core-implement-the-logout)
   - [Access Control](#access-control)
+    - [Refresh the authorization related claims](#refresh-the-authorization-related-claims)
     - [Install the Authorization Extension](#install-the-authorization-extension)
-    - [ASP .NET Core: Implement Admin permissions](#asp-net-core-implement-admin-permissions)
 
 ## The Premise
 
@@ -294,7 +292,7 @@ Auth0 manages its own single-sign-on session. Applications can choose to honor o
 If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new `id_token`, which can be used to then manage the new local application session.
 :::
 
-See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/login-aspnetcore)
+See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/login-aspnetcore).
 
 ### User Logout
 
@@ -315,7 +313,7 @@ The logout flow (not including federated logout) is as follows:
 1. __Clear SSO Cookie__: Auth0 will clear the user's SSO Cookie.
 1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` querystring parameter.
 
-See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/logout-aspnetcore)
+See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/logout-aspnetcore).
 
 ### Access Control
 
@@ -345,7 +343,7 @@ When you install the Authorization Extension, it creates a rule in the backgroun
 1. Add the user's group membership to the outgoing token.
 1. Verify that the user has been granted access to the current application.
 
-::: panel-info Retrieve updated authorization related claims
+#### Refresh the authorization related claims
 In the scenario described in this document, the web app does not handle its own authorization, but instead Auth0 delivers the authorization claims. User group membership is retrieved from the Active Directory and passed in the web app as claims in the `id_token`.
 There is a scenario where after a user has logged in and the app has parsed and applied the access control granted by the claims contained in the `id_token`, the user's right change. For example, the user leaves the company (so all access should be revoked) or get's Admin privileges. What we want in this scenario is to propagate these access control changes at our app at the soonest possible.
 
@@ -356,7 +354,6 @@ In this case the developer can pick one of the following solution to this proble
 The question on how often this should be triggered depends on the specific use case, and to answer that you need to consider items like how often the user profile data change and how crucial it is to propagate these changes to your web app as fast as possible. This way you can decide on the time interval you want to propagate this change and configure your web app to refresh the authorization claims based on that. Of course, if a user knows their rights changed (for example, they can now approve timesheets), but the application isn't reflecting this quickly enough, they can just log back out and log in again.  This will force an new `id_token` to be issued, with a corresponding query to Active Directory for the latest information.
 
 For more information on how to retrieve and use a refresh token refer to [Refresh Tokens](/tokens/refresh-token).
-:::
 
 #### Install the Authorization Extension
 
@@ -400,4 +397,4 @@ When you installed the Authorization Extension, it also created an Auth0 rule wh
 
 In your application you will therefore need to decode the ID Token returned when a user is authenticated, and extract the groups which a user belongs to from the `authorization` claim. You can then store these groups, along with other user information inside the user's session, and subsequently query these to determine whether a user has permissions to perform a certain action based on their group membership.
 
-See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/authorization-aspnetcore)
+See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/authorization-aspnetcore).
