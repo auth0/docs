@@ -24,7 +24,7 @@ snippets:
   rulesAdminService: server-platforms/java-spring-security/rulesAdminService
   rulesHomeController: server-platforms/java-spring-security/rulesHomeController
   rulesHomeJsp: server-platforms/java-spring-security/rulesHomeJsp
-default_article: 01-login
+default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login

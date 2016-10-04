@@ -1,8 +1,8 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 PHP SDK to add authentication and authorization to your web app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 PHP SDK to add authentication and authorization to your web app
 ---
-
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-php-web-app',
@@ -23,15 +23,13 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_signup') %>
 
-**Otherwise, Please follow the steps below to configure your existing PHP WebApp to use it with Auth0.**
-
-### 1. Add Needed dependencies
+## Add the Dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
-### 2. Configure Auth0 PHP Plugin
+## Configure Auth0 PHP Plugin
 
 ```php
 use Auth0\SDK\Auth0;
@@ -44,7 +42,7 @@ $auth0 = new Auth0(array(
 ));
 ```
 
-### 3. Add Auth0 callback handler
+## Add Auth0 Callback Handler
 
 Now, we can call `$auth0->getUser()` to retrieve the user information. If we call it from the page that will handle the callback, then it'll use the `code` provided by Auth0 to get the information after the successful login.
 
@@ -74,13 +72,13 @@ In this case, the redirectUrl should look something like:
 http://yourUrl/callback.php
 ```
 
-### 4. Triggering login manually or integrating the Auth0Lock
+## Triggering Login Manually or Integrating Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
-### 5. Accessing user information
+## Accessing User Information
 
 You can access the user information via the `getUser` method from Auth0
 
@@ -97,10 +95,6 @@ $userInfo = $auth0->getUser();
 ```
 
 You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of these depend on the social provider being used.
-
-### 6. You are done!
-
-You have configured your PHP Webapp to use Auth0. Congrats, you're awesome!
 
 ### Optional steps
 

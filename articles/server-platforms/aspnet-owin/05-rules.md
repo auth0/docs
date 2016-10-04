@@ -1,6 +1,6 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use Auth0 rules to extend what Auth0 has to offer.
 ---
 
 <%= include('../../_includes/_package2', {

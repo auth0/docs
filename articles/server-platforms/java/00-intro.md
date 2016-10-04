@@ -1,6 +1,6 @@
 ---
 title: Introduction
-description: This tutorial will show you how to use the Auth0 Java SDK to add authentication and authorization to your web app.
+description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your web app
 ---
 <%= include('../../_includes/_signup') %>
 
@@ -11,7 +11,9 @@ Auth0 provides and manages a [Servlet SDK](https://github.com/auth0/auth0-servle
 __NOTE:__ You can find a listing of all our Java offerings and several sample projects in [Java technologies and Auth0 libraries](/java-overview).
 
 
-## Seed &amp; Samples
+## Sample Projects
+
+<%= include('_includes/_prerequisite') %>
 
 There are two options to following along this quickstart. You can either download the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) or the samples provided at each page of this quickstart.
 
@@ -19,7 +21,7 @@ The seed is a regular java app, with all the Auth0 dependencies set, but nothing
 
 Instead you can choose to follow the samples that are included in each step. Each sample uses the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) as a starting point and applies to it the configuration of each step, so for example the Login sample would be the [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) plus the configuration required to implement login functionality. If you choose to follow this approach continue reading, the rest of this document will guide you through setting up the required prerequisites.
 
-### Seed project structure
+### Seed Project Structure
 
 Let's take some time and explain how our [seed project](https://github.com/auth0-samples/auth0-servlet-sample/tree/master/00-Starter-Seed) is structured.
 
@@ -51,59 +53,12 @@ The project contains also three servlets:
 - `LogoutServlet.java`: Invoked when the user clicks the logout link. The servlet invalidates the user session and redirects the user to the URL specified by the parameter `auth0.onLogoutRedirectTo`. We will cover what this parameter is and how it is set later on in this document.
 
 
-## Create an application
+## Create an Application
 
 <%= include('../../_includes/_java_new_app') %>
 
 ![App Dashboard](/media/articles/java/app_dashboard.png)
 
-
-## Configure callback URLs
-
-Callback URLs are URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and attaches some details to it including a token. Callback URLs can be manipulated on the fly and that could be harmful. For security reasons, you will need to add your application's URL in the app's `Allowed Callback URLs`. This will enable Auth0 to recognize the URLs as valid. If omitted, authentication will not be successful for the app instance.
-
-![Callback error](/media/articles/java/callback_error.png)
-
-If you follow our seed project or the samples based on it, the values you must configure are:
-- Allowed Callback URL: `http://localhost:3099/callback`
-- Allowed Logout URLs: `http://localhost:3099/logout`
-
-
-## Setup dependencies
-
-To integrate your Java application with Auth0 you need to add the following dependencies:
-
-- [auth0-servlet](https://github.com/auth0/auth0-servlet): is the Java library that allows you to use Auth0 with Java for server-side MVC web apps. It validates the [JWT](/jwt) from Auth0 in every API call to assert authentication according to configuration.
-
-If you are using maven, add the dependency to your `pom.xml`:
-
-${snippet(meta.snippets.dependencies)}
-
-If you are using Gradle, add it to the dependencies block:
-
-${snippet(meta.snippets.dependenciesGradle)}
-
-
-## Configure your java app
-
-Your java app needs some information in order to authenticate against your Auth0 account. You need to set this information at the deployment descriptor file `src/main/webapp/WEB-INF/web.xml`. The required information is:
-
-${snippet(meta.snippets.setup)}
-
-As you can see in the seed project, there are many customizable attributes in the `web.xml`.
-
-| Attribute | Description|
-| --- | --- |
-| `auth0.domain` | Your auth0 domain. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
-| `auth0.issuer` | The issuer of the JWT Token. This is typically your auth0 domain with a `https://` prefix and a `/` suffix. For example, if your `auth0.domain` is `example.auth0.com` then the `auth0.issuer` should be set to `https://example.auth0.com/` (the trailing slash is important). |
-| `auth0.clientId` | The unique identifier for your client. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
-| `auth0.clientSecret` | The secret used to sign and validate the tokens that will be used in the different authentication flows. You can find the correct value on the Settings tab of your client on the [dashboard](${manage_url}/#/applications). * |
-| `auth0.onLogoutRedirectTo` | The page that users of your site are redirected to on logout. Should start with `/`. |
-| `auth0.redirect_on_success` | The landing page URL context path for a successful authentication. Should start with `/`. |
-| `auth0.redirect_on_error` | The URL context path for the page to redirect to upon failure. Should start with `/`. |
-| `auth0.redirect_on_authentication_error` | The URL context path for the page to redirect to upon authentication failure. Should start with `/`. |
-
-**NOTE**: If you download the seed using our **Download Sample** button then the `domain`, `clientId` and `clientSecret` attributes will be populated for you, unless you are not logged in or you do not have at least one registered client. In any case you should verify that the values are correct if you have multiple clients in your account and you might want to use another than the one we set the information for. Do not forget to manually set the `issuer` attribute!
-
+<%= include('_includes/_setup') %>
 
 You are now ready to continue with [login](/quickstart/webapp/java/01-login) tutorial in order to implement basic login using [Lock](/libraries/lock).

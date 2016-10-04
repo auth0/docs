@@ -11,7 +11,7 @@ description: This tutorial demonstrates how assign roles to your users and how t
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in the token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider supplies this type of information. Fortunately, Auth0 has an alternative, which is to create a rule for assigning different roles to different users.
 
-## 1. Create a Rule to Assign Roles
+## Create a Rule to Assign Roles
 
 First, create a rule that assigns users to either an `admin` role or a single `user` role. Go to the [New Rule](https://manage.auth0.com/#/rules/new) page on the Auth0 dashboard and select the "Set Roles to a User" template under Access Control.
 
@@ -19,7 +19,7 @@ By default, this rule will assign the user an `admin` role if the user’s email
 
 > **NOTE:** The authorization rule can be customized as needed and is not limited to setting roles of `admin` and `user`.
 
-## 2. Check if a User's Role is Present
+## Check if a User's Role is Present
 
 Create a new file called `requireRole.js`. This file will contain a middleware that will be used to check for the existence of a role in a user's `app_metadata`. Since `app_metadata` is readonly for users, they are not able to manipulate their own authorization level.
 
@@ -40,7 +40,7 @@ module.exports = function requireRole(role) {
 }
 ```
 
-## 3. Restrict Routes Based on the User's Roles
+## Restrict Routes Based on the User's Roles
 
 To demonstrate how to restrict access to certain routes based on a user's roles, you can update the `routes/index.js` to include an `/admin` route and use the `requireRole` middleware on it.
 

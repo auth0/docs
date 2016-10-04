@@ -13,7 +13,9 @@ description: This tutorial will show you how to display get the user's profile a
   pkgType: 'replace'
 }) %>
 
-## Getting the profile
+<%= include('../../_includes/_signup') %>
+
+## Getting the Profile
 
 As mentioned in the previous step, the OIDC middleware will automatically extract the user's information from the ID Token and add it as claims to the `ClaimsIdentity`. 
 
@@ -79,7 +81,7 @@ Next create a view. For the view, display a user profile card at the top with th
 
 Now when you log in and then go to the URL `/Account/Profile` you will see all the users's profile displayed.
 
-## Displaying the user's name in the navigation bar
+## Displaying the User's Name in the Navigation Bar
 
 You may also want to put a link in the top navigation bar to display the user's name, and when the user clicks on that you can navigate them to their Profile page.
 

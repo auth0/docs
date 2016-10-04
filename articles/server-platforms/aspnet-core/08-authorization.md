@@ -13,9 +13,11 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgType: 'replace'
 }) %>
 
+<%= include('../../_includes/_signup') %>
+
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
 
-## Restrict an action based on a user's roles
+## Restrict an Action Based on a User's Roles
 
 As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also maps roles correctly. 
 

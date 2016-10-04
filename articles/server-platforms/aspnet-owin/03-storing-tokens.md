@@ -1,6 +1,6 @@
 ---
 title: Storing Tokens
-description: This tutorial will show you how store the tokens returned from Auth0 in order to use them later on.
+description: This tutorial demonstrates how store the tokens returned from Auth0 in order to use them later on.
 ---
 
 <%= include('../../_includes/_package2', {

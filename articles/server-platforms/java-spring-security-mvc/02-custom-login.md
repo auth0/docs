@@ -1,14 +1,7 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to use the Auth0 library to add custom authentication and authorization to your web app.
+description: This tutorial demonstrates how to use the Auth0 library to add custom authentication and authorization to your web app
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Java 1.8
-* Maven 3.3
-:::
 
 <%= include('../../_includes/_package', {
 githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/02-Custom-Login',
@@ -20,12 +13,13 @@ pkgFilePath: '02-Custom-Login/src/main/resources/auth0.properties',
 pkgType: 'replace'
 }) %>
 
+<%= include('../../_includes/_signup') %>
 
 The previous step explains how to login but with the [Lock](/libraries/lock) widget. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
 
 In our example we will configure a custom database connection to use with our custom login. We will also keep on building on our previous example, the one using Lock. We will add a flag that when set the custom login will be used, while when unset Lock will be used. This is completely optional of course, you can configure your own web app to use only custom login if this is what you want.
 
-## Create a database connection
+## Create a Database Connection
 
 First we will create a new database connection and we will name it `custom-login-DB`. We will use Auth0 database infrastructure to store our users.
 
@@ -52,7 +46,7 @@ Head back to [Connections > Database](${manage_url}/#/connections/database) and 
 **NOTE:** You can add also social connections. To do so you need to create the relevant button in your login form and the javascript to specify which connection to use, for example `google-oauth2`, `github`, etc. You can find details and some sample code on the [auth0.js](/libraries/auth0js#login) document.
 
 
-## Create custom login
+## Create Custom Login
 
 Since we decided to keep Lock as well, we will leave `login.jsp` as is and we will create a new file named `loginCustom.jsp`. Here is the code:
 
@@ -84,8 +78,7 @@ Notice the last line. It checks the value of the `auth0.customLogin` and returns
 
 We have also added code to retrieve the connection name, the value of the `auth0.connection` property: `model.put("connection", appConfig.getConnection());`. This is the method we added in the previous step in the `AppConfig` class.
 
-
-## Test the app
+## Test the App
 
 We are now ready to test the application! 
 
@@ -96,9 +89,5 @@ You should see the custom login page, instead of Lock.
 ![Custom Login](/media/articles/java/custom_login_form.png)
 
 Enter the credentials of the user you created earlier to test the login.
-
-## Done!
-
-That's it, you are done! You have implemented login without using Lock.
 
 
