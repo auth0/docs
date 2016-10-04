@@ -252,7 +252,7 @@ By default, Lock will display all the connections available for login. Selecting
 
 You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
 
-- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](https://auth0.com/docs/api/authentication#!#get--authorize_db) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`. 
+- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](https://auth0.com/docs/api/authentication#!#get--authorize_db) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`.
 
   There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 
@@ -287,7 +287,7 @@ The login flow is as follows:
 1. __Auth cookie sent with every subsequent request__: The application authentication cookie will be sent on every subsequent request as proof that the user is authenticated.
 
 ::: panel-info How does Auth0's SSO session impact the application's session?
-Auth0 manages its own single-sign-on session. Applications can choose to honor or ignore that SSO session when it comes to maintaining their own local session. The Lock widget even has a special feature where it can detect if an Auth0 SSO session exists and ask the user if they wish to log in again as that same user. 
+Auth0 manages its own single-sign-on session. Applications can choose to honor or ignore that SSO session when it comes to maintaining their own local session. The Lock widget even has a special feature where it can detect if an Auth0 SSO session exists and ask the user if they wish to log in again as that same user.
 
 ![Lock Widget SSO](/media/articles/architecture-scenarios/web-app-sso/sso-login.png)
 
@@ -313,7 +313,7 @@ The logout flow (not including federated logout) is as follows:
 1. __Clear user’s local session__: The user's Application Session / Cookie will be cleared.
 1. __Redirect browser to Auth0 Logout__: The user's browser will be redirected to the Auth0 Logout URL.
 1. __Clear SSO Cookie__: Auth0 will clear the user's SSO Cookie.
-1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` querystring parameter. 
+1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` querystring parameter.
 
 See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/logout-aspnetcore)
 
@@ -347,7 +347,7 @@ When you install the Authorization Extension, it creates a rule in the backgroun
 
 ::: panel-info Retrieve updated authorization related claims
 In the scenario described in this document, the web app does not handle its own authorization, but instead Auth0 delivers the authorization claims. User group membership is retrieved from the Active Directory and passed in the web app as claims in the `id_token`.
-There is a scenario where after a user has logged in and the app has parsed and applied the access control granted by the claims contained in the `id_token`, the user's right change. For example, the user is fired (so all access should be revoked) or get's Admin privileges. What we want in this scenario is to propagate these access control changes at our app at the soonest possible.
+There is a scenario where after a user has logged in and the app has parsed and applied the access control granted by the claims contained in the `id_token`, the user's right change. For example, the user leaves the company (so all access should be revoked) or get's Admin privileges. What we want in this scenario is to propagate these access control changes at our app at the soonest possible.
 
 In this case the developer can pick one of the following solution to this problem:
 - The web app falls back on the Auth0 SSO session when it wants to refresh the `id_token` by performing another authorization flow with Auth0.
