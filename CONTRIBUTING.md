@@ -461,7 +461,7 @@ These values can be replaced in any file in the repo. Common examples of where y
 | `DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
 | `TENANT` | `{TENANT}` | The tenant name of the currentAuth0 account.
 | `CALLBACK_URL` | `{CALLBACK_URL}` |  This sets the callback url for the application. |
-| `MOBILE_CUSTOM_SCHEME` | `{{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
 | `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
 
