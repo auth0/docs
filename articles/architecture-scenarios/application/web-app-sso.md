@@ -174,9 +174,9 @@ The main characteristics of a Client in Auth0 are:
 
 ABC's scenario involves only one application: the timesheets web app. Hence we have to configure one Client at Auth0 side.
 
-To register a database connection, go to the [dashboard](${manage_url}){:target="_blank"} and in the side navigation select [Clients](${manage_url}/#/clients).
+To register a database connection, go to the [dashboard](${manage_url}) and in the side navigation select [Clients](${manage_url}/#/clients).
 
-Click on the button __+ Create Client__. You will be prompted for the name and the type of the client. We will name our client `Timesheet-App` and select `Regular Web Applications` as the client type. Click .
+Click on the button __+ Create Client__. You will be prompted for the name and the type of the client. We will name our client `Timesheet-App` and select `Regular Web Applications` as the client type.
 
 ![Create Client Dialog Box](/media/articles/architecture-scenarios/web-app-sso/new-client.png)
 
