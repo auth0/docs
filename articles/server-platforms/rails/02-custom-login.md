@@ -97,7 +97,7 @@ end
 To call the API methods using the Auth0 Ruby SDK, you need to initialize an auth0 client instance. Add the following code in your Application Controller (`controllers/application_controller.rb`):
 
 ```ruby
-def auth_client
+def auth0_client
   creds = { client_id: Rails.application.secrets.auth0_client_id,
             client_secret: Rails.application.secrets.auth0_client_secret,
             api_version: 1,
