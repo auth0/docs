@@ -61,8 +61,8 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 - [defaultEnterpriseConnection](#defaultenterpriseconnection-string-)
 
 **Other Options**:
-- [clientBaseUrl]()
-- [languageBaseUrl]() 
+- [clientBaseUrl](#clientbaseurl-string-)
+- [languageBaseUrl](#languagebaseurl-string-) 
 
 ---
 
