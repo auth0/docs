@@ -252,12 +252,13 @@ By default, Lock will display all the connections available for login. Selecting
 
 You may however want to avoid that first step, where the user needs to choose the Identity Provider (IdP), and have the system identify it instead of asking every time. Lock offers you the following options:
 
-- __Identity the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. Using Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`. There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
+- __Identify the IdP programatically__: When you initiate an authentication transaction with Auth0 you can optionally send a `connection` parameter. This value maps directly with any connection defined in your dashboard. When using the Hosted version of Lock by calling the [`/authorize`](https://auth0.com/docs/api/authentication#!#get--authorize_db) endpoint, you can pass along a `connection` query string parameter containing the name of the connection. Alternatively, if you are using Embedded Lock, this is as simple as writing `auth0.show({connections: ['YOUR_CONNECTION']});`. 
+
+  There are multiple practical ways of getting the `connection` value. One of them is to use __vanity URLs__: for example, company employees will use `https://internal.yoursite.com`, while external contractors will use `https://external.yoursite.com`.
 
 - __Use email domains__: Lock can use email domains as a way of routing authentication requests. Enterprise connections in Auth0 can be mapped to `domains`. If a connection has this setup, then the password textbox gets disabled automatically when typing an e-mail with a mapped domain. Note that you can associate multiple domains to a single connection.
 
 For additional information on this topic refer to: [Selecting the connection in Auth0 for multiple login options](/libraries/lock/v10/selecting-the-connection-for-multiple-logins).
-
 
 ### Session Management
 
@@ -271,20 +272,26 @@ When developing a web application, you will therefore need to keep track of the 
 
 ::: panel-info How do I control the duration of the user's local application session? Can I drive that from Auth0?
 The web app has full control over the user's local application session. How this is done usually depends on the web stack being used (for example, ASP.NET). Regardless, all approaches ultimately use one or more cookies to control the session. The developer can choose to use the expiration of the JWT `id_token` returned by Auth0 to control their session duration or ignore it completely. Some developers store the `id_token` itself in session state and end the user's session when it has expired.
+
+The reason why you would use the expiration of the token to determine the expiration of the local session is because it gives you centralized control of the duration of a user session from the Auth0 Dashboard.
 :::
 
 The login flow is as follows:
 
 ![Login Flow Diagram](/media/articles/architecture-scenarios/web-app-sso/login-flow.png)
 
-1. The user's browser will send a request to Auth0 to initiate the OIDC flow.
-1. Auth0 will set a cookie to store the user's information.
-1. Auth0 will make a request back to the web server and return the code. The web server will exchange the code for an ID token.
-1. The web server will send a response back to the browser and set the application authentication cookie to store the user's session information.
-1. The application authentication cookie will be sent on every subsequent request as proof that the user is authenticated.
+1. __Initiate OIDC Authentication Flow__: The user's browser will send a request to Auth0 to initiate the OIDC flow.
+1. __Set SSO Cookie__: Auth0 will set a cookie to store the user's information.
+1. __Code exchange and return ID Token__: Auth0 will make a request back to the web server and return the code. The web server will exchange the code for an ID token.
+1. __Set auth cookie and send response__: The web server will send a response back to the browser and set the application authentication cookie to store the user's session information.
+1. __Auth cookie sent with every subsequent request__: The application authentication cookie will be sent on every subsequent request as proof that the user is authenticated.
 
 ::: panel-info How does Auth0's SSO session impact the application's session?
-Auth0 manages its own single-sign-on session. Applications can choose to honor or ignore that SSO session when it comes to maintaining their own local session. The Lock widget even has a special feature where it can detect if an Auth0 SSO session exists and ask the user if they wish to log in again as that same user. If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new `id_token`, which can be used to then manage the new local application session.
+Auth0 manages its own single-sign-on session. Applications can choose to honor or ignore that SSO session when it comes to maintaining their own local session. The Lock widget even has a special feature where it can detect if an Auth0 SSO session exists and ask the user if they wish to log in again as that same user. 
+
+![Lock Widget SSO](/media/articles/architecture-scenarios/web-app-sso/sso-login.png)
+
+If they do so, they are signed in without having to re-enter their credentials with the actual IDP.  Even though the user didn't authenticate, the application still performs an authentication flow with Auth0 and obtains a new `id_token`, which can be used to then manage the new local application session.
 :::
 
 #### ASP.NET Core: Configure the Cookie and OIDC Middleware
@@ -371,10 +378,11 @@ The logout flow (not including federated logout) is as follows:
 
 ![Logout Flow Diagram](/media/articles/architecture-scenarios/web-app-sso/logout-flow.png)
 
-1. The logout flow will be initiated from the browser and a logout request will be sent to Auth0.
-1. The user will be logged out of Auth0 and the SSO cookie will be cleared.
-1. Auth0 will redirect back to the post-logout URL on the web server.
-1. The web server will clear the cookie and send a response back to the user, typically redirecting the user to the application's home page or login screen.
+1. __Initiate Logout Flow__: The logout flow will be initiated from the browser, for example by the user clicking a _Logout_ link. A request will be made to the web server.
+1. __Clear user’s local session__: The user's Application Session / Cookie will be cleared.
+1. __Redirect browser to Auth0 Logout__: The user's browser will be redirected to the Auth0 Logout URL.
+1. __Clear SSO Cookie__: Auth0 will clear the user's SSO Cookie.
+1. __Redirect to post-logout URL__: Auth0 will return a redirect response and redirect the user's browser to the `returnTo` querystring parameter. 
 
 #### ASP.NET Core: Implement the Logout
 
@@ -480,17 +488,9 @@ With the mapping configured you only need to maintain membership to the `Timeshe
 
 For more information refer to the [Authorization Extension documentation](/extensions/authorization-extension).
 
-#### ASP .NET Core: Implement Admin permissions
+#### Enforce permissions in your application
 
-The easiest way to integrate the groups into an ASP.NET Core application is to user the built-in [Role based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core.
-
-In order to achieve this we will need to add a Claim of type `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` for each of the groups a user is assigned to.
-
-Once the claims has been added we can easily ensure that a specific action is available only to `Admin` users by decorating the claim with the `[Authorize(Roles = "Admin")]` attribute.
-
-You can also check whether a user is in a specific role from code by making a call to `User.IsInRole("Admin")` from inside your controller.
-
-When a user signs in, the Authorization Extension will add the list of Roles to an `authorization` claim in the JWT which is returned by Auth0. This is an example of a JWT returned from Auth0:
+When you installed the Authorization Extension, it also created an Auth0 rule which will add an `authorization` claim with all the authorization related settings for a particular user. The groups for a user will be added as a sub-claim of the `authorization` claim called `groups` and all the groups a user belongs to will be added as an array to this claim. This is an example of what JSON payload of a ID token may look like with the groups listed:
 
 ```json
 {
@@ -501,6 +501,21 @@ When a user signs in, the Authorization Extension will add the list of Roles to 
   }
 }
 ```
+
+In your application you will therefore need to decode the ID Token returned when a user is authenticated, and extract the groups which a user belongs to from the `authorization` claim. You can then store these groups, along with other user information inside the user's session, and subsequently query these to determine whether a user has permissions to perform a certain action based on their group membership.
+
+#### ASP .NET Core: Implement Admin permissions
+
+The easiest way to integrate the groups into an ASP.NET Core application is to user the built-in [Role based Authorization](https://docs.asp.net/en/latest/security/authorization/roles.html) available in ASP.NET Core. In order to achieve this we will need to add a Claim of type
+
+``` 
+http://schemas.microsoft.com/ws/2008/06/identity/claims/role
+```
+
+for each of the groups a user is assigned to.
+
+Once the claims has been added we can easily ensure that a specific action is available only to `Admin` users by decorating the claim with the `[Authorize(Roles = "Admin")]` attribute. You can also check whether a user is in a specific role from code by making a call to `User.IsInRole("Admin")` from inside your controller.
+
 The ASP.NET OIDC middleware will automatically add all claims returned in the JWT as claims to the `ClaimsIdentity`. We would therefore need to extract the information from the `authorization` claim, deserialize the JSON body of the claim, and for each of the groups add a `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` claim to the `ClaimsIdentity`.
 
 ```csharp
