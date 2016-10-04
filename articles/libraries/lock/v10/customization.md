@@ -60,6 +60,9 @@ var lock = new Auth0Lock('clientID', 'account.auth0.com', options);
 **Enterprise Options**:
 - [defaultEnterpriseConnection](#defaultenterpriseconnection-string-)
 
+**Other Options**:
+- [clientBaseUrl]()
+- [languageBaseUrl]() 
 
 ---
 
@@ -732,6 +735,30 @@ Allows for Realm discovery by `AD`, `LDAP` connections. Defaults to `true`.
 // input of credentials
 var options = {
   integratedWindowsLogin: false
+};
+```
+
+---
+
+## Other Options
+
+### clientBaseUrl {String}
+
+Can be defined with a URL to override client settings base url. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. Otherwise, it uses the provided domain.
+
+```js
+var options = {
+  clientBaseUrl: "http://www.example.com"
+};
+```
+
+### languageBaseUrl {String}
+
+Overrides the language source url for Auth0's provided translations. By default it uses to Auth0's CDN URL https://cdn.auth0.com. By providing another value, you can use another source for the language translations as needed.
+
+```js
+var options = {
+  languageBaseUrl: "http://www.example.com"
 };
 ```
 
