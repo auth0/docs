@@ -77,13 +77,13 @@ Before you begin, you will need the ARN for your Gateway API:
 3. Click on any of the Methods associated with the API to bring up the *Method Execution* page.
 4. On the *Method Execution* page, the *Method Request* box in the top left corner displays the **ARN** for the API, though it includes the Method name:
 
-  `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/POST/`
+`arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/POST/`
 
-  You'll strip the method name to get the base ARN for the API:
+You'll strip the method name to get the base ARN for the API:
 
-  `arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/`
+`arn:aws:execute-api:us-east-2:484857107747:97i1dwv0j4/*/`
 
-  The wildcard (`*`) in the ARN above enables permissions to your API for all stages, but you can deploy different stages individually (for example, development, then test, then production).
+The wildcard (`*`) in the ARN above enables permissions to your API for all stages, but you can deploy different stages individually (for example, development, then test, then production).
 
 :::
 

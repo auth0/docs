@@ -63,30 +63,30 @@ Select the role you just created, **APIGatewayLambdaExecRole**. Click the down a
 
 Select *Custom Policy*, and then click **Select**. Name the policy `LogAndDynamoDBAccess` and add the following code as the policy document (be sure to first update the Amazon Resource Name (ARN) for your DynamoDB table). Click **Apply Policy**.
 
-    ```json
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "AccessCloudwatchLogs",
-          "Action": ["logs:*"],
-          "Effect": "Allow",
-          "Resource": "arn:aws:logs:*:*:*"
-        },
-        {
-          "Sid": "PetsDynamoDBReadWrite",
-                      "Effect": "Allow",
-          "Action": [
-                      "dynamodb:DeleteItem",
-                      "dynamodb:GetItem",
-                      "dynamodb:PutItem",
-                      "dynamodb:UpdateItem"
-                      ],
-          "Resource": ["DYNAMODB_TABLE_ARN_VALUE_FROM_PREVIOUS_STEP"]
-        }
-       ]
+      "Sid": "AccessCloudwatchLogs",
+      "Action": ["logs:*"],
+      "Effect": "Allow",
+      "Resource": "arn:aws:logs:*:*:*"
+    },
+    {
+      "Sid": "PetsDynamoDBReadWrite",
+                  "Effect": "Allow",
+      "Action": [
+                  "dynamodb:DeleteItem",
+                  "dynamodb:GetItem",
+                  "dynamodb:PutItem",
+                  "dynamodb:UpdateItem"
+                  ],
+      "Resource": ["DYNAMODB_TABLE_ARN_VALUE_FROM_PREVIOUS_STEP"]
     }
-    ```
+   ]
+}
+```
 
 ![Create Custom Policy](/media/articles/integrations/aws-api-gateway/part-1/custom-policy.png)
 
@@ -113,28 +113,28 @@ Populate the appropriate fields with the following information:
 
 Paste the following code to read pet information from the DynamoDB table into the **Lambda function code** area.
 
-    ```js
-    var AWS = require('aws-sdk');
-    var DOC = require('dynamodb-doc');
-    var dynamo = new DOC.DynamoDB();
+```js
+var AWS = require('aws-sdk');
+var DOC = require('dynamodb-doc');
+var dynamo = new DOC.DynamoDB();
 
-    exports.handler = function(event, context) {
-       var cb = function(err, data) {
-          if(err) {
-             console.log('error on GetPetsInfo: ',err);
-             context.done('Unable to retrieve pet information', null);
-          } else {
-             if(data.Item && data.Item.pets) {
-                 context.done(null, data.Item.pets);
-             } else {
-                  context.done(null, {});
-             }
-          }
-       };
+exports.handler = function(event, context) {
+   var cb = function(err, data) {
+      if(err) {
+         console.log('error on GetPetsInfo: ',err);
+         context.done('Unable to retrieve pet information', null);
+      } else {
+         if(data.Item && data.Item.pets) {
+             context.done(null, data.Item.pets);
+         } else {
+              context.done(null, {});
+         }
+      }
+   };
 
-       dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, cb);
-    };
-    ```
+   dynamo.getItem({TableName:"Pets", Key:{username:"default"}}, cb);
+};
+```
 
 For *Role*, select *APIGatewayLambdaExecRole*. Leave all other settings at their default values.
 
@@ -150,39 +150,39 @@ Click **Test**, leaving the *Input test event* at its default (which uses the He
 
 Repeat the instructions used to create the `GetPetInfo` function, but use the following instead as the function code:
 
-    ```js
-    var AWS = require('aws-sdk');
-    var DOC = require('dynamodb-doc');
-    var dynamo = new DOC.DynamoDB();
-    exports.handler = function(event, context) {
-        var item = { username:"default",
-                     pets: event.pets || {}
-                };
+```js
+var AWS = require('aws-sdk');
+var DOC = require('dynamodb-doc');
+var dynamo = new DOC.DynamoDB();
+exports.handler = function(event, context) {
+    var item = { username:"default",
+                 pets: event.pets || {}
+            };
 
-        var cb = function(err, data) {
-            if(err) {
-                console.log(err);
-                context.fail('unable to update pets at this time');
-            } else {
-                console.log(data);
-                    context.done(null, data);
-            }
-        };
-        dynamo.putItem({TableName:"Pets", Item:item}, cb);
+    var cb = function(err, data) {
+        if(err) {
+            console.log(err);
+            context.fail('unable to update pets at this time');
+        } else {
+            console.log(data);
+                context.done(null, data);
+        }
     };
-    ```
+    dynamo.putItem({TableName:"Pets", Item:item}, cb);
+};
+```
 
 Test the function by clicking the *Actions* drop-down and choosing **Configure sample event**. Enter the following for sample data and click **Submit**:
 
-    ```json
-    {
-    	"pets": [{
-    		"id": 1,
-    		"type": "dog",
-    		"price": 249.99
-    	}]
-    }
-    ```
+```json
+{
+	"pets": [{
+		"id": 1,
+		"type": "dog",
+		"price": 249.99
+	}]
+}
+```
 
 You should see an empty return result (`{}`).
 
@@ -196,11 +196,11 @@ You will create one additional Lambda function. While this function will do noth
 
 Using the steps described above, create a Lambda function named `NoOp`. The function's code will be as follows:
 
-    ```js
-    exports.handler = function(event, context) {
-        context.succeed('');
-    }
-    ```
+```js
+exports.handler = function(event, context) {
+    context.succeed('');
+}
+```
 
 > Instead of creating this third Lambda function, you may choose to [create an OPTIONS method](#method-options) on the API Gateway.
 
@@ -272,13 +272,13 @@ Click **Save** and then **OK** when prompted in the popup to grant permissions t
 
 **Test**, and paste the following for the request body:
 
-    ```js
-    {"pets": [
-        {"id": 1, "type": "dog", "price": 249.99},
-        {"id": 2, "type": "cat", "price": 124.99}
-      ]
-    }
-    ```
+```js
+{"pets": [
+    {"id": 1, "type": "dog", "price": 249.99},
+    {"id": 2, "type": "cat", "price": 124.99}
+  ]
+}
+```
 
 ![Post Method Request Test](/media/articles/integrations/aws-api-gateway/part-1/post-method-request-test.png)
 
