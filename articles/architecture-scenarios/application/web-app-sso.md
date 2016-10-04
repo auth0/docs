@@ -343,13 +343,23 @@ When you install the Authorization Extension, it creates a rule in the backgroun
 1. Add the user's group membership to the outgoing token.
 1. Verify that the user has been granted access to the current application.
 
+
 #### Refresh the authorization related claims
+
 In the scenario described in this document, the web app does not handle its own authorization, but instead Auth0 delivers the authorization claims. User group membership is retrieved from the Active Directory and passed in the web app as claims in the `id_token`.
-There is a scenario where after a user has logged in and the app has parsed and applied the access control granted by the claims contained in the `id_token`, the user's right change. For example, the user leaves the company (so all access should be revoked) or get's Admin privileges. What we want in this scenario is to propagate these access control changes at our app at the soonest possible.
+
+There are some scenarios however when you might need to refresh the user's authorization claims. For example:
+- The user leaves the company so all access should be revoked.
+- The user receives Admin privileges and you want this change to be propagated quickly.
+- You consider the timesheets approval process a sensitive one, so each time a user tries to approve an entry, you want to verify that the user indeed has the admin rights required.
+
+In all these scenarios, the user is already logged in so the app has parsed and applied the access control granted by the claims contained in the `id_token`, but you want to refresh these access control related claims.
 
 In this case the developer can pick one of the following solution to this problem:
-- The web app falls back on the Auth0 SSO session when it wants to refresh the `id_token` by performing another authorization flow with Auth0.
-- When performing the initial authorization flow, the web app requests a `refresh_token`. Then when it determines that a session needs to be refreshed, it uses the `refresh_token` on the backend to obtain a new `id_token`. This will result in re-querying the Active Directory, get the updated information, which would include any new groups the user has been added to since the last time, and sending this information to the web app as part of the `id_token` claims.
+
+- The web app falls back on the Auth0 SSO session when it wants to refresh the `id_token` by performing another authorization flow (`/authorize` endpoint) with Auth0.
+
+- When performing the initial authorization flow, the web app requests a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The `refresh_token` is stored in session, alongside with the `id_token`. Then when a session needs to be refreshed (a timeframe has passed or the user tries to approve a timesheet), the app uses the `refresh_token` on the backend to obtain a new `id_token`, using the `/oauth/token` endpoint with `grant_type=refresh_token`. This will result in re-querying the Active Directory, get the updated information, which would include any new groups the user has been added to since the last time, and sending this information to the web app as part of the `id_token` claims.
 
 The question on how often this should be triggered depends on the specific use case, and to answer that you need to consider items like how often the user profile data change and how crucial it is to propagate these changes to your web app as fast as possible. This way you can decide on the time interval you want to propagate this change and configure your web app to refresh the authorization claims based on that. Of course, if a user knows their rights changed (for example, they can now approve timesheets), but the application isn't reflecting this quickly enough, they can just log back out and log in again.  This will force an new `id_token` to be issued, with a corresponding query to Active Directory for the latest information.
 
