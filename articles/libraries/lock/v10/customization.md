@@ -744,7 +744,7 @@ var options = {
 
 ### clientBaseUrl {String}
 
-This option can overr URL to override client settings base url. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
+This option can overr URL to override client settings base URL. By default, it uses Auth0's CDN URL when the domain has the format `*.auth0.com`. For example, if your URL is `contoso.eu.auth0.com`, then by default, the `clientBaseUrl` is `cdn.eu.auth0.com`. If the `clientBaseUrl` option is set instead, it uses the provided domain. This would only be necessary if your specific use case dictates that your client not use the default behavior.
 
 ```js
 var options = {
