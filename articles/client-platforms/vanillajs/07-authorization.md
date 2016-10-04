@@ -3,14 +3,10 @@ title: Authorization
 description: This tutorial demonstrates how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-javascript-spa',
+  path: '07-Authorization'
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/vanillajs/06-rules' }) %>

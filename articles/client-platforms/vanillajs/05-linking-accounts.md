@@ -3,14 +3,10 @@ title: Linking Accounts
 description: This tutorial demonstrates how to link different user accounts in your web app
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-javascript-spa',
+  path: '05-Linking-Accounts'
 }) %>
 
 <%= include('../../_includes/_linking_accounts') %>
@@ -25,7 +21,7 @@ var lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>');
 
 // Lock instance to launch a login to obtain the secondary id_token
 lockLink = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
-  auth: { 
+  auth: {
     params: {
       state: 'linking'
     }

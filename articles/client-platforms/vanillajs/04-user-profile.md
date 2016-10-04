@@ -3,14 +3,10 @@ title: User Profile
 description: This tutorial demonstrates how to fetch, show, and update user profile information in your web app
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-javascript-spa',
+  path: '04-User-Profile'
 }) %>
 
 ## Profile
@@ -42,9 +38,9 @@ window.addEventListener('load', function() {
       } else {
 
         localStorage.setItem('id_token', authResult.idToken);
-        
+
         localStorage.setItem('profile', JSON.stringify(profile));
-        
+
         showUserProfile(profile);
       }
     });

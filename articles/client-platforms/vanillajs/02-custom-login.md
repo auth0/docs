@@ -3,14 +3,10 @@ title: Custom Login
 description: This tutorial demonstrates how to use the Auth0 library to add custom authentication and authorization to your web app
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-javascript-spa',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-javascript-spa',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-javascript-spa',
+  path: '02-Custom-Login'
 }) %>
 
 In the [previous step](/quickstart/spa/vanillajs/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
@@ -22,13 +18,9 @@ First, add the `auth0.js` library to your application:
 
 ```html
 <!-- index.html -->
-
 <head>
-
   ...
-
   <script src="${auth0js_url}"></script>
-
   ...
 </head>
 ```
@@ -37,7 +29,6 @@ Create an `Auth0` instance and pass in your client credentials. Include your `ca
 
 ```js
 // app.js
-
 window.addEventListener('load', function() {
   auth0 = new Auth0({
     domain: '<%= account.namespace %>',
@@ -45,7 +36,6 @@ window.addEventListener('load', function() {
     callbackURL: '<%= account.callback %>',
     responseType: 'token'
   });
-
   ...
 });
 ```
@@ -54,9 +44,6 @@ In the `login` method, call the `login` function on the `auth0` instance, settin
 
 ```js
 // app.js
-
-...
-
 document.getElementById('btn-login').addEventListener('click', function() {
   var username = document.getElementById('username').value;
   var password = document.getElementById('password').value;
@@ -73,8 +60,6 @@ document.getElementById('btn-login').addEventListener('click', function() {
     }
   });
 });
-
-...
 ```
 
 > **Note:** This example uses `Username-Password-Authentication`, but there are other connection types. Find out more about other connection options [here](https://auth0.com/docs/libraries/auth0js#login).
