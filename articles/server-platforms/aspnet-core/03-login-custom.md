@@ -13,6 +13,8 @@ description: This tutorial will show you how to create a custom login page for y
   pkgType: 'replace'
 }) %>
 
+<%= include('../../_includes/_signup') %>
+
 ## Add the Auth0 Authentication SDK 
 
 To log in the user you will be using the Auth0 Authentication SDK for .NET, so install the NuGet package:
@@ -21,7 +23,7 @@ To log in the user you will be using the Auth0 Authentication SDK for .NET, so i
 Install-package Auth0.AuthenticationApi
 ```
 
-## Register the middlware
+## Register the Middlware
 
 First you need to register the cookie middleware. Update the `ConfigureServices` method in your `Startup` class to register the relevant services for the cookie middleware:
 
@@ -195,7 +197,7 @@ This code does the following:
 3. Create a `Login` action for POST requests which will call the Authentication API to authenticate the user. If the user is successfully authenticated, the user's information is obttained from the token and a new `ClaimsPrincipal` is created with the relevant claims. Finally the user is signed in to the Cookie middleware.
 4. Create a `Logout` method which will sign the user out of the cookie middleware. 
 
-## Allow the user to sign in with their Google accounts
+## Signing in with Google
 
 If you would like the user to sign in with their Google accounts you will need to use the OpenID Connect middleware.
 
@@ -267,7 +269,7 @@ app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
 });
 ```
 
-## Add Login and Logout links
+## Adding Login and Logout Links
 
 Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
 
@@ -302,7 +304,7 @@ Lastly add Login and Logout links to the navigation bar. To do that, head over t
 </div>
 ```
 
-## Run your application
+## Run the application
 
 You can now run your application. When you click on the Login link you will be taken to the new Login page where you can sign in with either your email address and password, or with your Google account.
 

@@ -1,6 +1,7 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 Play 2 Scala SDK to add authentication and authorization to your web app
 ---
 
 <%= include('../../_includes/_package', {
@@ -23,13 +24,11 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_signup') %>
 
-**Otherwise, follow the steps below to configure your existing Play2 Scala WebApp for use with Auth0.**
-
-## 1. Add your Auth0 configuration keys
+## Add your Auth0 Configuration Keys
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Add your Auth0 callback handler
+## Add Your Auth0 Callback Handler
 
 Add the handler for the Auth0 callback so you can authenticate the user and retrieve their information:
 
@@ -118,13 +117,13 @@ Your callback URL should look something like:
 
 `https://yourapp.com/callback`
 
-## 3. Trigger login manually or integrate Auth0Lock
+## Trigger Login Manually or Integrate Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 
 **Note:** The `redirectUrl` specified in the `Auth0Lock` constructor must match the callback URL specified in the previous step.
 
-## 4. Access user information
+## Access User Information
 
 You can access the user information from the `cache`
 
@@ -175,7 +174,7 @@ class User extends Controller {
 }
 ```
 
-## Optional step
+## Optional Steps
 
 You can add the following `Action` to check if the user is authenticated. If not, redirect them to the login page:
 

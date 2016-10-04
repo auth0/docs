@@ -13,6 +13,8 @@ description: This tutorial will show you can host the Lock widget inside your ap
   pkgType: 'replace'
 }) %>
 
+<%= include('../../_includes/_signup') %>
+
 ## Background
 
 When using the normal OIDC middleware, when a user wants to log in and the middleware is called, the user will be redirected to the Auth0 website to sign in using the hosted version of Lock. This may not be the user experience you are looking for. You may for example want to embed Lock inside your application so it has more of the look-and-feel of your own application. In this instance you can use both Lock and the OIDC middleware together, but it requires a bit of extra work on your side.

@@ -1,8 +1,8 @@
 ---
 title: Login
+default: true
 description: This tutorial will show you how to use the Auth0 NancyFX SDK to add authentication and authorization to your web app.
 ---
-
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-nancyfx-samples',
@@ -22,15 +22,13 @@ This tutorial and seed project have been tested with the following:
 
 <%= include('../../_includes/_signup') %>
 
-**Otherwise, please follow the steps below to configure your existing NancyFX WebApp to use it with Auth0.**
-
-### 1. Install the needed dependencies
+## Install the Dependencies
 
 Install Auth0 NancyFX dependency with `NuGet`
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Configure Auth0
+## Configure Auth0
 
 In your Nancy self hosted application add the following to your BootStrapper:
 
@@ -49,7 +47,7 @@ The `UserIdentifier` lets you set an identifier for the user. This are the field
 
 > **Important Hint:** Auth0.Nancy.SelfHost enables `CookieBasedSessions` setting in the background. If you use this setting in your app as well, you should switch it off.
 
-### 3. Add Auth0 configuration
+## Add Auth0 Configuration
 
 You need to configure your Auth0 keys in the `app.config`
 
@@ -63,7 +61,7 @@ You need to configure your Auth0 keys in the `app.config`
 </appSettings>
 ```
 
-### 4. Block all unauthenticated requests
+## Block all Unauthenticated Requests
 
 After you enabled the `Auth0Authentication` you are able to block all unauthenticated requests with the following code.
 
@@ -78,7 +76,7 @@ public class SecurePage : NancyModule
 }
 ```
 
-### 5. Add Auth0 callback handler
+## Add Auth0 Callback Handler
 
 We need to add the handler for the Auth0 callback so that we can authenticate the user and get his information. We also need to add an endpoint to let users Login and Logout
 
@@ -106,7 +104,7 @@ public class Authentication : NancyModule
 }
 ```
 
-### 6. Triggering login manually or integrating the Auth0Lock
+## Triggering Login Manually or Integrating Lock
 
 <%= include('../../_includes/_lock-sdk') %>
 

@@ -13,9 +13,11 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
   pkgType: 'replace'
 }) %>
 
+<%= include('../../_includes/_signup') %>
+
 <%= include('../_includes/_rules-introduction') %>
 
-## Display the country in the user profile
+## Display the Country in the User Profile
 
 Now that the user's country is returned by Auth0, you can display this inside the user profile page created in the previous step.
 

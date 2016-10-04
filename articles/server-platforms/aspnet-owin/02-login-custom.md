@@ -1,6 +1,6 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to create a custom login page for your web application by using the Auth0 .NET SDK and OpenID Connect middleware.
+description: This tutorial demonstrates how to create a custom login page for your web application by using the Auth0 .NET SDK and OpenID Connect middleware.
 ---
 
 <%= include('../../_includes/_package2', {

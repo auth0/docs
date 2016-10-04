@@ -7,6 +7,6 @@ snippets:
   setup: server-platforms/laravel/setup
   use: server-platforms/laravel/use
 seo_alias: laravel
-default_article: 01-login
+default_article: dashboard-default
 articles:
   - 01-login

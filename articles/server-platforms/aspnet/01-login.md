@@ -1,8 +1,8 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 ASP.NET SDK to add authentication and authorization to your web app
 ---
-
 
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aspnet',
