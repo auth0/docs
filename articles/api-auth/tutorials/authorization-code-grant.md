@@ -44,19 +44,17 @@ If your client is configured as a First Party Client and the "Allow Skipping Use
 
 Now that you have an Authorization Code, you must exchange it for an Access Token that can be used to call your API. Using the Authorization Code (`code`) from the previous step, you will need to POST to the OAuth Token URL:
 
-```text
-https://${account.namespace}/oauth/token
-```
-
-With the following JSON body:
-
-```js
+```har
 {
-  "grant_type": "authorization_code",
-  "client_id": "${account.clientId}",
-  "client_secret": "${account.clientSecret}",
-  "code": {AUTHORIZATION_CODE},
-  "redirect_uri": {CALLBACK_URL}
+  "method": "POST",
+  "url": "https://${account.namespace}/oauth/token",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" }
+  ],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"grant_type\":\"authorization_code\",\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"YOUR_AUTHORIZATION_CODE\",\"redirect_uri\": \"https://myclientapp.com/callback\"}"
+  }
 }
 ```
 
@@ -79,7 +77,7 @@ The response from `/oauth/token` contains `access_token`, `refresh_token`, `id_t
 }
 ```
 
-Note that `refresh_token` will only be present in the response if you included the `offline_access` scope. For more information about Refresh Tokens and how to use them, see [our documentation](
+Note that `refresh_token` will only be present in the response if you included the `offline_access` scope AND enabled "Allow Offline Access" for your Resource Server (API) in the Dashboard. For more information about Refresh Tokens and how to use them, see [our documentation](
  https://auth0.com/docs/tokens/refresh-token).
 
 ::: panel-danger Warning
@@ -90,16 +88,14 @@ It is important to understand that the Authorization Code flow should only be us
 
 Once the `access_token` has been obtained it can be used to make calls to the Resource Server by passing it as a Bearer Token in the `Authorization` header of the HTTP request:
 
-``` js
-// Use the access token to make API calls
-var options = {
-  url: 'https://someapi.com/api',
-  headers: {
-    'Authorization': 'Bearer ' + {ACCESS_TOKEN}
-  }
-};
-
-request(options, function(error, response, body) {
-    // do something with the response from the API call
-});
+```har
+{
+  "method": "GET",
+  "url": "https://someapi.com/api",
+  "headers": [
+    { "name": "Content-Type", "value": "application/json" },
+    { "name": "Authentication", "value": "Bearer {ACCESS_TOKEN}" }
+  ]
+}
 ```
+
