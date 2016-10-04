@@ -1,3 +1,7 @@
+---
+description: How to link accounts using the Authentication API (Deprecated) 
+---
+
 # Link Accounts using Authentication API (Deprecated) 
 
 **NOTE:** This method of linking accounts using the linking endpoint of the [Authentication API](/auth-api#!#get--link), either through **Lock** or by manually calling the API, is **deprecated** and should no longer be used.

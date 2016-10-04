@@ -1,3 +1,7 @@
+---
+description: How to setup AWS Integration in Auth0. How to setup SSO and obtain AWS tokens.
+---
+
 # AWS Integration in Auth0
 
 Auth0 ships with AWS IAM integration that allows you to:

@@ -1,5 +1,6 @@
 ---
 title: Amazon API Gateway Tutorial - Setup the Amazon API Gateway
+description: Step 1 of Amazon API Gateway Tutorial
 ---
 
 # Amazon API Gateway Tutorial

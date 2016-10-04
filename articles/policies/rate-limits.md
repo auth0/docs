@@ -1,3 +1,7 @@
+---
+description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
+---
+
 # Rate Limit Policy
 
 To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.

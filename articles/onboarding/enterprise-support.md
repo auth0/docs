@@ -1,3 +1,7 @@
+---
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+---
+
 # Enterprise Support Guidance
 
 This document outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.  It's relevant for customers only with enterprise subscription agreements which differ from the standard pay-as-you-go/self-service subscription offerings acquired directly from our website.

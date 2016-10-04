@@ -1,3 +1,7 @@
+---
+description: Describes the Dashboard Authentication Policy wich governs requests for special authentication mechanisms for the Auth0 dashboard.
+---
+
 # Dashboard Authentication Policy
 
 The following policy governs requests for special authentication mechanisms for the Auth0 dashboard.
