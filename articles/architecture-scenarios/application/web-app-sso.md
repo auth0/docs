@@ -22,6 +22,7 @@ __Table of Contents__
 - [Auth0 Configuration](#auth0-configuration)
   - [Client](#client)
     - [Create a Client](#create-a-client)
+    - [Configure Callback URLs](#configure-callback-urls)
   - [Connections](#connections)
     - [Create a database connection](#create-a-database-connection)
     - [Create an Active Directory / LDAP Connection](#create-an-active-directory-ldap-connection)
