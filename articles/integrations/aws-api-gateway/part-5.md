@@ -36,7 +36,6 @@ One way to add a user's email address to the JWT is to use a [rule](/rules). Thi
 
 In `login.js`, you can see this scope specified in the parameters passed to `auth.signin`:
 
-```
 ```js
 $scope.login = function() {
     var params = {
@@ -61,7 +60,6 @@ Because the AWS Lambda console has access to a limited number of Node modules th
 
 The following seed project contains the code you'll need for your updated AWS Lambda function.
 
-```
 <%= include('../../_includes/_package', {
   pkgRepo: 'auth0-aws',
   pkgBranch: 'master',
@@ -69,7 +67,6 @@ The following seed project contains the code you'll need for your updated AWS La
   pkgFilePath: null,
   pkgType: 'server'
 }) %>
-```
 
 You'll see two custom JavaScript files within the seed project:
 
