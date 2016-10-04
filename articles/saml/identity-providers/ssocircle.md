@@ -139,25 +139,23 @@ Once you have logged in, you will see a *SAML Consent Page*. Click the box indic
 
 ![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 
-
 At this point, if the SAML configuration works, your browser will be redirected back to an Auth0 page that says **"It works!!!"**.  This page will display the contents of the SAML authentication assertion sent by the SSOCircle IDP to Auth0.
 
 If the test shows that something didn't work, please review the above steps and consult the [Troubleshooting](#8-troubleshooting) section.
 
 ## 6. Create the HTML Page for the Test Client
 
-In this section, you will create a simple HTML page that invokes the **Auth0 Lock Widget** which will trigger the SAML login sequence.  This will enable an end-to-end test of the SAML SSO.
+In this section, you will create a simple HTML page that uses the **Auth0 Lock Widget**. Lock will then trigger the SAML login sequence.
 
-Create an HTML page and insert the following HTML and javascript code:
+Create an HTML file with the following HTML and JavaScript.
 
-
-```
-<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+```html
+<!DOCTYPE html>
 <HTML>
 <BODY>
 <p> Click on the button to log in </p>
 
-<script src="https://cdn.auth0.com/js/lock-6.2.min.js"></script>
+<script src="http://cdn.auth0.com/js/lock/10.4.0/lock.min.js"></script>
 <script type="text/javascript">
   var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
 
@@ -170,55 +168,61 @@ Create an HTML page and insert the following HTML and javascript code:
       }
     });
   }
+});
+}
 </script>
 <button onclick="signin()">Login</button>
 </BODY>
 </HTML>
 ```
 
-Make sure you replace `{YOUR-APP-CLIENT-ID}` with the actual value of the app you registered in step 4.
+Be sure to replace `{YOUR-APP-CLIENT-ID}` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection).
 
-The client ID for your application can be found in the **Auth0 dashboard** by going to __"Apps/APIs"__ link and clicking on the __"Settings"__ (gear) icon to the right of your application name.
+The Client ID can be found in the **Auth0 Dashboard** by going to **Clients** and clicking on the **Settings** icon to the right of your Client name.
 
-Save this file in a place where you can access it via a browser.
-For this example, we'll call it **"hello-saml.html"**.
+Save this file. For the purposes of this example, we'll call it `hello-saml.html`.
 
-## 7. Test your sample application
+## 7. Test Your Sample Application
 
-In this step, you will test your sample HTML application that uses the Auth0 SAML connection you set up to perform SSO with SSOCircle.
+In this step, you will complete an end-to-end test using your  sample HTML application that uses the Auth0 SAML connection you set up to perform SSO with SSOCircle.
 
-* Open the HTML file created above with a browser. You should first see a white page with a login button on it.
+Open the `hello-saml.html` file with a web browser. You should see a white page with a login button on it.
 
-* Click on the **login** button.
+![Test Homepage](/media/articles/saml/identity-providers/ssocircle/hello-saml.png)
 
-The **Auth0 Lock** widget should appear with one button titled **"saml".**
+Click **Login**. The **Auth0 Lock** Widget will appear.
 
-If you have other connections turned on for your application, your **Auth0 Lock Widget** may look slightly different.  If you are prompted to enter an email address, make sure the email address you enter has the same domain name as the domain(s) you entered in the __Settings__ tab for the  application in the Auth0 dashboard.  (__Apps/APIs -> Settings__)
+![](/media/articles/saml/identity-providers/ssocircle/lock.png)
 
-Click on the **"saml"** button or the **ACCESS** button to initiate the SAML sso sequence with ssocircle.
+> If you are prompted to enter an email address, make sure the domain for the email address you enter is listed under *Settings* for the Auth0 Client you previously configured.
 
-![](/media/articles/saml/identity-providers/ssocircle/ssocircle-7.png)
+Provide the requested log in credentials and click on **Access** to initiate the SAML SSO sequence with SSOCircle.
 
-* You will be redirected to the SSOCircle IDP to log in.
+At this point, you will be redirected to the SSOCircle IDP to log in.
 
-Note that whether you are prompted for credentials at this point depends on whether you still have an active session at SSOCircle.
+![Login Screen](/media/articles/saml/identity-providers/ssocircle/login.png)
 
-From the "try me" test you did earlier, you may still have an active session at SSOCircle.  If this is the case, you will not be prompted to log in again and will simply be redirected to the callback URL specifed in the HTML file. (Remember that this callback URL must also be in the __Allowed Callback URLs__ in the application's Setting tab in the Auth0 dashboard.)
+Once you have logged in, you will see a *SAML Consent Page*. Click the box indicating that you're not a robot, then click **Continue SAML Single Sign On**.
 
-If sufficient time has passed, or if you delete your browser cookies before initiating the test, then you will be prompted to login when redirected to ssocircle.com.  Log in to SSOCircle using the credentials with which you established your account at SSOCircle.
+![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 
-![](/media/articles/saml/identity-providers/ssocircle/ssocircle-8.png)
+> Please note that you will not be prompted for your credentials if you still have an active session at SSOCircle. If this is the case, you will simply be redirected to the callback URL specified in the `hello-saml.html`.
 
-Upon successful authentication, you will be redirected to the callback URL specified in the HTML file (jwt.io). This tool will display the token that your app would receive.
+If you successfully authenticate, you will be redirected to the callback URL specified in `hello-saml.html` (`http://jwt.io`). You will see the token that your Client receives.
 
 ## 8. Troubleshooting
 
-This section has a few ideas for things to check if your sample doesn't work.
+* If logging in to your Client doesn't work the first time, clear your browser's history and cookies before testing again. The browser may not be picking up the latest version of your HTML.
 
-Note that if your application doesn't work the first time, you should clear your browser history and ideally cookies each time before you test again.  Otherwise, the browser may not be picking up the latest version of your html page.
+* When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction. There are many tools that will capture the HTTP traffic from your browser for analysis (search for "HTTP Trace" to find one appropriate for your needs).  
 
-When troubleshooting SSO, it is often helpful to capture an HTTP trace of the interaction.  There are many tools that will capture the HTTP traffic from your browser for analysis.  Search for "HTTP Trace" to find some.  Once you have an http trace tool, capture the login sequence from start to finish and analyze the trace to see the sequence of GETs to see how far in the expected sequence you get.  You should see a redirect from your original site to the IDP, a post of credentials if you had to log in, and then a redirect back to the callback URL.
+  Once you have an HTTP tracer, capture the login sequence from start to finish and analyze the trace to see the sequence of `GET` requests to see where the error occurs. You should see:
 
-Be sure to check to make sure cookies and javascript are enabled for your browser.
+  * a redirect from your original site to the IDP;
+  * a post of credentials (if you were asked to log in);
+  * a redirect to the callback URL.
 
-Check to make sure that the callback URL specified in the HTML file is also listed in the **Allowed Callback URLs** field in the __""Settings""__ tab of the application registered in the Auth0 Dashboard.  (In dashboard, Click on __"Apps/APIs"__ link, then on the __"Settings"__ icon to the right of the application name.)
+
+* Ensure that your browser has enabled cookies and JavaScript.
+
+* Check to make sure that the callback URL specified in the HTML is also listed in the **Allowed Callback URLs** field in the *Settings* tab of the Auth0 Client.
