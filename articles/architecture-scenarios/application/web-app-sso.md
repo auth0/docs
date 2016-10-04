@@ -33,6 +33,7 @@ __Table of Contents__
   - [Access Control](#access-control)
     - [Refresh the authorization related claims](#refresh-the-authorization-related-claims)
     - [Install the Authorization Extension](#install-the-authorization-extension)
+- [Conclusion](#conclusion)
 
 ## The Premise
 
