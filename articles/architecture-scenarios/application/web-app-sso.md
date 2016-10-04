@@ -408,3 +408,13 @@ When you installed the Authorization Extension, it also created an Auth0 rule wh
 In your application you will therefore need to decode the ID Token returned when a user is authenticated, and extract the groups which a user belongs to from the `authorization` claim. You can then store these groups, along with other user information inside the user's session, and subsequently query these to determine whether a user has permissions to perform a certain action based on their group membership.
 
 See the implementation in [ASP.NET Core](/architecture-scenarios/application/web-app-sso/authorization-aspnetcore).
+
+## Conclusion
+
+In this document we covered a simple scenario: a regular web app, hosted in the cloud, using Auth0 for authentication, while utilizing the existing Active Directory user store. We learned what OpenID Connect offers and why it was preferable for this business case, how the Authentication Flow works, what an ID Token is and how to validate and manipulate it, how to configure clients and connections on Auth0 dashboard, how to implement user login and logout using Lock, and how session management and access control works.
+
+We started by describing the business case and the requirements and went on explaining how each requirement can be met and the thought process behind each choice that was made.
+
+We used ASP .NET Core for the sample web app implementation, hopefully though after going through this document you are able to build such a web app using the framework you prefer.
+
+Don't forget to check back for new business cases and more complex architecture scenarios!
