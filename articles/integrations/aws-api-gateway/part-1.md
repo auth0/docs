@@ -241,7 +241,7 @@ In the drop-down, select *GET* and click the checkmark button.
 Provide the following configuration values for the `GET` method:
 
 * **Integration type**: Lambda Function;
-* **Lambda Region**: [Region you are located in];
+* **Lambda Region**: Region you are located in;
 * **Lambda Function**: GetPetInfo.
 
 ![Setup Get Pets Method](/media/articles/integrations/aws-api-gateway/part-1/pets-get-method-setup.png)
