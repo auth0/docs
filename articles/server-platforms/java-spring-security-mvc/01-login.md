@@ -13,7 +13,7 @@ pkgFilePath: '01-Login/src/main/resources/auth0.properties',
 pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 In this step we will implement login functionality using Lock. Lock is an embeddable login form for desktop, tablet and mobile devices.
 

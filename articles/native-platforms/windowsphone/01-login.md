@@ -14,7 +14,7 @@ description: This tutorial will show you how to use the Auth0 Windows Phone SDK 
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ### 1. Install the Auth0.WindowsPhone package
 

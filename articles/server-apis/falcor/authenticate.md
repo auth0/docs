@@ -16,7 +16,7 @@ This tutorial and seed project have been tested with the following:
 * NodeJS 5.6.0
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **Otherwise, Please follow the steps below to configure your existing Falcor app to use it with Auth0.**
 

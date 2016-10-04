@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * Electron 0.36.7
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## 1. Setting up the Callback URL
 

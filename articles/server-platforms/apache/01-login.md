@@ -9,7 +9,7 @@ This tutorial and seed project have been tested with the following:
 * Apache 2.4
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **Please follow the steps below to configure your application using Apache to work with Auth0 and Open ID Connect.**
 

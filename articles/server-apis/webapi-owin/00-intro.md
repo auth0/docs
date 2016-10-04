@@ -13,7 +13,7 @@ name: Introduction to the Quickstart, and configuring environment
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET (OWIN) Web API.
 

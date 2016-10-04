@@ -15,7 +15,7 @@ description: This tutorial will show you how to use the Auth0 with Angular 1.x a
 
 <%= include('_includes/_prerequisite') %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ${include('../\_callback')}
 

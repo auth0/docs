@@ -13,7 +13,7 @@ pkgFilePath: '02-Custom-Login/src/main/resources/auth0.properties',
 pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 The previous step explains how to login but with the [Lock](/libraries/lock) widget. Lock is completely optional so you can build an application with Auth0 using your custom design without having to include it. You just need to use the [Auth0.js library](https://github.com/auth0/auth0.js). Let's see how.
 

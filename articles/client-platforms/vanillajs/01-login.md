@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to use Auth0 to add authentication a
   pkgType: 'js'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 **If you have an existing application, follow the steps below.**
 

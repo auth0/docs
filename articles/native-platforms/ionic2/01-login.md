@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
 * Angular 2.0.0-rc.3
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Set Up the Callback URL
 

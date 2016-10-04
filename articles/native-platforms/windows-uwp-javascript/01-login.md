@@ -4,7 +4,7 @@ default: true
 description: This tutorial will show you how to use the Auth0 Windows Universal App Javascript SDK to add authentication and authorization to your app.
 ---
 
-<%= include('../../_includes/_signup') %>
+
 
 This tutorial explains how to integrate Auth0 with a Windows UWP application written in JavaScript. `Auth0.Windows.UWP.JavaScript` helps you authenticate users with any [Auth0 supported Identity Provider](/identityproviders).
 

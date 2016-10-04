@@ -10,7 +10,7 @@ This tutorial has been tested with the following:
 * Xamarin for Visual Studio 4.2
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 This tutorial explains how to integrate Auth0 with a Xamarin application.
 

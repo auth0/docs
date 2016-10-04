@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to customize the Lock widget
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 Using Lock is easy, but you may want to customize your login UI. There are several options available for this.
 

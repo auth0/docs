@@ -17,7 +17,7 @@ This tutorial and seed project have been tested with the following:
 * Composer 1.0-dev
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **Otherwise, Please follow the steps below to configure your existing PHP app to use it with Auth0.**
 

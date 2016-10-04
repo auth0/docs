@@ -13,7 +13,7 @@ description: This tutorial will show you how to customize the Lock widget UI.
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Before Starting
 

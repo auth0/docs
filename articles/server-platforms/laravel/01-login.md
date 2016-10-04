@@ -21,7 +21,7 @@ description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to 
 * Laravel 5.2.15
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Laravel Compatibility
 

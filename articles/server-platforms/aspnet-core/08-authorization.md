@@ -13,7 +13,7 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
 

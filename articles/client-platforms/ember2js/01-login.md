@@ -25,7 +25,7 @@ This tutorial and seed project have been tested with the following:
 * Ember Simple Auth 1.0.0
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ${include('../\_callback')}
 

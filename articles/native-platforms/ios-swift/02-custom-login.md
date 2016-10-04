@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to perform Login and Sign Up by usin
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Implement the Login
 

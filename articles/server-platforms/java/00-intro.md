@@ -2,7 +2,7 @@
 title: Introduction
 description: This tutorial demonstrates how to use the Auth0 Java SDK to add authentication and authorization to your web app
 ---
-<%= include('../../_includes/_signup') %>
+
 
 This multi-step quickstart will guide you through the process of managing authentication in your Java Servlet Web Application with Auth0.
 

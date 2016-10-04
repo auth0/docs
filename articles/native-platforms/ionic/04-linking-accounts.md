@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Ionic to lin
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('../../_includes/_linking_accounts') %>
 

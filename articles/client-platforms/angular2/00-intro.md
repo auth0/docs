@@ -7,7 +7,7 @@ This multistep quickstart guide will walk you through setting up and managing au
 
 ## Create an Application
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('../../_includes/_new_app') %>
 

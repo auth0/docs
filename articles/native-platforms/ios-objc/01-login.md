@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
 * Simulator - iOS 9.2 - iPhone 6
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Initial Setup
 

@@ -9,7 +9,7 @@ This tutorial and seed project have been tested with the following:
 * Microsoft Internet Information Services (IIS)
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **Please follow the steps below to configure your existing ASP.Net Classic WebApp to use it with Auth0.**
 

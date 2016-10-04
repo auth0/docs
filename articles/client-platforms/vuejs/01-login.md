@@ -18,7 +18,7 @@ This tutorial and seed project have been tested with the following:
 * Vue.js 1.0.16
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ${include('../\_callback')}
 

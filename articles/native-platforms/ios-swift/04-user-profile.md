@@ -13,7 +13,7 @@ description: This tutorial will show you how to access the user profile from wit
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ### Before Starting
 

@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
 * Cordova 5.4 or later
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## 1. Setting Up the Callback URL
 

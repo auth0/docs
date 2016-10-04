@@ -13,7 +13,7 @@ description: This example demonstrates how to display the user's profile
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 You can obtain a user's profile from the `getProfile()` method.
 

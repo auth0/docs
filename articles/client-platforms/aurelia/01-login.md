@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
 * Aurelia-framework 1.0.0-beta.1.1.0
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ${include('../\_callback')}
 

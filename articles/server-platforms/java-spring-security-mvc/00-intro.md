@@ -3,7 +3,7 @@ title: Introduction
 description: This tutorial demonstrates how to use the Auth0 Java Spring Security MVC SDK to add authentication and authorization to your web app, using Spring Boot
 ---
 
-<%= include('../../_includes/_signup') %>
+
 
 This multistep quickstart guide will walk you through the process of managing authentication in your Java Spring Security Web Application with Auth0.
 

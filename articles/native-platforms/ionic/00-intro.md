@@ -11,7 +11,7 @@ These tutorials and seed projects have been tested with the following:
 * Ionic 1.3.1
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and the [auth0.js](https://github.com/auth0/auth0.js) library in Anguar apps, and these wrappers will be used throughout these quickstart guides.
 

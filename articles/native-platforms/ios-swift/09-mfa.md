@@ -13,7 +13,7 @@ description: This tutorial will show you how to configure Multi Factor Authentic
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Enable Multifactor Auth in Your Client
 

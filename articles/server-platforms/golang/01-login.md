@@ -18,7 +18,7 @@ This tutorial and seed project have been tested with the following:
 * Go 1.5.3 and up
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Add Dependencies
 

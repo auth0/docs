@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * NodeJS 5.0.0
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## 1. Set up the Allowed Origin (CORS) in Auth0
 

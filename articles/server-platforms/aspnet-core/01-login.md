@@ -13,6 +13,6 @@ description: This tutorial will show you how to use the standard OpenID Connect 
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('_includes/_login') %>

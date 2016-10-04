@@ -13,7 +13,7 @@ description: This tutorial will show you how to create a custom login page for y
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Add the Auth0 Authentication SDK 
 

@@ -13,6 +13,6 @@ description: This tutorial demonstrates how to integrate Lock in your iOS Swift 
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('_includes/_login') %>

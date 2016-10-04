@@ -13,7 +13,7 @@ description: This tutorial will show you can host the Lock widget inside your ap
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Background
 

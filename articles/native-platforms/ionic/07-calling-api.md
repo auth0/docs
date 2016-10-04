@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to make secure calls to an API
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('../../_includes/_calling_apis') %>
 

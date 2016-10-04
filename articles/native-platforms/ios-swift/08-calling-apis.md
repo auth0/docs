@@ -13,7 +13,7 @@ description: This tutorial will show you how to manage tokens to make authentica
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 The reason for implementing authentication, in the first place, is to protect information. In this case, your information is a resource served from a server of any sort. Auth0 provides a squad of tools to assist you with end-to-end authentication in an application. We recommend that you conform to RFC standards by sending valid authentication tokens through an authorization header.
 

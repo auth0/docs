@@ -17,7 +17,7 @@ This tutorial and seed project have been tested with the following:
 * Rails 4.2.5.1
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **Otherwise, Please follow the steps below to configure your existing Ruby on Rails app to use it with Auth0.**
 

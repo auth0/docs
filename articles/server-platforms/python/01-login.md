@@ -24,7 +24,7 @@ This tutorial and seed project have been tested with the following:
 * Requests 2.3.0 and up
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Add the Dependencies
 

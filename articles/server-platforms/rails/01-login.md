@@ -18,7 +18,7 @@ This tutorial and seed project have been tested with the following:
 * Rails 4.2.5.1
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Add the Dependencies
 

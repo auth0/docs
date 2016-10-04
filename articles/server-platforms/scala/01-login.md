@@ -22,7 +22,7 @@ This tutorial and seed project have been tested with the following:
 * Play framework 2.4.6
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Add your Auth0 Configuration Keys
 

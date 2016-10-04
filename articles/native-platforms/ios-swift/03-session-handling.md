@@ -13,7 +13,7 @@ description: This tutorial will show you how to handle sessions in your app, wit
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Before Starting
 

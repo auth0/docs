@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
 * .NET Framework 4.5.2
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Install the Dependencies
 

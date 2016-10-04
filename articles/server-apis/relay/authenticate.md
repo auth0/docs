@@ -23,7 +23,7 @@ This tutorial and seed project have been tested with the following:
 * Graphql 0.4.4
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **If you have an existing application, please follow the steps below.**
 

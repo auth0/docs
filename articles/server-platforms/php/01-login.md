@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
 * PHP 5.6.14 and up
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Add the Dependencies
 

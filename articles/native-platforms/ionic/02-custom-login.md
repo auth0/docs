@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to use Auth0 to add authentication a
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 The previous step explained how you can log users into your application using the Lock Widget. You do not need to use Lock, and can instead create a custom login page and UI if you wish.
 

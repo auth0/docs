@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to add Multifactor Authentication to
   pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('../_includes/_mfa-introduction') %>
 

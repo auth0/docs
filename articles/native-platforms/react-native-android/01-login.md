@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * rnpm 1.9.0
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Install Lock
 

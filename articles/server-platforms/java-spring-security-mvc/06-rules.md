@@ -13,7 +13,7 @@ pkgFilePath: '06-Rules/src/main/resources/auth0.properties',
 pkgType: 'replace'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 Rules are one of the cool features of Auth0. The reason is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the Rules documentation](/rules).
 

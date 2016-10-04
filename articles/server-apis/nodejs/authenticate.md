@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
 * Express 4.11
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **If you have an existing application, please follow the steps below.**
 

@@ -13,7 +13,7 @@ description: This tutorial will show you how to link multiple accounts within th
   pkgType: 'none'
 }) %>
 
-<%= include('../../_includes/_signup') %>
+
 
 ## Before Starting
 

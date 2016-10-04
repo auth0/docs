@@ -21,7 +21,7 @@ This tutorial and seed project have been tested with the following:
 * Phonegap 5.5
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 ### 1. Setting up the callback URL in Auth0
 

@@ -14,7 +14,7 @@ Thess tutorials and seed projects have been tested with the following:
 
 ## 1. Create an Application
 
-<%= include('../../_includes/_signup') %>
+
 
 <%= include('../../_includes/_new_app') %>
 
