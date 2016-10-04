@@ -206,6 +206,21 @@ function(ctx, callback) {
 
 If this hook is not configured all users will be accessible.
 
+Supported action names:
+
+ - `read:user`
+ - `delete:user`
+ - `reset:password`
+ - `change:password`
+ - `change:username`
+ - `change:email`
+ - `read:devices`
+ - `read:logs`
+ - `remove:multifactor-provider`
+ - `block:user`
+ - `unblock:user`
+ - `send:verification-email`
+
 #### Create Hook
 
 Whenever new users are created you'll want these users to be assigned to the group/department/vendor/... of the current user. This is what the **Create Hook** allows you to configure.
@@ -291,6 +306,22 @@ function(ctx, callback) {
 ```
 
 > Note: This query is only used in the UI. If assigning users to specific departments needs to be enforced, this will happen in the Create Hook. If only 1 membership is returned, the membership field in the UI will not be displayed.
+
+You can also allow the end user to enter any value they wish for the memberships by setting `createMemberships` to true.
+
+```js
+function(ctx, callback) {
+  var currentDepartment = ctx.request.user.app_metadata.department;
+  if (!currentDepartment || !currentDepartment.length) {
+    return callback(null, [ ]);
+  }
+
+  return callback(null, {
+    createMemberships: ctx.request.user.app_metadata.department === 'IT' ? true : false,
+    memberships: [ ctx.request.user.app_metadata.department ]
+  });
+}
+```
 
 #### Settings Query
 
