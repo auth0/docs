@@ -1,3 +1,7 @@
+---
+description: How to connect provider hosted apps to SharePoint Online.
+---
+
 # Connecting Provider Hosted Apps to SharePoint Online
 
 Auth0 can help radically simplify the authentication process for SharePoint Apps. Auth0 will negotiate an access token you can the use to call SharePoint APIs.

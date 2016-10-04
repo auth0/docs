@@ -1,3 +1,7 @@
+---
+description: Overview of Microsoft Office 365 Integration with Auth0.
+---
+
 # Office 365 Integration
 
 Auth0 can help radically simplify the authentication process for Office 365. In this tutorial, you'll learn how to add Single Sign On (SSO) to Office 365 using Auth0.

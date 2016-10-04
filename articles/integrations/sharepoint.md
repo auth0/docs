@@ -1,3 +1,7 @@
+---
+description: How to integrate with SharePoint 2010/2013, including setup, troubleshooting, acessing logs and next steps.
+---
+
 # SharePoint 2010/2013 Integration
 
 Auth0 can help radically simplify the authentication process for SharePoint. In this tutorial, you'll learn how to add Single Sign On (SSO) to Sharepoint using Auth0. Your users will be able to log in using any of our [Social Identity Providers](/identityproviders) (Facebook, Twitter, Github, etc.), [Enterprise Providers](/identityproviders) (LDAP, Active Directory, ADFS, etc.) or with username and password.

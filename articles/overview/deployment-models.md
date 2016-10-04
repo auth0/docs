@@ -1,3 +1,7 @@
+---
+description: This page explains the differences of the four different deployment models in which Auth0 is offered.
+---
+
 # Auth0 Deployment Models
 
 Auth0 is offered in 4 deployment models:

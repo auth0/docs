@@ -1,6 +1,7 @@
 ---
 sitemap: false
 section: appliance
+description: An overview of the main steps of appliance deployment project.
 ---
 
 # Appliance Deployment Project
