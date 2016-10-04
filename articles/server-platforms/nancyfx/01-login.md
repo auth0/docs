@@ -110,6 +110,3 @@ public class Authentication : NancyModule
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
-### 7. You're done!
-
-You have configured your NancyFX Webapp to use Auth0. Congrats, you're awesome!
