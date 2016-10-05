@@ -3,14 +3,10 @@ title: Calling APIs
 description: This tutorial demonstrates how to use $.ajaxSetup() to make authenticated API calls.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-Api',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-jquery-samples',
+  path: '08-Calling-Api'
 }) %>
 
 <%= include('../../_includes/_calling_apis') %>
