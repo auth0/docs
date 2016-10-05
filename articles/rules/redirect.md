@@ -1,3 +1,7 @@
+---
+description: How to implement a user redirect using rules, and actions after redirecting.
+---
+
 # Redirect Users from Rules
 
 [Rules](/rules) allow you to define arbitrary code which can be used to fulfill custom authentication and authorization requirements, log events, retrieve information from external services, and much more.

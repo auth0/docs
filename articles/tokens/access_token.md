@@ -1,5 +1,6 @@
 ---
 title: Auth0 access_token
+description: This page explains an overview about Auth0 access tokens.
 ---
 
 # Auth0 `access_token`

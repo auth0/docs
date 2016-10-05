@@ -1,5 +1,6 @@
 ---
 title: Freshdesk SAML Configuration
+description: Freshdesk SAML Configuration
 ---
 
 ${include('./\_header')}

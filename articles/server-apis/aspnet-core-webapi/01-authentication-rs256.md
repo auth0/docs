@@ -1,6 +1,7 @@
 ---
 title: Authentication (RS256)
 name: Shows how to secure your API using the standard JWT middeware
+description: Shows how to secure your API using the standard JWT middeware.
 ---
 
 <%= include('../../_includes/_package', {

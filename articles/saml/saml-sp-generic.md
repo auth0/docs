@@ -1,5 +1,6 @@
 ---
 url: /saml-sp-generic
+description: How to configure Auth0 to serve as a Service Provider in a SAML federation.
 ---
 
 # Auth0 as ServiceProvider

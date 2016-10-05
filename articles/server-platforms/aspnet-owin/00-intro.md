@@ -1,6 +1,7 @@
 ---
 title: Introduction
 name: Introduction to the quickstart guide and configuring the environment
+description: This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.
 ---
 
 This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET MVC 5 application.

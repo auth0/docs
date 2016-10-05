@@ -1,5 +1,6 @@
 ---
 title: Datadog SAML Configuration
+description: Datadog SAML Configuration
 template: saml/saml-apps/_template
 ---
 

@@ -1,3 +1,7 @@
+--
+description: Overview of single sign on with username and password logins.
+---
+
 # Single Sign On with username/password logins
 
 To initiate SSO for a username/password connection (e.g. database connections, AD/LDAP, etc.) you can use this endpoint:

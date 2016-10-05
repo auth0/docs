@@ -1,3 +1,7 @@
+---
+description: Lists the properties that are available for the context argument when creating rules.
+---
+
 # Context Argument Properties in Rules
 
 When creating [Rules](/rules), the following properties are available for the `context' argument:

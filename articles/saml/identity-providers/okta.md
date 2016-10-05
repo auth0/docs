@@ -1,5 +1,6 @@
 ---
 title: Okta
+description: How to configure Okta as an identity provider.
 ---
 
 # Configuring Okta as an Identity Provider
