@@ -7,7 +7,7 @@ description: What is an ID Token and what you can do with it.
 
 ## Overview
 
-The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
+The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile attributes represented in the form of _claims_. These claims are statements about the user, which can be trusted if the consumer of the token can verify its signature (which was generated with the Auth0 client's _Client Secret_). The `id_token` is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
 The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
 - The header contains the type of token and the hash algorithm used on the contents of the token.  
