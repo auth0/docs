@@ -25,7 +25,7 @@ There are six primary tokens used in Auth0's token based authentication scenario
 
 ## ID Token
 
-The ID token, usually referred to as `id_token` in code samples, is a token in [JSON Web Token (JWT)](/jwt) format, that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display.
+The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile attributes represented in the form of _claims_. The `id_token` is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
 
 [More information](/tokens/id_token)
 
