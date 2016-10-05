@@ -25,4 +25,4 @@ The first time the user goes through this flow a consent page will be shown wher
 
  ## Tutorials
 
- <%=include('../_pending-tutorials-notice') %>
+  - [Executing an Authorization Code Grant flow](/api-auth/tutorials/authorization-code-grant)
