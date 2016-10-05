@@ -31,7 +31,7 @@ The ID token, usually referred to as `id_token` in code samples, is a [JSON Web 
 
 ## Access Token
 
-The Access Token, commonly referred to as `access_token`, is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
+The Access Token, commonly referred to as `access_token`, is a credential that can be used by a client to access an API. Auth0 uses access tokens to protect access to the Auth0 Management API.
 
 [More information](/tokens/access_token)
 

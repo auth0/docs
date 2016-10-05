@@ -14,11 +14,11 @@ The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.i
 - The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  
 - The signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
 
-## How to get the ID token
+## How to get an ID token
 
 The `id_token` can be returned when calling any of the Auth0 functions which invoke authentication.  This includes calls to the Lock widget, to the auth0.js library, or the libraries for other languages. You can view the implementation details for retrieving the `id_token` at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
 
-## How to control the contents of the ID token
+## How to control the contents of an ID token
 
 In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows. The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
@@ -47,11 +47,9 @@ lock.show();
 
 Again, the `responseType` must be set to `id_token` in order to get one back. The `id_token` will contain only the claims specified as the value of the `scope` parameter (in this example, `openid name email`).
 
-## Validity
+## Lifetime
 
 The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can be changed in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
-
-## Renewal of the token
 
 There are cases where you might want to renew your `id_token`. The most common case is that you want to refresh the claims contained in the `id_token` and see that they are still valid. For example, the `id_token` may contain the user's authorization claims and you want to check that their rights are valid before allowing sensitive operations.
 
@@ -61,9 +59,9 @@ When performing the initial authorization flow, you can ask for a `refresh_token
 
 For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
 
-## Termination of the token
+## Revoke access
 
-Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#renewal-of-the-token) periodically if the user remains active.
+Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#lifetime) periodically if the user remains active.
 
 ## More Information
 
