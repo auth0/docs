@@ -22,7 +22,7 @@ Ticket response times will vary based on your support plan (shown below).  Note 
   <thead>
     <tr>
       <th></th>
-      <th> Developer Support Plan </th>
+      <th> Developer Support Plan (Previous: Free) </th>
       <th> Standard Support Plan (legacy**) </th>
       <th> Platinum Support Plan </th>
       <th> Premiere Support Plan</th>
@@ -32,14 +32,14 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     <tr>
       <th>Ticket Prioritization</th>
       <td>Lowest</td>
-      <td>Standard</td>
+      <td>Normal</td>
       <td>High</td>
       <td>Prioritized</td>
     </tr>
     <tr>
       <th> Support Hours</th>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (PST)</td>
-      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (local timezone)</td>
+      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (PST)</td>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
     </tr>
@@ -47,8 +47,8 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <th>First Response Time Target</th>
       <td>2-5+ Business Days</td>
       <td>2 Business Days</td>
-      <td>Standard: 4 business hours / Critical Outage: 1 hour</td>
-      <td>Standard: 1 business hours / Critical Outage: 1 hour</td>
+      <td>Standard: 3 business hours / Critical Outage: 1 hour</td>
+      <td>Standard: 1 business hour / Critical Outage: 1 hour</td>
     </tr>
     <tr>
       <th>Subsequent Response Time Target</th>
@@ -58,14 +58,14 @@ Ticket response times will vary based on your support plan (shown below).  Note 
       <td>Standard: 4 business hours / Critical Outage: ongoing within support hours</td>
     </tr>
     <tr>
-      <th>Discussion Forum</th>
+      <th>Public Forum</th>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
     </tr>
     <tr>
-      <th>Ticketed Support</th>
+      <th>Support Center</th>
       <td class="warning">Limited - Best effort</td>
       <td class="success">Yes</td>
       <td class="success">Yes</td>
@@ -112,6 +112,11 @@ Critical: Defined as an Auth0 issue severely impacting your live or in-productio
 - Application is in live, production status.
 
 Critical Production issues should always be reported via the Support Center for fastest response.
+
+- Translation from former support plans to new:
+- Subscriptions previously known as "Free" map to the "Developer" support plan
+- Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the legacy "Standard" support plan.
+- Support plans previously known as "Enterprise" and "Premium" support map to the "Enterprise" support plan.
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
 
