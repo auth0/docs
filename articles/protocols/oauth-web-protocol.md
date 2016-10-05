@@ -1,3 +1,8 @@
+---
+title: Integrating a Web App with Auth0
+description: How to integrate a web app with Auth0.
+---
+
 # Integrating a Web App with Auth0
 
 Auth0 supports the [OpenID Connect / OAuth2 Login](http://openid.net/specs/openid-connect-basic-1_0.html) protocol. This is the protocol used by companies like [Google](https://developers.google.com/accounts/docs/OAuth2Login), [Facebook](http://developers.facebook.com/docs/facebook-login/login-flow-for-web-no-jssdk/) and [Microsoft](http://msdn.microsoft.com/en-us/library/live/hh243647.aspx) among others so there are plenty of libraries implementing it on various platforms.
