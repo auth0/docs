@@ -152,27 +152,27 @@ Create an HTML file with the following HTML and JavaScript:
 ```html
 <!DOCTYPE html>
 <HTML>
-<BODY>
-<p> Click on the button to log in </p>
+  <BODY>
+    <p> Click on the button to log in </p>
 
-<script src="http://cdn.auth0.com/js/lock/10.4.0/lock.min.js"></script>
-<script type="text/javascript">
-  var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
+    <script src="http://cdn.auth0.com/js/lock/10.4.0/lock.min.js"></script>
+    <script type="text/javascript">
+      var lock = new Auth0Lock('{YOUR-APP-CLIENT-ID}', '${account.namespace}');
 
-  function signin() {
-    lock.show({
-        callbackURL: 'http://jwt.io'
-      , responseType: 'token'
-      , authParams: {
-        scope: 'openid name email' //Details: https:///scopes
+      function signin() {
+        lock.show({
+            callbackURL: 'http://jwt.io'
+          , responseType: 'token'
+          , authParams: {
+            scope: 'openid name email' //Details: https:///scopes
+          }
+        });
       }
     });
-  }
-});
-}
-</script>
-<button onclick="signin()">Login</button>
-</BODY>
+    }
+    </script>
+    <button onclick="signin()">Login</button>
+  </BODY>
 </HTML>
 ```
 
