@@ -1,30 +1,37 @@
 ---
-title: Auth0 id_token
+title: ID token
+description: What is an ID Token and what you can do with it.
 ---
 
-# Auth0 ID Token
+# ID Token
 
 ## Overview
 
-The id token, usually referred to as `id_token` in code samples, is a JWT that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
+The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile data. It is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display. It was added to the OIDC specification as an optimization so the client can know the identity of the user, without having to make an additional network requests.
 
 The `id_token` conforms to an industry standard (IETF [RFC 7519](https://tools.ietf.org/html/rfc7519)) and contains three parts: a header, a body and a signature.
 - The header contains the type of token and the hash algorithm used on the contents of the token.  
 - The body, also called the payload, contains identity claims about a user.  There are some claims with registered names, for things like the issuer of the token, the subject of the token (who the claims are about), and the time of issuance.  Any number of additional claims with other names can be added, though care must be taken to keep the JWT within the browser size limitations for URLs.  
 - The signature which is used by the recipient of a JWT to validate the integrity of the information conveyed in the JWT.
 
-## How to get the id_token
+## How to get the ID token
 
-The `id_token` is returned when calling any of the Auth0 functions which invoke authentication.  This includes calls to the Lock widget, to the auth0.js library, or the libraries for other languages. For example, you can view the implementation details for retrieving the `id_token` at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
+The `id_token` can be returned when calling any of the Auth0 functions which invoke authentication.  This includes calls to the Lock widget, to the auth0.js library, or the libraries for other languages. You can view the implementation details for retrieving the `id_token` at the [Lock web library](/libraries/lock) and [Auth0.js library](/libraries/auth0js) documents.
 
-## How to control the contents of the id_token
+## How to control the contents of the ID token
 
-The contents of the `id_token`, specifically the claims contained within it, are controlled by the use of a [parameter called `scope`](/scopes) which is passed to the authentication functions mentioned above.  For example, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
+In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows. The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
+- If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
+- If `scope` is set to `openid name email`, then the `id_token` will contain additionally the `name` and `email` claims.
+
+__NOTE:__ The `id_token` claims are attributes within the user profile. You can add any attribute as part of the `app_metadata` or `user_metadata` and get its value once you decode the `id_token` in your app.
+
+If you are using Lock, the `options` object used in Lock’s instantiation can specify optional [authentication parameters](/libraries/lock/v10/customization#auth-object-) as follows:
 
 ```js
 var options = {
   auth: {
-    responseType: 'token',
+    responseType: 'id_token',
     params: {scope: 'openid name email'}
   }
 };
@@ -38,9 +45,7 @@ var lock = new Auth0Lock(
 lock.show();
 ```
 
-The above sample, specifying `openid name email` will result in a JWT with claims for the name and email attributes within the user profile.  The `responseType` should be `token` for client-side authentication flows and `code` for server-side authentication flows as described for the `/authorize` endpoint in the [authentication API](/api/authentication).
-
-The scope of the id_token JWT can also be altered via Rules, through the `context.jwtConfiguration.scopes` object, as documented in [Context Argument Properties in Rules](/rules/context).
+Again, the `responseType` must be set to `id_token` in order to get one back. The `id_token` will contain only the claims specified as the value of the `scope` parameter (in this example, `openid name email`).
 
 ## Validity
 
