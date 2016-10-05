@@ -34,12 +34,12 @@ Your first step is to save--through a secure method--the user's credentials obta
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
-	@Override
-	public void onAuthentication(Credentials credentials) {
-		// Login Success response
-		saveCredentials(credentials);
-	}
-	...
+  @Override
+  public void onAuthentication(Credentials credentials) {
+    // Login Success response
+    saveCredentials(credentials);
+  }
+  ...
 };
 ```
 
@@ -53,10 +53,10 @@ To do so, we check whether this value exists at startup to either prompt for log
 
 ```java
 if(CredentialsManager.getCredentials(this).getIdToken() == null) {
-	// Prompt Login screen.
+  // Prompt Login screen.
 }
 else {
-	// Try to make an automatic login
+  // Try to make an automatic login
 }
 ```
 
@@ -68,16 +68,16 @@ If the idToken exists, we need to check whether it’s still valid. To do so, we
 AuthenticationAPIClient aClient = new AuthenticationAPIClient(auth0);
 aClient.tokenInfo(CredentialsManager.getCredentials(this).getIdToken())
        .start(new BaseCallback<UserProfile, AuthenticationException>() {
-	@Override
-	public void onSuccess(UserProfile payload) {
-		// Valid ID > Navigate to the app's MainActivity
-		startActivity(new Intent(LoginActivity.this, MainActivity.class));
-	}
+  @Override
+  public void onSuccess(UserProfile payload) {
+    // Valid ID > Navigate to the app's MainActivity
+    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+  }
 
-	@Override
-	public void onFailure(AuthenticationException error) {
-		// Invalid ID Scenario		
-	}
+  @Override
+  public void onFailure(AuthenticationException error) {
+    // Invalid ID Scenario    
+  }
 });
 ```
 
@@ -105,16 +105,16 @@ String idToken = ... // TODO: GET STORED TOKEN ID
 client.delegationWithIdToken(idToken)
       .start(new BaseCallback<Delegation, AuthenticationException>() {
 
-	@Override
-	public void onSuccess(Delegation payload) {
-		String idToken = payload.getIdToken(); // New ID Token
-		long expiresIn = payload.getExpiresIn(); // New ID Token Expire Date
-	}
+  @Override
+  public void onSuccess(Delegation payload) {
+    String idToken = payload.getIdToken(); // New ID Token
+    long expiresIn = payload.getExpiresIn(); // New ID Token Expire Date
+  }
 
-	@Override
-	public void onFailure(AuthenticationException error) {
-		//Show error to the user
-	}
+  @Override
+  public void onFailure(AuthenticationException error) {
+    //Show error to the user
+  }
 });
 ```         
 
@@ -128,16 +128,16 @@ String refreshToken = ... // TODO: GET STORED REFRESH ID
 client.delegationWithRefreshToken(refreshToken)
       .start(new BaseCallback<Delegation, AuthenticationException>() {
 
-	@Override
-	public void onSuccess(Delegation payload) {
-		String idToken = payload.getIdToken(); // New ID Token
-		long expiresIn = payload.getExpiresIn(); // New ID Token Expire Date
-	}
+  @Override
+  public void onSuccess(Delegation payload) {
+    String idToken = payload.getIdToken(); // New ID Token
+    long expiresIn = payload.getExpiresIn(); // New ID Token Expire Date
+  }
 
-	@Override
-	public void onFailure(AuthenticationException error) {
+  @Override
+  public void onFailure(AuthenticationException error) {
 
-	}
+  }
 });
 ```     
 
@@ -151,8 +151,8 @@ An example would be:
 
 ```java
 private void logout() {
-	setUserCredentials(null);
-	startActivity(new Intent(this, LoginActivity.class));
+  setUserCredentials(null);
+  startActivity(new Intent(this, LoginActivity.class));
 }
 ```
 

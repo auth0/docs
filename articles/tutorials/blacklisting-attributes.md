@@ -12,11 +12,11 @@ Prior to beginning, please ensure that you are logged in to an account that is p
 
 ### Making a Test Call or Generating the cURL Command via the API Explorer Page
 
-1.	Under Scopes, click on "update:connections" to add the scope required for this particular endpoint to the [API token](/api/v2/tokens).
+1.  Under Scopes, click on "update:connections" to add the scope required for this particular endpoint to the [API token](/api/v2/tokens).
 2. Populate the `id` field with ID of the connection you would like to update.
 3. Populate the `body` field with the JSON snippet that contains the information that will be used to update your configuration.
-4.	Click on "TRY" to get a test response to your input.
-5.	If you are satisfied with the results of your test call to the API, click "get curl command" to get the constructed call.
+4.  Click on "TRY" to get a test response to your input.
+5.  If you are satisfied with the results of your test call to the API, click "get curl command" to get the constructed call.
 
 Sample cURL command:
 
@@ -50,8 +50,8 @@ HTTP Request:
   ],
   "queryString" : [],
   "postData": {
-		"mimeType": "application/json",
-		"text": "{\"options\": {\"non_persistent_attrs\": [\"\", \"\"]}\", \"enabled_clients\": [\"\"]}"
+    "mimeType": "application/json",
+    "text": "{\"options\": {\"non_persistent_attrs\": [\"\", \"\"]}\", \"enabled_clients\": [\"\"]}"
   },
   "headersSize" : -1,
   "bodySize" : -1,

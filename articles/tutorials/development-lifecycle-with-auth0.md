@@ -20,7 +20,7 @@ For example, in this __rule__ it is always better to write:
 
 ```
 function(user, context, callback){
-	var log_url = configuration.log_url;
+  var log_url = configuration.log_url;
 ...
 }
 ```
@@ -29,7 +29,7 @@ than:
 
 ```
 function(user, context, callback){
-	var log_url = ‘https://someurl/log’;
+  var log_url = ‘https://someurl/log’;
 ...
 }
 ```

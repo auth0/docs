@@ -256,7 +256,7 @@ var options = {
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {
-	// Call your API using delegationResult.id_token
+  // Call your API using delegationResult.id_token
 });
 ```
 

@@ -24,7 +24,7 @@ Log into the [Fitbit's Developer site](https://dev.fitbit.com) and select **REGI
 
 Complete the registration form with information about your new app. In the **Callback URL** field, enter:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 and click **Register**.
 

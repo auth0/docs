@@ -97,9 +97,9 @@ function login(){
   var code = $('input.code').val();
   //submit the passcode to authenticate the phone
   auth0.verifyEmailCode({ email: email, code: code }, function(err){
-  	if (err){
-	    alert('code verification failed. ' + err.statusCode + ' '+ err.error);
-  	}
+    if (err){
+      alert('code verification failed. ' + err.statusCode + ' '+ err.error);
+    }
   });
 };
 ```

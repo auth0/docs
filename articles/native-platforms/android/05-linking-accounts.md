@@ -48,13 +48,13 @@ Then, in the login response, we decide if we advance to the `MainActivity.java` 
 ```java
 @Override
 public void onAuthentication(Credentials secondaryCredentials) {
-	if(mLinkSessions){
-		// Link the accounts
-	}
-	else {
-		App.getInstance().setUserCredentials(credentials);
-		startActivity(new Intent(LoginActivity.this, MainActivity.class));
-	}
+  if(mLinkSessions){
+    // Link the accounts
+  }
+  else {
+    App.getInstance().setUserCredentials(credentials);
+    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+  }
 }
 ```
 
@@ -78,7 +78,7 @@ The linked accounts are stored within the `UserProfile` as a list of `UserIdenti
 ```java
 @Override
 public void onSuccess(final UserProfile payload) {
-	mUserProfile.getIdentities();  //Get all the profile accounts
+  mUserProfile.getIdentities();  //Get all the profile accounts
 }
 ```
 

@@ -161,7 +161,7 @@ The `showAdminContent` method checks if the user is an admin using a new `isAdmi
 // www/components/auth/auth.service.js
 (function() {
 
-	...
+  ...
 
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
 
@@ -175,7 +175,7 @@ The `showAdminContent` method checks if the user is an admin using a new `isAdmi
 
     return {
       
-		...
+    ...
 
       isAdmin: isAdmin
 

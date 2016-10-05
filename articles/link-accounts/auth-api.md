@@ -48,13 +48,13 @@ The SDK for your platform should make the `access_token` available in simplest w
 
 * If you are using Lock in [Popup Mode](/libraries/lock/v10/popup-mode) in a SPA, the `access_token` is available as a callback parameter:
 
-	```js
-	var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
-	
-	lock.show(function(err, profile, id_token, access_token) {
-	  //save access_token here for linking other accounts
-	})
-	```
+  ```js
+  var lock = new Auth0Lock('${account.clientId}', '${account.namespace}');
+  
+  lock.show(function(err, profile, id_token, access_token) {
+    //save access_token here for linking other accounts
+  })
+  ```
 
 * If you are using [passport-auth0](https://github.com/auth0/passport-auth0) in a regular Node.js web app, the `access_token` is available in the `strategy` callback and can be saved to the session for later use: 
 
@@ -81,15 +81,15 @@ The SDK for your platform should make the `access_token` available in simplest w
   ```
 
 * If you are using ASP.NET, the `access_token` is available as a claim:
-	
+  
   ```
   ${'<%= ClaimsPrincipal.Current.FindFirst("access_token").Value %>'}
   ```
 
 * If you are building your own implementation, the `access_token` will be available through the standard OAuth2 flow:
 
-	1. User logs in and returns to the app with a `code`
-	2. The app exchanges the `code` for the `access_token`
+  1. User logs in and returns to the app with a `code`
+  2. The app exchanges the `code` for the `access_token`
 
   The details of these exchanges are available at [Identity Protocols supported by Auth0](/protocols).
 

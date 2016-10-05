@@ -26,7 +26,7 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 
 (function () {
 
-	...
+  ...
  
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
@@ -58,25 +58,25 @@ This basic example will attach the JWT as an `Authorization` header to all reque
 
 (function () {
 
-	...
-	
+  ...
+  
   function HomeController($state, authService, $scope, $http, $ionicPopup) {
     var vm = this;
 
-	...
-	
+  ...
+  
     vm.ping = ping;
 
-	...
+  ...
 
     function ping() {
-	  // This request will NOT send the token as it has skipAuthorization
+    // This request will NOT send the token as it has skipAuthorization
       $http.get(SERVER_PATH + '/ping', { skipAuthorization: true })
         .success(onPingSuccess)
         .error(onPingFail);
     }
 
-	...
+  ...
 
 }());
 ```
@@ -90,7 +90,7 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
 
 (function () {
 
-	...
+  ...
  
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
@@ -99,11 +99,11 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
     // Configuration for angular-jwt
     jwtOptionsProvider.config({
       tokenGetter: function(options) {
-		// Skip authentication for any requests ending in .html
-		if (options.url.substr(options.url.length - 5) == '.html') {
-			return null;
-		}
-		
+    // Skip authentication for any requests ending in .html
+    if (options.url.substr(options.url.length - 5) == '.html') {
+      return null;
+    }
+    
         return localStorage.getItem('id_token');
       },
       whiteListedDomains: ['localhost'],
@@ -127,7 +127,7 @@ If for any reason you would want to send different tokens based on different URL
 
 (function () {
 
-	...
+  ...
  
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
@@ -141,7 +141,7 @@ If for any reason you would want to send different tokens based on different URL
         } else {
           return localStorage.getItem('id_token');
         }
-	  
+    
         return localStorage.getItem('id_token');
       },
       whiteListedDomains: ['localhost'],

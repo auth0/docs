@@ -11,7 +11,7 @@ The data path for Lock also needs to be set.
 
 ```xml
 <data
-	android:host="@string/auth0_domain"
-	android:pathPrefix="/android/YOUR_APP_PACKAGE/callback"
-	android:scheme="https" />
+  android:host="@string/auth0_domain"
+  android:pathPrefix="/android/YOUR_APP_PACKAGE/callback"
+  android:scheme="https" />
 ```

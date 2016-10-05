@@ -30,7 +30,7 @@ You can set custom theme properties, such as a different logo or primary color, 
 
 (function () {
 
-	...
+  ...
 
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
    
@@ -54,7 +54,7 @@ You can set custom theme properties, such as a different logo or primary color, 
       }
     });
 
-	...
+  ...
 
 })();
 ```
@@ -70,7 +70,7 @@ You can also customize the text that `Lock` will display with the `languageDicti
 
 (function () {
 
-	...
+  ...
 
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
    
@@ -93,7 +93,7 @@ You can also customize the text that `Lock` will display with the `languageDicti
       }
     });
 
-	...
+  ...
 
 })();
 ```

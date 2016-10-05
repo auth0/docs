@@ -26,7 +26,7 @@ Name your app and then click **Create App**:
 
 Scroll down to the **Sandbox App Settings** section and enter your *Return URL*:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 then click **Save**:
 

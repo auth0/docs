@@ -63,7 +63,7 @@ function (user, context, callback) {
 
                     createLead(response.instance_url, response.access_token, function(err, result){
                         if(err) return callback(err);
-              			    //Everyhting worked fine. We signal this signup was successful.
+                        //Everyhting worked fine. We signal this signup was successful.
                         user.persistent.signedUp = true;
                         return callback(null, user, context);
                     });

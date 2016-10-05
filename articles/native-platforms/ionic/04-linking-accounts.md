@@ -22,11 +22,11 @@ description: This tutorial demonstrates how to integrate Auth0 with Ionic to lin
 
 (function () {
 
-	...
+  ...
   
   function authService($rootScope, lock, authManager, jwtHelper, $http, $q) {
 
-	...
+  ...
 
     function linkAccount() {
       try {
@@ -52,7 +52,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Ionic to lin
 
       lockLink.on('authenticated', function (authResult) {
 
-		// do linking accounts
+    // do linking accounts
 
       });
 
@@ -64,9 +64,9 @@ description: This tutorial demonstrates how to integrate Auth0 with Ionic to lin
 
     return {
       ...
-	  
+    
       linkAccount: linkAccount,
-	  
+    
       ...
     }
   }
@@ -116,7 +116,7 @@ Now to begin the link process, call the `linkAccount` method and update the user
 
 (function () {
 
-	...
+  ...
   function HomeController($state, authService, $scope) {
     ...
 
@@ -184,7 +184,7 @@ The user's primary identity can be filtered by putting in a function to refresh 
 
 (function () {
 
-	...
+  ...
 
   function HomeController($state, authService, $scope) {
     ...
@@ -210,7 +210,7 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 
 (function () {
 
-	...
+  ...
 
   function authService($rootScope, lock, authManager, jwtHelper, $http, $q) {
 
@@ -251,7 +251,7 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 
     return {
       ...
-	  
+    
       unLinkAccount: unLinkAccount
     }
   }

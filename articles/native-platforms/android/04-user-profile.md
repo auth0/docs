@@ -37,13 +37,13 @@ Then, use your previously stored credentials (in this example, stored in the App
 ```java        
 client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
                 .start(new BaseCallback<UserProfile, AuthenticationException>() {
-	@Override
-	public void onSuccess(UserProfile payload){
-	}
+  @Override
+  public void onSuccess(UserProfile payload){
+  }
 
-	@Override
-	public void onFailure(AuthenticationException error){
-	}
+  @Override
+  public void onFailure(AuthenticationException error){
+  }
 });
 ```                
 
@@ -103,15 +103,15 @@ And then with the `UserApiClient`, perform the update:
 ```java
 UsersAPIClient usersClient = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
 usersClient.updateMetadata(mUserProfile.getId(), userMetadata).start(new BaseCallback<UserProfile, ManagementException>() {
-	@Override
-	public void onSuccess(final UserProfile payload) {
-  	// As receive the updated profile here
-  	// You can react to this, and show the information to the user.
-	}
+  @Override
+  public void onSuccess(final UserProfile payload) {
+    // As receive the updated profile here
+    // You can react to this, and show the information to the user.
+  }
 
-	@Override
-	public void onFailure(ManagementException error) {
+  @Override
+  public void onFailure(ManagementException error) {
 
-	}
+  }
 });
 ```

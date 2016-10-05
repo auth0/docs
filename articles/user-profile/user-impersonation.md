@@ -95,9 +95,9 @@ You can get more information about this in the [Scopes documentation](/scopes).
     { "name": "Authorization", "value": "Bearer {bearer-token}" }
   ],
   "postData": {
-		"mimeType": "application/json",
-		"text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"additionalParameters\":{\"response_type\": \"code\",\"state\": \"\"}}"
-	}
+    "mimeType": "application/json",
+    "text": "{\"protocol\": \"{protocol-to-use}\",\"impersonator_id\": \"{impersonator-id}\",\"client_id\": \"${account.clientId}\",\"additionalParameters\":{\"response_type\": \"code\",\"state\": \"\"}}"
+  }
 }
 ```
 
@@ -127,9 +127,9 @@ If not you should send a POST request to the token endpoint in Auth0. You will n
     { "name": "Content-Type", "value": "application/json" }
   ],
   "postData": {
-		"mimeType": "application/json",
-		"text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"{AUTHORIZATION_CODE}\",\"grant_type\": \"authorization_code\",\"callback_url\": \"{CALLBACK_URL}\"}"
-	}
+    "mimeType": "application/json",
+    "text": "{\"client_id\": \"${account.clientId}\",\"client_secret\": \"${account.clientSecret}\",\"code\": \"{AUTHORIZATION_CODE}\",\"grant_type\": \"authorization_code\",\"callback_url\": \"{CALLBACK_URL}\"}"
+  }
 }
 ```
 
@@ -140,11 +140,11 @@ If the request is successful, you will get a JSON object with an `access_token`.
 
 ##### Sample Access Token Response:
 
-	{
+  {
        "access_token": ".....Access Token.....",
        "token_type": "bearer",
        "id_token": "......The JWT......"
-	}
+  }
 
 Congratulations, you are done!
 

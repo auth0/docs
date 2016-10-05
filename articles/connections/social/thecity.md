@@ -25,7 +25,7 @@ Complete the form using this callback URL:
 
 ![](/media/articles/connections/social/thecity/thecity-register-3.png)
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 Press __Create__
 

@@ -79,9 +79,9 @@ var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // con
 
 ```cs
 var user = await auth0.LoginAsync(
-	"my-db-connection", 	// connection name here
-	"username",
-	"password");
+  "my-db-connection",   // connection name here
+  "username",
+  "password");
 ```
 
 ## Accessing User Information

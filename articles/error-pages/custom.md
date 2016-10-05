@@ -12,9 +12,9 @@ This document begins by covering the configuration options available to you via 
 
 To get to the error page settings:
 
-1.	Go to the top right-hand side of the Auth0 Management Portal
-2.	Click on your user name/icon
-3.	Choose "Account Settings" in the menu the pops open.
+1.  Go to the top right-hand side of the Auth0 Management Portal
+2.  Click on your user name/icon
+3.  Choose "Account Settings" in the menu the pops open.
 
 ![](/media/articles/error-pages/account-settings.png)
 
@@ -22,10 +22,10 @@ To get to the error page settings:
 
 You can choose to display to your users the default Auth0 error page. This page can be minimally customized with the following pieces of information (all fields optional):
 
--	Friendly Name: a user-friendly version of your company's name;
--	Logo URL: the path to the logo you want to show to users;
--	Support Email: the email address for your Support team;
--	Support URL: the URL of your Support team's webpage.
+-  Friendly Name: a user-friendly version of your company's name;
+-  Logo URL: the path to the logo you want to show to users;
+-  Support Email: the email address for your Support team;
+-  Support URL: the URL of your Support team's webpage.
 
 ![](/media/articles/error-pages/error-page-settings.png)
 
@@ -33,16 +33,16 @@ You can choose to display to your users the default Auth0 error page. This page 
 
 If you choose to display a custom error page, you have two options:
 
--	You may redirect the user to a custom error page;
--	You may configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
+-  You may redirect the user to a custom error page;
+-  You may configure Auth0 to render a custom error page on your behalf (please note that this feature is only available via the Management API).
 
 #### Redirecting Users to a Custom Error Page
 
 To redirect users to a custom error page:
 
-1.	On the Account Settings page, scroll down to the Error Pages section.
-2.	Select the option "redirect users to your own error page."
-3.	Provide the URL of the error page you would like your users to see.
+1.  On the Account Settings page, scroll down to the Error Pages section.
+2.  Select the option "redirect users to your own error page."
+3.  Provide the URL of the error page you would like your users to see.
 
 ![](/media/articles/error-pages/redirect-error-page.png)
 
@@ -56,10 +56,10 @@ Prior to beginning, please ensure that you are logged in to an account that is p
 
 ### Making a Test Call or Generating the cURL Command via the API Explorer Page
 
-1.	Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](/api/v2/tokens).
-2.	Populate the `body` field with the JSON snippet that contains the information that will be used to update your configuration.
-3.	Click on "TRY" to get a test response to your input.
-4.	If you are satisfied with the results of your test call to the API, click "get curl command" to get the constructed call.
+1.  Under Scopes, click on "update:tenant_settings" to add the scope required for this particular endpoint to the [API token](/api/v2/tokens).
+2.  Populate the `body` field with the JSON snippet that contains the information that will be used to update your configuration.
+3.  Click on "TRY" to get a test response to your input.
+4.  If you are satisfied with the results of your test call to the API, click "get curl command" to get the constructed call.
 
 Sample cURL command:
 
@@ -87,10 +87,10 @@ To assist you in customizing the required JSON snippet that you would include as
 
 Even if you choose to display the default Auth0 error page, you may customize the following fields:
 
--	Friendly Name: a user-friendly version of your company's name;
--	Logo URL: the path to the logo you want to show to users;
--	Support Email: the email address for your Support team;
--	Support URL: the URL of your Support team's webpage.
+-  Friendly Name: a user-friendly version of your company's name;
+-  Logo URL: the path to the logo you want to show to users;
+-  Support Email: the email address for your Support team;
+-  Support URL: the URL of your Support team's webpage.
 
 HTTP Request:
 
@@ -160,7 +160,7 @@ HTTP Request:
     "queryString" : [],
     "postData": {
         "mimeType": "application/json",
-		"text": "{\"error page\": {\"html\": \"<h1>Hello {{name}}. This error was generated {{'now' | date: '%Y %h'}}.<\\h1>\"}, \"show_log_link\": false, \"url\": \"\"}"
+    "text": "{\"error page\": {\"html\": \"<h1>Hello {{name}}. This error was generated {{'now' | date: '%Y %h'}}.<\\h1>\"}, \"show_log_link\": false, \"url\": \"\"}"
     },
     "headersSize" : -1,
     "bodySize" : -1,

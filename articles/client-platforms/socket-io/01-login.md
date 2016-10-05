@@ -88,11 +88,11 @@ Add the following snippet before the `</body>` on `index.html`
 <script>
   var socket = io();
   socket.on('connect', function () {
-	socket.on('authenticated', function () {
-	//Do
+  socket.on('authenticated', function () {
+  //Do
 
-	})
-	.emit('authenticate', {token: userToken}); // send the jwt
+  })
+  .emit('authenticate', {token: userToken}); // send the jwt
   });
 </script>
 ```

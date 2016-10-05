@@ -30,15 +30,15 @@ Or you can update a `client_secret` by creating your own request to the API:
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://YOURACCOUNT.auth0.com/api/v2/clients/YOUR_CLIENT_ID",
-	"headers": [{
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
-	}
+  "method": "PATCH",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/clients/YOUR_CLIENT_ID",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
+  }
 }
 ```

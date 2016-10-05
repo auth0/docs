@@ -34,7 +34,7 @@ function (user, context, callback) {
 
   request('http://api.mixpanel.com/track/?data=' + base64Event,
            function(e,r,b){
-              	if(e) return callback(e);
+                if(e) return callback(e);
                 return callback(null,user,context);
               });
 }
@@ -89,7 +89,7 @@ function (user, context, callback) {
 
                     createLead(r.instance_url, r.access_token, function(e,result){
                         if(e) return callback(e);
-              			    //Everyhting worked fine. We signal this signup was succesful.
+                        //Everyhting worked fine. We signal this signup was succesful.
                         user.persistent.signedUp = true;
                         return callback(null,user,context);
                     });

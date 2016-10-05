@@ -21,7 +21,7 @@ Go to the [developer portal](http://developer.wordpress.com/), and login with yo
 
 Create a new application and complete the form. Use this URL as your callback:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/wordpress/wordpress-devportal-2.png)
 
