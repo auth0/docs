@@ -21,8 +21,6 @@ This tutorial and seed project have been tested with the following:
 * Angular 2.0.0-rc.3
 :::
 
-
-
 ## Set Up the Callback URL
 
 <div class="setup-callback">
