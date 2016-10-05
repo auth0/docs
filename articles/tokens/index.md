@@ -16,22 +16,22 @@ First there are a couple different categories of tokens:
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
 
-- [Auth0 `id_token` (JWT)](#auth0-id_token-jwt-)
-- [Auth0 `access_token`](#auth0-access_token)
+- [ID Token](#id-token)
+- [Access Token](#access-token)
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
-- [Auth0 `refresh_token`](#auth0-refresh_token)
+- [Refresh Token](#refresh-token)
 - [Delegation Tokens](#delegation-tokens)
 - [Auth0 Management APIv2 Token](#auth0-management-apiv2-token)
 
-## Auth0 `id_token` (JWT)
+## ID Token
 
-The Auth0 `id_token` is a token in JSON Web Token (JWT) format, that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display.
+The ID token, usually referred to as `id_token` in code samples, is a token in [JSON Web Token (JWT)](/jwt) format, that contains user profile data. It is consumed by the client and used to get user information like the users name, email, and so forth, typically used for UI display.
 
 [More information](/tokens/id_token)
 
-## Auth0 `access_token`
+## Access Token
 
-The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
+The Access Token, commonly referred to as `access_token`, is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
 
 [More information](/tokens/access_token)
 
@@ -41,15 +41,15 @@ When a user authenticates via Auth0 with another social provider's authenticatio
 
 [More information](/tokens/idp)
 
-## Auth0 `refresh_token`
+## Refresh Token
 
-The Refresh token is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.
+The Refresh Token, commonly referred to as `refresh_token`, is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.
 
 [More information](/tokens/refresh_token)
 
 ## Delegation Tokens
 
-The Auth0 [`id_token`](#auth0-idtoken-jwt)'s can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
+The Auth0 [`id_token`](#id-token) can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
 
 [More information](/tokens/delegation)
 
@@ -109,7 +109,7 @@ This is best done by registering the API in Auth0 and obtaining a delegation tok
 
 ### Logout
 
-* [Discussion of clearing cookies set by auth0, use of the returnTo parm](/logout)
+* [Discussion of clearing cookies set by auth0, use of the `returnTo` param](/logout)
 
 ### Account Linking
 
