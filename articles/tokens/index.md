@@ -43,9 +43,9 @@ When a user authenticates via Auth0 with another social provider's authenticatio
 
 ## Refresh Token
 
-The Refresh Token, commonly referred to as `refresh_token`, is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.
+The Refresh Token, commonly referred to as `refresh_token`, is a long-lived [JWT](/jwt) that is used to obtain a new [id_token](#id-token) or a new [access token](#access-token).
 
-[More information](/tokens/refresh_token)
+[More information](/tokens/refresh-token)
 
 ## Delegation Tokens
 
