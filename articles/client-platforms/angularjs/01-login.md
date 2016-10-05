@@ -3,13 +3,19 @@ title: Auth0 Angular 1.x Tutorial
 description: This tutorial will show you how to use the Auth0 with Angular 1.x applications.
 ---
 
-<%= include('../../_includes/_package2', {
-  org: 'auth0-samples',
-  repo: 'auth0-angularjs-sample',
-  path: '00-Starter-Seed'
+<%= include('../../_includes/_package', {
+  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample/tree/master/00-Starter-Seed',
+  pkgOrg: 'auth0-samples',
+  pkgRepo: 'auth0-angularjs-sample',
+  pkgBranch: 'master',
+  pkgPath: '00-Starter-Seed',
+  pkgFilePath: null,
+  pkgType: 'js'
 }) %>
 
 <%= include('_includes/_prerequisite') %>
+
+
 
 ${include('../\_callback')}
 
