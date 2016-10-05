@@ -53,25 +53,13 @@ The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can 
 
 ## Renewal of the token
 
-A new `id_token` can be obtained using an existing, unexpired `id_token` or by using a [refresh token](/tokens/refresh-token) and the `/delegation` endpoint.
+There are cases where you might want to renew your `id_token`. The most common case is that you want to refresh the claims contained in the `id_token` and see that they are still valid. For example, the `id_token` may contain the user's authorization claims and you want to check that their rights are valid before allowing sensitive operations.
 
-To use an existing, unexpired `id_token` to obtain a new one, you can use the `renewIdToken` function of the `auth0.js` library.
+In order to renew the `id_token` you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
-```js
-auth0.renewIdToken(current_id_token, function (err, delegationResult) {
-  // Get here the new delegationResult.id_token
-});
-```
+When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The r`efresh_token` is stored in session, alongside with the `id_token`. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new `id_token`, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
-To get a new `id_token` when the existing `id_token` has expired, you can use a [refresh token](/tokens/refresh-token) and the [`/delegation`](/api/authentication#!#post--delegation) endpoint.
-
-Alternatively, you can use the `refreshToken` function of the `auth0.js` library.
-
-```js
-auth0.refreshToken(refresh_token, function (err, delegationResult) {
-  // Get here the new delegationResult.id_token
-});
-```
+For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
 
 ## Termination of the token
 
