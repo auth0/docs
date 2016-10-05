@@ -113,7 +113,8 @@ Critical: Defined as an Auth0 issue severely impacting your live or in-productio
 
 Critical Production issues should always be reported via the Support Center for fastest response.
 
-- Translation from former support plans to new:
+Translation from former support plans to new:
+
 - Subscriptions previously known as "Free" map to the "Developer" support plan
 - Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the legacy "Standard" support plan.
 - Support plans previously known as "Enterprise" and "Premium" support map to the "Enterprise" support plan.
