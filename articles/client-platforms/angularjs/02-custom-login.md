@@ -1,14 +1,12 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to use the Auth0 Angular 1.x SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to add authentication and authorization to your mobile app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '02-Custom-Login,
   pkgFilePath: '02-Custom-Login/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -18,7 +16,7 @@ The previous step explained how you can log users into your application using th
 
 If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Angular application.
 
-### 1. Update references
+## Update References
 
 The custom login uses the Auth0.js library to sign a user in, so you should therefor reference this library instead of the Lock widget in your `index.html`. Replace the existing reference to `lib/auth0-lock/build/auth0-lock.js` with `lib/auth0.js/build/auth0.js`:
 
@@ -31,14 +29,14 @@ The custom login uses the Auth0.js library to sign a user in, so you should ther
 <script type="text/javascript" src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
 ```
 
-### 2. Implement the login
+## Implement the Login
 
 For the login view you must display a Username and Password field to allow the user to sign in with their email address and password, and also display a button which will allow the user to sign in with their Google account.
 
 Go ahead and update your `login.html` you did in Step 1:
 
 ```html
-<!-- ===== components/login/login.html ===== -->
+<!-- components/login/login.html -->
 <div class="jumbotron">
   <h2 class="text-center"><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
   <h2 class="text-center">Login</h2>
@@ -70,7 +68,7 @@ Go ahead and update your `login.html` you did in Step 1:
 And `login.controller.js`:
 
 ```js
-/* ===== components/login/login.controller.js ===== */
+// components/login/login.controller.js
 (function () {
 
   'use strict';
@@ -130,7 +128,7 @@ And `login.controller.js`:
 Also change the `AuthService` to sign the user in with the supplied `username` and `password` fields, or alternatively launch the Google login dialog when the user clicks on the **Login with Google** button:
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
   'use strict';

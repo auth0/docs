@@ -1,14 +1,12 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use Auth0 rules to extend what Auth0 has to offer.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '06-Rules',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '06-Rules,
   pkgFilePath: '06-Rules/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -24,7 +22,7 @@ description: This tutorial will show you how to use Auth0 rules to extend what A
 <%= include('../_includes/_rules-test-result-intro', { profilelink: '/docs/quickstart/spa/angularjs/04-user-profile' }) %>
 
 ```html
-/* ===== components/home/home.html ===== */
+// components/home/home.html
 <div class="jumbotron">
   <h2 class="text-center"><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
   <h2 class="text-center">Home</h2>

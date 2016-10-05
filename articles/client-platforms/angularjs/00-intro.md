@@ -1,11 +1,7 @@
 ---
 title: Introduction
-description: test
+description: This quickstart guide demonstrates how to add authentication to an Angular 1.x application using Auth0
 ---
-
-
-
-<%= include('../../_includes/_signup') %>
 
 Auth0 provides wrappers for using the [Lock widget](https://auth0.com/lock) and the [auth0.js](https://github.com/auth0/auth0.js) library in Anguar apps, and these wrappers will be used throughout these quickstart guides.
 
@@ -17,11 +13,11 @@ If you want to follow along with these quickstart guides, download the [seed pro
 
 Before starting, it is important to ensure your application is set up correctly by following these steps:
 
-### 1. Create an Application
+## Create an Application
 
 <%= include('../../_includes/_new_app') %>_
 
-### 2. Configure Callback URLs
+## Configure Callback URLs
 
 A callback URL is a URL in your application where Auth0 redirects to after the user has authenticated. You can set the Callback URL by going to the [Application Settings](${uiAppSettingsURL}) section of your Auth0 dashboard and make sure that **Allowed Callback URLs** contains the following value:
 
@@ -33,13 +29,19 @@ If you are testing your application locally, make sure to add your local URL as 
 http://localhost:3000/
 ```
 
-### 3. Dependencies
+> **Note:** The sample uses host `localhost` and port `3000`,
+but if you use others host and port, you will need put an appropriate ones.
+
+## Dependencies
 
 As stated before, the seed project contains all the required Bower dependencies and has the references added to the `index.html` file. If you would rather integrate Auth0 into an existing Angular application instead of using our seed project, you will need to add the following Bower dependencies to your application:
 
 ```bash
 bower install --save auth0-lock angular-lock angular-jwt
 ```
+
+> **Note:** These tutorials use native local storage for storing and retrieving the user's JSON Web Token and profile object. 
+Alternatively, you may use [angular-storage](https://github.com/auth0/angular-storage) which provides cookie fallbacks for older browsers.
 
 You will also need to add the references to the libraries to your application's `index.html`:
 

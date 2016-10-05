@@ -3,12 +3,10 @@ title: Calling APIs
 description: This tutorial demonstrates how to make secure calls to an API
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-Api',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '08-Calling-Api,
   pkgFilePath: '08-Calling-Api/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -22,7 +20,7 @@ description: This tutorial demonstrates how to make secure calls to an API
 To attach the user's JWT as an `Authorization` header, we could write a service that returns a token and attaches it to all HTTP requests. However, the **angular-jwt** library already provides this functionality. Ensure that **angular-jwt** is added to your app as a dependency and configure it with `jwtOptionsProvider` in the `config` block. A `tokenGetter` function needs to be provided to inform **angular-jwt** how it should be retrieving the user's JWT.
 
 ```js
-/* ===== app.js ===== */
+// app.js
 (function () {
 
 	...
@@ -53,7 +51,7 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 This basic example will attach the JWT as an `Authorization` header to all requests. This may not be desired as some requests don't require authentication. You can choose not to send the JWT by specifying `skipAuthorization: true`.
 
 ```js 
-/* ===== components/ping/ping.service.js ===== */
+// components/ping/ping.service.js
 
 (function () {
 
@@ -84,7 +82,7 @@ This basic example will attach the JWT as an `Authorization` header to all reque
 Remember that template requests via `ui-router` or `ng-route` are HTTP requests. This means that `Authorization` headers will be attached as well and that might not be needed. You may provide some configuration to avoid sending the JWT for template requests.
 
 ```js
-/* ===== app.js ===== */
+// app.js
 (function () {
 
 	...
@@ -118,7 +116,7 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
 If for any reason you would want to send different tokens based on different URLs, you can configure the `tokenGetter` to do so.
 
 ```js
-/* ===== app.js ===== */
+// app.js
 (function () {
 
 	...

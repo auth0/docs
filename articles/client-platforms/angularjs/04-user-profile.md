@@ -17,7 +17,7 @@ description: This example shows how to display the user's profile
 
 You can access obtain a user's profile from the `getProfile()` method.
 
-### Accessing user profile with `lock.getProfile()`
+## Accessing user profile with `lock.getProfile()`
 
 At any given time, you can call `getProfile` on `lock` passing in a token and callback function.
 

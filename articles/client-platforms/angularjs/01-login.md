@@ -1,26 +1,23 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Angular SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to use the Auth0 Angular SDK to add authentication and authorization to your mobile app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '01-Login',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '01-Login',
   pkgFilePath: '01-Login/auth0.variables.js',
   pkgType: 'replace'
 }) %>
 
-
-### 0. Create Auth0 service
+## Create Auth0 Service
 
 The best way to have authentication utilities available across the application is to use an injectable service.
 Notice the `authenticated` success callback which will store the `id_token` in the Local Storage. This value can be retrieved at a later stage.
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
   'use strict';
@@ -63,12 +60,12 @@ Notice the `authenticated` success callback which will store the `id_token` in t
 })();
 ```
 
-### 1. Add the module dependencies and configure the service
+## Add the Module Dependencies and Configure the Service
 
 Add the `auth0.lock`, `angular-jwt` and `ui.router` module dependencies to your angular app definition and configure the `Lock widget` by calling the `init` method of the `lockProvider`.
 
 ```js
-/* ===== app.js ===== */
+// app.js
 (function () {
 
   'use strict';
@@ -103,7 +100,7 @@ Add the `auth0.lock`, `angular-jwt` and `ui.router` module dependencies to your 
 Add a call to `authService.registerAuthenticationListener()` and to `lock.interceptHash()` in the `run` method.
 
 ```js
-/* ===== app.run.js ===== */
+// app.run.js
 (function () {
 
   'use strict';
@@ -130,12 +127,12 @@ Add a call to `authService.registerAuthenticationListener()` and to `lock.interc
 })();
 ```
 
-### 2. Implement the login
+## Implement the Login
 
 To implement the login, you must add a Login Controller. Be sure to inject the `authService` service into the controller.
 
 ```js
-/* ===== components/login/login.controller.js ===== */
+// components/login/login.controller.js
 (function () {
   'use strict';
 
@@ -158,7 +155,7 @@ To implement the login, you must add a Login Controller. Be sure to inject the `
 Next we will need to create the view for this controller:
 
 ```html
-<!-- ===== components/login/login.html ===== -->
+<!-- components/login/login.html -->
 <div class="jumbotron">
   <h2 class="text-center"><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
   <h2 class="text-center">Login</h2>
@@ -171,7 +168,7 @@ Next we will need to create the view for this controller:
 Lastly you must add the state for the login to the `$stateProvider`. Head back to the `app.js` file, and in the `config` method be sure to add the state for the `/login` path:
 
 ```js
-/* ===== app.js ===== */
+// app.js
 
 (function () {
 
@@ -200,12 +197,12 @@ Lastly you must add the state for the login to the `$stateProvider`. Head back t
 })();
 ```
 
-### 3. Implement a Logout button
+## Implement a Logout Button
 
 To log the user out you simply need to call the `unauthenticate` method of `authManager`. Remember to also clear the information from the Local Storage. In the example below we have add a `logout` method to the `authService`:
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
 	...
@@ -229,7 +226,7 @@ To log the user out you simply need to call the `unauthenticate` method of `auth
 Remember to also add a Logout button which calls this function. In our example we call this function from `HomeController`, so in our `home.html` file we add a logout button.
 
 ```html
-<!-- ===== components/home/home.html ===== -->
+<!-- components/home/home.html -->
 ...
 
   <div class="text-center" ng-if="isAuthenticated">

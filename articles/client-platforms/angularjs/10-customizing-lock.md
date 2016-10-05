@@ -3,12 +3,10 @@ title: Customizing Lock
 description: This tutorial demonstrates how to customize the Lock widget
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '10-Customizing-Lock',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '10-Customizing-Lock,
   pkgFilePath: '10-Customizing-Lock/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -26,7 +24,7 @@ Some UI customization can be done via the `options` parameter when initializing 
 You can set custom theme properties, such as a different logo or primary color, by adding a `theme` property with custom values:
 
 ```js
-/* ===== app.js ===== */
+// app.js
 
 (function () {
 
@@ -58,7 +56,7 @@ You can set custom theme properties, such as a different logo or primary color, 
 You can also customize the text that `Lock` will display with the `languageDictionary` option parameter:
 
 ```js
-/* ===== app.js ===== */
+// app.js
 
 (function () {
 

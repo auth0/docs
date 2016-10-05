@@ -3,12 +3,10 @@ title: Linking Accounts
 description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x to link accounts
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '05-Linking-Accounts,
   pkgFilePath: '05-Linking-Accounts/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -18,7 +16,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
 <%= include('../../_includes/_linking_accounts') %>
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
 	...
@@ -79,7 +77,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
 Now that the second login is handled, you will need to actually do the linking.
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 
 lockLink.on('authenticated', function (authResult) {
  
@@ -115,7 +113,7 @@ This function posts to the API, passing the `link_with` parameter with the JWT v
 Now to begin the link process, call the `linkAccount` method.
 
 ```js
-/* ===== components/home/home.controller.js ===== */
+// components/home/home.controller.js
 (function () {
 
 	...
@@ -174,7 +172,7 @@ You can display this information and provide an **Unlink** button:
 The user's primary identity can be filtered by putting in a function to refresh the identities.
 
 ```js
-/* ===== components/home/home.controller.js ===== */
+// components/home/home.controller.js
 (function () {
 
     ...
@@ -200,7 +198,7 @@ The user's primary identity can be filtered by putting in a function to refresh 
 You can dissociate a linked account by calling the [unlink a user account](/api/management/v2#!/Users/delete_provider_by_user_id) endpoint using the primary `user_id`, and the `provider` and `user_id` of the identity to unlink.
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
 	...

@@ -1,14 +1,12 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to integrate Auth0 with angular to add session handling and logout to your web app.
+description: This tutorial demonstrates how to integrate Auth0 with angular to add session handling and logout to your web app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Session-Handling',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '03-Session-Handling,
   pkgFilePath: '03-Session-Handling/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -24,7 +22,7 @@ Once the user is authenticated, we need to create a client-side session for them
 **NOTE**: This example uses `localStorage`, but you can use any storage library.
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 
 (function () {
 
@@ -53,7 +51,7 @@ Once the user is authenticated, we need to create a client-side session for them
 To check if a user is authenticated, we can use `tokenNotExpired` from [angular-jwt](https://github.com/auth0/angular-jwt) which allows us to check whether the user's JWT is expired or not. Since JWT is a "stateless" manner of doing user authentication, the best way to know if the user should be regarded as authenticated on the front end is to know whether the token is unexpired.
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 
 (function () {
 
@@ -82,7 +80,7 @@ To check if a user is authenticated, we can use `tokenNotExpired` from [angular-
 To use this service, inject `authService` into your component `run` method and call `authService.checkAuthOnRefresh()`:
 
 ```js
-/* ===== app.run.js ===== */
+// app.run.js
 
 (function () {
 

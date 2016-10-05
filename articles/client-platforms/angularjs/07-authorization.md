@@ -1,14 +1,12 @@
 ---
 title: Authorization
-description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to access secure content in the app.
+description: This tutorial demonstrates how to assign roles to your users, and use those claims to authorize or deny a user to access secure content in the app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '07-Authorization',
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '07-Authorization,
   pkgFilePath: '07-Authorization/auth0.variables.js',
   pkgType: 'replace'
 }) %>
@@ -24,7 +22,7 @@ description: This tutorial will show you how assign roles to your users, and use
 To restrict secure content to users with a role of `admin`, subscribe to `$stateChangeStart` event.
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
 	...
@@ -65,7 +63,7 @@ Every time when `$stateChangeStart` event fires we check if the user is an admin
 
 
 ```js
-/* ===== components/auth/auth.service.js ===== */
+// components/auth/auth.service.js
 (function () {
 
     ...
