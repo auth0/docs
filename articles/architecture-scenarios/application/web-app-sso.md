@@ -3,6 +3,7 @@ order: 04
 title: SSO for Regular Web Apps
 image: /docs/media/articles/architecture-scenarios/web-oidc.png
 extract: Traditional web application which needs to authenticate users using OpenID Connect.
+description: Regular web app scenario which needs to authenticate users using OpenID Connect.
 ---
 
 # SSO for Regular Web Apps
