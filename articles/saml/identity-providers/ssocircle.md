@@ -46,11 +46,11 @@ You will be presented with a pop-up window titled *Create SAMLP Identity Provide
 
 Finally, upload the **SSOCircle CA Certificate** you saved in [step 1](#1-obtain-the-ssocircle-metadata) as the *X509 Signing Certificate*.
 
-You can leave the rest of the fields on the page blank. Click **Save** to persist your changes.
+You can leave the rest of the fields on the page blank. Click **Save**.
 
 ![Auth0 Configure SSOCircle Connection Screen](/media/articles/saml/identity-providers/ssocircle/configure-ssocircle-connection.png)
 
-At this point, you will see a pop-up window that presents you with two options. If you are an administrator with the necessary privileges for configuring the integration, click **Continue**. If not, forward the link indicated to the person who will be completed this process.
+At this point, you will see a pop-up window that presents you with two options. If you are an administrator with the necessary privileges for configuring the integration, click **Continue**. If not, forward the link indicated to the person who will be completing this process.
 
 ![Prompt if Administrator](/media/articles/saml/identity-providers/ssocircle/is-admin.png)
 
@@ -58,9 +58,9 @@ If you click **Continue**, you will be shown the SAML Identity Provider Configur
 
 ![SAML Configuration Info Display](/media/articles/saml/identity-providers/ssocircle/saml-config-info.png)
 
-> In general, you can access the metadata for a Auth0 SAML connection using a URL with the following format: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
+> In general, you can access the metadata for an Auth0 SAML connection using a URL with the following format: `https://${account.namespace}/samlp/metadata?connection=${connectionName}`.
 
-You will need to provide this metadata to SSOCircle at a later point of the configuration process.
+You will need to provide this metadata to SSOCircle at a later point during the configuration process.
 
 ## 3. Configure the SSOCircle Identity Provider
 
@@ -70,7 +70,7 @@ Log in to your [SSOCircle](http://ssocircle.com) account. You will be directed t
 
 ![SSOCircle User Profile](/media/articles/saml/identity-providers/ssocircle/user-profile.png)
 
-In the navigation bar, click on **Manage Metadata**.
+In the navigation bar, click **Manage Metadata**.
 
 ![Manage Metadata Screen](/media/articles/saml/identity-providers/ssocircle/manage-provider-metadata.png)
 
@@ -86,7 +86,7 @@ Click **“Submit”** to complete the configuration of the IDP.
 
 ![Popup Indicating Successful Import of Metadata](/media/articles/saml/identity-providers/ssocircle/metadata-success.png)
 
-## 4. Create an Auth0 Client to Test the Connection.
+## 4. Create an Auth0 Client to Test the Connection
 
 In this step, you will create a Client in Auth0 that uses your SSOCircle SAML Connection.
 
@@ -105,7 +105,7 @@ Click **Create** to finish configuration and begin the Client creation process.
 
 You will be directed to the dashboard landing page for your Client. Click over to the *Settings* page.
 
-In the *Allowed Callback URL* field, enter `http://jwt.io`. The list of allowed callback URLs includes those to which users will be redirected after authentication. The URL(s) entered here must match the **"callback URL"** in the HTML code you will create in a later step. Normally, you would enter a URL for your Client, but to keep this example simple, users will simply be sent to the Auth0 JWT Tool.
+In the *Allowed Callback URL* field, enter `http://jwt.io`. The list of allowed callback URLs includes those to which users will be redirected after authentication. The URL(s) entered here must match the **callback URL** in the HTML code you will create in a later step. Normally, you would enter a URL for your Client, but to keep this example simple, users will simply be sent to the Auth0 JWT Tool.
 
 ![Allowed Callback URLS field](/media/articles/saml/identity-providers/ssocircle/allowed-callback-urls.png)
 
@@ -113,7 +113,7 @@ Click **SAVE CHANGES**.
 
 Returning to the top of *Settings*, click on  **Connections**.
 
-Scroll down to the section with the **Enterprise** heading. Find the row for the SAML Connection you created above and click on the on/off toggle to enable the SAML Connection.
+Scroll down to the section with the **Enterprise** heading. Find the row for the SAML Connection you created above and click the on/off toggle to enable the SAML Connection.
 
 ![](/media/articles/saml/identity-providers/ssocircle/enable-connection.png)
 
@@ -121,25 +121,25 @@ Scroll down to the section with the **Enterprise** heading. Find the row for the
 
 In this step, you will test to make sure the SAML configuration between Auth0 and SSOCircle is working.
 
-While logged in to the [Auth0 Management Dashboard](${manage_url}), navigate to the [Enterprise Connections](${manage_url}/#/connections/enterprise) page and click on the **SAMLP Identity Provider** row.
+While logged in to the [Auth0 Management Dashboard](${manage_url}), navigate to the [Enterprise Connections](${manage_url}/#/connections/enterprise) page and click the **SAMLP Identity Provider** row.
 
 ![Auth0 Create Enterprise Connection Screen](/media/articles/saml/identity-providers/ssocircle/create-enterprise-connection.png)
 
-To test, click on the **triangle** next to the Connection you created earlier.
+To test, click the **triangle** next to the Connection you created earlier.
 
 ![Connection Options Screen](/media/articles/saml/identity-providers/ssocircle/test-connection.png)
 
-You should be redirected from Auth0 to the SSOCircle login page. Login with the credentials you provided when creating the SSOCircle account.
+You should be redirected from Auth0 to the SSOCircle login page. Log in with the credentials you provided when creating the SSOCircle account.
 
 ![Login Screen](/media/articles/saml/identity-providers/ssocircle/login.png)
 
-You may receive a window that says, *"Your session has timed out."* If so, click on the **Return to Login page** link below this message.
+You may receive a window that says, *"Your session has timed out."* If so, click the **Return to Login page** link below this message.
 
 Once you have logged in, you will see a *SAML Consent Page*. Click the box indicating that you're not a robot, then click **Continue SAML Single Sign On**.
 
 ![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 
-At this point, if the SAML configuration works, your browser will be redirected back to an Auth0 page that says **"It works!!!"**.  This page will display the contents of the SAML authentication assertion sent by the SSOCircle IDP to Auth0.
+At this point, if the SAML configuration works, your browser will be redirected back to an Auth0 page that says **"It works!!!"** This page will display the contents of the SAML authentication assertion sent by the SSOCircle IDP to Auth0.
 
 If the test shows that something didn't work, please review the above steps and consult the [Troubleshooting](#8-troubleshooting) section.
 
@@ -147,7 +147,7 @@ If the test shows that something didn't work, please review the above steps and 
 
 In this section, you will create a simple HTML page that uses the **Auth0 Lock Widget**. Lock will then trigger the SAML login sequence.
 
-Create an HTML file with the following HTML and JavaScript.
+Create an HTML file with the following HTML and JavaScript:
 
 ```html
 <!DOCTYPE html>
@@ -178,7 +178,7 @@ Create an HTML file with the following HTML and JavaScript.
 
 Be sure to replace `{YOUR-APP-CLIENT-ID}` with the actual value for the [Client you created](#4-create-an-auth0-client-to-test-the-connection).
 
-The Client ID can be found in the **Auth0 Dashboard** by going to **Clients** and clicking on the **Settings** icon to the right of your Client name.
+The Client ID can be found in the **Auth0 Dashboard** by going to **Clients** and clicking the **Settings** icon to the right of your Client name.
 
 Save this file. For the purposes of this example, we'll call it `hello-saml.html`.
 
@@ -196,7 +196,7 @@ Click **Login**. The **Auth0 Lock** Widget will appear.
 
 > If you are prompted to enter an email address, make sure the domain for the email address you enter is listed under *Settings* for the Auth0 Client you previously configured.
 
-Provide the requested log in credentials and click on **Access** to initiate the SAML SSO sequence with SSOCircle.
+Provide the requested log in credentials and click **Access** to initiate the SAML SSO sequence with SSOCircle.
 
 At this point, you will be redirected to the SSOCircle IDP to log in.
 
@@ -206,7 +206,7 @@ Once you have logged in, you will see a *SAML Consent Page*. Click the box indic
 
 ![Consent to SAML Screen Screen](/media/articles/saml/identity-providers/ssocircle/saml-consent.png)
 
-> Please note that you will not be prompted for your credentials if you still have an active session at SSOCircle. If this is the case, you will simply be redirected to the callback URL specified in the `hello-saml.html`.
+> Please note that you will not be prompted for your credentials if you still have an active session at SSOCircle. If this is the case, you will simply be redirected to the callback URL specified in `hello-saml.html`.
 
 If you successfully authenticate, you will be redirected to the callback URL specified in `hello-saml.html` (`http://jwt.io`). You will see the token that your Client receives.
 
@@ -218,9 +218,9 @@ If you successfully authenticate, you will be redirected to the callback URL spe
 
   Once you have an HTTP tracer, capture the login sequence from start to finish and analyze the trace to see the sequence of `GET` requests to see where the error occurs. You should see:
 
-  * a redirect from your original site to the IDP;
-  * a post of credentials (if you were asked to log in);
-  * a redirect to the callback URL.
+  * A redirect from your original site to the IDP;
+  * A post of credentials (if you were asked to log in);
+  * A redirect to the callback URL.
 
 
 * Ensure that your browser has enabled cookies and JavaScript.
