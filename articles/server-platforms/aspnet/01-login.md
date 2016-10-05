@@ -76,7 +76,7 @@ An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the req
 </system.web>
 ```
 
-In the above example, we are redirecting to a 'Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-triggering-login-manually-or-integrating-the-auth0lock).
+In the above example, we are redirecting to a `Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-triggering-login-manually-or-integrating-the-auth0lock).
 
 ```c#
 public ActionResult Login(string returnUrl)
