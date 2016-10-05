@@ -49,15 +49,7 @@ Again, the `responseType` must be set to `id_token` in order to get one back. Th
 
 ## Validity
 
-The `id_token` is valid for 10 hours (36000 seconds) by default.  The expiration of this token can be set in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
-
-The validity period of the token can also be altered via [Auth0 Rules](/rules) using the `context.jwtConfiguration.lifetimeInSeconds` object as documented in [Context Argument Properties in Rules](/rules/context).
-
-For example, the following code in a rule would set the `id_token` JWT expiration to 1 hour.
-
-```
-context.jwtConfiguration.lifetimeInSeconds = 3600;
-```
+The `id_token` is valid for 10 hours (36000 seconds) by default.  The value can be changed in the [Dashboard > Clients > Settings](${manage_url}/#/clients/${account.clientId}/settings) screen using the `JWT Expiration (seconds)` field.
 
 ## Renewal of the token
 
