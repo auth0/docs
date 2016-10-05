@@ -8,7 +8,7 @@ You can use Auth0 Lock with both Single Page Apps and with Regular WebApps. In t
 
 ## Single Page App
 
-When you're using a Single Page App, you need that after a successful login through Auth0, you get the `id_token` ([JWT](/jwt)) with which you can then call your API. When you want to use [this workflow](/sequence-diagrams), the `responseType` is then a `token`.
+When you're using a Single Page App, you may need an `access_token`, with which you can call your API, and an `id_token`, which contains user profile attributes like the user's name, email, and so forth, typically used for UI display. When you want to use [this workflow](/sequence-diagrams), the `responseType` should be `id_token`.
 
 Lock can work in [2 Authentication modes: Redirect and Popup](/libraries/lock/v9/authentication-modes).
 
@@ -30,7 +30,7 @@ lock.show(function(err, profile, id_token) {
 
 In this first example you'll see that a callbackURL isn't set. That's because by default the callbackURL is set to `location.href` which means current URL.
 
-Optionally, [you can set the callbackURL to whatever you need](/libraries/lock/v9/customization#callbackurl-string). Please bear in mind that if you do, you'll also need to specify `responseType: token` as part of the options.
+Optionally, [you can set the callbackURL to whatever you need](/libraries/lock/v9/customization#callbackurl-string). Please bear in mind that if you do, you'll also need to specify `responseType: id_token` as part of the options.
 
 ````js
 var lock = new Auth0Lock('dsa7d77dsa7d7', 'mine.auth0.com');
