@@ -62,7 +62,7 @@ This document describes the major differences between Auth0's Management API v1 
 | [POST /api/connections](/api/v1#!#post--api-connections) | Added `enabled_clients` property. | [POST /api/v2/connections](/api/v2#!/connections/post_connections) |
 | [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Not available. Changed `connection-name` to `id`. | [PATCH /api/v2/connections/{id}](/api/v2#!/connections/patch_connections_by_id) |
 | [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Changed `connection-name` to `id`. | [DELETE /api/v2/clients/{id}](/api/v2#!/connections/delete_connections_by_id) |
-| [GET /api/connections/{connection}/users](/api/v1) + [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | For appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"` | [GET  /api/v2/users/{id}](/api/v2#!/Users/get_users) |
+| [GET /api/connections/{connection}/users](/api/v1) + [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | For appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"` | [GET  /api/v2/users](/api/v2#!/Users/get_users) |
 
 ### Rules endpoints
 | v1 Endpoint | Change | v2 Endpoint |
