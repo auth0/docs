@@ -55,7 +55,7 @@ There are cases where you might want to renew your `id_token`. The most common c
 
 In order to renew the `id_token` you can either perform another authorization flow with Auth0 (using the `/authorize` endpoint) or use a [Refresh Token](/tokens/refresh-token).
 
-When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The r`efresh_token` is stored in session, alongside with the `id_token`. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new `id_token`, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
+When performing the initial authorization flow, you can ask for a `refresh_token`, by adding `offline_access` at the `scope` parameter, for example `scope=openid offline_access`. The `refresh_token` is stored in session, alongside with the `id_token`. Then when a session needs to be refreshed (for example, a preconfigured timeframe has passed or the user tries to perform a sensitive operation), the app uses the `refresh_token` on the backend to obtain a new `id_token`, using the `/oauth/token` endpoint with `grant_type=refresh_token`.
 
 For more information on refresh tokens and how to use them refer to: [Refresh Token](/tokens/refresh-token).
 

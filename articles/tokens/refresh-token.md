@@ -62,33 +62,10 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 
 ## Use a Refresh Token
 
-To obtain a new `id_token`, call the [delegation](/auth-api#!#post--delegation) endpoint in the Authentication API:
-
-```
-POST https://${account.namespace}/delegation
-Content-Type: 'application/json'
-{
-  "client_id":       "${account.clientId}",
-  "grant_type":      "urn:ietf:params:oauth:grant-type:jwt-bearer",
-  "refresh_token":   "your_refresh_token",
-  "api_type":        "app"
-}
-```
-
-A response from this request could be as follows:
-
-```
-{
-  "token_type": "Bearer",
-  "expires_in": 36000,
-  "id_token": "eyJ..."
-}
-```
-
-The `expires_in` parameter indicates the lifetime of the new JWT in seconds. It can be calculated by the difference between the `exp` and `iat` claims of the JWT.
+To obtain a new `id_token`, call the `/oauth/token` endpoint in the Authentication API, using `grant_type=refresh_token`.
 
 ::: panel-info Rate limits
-Obtaining new tokens using the `refresh_token` should occur only if the `id_token` has expired. For example, it is a bad practice to call the endpoint to get a new token every time you call an API. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
+Obtaining new tokens using the `refresh_token` should occur only if the `access_token` has expired or you want to refresh the claims contained in the `id_token`. For example, it is a bad practice to call the endpoint to get a new token every time you call an API using the `access_token`. There are rate limits in Auth0 that will throttle the amount of requests to this endpoint that can be executed using the same token from the same IP.
 :::
 
 
