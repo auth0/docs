@@ -7,7 +7,7 @@ description: This page explains an overview about Auth0 access tokens.
 
 ## Overview
 
-The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. Auth0 uses access tokens to protect access to the Auth0 Management API.
+The Access Token, commonly referred to as `access_token` in code samples, is a credential that can be used by a client to access an API. The `access_token` should be used as a `Bearer` credential and transmitted in an HTTP `Authorization` header to the API. Auth0 uses access tokens to protect access to the Auth0 Management API.
 
 By default, Auth0 generates access tokens in JSON Web Token (JWT) format, an industry standard. JWTs contain three parts: a header, a set of claims, and a signature:
 - The header contains metadata about the type of token and the cryptographic algorithms used to secure its contents.

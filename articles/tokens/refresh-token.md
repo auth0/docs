@@ -7,6 +7,8 @@ description: What is a Refresh Token and what you can do with it.
 
 A **refresh token** is a special kind of [JWT](/jwt) that contains the information required to obtain a new `access_token` or `id_token`.
 
+> An `id_token` is used by the client that receives it in order to identify the user. An `access_token` is used by a client to access an API. For more information refer to: [Tokens](/tokens).
+
 Usually, a user will need a new access token only after the previous one expires, or when gaining access to a new resource for the first time.
 
 Refresh tokens are subject to strict storage requirements to ensure that they are not leaked. Refresh tokens can also be blacklisted by the authorization server.
