@@ -1,6 +1,7 @@
 ---
 title: Introduction
 name: Introduction to the Quickstart, and configuring environment
+description: This Quickstart will guide you through the various tasks related to using Auth0-issued JSON Web Tokens to secure your ASP.NET Core Web API.
 ---
 
 <%= include('../../_includes/_package', {

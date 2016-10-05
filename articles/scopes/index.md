@@ -1,3 +1,7 @@
+---
+description: Overview of scopes with a client-side authorization transaction.
+---
+
 # Scopes
 
 When initiating a [client-side authorization transaction](/protocols#oauth-for-native-clients-and-javascript-in-the-browser) through the [`/authorize` endpoint](/auth-api#!#get--authorize_social),

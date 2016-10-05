@@ -1,5 +1,6 @@
 ---
 title: SiteMinder
+description: How to configure SiteMinder as an identity provider.
 ---
 # Configuring SiteMinder as an Identity Provider
 

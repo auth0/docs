@@ -1,6 +1,7 @@
 ---
 title: Introduction
 name: Introduction to the quickstart guide and configuring the environment
+description: Introduction to the quickstart guide and configuring the environment.
 ---
 
 This quickstart guide will walk you through the various tasks related to integrating Auth0 into your ASP.NET Core MVC application.
