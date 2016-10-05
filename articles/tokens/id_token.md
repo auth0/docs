@@ -63,7 +63,7 @@ For more information on refresh tokens and how to use them refer to: [Refresh To
 
 ## Termination of the token
 
-Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#renewing-the-token) periodically if the user remains active.
+Once issued, tokens can not be revoked in the same fashion as cookies with session id’s for server-side sessions.  As a result, tokens should be issued for relatively short periods, and then [renewed](#renewal-of-the-token) periodically if the user remains active.
 
 ## More Information
 
