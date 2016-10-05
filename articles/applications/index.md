@@ -4,9 +4,12 @@ description: Explains the basics of creating and using Auth0 Clients.
 
 # Core Concepts: Clients
 
-A client is one of the core concepts in Auth0, which is why it's important to know how this relates to your applications and the impact this will have on auditing, authorization, billing, etc.
+A **client** is an Auth0 core concept, so it's important to know how:
 
-> Depending on the concepts or technologies you're working with, a client might also be referred to as an **application** or a **relying party**.
+1. They relate to your applications;
+2. They impact auditing, authorization, billing, and so on.
+
+> Depending on the technologies you use, a client may also be referred to as an **application** or a **relying party**.
 
 ## Clients in Auth0
 
@@ -18,23 +21,23 @@ Let's start by looking at how clients are represented in Auth0 and how this rela
 
 The client's settings contain the following information:
 
-- **Name**: Canonical name of your client which you'll see in the portal, emails, logs, ...
-- **Domain**: This is the domain name of where your client lives.
-- **Client ID (read-only)**: This is the unique identifier for your client application. This is the ID you'll use with your client when setting up authentication with Auth0.
-- **Client Secret**: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your client will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code).
-- **Allowed Callback Urls**: One or more urls of your client to which Auth0 can redirect after the user has authenticated.
-- **Allowed Origins (CORS)**: If you want to use the Auth0 API from within the browser you'll need to add the urls of the applications running your javascript code to prevent Same-origin policy errors.
-- **JWT Expiration**: The expiration in seconds of the access tokens that will be handed out by Auth0.
-- **Use Auth0 instead of the IdP to do Single Sign On**: If this option is enabled Auth0 won't need to redirect users to the identity provider (Facebook, ADFS, ...) if the user has authenticated before and hasn't logged out or his session hasn't expired.
+* **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on)
+* **Domain**: the domain name of your client
+* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0)
+* **Client Secret**: the key used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints;
+* **Allowed Callback URLs**: the URLs of your application(s) to which Auth0 can redirect the user after authentication.
+* **Allowed Origins (CORS)**: the URLs of the applications running your JavaScript code (prevents same-origin policy errors when using Auth0 from within a web browser)
+* **JWT Expiration**: the amount of time remaining (in seconds) before the Auth0 access tokens expires
+* **Use Auth0 instead of the IdP to do Single Sign On**: if enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on)
 
 ### Addons
 
 ![](/media/articles/applications/applications-addon-types.png)
 
-Addons are extensions associated with clients and are typically used in 2 different scenarios:
+Addons are extensions associated with clients and are typically used in the following scenarios:
 
-* **Accessing external APIs**: using the delegation endpoint an access token for the client application can be exchanged for an access token to a third party service (like [Salesforce](/server-apis/salesforce), Amazon, Azure, Firebase, ...).
-* **Integrating with applications using SAML2/WS-Federation**: enables authentication through Auth0 for applications that support SAML2/WS-Federation like Dropbox, SharePoint, ... The most popular SaaS applications with SAML support are already covered as recipes that will automatically configure the SAML2/WS-Federation addon (in the dashboard under [SSO Integrations](${manage_url}/#/externalapps)). By enabling the addon for a client you can configure every aspect of the SAML2/WS-Federation integration, allowing you to integrate with any custom/SSO integration that we haven't covered yet.
+* **Accessing External APIs**: Using the Delegation endpoint, you can exchange a Client's access token for a third-party service's (such as Salesforce or Amazon) access token
+* **Integrating with Applications Using SAML2/WS-Federation**: Addons allow you to integrate with any custom or SSO integration that does not currently enjoy built-in Auth0 support, since they allow you to configure every aspect of the SAML2/WS-Federation integration.
 
 ![](/media/articles/applications/applications-sso-integrations-overview.png)
 
@@ -42,7 +45,7 @@ Addons are extensions associated with clients and are typically used in 2 differ
 
 ![](/media/articles/applications/applications-connections-example.png)
 
-On the client application level we are able to choose which connections are enabled, which is useful if an organization is building applications for different audiences. A timesheet application might be for employees only, so we'll want to restrict this to Active Directory authentication. But a customer facing application might have support for Google, Microsoft Accounts, different ADFS connections, ...
+At the Client level, you can choose which Connections are enabled for a given client. This is useful if you are building different applications for different audiences. For example, you might build a timesheet application that can only be used by employees in addition to a customer-facing application. The former might require only Active Directory authentication, while the latter might support authentication using Google, Facebook, and so on.
 
 ### Rules
 
