@@ -182,15 +182,14 @@ Host: my-api.example.com
 Authorization: Bearer eyJ...
 ```
 
-where `eyJ...` is the JWT obtained from Auth0.
-The `curl` equivalent would be as follows:
+where `eyJ...` is the JWT obtained from Auth0. The `curl` equivalent would be as follows:
 
 ```
 curl https://my-api.example.com/my-secured-endpoint -H "Authorization: Bearer eyJ..."
 ```
 
 Note that the header name in this case is `Authorization`, and its value is `Bearer eyJ...` (separated by one space).
---------
+
 
 ## OAuth Resource Owner Password Credentials Grant
 
