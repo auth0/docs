@@ -71,7 +71,7 @@ Obtaining new tokens using the `refresh_token` should occur only if the `access_
 
 ## Revoke a Refresh Token
 
-Since refresh tokens never expire, it is important to be able to revoke them.
+Since refresh tokens never expire it is important to be able to revoke them.
 
 ### Revoke a Refresh Token using the Management API
 
@@ -124,7 +124,7 @@ Click **UNLINK** to confirm.
 
 ## SDK Support
 
-The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support to obtain and use refresh tokens.
+The [Lock](/libraries/lock), [auth0.js](/libraries/auth0js), and [auth0-angular.js](https://github.com/auth0/auth0-angular) libraries include support methods to obtain and use refresh tokens.
 
 For more information about using refresh tokens with these libraries, see:
 
