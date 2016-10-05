@@ -1,0 +1,3 @@
+lock_url: 'https://cdn.auth0.com/js/lock/10.2/lock.min.js'
+lock_passwordless_url: 'https://cdn.auth0.com/js/lock-passwordless-2.2.min.js'
+auth0js_url: 'https://cdn.auth0.com/w2/auth0-7.1.min.js'
