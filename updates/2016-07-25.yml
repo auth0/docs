@@ -1,8 +1,0 @@
-added:
-  -
-  title: "Added Rules section to rails quickstart"
-  tags:
-    - rails
-    - quickstart
-  description: |
-    Added section 06 "Rules" to [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails)
