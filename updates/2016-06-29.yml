@@ -1,0 +1,8 @@
+changed:
+  -
+    title: "Updated rails quickstart login step dependencies and section title"
+    tags:
+      - rails
+      - quickstart
+    description: |
+      Updated [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails) dependencies to match those in the latest sample app version. Additionally, updated [rails quickstart](https://auth0.com/docs/quickstart/webapp/rails) section 5 title to clarify login mechanisms.
