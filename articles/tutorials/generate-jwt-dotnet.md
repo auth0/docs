@@ -29,7 +29,27 @@ using Jose;
 Next up you will need to add two helper methods to your code. The first will allow you to decode the **Client Secret** which is BASE64 encoded, but we need to pass it as non-base64 encoded to the JWT generator. The second is to generate a UNIX timestamp from a `DateTime`:
 
 ```cs
-private byte[] Base64UrlDecode(string arg){    string s = arg;    s = s.Replace('-', '+'); // 62nd char of encoding    s = s.Replace('_', '/'); // 63rd char of encoding    switch (s.Length % 4) // Pad with trailing '='s    {        case 0: break; // No pad chars in this case        case 2: s += "=="; break; // Two pad chars        case 3: s += "="; break; // One pad char        default:            throw new System.Exception(        "Illegal base64url string!");    }    return Convert.FromBase64String(s); // Standard base64 decoder}private long ToUnixTime(DateTime dateTime){    return (int)(dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1))).TotalSeconds;}
+private byte[] Base64UrlDecode(string arg)
+{
+    string s = arg;
+    s = s.Replace('-', '+'); // 62nd char of encoding
+    s = s.Replace('_', '/'); // 63rd char of encoding
+    switch (s.Length % 4) // Pad with trailing '='s
+    {
+        case 0: break; // No pad chars in this case
+        case 2: s += "=="; break; // Two pad chars
+        case 3: s += "="; break; // One pad char
+        default:
+            throw new System.Exception(
+        "Illegal base64url string!");
+    }
+    return Convert.FromBase64String(s); // Standard base64 decoder
+}
+
+private long ToUnixTime(DateTime dateTime)
+{
+    return (int)(dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+}
 ```
 
 > The code for the `Base64UrlDecode` method was taken from the [following StackOverflow answer](http://stackoverflow.com/a/33113820)

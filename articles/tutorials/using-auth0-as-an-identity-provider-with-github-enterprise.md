@@ -1,3 +1,7 @@
+---
+description: How to use Auth0 as an identity provider with GitHub Enterprise.
+---
+
 # Using Auth0 as an Identity Provider with GitHub Enterprise
 
 When using GitHub Enterprise, you can configure Auth0 to act as an identity provider.

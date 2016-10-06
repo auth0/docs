@@ -1,3 +1,7 @@
+---
+description: How to test a partner connection.
+---
+
 # Testing a partner connection
 
 Testing a connection in Auth0 is very easy: 

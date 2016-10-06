@@ -1,3 +1,7 @@
+---
+description: How to build a multi-tenant SaaS application with Azure AD and Auth0.
+---
+
 # Building multi-tenant, SaaS applications with Azure AD and Auth0
 
 Azure AD is often used as a user directory for Office 365, Intune, Dynamics CRM and applications you're building for the users in your organization.

@@ -1,3 +1,7 @@
+---
+description: How to authenticate and authorize a Tessel device with Auth0.
+---
+
 # Authenticating & Authorizing a Tessel device with Auth0
 
 [Tessel](https://tessel.io) is an amazing board. Not only it has a great hardware spec and a great extensibility story, you can program it Javascript! When it was announced on Kickstarter we immediately supported it and waited long weeks to get hold of one.

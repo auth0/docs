@@ -1,3 +1,7 @@
+---
+description: Details migrating Office365 connections to Windows Azure AD.
+---
+
 # Office365 Connections Deprecated - Use Windows Azure AD
 
 ## Immediate Action
