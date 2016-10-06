@@ -297,9 +297,9 @@ How does control return back to your app after a login has been attempted?  This
 
 #### Redirect Mode
 
-The default mode of the `login` method is Redirect Mode.  Here two separate "redirect" actions will occur when `login` is called.  First, the browser will navigate to a separate login page to collect the user's credentials.  Once the user successfully logs in, the browser will redirect the user *back* to your application via the `callbackURL`.
+The default mode of the `login` method is Redirect Mode. Here two separate "redirect" actions will occur when `login` is called. First, the browser will navigate to a separate login page to collect the user's credentials. Once the user successfully logs in, the browser will redirect the user *back* to your application via the `callbackURL`.
 
-For example, let's say you've initialized your Auth0 client as shown in the [Initialize](#initialize) section above.  Then the following call to `login` using your `google-oauth2` social connection would result in a redirect to a Google login page and then a redirect back to `http://my-app.com/callback` if successful:
+For example, let's say you've initialized your Auth0 client as shown in the [Initialize](#initialize) section above. Then the following call to `login` using your `google-oauth2` social connection would result in a redirect to a Google login page and then a redirect back to `http://my-app.com/callback` if successful:
 
 ```js
 auth0.login({
@@ -309,7 +309,7 @@ auth0.login({
 
 ##### Single Page Apps
 
-If you're building a SPA (Single Page Application) and using Redirect Mode, then your `callbackURL` should send the user back to the same page.  And because the `responseType` initialization option was set to `'token'`, Auth0 will also append a hash to that URL that will contain an `access_token` and `id_token` (the JWT).  After control returns to your app, the full user profile can be retrieved via the `parseHash` and `getProfile` methods:
+If you're building a SPA (Single Page Application) and using Redirect Mode, then your `callbackURL` should send the user back to the same page. And because the `responseType` initialization option was set to `'token'`, Auth0 will also append a hash to that URL that will contain an `access_token` and `id_token` (the JWT). After control returns to your app, the full user profile can be retrieved via the `parseHash` and `getProfile` methods:
 
 ```js
 $(function () {
@@ -349,7 +349,7 @@ If there is no hash, `result` will be null.  If the hash contains the JWT, the `
 
 ##### Regular Web Apps
 
-If you're building a regular web application (HTML pages rendered on the server), then `callbackURL` should point to a server-side endpoint that will process the successful login, primarily to set some sort of session cookie.  In this scenario you should make sure the `responseType` option is `'code'` (or just not specified) when the Auth0 client is created:
+If you're building a regular web application (HTML pages rendered on the server), then `callbackURL` should point to a server-side endpoint that will process the successful login, primarily to set some sort of session cookie. In this scenario you should make sure the `responseType` option is `'code'` (or just not specified) when the Auth0 client is created:
 
 ```js
 var auth0 = new Auth0({
@@ -360,17 +360,17 @@ var auth0 = new Auth0({
 });
 ```
 
-On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter.  Unlike the SPA scenario, this `code` value should get processed completely server-side.
+On successful login, Auth0 will redirect to your `callbackURL` with an appended authorization `code` query parameter. Unlike the SPA scenario, this `code` value should get processed completely server-side.
 
 > Note: Server-side processing of the `code` looks something like this: Using whichever [Auth0 server-side SDK](https://auth0.com/docs/quickstart/webapp) necessary, the endpoint on the server should exchange the `code` for an `access_token` and `id_token` and optionally a full user profile.  It should then set some kind of local session cookie, which is what enables a user to be "logged in" to the website and usually contains data from the user profile.  It should finally redirect the user back to a meaningful page.
 
 #### Popup Mode
 
-Besides Redirect Mode, the `login` method also supports Popup Mode, which you enable by passing `popup: true` in the `options` argument.  In this mode the browser will *not* be redirected to a separate login page.  Instead Auth0 will display a popup window where the user enters their credentials.  The advantage of this approach is that the original page (and all of its state) remains intact, which can be important, especially for certain Single Page Apps.
+Besides Redirect Mode, the `login` method also supports Popup Mode, which you enable by passing `popup: true` in the `options` argument. In this mode the browser will *not* be redirected to a separate login page.  Instead Auth0 will display a popup window where the user enters their credentials. The advantage of this approach is that the original page (and all of its state) remains intact, which can be important, especially for certain Single Page Apps.
 
 > **WARNING**: While Popup Mode does have the advantage of preserving page state, it has some issues. Often times users have popup blockers that prevent the login page from even displaying. There are also known issues with mobile browsers. For example, in recent versions of Chrome on iOS, the login popup does not get closed properly after login (see an example [here](https://github.com/auth0/lock/issues/71)). For these reasons, we encourage developers to favor Redirect Mode over Popup Mode, even with Single Page Apps.
 
-In Popup Mode you also have no need to be redirected back to the application, since, once the user has logged in, the popup is simply closed.  Instead Auth0 uses the `login` method's `callback` argument to return control to your client-side application, for both failed and successful logins.  Along with the `err` argument, `callback` should also receive a `result` argument with the following properties: `idTokenPayload, idToken, accessToken, state` (and optionally `refreshToken` if the `offline_access` scope has been requested):
+In Popup Mode you also have no need to be redirected back to the application, since, once the user has logged in, the popup is simply closed. Instead Auth0 uses the `login` method's `callback` argument to return control to your client-side application, for both failed and successful logins. Along with the `err` argument, `callback` should also receive a `result` argument with the following properties: `idTokenPayload, idToken, accessToken, state` (and optionally `refreshToken` if the `offline_access` scope has been requested):
 
 ```js
 auth0.login({
@@ -394,7 +394,7 @@ function(err, result) {
 
 #### Database and Active Directory/LDAP connections
 
-The behavior of Redirect and Popup Modes differs if you're using a [Database](https://auth0.com/docs/connections/database/mysql) or [Active Directory/LDAP](https://auth0.com/docs/connections/enterprise/active-directory) connection.  Those differences depend on two factors: whether SSO ([Single Sign-On](https://auth0.com/docs/sso/single-sign-on)) is enabled and whether or not credentials are being directly passed to the `login` method.
+The behavior of Redirect and Popup Modes differs if you're using a [Database](/connections/database/mysql) or [Active Directory/LDAP](/connections/enterprise/active-directory) connection.  Those differences depend on two factors: whether SSO ([Single Sign-On](/sso/single-sign-on)) is enabled and whether or not credentials are being directly passed to the `login` method.
 
 ##### SSO enabled
 
@@ -413,7 +413,7 @@ function (err) {
 });
 ```
 
-If the login is successful, the browser will then be redirected to `callbackURL`.  And as shown above a `callback` argument should also be provided to the `login` method that handles any authentication errors (without redirecting).
+If the login is successful, the browser will then be redirected to `callbackURL`.  And as shown above, a `callback` argument should also be provided to the `login` method that handles any authentication errors (without redirecting).
 
 Furthermore, sometimes you don't want a redirect to occur at all after a login.  This is often the case with Single Page Apps where a redirect will result in loss of important page state.  To handle all login results client-side, simply provide additional parameters to the `callback` argument JavaScript function:
 
@@ -475,7 +475,7 @@ function(err) {
 });
 ```
 
-If the login succeeds, Auth0 will redirect to your `callbackURL` and if it fails, control will be given to the `callback`.
+If the login succeeds, Auth0 will redirect to your `callbackURL`, and if it fails, control will be given to the `callback`.
 
 And if you don't want that redirect to occur (i.e. you have a Single Page App), you can use a `callback` argument that takes the additional parameters (like what's shown in [Popup Mode](#popup-mode)), and control will go to your callback function with a failed or successful login.
 
@@ -492,7 +492,7 @@ var auth0 = new Auth0({
 });
 ```
 
-Besides being included in the url, the code or the tokens can be encoded as HTML form and transmitted via an HTTP POST request to the `callbackUrl`. The `responseMode: 'form_post'` option needs to be used to activate this flow.
+Besides being included in the URL, the code or the tokens can be encoded in HTML form and transmitted via an HTTP POST request to the `callbackUrl`. The `responseMode: 'form_post'` option needs to be used to activate this flow.
 
 ```js
 var auth0 = new Auth0({
@@ -504,7 +504,7 @@ var auth0 = new Auth0({
 });
 ```
 
-Both `responseType` and `responseMode` options were added in version `7.2.0`. In previous versions, a subset of the functionality of this options was available through `callbackOnLocationHash`. `responseType: 'code'` is equivalent to `callbackOnLocationHash: false` and `responseType: 'token'` is equivalent to `callbackOnLocationHash: true`. The `callbackOnLocationHash` option is still available for compatibility reasons, but it has been deprecated and will be removed in version `8.0.0`. Also note that is not possible to use `callbackOnLocationHash` and `responseType` at the same time.
+Both `responseType` and `responseMode` options were added in version `7.2.0`. In previous versions, a subset of the functionality of these options was available through `callbackOnLocationHash`. `responseType: 'code'` is equivalent to `callbackOnLocationHash: false` and `responseType: 'token'` is equivalent to `callbackOnLocationHash: true`. The `callbackOnLocationHash` option is still available for compatibility reasons, but it has been deprecated and will be removed in version `8.0.0`. Also note that is not possible to use `callbackOnLocationHash` and `responseType` at the same time.
 
 ```js
 // The next two snippets are equivalent, and a code will be included in the
@@ -658,15 +658,6 @@ When Kerberos is available you can automatically trigger Windows Authentication.
     }
   });
 ```
-
-## Develop
-
-Run `grunt dev` and point your browser to `http://localhost:9999/test_harness.html` to run the test suite.
-
-Run `grunt phantom` if you have PhantomJS installed.
-
-Run `grunt integration` (or `npm test`) if you have SauceLabs account. You will need a `SAUCE_ACCESS_KEY` and `SAUCE_USERNAME` env variables.
-
 
 <!-- Vaaaaarrrrsss -->
 
