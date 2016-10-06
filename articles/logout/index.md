@@ -10,13 +10,17 @@ When you are implementing the logout functionality of your app there are typical
 
 - __Application Session__: The first is the session inside the application. Even though your application uses Auth0 to authenticate users, you will still need to keep track of the fact that the user has logged in to your application. In a normal web application this is achieved by storing information inside a cookie. You need to log out the user from your application, by clearing their session.
 
-- __Auth0 session__: Next, Auth0 will also keep a session and store the user's information inside a cookie. Next time when a user is redirected to the Auth0 Lock screen, the user's information will be remembered.
+- __Auth0 session__: Next, Auth0 will also keep a session and store the user's information inside a cookie. Next time when a user is redirected to the Auth0 Lock screen, the user's information will be remembered. In order to logout a user from Auth0 you need to clear the SSO cookie.
 
 - __Identity Provider session__: The last layer is the Identity Provider, for example Facebook or Google. When you allow users to sign in with any of these providers, and they are already signed into the provider, they will not be prompted to sign in. They may simply be required to give permissions to share their information with Auth0 and in turn your application.
 
 This document explains how to implement to logout a user from the Auth0 session and optionally from the Identity Provider session. Keep in mind though that you should handle also the Application Session in your app!
 
 ## Log Out a User
+
+The logout endpoint in Auth0 can work in two ways:
+- Clear the SSO cookie in Auth0
+- Clear the SSO cookie in Auth0 and sign out from the IdP (for example, ADFS or Google)
 
 To force a logout, redirect the user to the following URL:
 
@@ -33,7 +37,7 @@ https://${account.namespace}/v2/logout?federated
 ```
 
 ::: panel-warning Clear your application session
-The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider when the `federated` querystring parameter is used. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session.
+The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session.
 :::
 
 
