@@ -1,3 +1,7 @@
+---
+description: How to track sign-ups, enrich user profiles and generate new leads.
+---
+
 # How to track __Sign-ups__, enrich __User Profile__ and generate new __Leads__
 
 Upon a signup of a new user to a website with any social credential, we want to:

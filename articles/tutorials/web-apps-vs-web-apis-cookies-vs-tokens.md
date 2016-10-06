@@ -1,3 +1,7 @@
+---
+description: This page compares web applications to web APIs and cookies vs. Tokens.
+---
+
 # Web Apps vs Web APIs / Cookies vs Tokens
 
 * For us **Web Apps** are the traditional server-side applications that use **cookie-based authentication**.

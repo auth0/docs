@@ -1,3 +1,7 @@
+---
+description: This page details Auth0 User Profiles, such as sources of profile data, normalized user profiles, caching, profile structure and custom profiles. 
+---
+
 # User Profile: In-Depth Details
 
 The Auth0 **User Profile** is a set of attributes about a user, such as first name, last name, email address, and nickname. The attributes may also include information from social providers, such as a person's contacts or their profile picture, or in the case of Enterprise users, company identifiers such as an employee number or the name of the department to which an employee belongs.

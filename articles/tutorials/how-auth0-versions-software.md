@@ -1,5 +1,6 @@
 ---
-title: How Auth0 versioning works?
+title: How Auth0 versioning works
+description: This page explains how Auth0 versioning works.
 ---
 
 # Versioning

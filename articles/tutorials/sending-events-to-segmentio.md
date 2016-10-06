@@ -1,3 +1,7 @@
+---
+description: How to send events to segment.io from Auth0.
+---
+
 # Sending events to segment.io from Auth0
 
 [segment.io](http://segment.io/features) provides access to large number of anayltics services with a single, simple to use API. 

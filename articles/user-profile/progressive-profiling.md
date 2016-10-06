@@ -1,3 +1,7 @@
+---
+description: This page details how to implement progressive profiling with Auth0.
+---
+
 # Progressive Profiling
 
 Rather than asking your users to fill out extensive registration forms, you can use **progressive profiling**, a technique to collect user information as users interact with your system.

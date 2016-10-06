@@ -1,3 +1,7 @@
+---
+description: This page lists the attributes that are available on the User Profile.
+---
+
 # Structure of the User Profile
 
 The following attributes are available on the [User Profile](/user-profile):

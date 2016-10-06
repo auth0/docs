@@ -1,3 +1,7 @@
+---
+description: This page explains how to impersonate a user, often used for testing and troubleshooting purposes.
+---
+
 # User Impersonation
 
 Often administrators need to impersonate other users for testing or troubleshooting purposes. Using impersonation the administrators can login to an app as a specific user, see everything exactly as that user sees it, and do everything exactly as that user does it.

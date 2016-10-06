@@ -1,3 +1,7 @@
+---
+description: How to track new leads in Salesforce and augment user profile with Rapleaf.
+---
+
 # Tracking new leads in Salesforce, augmenting user profile with RapLeaf
 
 Upon a signup of a new user to a website with any social credential, we want to:

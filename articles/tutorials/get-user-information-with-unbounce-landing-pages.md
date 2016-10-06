@@ -1,3 +1,7 @@
+---
+description: How to get user information with one-click social authentication on Unbounce landing pages.
+---
+
 # Get User Information with one-click social authentication on Unbounce Landing Pages
 
 ### Configuration on Auth0
