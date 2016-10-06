@@ -32,7 +32,9 @@ Although this is not common practice, you can force the user to also log out of 
 https://${account.namespace}/v2/logout?federated
 ```
 
-__NOTE__: The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider when the `federated` querystring parameter is used. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session.
+::: panel-warning Clear your application session
+The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider when the `federated` querystring parameter is used. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session.
+:::
 
 
 ## Redirect Users After Logout
