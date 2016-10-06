@@ -51,14 +51,20 @@ At the Client level, you can choose which Connections are enabled for a given cl
 
 ![](/media/articles/applications/rules-flow.png)
 
-[Rules](/rules) are code snippets written in JavaScript that are executed as part of the authentication pipeline in Auth0. This happens every time a user authenticates. Rules enable very powerful customizations and extensions to be easily added to Auth0.
+[Rules](/rules) are code snippets written in JavaScript that are executed as part of the Auth0 authentication process. This happens every time a user authenticates. Rules enable very powerful customizations and extensions to be easily added to Auth0.
 
-In the context of a rule we also have access to the client application the user is trying to reach which is useful if we want to apply coarse grained authorization policies for our applications (eg: only HR can access application X, application Y can only be accessed from the US, ...). Here's an [example of a rule](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md) where only the people in the whitelist are allowed to access the application:
+Rules enable powerful customizations and allow extensions to be easily added to Auth0.
 
-```
+Within the context of a rule, we have access to the Client the user is authenticating to, which is useful if we want to apply coarse-grained authorization policies for our applications:
+
+* Only HR officials can access Application X
+* Only US-based users can access Application Y
+
+Here's a [sample rule](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md) where only the users in the whitelist are allowed to access the application:
+
+```js
 function (user, context, callback) {
-    //we just care about NameOfTheAppWithWhiteList
-    //bypass this rule for every other app
+    //applies to NameOfTheAppWithWhiteList & bypassese for every other app
     if(context.clientName !== 'NameOfTheAppWithWhiteList'){
       return callback(null, user, context);
     }
