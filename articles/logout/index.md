@@ -37,7 +37,7 @@ https://${account.namespace}/v2/logout?federated
 ```
 
 ::: panel-warning Clear your application session
-The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session.
+The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
 :::
 
 
