@@ -13,6 +13,8 @@ A **client** is an Auth0 core concept, so it's important to know how:
 
 ## Clients in Auth0
 
+An Auth0 Client is the Auth0 side of the authentication integration for your application.
+
 Let's start by looking at how clients are represented in Auth0 and how this relates to other core concepts like Connections and Rules.
 
 ### Settings
@@ -114,16 +116,6 @@ While the [Management Dashboard](${manage_url}/#/logs) displays the log data in 
 }
 ```
 
-### Cost
-
-The [pricing model](https://auth0.com/pricing) is based on the following factors:
-
-* The type of identity providers used;
-* The number of active users (users that have authenticated in the prior **30** days for a given client);
-* The additional features enabled.
-
-> One client is comprised of an ID-secret pair. If multiple clients (for example, one runs on iOS and one runs on Android) share the same Client ID-secret pair, Auth0 considers them to be a single Client.
-
 #### Sample User Count Calculation
 
 Let's say that we have 3 active social users for the month of February:
@@ -140,6 +132,8 @@ In the following month, John and Mary start using the company's collaboration ap
 ## Sample Clients
 
 The following are high-level overviews of sample Clients using a variety of technologies.
+
+> One client is comprised of an ID-secret pair. If multiple clients (for example, one runs on iOS and one runs on Android) share the same Client ID-secret pair, Auth0 considers them to be a single Client.
 
 ### Regular Web Application
 
