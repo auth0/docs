@@ -4,35 +4,36 @@ description: Explains the basics of creating and using Auth0 Clients.
 
 # Core Concepts: Clients
 
-A **client** is an Auth0 core concept, so it's important to know how:
+An Auth0 **client** allows your application to utilize Auth0 for authentication. A fully-configured authentication process will consist of an Auth0 client that possesses information about and is able to communicate with your application (which, conversely, possesses information about and is able to communicate with the Auth0 client.)
 
-1. They relate to your applications;
-2. They impact auditing, authorization, billing, and so on.
+A client is a core Auth0 concept, so it's important to know how they:
 
-> Depending on the technologies you use, a client may also be referred to as an **application** or a **relying party**.
+1. Relate to your applications;
+2. Impact auditing, authorization, and so on.
 
-## Clients in Auth0
-
-An Auth0 Client is the Auth0 side of the authentication integration for your application.
-
-Let's start by looking at how clients are represented in Auth0 and how this relates to other core concepts like Connections and Rules.
-
-### Settings
+## Client Settings
 
 ![](/media/articles/applications/applications-callback-settings.png)
 
-The client's settings contain the following information:
+When you configure your Auth0 client, you will be asked for or provided the following pieces of information:
 
 * **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on)
 * **Domain**: the domain name of your client
-* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0)
+* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0). By default, the  is hidden, so check the **Reveal Client Secret** box to see this value.
 * **Client Secret**: the key used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints;
+* **Client Type**:
+  * Native
+  * Non-Interactive Client
+  * Regular Web Application
+  * Single Page Application 
+* **Token Endpoint Authentication Method**:
 * **Allowed Callback URLs**: the URLs of your application(s) to which Auth0 can redirect the user after authentication.
+* * **Allowed Logout URLs**:
 * **Allowed Origins (CORS)**: the URLs of the applications running your JavaScript code (prevents same-origin policy errors when using Auth0 from within a web browser)
-* **JWT Expiration**: the amount of time remaining (in seconds) before the Auth0 access tokens expires
+* **JWT Expiration (Seconds)**: the amount of time before the Auth0 access tokens expires
 * **Use Auth0 instead of the IdP to do Single Sign On**: if enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on)
 
-### Addons
+## Addons
 
 ![](/media/articles/applications/applications-addon-types.png)
 
@@ -43,13 +44,13 @@ Addons are extensions associated with clients and are typically used in the foll
 
 ![](/media/articles/applications/applications-sso-integrations-overview.png)
 
-### Connections
+## Connections
 
 ![](/media/articles/applications/applications-connections-example.png)
 
 At the Client level, you can choose which Connections are enabled for a given client. This is useful if you are building different applications for different audiences. For example, you might build a timesheet application that can only be used by employees in addition to a customer-facing application. The former might require only Active Directory authentication, while the latter might support authentication using Google, Facebook, and so on.
 
-### Rules
+## Rules
 
 ![](/media/articles/applications/rules-flow.png)
 
@@ -85,7 +86,7 @@ function (user, context, callback) {
 }
 ```
 
-### Auditing
+## Auditing
 
 ![](/media/articles/applications/applications-logs-auditing.png)
 
@@ -116,7 +117,7 @@ While the [Management Dashboard](${manage_url}/#/logs) displays the log data in 
 }
 ```
 
-#### Sample User Count Calculation
+### Sample User Count Calculation
 
 Let's say that we have 3 active social users for the month of February:
 
