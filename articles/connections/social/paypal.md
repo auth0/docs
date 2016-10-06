@@ -3,6 +3,7 @@ connection: PayPal
 image: /media/connections/paypal.png
 seo_alias: paypal
 index: 10
+description: How to obtain a Client Id and Client Secret for PayPal.
 ---
 
 # Obtain a Client Id and Secret for PayPal
@@ -25,7 +26,7 @@ Name your app and then click **Create App**:
 
 Scroll down to the **Sandbox App Settings** section and enter your *Return URL*:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 then click **Save**:
 

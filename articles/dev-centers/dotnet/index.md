@@ -2,6 +2,7 @@
 public: false
 title: .NET Developer Center
 subtitle: Resources and documentation for .NET developers
+description: Resources and documentation for .NET developers
 logo: aspnet
 url: /dev-centers/dotnet
 tutorials:

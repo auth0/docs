@@ -1,11 +1,12 @@
 ---
-title: Connecting SharePoint Apps with Auth
+title: Connecting SharePoint Apps with Auth0
 connection: SharePoint Apps
 image: /media/connections/sharepoint.png
 alias:
   - sharepoint-online
   - sharepoint
 seo_alias: sharepoint-apps
+description: About connecting SharePoint Apps with Auth0.
 ---
 
 # Obtaining a App Id and App Secret for SharePoint

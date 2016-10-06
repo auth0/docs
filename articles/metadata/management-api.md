@@ -26,25 +26,25 @@ you would make the following `POST` call to the Management API to create the use
 
 ```har
 {
-	"method": "POST",
-	"url": "https://YOURACCOUNT.auth0.com/api/v2/users",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer ABCD"
-	}, {
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"email\": \"jane.doe@example.com\", \"user_metadata\": {\"hobby\": \"surfing\"}, \"app_metadata\": {\"plan\": \"full\"}}"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+  "method": "POST",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/users",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer ABCD"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"email\": \"jane.doe@example.com\", \"user_metadata\": {\"hobby\": \"surfing\"}, \"app_metadata\": {\"plan\": \"full\"}}"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
 }
 ```
 
@@ -80,25 +80,25 @@ you would make the following `PATCH` call to the API:
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer ABCD"
-	}, {
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\"}}}"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+  "method": "PATCH",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer ABCD"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\"}}}"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
 }
 ```
 
@@ -140,24 +140,24 @@ Therefore, the corresponding `PATCH` call to the API would be:
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
-	"httpVersion": "HTTP/1.1",
-	"cookies": [],
-	"headers": [{
-		"name": "Authorization",
-		"value": "Bearer ABCD"
-	}, {
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"queryString": [],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\", \"work\": \"100 Industrial Way, Anytown, ST 12345\"}}}"
-	},
-	"headersSize": -1,
-	"bodySize": -1,
-	"comment": ""
+  "method": "PATCH",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/users/user_id",
+  "httpVersion": "HTTP/1.1",
+  "cookies": [],
+  "headers": [{
+    "name": "Authorization",
+    "value": "Bearer ABCD"
+  }, {
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "queryString": [],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"user_metadata\": {\"addresses\": {\"home\": \"123 Main Street, Anytown, ST 12345\", \"work\": \"100 Industrial Way, Anytown, ST 12345\"}}}"
+  },
+  "headersSize": -1,
+  "bodySize": -1,
+  "comment": ""
 }
 ```

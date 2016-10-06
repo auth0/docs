@@ -1,6 +1,6 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your web app.
+description: This tutorial will demonstrates how to use the Auth0 Go SDK to add authentication and authorization to your web app
 ---
 
 <%= include('../../_includes/_package', {
@@ -18,11 +18,9 @@ This tutorial and seed project have been tested with the following:
 * Go 1.5.3 and up
 :::
 
-<%= include('../../_includes/_signup') %>
 
-**Otherwise, Please follow the steps below to configure your existing GoLang WebApp to use it with Auth0.**
 
-### 1. Add dependencies
+## Add Dependencies
 
 Install the following dependencies using `go get`
 
@@ -30,7 +28,7 @@ ${snippet(meta.snippets.dependencies)}
 
 > This example uses `mux` for routing but you can use whichever router you want
 
-### 2. Add the Auth0 Callback Handler
+## Add the Auth0 Callback Handler
 
 You'll need to create a callback handler that Auth0 will call once it redirects to your app. For that, you can do the following:
 
@@ -117,7 +115,7 @@ Remember to set this handler to the `/callback` path:
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Specify the callback on Auth0 Dashboard
+## Set the Callback URL
 
 ${include('../\_callbackRegularWebApp')}
 
@@ -126,13 +124,14 @@ In this case, the redirectUrl should look something like:
 ```
 http://yourUrl/callback
 ```
-### 4. Triggering login manually or integrating the Auth0Lock
 
-${lockSDK}
+## Triggering Login Manually or Using Lock
+
+<%= include('../../_includes/_lock-sdk') %>
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the one specified in the previous step
 
-### 5. Accessing user information
+## Accessing User Information
 
 You can access the user information via the `profile` you stored in the session on step 2
 
@@ -159,13 +158,10 @@ func UserHandler(w http.ResponseWriter, r *http.Request) {
 
 [Click here](/user-profile) to check all the information that the userinfo hash has.
 
-### 6. You're done!
+## Optional Steps
 
-You have configured your GoLang Webapp to use Auth0. Congrats, you're awesome!
+### Checking if the User is Authenticated
 
-### Optional steps
-
-#### Checking if the user is authenticated
 We can use [Negroni](https://github.com/codegangsta/negroni) to create a Middleware that will check if the user is Authenticated or not.
 
 First, we need to install it via `go get`:
@@ -196,7 +192,6 @@ func IsAuthenticated(w http.ResponseWriter, r *http.Request, next http.HandlerFu
 ```
 
 Finally, we can use Negroni to set up this middleware for any route that needs authentication:
-
 
 ```go
 r.Handle("/user", negroni.New(

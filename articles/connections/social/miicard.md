@@ -2,6 +2,7 @@
 connection: miiCard
 image: /media/connections/miicard.png
 seo_alias: miicard
+description: How to obtain a Client Id and Client Secret for miiCard.
 ---
 
 # Obtain a Consumer Key and Consumer Secret for miiCard

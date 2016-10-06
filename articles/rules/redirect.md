@@ -1,3 +1,7 @@
+---
+description: How to implement a user redirect using rules, and actions after redirecting.
+---
+
 # Redirect Users from Rules
 
 [Rules](/rules) allow you to define arbitrary code which can be used to fulfill custom authentication and authorization requirements, log events, retrieve information from external services, and much more.
@@ -33,10 +37,15 @@ Once all rules have finished executing, the user will be redirected to the speci
 An authentication transaction that has been interrupted by setting `context.redirect` can be resumed by redirecting the user to the following URL:
 
 ```text
-https://${account.namespace}/continue
+https://${account.namespace}/continue?state=THE_ORIGINAL_STATE
 ```
 
 When a user has been redirected to the `/continue` endpoint, all rules will be run again.
+
+::: panel-danger Caution:
+Make sure to send back the original state to the `/continue` endpoint, otherwise Auth0 loose the context of the login transaction.
+:::
+
 
 To distinguish between user-initiated logins and resumed login flows, the `context.protocol` property can be checked:
 

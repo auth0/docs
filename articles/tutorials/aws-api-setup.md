@@ -1,4 +1,5 @@
 ---
+description: How to enable delegated authentication with AWS APIs.
 url: /aws-api-setup
 ---
 # Setup AWS for Delegated Authentication with APIs

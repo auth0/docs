@@ -22,7 +22,7 @@ This tutorial and seed project have been tested with the following:
 ### Setting up Auth0
 
 <div class="setup-callback">
-<p> Go to the <a href="${uiAppSettingsURL}">Application Settings</a> part of the dashboard and check that this scheme is set on the *Allowed Callback URLs*:</p>
+<p> Go to the <a href="${manage_url}/#/applications/${account.clientId}/settings">Application Settings</a> part of the dashboard and check that this scheme is set on the *Allowed Callback URLs*:</p>
 </div>
 
 ```

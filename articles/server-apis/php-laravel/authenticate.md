@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
 * Laravel 5.1.31
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **Otherwise, Please follow the steps below to configure your existing PHP Laravel app to use it with Auth0.**
 

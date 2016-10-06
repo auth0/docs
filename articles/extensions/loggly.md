@@ -1,3 +1,7 @@
+---
+description: How to install and configure the Auth0 Logs to Loggly Extension.
+---
+
 # Auth0 Logs to Loggly
 
 The *Auth0 Logs to Loggly* is a scheduled job that takes all of your Auth0 logs and exports them to [Loggly](https://www.loggly.com/).

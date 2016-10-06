@@ -1,3 +1,7 @@
+---
+description: How to setup Microsoft Office 365 custom provisioning.
+---
+
 # Office 365 Custom Provisioning
 
 The default Office 365 setup will include Active Directory and DirSync/Azure AD Sync Services to synchronize and provision your AD users in Azure AD for SSO. Auth0 will then be configured to be an identity provider which is providing SSO for these users.

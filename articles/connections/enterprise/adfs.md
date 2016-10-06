@@ -6,6 +6,7 @@ alias:
   - active-directory-federation-services
   - adfs-2
 seo_alias: adfs
+description: How to connect ADFS with Auth0.
 ---
 
 # Connect ADFS with Auth0

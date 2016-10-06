@@ -1,3 +1,7 @@
+---
+description: Explains how to install the Auth0 WordPress plugin.
+---
+
 # WordPress Installation
 
 ![WordPress-Auth0 Plugin Banner](/media/articles/cms/wordpress/wordpress-plugin-banner.png)

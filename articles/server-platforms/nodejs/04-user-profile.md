@@ -3,21 +3,18 @@ title: User Profile
 description: This tutorial demonstrates how to fetch user profile information
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-nodejs-webapp-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-nodejs-webapp-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-nodejs-webapp-sample',
+  path: '04-User-Profile'
 }) %>
 
-## 1. User Profile
+## User Profile
 
 Getting the user's profile information is very simple with Auth0. After the user has authenticated, a `user` object
 with the entire profile is attached to every express request.
 
-## 2. Showing the User Profile
+## Showing the User Profile
 
 We can modify the `/user` endpoint to display the user object. Add the following to the `views/user.jade` template:
 

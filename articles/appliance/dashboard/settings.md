@@ -67,7 +67,7 @@ The Settings page is broken down into the following sections:
 * **Dashboard Session Timeout (min)**: the amount of idle time allowed prior to the Dashboard session getting logged out. Use 0 to avoid expiration;
 * **SSO Session Absolute Timeout**: the absolute time window for which the user can have an SSO session. After this period of time elapses, the user will be required to log in again;
 * **SSO Session Inactive Timeout**: the maximum time window for which the user can have an SSO session without logging in again or calling the "ssodata" endpoint. If the user logs in again or calls the "ssodata" endpoint, the time window will be extended again;
-* **SSO Session Ephemeral Cookie**: if enabled, the SSO session cookie will not be persist and users will lose their SSO session in Auth0 after closing their browsers;
+* **SSO Session Ephemeral Cookie**: if enabled, the SSO session cookie will not persist and users will lose their SSO session in Auth0 after closing their browsers;
 * **MFA Session Absolute Timeout**: the absolute time window for which the user can have an MFA session. After this period of time elapses, the user will be prompted again for MFA;
 * **MFA Session Inactive Timeout**: the maximum time window for which the user can have an MFA session without logging in again. If the user logs in prior to the expiration of this time period, the window will be extended.
 

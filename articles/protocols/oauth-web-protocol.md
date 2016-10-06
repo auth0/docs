@@ -1,3 +1,7 @@
+---
+description: How to integrate a web application with Auth0.
+---
+
 # Integrating a Web App with Auth0
 
 Auth0 supports the [OpenID Connect / OAuth2 Login](http://openid.net/specs/openid-connect-basic-1_0.html) protocol. This is the protocol used by companies like [Google](https://developers.google.com/accounts/docs/OAuth2Login), [Facebook](http://developers.facebook.com/docs/facebook-login/login-flow-for-web-no-jssdk/) and [Microsoft](http://msdn.microsoft.com/en-us/library/live/hh243647.aspx) among others so there are plenty of libraries implementing it on various platforms.
@@ -14,14 +18,7 @@ The steps are quite simple though:
 
 2. Triggering login manually or integrating the Auth0Lock
 
-  <pre style="word-wrap:break-word"><code>GET https://${account.namespace}/authorize/?
-          response_type=code
-          &client_id=${account.clientId}
-          &redirect_uri=${account.callback}
-          &state=VALUE_THAT_SURVIVES_REDIRECTS
-          &scope=openid</code></pre>
-
-${lockSDK}
+<%= include('../_includes/_lock-sdk') %>
 
 3. After the user authenticates, your app will be called to this endpoint with a `GET`
 

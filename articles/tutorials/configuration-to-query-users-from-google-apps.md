@@ -1,3 +1,7 @@
+---
+description: How to setup the configuration needed to query users from a Google Apps domain.
+---
+
 # Configuration needed to query users from a Google Apps domain
 
 To query Google Apps domain users, you need to enable the following:

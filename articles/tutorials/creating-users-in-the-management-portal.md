@@ -1,3 +1,7 @@
+---
+description: How to create users with the Auth0 Management Dashboard.
+---
+
 # Creating Users via the Management Dashboard
 
 You may manually create users via the Auth0 Management Dashboard.

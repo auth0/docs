@@ -1,3 +1,7 @@
+---
+description: Outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience. 
+---
+
 # Enterprise Support Guidance
 
 This document outlines the Auth0 enterprise support options, definitions, coverage offered and procedures to follow for the best support experience.  It's relevant for customers only with enterprise subscription agreements which differ from the standard pay-as-you-go/self-service subscription offerings acquired directly from our website.
@@ -6,7 +10,7 @@ Refer to your subscription agreement to confirm which support offering was inclu
 
 ## For general queries related to functionality, integration, best practice advice etc
 
-[Ask.Auth0 Discussion Forum](https://ask.auth0.com) - Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
+[Auth0 Support Forum](https://ask.auth0.com) - Post questions to our audience of Customer Success Engineers, as well as other Auth0 users, or search and read existing posts for useful information.
 
 __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a great source for general queries and helping you navigate to the right Auth0 resource.  The orientation information you received during onboarding should have the contact details for your Customer Success Manager.
 
@@ -16,11 +20,11 @@ __Customer Success Manager__ - Your Auth0 Customer Success Manager is always a g
 
 ## For issues impacting or blocking production (SLA applied)
 
-### Standard Enterprise Support
+### Standard Enterprise Support (Gold, Silver and Home Grown plans)
 
 ![](/media/articles/onboarding/standard-enterprise-support.png)
 
-### Premium Enterprise Support
+### Premium Enterprise Support (Enterprise and Platinum plans)
 
 ![](/media/articles/onboarding/premium-enterprise-support.png)
 
@@ -48,27 +52,27 @@ When an issue has been logged correctly:
 To speed resolution, please check the following before logging an issue:
 
 * Is the issue experienced by all users or just a few?
-	* All? - Could be a service or configuration issue
-		* Check status of Auth0 service
-			* Americas: (http://status.auth0.com)
-			* EU Region: (http://status.eu.auth0.com)
-			* APAC Region: (http://status.au.auth0.com)
-			* You can subscribe to updates via the button on those pages
-		* Check authentication services (connections) are up and reachable
-		* Check application components - make sure they are functioning
-		* Check certificates - make sure valid/not expired (cert-related errors)
-		* Check NTP running on Auth0 AD/LDAP connector, IDPs
-		* Check if any Rules have changed recently
-		* Check if any recent changes on IDPs that could cause error
-		* Can users log into other apps that use the same authentication provider?
-	* Few users impacted - usually a user profile or browser/device issue
-		* Have user clear cookies and try again
-		* Make sure user isn’t hitting the ‘back’ button
-		* Make sure user has cookies and javascript turned on in browser
-		* Check user profile in the authentication service
-		* Check if any rules changed recently that impact user profile
-		* Is user device in violation of MDM device policies (if used)
-		* Does it happen consistently and can be repeated?
+  * All? - Could be a service or configuration issue
+    * Check status of Auth0 service
+      * Americas: (http://status.auth0.com)
+      * EU Region: (http://status.eu.auth0.com)
+      * APAC Region: (http://status.au.auth0.com)
+      * You can subscribe to updates via the button on those pages
+    * Check authentication services (connections) are up and reachable
+    * Check application components - make sure they are functioning
+    * Check certificates - make sure valid/not expired (cert-related errors)
+    * Check NTP running on Auth0 AD/LDAP connector, IDPs
+    * Check if any Rules have changed recently
+    * Check if any recent changes on IDPs that could cause error
+    * Can users log into other apps that use the same authentication provider?
+  * Few users impacted - usually a user profile or browser/device issue
+    * Have user clear cookies and try again
+    * Make sure user isn’t hitting the ‘back’ button
+    * Make sure user has cookies and javascript turned on in browser
+    * Check user profile in the authentication service
+    * Check if any rules changed recently that impact user profile
+    * Is user device in violation of MDM device policies (if used)
+    * Does it happen consistently and can be repeated?
 
 
 ### Information to provide when logging an issue

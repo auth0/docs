@@ -1,0 +1,28 @@
+<div id="package" class="package2" data-swiftype-index="false">
+  <div class="info">
+    <div class="package-header">Seed Project</div>
+    <% if (account.userName) { %>
+    <p class="configured">Download a sample project configured with your Auth0 API Keys.</p>
+    <% } else { %>
+    <p>Download a sample project. You will need to login for the sample to be preconfigured.</p>
+    <% } %>
+    <% if (typeof requirements !== 'undefined') { %>
+    <div class="package-requirements">
+      <div class="package-requirements-header">System Requirements</div>
+      <ul>
+        <% requirements.forEach(req => { %>
+        <li><span>${req}</span></li>
+        <% }); %>
+      </ul>
+    </div>
+    <% } %>
+  </div>
+  <div class="button-area">
+    <% if (account.clientId && account.clientId !== 'YOUR_CLIENT_ID') { %>
+    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}&client_id=${account.clientId}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
+    <% } else { %>
+    <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
+    <% } %>
+    <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow">Fork on Github</a>
+  </div>
+</div>

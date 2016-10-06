@@ -3,14 +3,6 @@ title: Session Handling
 description: This tutorial will show you how to handle sessions in your app, with the aim of preventing the user from being asked for credentials each time the app is launched.
 ---
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* CocoaPods 1.0.0
-* XCode 7.3 (7D175)
-* iPhone 6 - iOS 9.3 (13E230)
-  :::
-
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/03-Session-Handling',
   pkgOrg: 'auth0-samples',
@@ -21,13 +13,13 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'none'
 }) %>
 
-### Before Starting
 
-#### i. Be familiar with Lock Login
+
+## Before Starting
 
 This tutorial assumes you're using the Lock library for handling login. Make sure you've integrated this library into your project and you're familiar with it. **If you're not sure, check out [this tutorial](01-login) first.**
 
-#### ii. Add the SimpleKeychain dependency
+### Add the SimpleKeychain Dependency
 
 We're going to use the [SimpleKeychain](https://github.com/auth0/SimpleKeychain) library to help us manage user credentials. Make sure you integrate it before proceeding.
 
@@ -56,7 +48,7 @@ Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
-### 1. On Login: Store the user's idToken
+## On Login: Store the user's idToken
 
 > The `idToken` is a string representing, basically, the user's [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token).
 
@@ -85,7 +77,7 @@ As you can see, `A0SimpleKeychain` can be seen simply as a key-value storage.
 
 > You can also verify whether a JWT token is valid or not by decoding it locally, to check its expiration. For further reference, you can check out this [JWT decoder for Swift](https://github.com/auth0/JWTDecode.swift).
 
-### 2. On Startup: Check idToken existence
+## On Startup: Check idToken existence
 
 The main purpose of storing this token is to save the user from having to re-enter login credentials upon relaunch of the app. So, **once the app has launched**, we need to check for the existence of an `idToken` to see if we can automatically log the user in and redirect the user straight into the app's main flow, skipping any login screen.
 
@@ -102,7 +94,7 @@ guard let idToken = keychain.stringForKey("id_token") else {
 // We still need to validate it (see step 3)
 ```
 
-### 3. Validate an existent idToken
+## Validate an existent idToken
 
 Then, if such a token exists, we need to check whether it's still valid, has expired, or is no longer valid for some other reason, such as being revoked. To do so, we'll use `A0Lock` to fetch the user profile based on the current `idToken` we've got:
 
@@ -126,7 +118,7 @@ client.fetchUserProfileWithIdToken(idToken,
         })
 ```
 
-### 4. Deal with a non-valid idToken
+## Deal with a non-valid idToken
 
 How to deal with a non-valid idToken is up to you. You will normally choose between two scenarios: Either you ask users to re-enter theirs credentials, or you [use the refresh token to get a new valid idToken again](/refresh-token).
 
@@ -188,7 +180,7 @@ client.fetchNewIdTokenWithRefreshToken(refreshToken,
 
 That's it! You've already dealt with the basic concepts of session handling in your app.
 
-### 5. On Logout: Clear the Keychain
+## On Logout: Clear the Keychain
 
 Whenever you need to log the user out, you just have to clear the keychain:
 

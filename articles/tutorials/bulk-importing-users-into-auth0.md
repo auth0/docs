@@ -1,3 +1,7 @@
+---
+description: How to bulk import users using the Management API endpoint.
+---
+
 # Bulk Import Users to Auth0 Using a Job
 
 Our focus has always been not only greenfield projects but also existing applications that want to extend their authentication capabilities.

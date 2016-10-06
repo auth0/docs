@@ -1,3 +1,7 @@
+---
+description: How to configure and use the Auth0 Logs to Mixpanel extension. 
+---
+
 # Auth0 Logs to Mixpanel
 
 The Auth0 Logs to Mixpanel is a scheduled job that takes all of your Auth0 logs and exports them to [Mixpanel](https://mixpanel.com).

@@ -127,7 +127,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>No</td>
   </tr>
   <tr>
-    <td>Healthcheck	</td>
+    <td>Healthcheck  </td>
     <td>Inbound</td>
     <td>Monitoring Endpoint</td>
     <td>9110</td>

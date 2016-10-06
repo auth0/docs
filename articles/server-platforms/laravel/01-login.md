@@ -1,8 +1,8 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your web app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your web app.
 ---
-
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-laravel-php-web-app',
@@ -15,16 +15,13 @@ description: This tutorial will show you how to use the Auth0 PHP Laravel SDK to
 }) %>
 
 ::: panel-info System Requirements
-
  This tutorial and seed project have been tested with the following:
 * Composer 1.0-dev
 * PHP 5.5.12
 * Laravel 5.2.15
 :::
 
-<%= include('../../_includes/_signup') %>
 
-**Otherwise, please follow the steps below to configure your existing Laravel web app to use it with Auth0.**
 
 ## Laravel Compatibility
 
@@ -32,13 +29,14 @@ The lastest version (4.x) targets Laravel 5.3 compatibility.
 
 If you are working with an older version (Laravel 4.x) you need to point to composer.json to the version 1.0.*
 
-### 1. Install the plugin and its dependencies
+## Install the Plugin and its Dependencies
 
 ${snippet(meta.snippets.dependencies)}
 
 > This sample uses **[Composer](https://getcomposer.org/doc/00-intro.md)**, a tool for dependency management in PHP. It allows you to declare the dependent libraries your project needs and it will install them in your project for you.
 
-### 2. Enable it in Laravel
+## Enable it in Laravel
+
 Add the following in the list of the services providers, located in `config/app.php`
 
 ${snippet(meta.snippets.setup)}
@@ -72,7 +70,7 @@ public function register()
 ...
 ```
 
-### 3. Configure it
+## Configure It
 
 To configure the plugin, you need to publish the plugin configuration and complete the file `config/laravel-auth0.php` using the information of your Auth0 account.
 
@@ -82,7 +80,7 @@ To publish the example configuration file use this command
 php artisan vendor:publish
 ```
 
-### 4. Setup the callback action
+## Setup the Callback Action
 
 The plugin works with the [Laravel authentication system](https://laravel.com/docs/5.3/authentication), but instead of using the `Auth::attempt` in a controller that handles a login form submit, you have to hookup the callback uri.
 
@@ -92,13 +90,13 @@ In other words, you need to select a uri (for example `/auth0/callback`) and con
 Route::get('/auth0/callback', '\Auth0\Login\Auth0Controller@callback');
 ```
 
-### 5. Triggering login manually or integrating the Auth0 widget
+## Triggering Login Manually or Integrating the Auth0 Widget
 
 You can trigger the login in different ways, like redirecting to a login link or you can use [Lock](/lock), by adding the following javascript into a Laravel view or layout
 
-${lockSDK}
+<%= include('../../_includes/_lock-sdk') %>
 
-### 6. Defining a user and a user provider
+## Defining a User and a User Provider
 
 The [Laravel authentication system](https://laravel.com/docs/5.3/authentication) needs a *User Object* given by a *User Provider*. With these two abstractions, the user entity can have any structure you like and can be stored anywhere. You configure the *User Provider* indirectly, by selecting a user provider in `app/config/auth.php`. The default provider is Eloquent, which persists the User model in a database using the ORM.
 
@@ -196,7 +194,7 @@ public function register()
 ...
 ```
 
-### 7. Use it!
+## Use It
 
 Now all your web routes will be secured by auth0.
 
@@ -208,5 +206,3 @@ Route::get('/logout', function() {
     return Redirect::home();
 });
 ```
-
-Enjoy!

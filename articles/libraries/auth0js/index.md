@@ -1,4 +1,5 @@
 ---
+description: How to install, initilize and use auth0.js
 url: /libraries/auth0js
 ---
 
@@ -255,7 +256,7 @@ var options = {
 };
 
 auth0.getDelegationToken(options, function (err, delegationResult) {
-	// Call your API using delegationResult.id_token
+  // Call your API using delegationResult.id_token
 });
 ```
 

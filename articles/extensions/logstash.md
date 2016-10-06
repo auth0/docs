@@ -1,3 +1,7 @@
+---
+description: How to install and configure the Auth0 Logs to Logstash extension.
+---
+
 # Auth0 Logs to Logstash
 
 The _Auth0 Logs to Logstash_ is a scheduled job that takes all of your Auth0 logs and exports them to [Logstash](https://www.elastic.co/products/logstash). Logstash is an open source log management tool that is most often used as part of the ELK stack along with ElasticSearch and Kibana.

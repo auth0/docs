@@ -1,3 +1,9 @@
+---
+description: Customizing how Lock with CSS and Javascript
+---
+
+<%= include('../_includes/_lock-version-9') %>
+
 # Lock: Customize the look and feel
 
 You can apply your own styles to the elements of the Lock.

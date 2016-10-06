@@ -1,3 +1,7 @@
+---
+description: Explains why a user received a breached password email and general web security tips.
+---
+
 # Breached Password Security
 
 ## What happened that I received an email saying "Please change your password immediately"?

@@ -73,4 +73,4 @@ To delete an existing backup, you will use the "backup-delete" message in your l
 
 ## Restoring a Backup
 
-Please work contact Auth0 to work with a Customer Success Engineer to restore a backup.
+Please contact Auth0 to work with a Customer Success Engineer to restore a backup.

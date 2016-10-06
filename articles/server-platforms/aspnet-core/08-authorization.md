@@ -13,11 +13,13 @@ description: This tutorial will show you how assign roles to your users, and use
   pkgType: 'replace'
 }) %>
 
+
+
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
 
-## Restrict an action based on a user's roles
+## Restrict an Action Based on a User's Roles
 
-As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also maps roles correctly. 
+As mentioned before, the claims returned in the ID Token will automatically be mapped to claims on the `ClaimsIdentity`. ASP.NET Core will also maps roles correctly.
 
 Specifically, it will look for a "roles" claim on the ID Token, and then for each role inside the array on the "roles" claim, it will add a "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" claim to the `ClaimsIdentity`.
 
@@ -31,7 +33,6 @@ The sample code below will restrict the particular action only to user who have 
 [Authorize(Roles = "admin")]
 public IActionResult Admin()
 {
-    return View();
+  return View();
 }
 ```
-

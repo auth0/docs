@@ -1,3 +1,7 @@
+---
+description: How to install multiple instances of the connectory for higher availability.
+---
+
 # High availability
 
 The connector is a very important component, therefore we recommend a highly available deployment through redundancy: installing multiple instances of it.

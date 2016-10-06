@@ -1,3 +1,7 @@
+---
+description: You can add step-up authentication to your app with Auth0's extensible multifactor authentication support.
+---
+
 # Step-Up Authentication
 
 With Step-Up Authentication, applications that allow access to different types of resources can require users to authenticate with a stronger authentication mechanism to access sensitive resources.

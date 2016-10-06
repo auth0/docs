@@ -8,21 +8,7 @@ description: Auth0's API authentication and authorization features allow you to 
 
 At some point, your APIs will need to allow limited access to users, servers, or servers on behalf of users.
 
-Auth0's API authentication and authorization features allow you to manage the authorization requirements for server-to-server applications.
-
-## Example Scenario
-
-### Server-to-Server Applications
-
-World Mappers is a company that has been collecting geo-spatial data for many years. They are building a new API to offer geo-coding and route planning.
-
-For example, their customers will be able to use these services to find a taxi or the closest restaurant to their current location, or for route planning in a drivers and deliveries management application.
-
-World Mappers has chosen to use a standards-based approach instead of developing their own authentication for their API. Using OAuth 2.0, their services are represented as Resource Owners and their consumers are the Clients. These Clients will interact with Auth0 (the Authorization Server) to get an `access_token` that can be used to interact with the World Mapper API.
-
-![](/media/articles/api-auth/server-to-server.png)
-
-## API Authorization
+Auth0's API authorization features allow you to manage the authorization requirements for server-to-server and client-to-server applications.
 
 By using the OAuth 2.0 authorization framework, you can give your own applications or third-party applications limited access to your APIs on behalf of the application itself.
 
@@ -43,17 +29,25 @@ Using different grants (or flows), these participants will interact to grant Cli
 #### Supported flows
 
  - Server to Server Applications: [Client Credentials Grant](/api-auth/grant/client-credentials)
+ - **Preview**: Client to Server Applications: [Implicit Grant](/api-auth/grant/implicit)
+ - **Preview**: Client to Server Applications: [Authorization Code Grant](/api-auth/grant/authorization-code)
 
 ## Tutorials
 
-See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable [Client Credentials Grants](/api-auth/grant/client-credentials).
+See the following tutorial for a step-by-step guide on using Auth0 to implement the OAuth 2.0 authorization framework within your applications to enable the API Authorization scenarios.
 
-<%=include('./config/using-the-auth0-dashboard') %>
+<%=include('./_pending-tutorials-notice') %>
+
+#### Dependencies
+
+ - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
+
+#### Client Credentials
+
+ - [Setting up a Client Credentials Grant using the Auth0's Management Dashboard](/api-auth/config/using-the-auth0-dashboard)
+ - [How to ask the Auth0 for an access token for a Resource Server in a Client Credentials Grant](/api-auth/config/asking-for-access-tokens)
+ - [Using Auth0's Management API for setting up Resource Servers and Client Grants](/api-auth/config/using-the-management-api)
 
 ## Additional Information
-
-- [How to ask Auth0 Authorization Server for an access token for a Resource Server](/api-auth/config/asking-for-access-tokens)
-
-- [Using Auth0's Management API for setting up Resource Services and Client Grants](/api-auth/config/using-the-management-api)
 
 - [API Auth FAQ](/api-auth/faq).

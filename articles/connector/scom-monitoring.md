@@ -1,3 +1,7 @@
+---
+description: How to monitor the AD/LDAP Connector with System Center Operations Manager.
+---
+
 # Monitoring the AD/LDAP Connector with System Center Operations Manager
 
 The Auth0 AD/LDAP connector can run as a Service on Windows based machines.

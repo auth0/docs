@@ -1,14 +1,7 @@
 ---
 title: Session Handling
-description: This tutorial will show you how to integrate Auth0 with ReactJS to add session handling and logout to your web app.
+description: This tutorial demonstrates how to integrate Auth0 with ReactJS to add session handling and logout to your web app
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Node 5.2.0
-* NPM 3.3.12
-* React 15.3.1
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
@@ -16,8 +9,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '03-Session-Handling',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 The previous steps of this tutorial explain how to implement login using either `Lock` or the `Auth0.js` library to authenticate users in your application. 

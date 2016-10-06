@@ -2,9 +2,10 @@
 connection: Weibo
 image: /media/connections/weibo.png
 seo_alias: weibo
+description: How to obtain an App ID and App Secret for Weibo.
 ---
 
-# Obtaining a App ID and App Secret for Weibo
+# Obtaining an App ID and App Secret for Weibo
 
 To configure a Weibo connection you will need to register Auth0 on the [Weibo App portal](http://open.weibo.com/apps).
 
@@ -18,7 +19,7 @@ Log in into [Weibo portal](http://open.weibo.com/apps), register a new applicati
 
 When asked to enter OAuth2 callback URLs use:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 ---
 ## 3. Get your App ID and App Secret

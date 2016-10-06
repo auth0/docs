@@ -1,3 +1,7 @@
+---
+description: How to integrate a mobile app or Javascript app with Auth0.
+---
+
 # Integrating a Mobile or a JavaScript App with Auth0
 
 Auth0 supports the [OpenID Connect / OAuth2 Login implicit profile](http://openid.net/specs/openid-connect-implicit-1_0.html), which is typically used in situations where you can't store the secrets safely. JavaScript running in a browser and mobile devices are two common examples.

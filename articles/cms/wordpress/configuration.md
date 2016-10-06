@@ -1,3 +1,7 @@
+---
+description: How to configure WordPress as a client with Auth0.
+---
+
 # WordPress Configuration
 
 To configure the *Auth0 for WordPress* plugin, you will need to copy the *Domain*, *Client Id* and *Client Secret* from the *Settings* page of your app in the Auth0 dashboard to the *Basic* settings page of the Auth0 plugin in WordPress.

@@ -21,6 +21,9 @@ For **multi-node** clusters, all virtual machines must be:
 
 For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
 
+For a full list of IP addresses, domains, and ports used by the Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
+
+
 ## Internet Connectivity
 
 Each Appliance VM needs connectivity to the Internet. At a minimum, the VM needs access during Appliance configuration, maintenance windows, and troubleshooting. For implementations requiring integration with social providers and/or third-party API calls, the VM will need Internet access at all times.

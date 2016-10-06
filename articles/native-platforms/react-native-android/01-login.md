@@ -1,6 +1,7 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 React Native Android SDK to add authentication and authorization to your mobile app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 React Native Android SDK to add authentication and authorization to your mobile app
 ---
 
 <%= include('../../_includes/_package', {
@@ -11,10 +12,16 @@ description: This tutorial will show you how to use the Auth0 React Native Andro
   pkgType: 'replace'
 }) %>
 
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* NodeJS 6.5.0
+* react-native-lock 0.4.0
+* rnpm 1.9.0
+:::
 
-<%= include('../../_includes/_signup') %>
 
-**Otherwise, if you already have an existing React Native application, please follow the steps below.**
+
+## Install Lock
 
 First you need to run the following command to install **react-native-lock**
 
@@ -80,9 +87,9 @@ And finally, you must add the following entries inside the `<application>` tag o
 <!--Auth0 Lock Passwordless End-->
 ```
 
-If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to the __step #3__
+> If you need Facebook or Google+ native authentication please continue reading to learn how to configure them. Otherwise please go directly to **[Showing User Information](#showing-user-information)**.
 
-### 2. Let's implement the login
+## Implement the login
 
 Now we're ready to implement the Login. First we need to require react-native-lock-android:
 
@@ -98,7 +105,7 @@ ${snippet(meta.snippets.use)}
 
 On successful authentication, the callback function will yield the user's profile and tokens inside the parameters `profile` and `token` respectively.
 
-### 3. Showing user information
+## Showing User Information
 
 After the user has logged in, we can use the `profile` object which has all the user information (Let's assume the profile is stored in a component's state object):
 
@@ -107,7 +114,7 @@ After the user has logged in, we can use the `profile` object which has all the 
   <Text>Your email is: {this.state.profile.email}</Text>
 ```
 
-> You can [click here](/user-profile) to find out all of the available properties from the user's profile. Please note that some of this depend on the social provider being used.
+> You can find all of the available properties for the user's profile [here](/user-profile). Please note that some of these depend on the social provider being used.
 
 ### Optional: Facebook & Google Native Login
 
@@ -132,7 +139,6 @@ protected List<ReactPackage> getPackages() {
 ```
 
 Each native integration requires it's own configuration. If you added some of them please follow the corresponding instructions.
-
 
 #### Facebook
 

@@ -1,14 +1,7 @@
 ---
 title: User Profile
-description: This tutorial will show you how to integrate Auth0 with ReactJS to authenticate and fetch/show profile information.
+description: This tutorial demonstrates how to integrate Auth0 with ReactJS to authenticate and fetch/show profile information
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-* Node 5.2.0
-* NPM 3.3.12
-* React 15.3.2
-:::
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
@@ -16,8 +9,7 @@ This tutorial and seed project have been tested with the following:
   pkgRepo: 'auth0-react-sample',
   pkgBranch: 'master',
   pkgPath: '04-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+  pkgType: 'server'
 }) %>
 
 The [Login step](/quickstart/spa/react/01-login) of this tutorial explains how to use Auth0 Lock to show a login window and authenticate a user and how to protect routes by making them available only for authenticated users. 

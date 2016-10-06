@@ -6,6 +6,7 @@ alias:
   - amazon-web-services
 seo_alias: amazon
 index: 9
+description: How to obtain a Client Id and Client Secret for Amazon.
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Amazon

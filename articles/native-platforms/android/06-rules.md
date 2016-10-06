@@ -6,13 +6,6 @@ seo_alias: android
 
 Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. For more information about Auth0 rules, please refer to [the full documentation](/rules).
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* AndroidStudio 2.0
-* Emulator - Nexus5X - Android 6.0
-:::
-
  <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/06-Rules',
   pkgOrg: 'auth0-samples',
@@ -23,11 +16,11 @@ This tutorial and seed project have been tested with the following:
   pkgType: 'replace'
 }) %>
 
-### Before Starting
+## Before Starting
 
 Make sure you have completed either the [Login](01-login) or the [Custom Login](02-custom-login) examples.
 
-### 1. Create a Rule
+## Create a Rule
 
 To create a rule, you need to go to the [new rule page](${manage_url}/#/rules/new). From there, you can either use a predefined template or create one from scratch.
 
@@ -39,9 +32,9 @@ This rule gets the `country_name` from the context and adds it as a new `country
 
 ![Country rule sample](/media/articles/angularjs2/rule-country-show.png)
 
-This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever your users log in, the rule will be executed, and their country will be added.
+This is just a basic template. You can edit it to meet your business needs. Once you are done, save the rule and that's it. Whenever your users log in, the rule will be executed and their country will be added.
 
-### 2. Test The Rule
+## Test the Rule
 
 To see the newly created rule working, just implement a login and check the user profile information (you can find out how to do this in the [user profile tutorial](04-user-profile)).
 
@@ -49,22 +42,24 @@ You can access the `country` added by the rule within the `extraInfo` hashmap fr
 
 ```java
 client.tokenInfo(${account.clientId})
-	  .start(new BaseCallback<UserProfile>() {
+    .start(new BaseCallback<UserProfile, AuthenticationException>() {
 
-	@Override
-	public void onSuccess(final UserProfile userProfile) {
-		MainActivity.this.runOnUiThread(new Runnable() {
-			public void run() {
-				// Get the country from the user profile
-				String country = (String) payload.getExtraInfo().get("country");
-			}
-		});
-	}
-	@Override
-	public void onFailure(Auth0Exception error) {
+  @Override
+  public void onSuccess(final UserProfile userProfile) {
+    runOnUiThread(new Runnable() {
+      public void run() {
+        // Get the country from the user profile
+        if (payload.getExtraInfo().containsKey("country")){
+          String country = (String) payload.getExtraInfo().get("country");
+          //Show the country          
+        }
+      }
+    });
+  }
+  
+  @Override
+  public void onFailure(AuthenticationException error) {
 
-	}
+  }
 });
 ```
-
-

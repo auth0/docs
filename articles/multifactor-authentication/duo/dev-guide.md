@@ -1,3 +1,7 @@
+---
+description:  Information for how to use Duo Security for developers.
+---
+
 # Duo for Developers
 
 ## Enabling Duo for MFA
@@ -29,8 +33,9 @@ function (user, context, callback) {
         skey: 'nZLxq8GK7....saKCOLPnh',
         host: 'api-3....049.duosecurity.com',
 
-        // optional. Force DuoSecurity everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
-        ignoreCookie: true,
+        // optional, defaults to true. Set to false to force DuoSecurity every time. 
+        // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
+        allowRememberBrowser: false,
 
         // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
         // username: user.nickname,
@@ -84,8 +89,8 @@ To use Duo for users of all your applications, you can comment or remove the sec
 #### Specify users to use MFA
 To only use Duo for MFA on users that have `user_metadata.use_mfa === true` uncomment this if block. This field can be updated using the [Management APIv2](/api/management/v2#!/Users/patch_users_by_id).
 
-### Setting `ignoreCookie: true`
-If `ignoreCookie: true` is set, then users will not have to login with Duo everytime they login. The browser will save a cookie that will persist for 30 days and this cannot be undone.
+### Setting `allowRememberBrowser: false`
+If `allowRememberBrowser: true` is set, or if the field is left unset, then users will not have to login with Duo everytime they login. The browser will save a cookie that will persist for 30 days and this cannot be undone.
 
 ### Changing the Username sent to Duo
 To use a specific attribute of the profile as the username in DuoSecurity, uncomment `username: user.nickname` and change it to the attribute you wish to use. This is also useful if you already have your users enrolled in Duo.

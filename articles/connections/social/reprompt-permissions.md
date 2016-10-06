@@ -1,3 +1,6 @@
+---
+description: How to handly declinded authorization permissions and how to reprompt for this permissions.
+---
 
 # Handling Declined Authorization Permissions
 

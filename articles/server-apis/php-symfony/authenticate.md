@@ -19,7 +19,7 @@ This tutorial and seed project have been tested with the following:
 * Symfony 2.8
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 This bundle helps you integrate your Symfony WebApp with [Auth0](https://auth0.com/) to achieve Single Sign On with a few simple steps. You can see an example of usage [here](https://github.com/auth0/jwt-auth-bundle/tree/master/example)
 

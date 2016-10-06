@@ -3,6 +3,7 @@ connection: Github
 image: /media/connections/github.png
 seo_alias: github
 index: 7
+description: How to obtain a Client Id and Client Secret for GitHub.
 ---
 
 # Obtain a *Client Id* and *Client Secret* for GitHub
@@ -18,7 +19,7 @@ Log into GitHub and go to [Register new application](https://github.com/settings
 
 Complete the information on this page then click **Register application**. The callback address for your app will be:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/github/github-addapp-2.png)
 

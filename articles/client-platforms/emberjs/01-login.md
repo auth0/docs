@@ -1,5 +1,6 @@
 ---
 title: Login
+default: true
 description: This tutorial will show you how to use the Auth0 EmberJS SDK to add authentication and authorization to your web app.
 ---
 
@@ -25,29 +26,28 @@ This tutorial and seed project have been tested with the following:
 * Ember Simple Auth 0.8.0
 :::
 
-<%= include('../../_includes/_signup') %>
 
-**If you have an existing application, please follow the steps below.**
 
 ${include('../\_callback')}
 
-### 1. Install the add-on
+## 1. Install the Add-On
 
 Auth0 Ember simple-auth is an add-on for the [simple-auth](http://ember-simple-auth.com) library, and is installed via [ember-cli](http://www.ember-cli.com).
 
 To install this add-on and its dependencies, `cd` to your project directory and execute the following commands:
 
-```
+```bash
 ember install auth0-ember-simple-auth
 ember generate scaffold-auth0
 ```
 
 __Note:__ If you are not already using ember-cli, see [ember-cli migration](http://ember-cli.com/user-guide/#migrating-an-existing-ember-project-that-doesnt-use-ember-cli).
 
-### 2. Configure the add-on
+## 2. Configure the Add-On
 
 ```js
 // config/environment.js
+
 ENV['simple-auth'] = {
   authorizer: 'simple-auth-authorizer:jwt',
   authenticationRoute: 'sign_in',
@@ -74,7 +74,7 @@ ENV['contentSecurityPolicy'] = {
 };
 ```
 
-### 3. Extend routes
+## 3. Extend Routes
 
 Extend a route and set [user-configurable options](/libraries/lock/customization):
 
@@ -92,7 +92,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       // This will launch lock.js in popup mode
       var lockOptions = {
         auth: {
-          params: {scope: 'openid'} //Details: https:///scopes
+          params: { scope: 'openid' }
         }
       };
 
@@ -106,6 +106,7 @@ Add a route for signing in:
 
 ```js
 // app/routes/sign_in.js
+
 import Ember from 'ember';
 import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
@@ -123,7 +124,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin);
 ```
 
-### 4. Login and logout
+## 4. Login and Logout
 
 Add login and logout links. These routes are handled according to the simple-auth configuration settings.
 
@@ -135,7 +136,7 @@ Add login and logout links. These routes are handled according to the simple-aut
 {{/if}}
 ```
 
-### 5. Authenticated user session data
+## 5. Authenticated User Session Data
 
 Once a user is authenticated, session data received from the popup window will be stored in `localStorage` under the `ember_simple_auth:session` key. This session object is a JSON object that contains user profile data, a JWT token and an access token.
 
@@ -149,7 +150,7 @@ You can access this session information in the ember templates by using `{{sessi
 </div>
 ```
 
-### 6. Using a JWT token to make API requests
+## 6. Using a JWT Token to Make API Requests
 
 To make an API request, add the user's [JWT token](/jwt) to an `Authorization` HTTP header:
 
@@ -165,10 +166,6 @@ fetch('/api/foo', {
 });
 ```
 
-### 7. All done!
-
-You have completed the implementation of Login and Signup with Auth0 and and Ember.
-
-#### Additional information
+### Additional information
 
 For Additional information on how to use this SDK, see [Auth0 Ember simple auth](http://github.com/auth0/auth0-ember-simple-auth/blob/master/README.md).

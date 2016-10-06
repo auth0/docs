@@ -1,3 +1,7 @@
+---
+description: How to use Auth0 to secure a CLI.
+---
+
 # Using Auth0 to secure a CLI
 
 Authentication in CLI programs is straightforward if the identity provider supports sending credentials, like database connections, SMS passwordless and AD. If the identity provider requires a browser redirect, then the process is slightly more complicated.

@@ -1,3 +1,7 @@
+---
+description: This page explains how to configure and use Auth0's extension for Auth0 Logs to Azure Blob Storage.
+---
+
 # Auth0 Logs to Azure Blob Storage
 
 The *Auth0 Logs to Azure Blob Storage* is a scheduled job that takes all of your Auth0 logs and exports them to Azure Blob Storage.

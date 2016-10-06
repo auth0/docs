@@ -1,6 +1,9 @@
 ---
+description: Lock V9 documentation
 url: /libraries/lock/v9
 ---
+
+<%= include('../_includes/_lock-version-9') %>
 
 ![Lock Image](/media/articles/libraries/lock/v9/lock-landing.png)
 

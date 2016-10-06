@@ -168,6 +168,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
 
  1. The browser cannot show any plugins, customizations, or bookmarks.
  1. The browser cannot be in incognito mode.
+ 1. The browser should have only one tab open, the one in the screenshot.
  1. The browser needs to be resized to the standard size. Using the below script:
 
   ```bash
@@ -175,7 +176,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```
  1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
- 2. Resize image to a maximum 900px width.
+ 1. Resize image to a maximum 900px width.
 
  Example:
 
@@ -445,46 +446,39 @@ In the case of things like iOS and Android samples, we should build with multipl
 3. No need to write code or specialized guide for mobile until we allow users to enroll mfa from mobile apps. Currently is web only
 
 ### Seed Projects
-Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package` include.
+Each quickstart should have a seed project. The seed projects are hosted in github in the `auth0-samples` organization. In order to add a seed project to a quickstart simply use the `_package2` include.
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
+These values can be replaced in any file in the repo. Common examples of where you would include these values are in a `.env` file or `auth0-variables.js` file. In addition to replacement in the file directly, you can also include a template file in the form of `filename.ext.example` such as `auth0-variables.js.example`. The packager will do the replacement and remove the `.example` extension from the file.
+
+> NOTE: It is a best practice to use the `.example` method and include the 'real' file in the '.gitignore' so that if the end-user turns the sample into a git repo, the Auth0 keys wont get checked into source control. You should include the `.gitignore` file in the actual seed project folder, not at the repo root. This way it is included in the seed package.
+
 | Key Name | Replace Value | Description |
 | :------| :-----------| :-----------|
-| `AUTH0_CLIENT_ID` | `{CLIENT_ID}` | This sets the client ID of the currently selected application. |
-| `AUTH0_CLIENT_SECRET` | `{CLIENT_SECRET}` |  This sets the client secret of the currently selected application. |
-| `AUTH0_DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
-| `AUTH0_CALLBACK_URL` | N/A |  This sets the callback url for the application. |
+| `CLIENT_ID` | `{CLIENT_ID}` | This sets the client ID of the currently selected application. |
+| `CLIENT_SECRET` | `{CLIENT_SECRET}` |  This sets the client secret of the currently selected application. |
+| `DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `TENANT` | `{TENANT}` | The tenant name of the currentAuth0 account.
+| `CALLBACK_URL` | `{CALLBACK_URL}` |  This sets the callback url for the application. |
 | `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
 | `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
-There are four types of packaging that can happen with this service.
 
-1. `server` - This creates a `.env` file in the sample project with the configuration values set. The output file will contain the following.
-  ```
-  AUTH0_CLIENT_ID=VALUE
-  AUTH0_CLIENT_SECRET=VALUE
-  AUTH0_DOMAIN=VALUE
-  AUTH0_CALLBACK_URL=VALUE
-  ```
-2. `js` - This creates a `auth0-variables.js` file in the sample project with the configuration values set (except for client secret). The output file will contain the following.
-  ```
-  var AUTH0_CLIENT_ID='VALUE';
-  var AUTH0_CALLBACK_URL='VALUE';
-  var AUTH0_DOMAIN='VALUE';
-  ```
-3. `replace` - This does a string replacement of any of the above configuration values in the the format `{KEY_NAME}` in the entire project. For example anywhere in the config you want to use the real client id simple add `{CLIENT_ID}`. This is the most flexible option as you can use this anywhere in the sample project.
-4. `none` - This doesn't do any replacement or setting of variables. It simply bundles the sample for download.
+Example `.env` file:
+```
+AUTH0_CLIENT_ID={CLIENT_ID}
+AUTH0_DOMAIN={DOMAIN}
+AUTH0_CLIENT_SECRET={CLIENT_SECRET}
+```
+
+##### Include Code
 
 ```
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/sample-project',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'node-auth0',
-  pkgBranch: 'master',
-  pkgPath: 'examples/nodejs-regular-webapp',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'node-auth0',
+  path: 'examples/nodejs-regular-webapp'
 }) %>
 ```
 
@@ -493,13 +487,9 @@ The follow are the values for the package configuration.
 
 | Variable  | Description |
 | :---------------------------- | :----------------------------------------- |
-| `githubUrl` | The url to the github project. This will be used in the "Fork on Github" button. |
-| `pkgOrg` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
-| `pkgRepo` | The name of the github repository. |
-| `pkgBranch` | Optional. The branch of the repo to download from. Defaults to `master`. |
-| `pkgPath` | The path where the sample is contained. This will be the folder that gets downloaded. |
-| `pkgFilePath` | Optional. The path to the file to run the replacement on. i.e. the path to a config file. |
-| `pkgType` | The type of processing to perform on the page. Valid options are `server`, `js`, `replace`, and `none`. See above. |
+| `org` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
+| `repo` | The name of the github repository. |
+| `path` | The path where the sample is contained. This will be the folder that gets downloaded. |
 
 ## Updates Feed
 Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.
@@ -612,12 +602,8 @@ When writing docs you can use the following variables instead of hard-coding the
 | :---------------------------- | :----------------------------------------- | :-------------------------------------- |
 | `manage_url`                       | The url to the management portal.          | `https://manage.auth0.com`              |
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
-| `auth0js_url_no_scheme`       | The url to the auth0.js CDN location without the 'https:'. | |
 | `lock_url`                  | The url to the Lock script CDN location.   | |
-| `lock_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
-| `browser`       | Displays a browser window with Lock. | |
-| `lockSDK`       | Displays a browser window with Lock and a dropdown with the options to trigger login. | |
 
 
 ### User Specific Variables

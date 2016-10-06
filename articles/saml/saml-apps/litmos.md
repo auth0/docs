@@ -1,5 +1,6 @@
 ---
 title: Litmos SAML Configuration
+description: Litmos SAML Configuration
 ---
 
 ${include('./\_header')}

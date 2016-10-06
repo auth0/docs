@@ -5,6 +5,7 @@ image: /media/connections/office-365.png
 alias:
   - office365
 seo_alias: o365-deprecated
+description: How to obtain a ClientId and Client Secret for an Office 365 connection.
 ---
 
 ::: warning-banner

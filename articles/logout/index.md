@@ -4,9 +4,23 @@ description: How to logout a user and optionally redirect them to an authorized 
 
 # Logout
 
-You can log out a user and immediately redirect them to an authorized URL.
+## Overview
 
-## Logging Out a User
+When you are implementing the logout functionality of your app there are typically three layers of sessions you need to consider:
+
+- __Application Session__: The first is the session inside the application. Even though your application uses Auth0 to authenticate users, you will still need to keep track of the fact that the user has logged in to your application. In a normal web application this is achieved by storing information inside a cookie. You need to log out the user from your application, by clearing their session.
+
+- __Auth0 session__: Next, Auth0 will also keep a session and store the user's information inside a cookie. Next time when a user is redirected to the Auth0 Lock screen, the user's information will be remembered. In order to logout a user from Auth0 you need to clear the SSO cookie.
+
+- __Identity Provider session__: The last layer is the Identity Provider, for example Facebook or Google. When you allow users to sign in with any of these providers, and they are already signed into the provider, they will not be prompted to sign in. They may simply be required to give permissions to share their information with Auth0 and in turn your application.
+
+This document explains how to logout a user from the Auth0 session and optionally from the Identity Provider session. Keep in mind though that you should handle also the Application Session in your app!
+
+## Log Out a User
+
+The logout endpoint in Auth0 can work in two ways:
+- Clear the SSO cookie in Auth0
+- Clear the SSO cookie in Auth0 and sign out from the IdP (for example, ADFS or Google)
 
 To force a logout, redirect the user to the following URL:
 
@@ -16,16 +30,18 @@ https://${account.namespace}/v2/logout
 
 Redirecting the user to this URL clears all single sign-on cookies set by Auth0 for the user.
 
-To force the user to also log out of their identity provider, add a `federated` querystring parameter to the logout URL:
+Although this is not common practice, you can force the user to also log out of their identity provider. To do this add a `federated` querystring parameter to the logout URL:
 
 ```text
 https://${account.namespace}/v2/logout?federated
 ```
 
-__NOTE__: The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider when the `federated` querystring parameter is used. It does not log you out of your application. This is something that you should implement on your side.
+::: panel-warning Clear your application session
+The Auth0 logout endpoint logs you out from Auth0, and optionally from your identity provider. It does not log you out of your application! This is something that you should implement on your side. You need to log out the user from your application, by clearing their session. You might find [this video](/videos/session-and-cookies) helpful.
+:::
 
 
-## Redirecting Users After Logout
+## Redirect Users After Logout
 
 To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value:
 
@@ -52,11 +68,11 @@ You will need to add the `returnTo` URL as an `Allowed Logout URLs` in one of tw
   you must add the `returnTo` URL to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Setting Allowed Logout URLs at the App Level](#setting-allowed-logout-urls-at-the-app-level) for more information.
 
 
-### Setting *Allowed Logout URLs* at the Account Level
+### Set the *Allowed Logout URLs* at the Account Level
 
 To add a list of URLs that the user may be redirected to after logging out at the account level, go to the [Account Settings > Advanced](${manage_url}/#/account/advanced) of the **Auth0 Management Console**.
 
-![](/media/articles/logout/account-level-logout.png)
+![Account level logout screen](/media/articles/logout/account-level-logout.png)
 
 When providing the URL list, you can:
 
@@ -64,11 +80,11 @@ When providing the URL list, you can:
 * Use `*` as a wildcard for subdomains (e.g. `http://*.example.com`)
 
 
-### Setting *Allowed Logout URLs* at the App Level
+### Set the *Allowed Logout URLs* at the App Level
 
 To redirect the user after they log out from a specific app, you must add the URL used in the `returnTo` parameter of the redirect URL to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the `CLIENT_ID` parameter.
 
-![](/media/articles/logout/app-level-logout.png)
+![Application level logout screen](/media/articles/logout/app-level-logout.png)
 
 When providing the URL list, you can:
 

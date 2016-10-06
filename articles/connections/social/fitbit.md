@@ -3,6 +3,7 @@ connection: Fitbit
 image: /media/connections/fitbit.png
 seo_alias: fitbit
 index: 14
+description: How to obtain a Client Id and Client Secret for Fitbit.
 ---
 
 # Obtain a *Client ID* and *Client Secret* for Fitbit
@@ -23,7 +24,7 @@ Log into the [Fitbit's Developer site](https://dev.fitbit.com) and select **REGI
 
 Complete the registration form with information about your new app. In the **Callback URL** field, enter:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 and click **Register**.
 

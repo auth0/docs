@@ -1,3 +1,7 @@
+---
+description: This page explains common troubleshooting issues with WordPress.
+---
+
 # WordPress Troubleshooting
 
 ### The Auth0 settings page in WordPress displays the warning: "The current user is not authorized to manage the Auth0 account...".

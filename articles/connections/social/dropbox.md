@@ -35,7 +35,7 @@ Click **Create your app**:
 On your app's **Settings** page that follows, enter this URL in the **Redirect URIs** field:
 
 `https://${account.namespace}/login/callback`
-	
+  
 Click **Add**:
 
 ![](/media/articles/connections/social/dropbox/dropbox-03.png)
