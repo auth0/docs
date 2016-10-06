@@ -14,7 +14,7 @@ When you are implementing the logout functionality of your app there are typical
 
 - __Identity Provider session__: The last layer is the Identity Provider, for example Facebook or Google. When you allow users to sign in with any of these providers, and they are already signed into the provider, they will not be prompted to sign in. They may simply be required to give permissions to share their information with Auth0 and in turn your application.
 
-This document explains how to implement to logout a user from the Auth0 session and optionally from the Identity Provider session. Keep in mind though that you should handle also the Application Session in your app!
+This document explains how to logout a user from the Auth0 session and optionally from the Identity Provider session. Keep in mind though that you should handle also the Application Session in your app!
 
 ## Log Out a User
 
