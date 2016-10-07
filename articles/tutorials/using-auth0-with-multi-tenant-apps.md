@@ -98,7 +98,7 @@ Storing all of the folders that the user has access to as part of the user profi
 
 * Auth0 has a single [Dashboard](${manage_url}) for all tenants.
 * Auth0 supports Google, GitHub, Live and user/password authentication.
-* Auth0 also supports Enterprise connections (You can request this by opening a [support ticket](https://support.auth0.com))
+* Auth0 also supports Enterprise connections for Platinum level subscriptions (you can request this by opening a [support ticket](https://support.auth0.com))
 * Auth0 uses email domains for home realm discovery (see screen below), making it similar to the Dropbox experience.
 
 ![](/media/articles/saas/saas-05.png)
