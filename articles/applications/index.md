@@ -17,18 +17,18 @@ A client is a core Auth0 concept, so it's important to know how they:
 
 When you configure your Auth0 client, you will be asked for or provided (as indicated by a grayed out text box) the following pieces of information:
 
-* **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on)
-* **Domain**: the domain name of your client
-* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0). By default, the  is hidden, so check the **Reveal Client Secret** box to see this value.
+* **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on);
+* **Domain**: the domain name of your client;
+* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0). By default, the  is hidden, so check the **Reveal Client Secret** box to see this value;
 * **Client Secret**: the key used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints;
 * **Client Type**:
-  * Native
-  * Non-Interactive Client
-  * Regular Web Application
-  * Single Page Application
+  * Native:
+  * Non-Interactive Client:
+  * Regular Web Application:
+  * Single Page Application:
 * **Token Endpoint Authentication Method**:
 * **Allowed Callback URLs**: the URLs of your application(s) to which Auth0 can redirect the user after authentication.
-* * **Allowed Logout URLs**:
+* **Allowed Logout URLs**: the URLs
 * **Allowed Origins (CORS)**: the URLs of the applications running your JavaScript code (prevents same-origin policy errors when using Auth0 from within a web browser)
 * **JWT Expiration (Seconds)**: the amount of time before the Auth0 access tokens expires
 * **Use Auth0 instead of the IdP to do Single Sign On**: if enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on)
