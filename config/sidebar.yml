@@ -15,6 +15,9 @@ articles:
       - title: "Clients"
         url: "/applications"
 
+      - title: "Protocols"
+        url: "/protocols"
+
       - title: Developer Videos
         url: /videos
 
