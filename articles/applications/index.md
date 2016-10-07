@@ -15,7 +15,7 @@ A client is a core Auth0 concept, so it's important to know how they:
 
 ![](/media/articles/applications/applications-callback-settings.png)
 
-When you configure your Auth0 client, you will be asked for or provided the following pieces of information:
+When you configure your Auth0 client, you will be asked for or provided (as indicated by a grayed out text box) the following pieces of information:
 
 * **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on)
 * **Domain**: the domain name of your client
@@ -25,7 +25,7 @@ When you configure your Auth0 client, you will be asked for or provided the foll
   * Native
   * Non-Interactive Client
   * Regular Web Application
-  * Single Page Application 
+  * Single Page Application
 * **Token Endpoint Authentication Method**:
 * **Allowed Callback URLs**: the URLs of your application(s) to which Auth0 can redirect the user after authentication.
 * * **Allowed Logout URLs**:
