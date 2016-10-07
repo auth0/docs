@@ -89,7 +89,7 @@ This is the last step for configuring __Browser SSO__. On __Digital Signature Se
 ![](/media/articles/saml/identity-providers/ping7/ping-15.png)
 
 The last two options to configure are the certificate used to sign incoming requests. Auth0 will not sign `SAMLRequests` by default. For some reason, there's no way around this setting.
-<a href="https://${account.namespace}.auth0.com/pem" rel="nofollow">Download the Auth0 certificate</a> and upload it here.
+<a href="https://${account.tenant}.auth0.com/pem" rel="nofollow">Download the Auth0 certificate</a> and upload it here.
 
 ![](/media/articles/saml/identity-providers/ping7/ping-16.png)
 ![](/media/articles/saml/identity-providers/ping7/ping-17.png)
