@@ -6,44 +6,50 @@ index: 10
 description: How to obtain a Client Id and Client Secret for PayPal.
 ---
 
-# Obtain a Client Id and Secret for PayPal
+# Obtain a PayPal Client Id and Secret
 
-To configure an OAuth connection with PayPal, you will need to register Auth0 on the **PayPal Developer** portal.
+To configure an OAuth connection with PayPal, register your Auth0 Client on the [**PayPal Developer Portal**](https://developer.paypal.com/).
 
-## 1. Log in into Developer Portal
+## 1. Registering Your Auth0 Client Using the PayPal Developer Portal
 
-Go to the [PayPal Developer](https://developer.paypal.com/) portal and log in with your PayPal credentials. Click on **Dashboard**.
+Go to the [PayPal Developer Portal](https://developer.paypal.com/) and log in with your PayPal credentials. Click on **Dashboard** in the upper-right corner.
 
-From the **My Apps** page, click **Create App**:
+![](/media/articles/connections/social/paypal/dev-portal.png)
 
-![](/media/articles/connections/social/paypal/paypal-2.png)
+You will be directed to the *My Apps & Credentials* page immediately. Under the *REST API Apps* section, click **Create App**
 
-Name your app and then click **Create App**:
+![](/media/articles/connections/social/paypal/apps-and-creds.png)
 
-![](/media/articles/connections/social/paypal/paypal-2a.png)
+On the *Create New App* page, provide a value for **App Name** and click **Create App**:
 
-## 2. Complete information about your Auth0 instance
+![](/media/articles/connections/social/paypal/create-new-app.png)
 
-Scroll down to the **Sandbox App Settings** section and enter your *Return URL*:
+## 2. Obtain Your PayPal Client ID and Secret
 
-  https://${account.namespace}/login/callback
+Once PayPal has created your app, you will be shown the API credentials for this particular application. Copy both the **Client ID** and **Secret** values (the Secret value is initially hidden) for later use.
 
-then click **Save**:
+![](/media/articles/connections/social/paypal/api-creds.png)
 
-![](/media/articles/connections/social/paypal/paypal-3.png)
+## 3. Provide PayPal with Information About Your Auth0 Client
 
-**NOTE:** You can control the scope of access to customer data (profile, email, address, and phone) through Auth0 but you also need to enable this access on the PayPal portal by selecting the desired attributes under the **Advanced options** of the**Log In with PayPal** feature:
+Scroll down to the **Sandbox App Settings** section and **Show** the **Return URL** box. Enter the following value:
 
-![](/media/articles/connections/social/paypal/paypal-3a.png)
+`https://${account.namespace}/login/callback`
 
-## 3. Get your Client Id and Secret
+![](/media/articles/connections/social/paypal/sandbox-settings.png)
 
-Your `Client Id` and `Secret` are displayed in the **Sandbox API Credentials** section at the top of the same page.
+If you would like to control the scope of access to customer data (such as profile information, email address, home address, and phone number) through Auth0, you need to enable access to this information by selecting the desired attributes under the **Advanced Options**, which becomes available to you if you enable the **Log In with PayPal** feature.
 
-![](/media/articles/connections/social/paypal/paypal-4.png)
+![](/media/articles/connections/social/paypal/log-in-with-paypal.png)
 
-## 4. Copy your *Client Id* and *Client Secret*
+Click **Save**:
 
-Go to your Auth0 Dashboard and select **Connections > Social**, then choose **PayPal**. Copy the `Client Id` and `Client Secret` from the **PayPal Developer** portal into the fields on this page on Auth0 and click **Save**:
+## 4. Provide Your PayPal Client Id and Secret to Your Auth0 Client
 
-![](/media/articles/connections/social/paypal/paypal-5.png)
+Log in to your [Auth0 Management Dashboard](${manage_url}). Using the left-side navigation bar, select **Connections**. Under the **Social** page, enable **PayPal**.
+
+![](/media/articles/connections/social/paypal/social-connections.png)
+
+Paste in the `Client Id` and `Client Secret` from the **PayPal Developer Portal** into the **App ID** and **App Secret** fields on this page on Auth0, respectively, and click **Save**
+
+![](/media/articles/connections/social/paypal/paypal-settings.png)
