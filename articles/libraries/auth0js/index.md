@@ -26,11 +26,11 @@ If you are using [browserify](http://browserify.org/) install with `npm i auth0-
 Construct a new instance of the Auth0 client as follows:
 
 ```html
-<script src="{auth0js_url}"></script>
+<script src="${auth0js_url}"></script>
 <script type="text/javascript">
   var auth0 = new Auth0({
-    domain:       '{account.namespace}',
-    clientID:     '{account.clientId}',
+    domain:       '${account.namespace}',
+    clientID:     '${account.clientId}',
     callbackURL:  '{YOUR APP URL}',
     responseType: 'token'
   });
