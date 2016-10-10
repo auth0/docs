@@ -6,7 +6,7 @@ description: Auth0 normalizes common user properties in the User Profile.
 
 Since every identity provider provides a different set of information about a user, Auth0 normalizes common profile properties in the User Profile. 
 
-For example, `user_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
+For example, `family_name` in the User Profile contains details that may have been returned as `surname` or `last_name`.
 
 ## Normalized User Profile Schema
 
