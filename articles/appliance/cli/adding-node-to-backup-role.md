@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to add an Appliance node in the backup node
 ---
 
 # Appliance: Adding a Node to the Backup Role

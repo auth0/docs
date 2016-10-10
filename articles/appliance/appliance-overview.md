@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: describes what the Appliance is, how it is deployed, and what its features and requirements are
 ---
 
 # Auth0 Appliance Overview

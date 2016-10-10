@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Appliance infrastructure information about virtual machines
 ---
 
 # Auth0 Appliance Infrastructure Requirements: Virtual Machines

@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to automatically create tenants in the Appliance
 ---
 
 # Appliance Administration: Automatic Creation of Tenants

@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to back up the Appliance using its CLI
 ---
 
 # How to Back Up Appliance Instances Using the CLI

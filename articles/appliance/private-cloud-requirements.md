@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: requirements for running the Appliance on Auth0's private cloud
 ---
 
 # Information Requirements for Setting Up the Appliance in Auth0's Private Cloud

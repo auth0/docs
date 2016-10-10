@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: the modules available when writing rules for the Appliance
 ---
 
 # Node.js Modules Available in Rules and Custom Database Connections
