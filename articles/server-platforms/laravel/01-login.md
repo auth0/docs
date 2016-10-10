@@ -4,14 +4,10 @@ default: true
 description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to add authentication and authorization to your web app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-laravel-php-web-app',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-laravel-php-web-app',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-laravel-php-web-app',
+  path: '00-Starter-Seed'
 }) %>
 
 ::: panel-info System Requirements
@@ -20,8 +16,6 @@ description: This tutorial demonstrates how to use the Auth0 PHP Laravel SDK to 
 * PHP 5.5.12
 * Laravel 5.2.15
 :::
-
-
 
 ## Laravel Compatibility
 
