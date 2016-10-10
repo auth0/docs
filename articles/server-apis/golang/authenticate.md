@@ -3,18 +3,11 @@ title: Authenticate
 description: This tutorial will show you how to use the Auth0 Go SDK to add authentication and authorization to your API.
 ---
 
-<%= include('../../_includes/_package', {
-  pkgRepo: 'auth0-golang',
-  pkgBranch: 'master',
-  pkgPath: 'examples/go-api',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-golang-web-api',
+  path: '00-Starter-Seed'
 }) %>
-
-
-
-
-**Otherwise, Please follow the steps below to configure your existing Go Programming Language app to use it with Auth0.**
 
 ### 1. Install `go-jwt-middleware` dependency
 
