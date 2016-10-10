@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to configure the Appliance CLI
 ---
 
 # Configuring and Using the Auth0 Appliance Command Line Interface

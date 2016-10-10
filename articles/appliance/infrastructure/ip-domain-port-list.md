@@ -1,3 +1,8 @@
+---
+description: Appliance infrastructure information about IP/Domain and Port Usage
+---
+
+
 # Appliance Infrastructure: IP/Domain and Port List
 
 The Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
