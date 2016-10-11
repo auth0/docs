@@ -233,17 +233,6 @@ articles:
 
   - title: "CMS Plugins"
     url: "/cms"
-    children:
-
-      # - title: "Wordpress"
-      #   url: "/cms#wordpress-plugin"
-      #
-      # - title: "Joomla"
-      #   url: "/cms#joomla-extension"
-
-      - title: "SharePoint"
-        url: "https://github.com/auth0/auth0-sharepoint"
-
 
 apis:
 
