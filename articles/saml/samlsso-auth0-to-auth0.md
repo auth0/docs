@@ -138,7 +138,7 @@ Once you go to that metadata URL, it will display the metadata for the Auth0 acc
 
 ![](/media/articles/saml/samlsso-auth0-to-auth0/samlsso-auth0-09.jpg)
 
-You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.tenant}.auth0.com/login/callback?connection=${connectionName}__.
+You need to locate the row that starts with **"AssertionConsumerService"** and copy the value of the **"Location"** field.  It will be a URL of the form __https://${account.namespace}.auth0.com/login/callback?connection=${connectionName}__.
 
 Copy and save this URL. This is the URL on account 1 that will receive the SAML assertion from the IDP. In the next section you will give this URL to the IDP so it knows where to send the SAML assertion.
 
