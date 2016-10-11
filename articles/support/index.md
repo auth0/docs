@@ -23,8 +23,8 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     <tr>
       <th></th>
       <th> Developer Support Plan (Previous: Free) </th>
-      <th> Standard Support Plan (legacy**) </th>
-      <th> Platinum Support Plan </th>
+      <th> Standard Support Plan (legacy - see below) </th>
+      <th> Enterprise Support Plan </th>
       <th> Premiere Support Plan</th>
     </tr>
   </thead>
@@ -116,8 +116,9 @@ Critical Production issues should always be reported via the Support Center for 
 Translation from former support plans to new:
 
 - Subscriptions previously known as "Free" map to the "Developer" support plan
-- Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the legacy "Standard" support plan.
+- Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the legacy "Standard" support plan. These plans are no longer available, but will be honored for previous subscribers to those plans.
 - Support plans previously known as "Enterprise" and "Premium" support map to the "Enterprise" support plan.
+- The "Premiere" support plan is a new plan available for purchase as of October 2016.
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
 
