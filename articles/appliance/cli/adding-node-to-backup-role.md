@@ -5,7 +5,7 @@ description: How to add an Appliance node in the backup node
 
 # Appliance: Adding a Node to the Backup Role
 
-> This document applies beginning with Appliance update **build 6868**.
+> This document applies beginning with Appliance update **build 7247**.
 
 ## Prerequisites
 
