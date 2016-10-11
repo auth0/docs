@@ -1,4 +1,5 @@
 ---
+description: Describes the major differences between Auth0's Management API v1 and Management API v2, and details the reasons for each change.
 section: apis
 ---
 
@@ -42,6 +43,8 @@ This document describes the major differences between Auth0's Management API v1 
 | [DELETE /api/users/{user\_id}](/api/v1#!#delete--api-users--user_id-) | None. | [DELETE /api/v2/users/{id}](/api/v2#!/users/delete_users_by_id) also accepts `v2_id` |
 | [DELETE /api/users/{user\_id}/refresh_tokens/{refresh\_token}](/api/v1#!#delete--api-users--user_id--refresh_tokens--refresh_token-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
 | [DELETE /api/users/{user\_id}/public_key?device={device}](/api/v1#!#delete--api-users--user_id--publickey-device--device-) | Tokens and public keys are device credentials. | [DELETE /api/v2/device-credentials/{id}](/api/v2#!/Device_Credentials/delete_device_credentials_by_id) |
+| [POST /api/users/{user_id}/send_verification_email](/api/v1#!#post--api-users--user_id--send_verification_email) | None. | [POST /api/v2/jobs/verification-email](/api/v2#!/Jobs/post_verification_email) 
+
 
 ### Client endpoints
 | v1 Endpoint | Change | v2 Endpoint |
@@ -60,6 +63,10 @@ This document describes the major differences between Auth0's Management API v1 
 | [POST /api/connections](/api/v1#!#post--api-connections) | Added `enabled_clients` property. | [POST /api/v2/connections](/api/v2#!/connections/post_connections) |
 | [PUT /api/connections/{connection-name}](/api/v1#!#put--api-connections--connection-name-) | Not available. Changed `connection-name` to `id`. | [PATCH /api/v2/connections/{id}](/api/v2#!/connections/patch_connections_by_id) |
 | [DELETE /api/connections/{connection-name}](/api/v1#!#delete--api-connections--connection-name-) | Changed `connection-name` to `id`. | [DELETE /api/v2/clients/{id}](/api/v2#!/connections/delete_connections_by_id) |
+| [GET /api/connections/{connection}/users](/api/v1) | None. | * [GET  /api/v2/users](/api/v2#!/Users/get_users) |
+| [GET /api/connections/{connection}/users?search={criteria}](/api/v1) | None. | * [GET  /api/v2/users](/api/v2#!/Users/get_users) |
+
+*For appliance (search_engine:v1), use `connection` field; for cloud (search_engine:v2), use `q=identities.connection:"connection_name"` 
 
 ### Rules endpoints
 | v1 Endpoint | Change | v2 Endpoint |

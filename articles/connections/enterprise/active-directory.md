@@ -5,6 +5,7 @@ image: /media/connections/ms.png
 alias:
   - ad
 seo_alias: active-directory
+description: How to connect to Active Directory with Auth0.
 ---
 
 
@@ -32,6 +33,8 @@ Select **Connections > Enterprise > AD/LDAP** from the Auth0 dashboard menu. Cli
 In the *Email domains* field, list the user email domains that will be allowed to login to this particular AD/LDAP connection.
 
 If you want to use **Kerberos** with this connection, enter a range of IP addresses where **Kerberos** authentication will be enabled from. Typically, these would be intranet addresses.
+
+If you would like to disable caching, enable the appropriate slider.
 
 ![](/media/articles/connections/enterprise/active-directory/ldap-create-2.png)
 

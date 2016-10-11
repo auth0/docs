@@ -12,9 +12,7 @@ description: This tutorial demonstrates how to integrate Auth0 with ReactJS to l
   pkgType: 'server'
 }) %>
 
-In some situations, you may want the ability to link multiple user accounts. For example, if a user has signed up with email and password (which provides very little information about the user), you can ask the user to link their account to an OAuth provider like Facebook or Google to gain access to their social profile.
-
-In this step, you will modify the application you created in the [User Profile](/quickstart/spa/react/03-user-profile) step to allow users to link or unlink other OAuth providers to their account.
+<%= include('../../_includes/_linking_accounts') %>
 
 ## 1. Show Linked Accounts Information
 

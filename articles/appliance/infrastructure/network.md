@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Appliance infrastructure information about Networks
 ---
 
 # Auth0 Appliance Infrastructure Requirements: Network
@@ -20,6 +21,9 @@ For **multi-node** clusters, all virtual machines must be:
 > Production and non-Production (test/development) must be on completely isolated networks.
 
 For **Webtasks**, ports `8721` and `8701` need to be open from cross-Virtual Machine communication.
+
+For a full list of IP addresses, domains, and ports used by the Appliance clusters, as well as what they are used for, please see [Appliance Infrastructure: IP/Domain and Port List](/appliance/infrastructure/ip-domain-port-list).
+
 
 ## Internet Connectivity
 

@@ -168,6 +168,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
 
  1. The browser cannot show any plugins, customizations, or bookmarks.
  1. The browser cannot be in incognito mode.
+ 1. The browser should have only one tab open, the one in the screenshot.
  1. The browser needs to be resized to the standard size. Using the below script:
 
   ```bash
@@ -175,7 +176,7 @@ On Mac OS X screenshots of the Auth0 interface need to be taken with Chrome, tak
   ```
  1. Auth0 screenshots should capture the complete browser window (**Command + Shift + 4**, then press **Space**).
  1. Use color **#0099CC** for highlights.
- 2. Resize image to a maximum 900px width.
+ 1. Resize image to a maximum 900px width.
 
  Example:
 
@@ -449,24 +450,26 @@ Each quickstart should have a seed project. The seed projects are hosted in gith
 
 The seed project packager service replaces placeholder configuration values with the values of the user's real application. This means the sample is ready to use without additional configuration. The strings that get set are shown below.
 
-These values can be replaced in any file in the repo. Common examples of where you would include these values are in a `.env` file or `auth0-variables.js` file.
+These values can be replaced in any file in the repo. Common examples of where you would include these values are in a `.env` file or `auth0-variables.js` file. In addition to replacement in the file directly, you can also include a template file in the form of `filename.ext.example` such as `auth0-variables.js.example`. The packager will do the replacement and remove the `.example` extension from the file.
+
+> NOTE: It is a best practice to use the `.example` method and include the 'real' file in the '.gitignore' so that if the end-user turns the sample into a git repo, the Auth0 keys wont get checked into source control. You should include the `.gitignore` file in the actual seed project folder, not at the repo root. This way it is included in the seed package.
 
 | Key Name | Replace Value | Description |
 | :------| :-----------| :-----------|
-| `CLIENT_ID` | `{{CLIENT_ID}}` | This sets the client ID of the currently selected application. |
-| `CLIENT_SECRET` | `{{CLIENT_SECRET}}` |  This sets the client secret of the currently selected application. |
-| `DOMAIN` | `{{DOMAIN}}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
-| `TENANT` | `{{TENANT}}` | The tenant name of the currentAuth0 account.
-| `CALLBACK_URL` | `{{CALLBACK_URL}}` |  This sets the callback url for the application. |
-| `MOBILE_CUSTOM_SCHEME` | `{{{MOBILE_CUSTOM_SCHEME}}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
-| `RANDOM_STRING_64` | `{{RANDOM_STRING_64}}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
+| `CLIENT_ID` | `{CLIENT_ID}` | This sets the client ID of the currently selected application. |
+| `CLIENT_SECRET` | `{CLIENT_SECRET}` |  This sets the client secret of the currently selected application. |
+| `DOMAIN` | `{DOMAIN}` |  This sets the domain of Auth0 the current application is using. i.e. `foo.auth0.com` or `foo.eu.auth0.com` |
+| `TENANT` | `{TENANT}` | The tenant name of the currentAuth0 account.
+| `CALLBACK_URL` | `{CALLBACK_URL}` |  This sets the callback url for the application. |
+| `MOBILE_CUSTOM_SCHEME` | `{MOBILE_CUSTOM_SCHEME}` |  This a unique ID for mobile apps. The string is `a0` + the value of the client ID. |
+| `RANDOM_STRING_64` | `{RANDOM_STRING_64}` |  This is a random string. Typically used for things like encryption keys, etc. For security reasons we set this with a reasonable default so if end-users forget to change them, they wont all be something like `YOUR_ENCRYPTION_KEY`. |
 
 
 Example `.env` file:
 ```
-AUTH0_CLIENT_ID={{CLIENT_ID}}
-AUTH0_DOMAIN={{DOMAIN}}
-AUTH0_CLIENT_SECRET={{CLIENT_SECRET}}
+AUTH0_CLIENT_ID={CLIENT_ID}
+AUTH0_DOMAIN={DOMAIN}
+AUTH0_CLIENT_SECRET={CLIENT_SECRET}
 ```
 
 ##### Include Code
@@ -599,12 +602,8 @@ When writing docs you can use the following variables instead of hard-coding the
 | :---------------------------- | :----------------------------------------- | :-------------------------------------- |
 | `manage_url`                       | The url to the management portal.          | `https://manage.auth0.com`              |
 | `auth0js_url`                 | The url to the auth0.js CDN location.      | |
-| `auth0js_url_no_scheme`       | The url to the auth0.js CDN location without the 'https:'. | |
 | `lock_url`                  | The url to the Lock script CDN location.   | |
-| `lock_url_no_scheme`        | The url to the Lock script CDN location without the 'https:'. | |
 | `lock_passwordless_url`       | The url to the Passwordless Lock script CDN location. | |
-| `browser`       | Displays a browser window with Lock. | |
-| `lockSDK`       | Displays a browser window with Lock and a dropdown with the options to trigger login. | |
 
 
 ### User Specific Variables

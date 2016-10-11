@@ -1,3 +1,7 @@
+---
+description: Explains the Auth0 limits the number of repeat login attempts per user and IP address on database connections.
+---
+
 ## Rate Limits on User/Password Authentication
 
 For database connections, Auth0 limits the number of repeat login attempts per user and IP address:

@@ -12,8 +12,11 @@ articles:
       - title: Overview
         url: /overview
 
-      - title: "Applications"
+      - title: "Clients"
         url: "/applications"
+
+      - title: "Protocols"
+        url: "/protocols"
 
       - title: Developer Videos
         url: /videos
@@ -48,6 +51,21 @@ articles:
 
       - title: "Deploy Rules with Bitbucket"
         url: "/extensions/bitbucket-deploy"
+
+  - title: "API Authorization"
+    url: "/api-auth"
+    children:
+      - title: "Authorization Code Grant"
+        url: "/api-auth/grant/authorization-code"
+
+      - title: "Implicit Grant"
+        url: "/api-auth/grant/implicit"
+
+      - title: "Client Credentials Grant"
+        url: "/api-auth/grant/client-credentials"
+
+      - title: "FAQ"
+        url: "/api-auth/faq"
 
   - title: "Extensions"
     url: "/extensions"
@@ -270,7 +288,7 @@ appliance:
         url: /appliance/infrastructure
       - title: Customer Onboarding
         url: /onboarding/appliance-sprint
-      - title: Onboarding Requirements
+      - title: Private Cloud Requirements
         url: /appliance/private-cloud-requirements
 
   - title: "Appliance Administration"

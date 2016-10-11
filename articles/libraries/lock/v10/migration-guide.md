@@ -1,10 +1,16 @@
+---
+description: Lock 9 to Lock 10 Migration Guide
+---
+
 <%= include('../_includes/_lock-version') %>
 
 # Lock 9 to Lock 10 Migration Guide
 
 The following instructions assume you are migrating from **Lock 9** to the latest **Lock 10**. If you are upgrading from a preview release of Lock 10, please refer to the [preview changes](#upgrading-from-preview-releases). Otherwise, read on!
 
-The goal of this page is to provide you with all of the information you would need to update your Lock 9 installation to Lock 10. Of course, your first step is to include the latest version of Lock 10 rather than Lock 9. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation to reflect the new changes, not only the initialization of Lock and your calls to Lock methods, but especially any customization options you were implementing may need inspected and changed. Take a look below for more information!
+If you just want a quick list of new features to see what changes Lock 10 has introduced, take a look at the [new features page](/libraries/lock/v10/new-features).
+
+The goal of this migration guide is to provide you with all of the information you would need to update your Lock 9 installation to Lock 10. Of course, your first step is to install or include the latest version of Lock 10 rather than Lock 9. Beyond that, take a careful look at each of the areas on this page. You will need to change your implementation to reflect the new changes, not only the initialization of Lock and your calls to Lock methods, but especially any customization options you were implementing may need inspected and changed. Take a look below for more information!
 
 ## General Changes and Additions
 

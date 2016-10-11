@@ -1,3 +1,7 @@
+---
+description: This page explains the Auth0 AD/LDAP Connector Health Monitor Extension and how to install and configure it.
+---
+
 # Auth0 Extension: Auth0 AD/LDAP Connector Health Monitor
 
 The Auth0 AD/LDAP Connector Health Monitor exposes an API endpoint of your choice so that you can monitor your AD/LDAP connectors.

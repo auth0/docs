@@ -1,3 +1,8 @@
+---
+description: Appliance infrastructure information about IP/Domain and Port Usage
+---
+
+
 # Appliance Infrastructure: IP/Domain and Port List
 
 The Appliance requires certain ports within the cluster to be open and able to access each other, as well as selected external sites.
@@ -127,7 +132,7 @@ Auth0 strives to keep these IP addresses stable, though this is not a given. Fro
     <td>No</td>
   </tr>
   <tr>
-    <td>Healthcheck	</td>
+    <td>Healthcheck  </td>
     <td>Inbound</td>
     <td>Monitoring Endpoint</td>
     <td>9110</td>

@@ -1,3 +1,7 @@
+---
+description: How to track new leads in Salesforce and augment user profile with Rapleaf.
+---
+
 # Tracking new leads in Salesforce, augmenting user profile with RapLeaf
 
 Upon a signup of a new user to a website with any social credential, we want to:
@@ -63,7 +67,7 @@ function (user, context, callback) {
 
                     createLead(response.instance_url, response.access_token, function(err, result){
                         if(err) return callback(err);
-              			    //Everyhting worked fine. We signal this signup was successful.
+                        //Everyhting worked fine. We signal this signup was successful.
                         user.persistent.signedUp = true;
                         return callback(null, user, context);
                     });

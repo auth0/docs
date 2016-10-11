@@ -1,3 +1,7 @@
+---
+decription: How to open and manage tickets with Support Center.
+---
+
 # Opening and Managing Tickets in Support Center
 
 With [Support Center](https://support.auth0.com), you can create tickets for questions or issues you are experiencing. You need to be a full administrator of an Auth0 account to access Support Center.

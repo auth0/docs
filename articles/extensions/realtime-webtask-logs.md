@@ -1,3 +1,7 @@
+---
+description: How to configure, use debug rules using the Real-time Webtask Logs extension.
+---
+
 # Real-time Webtask Logs
 
 _Real-time Webtask Logs_ is an extension that displays all logs in real-time for all custom code in your account. This includes all `console.log` output and exceptions. 

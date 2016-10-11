@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to update the Appliance
 ---
 
 # Updating the Appliance

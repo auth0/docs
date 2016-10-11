@@ -1,3 +1,7 @@
+---
+description: How to add a username field for login to database connections.
+---
+
 # Adding Username for Database Connections
 
 For database connections, you can have your users sign in with a username instead of their email address.

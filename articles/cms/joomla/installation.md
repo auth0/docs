@@ -1,3 +1,8 @@
+---
+description: How to install a Joomla application with Auth0.
+---
+
+
 # Joomla Installation
 
 1. Download the latest release of the Joomla extension from [auth0-joomla](https://github.com/auth0/auth0-joomla/releases).

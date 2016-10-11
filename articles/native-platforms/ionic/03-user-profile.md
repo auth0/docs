@@ -1,6 +1,6 @@
 ---
 title: User Profile
-description: This example shows how to display the user's profile
+description: This example demonstrates how to display the user's profile
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,26 +13,17 @@ description: This example shows how to display the user's profile
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
 
-<%= include('../../_includes/_signup') %>
+You can obtain a user's profile from the `getProfile()` method.
 
-::: panel-info Running the Sample
-At any point in time you can run this sample by going to the `03-Custom-Login` folder of the sample project and running `ionic serve`
-:::
-
-You can access obtain a user's profile from the `getProfile()` method.
-
-### Accessing user profile with `lock.getProfile()`
+## Accessing the User's Profile
 
 At any given time, you can call `getProfile` on `lock` passing in a token and callback function.
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+// www/components/auth/auth.service.js
+
 (function() {
 
     ...
@@ -70,10 +61,11 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
 
 ```
 
-As you can see we are storing the `profile` in Local storage in the success callback. Once that is done, all you need to do is to retrieve the profile from Localstorage at a later stage. An example can be found in the `HomeController`:
+The user's profile is being saved in local storage in the success callback and just needs to be retrieved for use from any place in the applciation. An example can be found in the `HomeController`.
 
 ```js
-/* ===== www/components/home/home.controller.js ===== */
+// www/components/home/home.controller.js
+
 (function () {
 
   'use strict';
@@ -114,10 +106,11 @@ As you can see we are storing the `profile` in Local storage in the success call
 }());
 ```
 
-We get the user profile using the `getProfileDeferred()` method which implemented in `authService` service:
+The user's profile is retrieved using the `getProfileDeferred()` method which is implemented in the `authService`.
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+// www/components/auth/auth.service.js
+
 (function() {
 
   ...
@@ -187,14 +180,13 @@ We get the user profile using the `getProfileDeferred()` method which implemente
 
 ```
 
-::: panel-info This is info
-Note that you must retrieve the profile in the Ionic `beforeEnter` event to ensure it is read everytime the home view is activated. You can read more about View LifeCycle and Events in the [Ionic Documentation](http://ionicframework.com/docs/api/directive/ionView/).
-:::
+> **Note:** You must retrieve the profile in the Ionic `beforeEnter` event to ensure it is read everytime the home view is activated. You can read more about view lifecycle and events in the [Ionic documentation](http://ionicframework.com/docs/api/directive/ionView/).
 
-Once the profile is retrieved you can bind it to the view:
+Once the profile is retrieved it can be bound to the view.
 
 ```html
-<!-- ===== ./www/components/home/home.html ===== -->
+<!-- www/components/home/home.html -->
+
  <ion-view view-title="Auth0 Ionic Quickstart" ng-controller="HomeController as vm">
   <ion-content class="padding">
     <div ng-hide="isAuthenticated">
@@ -222,5 +214,4 @@ Once the profile is retrieved you can bind it to the view:
     </div>
   </ion-content>
 </ion-view>
-
 ```

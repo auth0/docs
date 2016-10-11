@@ -12,7 +12,7 @@ description: This tutorial demonstrates how to use the auth0.js library to add c
   pkgType: 'server'
 }) %>
 
-The [previous step](/quickstart/spa/react/01-login) shows you how to implement login with the [Lock](/libraries/lock) widget. This is optional, however, and you can build your application with a custom design using Auth0 without Lock by using the [Auth0.js](/libraries/auth0js) library. 
+In the [previous step](/quickstart/spa/react/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).
 
 ## 1. Create the AuthService class
 

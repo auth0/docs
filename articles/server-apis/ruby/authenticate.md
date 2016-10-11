@@ -20,7 +20,7 @@ This tutorial and seed project have been tested with the following:
 * Ruby 2.1.7
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 > Note: If you're creating a Ruby On Rails app, please check [this other tutorial](/server-apis/rails).
 

@@ -1,3 +1,7 @@
+---
+description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
+---
+
 # Rate Limit Policy
 
 To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.
@@ -8,8 +12,8 @@ Depending on the API endpoint, the request limit and the rate limit window in wh
 
 Each endpoint is configured with a bucket that defines:
 
--	the request limit
--	the rate limit window (per second, per minute, per hour, etc.)
+-  the request limit
+-  the rate limit window (per second, per minute, per hour, etc.)
 
 ```
 bucket:

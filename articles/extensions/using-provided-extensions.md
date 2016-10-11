@@ -1,3 +1,7 @@
+---
+description: Links and information on using Auth0's provided extensions.
+---
+
 # Using Auth0's Provided Extensions
 
 The following apps/jobs are provided via the Extensions page of the Management Portal. They have not, however, been fully installed. To use one or more of the following apps, you must provide the required configuration information and finish installing the extensions.

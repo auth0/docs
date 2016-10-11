@@ -2,6 +2,7 @@
 connection: Planning Center
 image: /media/connections/planning-center.png
 seo_alias: planning-center
+description: How to obtain a Client Id and Client Secret for Planning Center.
 ---
 
 # Obtain a *Client ID* and *Secret* for Planning Center
@@ -18,7 +19,7 @@ Go to the [Planning Center Developer](https://api.planningcenteronline.com/) por
 
 Complete the form. In the **Authorization callback URLs** field, enter this URL:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 and click **Submit**:
 

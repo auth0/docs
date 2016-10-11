@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Overview of using the authenticated endpoint with the Appliance
 ---
 
 # Using Authenticated Testing Endpoints

@@ -1,6 +1,6 @@
 ---
 toc_title: TouchID Authentication
-description:
+description: How to implement TouchID authentication with Lock iOS.
 ---
 
 # Lock iOS: TouchID Authentication

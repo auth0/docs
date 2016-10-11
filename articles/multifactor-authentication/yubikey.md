@@ -1,3 +1,7 @@
+---
+description: How to implement Multifactor Authentication with YubiKey-NEO.
+---
+
 # Multifactor Authentication with YubiKey-NEO
 
 This tutorial shows how to implement Multifactor Authentication with [YubiKey-NEO](https://www.yubico.com/products/yubikey-hardware/yubikey-neo/).
@@ -22,10 +26,7 @@ This sample uses a single Webtask to handle 3 states:
 
 Save this code locally in a file named `yubico-mfa-wt.js`. The full source code is also available [here](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
 
-::: panel-info
-The styling of the HTML form below was omitted for brevity.
-Please check the [full source code for a styled example](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md)
-:::
+**NOTE:** The styling of the HTML form below was omitted for brevity. Please check the [full source code for a styled example](https://github.com/auth0/rules/blob/master/redirect-rules/yubico-mfa.md).
 
 ```JS
 var request = require('request');

@@ -1,5 +1,6 @@
 ---
 title: Configuring SSO with Heroku
+description: How to SSO with Heroku.
 url: /heroku
 ---
 

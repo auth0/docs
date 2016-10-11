@@ -13,7 +13,7 @@ description: This tutorial demonstrates how to use angular2-jwt in Angular 2 app
   pkgType: 'replace'
 }) %>
 
-Auth0 exposes various API endpoints to assist you with authentication in your applications. It is recommeneded that you conform to the RFC standard by sending the token through an `Authorization` header when calling an API.
+<%= include('../../_includes/_calling_apis') %>
 
 ## Sending Authenticated HTTP Requests
 

@@ -1,3 +1,7 @@
+---
+description: How to enable SSO with Zendesk using JWT.
+---
+
 # Single Sign-On with Zendesk using JWT
 
 This [Zendesk article](https://support.zendesk.com/hc/en-us/articles/203663816-Setting-up-single-sign-on-with-JWT-JSON-Web-Token-) details everything about getting SSO to work with any JWT provider.

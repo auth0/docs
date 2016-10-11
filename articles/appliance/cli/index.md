@@ -1,6 +1,7 @@
 ---
 url: /appliance/cli
 section: appliance
+description: How to use the Appliance CLI
 ---
 
 # Auth0 Appliance Command Line Interface

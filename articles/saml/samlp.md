@@ -1,6 +1,7 @@
 ---
 url: /samlp
 title: SAML
+description: SAML Identity Provider Configuration
 ---
 
 # SAML Identity Provider Configuration

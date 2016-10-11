@@ -1,3 +1,7 @@
+---
+description: How to use OpenID Connect discovery with Auth0.
+---
+
 # OpenID Connect Discovery
 
 Auth0 exposes OIDC discovery documents (`https://${account.namespace}/.well-known/openid-configuration`). These can be used to automatically configure applications. 

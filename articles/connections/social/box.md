@@ -2,6 +2,7 @@
 connection: Box
 image: /media/connections/box.png
 seo_alias: box
+description: How to obtain a Client Id and Client Secret for Box.
 ---
 
 # Obtain a *Client Id* and *Client Secret* for Box
@@ -30,7 +31,7 @@ Scroll down to find the `client_id` and `client_secret` fields under the **OAuth
 
 Enter this URL as the `redirect_uri`:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 While on this page, make sure to define the appropriate permission **Scopes** for your app.
 

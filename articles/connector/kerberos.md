@@ -1,3 +1,7 @@
+---
+description: Explains Kerberos Support with Auth0, how to configure it, the flow, and auto-login with Lock.
+---
+
 # Kerberos Support
 
 Kerberos is a security protocol used by Active Directory which is based on tickets and can provide nearly invisible authentication to users on domain-joined machines. This allows users to use resources in the corporate network (eg: SharePoint, Dynamics CRM, Web Applications) without having to enter their credentials for each application.

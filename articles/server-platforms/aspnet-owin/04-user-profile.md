@@ -1,16 +1,12 @@
 ---
 title: User Profile
-description: This tutorial will show you how to get the user's profile and display it.
+description: This tutorial demonstrates how to get the user's profile and display it.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgFilePath: '04-User-Profile/MvcApplication/MvcApplication/web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-mvc-sample',
+  path: '04-User-Profile'
 }) %>
 
 ## Getting the profile
@@ -32,7 +28,7 @@ public class UserProfileViewModel
 }
 ```
 
-Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:    
+Add a new `Profile` action to the `AccountController` and extract the relevant claims and add them to a new instance of `UserProfileViewModel` which is then passed to the view. Be sure to dectorate the action with the `[Authorize]` attribute so only authenticated users can access the action:
 
 ```csharp
 [Authorize]
@@ -49,7 +45,7 @@ public ActionResult Profile()
 }
 ```
 
-Next create a view. For the view, display a user profile card at the top with the user's name, email address and profile image. 
+Next create a view. For the view, display a user profile card at the top with the user's name, email address and profile image.
 
 ```html
 @model global::MvcApplication.ViewModels.UserProfileViewModel

@@ -1,6 +1,7 @@
 ---
 url: /appliance/admin
 section: appliance
+description: Appliance Administrator's Manual
 ---
 
 # Auth0 Appliance: Administrator's Manual

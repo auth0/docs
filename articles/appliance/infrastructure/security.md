@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Appliance infrastructure information about security
 ---
 
 # Auth0 Appliance Infrastructure Requirements: Security and Access

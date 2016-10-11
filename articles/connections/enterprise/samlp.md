@@ -6,4 +6,5 @@ public: false
 alias:
   - saml
 seo_alias: samlp
+description: Connecting SAML Providers with Auth0
 ---

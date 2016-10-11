@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to use the Appliance Dashboard
 ---
 
 # Appliance Management Dashboard

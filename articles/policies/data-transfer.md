@@ -1,3 +1,7 @@
+---
+description: Describes the Data Transfer Policy which governs requests for transfer of data from one Auth0 account to another.
+---
+
 # Data Transfer Policy
 
 The following policy governs requests for transfer of data from one Auth0 account to another.

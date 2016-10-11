@@ -1,3 +1,7 @@
+---
+description: This page explains the differences of the four different deployment models in which Auth0 is offered.
+---
+
 # Auth0 Deployment Models
 
 Auth0 is offered in 4 deployment models:
@@ -94,7 +98,7 @@ The following table describes operational and feature differences between each o
             <th>Webtask</th>
             <td>Multi-Tenant</td>
             <td>Dedicated</td>
-            <tdth>Cloud</td>
+            <td>Cloud</td>
             <td>On-Premises</td>
         </tr>
         <tr>
@@ -131,6 +135,13 @@ The following table describes operational and feature differences between each o
             <td class="success">Yes</td>
             <td class="success">Yes</td>
             <td class="success">Yes</td>
+        </tr>
+        <tr>
+            <th>Shared Resources Among Multiple Customers</th>
+            <td class>Yes</td>
+            <td class>No</td>
+            <td class>No</td>
+            <td class>No</td>
         </tr>
     </tbody>
 </table>

@@ -1,3 +1,7 @@
+---
+description: This page has help and troubleshooting with using the connector.
+---
+
 # Troubleshooting
 
 We do our best to support many scenarios and different configurations.
@@ -110,3 +114,22 @@ The Service account used to configure the connector must have read permissions o
 To enable verbose logging of Kerberos requests, add a system level environment variable `DEBUG=kerberos-server`. Then restart the Connector. Try logging in again, and check the logs for more information.
 
 If you have Kerberos enabled, but your users are being prompt for username/password, you likely don't have the [IP address settings properly configured](/connector/kerberos#configuration).
+
+### Changes in user profile in AD are not immediately reflected in the app
+
+The Connector uses two levels of configurable caching:
+
+* One on the Auth0 server, which caches both credentials and user profile.
+* A second level in the connector itself, which only caches group membership of a user.
+
+The server caches the _"last successfully authenticated user profile"_, including the username and password (hash). It is enabled by default, and can be disabled.
+
+> The purpose of this first level cache is to maximize availability of authentication transactions when AD is unavailable (e.g. a network outage). It is only activated if the Connector/AD/LDAP servers are unavailable.
+
+The Connector caches only *groups* a user might be a member of. Its lifetime is controlled with the `GROUPS_CACHE_SECONDS` configuration variable. If not present, the value is 600 seconds.
+
+> Groups are cached, because by default, the Connector retrieves all group membership of a user recursively, which can be costly in some AD/LDAP installations. Cache is deleted on each Connector restart.
+
+These two settings might affect how profile information flows to an app. But in general, AD changes don't happen very often. 
+
+In some AD/LDAP installations, user attributes synchronization takes few minutes too.

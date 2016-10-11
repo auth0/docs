@@ -1,3 +1,7 @@
+---
+description: How to configure and retrieve information using the Auth0 Logs to Splunk extension.
+---
+
 # Auth0 Logs to Splunk
 
 The _Auth0 Logs to Splunk_ is a scheduled job that takes all of your Auth0 logs and exports them to [Splunk](http://www.splunk.com/).

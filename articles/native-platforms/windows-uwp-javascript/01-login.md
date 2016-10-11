@@ -1,15 +1,14 @@
 ---
 title: Login
+default: true
 description: This tutorial will show you how to use the Auth0 Windows Universal App Javascript SDK to add authentication and authorization to your app.
 ---
 
-<%= include('../../_includes/_signup') %>
+
 
 This tutorial explains how to integrate Auth0 with a Windows UWP application written in JavaScript. `Auth0.Windows.UWP.JavaScript` helps you authenticate users with any [Auth0 supported Identity Provider](/identityproviders).
 
-## Tutorial
-
-### 1. Install Auth0.Windows.UWP.JavaScript NuGet package
+## Install Auth0.Windows.UWP.JavaScript NuGet Package
 
 Use the NuGet Package Manager Console (Tools > Nuget Package Manager > Package Manager Console) to install the Auth0.Windows.UWP.JavaScript package by running the command:
 
@@ -19,9 +18,9 @@ Also, add reference to the JavaScript code in the `default.html`, by including t
 
 ${snippet(meta.snippets.setup)}
 
-### 2. Set up the callback URL in Auth0
+## Set up the Auth0 Callback URL
 
-Go to the [Application Settings](${uiAppSettingsURL}) section of the Auth0 Admin app and make sure that **App Callbacks URLs** has the following value:
+Go to the [Application Settings](${manage_url}/#/applications/${account.clientId}/settings) section of the Auth0 Admin app and make sure that **App Callbacks URLs** has the following value:
 
 `https://${account.namespace}/mobile`
 
@@ -32,7 +31,7 @@ There are three options for implementing the integration:
 2. Use [Auth0 Lock](/libraries/lock) with the Web Authentication Broker with a specific Connection.
 3. Build a custom user interface to ask for username and password.
 
-#### Option 1: Use Auth0 Lock
+### Option 1: Auth0 Lock
 
 Lock is the recommended option.
 
@@ -43,7 +42,7 @@ ${snippet(meta.snippets.use)}
 ![](/media/articles/native-platforms/windows-uwp-javascript/lock-widget-screenshot.png)
 
 
-#### Option 2: Use the Auth0 Lock with a specific connection
+### Option 2: Auth0 Lock with a Specific Connection
 
 If you know which identity provider you want to use, you can add the `connection` parameter and the user will be directed to the specified `connection`:
 
@@ -61,7 +60,7 @@ auth0.Login({ connection: "auth0waadtests.onmicrosoft.com" }, function (err, res
 
 **NOTE:** Connection names can be found on Auth0 dashboard (e.g. `facebook`, `linkedin`, `saml-protocol-connection`).
 
-#### Option 3: Build a custom user interface
+### Option 3: Custom User Interface
 
 The third option is to create your own custom user interface to prompt the user for their username and password. You can then pass these credentials, along with the connection name, to the `LoginAsync` method:
 
@@ -91,7 +90,7 @@ Optionally you can specify the `scope` parameter. There are two possible values 
 
 For more information, see: [Scopes](/scopes).
 
-## Access user information
+## Accessing User Information
 
 The `Auth0User` has the following properties:
 

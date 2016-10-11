@@ -1,3 +1,7 @@
+---
+description: How use Auth0's built-in generic error pages.
+---
+
 # Auth0's Generic Error Pages
 
 Throughout the authentication process, your users may encounter errors. Auth0 provides you the option of using [custom error pages](/custom-error-pages), but you may also choose instead to use the generic error page that Auth0 provides to alert the user of said errors.

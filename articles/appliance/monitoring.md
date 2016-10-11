@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Ways to monitor the Appliance
 ---
 
 # Monitoring the Appliance

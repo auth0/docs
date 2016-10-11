@@ -1,3 +1,7 @@
+---
+description: How to build a multi-tenant SaaS application with Azure AD and Auth0.
+---
+
 # Building multi-tenant, SaaS applications with Azure AD and Auth0
 
 Azure AD is often used as a user directory for Office 365, Intune, Dynamics CRM and applications you're building for the users in your organization.
@@ -205,13 +209,23 @@ We're using the Lock for signing in users, but for enterprise connections like A
 
 Before showing the Lock we're adding a button to allow login with Azure AD connection.
 
+> Note: Lock v10 does not support adding custom buttons yet, so this must be done using [Lock v9](https://auth0.com/docs/libraries/lock/v9). 
+
 ```js
 lock.once('signin ready', function () {
     var link = $('<a class="a0-zocial a0-waad" href="#">'
         + '<span>Login with Azure AD</span></a>');
     link.on('click', function () {
         lock.getClient().login({ 
-            connection: 'fabrikamcorporation.onmicrosoft.com' });
+            connection: 'fabrikamcorporation.onmicrosoft.com'
+            // repeat any needed custom auth params here, such as 
+            // state, responseType and callbackURL.
+            // Only domain and clientID are carried over from
+            // Lock instance.
+            // , responseType: 'code'
+            // , callbackURL: ...
+            // , ...
+        });
     });
 
     var iconList = $(this.$container).find('.a0-iconlist');

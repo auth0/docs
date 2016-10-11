@@ -1,56 +1,71 @@
-# Core Concepts: Applications
+---
+description: Explains the basics of creating and using Auth0 Clients.
+---
 
-An application is one of the core concepts in Auth0, which is why it's important to know how this relates to your applications and the impact this will have on auditing, authorization, billing, ...
+# Core Concepts: Clients
 
-> Depending on the concepts or technologies you're working with, an application might also be referred to as a **client** or a **relying party**.
+An Auth0 **client** allows your application to utilize Auth0 for authentication. A fully-configured authentication process will consist of an Auth0 client that possesses information about and is able to communicate with your application (which, conversely, possesses information about and is able to communicate with the Auth0 client.)
 
-## Applications in Auth0
+A client is a core Auth0 concept, so it's important to know how they:
 
-Let's start by looking at how applications are represented in Auth0 and how this relates to other core concepts like Connections and Rules.
+1. Relate to your applications;
+2. Impact auditing, authorization, and so on.
 
-### Settings
+## Client Settings
 
 ![](/media/articles/applications/applications-callback-settings.png)
 
-The application's settings contain the following information:
+When you configure your Auth0 client, you will be asked for or provided (as indicated by a grayed out text box) the following pieces of information:
 
-- **Name of the application**: Canonical name of your application which you'll see in the portal, emails, logs, ...
-- **Client ID (read-only)**: This is the unique identifier for your application. This is the ID you'll use in your application when setting up authentication with Auth0.
-- **Client Secret**: This secret will be used to sign and validate tokens which will be used in the different authentication flows. With this key your application will also be able to authenticate to some of the API endpoints (eg: to get an access token from an authorization code).
-- **Allowed Callback Urls**: One or more urls of your application to which Auth0 can redirect after the user has authenticated.
-- **Allowed Origins (CORS)**: If you want to use the Auth0 API from within the browser you'll need to add the urls of the applications running your javascript code to prevent Same-origin policy errors.
-- **JWT Expiration**: The expiration in seconds of the access tokens that will be handed out by Auth0.
-- **Use Auth0 instead of the IdP to do Single Sign On**: If this option is enabled Auth0 won't need to redirect users to the identity provider (Facebook, ADFS, ...) if the user has authenticated before and hasn't logged out or his session hasn't expired.
+* **Name**: the name of your client (which you'll see in the portal, emails, logs, and so on);
+* **Domain**: the domain name of your client;
+* **Client ID**: the unique identifier for your client (this is the ID you'll use with when configuring authentication with Auth0). By default, the  is hidden, so check the **Reveal Client Secret** box to see this value;
+* **Client Secret**: the key used to sign and validate tokens for authentication flows and to gain access to select Auth0 API endpoints;
+* **Client Type**: the type of client you are implementing (depending on which you choose, the settings available differ);
+* **Token Endpoint Authentication Method**: the requested authentication method for the token endpoint: `None` (public client without a client secret), `Post` (client uses HTTP POST parameters), or `Basic` (client uses HTTP Basic parameters);
+* **Allowed Callback URLs**: the URLs of your application(s) to which Auth0 can redirect the user after authentication.
+* **Allowed Logout URLs**: the URLs that Auth0 can redirect your users to after logging out;
+* **Allowed Origins (CORS)**: the URLs of the applications running your JavaScript code (prevents same-origin policy errors when using Auth0 from within a web browser)
+* **JWT Expiration (Seconds)**: the amount of time before the Auth0 access tokens expires
+* **Use Auth0 instead of the IdP to do Single Sign On**: if enabled, this setting prevents Auth0 from redirecting authenticated users with valid sessions to the identity provider (such as Facebook, ADFS, and so on)
 
-### Addons
+## Addons
 
 ![](/media/articles/applications/applications-addon-types.png)
 
-Addons are extensions associated with applications and are typically used in 2 different scenarios:
+Addons are extensions associated with clients. They are typically third-party APIs used by the application(s) for which Auth0 generates access tokens. Some typical scenarios used include:
 
-* **Accessing external APIs**: using the delegation endpoint an access token for the application can be exchanged for an access token to a third party service (like [Salesforce](/server-apis/salesforce), Amazon, Azure, Firebase, ...).
-* **Integrating with applications using SAML2/WS-Federation**: enables authentication through Auth0 for applications that support SAML2/WS-Federation like Dropbox, SharePoint, ... The most popular SaaS applications with SAML support are already covered as recipes that will automatically configure the SAML2/WS-Federation addon (in the dashboard under [SSO Integrations](${manage_url}/#/externalapps)). By enabling the addon for an application you can configure every aspect of the SAML2/WS-Federation integration, allowing you to integrate with any custom/SSO integration that we haven't covered yet.
+* **Accessing External APIs**: Using the Delegation endpoint, you can exchange a Client's access token for a third-party service's (such as Salesforce or Amazon) access token
+* **Integrating with Applications Using SAML2/WS-Federation**: Addons allow you to integrate with any custom or SSO integration that does not currently enjoy built-in Auth0 support, since they allow you to configure every aspect of the SAML2/WS-Federation integration.
 
 ![](/media/articles/applications/applications-sso-integrations-overview.png)
 
-### Connections
+## Connections
 
 ![](/media/articles/applications/applications-connections-example.png)
 
-On application level we are able to choose which connections are enabled, which is useful if an organization is building applications for different audiences. A timesheet application might be for employees only, so we'll want to restrict this to Active Directory authentication. But a customer facing application might have support for Google, Microsoft Accounts, different ADFS connections, ...
+At the Client level, you can choose which Connections, or sources of users, are enabled for a given client. This is useful if you are building different applications for different audiences. For example, you might build a timesheet application that can only be used by employees in addition to a customer-facing application. The former might require only Active Directory authentication, while the latter might support authentication using Google, Facebook, and so on.
 
-### Rules
+Connections may be shared among multiple clients.
+
+## Rules
 
 ![](/media/articles/applications/rules-flow.png)
 
-[Rules](/rules) are code snippets written in JavaScript that are executed as part of the authentication pipeline in Auth0. This happens every time a user authenticates to an application. Rules enable very powerful customizations and extensions to be easily added to Auth0.
+[Rules](/rules) are code snippets written in JavaScript that are executed as part of the Auth0 authentication process. This happens every time a user authenticates. Rules enable very powerful customizations and extensions to be easily added to Auth0.
 
-In the context of a rule we also have access to the application the user is trying to reach which is useful if we want to apply coarse grained authorization policies for our applications (eg: only HR can access application X, application Y can only be accessed from the US, ...). Here's an [example of a rule](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md) where only the people in the whitelist are allowed to access the application:
+Rules enable powerful customizations and allow extensions to be easily added to Auth0.
 
-```
+Within the context of a rule, we have access to the Client the user is authenticating to, which is useful if we want to apply coarse-grained authorization policies for our applications:
+
+* Only HR officials can access Application X
+* Only US-based users can access Application Y
+
+Here's a [sample rule](https://github.com/auth0/rules/blob/master/rules/simple-user-whitelist-for-app.md) where only the users in the whitelist are allowed to access the application:
+
+```js
 function (user, context, callback) {
-    //we just care about NameOfTheAppWithWhiteList
-    //bypass this rule for every other app
+    //applies to NameOfTheAppWithWhiteList & bypassese for every other app
     if(context.clientName !== 'NameOfTheAppWithWhiteList'){
       return callback(null, user, context);
     }
@@ -69,66 +84,106 @@ function (user, context, callback) {
 }
 ```
 
-### Auditing
+## Auditing
 
 ![](/media/articles/applications/applications-logs-auditing.png)
 
-Whenever a user logs in to an application, a login fails, a user signs up, a password change is requested, ... these events are logged and can be downloaded using the API or can be accessed in the dashboard. These events contain information about the user (test@auth0.com), the connection (Username-Password-Authentication), the application (Default App) and in addition to that we also keep track of the date and time this event occured, the IP address of the user, the user agent (browser information) and the number of times the user logged in.
+The logs include many of the actions performed by the user:
 
-### Cost
+* Logging in to a Client;
+* Failing to log in to a Client;
+* Signing up;
+* Requesting a password change;
 
-The [pricing model](https://auth0.com/pricing) is based on the type of identity providers you're using, together with the number of active users and any additional features that have been enabled. Active users are users that authenticated in the last 30 days for **a given application**. We define an application as a client id and client secret pair, if multiple applications (say one on iOS and one on Android) share the same client id and client secret pair, they are a single app in this definition.
+You can download the event logs using the [Management API](/api/management/v2#!/Logs/get_logs) or view them via the [Management Dashboard](${manage_url}/#/logs)
 
-In the following example we have 3 active social users for the month of February:
+While the [Management Dashboard](${manage_url}/#/logs) displays the log data in a neatly formatted manner, clicking on the row corresponding to a particular event displays the raw data, which looks something like this:
+
+```json
+{
+  "date": "2016-10-04T15:27:38.509Z",
+  "type": "f",
+  "description": "Invalid thumbprint (configured: 634AB4651FCA2F623563BE32EDA32DE565219118. calculated: BDEBFBFBA786C2D97F2125274793E32643358E81)",
+  "connection": "SSOCircle",
+  "connection_id": "con_T60D5poVozRmw77h",
+  "client_id": "UEsQCe4RVHYDSQ2zlLWIAHSqDhpsYyTG",
+  "client_name": "N/A",
+  "ip": "108.248.62.158",
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36",
+  "strategy": "samlp",
+  "strategy_type": "enterprise"
+}
+```
+
+### Sample User Count Calculation
+
+Let's say that we have 3 active social users for the month of February:
 
 ![](/media/articles/applications/applications-single-app-active-users.png)
 
-Next month John and Mary start using the company's collaboration application which means they'll also become active users for this second application. Which means that we'll have 5 active social users for the month of March:
+In the following month, John and Mary start using the company's collaboration application. This means that they'll become active users for this second application. All together, this means that there are a total of 5 active social users for the month of March:
 
  * Todo List: 3 active users
  * Collaboration Application: 2 active users
 
 ![](/media/articles/applications/applications-multi-app-active-users.png)
 
-## Application Examples
+## Sample Clients
+
+The following are high-level overviews of sample Clients using a variety of technologies.
+
+> One client is comprised of an ID-secret pair. If multiple clients (for example, one runs on iOS and one runs on Android) share the same Client ID-secret pair, Auth0 considers them to be a single Client.
 
 ### Regular Web Application
 
 ![](/media/articles/applications/applications-traditional.png)
 
-For your regular web application you'll simply create a new application in Auth0.
+For a regular web application, all you need to do is create a new Client in Auth0.
 
-### Mobile + Single Page Application + REST API
+### Mobile Clients, a Single Page Application, and an REST API
 
 ![](/media/articles/applications/applications-multiple-single-logical.png)
 
-This example is an Timesheet application with a REST API hosted on one server, a Single Page application hosted on a different server and a few mobile apps running on different types of devices. From a technical point of view these are 5 applications (different language, deployment model, ...) but for Auth0 this is one and the same application. There's no need to create different applications because we don't want separate auditing (we just want to know who interacted with the REST api), we want to use the same connections in the different client applications, ...
+This example is a timesheet application that utilizes:
+
+* A REST API;
+* A Single Page Application (SPA) hosted on a server different from the one hosting the REST API;
+* Mobile apps capable of running on several types of devices.
+
+From a technical standpoint, the above comprises at least three Clients, due to their differing language, deployment model, and so on. However, for Auth0, this is **one** Client application that shares an ID-secret pair.
+
+Doing so simplifies logging/auditing and allows for reuse of Connections across the different Clients implemented.
 
 ### Multiple Services and APIs
 
 ![](/media/articles/applications/applications-complex-same-app.png)
 
-Here is an example of a decomposed application with several APIs and services. Depending on the requirements this might just be one application in Auth0. This is the easiest to implement but keep in mind that:
+This is a decomposed Clients with several APIs and services. Depending on the requirements, this might be one or more Client(s) in Auth0. While it is easiest to implement such a scenario as one Client, note that:
 
- * With a single token you'll be able to access all APIs
- * The logs will show that a user has accessed the "Fabrikam Enterprise Portal" because we won't be able to make a distinction between APIs
- * It won't be possible to write rules to control the flow between the applications
+ * With a single token, you'll be able to access all APIs;
+ * The logs will show only that a user has accessed the *Fabrikam Enterprise Portal*, because Auth0 will not be able to distinguish between the various APIs used;
+ * You won't be able to write [rules](/rules) to control the flow between the Clients.
 
 Now on the other hand, you could create different applications for the enterprise portal and the backing services. This will allow us to identify the different APIs and services giving you:
 
- * Better auditing (you'll be able to see who accessed which service)
- * The ability to apply fine-grained authorization for applications through rules (eg: only finance can access the invoices API)
- * Support to control the flow of your application (eg: the Documents API is the only API that can call the Invoices API)
+However, implementing this using multiple Clients allows for identification of the different APIs and services used, which means that you now have:
 
-Keep in mind that users calling out to the different APIs will count as additional active users because they will be spanning multiple applications. Choosing between one application and different application will be a functionality vs. cost tradeoff.
+ * Better auditing;
+ * The ability to apply fine-grain authorization for Cpplications through rules (for example, you can limit access to the Invoices API to those in Finance);
+ * The ability to control the flow of your Clients (for example, you could configure the Invoices API so that it can only be called by the Documents API.
+
+Note that users interacting with the different APIs results in a higher active user count.
 
 ![](/media/articles/applications/applications-complex-different.png)
 
-### Custom domain names
+### Custom Domain Names
 
-The public, multi-tenant cloud service version of Auth0 supports a domain name of `auth0.com`.  Applications deployed in this service will use a domain name of `{account-name}.auth0.com` or `{account-name}.{location}.auth0.com`.
+The public, multi-tenant cloud service version of Auth0 supports a domain name based off of `auth0.com`. Auth0 assigns Clients deployed using this service a domain name in one of the two formats:
 
-For example:
+* `{account-name}.auth0.com`;
+* `{account-name}.{location}.auth0.com`.
+
+For example, if your company is **My Company**, you would receive some or all the following addresses:
 
 ```
 mycompany.auth0.com
@@ -136,8 +191,14 @@ mycompany.eu.auth0.com
 mycompany.au.auth0.com
 ```
 
-Note that with the public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, not your application.
+> With the Auth0 public cloud service, the `*.auth0.com` endpoints are only used for authentication and the API, *not* user access to your Client.
 
-It is possible to have a custom domain name, which completely hides the Auth0 name, such as `mycompany.com`.  Use of a custom domain name requires a single-tenant version of Auth0, which can be deployed in either an Auth0-managed cloud, a customer-managed cloud, or an on-premise installation.  These three deployment options do have a higher cost, due to the extra administrative work to manage them, compared to the public cloud.
+You may choose to use a custom domain name that obscures the Auth0 reference, such as `mycompany.com`. Using a custom domain name requires a *single-tenant* implementation of Auth0, which can be deployed in one of three locations:
 
-If you cannot use a multi-tenant cloud service because of compliance or other policy requirements, please take a look at [the Auth0 appliance](/appliance).
+* The Auth0-managed cloud;
+* A customer-managed cloud;
+* An on-premise installation.
+
+Due to the additional features offered by these three options, these deployment options do come with a higher cost.
+
+If you are unable to use a multi-tenant cloud service due to compliance or other policy requirements, please take a look at [the Auth0 appliance](/appliance).

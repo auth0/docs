@@ -1,6 +1,11 @@
 ---
 toc_title: Native Social Authentication
+description: How to implement native social authentication with Lock Android
 ---
+
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
 
 # Lock Android: Native Social Authentication
 

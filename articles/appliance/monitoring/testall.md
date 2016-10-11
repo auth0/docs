@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Overview of using the testall endpoint with the Appliance
 ---
 
 # Using the `testall` Endpoint

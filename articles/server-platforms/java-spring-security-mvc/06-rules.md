@@ -1,14 +1,7 @@
 ---
 title: Rules
-description: This tutorial will show you how to use Auth0 rules to extend what Auth0 has to offer.
+description: This tutorial demonstrates how to use Auth0 rules to extend what Auth0 has to offer
 ---
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* Java 1.8
-* Maven 3.3
-:::
 
 <%= include('../../_includes/_package', {
 githubUrl: 'https://github.com/auth0-samples/auth0-spring-security-mvc-sample/tree/master/06-Rules',
@@ -20,9 +13,11 @@ pkgFilePath: '06-Rules/src/main/resources/auth0.properties',
 pkgType: 'replace'
 }) %>
 
+
+
 Rules are one of the cool features of Auth0. The reason is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the Rules documentation](/rules).
 
-## Create a rule
+## Create a Rule
 
 To create a rule go to the [Create Rule page](${manage_url}/#/rules/new). You can create it from scratch or use an existing template. These templates are written by Auth0 team to assist you complete common tasks. 
 
@@ -38,7 +33,7 @@ Once you are done, save the rule.
 
 **NOTE**: Keep in mind that this is just a starting template, you can edit it to meet your business needs. 
 
-## Retrieve the role
+## Retrieve the Role
 
 The web app will read this information from the `UserProfile` and apply the granted authorities when checking authorization access to secured endpoints configured with Role based permissions.
 
@@ -55,7 +50,7 @@ with this:
 ```
 
 
-## Display result
+## Display Result
 
 Let's display some info to see that our rule actually works. 
 
@@ -66,21 +61,14 @@ ${snippet(meta.snippets.rulesHomeJsp)}
 That's all the changes we need. Let's test this!
 
 
-## Test the rule
+## Test the Rule
 
 Once you login, depending on the email you used, you should see one of the two texts we configured.
 
 ![Role rule sample](/media/articles/java/rule-role.png)
 
 
-## Done!
-
-You have implemented a rule for your application! 
-
-This is just one of the tons of cool things we can do with rules. Go ahead and create any rule that fits your needs.
-
-
-## Optional: Create a demo resource
+## Optional: Create a Demo Resource
 
 In order to demonstrate the Role based authorization, let's create a resource which only an authenticated and authorized User with Admin rights can access.
 

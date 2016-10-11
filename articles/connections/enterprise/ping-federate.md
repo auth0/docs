@@ -6,4 +6,5 @@ public: false
 alias:
   - pingfederate
 seo_alias: ping-federate
+description: Connecting PingFederate with Auth0.
 ---
