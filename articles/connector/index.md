@@ -1,24 +1,43 @@
 ---
 url: /connector
+classes: topic-page
+title: Active Directory/LDAP Connector
 description: Explains what the connector is and links to resources to learn more about it.
 ---
 
-## Connector
+<div class="topic-page-header">
+  <div data-name="example" class="topic-page-badge"></div>
+  <h1>Active Directory/LDAP Connector</h1>
+  <p>
+    Auth0 integrates with Active Directory/LDAP through the Active Directory/LDAP Connector that you install in your network.
+  </p>
+</div>
 
-Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network.
+## Planning & Installing
 
-In this section:
+<%= include('../_includes/_topic-links', { links: [
+  'connector/overview',
+  'connector/prerequisites',
+  'connector/install',
+  'connector/install-other-platforms',
+  'connector/update',
+  'connector/test-dc'
+] }) %>
 
--  [Overview](/connector/overview)
--  [Prerequisites](/connector/prerequisites)
--  [Installing the Connector on **Windows**](/connector/install)
--  [Installing the Connector on **other platforms**](/connector/install-other-platforms)
--  [Modifying the Connector Settings](/connector/modify)
--  [Kerberos Support](/connector/kerberos)
--  [Client Certificate Support](/connector/client-certificates)
--  [OpenLDAP and non-AD Considerations](/connector/considerations-non-ad)
--  [High Availability](/connector/high-availability)
--  [Updating the Connector](/connector/update)
--  [Monitoring with System Center Operations Manager](/connector/scom-monitoring)
--  [Troubleshooting](/connector/troubleshooting)
--  [Creating a Test Active Directory Domain Controller](/connector/test-dc)
+## Configuration
+
+<%= include('../_includes/_topic-links', { links: [
+  'connector/modify',
+  'connector/kerberos',
+  'connector/client-certificates',
+  'connector/considerations-non-ad',
+  'connector/high-availability'
+] }) %>
+
+## Monitoring & Troubleshooting
+
+<%= include('../_includes/_topic-links', { links: [
+  'connector/scom-monitoring',
+  'extensions/adldap-connector',
+  'connector/troubleshooting'
+] }) %>

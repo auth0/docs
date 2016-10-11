@@ -2,7 +2,7 @@
 title: Auth0 Appliance Infrastructure Requirements
 url: /appliance/infrastructure
 section: appliance
-description: Appliance Infrastructure Information
+description: This document contains information about the Appliance and its infrastructure requirements.
 ---
 
 # Auth0 Appliance Infrastructure Requirements

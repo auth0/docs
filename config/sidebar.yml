@@ -256,10 +256,16 @@ apis:
   - title: Authentication API
     url: "/api/authentication"
     forceFullReload: true
+    alwaysExpand: true
+    children:
+      - title: Social Authentication
+        url: /api/authentication/scenarios/social
+
 
   - title: Management API
     url: "/api/management/v2/"
     forceFullReload: true
+    alwaysExpand: true
     children:
       - title: API Tokens
         url: /api/management/v2/tokens
