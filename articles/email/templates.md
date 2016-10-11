@@ -29,7 +29,7 @@ The **From Address** field supports the following macros:
 * `{application.name}`
 * `{connection.name}`
 
-You can use these macros to set the display name of the **From Address** to something that relates to the application for which the user signed up. For example, the field could display `{application.name} <support@fabrikamcorp.com>`, as opposed to simply `<support@fabrikamcorp.com>`.
+You can use these macros to set the display name of the **From Address** to something that relates to the application for which the user signed up. For example, the field could display `{application.name} <support@fabrikamcorp.com>`, as opposed to simply `<support@fabrikamcorp.com>`. Use of liquid syntax in the from field is not supported. 
 
 You must add the [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](http://en.wikipedia.org/wiki/DKIM) DNS records to your domain's zone file to allow Auth0 to send digitally-signed emails on your behalf. Without these records, the emails may end up in your users' junkmail folders. Additionally, your users may see the following as the **From Address**:
 
