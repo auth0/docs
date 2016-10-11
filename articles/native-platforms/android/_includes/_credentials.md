@@ -7,7 +7,7 @@ You will require the **Client ID** and **Domain** for your client application. T
 <string name="auth0_domain">${account.namespace}</string>
 ```
 
-The data path for Lock also needs to be set.
+The data path for Lock (located in `AndroidManifest.xml`) also needs to be set.
 
 ```xml
 <data

@@ -63,7 +63,7 @@ public void onAuthentication(Credentials secondaryCredentials) {
 
 ## Link an Account
 
-Now we can link the accounts. You have a user, and another account you want to link with that user. All we need is the `id` of the logged user and the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response.
+Now we can link the accounts. You have a main user along with another account you want to link to that user. All we need is the `id` of the logged-in user and the `id_token`s for the two accounts: the one we had previously saved and the one that we just received in the login response.
 
 ```java
 UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
@@ -86,7 +86,7 @@ public void onSuccess(final UserProfile payload) {
 
 ### 4. Unlink An Account
 
-The unlink process is similar to the link one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections. Also, as first parameter we use the main connection's `idToken`.
+The unlink process is similar to the linking one, the only difference being that you need to specify the `identityId` and `provider` to unlink the connections. Additionally, as the first parameter, you need to use the main connection's `idToken`.
 
 ```java
 UsersAPIClient client = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());

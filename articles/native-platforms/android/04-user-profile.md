@@ -22,7 +22,7 @@ Be sure that you have completed the [Basic Login](01-login) and the [Session Han
 
 ## Request User Data
 
-Your first step is instantiate the authentication API client. This will be used to request the user's profile data.
+The first step is to instantiate the authentication API client. This will be used to request the user's profile data.
 
 ```java
 AuthenticationAPIClient client = new AuthenticationAPIClient(

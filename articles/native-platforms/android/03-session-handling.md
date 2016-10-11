@@ -16,7 +16,7 @@ This tutorial will show you how to use Lock to maintain an active session with A
 }) %>
 
 
-For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed by three objects:
+For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed of three objects:
 
 * ``idToken``: Identity Token that proves the identity of the user.
 * ``accessToken``: Access Token used by the Auth0 API.

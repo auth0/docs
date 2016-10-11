@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 tokens to make aut
 seo_alias: android
 ---
 
-In this tutorial you will learn how to use a previously saved token, to authenticate in your API calls.
+This tutorial demonstrates how to use a previously saved token to authenticate your API calls.
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/08-Calling-APIs',
@@ -39,7 +39,7 @@ You can use any of the token strings contained in the `Credentials` object.
 
 ## Attach the Token
 
-First you need to prepare the request.
+First, prepare the request.
 
 ```java
 RequestQueue queue = Volley.newRequestQueue(this);
