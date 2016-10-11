@@ -11,7 +11,7 @@ description: This tutorial will show you how to use the Auth0 PHP Symfony SDK to
   pkgType: 'replace'
 }) %>
 
-**Otherwise, please follow the steps below to configure your existing ASP.NET Web API app to use it with Auth0.**
+**Otherwise, please follow the steps below to configure your existing PHP (Symfony) API app to use it with Auth0.**
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
