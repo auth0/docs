@@ -2,11 +2,17 @@
 
 This document states the expiration of different types of tokens that are referenced in Auth0 documentation. [Click here to learn more about the types of tokens.](/tokens)
 
-## Auth0 `access_token`
+## The Management APIv1 Access Token
 
-The Auth0 access token remains valid for **24 hours**.
+ The default token expiration for APIv1 access tokens is 24 hours. For tokens issued for user defined APIs the expiration can be changed in the [Auth0 Management API Settings](${manage_url}/#/apis/management/settings) section in the dashboard.
 
 [Learn more about Auth0 access tokens](tokens/access_token)
+
+## Auth0 Management APIv2 Token
+
+ The default token expiration for APIv2 access tokens is 24 hours. For tokens issued for user defined APIs the expiration can be changed in the [Auth0 Management API Settings](${manage_url}/#/apis/management/settings) section in the dashboard.
+
+[Learn more about the Auth0 Management APIv2 Token](/api/management/v2/tokens)
 
 ## Identity Provider Access Tokens
 
@@ -14,11 +20,11 @@ Since these tokens are created and managed by a third-party (such as Facebook, G
 
 [Learn more about IdP tokens](tokens/idp)
 
-## Auth0 `id_token` 
+## Id Tokens Issued by Auth0
 
-The `id_token` is valid for **10 hours (36000 seconds) by default**. The expiration of this token can be set in the Apps/APIs -> Settings screen using the JWT expiration field.
+An `id_token` issued by Auth0 is valid for **10 hours (36000 seconds) by default**. The expiration of this token can be set in the Apps/APIs -> Settings screen using the JWT expiration field.
 
-[Learn more about Auth0 id_tokens](id_token)
+[Learn more about id_tokens issued by Auth0](id_token)
 
 ## Auth0 Refresh Tokens 
 
@@ -33,9 +39,3 @@ For customer application APIs registered in Auth0, the validity of a delegation 
 For APIs registered as Addons in Auth0, the validity period of the token will vary by individual Addon. The documentation available from the provider of any Addon API should be consulted for further information on tokens and expirations.
 
 [Learn more about Delegation Tokens](/tokens/delegation)
-
-## Auth0 Management APIv2 Token
-
-There is no specific expiration for a Management APIv2 token. A Management APIv2 token can be built programmatically, as desired, by a client.
-
-[Learn more about the Auth0 Management APIv2 Token](/api/management/v2/tokens)
