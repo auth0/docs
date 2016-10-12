@@ -25,7 +25,7 @@ SSO works by means of a *central service*. In the case of Google, this central s
 Prior to enabling SSO for a given Client, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
-To enable SSO for one of your Clients (recall that each Client is independent of one another), navigate to the [Clients section of the Auth 0 Management Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you want to use SSO.
+To enable SSO for one of your Clients (recall that each Client is independent of one another), navigate to the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you want to use SSO.
 
 ![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
