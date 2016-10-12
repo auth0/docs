@@ -4,7 +4,12 @@ Please follow the steps below to configure your Auth0 account to work with <%= m
 
 ### 1. Activate the add-on.
 
-Go to <a href="${uiAppAddonsURL}">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
+<% if (account.clientId) { %>
+Go to <a href="${manage_url}/#/applications/${account.clientId}/addons">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
+<% } else { %>
+Go to <a href="${manage_url}/#/applications/">Application Add-ons</a> page and activate the <%= meta.name %> add-on.
+<% } %>
+
 
 ![](/media/articles/server-apis/addons.png)
 

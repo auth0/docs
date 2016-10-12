@@ -1,3 +1,7 @@
+---
+description: How to enable and use the Logentries extension.
+---
+
 # Auth0 Logs to Logentries
 
 The *Auth0 Logs to Logentries* is a scheduled job that takes all of your Auth0 logs and exports them to [Logentries](https://logentries.com).

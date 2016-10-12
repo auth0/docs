@@ -1,5 +1,6 @@
 ---
 url: /saml-apps
+description: This page lists SAML Configurations for various SSO integrations including Google Apps, Hosted Graphite, Litmos, Cisco Webex, Sprout Video, FreshDesk, Tableau Server, Datadog, Egencia, Workday and Pluralsight.
 ---
 
 # SAML Configurations for SSO Integrations

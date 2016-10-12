@@ -13,7 +13,7 @@ snippets:
   setup: native-platforms/android/setup
   use: native-platforms/android/use
 seo_alias: android
-default_article: 01-login
+default_article: dashboard-default
 articles:
   - 00-introduction
   - 01-login

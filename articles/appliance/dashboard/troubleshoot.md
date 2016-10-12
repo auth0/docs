@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Overview of the Appliance Dashboard Troubleshoot page
 ---
 
 # Auth0 Appliance Dashboard: Troubleshoot

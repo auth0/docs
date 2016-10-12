@@ -19,7 +19,7 @@ Go to the [Planning Center Developer](https://api.planningcenteronline.com/) por
 
 Complete the form. In the **Authorization callback URLs** field, enter this URL:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 and click **Submit**:
 

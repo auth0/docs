@@ -1,6 +1,10 @@
+---
+description: How to configure a WS-Fed application to use Auth0 as an identity provider.
+---
+
 # How to configure a WS-Fed application
 
-If a WS-Fed application (Service Provider) is  to use Auth0 as an Identity Provider, this is configured in one of two places.
+If a WS-Fed application (Service Provider) is to use Auth0 as an Identity Provider, this is configured in one of two places.
 
 Some commonly used WS-Fed applications are pre-configured in Auth0 and available via `Single Sign On Integrations`.
 

@@ -3,21 +3,11 @@ title: Authorization
 description: This tutorial demonstrates how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-jquery-samples',
+  path: '07-Authorization'
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/jquery/06-rules' }) %>
 

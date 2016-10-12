@@ -1,6 +1,6 @@
 ---
 title: Custom Login
-description: This tutorial will show you how to use the Auth0 Ionic SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to use Auth0 to add authentication and authorization to your Ionic app
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,25 +13,15 @@ description: This tutorial will show you how to use the Auth0 Ionic SDK to add a
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
 
-<%= include('../../_includes/_signup') %>
-
-::: panel-info Running the Sample
-At any point in time you can run this sample by going to the `02-Custom-Login` folder of the sample project and running `ionic serve`
-:::
-
-The previous step explained how you can log users into your application using the Lock Widget. You do not have to use Lock, and can instead create a custom login page and log the user in using a username and password they supply through a customer user interface.
+The previous step explained how you can log users into your application using the Lock Widget. You do not need to use Lock, and can instead create a custom login page and UI if you wish.
 
 If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Ionic application.
 
-### 1. Update references
+## Update References
 
-The custom login uses the Auth0.js library to sign a user in, so you should therefor reference this library instead of the Lock widget in your `index.html`. Replace the existing reference to `lib/auth0-lock/build/auth0-lock.js` with `lib/auth0.js/build/auth0.js`:
+The custom login uses the `auth0.js` library, so it needs to be referenced instead of the Lock widget in your `index.html`. Replace the existing reference to `lib/auth0-lock/build/auth0-lock.js` with `lib/auth0.js/build/auth0.js`.
 
 ```html
 <!-- Auth0's JS library -->
@@ -42,14 +32,13 @@ The custom login uses the Auth0.js library to sign a user in, so you should ther
 <script src="lib/angular-jwt/dist/angular-jwt.js"></script>
 ```
 
-### 2. Implement the login
+## Implement the Login
 
-For the login view you must display a Username and Password field to allow the user to sign in with their email address and password, and also display a button which will allow the user to sign in with their Google account.
-
-Go ahead and update your `login.html` you did in Step 1:
+For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a signle button can be supplied. 
 
 ```html
-<!-- ===== www/components/login/login.html ===== -->
+<!-- www/components/login/login.html -->
+
 <ion-view view-title="Log In" ng-controller="LoginController as vm">
   <ion-content class="padding">
     <div class="list list-inset">
@@ -68,10 +57,11 @@ Go ahead and update your `login.html` you did in Step 1:
 </ion-view>
 ```
 
-And `login.controller.js`:
+This view is calling a `login` and `loginWithGoogle` which should be defined in the controller.
 
 ```js
-/* ===== www/components/login/login.controller.js ===== */
+// www/components/login/login.controller.js
+
 (function () {
   'use strict';
 
@@ -97,10 +87,11 @@ And `login.controller.js`:
 })();
 ```
 
-Also change the `AuthService` to sign the user in with the supplied `username` and `password` fields, or alternatively launch the Google login dialog when the user clicks on the **Login with Google** button:
+The `AuthService` needs to be adjusted to accept the supplied `username` and `password` values, or alternatively launch the Google login dialog when the user taps on the **Login with Google** button.
 
 ```js
-/* ===== www/components/auth/auth.service.js ===== */
+//  www/components/auth/auth.service.js
+
 (function () {
 
   'use strict';
@@ -207,4 +198,4 @@ Also change the `AuthService` to sign the user in with the supplied `username` a
 })();
 ```
 
-Notice that in the `onAuthenticated` method, which is called when a user successfully authenticates, the `profile` and `token` values are saved to the local storage. These values can be retrieved from the local storage at a later stage, for example when you want to display the user's profile information which will be done in Step 3. 
+Notice that in the `onAuthenticated` method, which is called when a user successfully authenticates, the `profile` and `token` values are saved to the local storage. These values can be retrieved from local storage at a later stage, such as when you want to display the user's profile information.

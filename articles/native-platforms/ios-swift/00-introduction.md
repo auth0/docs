@@ -3,33 +3,15 @@ title: Introduction
 description: Brief introduction to the iOS Swift tutorials. First steps required to follow any of the tutorials.
 ---
 
-This is the very beginning of a simple, practical, and multi-step quickstart that will guide you through managing authentication in your iOS apps with Auth0.
-
-<%= include('../../_includes/_signup') %>
-
-## Seed Project
-
-There is a [seed project](https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed) containing an empty project with only the required [dependencies](#dependencies) installed.
-
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/00-Starter-Seed',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'none'
-}) %>
-
-This seed project can be useful as a starting point for the app where you need to integrate authentication.
+This multi-step quickstart guide will walk you through managing authentication in your iOS apps with Auth0.
 
 
 
 ## Sample Projects
 
-Each tutorial in the series includes a link to its corresponding sample project, which reveals how to achieve the tutorial's goal. You can check out all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
+<%= include('_includes/_prerequisite') %>
 
-
+Each tutorial in the series includes a link to its corresponding sample project, which demonstrates how to achieve the tutorial's goal. You can find all the samples [here](https://github.com/auth0-samples/auth0-ios-swift-sample/).
 
 ## Dependencies
 
@@ -73,99 +55,10 @@ Then, run `pod install`.
 
 > For further reference on Cocoapods, check [their official documentation](http://guides.cocoapods.org/using/getting-started.html).
 
-
-
-## Your First Steps
-
-Make sure you complete these steps before starting any tutorial:
-
-#### 1. Create an application
+## Create an Application
 
 <%= include('../../_includes/_new_app') %>_
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-#### 2. Configure your callback URLs
-
-Callback URLs are the URLs that Auth0 invokes after the authentication process. Auth0 routes your application back to this URL and appends additional parameters to it, including a token. Since callback URLs can be manipulated, you will need to add your application's URL to your client's *Allowed Callback URLs* for security. This will enable Auth0 to recognize these URLs as valid. If omitted, authentication will not be successful.
-
-That being said, go to your [Client's Dashboard](${manage_url}/#/applications/${account.clientId}/settings) and make sure that *Allowed Callback URLs* contains the following:
-```shell
- ${account.clientId}://\*.auth0.com/authorize
-```
-
-#### 3. Set your credentials
-
-The [dependencies](#dependencies) listed above requires that you set your credentials in two different `.plist` files in order for them to work. If you downloaded the seed project, or any sample project from here, these credentials are automatically set. Either way, you have to make sure they are there—otherwise your app might crash.
-
-Make sure you have the following entries in your project's `Info.plist`:
-
-<table class="table">
-  <thead>
-
-```
-<tr>
-  <th>Key</th>
-  <th>Value</th>
-</tr>
-```
-
-  </thead>
-  <tr>
-
-```
-<td>Auth0ClientId</td>
-<td>${account.clientId}</td>
-```
-
-  </tr>
-  <tr>
-
-```
-<td>Auth0Domain</td>
-<td>${account.namespace}</td>
-```
-
-  </tr>
-</table>
-
-Also, make sure you have the following entries in a file named `Auth0.plist`. You have to create that file if it doesn't already exist:
-
-<table class="table">
-  <thead>
-
-```
-<tr>
-  <th>Key</th>
-  <th>Value</th>
-</tr>
-```
-
-  </thead>
-  <tr>
-
-```
-<td>ClientId</td>
-<td>${account.clientId}</td>
-```
-
-  </tr>
-  <tr>
-
-```
-<td>Domain</td>
-<td>${account.namespace}</td>
-```
-
-  </tr>
-</table>
-
-
-
-## Done!
-
-**You're all set up to start integrating Auth0 in your app!** 🎉
-
-The tutorial guides contained in this section will teach you the different things you can do with Auth0 in iOS. It's recommendable that you follow them sequentially, as they are progressive: each guide teaches content that usually builds on previous tutorials.
-
-Have fun!
+<%= include('_includes/_config') %>

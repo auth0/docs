@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to monitor the Appliance
 ---
 
 # Auth0 Appliance Administration: Monitoring

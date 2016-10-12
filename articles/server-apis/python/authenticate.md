@@ -22,7 +22,7 @@ This tutorial and seed project have been tested with the following:
 * PyJWT 1.4.0
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 **If you have an existing application, please follow the steps below.**
 

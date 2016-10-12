@@ -1,3 +1,7 @@
+---
+description: Client-side SSO with single page applications.
+---
+
 # Client-side SSO (Single Page Apps)
 
 Let's say you have three applications:

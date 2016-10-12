@@ -19,7 +19,7 @@ Log into the [Goodreads developer site](https://www.goodreads.com/api), and sele
 
 Complete the form then click **Apply for a Developer Key**. Enter this in the `Callback URL` field:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 ![](/media/articles/connections/social/goodreads/goodreads-register-2.png)
 

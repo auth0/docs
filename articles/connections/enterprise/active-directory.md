@@ -34,6 +34,8 @@ In the *Email domains* field, list the user email domains that will be allowed t
 
 If you want to use **Kerberos** with this connection, enter a range of IP addresses where **Kerberos** authentication will be enabled from. Typically, these would be intranet addresses.
 
+If you would like to disable caching, enable the appropriate slider.
+
 ![](/media/articles/connections/enterprise/active-directory/ldap-create-2.png)
 
 Click **Save**. You are done on the Auth0 side. Click the button on the next page to download the **AD/LDAP Connector** installer to your machine.

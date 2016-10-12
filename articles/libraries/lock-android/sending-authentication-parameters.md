@@ -3,6 +3,10 @@ toc_title: Sending Authentication Parameters
 description: Sending Authentication parameters with Lock Android
 ---
 
+::: panel-info Version Warning
+This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
+:::
+
 # Lock Android: Sending Authentication Parameters
 
 You can specify additional authentication parameters, before starting `LockActivity` or when calling any API method using `APIClient`, by using `ParameterBuilder` object to build the parameter dictionary. By default `ParameterBuilder` has the parameter `scope` with `openid offline_access` and `device` with the name obtained from

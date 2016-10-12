@@ -19,7 +19,7 @@ Log into the RenRen [integration portal](http://app.renren.com/developers) and c
 
 Complete the required information on this page. Enter the following value for the *callback URL*:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 Click **Create App**.
 

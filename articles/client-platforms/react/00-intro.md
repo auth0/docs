@@ -12,23 +12,25 @@ Thess tutorials and seed projects have been tested with the following:
 * React 15.3.1
 :::
 
-### 1. Create an Application
+## 1. Create an Application
 
-<%= include('../../_includes/_signup') %>
 
-<%= include('../../_includes/_new_app') %>_
+
+<%= include('../../_includes/_new_app') %>
 
 ![App Dashboard](/media/articles/angularjs/app_dashboard.png)
 
-### 2. Dependencies
+## 2. Dependencies
 
-All the project dependencies are managed by `npm` and listed in the `package.json` file. Webpack is responsible for compiling and bundling everything into a single JavaScript file for all environments, including __development__ with hot module replacement, __testing__ to have Karma running and __production__.
+<%= include('_includes/_dependencies') %>
+
+All other dependencies are listed in the `package.json` file of each sample application. Webpack is responsible for compiling and bundling everything into a single JavaScript file for all environments, including __development__ with hot module replacement, __testing__ to have Karma running and __production__.
 
 To install everything required to run the application, inside the project folder, run:
 
 `npm install`
 
-### 3. Run in Development Mode
+## 3. Run in Development Mode
 
 After installing the required dependencies, you will be able to start a local server in development mode with:
 

@@ -1,5 +1,6 @@
 ---
 title: OneLogin
+description: How to configure OneLogin as an identity provider.
 ---
 # Configuring OneLogin as an Identity Provider
 

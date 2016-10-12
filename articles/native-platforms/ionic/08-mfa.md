@@ -1,6 +1,6 @@
 ---
 title: Multifactor Authentication
-description: This tutorial will show you how to add Multifactor Authentication to your Ionic app with auth0.
+description: This tutorial demonstrates how to add Multifactor Authentication to your Ionic app
 ---
 
 <%= include('../../_includes/_package', {
@@ -13,13 +13,7 @@ description: This tutorial will show you how to add Multifactor Authentication t
   pkgType: 'replace'
 }) %>
 
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
 
-* Ionic 1.3.1
-:::
-
-<%= include('../../_includes/_signup') %>
 
 <%= include('../_includes/_mfa-introduction') %>
 

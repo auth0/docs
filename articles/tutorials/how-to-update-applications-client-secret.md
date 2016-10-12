@@ -1,10 +1,14 @@
+---
+description: This page lists different ways of how to update your application's client secret.
+---
+
 # Changing your application's client_secret
 
 The `client_secret` of an application protects a service by only giving tokens to authorized applications. Client secrets should be protected, and if your `client_secret` has been compromised then you will need to generate a new one. Remember that all authorized apps will need to be updated with the new `client_secret`.
 
 ## Changing your client_secret in the dashboard
 
-You can change your `client_secret` under [Applications]((${manage_url}/#/applications) in the dashboard. Choose the application you wish to edit by clicking on the **Settings** gear icon or the application name. You can edit the **Client Secret** field, and when you are finished, click the **SAVE CHANGES** button at the bottom of the page.
+You can change your `client_secret` under [Applications](${manage_url}/#/applications) in the dashboard. Choose the application you wish to edit by clicking on the **Settings** gear icon or the application name. You can edit the **Client Secret** field, and when you are finished, click the **SAVE CHANGES** button at the bottom of the page.
 
 ## Updating authorized applications
 
@@ -30,15 +34,15 @@ Or you can update a `client_secret` by creating your own request to the API:
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://YOURACCOUNT.auth0.com/api/v2/clients/YOUR_CLIENT_ID",
-	"headers": [{
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
-	}
+  "method": "PATCH",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/clients/YOUR_CLIENT_ID",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
+  }
 }
 ```

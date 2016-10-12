@@ -1,5 +1,7 @@
 ---
 section: appliance
+description: >
+  Learn how to use the Management Dashboard to configure things like your Applications, Connections, Users, and Rules.
 ---
 
 # Appliance Management Dashboard

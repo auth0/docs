@@ -1,6 +1,7 @@
 ---
 title: Login
-description: This tutorial will show you how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app.
+default: true
+description: This tutorial demonstrates how to use the Auth0 Ruby On Rails SDK to add authentication and authorization to your web app
 ---
 
 <%= include('../../_includes/_package', {
@@ -17,23 +18,21 @@ This tutorial and seed project have been tested with the following:
 * Rails 4.2.5.1
 :::
 
-<%= include('../../_includes/_signup') %>
 
-**Otherwise, Please follow the steps below to configure your existing Ruby On Rails WebApp to use it with Auth0.**
 
-### 1. Add dependencies
+## Add the Dependencies
 
 Add the following dependencies to your `Gemfile` and run `bundle install`
 
 ${snippet(meta.snippets.dependencies)}
 
-### 2. Initialize Omniauth Auth0
+## Initialize Omniauth Auth0
 
 Create a file named `auth0.rb` under `config/initializers` with the following content:
 
 ${snippet(meta.snippets.setup)}
 
-### 3. Add the Auth0 callback handler
+## Add the Auth0 Callback Handler
 
 Use the following command to create the controller that will handle Auth0 callback:
 
@@ -68,7 +67,7 @@ get "/auth/auth0/callback" => "auth0#callback"
 get "/auth/failure" => "auth0#failure"
 ```
 
-### 4. Specify the callback on Auth0 Dashboard
+## Specify the Callback URLs
 
 ${include('../_callbackRegularWebApp')}
 
@@ -77,9 +76,11 @@ In this case, the callbackURL should look something like:
 ```
 http://yourUrl/auth/auth0/callback
 ```
-### 5. Triggering login manually or integrating the Auth0Lock
 
-${lockSDK}
+## Triggering Login Manually or Integrating Lock
+
+
+<%= include('../../_includes/_lock-sdk') %>
 
 > **Note:** Please note that the `redirectUrl` specified in the `Auth0Lock` constructor **must match** the callback specified in the previous step
 
@@ -89,7 +90,7 @@ Also if you need to force an identity provider just redirect to Omniauth's path 
 redirect_to '/auth/auth0?connection=CONNECTION_NAME'
 ```
 
-### 6. Accessing user information
+## Accessing User Information
 
 You can access the user information via the `userinfo` you stored in the session on step 3
 
@@ -109,10 +110,6 @@ end
 ```
 
 [Click here](https://github.com/intridea/omniauth/wiki/Auth-Hash-Schema) to check all the information that the userinfo hash has.
-
-### 7. You're done!
-
-You have configured your Ruby on Rails Webapp to use Auth0. Congrats, you're awesome!
 
 ### Optional steps
 
@@ -137,7 +134,6 @@ class SecuredController < ApplicationController
 end
 ```
 
-### Optional steps
 #### Getting the error description on Failure
 
 In case of failure, you may want to get the description of the error. For that, in your `config/environments/production.rb` add the following:

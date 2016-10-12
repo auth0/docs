@@ -24,7 +24,7 @@ if (userToken) {
 }
 
 $('#login button').click(function(e){
-	e.preventDefault();
-	lock.show();
+  e.preventDefault();
+  lock.show();
 });
 ```

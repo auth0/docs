@@ -37,8 +37,9 @@ function (user, context, callback) {
         skey: 'nZLxq8GK7....saKCOLPnh',
         host: 'api-3....049.duosecurity.com',
 
-        // optional. Force DuoSecurity everytime this rule runs. Defaults to false. if accepted by users the cookie lasts for 30 days (this cannot be changed)
-        ignoreCookie: true,
+        // optional, defaults to true. Set to false to force DuoSecurity every time. 
+        // See https://auth0.com/docs/multifactor-authentication/custom#change-the-frequency-of-authentication-requests for details
+        allowRememberBrowser: false,
 
         // optional. Use some attribute of the profile as the username in DuoSecurity. This is also useful if you already have your users enrolled in Duo.
         // username: user.nickname,

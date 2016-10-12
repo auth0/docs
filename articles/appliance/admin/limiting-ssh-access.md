@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: When and why you should grant SSH access to the Appliance
 ---
 
 # Auth0 Appliance Administration: Limiting SSH Access

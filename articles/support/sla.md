@@ -1,3 +1,7 @@
+---
+description: Details on SLA for enabled subscribers.
+---
+
 # SLA
 
 At an additional cost, Auth0 offers a __99.9%__ uptime service level agreement guarantee to subscribers enabling it in their subscription. Details on SLA below:

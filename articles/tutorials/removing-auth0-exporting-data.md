@@ -1,3 +1,7 @@
+---
+description: How to export data out of Auth0.
+---
+
 # Moving out of Auth0
 
 All data in your Auth0 account is always under your control and is [available through the management API](/api/v2) at any time.

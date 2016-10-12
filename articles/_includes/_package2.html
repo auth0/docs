@@ -2,9 +2,9 @@
   <div class="info">
     <div class="package-header">Seed Project</div>
     <% if (account.userName) { %>
-    <p class="configured">Get a sample project configured with your Auth0 API Keys.</p>
+    <p class="configured">Download a sample project configured with your Auth0 API Keys.</p>
     <% } else { %>
-    <p>Get a sample project.</p>
+    <p>Download a sample project. You will need to login for the sample to be preconfigured.</p>
     <% } %>
     <% if (typeof requirements !== 'undefined') { %>
     <div class="package-requirements">
@@ -23,6 +23,6 @@
     <% } else { %>
     <a href="/package/v2?org=${org}&repo=${repo}&path=${path}" class="btn btn-sm btn-success" rel="nofollow">Download</a>
     <% } %>
-    <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" target="_blank" class="github-link" rel="nofollow">Fork on Github</a>
+    <a href="https://github.com/${org || 'auth0-samples'}/${repo}/tree/master/${path}" class="github-link" rel="nofollow">Fork on Github</a>
   </div>
 </div>

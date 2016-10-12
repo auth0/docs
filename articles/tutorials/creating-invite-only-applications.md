@@ -91,7 +91,7 @@ public class UsersController : Controller
               };
 
               var profile = _client.CreateUser(user.Email, randomPassword,
-              	ConfigurationManager.AppSettings["auth0:Connection"], false, metadata);
+                ConfigurationManager.AppSettings["auth0:Connection"], false, metadata);
 
               var userToken = JWT.JsonWebToken.Encode(
                 new { id = profile.UserId, email = profile.Email },

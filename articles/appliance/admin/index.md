@@ -1,6 +1,8 @@
 ---
 url: /appliance/admin
 section: appliance
+description: >
+  This document covers factors Auth0 Appliance administrators should be aware of when working with production Appliance instances.
 ---
 
 # Auth0 Appliance: Administrator's Manual

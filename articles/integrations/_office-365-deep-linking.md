@@ -1,3 +1,7 @@
+---
+description: How to setup deep linking.
+---
+
 ## Deep Linking
 
 Certain implementations might require deep linking to SharePoint Online for example. In that case a smart link needs to be constructed which starts on the Office 365 login page:

@@ -3,21 +3,11 @@ title: User Profile
 description: This tutorial demonstrates how to integrate Auth0 with jQuery to authenticate and fetch/show/update profile information.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-jquery-samples',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-jquery-samples',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-jquery-samples',
+  path: '04-User-Profile'
 }) %>
-
-::: panel-info System Requirements
-This tutorial and seed project have been tested with the following:
-
-* jQuery 3.1.0
-:::
 
 ## Profile
 

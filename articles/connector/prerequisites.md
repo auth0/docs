@@ -1,10 +1,14 @@
+---
+description: Lists all the prerequisites to installing and configuring the connector.
+---
+
 # Prerequisites
 
 Typically the AD/LDAP Connector needs to be installed by a sys admin or an operations engineer vs. a developer, since it often requires access to production resources. Following is a checklist of things they should consider ahead of the actual install:
 
 ## Host Servers
 
-The Connector can be install on an existing server, even a Domain Controller. However, more often it's installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
+The Connector can be installed on an existing server, even a Domain Controller. However, more often it's installed on virtual machines provisioned just for the Connector. Regardless, the host server should have the following hardware and software specifications/configurations:
 
 #### Hardware Requirements
 
@@ -17,7 +21,7 @@ The Connector can be install on an existing server, even a Domain Controller. Ho
 #### Windows Version
 
 We recommend use of Windows Server 2012.
-The connector can run on Windows 7+ or Windows 2008R2+ 
+The connector can run on Windows 7+ or Windows 2008R2+ with PowerShell 3.0 or higher
 
 #### Time Synchronization
 

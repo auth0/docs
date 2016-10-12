@@ -1,3 +1,7 @@
+---
+description: How to enable a simple connection between Auth0 and an identity provider. 
+---
+
 # Enabling a Simple Connection in Auth0
 
 Connections represent a relationship between Auth0 and an identity provider. Auth0 supports common Enterprise Identity Providers. It also supports popular Social Identity Providers out of the box.

@@ -10,7 +10,7 @@ snippets:
 alias:
   - java
 seo_alias: java
-default_article: 01-login
+default_article: dashboard-default
 articles:
   - 00-intro
   - 01-login

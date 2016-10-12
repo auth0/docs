@@ -18,3 +18,17 @@ Disabling signups will prevent users from signing up for an account in your Appl
 * create the user manually using the Dashboard;
 * send the newly-created user's credentials to your co-administrator;
 * invite the user to the appropriate account.
+
+## How to Disable Signups for a Connection
+
+Log in to the Auth0 Management Dashboard.
+
+![Auth0 Management Dashboard Landing Page](/media/articles/appliance/admin/mgmt-dashboard.png)
+
+Using the left-hand navigation menu, go to **Connections > Database**.
+
+![Database Connections Page](/media/articles/appliance/admin/connections.png)
+
+Click the row corresponding to **Initial-Connection** (or the connection for which you are disabling sign-ups). You will be directed to the *Settings* page. Scroll to the bottom, and enable the slider corresponding to the row that reads **Diable Sign Ups**.
+
+![Connections Settings Page](/media/articles/appliance/admin/disable-sign-ups.png)

@@ -1,17 +1,14 @@
 ---
 title: Storing Tokens
-description: This tutorial will show you how store the tokens returned from Auth0 in order to use them later on.
+description: This tutorial demonstrates how store the tokens returned from Auth0 in order to use them later on.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-aspnet-owin-mvc-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-aspnet-owin-mvc-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Storing-Tokens',
-  pkgFilePath: '03-Storing-Tokens/MvcApplication/MvcApplication/web.config',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-aspnet-owin-mvc-sample',
+  path: '03-Storing-Tokens'
 }) %>
+
 
 The Auth0 OAuth2 middleware will automatically add the `id_token` and `access_token` as claims on the `ClaimsIdentity`.
 

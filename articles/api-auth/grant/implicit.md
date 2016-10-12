@@ -24,4 +24,5 @@ The first time the user goes through this flow a consent page will be shown wher
 
 ## Tutorials
 
-<%=include('../_pending-tutorials-notice') %>
+ - [Configuring your tenant for API Authorization](/api-auth/tutorials/configuring-tenant-for-api-auth)
+ - [Executing an Implicit Grant flow](/api-auth/tutorials/implicit-grant)

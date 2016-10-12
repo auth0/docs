@@ -1,3 +1,7 @@
+---
+description: Explains an overview of the Connector.
+---
+
 # Overview
 
 Auth0 integrates with Active Directory/LDAP through the __Active Directory/LDAP Connector__ that you install in your network.

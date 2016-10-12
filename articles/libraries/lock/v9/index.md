@@ -3,6 +3,8 @@ description: Lock V9 documentation
 url: /libraries/lock/v9
 ---
 
+<%= include('../_includes/_lock-version-9') %>
+
 ![Lock Image](/media/articles/libraries/lock/v9/lock-landing.png)
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps, Salesforce.

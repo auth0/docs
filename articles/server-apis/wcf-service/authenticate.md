@@ -8,7 +8,7 @@ This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015
 :::
 
-<%= include('../../_includes/_signup') %>
+
 
 This tutorial explains how to consume a WCF service, validating the identity of the caller.
 

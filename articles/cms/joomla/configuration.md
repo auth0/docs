@@ -1,3 +1,7 @@
+---
+description: How to configure a Joomla application with Auth0.
+---
+
 # Joomla Configuration
 
 ## Component configuration

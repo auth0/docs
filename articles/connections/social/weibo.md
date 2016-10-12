@@ -19,7 +19,7 @@ Log in into [Weibo portal](http://open.weibo.com/apps), register a new applicati
 
 When asked to enter OAuth2 callback URLs use:
 
-	https://${account.namespace}/login/callback
+  https://${account.namespace}/login/callback
 
 ---
 ## 3. Get your App ID and App Secret

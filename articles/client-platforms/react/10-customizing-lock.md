@@ -12,7 +12,7 @@ description: This tutorial will show you how to customize lock widget.
   pkgType: 'server'
 }) %>
 
-Using Lock widget is easy, but you may want to customize your login UI. There are several options available.
+Using Lock is easy, but you may want to customize your login UI. For that, there are several [customization options](/libraries/lock/v10/customization) available.
 
 ## Lock options
 

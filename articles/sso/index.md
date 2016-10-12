@@ -5,35 +5,48 @@ description: Introduction to Single Sign On (SSO) with Auth0.
 
 # What is SSO (Single Sign On)?
 
-SSO (Single Sign On) is when a user logs in to one application and then is "automatically" signed in to other applications, regardless of platform, technology and domain.
+SSO (Single Sign On) occurs when a user logs in to one Client and is then signed in to other Clients automatically, regardless of the platform, technology, or domain the user is using.
 
-An example of SSO is how Google implements login for their products: Gmail, YouTube, Analytics, etc. When you first login to Gmail and then go to another Google service such as YouTube you won't be prompted for credentials again.
+Google's implementation of login for their products, such as Gmail, YouTube, Google Analytics, and so on, is an example of SSO. Any user that is logged in to one of Google's products are automatically logged in to their other products as well.
 
-The way this works is by means of a "central service" (with Google this is https://accounts.google.com). When you first login a cookie gets created on this central service. Then when you try to access the second application, you get redirected to the central service, but since you already have a cookie, you get redirected to the app directly with a token, which means you're already logged in.
+## How SSO Works
 
-## How to implement SSO with Auth0
+SSO works by means of a *central service*. In the case of Google, this central service is [Google Accounts](https://accounts.google.com). When a user first logs in, Google Accounts creates a cookie, which persists with the user as they navigate to other Google-owned services. The process flow is as follows:
 
-To enable SSO for one of your client applications (each client is independent) go to the [Clients section of the dashboard](${manage_url}/#/applications). Click on the **Settings** gear icon of the client you wish to add SSO.
+1. The user accesses the first Google product.
+2. The user receives a Google Accounts-generated cookie.
+3. The user navigates to another Google product.
+4. The user is redirected again to Google Accounts.
+5. Google Accounts sees that the user already has an authentication-related cookie, so it redirects the user to the requested product.
 
-Then scroll down to toggle "Use Auth0 instead of the IdP to do Single Sign On".
+## How to Implement SSO with Auth0
 
-![](/media/articles/sso/single-sign-on/sso-checkbox.png)
-
-::: panel-info Note
-For SSO to work you must setup the Identity Provider(s) you wish to use. This involves getting a Client Key and Client Secret from the IdP. Click [here](/identityproviders) to learn how to setup various providers.
+::: panel-info Enabling Identity Providers
+Prior to enabling SSO for a given Client, you must first [configure the Identity Provider(s)](/identityproviders) you want to use.
 :::
 
-This turns the SSO flag is on, this flag can also be set using the API. When this flag is set Auth0 will maintain an SSO session for the user.  This session will last a maximum of 7 days if a user remains active, but will terminate after 3 days of inactivity if the user does not remain active.  To be considered active, a user must access an application registered in Auth0 (the same account as the application that created the session).  
+To enable SSO for one of your Clients (recall that each Client is independent of one another), navigate to the [Clients section of the Auth0 Management Dashboard](${manage_url}/#/clients). Click on **Settings** (represented by the gear icon) for the Client with which you want to use SSO.
 
-In addition to turning on the SSO flag in Auth0, applications must add logic to check a user's SSO status. This SSO logic can be implemented client-side with JavaScript or completely server side, click below to learn more:
+![](/media/articles/sso/single-sign-on/clients-dashboard.png)
 
-* [Client-side SSO (Single Page Apps)](/sso/single-page-apps-sso)
-* [Server-side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)
+Near the bottom of the *Settings* page, toggle **Use Auth0 instead of the IdP to do Single Sign On**.
 
-> You can see an example of SSO with both Single Page Apps and Regular Web Apps in [this github repository](https://github.com/auth0/auth0-sso-sample)
+![](/media/articles/sso/single-sign-on/sso-flag.png)
 
+You can set the Client's SSO flag using the [Auth0 Management API](/api/management/v2#!/Clients/patch_clients_by_id).
 
-# What is Single Log Out?
+Once you have set the SSO flag in Auth0, you must add logic to your Client to check the user's SSO status. This logic can be implemented either client-side (using JavaScript) or server-side:
+
+* [Client-Side SSO (Single Page Apps)](/sso/single-page-apps-sso)
+* [Server-Side SSO (Regular Web Apps)](/sso/regular-web-apps-sso)
+
+> Please see the [Auth0 SSO Sample](https://github.com/auth0/auth0-sso-sample) repo for an example of SSO with both Single Page Apps and Regular Web Apps.
+
+### Length of SSO Sessions
+
+If the SSO flag is set for a Client, Auth0 will maintain an SSO session for any user authenticating via that Client. If the user remains active, the session will last no more than **7 days**, but if not, the session will terminate after **3 days**. To be considered active, the user must access the Client that created the session within the given timeframe.
+
+## What is Single Log Out?
 
 Single Logout is the process where you terminate the session of each application or service where the user is logged in. To continue with the Google example, if you logout from Gmail, you get logged out also from YouTube, Google Analytics, etc.
 
@@ -44,5 +57,3 @@ There may be up to three different layers of sessions for a user with SSO.
 * A session maintained by an application
 
 See the [Logout URL docs](/logout) for information on terminating the first two sessions listed above.
-
-

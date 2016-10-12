@@ -1,5 +1,6 @@
 ---
 url: /cms
+description: Explains CMS Identity Plugins such as WordPress and Joomla.
 ---
 
 # CMS Identity Plugins
@@ -29,3 +30,7 @@ Login features are implemented through a new Login Widget (powered by Auth0) tha
 
 - [Installation](/cms/joomla/installation)
 - [Configuration](/cms/joomla/configuration)
+
+## SharePoint
+
+- [Github Source](https://github.com/auth0/auth0-sharepoint)

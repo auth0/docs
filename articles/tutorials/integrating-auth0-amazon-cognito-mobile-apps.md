@@ -1,3 +1,7 @@
+---
+description: How to integrate Auth0 with Amazon Cognito for mobile applications.
+---
+
 # Integrating Auth0 with Amazon Cognito for Mobile Apps.
 
 **Amazon Cognito** is a backend as a service that lets you focus on writing a fantastic user experience for your client app (native or web).
