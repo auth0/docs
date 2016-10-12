@@ -4,6 +4,9 @@ url: /support
 
 # Support Options
 
+## Auth0 Status
+The [Auth0 status page](https://status.auth0.com) contains information on current production status and will be updated during an outage.  After an outage, a root-cause analysis is performed and made available via the page.  There is a button on the page to subscribe to notifications of any change in production status.
+
 ## Public Forum
 
 Auth0 offers support for __all__ subscribers. All customers, even on free accounts, can use our public [discussion forum](https://ask.auth0.com) to search existing questions and receive support from our engineers if their question has not already been asked.
@@ -14,6 +17,9 @@ Additionally, paid subscribers can create a private ticket via [Support Center](
 
 [Learn more about creating tickets with Support Center](/support/tickets)
 
+Critical Production issues should always be reported via the [Support Center](https://support.auth0.com) for fastest response.
+
+
 ### Ticket Response Times
 
 Ticket response times will vary based on your support plan (shown below).  Note that customers on non-paying trial or free subscriptions are not eligible for a support plan and should utilize the discussion forum. Non-paying customers may still raise a private ticket via the Support Center however there is no support response SLA and tickets will be answered on a best effort basis after prioritization of paying subscribers' tickets, generally resulting in a 2-5+ business day response.
@@ -22,10 +28,10 @@ Ticket response times will vary based on your support plan (shown below).  Note 
   <thead>
     <tr>
       <th></th>
-      <th> Developer Support Plan (Previous: Free) </th>
-      <th> Standard Support Plan (legacy - see below) </th>
-      <th> Enterprise Support Plan </th>
-      <th> Premiere Support Plan</th>
+      <th> Free (No Plan)  </th>
+      <th> Standard Support </th>
+      <th> Enterprise Support </th>
+      <th> Preferred Support </th>
     </tr>
   </thead>
   <tbody>
@@ -39,7 +45,7 @@ Ticket response times will vary based on your support plan (shown below).  Note 
     <tr>
       <th> Support Hours</th>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (PST)</td>
-      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (PST)</td>
+      <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: M-F 7am-pm (local timezone)</td>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
       <td> Standard: M-F 7am-7pm (local timezone) / Critical Outage: 24x7x365 </td>
     </tr>
@@ -111,15 +117,15 @@ Critical: Defined as an Auth0 issue severely impacting your live or in-productio
 - There is no workaround;
 - Application is in live, production status.
 
-Critical Production issues should always be reported via the Support Center for fastest response.
+Critical Production issues should always be reported via the [Support Center](https://support.auth0.com) for fastest response.
 
 Translation from former support plans to new:
 
-- Subscriptions previously known as "Free" map to the "Developer" support plan
-- Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the legacy "Standard" support plan. These plans are no longer available, but will be honored for previous subscribers to those plans.
-- Support plans previously known as "Enterprise" and "Premium" support map to the "Enterprise" support plan.
-- The "Premiere" support plan is a new plan available for purchase as of October 2016.
+- Subscriptions previously known as "Free" map to the current "Free" support classification
+- Subscriptions previously known as "Gold/Silver/Home Grown" and no special support plan map to the current "Standard" support plan. 
+- Support plans previously known as "Enterprise" and "Premium" support map to the current "Enterprise" support plan.
+- The "Preferred" support plan is a new plan available for purchase as of October 2016.
 
 Every effort will be made to respond sooner than the times listed above. However, some types of problems such as development issues that require us to install software to duplicate a problem, may take time due to the research and work required.
 
-If you have specific support requirements or are interested in the __Platinum Support__ or __Premiere Support__ option, please [contact sales](https://auth0.com/?contact=true).
+If you have specific support requirements or are interested in the __Enterprise Support__ or __Preferred Support__ option, please [contact sales](https://auth0.com/?contact=true).
