@@ -140,7 +140,7 @@ Auth0 supports use of the `logout` endpoint with the following providers:
 - Salesforce
     - Salesforce Community
     - Salesforce Sandbox
-- Sampl
+- Samlp
 - Twitter
 - Waad
 - WS-Fed
