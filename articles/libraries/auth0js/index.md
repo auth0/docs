@@ -7,21 +7,50 @@ url: /libraries/auth0js
 
 [Auth0](http://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Office365, Google Apps, Salesforce.
 
-Auth0.js is a client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process and parse the [JWT](http://openid.net/specs/draft-jones-json-web-token-07.html) (JSON web token) with just the Auth0 `clientID`. Once you have the JWT you can use it to authenticate requests to your http API and validate the JWT in your server-side logic with the `clientSecret`.
+Auth0.js is a client-side library for [Auth0](http://auth0.com). It allows you to trigger the authentication process and parse the [JSON Web Token](http://openid.net/specs/draft-jones-json-web-token-07.html) (JWT) with just the Auth0 `clientID`. Once you have the JWT, you can use it to authenticate requests to your HTTP API and validate the JWT in your server-side logic with the `clientSecret`.
 
-## Example
+## Ready-to-Go Example
 
-The example directory has a ready-to-go app. In order to run it you need [node](http://nodejs.org/) installed, download dependencies with `npm install`, then execute `npm run example` from the root of this project.
+The [example directory](https://github.com/auth0/auth0.js/tree/master/example) of the auth0.js library is a ready-to-go app that can help you to quickly and easily try out auth0.js. In order to run it, follow these quick steps:
+1. If you don't have [node](http://nodejs.org/) installed, do that now
+1. Download dependencies by running `npm install` from the root of this project
+1. Finally, execute `npm run example` from the root of this project, and then browse to your app running on the node server, presumably at `http://localhost:3000`.
+
+<img width="600" src="/media/articles/libraries/auth0js/auth0js-example.png" />
+
+It's that easy!
 
 ## Usage
 
-Take `auth0.js` or `auth0.min.js` from the `/build` directory and import it to your page.
+### Installation Options
 
-If you are using [browserify](http://browserify.org/) install with `npm i auth0-js --production --save`.
+You have a few options for using auth0.js in your project. Pick one of the below depending on your needs:
 
-> Note: The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
+Install via [npm](https://npmjs.org):
+
+```sh
+npm install auth0-js
+```
+
+Install via [bower](http://bower.io):
+
+```sh
+bower install auth0-js
+```
+
+Include via our CDN:
+
+```html
+<script src="${auth0js_url}"></script>
+```
+
+Or, just [download the project](https://github.com/auth0/auth0.js) and take `auth0.js` or `auth0.min.js` from the `/build` directory and import it to your page.
+
+If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
 
 ### Initialize
+
+> Note: The following examples use jQuery, but auth0.js is not tied to jQuery and any library can be used with it.
 
 Construct a new instance of the Auth0 client as follows:
 
@@ -34,15 +63,12 @@ Construct a new instance of the Auth0 client as follows:
     callbackURL:  '{YOUR APP URL}',
     responseType: 'token'
   });
-
-  //...
 </script>
 ```
 
 ### Login
 
-This method can be called as indifferently as `signin` or `login`.
-Triggers the login on any of your active identity provider as follows:
+This method can be called as `signin` or as `login` indifferently. It triggers the login on any of your active identity provider. The following are several examples of calling the `login` method with particular intentions; use the one that makes the most sense for your needs.
 
 ```js
   //trigger login with google
