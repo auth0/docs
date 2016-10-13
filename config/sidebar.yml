@@ -325,9 +325,11 @@ appliance:
   - title: "Introduction"
     url: "/appliance"
 
-  - title: "Appliance Planning"
-    url: "/appliance/appliance-overview"
+  - title: Appliance Planning
+    url: /appliance/appliance-overview
     children:
+      - title: Overview
+        url: /appliance/appliance-overview
       - title: Geographic High-Availability
         url: /appliance/geo-ha
       - title: Infrastructure Requirements
@@ -340,8 +342,6 @@ appliance:
   - title: "Appliance Administration"
     url: "/appliance/admin"
     children:
-      - title: Release Notes
-        url: https://auth0.com/changelog/appliance
       - title: Administrator's Manual
         url: /appliance/admin
       - title: Dashboard/Configuration Area
@@ -358,3 +358,7 @@ appliance:
         url: /appliance/webtasks
       - title: Disaster Recovery
         url: /appliance/geo-ha/disaster-recovery
+      - title: Release Notes
+        url: https://auth0.com/changelog/appliance
+        external: true
+        forceFullReload: true
