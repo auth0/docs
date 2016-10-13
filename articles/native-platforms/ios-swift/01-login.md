@@ -3,16 +3,10 @@ title: Login
 description: This tutorial demonstrates how to integrate Lock in your iOS Swift project in order to present a login screen.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/01-Login',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '01-Login',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '01-Login'
 }) %>
-
-
 
 <%= include('_includes/_login') %>

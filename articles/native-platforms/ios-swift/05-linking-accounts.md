@@ -3,17 +3,11 @@ title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/05-Linking-Accounts',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '05-Linking-Accounts'
 }) %>
-
-
 
 ## Before Starting
 
