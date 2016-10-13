@@ -1,4 +1,4 @@
-### Configuring Your Application
+## Configuring Your Application
 
 ## 1. Initialize
 
@@ -8,7 +8,7 @@ First, add Auth0's JavaScript SDK to your jQuery application.
 <script src="${auth0js_url}"></script>
 ```
 
-Then Create a new Auth0 client instance as follows:
+Create a new Auth0 client instance as follows:
 
 ```js
 var auth0 = new Auth0({
@@ -37,7 +37,7 @@ $('#btn-login').click(function(e) {
 
 The `audience` parameter should contain your API identifier from the Dashboard. The `scope` parameter should include one or more scopes you defined in the Dashboard for your API, in addition to any of the standard openid scopes.
 
-## 3. Processing the callback
+## 3. Processing the Callback
 
 Once you have succesfully authenticated, Auth0 will redirect to the `callbackURL` parameter defined in the constructor. Auth0 will append a few extra parameters after a hash on the URL. These include an `access_token` and an `id_token`, both JSON Web Tokens (JWTs). You can parse the hash and grab the tokens as follows:
 
@@ -85,7 +85,7 @@ fetch('{API URL}', {
 });
 ```
 
-The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: https://${account.namespace}/.well-known/jwks.json. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
+The Resource Server (API) should be configured to verify the JWT and any claims contained within it. Because the Resource Server is utilizing the RS256 signature method, tokens are signed using Auth0's private key for your account. Verification is done using the corresponding public key, which can be found at the following standard [JWKS (JSON Web Key set)](https://self-issued.info/docs/draft-ietf-jose-json-web-key.html) URL: [https://${account.namespace}/.well-known/jwks.json]. You can use any [recommended JWT library](https://jwt.io) to validate the standard claims returned in the token. These details are outside the scope of this quickstart tutorial. More information can be found [in our documentation](https://auth0.com/docs/api-auth/config/asking-for-access-tokens).
 
 ## 5. Log Out
 
