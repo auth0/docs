@@ -1,3 +1,7 @@
+---
+description: This page lists generic OAuth1 and OAuth2 examples.
+---
+
 # Generic OAuth2 or OAuth1 Examples
 
 The [OAuth2](/oauth2) or [OAuth1](/oauth1) connections give you the ability to support any OAuth2/OAuth1 providers in addition to the ones that are available in the dashboard.

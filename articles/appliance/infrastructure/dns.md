@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Appliance infrastructure information about DNS
 ---
 
 # DNS

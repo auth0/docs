@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Overview of the Appliance Dashboard Tenants page
 ---
 
 # Auth0 Appliance Dashboard: Tenants

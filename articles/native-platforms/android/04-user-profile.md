@@ -22,7 +22,7 @@ Be sure that you have completed the [Basic Login](01-login) and the [Session Han
 
 ## Request User Data
 
-Your first step is instantiate the authentication API client. This will be used to request the user's profile data.
+The first step is to instantiate the authentication API client. This will be used to request the user's profile data.
 
 ```java
 AuthenticationAPIClient client = new AuthenticationAPIClient(
@@ -37,13 +37,13 @@ Then, use your previously stored credentials (in this example, stored in the App
 ```java        
 client.tokenInfo(App.getInstance().getUserCredentials().getIdToken())
                 .start(new BaseCallback<UserProfile, AuthenticationException>() {
-	@Override
-	public void onSuccess(UserProfile payload){
-	}
+  @Override
+  public void onSuccess(UserProfile payload){
+  }
 
-	@Override
-	public void onFailure(AuthenticationException error){
-	}
+  @Override
+  public void onFailure(AuthenticationException error){
+  }
 });
 ```                
 
@@ -103,15 +103,15 @@ And then with the `UserApiClient`, perform the update:
 ```java
 UsersAPIClient usersClient = new UsersAPIClient(mAuth0, App.getInstance().getUserCredentials().getIdToken());
 usersClient.updateMetadata(mUserProfile.getId(), userMetadata).start(new BaseCallback<UserProfile, ManagementException>() {
-	@Override
-	public void onSuccess(final UserProfile payload) {
-  	// As receive the updated profile here
-  	// You can react to this, and show the information to the user.
-	}
+  @Override
+  public void onSuccess(final UserProfile payload) {
+    // As receive the updated profile here
+    // You can react to this, and show the information to the user.
+  }
 
-	@Override
-	public void onFailure(ManagementException error) {
+  @Override
+  public void onFailure(ManagementException error) {
 
-	}
+  }
 });
 ```

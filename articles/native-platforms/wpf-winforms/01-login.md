@@ -4,22 +4,17 @@ default: true
 description: This tutorial will show you how to use the Auth0 WPF and Winforms SDK to add authentication and authorization to your app.
 ---
 
-<%= include('../../_includes/_package', {
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-winformsWPF-samples',
-  githubUrl:'https://github.com/auth0-samples/auth0-winformsWPF-samples/tree/master/00-Starter-Seed',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: 'auth0-variables.cs',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-winformsWPF-samples',
+  path: '00-Starter-Seed'
 }) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Microsoft Visual Studio 2015
-* .NET Framework 4.5.2
+* .NET Framework 4.6.1
 :::
-
 
 
 This tutorial explains how to integrate Auth0 with a WPF or Winforms application. `Auth0.WinformsOrWPF` helps you authenticate users with any [Auth0 supported identity provider](/identityproviders).
@@ -79,9 +74,9 @@ var user = await auth0.LoginAsync(this, "auth0waadtests.onmicrosoft.com") // con
 
 ```cs
 var user = await auth0.LoginAsync(
-	"my-db-connection", 	// connection name here
-	"username",
-	"password");
+  "my-db-connection",   // connection name here
+  "username",
+  "password");
 ```
 
 ## Accessing User Information

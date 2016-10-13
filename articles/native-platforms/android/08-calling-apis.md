@@ -4,7 +4,7 @@ description: This tutorial will show you how to use the Auth0 tokens to make aut
 seo_alias: android
 ---
 
-In this tutorial you will learn how to use a previously saved token, to authenticate in your API calls.
+This tutorial demonstrates how to use a previously saved token to authenticate your API calls.
 
 <%= include('../../_includes/_package', {
   githubUrl: 'https://github.com/auth0-samples/auth0-android-sample/tree/master/08-Calling-APIs',
@@ -26,12 +26,12 @@ Your first step is to get the `Credentials` object.
 
 ```java
 private LockCallback callback = new AuthenticationCallback() {
-	@Override
-	public void onAuthentication(Credentials credentials) {
-		// Save your newly obtained credentials
-	}
+  @Override
+  public void onAuthentication(Credentials credentials) {
+    // Save your newly obtained credentials
+  }
 
-	...
+  ...
 
 };
 ```
@@ -39,7 +39,7 @@ You can use any of the token strings contained in the `Credentials` object.
 
 ## Attach the Token
 
-First you need to prepare the request.
+First, prepare the request.
 
 ```java
 RequestQueue queue = Volley.newRequestQueue(this);
@@ -53,18 +53,18 @@ Next you need to add the token to the request header so that authenticated reque
 String tokenID = getCredentials.getTokenID();
 
 AuthorizationRequestObject authorizationRequest = new AuthorizationRequestObject(Request.Method.GET,url,
-	tokenID, null, new Response.Listener<JSONObject>(){
+  tokenID, null, new Response.Listener<JSONObject>(){
 
-	@Override
-	public void onResponse(JSONObject response) {
-		// Parse Response
-	}
+  @Override
+  public void onResponse(JSONObject response) {
+    // Parse Response
+  }
 }, new Response.ErrorListener() {
 
-	@Override
-	public void onErrorResponse(VolleyError error) {
+  @Override
+  public void onErrorResponse(VolleyError error) {
 
-	}
+  }
 });
 ```
 
@@ -72,20 +72,20 @@ The customized `AuthorizationRequestObject` looks like:
 
 ```java
 public class AuthorizationRequestObject extends JsonObjectRequest {
-	private String headerTokenID = null;
+  private String headerTokenID = null;
 
-	public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest,
-	Response.Listener listener, Response.ErrorListener errorListener) {
-		super(method, url, jsonRequest, listener, errorListener);
-		headerTokenID = tokenID;
-	}
+  public AuthorizationRequestObject(int method, String url, String tokenID, JSONObject jsonRequest,
+  Response.Listener listener, Response.ErrorListener errorListener) {
+    super(method, url, jsonRequest, listener, errorListener);
+    headerTokenID = tokenID;
+  }
 
-	@Override
-	public Map getHeaders() throws AuthFailureError {
-		Map headers = new HashMap();
-		headers.put("Authorization", "Bearer " + headerTokenID);
-		return headers;
-	}
+  @Override
+  public Map getHeaders() throws AuthFailureError {
+    Map headers = new HashMap();
+    headers.put("Authorization", "Bearer " + headerTokenID);
+    return headers;
+  }
 
 }
 ```

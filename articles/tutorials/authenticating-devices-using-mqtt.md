@@ -1,3 +1,7 @@
+---
+description: How to authenticate and authorize devices using MQTT with Auth0.
+---
+
 # Authenticating & Authorizing Devices using MQTT with Auth0
 
 [MQTT](http://en.wikipedia.org/wiki/MQ_Telemetry_Transport) is a lightweight protocol often used for devices to communicate with other systems. It is designed for the __publish/subscribe__ messaging pattern.

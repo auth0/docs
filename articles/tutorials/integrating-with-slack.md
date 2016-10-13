@@ -1,3 +1,7 @@
+---
+description: How to integrate and configure Auth0 with Slack.
+---
+
 # Integrating Auth0 with Slack
 
 You can configure Slack to log in with Auth0. That way, users would be able to log in with any of the [identity providers](/identityproviders) supported by Auth0, such as Active Directory, LDAP, Google Apps, Facebook, Google, Twitter, and so on. It will also provide Single Sign On with other clients configured.

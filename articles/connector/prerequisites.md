@@ -21,7 +21,7 @@ The Connector can be installed on an existing server, even a Domain Controller. 
 #### Windows Version
 
 We recommend use of Windows Server 2012.
-The connector can run on Windows 7+ or Windows 2008R2+ 
+The connector can run on Windows 7+ or Windows 2008R2+ with PowerShell 3.0 or higher
 
 #### Time Synchronization
 

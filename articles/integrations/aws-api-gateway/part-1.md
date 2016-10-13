@@ -175,11 +175,11 @@ Test the function by clicking the *Actions* drop-down and choosing **Configure s
 
 ```json
 {
-	"pets": [{
-		"id": 1,
-		"type": "dog",
-		"price": 249.99
-	}]
+  "pets": [{
+    "id": 1,
+    "type": "dog",
+    "price": 249.99
+  }]
 }
 ```
 

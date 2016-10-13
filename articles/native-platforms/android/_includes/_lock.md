@@ -9,10 +9,10 @@ Inside the `build.gradle` dependencies section:
 ```xml
 apply plugin: 'com.android.application'
 android {
-	//..
+  //..
 }
 dependencies {
-	compile 'com.auth0.android:lock:2.0.0'   
+  compile 'com.auth0.android:lock:2.0.0'   
 }
 ```
 

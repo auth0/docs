@@ -56,9 +56,9 @@ The third option is to create your own custom user interface to prompt the user 
 
 ```cs
 var user = await auth0.LoginAsync(
-	"my-db-connection", 	// connection name here
-	"username",
-	"password");
+  "my-db-connection",   // connection name here
+  "username",
+  "password");
 ```
 
 ### Scope

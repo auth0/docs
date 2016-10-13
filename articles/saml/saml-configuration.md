@@ -54,30 +54,21 @@ There are instructions for several specific providers below:
 * [SiteMinder](/siteminder)
 * [SSOCircle](/ssocircle)
 
-Auth0 can be configured as a Service Provider to any other SAML-compliant Identity Provider using the following generic instructions:
-
-* [Generic Service Provider Configuration](/saml-sp-generic)
+Auth0 can be configured as a Service Provider to any other SAML-compliant Identity Provider using the following generic instructions: [Generic Service Provider Configuration](/saml-sp-generic)
 
 
 ## Configuring Auth0 as a SAML Identity Provider
 
 Configuring Auth0 to serve as a SAML Identity Provider is done in a couple different places, depending on the type of application.
 
-For some SSO Integrations that support SAML, the Auth0 side of the configuration is done using the "SSO Integrations" link in the dashboard, clicking on "CREATE SSO INTEGRATION", and selecting the specific integration.  Instructions specific to the chosen SSO Integration are provided in the **Tutorial** section.
-
-* [Using Auth0 in SAML2 Web Apps](/saml2webapp-tutorial)
+For some SSO Integrations that support SAML, the Auth0 side of the configuration is done using the "SSO Integrations" link in the dashboard, clicking on "CREATE SSO INTEGRATION", and selecting the specific integration.  Instructions specific to the chosen SSO Integration are provided in the **Tutorial** section: [Using Auth0 in SAML2 Web Apps](/saml2webapp-tutorial).
 
 
 For any application not listed on the "SSO Integrations" page(click "CREATE SSO INTEGRATION"  to see the list) the Auth0 side of the configuration can be added. Go to the "Applications" link on the dashboard, choose your application, click on the "Addons" tab, and then toggle on the "SAML2 WEB APP" box.
 
-Generic instructions for configuring Auth0 as an IDP:
+Generic instructions for configuring Auth0 as an IDP: [Generic Identity Provider Configuration](/saml-idp-generic).
 
-* [Generic Identity Provider Configuration](/saml-idp-generic)
-
-The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  SSO Integrations that require special settings are documented at:
-
-* [SAML settings needed for some SSO Integrations](/saml-apps)
-
+The SAML2 Web App screen ("Settings" tab) can be used to specify various SAML parameters for the SAML Authentication Response.  SSO Integrations that require special settings are documented at: [SAML settings needed for some SSO Integrations](/saml-apps).
 
 Once Auth0 has been configured to serve as a SAML Identity Provider to client applications, it needs a way to authenticate users.  It can use any of the supported connection types for this.  Auth0 can authenticate users against ldap directories, databases, other SAML Identity Providers or even Social providers and once a user is authenticated, Auth0 can translate the authentication result into a SAML Authentication Assertion to send back to the application client.
 
@@ -85,14 +76,9 @@ Once Auth0 has been configured to serve as a SAML Identity Provider to client ap
 
 In this situation, there are two federations to configure.  The federation between the application and Auth0 will follow the instructions above for Configuring Auth0 as an Identity Provider.   The federation between Auth0 and any backend SAML Identity providers would follow the instructions for Configuring Auth0 as a Service Provider.
 
-A different, but similar, use case is setting up one Auth0 account to serve as a SAML Service Provider and then setting up a second Auth0 account to serve as a SAML Identity Provider for the first account.  This configuration would typically just be used for testing purposes.  The steps to set this up are described in:
+A different, but similar, use case is setting up one Auth0 account to serve as a SAML Service Provider and then setting up a second Auth0 account to serve as a SAML Identity Provider for the first account.  This configuration would typically just be used for testing purposes.  The steps to set this up are described in: [Auth0 as Identity Provider for itself](/samlsso-auth0-to-auth0).
 
-[Auth0 as Identity Provider for itself](/samlsso-auth0-to-auth0)
-
-## Some SAML-compliant Identity Providers
-
-
-A list of [Identity Providers](/samlp-providers) that are believed to be SAML compliant.
+**NOTE**: A list of [Identity Providers](/samlp-providers) that are believed to be SAML compliant.
 
 ## Special Configuration Situations
 
@@ -225,9 +211,7 @@ In the "Settings" field, enter a specification for logout callback URL:
 
 If you have a multi-tenant application, or even a single-tenant application, that needs to select between multiple Identity Providers (Auth0 connections), this is called Home Realm Discovery. This can be done by programmatically specifying the connection in the call which invokes authentication, or by specifying the email domain(s) for each connection in the connection settings, or by adding custom buttons to the Lock widget.
 
-Information on how to do each of these options is at:
-
-* [Home Realm Discovery](/hrd)
+Information on how to do each of these options is at: [Home Realm Discovery](/hrd)
 
 ## Customizing SAML assertions (Auth0 as IDP)
 
@@ -308,19 +292,17 @@ Below are all the customizations you can do and they can be done using either of
 * __nameIdentifierProbes (`Array`):__ Auth0 will try each of the attributes of this array in order. If one of them has a value, it will use that for the Subject/NameID. The order is: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` (mapped from `user_id`), `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` (mapped from `email`), `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` (mapped from `name`).
 
 
-# Design Considerations
+## Design Considerations
 
-## SAML Provisioning
+### SAML Provisioning
 
 In designing a SAML SSO implementation, it is often helpful to consider which system(s) will serve as authoritative sources for user profile information, what user profile attributes each application will need, and how the user profile information will be distributed to all systems that need it.
 
-### Auth0 as Service Provider
+#### Auth0 as Service Provider
 
 If Auth0 is serving as the Service Provider in a SAML federation, it does not require any out-of-band process to create user accounts in Auth0 in advance of user authentication.  Auth0 can route authentication requests to an Identity Provider without already having an account pre-created for a specific user. Auth0 will capture user profile information from the assertion returned by the Identity Provider and create a user profile for the user in Auth0.  This is sometimes called Just-In-Time provisioning.
 
-There are several mechanisms available to route a request to an IdP. See:
-
-[Selecting the Connection in Auth0](/hrd)
+There are several mechanisms available to route a request to an IdP. See: [Selecting the Connection in Auth0](/hrd).
 
 A popular option is specifying e-mail domains as part of the IDP configuration. For example: adding the email domain "companyx.com" to the IDP configuration for company X will result in all users with that email domain being routed to that IDP.
 
@@ -330,70 +312,61 @@ The user profile received by Auth0 will also be relayed to the application.
 
 Note, however, that while Auth0 does not require any process to pre-create accounts in Auth0 prior to user authentication, an application integrated with Auth0 may still require this.  If this is the case, several options exist:
 
-   * When a user is created at the Identity Provider, an out-of-band process can create the user in the application or Auth0 and add any user profile attributes needed by the application. After the user is authenticated, if attributes are still missing in the profile, the application can obtain the attributes from the appropriate source and then store these in the Auth0 user profile. Upon next login, those extra attributes will be sent to the application in addition to the Identity Provider's attributes.
+* When a user is created at the Identity Provider, an out-of-band process can create the user in the application or Auth0 and add any user profile attributes needed by the application. After the user is authenticated, if attributes are still missing in the profile, the application can obtain the attributes from the appropriate source and then store these in the Auth0 user profile. Upon next login, those extra attributes will be sent to the application in addition to the Identity Provider's attributes.
 
-   * An Auth0 rule can be written to call an API to retrieve any missing information and add it dynamically to the Auth0 profile, which is returned to the application. Rules are executed after successful authentication. Profile attributes can be retrieved each time from a remote source or persisted in the Auth0 profile.
+* An Auth0 rule can be written to call an API to retrieve any missing information and add it dynamically to the Auth0 profile, which is returned to the application. Rules are executed after successful authentication. Profile attributes can be retrieved each time from a remote source or persisted in the Auth0 profile.
 
-   * Auth0 can simply pass the basic user profile information from the Identity Provider to the application and the application can retrieve any missing information from another source to populate a user profile that is local to the application.
+* Auth0 can simply pass the basic user profile information from the Identity Provider to the application and the application can retrieve any missing information from another source to populate a user profile that is local to the application.
 
 In selecting an approach, careful consideration should be given to utilize an appropriate authoritative source for any user profile attributes used for access control.  For example, an Identity Provider may be able to supply basic user profile attributes such as email address, name, and possibly access control groups for a user.  There may, however, be additional administrative functions within the application that are needed to grant application-specific privileges to users.
 
-### Auth0 as Identity Provider
+#### Auth0 as Identity Provider
 
 If Auth0 is serving as the Identity Provider in a SAML federation, user accounts may be created in a variety of ways.
 
-   * Users created in a backend authentication system used by Auth0 such as an LDAP directory, a database, or another SAML Identity Provider.
-   * Use of the Auth0 Dashboard by administrators to create users in Auth0
-   * Calls to the Auth0 API to create users in Auth0
-   * Self-service user signup to create users in Auth0
+ * Users created in a backend authentication system used by Auth0 such as an LDAP directory, a database, or another SAML Identity Provider.
+ * Use of the Auth0 Dashboard by administrators to create users in Auth0
+ * Calls to the Auth0 API to create users in Auth0
+ * Self-service user signup to create users in Auth0
 
 Once accounts have been created in Auth0, or any authentication system it uses in  a connection, it may be necessary to create an account and user profile for users in an application using Auth0 as an Identity Provider, if the application was written to retrieve user profile information from a local application store.
 
 Several options exist:
 
-   * An out-of-band process can create user profile information in the application.
-   * An Auth0 rule that executes on first login could call an application API to create the user profile in the application.
-   * The application can be modified to create user profiles dynamically, based on information in the SAML assertion.
+ * An out-of-band process can create user profile information in the application.
+ * An Auth0 rule that executes on first login could call an application API to create the user profile in the application.
+ * The application can be modified to create user profiles dynamically, based on information in the SAML assertion.
 
 In selecting an approach, careful consideration should be given to utilize an appropriate authoritative source for any user profile attributes used for access control.
 
-## Deprovisioning
+### Deprovisioning
 
 Deprovisioning of accounts should be done, at minimum, at the Identity Provider.  Once an account is removed or disabled at the Identity Provider, the user will not be able to log in.
 
 It may also be desirable to remove accounts at Auth0 if it is acting as Service Provider or an application integrated with Auth0.  Regardless of whether Auth0 is acting as a Service Provider or an Identity Provider, user accounts can be removed from Auth0 via the Auth0 dashboard or via the Auth0 API.
 
-# Troubleshooting
-
-The following tools are useful for troubleshooting SAML authentication:
-
-* SAML responses from Auth0's logs can be [pasted directly into this debugger](https://rnd.feide.no/simplesaml/module.php/saml2debug/debug.php)
-* [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/)
+**NOTE:** The following extension is useful for troubleshooting SAML authentication: [SAML debugger extension for Firefox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/).
 
 
-# SAML options and bindings
+## SAML options and bindings
 
-### Supported SAML options:
-
+Supported SAML options:
 * Web Browser SSO Profile
 * Single Logout Profile
 * Name Identifier Management Profile
 * Name Identifier Mapping Profile
 
-### Not supported SAML options:
-
+Not supported SAML options:
 * Enhanced Client and Proxy (ECP) Profile
 * Identity Provider Discovery Profile
 * Assertion Query/Request Profile
 * Artifact Resolution Profile
 
-### Supported SAML bindings:
-
+Supported SAML bindings:
 * HTTP Redirect Binding
 * HTTP POST Binding
 
-### Not supported SAML bindings:
-
+Not supported SAML bindings:
 * HTTP Artifact Binding
 * SAML SOAP Binding
 * Reverse SOAP (PAOS) Binding

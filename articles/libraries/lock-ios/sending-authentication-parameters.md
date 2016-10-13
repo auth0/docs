@@ -1,6 +1,6 @@
 ---
 toc_title: Sending Authentication Parameters
-description:
+description: How to send authentication parameters, and what parameters are supported when using Lock iOS.
 ---
 
 # Lock iOS: Sending Authentication Parameters

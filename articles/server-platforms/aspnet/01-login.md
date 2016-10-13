@@ -51,10 +51,12 @@ ${snippet(meta.snippets.setup)}
 
 Once the user successfully authenticated to the application, a `ClaimsPrincipal` will be generated which can be accessed through the `Current` property:
 
-    public ActionResult Index()
-    {
-    	string email = ClaimsPrincipal.Current.FindFirst("email").Value;
-    }
+```cs
+public ActionResult Index()
+{
+  string email = ClaimsPrincipal.Current.FindFirst("email").Value;
+}
+```
 
 The user profile is normalized regardless of where the user came from. We will always include these: `user_id`, `name`, `email`, `nickname` and `picture`. For more information about the user profile [read this](/user-profile).
 
@@ -78,19 +80,19 @@ An `[Authorize]` attribute will generate a `401 - Unauthorized` error if the req
 
 In the above example, we are redirecting to a `Login` action in an `Account` controller. The `Login` action can return a view that integrates Lock or shows a custom UI, or directly redirect to Auth0 for authentication, as described in [#4](#4-triggering-login-manually-or-integrating-the-auth0lock).
 
-```c#
+```cs
 public ActionResult Login(string returnUrl)
 {
-    if (string.IsNullOrEmpty(returnUrl) || !this.Url.IsLocalUrl(returnUrl))
-    {
-        returnUrl = "/";
-    }
+  if (string.IsNullOrEmpty(returnUrl) || !this.Url.IsLocalUrl(returnUrl))
+  {
+    returnUrl = "/";
+  }
 
-    // you can use this for the 'authParams.state' parameter
-    // in Lock, to provide a return URL after the authentication flow.
-    ViewBag.State = "ru="+ HttpUtility.UrlEncode(returnUrl);
+  // you can use this for the 'authParams.state' parameter
+  // in Lock, to provide a return URL after the authentication flow.
+  ViewBag.State = "ru="+ HttpUtility.UrlEncode(returnUrl);
 
-    return this.View();
+  return this.View();
 }
 ```
 
@@ -100,19 +102,19 @@ To clear the cookie generated on login, use the `FederatedAuthentication.Session
 
 A typical logout action on ASP.Net MVC would look like this:
 
-```C#
+```cs
 public RedirectResult Logout()
 {
-    // Clear the session cookie
-    FederatedAuthentication.SessionAuthenticationModule.SignOut();
+  // Clear the session cookie
+  FederatedAuthentication.SessionAuthenticationModule.SignOut();
 
-    // Redirect to Auth0's logout endpoint
-    var returnTo = Url.Action("Index", "Home", null, protocol: Request.Url.Scheme );
-    return this.Redirect(
-        string.Format(CultureInfo.InvariantCulture,
-            "https://{0}/v2/logout?returnTo={1}",
-            ConfigurationManager.AppSettings["auth0:Domain"],
-            this.Server.UrlEncode(returnTo)));
+  // Redirect to Auth0's logout endpoint
+  var returnTo = Url.Action("Index", "Home", null, protocol: Request.Url.Scheme );
+  return this.Redirect(
+    string.Format(CultureInfo.InvariantCulture,
+      "https://{0}/v2/logout?returnTo={1}",
+      ConfigurationManager.AppSettings["auth0:Domain"],
+      this.Server.UrlEncode(returnTo)));
 }
 ```
 

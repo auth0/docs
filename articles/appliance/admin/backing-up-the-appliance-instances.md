@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Recommendations on when to back up Appliance instances
 ---
 
 # Auth0 Appliance Administration: Appliance Backups

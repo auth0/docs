@@ -68,9 +68,9 @@ var user = await auth0.LoginAsync(this, "google-oauth2"); // connection name her
 
 ```cs
 var user = await auth0.LoginAsync(
-  "sql-azure-database",   	// connection name here
-  "jdoe@foobar.com",      	// user name
-  "1234");             		// password
+  "sql-azure-database",     // connection name here
+  "jdoe@foobar.com",        // user name
+  "1234");                 // password
 ```
 
 ## Access User Information

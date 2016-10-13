@@ -15,6 +15,9 @@ articles:
       - title: "Clients"
         url: "/applications"
 
+      - title: "Protocols"
+        url: "/protocols"
+
       - title: Developer Videos
         url: /videos
 
@@ -230,17 +233,6 @@ articles:
 
   - title: "CMS Plugins"
     url: "/cms"
-    children:
-
-      # - title: "Wordpress"
-      #   url: "/cms#wordpress-plugin"
-      #
-      # - title: "Joomla"
-      #   url: "/cms#joomla-extension"
-
-      - title: "SharePoint"
-        url: "https://github.com/auth0/auth0-sharepoint"
-
 
 apis:
 
@@ -253,10 +245,16 @@ apis:
   - title: Authentication API
     url: "/api/authentication"
     forceFullReload: true
+    alwaysExpand: true
+    children:
+      - title: Social Authentication
+        url: /api/authentication/scenarios/social
+
 
   - title: Management API
     url: "/api/management/v2/"
     forceFullReload: true
+    alwaysExpand: true
     children:
       - title: API Tokens
         url: /api/management/v2/tokens

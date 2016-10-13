@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to reconfigure Appliance IP Addresses using the CLI
 ---
 
 # How to Reconfigure IP Addresses Using the Command Line Interface

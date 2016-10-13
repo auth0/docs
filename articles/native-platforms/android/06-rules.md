@@ -42,24 +42,24 @@ You can access the `country` added by the rule within the `extraInfo` hashmap fr
 
 ```java
 client.tokenInfo(${account.clientId})
-	  .start(new BaseCallback<UserProfile, AuthenticationException>() {
+    .start(new BaseCallback<UserProfile, AuthenticationException>() {
 
-	@Override
-	public void onSuccess(final UserProfile userProfile) {
-		runOnUiThread(new Runnable() {
-			public void run() {
-				// Get the country from the user profile
+  @Override
+  public void onSuccess(final UserProfile userProfile) {
+    runOnUiThread(new Runnable() {
+      public void run() {
+        // Get the country from the user profile
         if (payload.getExtraInfo().containsKey("country")){
           String country = (String) payload.getExtraInfo().get("country");
           //Show the country          
         }
-			}
-		});
-	}
+      }
+    });
+  }
   
-	@Override
-	public void onFailure(AuthenticationException error) {
+  @Override
+  public void onFailure(AuthenticationException error) {
 
-	}
+  }
 });
 ```

@@ -1,3 +1,7 @@
+---
+description: How to use monitoring with an Auth0 account.
+---
+
 # Monitoring Auth0
 
 If you are using the public cloud version of Auth0 we recommend you subscribe to [http://status.auth0.com](http://status.auth0.com) for a continuous stream of notifications regarding the availability of the service. Any incidents are reported there by the Auth0 Devops team. Current and historical uptime is available on [http://uptime.auth0.com](http://uptime.auth0.com).
@@ -6,7 +10,7 @@ If you are using the public cloud version of Auth0 we recommend you subscribe to
 
 You can add Auth0 health probes to your own monitoring infrastructure easily by querying these two endpoints:
 
-	GET https://${account.namespace}/test
+  GET https://${account.namespace}/test
 
 This returns a JSON object with a single property:
 
@@ -21,7 +25,7 @@ Otherwise, it will return 5xx.
 
 This other one:
 
-	GET https://${account.namespace}/testall
+  GET https://${account.namespace}/testall
 
 returns a simple text:
 
@@ -71,7 +75,7 @@ If you are using the __Auth0 Appliance__, monitoring is very similar to the step
 
 The health endpoints are equivalent, only with the private URL:
 
-	https://{your_auth0_server}/{test | testall}
+  https://{your_auth0_server}/{test | testall}
 
 In a dedicated deployment we recommend you monitor the following endpoints:
 

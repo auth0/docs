@@ -1,3 +1,7 @@
+---
+description: This page lists different ways of how to update your application's client secret.
+---
+
 # Changing your application's client_secret
 
 The `client_secret` of an application protects a service by only giving tokens to authorized applications. Client secrets should be protected, and if your `client_secret` has been compromised then you will need to generate a new one. Remember that all authorized apps will need to be updated with the new `client_secret`.
@@ -30,15 +34,15 @@ Or you can update a `client_secret` by creating your own request to the API:
 
 ```har
 {
-	"method": "PATCH",
-	"url": "https://YOURACCOUNT.auth0.com/api/v2/clients/YOUR_CLIENT_ID",
-	"headers": [{
-		"name": "Content-Type",
-		"value": "application/json"
-	}],
-	"postData": {
-		"mimeType": "application/json",
-		"text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
-	}
+  "method": "PATCH",
+  "url": "https://YOURACCOUNT.auth0.com/api/v2/clients/YOUR_CLIENT_ID",
+  "headers": [{
+    "name": "Content-Type",
+    "value": "application/json"
+  }],
+  "postData": {
+    "mimeType": "application/json",
+    "text": "{\"client_secret\": \"NEW_CLIENT_SECRET\"}"
+  }
 }
 ```

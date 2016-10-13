@@ -102,8 +102,8 @@ Auth0
     .start { result in
             switch result {
             case .Success(let credentials):
-            	// Registered successfully
-            	// You've got a Credentials object
+              // Registered successfully
+              // You've got a Credentials object
             case .Failure(let error):
                 // You've got an error
             }

@@ -1,4 +1,5 @@
 ---
+description: Explains the basics of a User profile, how to create a user and view users and their profile details. 
 url: /user-profile
 ---
 
@@ -16,18 +17,18 @@ Use the Auth0 Management Dashboard ("Dashboard") to manage User Profiles.
 
 Within the Dashboard, you can create, view, modify, or delete users. These options are available via the [Users](${manage_url}/#/users) page.
 
-![](/media/articles/user-profile/user-profile-dashboard.png)
+![User Profile Dashboard](/media/articles/user-profile/user-profile-dashboard.png)
 
 ### Creating a New User
 
-To create a new user and their corresponding User Profile, click the [Users](${manage_url}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the Users page. You will be prompted to enter the following information:
+To create a new user and their corresponding User Profile, click the [Users](${manage_url}/#/users) page in the Dashboard. Click the **+Create User** button at the top right of the *Users* page. You will be prompted to enter the following information:
 
 * **Email**: the user's email address.
 * **Password**: the user's desired password.
 * **Repeat Password**: retype the user's desired password to ensure that you entered the password correctly.
-* **Connection**: the type of connection to use to authenticate the user. The available options depend on the types of connections you previously configured to work with your Auth0 account.
+* **Connection**: the database connection to use to authenticate the user. The dropdown lists all the configured database connections in your account. The connection you use must be associated with a Client.
 
-After entering the required information, click "Save" to create the new user.
+Fill in the required information and click **Save** to create the new user. For more information refer to: [Creating Users via the Management Dashboard](/tutorials/creating-users-in-the-management-portal).
 
 ### Viewing Users
 

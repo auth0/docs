@@ -2,9 +2,11 @@
 description: This page details Auth0's Rate Limit Policy with hitting Auth0 API endpoints.
 ---
 
-# Rate Limit Policy
+# Auth0 API Rate Limit Policy
 
 To ensure the quality of Auth0's services, the Auth0 API is subject to rate limiting.
+
+If you are looking for information on the rate limits on user logins [click here.](/connections/database/rate-limits)
 
 ## Limits
 
@@ -12,8 +14,8 @@ Depending on the API endpoint, the request limit and the rate limit window in wh
 
 Each endpoint is configured with a bucket that defines:
 
--	the request limit
--	the rate limit window (per second, per minute, per hour, etc.)
+-  the request limit
+-  the rate limit window (per second, per minute, per hour, etc.)
 
 ```
 bucket:
@@ -21,7 +23,7 @@ bucket:
     per_minute: y
 ```
 
-For example, the above states that, for the given bucket, there is a maximum request limit of X per minute, and for each minute that elapses, permissions for Y requests are added back. In other words, for each `60 / Y` seconds, one additional request is added to the bucket. This occurs automatically until the bucket contains the maximum permitted number of requests.
+For example, the above states that, for the given bucket, there is a maximum request limit of `x` per minute, and for each minute that elapses, permissions for `y` requests are added back. In other words, for each `60 / y` seconds, one additional request is added to the bucket. This occurs automatically until the bucket contains the maximum permitted number of requests.
 
 For some API endpoints, the rate limits are defined per bucket, so the origins of the call do not influence the rate limit changes. For other buckets, the rate limits are defined using different keys, so the originating IP address is considered when counting the number of received API calls.
 
@@ -47,7 +49,7 @@ API requests to selected Authentication or Management API endpoints will return 
 * **X-RateLimit-Remaining**: Requests available for the current time frame
 * **X-RateLimit-Reset**: Time until the rate limit resets (in UTC [epoch seconds](https://en.wikipedia.org/wiki/Unix_time))
 
-The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [API explorer](/api/management/v2).
+The following Auth0 API endpoints return rate limit-related headers. For additional information about these endpoints, please consult the [Management API explorer](/api/management/v2).
 
 > If you are using an API endpoint **not** listed below and you receive rate limit headers as part of your response, please see the page on [Anomaly Detection](/anomaly-detection) for additional information.
 

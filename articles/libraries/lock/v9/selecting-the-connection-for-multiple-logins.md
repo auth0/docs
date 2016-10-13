@@ -1,3 +1,7 @@
+---
+description: Describes different options for selecting the connection in Auth0 when there are multiple login options for Lock v9.
+---
+
 <%= include('../_includes/_lock-version-9') %>
 
 # Selecting the connection in Auth0 for multiple login options
@@ -13,12 +17,12 @@ When you initiate an authentication transaction with Auth0 you can optionally se
 
 If using the [Lock](/lock), this is as simple as writing:
 
-	auth0.show({connections: ['YOUR_CONNECTION']});
+  auth0.show({connections: ['YOUR_CONNECTION']});
 
 
 Notice that this is equivalent of just navigating to:
 
-	https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
+  https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=YOUR_CONNECTION
 
 There are multiple practical ways of getting the `connection` value. Among the most common ones:
 

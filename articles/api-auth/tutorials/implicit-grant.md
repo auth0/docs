@@ -9,11 +9,11 @@ In order to execute an Implicit Grant flow you will need to configure your Clien
 
 ```text
 https://${account.namespace}/authorize?
-	audience={API_AUDIENCE}&
-	scope={SCOPE}&
-	response_type={RESPONSE_TYPE}&
-	client_id={AUTH0_CLIENT_ID}&
-	redirect_uri={CALLBACK_URL}
+  audience={API_AUDIENCE}&
+  scope={SCOPE}&
+  response_type={RESPONSE_TYPE}&
+  client_id={AUTH0_CLIENT_ID}&
+  redirect_uri={CALLBACK_URL}
 ```
 
 Where:

@@ -107,7 +107,7 @@ Then display the `userProfile` attributes in your component's template:
 
 ## Custom Sign Up Fields for Lock
 
-You can add additional input fields to Lock's sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation. 
+You can add additional input fields to Lock's sign up form by adding `additionalSignUpFields` to the `options` parameter of the `Auth0Lock` instantiation.
 
 **NOTE:** See [Additional sign up fields](https://github.com/auth0/lock#additional-sign-up-fields) for more information.
 
@@ -145,7 +145,7 @@ To display this data, read it from the profile's `user_metadata`:
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-You can add an `address` attribute to the user profile's `user_metadata` by creating a component and a simple form. You will need to call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit. 
+You can add an `address` attribute to the user profile's `user_metadata` by creating a component and a simple form. You will need to call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint on form-submit.
 
 To call the endpoint, you can use the [AuthHttp](https://github.com/auth0/angular2-jwt#sending-authenticated-requests) helper from `angular2-jwt` which provides the same interface as the `Http` module but automatically adds the authorization header to requests.
 
@@ -172,7 +172,7 @@ import { AppComponent } from './app.component';
 })
 ```
 
-Then import `AuthHttp`, inject it in your component, and use it to make the authenticated request. 
+Then import `AuthHttp`, inject it in your component, and use it to make the authenticated request.
 
 In this example, the `patch` method takes the endpoint URL, body, and headers:
 
@@ -213,7 +213,7 @@ export class ProfileEdit {
       .map(response => response.json())
       .subscribe(
         response => {
-        	//Update profile
+          //Update profile
           this.auth.userProfile = response;
           localStorage.setItem('profile', JSON.stringify(response));
           this.router.navigate(['/profile']);
@@ -246,4 +246,3 @@ Then create a simple form template to add/update the *address* attribute:
   </div>
   <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
 ```
-

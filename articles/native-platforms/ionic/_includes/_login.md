@@ -247,7 +247,7 @@ Lastly, configure `stateProvider` in `app.js` with the state responsbile for log
 
 (function () {
 
-	...
+  ...
 
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
     $stateProvider
@@ -282,13 +282,13 @@ To log the user out, you simply need to call the `unauthenticate` method of `aut
 
 (function() {
 
-	...
+  ...
 
   function authService($rootScope, lock, authManager, jwtHelper) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || {};
 
-	...
+  ...
 
     // Logging out just requires removing the user's
     // id_token and profile
@@ -303,9 +303,9 @@ To log the user out, you simply need to call the `unauthenticate` method of `aut
 
     return {
       ...
-	  
+
       logout: logout,
-	  
+
       ...
     }
   }
@@ -336,11 +336,11 @@ The user's JWT and profile have already been saved in `localStorage`. To determi
 
 (function() {
 
-	...
+  ...
 
   function authService($rootScope, lock, authManager, jwtHelper) {
 
-	...
+  ...
 
     function checkAuthOnRefresh() {
       var token = localStorage.getItem('id_token');
@@ -355,7 +355,7 @@ The user's JWT and profile have already been saved in `localStorage`. To determi
 
     return {
       ...
-	  
+
       checkAuthOnRefresh: checkAuthOnRefresh
     }
   }

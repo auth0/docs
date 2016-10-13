@@ -21,7 +21,7 @@ When using the normal OIDC middleware, when a user wants to log in and the middl
 
 Normally when the OIDC middleware initiates the 1st leg of the authentication, it will send along information contained in `state` and `nonce` parameters. After the user has authenticated and Auth0 redirects back to the redirect URL inside your application, in will pass back this `state` and `nonce` parameters. The OIDC middleware is going to pick up that callback to the redirect URL because it will need to exchange the `code` for an `access_token`. It will however validate the `state` and `nonce` parameters to protect against CSRF.
 
-This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Instead, the embedded Lock widget is initiating that first step. 
+This poses a problem. When you embed Lock in your application, the OIDC middleware is not initiating the 1st leg of the OAuth flow. Instead, the embedded Lock widget is initiating that first step.
 
 You will therefore need to construct correct `state` and `nonce` parameters (as if the OIDC middleware did it so that it can validate it correctly), and then be sure to specify the `state` and `nonce` parameters on Lock so that Auth0 can send back the correct values for these parameters after the user has authenticated.
 
@@ -34,46 +34,46 @@ The `OpenIdConnectOptions` will contain the configuration settings required for 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    // Add authentication services
-    services.AddAuthentication(
-        options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
+  // Add authentication services
+  services.AddAuthentication(
+    options => options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme);
 
-    // Configure OIDC
-    services.Configure<OpenIdConnectOptions>(options =>
-    {
-        // Specify Authentication Scheme
-        options.AuthenticationScheme = "Auth0";
+  // Configure OIDC
+  services.Configure<OpenIdConnectOptions>(options =>
+  {
+    // Specify Authentication Scheme
+    options.AuthenticationScheme = "Auth0";
 
-        // Set the authority to your Auth0 domain
-        options.Authority = $"https://{Configuration["auth0:domain"]}";
+    // Set the authority to your Auth0 domain
+    options.Authority = $"https://{Configuration["auth0:domain"]}";
 
-        // Configure the Auth0 Client ID and Client Secret
-        options.ClientId = Configuration["auth0:clientId"];
-        options.ClientSecret = Configuration["auth0:clientSecret"];
+    // Configure the Auth0 Client ID and Client Secret
+    options.ClientId = Configuration["auth0:clientId"];
+    options.ClientSecret = Configuration["auth0:clientSecret"];
 
-        // Do not automatically authenticate and challenge
-        options.AutomaticAuthenticate = false;
-        options.AutomaticChallenge = false;
+    // Do not automatically authenticate and challenge
+    options.AutomaticAuthenticate = false;
+    options.AutomaticChallenge = false;
 
-        // Set response type to code
-        options.ResponseType = "code";
+    // Set response type to code
+    options.ResponseType = "code";
 
-        // Set the callback path, so Auth0 will call back to http://localhost:60856/signin-auth0 
-        // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
-        options.CallbackPath = new PathString("/signin-auth0");
+    // Set the callback path, so Auth0 will call back to http://localhost:60856/signin-auth0
+    // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard
+    options.CallbackPath = new PathString("/signin-auth0");
 
-        // Configure the Claims Issuer to be Auth0
-        options.ClaimsIssuer = "Auth0";
-    });
+    // Configure the Claims Issuer to be Auth0
+    options.ClaimsIssuer = "Auth0";
+  });
 
-    // Add framework services.
-    services.AddMvc();
+  // Add framework services.
+  services.AddMvc();
 
-    // Add functionality to inject IOptions<T>
-    services.AddOptions();
+  // Add functionality to inject IOptions<T>
+  services.AddOptions();
 
-    // Add the Auth0 Settings object so it can be injected
-    services.Configure<Auth0Settings>(Configuration.GetSection("Auth0"));
+  // Add the Auth0 Settings object so it can be injected
+  services.Configure<Auth0Settings>(Configuration.GetSection("Auth0"));
 }
 ```
 
@@ -81,7 +81,7 @@ The reason we configure the OIDC options with the DI Framework is because we wil
 
 ## Configure OpenID Connect middleware
 
-Next you must configure the Cookie and OIDC middleware in the `Configure` method. 
+Next you must configure the Cookie and OIDC middleware in the `Configure` method.
 
 First be sure to change the signature of your `Configure` method to accept a parameter called `oidcOptions` of type `IOptions<OpenIdConnectOptions>`. The DI framework will inject the `OpenIdConnectOptions` registered in the `ConfigureServices` method as the value of this parameter.
 
@@ -139,32 +139,32 @@ Be sure fix the namespaces in the files above to correlate with the namespace of
 
 ## Add Login and Logout methods
 
-Next you will need to add `Login` and `Logout` actions to the `AccountController`. 
+Next you will need to add `Login` and `Logout` actions to the `AccountController`.
 
 First though, add a constructor to the `AccountController` which will accept a parameter of `IOptions<OpenIdConnectOptions>` (this will be injected by the DI framework). Be sure to save this parameter to an instance variable, as you will need to use it in the `Login` action.
 
 The `Login` method must call the `GenerateLockContext` extension method which will create the correct `state` and `nonce` parameters and set the correct Cookies for the OIDC middleware to function correctly. It will return a `LockContext` parameter which you must pass along to the View.
 
-After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware: 
+After the OIDC middleware has signed the user in, the user will automatically be signed into the cookie middleware as well to authenticate them on subsequent requests. So for the `Logout` action you will need to sign the user out of both the OIDC and the cookie middleware:
 
 ``` csharp
 public class AccountController : Controller
 {
     IOptions<OpenIdConnectOptions> _options;
-    
+
     public AccountController(IOptions<OpenIdConnectOptions> options)
     {
-        _options = options;    
+        _options = options;
     }
-    
+
     // GET: /<controller>/
     public IActionResult Login(string returnUrl = null)
     {
         var lockContext = HttpContext.GenerateLockContext(_options.Value, returnUrl);
-        
+
         return View(lockContext);
     }
-    
+
     public async Task<IActionResult> Logout()
     {
         // Sign the user out of the authentication middleware (i.e. it will clear the Auth cookie)
@@ -203,15 +203,15 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
     }
   });
 </script>
-``` 
+```
 
 Be sure to set the Client ID, Domain and Callback URL values from the ones supplied by the `LockContext` model. Also be sure to set the correct `state` and `nonce` parameters as shown above, as this is the key to getting everyting to work together.
 
-Also note that the `scope` parameter has been changed to add the `profile` scope. The reason for this is that you want the user's `name` returned so you can set the correct `ClaimTypes.Name` claim. This is discussed in more detail in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile) 
+Also note that the `scope` parameter has been changed to add the `profile` scope. The reason for this is that you want the user's `name` returned so you can set the correct `ClaimTypes.Name` claim. This is discussed in more detail in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile)
 
 ## Add Login and Logout links
 
-Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:  
+Lastly add Login and Logout links to the navigation bar. To do that, head over to `/Views/Shared/_Layout.cshtml` and add code to the navigation bar section which displays a Logout link when the user is authenticated, otherwise a Login link. This will link to the `Logout` and `Login` actions of the `AccountController` respectively:
 
 ```html
 <div class="navbar navbar-inverse navbar-fixed-top">

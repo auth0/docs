@@ -1,3 +1,7 @@
+---
+description: A tutorial for using Ionic Framework and Firebase.
+---
+
 ## Ionic Framework + Firebase Tutorial
 
 You can either download the sample project, or follow the instructions below.

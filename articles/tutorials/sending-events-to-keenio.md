@@ -1,3 +1,7 @@
+---
+description: How to send events to Keen IO from Auth0.
+---
+
 # Sending events to Keen IO from Auth0
 
 [Keen IO](http://keen.io) provides a service to capture and analyze events generated in your apps. In their words:

@@ -62,7 +62,7 @@ We provide a [Nuget package](http://nuget.org/packages/Auth0-ServiceStack-OAuthP
 
 Run this command on the __Package Manager Console__:
 
-	Install-Package Auth0-ServiceStack-OAuthProvider
+  Install-Package Auth0-ServiceStack-OAuthProvider
 
 This command will add two classes to your project under the __App_Start__ folder: `Auth0Provider` and `Auth0UserSession`.
 
@@ -110,7 +110,7 @@ Open the the `WebServiceExamples.cs` file.
 [Authenticate]
 public class Hello
 {
-	public string Name { get; set; }
+  public string Name { get; set; }
 }
 ```
 
