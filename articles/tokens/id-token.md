@@ -1,6 +1,6 @@
 ---
 title: ID token
-description: What is an ID Token and what you can do with it.
+description: How to obtain, use and renew an id_token.
 ---
 
 # ID Token
