@@ -71,18 +71,25 @@ Now the `registerAuthenticationListener` method can be called in the `run` block
 ```js
 // app.run.js
 
-(function() {
+(function () {
 
   'use strict';
 
   angular
-    .module('myApp')
-    .run(function(authService) {
+    .module('app')
+    .run(run);
 
-      // Put the authService on $rootScope so its methods
-      // can be accessed from the nav bar
-      authService.registerAuthenticationListener();
-    });
+  run.$inject = ['authService', 'lock'];
+
+  function run(authService, lock) {
+
+    // Register the authentication listener that is
+    // set up in auth.service.js
+    authService.registerAuthenticationListener();
+
+    // Register the synchronous hash parser
+    lock.interceptHash();
+  }
 
 })();
 ```

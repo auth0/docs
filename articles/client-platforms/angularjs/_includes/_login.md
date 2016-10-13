@@ -27,6 +27,27 @@ Start by creating a **login** controller and view.
     }
 
 })();
+(function () {
+  'use strict';
+
+  angular
+    .module('app')
+    .controller('LoginController', LoginController);
+
+  LoginController.$inject = ['authService'];
+
+  function LoginController(authService) {
+
+    var vm = this;
+	
+	// Put the authService on viewmodel to access
+    // the login method in the view
+    vm.authService = authService;
+
+  }
+
+}());
+
 ```
 
 With the `authService` injected in this controller, the `login` method can now be called from the view.
@@ -36,7 +57,7 @@ With the `authService` injected in this controller, the `login` method can now b
 
   ...
 
-    <button class="btn btn-primary" ng-click="authService.login()">Log In</button>
+    <button class="btn btn-primary" ng-click="vm.authService.login()">Log In</button>
 
   ...
 ```
@@ -50,22 +71,28 @@ A button responsible for logging the user out can be placed in the header toolba
 ```js
 // app.run.js
 
-(function() {
+(function () {
 
   'use strict';
 
   angular
     .module('app')
-    .run(function($rootScope, authService, authManager) {
+    .run(run);
 
-      // Put the authService on $rootScope so its methods
-      // can be accessed from the nav bar
-      $rootScope.authService = authService;
+  run.$inject = ['$rootScope', 'authService', 'lock'];
 
-      // Register the authentication listener that is
-      // set up in auth.service.js
-      authService.registerAuthenticationListener();
-    });
+  function run($rootScope, authService, lock) {
+    // Put the authService on $rootScope so its methods
+    // can be accessed from the nav bar
+    $rootScope.authService = authService;
+
+    // Register the authentication listener that is
+    // set up in auth.service.js
+    authService.registerAuthenticationListener();
+
+    // Register the synchronous hash parser
+    lock.interceptHash();
+  }
 
 })();
 ```
@@ -80,12 +107,13 @@ Then, in the toolbar you can provide a link or button for logging the user out w
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#/">Auth0 - Angular</a>
+          <a class="navbar-brand" href="#/">Auth0</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li ng-if="!isAuthenticated"><a href="#/login">Log In</a></li>
             <li ng-if="isAuthenticated"><a href="#/" ng-click="authService.logout()">Log Out</a></li>
+            <li><a href="#/">Home</a></li>
           </ul>
         </div>
       </div>
