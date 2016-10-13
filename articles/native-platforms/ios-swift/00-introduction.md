@@ -5,8 +5,6 @@ description: Brief introduction to the iOS Swift tutorials. First steps required
 
 This multi-step quickstart guide will walk you through managing authentication in your iOS apps with Auth0.
 
-
-
 ## Sample Projects
 
 <%= include('_includes/_prerequisite') %>
