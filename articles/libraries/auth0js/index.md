@@ -22,6 +22,8 @@ It's that easy!
 
 ## Usage
 
+Now, let's get started integrating auth0.js into your project. We'll cover [methods of installation](#installation-options), [how to initialize auth0.js](#initialize), [signup](#signup), [login](#login), [Passwordless](#passwordless-authentication), [accessing user profiles](#user-profile), and more! 
+
 ### Installation Options
 
 You have a few options for using auth0.js in your project. Pick one of the below depending on your needs:
