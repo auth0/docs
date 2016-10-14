@@ -65,10 +65,36 @@ Construct a new instance of the Auth0 client as follows:
   });
 </script>
 ```
+### Signup
+
+Here is an example of the `signup` method and some sample code for the form.
+
+```html
+<h2>Signup Database Connection</h2>
+<input class="signup-username" />
+<input type="password" class="signup-password" />
+<input type="button" class="signup-db" value="Signup!" />
+<script type="text/javascript">
+    $('.signup-db').click(function (e) {
+        e.preventDefault();
+        auth0.signup({
+            connection: 'Username-Password-Authentication',
+            username: $('.signup-username').val(),
+            password: $('.signup-password').val(),
+            sso: true,
+            popup: true,
+            auto_login: false
+        }, function (err) {
+            if (err) return alert('Something went wrong: ' + err.message);
+            return alert('success signup without login!')
+        });
+    });
+</script>
+```
 
 ### Login
 
-This method can be called as `signin` or as `login` indifferently. It triggers the login on any of your active identity provider. The following are several examples of calling the `login` method with particular intentions; use the one that makes the most sense for your needs.
+This method can be referenced as `signin` or as `login` indifferently. It triggers the login on any of your active identity providers. The following are several examples of calling the `login` method with particular parameters; use the one that makes the most sense for your needs.
 
 ```js
   //trigger login with google
@@ -176,8 +202,7 @@ Passwordless authentication allows users to log in by receiving a one-time passw
 
 #### With Email
 
-Once you have configured a passwordless `email` connection, you can request a link or a code to be sent via email that will allow the receiver to sign in to your application.
-
+One option for Passwordless authentication is using email. Once you have configured a passwordless `email` connection, you can request a link or a code to be sent via email that will allow the receiver to sign in to your application.
 
 ##### Link
 
@@ -248,7 +273,7 @@ auth0.verifyEmailCode({
 
 #### With SMS
 
-First you must activate and configure your passwordless [Twilio](https://twilio.com) connection in our [dashboard](https://manage.auth0.com/#/connections/passwordless).
+You can also do Passwordless authentication via SMS. First you must activate and configure your passwordless [Twilio](https://twilio.com) connection in our [dashboard](https://manage.auth0.com/#/connections/passwordless).
 
 After that you can request a passcode to be sent via SMS to a phone number. Ensure the phone number has the proper [full-length format](https://www.twilio.com/help/faq/phone-numbers/how-do-i-format-phone-numbers-to-work-internationally).
 
@@ -314,8 +339,7 @@ auth0.getProfile(idToken, function (err, profile) {
 });
 ```
 
-
-How do you get hold of the `idToken` depends on the mode you are using to log in. See below for examples for [redirect](#single-page-apps) and [popup](#popup-mode) modes.
+How do you acquire the `idToken` depends on the mode you are using to log in. See below for examples for [redirect](#single-page-apps) and [popup](#popup-mode) modes.
 
 ### Processing the Callback
 
