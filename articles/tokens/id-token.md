@@ -20,7 +20,13 @@ The `id_token` can be returned when calling any of the Auth0 functions which inv
 
 ## How to control the contents of an ID token
 
-In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows. The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
+In order to retrieve an `id_token` the `responseType` should be set to `id_token`, both for client-side and server-side authentication flows.
+
+::: panel-warning OAuth2 as a Service
+If you are not using *OAuth2 as a Service*, then you should use `code` for server side flows and `token` for client side flows.
+:::
+
+The attributes included in the issued `id_token` are controlled by the use of a [parameter called `scope`](/scopes).
 - If `scope` is set to `openid`, then the `id_token` will contain only the `iss`, `sub`, `aud`, `exp` and `iat` claims.
 - If `scope` is set to `openid name email`, then the `id_token` will contain additionally the `name` and `email` claims.
 
@@ -46,6 +52,8 @@ lock.show();
 ```
 
 Again, the `responseType` must be set to `id_token` in order to get one back. The `id_token` will contain only the claims specified as the value of the `scope` parameter (in this example, `openid name email`).
+
+**NOTE:** You can also add claims to the `id_token` using [Rules](/rules), with the following format: `context.idToken['http://my-custom/claim'] = 'some-value'`.
 
 ## Lifetime
 
