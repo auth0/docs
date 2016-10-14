@@ -32,7 +32,7 @@ The process of linking accounts merges two existing user profiles into a single 
 
 For example, if the profile of the **primary account** is:
 
-```js
+```json
 {
   "email": "your0@email.com",
   "email_verified": true,
@@ -65,7 +65,7 @@ For example, if the profile of the **primary account** is:
 
 and the profile of the **secondary account** is:
 
-```js
+```json
 {
   "phone_number": "+14258831929",
   "phone_verified": true,
@@ -94,7 +94,7 @@ and the profile of the **secondary account** is:
 
 after linking, the resulting profile will be:
 
-```js
+```json
 {
   "email": "your@email.com",
   "email_verified": true,
@@ -158,7 +158,7 @@ The Auth0 Management API V2 provides a [Link a user account endpoint](/api/v2#!/
 
  1. With the JWT from both the primary and secondary accounts:
 
-  ```
+  ```text
   POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
   Authorization: 'Bearer PRIMARY_ACCOUNT_JWT'
   {
@@ -170,7 +170,7 @@ The Auth0 Management API V2 provides a [Link a user account endpoint](/api/v2#!/
 
  2. With the user id from both the primary and secondary accounts:
 
-  ```
+  ```text
   POST https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities
   Authorization: 'Bearer YOUR_API_V2_TOKEN'
   {
@@ -220,7 +220,7 @@ The Auth0 Management API V2 also provides an [Unlink a user account endpoint](/a
 * `update:current_user_identities`: when calling the endpoint from client-side code where you have the primary user's JWT (which comes with this scope).
 * `update:users`: when calling the endpoint from server-side code where you need to generate an [Management API v2 TOKEN](/api/v2/tokens) having this scope.
 
-```
+```text
 DELETE https://${account.namespace}/api/v2/users/PRIMARY_ACCOUNT_USER_ID/identities/SECONDARY_ACCOUNT_PROVIDER/SECONDARY_ACCOUNT_USER_ID
 Authorization: 'Bearer [PRIMARY_ACCOUNT_JWT OR API_V2_TOKEN]'
 ```
