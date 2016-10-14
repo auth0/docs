@@ -1,6 +1,7 @@
 ---
 title: Rules
 description: This tutorial will show you how to create a basic rule that you can use in your app.
+budicon: 173
 ---
 
 <%= include('../../_includes/_package2', {

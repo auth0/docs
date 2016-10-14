@@ -1,6 +1,7 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to create a custom login page for your web application by using the auth0.js library
+budicon: 448
 ---
 
 <%= include('../../_includes/_package2', {

@@ -1,6 +1,7 @@
 ---
 title: Rules
 description: This tutorial demonstrates how to use Auth0 rules
+budicon: 173
 ---
 
 <%= include('../../_includes/_package', {

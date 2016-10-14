@@ -1,6 +1,7 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package2', {

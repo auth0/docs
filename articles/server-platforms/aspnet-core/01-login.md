@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial will show you how to use the standard OpenID Connect middleware to add authentication to your web app.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

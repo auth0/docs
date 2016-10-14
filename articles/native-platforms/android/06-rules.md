@@ -2,6 +2,7 @@
 title: Rules
 description: This tutorial will show you how to add customized Auth0 rules to your app.
 seo_alias: android
+budicon: 173
 ---
 
 Rules are functions written in JavaScript that are executed in Auth0 as part of the transaction every time a user authenticates to your application. For more information about Auth0 rules, please refer to [the full documentation](/rules).
@@ -51,12 +52,12 @@ client.tokenInfo(${account.clientId})
         // Get the country from the user profile
         if (payload.getExtraInfo().containsKey("country")){
           String country = (String) payload.getExtraInfo().get("country");
-          //Show the country          
+          //Show the country
         }
       }
     });
   }
-  
+
   @Override
   public void onFailure(AuthenticationException error) {
 

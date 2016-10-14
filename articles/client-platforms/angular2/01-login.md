@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial demonstrates how to integrate Auth0 with Angular 2 to add user login to your app
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

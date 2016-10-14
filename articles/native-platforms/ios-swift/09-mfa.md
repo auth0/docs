@@ -1,6 +1,7 @@
 ---
 title: MFA
 description: This tutorial will show you how to configure Multi Factor Authentication (MFA) via Google Authenticator in your app.
+budicon: 243
 ---
 
 <%= include('../../_includes/_package2', {

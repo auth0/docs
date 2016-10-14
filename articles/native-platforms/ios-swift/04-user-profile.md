@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial will show you how to access the user profile from within your app, as well as how to update it.
+budicon: 292
 ---
 
 <%= include('../../_includes/_package2', {

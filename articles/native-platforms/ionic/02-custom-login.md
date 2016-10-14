@@ -1,6 +1,7 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to use Auth0 to add authentication and authorization to your Ionic app
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {
@@ -34,7 +35,7 @@ The custom login uses the `auth0.js` library, so it needs to be referenced inste
 
 ## Implement the Login
 
-For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a signle button can be supplied. 
+For the login view, you must display fields for **Username** and **Password**, along with a **Login** to allow users to log in with their email address. For social login, a signle button can be supplied.
 
 ```html
 <!-- www/components/login/login.html -->

@@ -1,6 +1,7 @@
 ---
 title: OAuth2 API Authorization
 description: This tutorial demonstrates how to use Auth0 to make authorized API calls from your web app.
+budicon: 500
 ---
 
 <%= include('../../_includes/_api_auth_intro') %>
@@ -22,7 +23,7 @@ description: This tutorial demonstrates how to use Auth0 to make authorized API 
 
 Be sure to register the URL of your app in the Allowed Callback URLs in your Application Settings.
 
-## 3. Create a Resource Server (API) 
+## 3. Create a Resource Server (API)
 
 <%= include('../../_includes/_new_api') %>
 

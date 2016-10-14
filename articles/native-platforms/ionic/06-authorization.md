@@ -1,6 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to assign roles to your users and use those claims to authorize or deny a user to access secure content in the app
+budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
@@ -27,7 +28,7 @@ To restrict secure content to users with a role of `admin`, start by providing a
 
 ```js
 // www/components/home/home.controller.js
- 
+
 // Restrict access to secure content
 function showAdminContent() {
 
@@ -174,7 +175,7 @@ The `showAdminContent` method checks if the user is an admin using a new `isAdmi
     }
 
     return {
-      
+
     ...
 
       isAdmin: isAdmin

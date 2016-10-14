@@ -2,6 +2,7 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to use Auth0 to add authentication and authorization to Aurelia apps
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

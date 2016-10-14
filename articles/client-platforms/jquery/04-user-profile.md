@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial demonstrates how to integrate Auth0 with jQuery to authenticate and fetch/show/update profile information.
+budicon: 292
 ---
 
 <%= include('../../_includes/_package2', {
@@ -23,7 +24,7 @@ $(document).ready(function() {
 
   lock = new Auth0Lock('${account.clientId}', '${account.namespace}', {
     auth: {
-      params: { 
+      params: {
         scope: 'openid email'
       } //Details: https://auth0.com/docs/scopes
     }

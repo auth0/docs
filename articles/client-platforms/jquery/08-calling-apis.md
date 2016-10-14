@@ -1,6 +1,7 @@
 ---
 title: Calling APIs
 description: This tutorial demonstrates how to use $.ajaxSetup() to make authenticated API calls.
+budicon: 546
 ---
 
 <%= include('../../_includes/_package2', {

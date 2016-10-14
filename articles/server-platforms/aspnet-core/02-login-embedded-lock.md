@@ -1,6 +1,7 @@
 ---
 title: Login with Embedded Lock
 description: This tutorial will show you can host the Lock widget inside your application instead of using the Lock widget which is hosted on the Auth0 domain.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

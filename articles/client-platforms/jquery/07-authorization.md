@@ -1,6 +1,7 @@
 ---
 title: Authorization
 description: This tutorial demonstrates how to assign roles to your users, and use those claims to authorize or deny a user to access certain routes in the app.
+budicon: 500
 ---
 
 <%= include('../../_includes/_package2', {

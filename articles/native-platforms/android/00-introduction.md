@@ -1,6 +1,7 @@
 ---
 title: Introduction
 description: Short Introduction to the Auth0 Android Quickstarts.
+budicon: 715
 ---
 
 This multistep quickstart guide will walk you through managing authentication in your android apps with Auth0.
