@@ -327,6 +327,7 @@ appliance:
 
   - title: Appliance Planning
     url: /appliance/appliance-overview
+    expanded: true
     children:
       - title: Overview
         url: /appliance/appliance-overview
@@ -341,6 +342,7 @@ appliance:
 
   - title: "Appliance Administration"
     url: "/appliance/admin"
+    expanded: true
     children:
       - title: Administrator's Manual
         url: /appliance/admin
