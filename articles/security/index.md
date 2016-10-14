@@ -22,9 +22,5 @@ description: Learn about various topics regarding how to handle sensitive data w
   '/tokens/refresh-token'
 ] }) %>
 
-## Preventing Security Attacks
 
-<%= include('../_includes/_topic-links', { links: [
-  '/security/common-threats'
-] }) %>
 
