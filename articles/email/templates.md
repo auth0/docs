@@ -33,7 +33,9 @@ You can use these macros to set the display name of the **From Address** to some
 
 You must add the [Sender Policy Framework (SPF)](http://en.wikipedia.org/wiki/Sender_Policy_Framework) and [DomainKeys Identified Mail (DKIM)](http://en.wikipedia.org/wiki/DKIM) DNS records to your domain's zone file to allow Auth0 to send digitally-signed emails on your behalf. Without these records, the emails may end up in your users' junkmail folders. Additionally, your users may see the following as the **From Address**:
 
-`MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrikamcorp.com`
+```text
+MyApp support@mail128-21.atl41.mandrillapp.com on behalf of MyApp support@fabrikamcorp.com
+```
 
 #### SPF Configuration
 
@@ -43,11 +45,13 @@ You can configure the SPF by adding a TXT record to your domain's zone file. You
 
 The DKIM configuration is configured by adding a TXT record to your domain's zone file. This domain should be the one you use to send emails. For example if you are using [Mandrill](https://www.mandrill.com/signup/) you would set the host name for this record to:
 
-`mandrill._domainkey`
+```text
+mandrill._domainkey
+```
 
 and the value to:
 
-```
+```text
 v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCrLHiExVd55zd/IQ/J/mRwSRMAocV/hMB3jXwaHH36d9NaVynQFYV8NaWi69c1veUtRzGt7yAioXqLj7Z4TeEUoOLgrKsn8YnckGs9i3B3tVFB+Ch/4mPhXWiNfNdynHWBcPcbJ8kjEQ2U8y78dHZj1YeRXXVvWob2OaKynO8/lQIDAQAB;
 ```
 
@@ -65,7 +69,7 @@ If the **Subject** field is empty, Auth0 will auto-populate this text depending 
 
 You can redirect users to a specific page on the **Allowed Callback URL** using the following:
 
-```
+```text
 {application.callback_domain}/result_page
 ```
 
@@ -75,7 +79,9 @@ If your application has multiple **Allowed Callback URL**s configured, Auth0 wil
 
 You can set up a different Redirect To URLs based on your Client ID. For example:
 
-`{% if application.clientID == '${account.clientId}' %} http://jwt.io {% else %} http://auth0.com {% endif %}`
+```text
+{% if application.clientID == '${account.clientId}' %} http://jwt.io {% else %} http://auth0.com {% endif %}
+```
 
 ::: panel-info SPA Issue
 For some single-page apps, the redirect to url can sometimes contain a hash that may be removed. This results in the **redirect To** url not working as expected. For more information, see: [Single-Page App Email Redirect Issue](/email/spa-redirect).
@@ -89,7 +95,7 @@ You can modify the lifetime of this link for security purposes. By default, the 
 
 If users click on an expired link and a **Redirect To** URL is configured, they will be redirected to the configured **Redirect To** URL. The following text will be appended to the query string:
 
-```
+```text
 http://myapplication.com/my_page/?email=john%contoso.com&message=Access%20expired&success=false
 ```
 
@@ -142,8 +148,9 @@ The use of Markdown in email templating has been **deprecated**, and is only ava
 
 For example, you can refer to attributes in the template as follows:
 
-`Hello @@user.given_name@@ @@user.family_name@@`
-
+```text
+Hello @@user.given_name@@ @@user.family_name@@
+```
 
 ### Verification Email
 
@@ -157,8 +164,11 @@ The following macros are available in the **Verification Email** template:
 
 If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
 
-```
-http://myapplication.com/my_page/?email=john%40contoso.com&message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.&success=true
+```text
+http://myapplication.com/my_page/ 
+  ?email=john%40contoso.com
+  &message=Your%20email%20was%20verified.%20You%20can%20continue%20using%20the%20application.
+  &success=true
 ```
 
 ### Welcome Email
@@ -183,8 +193,10 @@ The following macros are available in the **Change Password Confirmation** email
 
 If you configure a **Redirect To** URL, the user will be directed to this URL after clicking the verification link. The following will be appended to the query string:
 
-```
-http://myapplication.com/my_page/?success=true&message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
+```text
+http://myapplication.com/my_page/
+  ?success=true
+  &message=You%20can%20now%20login%20to%20the%20application%20with%20the%20new%20password.
 ```
 
 ### Blocked Account Email
