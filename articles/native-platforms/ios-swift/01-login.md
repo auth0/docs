@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial demonstrates how to integrate Lock in your iOS Swift project in order to present a login screen.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

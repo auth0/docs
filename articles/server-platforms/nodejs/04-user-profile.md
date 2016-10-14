@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial demonstrates how to fetch user profile information
+budicon: 292
 ---
 
 <%= include('../../_includes/_package2', {

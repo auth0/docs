@@ -1,6 +1,7 @@
 ---
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to perform certain actions in the app.
+budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
@@ -27,7 +28,7 @@ It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) inte
 
 First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
-``` 
+```
 if (user.email.indexOf('@example.com') > -1)
 ```
 

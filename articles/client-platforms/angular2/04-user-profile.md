@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial will show you how to integrate Auth0 with Angular2 to authenticate and fetch/show profile information.
+budicon: 292
 ---
 
 <%= include('../../_includes/_package', {

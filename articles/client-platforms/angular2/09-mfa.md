@@ -1,6 +1,7 @@
 ---
 title: Multifactor Authentication
 description: This tutorial demonstartes how to add Multifactor Authentication to your Angular 2 app with Auth0.
+budicon: 243
 ---
 
 <%= include('../../_includes/_package', {

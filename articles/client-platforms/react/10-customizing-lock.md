@@ -1,6 +1,7 @@
 ---
 title: Customizing Lock
 description: This tutorial will show you how to customize lock widget.
+budicon: 285
 ---
 
 <%= include('../../_includes/_package', {
@@ -47,7 +48,7 @@ export default class AuthService extends EventEmitter {
 
 ### Language Dictionary Specification
 
-You can also customize the text that `Lock` will display with the `languageDictionary` option parameter. 
+You can also customize the text that `Lock` will display with the `languageDictionary` option parameter.
  For more information, see: [Language Dictionary Specification](/libraries/lock/v10/customization#languagedictionary-object-).
 
 ```javascript

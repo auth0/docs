@@ -1,6 +1,7 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to use the Auth0 library to add custom authentication and authorization to your web app
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {
@@ -25,19 +26,19 @@ First we will create a new database connection and we will name it `custom-login
 
 **NOTE:** If you have an existing user store, or wish to store user credentials on your own server, see the custom database connection tutorial at [Authenticate Users with Username and Password using a Custom Database](/connections/database/mysql) for detailed steps on how to setup and configure it.
 
-Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option. 
+Log into Auth0, and select the [Connections > Database](${manage_url}/#/connections/database) menu option.
 
 Click the **Create DB Connection** button and provide a name for the database.
 
-You will be navigated to the connection's settings. 
+You will be navigated to the connection's settings.
 
 At the **Clients Using This Connection** section, enable the connection for your app.
 
-Now let's create a user. 
+Now let's create a user.
 
-Select the [Users](${manage_url}/#/users) menu option. 
+Select the [Users](${manage_url}/#/users) menu option.
 
-Click the **Create User** button and fill in the email, password, and the database at which the user will be created. Use an email address you have access to since creating the user will trigger a verification email to be sent. 
+Click the **Create User** button and fill in the email, password, and the database at which the user will be created. Use an email address you have access to since creating the user will trigger a verification email to be sent.
 
 Click **Save**.
 
@@ -80,7 +81,7 @@ We have also added code to retrieve the connection name, the value of the `auth0
 
 ## Test the App
 
-We are now ready to test the application! 
+We are now ready to test the application!
 
 Build and run the project using `mvn spring-boot:run`. Then, go to [http://localhost:3099/login](http://localhost:3099/login).
 

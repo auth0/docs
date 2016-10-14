@@ -1,6 +1,7 @@
 ---
 title: Introduction
 description: A multi-step quickstart guide to setup and manage authentication in your jQuery app using Auth0.
+budicon: 715
 ---
 
 This multistep quickstart guide will walk you through setting up and managing authentication in your jQuery apps using Auth0.

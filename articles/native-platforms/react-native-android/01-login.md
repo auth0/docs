@@ -2,6 +2,7 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to use the Auth0 React Native Android SDK to add authentication and authorization to your mobile app
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

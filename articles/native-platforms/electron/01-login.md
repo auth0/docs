@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial will show you how to use the Auth0 Electron SDK to add authentication and authorization to your app.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {

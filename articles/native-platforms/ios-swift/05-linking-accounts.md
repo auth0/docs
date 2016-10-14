@@ -1,6 +1,7 @@
 ---
 title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
+budicon: 345
 ---
 
 <%= include('../../_includes/_package', {
@@ -87,7 +88,7 @@ import Lock
 let client = A0Lock.sharedLock().apiClient()
 client.fetchUserProfileWithIdToken(idToken,
     success: { profile in
-        let identities = profile.identities as! [A0UserIdentity] 
+        let identities = profile.identities as! [A0UserIdentity]
         // you've got the linked accounts here
         // do something with them, e.g. display them on a table view
     }, failure: { error in

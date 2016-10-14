@@ -1,6 +1,7 @@
 ---
 title: Linking Accounts
 description: This tutorial will show you how to use Lock within your Android project to link two different accounts for the same user.
+budicon: 345
 ---
 
 This tutorial will show you how to use Lock within your Android project to link two different accounts for the same user.
@@ -69,7 +70,7 @@ Now we can link the accounts. You have a main user along with another account yo
 UsersAPIClient client = new UsersAPIClient(auth0, credentials.getIdToken());
   String primaryUserId = mUserProfile.getId();
   client.link(primaryUserId, secondaryCredentials.getIdToken());
-```   
+```
 
 ## Retrieve Linked Accounts
 

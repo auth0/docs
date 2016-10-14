@@ -1,6 +1,7 @@
 ---
 title: Calling APIs
 description: This tutorial demonstrates how to use angular2-jwt in Angular 2 applications to make authenticated API calls
+budicon: 546
 ---
 
 <%= include('../../_includes/_package', {
@@ -112,7 +113,7 @@ export class Ping {
         error => this.message = error._body
       );
   }
-  
+
   ...
 }
 ```
