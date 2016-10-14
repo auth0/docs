@@ -1,5 +1,5 @@
 ---
-title: Auth0 Angular 1.x Tutorial
+title: Login
 description: This tutorial will show you how to use the Auth0 with Angular 1.x applications.
 budicon: 448
 ---
