@@ -207,16 +207,16 @@ Optionally (if `scope=openid` is added in the authorization request):
 ```text
 ${account.callback}# // Note the hash, not querystring
   access_token=ACCESS_TOKEN
-  &id_token=JSON_WEB_TOKEN
+  &id_token=ID_TOKEN
 ```
 
 Clients typically extract the URI fragment with the __Access Token__ and cancel the redirection. The client code will then interact with other endpoints using the token in the fragment.
 
 > Note that tokens can become large and under certain conditions the URL might be truncated (e.g. some browsers have URL length limitations). Be especially careful when using the `scope=openid profile` that will generate a JWT with the entire user profile in it(especially with Azure AD which returns a fairly long JWT). You can define specific attributes to return in the JWT (e.g. `scope=openid email name`).
 
-### 4. Calling your API with a JWT (optional)
+### 4. Calling your API (optional)
 
-Once your application has a JWT (returned in the `id_token` part of the hash fragment), it can be used to make authenticated calls to your API.
+Once your application has an `access_token`, it can be used to make authenticated calls to your API.
 The way this is done depends on how your API is implemented, but the most common way (which is used by all Auth0 seed projects) is to use the [Bearer authentication scheme](https://tools.ietf.org/html/rfc6750#section-2.1).
 For example:
 
@@ -226,7 +226,7 @@ Host: my-api.example.com
 Authorization: Bearer eyJ...
 ```
 
-where `eyJ...` is the JWT obtained from Auth0. The `curl` equivalent would be as follows:
+where `eyJ...` is the `access_token` obtained from Auth0. The `curl` equivalent would be as follows:
 
 ```har
 {
