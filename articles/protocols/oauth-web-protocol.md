@@ -13,9 +13,6 @@ The steps are quite simple though:
   <div class="setup-callback">
   <p>After authenticating the user on Auth0, we will do a GET to a URL on your web site. For security purposes, you have to register this URL  on the <strong>Application Settings</strong> section on Auth0 Admin app.</p>
 
-  <pre><code>${account.callback}</pre></code>
-  </div>
-
 2. Triggering login manually or integrating the Auth0Lock
 
 <%= include('../_includes/_lock-sdk') %>
