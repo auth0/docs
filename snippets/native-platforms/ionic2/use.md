@@ -15,8 +15,8 @@ declare var Auth0Lock: any;
 export class AuthService {
 
   jwtHelper: JwtHelper = new JwtHelper();
-  auth0 = new Auth0({clientID: Auth0Vars.AUTH0_CLIENT_ID, domain: Auth0Vars.AUTH0_DOMAIN });
-  lock = new Auth0Lock(Auth0Vars.AUTH0_CLIENT_ID, Auth0Vars.AUTH0_DOMAIN, {
+  auth0 = new Auth0({clientID: '<%= account.clientId %>', domain: '<%= account.namespace %>' });
+  lock = new Auth0Lock('<%= account.clientId %>', '<%= account.namespace %>', {
     auth: {
       redirect: false,
       params: {
