@@ -1,27 +1,15 @@
 ```js
-// app/services/auth/auth.ts
+// src/services/auth/auth.ts
 
 ...
-
-public login() {
-  // Show the Auth0 Lock widget
-  this.lock.show();    
-}
-
-public logout() {
-  this.local.remove('profile');
-  this.local.remove('id_token');
-  this.local.remove('refresh_token');
-  this.zoneImpl.run(() => this.user = null);
-  // Unschedule the token refresh
-  this.unscheduleRefresh();
-}
 
 public scheduleRefresh() {
   // If the user is authenticated, use the token stream
   // provided by angular2-jwt and flatMap the token
-  let source = this.authHttp.tokenStream.flatMap(
+
+  let source = Observable.of(this.idToken).flatMap(
     token => {
+      console.log('token here', token);
       // The delay to generate in this case is the difference
       // between the expiry time and the issued at time
       let jwtIat = this.jwtHelper.decodeToken(token).iat;
@@ -43,7 +31,7 @@ public startupTokenRefresh() {
   // If the user is authenticated, use the token stream
   // provided by angular2-jwt and flatMap the token
   if (this.authenticated()) {
-    let source = this.authHttp.tokenStream.flatMap(
+    let source = Observable.of(this.idToken).flatMap(
       token => {
         // Get the expiry time to generate
         // a delay in milliseconds
@@ -78,16 +66,18 @@ public unscheduleRefresh() {
 public getNewJwt() {
   // Get a new JWT from Auth0 using the refresh token saved
   // in local storage
-  this.local.get('refresh_token').then(token => {
+  this.storage.get('refresh_token').then(token => {
     this.auth0.refreshToken(token, (err, delegationRequest) => {
       if (err) {
         alert(err);
       }
-      this.local.set('id_token', delegationRequest.id_token);
+      this.storage.set('id_token', delegationRequest.id_token);
+      this.idToken = delegationRequest.id_token;
     });
   }).catch(error => {
     console.log(error);
   });
+  
 }
 
 ...  
