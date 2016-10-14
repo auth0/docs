@@ -19,12 +19,12 @@ description: Learn about various topics regarding how to handle sensitive data w
 <%= include('../_includes/_topic-links', { links: [
   '/security/store-tokens',
   '/security/token-exp',
-  '/tokens/refresh-token',
+  '/tokens/refresh-token'
 ] }) %>
 
 ## Preventing Security Attacks
 
 <%= include('../_includes/_topic-links', { links: [
-  '/security/common-threats',
+  '/security/common-threats'
 ] }) %>
 
