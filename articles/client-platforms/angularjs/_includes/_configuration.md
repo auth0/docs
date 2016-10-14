@@ -2,13 +2,7 @@
 
 This guide assumes that you are using Angular Router in your application, but you are free to use UI Router if you wish.
 
-#### Note About HTML5 Mode and UI Router
-
-If you are using HTML5 mode by setting `$locationProvider.html5Mode(true)`, add a hash to your `<base>` tag.
-
-```html
-  <base href="/#">
-```
+#### Note About UI Router
 
 If you are using UI Router in your Angular app, use `lock.interceptHash()` to ensure that the `authenticated` event from Lock is fired.
 
