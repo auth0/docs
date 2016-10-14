@@ -15,7 +15,9 @@ description: How to enable API Authorization on the Auth0 dashboard.
 ::: panel-info Enable APIs Section
 If you can't see the *APIs* tab in the left hand menu of the dashboard then you will have to enable it.
 Navigate to your [Account Advanced Settings](${manage_url}/#/account/advanced), scroll down to the *Settings* section and toggle the **Enable APIs Section** switch.
+
 ![Toggle switch to enable APIs section](/media/articles/api-auth/enable-apis-section.png)
+
 You should now see the [API section](${manage_url}/#/apis).
 :::
 
