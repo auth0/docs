@@ -1,6 +1,8 @@
 ---
-description: Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. SAML, WS-Federation, LDAP). This article will introduce you to these protocols and how you might use them.
+title: Identity Protocols supported by Auth0
+description: Description of the Identity Protocols supported by Auth0.
 ---
+
 # Identity Protocols supported by Auth0
 
 Auth0 implements proven, common and popular identity protocols used in consumer oriented web products (e.g. OAuth / OpenId Connect) and in enterprise deployments (e.g. [SAML](/saml-configuration), WS-Federation, LDAP). In most cases you won't need to go this deep to use Auth0.
@@ -224,8 +226,7 @@ Host: my-api.example.com
 Authorization: Bearer eyJ...
 ```
 
-where `eyJ...` is the JWT obtained from Auth0.
-The `curl` equivalent would be as follows:
+where `eyJ...` is the JWT obtained from Auth0. The `curl` equivalent would be as follows:
 
 ```har
 {
@@ -239,7 +240,7 @@ The `curl` equivalent would be as follows:
 ```
 
 Note that the header name in this case is `Authorization`, and its value is `Bearer eyJ...` (separated by one space).
---------
+
 
 ## OAuth Resource Owner Password Credentials Grant
 

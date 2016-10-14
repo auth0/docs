@@ -789,6 +789,22 @@
     "to": "/tokens/refresh-token"
   },
   {
+    "from": "/refresh_token",
+    "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/tokens/refresh_token",
+    "to": "/tokens/refresh-token"
+  },
+  {
+    "from": "/tokens/id_token",
+    "to": "/tokens/id-token"
+  },
+  {
+    "from": "/tokens/access_token",
+    "to": "/tokens/access-token"
+  },
+  {
     "from": "/salesforce-community",
     "to": "/connections/social/salesforce"
   },

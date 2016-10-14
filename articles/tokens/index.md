@@ -16,44 +16,44 @@ First there are a couple different categories of tokens:
 
 There are six primary tokens used in Auth0's token based authentication scenarios and referenced in Auth0 documentation:
 
-- [Auth0 `id_token` (JWT)](#auth0-id_token-jwt-)
-- [Auth0 `access_token`](#auth0-access_token)
+- [ID Token](#id-token)
+- [Access Token](#access-token)
 - [Identity Provider Access Tokens](#identity-provider-access-tokens)
-- [Auth0 `refresh_token`](#auth0-refresh_token)
+- [Refresh Token](#refresh-token)
 - [Delegation Tokens](#delegation-tokens)
 - [Auth0 Management APIv2 Token](#auth0-management-apiv2-token)
 
-## Auth0 `id_token` (JWT)
+### ID Token
 
-The Auth0 `id_token` is a token in JSON Web Token (JWT) format, which provides a mechanism for transferring claims about a user from Identity Providers, who are authoritative sources of such information, to other relying parties, such as websites or web services, also known as service providers, who need such information.  The claims included in a JWT can be basic profile attributes such as a name or email address as well as security information such as a group membership or the support plan a user is entitled to use.
+The ID token, usually referred to as `id_token` in code samples, is a [JSON Web Token (JWT)](/jwt) that contains user profile attributes represented in the form of _claims_. The `id_token` is consumed by the client and used to get user information like the user's name, email, and so forth, typically used for UI display.
 
 [More information](/tokens/id_token)
 
-## Auth0 `access_token`
+### Access Token
 
-The Auth0 access token is a random, opaque string and was used to call portions of the Auth0 Management API (API v1) and the `/userinfo` endpoint within the Auth0 Authentication API.
+The Access Token, commonly referred to as `access_token`, is a credential that can be used by a client to access an API. Auth0 uses access tokens to protect access to the Auth0 Management API.
 
 [More information](/tokens/access_token)
 
-## Identity Provider Access Tokens
+### Identity Provider Access Tokens
 
 When a user authenticates via Auth0 with another social provider's authentication service, such as Facebook or LinkedIn, the social provider will return an access token that can be used by the client program to call that social provider's API.
 
 [More information](/tokens/idp)
 
-## Auth0 `refresh_token`
+### Refresh Token
 
-The Refresh token is a long-lived token that is used to obtain a new [`id_token`](#auth0-idtoken-jwt) after a previous one has expired.  This is useful for applications running on mobile devices that call remote APIs and do not want to require the user to log in every time the user uses the mobile app.
+The Refresh Token, commonly referred to as `refresh_token`, is a long-lived [JWT](/jwt) that is used to obtain a new [id_token](#id-token) or a new [access token](#access-token).
 
-[More information](/tokens/refresh_token)
+[More information](/tokens/refresh-token)
 
-## Delegation Tokens
+### Delegation Tokens
 
-The Auth0 [`id_token`](#auth0-idtoken-jwt)'s can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
+The Auth0 [`id_token`](#id-token) can be exchanged for another token, called a Delegation Token, that can be used to call either other application APIs registered as clients in the same Auth0 tenant or APIs represented by some types of application Addons registered in the same Auth0 tenant.
 
 [More information](/tokens/delegation)
 
-## Auth0 Management APIv2 Token
+### Auth0 Management APIv2 Token
 
 The Auth0 Management APIv2 token is used to call v2 of the Auth0 Management API.  This allows a specific tenant in Auth0 to call Auth0 APIv2.  This APIv2 token is a JWT, and contains various scope claims, such as `read:users` or `update:clients`, and is signed with a client API key and secret for the entire tenant.
 
@@ -109,10 +109,12 @@ This is best done by registering the API in Auth0 and obtaining a delegation tok
 
 ### Logout
 
-* [Discussion of clearing cookies set by auth0, use of the returnTo parm](/logout)
+* [Discussion of clearing cookies set by auth0, use of the `returnTo` param](/logout)
 
 ### Account Linking
 
 * [How to link accounts and impact on user profile and tokens](/link-accounts)
 
-### [Understanding the expiration of different token types](/security/token-exp)
+### Other 
+
+* [Understanding the expiration of different token types](/security/token-exp)
