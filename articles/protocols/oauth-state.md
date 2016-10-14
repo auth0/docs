@@ -14,19 +14,27 @@ Note: Depending on the application type or framework this may be included for th
 
 1. Before redirecting a request to the [IdP](/identityproviders), have the client generate a random string.
 
-`xyzABC123`
+```
+xyzABC123
+```
 
 2. Save this string to a variable in [web storage.](/security/store-tokens#web-storage-localstorage-sessionstorage-)
 
-`auth0-authorize = xyzABC123`
+```
+auth0-authorize = xyzABC123
+```
 
 3. Send this value as the `state` parameter in the request.
 
-`tenant.auth0.com/authorize?...&state=xyzABC123`
+```
+tenant.auth0.com/authorize?...&state=xyzABC123
+```
 
 4. After the request is sent and when the user is redirected back by Auth0 to the client and the state value will be included. Note that depending on the type of connection used, this value might be in the body of the request or in the query string.
 
-`/login/callback?...&state=xyzABC123`
+```
+/login/callback?...&state=xyzABC123
+```
 
 5. Use this returned state value to compare to the previously stored value. If the values match then approve the request, else deny the request. Using this field can help prevent cross-site request forgery
 
