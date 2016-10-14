@@ -1,3 +1,7 @@
+---
+description: This page describes different types of cyber attacks and what steps can be taken to prevent them.
+---
+
 # Common Threats and How to Prevent Them
 
 ## Man-in-the-Middle (MitM) Attacks 

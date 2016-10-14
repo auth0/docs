@@ -1,3 +1,7 @@
+---
+decription: Explains how to securely store tokens used in token-based authentication. 
+---
+
 # Where to Store Tokens
 
  This document explains how to securely store tokens used in token-based authentication. The following assumes a basic knowledge of JSON Web Tokens (JWTs). To learn more about JWTs see:
