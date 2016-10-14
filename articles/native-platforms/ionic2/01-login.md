@@ -7,7 +7,7 @@ budicon: 448
 
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
-  repo: 'auth0-ionic2-sample',
+  repo: 'auth0-ionic2-samples',
   path: '01-Login'
 }) %>
 
