@@ -43,29 +43,29 @@ The Auth0 logout endpoint logs you out from Auth0, and optionally from your iden
 
 ## Redirect Users After Logout
 
-To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value:
+To redirect a user after logout, add a `returnTo` querystring parameter with the target URL as the value. It is suggested that you URL Encode the target URL being passed in, for example to redirect the user to `http://www.example.com`, you can make the following request:
 
 ```text
-https://${account.namespace}/v2/logout?returnTo=http://www.example.com
+https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
 ```
 
-You will need to add the `returnTo` URL as an `Allowed Logout URLs` in one of two places:
+You will need to add the non URL Encoded `returnTo` URL (i.e. for these examples it is `http://www.example.com`) as an `Allowed Logout URLs` in one of two places:
 
 * For logout requests that do not include the `client_id` parameter, for example:
 
     ```text
-    https://${account.namespace}/v2/logout?returnTo=http://www.example.com
+    https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com
     ```
 
-  you must add the `returnTo` URL to the `Allowed Logout URLs` list in the *Advanced* tab of your **Account settings** page. See [Setting Allowed Logout URLs at the Account Level](#setting-allowed-logout-urls-at-the-account-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the `Allowed Logout URLs` list in the *Advanced* tab of your **Account settings** page. See [Setting Allowed Logout URLs at the Account Level](#setting-allowed-logout-urls-at-the-account-level) for more information.
 
 * For logout requests that include the `client_id` parameter, for example:
 
     ```text
-    https://${account.namespace}/v2/logout?returnTo=http://www.example.com&client_id=CLIENT_ID
+    https://${account.namespace}/v2/logout?returnTo=http%3A%2F%2Fwww.example.com&client_id=CLIENT_ID
     ```
 
-  you must add the `returnTo` URL to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Setting Allowed Logout URLs at the App Level](#setting-allowed-logout-urls-at-the-app-level) for more information.
+  you must add the `returnTo` URL (i.e. `http://www.example.com`) to the `Allowed Logout URLs` list in the **Settings** tab of your Auth0 app that is associated with the specified `CLIENT_ID`. See [Setting Allowed Logout URLs at the App Level](#setting-allowed-logout-urls-at-the-app-level) for more information.
 
 
 ### Set the *Allowed Logout URLs* at the Account Level
