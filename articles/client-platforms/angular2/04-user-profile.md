@@ -4,14 +4,10 @@ description: This tutorial will show you how to integrate Auth0 with Angular2 to
 budicon: 292
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgFilePath: '04-User-Profile/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '04-User-Profile'
 }) %>
 
 In this step, we will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.
