@@ -13,3 +13,18 @@ description: Learn about various topics regarding how to handle sensitive data w
   </p>
 </div>
 
+
+## Handling Tokens
+
+<%= include('../_includes/_topic-links', { links: [
+  '/security/store-tokens',
+  '/security/token-exp',
+  '/tokens/refresh-token'
+] }) %>
+
+## Preventing Security Attacks
+
+<%= include('../_includes/_topic-links', { links: [
+  '/security/common-threats'
+] }) %>
+

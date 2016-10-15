@@ -1,5 +1,5 @@
 ---
-decription: Explains how to securely store tokens used in token-based authentication. 
+description: Explains how to securely store tokens used in token-based authentication. 
 ---
 
 # Where to Store Tokens

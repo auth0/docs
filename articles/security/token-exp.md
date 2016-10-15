@@ -1,5 +1,5 @@
 ---
-decription: Lists the expiration of different types of tokens that are referenced in Auth0 documentation. 
+description: Lists the expiration of different types of tokens that are referenced in Auth0 documentation. 
 ---
 
 # Token Expiration 
