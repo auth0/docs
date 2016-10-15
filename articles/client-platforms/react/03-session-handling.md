@@ -4,13 +4,10 @@ description: This tutorial demonstrates how to integrate Auth0 with ReactJS to a
 budicon: 280
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Session-Handling',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-sample',
+  path: '03-Session-Handling'
 }) %>
 
 The previous steps of this tutorial explain how to implement login using either `Lock` or the `Auth0.js` library to authenticate users in your application.
