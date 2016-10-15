@@ -4,14 +4,10 @@ description: This tutorial will show you how to integrate Auth0 with Angular 2 t
 budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: '05-Linking-Accounts/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '05-Linking-Accounts'
 }) %>
 
 <%= include('../../_includes/_linking_accounts') %>
