@@ -4,22 +4,16 @@ description: This tutorial will show you how to use the Auth0 Vue.js SDK to add 
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgOrg: 'auth0-samples',
-  githubUrl: 'https://github.com/auth0-samples/auth0-vue-samples/tree/master/00-Starter-Seed',
-  pkgRepo: 'auth0-vue-samples',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-vue-samples',
+  path: '01-Login'
 }) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Vue.js 1.0.16
 :::
-
-
 
 ${include('../\_callback')}
 
