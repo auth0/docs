@@ -86,7 +86,7 @@ can use one of the predefined services that `HWIOAuthBundle` provides.
 
 This is where you set the filters to select which pages are protected (aka, needs login). You can read more on how to configure this at the Symfony [security](http://symfony.com/doc/current/book/security.html) docs.
 
-This is a basic example that allows anonymous users and then restricts access to the `/demo/hello/` route. It doesn't store the users in a db.
+This is a basic example that allows anonymous users and then restricts access to the `/demo/hello/` route. It doesn't store the users in a DB.
 
 This file is `app/config/security.yml`:
 
@@ -124,4 +124,4 @@ Notice that we need to identify the user provided selected in step 6 both in the
 
 #### SSL certificate problem: self signed certificate in certificate chain
 
-There is an issue with CAs database in your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
+There is an issue with CAs database on your computer. Need to download this [CAs database](https://curl.haxx.se/ca/cacert.pem) to c:\cacert.pem for example and point it in php.ini with `openssl.cafile=c:/cacert.pem`.
