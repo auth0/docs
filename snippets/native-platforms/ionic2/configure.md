@@ -17,7 +17,7 @@ let storage: Storage = new Storage();
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
     globalHeaders: [{'Accept': 'application/json'}],
-    tokenGetter: (() => storage.get('id_token').then(token => { return token }))
+    tokenGetter: (() => storage.get('id_token'))
   }), http);
 }
 
