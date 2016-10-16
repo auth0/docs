@@ -144,7 +144,7 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src="https://cdn.auth0.com/js/lock/10.3/lock.min.js")
+    script(src="https://cdn.auth0.com/js/lock/10.4/lock.min.js")
   body
     block content
 ```
