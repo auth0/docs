@@ -13,9 +13,12 @@ In this tutorial you will learn how to use Auth0 to secure your [Hapi](http://ha
   pkgType: 'server'
 }) %>
 
-
-
-**Otherwise, Please follow the steps below to configure your existing Hapi app to use it with Auth0.**
+::: panel-info System Requirements
+This tutorial and seed project have been tested with the following:
+* Node.js 4.6.0
+* Hapi.js 13.5.3
+* hapi-auth-jwt 4.0.0
+:::
 
 ### 1. Add hapi-auth-jwt dependency
 
