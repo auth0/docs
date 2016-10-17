@@ -1,19 +1,14 @@
 ---
 title: Custom Login
 description: This tutorial demonstrates how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
+budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/02-Custom-Login',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '02-Custom-Login'
 }) %>
-
-
 
 ## Implement the Login
 

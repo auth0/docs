@@ -1,6 +1,7 @@
 ---
 title: Customizing Lock
 description: This tutorial will show you how to customize lock widget.
+budicon: 285
 ---
 
 <%= include('../../_includes/_package2', {

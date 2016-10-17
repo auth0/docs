@@ -1,6 +1,7 @@
 ---
 title: Multifactor Authentication
 description: This tutorial demonstrates how to add Multifactor Authentication to your Java Spring Security web app with Auth0.
+budicon: 243
 ---
 
 <%= include('../../_includes/_package', {

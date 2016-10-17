@@ -2,6 +2,7 @@
 title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 Xamarin SDK to add authentication and authorization to your mobile app.
+budicon: 448
 ---
 
 ::: panel-info System Requirements

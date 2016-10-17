@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This example demonstrates how to display the user's profile
+budicon: 292
 ---
 
 <%= include('../../_includes/_package', {
@@ -27,7 +28,7 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
 (function() {
 
     ...
-  
+
   function authService($rootScope, lock, authManager, jwtHelper) {
 
     ...
@@ -36,9 +37,9 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
     // This method is called from app.run.js
     function registerAuthenticationListener() {
       lock.on('authenticated', function(authResult) {
-    
+
     ...
-    
+
         lock.getProfile(authResult.idToken, function(error, profile) {
           if (error) {
             console.log(error);
@@ -47,15 +48,15 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
           localStorage.setItem('profile', JSON.stringify(profile));
 
         });
-    
+
     ...
-    
+
       });
     }
 
     ...
 
-  
+
   }
 })();
 

@@ -46,7 +46,7 @@ We will use the [user_id](/user-profile/normalized#storing-user-data) as the use
 
 The Node.js backend authenticates requests to the specific URI associated with getting the user’s personal data from the database. This is accomplished through the validation of a JSON Web Token.
 
->[Learn about token based authentication and how to easily implement JWT in your applications.](https://auth0.com/learn/token-based-authentication-made-easy/)
+>[Learn about token based authentication and how to easily implement JWT in your applications.](/jwt)
 
 Here is the code implementing JWT validation from the Node.js seed project:
 ```
@@ -108,7 +108,7 @@ function queryGenre(user_id, res){
 
 Any data you are storing with Auth0 in addition to what is already in the user profile should go in Metadata. [Metadata](/metadata) is JSON in the user profile that is used to store any extra data to be used in the authentication process by Auth0. There are two kinds of Metadata: `app_metadata` and `user_metadata`.
 
-### `app_metadata`
+### App Metadata
 
  `app_metadata` is used for storing supplementary data associated with authentication that is read-only for the user. Its three most common uses are:
 
@@ -116,7 +116,7 @@ Any data you are storing with Auth0 in addition to what is already in the user p
 - Plans: Settings that must not be changed directly by the user without confirmation of a subscription. These require the user to pay or provide proof of purchase through the app to alter their in-app experience in some way. This includes things like a music or video streaming subsciption.
 - External IDs: Used in associating external accounts (not authentication providers) with the identity provider account that authenticated the user through Auth0. For example, Auth0 could use an employee ID which identifies the user's account with their employer.
 
-### Example of `app_metadata`
+### Example of App Metadata
 
 Some data from our music app that would be appropriate to store in `app_metadata` is music streaming subscriptions. Another example is the user’s permission to edit the app’s featured playlists. Both of these are appropriate for Metadata because they are important in authenticating the user and customizing their experience as they are logged in. What makes them appropriate for `app_metadata` instead of `user_metadata` is that they must not be easily changed by the user. We implemented the permissions example with two Auth0 [rules](/rules).
 
@@ -202,11 +202,11 @@ The app recognizes whether the user is a playlist editor or not and displays the
 We display the user's permissions by welcoming them as an "editor" if `playlist_editor` is in the `roles` array stored in their `user_metadata`:
 <div class="phone-mockup"><img src="/media/articles/tutorials/data-scenarios/3-home.png" alt="Mobile example screenshot"/></div>
 
-### `user_metadata`
+### User Metadata
 
 `user_metadata` is data determined by the user and stored in the user profile, such as preferences, customization of their avatar, or anything else that they get to choose which alters their experience in the app upon logging in.
 
-### Example of `user_metadata`
+### Example of User Metadata
 
 In the case of our music app, we should consider that the user would want to change their `displayName`, which is how they are identified to other users of the app and how the user is addressed when they are welcomed upon authentication. They could also want to change their music streaming settings. Both of these things would be stored in `user_metadata` since they are up to the user to determine. We stored the variable `displayName` in `user_metadata` and allowed the user to update their displayed name for the purpose of this example.
 

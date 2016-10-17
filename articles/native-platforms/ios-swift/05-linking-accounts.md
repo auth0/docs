@@ -1,19 +1,14 @@
 ---
 title: Linking Accounts
 description: This tutorial will show you how to link multiple accounts within the same user.
+budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/05-Linking-Accounts',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '05-Linking-Accounts'
 }) %>
-
-
 
 ## Before Starting
 
@@ -87,7 +82,7 @@ import Lock
 let client = A0Lock.sharedLock().apiClient()
 client.fetchUserProfileWithIdToken(idToken,
     success: { profile in
-        let identities = profile.identities as! [A0UserIdentity] 
+        let identities = profile.identities as! [A0UserIdentity]
         // you've got the linked accounts here
         // do something with them, e.g. display them on a table view
     }, failure: { error in

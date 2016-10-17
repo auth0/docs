@@ -1,6 +1,7 @@
 ---
 title: Session Handling
 description: This tutorial will show you how to handle sessions in your app, with the aim of preventing the user from being asked for credentials each time the app is launched.
+budicon: 280
 ---
 
 ::: panel-info System Requirements

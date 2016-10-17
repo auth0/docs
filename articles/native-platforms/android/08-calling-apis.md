@@ -2,6 +2,7 @@
 title: Calling APIs
 description: This tutorial will show you how to use the Auth0 tokens to make authenticated API calls.
 seo_alias: android
+budicon: 546
 ---
 
 This tutorial demonstrates how to use a previously saved token to authenticate your API calls.
@@ -48,7 +49,7 @@ String url = "YOUR API URL";
 
 Next you need to add the token to the request header so that authenticated requests can be made. In this example we use Android's `Volley` and a custom `JsonObjectRequest`.
 
-```java     
+```java
 // Retrieve the credentials from where you saved them
 String tokenID = getCredentials.getTokenID();
 
@@ -100,7 +101,7 @@ At this point, you only need to schedule the request.
 
 ```java
 // Add the request to the RequestQueue.
-queue.add(authorizationRequest);        
+queue.add(authorizationRequest);
 ```
 
 From here, check that the request was made and that the response came back as expected. You will need to configure your server-side to protect your API endpoints with the secret key for our Auth0 application.

@@ -1,6 +1,7 @@
 ---
 title: Calling APIs
 description: This tutorial demonstrates how to make secure calls to an API
+budicon: 546
 ---
 
 <%= include('../../_includes/_package', {
@@ -27,7 +28,7 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 (function () {
 
   ...
- 
+
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
     ...
@@ -53,18 +54,18 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 
 This basic example will attach the JWT as an `Authorization` header to all requests. This may not be desired as some requests don't require authentication. You can choose not to send the JWT by specifying `skipAuthorization: true`.
 
-```js 
+```js
 // www/components/home/home.service.js
 
 (function () {
 
   ...
-  
+
   function HomeController($state, authService, $scope, $http, $ionicPopup) {
     var vm = this;
 
   ...
-  
+
     vm.ping = ping;
 
   ...
@@ -91,7 +92,7 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
 (function () {
 
   ...
- 
+
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
     ...
@@ -103,7 +104,7 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
     if (options.url.substr(options.url.length - 5) == '.html') {
       return null;
     }
-    
+
         return localStorage.getItem('id_token');
       },
       whiteListedDomains: ['localhost'],
@@ -128,7 +129,7 @@ If for any reason you would want to send different tokens based on different URL
 (function () {
 
   ...
- 
+
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider, $httpProvider) {
 
     ...
@@ -141,7 +142,7 @@ If for any reason you would want to send different tokens based on different URL
         } else {
           return localStorage.getItem('id_token');
         }
-    
+
         return localStorage.getItem('id_token');
       },
       whiteListedDomains: ['localhost'],

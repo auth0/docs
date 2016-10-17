@@ -1,6 +1,7 @@
 ---
 title: Customizing Lock
 description: This tutorial demonstrates how to customize the Lock widget
+budicon: 243
 ---
 
 <%= include('../../_includes/_package', {
@@ -33,7 +34,7 @@ You can set custom theme properties, such as a different logo or primary color, 
   ...
 
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
-   
+
     ...
 
     lockProvider.init({
@@ -73,7 +74,7 @@ You can also customize the text that `Lock` will display with the `languageDicti
   ...
 
   function config($stateProvider, $urlRouterProvider, lockProvider, jwtOptionsProvider) {
-   
+
     ...
 
     lockProvider.init({

@@ -1,16 +1,13 @@
 ---
 title: Custom Login
 description: This tutorial will show you how to use the Auth0 library to add custom authentication and authorization to your web app.
+budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '02-Custom-Login',
-  pkgFilePath: '02-Custom-Login/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '02-Custom-Login'
 }) %>
 
 In the [previous step](/quickstart/spa/angular2/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).

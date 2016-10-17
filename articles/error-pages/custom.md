@@ -69,7 +69,7 @@ curl -H "Authorization: Bearer YOUR_TOKEN" -X PATCH  -H "Content-Type: applicati
 
 To assist you in customizing the required JSON snippet that you would include as the `body` parameter, the "Show samples" link in the upper right corner of the API Explorer Window will display the following sample code:
 
-```text
+```json
 {
   "error_page": {
     "html": "",

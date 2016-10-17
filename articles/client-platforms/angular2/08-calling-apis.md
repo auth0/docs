@@ -1,16 +1,13 @@
 ---
 title: Calling APIs
 description: This tutorial demonstrates how to use angular2-jwt in Angular 2 applications to make authenticated API calls
+budicon: 546
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '08-Calling-Api',
-  pkgFilePath: '08-Calling-Api/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '08-Calling-Api'
 }) %>
 
 <%= include('../../_includes/_calling_apis') %>
@@ -112,7 +109,7 @@ export class Ping {
         error => this.message = error._body
       );
   }
-  
+
   ...
 }
 ```

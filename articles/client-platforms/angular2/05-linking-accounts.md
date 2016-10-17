@@ -1,16 +1,13 @@
 ---
 title: Linking Accounts
 description: This tutorial will show you how to integrate Auth0 with Angular 2 to link accounts.
+budicon: 345
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '05-Linking-Accounts',
-  pkgFilePath: '05-Linking-Accounts/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '05-Linking-Accounts'
 }) %>
 
 <%= include('../../_includes/_linking_accounts') %>
@@ -144,15 +141,15 @@ public linkAccount() {
 
 ## User Profile Linked Accounts Information
 
-The user profile contains an array of identities which includes the profile information from linked providers. 
+The user profile contains an array of identities which includes the profile information from linked providers.
 
-To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`. 
+To view a user's identities, access the [Users](${manage_url}/#/users) page on the Auth0 dashboard, select a user, and scroll down to `identities`.
 
 This example shows a user with a linked Google account:
 
 ![User identities](/media/articles/users/user-identities-linked.png)
 
-If you fetch the profile after linking accounts, this same information will be available. 
+If you fetch the profile after linking accounts, this same information will be available.
 
 You can display this information and provide an **Unlink** button:
 

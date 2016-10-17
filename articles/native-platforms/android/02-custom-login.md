@@ -2,6 +2,7 @@
 title: Custom Login
 description: This tutorial will show you how to use the Auth0 authentication API in your Android project to create a custom login screen.
 seo_alias: android
+budicon: 448
 ---
 
 This quickstart will show you how to add Auth0 login capabilities while using a customized login screen.
@@ -57,10 +58,10 @@ First, in your customized login method, instantiate the Authentication API:
 ```java
 private void login(String email, String password) {
     Auth0 auth0 = new Auth0(${account.clientId}, ${account.namespace});
-    AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);  
+    AuthenticationAPIClient client = new AuthenticationAPIClient(auth0);
 
     // proper login
-}      
+}
 ```
 
 Then, login using the newly created client:

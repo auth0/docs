@@ -1,6 +1,7 @@
 ---
 title: Authentication
 name: Shows how to secure your API
+budicon: 500
 ---
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.

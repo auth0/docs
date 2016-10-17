@@ -43,6 +43,9 @@ articles:
     url: "/rules"
     children:
 
+      - title: "Overview"
+        url: "/rules"
+
       - title: "User Metadata in Rules"
         url: "/rules/metadata-in-rules"
 
@@ -55,6 +58,10 @@ articles:
   - title: "API Authorization"
     url: "/api-auth"
     children:
+
+      - title: "Overview"
+        url: "/api-auth"
+
       - title: "Authorization Code Grant"
         url: "/api-auth/grant/authorization-code"
 
@@ -71,6 +78,9 @@ articles:
     url: "/extensions"
     children:
 
+      - title: "Overview"
+        url: "/extensions"
+
       - title: "Creating Extensions"
         url: "/extensions/custom-extensions"
 
@@ -86,6 +96,9 @@ articles:
   - title: "Identity Providers"
     url: "/identityproviders"
     children:
+
+      - title: "Overview"
+        url: "/identityproviders"
 
       - title: "Custom Social Connections"
         url: "/extensions/custom-social-extensions"
@@ -113,6 +126,9 @@ articles:
     url: "/sso"
     children:
 
+      - title: "Overview"
+        url: "/sso"
+
       - title: "Server-side (Regular Web Apps)"
         url: "/sso/regular-web-apps-sso"
 
@@ -123,6 +139,10 @@ articles:
   - title: "User Profile"
     url: "/user-profile"
     children:
+
+      - title: "Overview"
+        url: "/user-profile"
+        children:
 
       - title: "Metadata"
         url: "/metadata"
@@ -156,6 +176,9 @@ articles:
   - title: "Multifactor Authentication"
     url: "/multifactor-authentication"
     children:
+
+      - title: "Overview"
+        url: "/multifactor-authentication"
 
       - title: "Auth0 Guardian"
         url: "/multifactor-authentication/guardian"
@@ -197,6 +220,9 @@ articles:
     url: "/connections/passwordless"
     children:
 
+      - title: "Overview"
+        url: "/connections/passwordless"
+
       - title: "Email Passwordless Authentication"
         url: "/connections/passwordless/email"
 
@@ -210,6 +236,9 @@ articles:
     url: "/email"
     children:
 
+      - title: "Overview"
+        url: "/email"
+
       - title: "Custom Email Handling"
         url: "/email/custom"
 
@@ -220,6 +249,9 @@ articles:
     url: "/error-pages/generic"
     children:
 
+      - title: "Generic Error Pages"
+        url: "/error-pages/generic"
+
       - title: "Custom Error Pages"
         url: "/error-pages/custom"
 
@@ -228,11 +260,29 @@ articles:
     url: "/connector"
     children:
 
+      - title: "Overview"
+        url: "/connector"
+
       - title: "Health Monitoring Extension"
         url: "/extensions/adldap-connector"
 
   - title: "CMS Plugins"
     url: "/cms"
+    children:
+
+      - title: "Overview"
+        url: "/cms"
+
+      # - title: "Wordpress"
+      #   url: "/cms#wordpress-plugin"
+      #
+      # - title: "Joomla"
+      #   url: "/cms#joomla-extension"
+
+      - title: "SharePoint"
+        url: "https://github.com/auth0/auth0-sharepoint"
+        forceFullReload: true
+        external: true
 
 apis:
 
@@ -244,39 +294,43 @@ apis:
 
   - title: Authentication API
     url: "/api/authentication"
+    external: true
     forceFullReload: true
-    alwaysExpand: true
-    children:
-      - title: Social Authentication
-        url: /api/authentication/scenarios/social
-
 
   - title: Management API
-    url: "/api/management/v2/"
+    url: "/api/management/v2/tokens"
     forceFullReload: true
-    alwaysExpand: true
+    expanded: true
     children:
+
       - title: API Tokens
-        url: /api/management/v2/tokens
+        url: "/api/management/v2/tokens"
         forceFullReload: true
+
       - title: Query String Syntax
-        url: /api/management/v2/query-string-syntax
+        url: "/api/management/v2/query-string-syntax"
         forceFullReload: true
+
       - title: User Search
-        url: /api/management/v2/user-search
+        url: "/api/management/v2/user-search"
         forceFullReload: true
 
-
-
+      - title: API Explorer
+        url: "/api/management/v2/"
+        forceFullReload: true
+        external: true
 
 appliance:
 
   - title: "Introduction"
     url: "/appliance"
 
-  - title: "Appliance Planning"
-    url: "/appliance/appliance-overview"
+  - title: Appliance Planning
+    url: /appliance/appliance-overview
+    expanded: true
     children:
+      - title: Overview
+        url: /appliance/appliance-overview
       - title: Geographic High-Availability
         url: /appliance/geo-ha
       - title: Infrastructure Requirements
@@ -288,9 +342,8 @@ appliance:
 
   - title: "Appliance Administration"
     url: "/appliance/admin"
+    expanded: true
     children:
-      - title: Release Notes
-        url: https://auth0.com/changelog/appliance
       - title: Administrator's Manual
         url: /appliance/admin
       - title: Dashboard/Configuration Area
@@ -307,3 +360,7 @@ appliance:
         url: /appliance/webtasks
       - title: Disaster Recovery
         url: /appliance/geo-ha/disaster-recovery
+      - title: Release Notes
+        url: https://auth0.com/changelog/appliance
+        external: true
+        forceFullReload: true

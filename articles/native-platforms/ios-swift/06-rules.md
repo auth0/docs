@@ -1,19 +1,14 @@
 ---
 title: Rules
 description: This tutorial will show you how to create a basic rule that you can use in your app.
+budicon: 173
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/06-Rules',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '06-Rules',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '06-Rules'
 }) %>
-
-
 
 Rules are one of the cool features of Auth0. The reason behind that coolness is their flexibility, which gives you the ability to extend what Auth0 has to offer. They are just JavaScript functions which work like middlewares. To see a detailed description, please refer to [the full documentation](/rules).
 

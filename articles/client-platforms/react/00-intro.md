@@ -1,6 +1,7 @@
 ---
 title: Introduction
 description: This tutorial will show you how to set up and run the React seed project provided by Auth0.
+budicon: 715
 ---
 
 This quickstart guide contains individual sections which demonstrate how to use various Auth0 features in your React applications. Each section has its own sample project which can be downloaded directly from the doc or forked on Github. If you are logged in to your Auth0 account, the samples will have your Auth0 credentials pre-populated for you.

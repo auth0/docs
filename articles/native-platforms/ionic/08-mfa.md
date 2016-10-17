@@ -1,6 +1,7 @@
 ---
 title: Multifactor Authentication
 description: This tutorial demonstrates how to add Multifactor Authentication to your Ionic app
+budicon: 546
 ---
 
 <%= include('../../_includes/_package', {

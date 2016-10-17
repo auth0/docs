@@ -1,6 +1,7 @@
 ---
 title: Customizing Lock
 description: This tutorial demonstrates how to customize Lock.
+budicon: 285
 ---
 
 <%= include('../../_includes/_package2', {

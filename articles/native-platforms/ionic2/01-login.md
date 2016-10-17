@@ -2,23 +2,20 @@
 title: Login
 default: true
 description: This tutorial demonstrates how to add authentication and authorization to an Ionic 2 app
+budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-ionic2',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-ionic2',
-  pkgBranch: 'master',
-  pkgPath: null,
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ionic2-samples',
+  path: '01-Login'
 }) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 6.3.0
-* Ionic 2.0.0-beta.32
-* Angular 2.0.0-rc.3
+* Ionic 2.0.0-rc.0
+* Angular 2.0.0
 :::
 
 ## Set Up the Callback URL
@@ -40,17 +37,17 @@ You can use **[angular2-jwt](https://github.com/auth0/angular2-jwt)** to make au
 
 ${snippet(meta.snippets.dependencies)}
 
-After installing **angular2-jwt**, configure it in the `@App` decorator.
+After **angular2-jwt** is installed, it needs to be configured and included in the `providers` array in your application's `@NgModule`.
 
 ${snippet(meta.snippets.configure)}
 
 ## Add the Lock Widget
 
-Add the Auth0Lock widget to your `index.html` file and set the viewport.
+Add Auth0's Lock widget and auth0.js library to your `index.html`.
 
 ${snippet(meta.snippets.setup)}
 
-## Add the `InAppBrowser` plugin
+## Add the `InAppBrowser` Plugin
 
 You must install the `InAppBrowser` plugin from Cordova to be able to show the Login popup. The seed project already has this plugin added, but if you are adding Auth0 to your own application you need to run the following command:
 
@@ -67,9 +64,9 @@ and then add the following configuration to the `config.xml` file:
 </feature>
 ```
 
-## Create an Authentication Service and Configure Auth0Lock
+## Create an Authentication Service and Configure Lock
 
-It's best to set up an injectable authentication service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication status.
+To coordinate authentication tasks, it's best to set up an injectable service that can be reused across the application. This service needs methods for logging users in and out, as well as checking their authentication state.
 
 This is also where `Auth0Lock` can be configured with your Auth0 credentials. Be sure to configure Auth0Lock in Popup mode by setting `redirect` to `false`.
 
@@ -99,7 +96,7 @@ In Angular 1.x, obtaining a new JWT with a refresh token can be accomplished usi
 
 ${snippet(meta.snippets.refresh)}
 
-When the user logs in, a refresh gets scheduled with an interval equal to the amount of time their JWT is valid for. If the user closes the application, their state will be lost and the scheduled refresh will no longer exist the next time they open it. We need a slightly different approach for setting up a refresh when the application is first opened again because the amount of time that the JWT is valid for (if there is still an unexpired JWT in local storage) will be less than that of a "fresh" token. We need to first check for an unexpired JWT, and if there is one, schedule a one-time refresh to take place when the JWT expires.
+When the user logs in, a refresh gets scheduled with an interval equal to the amount of time the JWT is valid for. If the user closes the application, their state will be lost and the scheduled refresh will no longer exist the next time they open it. We need a slightly different approach for setting up a refresh when the application is first opened again because the amount of time that the JWT is valid for (if there is still an unexpired JWT in local storage) will be less than that of a "fresh" token. We need to first check for an unexpired JWT, and if there is one, schedule a one-time refresh to take place when the JWT expires.
 
 To run the token refresh when the application is started, call the `startupTokenRefresh` method when the app is ready.
 
@@ -113,6 +110,6 @@ ${snippet(meta.snippets.http)}
 
 ### Troubleshooting
 
-#### Completly blank page when launching the App
+#### Completly blank page when launching the app
 
 This could either mean that you've built the seed project using Ionic 1, or that the device where you are testing it isn't entirely supported by Ionic 2 yet. Be sure to check the console for errors.

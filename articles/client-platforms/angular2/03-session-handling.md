@@ -1,19 +1,16 @@
 ---
 title: Session Handling
 description: This tutorial will show you how to integrate Auth0 with angular2 to add session handling and logout to your web app.
+budicon: 280
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs2-systemjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs2-systemjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Session-Handling',
-  pkgFilePath: '03-Session-Handling/app/auth.config.ts',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs2-systemjs-sample',
+  path: '03-Session-Handling'
 }) %>
 
-In the previous steps of this tutorial, we enabled user login with the `Lock` widget and then with `auth0.js`. 
+In the previous steps of this tutorial, we enabled user login with the `Lock` widget and then with `auth0.js`.
 
 In this step, we will create a session for the user and also allow them to log out.
 

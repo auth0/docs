@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial will show you how to display get the user's profile and display it.
+budicon: 292
 ---
 
 <%= include('../../_includes/_package', {
