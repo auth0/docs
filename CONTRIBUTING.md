@@ -478,7 +478,11 @@ AUTH0_CLIENT_SECRET={CLIENT_SECRET}
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'node-auth0',
-  path: 'examples/nodejs-regular-webapp'
+  path: 'examples/nodejs-regular-webapp',
+  requirements: [
+    'Requirement 1.0.0',
+    'Requirement 2.0.0'
+  ]
 }) %>
 ```
 
@@ -490,6 +494,7 @@ The follow are the values for the package configuration.
 | `org` | The organization of the github repo. Can be `auth0` or `auth0-samples`. |
 | `repo` | The name of the github repository. |
 | `path` | The path where the sample is contained. This will be the folder that gets downloaded. |
+| `requirements` | An array of strings representing the system requirements for the project and article. |
 
 ## Updates Feed
 Publishing content updates is easy. Just create a yml file in the `/updates` folder in the format `YYYY-MM-DD.yml`. The document should be in the following format. There are three sections of content: added, changed, and fixed. If you are releasing a new thing (such as a new tutorial, document, or new version of an SDK) put it under `added`. Otherwise use `changed` or `fixed`.
