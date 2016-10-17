@@ -32,3 +32,11 @@ Replay attacks are usually avoided by using session tokens. But if these credent
  The [JWT](/jwt) spec provides the `jti` field as a way to prevent replay attacks. Though Auth0 tokens don't currently don't return a jti, you can blacklist a jti to prevent a token being used more than X times. In this way you are kind of implementing a nonce (think of the token's signature as the nonce). If a token gets stolen, it should be blacklisted (or the nth token that has been issued after it) and wait for it to expire. Once it expires the attacker will no longer be able to impersonate the user.
 
  Replay attacks can also be avoided by using one-time passwords. With Auth0 you can use [Passwordless Authentication](/passwordless) and only use one-time passwords instead of traditional passwords. Auth0 also provides [Multifactor Authentication](multifactor-authentication) which uses one-time passwords as a 2nd factor authentication which can be sent via push notifications, texts and more.
+
+ ## Cross-site Request Forgery (XSRF or CSRF)
+
+ This is a type of attack which occurs when a malicious program causes a user's web browser to perform an unwanted action on a trusted site that the user is currently authenticated. This type of attack specifically target state-changing requests to initiate a type of action instead of getting user data because the attacker has no way to see the response of the forged request. 
+
+ ### Preventing Cross-site Request Forgery (XSRF or CSRF)
+
+ One way to verify the requests that are being sent is to utilize the state parameter to authenticate the response. [Click here to learn more about using the state parameter.](/protocols/oauth-state)

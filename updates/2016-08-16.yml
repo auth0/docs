@@ -1,3 +1,10 @@
+added:
+  -
+    title: "New doc on how to use the state authentication parameter"
+    tags:
+      - authentication
+    description: |
+      A [new document](/protocols/oauth-state) was added on how to use the state authentication parameter.
 changed:
   -
     title: "Auth0 .NET SDK version 3.3.0 released"
