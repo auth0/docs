@@ -10,7 +10,7 @@ The **GitLab Deployments** extension allows you to deploy [Rules](/rules) and Da
 
 ## Configure the Auth0 Extension
 
-To install and configure this extension, click on the **GitLab Deployments** box in the list of provided extensions on the [Extensions](${uiURL}/#/extensions) page of the Auth0 Management Dashboard. The **Install Extension** window will open.
+To install and configure this extension, click on the **GitLab Deployments** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the Auth0 Management Dashboard. The **Install Extension** window will open.
 
 ![](/media/articles/extensions/gitlab-deploy/name.png)
 
@@ -27,7 +27,7 @@ While logged in to your GitLab account, navigate to Profile Settings > Access To
 
 Once you have provided this information, click **Install**.
 
-Navigate to the [Extensions](${uiURL}/#/extensions) page and click on the **Installed Extensions** tab.
+Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
 
 ![](/media/articles/extensions/gitlab-deploy/name.png)
 
@@ -70,7 +70,7 @@ To maintain a consistent state, the extension will always do a full deployment o
 
 ### Deploy Database Connection Scripts
 
-To deploy Database Connection scripts, you must first create a directory under `database-connections`. The name of the directory must match **exactly** the name of your [database connection](${uiURL}/#/connections/database) in Auth0. You can create as many directories as you have Database Connections.
+To deploy Database Connection scripts, you must first create a directory under `database-connections`. The name of the directory must match **exactly** the name of your [database connection](${manage_url}/#/connections/database) in Auth0. You can create as many directories as you have Database Connections.
 
 Under the created directory, create one file for each script you want to use. The allowed scripts are:
 
@@ -130,7 +130,7 @@ Please note that you may have only a single Rule for the `user_registration` and
 
 ## Track Deployments
 
-To track your deployments, navigate to the [Extensions](${uiURL}/#/extensions) page, click on the row for the **GitLab Deployments** extension, and select the **Deployments** tab. You will see a list of all deployments.
+To track your deployments, navigate to the [Extensions](${manage_url}/#/extensions) page, click on the row for the **GitLab Deployments** extension, and select the **Deployments** tab. You will see a list of all deployments.
 
 ![](/media/articles/extensions/gitlab-deploy/name.png)
 
