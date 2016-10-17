@@ -16,7 +16,7 @@ Auth0 exposes an assortment of API endpoints to assist you with authentication i
 
 In order to make an authorized request, you need to send the `Authorization` header containing the JWT Token. (For more information, see the [JSON Web Tokens](https://jwt.io/introduction/) documentation.) The token will be extracted from the request header and decoded by the server, validating the authenticated user.
 
-To send requests with the correct headers, update `AuthService` by adding a new helper method to wrap the native [`fetch`](https://fetch.spec.whatwg.org/) and add the authorization value:
+To send requests with the correct headers, update `AuthService` by adding a new helper method to wrap the native [fetch](https://fetch.spec.whatwg.org/) and add the authorization value:
 
 ```javascript
 /* ===== ./src/utils/AuthService.js ===== */
@@ -63,7 +63,7 @@ The new `fetch` method constructs requests to send to private endpoints. As the 
 
 ## 2. Create a Simple Server
 
-To demonstrate how a server would handle public and private endpoints, you can create a simple `node.js` server based on [`express`](https://expressjs.com/) and [`express-jwt`](https://github.com/auth0/express-jwt) with only two endpoints: `/api/public` and `/api/private`:
+To demonstrate how a server would handle public and private endpoints, you can create a simple `node.js` server based on [express](https://expressjs.com/) and [express-jwt](https://github.com/auth0/express-jwt) with only two endpoints: `/api/public` and `/api/private`:
 
 ```javascript
 /* ===== ./server.js ===== */
@@ -112,7 +112,7 @@ To test the server, run `node server.js`. It should be listening on port 3001 of
 
 ## 3. Add a Proxy and Start the Server
 
-Since you will be calling the server API from the client code and to prevent having to use [`cors`](https://github.com/expressjs/cors), you will need to proxy the calls from the client on port 3000 to the server API on 3001.
+Since you will be calling the server API from the client code and to prevent having to use [cors](https://github.com/expressjs/cors), you will need to proxy the calls from the client on port 3000 to the server API on 3001.
 
 To create the proxy, add a new setting to [webpack-dev-server](https://webpack.github.io/docs/webpack-dev-server.html) in the `webpack.config.js` file:
 
@@ -147,7 +147,7 @@ var config = getConfig({
 ...
 ```
 
-With the proxy ready, update the `start` script to start both `webpack-dev-server` and `server.js` at the same time. As both servers will stay running in development mode, you will need to introduce the [`npm-run-all`](https://github.com/mysticatea/npm-run-all) tool in order to run them in parallel.
+With the proxy ready, update the `start` script to start both `webpack-dev-server` and `server.js` at the same time. As both servers will stay running in development mode, you will need to introduce the [npm-run-all](https://github.com/mysticatea/npm-run-all) tool in order to run them in parallel.
 
 The updated `scripts` entry in `package.json` looks like:
 
