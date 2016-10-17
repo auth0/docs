@@ -1,14 +1,12 @@
 ---
 title: Login
-description: This tutorial demonstrates how to use the Auth0 Angular SDK to add authentication and authorization to your mobile app.
+description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to add authentication and authorization to your mobile app.
 ---
 
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '01-Login',
-  pkgFilePath: '01-Login/auth0.variables.js',
-  pkgType: 'replace'
+  path: '01-Login'
 }) %>
 
 ## Create Auth0 Service
@@ -120,7 +118,8 @@ Add a call to `authService.registerAuthenticationListener()` and to `lock.interc
     // set up in auth.service.js
     authService.registerAuthenticationListener();
 
-    //Register the synchronous hash parser
+    // Register the synchronous hash parser
+	// The "interceptHash" method is only required if using UI Router
     lock.interceptHash();
   }
 
@@ -172,8 +171,6 @@ Lastly you must add the state for the login to the `$stateProvider`. Head back t
 
 (function () {
 
-	...
-
   function config($stateProvider, lockProvider, $urlRouterProvider) {
 
     $stateProvider
@@ -204,8 +201,6 @@ To log the user out you simply need to call the `unauthenticate` method of `auth
 ```js
 // components/auth/auth.service.js
 (function () {
-
-	...
 
   function authService(lock, authManager) {
 

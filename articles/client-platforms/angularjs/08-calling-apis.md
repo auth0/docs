@@ -6,12 +6,8 @@ description: This tutorial demonstrates how to make secure calls to an API
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '08-Calling-Api,
-  pkgFilePath: '08-Calling-Api/auth0.variables.js',
-  pkgType: 'replace'
+  path: '08-Calling-Api
 }) %>
-
-<%= include('../../_includes/_signup') %>
 
 <%= include('../../_includes/_calling_apis') %>
 
@@ -22,8 +18,6 @@ To attach the user's JWT as an `Authorization` header, we could write a service 
 ```js
 // app.js
 (function () {
-
-	...
 
   function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider, $httpProvider) {
 
@@ -55,8 +49,6 @@ This basic example will attach the JWT as an `Authorization` header to all reque
 
 (function () {
 
-  ...
-
   function PingController(authService, $http) {
 
     ...
@@ -84,8 +76,6 @@ Remember that template requests via `ui-router` or `ng-route` are HTTP requests.
 ```js
 // app.js
 (function () {
-
-	...
 
   function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider, $httpProvider) {
 
@@ -118,8 +108,6 @@ If for any reason you would want to send different tokens based on different URL
 ```js
 // app.js
 (function () {
-
-	...
 
   function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider, $httpProvider) {
 

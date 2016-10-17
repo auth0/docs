@@ -6,12 +6,8 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '05-Linking-Accounts,
-  pkgFilePath: '05-Linking-Accounts/auth0.variables.js',
-  pkgType: 'replace'
+  path: '05-Linking-Accounts
 }) %>
-
-<%= include('../../_includes/_signup') %>
 
 <%= include('../../_includes/_linking_accounts') %>
 
@@ -19,11 +15,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
 // components/auth/auth.service.js
 (function () {
 
-	...
-
   function authService($rootScope, lock, authManager, jwtHelper, $q, $http) {
-
-    ...
 	
     function linkAccount() {
       try {
@@ -61,20 +53,16 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
     ...
 
     return {
-	
-     ...
 	 
       linkAccount: linkAccount,
-	  
-     ...
-	 
+
     }
   }
 })();
 
 ```
 
-Now that the second login is handled, you will need to actually do the linking.
+Now that the second user is authenticated, the accounts can be linked.
 
 ```js
 // components/auth/auth.service.js
@@ -110,13 +98,11 @@ lockLink.on('authenticated', function (authResult) {
 
 This function posts to the API, passing the `link_with` parameter with the JWT value in the body. It then fetches the profile on success to check that the accounts are linked.
 
-Now to begin the link process, call the `linkAccount` method.
+To begin the link process, call the `linkAccount` method.
 
 ```js
 // components/home/home.controller.js
 (function () {
-
-	...
 
   function HomeController($scope, authService) {
 
@@ -129,8 +115,6 @@ Now to begin the link process, call the `linkAccount` method.
           refreshIdentities();
         })
     }
-
-    ...
 
   }
 
@@ -155,8 +139,8 @@ You can display this information and provide an **Unlink** button:
 <!-- www/components/home/home.html -->
   ...
 	
-  <div class="identities-wrap">
-    <button ng-if="isAuthenticated" class="btn btn-primary" ng-click="vm.linkAccount()">Link Account</button>
+  <div class="identities-wrap" ng-if="isAuthenticated">
+    <button class="btn btn-primary" ng-click="vm.linkAccount()">Link Account</button>
     <ul class="list-group identities-list">
       <li class="list-group-item identities-item" ng-repeat="identity in vm.identities">
         <img ng-src="{{identity.profileData.picture}}"/>
@@ -175,8 +159,6 @@ The user's primary identity can be filtered by putting in a function to refresh 
 // components/home/home.controller.js
 (function () {
 
-    ...
-
   function HomeController($scope, authService) {
 
    ...
@@ -185,8 +167,6 @@ The user's primary identity can be filtered by putting in a function to refresh 
       vm.profile.identities.shift();
       vm.identities = vm.profile.identities;
     }
-
-   ...
 
   }
 
@@ -200,8 +180,6 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 ```js
 // components/auth/auth.service.js
 (function () {
-
-	...
 
   function authService($rootScope, lock, authManager, jwtHelper, $q, $http) {
 
@@ -242,9 +220,6 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
     }
 
     return {
-	
-      ...
-	  
       unLinkAccount: unLinkAccount
     }
   }

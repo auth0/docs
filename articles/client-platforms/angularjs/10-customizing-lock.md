@@ -6,12 +6,8 @@ description: This tutorial demonstrates how to customize the Lock widget
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '10-Customizing-Lock,
-  pkgFilePath: '10-Customizing-Lock/auth0.variables.js',
-  pkgType: 'replace'
+  path: '10-Customizing-Lock
 }) %>
-
-<%= include('../../_includes/_signup') %>
 
 Using Lock is easy, but you may want to customize your login UI. There are several options available for this.
 
@@ -27,8 +23,6 @@ You can set custom theme properties, such as a different logo or primary color, 
 // app.js
 
 (function () {
-
-    ...
 
   function config($stateProvider, lockProvider, $urlRouterProvider) {
 
@@ -59,8 +53,6 @@ You can also customize the text that `Lock` will display with the `languageDicti
 // app.js
 
 (function () {
-
-    ...
 
   function config($stateProvider, lockProvider, $urlRouterProvider) {
 

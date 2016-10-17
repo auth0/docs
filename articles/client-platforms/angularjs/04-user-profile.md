@@ -1,23 +1,17 @@
 ---
 title: User Profile
-description: This example shows how to display the user's profile
+description: This tutorial demonstrates how to display the user's profile
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-angularjs-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-angularjs-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgFilePath: '04-User-Profile/auth0.variables.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-angularjs-sample',
+  path: '04-User-Profile
 }) %>
 
-<%= include('../../_includes/_signup') %>
+You can obtain a user's profile from the `getProfile()` method.
 
-You can access obtain a user's profile from the `getProfile()` method.
-
-## Accessing user profile with `lock.getProfile()`
+## Accessing the User's Profile with `lock.getProfile()`
 
 At any given time, you can call `getProfile` on `lock` passing in a token and callback function.
 
@@ -25,16 +19,12 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
 /* ===== components/auth/auth.service.js ===== */
 (function () {
 
-	...
-
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
 
     ...
    
     function registerAuthenticationListener() {
       lock.on('authenticated', function (authResult) {
-	  
-        ...
 
         lock.getProfile(authResult.idToken, function (error, profile) {
           if (error) {
@@ -48,13 +38,11 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
       });
     }
 	
-	...
-	
   }
 })();
 ```
 
-As you can see we are storing the `profile` in Local storage in the success callback. Once that is done, all you need to do is to retrieve the profile from Localstorage at a later stage. An example can be found in the `HomeController`:
+We are storing the `profile` in Local storage in the success callback. Once that is done, all that is needed is to retrieve the profile from local storage at a later stage. An example can be found in the `HomeController`:
 
 ```js
 /* ===== components/home/home.controller.js ===== */
@@ -72,7 +60,6 @@ As you can see we are storing the `profile` in Local storage in the success call
 
     var vm = this;
     vm.authService = authService;
-
 
     authService.getProfileDeferred().then(function (profile) {
       vm.profile = profile;

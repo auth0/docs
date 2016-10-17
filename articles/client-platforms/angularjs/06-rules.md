@@ -6,9 +6,7 @@ description: This tutorial demonstrates how to use Auth0 rules to extend what Au
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '06-Rules,
-  pkgFilePath: '06-Rules/auth0.variables.js',
-  pkgType: 'replace'
+  path: '06-Rules
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>

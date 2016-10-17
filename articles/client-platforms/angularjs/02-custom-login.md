@@ -6,15 +6,13 @@ description: This tutorial demonstrates how to use the Auth0 Angular 1.x SDK to 
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '02-Custom-Login,
-  pkgFilePath: '02-Custom-Login/auth0.variables.js',
-  pkgType: 'replace'
+  path: '02-Custom-Login
 }) %>
 
 
 The previous step explained how you can log users into your application using the Lock Widget. You do not have to use Lock, and can instead create a custom login page and log the user in using a username and password they supply through a customer user interface.
 
-If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Angular application.
+If you are using social logins, you can also launch the login screen for a particular social login provider directly from your Angular 1.x application.
 
 ## Update References
 

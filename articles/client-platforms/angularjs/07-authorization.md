@@ -6,9 +6,7 @@ description: This tutorial demonstrates how to assign roles to your users, and u
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs-sample',
-  path: '07-Authorization,
-  pkgFilePath: '07-Authorization/auth0.variables.js',
-  pkgType: 'replace'
+  path: '07-Authorization
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angularjs/06-rules' }) %>
@@ -25,11 +23,7 @@ To restrict secure content to users with a role of `admin`, subscribe to `$state
 // components/auth/auth.service.js
 (function () {
 
-	...
-
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
-
-    ...
 	
     $rootScope.$on('$stateChangeStart', function(event, nextRoute) {
       if (nextRoute.controller === 'AdminController') {
@@ -39,8 +33,6 @@ To restrict secure content to users with a role of `admin`, subscribe to `$state
         }
       }
     });
-
-    ...
 	
   }
 })();
@@ -59,26 +51,23 @@ Create a new `Admin Content` in the `admin` template:
 </div>
 ```
 
-Every time when `$stateChangeStart` event fires we check if the user is an admin using a new `isAdmin` function added to the `authService`. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`.
+Every time the `$stateChangeStart` event fires we check if the user is an admin using a new `isAdmin` function added to the `authService`. This method checks if the `roles` attribute of `app_metadata` added by the rule contains `admin`.
 
+<blockquote>
+Note: Users have no control over their own app_metadata, so there is no risk of a user modifying their own access level in Auth0. Keep in mind, however, that the payload of a JSON Web Token can be modified in debuggers such as jwt.io. If a user does this, their JWT will be invalidated and become unusable for accessing server resources. They would, however, be able to access client side routes with a modified payload. Be sure to keep sensitive information out of the client side and rely on XHR requests for that information as this will ensure that resources are properly protected."
+</blockquote>
 
 ```js
 // components/auth/auth.service.js
 (function () {
 
-    ...
-
   function authService($rootScope, lock, authManager, jwtHelper, $q) {
-
-    ...
 
     function isAdmin() {
       return userProfile && userProfile.app_metadata
         && userProfile.app_metadata.roles
         && userProfile.app_metadata.roles.indexOf('admin') > -1;
     }
-
-    ...
 	
   }
 })();
