@@ -18,6 +18,8 @@ Provide this information to your ADFS administrator:
 
 **Note:** If you want to use the [/oauth/ro](/auth-api#post--oauth-ro) endpoint you must enable `/adfs/services/trust/13/usernamemixed`.
 
+**Note**: The Federation Metadata file contains information about the ADFS server's certificates. If the Federation Metadata endpoint (`/FederationMetadata/2007-06/FederationMetadata.xml`) is enabled in ADFS, Auth0 can periodically (once a day) look for changes in the configuration, like a new signing certificate added to prepare for a rollover. Because of this, enabling the Federation Metadata endpoint is preferred to providing a standalone metadata file.
+
 ### Scripted setup
 
 For automated integration, this script uses the [ADFS PowerShell SnapIn](http://technet.microsoft.com/en-us/library/adfs2-powershell-basics.aspx) to create and configure a **Relying Party** that will issue, for the authenticated user, the following claims: **email**, **upn**, **given name** and **surname**.
