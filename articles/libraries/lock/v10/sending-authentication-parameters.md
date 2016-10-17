@@ -65,5 +65,7 @@ authProvider.init({
 
 The `state` parameter is an arbitrary state value that will be mantained across redirects. It is useful to mitigate [XSRF attacks](http://en.wikipedia.org/wiki/Cross-site_request_forgery) and for any contextual information (such as a return url) that you might need after the authentication process is finished.
 
+[Click here to learn more about how to send/receive the state parameter.](/protocols/oauth-state)
+
 <%= include('../_includes/_lock-toc') %>
 
