@@ -16,9 +16,7 @@ Each access token may include a list of the permissions that have been granted t
 
 For example, an API that holds a user's appointments, may accept two different levels of authorization: read only (scope `read:appointments`) or write (scope `write:appointments`). When a client asks the API to list a user's appointments, then the access token should contain the `read:appointments` scope. In order to edit an existing appointment or create a new one, the access token should contain the `write:appointments` scope.
 
-::: panel-info Tokens used by Auth0
-For more information on tokens please refer to: [Tokens used by Auth0](/tokens).
-:::
+> For more information on tokens please refer to: [Tokens used by Auth0](/tokens).
 
 ## How to configure an API in Auth0
 
@@ -42,7 +40,7 @@ You need to provide the following information for your API:
 
 - **Identifier**: a unique identifier for the API. We recommend using a URL but note that this doesn't have to be a publicly available URL, Auth0 will not call your API at all. This value **cannot be modified** afterwards.
 
-- **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` the token will be signed with the tenant's private key. For more details on the signing algorithms go to the [Signing Algorithms sub-paragraph](#signing-algorithms) of this section.
+- **Signing Algorithm**: the algorithm to sign the tokens with. The available values are `HS256` and `RS256`. When selecting `RS256` the token will be signed with the tenant's private key. For more details on the signing algorithms go to the [Signing Algorithms paragraph](#signing-algorithms).
 
 Fill in the required information and click the **Create** button.
 
@@ -66,9 +64,7 @@ The other available views for your API are:
 
 When you create an API you have to select the algorithm your tokens will be signed with. The signature is used to verify that the sender of the JWT is who it says it is and to ensure that the message wasn't changed along the way.
 
-::: panel-info JSON Web Tokens (JWTs) in Auth0
-The signature is part of a JWT. If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
-:::
+> The signature is part of a JWT. If you are not familiar with the JWT structure please refer to: [JSON Web Tokens (JWTs) in Auth0](/jwt#what-is-the-json-web-token-structure-).
 
 To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that. That algorithm, which is part of the JWT header, is the one you select for your API: `HS256` or `RS256`.
 
