@@ -1,3 +1,7 @@
+---
+description: Lists the expiration of different types of tokens that are referenced in Auth0 documentation. 
+---
+
 # Token Expiration 
 
 This document states the expiration of different types of tokens that are referenced in Auth0 documentation. [Click here to learn more about the types of tokens.](/tokens)
