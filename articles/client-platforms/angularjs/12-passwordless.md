@@ -52,9 +52,9 @@ These connections use an authentication channel like <% if (withFingerprint) { %
     .module('app', ['auth0.lockPasswordless', 'angular-jwt', 'ui.router'])
     .config(config);
 
-  config.$inject = ['$stateProvider', 'lockPasswordlessProvider', '$urlRouterProvider'];
+  config.$inject = ['$stateProvider', 'lockPasswordlessProvider', '$urlRouterProvider', 'jwtOptionsProvider'];
 
-  function config($stateProvider, lockPasswordlessProvider, $urlRouterProvider) {
+  function config($stateProvider, lockPasswordlessProvider, $urlRouterProvider, jwtOptionsProvider) {
 
     $stateProvider
       .state('home', {
@@ -88,7 +88,7 @@ These connections use an authentication channel like <% if (withFingerprint) { %
 
 (function() {
 
-  function authService($rootScope, lockPasswordless, authManager, jwtHelper, $q, $state) {
+  function authService(lockPasswordless, authManager, $q, $state) {
 
     ...
 

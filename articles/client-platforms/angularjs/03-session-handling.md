@@ -24,9 +24,7 @@ Once the user is authenticated, we need to create a client-side session for them
 
 (function () {
 
-	...
-
-  function authService($rootScope, lock, authManager, jwtHelper) {
+  function authService(lock, authManager) {
 
     ...
 
@@ -39,52 +37,61 @@ Once the user is authenticated, we need to create a client-side session for them
       });
     }
 
-    ...
 })();
 
 ```
 
 ## Check Session
 
-To check if a user is authenticated, we can use `jwtHelper.isTokenExpired` from [angular-jwt](https://github.com/auth0/angular-jwt) which allows us to check whether the user's JWT is expired or not. Since JWT is a "stateless" manner of doing user authentication, the best way to know if the user should be regarded as authenticated on the front end is to know whether the token is unexpired.
-
-```js
-// components/auth/auth.service.js
-
-(function () {
-
-  function authService($rootScope, lock, authManager, jwtHelper) {
-  
-	...
-
-    function checkAuthOnRefresh() {
-      var token = localStorage.getItem('id_token');
-      if (token) {
-        if (!jwtHelper.isTokenExpired(token)) {
-          if (!$rootScope.isAuthenticated) {
-            authManager.authenticate();
-          }
-        }
-      }
-    }
-
-    ...
-	
-})();
-```
-
-To use this service, inject `authService` into your component `run` method and call `authService.checkAuthOnRefresh()`:
+To check if a user is authenticated, we can use the `authManager.checkAuthOnRefresh()` method from `jwt` library  which allows us to check whether the user's JWT is expired or not. Since JWT is a "stateless" manner of doing user authentication, the best way to know if the user should be regarded as authenticated on the front end is to know whether the token is unexpired.
 
 ```js
 // app.run.js
 
 (function () {
 
-  function run($rootScope, authService, lock) {
+  function run($rootScope, authService, lock, authManager) {
   
     ...
 	
-    authService.checkAuthOnRefresh();
+    // Use the authManager from angular-jwt to check for
+    // the user's authentication state when the page is
+    // refreshed and maintain authentication
+    authManager.checkAuthOnRefresh();
+
+    ...
+	
+  }
+
+})();
+
+	
+})();
+```
+
+And setup the `jwtOptionsProvider` provider in `app.js`
+
+```js
+// app.js
+
+(function () {
+
+  function config($stateProvider, lockProvider, $urlRouterProvider, jwtOptionsProvider) {
+
+    ...
+
+    // Configuration for angular-jwt
+    jwtOptionsProvider.config({
+      tokenGetter: ['options', function (options) {
+        if (options && options.url.substr(options.url.length - 5) == '.html') {
+          return null;
+        }
+        return localStorage.getItem('id_token');
+      }],
+      whiteListedDomains: ['localhost'],
+      unauthenticatedRedirectPath: '/login'
+    });
+
   }
 
 })();

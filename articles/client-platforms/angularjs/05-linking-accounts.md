@@ -15,7 +15,7 @@ description: This tutorial demonstrates how to integrate Auth0 with Angular 1.x 
 // components/auth/auth.service.js
 (function () {
 
-  function authService($rootScope, lock, authManager, jwtHelper, $q, $http) {
+  function authService(lock, authManager, $q, $http) {
 	
     function linkAccount() {
       try {
@@ -181,7 +181,7 @@ You can dissociate a linked account by calling the [unlink a user account](/api/
 // components/auth/auth.service.js
 (function () {
 
-  function authService($rootScope, lock, authManager, jwtHelper, $q, $http) {
+  function authService(lock, authManager, $q, $http) {
 
     ...
 

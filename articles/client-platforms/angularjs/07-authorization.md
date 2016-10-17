@@ -23,7 +23,7 @@ To restrict secure content to users with a role of `admin`, subscribe to `$state
 // components/auth/auth.service.js
 (function () {
 
-  function authService($rootScope, lock, authManager, jwtHelper, $q) {
+  function authService($rootScope, lock, authManager, $q) {
 	
     $rootScope.$on('$stateChangeStart', function(event, nextRoute) {
       if (nextRoute.controller === 'AdminController') {
@@ -61,7 +61,7 @@ Note: Users have no control over their own app_metadata, so there is no risk of 
 // components/auth/auth.service.js
 (function () {
 
-  function authService($rootScope, lock, authManager, jwtHelper, $q) {
+  function authService($rootScope, lock, authManager, $q) {
 
     function isAdmin() {
       return userProfile && userProfile.app_metadata

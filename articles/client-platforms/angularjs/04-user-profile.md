@@ -19,7 +19,7 @@ At any given time, you can call `getProfile` on `lock` passing in a token and ca
 /* ===== components/auth/auth.service.js ===== */
 (function () {
 
-  function authService($rootScope, lock, authManager, jwtHelper, $q) {
+  function authService(lock, authManager, $q) {
 
     ...
    
@@ -82,9 +82,9 @@ We get the user profile using the `getProfileDeferred()` method which implemente
     .module('app')
     .service('authService', authService);
 
-  authService.$inject = ['$rootScope', 'lock', 'authManager', 'jwtHelper', '$q'];
+  authService.$inject = ['lock', 'authManager', '$q'];
 
-  function authService($rootScope, lock, authManager, jwtHelper, $q) {
+  function authService(lock, authManager, $q) {
 
     var userProfile = JSON.parse(localStorage.getItem('profile')) || null;
     var deferredProfile = $q.defer();
