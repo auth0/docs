@@ -31,6 +31,7 @@ Using different grants (or flows), these participants will interact to grant Cli
  - Server to Server Applications: [Client Credentials Grant](/api-auth/grant/client-credentials)
  - **Preview**: Client to Server Applications: [Implicit Grant](/api-auth/grant/implicit)
  - **Preview**: Client to Server Applications: [Authorization Code Grant](/api-auth/grant/authorization-code)
+ - **Preview**: Public Client to Server Applications: [Authorization Code Grant with PKCE](/api-auth/grant/authorization-code-pkce)
 
 ## Tutorials
 
