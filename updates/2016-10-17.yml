@@ -1,0 +1,7 @@
+added:
+  -
+    title: "New doc on how to use the state authentication parameter"
+    tags:
+      - authentication
+    description: |
+      A [new document](/protocols/oauth-state) was added on how to use the state authentication parameter.
