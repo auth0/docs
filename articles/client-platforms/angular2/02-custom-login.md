@@ -7,7 +7,10 @@ budicon: 448
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
-  path: '02-Custom-Login'
+  path: '02-Custom-Login',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
 In the [previous step](/quickstart/spa/angular2/01-login), we enabled login with the Auth0 Lock widget. You can also build your own custom UI with a custom design for authentication if you like. To do this, use the [auth0.js library](https://github.com/auth0/auth0.js).

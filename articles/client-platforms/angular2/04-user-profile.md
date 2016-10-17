@@ -7,7 +7,10 @@ budicon: 292
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
-  path: '04-User-Profile'
+  path: '04-User-Profile',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
 In this step, we will retrieve and display user profile information using the same `Auth` service defined in the [Login](/quickstart/spa/angular2/01-login) tutorial.

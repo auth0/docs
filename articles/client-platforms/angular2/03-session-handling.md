@@ -7,7 +7,10 @@ budicon: 280
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
-  path: '03-Session-Handling'
+  path: '03-Session-Handling',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
 In the previous steps of this tutorial, we enabled user login with the `Lock` widget and then with `auth0.js`.
@@ -102,4 +105,3 @@ public logout() {
 
 ...
 ```
-

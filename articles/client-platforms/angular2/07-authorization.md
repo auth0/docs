@@ -7,7 +7,10 @@ budicon: 500
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
-  path: '07-Authorization'
+  path: '07-Authorization',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/spa/angular2/06-rules' }) %>
@@ -123,5 +126,3 @@ this.lock.getProfile(authResult.idToken, (error, profile) => {
 ```
 
 Now, if a user logs in with an email that contains `@example`, they will be allowed access to the `/admin` route.
-
-

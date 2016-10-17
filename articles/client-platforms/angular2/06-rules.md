@@ -7,7 +7,10 @@ budicon: 173
 <%= include('../../_includes/_package2', {
   org: 'auth0-samples',
   repo: 'auth0-angularjs2-systemjs-sample',
-  path: '06-Rules'
+  path: '06-Rules',
+  requirements: [
+    'Angular 2.0.1'
+  ]
 }) %>
 
 <%= include('../_includes/_rules-introduction') %>
