@@ -247,7 +247,7 @@ This endpoint is used by clients to obtain an access token (and optionally a [JS
 
 ### 1. Login Request
 
-It receives a `client_id`, `client_secret`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
+It receives a `client_id`, `username`, `password` and `connection`. It validates username and password against the connection (if the connection supports active authentication) and generates an access_token.
 
 ```text
 POST /oauth/ro HTTP/1.1
