@@ -63,13 +63,15 @@ Once you have enabled/disabled the appropriate apps, click **Save**.
 
 ## Use your new connection
 
-You can use any of the Auth0 standard mechanisms to login a user with the new connection (e.g. direct links, [Auth0 Lock](/libraries/lock), [auth0.js](/libraries/auth0js), etc.). 
+You can use [auth0.js](/libraries/auth0js) or a direct link to log a user in with the new connection.
 
-A direct link would look like:
+A direct link would look like this:
             
 `https://${account.namespace}/authorize/?client_id=${account.clientId}&response_type=code&redirect_uri=${account.callback}&state=OPAQUE_VALUE&connection=THE_NAME_OF_THE_CONNECTION`
 
-**NOTE**: Lock will not automatically show a button for the custom connection. If you want to add a button, see: [Adding a new UI element using JavaScript](/libraries/lock/v9/ui-customization#adding-a-new-ui-element-using-javascript).
+For more details, see the [documentation for the `/authorize` authentication API endpoint](/api/authentication#!#get--authorize_social).
+
+Lock does not currently support displaying buttons for custom social connections.
 
 ## Optional: Set up Basic Authentication
 
