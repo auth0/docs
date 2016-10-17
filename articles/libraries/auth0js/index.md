@@ -46,8 +46,6 @@ Include via our CDN:
 <script src="${auth0js_url}"></script>
 ```
 
-Or, just [download the project](https://github.com/auth0/auth0.js) and take `auth0.js` or `auth0.min.js` from the `/build` directory and import it to your page.
-
 If you are using [browserify](http://browserify.org/), you will want to install with `npm i auth0-js --production --save`.
 
 ### Initialize
