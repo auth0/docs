@@ -18,6 +18,9 @@ articles:
       - title: "Protocols"
         url: "/protocols"
 
+      - title: APIs
+        url: "/apis"
+
       - title: Developer Videos
         url: /videos
 
@@ -287,6 +290,9 @@ articles:
 apis:
 
   - title: "Overview"
+    url: "/apis"
+
+  - title: "Auth0 APIs"
     url: "/api/info"
 
   - title: "Testing with Postman"
