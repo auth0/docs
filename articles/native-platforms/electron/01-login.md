@@ -39,10 +39,6 @@ Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
 
-## 3. Add the auth0-electron Script to Your Project
-
-You can copy `auth0-electron.js` [from GitHub](https://github.com/auth0/auth0-electron/blob/master/auth0-electron.js) or download it with the seed project from the link above.
-
 ## 4. Follow the Front End Quickstarts
 
 You can use any front end technology you like in your Electron application. Follow the [quickstart](/quickstart/spa) guide specific to your use case.
