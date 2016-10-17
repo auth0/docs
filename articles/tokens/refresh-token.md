@@ -32,7 +32,7 @@ To obtain a refresh token, the `offline_access` scope (see: [Scopes](/scopes)) a
 
 For example:
 
-```
+```text
 GET https://${account.namespace}/authorize/?
     response_type=token
     &client_id=${account.clientId}
@@ -47,7 +47,7 @@ GET https://${account.namespace}/authorize/?
 When the authentication flow completes, Auth0 will redirect the user to the `callback_URL` as usual.
 The complete URL will be as follows:
 
-```
+```text
 GET https://YOUR_CALLBACK_URL#
     access_token=2nF...WpA
     &id_token=eyJhb...
@@ -63,7 +63,7 @@ The refresh token is returned as part of the URL, in the form of an opaque strin
 
 To obtain a new `id_token`, call the [delegation](/auth-api#!#post--delegation) endpoint in the Authentication API:
 
-```
+```text
 POST https://${account.namespace}/delegation
 Content-Type: 'application/json'
 {
@@ -76,7 +76,7 @@ Content-Type: 'application/json'
 
 A response from this request could be as follows:
 
-```
+```json
 {
   "token_type": "Bearer",
   "expires_in": 36000,
@@ -99,7 +99,7 @@ Since refresh tokens never expire, it is important to be able to revoke them.
 
 To revoke a refresh token using the Auth0 Management API, you need the `id` of the refresh token you wish to revoke. To obtain a list of existing refresh tokens, call the [List device credentials](/api/management/v2#!/Device_Credentials/get_device_credentials) endpoint, specifying `type=refresh_token` with an access token containing `read:device_credentials` scope. To narrow the results, you can also specify the `client_id` and `user_id` associated with the token, if known.
 
-```
+```text
 GET https://${account.namespace}/api/v2/device-credentials?
   type=refresh_token
   &client_id={}
@@ -112,7 +112,7 @@ GET https://${account.namespace}/api/v2/device-credentials?
 
 Response body:
 
-```
+```json
 [
   {
     "id": "dcr_dFJiaAxbEroQ5xxx",
@@ -123,7 +123,7 @@ Response body:
 
 To revoke a __refresh token__, call the [Delete a device credential](/api/management/v2#!/Device_Credentials/delete_device_credentials_by_id) endpoint with an access token containing `delete:device_credentials` scope and the value of `id` obtained above:
 
-```
+```text
 DELETE https://${account.namespace}/api/v2/device-credentials/{id}
 
 {

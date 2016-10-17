@@ -2,18 +2,15 @@
 title: Login
 default: true
 description: This tutorial will show you how to use the Auth0 EmberJS SDK to add authentication and authorization to your web app.
+budicon: 448
 ---
 
 You can get started by either downloading the seed project or if you would like to add Auth0 to an existing application you can follow the tutorial steps.
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0/auth0-ember-simple-auth/tree/master/examples/simple',
-  pkgOrg: 'auth0',
-  pkgRepo: 'auth0-ember-simple-auth',
-  pkgBranch: 'master',
-  pkgPath: 'examples/simple',
-  pkgFilePath: 'examples/simple/config/auth0-variables.js',
-  pkgType: 'replace'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-emberjs-spa',
+  path: '00-Starter-Seed'
 }) %>
 
 ::: panel-info System Requirements
@@ -25,8 +22,6 @@ This tutorial and seed project have been tested with the following:
 * Jquery 1.11.1
 * Ember Simple Auth 0.8.0
 :::
-
-
 
 ${include('../\_callback')}
 

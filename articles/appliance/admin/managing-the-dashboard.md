@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to access and restrict access to the Appliance Management Dashboard
 ---
 
 # Auth0 Appliance Administration: Managing the Dashboard

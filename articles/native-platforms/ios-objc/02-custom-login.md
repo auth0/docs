@@ -1,6 +1,7 @@
 ---
 title: Custom Login
 description: This tutorial will teach you how to perform Login and Sign Up by using your own View Controllers, without using the Lock widget interface.
+budicon: 448
 ---
 
 ::: panel-info System Requirements

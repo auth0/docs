@@ -1,24 +1,22 @@
 ---
 title: Session Handling
 description: This tutorial demonstrates how to integrate Auth0 with ReactJS to add session handling and logout to your web app
+budicon: 280
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '03-Session-Handling',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-sample',
+  path: '03-Session-Handling'
 }) %>
 
-The previous steps of this tutorial explain how to implement login using either `Lock` or the `Auth0.js` library to authenticate users in your application. 
+The previous steps of this tutorial explain how to implement login using either `Lock` or the `Auth0.js` library to authenticate users in your application.
 
 Usually, when a user logs in, you will want to create a session for that user and also allow the user to logout. The following steps show you how to implement this.
 
 ## 1. Create a Session
 
-Once the user is logged in, you can create a session for that user by storing the `idToken` attribute, which is passed as a Lock `authenticated` event callback parameter. 
+Once the user is logged in, you can create a session for that user by storing the `idToken` attribute, which is passed as a Lock `authenticated` event callback parameter.
 
 The `AuthService` helper class uses `localStorage` to keep the current user idToken valid for the session:
 
@@ -68,7 +66,7 @@ export default class AuthService {
 }
 ```
 
-In the code, you see the `login` method using `Lock` to show the sign in window, and the `_doAuthentication` private method, which stores the `idToken` provided by Auth0 to `localStorage`. The `logout` method removes the stored token, and `loggedIn` checks if there is a token and returns a boolean. 
+In the code, you see the `login` method using `Lock` to show the sign in window, and the `_doAuthentication` private method, which stores the `idToken` provided by Auth0 to `localStorage`. The `logout` method removes the stored token, and `loggedIn` checks if there is a token and returns a boolean.
 
 However, just checking if there is a stored token is not enough to validate the session because the returned [JSON Web Token](/jwt) has an expiration date. The next section explains how to properly validate the session.
 
@@ -131,7 +129,7 @@ export default class AuthService {
 
 ## 3. Logout Button
 
-In Home view, you may want to show a logout button that destroys the user session and redirects to the `/login` page. Since the `AuthService` helper class already includes a `logout` function, you can simply hook it to a logout button. 
+In Home view, you may want to show a logout button that destroys the user session and redirects to the `/login` page. Since the `AuthService` helper class already includes a `logout` function, you can simply hook it to a logout button.
 
 The updated Home component code with the logout button is as follows:
 

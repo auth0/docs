@@ -1,3 +1,7 @@
+---
+description: Describes different options for selecting the connection in Auth0 when there are multiple login options for Lock v9.
+---
+
 <%= include('../_includes/_lock-version-9') %>
 
 # Selecting the connection in Auth0 for multiple login options

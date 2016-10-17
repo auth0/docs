@@ -1,24 +1,22 @@
 ---
 title: User Profile
 description: This tutorial demonstrates how to integrate Auth0 with ReactJS to authenticate and fetch/show profile information
+budicon: 292
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-react-sample',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-react-sample',
-  pkgBranch: 'master',
-  pkgPath: '04-User-Profile',
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-react-sample',
+  path: '04-User-Profile'
 }) %>
 
-The [Login step](/quickstart/spa/react/01-login) of this tutorial explains how to use Auth0 Lock to show a login window and authenticate a user and how to protect routes by making them available only for authenticated users. 
+The [Login step](/quickstart/spa/react/01-login) of this tutorial explains how to use Auth0 Lock to show a login window and authenticate a user and how to protect routes by making them available only for authenticated users.
 
 This step demonstrates how to retrieve and show user profile information.
 
 ## 1. Create the AuthService class
 
-The best way to have authentication utilities available across your application is to create a helper class. Then you can share an instance of this class by passing it to the React Component as a prop. 
+The best way to have authentication utilities available across your application is to create a helper class. Then you can share an instance of this class by passing it to the React Component as a prop.
 
 First, you will create the `AuthService` helper class to encapsulate the login functionality and save it inside the `src/utils` folder as `AuthService.js`.
 
@@ -76,7 +74,7 @@ The other helper methods shown above include: `login` (to call `lock.show()` and
 
 ## 2. Request User Profile Data
 
-To fetch user profile information, call the `lock.getProfile` function, specifying the token and a callback to process the response. 
+To fetch user profile information, call the `lock.getProfile` function, specifying the token and a callback to process the response.
 
 Below you can see the `getProfile` code that has been added to fetch the user profile after successful authentication and store the response in `localStorage`. Also, since the profile data request is asynchronous, `EventEmitter` has been added to allow sending notifications after a profile update.
 
@@ -227,7 +225,7 @@ Now, after authentication, the home page will display the user's avatar and info
 
 ## 4. Custom Sign Up Fields
 
-If you need extra fields on user sign up, you can add the `additionalSignUpFields` key to the Lock options parameter. For more information, see: [additionalSignUpFields](/libraries/lock/v10/customization#additionalsignupfields-array-). 
+If you need extra fields on user sign up, you can add the `additionalSignUpFields` key to the Lock options parameter. For more information, see: [additionalSignUpFields](/libraries/lock/v10/customization#additionalsignupfields-array-).
 
 As an example, the `AuthService` constructor can be modified to request a user's `address`:
 
@@ -297,7 +295,7 @@ export class ProfileDetails extends React.Component {
 
 <%= include('../_includes/_profile-metadata-explanation') %>
 
-To update the user profile, call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint with the new profile values. 
+To update the user profile, call the [Update a user](/api/management/v2#!/Users/patch_users_by_id) endpoint with the new profile values.
 
 Update the `AuthService` class to add a new `updateProfile` method to make the http request with the correct request headers using the [fetch standard](https://fetch.spec.whatwg.org/).
 

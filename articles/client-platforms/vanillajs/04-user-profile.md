@@ -1,6 +1,7 @@
 ---
 title: User Profile
 description: This tutorial demonstrates how to fetch, show, and update user profile information in your web app
+budicon: 292
 ---
 
 <%= include('../../_includes/_package2', {

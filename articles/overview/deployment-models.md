@@ -138,10 +138,10 @@ The following table describes operational and feature differences between each o
         </tr>
         <tr>
             <th>Shared Resources Among Multiple Customers</th>
-            <td class>Yes</td>
-            <td class>No</td>
-            <td class>No</td>
-            <td class>No</td>
+            <td class="success">Yes</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
+            <td class="danger">No</td>
         </tr>
     </tbody>
 </table>

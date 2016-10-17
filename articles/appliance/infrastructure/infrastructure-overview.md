@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: Appliance infrastructure overview
 ---
 
 # Auth0 Appliance Deployment Architecture

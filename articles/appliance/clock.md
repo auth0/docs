@@ -1,5 +1,6 @@
 ---
 section: appliance
+description: How to manage the time on Appliances
 ---
 
 # Time Synchronization

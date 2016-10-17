@@ -1,6 +1,7 @@
 ---
 title: Linking Accounts
 description: This tutorial demonstrates how to link different user accounts in your web app
+budicon: 345
 ---
 
 <%= include('../../_includes/_package2', {

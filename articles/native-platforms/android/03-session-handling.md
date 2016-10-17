@@ -1,6 +1,7 @@
 ---
 title: Session Handling
 description: This tutorial will show you how to use Lock v2 to maintain a session’s connectivity.
+budicon: 280
 ---
 
 This tutorial will show you how to use Lock to maintain an active session with Auth0.
@@ -16,7 +17,7 @@ This tutorial will show you how to use Lock to maintain an active session with A
 }) %>
 
 
-For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed by three objects:
+For this, you will need to handle the user's `credentials`. Let's take a look at this class, which is composed of three objects:
 
 * ``idToken``: Identity Token that proves the identity of the user.
 * ``accessToken``: Access Token used by the Auth0 API.
@@ -76,7 +77,7 @@ aClient.tokenInfo(CredentialsManager.getCredentials(this).getIdToken())
 
   @Override
   public void onFailure(AuthenticationException error) {
-    // Invalid ID Scenario    
+    // Invalid ID Scenario
   }
 });
 ```
@@ -116,7 +117,7 @@ client.delegationWithIdToken(idToken)
     //Show error to the user
   }
 });
-```         
+```
 
 ### ii. Using refreshToken
 
@@ -139,7 +140,7 @@ client.delegationWithRefreshToken(refreshToken)
 
   }
 });
-```     
+```
 
 > It is recommended that you read and understand the [refresh token documentation](/refresh-token) before proceeding. For example, you should remember that even though the refresh token cannot expire, it can be revoked.
 

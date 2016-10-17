@@ -1,6 +1,7 @@
 ---
 title: Introduction
 description: This is a multi-step quickstart guide that demonstrates how to setup and manage authentication in your JavaScript app using Auth0
+budicon: 715
 ---
 
 This multi-step quickstart guide will walk you through setting up and managing authentication in your vanilla JS apps using Auth0.

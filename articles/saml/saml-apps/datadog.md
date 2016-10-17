@@ -1,10 +1,9 @@
 ---
 title: Datadog SAML Configuration
 description: Datadog SAML Configuration
-template: saml/saml-apps/_template
 ---
 
-@@block:samlconfig@@
+${include('./\_header')}
 
 ```
 {
@@ -25,5 +24,3 @@ template: saml/saml-apps/_template
 **Callback URL**: `https://app.datadoghq.com/account/saml/assertion`
 
 Notice that Datadog has an option to automatically provision new users. Check [here](http://docs.datadoghq.com/guides/saml/) for more details.
-
-@@endblock@@

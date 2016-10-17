@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial demonstrates how to use the Auth0 jQuery SDK to add authentication and authorization to your web app
+budicon: 448
 ---
 
 <%= include('../../_includes/_package2', {
@@ -46,7 +47,7 @@ if (id_token) {
 
 To discover all the available properties of a user's profile, see [Auth0 Normalized User Profile](/user-profile). Note that the properties available depend on the social provider used.
 
-## 5. Log Uut
+## 5. Log Out
 
 In this implementation, a logout involves simply deleting the saved token from `localStorage` and redirecting the user to the home page:
 

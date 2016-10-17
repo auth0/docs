@@ -1,6 +1,7 @@
 ---
 title: Session Handling
 description: This tutorial demonstrates how to add session handling and logout to your web app
+budicon: 280
 ---
 
 <%= include('../../_includes/_package2', {

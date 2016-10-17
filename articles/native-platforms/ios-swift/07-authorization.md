@@ -1,19 +1,14 @@
 ---
 title: Authorization
 description: This tutorial will show you how assign roles to your users, and use those claims to authorize or deny a user to perform certain actions in the app.
+budicon: 500
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-ios-swift-sample/tree/master/07-Authorization',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-ios-swift-sample',
-  pkgBranch: 'master',
-  pkgPath: '07-Authorization',
-  pkgFilePath: null,
-  pkgType: 'none'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-ios-swift-sample',
+  path: '07-Authorization'
 }) %>
-
-
 
 Many identity providers will supply access claims, like roles or groups, with the user. You can request these in your token by setting `scope: openid roles` or `scope: openid groups`. However, not every identity provider provides this type of information. Fortunately, Auth0 has an alternative to it, which is creating a rule for assigning different roles to different users.
 
@@ -27,7 +22,7 @@ It's required that you've got [Lock](https://github.com/auth0/Lock.iOS-OSX) inte
 
 First, you will create a rule that assigns your users either an `admin` role, or a single `user` role. To do so, go to the [new rule page](${manage_url}/#/rules/new) and select the "*Set Roles To A User*" template, under *Access Control*. Then, replace this line from the default script:
 
-``` 
+```
 if (user.email.indexOf('@example.com') > -1)
 ```
 

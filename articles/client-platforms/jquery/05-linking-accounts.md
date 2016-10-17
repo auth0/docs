@@ -1,6 +1,7 @@
 ---
 title: Linking Accounts
 description: This tutorial demonstrates how to integrate Auth0 with jQuery to link accounts.
+budicon: 345
 ---
 
 <%= include('../../_includes/_package2', {

@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.
+budicon: 448
 ---
 
 This tutorial will show you how to integrate Lock v2 in your Android project in order to present a login screen.

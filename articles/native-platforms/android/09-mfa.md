@@ -1,6 +1,7 @@
 ---
 title: Multifactor Authentication
 description: This tutorial will show you how to configure Multifactor Authentication (MFA) via Google Authenticator in your app.
+budicon: 243
 ---
 
  <%= include('../../_includes/_package', {
@@ -11,7 +12,7 @@ description: This tutorial will show you how to configure Multifactor Authentica
   pkgPath: '09-MFA',
   pkgFilePath: '09-MFA/app/src/main/res/values/strings.xml',
   pkgType: 'replace'
-}) %>  
+}) %>
 
 ## Enable Multifactor Authentication In Your Account
 

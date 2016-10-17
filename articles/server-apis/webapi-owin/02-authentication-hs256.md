@@ -1,6 +1,7 @@
 ---
 title: Authentication (HS256)
 name: Shows how to secure your API using the standard JWT middeware
+budicon: 500
 ---
 
 <%= include('../../_includes/_package', {
@@ -23,11 +24,11 @@ To configure the JWT Signature Algorithm, go to the settings for your applicatio
 
 Save your changes.
 
-![Configure JWT Signature Algorithm as HS256](/media/articles/server-apis/webapi-owin/jwt-signature-hs256.png)   
+![Configure JWT Signature Algorithm as HS256](/media/articles/server-apis/webapi-owin/jwt-signature-hs256.png)
 
 ## 2. Update your settings
 
-When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `web.config` file included in the seed project to also add a **Auth0ClientSecret** key, and be sure to set the correct values for the **Auth0Domain**, **Auth0ClientID** and **Auth0ClientSecret** elements:   
+When using HS256, you will need your application's **Client Secret** when configuring the JWT middleware, so be sure update the `web.config` file included in the seed project to also add a **Auth0ClientSecret** key, and be sure to set the correct values for the **Auth0Domain**, **Auth0ClientID** and **Auth0ClientSecret** elements:
 
 ```json
 <appSettings>
@@ -39,9 +40,9 @@ When using HS256, you will need your application's **Client Secret** when config
 
 ## 3. Configure the JWT Middleware
 
-You will need to add the JWT middleware to your application's middleware pipeline. 
+You will need to add the JWT middleware to your application's middleware pipeline.
 
-Go to the `Configuration` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerAuthenticationOptions`. The `JwtBearerAuthenticationOptions` needs to specify the Client ID in the `AllowedAudiences` property and the Auth0 Domain as the `issuer` and the Base64-decoded Client Secret as the `key` parameters of the `SymmetricKeyIssuerSecurityTokenProvider`: 
+Go to the `Configuration` method of your `Startup` class and add a call to `UseJwtBearerAuthentication` passing in the configured `JwtBearerAuthenticationOptions`. The `JwtBearerAuthenticationOptions` needs to specify the Client ID in the `AllowedAudiences` property and the Auth0 Domain as the `issuer` and the Base64-decoded Client Secret as the `key` parameters of the `SymmetricKeyIssuerSecurityTokenProvider`:
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -68,10 +69,10 @@ public void Configuration(IAppBuilder app)
 ```
 
 ::: panel-warning Do not forget the trailing backslash
-Please ensure that the URL specified for the `issuer` parameter contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.   
+Please ensure that the URL specified for the `issuer` parameter contains a trailing backslash as this needs to match exactly with the issuer claim of the JWT. This is a common misconfiguration error which will cause your API calls to not be authenticated correctly.
 :::
 
-## 4. Securing an API endpoint 
+## 4. Securing an API endpoint
 
 The JWT middleware integrates with the standard ASP.NET Authentication and Authorization mechanisms. You only need to decorate your controller action with the `[Authorize]` attribute to secure an endpoint:
 

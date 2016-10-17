@@ -1,5 +1,7 @@
 ---
 section: appliance
+description: Overview of the Appliance Dashboard OSS Components page
+
 ---
 
 # OSS Components

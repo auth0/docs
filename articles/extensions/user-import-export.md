@@ -5,7 +5,7 @@ description: The _User Import / Export_ is an extension that allows you to impor
 
 # User Import / Export
 
-The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account.
+The _User Import / Export_ is an extension that allows you to import / export users from or to any database you have configured in your account. Please note that you need to be a Dashboard Admin in order to use this extension.
 
 ## Configuring the Extension
 

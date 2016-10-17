@@ -1,6 +1,7 @@
 ---
 title: Login
 description: This tutorial will show you how to use the Auth0 Electron SDK to add authentication and authorization to your app.
+budicon: 448
 ---
 
 <%= include('../../_includes/_package', {
@@ -37,10 +38,6 @@ https://${account.namespace}/mobile, file:///
 Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
-
-## 3. Add the auth0-electron Script to Your Project
-
-You can copy `auth0-electron.js` [from GitHub](https://github.com/auth0/auth0-electron/blob/master/auth0-electron.js) or download it with the seed project from the link above.
 
 ## 4. Follow the Front End Quickstarts
 

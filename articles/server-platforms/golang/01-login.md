@@ -1,24 +1,19 @@
 ---
 title: Login
 description: This tutorial will demonstrates how to use the Auth0 Go SDK to add authentication and authorization to your web app
+budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-golang-samples',
-  githubUrl:'https://github.com/auth0-samples/auth0-golang-samples/tree/master/00-Starter-Seed/regular-web-app',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed/regular-web-app',
-  pkgFilePath: null,
-  pkgType: 'server'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-golang-web-app',
+  path: '01-Login'
 }) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * Go 1.5.3 and up
 :::
-
-
 
 ## Add Dependencies
 

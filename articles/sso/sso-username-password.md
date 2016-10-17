@@ -60,7 +60,7 @@ The response from this is an HTML form that can be injected on your web page DOM
           tenant:'${account.tenant}'
         };
 
-        $.post('https://${account.tenant}.auth0.com/usernamepassword/login', data, 
+        $.post('https://${account.namespace}.auth0.com/usernamepassword/login', data, 
             function(formHtml){
               var div = document.createElement('div');
               div.innerHTML = formHtml;
