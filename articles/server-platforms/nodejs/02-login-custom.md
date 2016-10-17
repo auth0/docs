@@ -27,7 +27,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     // auth0.js
-    script(src="http://cdn.auth0.com/w2/auth0-7.2.js")
+    script(src="<script src="${auth0js_url}"></script>")
   body
     block content
 ```
