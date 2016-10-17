@@ -37,7 +37,7 @@ npm install auth0-js
 Install via [bower](http://bower.io):
 
 ```sh
-bower install auth0-js
+bower install auth0.js
 ```
 
 Include via our CDN:
