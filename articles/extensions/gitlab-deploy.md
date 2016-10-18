@@ -45,22 +45,26 @@ Once you agree, you will be directed to the **GitLab Integration** page.
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-integration-page.png)
 
+Copy the **Payload URL** and **Secret** values. You are going to use them in order to configure the GitLab Webhook in the next step.
+
 ## Configure the GitLab Webhook
 
 Once you have configured your Auth0 Extension, you will need to configure the GitLab Webhook to complete the integration.
 
-In your GitLab Repository, click on the gear icon near the top right of the page to open the **Settings** menu. Click on **Webhooks**.
+In your GitLab Repository, click on the gear icon near the top right of the page to open the menu. Click on **Webhooks**.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![](/media/articles/extensions/gitlab-deploy/gitlab-settings-menu.png)
 
 Set the following configuration variables:
 
-* **URL**:
-* **Secret Token**:
-* **Trigger**:
-* **Enable SSL verification**:
+* **URL**: Set the value of the **Payload URL** from the previous step.
+* **Secret Token**: Set the value of the **Secret** from the previous step.
+* **Trigger**: Enable the actions that should trigger the URL.
+* **Enable SSL verification**: Check to enable SSL verification.
 
-Click **Add Webhook** to persist your changes.
+![](/media/articles/extensions/gitlab-deploy/gitlab-add-webhook.png)
+
+Click **Add Webhook** to save your changes.
 
 ## Deployment
 
