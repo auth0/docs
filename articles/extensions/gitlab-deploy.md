@@ -2,7 +2,7 @@
 description: The GitLab Deployments extension allows you to deploy Rules and Database Connection scripts from GitLab to Auth0.
 ---
 
-# Extension: GitLab Deployment
+# GitLab Deployments
 
 The **GitLab Deployments** extension allows you to deploy [Rules](/rules) and Database Connection scripts from GitLab to Auth0. You can configure a GitLab repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
@@ -12,20 +12,28 @@ The **GitLab Deployments** extension allows you to deploy [Rules](/rules) and Da
 
 To install and configure this extension, click on the **GitLab Deployments** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the Auth0 Management Dashboard. The **Install Extension** window will open.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![Install extension popup window](/media/articles/extensions/gitlab-deploy/install-extension.png)
 
 Set the following configuration variables:
 
-* **GITLAB_REPOSITORY**: the name of your GitLab repository;
-* **GITLAB_BRANCH**: the branch of your GitLab repository your extension should monitor;
-* **GITLAB_TOKEN**: the personal access token to your GitLab repository for this account;
-* **SLACK_INCOMING_WEBHOOK**: the URL used to integrate with Slack to deliver notifications.
+* **GITLAB_REPOSITORY**: The name of your GitLab repository.
+* **GITLAB_BRANCH**: The branch of your GitLab repository your extension should monitor.
+* **GITLAB_TOKEN**: The personal access token to your GitLab repository for this account.
+* **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
+
+Once you have provided this information, click **Install**.
 
 ### Obtaining Your GitLab Token
 
-While logged in to your GitLab account, navigate to Profile Settings > Access Tokens.
+Log in to your [GitLab](https://about.gitlab.com/) account and navigate to [Profile Settings > Access Tokens](https://gitlab.auth0.com/profile/personal_access_tokens).
 
-Once you have provided this information, click **Install**.
+Create a new access token for Auth0. Make sure you copy the generated value and save it locally because you will not be able to access it again once you navigate away from this page.
+
+![Generate a personal access token](/media/articles/extensions/gitlab-deploy/new-access-token.png)
+
+Go back to the [Extensions](${manage_url}/#/extensions) page and set this value at the **GITLAB_TOKEN** configuration variable.
+
+## SOME TITLE
 
 Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
 
