@@ -971,5 +971,9 @@
   {
     "from": "/metadata/apiv2",
     "to": "/metadata/management-api"
+  },
+  {
+    "from": "/applications",
+    "to": "/clients"
   }
 ]
