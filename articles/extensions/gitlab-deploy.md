@@ -31,19 +31,19 @@ Create a new access token for Auth0. Make sure you copy the generated value and 
 
 Go back to the [Extensions](${manage_url}/#/extensions) page and set this value at the **Gitlab_Token** configuration variable.
 
-## SOME TITLE
+## Authorize Access
 
 Navigate to the [Extensions](${manage_url}/#/extensions) page and click on the **Installed Extensions** tab.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![](/media/articles/extensions/gitlab-deploy/installed-extensions-view.png)
 
 Click on the row for the **GitLab Deployments** extension. The first time you click on your installed extension, you will be asked to grant it to access your GitLab account.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![](/media/articles/extensions/gitlab-deploy/user-consent.png)
 
 Once you agree, you will be directed to the **GitLab Integration** page.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![](/media/articles/extensions/gitlab-deploy/gitlab-integration-page.png)
 
 ## Configure the GitLab Webhook
 
