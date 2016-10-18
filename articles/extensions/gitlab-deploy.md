@@ -4,7 +4,7 @@ description: The GitLab Deployments extension allows you to deploy Rules and Dat
 
 # GitLab Deployments
 
-The **GitLab Deployments** extension allows you to deploy [Rules](/rules) and Database Connection scripts from GitLab to Auth0. You can configure a GitLab repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
+The **GitLab Deployments** extension allows you to deploy [Rules](/rules), Database Connection scripts and hosted pages from GitLab to Auth0. You can configure a GitLab repository, keep all of your scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
 ## Configure the Auth0 Extension
 
@@ -45,7 +45,7 @@ Once you agree, you will be directed to the **GitLab Integration** page.
 
 ![](/media/articles/extensions/gitlab-deploy/gitlab-integration-page.png)
 
-Copy the **Payload URL** and **Secret** values. You are going to use them in order to configure the GitLab Webhook in the next step.
+Copy the **Payload URL** and **Secret** values. You will use them in order to configure the GitLab Webhook in the next step.
 
 ## Configure the GitLab Webhook
 
@@ -70,12 +70,17 @@ Click **Add Webhook** to save your changes.
 
 Once you have set up the webhook in GitLab using the provided information, you are ready to start committing to your repository.
 
-With each commit you push to your configured GitLab repository, the webhook will call the extension to initiate a deployment if changes were made to the `rules` and/or the `database-connection` folders.
+Your repository should have a predefined structure:
+- Rules are expected to be found under `rules` directory.
+- Database connections are expected to be found under `database-connections` directory.
+- Hosted pages are expected to be found under `pages` directory.
 
-The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules and Database Connection scripts that you already have in your GitLab repository. This is useful if your repository already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
+With each commit you push to your configured GitLab repository, the webhook will call the extension to initiate a deployment if changes were made to these predefined directories.
+
+The **Deploy** button on the **Deployments** tab of the extension allows you to manually deploy the Rules, Pages and Database Connection scripts that you already have in your GitLab repository. This is useful if your repository already contains items that you want to deploy once you have set up the extension or if you have accidentally deleted some scripts in Auth0 and need to redeploy the latest version of your repository.
 
 ::: panel-warning Full Deployment
-To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. Any rules or database connection scripts that exist in Auth0 but not in your GitHub repository will be **deleted**.
+To maintain a consistent state, the extension will always do a full deployment of the contents of these folders. **Any rules, pages or database connection scripts that exist in Auth0 but not in your GitHub repository will be deleted**.
 :::
 
 ### Deploy Database Connection Scripts
@@ -94,6 +99,29 @@ Under the created directory, create one file for each script you want to use. Th
 For a generic Custom Database Connection, only the `login.js` script is required. If you enable the migration feature, you will also need to provide the `get_user.js` script.
 
 You can find examples in [the Auth0 Samples repository](https://github.com/auth0-samples/github-source-control-integration/tree/master/database-connections/my-custom-db). While the samples were authored for GitHub, it will work for a GitLab integration as well.
+
+### Deploy Hosted Pages
+
+The supported hosted pages are:
+- `error_page`
+- `guardian_multifactor`
+- `login`
+- `password_reset`
+
+To deploy a page, you must create an HTML file under the `pages` directory of your GitLab repository. For each HTML page you need to create a JSON file (with the same name) that will be used to mark the page as enabled or disabled. For example, in order to deploy an `error_page`, you would create two files:
+
+```text
+your-gitlab-repo/pages/error_page.html
+your-gitlab-repo/pages/error_page.json
+```
+
+To enable the page the `error_page.json` would contain the following:
+
+```json
+{
+  "enabled": true
+}
+```
 
 ### Deploy Rules
 
@@ -142,10 +170,10 @@ Please note that you may have only a single Rule for the `user_registration` and
 
 To track your deployments, navigate to the [Extensions](${manage_url}/#/extensions) page, click on the row for the **GitLab Deployments** extension, and select the **Deployments** tab. You will see a list of all deployments.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![](/media/articles/extensions/gitlab-deploy/gitlab-deployments-tab.png)
 
 If a deployment fails, you can examine the details of the deployment to determine why. Details are also available for successful deployments.
 
-![](/media/articles/extensions/gitlab-deploy/name.png)
+![](/media/articles/extensions/gitlab-deploy/failed-deployment-log.png)
 
 If you configured a **Slack Incoming Webhook**, you will be notified on Slack anytime a deployment occurs.
