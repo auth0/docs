@@ -15,6 +15,9 @@ articles:
       - title: "Clients"
         url: "/applications"
 
+      - title: "APIs"
+        url: "/apis"
+
       - title: "Protocols"
         url: "/protocols"
 
