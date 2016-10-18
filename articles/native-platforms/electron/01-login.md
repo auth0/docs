@@ -4,23 +4,17 @@ description: This tutorial will show you how to use the Auth0 Electron SDK to ad
 budicon: 448
 ---
 
-<%= include('../../_includes/_package', {
-  githubUrl: 'https://github.com/auth0-samples/auth0-electron-samples/tree/master/00-Starter-Seed',
-  pkgOrg: 'auth0-samples',
-  pkgRepo: 'auth0-electron-samples',
-  pkgBranch: 'master',
-  pkgPath: '00-Starter-Seed',
-  pkgFilePath: null,
-  pkgType: 'js'
+<%= include('../../_includes/_package2', {
+  org: 'auth0-samples',
+  repo: 'auth0-electron-samples',
+  path: '01-Login'
 }) %>
 
 ::: panel-info System Requirements
 This tutorial and seed project have been tested with the following:
 * NodeJS 5.0.0
-* Electron 0.36.7
+* Electron 1.4.3
 :::
-
-
 
 ## 1. Setting up the Callback URL
 
@@ -38,6 +32,8 @@ https://${account.namespace}/mobile, file:///
 Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
+
+> **Note:** Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
 
 ## 4. Follow the Front End Quickstarts
 
