@@ -6,8 +6,6 @@ description: The Bitbucket Deployments extension allows you to deploy Rules and 
 
 The **Bitbucket Deployments** extension allows you to deploy [Rules](/rules) and Database Connection scripts from Bitbucket to Auth0. You can configure a Bitbucket repository, keep all of your Rules and Database Connection scripts there, and have them automatically deployed to Auth0 whenever you push changes to your repository.
 
-**NOTE:** This extension is currently available only for Auth0 instances hosted on the public cloud. Extensions are not yet supported in the [Appliance](/appliance).
-
 ## Configure the Extension
 
 To install and configure this extension, click on the **Bitbucket Deployments** box in the list of provided extensions on the [Extensions](${manage_url}/#/extensions) page of the Auth0 Management Dashboard. The **Install Extension** window will open.
