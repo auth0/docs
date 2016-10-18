@@ -33,7 +33,7 @@ Add **Auth0Lock** to your `index.html` file and set the viewport.
 
 ${snippet(meta.snippets.dependencies)}
 
-> **Note:** Certain functionality provided by the Lock widget, such as single sign-on, does not work well in Electron. For best results, add `auth: { sso: false }` to your Lock configuration options.
+> **Note:** Some functionality provided by Lock is meant for regular web browsers. For best results, add `auth: { sso: false }` to your Lock configuration options.
 
 ## 4. Follow the Front End Quickstarts
 
