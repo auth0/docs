@@ -9,5 +9,5 @@ npm install auth0-lock
 **CDN**
 
 ```html
-<script src="http://cdn.auth0.com/js/lock/10.2/lock.min.js"></script>
+<script src="${lock_url}"></script>
 ```
