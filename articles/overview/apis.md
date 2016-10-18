@@ -1,6 +1,6 @@
 ---
 title: APIs Overview
-description: This page explains the basics of APIs, their role in OAuth and how to configure an API in Auth0 Dashboard.
+description: Learn the basics of APIs, their role in OAuth and how to configure an API in Auth0 Dashboard.
 section: apis
 url: /apis
 ---
