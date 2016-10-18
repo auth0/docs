@@ -78,11 +78,11 @@
   icon: "icon-budicon-546"
   color: "blue"
   description: "Working directly with Auth0 APIs"
-  url: "/apis"
+  url: "/api/info"
   articles:
 
     - title: "API Overview"
-      url: "/apis"
+      url: "/api/info"
 
     - title: "Authentication API"
       url: "/api/authentication"

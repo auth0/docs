@@ -287,9 +287,6 @@ articles:
 apis:
 
   - title: "Overview"
-    url: "/apis"
-
-  - title: "Auth0 APIs"
     url: "/api/info"
 
   - title: "Testing with Postman"
