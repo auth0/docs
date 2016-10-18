@@ -52,7 +52,7 @@ private byte[] Base64UrlDecode(string arg)
 
 private long ToUnixTime(DateTime dateTime)
 {
-    return (int)(dateTime.ToUniversalTime().Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+    return new DateTimeOffset(date).ToUniversalTime().ToUnixTimeSeconds();
 }
 ```
 
