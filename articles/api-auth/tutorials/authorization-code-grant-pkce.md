@@ -7,49 +7,69 @@ description: How to execute an Authorization Code Grant flow with PKCE for a Mob
 
 Before starting with the Authorization Code Grant flow, you need to generate and store a `code_verifier`
 
-```java
-SecureRandom sr = new SecureRandom();
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li class="active"><a href="#verifier-java" data-toggle="tab">Java</a></li>
+      <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="verifier-java" class="tab-pane active">
+      <pre>
+<code class="java hljs">SecureRandom sr = new SecureRandom();
 byte[] code = new byte[32];
 sr.nextBytes(code);
-String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-```
-
-```objc
-NSMutableData *data = [NSMutableData dataWithLength:32];
+String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+    </div>
+    <div id="verifier-objc" class="tab-pane">
+      <pre>
+<code class="objc hljs">NSMutableData *data = [NSMutableData dataWithLength:32];
 int result __attribute__((unused)) = SecRandomCopyBytes(kSecRandomDefault, 32, data.mutableBytes);
 NSString *verifier = [[[[data base64EncodedStringWithOptions:0]
                         stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
                         stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                             stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
-```
+                             stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+    </div>
+  </div>
+</div>
+
 
 And using the `code_verifier`, generate a `code_challenge` that will be sent in the authorization request
 
-```java
-byte[] bytes = verifier.getBytes("US-ASCII");
+<div class="code-picker">
+  <div class="languages-bar">
+    <ul>
+      <li class="active"><a href="#challenge-java" data-toggle="tab">Java</a></li>
+      <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
+    </ul>
+  </div>
+  <div class="tab-content">
+    <div id="challenge-java" class="tab-pane active">
+      <pre>
+<code class="java hljs">byte[] bytes = verifier.getBytes("US-ASCII");
 MessageDigest md = MessageDigest.getInstance("SHA-256");
 md.update(input, 0, input.length);
 byte[] digest = md.digest();
-String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);
-```
-
-```objc
-CC_SHA256_CTX ctx;
+String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+    </div>
+    <div id="challenge-objc" class="tab-pane">
+      <pre>
+<code class="objc hljs">CC_SHA256_CTX ctx;
 uint8_t * hashBytes[CC_SHA256_DIGEST_LENGTH * sizeof(uint8_t)];
 memset(hashBytes, 0x0, CC_SHA256_DIGEST_LENGTH);
 NSData *valueData = [verifier dataUsingEncoding:NSUTF8StringEncoding];
-
 CC_SHA256_Init(&ctx);
 CC_SHA256_Update(&ctx, [valueData bytes], (CC_LONG)[valueData length]);
 CC_SHA256_Final(hashBytes, &ctx);
-
 NSData *hash = [NSData dataWithBytes:hashBytes length:CC_SHA256_DIGEST_LENGTH];
-
 NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
                           stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
                           stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                               stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
-```
+                               stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+    </div>
+  </div>
+</div>
 
 To begin an Authorization Code Grant flow, your Client application should first send the user to the authorization URL including the `code_challenge` and the method used to generate it:
 
