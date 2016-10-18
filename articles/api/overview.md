@@ -13,7 +13,7 @@ An API is an entity that represents an external resource, capable of accepting a
 
 When a client wants to access an API's protected resources it must provide an access token. The same access token can be used to access the API's resources without having to authenticate again, until it expires.
 
-Each access token may include a list of the permissions that have been granted to the client. These permissions are defined using the **scope** request parameter.
+Each API has a set of defined permissions. Clients can request a subset of those defined permissions when they execute the authorization flow, and include them in the access token as part of the **scope** request parameter.
 
 For example, an API that holds a user's appointments, may accept two different levels of authorization: read only (scope `read:appointments`) or write (scope `write:appointments`). When a client asks the API to list a user's appointments, then the access token should contain the `read:appointments` scope. In order to edit an existing appointment or create a new one, the access token should contain the `write:appointments` scope.
 
@@ -57,7 +57,7 @@ The other available views for your API are:
 
 - **Scopes**: here you can define the scopes for this API, by setting a name and a description.
 
-- **Non Interactive Clients**: lists your Non Interactive Clients. You can authorize which Clients should use your API and which scopes should be granted to each. Only non-interactive Clients require explicit permission. That is because, when you authorize a non-interactive Client to access an API, Auth0 is creating a Client Grant for that Client. For more details on this case refer to: [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
+- **Non Interactive Clients**: lists your Non Interactive Clients. You can authorize which Non Interactive Clients can request access tokens for your API. You can optionally select a subset of the defined scopes to further limit the access that an authorized client has. Only Non Interactive Clients require explicit permission. That is because, when you authorize a non-interactive Client to access an API, Auth0 is creating a Client Grant for that Client. For more details on this case refer to: [Setting up a Client Credentials Grant using the Management Dashboard](/api-auth/config/using-the-auth0-dashboard).
 
 - **Test**: from this view you can execute a sample Client Credentials flow with any of your Authorized Non-Interactive Clients to check that everything is working as expected.
 
@@ -78,6 +78,7 @@ The most secure practice, and our recommendation, is to use **RS256**. Some of t
 - With RS256 you are sure that only the holder of the private key (Auth0) can sign tokens, while anyone can check if the token is valid using the public key.
 
 - Under HS256, If the private key is compromised you would have to re-deploy the API with the new secret. With RS256 you can request a token that is valid for multiple audiences.
+
 - With RS256 you can implement key rotation without having to re-deploy the API with the new secret.
 
 For a more detailed overview of the JWT signing algorithms refer to: [JSON Web Token (JWT) Signing Algorithms Overview](https://auth0.com/blog/json-web-token-signing-algorithms-overview/).
