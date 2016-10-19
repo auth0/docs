@@ -73,10 +73,7 @@ Your Swift application will need to use Auth0.swift to kick off the OAuth flow u
 }
 
 func authCallback(result:Result<Credentials>) {
-    print("In callback...")
-    
-    print(result)
-    
+
     switch result {
     case .success(let credentials):        
         DispatchQueue.main.async {
