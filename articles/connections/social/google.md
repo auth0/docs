@@ -16,7 +16,7 @@ To connect your Auth0 client to Google and Google Apps, you will need to generat
 
 ## 1. Access the Google API Manager
 
-While logged in to your Google account, go to the [API Manager](https://console.developers.google.com).
+While logged in to your Google account, go to the [API Manager](https://console.developers.google.com/projectselector/apis/credentials).
 
 ## 2. Create Your New App
 
