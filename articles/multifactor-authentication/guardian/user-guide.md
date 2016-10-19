@@ -33,7 +33,8 @@ After the code has been successfully scanned, you will see a confirmation screen
 
 > Android Users: After first enrolling using the Guardian app for Android, you will be required to create a passphrase. This recovery passphrase will not be required every time you use the app, but could be required when some Android security settings have been changed. You can use the suggested passphrase or create your own. 
 >
-> ![](/media/articles/mfa/android-passphrase.png)
+> <div class="phone-mockup"><img src="/media/articles/mfa/android-passphrase.png" alt="Android Passphrase Example"/></div>
+
 
 ### Google Authenticator
 If you would prefer to use the Google Authenticator app, click on the link for Google Authenticator. You will need to download Google Authenticator for [Android](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [iOS](https://itunes.apple.com/us/app/google-authenticator/id388497605)
@@ -68,7 +69,7 @@ If you are not currently connected to the internet on your mobile device to rece
 
 To find this code, go into the Guardian app on your device, and click on the application you are trying to log into. Then you should see information on your last sign in and a 6-digit code at the bottom which is your OTP.
 
-![](/media/articles/mfa/guardian-otp-code.png)
+<div class="phone-mockup"><img src="/media/articles/mfa/guardian-otp-code.png" alt="Lock-iOS"/></div>
 
 Enter this code to finish signing in.
 

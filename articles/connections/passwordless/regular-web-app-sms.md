@@ -47,7 +47,7 @@ This will open a dialog that asks the user for their phone number.
 
 Then Auth0 will use Twilio to send an SMS to the user containing the one-time code:
 
-![](/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png)
+<div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
 
 Lock will ask for the code that has been sent to the provided number via SMS. The code can then be used as a one-time password to log in:
 
