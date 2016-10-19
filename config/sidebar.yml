@@ -24,7 +24,7 @@ articles:
       - title: Architecture Scenarios
         url: /architecture-scenarios
 
-  - title: "Lock"
+  - title: "Lock & Auth0.js"
     url: "/libraries/lock"
     children:
       - title: "Lock for Web"
@@ -38,6 +38,9 @@ articles:
 
       - title: "Lock vs. Custom UI"
         url: "/libraries/when-to-use-lock"
+
+      - title: "Auth0.js"
+        url: "/libraries/auth0js"
 
   - title: "Rules"
     url: "/rules"
