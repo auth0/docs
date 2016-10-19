@@ -10,13 +10,13 @@ The following policy governs requests for special authentication mechanisms for 
 
 Any customer can enable multifactor authentication to be implemented for dashboard access to their account. 
 
-To enable multifactor authentication go to your [Account Settings page](${manage_url}/#/account) and scroll down to the **Multifactor** section. Click the **Enroll Your Device Now** link to get started. The process to setting up each form of authentication is the same as using MFA with a client, [click here for more information on each type of authentication.](multifactor-authentication) 
+To enable multifactor authentication go to your [Account Settings page](${manage_url}/#/account) and scroll down to the **Multifactor** section. Click the **Enroll Your Device Now** link to get started. The process to setting up each form of authentication is the same as using MFA with a client, [click here for more information on each type of authentication.](/multifactor-authentication) 
 
 ### Unenrolling a Device from Multifactor
 
 To stop using multifactor authentication to login to your dashboard, go to your [Account Setting page](${manage_url}/#/account) and scroll down to the **Multifactor** section and click the **REMOVE** button next to the enrolled device. To verify this request you will need to login once more with multifactor authentication.
 
-If you have lost your device after enrolling in MFA or are having trouble logging in after enabling MFA,[click here for troubleshooting tips.](/multifactor-authentication/guardian/user-guide#troubleshooting)
+If you have lost your device after enrolling in MFA or are having trouble logging in after enabling MFA, [click here for troubleshooting tips.](/multifactor-authentication/guardian/user-guide#troubleshooting)
 
 ## Other forms of authentication
 At this time, other forms of authentication for dashboard authentication are not supported.
