@@ -186,23 +186,25 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
 @model LockContext
 
 <div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;">
-    embeded area
+	embeded area
 </div>
-<script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+<script src="${lock_url}"></script>
 <script>
 
-  var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain');
-
-  lock.show({
-      container: 'root'
-    , callbackURL: '@Model.CallbackUrl'
-    , responseType: 'code'
-    , authParams: {
-      scope: 'openid profile',
-      state: '@Model.State' ,
-     nonce: '@Model.Nonce'
+  var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {
+    container: 'root',
+    auth: {
+      redirectUrl: '@Model.CallbackUrl',
+      responseType: 'code',
+      params: {
+        scope: 'openid profile',
+        state: '@Model.State' ,
+        nonce: '@Model.Nonce'
+      }
     }
   });
+
+  lock.show();
 </script>
 ```
 
