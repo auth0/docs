@@ -1,23 +1,22 @@
 ---
-description: Describes the Dashboard Authentication Policy wich governs requests for special authentication mechanisms for the Auth0 dashboard.
+description: Describes the Dashboard Authentication Policy which governs requests for special authentication mechanisms for the Auth0 dashboard.
 ---
 
 # Dashboard Authentication Policy
 
 The following policy governs requests for special authentication mechanisms for the Auth0 dashboard.
 
-## Multi-Factor Authentication
+## Multifactor Authentication
 
-Any customer on a paid subscription plan can request that Multi-factor authentication, via Duo or Google apps, be implemented for dashboard access to their account.
+Any customer can enable multifactor authentication to be implemented for dashboard access to their account. 
 
-* Requests for multi-factor authentication must be made via the [Auth0 Support Center](https://support.auth0.com).
-* Requests must be made at least 5 business days in advance of the desired implementation date.
+To enable multifactor authentication go to your [Account Settings page](${manage_url}/#/account) and scroll down to the **Multifactor** section. Click the **Enroll Your Device Now** link to get started. The process to setting up each form of authentication is the same as using MFA with a client, [click here for more information on each type of authentication.](multifactor-authentication) 
 
-* Requests must include
-  * The name of the Auth0 account for which MFA will be implemented
-  * The preferred mechanism - Duo or Google Apps authentication
-  * Google Authenticator: Label to appear on Google Authenticator app
-  * Duo: ikey, skey and host
+### Unenrolling a Device from Multifactor
+
+To stop using multifactor authentication to login to your dashboard, go to your [Account Setting page](${manage_url}/#/account) and scroll down to the **Multifactor** section and click the **REMOVE** button next to the enrolled device. To verify this request you will need to login once more with multifactor authentication.
+
+If you have lost your device after enrolling in MFA or are having trouble logging in after enabling MFA,[click here for troubleshooting tips.](/multifactor-authentication/guardian/user-guide#troubleshooting)
 
 ## Other forms of authentication
 At this time, other forms of authentication for dashboard authentication are not supported.
