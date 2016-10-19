@@ -14,10 +14,10 @@ To install and configure this extension, click on the **GitLab Deployments** box
 
 Set the following configuration variables:
 
-* **Gitlab_Repository**: The name of your GitLab repository.
-* **Gitlab_Branch**: The branch of your GitLab repository your extension should monitor.
-* **Gitlab_Token**: The personal access token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
-* **Slack_Incoming_Webhook**: The URL used to integrate with Slack to deliver notifications.
+* **GITLAB_REPOSITORY**: The name of your GitLab repository.
+* **GITLAB_BRANCH**: The branch of your GitLab repository your extension should monitor.
+* **GITLAB_TOKEN**: The personal access token to your GitLab repository for this account. For details on how to configure one refer to [Configure a GitLab Token](configure-a-gitlab-token).
+* **SLACK_INCOMING_WEBHOOK**: The URL used to integrate with Slack to deliver notifications.
 
 Once you have provided this information, click **Install**.
 
