@@ -3,23 +3,21 @@ toc_title: Native Social Authentication
 description: How to implement native social authentication with Lock Android
 ---
 
-::: panel-info Version Warning
-This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
-:::
-
 # Lock Android: Native Social Authentication
 
 **Lock** by default handles all social authentication with a Browser installed in your Android device, but for some social connections you can take advantage of our native integration.
 We implemented native integration with Facebook and Google+ and bundled each of them in a separate Android Library (*aar* file), to start using them just add these lines in your `build.gradle`:
 
 ```gradle
-compile 'com.auth0.android:lock-facebook:2.3.+'
-compile 'com.auth0.android:lock-googleplus:2.3.+'
+compile 'com.auth0.android:lock-facebook:3.0.+'
+compile 'com.auth0.android:lock-googleplus:2.6.+'
 ```
 
 ## Configuration
 
-> Before following these steps, please check our [README](https://github.com/auth0/Lock.Android/blob/master/README.md#install)
+::: panel-info Getting Started
+Before following these steps, please make sure you've got [Lock for Android](/libraries/lock-android) set up properly!
+:::
 
 ### Facebook
 

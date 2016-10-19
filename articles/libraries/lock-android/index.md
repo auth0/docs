@@ -3,15 +3,11 @@ url: /libraries/lock-android
 description: Basics of Lock for Android
 ---
 
-::: panel-info Version Warning
-This document is not yet updated to use [Lock for Android](https://github.com/auth0/Lock.Android) 2.0. It will be soon!
-:::
-
 # Lock for Android
 
 [Auth0](https://auth0.com) is an authentication broker that supports social identity providers as well as enterprise identity providers such as Active Directory, LDAP, Google Apps and Salesforce.
 
-## Key features
+## Key Features
 
 * **Integrates** your Android app with **Auth0**.
 * Provides a **beautiful native UI** to log your users in.
@@ -44,247 +40,283 @@ If you'll create your own API and just call Auth0 API via the `com.auth0.android
 Lock is available both in [Maven Central](http://search.maven.org) and [JCenter](https://bintray.com/bintray/jcenter). To start using *Lock* add these lines to your `build.gradle` dependencies file:
 
 ```gradle
-compile 'com.auth0.android:lock:1.13.+'
+compile 'com.auth0.android:lock:2.0.0'
 ```
 
-Once it's installed, you'll need to configure LockActivity in your`AndroidManifest.xml`, inside the `application` tag:
+_You can check for the latest version on the repository Releases tab or in Maven_
+
+After adding your Gradle dependency, make sure to remember to sync your Gradle project to update the dependencies.
+
+## Dashboard Settings
+
+Go to your [Auth0 Dashboard]() and go to your client's settings. Make sure you have within your "Allowed Callback URLs" list a URL with the following format:
+
+```text
+https://{YOUR_AUTH0_DOMAIN}/android/{YOUR_APP_PACKAGE_NAME}/callback
+```
+
+Now take the keystore file you use to sign the application and obtain the SHA256 key hash. The following examples show how to obtain the hashes for the default android keystore.
+
+**On Windows:**
+
+```bash
+keytool -list -v -keystore "%USERPROFILE%\.android\debug.keystore" -alias androiddebugkey -storepass android -keypass android
+```
+
+**On Linux / macOS:**
+
+```bash
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+```
+
+**Sample output:**
+
+```text
+Alias name: androiddebugkey
+Creation date: Jan 01, 2013
+Entry type: PrivateKeyEntry
+Certificate chain length: 1
+Certificate[1]:
+Owner: CN=Android Debug, O=Android, C=US
+Issuer: CN=Android Debug, O=Android, C=US
+Serial number: 4aa9b300
+Valid from: Mon Jan 01 08:04:04 UTC 2013 until: Mon Jan 01 18:04:04 PST 2033
+Certificate fingerprints:
+     MD5:  AE:9F:95:D0:A6:86:89:BC:A8:70:BA:34:FF:6A:AC:F9
+     SHA1: BB:0D:AC:74:D3:21:E1:43:07:71:9B:62:90:AF:A1:66:6E:44:5D:75
+     SHA256: 15:B9:F9:33:9F:E4:E3:68:C2:10:49:17:5D:A8:77:12:7C:8E:57:E9:FF:B7:23:EA:CC:DD:56:08:06:C9:5E:33
+     Signature algorithm name: SHA256withRSA
+     Version: 3
+```
+
+Copy the resulting SHA256 value and go to your application's settings. Click "Show Advanced Settings" and in the "Mobile Settings" tab, fill the Android `app package name` with your application's package name, and the key hash with the value you copied before. Don't forget to save the changes.
+
+If you don't add the callback URL to the whitelist nor the key hash to the settings, the Auth0 server won't return the call result to your application.
+
+## Implementing Lock (Social, Database, Enterprise)
+
+### Configuring AndroidManifest.xml
+
+Add the `android.permission.INTERNET` permission to the Manifest to allow Lock to make requests to the Auth0 API.
+
+```java
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+Add LockActivity to your Manifest, replacing the `{YOUR_AUTH0_DOMAIN}` in the `host` attribute with your `tenant.auth0.com` and the `{YOUR_APP_PACKAGE_NAME}` in the `pathPrefix` attribute with your application's package name. This filter allows Android OS to notify your application when an URL with that format is hit. For Lock, this means receiving the authentication result.
+
+```java
+<activity
+  android:name="com.auth0.android.lock.LockActivity"
+  android:label="@string/app_name"
+  android:launchMode="singleTask"
+  android:screenOrientation="portrait"
+  android:theme="@style/MyLock.Theme">
+    <intent-filter>
+      <action android:name="android.intent.action.VIEW" />
+
+      <category android:name="android.intent.category.DEFAULT" />
+      <category android:name="android.intent.category.BROWSABLE" />
+
+      <data
+        android:host="{YOUR_AUTH0_DOMAIN}"
+        android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
+        android:scheme="https" />
+    </intent-filter>
+</activity>
+```
+
+**Some Notes**
+
+* For the default WebAuthProvider to work with the phone's browser, be sure to specify in the Manifest that `LockActivity`'s `launchMode` is `singleTask`. If you forget this mode and the code is running on devices with Android version above KITKAT, an error will raise in the console and the Activity won't launch. This is to sort the way Android handles calling an existing Activity with a result. Previous versions of Android are also affected by this issue, but won't get the warning and can crash if it's not properly handled.
+* Also note that for the time being, `LockActivity` can't be launched calling `startActivityForResult`.
+
+### Lock Instance 
+
+In the previous version of Lock, you were asked to create a custom `Application` class and initialize the `Lock.Context` there. **Now this is no longer needed**.
+
+To create a new `Lock` instance and configure it, you will just use the `Lock.Builder` class.
+
+### Auth0
+
+Create an `Auth0` instance to hold your account details, which are the `AUTH0_CLIENT_ID` and the `AUTH0_DOMAIN`.
+
+```java
+Auth0 auth0 = new Auth0('${account.clientId}','${account.namespace}');
+```
+
+### Authentication Callback
+
+You'll also need a `LockCallback` implementation. We suggest you to extend the `AuthenticationCallback` class and override the `onAuthentication`, `onError` and `onCanceled` methods. Keep in mind that this implementation only notifies you about Authentication events (logins), not User Signups (without login) nor Password Resets.
+
+```java
+private LockCallback callback = new AuthenticationCallback() {
+     @Override
+     public void onAuthentication(Credentials credentials) {
+        //Authenticated
+     }
+
+     @Override
+     public void onCanceled() {
+        //User pressed back
+     }
+
+     @Override
+     public void onError(LockException error)
+        //Exception occurred
+     }
+ };
+```java
+
+The default `scope` used on authentication calls is `openid`. This changed from v1 as the previous included the `offline_access scope`. If you want to specify a different one, use the `Builder` method `.withAuthenticationParameters()` and add a different value for the `scope` key.
+
+### Lock.Builder
+
+Call the static method `Lock.newBuilder(Auth0, LockCallback)`, passing the account details and the callback implementation, and start configuring the Options. After you're done, build the Lock instance and use it to start the LockActivity.
+
+This is an example of what your activity should look like:
+
+```java
+public class MainActivity extends Activity {
+  private Lock lock;
+
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    Auth0 auth0 = new Auth0(AUTH0_CLIENT_ID, AUTH0_DOMAIN);
+    lock = Lock.newBuilder(auth0, callback)
+      // ... Options
+      .build(this);
+  }
+
+  @Override
+  public void onDestroy() {
+    lock.onDestroy(this);
+    lock = null;
+    super.onDestroy();
+  }
+
+  private void performLogin() {
+    startActivity(lock.newIntent(this));
+  }
+
+  private LockCallback callback = new AuthenticationCallback() {
+       @Override
+       public void onAuthentication(Credentials credentials) {
+          //Authenticated
+       }
+
+       @Override
+       public void onCanceled() {
+          //User pressed back
+       }
+
+       @Override
+       public void onError(LockException error) {
+          //Exception occurred
+       }
+   };
+}
+```
+
+Remember to notify the `LockActivity` when the `OnDestroy` method is called on your `Activity`, as it helps to keep the `Lock` state.
+
+That's it! Lock will handle the rest for you.
+
+## Implementing Lock Passwordless (Social, Passwordless)
+
+`PasswordlessLockActivity` authenticates users by sending them an Email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS/Email connection enabled and configured in your [Auth0 dashboard](https://manage.auth0.com/#/connections/passwordless).
+
+You'll need to configure `PasswordlessLockActivity` in your `AndroidManifest.xml`, inside the `application` tag:
 
 ```xml
-<!--Auth0 Lock-->
 <activity
-  android:name="com.auth0.lock.LockActivity"
-  android:theme="@style/Lock.Theme"
+  android:name="com.auth0.android.lock.PasswordlessLockActivity"
+  android:label="@string/app_name"
+  android:launchMode="singleTask"
   android:screenOrientation="portrait"
-  android:launchMode="singleTask">
-  <intent-filter>
-    <action android:name="android.intent.action.VIEW"/>
-    <category android:name="android.intent.category.DEFAULT"/>
-    <category android:name="android.intent.category.BROWSABLE"/>
-    <data android:scheme="a0INSERT_YOUR_APP_CLIENT_ID" android:host="YOUR_ACCOUNT_NAME.auth0.com"/>
-  </intent-filter>
+  android:theme="@style/Lock.Theme">
+    <intent-filter>
+      <action android:name="android.intent.action.VIEW" />
+
+      <category android:name="android.intent.category.DEFAULT" />
+      <category android:name="android.intent.category.BROWSABLE" />
+
+      <data
+        android:host="{YOUR_AUTH0_DOMAIN}"
+        android:pathPrefix="/android/{YOUR_APP_PACKAGE_NAME}/callback"
+        android:scheme="https" />
+    </intent-filter>
 </activity>
-<meta-data android:name="com.auth0.lock.client-id" android:value="@string/auth0_client_id"/>
-<meta-data android:name="com.auth0.lock.domain-url" android:value="@string/auth0_domain"/>
-<!--Auth0 Lock End-->
 ```
 
-> The value `@string/auth0_client_id` is your application's clientID and `@string/auth0_domain` is your tenant's domain in Auth0, both values can be found in your app's settings.
-> The final value of `android:scheme` must be in lowercase
+Make sure the Activity's `launchMode` is declared as `"singleTask"` or the result won't come back after the authentication.
 
 Also, you'll need to add *Internet* permission to your application:
 ```xml
-<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.INTERNET" />
 ```
 
-Finally, make your Application class (The one that extends from `android.app.Application`) implement the interface `com.auth0.lock.LockProvider` and add the following code:
-
-```java
-public class MyApplication extends Application implements LockProvider {
-
-  private Lock lock;
-
-  public void onCreate() {
-    super.onCreate();
-    lock = new Lock.Builder()
-      .loadFromApplication(this)
-      /** Other configuration goes here */
-      .closable(true)
-      .build();
-  }
-
-  @Override
-  public Lock getLock() {
-    return lock;
-  }
-}
-```
-
-> You can check [here](#lock-builder) for more configuration options
-
-You should also add your Application class to the `AndroidManifest.xml`.
-```xml
-<application
-        android:name=".MyApplication"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name">
-        <!-- Other configuration goes here -->
-
-</application>
-```
-
-And include the following code in your `build.gradle` file.
-
-```gradle
-android {
-  //...
-  packagingOptions {
-      exclude 'META-INF/NOTICE'
-      exclude 'META-INF/LICENSE'
-  }
-}
-```  
-
-
-## Usage
-
-### Email/Password, Enterprise & Social authentication
-
-`LockActivity` will handle Email/Password, Enterprise & Social authentication based on your Application's connections enabled in your Auth0's Dashboard.
-
-When a user authenticates successfully, LockActivity will send an Action using LocalBroadcastManager and then finish itself (by calling finish()). The activity that is interested in receiving this Action (In this case the one that will show Lock) needs to register a listener in the LocalBroadcastManager:
+Then in any of your Activities, you need to initialize **PasswordlessLock**
 
 ```java
 // This activity will show Lock
 public class HomeActivity extends Activity {
 
-  private LocalBroadcastManager broadcastManager;
+  private PasswordlessLock lock;
 
-  private BroadcastReceiver authenticationReceiver = new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-      UserProfile profile = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_PROFILE_PARAMETER);
-      Token token = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_TOKEN_PARAMETER);
-      Log.i(TAG, "User " + profile.getName() + " logged in");
-    }
-  };
-
-  @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    //Customize your activity
-
-    broadcastManager = LocalBroadcastManager.getInstance(this);
-    broadcastManager.registerReceiver(authenticationReceiver, new IntentFilter(Lock.AUTHENTICATION_ACTION));
+    // Your own Activity code
+    Auth0 auth0 = new Auth0("YOUR_AUTH0_CLIENT_ID", "YOUR_AUTH0_DOMAIN");
+    lock = PasswordlessLock.newBuilder(auth0, callback)
+      //Customize Lock
+      .build(this);
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    broadcastManager.unregisterReceiver(authenticationReceiver);
+    // Your own Activity code
+    lock.onDestroy(this);
+    lock = null;
   }
-}
-```
 
-Then just start `LockActivity`
+  private LockCallback callback = new AuthenticationCallback() {
+     @Override
+     public void onAuthentication(Credentials credentials) {
+        //Authenticated
+     }
 
-```java
-Intent lockIntent = new Intent(this, LockActivity.class);
-startActivity(lockIntent);
-```
-And you'll see our native login screen
+     @Override
+     public void onCanceled() {
+        //User pressed back
+     }
 
-![Lock Screenshot](/media/articles/libraries/lock-android/Lock-Widget-Android-Screenshot.png)
-
-> By default all social authentication will be done using an external browser, if you want native integration please check this [wiki page](/libraries/lock-android/native-social-authentication).
-
-### Passwordless
-
-`LockPasswordlessActivity` authenticates users by sending them an Email or SMS (similar to how WhatsApp authenticates you). In order to be able to authenticate the user, your application must have the SMS/Email connection enabled and configured in your [dashboard](${manage_url}/#/connections/passwordless).
-
-`LockPasswordlessActivity` is not included in `com.auth0:lock:aar` as it's part of the library `lock-passwordless`, but you can add it with this line in your `build.gradle`:
-```gradle
-compile 'com.auth0.android:lock-passwordless:1.13.+'
-```
-
-Then in your `AndroidManifest.xml` register the following activities:
-```xml
-    <!--Auth0 Lock Passwordless-->
-    <activity
-      android:name="com.auth0.lock.passwordless.LockPasswordlessActivity"
-      android:theme="@style/Lock.Theme"
-      android:label="@string/app_name"
-      android:screenOrientation="portrait"
-      android:launchMode="singleTask"/>
-
-    <activity android:name="com.auth0.lock.passwordless.CountryCodeActivity"
-      android:theme="@style/Lock.Theme"/>
-<!--Auth0 Lock Passwordless End-->
-```
-
-Just like `LockActivity`, when a user authenticates successfully, `LockPasswordlessActivity` will send an `Action` using `LocalBroadcastManager` and then finish itself (by calling `finish()`). The activity that is interested in receiving this `Action` (in this case the one that will show Lock) needs to register a listener in the `LocalBroadcastManager`:
-
-```java
-// This activity will show Lock
-public class HomeActivity extends Activity {
-  private LocalBroadcastManager broadcastManager;
-
-  private BroadcastReceiver authenticationReceiver = new BroadcastReceiver() {
-    @Override
-    public void onReceive(Context context, Intent intent) {
-      UserProfile profile = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_PROFILE_PARAMETER);
-      Token token = intent.getParcelableExtra(Lock.AUTHENTICATION_ACTION_TOKEN_PARAMETER);
-      Log.i(TAG, "User " + profile.getName() + " logged in");
-    }
+     @Override
+     public void onError(LockException error) {
+        //Exception occurred
+     }
   };
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    //Customize your activity
-
-    broadcastManager = LocalBroadcastManager.getInstance(this);
-    broadcastManager.registerReceiver(authenticationReceiver, new IntentFilter(Lock.AUTHENTICATION_ACTION));
-  }
-
-  @Override
-  protected void onDestroy() {
-    super.onDestroy();
-    broadcastManager.unregisterReceiver(authenticationReceiver);
-  }
 }
 ```
 
-Then just start `LockPasswordlessActivity` specifying the Passwordless type you want to use, so for **Email**
+Then, just start `PasswordlessLockActivity` from inside your `Activity`
 
 ```java
-LockPasswordlessActivity.showFrom(MyActivity.this, LockPasswordlessActivity.MODE_EMAIL_CODE);
+startActivity(lock.newIntent(this));
 ```
-
-or just for **SMS**
-
-```java
-LockPasswordlessActivity.showFrom(MyActivity.this, LockPasswordlessActivity.MODE_SMS_CODE);
-```
-
-and you'll see the **SMS** login screen
-
-![Lock Screenshot](/media/articles/libraries/lock-android/Lock-SMS-Android-Screenshot.png)
-
-Passworless scenarios and types:
-
-| Channel \ Mode  | Code  | Magic Link      |
-| :-----: |:---------------:| :--------------: |
-| SMS   | `LockPasswordlessActivity.MODE_SMS_CODE`   | `LockPasswordlessActivity.MODE_SMS_LINK`   |
-| Email | `LockPasswordlessActivity.MODE_EMAIL_CODE` | `LockPasswordlessActivity.MODE_EMAIL_LINK` |
-
-You can find more information about Magic Links [here](/libraries/lock-android/passwordless-magic-link).
 
 ## Proguard
-In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock and its dependencies.
+In the [proguard directory](https://github.com/auth0/Lock.Android/tree/master/proguard) you can find the *Proguard* configuration for Lock for Android and its dependencies.
 By default you should at least use the following files:
-* `proguard-square-okhttp.pro`
-* `proguard-jackson-2.pro`
-* `proguard-square-otto.pro`
-* `proguard-lock.pro`
+* `proguard-okio.pro`
+* `proguard-gson.pro`
+* `proguard-otto.pro`
+* `proguard-lock-2.pro`
 
-and if you use Facebook or Google+ native integration, you'll need `proguard-facebook.pro` and `proguard-google-play-services.pro` respectively.
+As this library depends on `Auth0.Android`, you should keep the files up to date with the proguard rules defined in the [repository](https://github.com/auth0/Auth0.Android).
 
-You specify several files in you application's `build.gradle` like this:
 
-```gradle
-buildTypes {
-  release {
-    minifyEnabled true
-    proguardFile '../proguard/proguard-facebook.pro' //facebook native auth
-    proguardFile '../proguard/proguard-google-play-services.pro' //G+ native auth
-    proguardFile '../proguard/proguard-square-okhttp.pro' //Auth0 core
-    proguardFile '../proguard/proguard-jackson-2.pro' //Auth0 core
-    proguardFile '../proguard/proguard-square-otto.pro' //Lock
-    proguardFile '../proguard/proguard-lock.pro' //Lock
-    //Add your app's specific proguard rules
-  }
-}
-```
 
 ## API
 
