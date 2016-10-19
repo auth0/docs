@@ -131,7 +131,11 @@ For example, if you create the file `rules/set-country.js`, the extension will c
 
 **NOTE**: If you plan to use source control integration for an existing account, first rename your Rules in Auth0 to match the name of the files you will be deploying to this directory.
 
-You can control the Rule order, status (`enabled`/`disabled`) and stage (for now, only `login_success` is available) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
+You can mark rules as manual. In that case, the source control extension will not delete or update them. To mark a rule navigate to the *Rules Configuration* tab of the **GitLab Integration** page. Toggle the **Manual Rule** switch for the rules you want to mark as manual. Click **Update Manual Rules** to save your changes.
+
+![Mark rules as manual](/media/articles/extensions/gitlab-deploy/manual-rule.png)
+
+You can also control the Rule order, status (`enabled`/`disabled`) and stage (for now, only `login_success` is available) by creating a JSON file with the same name as your JavaScript file. For this example, you would create a file named `rules/set-country.json`.
 
 __set-country.js__
 ```javascript
