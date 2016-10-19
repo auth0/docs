@@ -188,7 +188,7 @@ For the Login screen you can create a Razor view and embed the code for Lock. Yo
 <div id="root" style="width: 320px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;">
 	embeded area
 </div>
-<script src="https://cdn.auth0.com/js/lock/10.4/lock.min.js"></script>
+<script src="${lock_url}"></script>
 <script>
 
   var lock = new Auth0Lock('@Model.ClientId', '@Model.Domain', {
