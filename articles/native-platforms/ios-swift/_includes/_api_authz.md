@@ -52,7 +52,7 @@ Finally, go to Auth0 Dashboard and go to application's settings. Make sure you h
 
 `{YOUR_BUNDLE_IDENTIFIER}://{YOUR_AUTH0_DOMAIN}/ios/{YOUR_BUNDLE_IDENTIFIER}/callback`
 
-## Add Auth0.swift to Your Application
+## Initiate Authentication and Authorization
 
 Your Swift application will need to use Auth0.swift to kick off the OAuth flow using the code below:
 
@@ -78,17 +78,13 @@ func authCallback(result:Result<Credentials>) {
     print(result)
     
     switch result {
-    case .success(let credentials):
-        print("accessToken: \(credentials.accessToken)")
-        print("idToken: \(credentials.idToken)")
-        print("refreshToken: \(credentials.refreshToken)")
-        print("tokenType: \(credentials.tokenType)")
-        
+    case .success(let credentials):        
         DispatchQueue.main.async {
-            // here you have the access token, id token, and (optionally) refresh token available to your app
-            self.accessTokenText.text=credentials.accessToken
-            self.idTokenText.text=credentials.idToken
-            self.refreshTokenText.text=credentials.refreshToken
+            // here you have the access token, id token
+            // and (optionally) refresh token available to your app
+            // credentials.accessToken
+            // credentials.idToken
+            // credentials.refreshToken
         }
     case .failure(let error):
         print(error)
