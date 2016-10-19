@@ -37,7 +37,7 @@ Once received, you can return to the app to enter the code and authenticate your
 
 If you provide your **mobile phone number**, you will receive a code that you will provide to the app to validate yourself.
 
-![](/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png)
+<div class="phone-mockup"><img src="/media/articles/connections/passwordless/passwordless-sms-receive-code-web.png" alt="SMS one-time code"/></div>
 
 The code can then be used as a one-time password to log in.
 
