@@ -322,81 +322,53 @@ As this library depends on `Auth0.Android`, you should keep the files up to date
 
 ### Lock
 
-#### Constants
+#### Options
+
+##### UI Options
+
+- **[DEPRECATED 10/14/2016] useBrowser {boolean}**: Whether to use the WebView or the Browser to request calls to the `/authorize` endpoint. The default value is to use Browser. Using the Browser has some [restrictions](./../migration-guide.md#some-restrictions).
 
 ```java
-public static final String AUTHENTICATION_ACTION;
-```
-Action sent in `LocalBroadcastManager` when a user authenticates. It will include an instance of `UserProfile` and `Token`.
-
-```java
-public static final String AUTHENTICATION_ACTION_PROFILE_PARAMETER;
-```
-Name of the parameter that will include user's profile
-
-```java
-public static final String AUTHENTICATION_ACTION_TOKEN_PARAMETER;
-```
-Name of the parameter that will include user's token information
-
-```java
-public static final String CANCEL_ACTION;
-```
-Action sent when the user navigates back closing `LockActivity` or `LockSMSActivity`
-
-```java
-public static final String CANCEL_ACTION;
-```
-Action sent when the user change its password
-
-#### Properties
-```java
-public boolean shouldUseWebView();
+public boolean useBrowser();
 public void setUseWebView(boolean useWebView);
 ```
-Forces Lock to use an embedded `android.webkit.WebView` and by  default is `false`.
 
-```java
-public boolean shouldLoginAfterSignUp();
-public boolean setLoginAfterSignUp(boolean loginAfterSignUp);
-```
-Lock will login the user after a successful sign up. By default is `true`
+- **closable {boolean}**: Defines if the LockActivity can be closed. By default it's not closable.
+- **allowedConnections {List<String>}**: Filters the allowed connections from the list configured in the Dashboard. By default if this value is empty, all the connections defined in the dashboard will be available.
 
-```java
-public boolean isClosable();
-public boolean setClosable(boolean closable);
-```
-Allows Lock activities to be closed by pressing back button. Default is `false`
 
-```java
-public boolean shouldUseEmail();
-public void setUseEmail(boolean useEmail);
-```
-Lock will ask for the user's email instead of a username. By default is `true`.
+##### Authentication Options
 
-```java
-public Map<String, Object> getAuthenticationParameters();
-public void setAuthenticationParameters(Map<String, Object> authenticationParameters);
-```
-Map with parameters that will be sent on every authentication request with Auth0 API.
+- **withAuthenticationParameters {Map<String, Object>}**: Defines extra authentication parameters to be sent on each log in and sign up call.
+- **useImplicitGrant {boolean}**: Whether to use the Implicit Grant or Code Grant flow when authenticating. By default it will try to use Code Grant. If the device has an old API level and can't generate the hash because it lacks the required algorithms, it will use the Implicit Grant.
 
-```java
-public List<String> getConnections();
-public void setConnections(List<String> connections);
-```
-Tells Lock to use the connections whose name is included in the list. By default the list is null or empty which means that all enabled connections in your application will be used.
 
-```java
-public String getDefaultDatabaseConnection();
-public void setDefaultDatabaseConnection(String defaultDatabaseConnection);
-```
-Lock will use the Database Connection whose name matches the one provided. By default its null, which means it will pick the first of the list.
+##### Database Options
 
-```java
-public void setFullscreen(boolean fullscreen);
-public boolean isFullscreen();
-```
-If Lock's activities should be displayed in Fullscreen. Default is `false`
+- **withUsernameStyle {int}**: Defines if it should ask for email only, username only, or both of them. The accepted values are USERNAME and EMAIL. By default it'll respect the Dashboard configuration of the parameter `requires_username`.
+- **loginAfterSignUp {boolean}**: Whether after a SignUp event the user should be logged in automatically. Defaults to `true`.
+- **initialScreen {int}**: Allows to customize which form will first appear when launching Lock. The accepted values are LOG_IN, SIGN_UP, and FORGOT_PASSWORD. By default LOG_IN is the initial screen.
+- **allowSignUp {boolean}**: Shows the Sign Up form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
+- **allowLogIn {boolean}**: Shows the Log In form if a Database connection is configured. Defaults to true.
+- **allowForgotPassword {boolean}**: Shows the Forgot Password form if a Database connection is configured and it's allowed from the Dashboard. Defaults to true.
+- **setDefaultDatabaseConnection {String}**: Defines which will be the default Database connection. This is useful if your application has many Database connections configured.
+- **withSignUpFields {List<CustomField>}**: Shows a second screen with extra fields for the user to complete after the username/email and password were completed in the sign up screen. Values submitted this way will be attached to the user profile in `user_metadata`. See [this file](./custom-fields.md) for more information.
+- **setPrivacyURL {String}**: Allows to customize the Privacy Policy URL. Will default to https://auth0.com/privacy.
+- **setTermsURL {String}**: Allows to customize the Terms of Service URL. Will default to https://auth0.com/terms.
+- **setMustAcceptTerms {boolean}**: Forces the user to accept the Terms&Policy before signing up. Defaults to false.
+
+
+##### OAuth Options
+
+- **withAuthStyle {String, int}**: Customize the look and feel of a given connection (name) with a specific style. See [this file](./styling/custom-oauth-connections.md) for more information.
+- **withAuthHandlers {AuthHandler...}**: Customize the authentication process by passing an array of AuthHandlers. See [this file](./../authentication/native-providers/native-providers.md) for more information.
+- **withAuthButtonSize {int}**: Allows to customize the Style of the Auth buttons. Possible values are SMALL and BIG. If this is not specified, it will default to SMALL when using **ClassicLock** with at least 2 Enterprise or Database connections, or when using **PasswordlessLock** with a Passwordless connection and less than 3 Social connections. On the rest of the cases, it will use BIG.
+- **withConnectionScope(String, String...)**: Allows to specify additional scopes for a given Connection name, which will be request along with the ones defined in the connection settings in the Auth0 dashboard. The scopes are not validated in any way and need to be recognized by the given authentication provider.
+
+##### Passwordless Options
+
+- **useCode {}**: Send a code instead of a link via sms/email for Passwordless authentication.
+- **useLink {}**: Send a link instead of a code via sms/email for Passwordless authentication.
 
 #### Methods
 
@@ -412,25 +384,6 @@ Removes all session information the Identity Provider handlers might have.
 
 ### Lock.Builder
 A simple builder to help you create and configure Lock in your  application.
-
-#### Constants
-
-```java
-public static final String CLIENT_ID_KEY = "com.auth0.lock.client-id";
-```
-Key value used by Lock to search in your application's meta-data for the ClientID.
-```java
-public static final String TENANT_KEY = "com.auth0.lock.tenant";
-```
-Key value used by Lock to search in your application's meta-data for tenant name.
-```java
-public static final String DOMAIN_URL_KEY = "com.auth0.lock.domain-url";
-```
-Key value used by Lock to search in your application's meta-data for domain Url.
-```java
-public static final String CONFIGURATION_URL_KEY = "com.auth0.lock.configuration-url";
-```
-Key value used by Lock to search in your application's meta-data for configuration Url.
 
 #### Methods
 
