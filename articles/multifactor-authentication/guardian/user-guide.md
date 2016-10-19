@@ -33,7 +33,7 @@ After the code has been successfully scanned, you will see a confirmation screen
 
 > Android Users: After first enrolling using the Guardian app for Android, you will be required to create a passphrase. This recovery passphrase will not be required every time you use the app, but could be required when some Android security settings have been changed. You can use the suggested passphrase or create your own. 
 >
-> <div class="phone-mockup"><img src="media/articles/mfa/android-passphrase.png" alt="Android Passphrase Example"/></div>
+> <div class="phone-mockup"><img src="/media/articles/mfa/android-passphrase.png" alt="Android Passphrase Example"/></div>
 
 
 ### Google Authenticator
