@@ -13,7 +13,7 @@ articles:
         url: /overview
 
       - title: "Clients"
-        url: "/applications"
+        url: "/clients"
 
       - title: "APIs"
         url: "/apis"
