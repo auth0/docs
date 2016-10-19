@@ -65,6 +65,9 @@ articles:
       - title: "Authorization Code Grant"
         url: "/api-auth/grant/authorization-code"
 
+      - title: "Authorization Code Grant with Proof Key for Code Exchange (PKCE)"
+        url: "/api-auth/grant/authorization-code-pkce"
+
       - title: "Implicit Grant"
         url: "/api-auth/grant/implicit"
 

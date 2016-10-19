@@ -13,7 +13,7 @@ To mitigate this attack, the Client creates, for every authorization request, a 
  1. The Client initiates the flow and redirects the user to the Authorization Server sending the `code_challenge` and `code_challenge_method` parameters
  2. The Authorization Server redirects the user to the Client with an `authorization_code` in the querystring
  3. The Client sends the `authorization_code` and `code_verifier` together with the Redirect Uri and the Client Id to the Authorization Server
- 3. The Authorization Server validates this information and returns an `access_token` (and optionally a `refresh_token`)
+ 4. The Authorization Server validates this information and returns an `access_token` (and optionally a `refresh_token`)
 
 ## Use Case
 
