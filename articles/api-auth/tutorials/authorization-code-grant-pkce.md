@@ -11,6 +11,7 @@ Before starting with the Authorization Code Grant flow, you need to generate and
   <div class="languages-bar">
     <ul>
       <li class="active"><a href="#verifier-java" data-toggle="tab">Java</a></li>
+      <li><a href="#verifier-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#verifier-objc" data-toggle="tab">Objective-C</a></li>
     </ul>
   </div>
@@ -21,6 +22,15 @@ Before starting with the Authorization Code Grant flow, you need to generate and
 byte[] code = new byte[32];
 sr.nextBytes(code);
 String verifier = Base64.encodeToString(code, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
+    </div>
+    <div id="verifier-swift" class="tab-pane">
+      <pre>
+<code class="swift hljs">var buffer = [UInt8](repeating: 0, count: 32)
+_ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
+let verifier = Data(bytes: buffer).base64EncodedString()
+    .replacingOccurrences(of: "+", with: "-")
+    .replacingOccurrences(of: "/", with: "_")
+    .trimmingCharacters(in: .whitespaces)</code></pre>
     </div>
     <div id="verifier-objc" class="tab-pane">
       <pre>
@@ -41,6 +51,7 @@ And using the `code_verifier`, generate a `code_challenge` that will be sent in 
   <div class="languages-bar">
     <ul>
       <li class="active"><a href="#challenge-java" data-toggle="tab">Java</a></li>
+      <li><a href="#challenge-swift" data-toggle="tab">Swift 3</a></li>
       <li><a href="#challenge-objc" data-toggle="tab">Objective-C</a></li>
     </ul>
   </div>
@@ -53,20 +64,32 @@ md.update(input, 0, input.length);
 byte[] digest = md.digest();
 String challenge = Base64.encodeToString(digest, Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING);</code></pre>
     </div>
+    <div id="challenge-swift" class="tab-pane">
+      <pre>
+<code class="swift hljs"> // You need to import CommonCrypto
+guard let data = verifier.data(using: .utf8) else { return nil }
+var buffer = [UInt8](repeating: 0,  count: Int(CC_SHA256_DIGEST_LENGTH))
+data.withUnsafeBytes {
+    _ = CC_SHA256($0, CC_LONG(data.count), &buffer)
+}
+let hash = Data(bytes: buffer)
+let challenge = hash.base64EncodedString()
+    .replacingOccurrences(of: "+", with: "-")
+    .replacingOccurrences(of: "/", with: "_")
+    .trimmingCharacters(in: .whitespaces)</code></pre>
+    </div>
     <div id="challenge-objc" class="tab-pane">
       <pre>
-<code class="objc hljs">CC_SHA256_CTX ctx;
-uint8_t * hashBytes[CC_SHA256_DIGEST_LENGTH * sizeof(uint8_t)];
-memset(hashBytes, 0x0, CC_SHA256_DIGEST_LENGTH);
-NSData *valueData = [verifier dataUsingEncoding:NSUTF8StringEncoding];
-CC_SHA256_Init(&ctx);
-CC_SHA256_Update(&ctx, [valueData bytes], (CC_LONG)[valueData length]);
-CC_SHA256_Final(hashBytes, &ctx);
-NSData *hash = [NSData dataWithBytes:hashBytes length:CC_SHA256_DIGEST_LENGTH];
+<code class="objc hljs"> // You need to import CommonCrypto
+u_int8_t buffer[CC_SHA256_DIGEST_LENGTH * sizeof(u_int8_t)];
+memset(buffer, 0x0, CC_SHA256_DIGEST_LENGTH);
+NSData *data = [verifier dataUsingEncoding:NSUTF8StringEncoding];
+CC_SHA256([data bytes], (CC_LONG)[data length], buffer);
+NSData *hash = [NSData dataWithBytes:buffer length:CC_SHA256_DIGEST_LENGTH];
 NSString *challenge = [[[[hash base64EncodedStringWithOptions:0]
-                          stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
-                          stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
-                               stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
+                         stringByReplacingOccurrencesOfString:@"+" withString:@"-"]
+                        stringByReplacingOccurrencesOfString:@"/" withString:@"_"]
+                       stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];</code></pre>
     </div>
   </div>
 </div>
