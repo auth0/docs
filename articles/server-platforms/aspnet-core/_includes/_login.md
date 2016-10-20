@@ -49,8 +49,15 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
         AutomaticChallenge = true
     });
 
+    // Add the cookie middleware
+    app.UseCookieAuthentication(new CookieAuthenticationOptions
+    {
+        AutomaticAuthenticate = true,
+        AutomaticChallenge = true
+    });
+
     // Add the OIDC middleware
-    app.UseOpenIdConnectAuthentication(new OpenIdConnectOptions("Auth0")
+    var options = new OpenIdConnectOptions("Auth0")
     {
         // Set the authority to your Auth0 domain
         Authority = $"https://{auth0Settings.Value.Domain}",
@@ -66,13 +73,16 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
         // Set response type to code
         ResponseType = "code",
 
-        // Set the callback path, so Auth0 will call back to http://localhost:60856/signin-auth0 
+        // Set the callback path, so Auth0 will call back to http://localhost:5000/signin-auth0 
         // Also ensure that you have added the URL as an Allowed Callback URL in your Auth0 dashboard 
         CallbackPath = new PathString("/signin-auth0"),
 
         // Configure the Claims Issuer to be Auth0
         ClaimsIssuer = "Auth0"
-    });
+    };
+    options.Scope.Clear();
+    options.Scope.Add("openid");
+    app.UseOpenIdConnectAuthentication(options);
 
     app.UseMvc(routes =>
     {
@@ -82,6 +92,8 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     });
 }
 ```
+
+Also note above that the list of scopes is cleared and only the `openid` scope is requested. By default the OIDC middleware will request both the `openid` and the `profile` scopes and can result in a large `id_token` being returned. It is suggested that you be more explicit about the scopes you want returned and not ask for the entire profile to be returned. Requesting additional scopes is discussed later in the [User Profile step](/quickstart/webapp/aspnet-core/05-user-profile). 
 
 ## Add Login and Logout Methods
 

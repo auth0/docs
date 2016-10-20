@@ -14,8 +14,6 @@ budicon: 546
   pkgType: 'replace'
 }) %>
 
-
-
 <%= include('../_includes/_authorization-introduction', { ruleslink: '/docs/quickstart/webapp/aspnet-core/07-rules' }) %>
 
 ## Restrict an Action Based on a User's Roles
@@ -37,3 +35,22 @@ public IActionResult Admin()
   return View();
 }
 ```
+
+## Ensure the Roles scope is requested
+
+You will also need to ensure that you request the `roles` scope. This will ensure that the `roles` claim is returned in the `id_token`. Go back to the `Configure` method of the `Startup` class and update the registration of the OIDC middleware to request the `roles` scope:
+
+```csharp
+var options = new OpenIdConnectOptions("Auth0")
+{
+    // Code omitted for brevity...
+};
+options.Scope.Clear();
+options.Scope.Add("openid");
+options.Scope.Add("name");
+options.Scope.Add("email");
+options.Scope.Add("picture");
+options.Scope.Add("country");
+options.Scope.Add("roles");
+app.UseOpenIdConnectAuthentication(options);
+``` 
